@@ -328,7 +328,6 @@ false: Set it to false if the user roles are changed by external means and those
     used in JDBC user store manager and if required can change default
     queries. Those are not listed under above property section but you can
     do the configuration as same as described above.
-
 ??? note "JDBC sample property with SQL queries"
 
     ``` toml

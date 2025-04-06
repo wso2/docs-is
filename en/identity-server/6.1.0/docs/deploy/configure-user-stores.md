@@ -30,7 +30,6 @@ for re-establishing the connection as a server-wide configuration:
 maxConnectionRetryCount=2
 minConnectionRetryDelayInMilliSeconds=60000
 ```
-
 ---
 
 ## Primary userstore (Mandatory)

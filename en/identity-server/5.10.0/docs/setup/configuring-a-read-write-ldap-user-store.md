@@ -89,7 +89,6 @@ connection_url = "ldap://localhost:10389"
 connection_name = "uid=admin,ou=system"
 connection_password = "admin"
 ```
-
 Apart from above properties WSO2 Identity Server also supports advanced LDAP configurations.
 Please refer to the following topic. 
 

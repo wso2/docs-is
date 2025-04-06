@@ -94,7 +94,6 @@ connection_url = "ldaps://10.100.1.102:639"
 connection_name = "cn=admin,ou=system"
 connection_password = "admin"
 ```
-
 ## Properties used in Read-write Active Directory userstore manager
 
 The following table lists the properties used in Read-write Active

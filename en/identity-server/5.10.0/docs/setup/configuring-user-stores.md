@@ -31,7 +31,6 @@ server-wide configuration:
 maxConnectionRetryCount=2
 maxConnectionRetryDelayInMilliSeconds=12000
 ```
-
 ## Primary User Store (Mandatory)
 
 This is the main user store that is shared among all the
