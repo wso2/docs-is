@@ -89,6 +89,19 @@ With the JIT provisioned enhanced feature, the following capabilities will be av
 - Editing JIT-provisioned user’s attributes will not be allowed.
 - Ability to lock JIT provisioned user accounts based on social identity.
 
+## Preserve Locally Added Claims of JIT Provisioned Users
+
+If a user already having an account in WSO2 Identity Server logs in using federated login with the same email address, WSO2 Identity Server deletes any locally added claims of the user and retains only the claims provided by the federated authenticator.
+
+If you wish to change this default behavior and preserve the locally added claims of the user, go to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory and add the following configuration.
+
+``` toml
+[authentication.jit_provisioning]
+preserve_locally_added_claims = "true"
+```
+
+!!! note
+This configuration is available in IS 6.1.0 product from the update level 6.1.0.44 onwards
 
 ## Customize JIT Provisioning User Interfaces
 

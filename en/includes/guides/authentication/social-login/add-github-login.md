@@ -63,17 +63,14 @@ Now, let's register the Github IdP in {{ product_name }}.
       </tr>
     </table>
 
-4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/).
+4. Go to the **Settings** tab and see the list of **scopes** to which Github has granted permissions.
 
-{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
+    - **email**: Grants read access to a user's primary email address.
+    - **public_profile**: Grants read access to a user's default public profile details.  
 
-After the GitHub identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Github has granted permissions.
-
-- **email**: Grants read access to a user's primary email address.
-- **public_profile**: Grants read access to a user's default public profile details.  
-
-!!! note
-    {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Github to the app. You can read the [Github Documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps){:target="_blank"} to learn more.
+    !!! note
+    
+        {{ product_name }} needs these scopes to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Github to the app. You can read the [Github Documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps){:target="_blank"} to learn more.
 
 ## Enable GitHub login
 
@@ -98,4 +95,4 @@ Follow the steps given below.
 
 ## Configure connection
 
-To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login/) documentation.

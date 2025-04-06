@@ -404,6 +404,53 @@ paths:
             ]'
       x-codegen-request-body-name: body
   /api-resources/{apiResourceId}/scopes/{scopeName}:
+    patch:
+      tags:
+        - API Resource Scopes
+      summary: Patch scope specified by the name
+      description: >
+        Patch scope specified by the name. Patch operation only supports "displayName" and "description" fields at the moment.
+        <b>Permission required:</b> <br>
+          * /permission/admin/manage/identity/apiresourcemgt/update <br>
+        <b>Scope required:</b> <br>
+          * internal_api_resource_update
+      parameters:
+        - $ref: '#/components/parameters/apiResourceId'
+        - $ref: '#/components/parameters/scopeName'
+      responses:
+        204:
+          description: Not Content
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScopePatchModel'
+        description: This represents the scopes to be patched.
+        required: true
+
     delete:
       tags:
         - API Resource Scopes
@@ -442,7 +489,7 @@ paths:
 
         <b>Scope(Permission) required:</b> `internal_api_resource_view`
       parameters:
-        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/scopeFilter'
       responses:
         200:
           description: OK
@@ -627,6 +674,16 @@ components:
       schema:
         type: string
       example: identifier+eq+greetings
+    
+    scopeFilter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Condition to filter the retrieval of scopes by name. Supports 'sw', 'co', 'ew' and 'eq' operations.
+      schema:
+        type: string
+      example: name+co+greetings
 
     collectionFilter:
       name: filter
@@ -1017,6 +1074,16 @@ components:
         name:
           type: string
           example: 'greetings:write'
+        displayName:
+          type: string
+          example: "Write Greetings"
+        description:
+          type: string
+          example: "Allows writing greetings"
+
+    ScopePatchModel:
+      type: object
+      properties:
         displayName:
           type: string
           example: "Write Greetings"

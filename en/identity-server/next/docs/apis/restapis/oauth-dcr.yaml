@@ -127,7 +127,6 @@ paths:
             "grant_types": [
               "string"
             ],
-            "application_type": "string",
             "jwks_uri": "string",
             "url": "string",
             "ext_param_client_id": "string",
@@ -139,9 +138,6 @@ paths:
               "string"
             ],
             "request_uris": [
-              "string"
-            ],
-            "response_types": [
               "string"
             ],
             "ext_param_sp_template": "string",
@@ -364,8 +360,6 @@ components:
           type: array
           items:
             type: string
-        application_type:
-          type: string
         jwks_uri:
           type: string
         url:
@@ -383,10 +377,6 @@ components:
           items:
             type: string
         request_uris:
-          type: array
-          items:
-            type: string
-        response_types:
           type: array
           items:
             type: string
@@ -449,6 +439,8 @@ components:
         request_object_encryption_alg:
           type: string
         request_object_encryption_enc:
+          type: string
+        ext_allowed_audience:
           type: string
     updateRequest:
       type: object
@@ -525,6 +517,8 @@ components:
           type: string
         request_object_encryption_enc:
           type: string
+        ext_allowed_audience:
+          type: string
     application:
       type: object
       properties:
@@ -565,6 +559,8 @@ components:
           type: boolean
         ext_public_client:
           type: boolean
+        ext_allowed_audience:
+          type: string
     error:
       type: object
       properties:

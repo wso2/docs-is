@@ -6,6 +6,16 @@ Users and administrators in your organization can manage their accounts and info
 
 Users can access the My Account portal using the following link - {{my_account_link}}
 
+!!! note
+
+    If you have [shared the My Account portal with organization users]({{base_path}}/guides/organization-management/share-applications/#share-the-my-account-portal), they may access the organization-specific My Account Portal using the following link:
+
+    ``` bash
+    {{my_account_org_link}}
+    ```
+
+
+
 Listed below are self-service features that are available for the user in the **My Account portal**.
 
 - [Update profile information]({{base_path}}/guides/user-self-service/update-profile-info/)
@@ -20,7 +30,7 @@ Listed below are self-service features that are available for the user in the **
 - [Discover and maintain applications]({{base_path}}/guides/user-self-service/discover-applications/)
 - [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/)
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
 ## Enable/Disable the My Account portal
 
 Follow the steps given below to manage access to the My Account portal for users in your organization.
@@ -36,7 +46,7 @@ Follow the steps given below to manage access to the My Account portal for users
 
 ## Configure the My Account portal login flow
 
-Just like any other appliaction registered in {{product_name}}, you can customize the login flow of the My Account portal along with multi-factor and adaptive authentication.
+Just like any other appliaction registered in {{product_name}}, you can customize the login flow of the My Account portal.
 
 To do so,
 

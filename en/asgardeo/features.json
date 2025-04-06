@@ -1,0 +1,56 @@
+{
+    "operational-policies": {
+        "enabled": true,
+        "page": [
+            "references/operational-policies.md"
+        ]
+    },
+    
+    "sms-templates": {
+        "enabled": true,
+        "page": [
+            "guides/branding/customize-sms-templates.md",
+            "apis/notification-templates.md",
+            "references/sms-templates.md"
+        ]
+    },
+    
+    "sift_fraud_detection": {
+        "enabled": true,
+        "page": [
+            "guides/account-configurations/login-security/sift-fraud-detection.md"
+        ]
+    },
+
+    "default_roles": {
+        "enabled": true,
+        "page": [
+        ]
+    },
+
+    "multi_valued_attributes": {
+        "enabled": true,
+        "page": [
+        ]
+    },
+
+    "sso_integrations_zoom_slack": {
+        "enabled": true,
+        "page": [
+            "guides/authentication/sso-integrations/add-zoom-template.md",
+            "guides/authentication/sso-integrations/add-slack-template.md"
+        ]
+    },
+
+    "password_expiry_time": {
+        "enabled": true,
+        "page": []
+    },
+
+    "attribute_uniqueness_validation": {
+        "enabled": true,
+        "page": [
+            "guides/users/attributes/configure-unique-attributes.md"
+        ]
+    }
+}

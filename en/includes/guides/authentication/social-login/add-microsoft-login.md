@@ -40,7 +40,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Microsoft 
         </tr>
         <tr>
             <td>Redirect URI</td>
-            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>https://localhost:9443/commonauth</code></td>
+            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>{{product_url_format}}/commonauth</code></td>
         </tr>
     </table>
 
@@ -88,9 +88,7 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
       </tr>
     </table>  
 
-{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
-
-After the Microsoft identity provider is created, go to the **Settings** tab and see the list of **scopes** to which Microsoft has granted permissions.
+4. Go to the **Settings** tab and see the list of **scopes** to which Microsoft has granted permissions.
 
 - **email**: Allows to view the user's email address.
 - **openid**: Allows authentication using OpenID Connect and to obtain the ID token.
@@ -121,4 +119,4 @@ Follow the steps given below.
 
 ## Configure connection
 
-To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login/) documentation.

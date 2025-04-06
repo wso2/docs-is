@@ -177,4 +177,4 @@ To delete a role:
 
 ## What's next?
 
-Learn how you can use roles for [Role-based Access Control (RBAC)]({{base_path}}/guides/authorization/api-authorization/api-authorization/).
+Learn how you may use roles to implement [Role-based Access Control (RBAC)]({{base_path}}/guides/api-authorization/).

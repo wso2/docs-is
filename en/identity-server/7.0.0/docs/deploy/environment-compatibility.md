@@ -53,7 +53,7 @@ WSO2 Identity Server supports the following DBMSs:
 - MySQL 5.7
 - Oracle 19C
 - Oracle SE2-19.0
-- Microsoft SQL Server 2019
+- Microsoft SQL Server 2022
 - SQLServer-SE-14.00
 - DB2 v11.5
 - Postgres 10.19
@@ -75,4 +75,4 @@ Following is a list of web browsers tested with WSO2 Identity Server:
 Following is a list of LDAPs tested with WSO2 Identity Server:
 
 - Open LDAP 2.4.28
-- Microsoft Active Directory Windows 2012
+- Microsoft Active Directory Windows 2019

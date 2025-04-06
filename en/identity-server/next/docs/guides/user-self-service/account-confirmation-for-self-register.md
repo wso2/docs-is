@@ -40,7 +40,7 @@ The section of the guide walks you through configuring account confirmation meth
 2. Add the following configurations to the `deployment.toml` file:
 
     ``` toml
-    [identity_mgt.user_self_registration]
+    [identity_mgt.notification]
     default_notification_channel = "<value>"
     resolve_notification_channel = true
     ```

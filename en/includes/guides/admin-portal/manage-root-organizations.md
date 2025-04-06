@@ -64,19 +64,23 @@ To obtain the organization ID of your root organization, expand the organization
 ## Delete root organizations
 
 You cannot remove root organizations using the {{ product_name }} Console. If you have such a requirement, contact the {{ product_name }} team at **asgardeo-help@wso2.com**.
-If you are a B2B platform and you want to remove organization in your organization (root), see the instructions on [deleting organizations]({{base_path}}/guides/organization-management/manage-organizations/#delete-organizations).
+If you are a B2B platform and you want to remove child organizations in your organization, see the instructions on [deleting organizations]({{base_path}}/guides/organization-management/manage-organizations/#delete-organizations).
 
 !!! note "Before you begin"
-    Note the following before you proceed to delete an organization (root): </br>
 
-    - A deleted organization (root) cannot be restored. Proceed with caution.
+    Note the following before you proceed to delete a root organization: </br>
+
+    - A deleted root organization cannot be restored. Proceed with caution.
     - Only a root organization owner can request a root organization to be deleted.
     - Be sure to use the same email address of your owner user account to send the request.
     - If you remove all the root organizations you own in {{ product_name }}, your user account will also be deleted from {{ product_name }}. <br/>
 
-To remove any of your root organizations, send an email to `asgardeo-help@wso2.com` with the required details listed below. This information will help the {{ product_name }} team confirm the authenticity of your request.
+To remove any of your root organizations, send an email to `asgardeo-help@wso2.com` with the following required details.
+
 - The name of the organization (root) you want to delete.
 - The first name, last name, and email address of your (owner's) {{ product_name }} user account.
+
+ This information will help the {{ product_name }} team to confirm the authenticity of your request.
 
 ## What's next?
 - Learn about managing administrators and users of an organization in the [user management]({{base_path}}/guides/users/) section.

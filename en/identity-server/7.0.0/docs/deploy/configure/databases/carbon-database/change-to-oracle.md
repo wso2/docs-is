@@ -67,11 +67,8 @@ A sample configuration is given below.
         Execute the scripts in the following file, against the database created.
                     
         - `<IS-HOME>/dbscripts/oracle.sql`
-        
-3. If you have a requirement to use the workflow feature, see 
-    [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
     
-4.  Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
+3.  Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
 
 ---
             
@@ -109,8 +106,37 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 
 {% include "../../../../includes/db-config-table.md" %}
 
+### Using an alternate user to connect to database
+
+When the database owner is not the user used to connect to the database, specify the parent schema in the datasource declarion.
+
+	``` toml
+	[database.identity_db.db_props]
+	parentSchema = "<parent_schema_name>"
+
+    [database.shared_db.db_props]
+	parentSchema = "<parent_schema_name>"
+	```
+
+!!! note "Database user priviledges"
+
+    When a custom database user is created, please note that the following privildges should be granted according to the purpose of the user.
+
+    - Execute the below permissions on the database to perform DDL operations.
+        - CREATE SESSION, ALTER SESSION, UNLIMITED TABLESPACE, CREATE VIEW, CREATE SEQUENCE, CREATE TABLE, CREATE PROCEDURE, CREATE TRIGGER, CREATE PUBLIC SYNONYM
+            - ex: `GRANT CREATE SESSION TO <db-user>;`
+
+    - Execute the below permissions on the database to perform DML operations.
+        - CREATE SESSION, ALTER SESSION, UNLIMITED TABLESPACE
+            - ex: `GRANT CREATE SESSION TO <db-user>;`
+
+    - When a user accessing the tables is not the owner of the tables, the following permissions should be granted on the table.
+        - SELECT, INSERT, DELETE, UPDATE
+            - ex: `GRANT SELECT, INSERT, DELETE, <db-user>.<table-name>;`
+
+    Please refer the offcial [oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/GRANT.html#GUID-20B4E2C0-A7F8-4BC8-A5E8-BE61BDC41AC3) for further details.
+
 ---
-  
 ## Configure the connection pool behavior on return 
 
 {% include "../../../../includes/connection-pool-behavior.md" %}

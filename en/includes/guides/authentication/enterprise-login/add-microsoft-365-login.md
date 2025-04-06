@@ -1,6 +1,6 @@
-# Add Microsoft 365 login
+# Add login with Microsoft 365
 
-You can add Microsoft 365 login to your applications using {{ product_name }} and enable users to log in with their Microsoft 365 accounts.
+You can connect Microsoft 365 as an authenticator to your applications using {{ product_name }} and enable users to log in with their Microsoft 365 accounts.
 
 Follow this guide for instructions.
 
@@ -103,8 +103,6 @@ Now, let's register the Microsoft IdP in {{ product_name }}.
 
       </tr>
     </table>  
-
-{% include "../../fragments/manage-connection/jit-provisioning.md" %}
 
 
 ## Enable Microsoft 365 login

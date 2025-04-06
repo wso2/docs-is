@@ -1,15 +1,64 @@
 # Manage SCIM 2.0 attribute mappings
 
-Attributes in your organization are mapped to the following SCIM 2.0 schemas mappings:
+Attributes in your organization are mapped to the following SCIM 2.0 schema mappings:
 
-- [Core schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-3.1){:target="_blank"}
-- [User schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1){:target="_blank"}
-- [Enterprise schema attributes](https://datatracker.ietf.org/doc/html/rfc7643#section-4.3){:target="_blank"}
-- Custom schema attributes
+??? details "Core schema"
 
-The attributes in the core, user, and enterprise schemas are well-defined in the [SCIM 2.0 specification](https://datatracker.ietf.org/doc/html/rfc7643){:target="_blank"} and you can't modify the attributes in these schemas. Custom schema attributes can be added or deleted by users.
+    The core schema defines a set of common attributes that are included in every SCIM resource, such as unique identifiers and resource metadata. Core schema attributes are an integral part of every base resource schema. Unlike other schemas, the core schema does not have its own URI and is inherently included in every resource definition.
 
-{{custom_schema_note}}
+    Read about core schema in the [SCIM2 specification](https://datatracker.ietf.org/doc/html/rfc7643#section-3.1){blank="_target"}.
+
+??? details "User schema"
+
+    The user schema defines attributes specific to user resources, in addition to the core schema attributes. This schema is identified by the URI `urn:ietf:params:scim:schemas:core:2.0:User`. Attributes in the user schema include details such as the user's name, email addresses, phone numbers, roles, and other identity-related properties.
+
+    Read about user schema in the [SCIM2 specification](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1){blank="_target"}.
+
+??? details "Enterprise schema"
+
+    The enterprise schema extends the user schema to include attributes commonly used for representing users in business or enterprise environments. This schema is identified by the URI `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`. Attributes in the enterprise schema include details such as the user’s department, manager, cost center, and other organization-specific properties.
+
+    Read about enterprise schema in the [SCIM2 specification](https://datatracker.ietf.org/doc/html/rfc7643#section-4.3){blank="_target"}.
+
+{% if (product_name == "WSO2 Identity Server" and is_version != "7.0.0") or product_name == "Asgardeo" %}
+
+??? details "System schema"
+
+    The system schema is a user extension provided by {{product_name}} to support attributes related to the product features and functionalities. It includes user attributes that are essential for Identity Server-specific operations, as well as general user attributes not covered in the standard SCIM specification.
+
+{% endif %}
+
+??? details "Custom schema"
+
+    Custom schema attributes provide the flexibility to extend standard SCIM schemas with additional fields to fit the needs of your organization. While other attribute schemas cannot be modified, you can freely add or delete custom schema attributes.
+
+    {% if product_name == "WSO2 Identity Server" %}
+
+    {% if is_version >= "7.1.0" %}
+    Custom user attributes in WSO2 Identity Server are created under the `urn:scim:schemas:extension:custom:User` schema. 
+    {% else %}
+    Custom user attributes in WSO2 Identity Server are created under the `urn:scim:wso2:schema` schema.
+    {% endif %}
+    You can configure this schema in the following ways by adding configuration to `<IS_HOME>/repository/conf/deployment.toml`
+    
+    - To disable this schema,
+         
+        ```toml
+        [scim2]
+        enable_custom_schema_extension = false
+        ```
+
+    - To rename this schema,
+
+        ```toml
+        [scim2]
+        custom_user_schema_uri = "urn:scim:custom:schema:new"
+        ```
+    {% endif %}
+
+{% if immutable_claims_note %}
+{{immutable_claims_note}}
+{% endif %}
 
 ## View SCIM 2.0 attributes
 To view the SCIM 2 attributes mapped to user attributes in your organization:
@@ -51,3 +100,6 @@ To delete the SCIM 2.0 custom schema attributes available in your organization:
 3. Navigate to the **Custom Schema** tab and select the attribute to delete.
 3. Click **Delete** and select the checkbox to confirm you action.
 4. Click **Confirm**.
+
+!!! note
+    Only custom attributes can be deleted.

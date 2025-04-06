@@ -53,11 +53,9 @@ The following guide explains how you can enable log in with passkeys in your app
 {% include "../../../guides/fragments/add-login/passwordless-login/add-passkey-login.md" %}
 
 
-## Enable passkey progressive enrollment
+## Enable users to register passkeys during login
 
-With passkey progressive enrollment, users can enroll their passkeys on the fly when logging in, offering a blend of convenience and security.
-
-Follow the steps given below to enable passkey progressive enrollment for your application.
+Enabling users to enroll their passkeys on the fly offers a blend of convenience and security. To do so:
 
 1. On the {{ product_name }} Console, go to **Connections**.
 
@@ -76,7 +74,7 @@ Follow the steps given below to enable passkey progressive enrollment for your a
 
     - Passkey progressive enrollment can only be configured at the organizational level and cannot be modified at the application level.
 
-## Configure passkey usernameless authentication
+## Configure usernameless passkey login
 
 Usernameless authentication enhances user experience by eliminating the need for users to enter a username during login with passkeys. This is the default behavior in {{product_name}}. Follow the steps given below to configure passkey usernameless authentication for your application.
 
@@ -151,3 +149,5 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 
 !!! note
     During passkey progressive enrollment, if a user wishes to use a federated authenticator, they should have their external accounts already provisioned within {{product_name}}. If, for example, a user logs in with Google using an account not provisioned in {{product_name}}, passkey enrolment results in an error and the login flow fails.
+
+{% include "./fido-trusted-applications.md" %}

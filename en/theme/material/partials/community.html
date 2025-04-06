@@ -19,21 +19,24 @@
 <div class="md-header__extra">
   <div class="md-header__links">
     <div class="md-header__link">
-      <button class="md-typeset md-button md-button--link md-button--small md-button--flex md-button--discord" onclick="javascript:window.open('https://discord.com/invite/wso2', '', 'noopener')">
+      <button class="md-typeset md-button md-button--link md-button--small md-button--flex md-button--discord"
+              onclick="javascript:window.open('https://discord.com/invite/wso2', '_blank', 'noopener')">
         <div class="md-icon">
           {% set icon = "fontawesome/brands/discord" %}
           {% include ".icons/" ~ icon ~ ".svg" %}
         </div>
         <label class="md-header__link__label">Get Help</label>
       </button>
-      <div class="md-header__button md-icon md-icon--hover md-button--asgardeo-mini">
+      <button class="md-header__button md-icon md-icon--hover md-button--asgardeo-mini"
+              onclick="javascript:window.open('https://discord.com/invite/wso2', '_blank', 'noopener')">
         {% set icon = "fontawesome/brands/discord" %}
         {% include ".icons/" ~ icon ~ ".svg" %}
-      </div>
+      </button>
     </div>
+    
     {% if config.extra.product == "asgardeo" %}
       <div class="md-header__link">
-        <button class="md-typeset md-button md-button--primary md-button--small md-button--flex md-button--asgardeo" onclick="javascript:window.open('https://console.asgardeo.io/', '', 'noopener')">
+        <button class="md-typeset md-button md-button--primary md-button--small md-button--flex md-button--asgardeo" onclick="javascript:window.open('https://console.asgardeo.io/', '_blank', 'noopener')">
           <svg width="24" height="21" viewBox="0 0 24 21" class="asgardeo-community-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g>
                 <path d="M17.147 0L19.3662 3.83584L16.9072 8.08534H21.8028L24.0003 11.8994H10.293L17.147 0Z" fill="#ffffff" />
@@ -43,7 +46,7 @@
           </svg>
           Try Asgardeo
         </button>
-        <div class="md-header__button md-icon md-icon--hover md-button--asgardeo-mini">
+        <button class="md-header__button md-icon md-icon--hover md-button--asgardeo-mini" onclick="window.open('https://console.asgardeo.io/', '_blank', 'noopener')">
           <svg width="24" height="21" viewBox="0 0 24 21" class="asgardeo-community-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g>
                 <path class="primary" d="M17.147 0L19.3662 3.83584L16.9072 8.08534H21.8028L24.0003 11.8994H10.293L17.147 0Z" fill="#ffffff" />
@@ -51,7 +54,7 @@
                 <path class="black" d="M14.4488 20.8349L12.0115 16.5855L9.55245 20.8349H5.13574L12.0115 8.93555L18.8655 20.8349H14.4488Z" fill="#000000" />
             </g>
           </svg>
-        </div>
+        </button>
       </div>
     {% endif %}
     </div>

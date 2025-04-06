@@ -20,15 +20,13 @@ Follow the steps below to register your service provider in the iPortal.
 
 2. Click **Create a service provider**.
 
-3. Click **Create a service provider**.
+3. Enter a value for **Service provider name**.
 
-4. Enable a value for **Service provider name**.
+4. Complete the service provider details form and click **Create** to create the service provider.
 
-5. Complete the service provider details form and click **Create** to create the service provider.
+5. Select your application from the **Choose an App** menu and note down the App ID.
 
-6. Select your application from the **Choose an App** menu and note down the App ID.
-
-7. After you create the service provider, you will receive the following details:
+6. After you create the service provider, you will receive the following details:
     - **OAuth username**
     - **OAuth password**
     - **API key**
@@ -36,7 +34,7 @@ Follow the steps below to register your service provider in the iPortal.
 
 ## Register iProov in Asgardeo as a connection
 
-Follow the steps below to register HYPR as a connection in Asgardeo.
+Follow the steps below to register iProov as a connection in Asgardeo.
 
 1. On the Asgardeo Console, go to **Connections**.
 
@@ -75,10 +73,6 @@ Follow the steps below to register HYPR as a connection in Asgardeo.
           <td><b>API Secret</b></td>
           <td>Provide the API secret obtained from the service provider created in iProov.</td>
       </tr>
-      <tr>
-          <td><b>Enable Progressive Enrollment</b></td>
-          <td>Enable this to allow users to enroll with iProov during login.</td>
-      </tr>
     </table>
 
 ## Enable iProov login
@@ -90,7 +84,7 @@ To enable iProov login for your application:
 
 1. On the Asgardeo Console, go to **Applications**.
 
-2. Go to the **Sign-in Method** tab of the application and add iProov login from your preferred editor:
+2. Go to the **Login Flow** tab of the application and add iProov login from your preferred editor:
 
     === "Visual Editor"
         To add iProov login using the Visual Editor:

@@ -1,3 +1,4 @@
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
 # Try a B2B use case
 
 The following guide is a complete end-to-end use case on how to manage B2B (Business-to-Business) applications in {{ product_name }}.
@@ -501,10 +502,16 @@ To configure an identity provider for **Guardio Insurance Business App**:
 
 As an administrator in Guardio insurance, now you can onboard administrators from Best Car Mart to the created organization.
 
-To do so, follow the [Onboard an administrator]({{base_path}}/guides/organization-management/onboard-sub-org-admins/#sales-led-approach) guide and create an administrator using the values given below.
+To do so, follow the [sales-led approach]({{base_path}}/guides/organization-management/onboard-org-admins/sales-led-approach/) and create an administrator using the values given below.
 
 1. Create the user with the following values.
 
     {{ user_details }}
 
 2. Assign the created user to the **Guardio Administrator** role of the shared **Guardio-Admin-App** application.
+
+{% else %}
+
+{% include "./try-a-b2b-use-case-pet-care.md" %}
+
+{% endif %}

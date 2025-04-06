@@ -16,6 +16,12 @@ When you register an application, you can customize the login flow.
 
 - Enforce [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) to dynamically change the login flow of a user based on the user's devices, networks, locations, or usage contexts.
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
+- Add [SSO integrations]({{base_path}}/guides/authentication/sso-integrations/) using {{ product_name }} to log in to applications such as [Google]({{base_path}}/guides/authentication/sso-integrations/add-google-workspace-template/), [Salesforce]({{base_path}}/guides/authentication/sso-integrations/add-salesforce-template/), [Microsoft]({{base_path}}/guides/authentication/sso-integrations/add-microsoft-365-template/), [Zoom]({{base_path}}/guides/authentication/sso-integrations/add-zoom-template/), and [Slack]({{base_path}}/guides/authentication/sso-integrations/add-slack-template/).
+
+{% endif %}
+
 ## Manage user attributes
 
 Manage the user attributes you want to share with your application:
@@ -42,3 +48,6 @@ With identity federation, users can use an existing user account registered to a
 You can configure any number of external connections for your application via {{ product_name }}.
 
 {% include "../fragments/manage-connection/add-groups.md" %}
+
+
+

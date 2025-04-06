@@ -24,6 +24,7 @@ To update the default SMS OTP settings:
 
     ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/setup-sms-otp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+    {% if product_name == "WSO2 Identity Server" and (is_version == "7.0.0" or is_version == "7.1.0") %}
     <table>
          <tr>
            <th style="width: 350px;">Field</th>
@@ -44,12 +45,40 @@ To update the default SMS OTP settings:
            <td><code>SMS OTP length</code></td>
            <td>Specifies the number of characters allowed in the OTP.</td>
          </tr>
-   </table>
+    </table>
+    {% else %}
+    <table>
+         <tr>
+           <th style="width: 350px;">Field</th>
+           <th>Description</th>
+         </tr>
+         <tr>
+           <td><code>SMS OTP expiry time</code></td>
+           <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
+         </tr>
+         <tr>
+           <td><code>Use only numeric characters for OTP</code></td>
+           <td>
+               Specifies whether to use only numeric characters in the OTP. If this is selected, the generated OTP contains only digits (0-9).
+               If this option is not selected, the OTP will contain alphanumeric characters.
+           </td>
+         </tr>
+         <tr>
+           <td><code>SMS OTP length</code></td>
+           <td>Specifies the number of characters allowed in the OTP.</td>
+         </tr>
+         <tr>
+           <td><code>Allowed OTP resend attempt count</code></td>
+           <td>Specifies the number of allowed OTP resend attempts.</td>
+         </tr>
+    </table>
+    {% endif %}
+
 3. Once you update the SMS OTP settings, click **Update**.
 
 ## Configuring SMS Providers
 
-Configurations related to SMS providers are located under the **Email & SMS** section.
+Configurations related to SMS providers are located under the **{{ notification_tab_name }}** section.
 
 ### Supported Providers
 

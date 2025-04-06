@@ -24,7 +24,7 @@ To register an app on Facebook:
 
 4. Select the login type out of the options and click **Next**.
 
-    ![Create Facebook consumer app]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-choose-login-type.jpg){: width="600" style="border: 0.3px solid lightgrey;"}
+    ![Choose login type]({{base_path}}/assets/img/guides/idp/facebook-idp/facebook-choose-login-type.png){: width="600" style="border: 0.3px solid lightgrey;"}
 
 5. Provide **Display Name** and click **Create App** to create an application.
 
@@ -36,10 +36,10 @@ To register an app on Facebook:
 
 8. Under **Facebook Login** > **Quickstart**, click **Go to quickstart**.
 
-9. Select **Web** as the platform for this app and provide the following **Site URL** with your organization name and click **Save**.
+9. Select **Web** as the platform for this app and provide the following **Site URL** and click **Save**.
 
-    ```bash no-line-numbers
-    https://api.asgardeo.io/t/<organization_name>
+    ```bash
+    {{ product_url_format }}
     ```
 
 10. Return to the **Use cases** > **Customize** section and under **Facebook login** > **Settings**, click **Go to settings**.
@@ -47,7 +47,7 @@ To register an app on Facebook:
 11. Add the following as the **Valid OAuth Redirect URIs** and click **Save changes**.
 
     ```bash
-    {{ product_url_format }}
+    {{ product_url_format }}/commonauth
     ```
 
 12. Enable **Client OAuth Login** and **Web OAuth Login** (these are enabled by default) and save the changes.
@@ -89,15 +89,14 @@ Now, let's register the Facebook IdP in {{ product_name }}.
 
 <!-- 4. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/). -->
 
-{% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
+5. Go to the **Settings** tab and see the list of permissions granted by Facebook to {{ product_name }}.
 
-After the Facebook identity provider is created, go to the **Settings** tab and see the list of permissions granted by Facebook to {{ product_name }}.
+    - **email**: Grants read access to a user's primary email address.
+    - **public_profile**: Grants read access to a user's default public profile details.  
 
-- **email**: Grants read access to a user's primary email address.
-- **public_profile**: Grants read access to a user's default public profile details.  
-
-!!! note
-    {{ product_name }} needs these permissions to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Facebook to the app. You can read the [Facebook documentation](https://developers.facebook.com/docs/permissions/reference){:target="_blank"} to learn more.
+    !!! note
+        
+        {{ product_name }} needs these permissions to get user information. {{ product_name }} checks the attribute configurations of the application and sends the relevant attributes received from Facebook to the app. You can read the [Facebook documentation](https://developers.facebook.com/docs/permissions/reference){:target="_blank"} to learn more.
 
 ## Enable Facebook login
 
@@ -124,4 +123,4 @@ Follow the steps given below.
 
 ## Configure connection
 
-To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login/) documentation.

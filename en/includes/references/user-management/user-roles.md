@@ -1,3 +1,330 @@
+
+{% if product_name == "Asgardeo" and default_roles == true %}
+
+# Asgardeo user roles
+
+Roles assigned to a group or user determine their permissions for accessing resources in the organization. Asgardeo offers several default roles that tailor the Console experience to privileged users. As the organization administrator/owner, you can assign these roles to privileged users according to the requirement.
+
+!!! note
+
+    The roles described here are only for the Asgardeo Console. To learn more about roles that govern access to REST APIs, refer to [manage roles]({{base_path}}/guides/users/manage-roles/).
+
+<table>
+  <tr>
+    <td><b>Administrator</b></td>
+    <td>This role provides all administrative permissions in the organization. An administrator is a privileged user who has overall access to the organization.</td>
+  </tr>
+  <tr>
+    <td><b>Auditor</b></td>
+    <td>This role provides list and view permissions to Asgardeo resources. With read-only access to all resources in the Asgardeo Console, it is ideal for troubleshooting issues and supporting other users within the organization.. </td>
+  </tr>
+  <tr>
+    <td><b>Editor - Applications</b></td>
+    <td>This role provides permissions for registering and managing applications, ideal for privileged users who can integrate applications with Asgardeo.</td>
+  </tr>
+  <tr>
+    <td><b>Viewer - Applications</b></td>
+    <td>This role provides permissions for viewing applications and their settings. It is designed for users who need read-only access to applications and their integration settings.</td>
+  </tr>
+  <tr>
+    <td><b>Editor - Users</b></td>
+    <td>This role provides permissions for managing users and groups within the organization.</td>
+  </tr>
+  <tr>
+    <td><b>Viewer - Users</b></td>
+    <td>This role provides permissions required for viewing users and groups.</td>
+  </tr>
+  <tr>
+    <td><b>Editor - Connections</b></td>
+    <td>This role provides permissions for managing connections, ideal for a privileged user who can manage enterprise logins, social logins and MFA options available within the organization.</td>
+  </tr>
+</table>
+
+The permissions associated with each role are outlined below. Resources not explicitly specified for a role are inaccessible to users and groups assigned to it.
+
+??? example "Administrator"
+
+    Administrator has read/write access to all the resources in the Asgardeo Console.
+
+??? example "Auditor"
+
+    Auditor has read-only access to all the resources in the Asgardeo Console.
+
+??? example "Editor - Applications"
+
+    <table>
+      <tr>
+        <th>Resources</th>
+        <th>Sub-section</th> 
+        <th>Read/Write access</th> 
+        <th>Read access only</th>
+      </tr>
+      <tr>
+        <td>Applications</td>
+        <td>️</td>
+        <td>✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>Connections</td>
+        <td>️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>API Resources</td>
+        <td>️</td>
+        <td>✔</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Branding</td>
+        <td>️</td>
+        <td>✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>User Management</td>
+        <td>Users️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>User Management</td>
+        <td>Groups️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>User Management</td>
+        <td>Roles</td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>User Attributes & Stores</td>
+        <td>Attributes</td>
+        <td>️</td>
+        <td>️✔</td>
+      </tr>
+      <tr>
+        <td>User Attributes & Stores</td>
+        <td>Attributes &gt; Scopes </td>
+        <td>️️✔</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Organizations</td>
+        <td>️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>Login & Registration</td>
+        <td>️</td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>Actions</td>
+        <td>️</td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>Events</td>
+        <td>️</td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>Logs</td>
+        <td>️Diagnostic logs</td>
+        <td></td>
+        <td>️✔</td>
+      </tr>
+    </table>
+
+
+??? example "Viewer - Applications"
+
+    <table>
+      <tr>
+        <th>Resources</th>
+        <th>Sub-section</th> 
+        <th>Read/Write access</th> 
+        <th>Read access only</th>
+      </tr>
+      <tr>
+        <td>Applications</td>
+        <td>️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+          <td>Connections</td>
+          <td>️</td>
+          <td>️</td>
+          <td>✔</td>
+      </tr>
+      <tr>
+        <td>API Resources</td>
+          <td>️</td>
+          <td>️</td>
+          <td>✔</td>
+      </tr>
+      <tr>
+        <td>Branding</td>
+        <td>️</td>
+        <td>️</td>
+        <td>️✔</td>
+      </tr>
+      <tr>
+        <td>User Management</td>
+        <td>Users️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>User Management</td>
+        <td>Groups️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>User Management</td>
+        <td>Roles</td>
+        <td></td>
+        <td>️️✔</td>
+      </tr>
+      <tr>
+        <td>User Attributes & Stores</td>
+        <td>Attributes</td>
+        <td>️</td>
+        <td>️✔</td>
+      </tr>
+      <tr>
+        <td>User Attributes & Stores</td>
+        <td>Attributes &gt; Scopes </td>
+        <td>️️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>Organizations</td>
+        <td>️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>Login & Registration</td>
+        <td>️</td>
+        <td>️</td>
+        <td>️✔</td>
+      </tr>
+      <tr>
+        <td>Actions</td>
+        <td>️</td>
+        <td>️</td>
+        <td>️✔</td>
+      </tr>
+      <tr>
+        <td>Events</td>
+        <td>️</td>
+        <td>️</td>
+        <td>️✔</td>
+      </tr>
+      <tr>
+        <td>Logs</td>
+        <td>️Diagnostic logs</td>
+        <td></td>
+        <td>️✔</td>
+      </tr>
+    </table>
+
+??? example "Editor - Users"
+
+    <table>
+      <tr>
+        <th>Resources</th>
+        <th>Sub-section</th> 
+        <th>Read/Write access</th> 
+        <th>Read access only</th>
+      </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Users️</td>
+          <td>️✔</td>
+          <td>️</td>
+        </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Groups️</td>
+          <td>✔</td>
+          <td>️</td>
+        </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Roles</td>
+          <td>️✔</td>
+          <td>️</td>
+        </tr>
+    </table>
+
+
+??? example "Viewer - Users"
+
+    <table>
+      <tr>
+        <th>Resources</th>
+        <th>Sub-section</th> 
+        <th>Read/Write access</th> 
+        <th>Read access only</th>
+      </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Users️</td>
+          <td></td>
+          <td>️️✔</td>
+        </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Groups️</td>
+          <td></td>
+          <td>️️✔</td>
+        </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Roles</td>
+          <td>️</td>
+          <td>️️✔</td>
+        </tr>
+    </table>
+
+??? example "Editor - Connections"
+
+    <table>
+      <tr>
+        <th>Resources</th>
+        <th>Sub-section</th> 
+        <th>Read/Write access</th> 
+        <th>Read access only</th>
+      </tr>
+        <tr>
+          <td>Connections</td>
+          <td></td>
+          <td>✔</td>
+          <td>️️</td>
+        </tr>
+        <tr>
+          <td>User Attributes & Stores</td>
+          <td>Attributes</td>
+          <td></td>
+          <td>️️✔</td>
+        </tr>
+    </table>
+
+{% else %}
+
 # {{ product_name }} user roles
 
 Roles consist of the permissions that are required by users to access the {{ product_name }} resources such as functions available on the {{ product_name }} Console, REST APIs, etc.
@@ -307,3 +634,5 @@ The following list contains the permissions enabled for an {{ admin_role_name }}
     </tr> 
 </table> -->
 <br>
+
+{% endif %}

@@ -1,16 +1,15 @@
 # Set up organizations
 
-As a business operating on a B2B (Business-to-Business) model, you can use {{product_name}} organizations to represent your partner businesses. This guide explains how you can manage organizations.
+As a B2B (Business-to-Business) service provider, you can use {{product_name}} organizations to represent your partner businesses. This guide explains how you can manage these organizations.
 
 !!! note "Before you begin"
 
     {% if product_name == "Asgardeo" %}
-    - [Define your primary business organization]({{base_path}}/guides/{{root_org_description_path}}/   manage-root-organizations/).
+    - [Define your primary business organization]({{base_path}}/guides/your-asgardeo/manage-root-organizations/).
     - Ensure you have organization management privileges in the organization (root).
     {% else %}
     Ensure you have organization management privileges in the organization (root).
     {% endif %}
-
 
 ## Create an organization
 
@@ -28,7 +27,7 @@ Follow the steps given below to create an organization.
 
     ![The list of organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-list.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-5. Click the **Switch** icon next to the organization name to switch to its console.
+6. Click the **Switch** icon next to the organization name to switch to its console.
 
 !!! note
     As the creator of the organization, you will be assigned to the {{ admin_role_name }} role of the Console application by default, which grants you the following privileges.
@@ -56,11 +55,15 @@ To add additional attributes for your organization:
 
 5. Click **Update** to save the configurations.
 
+{% if organization_search_content %}
+{{ organization_search_content }}
+{% endif %}
+
 ## Switch to an organization
 
 You can switch to a child organization on the {{ product_name }} Console by selecting the required organization from the list as shown below.
 
-![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-switch.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Build an organizational hierarchy
 
@@ -84,6 +87,23 @@ If the organization doesn't have its own branding configurations, it will inheri
 
     - [how to configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/) for organizations.
     - [how to customize email branding]({{base_path}}/guides/branding/customize-email-templates/#customize-email-branding) for organizations.
+
+## Disable organizations
+
+You can disable an organization by logging into its parent organization.
+
+To disable an organization:
+
+1. Login to the parent organization on the {{ product_name }} Console.
+2. Go to **Organizations** to view the list of organizations.
+3. Select the organization you want to disable.
+4. In the **Danger Zone**, turn the **Disable Organization** toggle on to disable the organization. Turn it off to enable the organization.
+
+    ![Disable an organization]({{base_path}}/assets/img/guides/organization/manage-organizations/disable-organization.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! note
+    - If the organization you want to disable has any active child organizations, you will not be able to proceed until those child organizations are disabled.
+    - Once an organization is disabled, users will lose access to applications and any other resources associated with that organization.
 
 ## Delete organizations
 

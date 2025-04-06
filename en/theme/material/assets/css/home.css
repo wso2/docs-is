@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2023-2024, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2023-2025, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -37,20 +37,17 @@
 }
 
 .md-home-search-container {
-    margin: 40px auto 10px;
+    margin: 0 auto 10px;
 }
 
 .md-home-search-input-label {
-    text-align: center;
     margin-bottom: 0.5em;
-    font-weight: 500 !important;
 }
 
 .md-home-search-input-description {
-    text-align: center;
     display: block;
     max-width: 800px;
-    margin: 2em auto 5em;
+    margin: 2em 0 5em;
 }
 
 .md-home-sections {
@@ -109,6 +106,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    max-width: 45%;
 }
 
 .md-list-item>a {
@@ -141,10 +139,6 @@
 
 .md-list-item-icon svg>path {
     fill: var(--md-primary-fg-color);
-}
-
-.md-search__inner {
-    margin: 0 auto;
 }
 
 .md-search__icon[for=__search] {
@@ -259,13 +253,14 @@
 }
 
 @media screen and (min-width: 76.25em) {
-    .md-sidebar {
-        display: none;
-    }
-
     [data-md-toggle=search]:checked~.md-header .md-tabs,
     [data-md-toggle=search]:checked~.md-header .md-header__version-select-dropdown {
         opacity: 1 !important;
+    }
+
+    [dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
+    [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
+        max-width: 1200px !important;
     }
 }
 

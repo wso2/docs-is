@@ -1,4 +1,6 @@
 {% set product_name = "WSO2 Identity Server" %}
+{% set base_url = "https://localhost:9443" %}
+{% set base_url_example = "https://localhost:9443" %}
 {% set grant_type_configs_note = '
 !!! note
     WSO2 Identity Server provides more control over issuing id tokens and user claims for client-credential grant type.

@@ -14,7 +14,7 @@
     - [`isMemberOfAnyOfGroups()`](#check-group-membership)
     - [`setCookie()`](#set-cookie)
     - [`getCookieValue()`](#get-cookie-value)
-    - [`prompt()`](#prompt-for-user-input)
+    - [`prompt()`](#prompt)
     - [`getUserSessions()`](#get-user-sessions)
     - [`terminateUserSession()`](#terminate-user-session)
     - [`sendEmail()`](#send-email)
@@ -22,8 +22,11 @@
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
     - [`getAssociatedLocalUser()`](#get-associated-user)
+    - [`getMaskedValue()`](#get-masked-value)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
+    - [`resolveMultiAttributeLoginIdentifier()`](#resolve-multi-attribute-login-identifier)
+    - [`updateUserPassword()`](#update-user-password)
 
 - [Object references](#object-reference): You can use objects to capture user behaviors and set attributes. For example, you can use the **user** and **request** objects and write the login conditions accordingly. Listed below are the object references that can be used in conditional authentication scripts.
   
@@ -36,6 +39,7 @@
     - [`application`](#application)
     - [`userAgent`](#user-agent)
     - [`connectionMetadata`](#connectionmetadata)
+    - [`authConfig`](#authconfig)
 
 ---
 
@@ -61,7 +65,7 @@ This function is called when {{ product_name }} receives the initial login reque
 - **Example**
 
     ```bash 
-    onLoginRequest(context)
+    onLoginRequest = function(context)
     ```
 
 
@@ -85,7 +89,9 @@ This method accepts an object as a parameter and should include the details list
   <tr>
     <td><code>&lteventCallbacks&gt</code></td>
     <td>(optional) The object that contains the callback functions, which are to be called based on the result of the step execution.<br />
-    Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.</td>
+    Supported results are <code>onSuccess</code> and <code>onFail</code> which can
+              have their own optional callbacks as anonymous functions. For these callbacks, the [context](#context) and [data](#data) parameters are passed.
+    </td>
   </tr>
 </table>
 
@@ -290,7 +296,7 @@ passed. All the properties passed in the map are also optional.
 
 `sendError()`
 
-This function redirects the user to an error page. It includes the parameters listed below.
+This function redirects the user to an error page.
 
 - **Parameters**
 
@@ -328,7 +334,7 @@ The implementation of utility functions can be found in the [WSO2 extensions cod
 
 `isMemberOfAnyOfGroups()`
 
-This function returns `true` if the specified user belongs to at least one of the given groups, and returns `false` if the user does not. It includes the parameters listed below.
+This function returns `true` if the specified user belongs to at least one of the given groups, and returns `false` if the user does not.
 
 - **Parameters**
 
@@ -361,7 +367,7 @@ This function returns `true` if the specified user belongs to at least one of th
 
 `setCookie(response, name, value, properties)`
 
-This function sets a new cookie. It includes the parameters listed below.
+This function sets a new cookie.
 
 - **Parameters**
 
@@ -412,7 +418,7 @@ This function sets a new cookie. It includes the parameters listed below.
 
 `getCookieValue(request, name, properties)`
 
-This function gets the plain-text cookie value for the cookie name if it is present. It includes the parameters listed below.
+This function gets the plain-text cookie value for the cookie name if it is present.
 
 - **Parameters**
 
@@ -444,11 +450,11 @@ This function gets the plain-text cookie value for the cookie name if it is pres
     getCookieValue(context.request,"name", {"decrypt" : true,"validateSignature" : true })
     ```
 
-### Prompt for user input
+### Prompt
 
-`prompt()`
+`prompt(templateId, data, eventHandlers)`
 
-This function prompts user input. It includes the parameters listed below.
+This function prompts the user for different interactions.
 
 - **Parameters**
 
@@ -460,7 +466,7 @@ This function prompts user input. It includes the parameters listed below.
         </tr>
         <tr>
           <td><code>data</code></td>
-          <td>The data to send to the prompt.</td>
+          <td>The data associated with the template to be sent in the prompt.</td>
         </tr>
         <tr>
           <td><code>eventHandlers</code></td>
@@ -468,8 +474,66 @@ This function prompts user input. It includes the parameters listed below.
         </tr>
       </tbody>
     </table>
+        
+    The following table contains the supported templates and the associated data.
+        <table>
+          <thead>
+            <tr>
+                <th>Template Id</th>
+                <th>Description</th>
+                <th>Data</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>genericForm</td>
+              <td>Prompt for generic user input.</td>
+              <td>
+                <ul>
+                <li><code>username</code>: Username that will be used in a greeting</li>
+                <li><code>inputs</code>: A list of input field objects in the form. For example: <code>{id: “”, label: “”}</code></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>externalRedirect</td>
+              <td>Redirect users to an external static page.</td>
+              <td>
+                <ul>
+                <li><code>redirectURL</code>: The external URL to redirect the user.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>internalWait</td>
+              <td>Keep a user waiting for a predefined fixed time or until a status is completed.</td>
+              <td>
+                <ul>
+                <li><code>waitingType</code>: Waiting method. Can be one of <code>FIXED_DELAY</code> or <code>POLLING</code>. Default waitingType is <code>FIXED_DELAY</code>.</li>
+                <li><code>waitingConfigs</code>: Waiting page configurations.
+                  <ul>
+                    <li><code>greeting</code>: An optional greeting. Default text is <code>Just a moment...</code></li>
+                    <li><code>message</code>: An optional message. Default text is <code>We are setting things up for you.</code>.</li>
+                    <li><code>timeout</code>: Optional timeout period in seconds. Default timeout is 10 seconds and max timeout is 20 seconds.</li>
+                    If your <code>waitingType</code> is <code>POLLING</code>, the following configs also apply:
+                      <ul>
+                        <li><code>pollingEndpoint</code>: REST endpoint to poll a status.</li>
+                        <li><code>pollingInterval</code>: Time internal in seconds to poll the polling endpoint. Default value is `2` seconds.</li>
+                        <li><code>requestMethod</code>: Polling request method. Can be one of <code>GET</code> or <code>POST</code>. Default value is <code>GET</code>.</li>
+                        <li><code>contentType</code>: Content type of the polling request. Default value is <code>application/x-www-form-urlencoded</code>.</li>
+                        <li><code>requestData</code>: Data to be sent to the polling endpoint. Can specify a string or an object. If the HTTP method is <code>GET</code>, the data will be appended to the URL.</li>
+                      </ul>
+                  </ul>
+                </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-- **Example**
+- **Examples**
+
+=== "genericForm"
 
     ``` js
     var onLoginRequest = function(context) {
@@ -489,12 +553,59 @@ This function prompts user input. It includes the parameters listed below.
     }
     ```
 
+=== "externalRedirect"
+
+    ``` js
+    var onLoginRequest = function(context) {
+      executeStep(1, {
+        onSuccess: function (context) {
+          prompt("externalRedirect", {
+          "redirectURL": "{EXTERNAL_URL}"}, {
+            onSuccess : function(context) {
+              Log.info("Successfully redirected back from the external page");
+              },
+            onFail: function(context, data) {
+              Log.info("Error occurred during the prompt.");
+            } 
+          });
+         }
+      });
+    }
+    ```
+
+=== "internalWait"
+
+    ``` js
+    var onLoginRequest = function(context) {
+      executeStep(1, {
+        onSuccess: function (context) {
+          prompt("internalWait", {
+            "waitingType": "POLLING",
+            "waitingConfigs": {
+              "pollingEndpoint": "<POLLING_ENDPOINT>",
+              "requestData": "contextId=1234",
+              "pollingInterval": "2",
+              "timeout": "10"
+            }
+          }, {
+            onSuccess: function (context) {
+              Log.info("Successfully redirected back from waiting page.");
+            },
+            onFail: function (context, data) {
+              Log.info("Error occurred during the prompt.");
+            }
+          });
+        }
+      });
+    }
+    ```
+
 ### Get user sessions
 
 `getUserSessions()`
 
 This function returns a session object  (i.e., all the active user sessions of the specified user or an empty
-array if there are no sessions). It includes the parameters listed below.
+array if there are no sessions).
 
 - **Parameters**
 
@@ -522,7 +633,7 @@ array if there are no sessions). It includes the parameters listed below.
 `terminateUserSession()`
 
 This function returns a session object (i.e., all the active user sessions of the specified user or an empty
-array if there are no sessions). It includes the parameters listed below.
+array if there are no sessions).
 
 - **Parameters**
 
@@ -554,7 +665,7 @@ array if there are no sessions). It includes the parameters listed below.
 
 `sendEmail()`
 
-This function sends an email to the specified user. It includes the parameters listed below.
+This function sends an email to the specified user.
 
 - **Parameters**
 
@@ -585,7 +696,7 @@ This function sends an email to the specified user. It includes the parameters l
 
 ### Call a Choreo API
 
-This function invokes an API hosted in [Choreo](https://wso2.com/choreo/){:target="_blank"}. It includes the parameters listed below.
+This function invokes an API hosted in [Choreo](https://wso2.com/choreo/){:target="_blank"}.
 
 !!! note "Important"
     Note that to use the `callChoreo` function, the API should,
@@ -723,6 +834,32 @@ This function returns the local user associated with the federate username given
       </tbody>
     </table>
 
+### Get masked value
+
+`getMaskedValue(value)`
+
+This utility function returns a masked value for the given input value. It can be used to mask sensitive content in logs.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>value</code></td>
+          <td>Value needs to be masked.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+  If there is a requirement to add logs containing sensitive information (such as PII), those can be masked using this function as follows.
+
+  ``` js
+  var email = context.currentKnownSubject.username;
+  Log.info("Email of the logged user : " + getMaskedValue(email));
+  ```
+
 ### HTTP GET
 
 `httpGet(url, headers, authConfig, eventHandlers)`
@@ -734,19 +871,19 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
     <table>
       <tbody>
         <tr>
-          <td><code>url</code></td>
+          <td style="white-space: nowrap;"><code>url</code></td>
           <td>The URL of the endpoint to which the HTTP GET request should be sent.</td>
         </tr>
         <tr>
-          <td><code>headers</code></td>
+          <td style="white-space: nowrap;"><code>headers</code></td>
           <td>HTTP request headers to be included in the GET request (optional).</td>
         </tr>
         <tr>
-          <td><code>authConfig</code></td>
-          <td>Authentication configuration to be included in the GET request (optional).</td>
+          <td style="white-space: nowrap;"><code>authConfig</code></td>
+          <td>An object containing the necessary authentication metadata to invoke the API. See [AuthConfig](#authconfig) for information.</td>
           </tr>
         <tr>
-          <td><code>eventHandlers</code></td>
+          <td style="white-space: nowrap;"><code>eventHandlers</code></td>
           <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
               Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
           </td>
@@ -765,18 +902,22 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
         }
     };
 
-    function onLoginRequest(context) {
+    var onLoginRequest = function(context) {
         httpGet('https://example.com/resource', {
             "Accept": "application/json"
         }, authConfig, {
             onSuccess: function(context, data) {
-                Log.info('httpGet call succeeded');
+                Log.info("Successfully invoked the external API.");
                 context.selectedAcr = data.status;
                 executeStep(1);
             },
             onFail: function(context, data) {
-                Log.info('httpGet call failed');
+                Log.info("Error occurred while invoking the external API.");
                 context.selectedAcr = 'FAILED';
+                executeStep(2);
+            },
+            onTimeout: function(context, data) {
+                Log.info("Invoking external API timed out.");
                 executeStep(2);
             }
         });
@@ -794,25 +935,26 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
     <table>
       <tbody>
         <tr>
-          <td><code>url</code></td>
+          <td style="white-space: nowrap;"><code>url</code></td>
           <td>The URL of the endpoint to which the HTTP POST request should be sent.</td>
         </tr>
         <tr>
-          <td><code>body</code></td>
+          <td style="white-space: nowrap;"><code>body</code></td>
           <td>HTTP request body to be included in the POST request.</td>
         </tr>
         <tr>
-          <td><code>headers</code></td>
+          <td style="white-space: nowrap;"><code>headers</code></td>
           <td>HTTP request headers to be included in the POST request (optional).</td>
         </tr>
         <tr>
-          <td><code>authConfig</code></td>
-          <td>Authentication configuration to be included in the GET request (optional).</td>
+          <td style="white-space: nowrap;"><code>authConfig</code></td>
+          <td>An object containing the necessary authentication metadata to invoke the API. See [AuthConfig](#authconfig) for more information.</td>
           </tr>
         <tr>
-          <td><code>eventHandlers</code></td>
+          <td style="white-space: nowrap;"><code>eventHandlers</code></td>
           <td>The object that contains the callback functions, which are to be called based on the result of the GET request.<br />
-              Supported results are <code>onSuccess</code> and <code>onFail</code>, which can have their own optional callbacks as anonymous functions.
+              Supported results are <code>onSuccess</code>, <code>onFail</code> and <code>onTimeout</code> which can
+              have their own optional callbacks as anonymous functions. For these callbacks, the [context](#context) and [data](#data) parameters are passed.
           </td>
         </tr>
       </tbody>
@@ -830,7 +972,7 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
         }
     };
 
-    function onLoginRequest(context) {
+    var onLoginRequest = function(context) {
         httpPost('https://example.com/resource', {
             "email": "test@wso2.com"
         }, {
@@ -838,55 +980,93 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
             "Accept": "application/json"
         }, authConfig, {
             onSuccess: function(context, data) {
-                Log.info('httpPost call succeeded');
+                Log.info("Successfully invoked the external API.");
                 context.selectedAcr = data.status;
                 executeStep(1);
             },
             onFail: function(context, data) {
-                Log.info('httpPost call failed');
+                Log.info("Error occurred while invoking the external API.");
                 context.selectedAcr = 'FAILED';
+                executeStep(2);
+            },
+            onTimeout: function(context, data) {
+                Log.info("Invoking external API timed out.");
                 executeStep(2);
             }
         });
     }
     ```
 
-**Authentication Types and Properties**
+### Resolve multi attribute login identifier
 
-When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each authentication type and its required properties:
-`Enhanced secret management features are currently under development and will be available soon.`
+`resolveMultiAttributeLoginIdentifier(loginIdentifier, tenantDomain)`
 
-<table>
-    <thead>
+If [alternative login identifiers]({{base_path}}/guides/user-accounts/account-login/configure-login-identifiers/) are enabled, this function resolves the username from the provided login identifier.
+
+- **Parameters**
+
+    <table>
+      <tbody>
         <tr>
-            <th>Authentication Type</th>
-            <th>Properties</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>basicauth</td>
-            <td>username, password</td>
-            <td>Uses user credentials.</td>
+          <td><code>loginIdentifier</code></td>
+          <td>User provided login identifier.</td>
         </tr>
         <tr>
-            <td>apikey</td>
-            <td>apiKey, headerName</td>
-            <td>Uses an API key sent as a header.</td>
+          <td><code>organization</code></td>
+          <td>Organization name.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ```
+    var loginIdentifier = context.request.params.username[0];
+    var tenantDomain = context.tenantDomain;
+
+    var username = resolveMultiAttributeLoginIdentifier(loginIdentifier, tenantDomain);
+    ```
+
+### Update user password
+
+`updateUserPassword(user, newPassword, eventHandlers)`
+
+This function updates the user password.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>user</code></td>
+          <td>The user object.</td>
         </tr>
         <tr>
-            <td>clientcredential</td>
-            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional)</td>
-            <td>Uses client credentials to obtain an access token.</td>
+          <td><code>newPassword</code></td>
+          <td>New user password.</td>
         </tr>
         <tr>
-            <td>bearertoken</td>
-            <td>token</td>
-            <td>Uses a bearer token for authentication.</td>
+          <td><code>eventHandlers</code></td>
+          <td>Optional callback event handlers.</td>
         </tr>
-    </tbody>
-</table>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ```
+    updateUserPassword(user, "newPassword");
+
+    updateUserPassword(user, "newPassword", {
+      onSuccess: function(context) {
+        Log.info("Password updated successfully.");
+      },
+      onFail: function(context) {
+        Log.info("Password update failed.");
+      }
+    });
+    ```
+
 
 ## Object reference
 
@@ -1089,15 +1269,77 @@ It contains the necessary metadata for invoking the API when calling the callCho
   </tr>
 </table>
 
-If the consumer key and the consumer secret are added as secrets, they should be included in the ConnectionMetadata as aliases, as shown below.
+You can securely store consumer keys and secrets as **secrets** in conditional authentication scripts and refer to
+them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you may use:
+```angular2html
+var consumerSecret = secrets.clientSecret;
+```
+For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the 
+documentation.
+
+??? note "Change in behavior from 30th September 2024"
+    Starting from 30th September 2024, you are no longer required to set the aliases for consumer keys and consumer secrets when calling the callChoreo command. Instead, you may directly reference them using the `secrets.secretName` notation.
+    However, if you prefer, you may continue using the previous method as follows.
+      <table>
+          <tr>
+            <td><code>connectionMetadata.consumerKeyAlias</code></td>
+            <td>The name of the secret that stores the consumer key.</td>
+          </tr>
+          <tr>
+            <td><code>connectionMetadata.consumerSecretAlias</code></td>
+            <td>The name of the secret that stores the consumer secret.</td>
+          </tr>
+      </table>
+
+### AuthConfig
+
+When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each
+authentication type and its required properties:
+
+<table>
+    <thead>
+        <tr>
+            <th>Authentication Type</th>
+            <th>Properties</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>basic</td>
+            <td>username, password</td>
+            <td>Uses user credentials.</td>
+        </tr>
+        <tr>
+            <td>apikey</td>
+            <td>apiKey, headerName</td>
+            <td>Uses an API key sent as a header.</td>
+        </tr>
+        <tr>
+            <td>clientcredential</td>
+            <td>consumerKey, consumerSecret, tokenEndpoint, scope (optional, a space separated list of scopes)</td>
+            <td>Uses client credentials to obtain an access token.</td>
+        </tr>
+        <tr>
+            <td>bearer</td>
+            <td>token</td>
+            <td>Uses a bearer token for authentication.</td>
+        </tr>
+    </tbody>
+</table>
+
+You can securely store sensitive values of properties like username, password, consumerKey, consumerSecret as secrets in conditional authentication scripts and refer to them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you can use:
+```angular2html
+var consumerSecret = secrets.clientSecret;
+```
+
+For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the documentation.
+
+### Data
 
 <table>
   <tr>
-    <td><code>connectionMetadata.consumerKeyAlias</code></td>
-    <td>The name of the secret that stores the consumer key.</td>
-  </tr>
-  <tr>
-    <td><code>connectionMetadata.consumerSecretAlias</code></td>
-    <td>The name of the secret that stores the consumer secret.</td>
+    <td><code>data</code></td>
+    <td>The response data is a JSON object that contains the response data from the API call.</td>
   </tr>
 </table>

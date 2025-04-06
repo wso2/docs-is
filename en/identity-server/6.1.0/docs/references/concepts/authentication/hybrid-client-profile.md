@@ -7,6 +7,9 @@ in an authorization request selects the hybrid flow for authentication:
 - [code id_token](#code-id_token)
 - [code id_token token](#code-id_token-token)
 
+!!! warning
+    It is not recommended to use `code token` and `code id_token token` response types as they do not adhere to best practices and may introduce security risks.
+
 To understand how the ` response_type ` value specified
 in an authorization request selects the hybrid flow to be the
 authentication flow, let's take a look at the following

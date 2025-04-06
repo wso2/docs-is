@@ -1,0 +1,1 @@
+{% include "../../../../../../../includes/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md" %}

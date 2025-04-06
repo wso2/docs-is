@@ -61,16 +61,7 @@ Follow the steps below to register the **Sign-In With Ethereum** IdP in {{ produ
           <td>Client secret</td>
           <td>The client secret obtained from oidc.signinwithethereum.org.</td>
       </tr>
-    </table>  
-
-??? note C"laim syncing for JIT-provisioned users"
-    [IT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled by default for your external identity provider. If required, you can [disable JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/#disable-jit-user-provisioning).
-
-    When a user with a local {{ product_name }} account uses the same email address to log in through an external identity provider, {{ product_name }} syncs the claims from the JIT-provisioned user account and the local account.
-
-    According to the default behavior of {{ product_name }}, when JIT user provisioning is enabled, the user claims of the local user account are overridden by the user claims received from the external identity provider.
-
-    You can use {{ product_name }}'s [identity provider APIs]({{base_path}}/apis/idp/#/operations/getJITConfig) to configure claim syncing between the external identity provider and the local user accounts. This gives you the flexibility to customize the claim syncing behavior according to your specific requirements.
+    </table>
 
 5. In the created connection, go to the **Settings** tab and see the list of scopes to which Sign-In With Ethereum has granted permissions.
 
@@ -143,4 +134,4 @@ Follow the steps given below.
 
 ## Configure connection
 
-To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login) documentation.
+To learn more about other configurations available for the connection, refer to the [add federated login]({{base_path}}/guides/authentication/federated-login/) documentation.
