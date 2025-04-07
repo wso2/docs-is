@@ -157,7 +157,7 @@ If you prefer to build the chart from the source, follow the steps below:
 
 ## (Optional) Change of Keystore passwords
 
-We recommend generating the keystore using the default password "wso2carbon". However, if you have used a different password, update the following configurations accordingly:
+Generate the keystore using the default password "wso2carbon". However, if you have used a different password, update the following configurations accordingly:
 
 ```shell
 --set deploymentToml.keystore.internal.fileName="internal.p12" \
