@@ -13,7 +13,7 @@ Product observability enables rapid debugging of product issues. WSO2 Identity S
 
 Follow the steps below to set up the correlation logs related to the database calls.
 
-Following are the default correlation appender configuration. You can change any of these values using the `log4j2.properties`.
+Following are the default correlation appender configuration. You can change any of these values using the `log4j2.properties` file in the `<IS_HOME>/repository/conf` directory.
 
     ``` toml
     appender.CORRELATION.type = RollingFile
