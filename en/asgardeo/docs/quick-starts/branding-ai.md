@@ -24,9 +24,6 @@ whats_next:
 
 You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-application/){:target="_blank"} hosted app without setting up a local app or create and run a sample app locally using the Asgardeo React template. 
 
-
-
-
 === "Using Asgardeo Try-It hosted app"
 
     1. On the  {{product_name}} Console, navigate to **Home** and click **Try login with the Try It app**.
@@ -34,8 +31,6 @@ You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-appl
 
     !!! note "Note"
         {{product_name}} provides a hosted sample app called [Try-It]({{ base_path }}/get-started/try-it-application/){:target="_blank"} , which allows you to explore features like passwordless login, Multi-Factor Authentication (MFA), social logins, adaptive authentication, and user provisioning without the need to create or run a local app. Once you enable the {{product_name}} Try-It app, it will automatically register and configure an application in the {{product_name}} console, making it ready for you to use.
-
-    
 
 === "Using  Asgardeo React template "
 
@@ -85,22 +80,10 @@ https://choreo.dev
 
 the **Branding AI** extracts branding information from [https://choreo.dev/](https://choreo.dev/){:target="_blank"} and apply to the login flow Uis such as login, SMS and Email OTP, TOTP and sign-up pages. 
 
-
-
 Make sure to click **Save and Publish** save the generated branding design and apply it. 
-
 
 ![Branding]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image9.png){: width="800" style="display: block; margin: 0;"}
 
-
 When you revisit the **Try It** application, you will notice that the login and user sign-up screens have been updated with [https://choreo.dev/](https://choreo.dev/){:target="_blank"} branding. Try entering your organization's website URL to see how accurately Branding AI can generate the branding for you.
 
-
-
 ![Branding options]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image10.png){: width="800" style="display: block; margin: 0;"}
-
-
-
-
-
-
