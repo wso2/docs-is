@@ -326,22 +326,7 @@ Content-Type: application/json
 }
 ```
 
-Below is an example of a failed response due to invalid password format validation.
-
-Response from external service:
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "actionStatus": "FAILED",
-  "failureReason": "invalid_value",
-  "failureDescription": "Invalid password format."
-}
-
-```
-
-When the password update is initiated via the Recovery API, the failure results in the following error response being sent to the application.
+The following error response being sent to the application that initiated the password update request via the forgot password, forced password reset, or user invitation flow using the password reset API.
 
 Error response to the application:
 ```http
