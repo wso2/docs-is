@@ -289,8 +289,9 @@ nav:
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
             - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
-            - Implement logout: guides/authentication/oidc/add-logout.md
-            - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
+            - Implement logout:
+              - RP-initiated logout: guides/authentication/oidc/add-logout.md
+              - Back channel logout: guides/authentication/oidc/add-back-channel-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
