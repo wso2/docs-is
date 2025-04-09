@@ -309,7 +309,7 @@ Content-Type: application/json
 }
 ```
 
-This will result in the following error response being sent to the application that initiated the password update request over SCIM API.
+This will result in the following error response being sent to the application that initiated a password update request over SCIM API.
 
 Error response to the application:
 ```http
@@ -326,7 +326,7 @@ Content-Type: application/json
 }
 ```
 
-The following error response being sent to the application that initiated the password update request via the forgot password, forced password reset, or user invitation flow using the password reset API.
+And this will result in following error response being sent to the application that initiated a password update request via the forgot password, forced password reset, or user invitation flow using the password reset API.
 
 Error response to the application:
 ```http
