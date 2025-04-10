@@ -57,7 +57,7 @@ kubectl create secret tls is-tls \
 
 !!! note
 
-    - Ensure that the certificate includes `localhost` as a Subject Alternative Name (SAN) especially if the service is accessed locally.
+    - Ensure that the certificate includes `localhost` as a Subject Alternative Name (SAN) to support B2B related use cases without triggering certification validation errors.
     - When generating the keystore, use the default password `wso2carbon`.
 
 ## Create a Kubernetes secret for Java Keystore files
