@@ -38,9 +38,11 @@ Ensure that the specified namespace exists or create a new one using the followi
 kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
 ```
 
-## Create a Kubernetes TLS secret 
+## Create a Kubernetes TLS secret
 
-For this you need possess the SSL certificate and the key.
+To enable secure HTTPS communication for your service (e.g., WSO2 Identity Server) within the Kubernetes cluster, you need to provide a TLS certificate and key. Kubernetes uses these to serve traffic over HTTPS using Ingress controllers or other resources that terminate TLS.
+
+If you already have an SSL certificate and its private key (typically in .crt and .key format), you can create a Kubernetes TLS secret using the following command:
 
 ```shell
 kubectl create secret tls is-tls \
@@ -49,14 +51,18 @@ kubectl create secret tls is-tls \
 -n $NAMESPACE
 ```
 
+- `is-tls` is the name of the secret.
+
+- Replace `path/to/cert/file` and `path/to/key/file` with the actual paths to your certificate and key.
+
 !!! note
 
-    - Ensure that "localhost" is included as a Subject Alternative Name (SAN) when generating the public key certificate.
-    - When generating the keystore, use the default password "wso2carbon".
+    - Ensure that the certificate includes `localhost` as a Subject Alternative Name (SAN) especially if the service is accessed locally.
+    - When generating the keystore, use the default password `wso2carbon`.
 
 ## Create a Kubernetes secret for Java Keystore files
 
-The deployment requires four Java keystore files:
+To support secure communication and cryptographic operations, the deployment requires four Java keystore files. These keystores are mounted into the container and used for tasks such as internal encryption, message signing, TLS, and trust validation.
 
 - **Internal keystore (internal.p12):** Used for encrypting/decrypting internal data.
 - **Primary keystore (primary.p12):** Certificates used for signing messages that are communicated with external parties (such as SAML, OIDC id_token signing).
@@ -75,8 +81,8 @@ kubectl create secret generic keystores \
 !!! note
 
     - Make sure to import the public key certificates of all three keystores into the truststore (client-truststore.p12).
-    - To create these keystores and truststores, refer to the official guide: [How to Create New Keystores](https://is.docs.wso2.com/en/latest/deploy/security/keystores/create-new-keystores/)
-    - Ensure that the tls.p12 used here matches the one used for creating the **is-tls** TLS kubernetes secret above.
+    - To learn how to create these keystores and truststores, refer to [Create New Keystores]({{base_path}}/deploy/security/keystores/create-new-keystores/).
+    - The `tls.p12` file used here should contain the same certificate and key that were used to create the `is-tls` TLS secret above, to ensure consistency in TLS communication.
 
 ## Install the Helm chart
 
@@ -214,7 +220,7 @@ If your Kubernetes cluster has limited resources, you can adjust these values wh
 
 ## Obtain the External IP
 
-After deploying WSO2 Identity Server, you need to find its external IP address to access it outside the cluster. Run the following command to list the Ingress resources in your namespace:
+After deploying WSO2 Identity Server, you need to find its external IP address to access it outside the cluster. Run the following command to list the ingress resources in your namespace:
 
 ```shell
 kubectl get ing -n $NAMESPACE
