@@ -11,6 +11,7 @@
 
 <!-- Google Tag Manager -->
 <script>
+  if (window.location.hostname.endsWith('wso2.com')) {
     (function(w, d, s, l, i) {
       w[l] = w[l] || [];
       w[l].push({
@@ -26,5 +27,8 @@
         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-PSTXMT');
-  </script>
-  <!-- End Google Tag Manager -->
+  } else {
+    console.warn("GTM not loaded: not on an allowed domain");
+  }
+</script>
+<!-- End Google Tag Manager -->
