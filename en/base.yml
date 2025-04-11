@@ -134,6 +134,9 @@ extra:
     Javascript:
       link: complete-guides/javascript/introduction
       level: 2
+    B2B:
+      link: complete-guides/nextjs-b2b/introduction
+      level: 3
     Redirect-Based:
       link: complete-guides/nextjs/introduction
       level: 3

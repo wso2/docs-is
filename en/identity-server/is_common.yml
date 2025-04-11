@@ -28,6 +28,7 @@ theme:
 
 watch:
   - ../../theme/material
+  - ../../includes
   - ../../base.yml
   - ../is_common.yml
 

@@ -92,6 +92,7 @@ extra:
 
 watch:
   - ../theme/material
+  - ../includes
   - ../base.yml
 
 hooks:
