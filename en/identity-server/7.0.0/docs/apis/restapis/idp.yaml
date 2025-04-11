@@ -1703,6 +1703,305 @@ paths:
               $ref: '#/components/schemas/Roles'
         description: This represents the role config to be updated.
         required: true
+  '/trusted-token-issuers/{trusted-token-issuer-id}':
+    get:
+      tags:
+        - Trusted Token Issuers
+      summary: |
+        Retrieve IdP by trusted token issuer's ID
+      description: "This API provides the capability to retrieve the trusted token issuer details by using its ID.\n\n<b>Scope(Permission) required:</b> `internal_idp_view`"
+      operationId: getTrustedTokenIssuer
+      parameters:
+        - name: trusted-token-issuer-id
+          in: path
+          description: ID of the trusted token issuer.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrustedTokenIssuerResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TrustedTokenIssuerResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api//server/v1/trusted-token-issuers/{trusted-token-issuer-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    patch:
+      tags:
+        - Trusted Token Issuers
+      summary: >
+        Patch a trusted token issuer property by ID
+      description: "This API provides the capability to update a trusted token issuer property using patch request. Trusted token issuer patch is supported only for key-value pairs.\n\n<b>Scope(Permission) required:</b> `internal_idp_update`"
+      operationId: patchTrustedTokenIssuer
+      parameters:
+        - name: trusted-token-issuer-id
+          in: path
+          description: ID of the trusted token issuer.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the updated trusted token issuer.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrustedTokenIssuerResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https:/localhost:9443/api/server/v1/trusted-token-issuers/{trusted-token-issuer-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "operation": "REPLACE",
+              "path": "/homeRealmIdentifier",
+              "value": "google"
+            }
+            ]'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+        required: true
+    delete:
+      tags:
+        - Trusted Token Issuers
+      summary: |
+        Delete a trusted token issuer by ID
+      description: "This API provides the capability to delete a trusted token issuer by giving its ID. \n\n<b>Scope(Permission) required:</b> ` internal_idp_delete`"
+      operationId: deleteTrustedTokenIssuer
+      parameters:
+        - name: trusted-token-issuer-id
+          in: path
+          description: ID of the trusted token issuer
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/forceQueryParam'
+      responses:
+        '204':
+          description: Successfully Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/trusted-token-issuers/t{rusted-token-issuer-id}?force=false' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
+  '/identity-providers/{identity-provider-id}/implicit-association':
+    get:
+      tags:
+        - Implicit Association
+      summary: |
+        Get implicit association config of an IdP
+      description: "This API provides the implicit association config of an IdP including the status and the specified attributes for lookup.\n\n<b>Scope required:</b> `internal_idp_view`"
+      operationId: getImplicitAssociation
+      parameters:
+        - name: identity-provider-id
+          in: path
+          description: ID of the identity provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociationResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+      - lang: Curl
+        source: |
+          curl --request GET \
+          --url https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/implicit-association \
+          --header 'Accept: application/json, application/xml' \
+          --header 'Authorization: Bearer {bearer-token}'
+    put:
+      tags:
+        - Implicit Association
+      summary: |
+        Update implicit association config of an IdP
+      description: "This API provides the capability to update the implicit association config of an identity provider by specifying the identity provider ID.\n\n<b>Scope required:</b> `internal_idp_update`"
+      operationId: updateImplicitAssociation
+      parameters:
+        - name: identity-provider-id
+          in: path
+          description: ID of the identity provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the updated federated association config.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociationResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --request PUT \
+            --url https://localhost:9443/api/server/v1/identity-providers/{identity-provider-id}/implicit-association \
+            --header 'Accept: application/json' \
+            --header 'Authorization: Bearer {bearer-token}' \
+            --header 'Content-Type: application/json' \
+            --data '{
+            "isEnabled": true,
+            "lookupAttribute": [
+              "http://wso2.org/claims/emailaddress"
+            ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssociationRequest'
+        description: This represents the implicit association configs to be updated.
+        required: true
   '/identity-providers/{identity-provider-id}/provisioning/jit':
     get:
       tags:
@@ -2488,6 +2787,17 @@ components:
           - text/yaml
           - text/xml
           - text/json
+    sortOrderQueryParam:
+      in: query
+      name: sortOrder
+      required: false
+      description: >-
+        Define the order in which the retrieved tenants should be sorted.
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
   securitySchemes:
     BasicAuth:
       type: http
@@ -2769,6 +3079,8 @@ components:
           $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
         provisioning:
           $ref: '#/components/schemas/ProvisioningResponse'
+        implicitAssociation:
+          $ref: '#/components/schemas/AssociationRequest'
         self:
           type: string
           example: /api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000
@@ -2925,6 +3237,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MetaProperty'
+    AssociationRequest:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+          example: false
+        lookupAttribute:
+          type: array
+          items:
+            type: string
+          example: [ 'email' ]
+    AssociationResponse:
+      type: object
+      properties:
+        isEnabled:
+          type: boolean
+          example: false
+        lookupAttribute:
+          type: array
+          items:
+            type: string
+          example: [ 'email' ]
     ProvisioningRequest:
       type: object
       properties:
@@ -3058,6 +3392,26 @@ components:
         localRole:
           type: string
           example: manager
+    IdPGroupsConfig:
+      type: array
+      description: IdP groups supported by the IdP.
+      items:
+        $ref: '#/components/schemas/IdPGroup'
+      minItems: 0
+    IdPGroup:
+      type: object
+      required:
+        - name
+      description: Represents an IdP group supported by an Identity Provider.
+      properties:
+        name:
+          type: string
+          description: Name of the IdP group
+          example: google-admin
+        id:
+          type: string
+          description: UUID of the IdP group
+          example: 6b1f8513-3de0-4f28-9cad-b7400dbc94ae
     Claims:
       type: object
       properties:
@@ -3271,6 +3625,83 @@ components:
       required:
         - name
         - idp
+    TrustedTokenIssuerPOSTRequest:
+      type: object
+      required:
+        - name
+        - issuer
+        - certificate
+      properties:
+        name:
+          type: string
+          example: google
+        description:
+          type: string
+          example: "Trusted Token Issuer"
+        image:
+          type: string
+          example: "issuer-logo-url"
+        templateId:
+          type: string
+          example: '8ea23303-49c0-4253-b81f-82c0fe6fb4a0'
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+        alias:
+          type: string
+          example: 'https://localhost:9444/oauth2/token'
+        issuer:
+          type: string
+          example: 'https://www.issuer.com'
+        claims:
+          $ref: '#/components/schemas/Claims'
+    TrustedTokenIssuerResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '123e4567-e89b-12d3-a456-556642440000'
+        name:
+          type: string
+          example: google
+        description:
+          type: string
+        templateId:
+          type: string
+          example: '8ea23303-49c0-4253-b81f-82c0fe6fb4a0'
+        isEnabled:
+          type: boolean
+          default: true
+          example: true
+        isPrimary:
+          type: boolean
+          default: false
+        image:
+          type: string
+          example: "google-logo-url"
+        isFederationHub:
+          type: boolean
+          example: false
+        homeRealmIdentifier:
+          type: string
+          example: localhost
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+        alias:
+          type: string
+          example: 'https://localhost:9444/oauth2/token'
+        issuer:
+          type: string
+          example: 'https://www.idp.com'
+        claims:
+          $ref: '#/components/schemas/Claims'
+        roles:
+          $ref: '#/components/schemas/Roles'
+        groups:
+          $ref: '#/components/schemas/IdPGroupsConfig'
+        federatedAuthenticators:
+          $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
+        provisioning:
+          $ref: '#/components/schemas/ProvisioningResponse'
     Service:
       type: string
       example: 'Authentication'
