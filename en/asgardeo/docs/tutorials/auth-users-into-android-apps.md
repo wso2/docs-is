@@ -344,4 +344,4 @@ Let's walk through the end-to-end flow of the application we built in this tutor
 
 In this tutorial, we covered the steps to add authentication to an Android application using Asgardeo as the CIAM provider. The AppAuth SDK was used for integrating the authentication and authorization capabilities. We also looked at the configurations required on the Asgardeo side for the application.
 
-Starting with a basic Android application without user authentication, we modified the code to successfully integrate the login, logout, and user info retrieval methods with Asgardeo. You can access the [completed source code](https://github.com/nilasini/MealMagicAndroidApp) of the application.
+Starting with a basic Android application without user authentication, we modified the code to successfully integrate the login, logout, and user info retrieval methods with Asgardeo. You can access the [completed source code](https://github.com/asgardeo-samples/asgardeo-android-samples/tree/main/MealMagicAndroidApp) of the application.

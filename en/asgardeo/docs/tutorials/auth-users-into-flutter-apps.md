@@ -397,4 +397,4 @@ In this tutorial, we demonstrated how to add authentication to a Flutter applica
 
 We also provided a detailed guide on how to configure the application on Asgardeo. Starting with a sample Flutter application without user authentication implemented, we modified the sign-in, sign-out, and user info retrieval methods to successfully integrate authentication and profile info retrieval capabilities using Asgardeo.
 
-The [completed source code](https://github.com/LakshiAthapaththu/asgardeo-flutter-integration-demo/tree/custom-application-asgardeo-integration) of the application.
+The [completed source code](https://github.com/asgardeo-samples/asgardeo-flutter-samples/tree/main/asgardeo-flutter-integration-demo) of the application.
