@@ -125,6 +125,9 @@ extra:
     Angular:
       link: complete-guides/angular/introduction
       level: 2
+    Vue:
+      link: complete-guides/vue/introduction
+      level: 2
     Node.js:
       link: complete-guides/nodejs/introduction
       level: 2
@@ -194,6 +197,9 @@ extra:
       level: 2
     Angular:
       icon: fontawesome/brands/angular
+      level: 2
+    Vue:
+      icon: fontawesome/brands/vuejs
       level: 2
     Javascript:
       icon: fontawesome/brands/js
