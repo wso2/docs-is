@@ -377,7 +377,10 @@ nav:
         - Organizations: guides/organization-management/index.md
         - Set up organizations: guides/organization-management/manage-organizations.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-        - Share applications: guides/organization-management/share-applications.md
+        - Application Management:
+          - Share applications: guides/organization-management/share-applications.md
+          - Organization applications: guides/organization-management/organization-applications.md
+        - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
         - Onboard admins: 
             - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
