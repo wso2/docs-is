@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuzzy Search</title>
+  <script src="https://cdn.jsdelivr.net/npm/fuzzysort@3.1.0/fuzzysort.min.js"></script>
+  <style>
+    /* Styling for the dropdown search results */
+    .search_results {
+      display: none; /* Initially hidden */
+      position: absolute;
+      width: 300px; /* Adjust width as needed */
+      max-height: 300px;
+      overflow-y: auto;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      z-index: 1000;
+      padding: 10px;
+    }
+
+    .search_results li {
+      list-style: none;
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .search_results li:last-child {
+      border-bottom: none;
+    }
+
+    .search_results a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      display: block;
+    }
+
+    .search_results p {
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0 0;
+    }
+
+    /* Ensure the input is above the results */
+    .search-container {
+      position: relative;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="search-container">
+  <input type="text" id="searchInput" style="color: black;" 
+    placeholder="Search..." 
+    oninput="fuzzySearch(this.value)"
+    onfocus="toggleSearchBox(true)" 
+    onblur="toggleSearchBox(false)">
+  
+  <div class="search_results" id="searchResults"></div>
+</div>
+
+<script>
+  let documents;
+  const docsBasePath = "http://localhost:8000/asgardeo/docs/";
+  const searchIndexPath = docsBasePath + "search/search_index.json";
+
+  (async function () {
+    const docResponse = await fetch(searchIndexPath);
+    documents = await docResponse.json();
+  })();
+
+  function fuzzySearch(query) {
+    const resultsContainer = document.getElementById("searchResults");
+
+    if (query.trim() === "") {
+      resultsContainer.style.display = "none";
+      return;
+    }
+
+    // Perform fuzzy search
+    const results = fuzzysort.go(query, documents.docs, { 
+      all: false,
+      threshold: 0.5,
+      limit: 15,
+      key: 'text' });
+
+    // Clear previous results
+    resultsContainer.innerHTML = "";
+
+    // Show search results box
+    resultsContainer.style.display = "block";
+
+    if (results.length === 0) {
+      resultsContainer.innerHTML = "<li>No results found</li>";
+      return;
+    }
+
+    // Populate results
+    for (const result of results) {
+      const doc = result.obj;
+
+      const listItem = document.createElement("li");
+
+      const link = document.createElement("a");
+      link.href = docsBasePath + doc.location;
+      link.textContent = doc.title;
+      link.target = "_blank";
+
+      const description = document.createElement("p");
+      description.innerHTML = doc.text; // Render HTML instead of plain text
+
+      listItem.appendChild(link);
+      listItem.appendChild(description);
+      resultsContainer.appendChild(listItem);
+    }
+  }
+
+  function toggleSearchBox(show) {
+    const resultsContainer = document.getElementById("searchResults");
+    if (show && document.getElementById("searchInput").value.trim() !== "") {
+      resultsContainer.style.display = "block";
+    } else {
+      setTimeout(() => { resultsContainer.style.display = "none"; }, 200);
+    }
+  }
+</script>
+
+</body>
+</html>
