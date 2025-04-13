@@ -47,11 +47,30 @@ Follow the steps below to learn how you can configure Salesforce for provisionin
                 </div>
                 </td>
             </tr>
+            <tr>
+                <td>Enable Client Credentials Flow</td>
+                <td>Select the checkbox to enable. This allows token generation using the Client Credentials grant. 
+                    A security warning will appear — review and accept it to proceed. </br>
+                    <div class="admonition note">
+                        <p class="admonition-title">Important</p>
+                        <p>When enabled, any app with access to the client ID and secret can obtain a token. Keep these credentials secure.</p>
+                    </div>
+                </td>
+            </tr>
         </table>
 
     4. Click **Save** and then **Continue** to add the connected app.
 
-    5. Take note of the following about the connected app.
+    5. Select an **Execution User** for the flow.
+
+        1. Under connected app detail page, click **Manage**.
+        2. Click **Edit Policies**.
+        3. Under **Client Credentials Flow** , for **Run As**, 
+        click on the magnifying glass icon, and find the user that you want to assign the client credentials flow. 
+        The execution user must have the API Only User permission.
+        4. Save your changes.
+
+    6. Take note of the following about the connected app.
 
         1. Under **Consumer Key and Secret**, click **Manage Consumer Details** and get the,
             - Consumer Key - A value that the client uses to identify itself
