@@ -96,7 +96,7 @@
 :root, [data-md-color-scheme=slate] {
     /* START OF - Default Material Theme Overrides  */
     --md-default-bg-color: #232327;
-    --md-default-letter-spacing: 1px;
+    --md-default-letter-spacing: 0.5px;
     --md-redoc-example-bg-color: #36363b;
     /* END OF - Default Material Theme Overrides  */
 
