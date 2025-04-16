@@ -1,25 +1,35 @@
 ---
 template: templates/quick-start.html
-heading: LoginFlow AI
-description: Welcome to the Quickstart Guide for <b>LoginFlow AI</b>! In this guide, you’ll learn how to use Asgardeo LoginFlow AI to generate login flows for your applications, including passwordless login, Multi-Factor Authentication (MFA), social logins, and adaptive authentication logic that’s automatically generated. 
-
-what_you_will_learn:
-  - Use Login Flow AI to generate simple login 
-  - Use Login Flow AI to generate MFA login 
-  - Use Login Flow AI to generate Passwordless login 
-  - Use Login Flow AI to generate risk-based adaptive login 
-prerequisites:
-  - About 15 minutes
-  - <a href="{{ base_path }}/get-started/create-asgardeo-account/">Asgardeo account</a>
-
-
-whats_next:
-  - Try out <a href="{{ base_path }}/quick-starts/branding-ai/" target="_blank"> Branding AI Quickstart </a>
-  - Read <a href="{{ base_path }}/guides/authentication/login-flow-ai/" target="_blank"> product documentation </a>
-  - Add <a href="{{ base_path }}/guides/authentication/mfa/" target="_blank"> MFA login </a>
-  - Add <a href="{{ base_path }}/guides/authentication/passwordless-login/" target="_blank"> Passwordles login </a>
-  - Add <a href="{{ base_path }}/guides/authentication/conditional-auth/" target="_blank"> Adaptive Authentication</a>
 ---
+
+<script>
+  const meta = {
+    what_you_will_learn: [
+      "Use Login Flow AI to generate simple login",
+      "Use Login Flow AI to generate MFA login",
+      "Use Login Flow AI to generate Passwordless login",
+      "Use Login Flow AI to generate risk-based adaptive login"
+    ],
+    prerequisites: [
+      "About 15 minutes",
+      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>{{ product_name }} account</a>"
+    ],
+    whats_next: [
+      "Try out <a href='{{ base_path }}/quick-starts/branding-ai/' target='_blank'>Branding AI Quickstart</a>",
+      "Read <a href='{{ base_path }}/guides/authentication/login-flow-ai/' target='_blank'>product documentation</a>",
+      "Add <a href='{{ base_path }}/guides/authentication/mfa/' target='_blank'>MFA login</a>",
+      "Add <a href='{{ base_path }}/guides/authentication/passwordless-login/' target='_blank'>Passwordless login</a>",
+      "Add <a href='{{ base_path }}/guides/authentication/conditional-auth/' target='_blank'>Adaptive Authentication</a>"
+    ]
+  };
+</script>
+
+# LoginFlow AI
+
+Welcome to the Quickstart Guide for <b>LoginFlow AI</b>! In this guide, you’ll learn how to use {{ product_name }} LoginFlow AI to generate login flows for your applications, including passwordless login, Multi-Factor Authentication (MFA), social logins, and adaptive authentication logic that’s automatically generated.
+
+[//] STEPS_START
+
 ## Configure Connections in {{ product_name }}
 
 MFA, passwordless and social providers are configured in {{product_name}} as **connections**. To start, set up the following **connections** in the {{product_name}} console. 
@@ -81,7 +91,7 @@ You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-appl
 
 2.  Go to the **Login Flow** tab of the application and click the **Try Login Flow AI** button to open the Login Flow AI prompt. 
 
-![Login Flow]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image1.png){: width="800" style="display: block; margin: 0;"}
+![Login Flow]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image1.png){: width="800" style="display: block; margin: 0;"}
 
 
 ## **Try out Login Flow AI** - Password or MagicLink 
@@ -96,7 +106,7 @@ Password or MagicLink
 
 The following login flow with username & password and Magic Link should be generated in the Login Flow designer. 
 
-![username & password and Magic Link]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image2.png){: width="800" style="display: block; margin: 0;"}
+![username & password and Magic Link]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image2.png){: width="800" style="display: block; margin: 0;"}
 
 
 Click the **Update** button to save the above login flow configuration. 
@@ -107,7 +117,7 @@ Next, click **Try Login** button in the top right corner of your screen. This wi
 
 Now you can try logging to the **Try It** application using either username & password or Magic Link.   
 
-![username & password and Magic Link login]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image3.png){: width="800" style="display: block; margin: 0;"}
+![username & password and Magic Link login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image3.png){: width="800" style="display: block; margin: 0;"}
 
 
 !!! Tip
@@ -127,7 +137,7 @@ Password or Github
 
 The following login flow with username & password and Github should be generated in the Login Flow designer. 
 
-![username & password and Github]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image4.png){: width="800" style="display: block; margin: 0;"}
+![username & password and Github]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image4.png){: width="800" style="display: block; margin: 0;"}
 
 
 Click the **Update** button to save the above login flow configuration. 
@@ -137,7 +147,7 @@ Next, click the **Try Login** button in the top right corner of your screen. Thi
 
 Now you can try logging to the **Try It** application using either username & password or Github.   
 
-![username & password and Github login]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image5.png){: width="800" style="display: block; margin: 0;"}
+![username & password and Github login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image5.png){: width="800" style="display: block; margin: 0;"}
 
 !!! Important
 
@@ -162,7 +172,7 @@ Password or Github then Email OTP
 
 The following login flow with username & password and Github should be generated in the Login Flow designer. 
 
-![username & password and Github]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image4.png){: width="800" style="display: block; margin: 0;"}
+![username & password and Github]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image4.png){: width="800" style="display: block; margin: 0;"}
 
 
 Click the **Update** button to save the above login flow configuration. 
@@ -172,11 +182,11 @@ Next, click the **Try Login** button in the top right corner of your screen. Thi
 
 First the **Try It** application prompt you to login using either username & password or Github.   
 
-![username & password and Github login]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image5.png){: width="800" style="display: block; margin: 0;"}
+![username & password and Github login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image5.png){: width="800" style="display: block; margin: 0;"}
 
 If that successful, the application will ask you to enter the Email OTP that has sent to the email address of the current user. 
 
-![Email OTP]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image6.png){: width="800" style="display: block; margin: 0;"}
+![Email OTP]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image6.png){: width="800" style="display: block; margin: 0;"}
 
 !!! Tip
 
@@ -196,7 +206,7 @@ Password or Github then Email OTP if the user has manager role
 
 You should see the same login flow design as in the previous scenario. Additionally, Login Flow AI will automatically generate adaptive authentication logic for you this time. This logic makes the Email OTP prompt for two-factor authentication (2FA) conditional based on the user's role. If the logged-in user has the **manager** role, they will be prompted to provide an Email OTP. Otherwise, the user can log in using either their username & password or GitHub credentials only. 
 
-![adaptive authentication logic]({{base_path}}/quick-starts/assets/login-and-branding-ai/img/image7.png){: width="800" style="display: block; margin: 0;"}
+![adaptive authentication logic]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image7.png){: width="800" style="display: block; margin: 0;"}
 
 
 Click the **Update** button to save the above login flow configuration. 
@@ -221,17 +231,8 @@ Next, Let's add our test user to the **manager role**.
 6. Go to the **Users** tab of the manager role you just created and click the ** Assign Users" button. 
 7. Select your test user from the drop-down list and click **Update** button to complete the role assignment. 
 
- 
-
-
 !!! Tip
 
     You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Magic Link login code.  TODO - Github -->
 
-
-
-
-
-
-
-
+[//] STEPS_END
