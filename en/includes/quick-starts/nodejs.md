@@ -10,7 +10,7 @@ Welcome to the Node.js Quickstart guide! In this document, you will learn to bui
 - Select **Traditional Web Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. (*Ensure that the protocol remains set to OpenID Connect (OIDC).)* 
 
 !!! Example
-    Name : asgardeo-nodejs
+    Name : {{ product }}-nodejs
 
     Authorized redirect URL: http://localhost:3000/oauth2/redirect, http://localhost:3000/
 
@@ -36,9 +36,9 @@ Create your new Node.js app using npx `express-generator` command.
 === "npm"
 
     ```bash
-    npx express-generator asgardeo-nodejs --view=ejs
+    npx express-generator {{ product }}-nodejs --view=ejs
 
-    cd asgardeo-nodejs
+    cd {{ product }}-nodejs
 
     npm install
 
@@ -48,9 +48,9 @@ Create your new Node.js app using npx `express-generator` command.
 === "yarn"
 
     ```bash
-    yarn dlx express-generator asgardeo-nodejs --view=ejs
+    yarn dlx express-generator {{ product }}-nodejs --view=ejs
 
-    cd asgardeo-nodejs
+    cd {{ product }}-nodejs
 
     yarn install
 
@@ -60,9 +60,9 @@ Create your new Node.js app using npx `express-generator` command.
 === "pnpm"
 
     ```bash
-    pnpm dlx express-generator asgardeo-nodejs --view=ejs
+    pnpm dlx express-generator {{ product }}-nodejs --view=ejs
 
-    cd asgardeo-nodejs
+    cd {{ product }}-nodejs
 
     pnpm install
 

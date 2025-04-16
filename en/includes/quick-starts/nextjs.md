@@ -31,9 +31,9 @@ Create your new Next.js app.
 === "npm"
 
     ``` bash
-    npx create-next-app@latest --typescript asgardeo-nextjs
+    npx create-next-app@latest --typescript {{ product }}-nextjs
 
-    cd asgardeo-nextjs
+    cd {{ product }}-nextjs
 
     npm install
 
@@ -43,9 +43,9 @@ Create your new Next.js app.
 === "yarn"
 
     ``` bash
-    yarn create next-app --typescript asgardeo-nextjs
+    yarn create next-app --typescript {{ product }}-nextjs
 
-    cd asgardeo-nextjs
+    cd {{ product }}-nextjs
 
     yarn install
 
@@ -55,9 +55,9 @@ Create your new Next.js app.
 === "pnpm"
 
     ``` bash
-    pnpm create next-app --typescript asgardeo-nextjs
+    pnpm create next-app --typescript {{ product }}-nextjs
 
-    cd asgardeo-nextjs
+    cd {{ product }}-nextjs
 
     pnpm install
 

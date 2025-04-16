@@ -10,7 +10,7 @@ Welcome to the JavaScript Quickstart guide! In this document, you will learn to 
 - Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
 
 !!! Example
-    **name:** asgardeo-javascript
+    **name:** {{ product }}-javascript
     
     **Authorized redirect URL:** http://localhost:5173
 
@@ -31,9 +31,9 @@ Create (a.k.a scaffold) your new JavaScript app using Vite.
 === "npm"
 
     ```bash
-    npm create vite@latest asgardeo-javascript -- --template vanilla
+    npm create vite@latest {{ product }}-javascript -- --template vanilla
 
-    cd asgardeo-javascript
+    cd {{ product }}-javascript
 
     npm install
 
@@ -43,9 +43,9 @@ Create (a.k.a scaffold) your new JavaScript app using Vite.
 === "yarn"
 
     ```bash
-    yarn create vite@latest asgardeo-javascript -- --template vanilla
+    yarn create vite@latest {{ product }}-javascript -- --template vanilla
 
-    cd asgardeo-javascript
+    cd {{ product }}-javascript
 
     yarn install
 
@@ -55,9 +55,9 @@ Create (a.k.a scaffold) your new JavaScript app using Vite.
 === "pnpm"
 
     ```bash
-    pnpm create vite@latest asgardeo-javascript -- --template vanilla
+    pnpm create vite@latest {{ product }}-javascript -- --template vanilla
 
-    cd asgardeo-javascript
+    cd {{ product }}-javascript
 
     pnpm install
 
