@@ -272,6 +272,83 @@ extra:
       description: A client SDK to integrate {{ product_name }} into Android mobile applications using "app-native authentication"
       documentation_link: https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html
       source_link: https://github.com/asgardeo/mobile-ui-sdks/tree/main/android
+
+  connectors:
+    - name: Kakao Authenticator
+      icon: assets/img/logo/kakao-logo.png
+      description: The Kakao Authenticator allows you to authenticate a user using Kakao through WSO2 Identity Server.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-kakao
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-kakao/blob/master/docs/README_LATEST.md
+    - name: Naver Authenticator
+      icon: assets/img/logo/naver-logo.png
+      description: The Naver Authenticator allows you to authenticate a user using Naver through WSO2 Identity Server.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-naver
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-naver/blob/master/docs/README_LATEST.md
+    - name: LinkedIn
+      icon: assets/img/logo/linkedin-logo.png
+      description: The LinkedIn authenticator allows you to authenticate users using LinkedIn through the WSO2 Identity Server.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-linkedIn
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-linkedIn/blob/master/docs/README.md
+    - name: iProov Authenticator
+      icon: assets/img/logo/iproov-logo.png
+      description: iProov allows users to authenticate requests using facial biometrics.</br></br>
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-iproov
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md
+    - name: TypingDNA
+      icon: assets/img/logo/typingdna-logo.png
+      description: TypingDNA leverages typing biometrics to provide users with seamless, user-friendly, risk-based authentication (RBA).
+      source_link: https://store.wso2.com/connector/identity-conditional-auth-typingdna
+      documentation_link: https://github.com/wso2-extensions/identity-conditional-auth-typingdna/blob/v1.0.9/docs/README.md
+    - name: Duo Security
+      icon: assets/img/logo/duo-logo.png
+      description: The Duo Security authenticator allows you to authenticate a user using Duo Security through WSO2 Identity Server.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-duo
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-duo/blob/master/docs/README.md
+    - name: HYPR Authenticator
+      icon: assets/img/logo/hypr-logo.png
+      description: The HYPR connector offers a hassle-free approach to multi-factor authentication without the need for passwords.</br></br>
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-hypr
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-hypr/blob/main/README.md
+    - name: UAEPass Authenticator
+      icon: assets/img/logo/uaepass-logo.png
+      description: The UAEPass Authenticator is based on OpenID Connect, and is configured as a federated authenticator in WSO2 Identity Server.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-uaepass
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-uaepass/tree/main/docs
+    - name: Workflow
+      icon: assets/img/logo/workflow-logo.png
+      description: The WSO2 Identity Server Workflow Connector enhances control over identity operations by allowing organizations to implement customized workflows.
+      source_link: https://store.wso2.com/connector/identity-workflow-impl-bps
+      documentation_link: https://github.com/wso2-extensions/identity-workflow-impl-bps/blob/master/docs/config.md
+    - name: JMS Cache Sync Manager
+      icon: assets/img/logo/jms-logo.png
+      description: This connector enables WSO2 Identity Server to work in Active-Active mode by syncing data across multiple clusters using a message broker.
+      source_link: https://store.wso2.com/connector/carbon-cache-sync-manager
+      documentation_link: https://github.com/wso2-extensions/carbon-cache-sync-manager/blob/main/README.md
+    - name: WS-Trust Authenticator
+      icon: assets/img/logo/wstrust-logo.png
+      description: The Security Token Service (STS) component of WSO2 Identity Server enables you to configure the generic STS to issue claim-based security tokens.
+      source_link: https://store.wso2.com/connector/identity-inbound-auth-sts
+      documentation_link: https://github.com/wso2-extensions/carbon-cache-sync-manager/blob/main/README.md
+    - name: Evident Identity Verification
+      icon: assets/img/logo/evident-logo.png
+      description: Connect WSO2 Identity Server with Evident for external identity verifications that allow you to verify the identities of your users.</br></br>
+      source_link: https://store.wso2.com/connector/identity-verification-evident
+      documentation_link: https://github.com/wso2-extensions/identity-verification-evident/tree/v1.0.0/docs
+    - name: Password Policy
+      icon: assets/img/logo/passwordpolicy-logo.png
+      description: The Password Policy authenticator prompts users to reset their expired passwords during authentication and allows email notifications before expiration.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-passwordPolicy
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-passwordPolicy/blob/master/docs/README.md
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
   redoc_theme: '{
     "colors": {
       "primary": { "main": "#ff7300" }
