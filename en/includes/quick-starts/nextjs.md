@@ -8,7 +8,7 @@
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>Asgardeo account</a>",
+      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>{{ product_name }} account</a>",
       "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
       "A favorite text editor or IDE"
     ],
@@ -20,7 +20,7 @@
 
 # Next.JS Quickstart
 
-Welcome to the Next.js Quickstart guide! In this document, you will learn to build a Next.js app, add user login and display user profile information using Asgardeo.
+Welcome to the Next.js Quickstart guide! In this document, you will learn to build a Next.js app, add user login and display user profile information using {{ product_name }}.
 
 [//] STEPS_START
 

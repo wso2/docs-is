@@ -19,7 +19,7 @@
 
 # JavaScript Quickstart
 
-Welcome to the JavaScript Quickstart guide! In this document, you will learn to build a single-page JavaScript app, add user login and display user profile information using Asgardeo.
+Welcome to the JavaScript Quickstart guide! In this document, you will learn to build a single-page JavaScript app, add user login and display user profile information using {{ product_name }}.
 
 [//] STEPS_START
 

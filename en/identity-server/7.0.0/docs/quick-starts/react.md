@@ -1,24 +1,37 @@
 ---
 template: templates/quick-start.html
-heading: React Quickstart
-description: Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user login and display user profile information using WSO2 Identity Server.
-what_you_will_learn:
-  - Create new React app using Vite
-  - Install <a href="https://www.npmjs.com/package/@asgardeo/auth-react" target="_blank" rel="noopener noreferrer">@asgardeo/auth-react</a> package
-  - Add user login and logout
-  - Display user profile information
-prerequisites:
-  - About 15 minutes
-  - <a href="{{ base_path }}/get-started/quick-set-up/">Set-up WSO2 Identity Server</a>
-  - Install <a href="https://nodejs.org/en/download/package-manager" target="_blank" rel="noopener noreferrer">Node.js</a> on your system.
-  - Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.
-  - A favorite text editor or IDE
-source_code: <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app" target="_blank" class="github-icon">React Vite App Sample</a>
-whats_next:
-  - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
-  - Try out {{product_name}} user onboarding complete guide for React
-  - Read security best practices for React app guide
 ---
+
+<script>
+  const meta = {
+    what_you_will_learn: [
+      "Create new React app using Vite",
+      "Install <a href='https://www.npmjs.com/package/@asgardeo/auth-react' target='_blank' rel='noopener noreferrer'>@asgardeo/auth-react</a> package",
+      "Add user login and logout",
+      "Display user profile information"
+    ],
+    prerequisites: [
+      "About 15 minutes",
+      "<a href='{{ base_path }}/get-started/quick-set-up/'>Set-up {{ product_name }}</a>",
+      "Install <a href='https://nodejs.org/en/download/package-manager' target='_blank' rel='noopener noreferrer'>Node.js</a> on your system.",
+      "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
+      "A favorite text editor or IDE"
+    ],
+    source_code: "<a href='https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app' target='_blank' class='github-icon'>React Vite App Sample</a>",
+    whats_next: [
+      "Try out <a href='{{ base_path }}/complete-guides/react/introduction/' target='_blank'>{{ product_name }} complete React guide</a>",
+      "Try out {{ product_name }} user onboarding complete guide for React",
+      "Read security best practices for React app guide"
+    ]
+  };
+</script>
+
+# React Quickstart
+
+Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user login and display user profile information using {{ product_name }}.
+
+[//] STEPS_START
+
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to Applications > New Application.
@@ -205,3 +218,5 @@ function App() {
 
 export default App
 ```
+
+[//] STEPS_END

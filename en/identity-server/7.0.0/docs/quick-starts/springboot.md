@@ -1,24 +1,32 @@
 ---
 template: templates/quick-start.html
-heading: Spring Boot Quickstart
-description: Welcome to the Spring Boot Quickstart guide! In this document, you will learn to build a Spring Boot web app, add user login and display user profile information using WSO2 Identity Server.
-what_you_will_learn:
-  - Create new Spring Boot app
-  - Add and configure Spring OAuth2 Client
-  - Add user login and logout
-  - Display user profile information
-prerequisites:
-  - About 15 minutes
-  - <a href="{{ base_path }}/get-started/quick-set-up/">Set-up WSO2 Identity Server</a>
-  - Java 17 or later
-  - Maven 3.5+ or Gradle 7.5+ 
-  - A favorite text editor or IDE
-source_code: <a href="" target="_blank" class="github-icon">Spring Boot App Sample</a>
-whats_next:
-#   - Try out <a href="" target="_blank">{{ product_name }} complete React guide</a>
-#   - Try out {{product_name}} user onboarding complete guide for React
-#   - Read security best practices for React app guide
 ---
+
+<script>
+  const meta = {
+    what_you_will_learn: [
+      "Create new Spring Boot app",
+      "Add and configure Spring OAuth2 Client",
+      "Add user login and logout",
+      "Display user profile information"
+    ],
+    prerequisites: [
+      "About 15 minutes",
+      "<a href='{{ base_path }}/get-started/quick-set-up/'>Set-up {{ product_name }}</a>",
+      "Java 17 or later",
+      "Maven 3.5+ or Gradle 7.5+",
+      "A favorite text editor or IDE"
+    ],
+    source_code: "<a href='' target='_blank' class='github-icon'>Spring Boot App Sample</a>"
+  };
+</script>
+
+# Spring Boot Quickstart
+
+Welcome to the Spring Boot Quickstart guide! In this document, you will learn to build a Spring Boot web app, add user login and display user profile information using {{ product_name }}.
+
+[//] STEPS_START
+
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to **Applications > New Application.**
@@ -29,13 +37,9 @@ whats_next:
 
     Authorized redirect URL: http://localhost:8080/login/oauth2/code/wso2is
 
- 
-
 !!! Info
 
     The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use ` http://localhost:8080/login/oauth2/code/wso2is`, as the authorized redirect URL .
-  
-
 
 Make a note of the following values from the **Protocol** and **Info** tabs of the registered application. You will need them during the **Step 4**
 
@@ -229,3 +233,5 @@ Modified the code as below to see logged in user details.
 </html>
 
 ```
+
+[//] STEPS_END

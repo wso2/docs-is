@@ -1,24 +1,29 @@
 ---
 template: templates/quick-start.html
-heading: Next.JS Quickstart
-description: Welcome to the Next.js Quickstart guide! In this document, you will learn to build a Next.js app, add user login and display user profile information using WSO2 Identity Server.
-what_you_will_learn:
-  - Create new Next.js app
-  - Install <a href="https://authjs.dev/reference/core/providers/asgardeo" target="_blank">Asgardeo provider for Auth.js </a>
-  - Add user login and logout
-  - Display user profile information
-prerequisites:
-  - About 15 minutes
-  - <a href="{{ base_path }}/get-started/quick-set-up/">Set-up WSO2 Identity Server</a>
-  - Install a JS package manager
-  - A favorite text editor or IDE
-# source_code: <a href="" target="_blank" class="github-icon">Next.js App Sample</a>
-whats_next:
-  # - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
-  # - Try out {{product_name}} user onboarding complete guide for React
-  # - Read security best practices for React app guide
 ---
 
+<script>
+  const meta = {
+    what_you_will_learn: [
+      "Create new Next.js app",
+      "Install <a href='https://authjs.dev/reference/core/providers/asgardeo' target='_blank'>Asgardeo provider for Auth.js</a>",
+      "Add user login and logout",
+      "Display user profile information"
+    ],
+    prerequisites: [
+      "About 15 minutes",
+      "<a href='{{ base_path }}/get-started/quick-set-up/'>Set-up {{ product_name }}</a>",
+      "Install a JS package manager",
+      "A favorite text editor or IDE"
+    ]
+  };
+</script>
+
+# Next.JS Quickstart
+
+Welcome to the Next.js Quickstart guide! In this document, you will learn to build a Next.js app, add user login and display user profile information using {{ product_name }}.
+
+[//] STEPS_START
 
 ## Configure an Application in {{ product_name }}
 
@@ -315,6 +320,4 @@ Then, update `page.tsx` with the following highlighted line to display the usern
 
 ```
 
-
-
-
+[//] STEPS_END

@@ -1,24 +1,31 @@
 ---
 template: templates/quick-start.html
-heading: Angular Quickstart
-description: Welcome to the Angular Quickstart guide! In this document, you will learn to build a Angular app, add user login and display user profile information using WSO2 Identity Server.
-what_you_will_learn:
-  - Create new Angular app
-  - Install <a href="https://www.npmjs.com/package/angular-oauth2-oidc" target="_blank">angular-oauth2-oidc</a> package
-  - Add user login and logout
-  - Display user profile information
-prerequisites:
-  - About 15 minutes
-  - <a href="{{ base_path }}/get-started/quick-set-up/">Set-up WSO2 Identity Server</a>
-  - Install a JS package manager
-  - Install <a href="https://angular.dev/tools/cli/setup-local" target="_blank">Angular CLI</a>
-  - A favorite text editor or IDE
-# source_code: <a href="" target="_blank" class="github-icon">Angular App Sample</a>
-# whats_next:
-#   - Try out <a href="{{ base_path }}/complete-guides/react/introduction/" target="_blank">{{ product_name }} complete React guide</a>
-#   - Try out {{product_name}} user onboarding complete guide for React
-#   - Read security best practices for React app guide
 ---
+
+<script>
+  const meta = {
+    what_you_will_learn: [
+      "Create new Angular app",
+      "Install <a href='https://www.npmjs.com/package/angular-oauth2-oidc' target='_blank'>angular-oauth2-oidc</a> package",
+      "Add user login and logout",
+      "Display user profile information"
+    ],
+    prerequisites: [
+      "About 15 minutes",
+      "<a href='{{ base_path }}/get-started/quick-set-up/'>Set-up {{ product_name }}</a>",
+      "Install a JS package manager",
+      "Install <a href='https://angular.dev/tools/cli/setup-local' target='_blank'>Angular CLI</a>",
+      "A favorite text editor or IDE"
+    ]
+  };
+</script>
+
+# Angular Quickstart
+
+Welcome to the Angular Quickstart guide! In this document, you will learn to build a Angular app, add user login and display user profile information using {{ product_name }}.
+
+[//] STEPS_START
+
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to **Applications > New Application.**
@@ -232,3 +239,5 @@ Modify the `app.component.html` file with the following code.
 <button *ngIf="isAuthorized" (click)="logout()">Logout</button>
 
 ```
+
+[//] STEPS_END
