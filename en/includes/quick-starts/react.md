@@ -10,7 +10,7 @@ Welcome to the React Quickstart guide! In this document, you will learn to build
 - Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
 
 !!! Example
-    **name:** asgardeo-react
+    **name:** {{ product }}-react
     
     **Authorized redirect URL:** http://localhost:5173
 
@@ -31,9 +31,9 @@ Create (a.k.a scaffold) your new React app using Vite.
 === "npm"
 
     ```bash
-    npm create vite@latest asgardeo-react -- --template react
+    npm create vite@latest {{ product }}-react -- --template react
 
-    cd asgardeo-react
+    cd {{ product }}-react
 
     npm install
 
@@ -43,9 +43,9 @@ Create (a.k.a scaffold) your new React app using Vite.
 === "yarn"
 
     ```bash
-    yarn create vite@latest asgardeo-react -- --template react
+    yarn create vite@latest {{ product }}-react -- --template react
 
-    cd asgardeo-react
+    cd {{ product }}-react
 
     yarn install
 
@@ -55,9 +55,9 @@ Create (a.k.a scaffold) your new React app using Vite.
 === "pnpm"
 
     ```bash
-    pnpm create vite@latest asgardeo-react -- --template react
+    pnpm create vite@latest {{ product }}-react -- --template react
 
-    cd asgardeo-react
+    cd {{ product }}-react
 
     pnpm install
 

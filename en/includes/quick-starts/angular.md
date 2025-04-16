@@ -10,7 +10,7 @@ Welcome to the Angular Quickstart guide! In this document, you will learn to bui
 - Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-    **name:** asgardeo-angular
+    **name:** {{ product }}-angular
     
     **Authorized redirect URL:** http://localhost:4200
 
@@ -28,7 +28,7 @@ Note down the following values from the **Protocol** and the **Info** tabs of th
 Create an Angular app using Angular CLI.
 
 ``` bash
-ng new asgardeo-angular
+ng new {{ product }}-angular
 ```
 
 !!! tip "Tip"
@@ -154,7 +154,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class AppComponent {
-  title = 'asgardeo-angular';
+  title = '{{ product }}-angular';
   isAuthorized = this.oAuthService.hasValidAccessToken();
 
   constructor(private oAuthService: OAuthService) {

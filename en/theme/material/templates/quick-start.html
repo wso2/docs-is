@@ -35,6 +35,7 @@
   <script>
 
     const basePath = {{ config.extra.base_path | tojson }};
+    const product = {{ config.extra.product | tojson }};
     const productName = {{ config.extra.product_name | tojson }};
 
     const stepContentStart = Array.from(document.querySelectorAll("p")).find(p => p.textContent.trim() === "[//] STEPS_START");
@@ -52,6 +53,7 @@
       const replaceTokens = (text) =>
         text
           .replace(/{{\s*base_path\s*}}/g, basePath)
+          .replace(/{{\s*product\s*}}/g, product)
           .replace(/{{\s*product_name\s*}}/g, productName);
       {% endraw %}
 
@@ -79,6 +81,7 @@
       const replaceTokens = (text) =>
         text
           .replace(/{{\s*base_path\s*}}/g, basePath)
+          .replace(/{{\s*product\s*}}/g, product)
           .replace(/{{\s*product_name\s*}}/g, productName);
       {% endraw %}
 
