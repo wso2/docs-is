@@ -46,4 +46,4 @@ For example, if you would like to view logs related to a request, click the filt
 
 ## Remote Log Publishing
 
-Asgardeo allows you to securely publish both audit and diagnostic logs to external servers for long-term storage and analysis. You can configure separate publishers for audit and diagnostic logs with custom settings for each. Learn more about setting up [Remote Log Publish]({{base_path}}/guides/asgardeo-logs/remote-log-publish).
+Asgardeo allows you to securely publish both audit and diagnostic logs to external servers for long-term storage and analysis. You can configure separate publishers for audit and diagnostic logs with custom settings for each. Learn more about setting up [Remote Log Publishing]({{base_path}}/guides/asgardeo-logs/remote-log-publish).
