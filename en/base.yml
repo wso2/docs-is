@@ -125,9 +125,6 @@ extra:
     Angular:
       link: complete-guides/angular/introduction
       level: 2
-    Node.js:
-      link: complete-guides/nodejs/introduction
-      level: 2
     .NET:
       link: complete-guides/dotnet/introduction
       level: 2
