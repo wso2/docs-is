@@ -420,6 +420,7 @@ nav:
         - Asgardeo logs: guides/asgardeo-logs/index.md
         - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
         - Audit logs: guides/asgardeo-logs/audit-logs.md
+        - Remote log publish: guides/asgardeo-logs/remote-log-publish.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
