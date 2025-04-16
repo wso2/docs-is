@@ -1,27 +1,8 @@
-<script>
-  const meta = {
-    what_you_will_learn: [
-      "Create new Node.js app",
-      "Install Passport Asgardeo strategy <a href='https://www.npmjs.com/package/@asgardeo/passport-asgardeo' target='_blank' rel='noopener noreferrer'>@asgardeo/passport-asgardeo</a>",
-      "Add user login and logout",
-      "Display user profile information"
-    ],
-    prerequisites: [
-      "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>Asgardeo account</a>",
-      "Install <a href='https://nodejs.org/en/download/package-manager' target='_blank' rel='noopener noreferrer'>Node.js</a> on your system.",
-      "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
-      "A favorite text editor or IDE"
-    ],
-    source_code: "<a href='https://github.com/pabasara-mahindapala/passport-asgardeo-sample' target='_blank' class='github-icon'>Asgardeo Node.js Sample</a>"
-  };
-</script>
-
-[//] STEPS_START
-
 # Node.js Quickstart
 
-Welcome to the Node.js Quickstart guide! In this document, you will learn to build a Node.js app, add user login and display user profile information using Asgardeo.
+Welcome to the Node.js Quickstart guide! In this document, you will learn to build a Node.js app, add user login and display user profile information using {{ product_name }}.
+
+[//] STEPS_START
 
 ## Configure an Application in {{ product_name }}
 
@@ -45,7 +26,7 @@ Make a note of the following values from the **Protocol** tab of the registered 
 
 - **`client-id`** from the **Protocol** tab. 
 - **`client-secret`** from the **Protocol** tab. 
-- **The name of your Asgardeo organization**
+- **The name of your {{ product_name }} organization**
 
 
 ## Create a Node.js app 

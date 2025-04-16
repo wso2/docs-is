@@ -1,22 +1,3 @@
-<script>
-  const meta = {
-    what_you_will_learn: [
-      "Create new single-page JavaScript app",
-      "Install Asgardeo JavaScript SDK",
-      "Add user login and logout",
-      "Display user profile information"
-    ],
-    prerequisites: [
-      "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>Asgardeo account</a>",
-      "Install <a href='https://nodejs.org/en/download/package-manager' target='_blank' rel='noopener noreferrer'>Node.js</a> on your system.",
-      "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
-      "A favorite text editor or IDE"
-    ],
-    source_code: "<a href='https://github.com/dasuni-30/asgardeo-javascript-vite-app/tree/master' target='_blank' class='github-icon'>JavaScript App Sample</a>"
-  };
-</script>
-
 # JavaScript Quickstart
 
 Welcome to the JavaScript Quickstart guide! In this document, you will learn to build a single-page JavaScript app, add user login and display user profile information using {{ product_name }}.
@@ -36,12 +17,12 @@ Welcome to the JavaScript Quickstart guide! In this document, you will learn to 
 Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  Asgardeo JavaScript SDK.
 
 - **`client-id`** from the **Protocol** tab. 
-- **The name of your Asgardeo organization**
+- **The name of your {{ product_name }} organization**
 
 
 !!! Info
 
-    The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
+    The authorized redirect URL determines where {{ product_name }} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
 
 ## Create a JavaScript app using Vite
 
@@ -85,7 +66,7 @@ Create (a.k.a scaffold) your new JavaScript app using Vite.
 
 ## Install @asgardeo/auth-spa
 
-Asgardeo JavaScript SDK provides all the components and hooks you need to integrate Asgardeo into your app. To get started, simply add the Asgardeo JavaScript SDK to the project. Make sure to stop the dev server started in the previous step. 
+Asgardeo JavaScript SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo JavaScript SDK to the project. Make sure to stop the dev server started in the previous step. 
 
 === "npm"
 
@@ -112,7 +93,7 @@ Replace the existing code of the `main.jsx` file with the following code to init
 
 !!! Important
 
-    Replace below placeholders with your registered organization name in Asgardeo and the generated`client-id` from the app you registered in Asgardeo.
+    Replace below placeholders with your registered organization name in {{ product_name }} and the generated`client-id` from the app you registered in {{ product_name }}.
 
     - `<your-app-client-id>`
     - `https://api.asgardeo.io/t/<your-organization-name>`
