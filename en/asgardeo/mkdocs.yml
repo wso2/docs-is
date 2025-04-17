@@ -411,7 +411,9 @@ nav:
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
-        - Manage environments: guides/your-asgardeo/manage-environments.md
+        - Manage environments:
+          - Manage environments: guides/your-asgardeo/manage-environments/index.md
+          - Promote configurations across environments: guides/your-asgardeo/manage-environments/promote-configurations.md
         - Self-service: guides/your-asgardeo/asgardeo-self-service.md
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
