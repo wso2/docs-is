@@ -3,7 +3,7 @@
 This guide explains how to configure **SAML Web Single Sign-On (SSO)** settings for your organization using the **Login & Registration** section in the Console. These settings apply at the tenant level and control how your organization behaves as a SAML Identity Provider (IdP) during authentication flows.
 
 !!! Note
-    These settings are applicable when your organization is acting as an IdP and issuing SAML responses to service providers.
+    These settings are applicable when your organization is acting as an IdP and issuing SAML responses to applications.
 
 ## SAML2 configurations
 
