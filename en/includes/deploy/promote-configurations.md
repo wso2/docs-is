@@ -26,9 +26,9 @@ IAM-CTL currently supports the following resource types:
 
 Follow the steps below to learn how you can configure IAM-CTL.
 
-1. Download the latest binary file from [releases](https://github.com/wso2-extensions/identity-tools-cli/releases/){:target="_blank"} based on your Operating System.
+1. Download the latest release from [releases](https://github.com/wso2-extensions/identity-tools-cli/releases/){:target="_blank"} based on your Operating System.
 
-2. Extract the tar or zip file.
+2. Extract the release.
 
 3. Open a terminal and create an alias (depending on your platform):
 
@@ -42,7 +42,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
         doskey iamctl="<IAM-CTL-PATH>\bin\iamctl.exe" $*
         ```
 
-4. Run the tool using the following command to get the basic details:
+4. Run the following command to view the available commands:
 
     === "CLI Command"
         ```bash
@@ -80,14 +80,12 @@ Follow the steps below to learn how you can configure IAM-CTL.
         iamctl setupCLI
         ```
 
-3. A new folder named configs will be created with an **env** folder inside it. The env folder contains three configuration files: **serverConfig.json**, **toolConfig.json**, and **keywordConfig.json**.
+3. A new folder named **configs** will be created with an **env** folder inside it. The **env** folder will contain three configuration files, **serverConfig.json**, **toolConfig.json**, and **keywordConfig.json**.
 
-    <div class="admonition note">
-        <p class="admonition-title">Note</p>
-        <p>If you have multiple environments, get a copy of the env folder and rename it according to the environments you have.</p>
-    </div>
+    !!! note
+        If you have multiple environments, get a copy of the `env` folder and rename it according to the environments you have.
 
-4. Open the **serverConfig.json** file and provide the client ID/secret of the app you created earlier.
+4. Open the **serverConfig.json** file and provide the client ID and client secret of the M2M application you created earlier.
 
     === "serverConfig.json"
 
@@ -111,7 +109,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
         }
         ```
 
-5. Run the following command for Export/Import.
+5. Run the following commands to export and import configurations.
 
     a. **Export** 
 
