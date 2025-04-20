@@ -80,9 +80,11 @@ You can register an external IdP in {{product_name}} by creating a connection. {
 
 {% include "../../fragments/manage-connection/add-groups.md" %}
 
+{% if product_name == "WSO2 Identity Server" %}
 ## Add connections to federation hub
 
 {% include "../../fragments/manage-connection/federation-hub.md" %}
+{% endif %}
 
 ## Delete a connection
 
