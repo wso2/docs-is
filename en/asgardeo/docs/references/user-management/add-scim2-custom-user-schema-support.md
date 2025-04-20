@@ -135,7 +135,7 @@ Let's see when we have a **deviceNames** simple multi-valued attribute.
 6. Select necessary options in **Attribute Configurations** to make the field visible in user profiles and click **Update**.
 7. Check the **Allow multiple values for this attribute**.
     
-    ![additional-properties-multi-valued-attribute]({{base_path}}/assets/img/guides/users/additional-properties-multi-valued-attribute.png)
+    ![additional-properties-multi-valued-attribute]({{base_path}}/assets/img/references/additional-properties-multi-valued-attribute.png)
 
 ### Map the custom claim
 
