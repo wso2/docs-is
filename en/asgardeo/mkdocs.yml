@@ -139,6 +139,7 @@ plugins:
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
+        'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -293,7 +294,9 @@ nav:
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
             - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
-            - Implement logout: guides/authentication/oidc/add-logout.md
+            - Implement logout:
+              - RP-initiated logout: guides/authentication/oidc/add-logout.md
+              - Back channel logout: guides/authentication/oidc/add-back-channel-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
@@ -374,7 +377,10 @@ nav:
         - Organizations: guides/organization-management/index.md
         - Set up organizations: guides/organization-management/manage-organizations.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-        - Share applications: guides/organization-management/share-applications.md
+        - Application Management:
+          - Share applications: guides/organization-management/share-applications.md
+          - Organization applications: guides/organization-management/organization-applications.md
+        - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
         - Onboard admins: 
             - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
@@ -405,7 +411,9 @@ nav:
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
-        - Manage environments: guides/your-asgardeo/manage-environments.md
+        - Manage environments:
+          - Manage environments: guides/your-asgardeo/manage-environments/index.md
+          - Promote configurations across environments: guides/your-asgardeo/manage-environments/promote-configurations.md
         - Self-service: guides/your-asgardeo/asgardeo-self-service.md
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
@@ -417,6 +425,7 @@ nav:
         - Asgardeo logs: guides/asgardeo-logs/index.md
         - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
         - Audit logs: guides/asgardeo-logs/audit-logs.md
+        - Remote log publish: guides/asgardeo-logs/remote-log-publish.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
@@ -480,7 +489,9 @@ nav:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
-      - Application management API: apis/organization-apis/org-application-management.md
+      - Application management API: 
+        - Application management API (Shared Applications): apis/organization-apis/shared-application-management.md
+        - Application management API: apis/organization-apis/organization-application-mgt.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Branding API: apis/organization-apis/org-branding-management.md
       - Claim management API: apis/organization-apis/org-claim-management.md

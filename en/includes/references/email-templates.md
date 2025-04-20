@@ -46,6 +46,10 @@ The following is a comprehensive list of email templates that are available in {
         <tr>
             <td>PasswordReset<br/><br/>
                 resendPasswordReset<br/><br/>
+                {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+                PasswordResetOTP<br/><br/>
+                resendPasswordResetOTP<br/><br/>
+                {% endif %}
                 AdminForcedPasswordReset<br/><br/>
                 resendAdminForcedPasswordReset<br/><br/>
             </td>
@@ -237,11 +241,16 @@ The following literals about the user are accessible for all email templates.
             <td>{{"{{tenant-domain}}"}}</td>
             <td>Domain name specific to the organization. For organization (root), this is a human-readable domain name. For organizations, a UUID is used to uniquely identify them. Utilize this placeholder within URL paths to denote the tenant.</td>
         </tr>
+        <tr>
+            <td>{{"{{current-year}}"}}</td>
+            <td>Current calendar year.</td>
+        </tr>
     </tbody>
 </table>
 
 !!! note
-    Organizations (root) created before October 2022 will utilize `\{\{ tenant-domain \}\}` as the placeholder to represent the organization name. As this placeholder may not provide the organization name in a human-readable format, consider updating it to `\{\{ organization-name \}\}` as needed for clarity and ease of understanding.
+    Organizations (root) created before October 2022 will utilize `{{"{{ tenant-domain }}"}}`
+     as the placeholder to represent the organization name. As this placeholder may not provide the organization name in a human-readable format, consider updating it to `{{"{{ organization-name }}"}}` as needed for clarity and ease of understanding.
 
 ---
 

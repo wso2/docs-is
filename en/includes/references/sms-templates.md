@@ -73,6 +73,10 @@ The following user-related literals are accessible for all SMS templates.
             <td>{{"{{tenant-domain}}"}}</td>
             <td>Domain name specific to the organization. For root organizations, this is the human-readable domain name. For other organizations, it is the UUID.</td>
         </tr>
+        <tr>
+            <td>{{"{{current-year}}"}}</td>
+            <td>Current calendar year.</td>
+        </tr>
     </tbody>
 </table>
 
