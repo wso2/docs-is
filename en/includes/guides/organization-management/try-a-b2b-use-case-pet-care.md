@@ -533,8 +533,7 @@ The following sections show how the application log in experience looks like and
 
 Follow the steps below to see how organization login works for a user in the **Happy Tails** organization when accessing the **Pet Care** application.
 
-1. Open the application by copying the following URL to your browser:  
-   `http://localhost:3002/`
+1. Navigate to `http://localhost:3002/` in your browser.  
 
     ![Pet Care Application Login]({{base_path}}/assets/img/guides/organization/manage-organizations/pet-care-app-login.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
