@@ -314,6 +314,10 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
     With WSO2 Identity Server 7.1, the Carbon Registry, previously used as a data repository, has been deprecated. Registry dependencies have been removed from the WSO2 Identity Server, and the registry core is planned for removal in a future release, streamlining the system and reducing legacy components.
 
+- **Carbon Security Manager**
+
+    The Carbon Security Manager, which was based on the Java Security Manager, has been deprecated in WSO2 Identity Server 7.1.0. This change follows the deprecation of the Security Manager in Java 17 and its planned removal in future Java versions.
+
 ## Deprecated configurations
 
 - **use_client_id_as_sub_claim_for_app_tokens & remove_username_from_introspection_response_for_app_tokens**
