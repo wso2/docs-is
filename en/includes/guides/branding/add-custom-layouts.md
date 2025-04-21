@@ -175,6 +175,9 @@ To add a custom layout to the login page:
 
     2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/style.css){target="_blank"}  into the `styles.css` file.
 
+        !!! note
+            If you are using the default html page provided by the product, please use the exact CSS class names when overriding the existing styles.
+
     3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/script.js){target="_blank"} file  into the `script.js` file.
 
     4. Copy the [illustration.svg file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/illustration.svg){target="_blank"} into the `assets` folder.
