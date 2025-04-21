@@ -316,7 +316,7 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
 - **Carbon Security Manager**
 
-    The Carbon Security Manager, which was based on the Java Security Manager, has been deprecated in WSO2 Identity Server 7.1.0. This change follows the deprecation of the Security Manager in Java 17 and its planned removal in future Java versions.
+    The Carbon Security Manager, which was based on the Java Security Manager, has been deprecated in WSO2 Identity Server 7.1.0. This change follows the deprecation of the Java Security Manager in Java 17 and its planned removal in future Java versions.
 
 ## Deprecated configurations
 
