@@ -138,6 +138,96 @@ To update the user profile:
 
 4. Click **Update** to save.
 
+## Resend password setup link/code
+
+If a user is pending to set up an initial password or is required to reset their password through an admin-initiated password reset, and the previously sent link or code has expired, an administrator can resend the link or code.
+
+To resend the link/code:
+
+- Click the **Resend** link available in the warning message displayed at the top of the user's profile.
+
+    ![Resend link]({{base_path}}/assets/img/guides/users/resend-password-setup-link.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+Alternatively, administrators can use the resend-code API to resend the link or code as shown below. 
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://localhost:9443/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "<username>",
+                "realm": "<realm>"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "<recovery_scenario>"
+                }
+            ]
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X 'POST' \
+        'https://localhost:9443/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "jane",
+                "realm": "PRIMARY"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "ASK_PASSWORD"
+                }
+            ]
+            }'
+        ```
+    
+    The recovery scenario should be specified in the properties parameter of the API request body, as follows:
+
+    - `ASK_PASSWORD`: When the user is pending to set up an initial password using the setup link.
+    - `ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK`: When the user is pending an admin-forced password reset via an email link.
+    - `ADMIN_FORCED_PASSWORD_RESET_VIA_OTP`: When the user is pending an admin-forced password reset via an OTP sent through email.
+
+    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+
+## Set a user's password
+
+Administrators can set a user's password if the user is unable to set the password via the initial setup email link shared during user creation.
+
+To set the password:
+
+1. Click **Set password** at the bottom of the user's profile.
+
+    ![Set password button]({{base_path}}/assets/img/guides/users/set-password.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+2. Type the new password.
+
+    ![Set password]({{base_path}}/assets/img/guides/users/set-password-modal.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Click **Set Password**.
+
+    !!! note
+        Once the administrator set the password, the user's account will get unlocked.
+
 ## Reset the user's password
 
 Administrators can reset a user's password or initiate the password reset process from the WSO2 Identity Server Console.
@@ -150,6 +240,10 @@ To reset the password:
 
     - **Set a new password for the user:**
         If this option is selected, the owner or an administrator can set a new password for the user.
+
+        !!! note
+            If the user is in pending admin forced password reset, once the admin resets the password, 
+            the account will get unlocked.
 
     - **Invite user to reset the password:**
         If this option is selected, a password reset request can be sent to the user using one of the password recovery methods you have enabled for the organization.
