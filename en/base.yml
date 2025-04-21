@@ -125,15 +125,15 @@ extra:
     Angular:
       link: complete-guides/angular/introduction
       level: 2
-    Node.js:
-      link: complete-guides/nodejs/introduction
-      level: 2
     .NET:
       link: complete-guides/dotnet/introduction
       level: 2
     Javascript:
       link: complete-guides/javascript/introduction
       level: 2
+    B2B:
+      link: complete-guides/nextjs-b2b/introduction
+      level: 3
     Redirect-Based:
       link: complete-guides/nextjs/introduction
       level: 3
