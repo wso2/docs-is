@@ -65,3 +65,87 @@ To associate a FIDO2 device with the user account, refer [Add security device](.
 
 
 4.  Click **Update**.
+
+## FIDO Key Progressive Enrollment
+!!! note 
+    To enable this feature server-wide, follow the instructions given below. 
+
+    !!! info
+        This feature is available as an update in WSO2 IS 5.11.0 from update level 398 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
+    
+    1.  Shut down the server if it is running.
+    2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature.
+
+        ```toml 
+        [fido]
+        enable_passkey_progressive_enrollment = true
+        ```
+    3. Restart the server.
+    4. [Add the progressive enrollment adaptive script](../../learn/passwordless-authentication-using-fido2/#configure-the-login-flow) to the login flow of the application.
+        
+This method of adaptive authentication is specifically designed for applications that have set up **FIDO** as a login option and have enabled **passkey progressive enrollment** so that users may enroll security device at the moment they log in to an application.
+
+Follow the guide below to learn about the adaptive script to use FIDO with progressive enrollment as their primary authentication method.
+
+### Configure the login flow
+
+The script is designed to execute during the authentication flow. When a user initiates fido key enrollment, the system prompts the user to log in with Basic Authenticator. After successfully logging in, the user is guided through the fido key enrollment. To enable conditional authentication:
+
+1. On the Management Console, go to **Service Providers** and click **Edit** with the relevant service provider.
+
+2. Go to **Local & Outbound Authentication Configuration** and select **Advanced Configurations**.
+
+3. In Script Based Adaptive Authentication section, select **Security Device Progressive Enrollment** under Progressive Enrollment.
+
+4. Click **Update** to save your changes.
+
+!!! warning "Important"
+    Adding the security device progressive enrollment adaptive script, modifies the authentication flow to include only the **basic** and **fido** authenticators in the first step.
+
+#### How it works
+
+Shown below is the conditional authentication template for security device progressive enrollment.
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onFail: function(context) {
+            var authenticatorStatus = context.request.params.scenario;
+
+            // If it is a passkey progressive enrollment request trigger the following flow.
+            if (authenticatorStatus != null && authenticatorStatus[0] == 'INIT_FIDO_ENROLL') {
+                var filteredAuthenticationOptions = filterAuthenticators(context.tenantDomain, context.steps[1].options, 'fido');
+                executeStep(1, {
+                    stepOptions: {
+                        markAsSubjectIdentifierStep: 'true',
+                        markAsSubjectAttributeStep: 'true'
+                    },
+                    authenticationOptions: filteredAuthenticationOptions
+                }, {
+                    onSuccess: function(context) {
+                        // If user got successfully authenticated 
+                        executeStep(1, {
+                            stepOptions: {
+                                forceAuth: 'true'
+                            },
+                            authenticationOptions: [{
+                                authenticator: 'fido'
+                            }]
+                        }, {});
+                    },
+                });
+            }
+        }
+    });
+};
+```
+
+Let's look at how this script works:
+
+1. If the user chooses **FIDO Key** and consents to passkey enrollment, an `onFail` event is triggered. The parameter `scenario` returns the value `INIT_FIDO_ENROLL`, uniquely identifying the passkey enrollment request.
+
+2. The `filterAuthenticators()` method takes the configured list of authenticators in the first step and the authenticator to be excluded and returns the list of authenticators excluding the FIDO authenticator(`fido`).
+
+3. The user is then prompted for the first step of the authentication flow with `authenticationOptions` set to the list of filtered authenticators from the above step.
+
+4. After successful authentication with an alternative authenticator, the script re-triggers the fido authenticator. This allows users to seamlessly proceed with security device progressive enrollment.
