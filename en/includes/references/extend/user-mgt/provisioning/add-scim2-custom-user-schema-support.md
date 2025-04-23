@@ -172,6 +172,7 @@ If it is not added, you can add it manually by,
                 ]
             }'
         ```
+        
 {% endif %}
 
 ## How to add claims to support multi-valued simple attributes
@@ -290,6 +291,7 @@ If it is not added, refer <a href="#map-the-custom-claim">Map the custom claim</
             ]
         }'
         ```
+
 
 ## How to add claims to support Complex attributes
 
