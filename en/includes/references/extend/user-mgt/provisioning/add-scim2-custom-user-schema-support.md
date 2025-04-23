@@ -1,12 +1,8 @@
 # SCIM2 Custom User Schema Support
 
-{% if product_name == "Asgardeo" %}
-Asgardeo allows adding custom attributes into user objects through Custom schema.
-{% else %}
-WSO2 Identity Server allows adding custom attributes into user objects through Custom schema.
-{% endif %}
+{{ product_name }} allows adding custom attributes into user objects through Custom schema.
 
-{% if product_name != "Asgardeo" %}
+{% if product_name ==  "WSO2 Identity Server" %}
 !!! Note
     **Reasons why we introduced custom schema to add custom attributes:**
 
@@ -30,7 +26,7 @@ WSO2 Identity Server allows adding custom attributes into user objects through C
 5. Select necessary options in **Attribute Configurations** to make the field visible in user profiles and click **Update**.
    ![local-claim-attribute-configurations]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/local-claim-attribute-configurations.png)
 
-{% if product_name != "Asgardeo" %}
+{% if product_name ==  "WSO2 Identity Server" %}
 !!! Note
     If you want to add any additional properties for the scim attribute in Custom schema, you can add them using **Additional Properties** in the local claim configuration.
 
@@ -99,7 +95,7 @@ If it is not added, you can add it manually by,
 1. Create a user from **User Management** > **Users** in console.
 2. Go to the **User Profile** of the user you just created.
 3. Add a value for the **Custom Claim** field and click **Update**.
-{% if product_name != "Asgardeo" %}
+{% if product_name ==  "WSO2 Identity Server" %}
 4. Retrieve the user using SCIM and ensure that the custom claim value is present.
 
     !!! abstract ""
@@ -212,7 +208,7 @@ If it is not added, refer <a href="#map-the-custom-claim">Map the custom claim</
 2. Go to the **User Profile** of the user you just created.
 3. Add values for the **Device Names** field and click **Update**.
    ![multi-valued-attribute-field]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/multi-valued-attribute-field.png)
-{% if product_name != "Asgardeo" %}
+{% if product_name ==  "WSO2 Identity Server" %}
 4. Retrieve the user using SCIM and ensure that the custom claim value is present.
 
     !!! abstract ""

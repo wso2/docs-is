@@ -988,7 +988,6 @@ nav:
       - User roles: references/user-management/user-roles.md
       - Track user deletion: references/user-management/track-deletion.md
       - Self registration confirmation: references/user-management/self-registration-verification.md
-      - SCIM2 Custom User Schema Support: references/extend/user-mgt/provisioning/add-scim2-custom-user-schema-support.md
     - App configurations:
       - App configurations: references/app-settings/index.md
       - OIDC configurations: references/app-settings/oidc-settings-for-app.md
@@ -1028,6 +1027,7 @@ nav:
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
+        - SCIM2 Custom User Schema Support: references/extend/user-mgt/provisioning/add-scim2-custom-user-schema-support.md
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
