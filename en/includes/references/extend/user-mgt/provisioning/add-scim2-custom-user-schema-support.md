@@ -172,8 +172,8 @@ If it is not added, you can add it manually by,
                 ]
             }'
         ```
-        
 {% endif %}
+
 
 ## How to add claims to support multi-valued simple attributes
 
