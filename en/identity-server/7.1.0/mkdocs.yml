@@ -442,6 +442,12 @@ nav:
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
     - Subscribe to AI features: get-started/subscribe-to-ai-features.md
     - About this release: get-started/about-this-release.md
+    - Connect/Build your app:
+      - React Quickstart: quick-starts/react.md
+      - Angular Quickstart:  quick-starts/angular.md
+      - Javascript Quickstart: quick-starts/javascript.md
+      - Next.js Quickstart:  quick-starts/nextjs.md
+      - Spring Boot Quickstart:  quick-starts/springboot.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
