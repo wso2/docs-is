@@ -528,6 +528,7 @@ nav:
     - Operational policies: references/operational-policies.md
     - Asgardeo outbound IP addresses: references/asgardeo-outbound-ip-addresses.md
     - Asgardeo user roles: references/user-management/user-roles.md
+    - SCIM2 Custom User Schema Support: references/user-management/add-scim2-custom-user-schema-support.md
     - App configurations:
       - App configurations: references/app-settings/index.md
       - OIDC configurations: references/app-settings/oidc-settings-for-app.md

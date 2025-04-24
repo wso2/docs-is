@@ -1,12 +1,14 @@
 # SCIM2 Custom User Schema Support
 
-WSO2 Identity Server allows adding custom attributes into user objects through Custom schema.
+{{ product_name }} allows adding custom attributes into user objects through Custom schema.
 
+{% if product_name ==  "WSO2 Identity Server" %}
 !!! Note
     **Reasons why we introduced custom schema to add custom attributes:**
 
     - According to the current model, Enterprise User Extension attributes are in a file, and those configurations apply at the server level.
     - Enterprise User Extension is a defined schema and should not be modified.
+{% endif %}
 
 ## How to add claims to support simple attributes
 
@@ -24,6 +26,7 @@ WSO2 Identity Server allows adding custom attributes into user objects through C
 5. Select necessary options in **Attribute Configurations** to make the field visible in user profiles and click **Update**.
    ![local-claim-attribute-configurations]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/local-claim-attribute-configurations.png)
 
+{% if product_name ==  "WSO2 Identity Server" %}
 !!! Note
     If you want to add any additional properties for the scim attribute in Custom schema, you can add them using **Additional Properties** in the local claim configuration.
 
@@ -70,6 +73,7 @@ WSO2 Identity Server allows adding custom attributes into user objects through C
     - You can use the word `customClaim` or any other preferred word as the **Mapped Attribute** when using a JDBC user store because JDBC user stores will automatically create a new attribute if it does not already exist in the user store. However, if you are using LDAP or Active Directory, you will have to use an attribute that exists in the user store already.
 
     - The configuration above is valid when using the PRIMARY user store. If you have a secondary user store configured, make sure to add another attribute mapping by clicking **Add Attribute Mapping** and selecting the secondary user store.
+{% endif %}
 
 ### Map the custom claim
 
@@ -91,6 +95,7 @@ If it is not added, you can add it manually by,
 1. Create a user from **User Management** > **Users** in console.
 2. Go to the **User Profile** of the user you just created.
 3. Add a value for the **Custom Claim** field and click **Update**.
+{% if product_name ==  "WSO2 Identity Server" %}
 4. Retrieve the user using SCIM and ensure that the custom claim value is present.
 
     !!! abstract ""
@@ -163,6 +168,7 @@ If it is not added, you can add it manually by,
                 ]
             }'
         ```
+{% endif %}
 
 
 ## How to add claims to support multi-valued simple attributes
@@ -179,8 +185,13 @@ Let's see when we have a **deviceNames** simple multi-valued attribute.
 4. Click Finish.
 5. Go to the **Edit Attribute** of the custom attribute you just created.
 6. Select necessary options in **Attribute Configurations** to make the field visible in user profiles and click **Update**.
+{% if (product_name == "WSO2 Identity Server" and is_version <= "7.1.0" ) %}
 7. Navigate to **Additional Properties** tab and enter following property and click **Update**.
     - `multiValued`: `true`
+{% else %}
+7. Check the **Allow multiple values for this attribute**.
+{% endif %}
+
     
     ![additional-properties-multi-valued-attribute]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/additional-properties-multi-valued-attribute.png)
 
@@ -197,6 +208,7 @@ If it is not added, refer <a href="#map-the-custom-claim">Map the custom claim</
 2. Go to the **User Profile** of the user you just created.
 3. Add values for the **Device Names** field and click **Update**.
    ![multi-valued-attribute-field]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/multi-valued-attribute-field.png)
+{% if product_name ==  "WSO2 Identity Server" %}
 4. Retrieve the user using SCIM and ensure that the custom claim value is present.
 
     !!! abstract ""
@@ -421,3 +433,4 @@ Let's see if we have a **manager** complex attribute that has **address** simple
             ]
         }'
         ```
+{% endif %}
