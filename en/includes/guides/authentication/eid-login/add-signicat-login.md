@@ -13,7 +13,7 @@ Follow this guide for instructions.
 
 ## Register {{ product_name }} on Signicat
 
-You need to register {{ product_name }} as an OAuth app on GitHub.
+You need to register {{ product_name }} as an OIDC app on Signicat.
 
 !!! note
     You can follow the [Signicat documentation](https://developer.signicat.com/docs/){:target="_blank"} for detailed instructions.
