@@ -9,7 +9,7 @@ You can add Signicat login to your applications using {{ product_name }} and ena
 Follow this guide for instructions.
 
 ## Prerequisites
-- A Signicat account. If you don't have one, you can [sign up for a free trial](https://developer.signicat.com/docs/){:target="_blank"}.
+- A Signicat account. If you don't have one, you can [sign up for free](https://developer.signicat.com/docs/){:target="_blank"}.
 
 ## Register {{ product_name }} on Signicat
 
