@@ -1,0 +1,35 @@
+name: PR Builder
+
+on:
+  pull_request:
+    paths:
+      - 'en/asgardeo/**'
+      - 'en/includes/**'
+
+jobs:
+  broken-link-checker:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the PR branch
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # Step 2: Navigate to en/asgardeo directory, install dependencies, and build the docs
+      - name: Build the docs
+        run: |
+          cd en/asgardeo
+          pip install -r requirements.txt
+          mkdocs build
+
+      # Step 3: Start the MkDocs server in the background
+      - name: Start MkDocs server
+        run: |
+          cd en/asgardeo
+          nohup mkdocs serve &
+
+      # Step 4: Reuse the broken link checker workflow
+      - name: Run broken link checker
+        uses: ./.github/workflows/broken-link-checker.yml
+        with:
+          siteUrl: http://127.0.0.1:8000
