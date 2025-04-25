@@ -28,8 +28,8 @@ jobs:
           cd en/asgardeo
           nohup mkdocs serve &
 
-      # Step 4: Reuse the broken link checker workflow
+      # Step 4: Run a broken link checker directly
       - name: Run broken link checker
-        uses: ./.github/workflows/broken-link-checker.yml
-        with:
-          siteUrl: http://127.0.0.1:8000
+        run: |
+          pip install linkchecker
+          linkchecker http://127.0.0.1:8000
