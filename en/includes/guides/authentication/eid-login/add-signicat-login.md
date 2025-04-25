@@ -22,7 +22,7 @@ You need to register {{ product_name }} as an OIDC app on Signicat.
 2. On the left panel, Click **Products** and select **eID Hub**.
 3. Under **eID Hub**, click **OIDC Clients**.
 
-    ![Register OIDC app in Signicat]({{base_path}}/assets/img/guides/idp/signicat-idp/signicat-register-app.jpg){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Register OIDC app in Signicat]({{base_path}}/assets/img/guides/idp/signicat-idp/signicat-register-app.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Give the application a name and the following URLs:
 
@@ -37,9 +37,11 @@ You need to register {{ product_name }} as an OIDC app on Signicat.
 6. Click **Add Secret** and Generate a new client secret.
 7. Take note of the **Client ID** and **Client secret**.
 8. To add required eIDs, Click **eIDs** in the left panel (under **eID Hub**), and click **Add new**.
+   ![Add new eID]({{base_path}}/assets/img/guides/idp/signicat-idp/signicat-add-eid.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 9. Select the eIDs you want to add and click **Add**.
 
-## Register the Signicat IdP
+## Register the Signicat Connection
 
 Now, let's register the Signicat IdP in {{ product_name }}.
 
@@ -47,7 +49,7 @@ Now, let's register the Signicat IdP in {{ product_name }}.
 2. Click **New Connections** and select **Signicat**.
 3. Enter the following details and click **Finish**:
 
-    ![Add Signicat IDP in {{ product_name }}]({{base_path}}/assets/img/guides/idp/signicat-idp/add-signicat-idp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Add Signicat Connection in {{ product_name }}]({{base_path}}/assets/img/guides/idp/signicat-idp/add-signicat-idp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
       <tr>
