@@ -1,6 +1,6 @@
 # Add Signicat login
 
-Signicat’s eID Hub simplifies digital identity verification and authentication by connecting your platform to more than 30 electronic identities (eIDs) from across Europe, all through one streamlined integration.
+[Signicat’s](https://www.signicat.com/) eID Hub simplifies digital identity verification and authentication by connecting your platform to more than 30 electronic identities (eIDs) from across Europe, all through one streamlined integration.
 
 By integrating Signicat, you can authenticate users and prove their identity easily using trusted eIDs, whether for onboarding, access control, or compliance needs.
 
@@ -89,14 +89,11 @@ Follow the steps given below.
 
 2. Click **Login** to open the {{ product_name }} login page.
 
-3. On the {{ product_name }} login page, **Sign in with Github**.
+3. On the {{ product_name }} login page, **Sign in with Signicat**.
 
     ![Login with Signicat]({{base_path}}/assets/img/guides/idp/signicat-idp/sign-in-with-signicat.png){: width="300" style="border: 0.3px solid lightgrey;"}
 
-4. Log in to Signicat with an existing user account.
-
-!!! note
-    When a user successfully logs in with Github for the first time, a **user** account is created in the {{ product_name }} Console with the Github username. This new user account will be managed by GitHub.
+4. Log in to the eIDs configured in Signicat.
 
 ## Configure connection
 
