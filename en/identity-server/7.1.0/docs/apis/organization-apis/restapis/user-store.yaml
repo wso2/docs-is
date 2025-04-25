@@ -7,7 +7,7 @@ info:
 
 security:
   - OAuth2: []
-  - BasicAuth: []
+
 paths:
   /userstores:
     post:
@@ -53,7 +53,7 @@ paths:
             curl -X 'POST' \
             'https://localhost:9443/o/api/server/v1/userstores' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "typeId": "VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg",
@@ -110,7 +110,7 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/o/api/server/v1/userstores' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='  
+            -H 'Authorization: Bearer {bearer_token}'
   /userstores/import:
     post:
       tags:
@@ -186,7 +186,7 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/o/api/server/v1/userstores/primary' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='           
+            -H 'Authorization: Bearer {bearer_token}'
   /userstores/{userstore-domain-id}:
     get:
       tags:
@@ -220,7 +220,7 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/o/api/server/v1/userstores/{userstore-domain-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='          
+            -H 'Authorization: Bearer {bearer_token}'
     delete:
       tags:
         - User Store
@@ -248,7 +248,7 @@ paths:
             curl -X 'DELETE' \
             'https://localhost:9443/o/api/server/v1/userstores/{userstore-domain-id}' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='           
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - User Store
@@ -290,7 +290,7 @@ paths:
             curl -X 'PUT' \
             'https://localhost:9443/o/api/server/v1/userstores/{userstore-domain-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "typeId": "VW5pcXVlSURKREJDVXNlclN0b3JlTWFuYWdlcg",
@@ -347,7 +347,7 @@ paths:
             curl -X 'PATCH' \
             'https://localhost:9443/o/api/server/v1/userstores/userstore-domain-id' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '[
             {
@@ -510,7 +510,7 @@ paths:
             curl --location --request PATCH 'https://localhost:9443/o/api/server/v1/userstores/{userstore-domain-id}/attribute-mappings' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '[
               {
                 "claimURI": "http://wso2.org/claims/username",
@@ -547,7 +547,7 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/o/api/server/v1/userstores/meta/types' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='         
+            -H 'Authorization: Bearer {bearer_token}'
   /userstores/meta/types/{type-id}:
     get:
       tags:
@@ -590,7 +590,7 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/o/api/server/v1/userstores/meta/types/{user-store-type-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   '/userstores/meta/types/{type-id}/attributes':
     get:
       tags:
@@ -634,7 +634,7 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/o/api/server/v1/userstores/meta/types/{user-store-type-id}/attributes' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /userstores/test-connection:
     post:
       tags:
@@ -665,7 +665,7 @@ paths:
             curl -X 'POST' \
             'https://localhost:9443/o/api/server/v1/userstores/test-connection' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "driverName": "com.mysql.jdbc.Driver",
@@ -806,9 +806,6 @@ components:
     Forbidden:
       description: Resource Forbidden.
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
