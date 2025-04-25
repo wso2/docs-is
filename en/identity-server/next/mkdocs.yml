@@ -506,6 +506,7 @@ nav:
               - Add AD FS login: guides/authentication/enterprise-login/add-ad-fs-login.md
             - Add eID login:
               - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
+              - Add FranceConnect login: guides/authentication/eid-login/add-franceconnect-login.md
             - Configure a custom connector:  guides/authentication/configure-custom-connector.md
           - Enable user attributes:
               - Enable user attributes: guides/authentication/user-attributes/index.md
