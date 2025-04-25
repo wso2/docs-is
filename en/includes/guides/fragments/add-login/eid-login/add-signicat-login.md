@@ -26,6 +26,8 @@
 
     3. Click **Confirm** to add login with Signicat to the sign-in flow.
 
+         ![Configuring Signicat in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/signicat-idp/add-signicat-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
     {% endif %}
 
     {% include "../recommendation.md" %}
