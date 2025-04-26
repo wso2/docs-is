@@ -899,7 +899,6 @@ nav:
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
-      - Password expiring users identification API: apis/organization-apis/org-password-expiring-users-identification.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
