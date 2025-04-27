@@ -24,6 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd en/asgardeo
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       # Step 3: Start MkDocs server in the background and run the broken link checker
