@@ -25,7 +25,7 @@ jobs:
         run: |
           cd en/asgardeo
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip3 install -r requirements.txt
 
       # Step 3: Start MkDocs server in the background and run the broken link checker
       - name: Start MkDocs server and run broken link checker
@@ -36,5 +36,5 @@ jobs:
           while ! nc -z localhost 8000; do
             sleep 1
           done
-          pip install linkchecker
+          pip3 install linkchecker
           linkchecker -F html http://127.0.0.1:8000 --threads=100
