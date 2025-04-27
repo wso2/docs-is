@@ -1,10 +1,15 @@
-name: PR Builder
+name: PR Builder - Asgardeo Docs
 
 on:
   pull_request:
     paths:
       - 'en/asgardeo/**'
       - 'en/includes/**'
+
+# Avoid running multiple builds for the same PR.
+concurrency:
+  group: pr-builder-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   broken-link-checker:
@@ -26,7 +31,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r en/asgardeo/requirements.txt
 
-      # Step 3: Start MkDocs server in the background and run the broken link checker
       - name: Start MkDocs server and run broken link checker
         run: |
           cd en/asgardeo
