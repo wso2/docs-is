@@ -15,15 +15,20 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       # Step 2: Navigate to en/asgardeo directory, install dependencies, and build the docs
-      - name: Build the docs
+      - name: Install dependencies
         run: |
+          pip install linkchecker
           cd en/asgardeo
           pip install -r requirements.txt
-          mkdocs build
 
-      # Step 3: Start MkDocs server in the background
-      - name: Start MkDocs server
+      # Step 3: Start MkDocs server in the background and run the broken link checker
+      - name: Start MkDocs server and run broken link checker
         run: |
           cd en/asgardeo
           nohup mkdocs serve > mkdocs.log 2>&1 &
@@ -31,9 +36,4 @@ jobs:
           while ! nc -z localhost 8000; do
             sleep 1
           done
-
-      # Step 4: Run broken link checker
-      - name: Run broken link checker
-        run: |
-          pip install linkchecker
-          linkchecker http://127.0.0.1:8000
+          linkchecker -F html http://127.0.0.1:8000 --threads=100
