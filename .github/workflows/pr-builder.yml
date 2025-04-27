@@ -23,7 +23,6 @@ jobs:
       # Step 2: Navigate to en/asgardeo directory, install dependencies, and build the docs
       - name: Install dependencies
         run: |
-          pip install linkchecker
           cd en/asgardeo
           pip install -r requirements.txt
 
@@ -36,4 +35,5 @@ jobs:
           while ! nc -z localhost 8000; do
             sleep 1
           done
+          pip install linkchecker
           linkchecker -F html http://127.0.0.1:8000 --threads=100
