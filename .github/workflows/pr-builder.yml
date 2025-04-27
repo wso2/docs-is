@@ -22,13 +22,17 @@ jobs:
           pip install -r requirements.txt
           mkdocs build
 
-      # Step 3: Start the MkDocs server in the background
+      # Step 3: Start MkDocs server in the background
       - name: Start MkDocs server
         run: |
           cd en/asgardeo
-          nohup mkdocs serve &
+          nohup mkdocs serve > mkdocs.log 2>&1 &
+          # Wait for server to start
+          while ! nc -z localhost 8000; do
+            sleep 1
+          done
 
-      # Step 4: Run a broken link checker directly
+      # Step 4: Run broken link checker
       - name: Run broken link checker
         run: |
           pip install linkchecker
