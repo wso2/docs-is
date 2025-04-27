@@ -13,6 +13,6 @@ If you're using OIDC with PKCE and the Asgardeo SDK for login, you can easily ad
 
 
 
-Additionally, {{product_name}} offers [App-Native authentication]({{ base_path }}/guides/authentication/app-native-authentication/){:target="_blank"}, allowing you to create your own user interfaces while handling authentication via REST APIs. In this case, you must follow the [API specifications]({{ base_path }}/docs/references/app-native-authentication/){:target="_blank"} and incorporate all required MFA steps to complete the authentication process. If the authentication flow involves a federated IdP, you'll also need to manage IdP redirection accordingly.
+Additionally, {{product_name}} offers [App-Native authentication]({{ base_path }}/guides/authentication/app-native-authentication/){:target="_blank"}, allowing you to create your own user interfaces while handling authentication via REST APIs. In this case, you must follow the [API specifications]({{ base_path }}/references/app-native-authentication/){:target="_blank"} and incorporate all required MFA steps to complete the authentication process. If the authentication flow involves a federated IdP, you'll also need to manage IdP redirection accordingly.
 
 
