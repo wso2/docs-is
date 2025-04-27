@@ -38,3 +38,7 @@ Enable additional options for managing user accounts.
 
 - [Account disabling]({{base_path}}/guides/account-configurations/account-disabling/)
 {% endif %}
+
+## Notification settings
+
+Learn how to implement advanced notification handling in [Notification settings]({{base_path}}/guides/account-configurations/notification-settings/).

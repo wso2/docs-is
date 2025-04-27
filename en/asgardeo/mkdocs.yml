@@ -301,6 +301,7 @@ nav:
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+            - Configure SAML Web SSO for your organization: guides/authentication/saml/saml-sso-resident.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
       - Authorization:
         - Authorization: guides/authorization/index.md
@@ -356,6 +357,7 @@ nav:
           - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
         - Account disabling: guides/account-configurations/account-disabling.md
+        - Notification settings: guides/account-configurations/notification-settings.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
