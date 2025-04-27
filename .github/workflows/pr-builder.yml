@@ -9,23 +9,22 @@ on:
 jobs:
   broken-link-checker:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Check out the PR branch
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.IAM_DOCS_GITHUB_BOT_TOKEN }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
-      # Step 2: Navigate to en/asgardeo directory, install dependencies, and build the docs
       - name: Install dependencies
         run: |
-          cd en/asgardeo
           python -m pip install --upgrade pip
-          pip3 install -r requirements.txt
+          pip install -r en/asgardeo/requirements.txt
 
       # Step 3: Start MkDocs server in the background and run the broken link checker
       - name: Start MkDocs server and run broken link checker
