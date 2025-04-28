@@ -31,7 +31,7 @@ can be accessed from the MyAccount portal or when push device progressive enroll
     Learn more about enrolling push notification devices [via My Account](../../guides/user-self-service/register-push-notification-device.md) 
     and [progressive enrollment](../../guides/authentication/mfa/add-push-auth-login.md#enable-push-notification-device-progressive-enrollment).
 
-The content encoded in the QR code is retrieved from the response of the push device registration discovery data API endpoint. 
+The content in the QR code is retrieved from the response of the push device registration discovery data API endpoint. 
 This response contains the following information:
 
 <table>
