@@ -82,7 +82,7 @@ Then, update your Home component as follows to display the username of logged in
 ```
 
 !!! Info
-     Read more on [getting user attributes in your app]({{base_path}}/authentication/user-attributes/enable-attributes-for-oidc-app/).
+     Read more on [getting user attributes in your app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/).
 
 ## Access logged user's permissions
 
