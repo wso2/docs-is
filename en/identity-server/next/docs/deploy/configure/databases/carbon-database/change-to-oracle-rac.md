@@ -83,17 +83,42 @@ A sample configuration is given below.
     2.  Execute database scripts.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/oracle_rac.sql` file against the database created.
-        
-3. If you have a requirement in using workflow feature follow, 
-    [Change the default database of BPS database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-bpsds)
     
-4.  Download the Oracle RAC JDBC driver for the version, you are using and
+3.  Download the Oracle RAC JDBC driver for the version, you are using and
         copy it to the `<IS_HOME>/repository/components/lib` folder   
                
 ---      
 
 ### Advanced database configurations
 
-{% include "../../../../includes/db-advanced-config.md" %}
+Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
+
+-	`WSO2_IDENTITY_DB` related configurations that should be added to the `deployment.toml` file.
+
+	``` toml
+	[database.identity_db.pool_options]
+	maxActive = "80"
+	maxWait = "360000"
+	minIdle ="5"
+	testOnBorrow = true
+	validationQuery="select 1 from dual"
+	validationInterval="30000"
+	defaultAutoCommit=false
+	commitOnReturn=true
+	```
+
+-	`WSO2_SHARED_DB` `deployment.toml` related configurations that should be added to the `deployment.toml` file.
+
+	```toml
+	[database.shared_db.pool_options]
+	maxActive = "80"
+	maxWait = "360000"
+	minIdle ="5"
+	testOnBorrow = true
+	validationQuery="select 1 from dual"
+	validationInterval="30000"
+	defaultAutoCommit=false
+	commitOnReturn=true
+	```
 
 {% include "../../../../includes/db-config-table.md" %}

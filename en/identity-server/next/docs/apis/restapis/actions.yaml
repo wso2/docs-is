@@ -2,9 +2,12 @@ openapi: 3.0.0
 info:
   version: v1
   title: WSO2 Identity Server - Action Management Rest API
-  description:
-    "This is the RESTful API for managing actions for an organization in WSO2 Identity Server. \n
-    This API allows to create, retrieve, update and delete actions."
+  description: >
+    The Action Management REST API provides a comprehensive interface to manage actions
+    within the WSO2 Identity Server. Actions enable the extension of product functionality
+    across various workflows, such as access token issuance, password updates, and profile updates.
+    This API helps developers and administrators to define and manage actions to meet specific
+    business needs.
 servers:
   - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
     variables:
@@ -12,6 +15,7 @@ servers:
         default: "localhost:9443"
       tenant-domain:
         default: carbon.super
+
 security:
   - BasicAuth: []
   - OAuth2: []
@@ -19,18 +23,34 @@ paths:
   /actions/types:
     get:
       tags:
-      - Actions Endpoint
+      - Action Types
       summary: List Action Types
       description: "This API returns the detailed summary of the action types.\n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_view``\n\n"
       operationId: getActionTypes
       responses:
         '200':
-          description: Action Types are found
+          description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionTypesResponse'
+              example:
+                - type: PRE_ISSUE_ACCESS_TOKEN
+                  displayName: Pre Issue Access Token
+                  description: This action invokes before issuing an access token.
+                  count: 1
+                  self: "/api/server/v1/actions/preIssueAccessToken"
+                - type: PRE_UPDATE_PASSWORD
+                  displayName: Pre Update Password
+                  description: This action invokes before updating a user password.
+                  count: 1
+                  self: "/api/server/v1/actions/preUpdatePassword"
+                - type: PRE_UPDATE_PROFILE
+                  displayName: Pre Update Profile
+                  description: This action invokes before updating a user profile.
+                  count: 1
+                  self: "/api/server/v1/actions/preUpdateProfile"
         '401':
           description: Unauthorized
         '403':
@@ -41,16 +61,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://localhost:9443/api/server/v1/actions/types' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/api/server/v1/actions/types' \
+              -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
   /actions/{actionType}:
     post:
       tags:
-        - Actions Endpoint
+         - Actions
       summary: Add Action
       description: "This API creates an action and returns the action details along with the action's unique ID.\n\n
        <b>Scope (Permission) required:</b> ``internal_action_mgt_create``\n\n"
@@ -63,20 +83,170 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ActionModel'
+            examples:
+              preIssueAccessToken:
+                summary: Sample payload for pre issue access token action
+                value:
+                  name: Access Token Pre Issue
+                  description: This action invokes before issuing an access token.
+                  endpoint:
+                    uri: https://myextension.com/token
+                    authentication:
+                      properties:
+                        username: auth_username
+                        password: auth_password
+                      type: BASIC
+                  rule:
+                    condition: OR
+                    rules:
+                    - condition: AND
+                      expressions:
+                      - field: application
+                        operator: equals
+                        value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                      - field: grantType
+                        operator: notEquals
+                        value: authorization_code
+                    - condition: AND
+                      expressions:
+                      - field: grantType
+                        operator: equals
+                        value: client_credentials
+              preUpdatePassword:
+                summary: Sample payload for pre update password action
+                value:
+                  name: Password Update Action
+                  description: This action invokes before updating a user password.
+                  endpoint:
+                    uri: https://myextension.com/pre-update-password
+                    authentication:
+                      properties:
+                        header: x-api-key
+                        value: e12595c1-1435-4bf2-94e8-445135ab505a
+                      type: API_KEY
+                  passwordSharing:
+                    format: SHA256_HASHED
+                    certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                  rule:
+                    condition: OR
+                    rules:
+                    - condition: AND
+                      expressions:
+                      - field: flow
+                        operator: equals
+                        value: adminInitiatedPasswordReset
+                      - field: flow
+                        operator: notEquals
+                        value: adminInitiatedPasswordUpdate
+                    - condition: AND
+                      expressions:
+                      - field: flow
+                        operator: equals
+                        value: userInitiatedPasswordReset
+              preUpdateProfile:
+                summary: Sample payload for pre update profile action
+                value:
+                  name: Profile Update Action
+                  description: This action invokes before updating a user profile.
+                  endpoint:
+                    uri: https://myextension.com/pre-update-profile
+                    authentication:
+                      properties:
+                        header: x-api-key
+                        value: e12595c1-1435-4bf2-94e8-445135ab505a
+                      type: API_KEY
+                  attributes:
+                    - http://wso2.org/claims/givenname
+                    - http://wso2.org/claims/dob
         description: This represents the information of the action to be created.
         required: true
       responses:
         '201':
-          description: Action is created.
+          description: Action Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: INACTIVE
+                    endpoint:
+                      uri: https://myextension.com/token
+                      authentication:
+                        type: BASIC
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: application
+                          operator: equals
+                          value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                        - field: grantType
+                          operator: notEquals
+                          value: authorization_code
+                      - condition: AND
+                        expressions:
+                        - field: grantType
+                          operator: equals
+                          value: client_credentials
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: INACTIVE
+                    endpoint:
+                      uri: https://myextension.com/pre-update-password
+                      authentication:
+                        type: API_KEY
+                    passwordSharing:
+                      format: SHA256_HASHED
+                      certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: adminInitiatedPasswordReset
+                        - field: flow
+                          operator: notEquals
+                          value: adminInitiatedPasswordUpdate
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: userInitiatedPasswordReset
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: INACTIVE
+                    endpoint:
+                      uri: https://myextension.com/pre-update-profile
+                      authentication:
+                        type: API_KEY
+                    attributes:
+                      - http://wso2.org/claims/givenname
+                      - http://wso2.org/claims/dob
         '400':
           description: Bad Request
           content:
@@ -93,10 +263,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       x-codeSamples:
-        - lang: Curl
+        - lang: Curl - preIssueAccessToken
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/actions/{actionType}' \
+            curl --location 'https://localhost:9443/api/server/v1/actions/preIssueAccessToken' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -113,11 +289,53 @@ paths:
                     }
                 }
             }'
+        - lang: Curl - preUpdatePassword
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/preUpdatePassword' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "name": "Password Update Action",
+                "description": "This action invokes before updating a user password.",
+                "endpoint": {
+                    "uri": "https://myextension.com/pre-update-password",
+                    "authentication": {
+                        "properties": {
+                            "header": "x-api-key",
+                            "value": "e12595c1-1435-4bf2-94e8-445135ab505a"
+                        },
+                        "type": "API_KEY"
+                    }
+                },
+                "passwordSharing": {
+                    "format": "SHA256_HASHED"
+                }
+            }'
+        - lang: Curl - preUpdateProfile
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/preUpdateProfile' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "name": "Profile Update Action",
+                "description": "This action invokes before updating a user profile.",
+                "endpoint": {
+                    "uri": "https://myextension.com/pre-update-profile",
+                    "authentication": {
+                        "properties": {
+                            "header": "x-api-key",
+                            "value": "e12595c1-1435-4bf2-94e8-445135ab505a"
+                        },
+                        "type": "API_KEY"
+                    }
+                },
+                "attributes": ["http://wso2.org/claims/givenname", "http://wso2.org/claims/dob"]
+            }'
       x-codegen-request-body-name: body
 
     get:
       tags:
-        - Actions Endpoint
+       - Actions
       summary: List Actions
       description: "This API returns actions according to the action type. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_view``\n\n"
@@ -130,71 +348,53 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
       responses:
         '200':
-          description: Actions are found for the given action type.
+          description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionResponseList'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl --location 'https://localhost:9443/api/server/v1/actions/{actionType}' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
-
-  /actions/{actionType}/{actionId}:
-    patch:
-      tags:
-        - Actions Endpoint
-      summary: Update Action
-      description: "This API updates an action and return the updated action. \n\n
-        <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"
-      operationId: updateAction
-      parameters:
-        - name: actionType
-          in: path
-          description: Name of the Action Type.
-          required: true
-          schema:
-            enum:
-              - preIssueAccessToken
-        - name: actionId
-          in: path
-          description: Unique identifier of the action.
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ActionUpdateModel'
-        description: This represents the action to be updated.
-        required: true
-      responses:
-        '200':
-          description: Action is Updated.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: ACTIVE
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
@@ -217,8 +417,346 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       x-codeSamples:
         - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/{actionType}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+
+  /actions/{actionType}/{actionId}:
+    get:
+      tags:
+        - Actions
+      operationId: getActionByActionId
+      summary: Retrieve Action by ID
+      description: "This API provides the capability to retrieve the action by action Id. \n\n
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_view``\n\n"
+      parameters:
+        - name: actionType
+          in: path
+          description: Name of the Action Type.
+          required: true
+          schema:
+            enum:
+              - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
+        - name: actionId
+          in: path
+          description: Unique identifier of the action.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/token
+                      authentication:
+                        type: BASIC
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: application
+                          operator: equals
+                          value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                        - field: grantType
+                          operator: notEquals
+                          value: authorization_code
+                      - condition: AND
+                        expressions:
+                        - field: grantType
+                          operator: equals
+                          value: client_credentials
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/pre-update-password
+                      authentication:
+                        type: API_KEY
+                    passwordSharing:
+                      format: SHA256_HASHED
+                      certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: adminInitiatedPasswordReset
+                        - field: flow
+                          operator: notEquals
+                          value: adminInitiatedPasswordUpdate
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: userInitiatedPasswordReset
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PROFILE
+                    name: Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/pre-update-profile
+                      authentication:
+                        type: API_KEY
+                    attributes:
+                      - http://wso2.org/claims/givenname
+                      - http://wso2.org/claims/dob
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    patch:
+      tags:
+         - Actions
+      summary: Update Action
+      description: "This API updates an action and return the updated action. \n\n
+        <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"
+      operationId: updateAction
+      parameters:
+        - name: actionType
+          in: path
+          description: Name of the Action Type.
+          required: true
+          schema:
+            enum:
+              - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
+        - name: actionId
+          in: path
+          description: Unique identifier of the action.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionUpdateModel'
+            examples:
+              preIssueAccessToken:
+                summary: Sample payload for pre issue access token action update
+                value:
+                  name: Updated Access Token Pre Issue
+                  description: This action invokes before issuing an access token.
+                  endpoint:
+                    uri: https://myextension.com/external/token
+                    authentication:
+                      properties:
+                        token: 346dfbb5-6a8c-447a-9aaa-88fa2dd95962
+                      type: BEARER
+                  rule:
+                    condition: OR
+                    rules:
+                    - condition: AND
+                      expressions:
+                      - field: application
+                        operator: equals
+                        value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                      - field: grantType
+                        operator: notEquals
+                        value: password
+              preUpdatePassword:
+                summary: Sample payload for pre update password action update
+                value:
+                  name: Updated Password Update Action
+                  description: This action invokes before updating a user password.
+                  endpoint:
+                    uri: https://myextension.com/external/pre-update-password
+                    authentication:
+                      properties: {}
+                      type: NONE
+                  passwordSharing:
+                    format: PLAIN_TEXT
+                    certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                  rule:
+                    condition: OR
+                    rules:
+                    - condition: AND
+                      expressions:
+                      - field: flow
+                        operator: equals
+                        value: userInitiatedPasswordReset
+                      - field: flow
+                        operator: notEquals
+                        value: adminInitiatedPasswordUpdate
+              preUpdateProfile:
+                summary: Sample payload for pre update profile action update
+                value:
+                  name: Updated Profile Update Action
+                  description: This action invokes before updating a user profile.
+                  endpoint:
+                    uri: https://myextension.com/external/pre-update-profile
+                    authentication:
+                      properties: {}
+                      type: NONE
+                  attributes:
+                    - http://wso2.org/claims/dob
+        description: This represents the action to be updated.
+        required: true
+      responses:
+        '200':
+          description: Action Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Updated Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/external/token
+                      authentication:
+                        type: BEARER
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: application
+                          operator: equals
+                          value: 29ed9110-d0eb-48e3-918c-4832e8c9c81f
+                        - field: grantType
+                          operator: notEquals
+                          value: password
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Updated Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/external/pre-update-password
+                      authentication:
+                        type: NONE
+                    passwordSharing:
+                      format: PLAIN_TEXT
+                      certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    rule:
+                      condition: OR
+                      rules:
+                      - condition: AND
+                        expressions:
+                        - field: flow
+                          operator: equals
+                          value: userInitiatedPasswordReset
+                        - field: flow
+                          operator: notEquals
+                          value: adminInitiatedPasswordUpdate
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action update
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Updated Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: ACTIVE
+                    endpoint:
+                      uri: https://myextension.com/external/pre-update-profile
+                      authentication:
+                        type: NONE
+                    attributes:
+                      - http://wso2.org/claims/dob
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl - preIssueAccessToken
           source: |
             curl --location --request PATCH 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}' \
             -H 'Content-Type: application/json' \
@@ -238,11 +776,49 @@ paths:
                     }
                 }
             }'
+        - lang: Curl - preUpdatePassword
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/actions/preUpdatePassword/{actionId}' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "name": "Updated Password Update Action",
+                "description": "This is the configuration of pre-action for updating password",
+                "endpoint": {
+                    "uri": "http://myextensions.com/external/pre-update-password",
+                    "authentication": {
+                        "type": "NONE",
+                        "properties": {}
+                    }
+                },
+                "passwordSharing": {
+                    "format": "PLAIN_TEXT"
+                }
+            }'
+        - lang: Curl - preUpdateProfile
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/actions/preUpdateProfile/{actionId}' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "name": "Updated Profile Update Action",
+                "description": "This is the configuration of pre-action for updating profile",
+                "endpoint": {
+                    "uri": "http://myextensions.com/external/pre-update-profile",
+                    "authentication": {
+                        "type": "NONE",
+                        "properties": {}
+                    }
+                },
+                "attributes": ["http://wso2.org/claims/dob"]
+            }'
       x-codegen-request-body-name: body
 
     delete:
       tags:
-        - Actions Endpoint
+        - Actions
       summary: Delete Action
       description: "This API deletes an action using the action's type and unique ID. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_delete``\n\n"      
@@ -255,6 +831,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
         - name: actionId
           in: path
           description: Unique identifier of the action.
@@ -263,8 +842,7 @@ paths:
             type: string
       responses:
         '204':
-          description: Successfully Deleted
-          content: {}
+          description: Action Deleted
         '400':
           description: Bad Request
           content:
@@ -275,14 +853,14 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
-        '404':
-          description: Not Found
+        '500':
+          description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
+        '501':
+          description: Not Implemented
           content:
             application/json:
               schema:
@@ -296,7 +874,7 @@ paths:
   /actions/{actionType}/{actionId}/activate:
     post:
       tags:
-        - Actions Endpoint
+        - Actions
       summary: Activate Action
       description: "This API activates an action using the action's type and unique ID. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"  
@@ -309,6 +887,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
         - name: actionId
           in: path
           description: Unique identifier of the action.
@@ -317,11 +898,48 @@ paths:
             type: string
       responses:
         '200':
-          description: Action is activated
+          description: Action Activated
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ActionBasicResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: ACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: ACTIVE
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
@@ -340,6 +958,12 @@ paths:
                 $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
           content:
             application/json:
               schema:
@@ -353,7 +977,7 @@ paths:
   /actions/{actionType}/{actionId}/deactivate:
     post:
       tags:
-        - Actions Endpoint
+         - Actions
       summary: Deactivate Action
       description: "This API deactivates an action using the action's type and unique ID. \n\n
         <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"  
@@ -366,6 +990,9 @@ paths:
           schema:
             enum:
               - preIssueAccessToken
+              - preUpdatePassword
+              - preUpdateProfile
+              - preRegistration
         - name: actionId
           in: path
           description: Unique identifier of the action.
@@ -374,11 +1001,48 @@ paths:
             type: string
       responses:
         '200':
-          description: Action is deactivated
+          description: Action Deactivated
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ActionBasicResponseInactive'
+                $ref: '#/components/schemas/ActionBasicResponse'
+              examples:
+                preIssueAccessToken:
+                  summary: Sample response for pre issue access token action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_ISSUE_ACCESS_TOKEN
+                    name: Access Token Pre Issue
+                    description: This action invokes before issuing an access token.
+                    status: INACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdatePassword:
+                  summary: Sample response for pre update password action
+                  value:
+                  - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PASSWORD
+                    name: Password Update Action
+                    description: This action invokes before updating a user password.
+                    status: INACTIVE
+                    links:
+                    - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
+                      method: GET
+                      rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: INACTIVE
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
@@ -397,6 +1061,12 @@ paths:
                 $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
           content:
             application/json:
               schema:
@@ -407,121 +1077,6 @@ paths:
             curl --location --request POST 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/deactivate' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
 
-  /actions/{actionType}/{actionId}/{authType}:
-    put:
-      tags:
-        - Actions Endpoint
-      summary: Update Action Authentication
-      description: "This API updates authentication mechanism for the endpoint configured for the action. \n\n
-        <b>Scope (Permission) required:</b> ``internal_action_mgt_update``\n\n"
-      operationId: updateActionEndpointAuthentication
-      parameters:
-        - name: actionType
-          in: path
-          description: Name of the Action Type.
-          required: true
-          schema:
-            enum:
-              - preIssueAccessToken
-        - name: actionId
-          in: path
-          description: Unique identifier of the action.
-          required: true
-          schema:
-            type: string
-        - name: authType
-          in: path
-          description: Authentication Type of the Action Endpoint.
-          required: true
-          schema:
-            enum:
-              - none
-              - basic
-              - apiKey
-              - bearer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AuthTypeProperties'
-        description: This represents the updating authentication mechanism for the endpoint configured.
-        required: true
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ActionResponse'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-codeSamples:
-        - lang: Curl(Bearer)
-          source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/bearer' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "properties": {
-                "accessToken": "token"
-              }
-            }'
-        - lang: Curl(Basic)
-          source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/basic' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "properties": {
-                "username": "username",
-                "password": "password"
-              }
-            }'
-        - lang: Curl(API Key)
-          source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/apiKey' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "properties": {
-                "header": "header",
-                "value": "value"
-              }
-            }'
-        - lang: Curl(None)
-          source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/actions/{actionType}/{actionId}/none' \
-            -H 'Content-Type: application/json' \
-            -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "properties": {}
-            }'
-      x-codegen-request-body-name: body
-
 components:
   securitySchemes:
     BasicAuth:
@@ -531,8 +1086,8 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth/authorize
-          tokenUrl: https://localhost:9443/oauth/token
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'http://localhost:9443/oauth2/token'
           scopes: 
             read: internal_action_mgt_view
             write: internal_action_mgt_create
@@ -540,6 +1095,14 @@ components:
             delete: internal_action_mgt_delete
 
   schemas:
+    ActionType:
+      type: string
+      description: Action types supported. As of now only 'PRE_ISSUE_ACCESS_TOKEN' is implemented.
+      enum:
+        - PRE_ISSUE_ACCESS_TOKEN
+        - PRE_UPDATE_PASSWORD
+        - PRE_UPDATE_PROFILE
+        - PRE_REGISTRATION
     ActionModel:
       type: object
       required:
@@ -548,17 +1111,19 @@ components:
       properties:
         name:
           type: string
-          example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
           description: Name of the action.
+          example: Pre Issue Access Token Action
         description:
           type: string
-          example: This action invokes before issuing an access token.
           maxLength: 255
           description: Description of the action.
+          example: This action invokes before issuing an access token.
         endpoint:
           $ref: '#/components/schemas/Endpoint'
+        rule:
+          $ref: '#/components/schemas/ORRule'
 
     Endpoint:
       type: object
@@ -569,10 +1134,11 @@ components:
       properties:
         uri:
           type: string
-          example: https://myextension.com/token
           description: HTTPS URI of the endpoint.
+          pattern: '^https?://.+'
+          example: https://myextension.com/token
         authentication:
-          $ref: '#/components/schemas/Authentication'
+          $ref: '#/components/schemas/AuthenticationType'
 
     EndpointResponse:
       type: object
@@ -583,8 +1149,9 @@ components:
       properties:
         uri:
           type: string
-          example: https://myextension.com/token
           description: HTTPS URI of the endpoint.
+          pattern: '^https?://.+'
+          example: https://myextension.com/token
         authentication:
           $ref: '#/components/schemas/AuthenticationTypeResponse'
 
@@ -596,31 +1163,29 @@ components:
           example: '24f64d17-9824-4e28-8413-de45728d8e84'
           description: Unique identifier of the action.
         type:
-          type: string
-          enum:
-            - PRE_ISSUE_ACCESS_TOKEN
-          example: PRE_ISSUE_ACCESS_TOKEN
-          description: Action Type.
+          $ref: '#/components/schemas/ActionType'
         name:
           type: string
-          example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
           description: Name of the action.
+          example: Access Token Pre Issue
         description:
           type: string
-          example: This action invokes before issuing an access token.
           maxLength: 255
           description: Description of the action.
+          example: This action invokes before issuing an access token.
         status:
           type: string
           enum:
             - ACTIVE
             - INACTIVE
-          example: ACTIVE
           description: Status of the action.
+          example: ACTIVE
         endpoint:
           $ref: '#/components/schemas/EndpointResponse'
+        rule:
+          $ref: '#/components/schemas/ORRuleResponse'
 
     ActionBasicResponse:
       type: object
@@ -630,33 +1195,52 @@ components:
           example: '24f64d17-9824-4e28-8413-de45728d8e84'
           description: Unique identifier of the action.
         type:
-          type: string
-          enum:
-            - PRE_ISSUE_ACCESS_TOKEN
-          example: PRE_ISSUE_ACCESS_TOKEN
-          description: Action Type.
+          $ref: '#/components/schemas/ActionType'
         name:
           type: string
-          example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
           description: Name of the action.
+          example: Access Token Pre Issue
         description:
           type: string
-          example: This action invokes before issuing an access token.
           maxLength: 255
           description: Description of the action.
+          example: This action invokes before issuing an access token.
         status:
           type: string
           enum:
             - ACTIVE
             - INACTIVE
           description: Status of the action.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+              method: GET
+              rel: self
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Url of the endpoint.
+        method:
+          type: string
+          enum:
+            - GET
+          description: Http method.
+        rel:
+          type: string
+          description: Relation to the resource.
 
     ActionResponseList:
       type: array
       items:
-        $ref: '#/components/schemas/ActionResponse'
+        $ref: '#/components/schemas/ActionBasicResponse'
 
     ActionTypesResponse:
       type: array
@@ -667,26 +1251,79 @@ components:
       type: object
       properties:
         type:
-          type: string
-          enum:
-            - PRE_ISSUE_ACCESS_TOKEN
-          description: Action Type.
+          $ref: '#/components/schemas/ActionType'
         displayName:
           type: string
-          example: "Pre Issue Access Token."
           description: "Display name of the action type."
+          example: "Pre Issue Access Token."
         description:
           type: string
-          example: "Extension point configuration for Pre Issue Access Token."
           description: "Description of the action type."
+          example: "Extension point configuration for Pre Issue Access Token."
         count:
           type: integer
-          example: 1
           description: "Number of actions configured under the action type."
+          example: 1
         self:
           type: string
-          example: "/api/server/v1/actions/preIssueAccessToken"
           description: "API endpoint referring to the location of the given action type."
+          example: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
+
+    AuthenticationType:
+      type: object
+      description: >
+            The type of authentication required by the action's endpoint. The following options are supported:
+            
+            - NONE: No authentication is required. <br>
+              ``{
+                "type": "NONE"
+              }``
+              
+            - BASIC: Basic authentication with a username and password.<br>
+              ``{
+                "type": "BASIC",
+                "properties": {
+                  "username": "auth_username",
+                  "password": "auth_password"
+                }
+              }``
+              
+            - API_KEY: API key-based authentication, where the key is provided in an HTTP header.<br>
+              ``{
+                "type": "API_KEY",
+                "properties": {
+                  "header": "X-API-Key",
+                  "value": "12345-abcde-67890"
+                }
+              }``
+            
+            - BEARER: Bearer token-based authentication.<br/>
+              ``{
+                "type": "BEARER",
+                "properties": {
+                  "accessToken": "0d6fed02-eac0-332b-8998-213a543139a0"
+                }
+              }``
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum:
+            - NONE
+            - BEARER
+            - API_KEY
+            - BASIC
+          example: BASIC
+        properties:
+          type: object
+          description: Authentication properties specific to the selected type.
+          additionalProperties: true
+      example:
+        type: BASIC
+        properties:
+          username: "auth_username"
+          password: "auth_password"
 
     AuthenticationTypeResponse:
       type: object
@@ -701,25 +1338,27 @@ components:
             - BEARER
             - API_KEY
             - BASIC
-          example: BASIC
           description: Type of the authentication.
+          example: BASIC
 
     ActionUpdateModel:
       type: object
       properties:
         name:
           type: string
-          example: Access Token Pre Issue
           minLength: 1
           maxLength: 255
           description: Updating name of the action.
+          example: Pre Issue Access Token Action
         description:
           type: string
-          example: This action invokes before issuing an access token.
           maxLength: 255
           description: Updating description of the action.
+          example: This action invokes before issuing an access token.
         endpoint:
           $ref: '#/components/schemas/EndpointUpdateModel'
+        rule:
+          $ref: '#/components/schemas/ORRule'
 
     EndpointUpdateModel:
       type: object
@@ -727,137 +1366,110 @@ components:
       properties:
         uri:
           type: string
-          example: https://myextension.com/token
+          pattern: '^https?://.+'
           description: Updating HTTPS URI of the endpoint.
+          example: https://myextension.com/token
+          
         authentication:
-          $ref: '#/components/schemas/Authentication'
+          $ref: '#/components/schemas/AuthenticationType'
 
-    ActionBasicResponseInactive:
-      allOf:
-        - $ref: '#/components/schemas/ActionBasicResponse'
-        - type: object
-          properties:
-            status:
-              type: string
-              enum:
-                - INACTIVE
-
-    None:
+    ORRule:
       type: object
+      description: Represents a rule configuration that combines multiple sub-rules with an OR condition.
+        If any of the sub-rules evaluate to true, the ORRule is considered satisfied.
       properties:
-        properties:
-          type: object
-    Basic:
+        condition:
+          type: string
+          description: The logical condition for combining the sub-rules. For ORRule, the value
+            must always be "OR".
+          enum: ["OR"]
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ANDRule'
+          minItems: 1
+
+    ORRuleResponse:
       type: object
+      description: Rule configured for the action.
       properties:
-        properties:
-          type: object
-          description: Properties of Basic authentication type.
-          required:
-            - username
-            - password
-          properties:      
-            username:
-              type: string
-              example: 'auth_username'
-              description: Username.
-            password:
-              type: string
-              example: 'auth_password'
-              description: Password.
-    ApiKey:
+        condition:
+          type: string
+          enum: ["OR"]
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ANDRuleResponse'
+          description: A list of sub-rules that are combined using the OR condition. Each sub-rule is an ANDRule.
+          minItems: 1
+
+    ANDRule:
       type: object
+      description: A sub-rule that combines expressions with AND condition.
+      required:
+        - condition
+        - expressions
       properties:
-        properties:
-          type: object
-          description: Properties of API Key authentication type.
-          required:
-            - header
-            - value
-          properties: 
-            header:
-              type: string
-              example: 'auth_header'
-              description: Header.
-            value:
-              type: string
-              example: 'auth_value'
-              description: Value.
-    Bearer:
+        condition:
+          type: string
+          enum: ["AND"]
+          description: The logical condition for combining the expressions. For ANDRule, the value must always be "AND".
+        expressions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Expression'
+          minItems: 1
+          description: A list of expressions that are combined using the AND condition. All expressions must evaluate to true for the ANDRule to pass.
+
+    ANDRuleResponse:
       type: object
+      description:  Represents a rule configuration that combines multiple expressions with an AND condition. All expressions in the ANDRule must evaluate to true for the rule to be satisfied.
       properties:
-        properties:
-          type: object
-          description: Properties of Bearer authentication type.
-          required:
-            - accessToken
-          properties: 
-            accessToken:
-              type: string
-              example: '0d6fed02-eac0-332b-8998-213a543139a0'
-              description: Access Token.
+        condition:
+          type: string
+          enum: ["AND"]
+          description: The logical condition for combining the expressions. For ANDRule, the value must always be "AND".
+        expressions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExpressionResponse'
+          minItems: 1
+          description: A list of expressions that are combined using the AND condition. All expressions must evaluate to true for the ANDRule to pass.
 
-    NoAuthentication:
+    Expression:
       type: object
-      allOf:
-        - $ref: '#/components/schemas/None'
-        - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - NONE
+      description: Represents a single logical condition or comparison within a rule. An expression defines a field, an operator, and a value that is evaluated.
+      required:
+        - field
+        - operator
+        - value
+      properties:
+        field:
+          type: string
+          description: The field or attribute of the entity being evaluated (e.g.,application, role).
+          example: application
+        operator:
+          type: string
+          description: The comparison operator used to evaluate the field and value. Common operators include "equals", "contains", "startsWith", etc.
+          example: equals
+        value:
+          type: string
+          description: The value that the field is compared against based on the operator.
+          example: myapp
 
-    BasicAuthentication:
+    ExpressionResponse:
       type: object
-      allOf:
-        - $ref: '#/components/schemas/Basic'
-        - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - BASIC
-              description: Type of the authentication.
-
-    ApiKeyAuthentication:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/ApiKey'
-        - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - API_KEY
-              description: Type of the authentication.
-
-    BearerAuthentication:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/Bearer'
-        - type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - BEARER
-              description: Type of the authentication.
-    
-    Authentication:
-      description: Authentication configurations of the action.
-      oneOf:
-        - $ref: '#/components/schemas/BasicAuthentication'
-        - $ref: '#/components/schemas/ApiKeyAuthentication'
-        - $ref: '#/components/schemas/BearerAuthentication'
-        - $ref: '#/components/schemas/NoAuthentication'
-
-    AuthTypeProperties:
-      oneOf:
-        - $ref: '#/components/schemas/Basic'
-        - $ref: '#/components/schemas/ApiKey'
-        - $ref: '#/components/schemas/Bearer'
-        - $ref: '#/components/schemas/None'
+      description: Expressions in the rule.
+      properties:
+        field:
+          type: string
+          example: application
+        operator:
+          type: string
+          example: equals
+        value:
+          type: string
+          example: myapp
 
     Error:
       type: object

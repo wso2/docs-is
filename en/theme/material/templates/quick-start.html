@@ -1,0 +1,272 @@
+<!--
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/css/quick-start.css' | url }}">
+{% endblock %}
+
+{% block container %}
+  <div class="md-content" data-md-component="content">
+    <article class="md-content__inner md-typeset">
+
+      {{ page.content }}
+
+    </article>
+  </div>
+
+  <script>
+
+    const basePath = {{ config.extra.base_path | tojson }};
+    const product = {{ config.extra.product | tojson }};
+    const productName = {{ config.extra.product_name | tojson }};
+
+    const stepContentStart = Array.from(document.querySelectorAll("p")).find(p => p.textContent.trim() === "[//] STEPS_START");
+    const stepContentEnd = Array.from(document.querySelectorAll("p")).find(p => p.textContent.trim() === "[//] STEPS_END");
+
+    /**
+      * This script render a summary box with "What's Next?" section.
+      * It uses the meta object to populate the content dynamically.
+      */
+
+    function renderWhatsNext(meta) {
+      if (!meta || !meta.whats_next) return '';
+
+      {% raw %}
+      const replaceTokens = (text) =>
+        text
+          .replace(/{{\s*base_path\s*}}/g, basePath)
+          .replace(/{{\s*product\s*}}/g, product)
+          .replace(/{{\s*product_name\s*}}/g, productName);
+      {% endraw %}
+
+      const renderList = (items) => items.map(item => `<li>${replaceTokens(item)}</li>`).join('');
+
+      return `
+        <div class="whats-new">
+          <h2>What's Next?</h2>
+          <ul>
+            ${renderList(meta.whats_next)}
+          </ul>
+        </div>`;
+    }
+
+    /**
+      * This script render a summary box with "What You Will Learn",
+      * "Prerequisites", and "Example Source Code" sections.
+      * It uses the meta object to populate the content dynamically.
+      */
+
+    function renderSummaryBox(meta) {
+      if (!meta || (!meta.what_you_will_learn && !meta.prerequisites && !meta.source_code)) return '';
+
+      {% raw %}
+      const replaceTokens = (text) =>
+        text
+          .replace(/{{\s*base_path\s*}}/g, basePath)
+          .replace(/{{\s*product\s*}}/g, product)
+          .replace(/{{\s*product_name\s*}}/g, productName);
+      {% endraw %}
+
+      const renderList = (items) => items.map(item => `<li>${replaceTokens(item)}</li>`).join('');
+
+      let html = `<div class="summary-box">`;
+
+      if (meta.what_you_will_learn || meta.prerequisites) {
+        html += `<div class="flex-container">`;
+
+        if (meta.what_you_will_learn) {
+          html += `
+            <div class="column left">
+              <h4 id="what-you-will-learn">What You Will Learn</h4>
+              <ul class="tick-list">
+                ${renderList(meta.what_you_will_learn)}
+              </ul>
+            </div>`;
+        }
+
+        if (meta.prerequisites) {
+          html += `
+            <div class="column right">
+              <h4>Prerequisites</h4>
+              Before you start, ensure you have the following:
+              <ul>
+                ${renderList(meta.prerequisites)}
+              </ul>
+            </div>`;
+        }
+
+        html += `</div>`;
+      }
+
+      if (meta.source_code) {
+        html += `
+          <h4>Example Source Code</h4>
+          ${meta.source_code}
+        `;
+      }
+
+      html += `</div>`;
+
+      return html;
+    }
+
+    /**
+      * This script processes the content of the page to wrap STEPS sections to style with numbering.
+      * It identifies sections based on H2 tags and wraps them in divs with unique IDs.
+      * Elements bettween !! STEPS_START !! and !! STEPS_END !! will be processed.
+      */
+    
+    let currentElement = stepContentStart.nextElementSibling;
+
+    const siblings = [];
+
+    let newSection = [];
+    let updatedContent = [];
+    let sectionCount = 0; // Counter for unique IDs
+    
+    // Function to wrap an element
+    function wrapElement(targetElements, wrapperElement) {
+        // Move all target elements inside the wrapper
+        targetElements.forEach(item => wrapperElement.appendChild(item));
+    }
+    
+    // Loop through sibling elements
+    while (currentElement && currentElement !== stepContentEnd) {
+      // Store the current element in the array
+      siblings.push(currentElement);
+      
+      // Store the next sibling before removing the current one
+      const nextElement = currentElement.nextElementSibling;
+      
+      // Remove the current element from the DOM
+      currentElement.remove();
+      
+      // Move to the next element
+      currentElement = nextElement;
+    }
+    
+    // Process siblings to wrap them and prepend numbers to H2 tags
+    siblings.forEach(function(element) {
+      if (element.nodeName === 'SCRIPT') {
+          // Skip SCRIPT tag
+          return;
+      }
+
+      if (element.nodeName === 'H2') {
+          // Increment section count
+          sectionCount++; 
+  
+          // Create a span for the section number
+          const span = document.createElement('span');
+          span.textContent = sectionCount; // Set the text content to the section number
+          span.className = 'step-number';
+          
+          // Prepend the span to the H2 element
+          element.insertAdjacentElement('afterbegin', span);
+          
+          if (newSection.length > 0) {
+              // Create a wrapper for the current section
+              const wrapper = document.createElement('div');
+              
+              // Assign a unique ID and class to the wrapper
+              wrapper.id = `step-${sectionCount-1}`;
+              wrapper.className = 'step'; // Add your class here
+  
+              // Wrap the newSection elements
+              wrapElement(newSection, wrapper);
+  
+              // Store the wrapped element
+              updatedContent.push(wrapper);
+  
+              // Clear the newSection for the next group
+              newSection = [];
+          }
+      }
+  
+      // Add the current element to the new section
+      newSection.push(element);
+    });
+    
+    // Handle any remaining elements after the last H2
+    if (newSection.length > 0) {
+      sectionCount++; // Increment section count for the last group
+      const wrapper = document.createElement('div');
+      
+      // Assign a unique ID and class to the wrapper
+      wrapper.id = `step-${sectionCount-1}`;
+      wrapper.className = 'step';
+  
+      // Wrap the remaining elements
+      wrapElement(newSection, wrapper);
+      updatedContent.push(wrapper);
+    }
+
+    const sectionsWrapper = document.createElement('div');
+                
+    // Assign a unique ID and class to the wrapper
+    sectionsWrapper.id = "steps-section";
+    sectionsWrapper.className = 'steps-section'; // Add your class here
+
+    stepContentStart.insertAdjacentElement('afterend', sectionsWrapper);
+    
+    // Insert the new elements after the stepContentStart element
+    updatedContent.forEach(content => {
+      sectionsWrapper.appendChild(content);
+    });
+
+    // Add "What's Next?" section
+    stepContentEnd.insertAdjacentHTML("afterend", renderWhatsNext(meta));
+    // Add summary box section
+    stepContentStart.insertAdjacentHTML("afterend", renderSummaryBox(meta));
+
+    // Remove the original STEPS_START and STEPS_END markers
+    stepContentStart.remove();
+    stepContentEnd.remove();
+    
+  </script>
+  <script>
+
+    const toc = document.querySelector('.md-sidebar--secondary [data-md-component="toc"]');
+
+    // Initialize the section count
+    let sectionCountw = 1;
+
+    // Loop through each child element
+    Array.from(toc.children).forEach(child => {
+        // Find the 'a' tag within the child element
+        const link = child.querySelector('a');
+
+        if (link) {
+            // Create a span for the section number
+            const span = document.createElement('span');
+            span.textContent = sectionCountw; // Set the text content to the section number
+            span.className = 'toc-step-number';  // Assign a class for styling if needed
+
+            // Prepend the span to the 'a' tag
+            link.prepend(span);
+
+            // Increment the section count for the next child
+            sectionCountw++;
+        }
+    });
+
+  </script>
+{% endblock %}

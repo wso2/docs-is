@@ -62,7 +62,7 @@ Follow the steps below to implement FAPI-compliant PAR requests for the `code` g
 JARM defines the `jwt`, `query.jwt`, `fragment.jwt` and `form_post.jwt` modes to encode the response object. According to the FAPI specification, if the response type of a token request is set to `code`, the `response_mode` must be set to `jwt`.
 
 !!! note
-    JARM is not enabled by default in {{product_name}}. Learn more about JARM including how to enable it in the [JARM for OAuth 2.0]({{base_path}}/guides/authentication/oidc/jarm) documentation.
+    JARM is not enabled by default in {{product_name}}. Learn more about JARM including how to enable it in the [JARM for OAuth 2.0]({{base_path}}/guides/authentication/oidc/jarm/) documentation.
 
 When a client specifies the response mode in the authorization request, {{product_name}} includes the details of the authorization response such as the `code` along with other details in a JWT, signs it with the authorization server's public key and sends it to the client in the specified mode.
 

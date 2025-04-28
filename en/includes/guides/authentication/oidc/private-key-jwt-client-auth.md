@@ -115,7 +115,7 @@ Prepare the JSON payload required by the authorization server for client authent
 }
 ```
 
-Once you have created the payload, generate a signature for it using the client application's private key. This JWT is known as the **client_assetion**.
+Once you have created the payload, generate a signature for it using the client application's private key. This JWT is known as the **client_assertion**.
 
 ## Get the access token
 
@@ -201,8 +201,8 @@ If you are implementing the client credentials flow, you have enabled **client c
 ``` bash
 curl --location --request POST '{{ product_url_format }}/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials’ \
---data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer'\
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
 --data-urlencode 'client_assertion={jwt_assertion}’
 ```
 

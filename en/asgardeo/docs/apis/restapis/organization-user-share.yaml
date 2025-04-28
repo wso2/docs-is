@@ -1,0 +1,802 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: 'User Sharing API Definition'
+  description: |-
+    This document specifies the **User Sharing RESTful API** for **Asgardeo**. This API enables organization administrators to share user access across child organizations, manage shared access, revoke access, and retrieve shared organizations and roles.
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: "{tenant-domain}"
+
+paths:
+  /users/share:
+    post:
+      tags:
+        - User Sharing
+      summary: Share a user across specific organizations
+      description: |
+        This API shares one or more users across specified organizations, assigning roles based on the provided policy. The policy defines the sharing scope for each organization, including whether access extends to child organizations.
+        
+        > **Important** </br>
+        > If you switch a user from a general sharing policy to a selective sharing policy or vice versa, without unsharing a user, it can lead to access issues. To ensure a smooth transition, first unshare the user from all organizations and share them again with the desired organization(s) under the updated policy. </br> 
+        > If you overlook this step and notice unexpected user-sharing behavior when new organizations are created, use the `/users/unshare-with-all` API to reset access before applying the new sharing policy.
+        
+        <b>Scope(Permission) required:</b> `internal_user_share`
+      operationId: processUserSharing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserShareRequestBody'
+            example:
+              userCriteria:
+                userIds:
+                  - "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+                  - "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+              organizations:
+                - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
+                  policy: "SELECTED_ORG_ONLY"
+                  roles:
+                    - displayName: "role_2"
+                      audience:
+                        display: "My Org 1"
+                        type: "organization"
+                - orgId: "a17b28ca-9f89-449c-ae27-fa955e66465f"
+                  policy: "SELECTED_ORG_WITH_EXISTING_IMMEDIATE_AND_FUTURE_CHILDREN"
+                  roles: []
+        required: true
+      responses:
+        '202':
+          description: Sharing process triggered successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessSuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/share' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token} \
+            -d '{
+                "userCriteria": {
+                  "userIds": [
+                    "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8",
+                    "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+                  ]
+                },
+                "organizations": [
+                  {
+                    "orgId": "b028ca17-8f89-449c-ae27-fa955e66465d",
+                    "policy": "SELECTED_ORG_ONLY",
+                    "roles": [
+                      {
+                        "displayName": "role_2",
+                        "audience": {
+                          "display": "My Org 1",
+                          "type": "organization"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "orgId": "a17b28ca-9f89-449c-ae27-fa955e66465f",
+                    "policy": "SELECTED_ORG_WITH_EXISTING_IMMEDIATE_AND_FUTURE_CHILDREN",
+                    "roles": []
+                  }
+                ]
+            }'
+      x-codegen-request-body-name: body
+
+  /users/share-with-all:
+    post:
+      tags:
+        - User Sharing
+      summary: Share a user with all organizations
+      description: |
+        This API shares users across all organizations, applying the provided roles to each organization. The policy determines the scope of sharing, including whether it applies to all current organizations or future organizations as well.
+        
+        > **Important** </br>
+        > If you switch a user from a general sharing policy to a selective sharing policy or vice versa, without unsharing a user, it can lead to access issues. To ensure a smooth transition, first unshare the user from all organizations and share them again with the desired organization(s) under the updated policy. </br> 
+        > If you overlook this step and notice unexpected user-sharing behavior when new organizations are created, use the `/users/unshare-with-all` API to reset access before applying the new sharing policy.
+        
+        <b>Scope(Permission) required:</b> `internal_user_share`
+      operationId: processUserSharingAll
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserShareWithAllRequestBody'
+            example:
+              userCriteria:
+                userIds:
+                  - "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+                  - "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+              policy: "ALL_EXISTING_ORGS_ONLY"
+              roles:
+                - displayName: "role_1"
+                  audience:
+                    display: "My Org 1"
+                    type: "organization"
+                - displayName: "role_2"
+                  audience:
+                    display: "My App 1"
+                    type: "application"
+        required: true
+      responses:
+        '202':
+          description: Sharing process triggered successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessSuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/share-all' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token} \
+            -d '{
+                "userCriteria": {
+                  "userIds": [
+                    "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8",
+                    "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+                  ]
+                },
+                "policy": "ALL_EXISTING_ORGS_ONLY",
+                "roles": [
+                  {
+                    "displayName": "role_1",
+                    "audience": {
+                      "display": "My Org 1",
+                      "type": "organization"
+                    }
+                  },
+                  {
+                    "displayName": "role_2",
+                    "audience": {
+                      "display": "My App 1",
+                      "type": "application"
+                    }
+                  }
+                ]
+            }'
+      x-codegen-request-body-name: body
+
+  /users/unshare:
+    post:
+      tags:
+        - User Sharing
+      summary: Unshare a user from specific organizations
+      description: |
+        The parent organization admins can use this API to unshare a shared user from a selected list of organizations.
+        The payload includes the list of user IDs and the organizations from which the users should be unshared.
+
+        Note the following details:
+        - unsharing can only be done from the same organization that initially shared the user.
+        - if you have shared a user with an organization and its children, unsharing the user from that 
+          organization will not unshare the user from the child organizations.
+          You must explicitly declare all the organization IDs from which the user should be removed.
+
+        <b>Scope(Permission) required:</b> `internal_user_unshare`
+      operationId: processUserUnsharing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUnshareRequestBody'
+            example:
+              userCriteria:
+                userIds:
+                  - "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+                  - "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+              organizations:
+                - "b028ca17-8f89-449c-ae27-fa955e66465d"
+                - "a17b28ca-9f89-449c-ae27-fa955e66465f"
+        required: true
+      responses:
+        '202':
+          description: Unsharing process triggered successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessSuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/unshare' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token} \
+            -d '{
+                "userCriteria": {
+                  "userIds": [
+                    "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8",
+                    "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+                  ]
+                },
+                "organizations": [
+                  "b028ca17-8f89-449c-ae27-fa955e66465d",
+                  "a17b28ca-9f89-449c-ae27-fa955e66465f"
+                ]
+            }'
+      x-codegen-request-body-name: body
+
+  /users/unshare-with-all:
+    post:
+      tags:
+        - User Sharing
+      summary: Remove a user's shared access
+      description: |
+        This API removes all shared access for one or more users, unsharing them from all organizations.
+        Note that unsharing can only be done from the same organization that initially shared the user.
+        
+        <b>Scope(Permission) required:</b> `internal_user_unshare`
+      operationId: removeUserSharing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUnshareWithAllRequestBody'
+            example:
+              userCriteria:
+                userIds:
+                  - "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+                  - "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+        required: true
+      responses:
+        '202':
+          description: Share removal process triggered successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessSuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/unshare-all' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token} \
+            -d '{
+                "userCriteria": {
+                  "userIds": [
+                    "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8",
+                    "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+                  ]
+                }
+            }'
+      x-codegen-request-body-name: body
+
+  /users/{userId}/shared-organizations:
+    get:
+      tags:
+        - User Accessible Organizations
+      summary: Get organizations a user has access to
+      description: |
+        This API retrieves the list of organizations where the specified user has shared access.
+
+        <b>Scope(Permission) required:</b> `internal_user_shared_access_view`
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+          description: The ID of the user whose accessible organizations are being retrieved.
+        - in: query
+          name: after
+          schema:
+            type: string
+          description: The cursor pointing to the item after which the next page of results should be returned.
+        - in: query
+          name: before
+          schema:
+            type: string
+          description: The cursor pointing to the item before which the previous page of results should be returned.
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: The maximum number of results to return per page.
+        - in: query
+          name: filter
+          schema:
+            type: string
+          description: A filter to apply to the results, such as by organization name or other criteria.
+        - in: query
+          name: recursive
+          schema:
+            type: boolean
+            default: false
+          description: Whether to retrieve organizations recursively, including child organizations.
+      responses:
+        '200':
+          description: Successful Response with Accessible Organizations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSharedOrganizationsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/{userId}/shared-organizations' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}
+
+  /users/{userId}/shared-roles:
+    get:
+      tags:
+        - User Accessible Roles
+      summary: Get roles assigned to a user in an organization
+      description: |
+        This API fetches the roles assigned to the specified user within a particular organization. </br>
+        Note that the roles returned are only the roles assigned by the organization that initially shared the user.
+        Any additional roles assigned to the user from the shared organizations are not included in this response.
+
+        <b>Scope(Permission) required:</b> `internal_user_shared_access_view`
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+          description: The ID of the user for whom roles are being retrieved.
+        - in: query
+          name: orgId
+          required: true
+          schema:
+            type: string
+          description: The organization ID for which roles are being fetched.
+        - in: query
+          name: after
+          schema:
+            type: string
+          description: The cursor pointing to the item after which the next page of results should be returned.
+        - in: query
+          name: before
+          schema:
+            type: string
+          description: The cursor pointing to the item before which the previous page of results should be returned.
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: The maximum number of results to return per page.
+        - in: query
+          name: filter
+          schema:
+            type: string
+          description: Filter to apply when retrieving the roles.
+        - in: query
+          name: recursive
+          schema:
+            type: boolean
+          description: Set to true to retrieve roles recursively.
+      responses:
+        '200':
+          description: Successful Response with Accessible Roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSharedRolesResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/{userId}/shared-roles?orgId={orgId}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}
+
+components:
+
+  securitySchemes:
+
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
+          scopes:
+            share: internal_user_share
+            unshare: internal_user_unshare
+            view: internal_user_shared_access_view
+
+  schemas:
+
+    UserShareRequestBody:
+      type: object
+      description: |
+        The request body for sharing users with multiple child organizations.
+        Includes a list of users, organizations, sharing scope as policy, and roles.
+      required:
+        - userCriteria
+        - organizations
+      properties:
+        userCriteria:
+          type: object
+          description: Contains a list of user IDs to be shared.
+          properties:
+            userIds:
+              type: array
+              description: List of user IDs.
+              items:
+                type: string
+                description: The ID of a user to be shared.
+        organizations:
+          type: array
+          description: List of organizations specifying sharing scope and roles.
+          items:
+            type: object
+            required:
+              - orgId
+              - policy
+            properties:
+              orgId:
+                type: string
+                description: The ID of the organization to share the users with.
+              policy:
+                type: string
+                description: |
+                  The scope of sharing for this organization. Possible values are:
+      
+                  - <code>SELECTED_ORG_ONLY</code>:</br>
+                  Share the resource only with the selected organization.
+                  - <code>SELECTED_ORG_WITH_ALL_EXISTING_CHILDREN_ONLY</code>:</br>
+                  Share with the selected organization and all its existing child organizations. New child organizations created after the policy is applied will **not** be included.
+                  - <code>SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN</code>:</br>
+                  Share with the selected organization, all its current child organizations, and automatically include any future child organizations created later.
+                  - <code>SELECTED_ORG_WITH_EXISTING_IMMEDIATE_CHILDREN_ONLY</code>: </br>
+                  Share only with the selected organization’s immediate existing child organizations. Future immediate children are **not** included.
+                  - <code>SELECTED_ORG_WITH_EXISTING_IMMEDIATE_AND_FUTURE_CHILDREN</code>:</br>
+                  Share with the selected organization’s immediate existing child organizations and automatically include any immediate child organizations created in the future.
+              roles:
+                type: array
+                description: A list of roles to be shared with the organization.
+                items:
+                  $ref: '#/components/schemas/RoleWithAudience'
+      example:
+        userCriteria:
+          userIds:
+            - "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+            - "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+        organizations:
+          - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
+            policy: "SELECTED_ORG_ONLY"
+            roles:
+              - displayName: "role_2"
+                audience:
+                  display: "My Org 1"
+                  type: "organization"
+          - orgId: "a17b28ca-9f89-449c-ae27-fa955e66465f"
+            policy: "SELECTED_ORG_ONLY"
+            roles: []
+
+    UserShareWithAllRequestBody:
+      type: object
+      description: |
+        Process a request to share users with all organizations. 
+        The payload contains the roles applicable across all organizations and a policy that defines the scope of sharing.
+      required:
+        - userCriteria
+        - policy
+      properties:
+        userCriteria:
+          type: object
+          description: Contains a list of user IDs to be shared.
+          properties:
+            userIds:
+              type: array
+              description: List of user IDs.
+              items:
+                type: string
+                description: The ID of a user to be shared.
+        policy:
+          type: string
+          description: |
+                  The scope of sharing for this organization. Possible values are:
+      
+                  - <code>ALL_EXISTING_ORGS_ONLY</code>:</br>
+                  Share the resource with all organizations that exist at the time the policy is applied. New organizations created after the policy is applied will **not** be included.
+                  - <code>ALL_EXISTING_AND_FUTURE_ORGS</code>:</br>
+                  Share the resource with all current organizations and automatically include any organizations created in the future.
+                  - <code>IMMEDIATE_EXISTING_ORGS_ONLY</code>:</br>
+                  Share the resource only with immediate child organizations that exist when the policy is applied. Future immediate child organizations are **not** included.
+                  - <code>IMMEDIATE_EXISTING_AND_FUTURE_ORGS</code>: </br>
+                  Share the resource with immediate existing child organizations and automatically include any immediate child organizations created in the future.
+        roles:
+          type: array
+          description: A list of roles shared across all organizations.
+          items:
+            $ref: '#/components/schemas/RoleWithAudience'
+      example:
+        userCriteria:
+          userIds:
+            - "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+            - "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+        policy: "ALL_EXISTING_ORGS_ONLY"
+        roles:
+          - displayName: "role_1"
+            audience:
+              display: "My Org 1"
+              type: "organization"
+          - displayName: "role_2"
+            audience:
+              display: "My App 1"
+              type: "application"
+
+    UserUnshareRequestBody:
+      type: object
+      description: |
+        The request body for unsharing users from multiple organizations.
+        Includes a list of user IDs and a list of organization IDs.
+      required:
+        - userCriteria
+        - organizations
+      properties:
+        userCriteria:
+          type: object
+          description: Contains a list of user IDs to be unshared.
+          properties:
+            userIds:
+              type: array
+              description: List of user IDs.
+              items:
+                type: string
+                description: The ID of a user to be unshared.
+        organizations:
+          type: array
+          description: List of organization IDs from which the users should be unshared.
+          items:
+            type: string
+      example:
+        userCriteria:
+          userIds:
+            - "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+            - "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+        organizations:
+          - "b028ca17-8f89-449c-ae27-fa955e66465d"
+          - "a17b28ca-9f89-449c-ae27-fa955e66465f"
+
+    UserUnshareWithAllRequestBody:
+      type: object
+      description: |
+        The request body for unsharing users from all organizations.
+        Includes a list of user IDs.
+      required:
+        - userCriteria
+      properties:
+        userCriteria:
+          type: object
+          description: Contains a list of user IDs to be unshared.
+          properties:
+            userIds:
+              type: array
+              description: List of user IDs.
+              items:
+                type: string
+                description: The ID of a user to be unshared.
+      example:
+        userCriteria:
+          userIds:
+            - "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+            - "5d2a1c84-9f7a-43cd-b12e-6e52d7f87e16"
+
+    UserSharedOrganizationsResponse:
+      type: object
+      description: |
+        Response listing organizations where a user has shared access, including sharing policies, shared type and pagination links for navigating results.
+      properties:
+        links:
+          type: array
+          description: Pagination links for navigating the result set.
+          items:
+            type: object
+            properties:
+              href:
+                type: string
+                description: URL to navigate to the next or previous page.
+              rel:
+                type: string
+                description: Indicates if the link is for the "next" or "previous" page.
+        sharedOrganizations:
+          type: array
+          description: A list of shared access details for the user across multiple organizations
+          items:
+            type: object
+            properties:
+              orgId:
+                type: string
+                description: ID of the child organization
+                example: "b028ca17-8f89-449c-ae27-fa955e66465d"
+              orgName:
+                type: string
+                description: Name of the child organization
+                example: "Organization Name"
+              sharedUserId:
+                type: string
+                description: ID of the shared user
+                example: "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
+              sharedType:
+                type: string
+                description: Shared type of the user (SHARED/INVITED)
+                example: "SHARED"
+              rolesRef:
+                type: string
+                description: URL reference to retrieve paginated roles for the shared user in this organization
+                example: "/api/server/v1/users/{userId}/shared-roles?orgId={orgId}"
+
+    UserSharedRolesResponse:
+      type: object
+      description: |
+        Response showing the roles assigned to a user within a specific organization, with pagination support for large role sets.
+      properties:
+        links:
+          type: array
+          description: Pagination links for navigating the result set.
+          items:
+            type: object
+            properties:
+              href:
+                type: string
+                description: URL to navigate to the next or previous page.
+              rel:
+                type: string
+                description: Indicates if the link is for the "next" or "previous" page.
+        roles:
+          type: array
+          description: A list of roles with audience details
+          items:
+            $ref: '#/components/schemas/RoleWithAudience'
+
+    RoleWithAudience:
+      type: object
+      description: |
+        Represents a user role within a specific audience (organization or application), defined by its display name and audience type.
+      required:
+        - displayName
+        - audience
+      properties:
+        displayName:
+          type: string
+          description: Display name of the role
+          example: "role_1"
+        audience:
+          type: object
+          required:
+            - display
+            - type
+          properties:
+            display:
+              type: string
+              description: Display name of the audience
+              example: "My Org 1"
+            type:
+              type: string
+              description: Type of the audience, e.g., 'organization' or 'application'
+              example: "organization"
+
+    ProcessSuccessResponse:
+      type: object
+      description: |
+        Indicates that the sharing or unsharing process has started successfully, with the current status and relevant details.
+      properties:
+        status:
+          type: string
+          description: Status of the process.
+          example: "Processing"
+        details:
+          type: string
+          description: Additional information about the process.
+          example: "User sharing process triggered successfully."
+
+    Error:
+      type: object
+      description: |
+        Details of an error, including code, message, description, and a trace ID to help with debugging.
+      required:
+        - code
+        - message
+        - traceId
+      properties:
+        code:
+          type: string
+          example: "OUI-00000"
+          description: An error code.
+        message:
+          type: string
+          example: "Some Error Message"
+          description: An error message.
+        description:
+          type: string
+          example: "Some Error Description"
+          description: An error description.
+        traceId:
+          type: string
+          format: uuid
+          example: "e0fbcfeb-7fc2-4b62-8b82-72d3c5fbcdeb"
+          description: A trace ID in UUID format to help with debugging.

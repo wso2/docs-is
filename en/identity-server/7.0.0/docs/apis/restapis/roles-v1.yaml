@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: SCIM 2.0 Roles API
   description: |
@@ -442,18 +442,22 @@ components:
       properties:
         totalResults:
           type: integer
-          example: 3
+          examples:
+            - 3
         startIndex:
           type: integer
-          example: 1
+          examples:
+            1
         itemsPerPage:
           type: integer
-          example: 3
+          examples:
+            3
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:ListResponse
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
         Resources:
           type: array
           items:
@@ -464,34 +468,42 @@ components:
         schemas:
           type: object
           properties: {}
-          example:
-            - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+          examples:
+            -
+              - urn:ietf:params:scim:api:messages:2.0:SearchRequest
         startIndex:
           type: integer
-          example: 1
+          examples:
+            - 1
         count:
           type: integer
-          example: 10
+          examples:
+            - 10
         filter:
           type: string
-          example: displayName eq loginRole
+          examples:
+            - displayName eq loginRole
     RoleSearchResponseObject:
       type: object
       properties:
         totalResults:
           type: integer
-          example: 1
+          examples:
+            - 1
         startIndex:
           type: integer
-          example: 1
+          examples:
+            - 1
         itemsPerPage:
           type: integer
-          example: 3
+          examples:
+            - 3
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:ListResponse
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
         Resources:
           type: array
           items:
@@ -501,16 +513,19 @@ components:
       properties:
         displayName:
           type: string
-          example: loginRole
+          examples:
+            - loginRole
         meta:
           type: object
           properties:
             location:
               type: string
-              example: https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              examples:
+                - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
         id:
           type: string
-          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+          examples:
+            - 4645709c-ea8c-4495-8590-e1fa0efe3de0
     RoleRequestObject:
       required:
         - displayName
@@ -521,52 +536,62 @@ components:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+            examples:
+              - urn:ietf:params:scim:schemas:extension:2.0:Role
         displayName:
           type: string
-          example: loginRole
+          examples:
+            - loginRole
         users:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              value: 008bba85-451d-414b-87de-c03b5a1f4217
+            examples:
+              -
+                value: 008bba85-451d-414b-87de-c03b5a1f4217
         groups:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+            examples:
+              -
+                value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
         permissions:
           type: array
           items:
             type: string
-            example: /permission/admin/login
+            examples:
+              - /permission/admin/login
     RoleGetResponseObject:
       type: object
       properties:
         displayName:
           type: string
-          example: loginRole
+          examples:
+            - loginRole
         meta:
           type: object
           properties:
             location:
               type: string
-              example: https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              examples:
+                - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
             resourceType:
               type: string
-              example: Role
+              examples:
+                - Role
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+            examples:
+              - urn:ietf:params:scim:schemas:extension:2.0:Role
         id:
           type: string
-          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+          examples:
+            - 4645709c-ea8c-4495-8590-e1fa0efe3de0
         users:
           type: array
           items:
@@ -574,13 +599,16 @@ components:
             properties:
               $ref:
                 type: string
-                example: https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
+                examples:
+                  - https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
               display:
                 type: string
-                example: kim
+                examples:
+                  - kim
               value:
                 type: string
-                example: 008bba85-451d-414b-87de-c03b5a1f4217
+                examples:
+                  - 008bba85-451d-414b-87de-c03b5a1f4217
         groups:
           type: array
           items:
@@ -588,89 +616,107 @@ components:
             properties:
               $ref:
                 type: string
-                example: https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+                examples:
+                  - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
               display:
                 type: string
-                example: PRIMARY/manager
+                examples:
+                  - PRIMARY/manager
               value:
                 type: string
-                example: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+                examples:
+                  - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
         permissions:
           type: array
           items:
             type: string
-            example: /permission/admin/login
+            examples:
+              - /permission/admin/login
     RolePostResponseObject:
       type: object
       properties:
         displayName:
           type: string
-          example: loginRole
+          examples:
+            - loginRole
         meta:
           type: object
           properties:
             location:
               type: string
-              example: https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              examples:
+                - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
             resourceType:
               type: string
-              example: Role
+              examples:
+                - Role
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+            examples:
+              - urn:ietf:params:scim:schemas:extension:2.0:Role
         id:
           type: string
-          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+          examples:
+            - 4645709c-ea8c-4495-8590-e1fa0efe3de0
     RolePutRequestObject:
       type: object
       properties:
         displayName:
           type: string
-          example: loginRole
+          examples:
+            - loginRole
         users:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+            examples:
+              -
+                value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
         groups:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+            examples:
+              -
+                value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
         permissions:
           type: array
           items:
             type: string
-            example: /permission/admin/manage/add
+            examples:
+              - /permission/admin/manage/add
     RolePutResponseObject:
       type: object
       properties:
         displayName:
           type: string
-          example: loginRole
+          examples:
+            - loginRole
         meta:
           type: object
           properties:
             location:
               type: string
-              example: https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              examples:
+                - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
             resourceType:
               type: string
-              example: Role
+              examples:
+                - Role
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:schemas:extension:2.0:Role
+            examples:
+              - urn:ietf:params:scim:schemas:extension:2.0:Role
         id:
           type: string
-          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+          examples:
+            - 4645709c-ea8c-4495-8590-e1fa0efe3de0
     PatchRoleOperationRequestObject:
       type: object
       properties:
@@ -678,7 +724,8 @@ components:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:PatchOp
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:PatchOp
         Operations:
           type: array
           items:
@@ -694,37 +741,44 @@ components:
             - replace
         path:
           type: string
-          example: groups
+          examples:
+            - groups
         value:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+            examples:
+              -
+                value: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
     PatchRoleOperationResponseObject:
       type: object
       properties:
         displayName:
           type: string
-          example: loginRole
+          examples:
+            - loginRole
         meta:
           type: object
           properties:
             location:
               type: string
-              example: https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              examples:
+                - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
             resourceType:
               type: string
-              example: Role
+              examples:
+                - Role
         schemas:
           type: object
           properties: {}
-          example:
-            - urn:ietf:params:scim:schemas:extension:2.0:Role
+          examples:
+            -
+              - urn:ietf:params:scim:schemas:extension:2.0:Role
         id:
           type: string
-          example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+          examples:
+            - 4645709c-ea8c-4495-8590-e1fa0efe3de0
     ErrorInvalidInput:
       required:
         - detail
@@ -733,16 +787,20 @@ components:
       properties:
         status:
           type: string
-          example: "400"
+          examples:
+            - "400"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: invalidSyntax
+          examples:
+            - invalidSyntax
         detail:
           type: string
-          example: Request is unparsable, syntactically incorrect, or violates schema.
+          examples:
+            - Request is unparsable, syntactically incorrect, or violates schema.
     ErrorUnauthorized:
       required:
         - status
@@ -750,13 +808,16 @@ components:
       properties:
         status:
           type: string
-          example: "401"
+          examples:
+            - "401"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Unauthorized
+          examples:
+            - Unauthorized
     ErrorNotAcceptable:
       required:
         - status
@@ -764,13 +825,16 @@ components:
       properties:
         status:
           type: string
-          example: "406"
+          examples:
+            - "406"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Not Acceptable
+          examples:
+            - Not Acceptable
     ErrorForbidden:
       required:
         - status
@@ -778,13 +842,16 @@ components:
       properties:
         status:
           type: string
-          example: "403"
+          examples:
+            - "403"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Forbidden
+          examples:
+            - Forbidden
     ErroRoleAlreadyAvailable:
       required:
         - detail
@@ -793,13 +860,16 @@ components:
       properties:
         status:
           type: string
-          example: "409"
+          examples:
+            - "409"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         detail:
           type: string
-          example: 'Role with name: Internal/loginRole already exists in the system.'
+          examples:
+            - 'Role with name: Internal/loginRole already exists in the system.'
   securitySchemes:
     BasicAuth:
       type: http

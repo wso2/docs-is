@@ -111,7 +111,6 @@ paths:
               "authorization_code",
               "password"
             ],
-            "application_type": "string",
             "jwks_uri": "string",
             "url": "string",
             "ext_param_client_id": "string",
@@ -123,9 +122,6 @@ paths:
               "string"
             ],
             "request_uris": [
-              "string"
-            ],
-            "response_types": [
               "string"
             ],
             "ext_param_sp_template": "string",
@@ -321,8 +317,6 @@ components:
             <li>implicit</li>
             <li>password</li>
           </ul>"
-        application_type:
-          type: string
         jwks_uri:
           type: string
         url:
@@ -336,10 +330,6 @@ components:
           items:
             type: string
         request_uris:
-          type: array
-          items:
-            type: string
-        response_types:
           type: array
           items:
             type: string

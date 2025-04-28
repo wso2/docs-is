@@ -8,7 +8,9 @@ You may implement the hybrid flow using {{product_name}} by following the steps 
 
 - To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, [register an OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/#register-app).
 
-- On the application page, go to the **Protocol** tab and take note of the `Client ID` and the `Client secret` generated for the application.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
+- Go to the **Protocol** section of the created application and take note of the generated `Client ID` and the `Client secret`.
 
 ## Enable the hybrid flow
 
@@ -31,11 +33,36 @@ Follow the steps below to enable the hybrid flow for your application.
 
 5. Click **Update** to save the changes.
 
+{% else %}
+
+- Go to the **Protocol** section of the created application and do the following:
+
+    - Take note of the **Client ID** and the **Client secret** generated for the application.
+
+    - Under **Allowed grant types**, select **Code** and click **Update** to save the changes.
+
+{% endif %}
+
 ## Implement the hybrid flow
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 Now that you have [enabled the hybrid flow](#enable-the-hybrid-flow) for your application, let's take a look at how you may implement the hybrid flow for your application.
 
-The initial authorization request is similar to that of the [authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/) with the exception of setting the `response_type` parameter to a value specific to the hybrid flow.
+{% else %}
+
+Let's take a look at how you may implement the hybrid flow for your application.
+
+{% endif %}
+
+The initial authorization request is similar to that of the [authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code/), with the exception of setting the `response_type` parameter to one of [code token](#code-token), [code id_token](#code-id_token), or [code id_token token](#code-id_token-token).
+
+{% if product_name == "WSO2 Identity Server" %}
+
+!!! warning
+
+    It is not recommended to use `code token` and `code id_token token` response types, as obtaining the access token directly from the authorization endpoint without client authentication introduces potential security vulnerabilities, including the risk of account takeover attacks.
+
+{% endif %}
 
 ``` bash
 {{host_name}}/oauth2/authorize?
@@ -44,9 +71,13 @@ response_type={response_type}
 &nonce={random_value_generated_by_client}
 &redirect_uri={url_to_redirect_after_login}
 ```
-Let's take a closer look at the reponse types available with the OIDC Hybrid Flow.
+The following sections explain the reponse types available with the OIDC Hybrid Flow.
 
 ### code token
+
+!!! warning
+
+    It is not recommended to use `code token` response type as it does not adhere to best practices and may introduce security risks.
 
 Hybrid flow intiated with the `code token` response type requests for an authorization code and an access token from the authorization endpoint.
 
@@ -87,7 +118,7 @@ The token received in the response may be immediately used to invoke APIs author
 === "request format"
 
     ```bash
-    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl -k -v '{{host_name}}/oauth2/token' \
     -u '{client_ID}:{client_secret}' \
     -d 'grant_type=authorization_code&code={authorization_code}&redirect_uri={url_to_redirect_after_login}'
     ```
@@ -95,7 +126,7 @@ The token received in the response may be immediately used to invoke APIs author
 === "sample request"
 
     ``` bash
-    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl -k -v '{{host_name}}/oauth2/token' \
     -u 'SkpwV3lG88X0BU1msAoRRA0zrWEa:0XVfmHcThOWpBN0iJf_4679Ir0Qe_fPMJCXSREW4bM4a' \
     -d 'grant_type=authorization_code&code=99b34587-5483-374d-8b25-50485498e761&redirect_uri=http://localhost:8080/playground2/oauth2client'
     ```
@@ -153,7 +184,7 @@ The authorization code can be exchanged to receive other tokens such as access t
 === "request format"
 
     ```bash
-    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl -k -v '{{host_name}}/oauth2/token' \
     -u '{client_ID}:{client_secret}' \
     -d 'grant_type=authorization_code&code={authorization_code}&redirect_uri={url_to_redirect_after_login}'
     ```
@@ -161,7 +192,7 @@ The authorization code can be exchanged to receive other tokens such as access t
 === "sample request"
 
     ``` bash
-    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl -k -v '{{host_name}}/oauth2/token' \
     -u 'SkpwV3lG88X0BU1msAoRRA0zrWEa:0XVfmHcThOWpBN0iJf_4679Ir0Qe_fPMJCXSREW4bM4a' \
     -d 'grant_type=authorization_code&code=16fd899f-5f0c-3114-875e-2547b629cd05&redirect_uri=http://localhost:8080/playground2/oauth2client'
     ```
@@ -178,6 +209,11 @@ The authorization code can be exchanged to receive other tokens such as access t
     ```
 
 ### code id_token token
+
+!!! warning
+
+    It is not recommended to use `code id_token token` response type as it does not adhere to best practices and may introduce security risks.
+
 
 Hybrid flow intiated with the `code id_token token` response type requests for an authorization code, an access token and an ID token from the authorization endpoint.
 
@@ -219,7 +255,7 @@ The authorization code can be exchanged to receive other tokens such as access t
 === "request format"
 
     ```bash
-    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl -k -v '{{host_name}}/oauth2/token' \
     -u '{client_ID}:{client_secret}' \
     -d 'grant_type=authorization_code&code={authorization_code}&redirect_uri={url_to_redirect_after_login}'
     ```
@@ -227,7 +263,7 @@ The authorization code can be exchanged to receive other tokens such as access t
 === "sample request"
 
     ``` bash
-    curl -k -v 'https://api.asgardeo.io/t/{organization_name}/oauth2/token' \
+    curl -k -v '{{host_name}}/oauth2/token' \
     -u 'SkpwV3lG88X0BU1msAoRRA0zrWEa:0XVfmHcThOWpBN0iJf_4679Ir0Qe_fPMJCXSREW4bM4a' \
     -d 'grant_type=authorization_code&code=55aa698d-ac3b-30ec-b4ca-f5e803590a4b&redirect_uri=http://localhost:8080/playground2/oauth2client'
     ```

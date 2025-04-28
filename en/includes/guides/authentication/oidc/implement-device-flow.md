@@ -6,28 +6,29 @@ Refer [how the device authorization flow work]({{base_path}}/references/grant-ty
 
 ## Prerequisites
 
-??? note "[Optional] Update device flow configurations"
-    The device authorization grant is available by default in WSO2 Identity Server. If you need to update configurations, navigate to `<IS_HOME>/repository/conf/deployment.toml` and update the configurations in `[oauth.grant_type.device_code]` section as required.
+1. You need to have an application registered in {{ product_name }}. If you don't already have one, register a [standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/).
 
-    ```
-    [oauth.grant_type.device_code]
-    key_length = 7
-    expiry_time = "10m"
-    polling_interval = "5s"
-    key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
-    ```
+2. Create a [user account]({{base_path}}/guides/users/manage-users/).
 
-    | Parameter | Description   |
-    |-----------|---------------|
-    | `key_length`  | The length of the user code.  |
-    | `expiry_time` | The expiry time of the user code and the device code. |
-    | `polling_interval`    | The minimum delay of the client between each polling request to the token endpoint.   |
-    | `key_set`   | The set of characters that is used to generate the user code.   |
+3. (Optional) Update device flow configurations.
 
-To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
+    ??? note "Device flow configurations"
+        The device authorization grant is available by default in WSO2 Identity Server. If you need to update configurations, navigate to `<IS_HOME>/repository/conf/deployment.toml` and update the configurations in `[oauth.grant_type.device_code]` section as required.
 
-!!! note
-    Note that only users can log in to business applications. Therefore, to test login on your application, you need a [user account]({{base_path}}/guides/users/manage-users/).
+        ```
+        [oauth.grant_type.device_code]
+        key_length = 7
+        expiry_time = "10m"
+        polling_interval = "5s"
+        key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
+        ```
+
+        | Parameter | Description   |
+        |-----------|---------------|
+        | `key_length`  | The length of the user code.  |
+        | `expiry_time` | The expiry time of the user code and the device code. |
+        | `polling_interval`    | The minimum delay of the client between each polling request to the token endpoint.   |
+        | `key_set`   | The set of characters that is used to generate the user code.   |
 
 ## Get the required codes
 First, your app must initiate a login request to the authorization endpoint of {{ product_name }}. After redirecting to {{ product_name }}, the user should be prompted with a login page if the user is not authenticated.

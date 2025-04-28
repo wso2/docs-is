@@ -1,0 +1,36 @@
+{
+  "name": "docs-is",
+  "version": "1.0.0",
+  "description": "Developer Documentation for Asgardeo and WSO2 Identity Server",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "axios": "^1.8.2",
+    "markdown-link-check": "^3.12.2",
+    "ora": "^8.1.0",
+    "puppeteer": "^23.4.1"
+  },
+  "scripts": {
+    "check-links": "node check-broken-links.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wso2/docs-is.git"
+  },
+  "keywords": [
+    "wso2",
+    "docs-is",
+    "asgardeo",
+    "identity-server",
+    "documentation"
+  ],
+  "author": "WSO2",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/wso2/docs-is/issues"
+  },
+  "homepage": "https://github.com/wso2/docs-is#readme"
+}

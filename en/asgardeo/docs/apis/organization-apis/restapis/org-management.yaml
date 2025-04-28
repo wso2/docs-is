@@ -286,6 +286,15 @@ paths:
                 "operation": "REPLACE",
                 "path": "/name",
                 "value": "XYZ Builders"
+              },
+              {
+                  "operation": "REMOVE",
+                  "path": "/attributes/Country"
+              },
+              {
+                  "operation": "ADD",
+                  "path": "/attributes/Town",
+                  "value": "Colombo-7"
               }
             ]'
       x-codegen-request-body-name: body
@@ -331,8 +340,8 @@ paths:
                   },
                   "attributes": [
                     {
-                      "key": "Country",
-                      "value": "USA"
+                      "key": "Town",
+                      "value": "Colombo-7"
                     }
                   ]
                 }

@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: SCIM 2.0 User Management API
   description: |
@@ -117,7 +117,9 @@ paths:
         content:
           application/scim+json:
             schema:
-              $ref: '#/components/schemas/UserObject'
+              oneOf:
+                - $ref: '#/components/schemas/UserObject'
+                - $ref: '#/components/schemas/UserObjectPassInvite'
         required: false
       responses:
         201:
@@ -484,6 +486,7 @@ paths:
 components:
   schemas:
     UserObject:
+      title: Set a password for the user
       required:
         - password
       type: object
@@ -491,28 +494,40 @@ components:
         schemas:
           type: object
           properties: {}
-          example: []
+          examples:
+            - []
         name:
           type: object
           properties:
             givenName:
               type: string
-              example: Kim
+              description: The `givenName` you specify will be entered for the First Name attribute in the user's profile.
+              examples:
+                - Kim
             familyName:
               type: string
-              example: Berry
+              description: The `familyName` you specify will be entered for the Last Name attribute in the user's profile.
+              examples:
+                - Berry
         userName:
           type: string
-          example: kim
+          description: The `username` you specify will be used by the user for log in.
+          examples:
+            - kim
         password:
           type: string
-          example: MyPa33w@rd
+          description: Use this parameter to set a password for the user account. The user will be able to reset this password later. When setting the password, be sure to follow the password-validation rules configured for your organization.
+          examples:
+            - aBcd!23#
         emails:
           type: array
-          example:
-            - value: kim@gmail.com
-            - type: work
-              value: kim@wso2.com
+          description: Currently, the first email of the array (without a specified type) is treated as the primary email and assigning a type to this email is not supported.
+          examples:
+            -
+              - value: kim@gmail.com
+                primary: true
+              - type: work
+                value: kim@wso2.com
           items:
             type: object
             properties: {}
@@ -521,13 +536,67 @@ components:
           properties:
             employeeNumber:
               type: string
-              example: 1234A
+              examples:
+                - 1234A
             manager:
               type: object
               properties:
                 value:
                   type: string
-                  example: Taylor
+                  examples:
+                    - Taylor
+    UserObjectPassInvite:
+      title: Invite the user to set their own password
+      type: object
+      properties:
+        schemas:
+          type: object
+          properties: {}
+          examples:
+            - []
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              description: The `givenName` you specify will be entered for the First Name attribute in the user's profile.
+              examples:
+                - Kim
+            familyName:
+              type: string
+              description: The `familyName` you specify will be entered for the Last Name attribute in the user's profile.
+              examples:
+                - Berry
+        userName:
+          type: string
+          description: The `userName` you specify will be used by the user for log in.
+          examples:
+            - kim
+        emails:
+          type: array
+          description: Currently, the first email (without a specified type) is treated as the primary email and assigning a type to this email is not supported.
+          examples:
+            -
+              - value: kim@gmail.com
+                primary: true
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            askPassword:
+              type: boolean
+              description: If this parameter is set to `true`, users will be allowed configure their own password. An email is sent to the specified email address, which will have instructions for the user to set the password and confirm the new user account.
+              examples:
+                - true
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  examples:
+                    - Taylor
     UserResponseObject:
       required:
         - meta
@@ -538,43 +607,53 @@ components:
           properties:
             created:
               type: string
-              example: 2018-08-17T10:34:29Z
+              examples:
+                - 2018-08-17T10:34:29Z
             location:
               type: string
-              example: https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
+              examples:
+                - https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
             lastModified:
               type: string
-              example: 2018-08-17T10:34:29Z
+              examples:
+                - 2018-08-17T10:34:29Z
             resourceType:
               type: string
-              example: User
+              examples:
+                - User
         schemas:
           type: object
           properties: {}
-          example:
-            - urn:ietf:params:scim:schemas:core:2.0:User
-            - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+          examples:
+            -
+              - urn:ietf:params:scim:schemas:core:2.0:User
+              - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
         username:
           type: string
-          example: PRIMARY/kim
+          examples:
+            - PRIMARY/kim
         id:
           type: string
-          example: 008bba85-451d-414b-87de-c03b5a1f4217
+          examples:
+            - 008bba85-451d-414b-87de-c03b5a1f4217
         name:
           type: object
           properties:
             givenName:
               type: string
-              example: Kim
+              examples:
+                - Kim
             familyName:
               type: string
-              example: Berry
+              examples:
+                - Berry
         emails:
           type: array
-          example:
-            - value: kim@gmail.com
-            - type: work
-              value: kim@wso2.com
+          examples:
+            -
+              - value: kim@gmail.com
+              - type: work
+                value: kim@wso2.com
           items:
             type: object
             properties: {}
@@ -583,44 +662,52 @@ components:
           properties:
             employeeNumber:
               type: string
-              example: 1234A
+              examples:
+                - 1234A
             manager:
               type: object
               properties:
                 value:
                   type: string
-                  example: Taylor
+                  examples:
+                    - Taylor
         roles:
           type: object
           properties: {}
-          example:
-            - type: default
-              value: Internal/everyone
+          examples:
+            -
+              - type: default
+                value: Internal/everyone
     UserUpdateObject:
       type: object
       properties:
         schemas:
           type: object
           properties: {}
-          example: []
+          examples:
+            - []
         name:
           type: object
           properties:
             givenName:
               type: string
-              example: Kim
+              examples:
+                - Kim
             familyName:
               type: string
-              example: Berry
+              examples:
+                - Berry
         userName:
           type: string
-          example: kim
+          examples:
+            - kim
         emails:
           type: array
-          example:
-            - value: kim@gmail.com
-            - type: work
-              value: kim@wso2.com
+          examples:
+            -
+              - value: kim@gmail.com
+              - type: work
+                value: kim@wso2.com
           items:
             type: object
             properties: {}
@@ -629,13 +716,15 @@ components:
           properties:
             employeeNumber:
               type: string
-              example: 1234A
+              examples:
+                - 1234A
             manager:
               type: object
               properties:
                 value:
                   type: string
-                  example: Taylor
+                  examples:
+                    - Taylor
     PatchOpperationInput:
       type: object
       properties:
@@ -643,7 +732,8 @@ components:
           type: array
           items:
             type: object
-            example: urn:ietf:params:scim:api:messages:2.0:PatchOp
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:PatchOp
         Operations:
           type: array
           items:
@@ -662,40 +752,46 @@ components:
           properties:
             nickName:
               type: string
-              example: shaggy
+              examples:
+                - shaggy
     UserObjectListResponseObject:
       type: object
       properties:
         totalResults:
           type: integer
-          example: 1
+          examples:
+            - 1
         startIndex:
           type: integer
-          example: 1
+          examples:
+            - 1
         itemsPerPage:
           type: integer
-          example: 1
+          examples:
+            - 1
         schemas:
           type: object
           properties: {}
-          example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+          examples:
+            -
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
         Resources:
           type: array
           items:
             $ref: '#/components/schemas/UserResponseObject'
     UserSearchRequestObject:
       type: object
-      example:
-        schemas:
-          - urn:ietf:params:scim:api:messages:2.0:SearchRequest
-        attributes:
-          - name.familyName
-          - userName
-        filter: userName sw ki and name.familyName co err
-        domain: PRIMARY
-        startIndex: 1
-        count: 10
+      examples:
+        -
+          schemas:
+            - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+          attributes:
+            - name.familyName
+            - userName
+          filter: userName sw ki and name.familyName co err
+          domain: PRIMARY
+          startIndex: 1
+          count: 10
     ErrorInvalidInput:
       required:
         - detail
@@ -704,16 +800,20 @@ components:
       properties:
         status:
           type: string
-          example: "400"
+          examples:
+            - "400"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: invalidSyntax
+          examples:
+            - invalidSyntax
         detail:
           type: string
-          example: Request is unparsable, syntactically incorrect, or violates schema.
+          examples:
+            - Request is unparsable, syntactically incorrect, or violates schema.
     ErrorUnauthorized:
       required:
         - status
@@ -721,13 +821,16 @@ components:
       properties:
         status:
           type: string
-          example: "401"
+          examples:
+            - "401"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Unauthorized
+          examples:
+            - Unauthorized
     ErrorForbidden:
       required:
         - status
@@ -735,13 +838,16 @@ components:
       properties:
         status:
           type: string
-          example: "403"
+          examples:
+            - "403"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Forbidden
+          examples:
+            - Forbidden
     ErrorInternalServerError:
       required:
         - detail
@@ -750,13 +856,16 @@ components:
       properties:
         status:
           type: string
-          example: "500"
+          examples:
+            - "500"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         detail:
           type: string
-          example: Internal Server Error.
+          examples:
+            - Internal Server Error.
   securitySchemes:
     OAuth2:
       type: oauth2

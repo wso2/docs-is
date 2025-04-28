@@ -10,7 +10,7 @@ Follow the steps below to map attributes of {{product_name}} with that of a conn
 
     ![Add attribute mappings]({{base_path}}/assets/img/guides/idp/group-mapping/add-attribute-mappings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Enter the  **External IdP Attribute** of the connection and map it to the **Groups** attribute of Asgardeo.
+4. Enter the  **External IdP Attribute** of the connection and map it to the **Groups** attribute of {{ product_name }}.
 
     ![Add new group attribute mapping]({{base_path}}/assets/img/guides/idp/group-mapping/add-new-group-attribute-mapping.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -24,9 +24,9 @@ Follow the steps below to map attributes of {{product_name}} with that of a conn
 
 ### Add groups to connections
 
-Follow the steps below to add the groups from your connection to Asgardeo:
+Follow the steps below to add the groups from your connection to {{ product_name }}:
 
-1. On the Asgardeo Console, go to **Connections**.
+1. On the {{ product_name }} Console, go to **Connections**.
 2. Select your connection and go to its **Groups** tab.
 3. Click **New Group** and enter the group name. Be sure to enter the exact group name that will be returned from the connection.
 

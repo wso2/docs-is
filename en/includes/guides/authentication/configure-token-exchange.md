@@ -38,10 +38,20 @@ To register a trusted token issuer:
 
 4. Click **Next** and provide the mode of certificate configuration.
 
-    !!! note
-        You can either configure a JWKS endpoint or upload a certificate of the external party. This is required to validate the signature of the assertions sent by the external identity provider.
-
     - **JWKS endpoint**: The JWKS endpoint of the trusted token issuer.
+
+        {% if product_name == "WSO2 Identity Server" %}
+
+        !!! note
+    
+            For JWKS endpoints, the default read timeout is 1000 milliseconds. You may change this value by adding the following parameter to the `deployment.toml` file found in the `<IS_HOME>/conf/repository` directory.
+
+            ```toml
+            [oauth.jwks_endpoint]
+            read_timeout = <value in milliseconds>
+            ```
+        {% endif %}
+  
     - **Use PEM certificate**: Upload or paste the public certificate of the trusted token issuer. The certificate should be in PEM format.
 
         ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"

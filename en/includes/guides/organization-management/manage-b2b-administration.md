@@ -27,13 +27,13 @@ Organization admins should be able to perform the following user-related operati
 
 Organization users may already be registered in another identity provider (IdP). In such a scenario, you should facilitate organization admins to onboard IdPs to the organizations. Hence, users may use existing credentials and a familiar interface to log in to applications.
 
-You may facilitate this using the [identity provider API]({{base_path}}/apis/organization-apis/org-idp-mgt/#/).
+You may facilitate this using the [identity provider API]({{base_path}}/apis/organization-apis/org-idp/).
 
 ### Define application login flows
 
 The login flows of applications shared by the root organization should be customizable by an organization admin. They should be able to decide the number of login steps that should be configured and what login methods each step should contain.
 
-You may facilitate this using the [application management API]({{base_path}}/apis/organization-apis/org-application-mgt/#/).
+You may facilitate this using the [application management API]({{base_path}}/apis/organization-apis/org-application-management/).
 
 !!! note "Extend administration tasks"
     
@@ -44,14 +44,14 @@ You may facilitate this using the [application management API]({{base_path}}/api
 {{ product_name }} Console can also function as an administration portal for your B2B application which is accessible through the following URL:
 
 ```
-https://<hostname>:<port>/t/<root organization name>/o/<organization id>/console
+https://{{ console_hostname }}/t/<root organization name>/o/<organization id>/{{ console_app_path }}
 ```
 
 However, the following limitations apply.
 <ul>
     <li>The Console is not customizable.</li>
     <li>The Console will not reflect the branding customizations of your organization.</li>
-    <li>The login flow of the Console does not adhere to the customizations done for the application. (You may change the login flow for the Console under <b>Console settings</b> \>  <b>Login Flow</b>.)</li>
+    <li>The login flow of the Console does not adhere to the customizations done for the application. (You may change the login flow for the Console under <b>Console settings</b> >  <b>Login Flow</b>.)</li>
     <li>The Console access is governed by separate roles and are not linked to your B2B application roles.</li>
 </ul>  
 

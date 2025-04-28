@@ -20,7 +20,7 @@ Follow the steps below to obtain an access token using OAuth-based authenticatio
 
 ### Step 1: Register an application
 
-Follow the guide and create either a [standard-based (OIDC) application]({{base_path}}guides/applications/register-standard-based-app/) or an [M2M application]({{base_path}}/guides/applications/register-machine-to-machine-app/) based on the use case. Take note of the client ID and the client secret of the created application.
+Follow the guide and create either a [standard-based (OIDC) application]({{base_path}}/guides/applications/register-standard-based-app/) or an [M2M application]({{base_path}}/guides/applications/register-machine-to-machine-app/) based on the use case. Take note of the client ID and the client secret of the created application.
 
 ### Step 2: Authorize the application to consume API resources
 

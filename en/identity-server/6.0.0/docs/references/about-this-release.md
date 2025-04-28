@@ -133,7 +133,8 @@ The following features are removed from WSO2 Identity Server 6.0.0.
 -   H2 Console
 -   Embedded LDAP user store
 -   Carbon metrics
--   Yahoo authenticator
+-   Yahoo authenticator 
+-   Legacy OpenID authentication
 -   reCAPTCHA v2 "I'm not a robot" Checkbox
 -   Hazelcast DNS based pod discovery in Kubernetes membership scheme
 

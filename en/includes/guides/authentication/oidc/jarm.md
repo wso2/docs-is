@@ -7,13 +7,12 @@ The [JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) specification]
 Below is a sample authorization request sent to the authorization endpoint of the WSO2 Identity Server.
 
 ```bash
-https://api.asgardeo.io/t/<organization_name>/oauth2/authorize?
-prompt=login
+https://{{host_name}}/oauth2/authorize?prompt=login
 &scope=openid
-&redirect_uri=https://&lt;CLIENT_HOST&gt;/redirects/redirect1
-&client_id=&lt;CLIENT_ID&gt;
-&response_type=&lt;RESPONSE_TYPE&gt;
-&response_mode=&lt;RESPONSE_MODE&gt;
+&redirect_uri=https://<CLIENT_HOST>/redirects/redirect1
+&client_id=<CLIENT_ID>
+&response_type=<RESPONSE_TYPE>
+&response_mode=<RESPONSE_MODE>
 ```
 
 The parameters used in the authorization request are defined below.
@@ -117,7 +116,7 @@ response=<JWT>
 The `jwt` response mode is a shortcut that indicates the default redirect encoding for the requested response type as follows.
 
 - If the response type is `code`, the default `response_mode` is `query.jwt`.
-- For the response types defined in <a href="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html">OIDC</a> (​​except `none`), the default response mode is `fragment.jwt`.
+- For the response types defined in <a href="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html" target="_blank">OIDC</a> (​​except `none`), the default response mode is `fragment.jwt`.
 - For response types containing `token` or `id_token`, the default response mode is `fragment.jwt`.
 
 Given below is a sample JARM response {JWT}:

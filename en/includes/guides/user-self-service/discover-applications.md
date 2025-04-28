@@ -3,7 +3,7 @@
 Users can discover applications that they can access within the organization by following the steps below.
 
 !!! note
-    Administrators should go to the General tab of an application registered in {{product_name}} and enable the <b>Discoverable application</b> option for the application to be displated in the My Account portal.
+    Administrators should go to the General tab of an application registered in {{product_name}} and enable the <b>Discoverable application</b> option to [make an application discoverable]({{base_path}}/guides/applications#make-an-application-discoverable) in the My Account portal.
 
 1. In the user's MyAccount portal, navigate to **Applications**.
 

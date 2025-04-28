@@ -63,3 +63,73 @@ Inorder to view or delete the invitations via {{ product_name }} Console:
     ![View invitations]({{base_path}}/assets/img/guides/organization/manage-organizations/view-invitations.png){: width="600" style="display: block; margin: 0;"}
 
 4. If required, invitations can be deleted by clicking the **Delete** icon.
+
+## Invite users without sending email notifications from {{product_name}}
+
+{% if manageNotificationsInternallyPropertySupportedUpdateLevel %}
+
+!!! note
+    This support is available starting from update level {{ manageNotificationsInternallyPropertySupportedUpdateLevel }}.
+
+{% endif %}
+
+In order to disable sending email notifications internally from {{ product_name }}, `manageNotificationsInternally` 
+property can be set to false in Parent Organization's User Invitation API. The following sample request can be 
+used to obtain the confirmation code without sending email notifications.
+
+   ``` bash
+   curl --location --request POST 'https://{{ host_name }}/t/{{ organization_name }}/o/api/server/v1/guests/invite' \
+   --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
+   --header 'Content-Type: application/json' \
+   --data '{
+    "usernames": [
+       "xyz@gmail.com",
+       "abc@gmail.com"
+    ],
+    "roles": [
+       "f5b761ca-62f2-48ba-935b-f7b460f58e5c",
+       "657fgq22-62f2-48ba-935b-f7bfgh6438fd"
+    ],
+    "groups": [
+       "48badf-rty20-48ba-935b-f7b460f58e5c",
+       "fd234100-c115-45dc-ad11-70846b783866"
+    ],
+    "properties": [
+       {
+          "key" : "manageNotificationsInternally",
+          "value" : "false"
+       }
+    ]
+   }'
+   ```
+
+Sample Response will contain the confirmation code as follows.
+   ```json
+      [
+          {
+              "username": "xyz@gmail.com",
+              "result": {
+                  "status": "Successful"
+              },
+              "confirmationCode": "390feadd-4e03-404c-95bd-1c451acc2bad"
+          },
+          {
+              "username": "abc@gmail.com",
+              "result": {
+                  "status": "Successful"
+              },
+              "confirmationCode": "7474473c-64d4-4a11-8f50-fe5c63bae88f"
+          }
+      ]
+   ```
+
+If you are sending the invitation email through an external service, include this confirmation code, which need to be accepted through following invitation accepting API. If your applications wants to proceed parent user invitation flow without any email sending, applications can invoke the following API call as the next step.
+
+   ``` bash
+   curl --location --request POST 'https://{{ host_name }}/t/{{ organization_name }}/o/api/server/v1/guests/invitation/accept' \
+   --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
+   --header 'Content-Type: application/json' \
+   --data '{
+      "confirmationCode": "2663329b-c8c5-4c71-9500-9ea8c4e77d94"
+   }'
+   ```

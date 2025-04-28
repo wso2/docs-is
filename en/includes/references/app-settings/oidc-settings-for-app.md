@@ -78,7 +78,7 @@ The `redirect_uri` sent in the [login request]({{base_path}}/guides/authenticati
 
 ### Allowed origins
 
-Browsers restrict cross-origin HTTP requests initiated from browser scripts for security reasons. Enabling [Cross Origin Resource Sharing(CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS){:target="_blank"} allows your application to perform cross-origin HTTP requests.
+Browsers restrict cross-origin HTTP requests initiated from browser scripts for security reasons. Enabling [Cross Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS){:target="_blank"} allows your application to perform cross-origin HTTP requests.
 
 You should list the set of URLs that are allowed to access {{ product_name }} APIs with JavaScript under **Allowed origins**. By pre-registering the application origin, applications can access:
 
@@ -92,7 +92,7 @@ This section elaborates on the advanced settings available for OIDC applications
 
 ### Proof Key for Code Exchange(PKCE)
 
-When using [PKCE](https://datatracker.ietf.org/doc/html/rfc7636){:target="_blank"} along with the [authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/#get-tokens) grant, the application sends a `code challenge` in the authorization request and subsequently, sends the corresponding `code verifier` in the token request.
+When using [PKCE with authorization code flow]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/), the application sends a `code challenge` in the authorization request and subsequently, sends the corresponding `code verifier` in the token request.
 
 PKCE ensures that the authorization code is sent to the same client making the request and no malicious application has intercepted the code during the delivery process. {{product_name}} supports the following options for PKCE:
 
@@ -240,9 +240,6 @@ OAuth 2.0 authorization requests can either include the authorization parameters
 - Under **Request object encryption algorithm**, choose a supported asymmetric encryption algorithm to perform the key exchange.
 
 - Under **Request object encryption method**, choose a supported symmetric encryption algorithm with which the request object will be encrypted.
-
-!!! note
-    Learn more about [request objects]({{base_path}}/references) <!--Need a link-->.
 
 ### Access Token
 The following configurations are related to the access token.
