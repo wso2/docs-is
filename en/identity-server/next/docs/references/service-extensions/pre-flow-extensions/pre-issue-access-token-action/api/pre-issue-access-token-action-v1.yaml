@@ -246,15 +246,11 @@ components:
           items:
             $ref: '#/components/schemas/RefreshTokenClaims'
           description: |
-            An array that contains refresh token claims.
-            
-            Standard claims:
-            
             - **expires_in**: The duration (in seconds) for which the refresh token is valid.
           example:
             - name: expires_in
-              value: 3600
-      description: Represents the refresh token that is about to be issued. It contains claims, of the refresh token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
+              value: 86400
+      description: Represents the refresh token that is about to be issued. It contains refresh token expiry time which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
     AllowedOperations:
       type: array
       description: Defines the set of operations that your external service is permitted to perform on the access token's claims and scopes.
@@ -448,13 +444,7 @@ components:
         name:
           type: string
         value:
-          oneOf:
-            - type: string
-            - type: integer
-            - type: boolean
-            - type: array
-              items:
-                type: string
+          type: integer
     addOperationResponse:
       type: object
       required:
