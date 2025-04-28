@@ -34,8 +34,8 @@ paths:
                   - $ref: '#/components/schemas/SuccessResponse'
                   - $ref: '#/components/schemas/FailedResponse'
               examples:
-                successExample:
-                  summary: Success response
+                successExampleForAsscessTokenClaims:
+                  summary: Success response for access token claims add
                   value:
                     actionStatus: SUCCESS
                     operations:
@@ -44,6 +44,14 @@ paths:
                         value:
                           name: customSID
                           value: "12345"
+                successExampleForRefreshTokenClaims:
+                  summary: Successful response for refresh token expiry time update
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                      - op: replace
+                        path: /refreshToken/claims/expires_in
+                        value: 42000
                 failedExample:
                   summary: Failed response
                   value:
@@ -89,6 +97,8 @@ components:
           $ref: '#/components/schemas/UserStore'
         accessToken:
           $ref: '#/components/schemas/AccessToken'
+        refreshToken:
+          $ref: '#/components/schemas/RefreshToken'
       description: Defines the context data related to the pre issue access token event that needs to be shared with the custom service to process and execute.
     Request:
       type: object
@@ -176,7 +186,7 @@ components:
       properties:
         tokenType:
           type: string
-          example: HASH
+          example: JWT
           enum:
             - JWT
           description: Defines the type of token.
@@ -226,6 +236,25 @@ components:
           example:
             - read
       description: Represents the access token that is about to be issued. It contains claims and scopes, of the access token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
+    RefreshToken:
+      type: object
+      required:
+        - claims
+      properties:
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/RefreshTokenClaims'
+          description: |
+            An array that contains refresh token claims.
+            
+            Standard claims:
+            
+            - **expires_in**: The duration (in seconds) for which the refresh token is valid.
+          example:
+            - name: expires_in
+              value: 3600
+      description: Represents the refresh token that is about to be issued. It contains claims, of the refresh token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
     AllowedOperations:
       type: array
       description: Defines the set of operations that your external service is permitted to perform on the access token's claims and scopes.
@@ -269,6 +298,7 @@ components:
             example: 
             - /accessToken/claims
             - /accessToken/scopes
+            - /refreshToken/claims/expires_in
       description: Defines the replace operation.
     removeOperation:
       type: object
@@ -412,6 +442,19 @@ components:
             - type: array
               items:
                 type: string
+    RefreshTokenClaims:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string
     addOperationResponse:
       type: object
       required:
@@ -451,7 +494,8 @@ components:
           example: 
             - /accessToken/claims/1
             - /accessToken/scopes/-
-          description: Defines the path for the replace operation. Should be one from the allowed paths of `replace` operation in the allowedOperations. 
+            - /refreshToken/claims/expires_in
+          description: Defines the path for the replace operation. Should be one from the allowed paths of `replace` operation in the allowedOperations.
         value:
           type: string
           description: Defines the value for the replace operation.
