@@ -160,7 +160,11 @@ In a scenario where a user with a local account in {{product_name}}, logs in usi
 
 4. Click **Update** to save the changes.
 
+<<<<<<< HEAD
 When enabled, {{product_name}} looks for a linked local user account based on the subject claim provided by the external identity provider. If a local user account is found, the local attributes will be shared with the application. If a local account is not found, user attributes obtained from the external identity provider will be shared with the application.
+=======
+When enabled, tokens will include attributes from the linked local user account identified by the subject claim provided by the external identity provider. If a local user account does not exist, {{ product_name }}, instead, will return the user attributes obtained from the external identity provider.
+>>>>>>> d4327ed88 (fixed a conflict)
 
 !!! note
     When [JIT provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) is enabled for the external identity provider, {{ product_name }} ensures that the attributes of the associated local account synchronize with the external identity provider upon each federated login.
