@@ -46,6 +46,22 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
     !!! note
         If you have selected **Invite offline** or decided to **set a password for the user**, you can copy the corresponding information at the **Summary** page of the wizard and share with the user.
 
+### Include additional user details
+
+You can include additional user details such as phone number, address, and other custom attributes when onboarding a user. This is done via
+[attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes). To configure:
+
+1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
+2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
+3. Click **Edit** for the attribute you want to include (Ex: Mobile attribute) in the user creation form.
+4. Under **Attribute Configurations**, use the table to select **both** **Display** and **Required** checkboxes for the **Administrator Console** and click **Update**.
+
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/user-wizard-attribute-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+5. The selected attribute will now be displayed in the user creation form.
+
+    ![User creation form]({{base_path}}/assets/img/guides/users/add-user-form-attribute-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 ### Onboard multiple users
 
 In addition to adding a single user, you can onboard multiple users at once, either manually or by using a CSV file. This is especially useful for large organizations where bulk operations can save time and reduce the effort of adding users one by one.
@@ -148,7 +164,7 @@ To resend the link/code:
 
     ![Resend link]({{base_path}}/assets/img/guides/users/resend-password-setup-link.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Alternatively, administrators can use the resend-code API to resend the link or code as shown below. 
+Alternatively, administrators can use the resend-code API to resend the link or code as shown below.
 
 !!! abstract ""
 
@@ -194,7 +210,7 @@ Alternatively, administrators can use the resend-code API to resend the link or 
             ]
             }'
         ```
-    
+
     The recovery scenario should be specified in the properties parameter of the API request body, as follows:
 
     - `ASK_PASSWORD`: When the user is pending to set up an initial password using the setup link.
@@ -242,7 +258,7 @@ To reset the password:
         If this option is selected, the owner or an administrator can set a new password for the user.
 
         !!! note
-            If the user is in pending admin forced password reset, once the admin resets the password, 
+            If the user is in pending admin forced password reset, once the admin resets the password,
             the account will get unlocked.
 
     - **Invite user to reset the password:**
@@ -311,7 +327,7 @@ To lock a user account:
 Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
 
 !!! note "Enable account disabling"
-    
+
     Account disabling is not an option available for a users' accounts by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
 
 To disable a user account,
