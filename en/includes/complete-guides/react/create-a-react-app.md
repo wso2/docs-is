@@ -6,7 +6,7 @@ Open a terminal, change directory to where you want to initialize the project, a
 
 
 ```bash
-npm create vite@latest asgardeo-react -- --template react
+npm create vite@latest wso2-react -- --template react
 ```
 
 Running this command will create a folder with a ready-to-run boilerplate React project, with a development server to run the project and instantly reload changes to the project in your browser without manual refresh.
@@ -14,7 +14,7 @@ Running this command will create a folder with a ready-to-run boilerplate React 
 Once the application is created, install the dependencies using the following command.
 
 ```bash
-cd asgardeo-react
+cd wso2-react
 npm install
 ```
 

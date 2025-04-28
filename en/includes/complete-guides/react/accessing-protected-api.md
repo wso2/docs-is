@@ -31,7 +31,7 @@ const App = () => {
            "Content-Type": "application/scim+json"
        },
        method: "GET",
-       url: "https://api.asgardeo.io/t/<org_name>/scim2/me"
+       url: "<base-url>/scim2/me"
    };
 
 
@@ -51,6 +51,20 @@ const App = () => {
 
 ```
 
+
+!!! tip "Tip"
+
+    You need to constrct the '<base-url>' value as per the followng instructions: 
+
+    For Asgardeo: 
+
+    `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
+
+    For WSO2 Idenity Server: 
+
+    `<base-url> =https://localhost:9443`
+
+
 Note that you don’t need to manually specify the Authorization header under headers in `requestConfig`, as `httpRequest` function intercepts the request and attaches the access token to the network request as the Authorization header.
 
 In the above example, the final request config sent by the `httpRequest` function would be as follows
@@ -63,11 +77,24 @@ const requestConfig = {
            "Authorization": "Bearer <access_token_retrieved_from_web_worker>"
        },
        method: "GET",
-       url: "https://api.asgardeo.io/t/<org_name>/scim2/me"
+       url: "<base-url>/scim2/me"
    };
 
 
 ```
+
+!!! tip "Tip"
+
+    You need to constrct the '<base-url>' value as per the followng instructions: 
+
+    For Asgardeo: 
+
+    `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
+
+    For WSO2 Idenity Server: 
+
+    `<base-url> =https://localhost:9443`
+
 
 In case you want to send multiple API requests in parallel, you can use the `httpRequestAll` function to simultaneously trigger parallel network requests and receive responses after all network requests are completed.
 
@@ -94,7 +121,7 @@ export const getApplicationsByIds = async (ids) => {
                "Content-Type": "application/json"
            },
            method: "GET",
-           url: "https://localhost:9443/applications/" + id
+           url: "https://<base-url>/applications/" + id
        });
    }
 
@@ -110,6 +137,17 @@ export const getApplicationsByIds = async (ids) => {
 };
 
 ```
+!!! tip "Tip"
+
+    You need to constrct the '<base-url>' value as per the followng instructions: 
+
+    For Asgardeo: 
+
+    `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
+
+    For WSO2 Idenity Server: 
+
+    `<base-url> =https://localhost:9443`
 
 ## Using a custom HTTP client
 
@@ -125,7 +163,7 @@ const App = () => {
 
    useEffect(() => {
       getAccessToken().then(async (accessToken) => {
-          const response = await fetch("https://api.asgardeo.io/t/<org_name>/scim2/me", {
+          const response = await fetch("<base-url>/scim2/me", {
            "Authorization": "Bearer " + accessToken
           })
           console.log(response)
@@ -139,3 +177,15 @@ const App = () => {
   .
 }
 ```
+
+!!! tip "Tip"
+
+    You need to constrct the '<base-url>' value as per the followng instructions: 
+
+    For Asgardeo: 
+
+    `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
+
+    For WSO2 Idenity Server: 
+
+    `<base-url> =https://localhost:9443`
