@@ -23,6 +23,10 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
     ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
+        You can include additional user details such as phone number, address, and other custom attributes when onboarding a user. This is done via
+        [attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
+
+    !!! note
            - A username is always unique to the organization and you can't change the username once it is created.
            - Instead of using a username to login, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, you will be asked to enter the email address when logging in.
            - The user can change the password set by the administrator from the [My Account Portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
@@ -45,22 +49,6 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
 
     !!! note
         If you have selected **Invite offline** or decided to **set a password for the user**, you can copy the corresponding information at the **Summary** page of the wizard and share with the user.
-
-### Include additional user details
-
-You can include additional user details such as phone number, address, and other custom attributes when onboarding a user. This is done via
-[attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes). To configure:
-
-1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
-2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
-3. Click **Edit** for the attribute you want to include (Ex: Mobile attribute) in the user creation form.
-4. Under **Attribute Configurations**, use the table to select **both** **Display** and **Required** checkboxes for the **Administrator Console** and click **Update**.
-
-    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/user-wizard-attribute-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-5. The selected attribute will now be displayed in the user creation form.
-
-    ![User creation form]({{base_path}}/assets/img/guides/users/add-user-form-attribute-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Onboard multiple users
 
