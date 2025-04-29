@@ -121,7 +121,7 @@ export const getApplicationsByIds = async (ids) => {
                "Content-Type": "application/json"
            },
            method: "GET",
-           url: "https://<base-url>/applications/" + id
+           url: "<base-url>/applications/" + id
        });
    }
 
