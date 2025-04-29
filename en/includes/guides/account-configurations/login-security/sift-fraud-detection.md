@@ -25,63 +25,14 @@ To enable Sift fraud detection:
 
 1. On the Asgardeo Console, go to **Applciations**.
 2. Go to the **Login Flow** tab of the application and enable **Conditional Authentication**.
-3. Add a conditional authentication script. The following example conditional authentication script is for a scenario where:
-    - Authentication fails if the risk score exceeds 0.7.
-    - A second authentication step is triggered if the risk score falls between 0.5 and 0.7.
+3. Add a conditional authentication script.
 
     !!! note
 
         - Find the list of Sift-related functions in [Conditional authentication functions](#conditional-authentication-functions).
         - Find all standard conditional authentication functions in the [API reference]({{base_path}}/references/conditional-auth/api-reference/).
 
-    ```javascript
-    var additionalParams = {
-        "loggingEnabled": true,
-        "$user_agent": "",
-    }
-    var errorPage = '';
-    var suspiciousLoginError = {
-        'status': 'Login Restricted',
-        'statusMsg': 'You login attempt was identified as suspicious.'
-    };
-
-    var onLoginRequest = function (context) {
-        executeStep(1, {
-            onSuccess: function (context) {
-                var riskScore = getSiftRiskScoreForLogin(context, "LOGIN_SUCCESS", additionalParams);
-                if (riskScore == -1) {
-                    console.log("Error occured while obtaining Sift score.");
-                }
-                if (riskScore > 0.7) {
-                    publishLoginEventToSift(context, "LOGIN_FAILED", additionalParams);
-                    sendError(errorPage, suspiciousLoginError);
-                } else if (riskScore > 0.5) {
-                    console.log("Success login. Stepping up due to the risk.");
-                    executeStep(2);
-                } 
-                else {
-                    publishLoginEventToSift(context, "LOGIN_SUCCESS", additionalParams);
-                }
-            }
-        });
-    };
-    ```
-
 4. Click **update** to save the changes.
-
-## Try it out
-
-Follow the steps given below to try it out:
-
-1. Access the application URL.
-
-2. Click **Login** to open the Asgardeo login page.
-
-3. Complete the authentication steps.
-
-4. Based on the risk score of the user, the login will succeed or fail.
-
-5. Mark the relevant account as a high risk account in the Sift console and try again to ensure that the login attempt fails.
 
 ## Conditional Authentication Functions 
 
@@ -127,4 +78,85 @@ var additionalParams = {
     "$loggingEnabled": true
     ---
 }
+```
+
+## Sample Conditional Authentication Scripts
+
+### Workflow Based
+
+Workflows can be configured in the Sift console to define the decisions to be made based on various parameters, including the risk score.
+The getSiftWorkflowDecision function returns the decision ID configured in the Sift console.
+
+The following example conditional authentication script is for a scenario where,
+- The authentication fails if the decision id is "session_looks_bad_account_takeover".
+- Prompts for additional authentication if the decision id is "mfa_account_takeover".
+- Publishes a login fail event to Sift, if authentication fails.
+
+```javascript
+var additionalParams = {
+    "loggingEnabled": true,
+    "$user_agent": "",
+}
+var errorPage = '';
+var suspiciousLoginError = {
+    'status': 'Login Restricted',
+    'statusMsg': 'You login attempt was identified as suspicious.'
+};
+
+var onLoginRequest = function (context) {
+    executeStep(1, {
+        onSuccess: function (context) {
+            var workflowDecision = getSiftWorkflowDecision(context, "LOGIN_SUCCESS", additionalParams);
+            if (workflowDecision == null) {
+                console.log("Error occured while obtaining Sift score.");
+            }
+            if (workflowDecision == "session_looks_bad_account_takeover") {
+                sendError(errorPage, suspiciousLoginError);
+            } else if (workflowDecision == "mfa_account_takeover") {
+                executeStep(2);
+            }
+        },
+        onFail: function (context) {
+            publishLoginEventToSift(context, 'LOGIN_FAILED', additionalParams);
+        }
+    });
+};
+```
+
+### Risk Score Based
+
+The following example conditional authentication script is for a scenario where,
+- The authentication fails if the risk score exceeds 0.7.
+- Prompts for additional authentication if the risk score is between 0.5 and 0.7.
+- Publishes a login fail event to Sift, if authentication fails.
+
+```javascript
+var additionalParams = {
+    "loggingEnabled": true,
+    "$user_agent": "",
+}
+var errorPage = '';
+var suspiciousLoginError = {
+    'status': 'Login Restricted',
+    'statusMsg': 'You login attempt was identified as suspicious.'
+};
+
+var onLoginRequest = function (context) {
+    executeStep(1, {
+        onSuccess: function (context) {
+            var riskScore = getSiftRiskScoreForLogin(context, "LOGIN_SUCCESS", additionalParams);
+            if (riskScore == -1) {
+                console.log("Error occured while obtaining Sift score.");
+            }
+            if (riskScore > 0.7) {
+                sendError(errorPage, suspiciousLoginError);
+            } else if (riskScore > 0.5) {
+                executeStep(2);
+            }
+        },
+        onFail: function (context) {
+            publishLoginEventToSift(context, 'LOGIN_FAILED', additionalParams);
+        }
+    });
+};
 ```
