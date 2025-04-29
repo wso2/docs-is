@@ -77,7 +77,7 @@ Define whether to enable resending the SMSOTP or not in case a user enters an in
 #### MaximumResendAttempts 
 
 Defines the maximum number of allowed resend attempts of a user. Once this limit is exceeded, the authentication attempt will fail.
-If this property is not configured, resend attempts will not be restricted."
+If this property is not configured, resend attempts will not be restricted.
 
 ----
 
