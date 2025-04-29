@@ -14,6 +14,7 @@ SMSOTPAuthenticationEndpointErrorPage= "/authenticationendpoint/smsOtpError.jsp"
 MobileNumberRegPage = "/authenticationendpoint/mobile.jsp"
 RetryEnable = true
 ResendEnable = true
+MaximumResendAttempts = "3"
 BackupCode = true
 SMSOTPEnableByUserClaim = true
 usecase = "local"
@@ -70,6 +71,13 @@ Define whether to retry or not.
 #### ResendEnable 
 
 Define whether to enable resending the SMSOTP or not in case a user enters an incorrect code.
+
+----
+
+#### MaximumResendAttempts 
+
+Defines the maximum number of allowed resend attempts of a user. Once this limit is exceeded, the authentication attempt will fail.
+If this property is not configured, resend attempts will not be restricted."
 
 ----
 
