@@ -18,18 +18,16 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
 ### Onboard single user
 
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
-2. Click **Add User** button and select **Single User** option and provide the following details:
+2. Click **Add User** button and select **Single User** option and provide the user's details.
 
     ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        You can include additional user details such as phone number, address, and other custom attributes when onboarding a user. This is done via
-        [attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
+        - The user's username is always unique to the organization and you can't change the username once it is created.
+        - Optionally, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, the user must enter the email address when logging in.
 
-    !!! note
-           - A username is always unique to the organization and you can't change the username once it is created.
-           - Instead of using a username to login, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, you will be asked to enter the email address when logging in.
-           - The user can change the password set by the administrator from the [My Account Portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
+    !!! tip "Add additional fields to the user onboarding form"
+        The default form requests for basic information of the user. If you wish to include additional details, such as the user's phone number, address, and other custom attributes, you need to make these attributes available in the **Administrator Console**. Learn how to do so in [attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
 
 3. You can either request the user to set the password or set one on the user's behalf.
 
