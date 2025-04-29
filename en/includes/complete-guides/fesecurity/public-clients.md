@@ -20,7 +20,7 @@ When a user logging into an application, the client (the application) generates 
 
 The client initiates the OAuth 2.0 flow by sending an authorization request to the Authorization Server (IdP). This request includes the code challenge and the code challenge method (either plain or S256, indicating the hashing algorithm used) as indicated in the image below.
 
-![PKCE code chalange]({{base_path}}/assets/img/complete-guides/fesecurity/mage5.png){: width="800" style="display: block; margin: 0;"}
+![PKCE code chalange]({{base_path}}/assets/img/complete-guides/fesecurity/image5.png){: width="800" style="display: block; margin: 0;"}
 
 
 After successful authentication, the IdP generates an authorization code and sends it back to the client. The client now makes a request to the token endpoint to exchange the authorization code for an access token. This request includes the authorization code and the code verifier (the original random string) as indicated in the image below.
