@@ -25,7 +25,7 @@ To enable Sift fraud detection:
 
 1. On the Asgardeo Console, go to **Applciations**.
 2. Go to the **Login Flow** tab of the application and enable **Conditional Authentication**.
-3. Add a conditional authentication script.
+3. Add a conditional authentication script. Refer to the sample conditional authentication scripts [here](./sift-fraud-detection.md/#sample-conditional-authentication-scripts).
 
     !!! note
 
