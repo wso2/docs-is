@@ -80,7 +80,7 @@ Clicking on the login button will initiate an OIDC request. You can observe this
 
 ![OIDC request]({{base_path}}/assets/img/complete-guides/angular/image16.png){: width="800" style="display: block; margin: 0;"}
 
-At this stage, you should have already created a test user in {{product_name}}, as outlined in the [prerequisites]({{ base_path }}/complete-guides/react/prerequisites) section. Now can enter the username and password of the test user to the login screen.
+At this stage, **you need to create a [test user in Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-users){:target="_blank"}  to try out the application.** Once you create a test user, you can enter the username and password of the test user to the login screen.
 
 !!! tip "Tip"
 
