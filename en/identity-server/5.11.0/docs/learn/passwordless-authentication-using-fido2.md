@@ -66,12 +66,17 @@ To associate a FIDO2 device with the user account, refer [Add security device](.
 
 4.  Click **Update**.
 
-## FIDO Key Progressive Enrollment
-!!! note 
-    To enable this feature server-wide, follow the instructions given below. 
+## FIDO key progressive enrollment
 
-    !!! info
-        This feature is available as an update in WSO2 IS 5.11.0 from update level 398 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
+Passkey progressive enrollment enables users to register their FIDO devices on-the-fly during authentication.
+
+!!! note "Enable progressive enrollment"
+    
+    To enable this feature for your server, follow the steps below.
+
+    !!! abstract ""    
+    
+        This feature is available for WSO2 IS 5.11.0 from update level 398 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
     
     1.  Shut down the server if it is running.
     2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature.
@@ -81,30 +86,27 @@ To associate a FIDO2 device with the user account, refer [Add security device](.
         enable_passkey_progressive_enrollment = true
         ```
     3. Restart the server.
-    4. [Add the progressive enrollment adaptive script](../../learn/passwordless-authentication-using-fido2/#configure-the-login-flow) to the login flow of the application.
-        
-This method of adaptive authentication is specifically designed for applications that have set up **FIDO** as a login option and have enabled **passkey progressive enrollment** so that users may enroll security device at the moment they log in to an application.
 
-Follow the guide below to learn about the adaptive script to use FIDO with progressive enrollment as their primary authentication method.
+    4. Follow the guide below and configure your application for passkey progressive enrollment.
 
-### Configure the login flow
+### Configure passkey progressive enrollment
 
-The script is designed to execute during the authentication flow. When a user initiates fido key enrollment, the system prompts the user to log in with Basic Authenticator. After successfully logging in, the user is guided through the fido key enrollment. To enable conditional authentication:
+If you have set up **FIDO** as a login option for your application, do the following to enable users to register their FIDO devices during the log in process. Before proceeding, ensure you have enabled the server-wide configuration for passkey progressive enrollment.
 
 1. On the Management Console, go to **Service Providers** and click **Edit** with the relevant service provider.
 
 2. Go to **Local & Outbound Authentication Configuration** and select **Advanced Configurations**.
 
-3. In Script Based Adaptive Authentication section, select **Security Device Progressive Enrollment** under Progressive Enrollment.
+3. In the **Script Based Adaptive Authentication** section, under **Progressive Enrollment**, select **Security Device Progressive Enrollment**.
 
 4. Click **Update** to save your changes.
 
 !!! warning "Important"
-    Adding the security device progressive enrollment adaptive script, modifies the authentication flow to include only the **basic** and **fido** authenticators in the first step.
+    Adding this script modifies the first step of the authentication flow to contain only the **basic** and **fido** authentication methods.
 
-#### How it works
+### How it works
 
-Shown below is the conditional authentication template for security device progressive enrollment.
+Shown below is the adaptive authentication script for FIDO progressive enrollment. Let's take a look at how it works.
 
 ```javascript
 var onLoginRequest = function(context) {
@@ -139,8 +141,6 @@ var onLoginRequest = function(context) {
     });
 };
 ```
-
-Let's look at how this script works:
 
 1. If the user chooses **FIDO Key** and consents to passkey enrollment, an `onFail` event is triggered. The parameter `scenario` returns the value `INIT_FIDO_ENROLL`, uniquely identifying the passkey enrollment request.
 
