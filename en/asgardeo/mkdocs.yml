@@ -368,6 +368,7 @@ nav:
           - Manage consents: guides/user-self-service/manage-consents.md
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
+          - Self-register Flow: guides/user-self-service/self-register-flow.md
           - Register passkeys: guides/user-self-service/register-passkey.md
           - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
