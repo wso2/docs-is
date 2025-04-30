@@ -102,7 +102,10 @@ Steps are the core building blocks of a registration flow. You can drag and drop
 Components are atomic UI elements added to steps. You can drag and drop components inside a step.
 
 !!! Note
-    Field components are only allowed inside a form component. If you want to add a field component, you need to first add a form component and then add the field component inside it.
+    Field components such as **Text Inputs**, **Email Inputs**, etc. has the following constraints:
+    
+    - They should be added inside a **Form** component.
+    - They should be mapped to a user Attribute. This can be done by clicking on the pensil icon on the element action panel and selcting the relevant attribute from the `Attribute` dropdown. Only attributes set as display on Self-Registration profile in the [Attribute Configurations]({{base_path}}/guides/users/attributes/manage-attributes) will be available for mapping.
 
 ![Self-register flow builder components]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-flow-builder-components.gif){: width="auto" style="display: block; margin: 0;"}
 
