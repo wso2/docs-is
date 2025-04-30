@@ -135,6 +135,7 @@ plugins:
         '/guides/authorization/impersonation/user-impersonation/' : '/guides/authorization/user-impersonation/'
         'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
         'guides/user-accounts/password-recovery.md': 'guides/account-configurations/account-recovery/password-recovery.md'
+        'guides/user-accounts/forced-password-reset.md': 'guides/account-configurations/account-recovery/admin-initiated-password-reset.md'
         'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/account-security/login-attempts.md'
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
@@ -347,6 +348,7 @@ nav:
           - Fraud detection: guides/account-configurations/login-security/sift-fraud-detection.md
         - Account recovery:
           - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
+          - Admin Initiated Password Reset: guides/account-configurations/account-recovery/admin-initiated-password-reset.md
         - User onboarding:
           - Self-registration: guides/account-configurations/user-onboarding/self-registration.md
         - Manage login identifiers:
