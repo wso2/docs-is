@@ -62,7 +62,7 @@ Starter templates give you a quick start with pre-defined flows that are easily 
 - **Generate with AI ✨**  
   Describe your ideal registration flow in natural language, and Asgardeo will automatically generate a customized flow for you.
   
-    ![Self-register flow builder AI]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-flow-builder-generate-with-ai.png){: width="400" style="display: block; margin: 0;"}
+    ![Self-register flow builder AI]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-flow-builder-generate-with-ai.png){: width="auto" style="display: block; margin: 0;"}
 
 - **Blank**
   Start from scratch for full flexibility.
