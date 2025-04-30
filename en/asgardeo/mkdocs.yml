@@ -641,7 +641,7 @@ nav:
       - Introduction: complete-guides/angular/introduction.md
       - Prerequisite: complete-guides/angular/prerequisite.md
       - Register an application: complete-guides/angular/register-an-application.md
-      - Create a Angular app: complete-guides/angular/create-app.md
+      - Create an Angular app: complete-guides/angular/create-app.md
       - Configure Asgardeo provider: complete-guides/angular/install-asgardeo-sdk.md
       - Add login and logout: complete-guides/angular/add-login-and-logout.md
       - Display user details: complete-guides/angular/display-logged-in-user-details.md
