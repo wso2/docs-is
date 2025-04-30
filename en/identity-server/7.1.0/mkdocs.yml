@@ -1082,7 +1082,20 @@ nav:
       - Accessing protected API : complete-guides/angular/accessing-protected-api.md
       - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
       - Next Steps: complete-guides/angular/next-steps.md
-
+  - Best Practice Guides:
+    - Frontend Security:
+      - Introduction: complete-guides/fesecurity/introduction.md
+      - In-app vs IdP-based login: complete-guides/fesecurity/login-options.md
+      - Public clients: complete-guides/fesecurity/public-clients.md
+      - Insecure token handling : complete-guides/fesecurity/insecure-tokens.md
+      - Weak access control: complete-guides/fesecurity/weak-access-control.md
+      - Unauthorized access: complete-guides/fesecurity/unauthorized-privilege-gain.md
+      - Weak MFA : complete-guides/fesecurity/weak-mfa.md
+      - Partial user logouts: complete-guides/fesecurity/partial-user-logouts.md
+      - Product misconfiguration: complete-guides/fesecurity/misconfiguration.md
+      - Cross-Site Scripting (XSS): complete-guides/fesecurity/xss.md
+      - Cross-Site Request Forgery (CSRF): complete-guides/fesecurity/csrf.md
+      - Next Steps: complete-guides/fesecurity/next-steps.md
 not_in_nav: |
   /page-not-found.md
   /guides/authentication/add-identifier-first-login.md
