@@ -578,6 +578,13 @@ nav:
       - App-native authentication: references/app-native-authentication.md
       - Push Notification based authentication: references/push-notification-based-authentication.md
   - Technology Guides:
+    - Actions:
+        - Introduction: complete-guides/actions/introduction.md
+        - Prerequisite: complete-guides/actions/prerequisite.md
+        - Understanding the Pre-Update Profile Action Use Case: complete-guides/actions/understanding-the-pre-update-profile-action-use-case.md
+        - Implementing the Pre-Update Profile Action Extension Across Different Platforms: complete-guides/actions/implementing-the-pre-update-profile-action-extension-across-different-platforms.md
+        - Configure WSO2 IS/Asgardeo: complete-guides/actions/configure-identity-provider.md
+        - Validating Pre-Update Profile Action Workflow: complete-guides/actions/validating-pre-update-profile-action-workflow.md
     - React:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md
