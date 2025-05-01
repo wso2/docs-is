@@ -14,9 +14,9 @@
 <!-- Link(s) to product documentation that addresses the changes of this PR. If no doc impact, enter “N/A” plus brief explanation of why there’s no doc impact -->
 
 ## Security checks
-- [] Followed secure coding standards in http://wso2.com/technical-reports/wso2-secure-engineering-guidelines?
-- [] Ran FindSecurityBugs plugin and verified report?
-- [] Confirmed that this PR doesn't commit any keys, passwords, tokens, usernames, or other secrets?
+- [ ] Followed secure coding standards in http://wso2.com/technical-reports/wso2-secure-engineering-guidelines?
+- [ ] Ran FindSecurityBugs plugin and verified report?
+- [ ] Confirmed that this PR doesn't commit any keys, passwords, tokens, usernames, or other secrets?
 
 ## Related PRs
 <!-- List any other related PRs -->
