@@ -100,11 +100,8 @@ hooks:
 
 plugins:
   - search:
-      indexing: "full"
       separator: "[^\\w._]+"
       lang: ['en']
-      prebuild_index: true
-      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - redirects:
@@ -118,9 +115,9 @@ plugins:
         'guides/authentication/enterprise-login/add-saml-idp-login.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
         'guides/asgardeo-events.md': 'guides/monitoring/asgardeo-events.md'
         'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
-        'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/ai-loginflow.md'
+        'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/login-flow-ai.md'
         'guides/user-accounts/configure-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
-        'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
+        'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins/index.md'
         'guides/authentication/configure-a-trusted-token-issuer.md': 'guides/authentication/configure-token-exchange.md'
         'guides/applications/manage-application-roles.md': 'guides/users/manage-roles.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
@@ -131,12 +128,12 @@ plugins:
         'apis/build-scim2-user-creation-payload.md': 'apis/scim2/build-scim2-user-creation-payload.md'
         'guides/api-authorization.md' : 'guides/authorization/api-authorization/api-authorization.md'
         'guides/user-accounts/index.md': 'guides/account-configurations/index.md'
-        'references/application-logs.md' : 'guides/asgardeo-logs.md'
+        'references/application-logs.md' : 'guides/asgardeo-logs/index.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
-        '/guides/authorization/impersonation/user-impersonation/' : '/guides/authorization/user-impersonation/'
+        '/guides/authorization/impersonation/user-impersonation.md' : '/guides/authorization/user-impersonation/'
         'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
         'guides/user-accounts/password-recovery.md': 'guides/account-configurations/account-recovery/password-recovery.md'
-        'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/account-security/login-attempts.md'
+        'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/login-security/login-attempts.md'
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
