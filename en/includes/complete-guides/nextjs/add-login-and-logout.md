@@ -63,7 +63,7 @@ Once the application is started, you will see the homepage of the application wi
 
 Clicking on the login button will initiate an OIDC request. You will be able to observe the authorize request in the browser devtools as follows. To see this, right click on the application and click inspect and switch to the network tab. In the filter input, type “authorize”, and click on the sign in button.
 
-![OIDC request]({{base_path}}/assets/img/complete-guides/nextjs/mage6.png){: width="800" style="display: block; margin: 0;"}
+![OIDC request]({{base_path}}/assets/img/complete-guides/nextjs/image6.png){: width="800" style="display: block; margin: 0;"}
 
 !!! tip "Tip"
 
@@ -73,7 +73,7 @@ Clicking on the login button will initiate an OIDC request. You will be able to 
 
 ![OIDC request]({{base_path}}/assets/img/complete-guides/nextjs/image7.png){: width="800" style="display: block; margin: 0;"}
 
-At this stage, you should have already created a test user in {{product_name}}, as outlined in the [prerequisites]({{ base_path }}/complete-guides/react/prerequisites) section. Now can enter the username and password of the test user to the login screen.
+At this stage, you should have already created a test user in {{product_name}}, as outlined in the [prerequisite]({{ base_path }}/complete-guides/nextjs/prerequisite) section. Now can enter the username and password of the test user to the login screen.
 
 
 

@@ -11,7 +11,7 @@
         
         Authorized redirect URL: `http://localhost:3000/api/auth/callback/asgardeo`
 
-    ![Register a new application](image4.png){: width="800" style="display: block; margin: 0;"}
+    ![Register a new application]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image4.png){: width="800" style="display: block; margin: 0;"}
 
     !!! Info
 
