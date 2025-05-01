@@ -558,6 +558,16 @@
     display: none !important;
 }
 
+.md-nav .md-nav__item .md-chip {
+    margin-left: 5px;
+    height: 18px;
+}
+
+.md-nav .md-nav__item .md-chip > .md-chip__label {
+    padding: 0 6px;
+    font-size: 0.5rem;
+}
+
 .md-nav .md-nav__item .chip {
     height: 18px;
     line-height: 18px;
