@@ -31,7 +31,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r en/asgardeo/requirements.txt
 
-      - name: Run broken link checker
+      - name: Start MkDocs server and run broken link checker
         run: |
           cd en/asgardeo
           nohup mkdocs serve > mkdocs.log 2>&1 &
@@ -40,8 +40,4 @@ jobs:
             sleep 1
           done
           pip3 install linkchecker
-          # Move linkcheckerrc to the correct location
-          mkdir -p ~/.config/linkchecker
-          cp .github/config/linkcheckerrc ~/.config/linkchecker/linkcheckerrc
-          # Run linkchecker
           linkchecker -F html http://127.0.0.1:8000 --threads=100 --no-warnings
