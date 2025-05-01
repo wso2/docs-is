@@ -2,6 +2,9 @@ name: PR Builder - Asgardeo Docs
 
 on:
   pull_request:
+    paths:
+      - 'en/asgardeo/**'
+      - 'en/includes/**'
 
 # Avoid running multiple builds for the same PR.
 concurrency:
@@ -23,11 +26,15 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies and build
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           cd en/asgardeo
           pip install -r requirements.txt
+
+      - name: Build
+        run: |
+          cd en/asgardeo
           mkdocs build --strict
 
       - name: Broken link checker
