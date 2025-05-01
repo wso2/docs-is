@@ -95,6 +95,10 @@ watch:
   - ../includes
   - ../base.yml
 
+validation:
+  unrecognized_links: warn
+  anchors: warn  # New in MkDocs 1.6
+
 hooks:
   - hooks.py
 
@@ -130,7 +134,7 @@ plugins:
         'guides/user-accounts/index.md': 'guides/account-configurations/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs/index.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
-        '/guides/authorization/impersonation/user-impersonation.md' : '/guides/authorization/user-impersonation.md'
+        '/guides/authorization/impersonation/user-impersonation.md' : 'guides/authorization/user-impersonation.md'
         'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
         'guides/user-accounts/password-recovery.md': 'guides/account-configurations/account-recovery/password-recovery.md'
         'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/login-security/login-attempts.md'
