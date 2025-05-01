@@ -309,7 +309,7 @@ Content-Type: application/json
 }
 ```
 
-This will result in the following error response being sent to the application that initiated the password update request over SCIM API.
+This will result in the following error response being sent to the application that initiated a password update request over SCIM API.
 
 Error response to the application:
 ```http
@@ -323,6 +323,21 @@ Content-Type: application/json
     "scimType": "invalidValue",
     "detail": "The provided password is compromised. Provide something different.",
     "status": "400"
+}
+```
+
+And this will result in following error response being sent to the application that initiated a password update request via the forgot password, forced password reset, or user invitation flow using the password reset API.
+
+Error response to the application:
+```http
+HTTP/1.1 400 
+Content-Type: application/json
+
+{
+    "code": "20067",
+    "message": "invalid_format",
+    "description": "Invalid password format.",
+    "traceId": "c6389827-8fee-4235-928f-96295d192181"
 }
 ```
 

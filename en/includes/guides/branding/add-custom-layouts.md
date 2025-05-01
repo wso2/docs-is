@@ -175,6 +175,9 @@ To add a custom layout to the login page:
 
     2. Copy the code snippet from the [css file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/style.css){target="_blank"}  into the `styles.css` file.
 
+        !!! note
+            If you are using the default html page provided by the product, please use the exact CSS class names when overriding the existing styles.
+
     3. Copy the code snippet from the [javascript file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/script.js){target="_blank"} file  into the `script.js` file.
 
     4. Copy the [illustration.svg file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/illustration.svg){target="_blank"} into the `assets` folder.
@@ -192,10 +195,14 @@ To add a custom layout to the login page:
 
     3. Copy `<IDENTITY-APPS-HOME>/identity-apps-core/apps/authentication-portal/src/main/webapp/extensions/layouts/custom` folder (Compiled version of the layout source code) and paste it into the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts` directory.
 
-4. Refresh the browser and check out the added custom layout.
+4. To enable custom branding, go to **Branding** > **Styles & Text** > **Design** in the WSO2 Identity Server Console.
+Select **Custom** layout as the **Login Layout** and click **Save & Publish** to apply the branding configurations.
 
-    !!! tip
-        If the server stops working after the changes are added, restart the server before verifying the changes.
+   !!! tip
+   If the server stops working after the changes are added, restart the server before verifying the changes.
+
+5. Refresh the browser and check out the added custom layout.
+
 
 ## Best Practices
 

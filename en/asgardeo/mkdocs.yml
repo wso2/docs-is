@@ -92,6 +92,7 @@ extra:
 
 watch:
   - ../theme/material
+  - ../includes
   - ../base.yml
 
 hooks:
@@ -295,10 +296,13 @@ nav:
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
             - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
-            - Implement logout: guides/authentication/oidc/add-logout.md
+            - Implement logout:
+              - RP-initiated logout: guides/authentication/oidc/add-logout.md
+              - Back channel logout: guides/authentication/oidc/add-back-channel-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+            - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
       - Authorization:
         - Authorization: guides/authorization/index.md
@@ -366,6 +370,7 @@ nav:
           - Manage consents: guides/user-self-service/manage-consents.md
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
+          - Self-register Flow: guides/user-self-service/self-register-flow.md
           - Register passkeys: guides/user-self-service/register-passkey.md
           - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
@@ -377,7 +382,10 @@ nav:
         - Organizations: guides/organization-management/index.md
         - Set up organizations: guides/organization-management/manage-organizations.md
         - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-        - Share applications: guides/organization-management/share-applications.md
+        - Application Management:
+          - Share applications: guides/organization-management/share-applications.md
+          - Organization applications: guides/organization-management/organization-applications.md
+        - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
         - Onboard admins: 
             - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
@@ -408,7 +416,9 @@ nav:
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
-        - Manage environments: guides/your-asgardeo/manage-environments.md
+        - Manage environments:
+          - Manage environments: guides/your-asgardeo/manage-environments/index.md
+          - Promote configurations across environments: guides/your-asgardeo/manage-environments/promote-configurations.md
         - Self-service: guides/your-asgardeo/asgardeo-self-service.md
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
@@ -420,6 +430,7 @@ nav:
         - Asgardeo logs: guides/asgardeo-logs/index.md
         - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
         - Audit logs: guides/asgardeo-logs/audit-logs.md
+        - Remote log publish: guides/asgardeo-logs/remote-log-publish.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
@@ -521,6 +532,7 @@ nav:
     - Operational policies: references/operational-policies.md
     - Asgardeo outbound IP addresses: references/asgardeo-outbound-ip-addresses.md
     - Asgardeo user roles: references/user-management/user-roles.md
+    - SCIM2 Custom User Schema Support: references/user-management/add-scim2-custom-user-schema-support.md
     - App configurations:
       - App configurations: references/app-settings/index.md
       - OIDC configurations: references/app-settings/oidc-settings-for-app.md

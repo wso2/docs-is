@@ -442,6 +442,12 @@ nav:
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
     - Subscribe to AI features: get-started/subscribe-to-ai-features.md
     - About this release: get-started/about-this-release.md
+    - Connect/Build your app:
+      - React Quickstart: quick-starts/react.md
+      - Angular Quickstart:  quick-starts/angular.md
+      - Javascript Quickstart: quick-starts/javascript.md
+      - Next.js Quickstart:  quick-starts/nextjs.md
+      - Spring Boot Quickstart:  quick-starts/springboot.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
@@ -674,7 +680,7 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
-          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case-pet-care.md
+          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
           - Share applications with organizations: guides/organization-management/share-applications.md
@@ -815,6 +821,7 @@ nav:
       - Deploy:
         - Deployment patterns: deploy/deployment-guide.md
         - Deployment checklist: deploy/deployment-checklist.md
+        - Deploy in Kuberenetes: deploy/deploy-is-in-kubernetes.md
         - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
@@ -1024,6 +1031,7 @@ nav:
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
+        - SCIM2 Custom User Schema Support: references/extend/user-mgt/provisioning/add-scim2-custom-user-schema-support.md
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
@@ -1049,7 +1057,19 @@ nav:
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
-
+  - Technology Guides:
+    - React:
+      - Introduction: complete-guides/react/introduction.md
+      - Prerequisite: complete-guides/react/prerequisite.md
+      - Configure an application: complete-guides/react/register-an-application.md
+      - Create a React app: complete-guides/react/create-a-react-app.md
+      - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+      - Add login and logout: complete-guides/react/add-login-and-logout.md
+      - Display user details: complete-guides/react/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
+      - Accessing protected API : complete-guides/react/accessing-protected-api.md
+      - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
+      - Next Steps: complete-guides/react/next-steps.md
 
 not_in_nav: |
   /page-not-found.md

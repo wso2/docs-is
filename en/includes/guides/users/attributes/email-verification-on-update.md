@@ -10,7 +10,9 @@ Email address verification ensures that when a user updates their primary email 
 
 ## Prerequisites
 
+{% if product_name == "WSO2 Identity Server" %}
 - [Configure the email sending module]({{base_path}}/deploy/configure/email-sending-module/) of the {{product_name}}.
+{% endif %}
 
 - If required, enable [support for multiple email addresses]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) for users.
 

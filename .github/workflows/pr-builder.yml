@@ -1,0 +1,43 @@
+name: PR Builder - Asgardeo Docs
+
+on:
+  pull_request:
+    paths:
+      - 'en/asgardeo/**'
+      - 'en/includes/**'
+
+# Avoid running multiple builds for the same PR.
+concurrency:
+  group: pr-builder-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  broken-link-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r en/asgardeo/requirements.txt
+
+      - name: Start MkDocs server and run broken link checker
+        run: |
+          cd en/asgardeo
+          nohup mkdocs serve > mkdocs.log 2>&1 &
+          # Wait for server to start
+          while ! nc -z localhost 8000; do
+            sleep 1
+          done
+          pip3 install linkchecker
+          linkchecker -F html http://127.0.0.1:8000 --threads=100 --no-warnings

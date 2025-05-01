@@ -504,6 +504,9 @@ nav:
               - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
               - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
               - Add AD FS login: guides/authentication/enterprise-login/add-ad-fs-login.md
+            - Add eID login:
+              - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
+              - Add FranceConnect login: guides/authentication/eid-login/add-franceconnect-login.md
             - Configure a custom connector:  guides/authentication/configure-custom-connector.md
           - Enable user attributes:
               - Enable user attributes: guides/authentication/user-attributes/index.md
@@ -815,6 +818,7 @@ nav:
       - Deploy:
         - Deployment patterns: deploy/deployment-guide.md
         - Deployment checklist: deploy/deployment-checklist.md
+        - Deploy in Kuberenetes: deploy/deploy-is-in-kubernetes.md
         - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
@@ -1027,6 +1031,7 @@ nav:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
+        - SCIM2 Custom User Schema Support: references/extend/user-mgt/provisioning/add-scim2-custom-user-schema-support.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Default ports: references/default-ports.md

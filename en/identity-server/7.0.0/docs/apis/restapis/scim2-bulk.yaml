@@ -28,7 +28,7 @@ paths:
           - **DELETE** operation: Removes an existing resource.
         Learn more about [defining batch operations](../scim2-batch-operations).
 
-         <b>Scope(Permission) required:</b> `internal_bulk_mgt_create`
+         <b>Scope(Permission) required:</b> `internal_bulk_resource_create`
       operationId: createBulkUsers
       requestBody:
         content:

@@ -67,6 +67,22 @@
 
     --md-divider-color: var(--colors-mystic);
     --md-surface-fg-color: var(--colors-white);
+    
+    /* START OF - Chip Colors */
+    --md-chip-bg-color: var(--md-primary-fg-color);
+    --md-chip-beta-bg-color: linear-gradient(131deg, rgba(143, 197, 246, 0.30) 0%, rgba(72, 141, 180, 0.30) 100%);
+    --md-chip-beta-border-color: #488DB4;
+    --md-chip-beta-text-color: linear-gradient(93deg, #488DB4 0%, #1F3D4E 100%);
+    --md-chip-preview-bg-color: linear-gradient(131deg, rgba(233, 95, 255, 0.30) 0%, rgba(140, 57, 153, 0.30) 100%);
+    --md-chip-preview-border-color: #8C3999;
+    --md-chip-preview-text-color: linear-gradient(93deg, #8C3999 0%, #2F1333 100%);
+    --md-chip-new-bg-color: linear-gradient(131deg, rgba(117, 237, 161, 0.30) 28.46%, rgba(52, 146, 86, 0.30) 119.09%);
+    --md-chip-new-border-color: #349256;
+    --md-chip-new-text-color: linear-gradient(93deg, #349256 28.46%, #102C1A 119.09%);
+    --md-chip-premium-bg-color: linear-gradient(131deg, rgba(224, 184, 52, 0.30) 25.98%, rgba(181, 138, 0, 0.30) 112.91%);
+    --md-chip-premium-border-color: #928934;
+    --md-chip-premium-text-color: linear-gradient(93deg, #928934 28.46%, #2C2910 119.09%);
+    /* END OF - Chip Colors */
 }
 
 :root,
@@ -96,6 +112,7 @@
 :root, [data-md-color-scheme=slate] {
     /* START OF - Default Material Theme Overrides  */
     --md-default-bg-color: #232327;
+    --md-default-letter-spacing: 0.5px;
     --md-redoc-example-bg-color: #36363b;
     /* END OF - Default Material Theme Overrides  */
 
@@ -108,6 +125,13 @@
     --md-divider-color: rgba(255, 255, 255, var(--md-divider-opacity));
     --md-surface-fg-color: var(--colors-shark);
     --md-default-box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
+    
+    /* START OF - Chip Colors */
+    --md-chip-beta-text-color: linear-gradient(93deg, #adcddf 0%, #59859e 100%);
+    --md-chip-preview-text-color: linear-gradient(93deg, #ef85ff 0%, #e1bae7 100%);
+    --md-chip-new-text-color: linear-gradient(93deg, #5bb77c 28.46%, #65d48d 119.09%);
+    --md-chip-premium-text-color: linear-gradient(93deg, #d9d07c 28.46%, #867f46 119.09%);
+    /* END OF - Chip Colors */
 }
 
 @supports selector(::-webkit-scrollbar) {
@@ -386,6 +410,7 @@
 
 .md-main__inner {
     margin-top: 0px;
+    letter-spacing: var(--md-default-letter-spacing);
 }
 
 .md-nav__item {
@@ -598,6 +623,91 @@
 
 .md-nav__list {
     margin-bottom: 15px;
+}
+
+.md-chip {
+    max-width: 100%;
+    font-family: Gilmer, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-default-fg-color);
+    background: var(--md-chip-bg-color);
+    cursor: default;
+    vertical-align: middle;
+    box-sizing: border-box;
+    font-size: 0.6125rem;
+    height: 24px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: 0px;
+    text-decoration: none;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    padding: 0px;
+}
+
+.md-chip__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 12px;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+.md-chip--beta {
+    background: var(--md-chip-beta-bg-color);
+    border: 1px solid var(--md-chip-beta-border-color);
+    color: var(--md-chip-beta-text-color);
+}
+
+.md-chip--beta .md-chip__label {
+    background-image: var(--md-chip-beta-text-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.md-chip--preview {
+    background: var(--md-chip-preview-bg-color);
+    border: 1px solid var(--md-chip-preview-border-color);
+    color: var(--md-chip-preview-text-color);
+}
+
+.md-chip--preview .md-chip__label {
+    background-image: var(--md-chip-preview-text-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.md-chip--new {
+    background: var(--md-chip-new-bg-color);
+    border: 1px solid var(--md-chip-new-border-color);
+    color: var(--md-chip-new-text-color);
+}
+
+.md-chip--new .md-chip__label {
+    background-image: var(--md-chip-new-text-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.md-chip--premium {
+    background: var(--md-chip-premium-bg-color);
+    border: 1px solid var(--md-chip-premium-border-color);
+    color: var(--md-chip-premium-text-color);
+}
+
+.md-chip--premium .md-chip__label {
+    background-image: var(--md-chip-premium-text-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 /* Media query breakpoints
