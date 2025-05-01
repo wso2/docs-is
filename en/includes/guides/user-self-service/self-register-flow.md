@@ -123,7 +123,7 @@ Components are atomic UI elements added to steps. You can drag and drop componen
 - **Divider** – Visually separate sections  
 - **Image** – Add images like logos/icons
 
-### Disabling the flow builder
+## Revert back to previous experience
 
 If you want to revert back to the previous self-registration experience, you can disable the self-registration Flow Builder by following these steps:
 
