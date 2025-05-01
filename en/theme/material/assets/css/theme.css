@@ -68,7 +68,8 @@
     --md-divider-color: var(--colors-mystic);
     --md-surface-fg-color: var(--colors-white);
     
-    /* START OF - Chip Colors */
+    /* START OF - Chip Variable */
+    --md-chip-border-width: 0px;
     --md-chip-bg-color: var(--md-primary-fg-color);
     --md-chip-beta-bg-color: linear-gradient(131deg, rgba(143, 197, 246, 0.30) 0%, rgba(72, 141, 180, 0.30) 100%);
     --md-chip-beta-border-color: #488DB4;
@@ -82,7 +83,7 @@
     --md-chip-premium-bg-color: linear-gradient(131deg, rgba(224, 184, 52, 0.30) 25.98%, rgba(181, 138, 0, 0.30) 112.91%);
     --md-chip-premium-border-color: #928934;
     --md-chip-premium-text-color: linear-gradient(93deg, #928934 28.46%, #2C2910 119.09%);
-    /* END OF - Chip Colors */
+    /* END OF - Chip Variables */
 }
 
 :root,
@@ -653,8 +654,8 @@
     transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
     outline: 0px;
     text-decoration: none;
-    border-width: 0px;
-    border-style: initial;
+    border-width: var(--md-chip-border-width);
+    border-style: solid;
     border-color: initial;
     border-image: initial;
     padding: 0px;
@@ -666,11 +667,12 @@
     padding-left: 12px;
     padding-right: 12px;
     white-space: nowrap;
+    font-weight: 600;
 }
 
 .md-chip--beta {
     background: var(--md-chip-beta-bg-color);
-    border: 1px solid var(--md-chip-beta-border-color);
+    border-color: var(--md-chip-beta-border-color);
     color: var(--md-chip-beta-text-color);
 }
 
@@ -683,7 +685,7 @@
 
 .md-chip--preview {
     background: var(--md-chip-preview-bg-color);
-    border: 1px solid var(--md-chip-preview-border-color);
+    border-color: var(--md-chip-preview-border-color);
     color: var(--md-chip-preview-text-color);
 }
 
@@ -696,7 +698,7 @@
 
 .md-chip--new {
     background: var(--md-chip-new-bg-color);
-    border: 1px solid var(--md-chip-new-border-color);
+    border-color: var(--md-chip-new-border-color);
     color: var(--md-chip-new-text-color);
 }
 
@@ -709,7 +711,7 @@
 
 .md-chip--premium {
     background: var(--md-chip-premium-bg-color);
-    border: 1px solid var(--md-chip-premium-border-color);
+    border-color: var(--md-chip-premium-border-color);
     color: var(--md-chip-premium-text-color);
 }
 
