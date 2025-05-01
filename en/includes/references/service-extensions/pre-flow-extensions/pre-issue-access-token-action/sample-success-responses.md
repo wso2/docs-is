@@ -168,3 +168,23 @@ Content-Type: application/json;charset=UTF-8
  ]
 }
 ```
+## Changing the refresh token validity period
+
+The duration for which the refresh token is valid can be changed in seconds.
+Refer to the example response below, which demonstrates changing the validity period of the refresh token:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+
+{
+  "actionStatus": "SUCCESS",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "/refreshToken/claims/expires_in",
+      "value": 48600
+    }
+ ]
+}
+```
