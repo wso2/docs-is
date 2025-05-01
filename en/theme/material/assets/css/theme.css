@@ -569,6 +569,7 @@
     font-size: 0.5rem;
 }
 
+/* TODO: Unify with md-chip */
 .md-nav .md-nav__item .chip {
     height: 18px;
     line-height: 18px;
