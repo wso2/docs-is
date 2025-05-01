@@ -11,7 +11,7 @@ In {{product_name}}, roles play a crucial role in controlling access to APIs and
     !!! note
         - API resources of an organization consist of [management APIs]({{base_path}}//apis/), [organization APIs]({{base_path}}/apis/) and [registered APIs]({{base_path}}/guides/authorization/api-authorization/api-authorization/#register-an-api-resource).
 
-        - Applications can be set to work with application roles or organization roles. Learn how to [select the role audience for an application]({{base_path}}/guides/authorization/api-authorization#set-the-role-audience-for-apps).
+        - Applications can be set to work with application roles or organization roles. Learn how to [select the role audience for an application]({{base_path}}/guides/authorization/api-authorization/api-authorization/#set-the-role-audience-for-apps).
 
 ## Create a role
 
