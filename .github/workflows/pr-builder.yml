@@ -2,9 +2,6 @@ name: PR Builder - Asgardeo Docs
 
 on:
   pull_request:
-    paths:
-      - 'en/asgardeo/**'
-      - 'en/includes/**'
 
 # Avoid running multiple builds for the same PR.
 concurrency:
