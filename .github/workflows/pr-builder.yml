@@ -42,6 +42,6 @@ jobs:
           pip3 install linkchecker
           # Move linkcheckerrc to the correct location
           mkdir -p ~/.config/linkchecker
-          cp ./.github/config/linkcheckerrc ~/.config/linkchecker/linkcheckerrc
+          cp .github/config/linkcheckerrc ~/.config/linkchecker/linkcheckerrc
           # Run linkchecker
           linkchecker -F html http://127.0.0.1:8000 --threads=100 --no-warnings
