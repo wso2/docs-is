@@ -147,7 +147,10 @@ extra:
   nav_chip:
     Design login flow:
       type: ai
-      level: 1
+      level: 2
+    Self-register flow:
+      type: Preview
+      level: 4
 
   nav_icons:
     Home:
