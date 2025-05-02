@@ -35,6 +35,7 @@ user details will be stored in this table upon user creation. Following
 are the columns of the table.
 
 -   `UM_ID`
+-   `UM_USER_ID`
 -   `UM_USER_NAME`
 -   `UM_USER_PASSWORD`
 -   `UM_SALT_VALUE`
