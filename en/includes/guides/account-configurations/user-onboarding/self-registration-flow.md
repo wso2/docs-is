@@ -17,7 +17,7 @@ It includes a variety of starter templates, widgets, steps, and components, allo
 You need to **enable self-registration** inorder to try this out.
 
 !!! Note
-    Learn how administrators can [enable self-registration]({{base_path}}/guides/user-self-service/configure-self-service-portal/#enabledisable-the-my-account-portal) in an organization.
+    Learn how administrators can [enable self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/#enabledisable-self-registration) in an organization.
 
 ## Get Started
 
