@@ -8,8 +8,8 @@
 <!-- List all JDK versions, operating systems, databases, and browser/versions on which this feature/fix was tested -->
 
 ## Security checks
-- [] Followed secure coding standards in http://wso2.com/technical-reports/wso2-secure-engineering-guidelines?
-- [] Ran FindSecurityBugs plugin and verified report?
-- [] Confirmed that this PR doesn't commit any keys, passwords, tokens, usernames, or other secrets?
+- [ ] Followed secure coding standards in http://wso2.com/technical-reports/wso2-secure-engineering-guidelines?
+- [ ] Ran FindSecurityBugs plugin and verified report?
+- [ ] Confirmed that this PR doesn't commit any keys, passwords, tokens, usernames, or other secrets?
 
 
