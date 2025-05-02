@@ -385,7 +385,7 @@ nav:
           - Share applications: guides/organization-management/share-applications.md
           - Organization applications: guides/organization-management/organization-applications.md
         - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
-        - Onboard admins: 
+        - Onboard admins:
             - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
@@ -395,7 +395,7 @@ nav:
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
       - Customizations:
-        - Customize branding: 
+        - Customize branding:
             - Customize branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
             - Branding AI: guides/branding/branding-ai.md
@@ -493,7 +493,7 @@ nav:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
-      - Application management API: 
+      - Application management API:
         - Application management API (Shared Applications): apis/organization-apis/shared-application-management.md
         - Application management API: apis/organization-apis/organization-application-mgt.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
@@ -551,12 +551,12 @@ nav:
         - Custom authentication:
           - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
       - Pre-flow extensions (Actions):
-        - Pre issue access token action: 
+        - Pre issue access token action:
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
           - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
-        - Pre update password action: 
+        - Pre update password action:
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract.md
-        - Pre update profile action: 
+        - Pre update profile action:
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
@@ -578,6 +578,13 @@ nav:
       - App-native authentication: references/app-native-authentication.md
       - Push Notification based authentication: references/push-notification-based-authentication.md
   - Technology Guides:
+    - Actions:
+      - Introduction: complete-guides/actions/introduction.md
+      - Prerequisite: complete-guides/actions/prerequisite.md
+      - Pre-Update Profile Action Use Case: complete-guides/actions/pre-update-profile-action-use-case.md
+      - Configure Pre-Update Profile Action with Choreo: complete-guides/actions/pre-update-profile-action-in-choreo.md
+      - Configure Pre-Update Profile Action with Vercel: complete-guides/actions/pre-update-profile-action-in-vercel.md
+      - Configure Pre-Update Profile Action with AWS Lambda: complete-guides/actions/pre-update-profile-action-in-aws-lambda.md
     - React:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md
