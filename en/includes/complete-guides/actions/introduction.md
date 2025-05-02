@@ -18,7 +18,7 @@ We will cover the following extensions and use cases:
   access token.
 * Pre-update password action: The pre-update password action allows you to validate a password during various password
   update flows.
-* Pre-update profile action: The pre-update profile action in Asgardeo allows you to validate user attributes during
+* Pre-update profile action: The pre-update profile action allows you to validate user attributes during
   profile update processes.
 
 ## Learning Objectives

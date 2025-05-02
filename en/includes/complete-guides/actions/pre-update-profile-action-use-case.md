@@ -85,7 +85,7 @@ for this use case is as follows.
 }
 ```
 
-The response structures used in this scenario are as follows.
+The sample response structures used in this scenario are as follows.
 
 ```json
 HTTP/1.1 200 OK
