@@ -579,10 +579,10 @@ nav:
     - Actions:
         - Introduction: complete-guides/actions/introduction.md
         - Prerequisite: complete-guides/actions/prerequisite.md
-        - Understanding the Pre-Update Profile Action Use Case: complete-guides/actions/understanding-the-pre-update-profile-action-use-case.md
-        - Implementing the Pre-Update Profile Action Extension Across Different Platforms: complete-guides/actions/implementing-the-pre-update-profile-action-extension-across-different-platforms.md
-        - Configure WSO2 IS/Asgardeo: complete-guides/actions/configure-identity-provider.md
-        - Validating Pre-Update Profile Action Workflow: complete-guides/actions/validating-pre-update-profile-action-workflow.md
+        - Pre-Update Profile Action Use Case: complete-guides/actions/pre-update-profile-action-use-case.md
+        - Configure Pre-Update Profile Action with Choreo: complete-guides/actions/pre-update-profile-action-in-choreo.md
+        - Configure Pre-Update Profile Action with Vercel: complete-guides/actions/pre-update-profile-action-in-vercel.md
+        - Configure Pre-Update Profile Action with AWS Lambda: complete-guides/actions/pre-update-profile-action-in-aws-lambda.md
     - React:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md

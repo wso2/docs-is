@@ -3,5 +3,4 @@ phone number through the Console (check whether the department validation works 
 server). You can also try erroneous scenarios with invalid departments to verify whether the implementation is
 functioning properly.
 
-![Asgardeo User Profile Update]({{base_path}}/assets/img/complete-guides/actions/image17.png){: width="600" style="
-display: block; margin: 0;"}
+![Asgardeo User Profile Update]({{base_path}}/assets/img/complete-guides/actions/image17.png)

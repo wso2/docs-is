@@ -1058,6 +1058,13 @@ nav:
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
   - Technology Guides:
+    - Actions:
+        - Introduction: complete-guides/actions/introduction.md
+        - Prerequisite: complete-guides/actions/prerequisite.md
+        - Pre-Update Profile Action Use Case: complete-guides/actions/pre-update-profile-action-use-case.md
+        - Configure Pre-Update Profile Action with Choreo: complete-guides/actions/pre-update-profile-action-in-choreo.md
+        - Configure Pre-Update Profile Action with Vercel: complete-guides/actions/pre-update-profile-action-in-vercel.md
+        - Configure Pre-Update Profile Action with AWS Lambda: complete-guides/actions/pre-update-profile-action-in-aws-lambda.md
     - React:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md
