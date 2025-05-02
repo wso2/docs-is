@@ -81,7 +81,7 @@ Clicking on the login button will initiate an OIDC request. You will be able to 
 
 {{product_name}} will receive this authorization request and respond by redirecting the user to a login page to enter their credentials.
 
-At this stage, you should have already created a test user in {{product_name}}, as outlined in the [prerequisites]({{ base_path }}/complete-guides/react/prerequisites) section. Now can enter the username and password of the test user to the login screen.
+At this stage, you should have already created a test user in {{product_name}}, as outlined in the [prerequisite]({{ base_path }}/complete-guides/javascript/prerequisite) section. Now can enter the username and password of the test user to the login screen.
 
 
 If the login is successful, you should be able to see the application as shown below.

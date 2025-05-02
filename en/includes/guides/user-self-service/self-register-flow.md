@@ -24,7 +24,7 @@ You need to **enable self-registration** inorder to try this out.
 ### Enabling the flow builder
 
 !!! Warning
-    Enabling the self-registration Flow Builder will override the exitsing self-registration experience in your organization. You can always revert back to the previous experience by [disabling the Flow Builder](#disabling the Flow Builder).
+    Enabling the self-registration Flow Builder will override the exitsing self-registration experience in your organization. You can always revert back to the previous experience by [disabling the Flow Builder](#disabling-the-flow-builder).
 
 To enable the self-registration Flow Builder, you have two options:
 
@@ -123,7 +123,7 @@ Components are atomic UI elements added to steps. You can drag and drop componen
 - **Divider** – Visually separate sections  
 - **Image** – Add images like logos/icons
 
-### Disabling the flow builder
+## Revert back to previous experience
 
 If you want to revert back to the previous self-registration experience, you can disable the self-registration Flow Builder by following these steps:
 

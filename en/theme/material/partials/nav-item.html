@@ -33,7 +33,11 @@
       <span class="text">Powered with AI</span>
     </span>
   {% else %}
-    <span class="chip">New</span>
+    <span class="md-chip md-chip--nav md-chip--{{ type|lower }}">
+      <span class="md-chip__label">
+        {{ type }}
+      </span>
+    </span>
   {% endif %}
 {% endmacro %}
 
@@ -164,7 +168,7 @@
               {{ nav_item.title }}
             {% endif %}
             {% if has_nav_item_chip %}
-              {{ nav_chip("ai") }}
+              {{ nav_chip(chip_type) }}
             {% endif %}
           </span>
           {% if not disabled %}
@@ -184,7 +188,7 @@
               {% endif %}
               {{ nav_item.title }}
               {% if has_nav_item_chip %}
-                {{ nav_chip("ai") }}
+                {{ nav_chip(chip_type) }}
               {% endif %}
             </span>
           </a>
@@ -233,7 +237,7 @@
             {% endif %}
             {{ nav_item.title }}
             {% if has_nav_item_chip %}
-              {{ nav_chip("ai") }}
+              {{ nav_chip(chip_type) }}
             {% endif %}
           </span>
         </a>
@@ -277,7 +281,7 @@
           {% endif %}
           {{ nav_item.title }}
           {% if has_nav_item_chip %}
-            {{ nav_chip("ai") }}
+            {{ nav_chip(chip_type) }}
           {% endif %}
         </span>
         {% if nav_item.meta and nav_item.meta.read_time %}
@@ -304,7 +308,7 @@
           {% endif %}
           {{ nav_item.title }}
           {% if has_nav_item_chip %}
-            {{ nav_chip("ai") }}
+            {{ nav_chip(chip_type) }}
           {% endif %}
         </span>
         {% if nav_item.meta and nav_item.meta.read_time %}
