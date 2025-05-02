@@ -27,6 +27,10 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
     - **Last Name:** Last name of the user. You can add/change this later.
 
     !!! note
+        You can include additional user details such as phone number, address, and other custom attributes when onboarding a user. This is done via
+        [attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
+
+    !!! note
 
         - A username is always unique to the organization and you can't change the username once it is created.
         - Instead of using the email as the username, you can [configure the username]({{base_path}}/guides/user-accounts/account-login/username-validation/) to be an alphanumeric. Then, you will be asked to enter an alphanumeric username between the configured minimum and maximum lengths.
@@ -149,7 +153,7 @@ To resend the link/code:
 
     ![Resend link]({{base_path}}/assets/img/guides/users/resend-password-setup-link.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Alternatively, administrators can use the resend-code API to resend the link or code as shown below. 
+Alternatively, administrators can use the resend-code API to resend the link or code as shown below.
 
 !!! abstract ""
 
@@ -195,7 +199,7 @@ Alternatively, administrators can use the resend-code API to resend the link or 
             ]
             }'
         ```
-    
+
     The recovery scenario should be specified in the properties parameter of the API request body, as follows:
 
     - `ASK_PASSWORD`: When the user is pending to set up an initial password using the setup link.
@@ -249,7 +253,7 @@ To reset the password:
         If this option is selected, the owner or an administrator can set a temporary password for the user.
 
         !!! note
-            If the user is in pending admin forced password reset, once the admin resets the password, 
+            If the user is in pending admin forced password reset, once the admin resets the password,
             the account will get unlocked.
 
     ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -312,7 +316,7 @@ To lock a user account:
 Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
 
 !!! note "Enable account disabling"
-    
+
     Account disabling is not an option available for a user's account by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
 
 To disable a user account,
