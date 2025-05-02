@@ -24,7 +24,7 @@ You need to **enable self-registration** inorder to try this out.
 ### Enabling the flow builder
 
 !!! Warning
-    Enabling the self-registration Flow Builder will override the exitsing self-registration experience in your organization. You can always revert back to the previous experience by [disabling the Flow Builder](#revert-back-to-previous-experience).
+    Enabling the self-registration Flow Builder will override the existing self-registration experience in your organization. You can always revert back to the previous experience by [disabling the Flow Builder](#revert-back-to-previous-experience).
 
 To enable the self-registration Flow Builder, you have two options:
 
