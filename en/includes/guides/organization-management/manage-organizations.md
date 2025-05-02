@@ -71,7 +71,7 @@ Organizations can be structured hierarchically in {{product_name}}. This means t
 
 If you are a parent organization admin and you wish to create a new organization in your child organization:
 
-1. On the {{ product_name }} Console, [switch to your organization](#switch-between-organizations).
+1. On the {{ product_name }} Console, [switch to your organization](#switch-to-an-organization).
 2. Go to **Organizations** and click **Add Organization**.
 3. In the **Add Organization** dialog box that opens, enter a unique name and description for your organization.
 4. Click **Register** to add the new organization.
