@@ -148,7 +148,7 @@ extra:
     Design login flow:
       type: ai
       level: 1
-    Self-register flow:
+    Self-registration flow:
       type: Preview
       level: 4
 

@@ -354,6 +354,7 @@ nav:
           - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
         - User onboarding:
           - Self-registration: guides/account-configurations/user-onboarding/self-registration.md
+          - Self-registration flow: guides/account-configurations/user-onboarding/self-registration-flow.md
         - Manage login identifiers:
           - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
@@ -369,7 +370,6 @@ nav:
           - Manage consents: guides/user-self-service/manage-consents.md
           - Manage login sessions: guides/user-self-service/manage-login-sessions.md
           - Self-register: guides/user-self-service/self-register.md
-          - Self-register flow: guides/user-self-service/self-register-flow.md
           - Register passkeys: guides/user-self-service/register-passkey.md
           - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
           - Password recovery: guides/user-self-service/user-password-recovery.md

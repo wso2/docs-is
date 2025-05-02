@@ -17,14 +17,14 @@ It includes a variety of starter templates, widgets, steps, and components, allo
 You need to **enable self-registration** inorder to try this out.
 
 !!! Note
-    Learn how administrators can [enable self-registration]({{base_path}}/guides/user-self-service/configure-self-service-portal/#enabledisable-the-my-account-portal) in an organization.
+    Learn how administrators can [enable self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/#enabledisable-self-registration) in an organization.
 
 ## Get Started
 
 ### Enabling the flow builder
 
 !!! Warning
-    Enabling the self-registration Flow Builder will override the exitsing self-registration experience in your organization. You can always revert back to the previous experience by [disabling the Flow Builder](#disabling-the-flow-builder).
+    Enabling the self-registration Flow Builder will override the exitsing self-registration experience in your organization. You can always [revert back to previous experience](#revert-back-to-previous-experience).
 
 To enable the self-registration Flow Builder, you have two options:
 
