@@ -815,6 +815,7 @@ nav:
             - Create new keystores: deploy/security/keystores/create-new-keystores.md
             - Manage keystores: deploy/security/keystores/configure-keystores.md
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
+            - Configure Custom KeyStores for Authentication Protocols: deploy/security/keystores/configure-custom-keystores.md
       - Deploy:
         - Deployment patterns: deploy/deployment-guide.md
         - Deployment checklist: deploy/deployment-checklist.md
