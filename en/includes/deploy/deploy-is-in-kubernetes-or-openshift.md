@@ -1,6 +1,6 @@
-# Deploy {{product_name}} in Kubernetes using Helm
+# Deploy {{product_name}} in Kubernetes or OpenShift using Helm
 
-This guide walks you through deploying WSO2 Identity Server as a containerized application on a Kubernetes cluster using the official Helm chart. Helm simplifies the deployment process by automating the configuration and management of Kubernetes resources, making it easier to set up and maintain your {{product_name}} instance.
+This guide walks you through deploying WSO2 Identity Server as a containerized application on a Kubernetes cluster or a OpenShift cluster using the official Helm chart. Helm simplifies the deployment process by automating the configuration and management of Kubernetes resources, making it easier to set up and maintain your {{product_name}} instance.
 
 ## Prerequisites
 
@@ -11,8 +11,10 @@ Make sure you have the following before starting this guide.
     - [Helm](https://helm.sh/docs/intro/install/){: target="_blank"}
     - [Docker](https://docs.docker.com/engine/install/){: target="_blank"}
     - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl){: target="_blank"}
+    - [OpenShift CLI](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cli_tools/openshift-cli-oc){: target="_blank"} (if you are using OpenShift).
 
 - A running Kubernetes cluster (e.g. [minikube](https://kubernetes.io/docs/tasks/tools/#minikube){:target="_blank"} or an existing cluster).
+- A running [OpenShift cluster](https://developers.redhat.com/products/openshift-local/getting-started) (if you are using OpenShift).
 
 - A Kubernetes [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/deploy/){:target="_blank"}.
 
@@ -34,9 +36,15 @@ export RELEASE_NAME=<Helm release name of the deployment>
 
 Ensure that the specified namespace exists or create a new one using the following command.
 
-```shell
-kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
-```
+=== "Kubernetes"
+    ``` json 
+    kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
+    ```
+
+=== "OpenShift"
+    ``` json 
+    oc get namespace $NAMESPACE || oc create namespace $NAMESPACE
+    ```
 
 ## Create a Kubernetes TLS secret
 
@@ -44,12 +52,21 @@ To enable secure HTTPS communication for your service (e.g., WSO2 Identity Serve
 
 If you already have an SSL certificate and its private key (typically in .crt and .key format), you can create a Kubernetes TLS secret using the following command:
 
-```shell
-kubectl create secret tls is-tls \
---cert=path/to/cert/file \
---key=path/to/key/file \
--n $NAMESPACE
-```
+=== "Kubernetes"
+    ``` json
+    kubectl create secret tls is-tls \
+    --cert=path/to/cert/file \
+    --key=path/to/key/file \
+    -n $NAMESPACE
+    ```
+
+=== "OpenShift"
+    ``` json
+    oc create secret tls is-tls \
+    --cert=path/to/cert/file \
+    --key=path/to/key/file \
+    -n $NAMESPACE
+    ```
 
 - `is-tls` is the name of the secret.
 
@@ -69,14 +86,25 @@ To support secure communication and cryptographic operations, the deployment req
 - **TLS keystore (tls.p12):** Used for TLS communication.
 - **Client truststore (client-truststore.p12):** Certificates of trusted third parties.
 
-```shell
-kubectl create secret generic keystores \
---from-file=internal.p12 \
---from-file=primary.p12 \
---from-file=tls.p12 \
---from-file=client-truststore.p12 \
--n $NAMESPACE
-```
+    === "Kubernetes"
+        ``` json
+        kubectl create secret generic keystores \
+        --from-file=internal.p12 \
+        --from-file=primary.p12 \
+        --from-file=tls.p12 \
+        --from-file=client-truststore.p12 \
+        -n $NAMESPACE
+        ```
+    
+    === "OpenShift"
+        ``` json
+        oc create secret generic keystores \
+        --from-file=internal.p12 \
+        --from-file=primary.p12 \
+        --from-file=tls.p12 \
+        --from-file=client-truststore.p12 \
+        -n $NAMESPACE
+        ```
 
 !!! note
 
@@ -98,27 +126,53 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     ```
 
 2. Install the Helm chart from the Helm repository.
-{% if is_version == "7.0.0" %}
-    ```shell
-    helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-2 \
-    -n $NAMESPACE \
-    --set deployment.image.registry="wso2" \
-    --set deployment.image.repository="wso2is" \
-    --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false" \
-    --set deployment.externalJKS.enabled="true"
-    ```
-    {% else %}
-    ```shell
-    helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-1 \
-    -n $NAMESPACE \
-    --set deployment.image.registry="wso2" \
-    --set deployment.image.repository="wso2is" \
-    --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false" \
-    --set deployment.externalJKS.enabled="true"
-    ```
-{% endif %}
+
+    === "Kubernetes"
+        {% if is_version == "7.0.0" %}
+        ``` json
+        helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-2 \
+        -n $NAMESPACE \
+        --set deployment.image.registry="wso2" \
+        --set deployment.image.repository="wso2is" \
+        --set deployment.image.tag="{{is_version}}" \
+        --set deployment.apparmor.enabled="false" \
+        --set deployment.externalJKS.enabled="true"
+        ```
+        {% else %}
+        ``` json
+        helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-1 \
+        -n $NAMESPACE \
+        --set deployment.image.registry="wso2" \
+        --set deployment.image.repository="wso2is" \
+        --set deployment.image.tag="{{is_version}}" \
+        --set deployment.apparmor.enabled="false" \
+        --set deployment.externalJKS.enabled="true"
+        ```
+        {% endif %}
+
+    === "OpenShift"
+        {% if is_version == "7.0.0" %}
+        ``` json
+        helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-2 \
+        -n $NAMESPACE \
+        --set deployment.image.registry="wso2" \
+        --set deployment.image.repository="wso2is" \
+        --set deployment.image.tag="{{is_version}}" \
+        --set deployment.apparmor.enabled="false" \
+        --set deployment.externalJKS.enabled="false"
+        ```
+        {% else %}
+        ``` json
+        helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-1 \
+        -n $NAMESPACE \
+        --set deployment.image.registry="wso2" \
+        --set deployment.image.repository="wso2is" \
+        --set deployment.image.tag="{{is_version}}" \
+        --set deployment.apparmor.enabled="false" \
+        --set deployment.externalJKS.enabled="false" \
+        --set deployment.securityContext.seccompProfile.enabled="false"
+        ```
+        {% endif %}
 
     !!! note "Get the latest helm chart version"
             To find the latest version, you can use the [WSO2 Identity Server Artifact Hub](https://artifacthub.io/packages/helm/wso2/identity-server){: target="_blank"}.
@@ -146,14 +200,52 @@ If you prefer to build the chart from the source, follow the steps below:
 
 2. Install the Helm chart from the cloned repository:
 
-    ```shell
-    helm install $RELEASE_NAME -n $NAMESPACE . \
-    --set deployment.image.registry="wso2" \
-    --set deployment.image.repository="wso2is" \
-    --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false" \
-    --set deployment.externalJKS.enabled="true"
-    ```
+    === "Kubernetes"
+        {% if is_version == "7.0.0" %}
+        ``` json
+        helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-2 \
+        -n $NAMESPACE \
+        --set deployment.image.registry="wso2" \
+        --set deployment.image.repository="wso2is" \
+        --set deployment.image.tag="{{is_version}}" \
+        --set deployment.apparmor.enabled="false" \
+        --set deployment.externalJKS.enabled="true"
+        ```
+        {% else %}
+        ``` json
+        helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-1 \
+        -n $NAMESPACE \
+        --set deployment.image.registry="wso2" \
+        --set deployment.image.repository="wso2is" \
+        --set deployment.image.tag="{{is_version}}" \
+        --set deployment.apparmor.enabled="false" \
+        --set deployment.externalJKS.enabled="true"
+        ```
+        {% endif %}
+
+    === "OpenShift"
+        {% if is_version == "7.0.0" %}
+        ``` json
+        helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-2 \
+        -n $NAMESPACE \
+        --set deployment.image.registry="wso2" \
+        --set deployment.image.repository="wso2is" \
+        --set deployment.image.tag="{{is_version}}" \
+        --set deployment.apparmor.enabled="false" \
+        --set deployment.externalJKS.enabled="false"
+        ```
+        {% else %}
+        ``` json
+        helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-1 \
+        -n $NAMESPACE \
+        --set deployment.image.registry="wso2" \
+        --set deployment.image.repository="wso2is" \
+        --set deployment.image.tag="{{is_version}}" \
+        --set deployment.apparmor.enabled="false" \
+        --set deployment.externalJKS.enabled="false" \
+        --set deployment.securityContext.seccompProfile.enabled="false"
+        ```
+        {% endif %}
 
     !!! note "Use a custom docker image"
     
@@ -162,6 +254,17 @@ If you prefer to build the chart from the source, follow the steps below:
         ```shell
         --set deployment.image.digest=<digest> 
         ```
+
+    !!! note "Provide any UID permissions to service account"
+    
+        If you need to run the deploy with any UID permissions, you can give anyuid permissions to the service account by using the following command.
+    
+        === "OpenShift"
+        ```json
+        oc adm policy add-scc-to-user anyuid -z is-identity-server -n $NAMESPACE
+        ```
+    
+        `is-identity-server` is the default service account name. If you have used a different name, replace it accordingly.
 
 ## (Optional) Change of Keystore passwords
 
@@ -222,9 +325,15 @@ If your Kubernetes cluster has limited resources, you can adjust these values wh
 
 After deploying WSO2 Identity Server, you need to find its external IP address to access it outside the cluster. Run the following command to list the ingress resources in your namespace:
 
-```shell
-kubectl get ing -n $NAMESPACE
-```
+=== "Kubernetes"
+    ``` json
+    kubectl get ing -n $NAMESPACE
+    ```
+
+=== "OpenShift"
+    ``` json
+    oc get ing -n $NAMESPACE
+    ```
 
 The output will contain the following columns:
 

@@ -764,7 +764,7 @@ nav:
       - Deploy:
         - Deployment patterns: deploy/deployment-guide.md
         - Deployment checklist: deploy/deployment-checklist.md
-        - Deploy in Kuberenetes: deploy/deploy-is-in-kubernetes.md
+        - Deploy in Kuberenetes: deploy/deploy-is-in-kubernetes-or-openshift.md
         - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
