@@ -6,7 +6,7 @@
 1. Log in to the [FranceConnect Portal](https://partenaires.franceconnect.gouv.fr/login){:target="_blank"}. 
 2. You will get the Client ID and Client Secret from the FranceConnect application.
 3. Enter the following as the Redirect URL:
-   - **Authorization callback URL**
+    - **Authorization callback URL**
       ```bash
       {{ product_url_format }}/commonauth
       ```
@@ -40,7 +40,7 @@ Now, let's register the FranceConnect in {{ product_name }}.
          </tr>
          <tr>
              <td>Token Endpoint URL</td>
-             <td>Provide the Token endpoint URL of your Signicat organization. For example `https://app.franceconnect.gouv.fr/api/v1/token`.</td>
+             <td>Provide the Token endpoint URL of your FranceConnect connection. For example `https://app.franceconnect.gouv.fr/api/v1/token`.</td>
          </tr>
        </table>
    <br>

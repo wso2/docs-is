@@ -507,6 +507,7 @@ nav:
             - Add eID login:
               - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
               - Add FranceConnect login: guides/authentication/eid-login/add-franceconnect-login.md
+              - Add SwissID login: guides/authentication/eid-login/add-swissid-login.md
             - Configure a custom connector:  guides/authentication/configure-custom-connector.md
           - Enable user attributes:
               - Enable user attributes: guides/authentication/user-attributes/index.md
