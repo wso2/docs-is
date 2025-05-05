@@ -76,6 +76,9 @@ and create your own Certificate Authority to sign the certificates, follow the g
             You are prompted for details after executing the above command. For "What is your first and last name?" 
             you need to give a name without space(e.g., wso2). 
 
+        !!! note
+            Note that the **CN** value has to be the same as the **user name** of the user that will try to log in in the future.
+
         This command will create a keystore with the following details: 
 
         ``` text

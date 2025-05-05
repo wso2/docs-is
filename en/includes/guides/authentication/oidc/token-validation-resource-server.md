@@ -4,7 +4,7 @@ Access tokens provide limited authorization to resources within a resource serve
 
 ## Validate JWT tokens
 
-A Jason Web Token (JWT) is a self-contained token. This means that the resource server does not need to interact with the identity provider to validate tokens. The payload of a sample decoded JWT token is as shown below.
+A JSON Web Token (JWT) is a self-contained token. This means that the resource server does not need to interact with the identity provider to validate tokens. The payload of a sample decoded JWT token is as shown below.
 
 ```json
 {

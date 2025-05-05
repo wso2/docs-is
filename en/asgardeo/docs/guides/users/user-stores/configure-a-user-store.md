@@ -100,7 +100,7 @@ To configure a remote user store for your organization:
 
     ![Register remote user store to Asgardeo]({{base_path}}/assets/img/guides/user-stores/register-user-store-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. If the [optimized connection](#optimized-user-store-connection) supports your use case, this is the recommended choice. If not, click **Classic User Store Connection** instead.
+3. If the [optimized connection](#optimized-user-store-connection-recommended) supports your use case, this is the recommended choice. If not, click **Classic User Store Connection** instead.
 
 4. Enter the following details about the user store.
     <table>

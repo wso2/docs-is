@@ -27,6 +27,10 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
     - **Last Name:** Last name of the user. You can add/change this later.
 
     !!! note
+        You can include additional user details such as phone number, address, and other custom attributes when onboarding a user. This is done via
+        [attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
+
+    !!! note
 
         - A username is always unique to the organization and you can't change the username once it is created.
         - Instead of using the email as the username, you can [configure the username]({{base_path}}/guides/user-accounts/account-login/username-validation/) to be an alphanumeric. Then, you will be asked to enter an alphanumeric username between the configured minimum and maximum lengths.
@@ -139,6 +143,97 @@ To update the user profile:
 
 4. Click **Update** to save.
 
+## Resend password setup link/code
+
+If a user is pending to set up an initial password or is required to reset their password through an admin-initiated password reset, and the previously sent link or code has expired, an administrator can resend the link or code.
+
+To resend the link/code:
+
+1. Click the `Resend` link available in the warning message displayed at the top of the user's profile.
+
+    ![Resend link]({{base_path}}/assets/img/guides/users/resend-password-setup-link.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+Alternatively, administrators can use the resend-code API to resend the link or code as shown below.
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "<username>",
+                "realm": "<realm>"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "<recovery_scenario>"
+                }
+            ]
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "jane",
+                "realm": "PRIMARY"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "ASK_PASSWORD"
+                }
+            ]
+            }'
+        ```
+
+    The recovery scenario should be specified in the properties parameter of the API request body, as follows:
+
+    - `ASK_PASSWORD`: When the user is pending to set up an initial password using the setup link.
+    - `ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK`: When the user is pending an admin-forced password reset via an email link.
+    - `ADMIN_FORCED_PASSWORD_RESET_VIA_OTP`: When the user is pending an admin-forced password reset via an OTP sent through email.
+
+    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+
+
+## Set a user's password
+
+Administrators can set a user's password if the user is unable to set the password via the initial setup email link shared during user creation.
+
+To set the password:
+
+1. Click **Set password** at the bottom of the user's profile.
+
+    ![Set password button]({{base_path}}/assets/img/guides/users/set-password.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+2. Type the new password.
+
+    ![Set password]({{base_path}}/assets/img/guides/users/set-password-modal.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Click **Set Password**.
+
+    !!! note
+        Once the administrator set the password, the user's account will get unlocked.
+
 ## Reset the user's password
 
 Administrators can reset a user's password or initiate the password reset process from the {{ product_name }} Console.
@@ -156,6 +251,10 @@ To reset the password:
 
     - **Set a temporary password for the user:**
         If this option is selected, the owner or an administrator can set a temporary password for the user.
+
+        !!! note
+            If the user is in pending admin forced password reset, once the admin resets the password,
+            the account will get unlocked.
 
     ![Reset password]({{base_path}}/assets/img/guides/users/reset-password-of-user.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -217,7 +316,7 @@ To lock a user account:
 Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
 
 !!! note "Enable account disabling"
-    
+
     Account disabling is not an option available for a user's account by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
 
 To disable a user account,

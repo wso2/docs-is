@@ -8,7 +8,6 @@ info:
 
 security:
   - OAuth2: []
-  - BasicAuth: []
 
 servers:
   - url: 'https://{server-url}/t/{tenant-domain}/o/api/server/v1'
@@ -57,7 +56,7 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v1/api-resources' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /api-resources/{apiResourceId}:
     get:
       tags:
@@ -91,7 +90,7 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v1/api-resources/{apiResourceId}' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /api-resources/{apiResourceId}/scopes:
     get:
       tags:
@@ -133,7 +132,7 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v1/api-resources/{apiResourceId}/scopes' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /scopes:
     get:
       tags:
@@ -175,7 +174,7 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v1/scopes' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   parameters:
     organizationId:
@@ -777,9 +776,6 @@ components:
             error: []
 
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:

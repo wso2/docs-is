@@ -72,7 +72,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Groups' \
             -H 'accept: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}'                
     post:
@@ -135,7 +135,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Groups' \
             -H 'accept: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}'                 
       x-codegen-request-body-name: body
@@ -177,7 +177,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/.search' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Groups/.search' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -244,7 +244,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/{group-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Groups/{group-id}' \
             -H 'accept: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}'                  
     put:
@@ -313,7 +313,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/{group-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Groups/{group-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -368,7 +368,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/{group-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Groups/{group-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Bearer {bearer_token}'                   
     patch:
@@ -431,7 +431,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Groups/{group-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Groups/{group-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}' \

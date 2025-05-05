@@ -8,11 +8,9 @@ read_time: 30 secs
 
 * About 60 minutes
 * {{product_name}} account
+* Create a [test user in Asgardeo](https://wso2.com/asgardeo/docs/guides/users/manage-users/#onboard-users)
 * [Node.js](https://nodejs.org/en/download/package-manager){:target="_blank"} v18+ and npm
 * A favorite text editor or IDE
 
 
-!!! note "Note"
-
-    You need to have installed [Node.js](https://nodejs.org/en/download/package-manager){:target="_blank"} v18+ and npm (which comes inbuilt with Node) to run this sample. Although Node.js is primarily a server-side language,it needs to have been installed to manage dependencies and run scripts for our project.
-
+{% include "../../../../includes/complete-guides/react/prerequisite.md" %}

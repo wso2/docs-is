@@ -1,24 +1,36 @@
 # Password validation
 
-This guide explains how you can manage user passwords securely using multiple validation techniques, such as enforcing password expiration and imposing password complexity requirements.
+{{product_name}} provides several password validation mechanisms to ensure user passwords meet the required complexity standards and are regularly updated to maintain security. This guide walks you through enabling and configuring these options for your organization.
 
 ## Configure password validation
 
-You may find the configuration options by following the steps below.
+You can find the password configuration options by following the steps below.
 
 1. On the {{product_name}} Console, navigate to **Login & Registration**.
 
 2. Under **Login Security**, select **Password Validation**.
 
-3. On the **Password Validation** page, use the following three options to validate passwords. Each option is explained in detail in the sections below:
+3. On the **Password Validation** page, you can configure the following [options](#password-validation-options):
 
-    - [Rule-based password expiration](#rule-based-password-expiration): Define rules to control password expiration based on the user's groups and roles.
-    - [Password history count](#password-history-count): Specify how often users can reuse old passwords.
-    - [Password input validation](#password-input-validation): Set requirements for password complexity by defining its length constraints and required character types.
+    - [Rule-based password expiration](#rule-based-password-expiration): Passwords expire based on the rules you define for users' groups and roles. If users with expired passwords log in, they get redirected to the password reset screen.
+
+        ![Reset Password]({{base_path}}/assets/img/guides/organization/account-security/password-validation/reset-password.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    
+    - [Password history count](#password-history-count): Specify how often users can reuse old passwords. When resetting a password, if a user chooses a previously used password (within the stored history), the password reset fails with the following error:
+
+        ![Try out password history]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-history-try-out.png)
+    
+    - [Password input validation](#password-input-validation): Set requirements for password complexity by defining its length constraints and required character types. When a user creates/resets a password, if it does not meet the complexity requirements, the validation checks fail as follows.
+
+        ![Try out password input validation]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-input-try-out.png)
     
 3. Click **Update** to save the changes.
 
-## Rule-Based password expiration
+## Password validation options
+
+The following are the password validation options available for your organization.
+
+### Rule-Based password expiration
 
 Rule-based password expiration allows administrators to set custom password expiration rules based on the user's groups and roles. The higher a rule appears on the list, the greater its priority. Rules are evaluated based on their priorities and the first rule that matches the user's condition will take effect.
 
@@ -62,7 +74,7 @@ Refer to the following table for more information on rule parameters.
     </tr>
 </table>
 
-{% if password_expiry_time and (product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")) %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 !!! abstract "Retrieve password expiry time of users"
 
@@ -112,7 +124,7 @@ Refer to the following table for more information on rule parameters.
         ```
 {% endif %}
 
-## Password history count
+### Password history count
 
 The **Password History Count** feature allows you to specify the number of unique new passwords a user must use before an old password can be reused. This enhances account security by preventing the reuse of old passwords.
 
@@ -131,7 +143,7 @@ To enable this, select the corresponding checkbox and configure the following op
     </tr>
 </table>
 
-## Password input validation
+### Password input validation
 
 The **Password Input Validation** feature enables you to set password complexity requirements which include minimum password length and required character types.
 

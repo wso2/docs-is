@@ -22,7 +22,7 @@ paths:
                     - **PATCH** operation: Updates attributes of an existing resource. </br>
                     - **DELETE** operation: Removes an existing resource. </br>
                    
-                   - <b>Scopes required:</b> ``internal_bulk_mgt_create``\n\n
+                   - <b>Scopes required:</b> ``internal_bulk_resource_create``\n\n
                    - <b>Flow type:</b> Client Credentials OAuth Flow"
       operationId: createBulkUsers
       requestBody:

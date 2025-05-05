@@ -125,15 +125,15 @@ extra:
     Angular:
       link: complete-guides/angular/introduction
       level: 2
-    Node.js:
-      link: complete-guides/nodejs/introduction
-      level: 2
     .NET:
       link: complete-guides/dotnet/introduction
       level: 2
     Javascript:
       link: complete-guides/javascript/introduction
       level: 2
+    B2B:
+      link: complete-guides/nextjs-b2b/introduction
+      level: 3
     Redirect-Based:
       link: complete-guides/nextjs/introduction
       level: 3
@@ -148,6 +148,9 @@ extra:
     Design login flow:
       type: ai
       level: 1
+    Self-registration flow:
+      type: Preview
+      level: 4
 
   nav_icons:
     Home:
@@ -216,7 +219,7 @@ extra:
       icon: assets/img/logo/react-logo.svg
       description: An SDK to integrate {{ product_name }} into React applications
       documentation_link: get-started/try-your-own-app/react/
-      download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip
+      download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/download/v5.2.3/asgardeo-react-app.zip
       source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
     - name: Auth SPA SDK
       icon: assets/img/logo/javascript-logo.svg

@@ -143,7 +143,7 @@ paths:
             curl -X 'POST' \
             'https://localhost:9443/o/api/server/v1/claim-dialects/local/claims' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "claimURI": "http://wso2.org/claims/username",
@@ -278,7 +278,7 @@ paths:
             curl -X 'PUT' \
             'https://localhost:9443/o/api/server/v1/claim-dialects/local/claims/{claim-id}' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "claimURI": "http://wso2.org/claims/username",
@@ -345,7 +345,7 @@ paths:
             curl -X 'DELETE' \
             'https://localhost:9443/o/api/server/v1/claim-dialects/local/claims/{claim-id}' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /claim-dialects:
     get:
       tags:

@@ -168,7 +168,7 @@ plugins:
         'guides/identity-federation/facebook.md': 'guides/authentication/social-login/add-facebook-login.md'
         'guides/identity-federation/google.md': 'guides/authentication/social-login/add-google-login.md'
         'guides/identity-federation/twitter.md': 'guides/authentication/social-login/add-x-login.md'  # Assuming no direct match, redirected to a placeholder
-        'guides/identity-federation/microsoft-live.md': 'guides/authentication/social-login/add-microsoft-login.md'
+        'guides/identity-federation/microsoft-login.md': 'guides/authentication/social-login/add-microsoft-login.md'
         'guides/identity-federation/iwa-kerberos.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/identity-federation/apple.md': 'guides/authentication/social-login/add-apple-login.md'
 
@@ -412,6 +412,7 @@ plugins:
         'guides/authorization/impersonation/user-impersonation.md': 'guides/authorization/user-impersonation.md'
         'get-started/subscribe-for-ai-features.md': 'get-started/subscribe-to-ai-features.md'
         'deploy/environment-compatibility.md': 'deploy/product-compatibility.md'
+        'references/about-this-release.md': 'get-started/about-this-release.md'
 
 # Navigation
 nav:
@@ -441,6 +442,12 @@ nav:
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
     - Subscribe to AI features: get-started/subscribe-to-ai-features.md
     - About this release: get-started/about-this-release.md
+    - Connect/Build your app:
+      - React Quickstart: quick-starts/react.md
+      - Angular Quickstart:  quick-starts/angular.md
+      - Javascript Quickstart: quick-starts/javascript.md
+      - Next.js Quickstart:  quick-starts/nextjs.md
+      - Spring Boot Quickstart:  quick-starts/springboot.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
@@ -715,12 +722,14 @@ nav:
           - ELK Alerts: guides/analytics/elk-analytics/elk-alert-types.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
         - A/B Testing: guides/analytics/ab-testing.md
+        - OpenSearch: guides/analytics/opensearch.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
         - Self-service: guides/your-is/is-self-service.md
         - Recover your password: guides/your-is/recover-password.md
         - Recover your username: guides/your-is/recover-username.md
+        - Recover super admin account: guides/your-is/recover-super-admin-account.md
       - Multitenancy:
         - Multitenancy: guides/multitenancy/index.md
         - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
@@ -792,6 +801,7 @@ nav:
           - Set passwords using environment variables/system properties: deploy/security/set-passwords-using-environment-variables-or-system-properties.md
         - Enable HTTP Strict Transport Security (HSTS) headers: deploy/security/enable-hsts.md
         - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
+        - Enable Mutual SSL: deploy/security/enable-mutual-ssl.md
         - Enable FIPS 140-2-compliant mode: deploy/security/enable-fips-for-is.md
         - Security guidelines:
           - Security guidelines: deploy/security/security-guidelines/index.md
@@ -801,7 +811,6 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
           - Keystores:
@@ -812,6 +821,7 @@ nav:
       - Deploy:
         - Deployment patterns: deploy/deployment-guide.md
         - Deployment checklist: deploy/deployment-checklist.md
+        - Deploy in Kuberenetes: deploy/deploy-is-in-kubernetes.md
         - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
@@ -952,6 +962,7 @@ nav:
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
+      - Notification sender API: apis/organization-apis/notification-sender-rest-api.md  
       - Notification Templates Management API: apis/organization-apis/notification-templates.md
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
@@ -1021,9 +1032,8 @@ nav:
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
+        - SCIM2 Custom User Schema Support: references/extend/user-mgt/provisioning/add-scim2-custom-user-schema-support.md
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
-        - User provisioning:
-          - Extend SCIM 2.0 user schemas: references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Default ports: references/default-ports.md
@@ -1048,7 +1058,19 @@ nav:
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
-
+  - Technology Guides:
+    - React:
+      - Introduction: complete-guides/react/introduction.md
+      - Prerequisite: complete-guides/react/prerequisite.md
+      - Configure an application: complete-guides/react/register-an-application.md
+      - Create a React app: complete-guides/react/create-a-react-app.md
+      - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+      - Add login and logout: complete-guides/react/add-login-and-logout.md
+      - Display user details: complete-guides/react/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
+      - Accessing protected API : complete-guides/react/accessing-protected-api.md
+      - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
+      - Next Steps: complete-guides/react/next-steps.md
 
 not_in_nav: |
   /page-not-found.md

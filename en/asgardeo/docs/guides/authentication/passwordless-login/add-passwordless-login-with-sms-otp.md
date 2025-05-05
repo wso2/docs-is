@@ -5,6 +5,6 @@
 %}
 
 {% set configure_email_sender = "" %}
-{% set notification_tab_name = "Email & SMS" %}
+{% set notification_tab_name = "Notification Channels" %}
 
 {% include "../../../../../includes/guides/authentication/passwordless-login/add-passwordless-login-with-sms-otp.md" %}

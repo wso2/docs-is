@@ -135,7 +135,3 @@ If you prefer to configure the user store manually, follow the steps given below
         environment, it will not sync between all the nodes by default, so
         you need to copy manually to other nodes. This applies to deletion as well. So you can use sync mechanisms like Rsync or
         choose to first fully test it in a single node and apply it to other nodes while setting up the cluster.  
-    
-
-      
-      

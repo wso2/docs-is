@@ -94,7 +94,7 @@ The following table lists the currently supported extensions and those in the ro
 <tr class="odd">
 <td>Login</td>
 <td>Authenticate</td>
-<td>End February 2025</td>
+<td>Early access (beta)</td>
 <td>
 <ul>
 <li><p>Call an external service to authenticate the user.</p></li>
@@ -139,10 +139,10 @@ The following table lists the currently supported extensions and those in the ro
 <tr class="odd">
 <td>Profile update</td>
 <td>Pre profile update</td>
-<td>Early April 2025</td>
+<td>Early access (beta)</td>
 <td>
 <ul>
-<li><p>Redirect to a third party service for verification.</p></li>
+<li><p>Automated verification of user attributes.</p></li>
 <li><p>Verify for sanctioned countries, initiate screening processes.</p></li>
 </ul>
 </td>
@@ -379,3 +379,12 @@ loggers = org-wso2-carbon-identity-action-execution
 {%else %}
 You may view the diagnostics logs under the logs tab in Asgardeo. [Refer here]({{base_path}}/guides/asgardeo-logs/diagnostic-logs/) to learn more about diagnostic logs in Asgardeo.
 {%endif %}
+
+
+## Extension implementation best practices
+
+### Security basics
+- Avoid including sensitive information or personally identifiable information (PII) in URLs, error/failure messages, or descriptions.
+- It is strictly recommended to use HTTPS for external service endpoint in production. The HTTP should be used only for testing purposes.
+- The `None` authentication type is intended for testing purposes only. It is recommended to implement a proper authentication mechanism for external service endpoint.
+- Always use HTTPS for redirects and API calls to ensure secure communication.
