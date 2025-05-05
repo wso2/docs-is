@@ -1,12 +1,14 @@
-# Configure Custom KeyStores for Authentication Protocols
+# Configure custom keystores for authentication protocols
 
-By default, WSO2 Identity Server uses the private key and certificate from the Primary KeyStore in all authentication protocols such as,
+By default, WSO2 Identity Server uses the private key and certificate from the primary keystore in all authentication flows such as,
 
-- Sign JWT tokens in OAuth authentication flows  
-- Verify JWT tokens signed by WSO2 identity server  
-- Sign SAML assertions in SAML authentication flows
+- Signing JWT tokens in OAuth authentication flows
+- Verifying JWT tokens signed by WSO2 identity server  
+- Signing SAML assertions in SAML authentication flows
 
 WSO2 Identity Server also allows configuring separate keystores for each authentication protocol.
+
+This document provides step-by-step instructions to configure a custom keystore for a specific authentication protocol. You can define multiple custom keystores and assign each to a different protocol as needed.
 
 !!! note
     Currently only the following authentication protocols are supported,
@@ -16,11 +18,9 @@ WSO2 Identity Server also allows configuring separate keystores for each authent
     - WS-Trust (Needs to be added via the WS-Trust connector)
     - SAML
 
-This document provides step-by-step instructions for configuring a custom keystore for a specific authentication protocol. You can define multiple custom keystores and assign a separate keystore to each protocol for better management and security.
+## Configure custom keystore for OAuth, WS-Trust or WS-Federation
 
-## Configure Custom KeyStore for OAuth, WS-Trust or WS-Federation
-
-1. Place your custom key store file in `<IS-HOME>/repository/resources/security/` directory.  
+1. Locate your custom key store file in `<IS-HOME>/repository/resources/security/` directory.  
 2. Add the following configuration to `deployment.toml` file.
 
     === "JKS"
@@ -43,7 +43,7 @@ This document provides step-by-step instructions for configuring a custom keysto
         key_password = "<password>"
         ```
 
-    ### Configuration Parameters,
+    Configuration parameters,
 
     | Configuration | Details |
     | :---- | :---- |
@@ -55,8 +55,7 @@ This document provides step-by-step instructions for configuring a custom keysto
 
 3. Map the Custom KeyStore to Authentication Protocols  
 
-    - This configuration maps the custom key stores configured above to different authentication protocols.  
-    - As of now, the following authentication protocols are supported,
+    This configuration maps the custom key stores configured above to different authentication protocols. As of now, the following authentication protocols are supported,
 
     === "OAuth 2.0"
         ``` toml
@@ -82,16 +81,16 @@ This document provides step-by-step instructions for configuring a custom keysto
         !!! note
             When configuring a custom keystore for WS-Trust, ensure that you reapply the security policy defined in the [Security Token Service (STS) configurations](https://github.com/wso2-extensions/identity-inbound-auth-sts/blob/master/docs/config.md){: target="_blank"}. This step is necessary for the custom keystore to function correctly with the applied security policy.
 
-    ### Configuration Parameters,
+    Configuration parameters,
 
     | Configuration | Details | Default Value |
     | :---- | :---- | :---- |
     | `keystore_file_name` | The file name of the custom keystore. (Should exactly match the `file name` given in the previous configuration) | (Required) |
     | `use_in_all_tenants` | Decide whether this configuration will apply to all tenants or the super tenant only. | false |
 
-## Configure Custom Key Store for SAML
+## Configure custom keystore for SAML
 
-1. Place your custom key store file in `<IS-HOME>/repository/resources/security/` directory.
+1. Locate your custom key store file in `<IS-HOME>/repository/resources/security/` directory.
 2. Add the following configuration to `deployment.toml` file.
 
     === "JKS"
@@ -114,7 +113,7 @@ This document provides step-by-step instructions for configuring a custom keysto
         key_password = "<password>"
         ``` 
 
-    ### Configuration Parameters,
+    Configuration parameters,
 
     | Configuration | Details |
     | :---- | :---- |
