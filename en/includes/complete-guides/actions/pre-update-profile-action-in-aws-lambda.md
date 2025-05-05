@@ -18,14 +18,14 @@ mkdir profile-update-validator
 cd profile-update-validator
 ```
 
-Run the following command to generate a package.json file which helps manage your project dependencies:
+Run the following command to generate a `package.json` file which helps manage your project dependencies:
 
 ```bash
 npm init -y
 ```
 
-This creates a basic `package.json` with default values. The -y flag automatically accepts all default settings, so you
-don't have to manually answer prompts.
+This creates a basic `package.json` with default values. The `-y` flag automatically accepts all default settings, so 
+you don't have to manually answer prompts.
 
 Install required dependencies for the use case. The Lambda function requires the following packages:
 
@@ -87,8 +87,8 @@ const validDepartments = ["Engineering", "HR", "Sales", "Finance"];
 
 // Email transporter config using environment variables
 const transporter = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  port: 2525,
+  host: "sandbox.smtp.mailtrap.io", // The hostname should be smtp.gmail.com if Gmail is used.
+  port: 2525, // The port should be 465 smtp.gmail.com if Gmail is used.
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
@@ -191,8 +191,8 @@ const transporter = nodemailer.createTransport({
   host: "sandbox.smtp.mailtrap.io",
   port: 2525,
   auth: {
-    user: process.env.MAILTRAP_USER,
-    pass: process.env.MAILTRAP_PASS
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 

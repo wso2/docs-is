@@ -5,7 +5,7 @@ read_time: 3 mins
 ---
 
 {% include "../../../../includes/complete-guides/actions/pre-update-profile-action-in-choreo.md" %}
-{% include "../../../../includes/complete-guides/actions/configure-identity-provider.md" %}
+{% include "../../../../includes/complete-guides/actions/configure-pre-update-profile-action.md" %}
 
 ### Validate Pre-Update Profile Action Workflow
 

@@ -585,6 +585,10 @@ nav:
         - Configure Pre-Update Profile Action with Choreo: complete-guides/actions/pre-update-profile-action-in-choreo.md
         - Configure Pre-Update Profile Action with Vercel: complete-guides/actions/pre-update-profile-action-in-vercel.md
         - Configure Pre-Update Profile Action with AWS Lambda: complete-guides/actions/pre-update-profile-action-in-aws-lambda.md
+        - Pre-Update Password Action Use Case: complete-guides/actions/pre-update-password-action-use-case.md
+        - Configure Pre-Update Password Action with Choreo: complete-guides/actions/pre-update-password-action-in-choreo.md
+        - Configure Pre-Update Password Action with Vercel: complete-guides/actions/pre-update-password-action-in-vercel.md
+        - Configure Pre-Update Password Action with AWS Lambda: complete-guides/actions/pre-update-password-action-in-aws-lambda.md
     - React:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md

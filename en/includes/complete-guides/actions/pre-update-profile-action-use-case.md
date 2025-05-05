@@ -27,6 +27,7 @@ improving data integrity and operational security.
 
 When a profile update request is made, Asgardeo or WSO2 Identity Server (WSO2 IS) will send a request to your configured
 extension service containing the updated attribute information.
+
 Your service will process this request and respond with an appropriate status:
 
 * Success: Allow the update to proceed.
@@ -101,7 +102,23 @@ Content-Type: application/json
 {
   "actionStatus": "FAILED",
   "failureReason": "invalid_input",
-  "failureDescription": "Provided user attributes are invalid."
+  "failureDescription": "Invalid actionType provided."
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+"actionStatus": "FAILED",
+"failureReason": "invalid_department_input",
+"failureDescription": "Provided user department value is invalid."
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+"actionStatus": "FAILED",
+"failureReason": "email_error",
+"failureDescription": "Failed to notify security team about sensitive data update."
 }
 ```
 

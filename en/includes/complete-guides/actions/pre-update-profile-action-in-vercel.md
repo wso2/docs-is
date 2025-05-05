@@ -93,11 +93,11 @@ const validDepartments = ["Engineering", "HR", "Sales", "Finance"];
 
 // Email transporter config using environment variables
 const transporter = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  port: 2525,
+  host: "sandbox.smtp.mailtrap.io", // The hostname should be smtp.gmail.com if Gmail is used.
+  port: 2525, // The port should be 465 smtp.gmail.com if Gmail is used.
   auth: {
-    user: process.env.MAILTRAP_USER,
-    pass: process.env.MAILTRAP_PASS
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 ```
@@ -296,7 +296,7 @@ API_KEY=your-secure-api-key
 
 ### Configure Vercel Settings
 
-Create a vercel.json file at the root of the project which instructs Vercel to route all incoming traffic to the api/
+Create a vercel.json file at the root of the project which instructs Vercel to route all incoming traffic to the `api/`
 folder where your logic resides:
 
 ```bash
@@ -331,7 +331,7 @@ Now you can use the vercel command to deploy or test locally. To run the project
 vercel dev
 ```
 
-This will simulate the Vercel environment locally and allow you to access your API on `http://localhost:3000/<
+This will simulate the Vercel environment locally and allow you to access your API on `http://localhost:3000/api/<
 endpoint-name>`.
 
 ### Push Your Code to GitHub

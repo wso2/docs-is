@@ -15,7 +15,7 @@ your project files will be stored. You can do this by running:
 mkdir profile-update-validator
 ```
 
-This command creates a new folder named profile-update-validator. Then, move inside that folder by running:
+This command creates a new folder named `profile-update-validator`. Then, move inside that folder by running:
 
 ```bash
 cd profile-update-validator
@@ -27,14 +27,16 @@ Now, any new files or commands you use will be applied inside this project folde
 npm init -y
 ```
 
-This will create a file named package.json automatically. The package.json file is very important, it keeps track of
+This will create a file named `package.json` automatically. The `package.json` file is very important, it keeps track of
 your project details (like name, version, and dependencies) and will help others (or platforms like Choreo) understand
 how to run your project.
 
 The `-y` flag automatically fills in default values for you, so you don’t need to answer any setup questions manually.
 
-Install required dependencies. We will use express for building the service and nodemailer for sending emails. Still
-inside your project folder, install the necessary libraries by running:
+Install required dependencies. We will use express for building the service, nodemailer for sending emails, and dotenv 
+to read environment variables. 
+
+Still inside your project folder, install the necessary libraries by running:
 
 ```bash
 npm install express nodemailer dotenv
@@ -92,11 +94,11 @@ const validDepartments = ["Engineering", "HR", "Sales", "Finance"];
 
 // Email transporter config
 const transporter = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
+    host: "sandbox.smtp.mailtrap.io", // The hostname should be smtp.gmail.com if Gmail is used.
+    port: 2525, // The port should be 465 smtp.gmail.com if Gmail is used.
     auth: {
-        user: process.env.MAILTRAP_USER,
-        pass: process.env.MAILTRAP_PASS
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
 });
 ```
@@ -192,7 +194,7 @@ const validDepartments = ["Engineering", "HR", "Sales", "Finance"];
 
 // Email transporter config
 const transporter = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io", // Replace the hostname with the actual hostname of the SMTP server
+    host: "sandbox.smtp.mailtrap.io",
     port: 2525,
     auth: {
         user: process.env.EMAIL_USER,
