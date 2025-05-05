@@ -1070,7 +1070,32 @@ nav:
       - Accessing protected API : complete-guides/react/accessing-protected-api.md
       - Manage tokens in React : complete-guides/react/manage-tokens-in-React-apps.md
       - Next Steps: complete-guides/react/next-steps.md
-
+    - Angular:
+      - Introduction: complete-guides/angular/introduction.md
+      - Prerequisite: complete-guides/angular/prerequisite.md
+      - Register an application: complete-guides/angular/register-an-application.md
+      - Create an Angular app: complete-guides/angular/create-app.md
+      - Configure Auth provider: complete-guides/angular/install-asgardeo-sdk.md
+      - Add login and logout: complete-guides/angular/add-login-and-logout.md
+      - Display user details: complete-guides/angular/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/angular/securing-routes-within-the-app.md
+      - Accessing protected API : complete-guides/angular/accessing-protected-api.md
+      - Manage tokens in Angular : complete-guides/angular/manage-tokens.md
+      - Next Steps: complete-guides/angular/next-steps.md
+  - Best Practice Guides:
+    - Frontend Security:
+      - Introduction: complete-guides/fesecurity/introduction.md
+      - In-app vs IdP-based login: complete-guides/fesecurity/login-options.md
+      - Public clients: complete-guides/fesecurity/public-clients.md
+      - Insecure token handling : complete-guides/fesecurity/insecure-tokens.md
+      - Weak access control: complete-guides/fesecurity/weak-access-control.md
+      - Unauthorized access: complete-guides/fesecurity/unauthorized-privilege-gain.md
+      - Weak MFA : complete-guides/fesecurity/weak-mfa.md
+      - Partial user logouts: complete-guides/fesecurity/partial-user-logouts.md
+      - Product misconfiguration: complete-guides/fesecurity/misconfiguration.md
+      - Cross-Site Scripting (XSS): complete-guides/fesecurity/xss.md
+      - Cross-Site Request Forgery (CSRF): complete-guides/fesecurity/csrf.md
+      - Next Steps: complete-guides/fesecurity/next-steps.md
 not_in_nav: |
   /page-not-found.md
   /guides/authentication/add-identifier-first-login.md

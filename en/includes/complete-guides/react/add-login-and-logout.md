@@ -56,7 +56,7 @@ Asgardeo will receive this authorization request and respond by redirecting the 
 
 ![OIDC request]({{base_path}}/assets/img//complete-guides/react//image16.png){: width="800" style="display: block; margin: 0;"}
 
-At this stage, you should have already created a test user in {{product_name}}, as outlined in the [prerequisites]({{ base_path }}/complete-guides/react/prerequisite) section. Now can enter the username and password of the test user to the login screen.
+At this stage, **you need to create a [test user in Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-users){:target="_blank"}  to try out the application.** Once you create a test user, you can enter the username and password of the test user to the login screen.
 
 If the login is successful, you should be able to see the application as shown below.
 
