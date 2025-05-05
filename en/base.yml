@@ -148,6 +148,9 @@ extra:
     Design login flow:
       type: ai
       level: 1
+    Self-registration flow:
+      type: Preview
+      level: 4
 
   nav_icons:
     Home:

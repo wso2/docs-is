@@ -136,6 +136,12 @@ To configure properties of user attributes:
         </tbody>
     </table>
 
+!!! note
+    Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when
+    [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) in the console.
+
+    To display an attribute in the user creation form, select the **both** **Display** and **Required** checkboxes for the **Administrator Console** entity.
+
 {% else %}
 
 ## Configure attributes
@@ -200,7 +206,7 @@ To configure properties of user attributes:
 !!! warning "Before you proceed"
 
     Attributes cannot be deleted if it has any associations with external schema. If you have attribute mappings, make sure you delete these associations before attempting to delete an attribute.
-    
+
     Refer to [Delete an OpenID Connect attribute]({{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#delete-an-openid-connect-attribute) and [Delete a SCIM2 attribute]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings/#delete-a-scim-20-custom-schema-attribute) to delete any existing associations.
 
 
@@ -236,7 +242,7 @@ datastore_type = "<Name of the identityDataStore class>"
 
     By making this configuration adjustment, you can ensure that your system aligns with your preferred data store class, whether it's the previous default or a custom class you've implemented. This helps you tailor the system to your specific needs.
 
-2.  Map the identity claims mentioned below to attributes in the underlying user store. 
+2.  Map the identity claims mentioned below to attributes in the underlying user store.
 
     !!! info
         Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).

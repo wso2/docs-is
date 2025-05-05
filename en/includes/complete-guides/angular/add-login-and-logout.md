@@ -82,7 +82,6 @@ Clicking on the login button will initiate an OIDC request. You can observe this
 
 At this stage, **you need to create a [test user in {{product_name}}]({{base_path}}/guides/users/manage-users/#onboard-users){:target="_blank"}  to try out the application.** Once you create a test user, you can enter the username and password of the test user to the login screen.
 
-
 !!! tip "Tip"
 
     **PKCE (Proof Key for Code Exchange)**  is an addition to the OAuth2 specification to make the authorization code more immune to replay attacks. It is enabled by default for public clients such as our single page Angular app. 
