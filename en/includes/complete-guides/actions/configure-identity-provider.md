@@ -1,12 +1,12 @@
 ![Configure Pre Update Profile Action]({{base_path}}/assets/img/complete-guides/actions/image13.png)
 
-Once the action is configured, ensure that the action is marked as active. Additionally, navigate to the User
-Management > Users section and add a user with a predefined password for testing purposes.
+Once the action is configured, ensure that the action is marked as active. Additionally, navigate to the **User
+Management > Users** section and add a user with a predefined password for testing purposes.
 
 ![Add User]({{base_path}}/assets/img/complete-guides/actions/image14.png)
 
-Since "department" is a custom attribute, you will also need to add an attribute for it. You can navigate to User
-Attributes & Stores > Attributes > Manage Attributes > Attributes > New Attribute, and then add an attribute named
+Since "department" is a custom attribute, you will also need to add an attribute for it. You can navigate to **User
+Attributes & Stores > Attributes > Manage Attributes > Attributes > New Attribute**, and then add an attribute named
 department.
 
 ![Add Attribute]({{base_path}}/assets/img/complete-guides/actions/image15.png)

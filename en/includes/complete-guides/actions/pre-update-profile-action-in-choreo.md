@@ -31,40 +31,43 @@ This will create a file named package.json automatically. The package.json file 
 your project details (like name, version, and dependencies) and will help others (or platforms like Choreo) understand
 how to run your project.
 
-The -y flag automatically fills in default values for you, so you don’t need to answer any setup questions manually.
+The `-y` flag automatically fills in default values for you, so you don’t need to answer any setup questions manually.
 
 Install required dependencies. We will use express for building the service and nodemailer for sending emails. Still
 inside your project folder, install the necessary libraries by running:
 
 ```bash
-npm install express nodemailer
+npm install express nodemailer dotenv
 ```
 
 express: A fast, lightweight framework that makes building web servers in Node.js very simple and structured.
 
 nodemailer: A library that makes it easy to send emails from your application.
 
-This command will download the libraries and save them inside a folder called node_modules and also update your
-package.json file under "dependencies", showing that your project uses these libraries.
+dotenv: A zero-dependency module that loads environment variables from a `.env` file into `process.env`, helping you
+manage configuration settings securely and cleanly.
+
+This command will download the libraries and save them inside a folder called `node_modules` and also update your
+package.json file under `dependencies`, showing that your project uses these libraries.
 
 Create a file named index.js and add the following basic structure: In your project folder, create a new file called
-index.js. (You can right-click and choose “New File” if using a code editor like VS Code, or create it via terminal.)
+index.js. (You can right-click and choose “New File” if using a code editor like VS Code, or create it via terminal
+using the command `touch index.js`.)
 
 ```JavaScript
 const express = require('express');
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const app = express();
-app.use(express.json());
+const PORT = 3000;
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// Middleware to parse JSON request bodies
+app.use(express.json());
 ```
 
 After saving this file, you will have a basic server ready that you can expand by adding routes (like
-/validate-user-profile-update) in the next steps.
+`/validate-user-profile-update`) in the next steps.
 
 ### Implement the Profile Update Validation Logic
 
@@ -72,10 +75,11 @@ Add a helper function that looks through the incoming user data (claims) and pic
 department, email, or phone number based on the provided field name.
 
 ```JavaScript
-function getClaimValue(claims, uri) {
-    const claim = claims.find(c => c.claimUri === uri);
+// Helper to extract claim values
+const getClaimValue = (claims, uri) => {
+    const claim = claims.find(c => c.uri === uri);
     return claim ? claim.value : null;
-}
+};
 ```
 
 Create a list of departments that are considered valid for your organization. Also, set up an email service (using
@@ -83,19 +87,22 @@ Nodemailer) to send notifications when sensitive user profile updates happen. We
 development testing.
 
 ```JavaScript
-const validDepartments = ["Engineering", "Sales", "HR", "Finance"]; // Example departments
+// Mock: valid department list (simulating a directory check)
+const validDepartments = ["Engineering", "HR", "Sales", "Finance"];
+
+// Email transporter config
 const transporter = nodemailer.createTransport({
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        user: process.env.MAILTRAP_USER,
+        pass: process.env.MAILTRAP_PASS
     }
 });
 ```
 
-Implement the /validate-user-profile-update API endpoint by creating a POST API that listens for user profile update
-requests from Asgardeo or WSO2 IS.
+Implement the `/validate-user-profile-update` API endpoint by creating a POST API that listens for user profile update
+requests from {{product_name}}.
 
 Inside this API:
 
@@ -132,16 +139,18 @@ app.post("/validate-user-profile-update", async (req, res) => {
             failureDescription: "Provided user department value is invalid."
         });
     }
+
     // Send security alert email if sensitive attributes are being updated
     const changes = [];
     if (department) changes.push(`Department: ${department}`);
     if (email) changes.push(`Email: ${email}`);
     if (phone) changes.push(`Phone: ${phone}`);
+
     if (changes.length > 0) {
         try {
             await transporter.sendMail({
-                from: '"Security Alert" <security-notifications@wso2.com>',
-                to: "security-team@wso2.com", // Replace with actual security team email
+                from: '"Security Alert" <security-notifications@test.com>',
+                to: "security-team@test.com", // Replace with actual security email
                 subject: "Sensitive Attribute Update Request",
                 text: `User ${userId} is attempting to update:\n\n${changes.join("\n")}`
             });
@@ -154,8 +163,109 @@ app.post("/validate-user-profile-update", async (req, res) => {
             });
         }
     }
+
+    // All validations passed
     return res.status(200).json({actionStatus: "SUCCESS"});
 });
+```
+
+The final source code should look similar to the following.
+
+```JavaScript
+const express = require('express');
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
+// Root endpoint
+app.get('/', (req, res) => {
+    return res.status(200).json({"status": "ok", "message": "Service is running."});
+});
+
+// Mock: valid department list (simulating a directory check)
+const validDepartments = ["Engineering", "HR", "Sales", "Finance"];
+
+// Email transporter config
+const transporter = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io", // Replace the hostname with the actual hostname of the SMTP server
+    port: 2525,
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
+
+// Helper to extract claim values
+const getClaimValue = (claims, uri) => {
+    const claim = claims.find(c => c.uri === uri);
+    return claim ? claim.value : null;
+};
+
+app.post("/validate-user-profile-update", async (req, res) => {
+    const payload = req.body;
+
+    if (payload.actionType !== "PRE_UPDATE_PROFILE") {
+        return res.status(200).json({
+            actionStatus: "FAILED",
+            failureReason: "invalid_input",
+            failureDescription: "Invalid actionType provided."
+        });
+    }
+
+    const claims = payload?.event?.request?.claims || [];
+    const userId = payload?.event?.user?.id || "Unknown User";
+
+    const department = getClaimValue(claims, "http://wso2.org/claims/department");
+    const email = getClaimValue(claims, "http://wso2.org/claims/emailaddress");
+    const phone = getClaimValue(claims, "http://wso2.org/claims/mobile");
+
+    // Department validation
+    if (department && !validDepartments.includes(department)) {
+        return res.status(200).json({
+            actionStatus: "FAILED",
+            failureReason: "invalid_department_input",
+            failureDescription: "Provided user department value is invalid."
+        });
+    }
+
+    // Send security alert email if sensitive attributes are being updated
+    const changes = [];
+    if (department) changes.push(`Department: ${department}`);
+    if (email) changes.push(`Email: ${email}`);
+    if (phone) changes.push(`Phone: ${phone}`);
+
+    if (changes.length > 0) {
+        try {
+            await transporter.sendMail({
+                from: '"Security Alert" <security-notifications@test.com>',
+                to: "security-team@test.com", // Replace with actual security email
+                subject: "Sensitive Attribute Update Request",
+                text: `User ${userId} is attempting to update:\n\n${changes.join("\n")}`
+            });
+        } catch (error) {
+            console.error("Failed to send security email:", error);
+            return res.status(200).json({
+                actionStatus: "FAILED",
+                failureReason: "email_error",
+                failureDescription: "Failed to notify security team about sensitive data update."
+            });
+        }
+    }
+
+    // All validations passed
+    return res.status(200).json({actionStatus: "SUCCESS"});
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
+
 ```
 
 ### Prepare for Choreo Deployment
@@ -171,21 +281,8 @@ In this file, save your email service login details (like username and password)
 directly in your code.
 
 ```env
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-email-password
-```
-
-Update your code to read environment variables by installing the dotenv package, which helps your app load the
-information from the .env file easily:
-
-```bash
-npm install dotenv
-```
-
-At the top of your index.js file, add the following line so that your app can access the email credentials:
-
-```bash
-require('dotenv').config();
+EMAIL_USER=your-smtp-username
+EMAIL_PASS=your-smtp-password
 ```
 
 #### Run an Express Node Project Locally
@@ -199,7 +296,7 @@ npm install
 Once dependencies are installed, you can start the Express server using:
 
 ```bash
-npm start
+node index.js
 ```
 
 Or, if a custom script is defined (e.g., dev), run:
@@ -272,13 +369,14 @@ access your API.
 ![Add Choreo API Key Protection]({{base_path}}/assets/img/complete-guides/actions/image4.png)
 
 After deployment is complete, Choreo will provide a URL for your API. Make sure to copy this URL for future reference.
-Additionally, Go to Manage > Lifecycle and click 'Publish' to move your API from the "Created" state to the "Published"
-state.
+Additionally, Go to **Manage > Lifecycle** and click 'Publish' to move your API from the "Created" state to the 
+"Published" state.
 
 ![Choreo API Lifecycle Update]({{base_path}}/assets/img/complete-guides/actions/image5.png)
 
 Once the API is published, navigate to the Dev portal (via the "Go to Devportal" link in the top right corner). In the
-Dev portal, go to Credentials > Sandbox and generate a new API key. This key is required for accessing the API securely.
+Dev portal, go to **Credentials > Sandbox** and generate a new API key. This key is required for accessing the API 
+securely.
 
 ![Create Choreo API Key]({{base_path}}/assets/img/complete-guides/actions/image6.png)
 

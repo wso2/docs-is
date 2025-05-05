@@ -8,8 +8,10 @@ These prerequisites will help you to successfully complete the hands-on exercise
 * A [GitHub account](https://github.com/){:target="_blank"}
   and [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line){:target="_blank"} to manage and deploy
   your code repositories.
-* An SMTP server for scenarios involving email sending.
 * A favorite text editor or IDE (such as Visual Studio Code, WebStorm, or any editor you are comfortable with).
+* An SMTP server is required for scenarios involving email sending. For this, we will
+  use [Mailtrap](https://mailtrap.io/register/signup?ref=header){:target="_blank"}. Once your account is created, you
+  will find the SMTP credentials under **My Inbox > Integration > SMTP**.
 
 You will also need the following accounts to deploy and test the sample services:
 
