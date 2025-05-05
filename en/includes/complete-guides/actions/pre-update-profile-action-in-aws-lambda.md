@@ -14,8 +14,8 @@ Create a folder to hold your Lambda source code and its dependencies, so it can 
 as a Lambda function.
 
 ```bash
-mkdir validate-user-profile-update
-cd validate-user-profile-update
+mkdir profile-update-validator
+cd profile-update-validator
 ```
 
 Run the following command to generate a package.json file which helps manage your project dependencies:

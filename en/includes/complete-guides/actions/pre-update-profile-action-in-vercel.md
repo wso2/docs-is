@@ -14,11 +14,11 @@ without needing to manage your own servers.
 First, create a new project folder on your local machine by opening your terminal or command prompt and executing:
 
 ```bash
-mkdir profile-update-validator-vercel
-cd profile-update-validator-vercel
+mkdir profile-update-validator
+cd profile-update-validator
 ```
 
-This creates a folder named profile-update-validator-vercel and moves you into it.
+This creates a folder named `profile-update-validator` and moves you into it.
 
 Initialize a new Node.js project by running:
 
