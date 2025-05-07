@@ -210,7 +210,7 @@ keystore and import it to the Java keystore.
 
     - Sample
     ``` shell
-    keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.jks -storepass wso2carbon
+    keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.p12 -storetype PKCS12 -storepass wso2carbon
     ```
     
         !!!tip
