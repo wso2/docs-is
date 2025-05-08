@@ -64,7 +64,7 @@ Create (a.k.a scaffold) your new React app using Vite.
     pnpm dev
     ```
 
-## Install @asgardeo/react
+## Install `@asgardeo/react`
 
 Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step. 
 
