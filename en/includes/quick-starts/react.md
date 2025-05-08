@@ -64,31 +64,31 @@ Create (a.k.a scaffold) your new React app using Vite.
     pnpm dev
     ```
 
-## Install @asgardeo/auth-react
+## Install @asgardeo/react
 
 Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step. 
 
 === "npm"
 
     ```bash
-    npm install @asgardeo/auth-react
+    npm install @asgardeo/react
     ```
 
 === "yarn"
 
     ```bash
-    yarn add @asgardeo/auth-react
+    yarn add @asgardeo/react
     ```
 
 === "pnpm"
 
     ```bash
-    pnpm add @asgardeo/auth-react
+    pnpm add @asgardeo/react
     ```
 
-## Add `<AuthProvider />` to your app
+## Add `<AsgardeoProvider />` to your app
 
-The `<AuthProvider />` serves as a context provider for user login in the app. You can add the AuthProvider to your app by wrapping  the root component.
+The `<AsgardeoProvider />` serves as a context provider for user login in the app. You can add the AsgardeoProvider to your app by wrapping  the root component.
 
 Add the following changes to the `main.jsx` file.
 
@@ -99,16 +99,16 @@ Add the following changes to the `main.jsx` file.
     - `<your-app-client-id>`
     - `{{content.sdkconfig.baseUrl}}`
 
-```javascript title="src/main.jsx" hl_lines="5 9-17 19"
+```javascript title="src/main.jsx" hl_lines="5 9-14 16"
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { AuthProvider } from '@asgardeo/auth-react'
+import { AsgardeoProvider } from '@asgardeo/react'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider
+    <AsgardeoProvider
       config={ {
         signInRedirectURL: 'http://localhost:5173',
         signOutRedirectURL: 'http://localhost:5173',
@@ -118,31 +118,30 @@ createRoot(document.getElementById('root')).render(
       } }
     >
       <App />
-    </AuthProvider>
+    </AsgardeoProvider>
   </StrictMode>
 )
 ```
 
 ## Add login and logout link to your app
 
-Asgardeo SDK provides `useAuthContext` hook to conveniently access user authentication data and sign-in and sign-out methods.
+Asgardeo SDK provides `useAsgardeo` hook to conveniently access user authentication data and sign-in and sign-out methods.
 
 Replace the existing content of the `App.jsx` file with following content.
 
-```javascript title="src/App.jsx"  hl_lines="1 5 9-13"
-import { useAuthContext } from '@asgardeo/auth-react'
+```javascript title="src/App.jsx"  hl_lines="1 7-12"
+import { SignedIn, SignedOut, SignIn, SignOut } from '@asgardeo/react'
 import './App.css'
 
 function App() {
-  const { state, signIn, signOut } = useAuthContext();
-
   return (
     <>
-      {state.isAuthenticated ? (
-        <button onClick={() => signOut()}>Logout</button>
-      ) : (
-        <button onClick={() => signIn()}>Login</button>
-      )}
+      <SignedIn>
+        <SignOut />
+      </SignedIn>
+      <SignedOut>
+        <SignIn />
+      </SignedOut>
     </>
   )
 }
@@ -160,23 +159,22 @@ Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 Modify the code as below to see logged in user details.
 
-```javascript title="src/App.jsx" hl_lines="11"
-import { useAuthContext } from '@asgardeo/auth-react'
+```javascript title="src/App.jsx" hl_lines="5 10"
+import { useAsgardeo } from '@asgardeo/react'
 import './App.css'
 
 function App() {
-  const { state, signIn, signOut } = useAuthContext();
+  const { user } = useAsgardeo()
 
   return (
     <>
-      {state.isAuthenticated ? (
-        <>
-          <p>Welcome {state.username}</p>
-          <button onClick={() => signOut()}>Logout</button>
-        </>
-      ) : (
-        <button onClick={() => signIn()}>Login</button>
-      )}
+      <SignedIn>
+        <p>Welcome {user.username}</p>
+        <SignOut />
+      </SignedIn>
+      <SignedOut>
+        <SignIn />
+      </SignedOut>
     </>
   )
 }

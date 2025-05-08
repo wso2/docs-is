@@ -6,7 +6,7 @@ template: templates/quick-start.html
   const meta = {
     what_you_will_learn: [
       "Create new React app using Vite",
-      "Install <a href='https://www.npmjs.com/package/@asgardeo/auth-react' target='_blank' rel='noopener noreferrer'>@asgardeo/auth-react</a> package",
+      "Install <a href='https://www.npmjs.com/package/@asgardeo/react' target='_blank' rel='noopener noreferrer'>@asgardeo/react</a> package",
       "Add user login and logout",
       "Display user profile information"
     ],
