@@ -159,6 +159,22 @@ paths:
                   attributes:
                     - http://wso2.org/claims/givenname
                     - http://wso2.org/claims/dob
+                  rule:
+                    condition: OR
+                    rules:
+                      - condition: AND
+                        expressions:
+                          - field: flow
+                            operator: equals
+                            value: adminInitiatedProfileUpdate
+                          - field: claim
+                            operator: notEquals
+                            value: http://wso2.org/claims/country
+                      - condition: AND
+                        expressions:
+                          - field: flow
+                            operator: equals
+                            value: userInitiatedProfileUpdate
         description: This represents the information of the action to be created.
         required: true
       responses:
@@ -240,6 +256,22 @@ paths:
                     attributes:
                       - http://wso2.org/claims/givenname
                       - http://wso2.org/claims/dob
+                    rule:
+                      condition: OR
+                      rules:
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: adminInitiatedProfileUpdate
+                            - field: claim
+                              operator: notEquals
+                              value: http://wso2.org/claims/country
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: userInitiatedProfileUpdate
         '400':
           description: Bad Request
           content:
@@ -529,6 +561,22 @@ paths:
                     attributes:
                         - http://wso2.org/claims/givenname
                         - http://wso2.org/claims/dob
+                    rule:
+                      condition: OR
+                      rules:
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: adminInitiatedProfileUpdate
+                            - field: claim
+                              operator: notEquals
+                              value: http://wso2.org/claims/country
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: userInitiatedProfileUpdate
         '400':
           description: Bad Request
           content:
@@ -650,6 +698,17 @@ paths:
                       type: NONE
                   attributes:
                     - http://wso2.org/claims/dob
+                  rule:
+                    condition: OR
+                    rules:
+                      - condition: AND
+                        expressions:
+                          - field: flow
+                            operator: equals
+                            value: userInitiatedProfileUpdate
+                          - field: claim
+                            operator: notEquals
+                            value: http://wso2.org/claims/postalcode
         description: This represents the action to be updated.
         required: true
       responses:
@@ -720,6 +779,17 @@ paths:
                         type: NONE
                     attributes:
                       - http://wso2.org/claims/dob
+                    rule:
+                      condition: OR
+                      rules:
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: userInitiatedProfileUpdate
+                            - field: claim
+                              operator: notEquals
+                              value: http://wso2.org/claims/postalcode
         '400':
           description: Bad Request
           content:
