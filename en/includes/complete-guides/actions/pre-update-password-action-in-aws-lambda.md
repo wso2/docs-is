@@ -29,10 +29,9 @@ you don't have to manually answer prompts.
 Install required dependencies for the use case. The Lambda function requires the following packages:
 
 * axios – Enables the function to make HTTP requests to external services like the Have I Been Pwned (HIBP) API. 
-* validator – Enables the function to validate input, such as checking if a string is in valid JSON format.
 
 ```bash
-npm install axios validator
+npm install axios
 ```
 
 ### Create the Lambda Source Files for Deployment
@@ -48,51 +47,72 @@ password update validation logic.
 
 ```JavaScript
 const crypto = require("crypto");
-const validator = require("validator");
 const axios = require("axios");
 ```
 
 Implement the Lambda function that listens for user password update requests from {{product_name}}.
 
 ```JavaScript
-module.exports = async (req, res) => {
+exports.handler = async (event) => {
   try {
-    if (req.method === "GET" && req.path === "/") {
-      return res.status(200).json({
-        message: "Pre-password update service up and running!",
-        status: "OK",
-      });
+    const method = event.requestContext?.http?.method;
+    const path = event.rawPath;
+    const headers = {"Content-Type": "application/json"};
+
+    if (method === "GET" && path === "/") {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          message: "Pre-password update service up and running!",
+          status: "OK",
+        }),
+      };
     }
 
-    if (req.method === "POST" && req.path === "/passwordcheck") {
-      if (!validator.isJSON(JSON.stringify(req.body))) {
-        return res.status(400).json({
-          actionStatus: "ERROR",
-          error: "invalid_request",
-          errorDescription: "Invalid JSON payload."
-        });
+    if (method === "POST" && path === "/passwordcheck") {
+      let body;
+      try {
+        body = JSON.parse(event.body);
+      } catch {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({
+            actionStatus: "ERROR",
+            error: "invalid_request",
+            errorDescription: "Invalid JSON payload.",
+          }),
+        };
       }
 
-      const cred = req.body?.event?.user?.updatingCredential;
+      const cred = body?.event?.user?.updatingCredential;
       if (!cred || cred.type !== "PASSWORD") {
-        return res.status(400).json({
-          actionStatus: "ERROR",
-          error: "invalid_credential",
-          errorDescription: "No password credential found."
-        });
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({
+            actionStatus: "ERROR",
+            error: "invalid_credential",
+            errorDescription: "No password credential found.",
+          }),
+        };
       }
 
-      // Handle encrypted (base64-encoded) or plain text passwords
       let plain = cred.value;
       if (cred.format === "HASH") {
         try {
           plain = Buffer.from(cred.value, "base64").toString("utf8");
         } catch {
-          return res.status(400).json({
-            actionStatus: "ERROR",
-            error: "invalid_credential",
-            errorDescription: "Expects the encrypted credential."
-          });
+          return {
+            statusCode: 400,
+            headers,
+            body: JSON.stringify({
+              actionStatus: "ERROR",
+              error: "invalid_credential",
+              errorDescription: "Expects the encrypted credential.",
+            }),
+          };
         }
       }
 
@@ -100,15 +120,12 @@ module.exports = async (req, res) => {
       const prefix = sha1.slice(0, 5);
       const suffix = sha1.slice(5);
 
-      const hibpResp = await axios.get(
-              `https://api.pwnedpasswords.com/range/${prefix}`,
-              {
-                headers: {
-                  "Add-Padding": "true",
-                  "User-Agent": "hibp-demo"
-                }
-              }
-      );
+      const hibpResp = await axios.get(`https://api.pwnedpasswords.com/range/${prefix}`, {
+        headers: {
+          "Add-Padding": "true",
+          "User-Agent": "hibp-demo",
+        },
+      });
 
       const hitLine = hibpResp.data
               .split("\n")
@@ -117,23 +134,35 @@ module.exports = async (req, res) => {
       const count = hitLine ? parseInt(hitLine.split(":")[1], 10) : 0;
 
       if (count > 0) {
-        return res.status(200).json({
-          actionStatus: "FAILED",
-          failureReason: "password_compromised",
-          failureDescription: "The provided password is compromised."
-        });
+        return {
+          statusCode: 200,
+          headers,
+          body: JSON.stringify({
+            actionStatus: "FAILED",
+            failureReason: "password_compromised",
+            failureDescription: "The provided password is compromised.",
+          }),
+        };
       }
 
-      return res.json({
-        actionStatus: "SUCCESS",
-        message: "Password is not compromised."
-      });
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          actionStatus: "SUCCESS",
+          message: "Password is not compromised.",
+        }),
+      };
     }
 
-    return res.status(404).json({
-      error: "Not Found",
-      message: "Invalid route or method."
-    });
+    return {
+      statusCode: 404,
+      headers,
+      body: JSON.stringify({
+        error: "Not Found",
+        message: "Invalid route or method.",
+      }),
+    };
   } catch (err) {
     console.error("🔥", err);
     const status = err.response?.status || 500;
@@ -141,7 +170,12 @@ module.exports = async (req, res) => {
             status === 429
                     ? "External HIBP rate limit hit—try again in a few seconds."
                     : err.message || "Unexpected server error";
-    return res.status(status).json({error: msg});
+
+    return {
+      statusCode: status,
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({error: msg}),
+    };
   }
 };
 ```
@@ -170,47 +204,68 @@ The final source code should look similar to the following.
 
 ```JavaScript
 const crypto = require("crypto");
-const validator = require("validator");
 const axios = require("axios");
 
-module.exports = async (req, res) => {
+exports.handler = async (event) => {
   try {
-    if (req.method === "GET" && req.path === "/") {
-      return res.status(200).json({
-        message: "Pre-password update service up and running!",
-        status: "OK",
-      });
+    const method = event.requestContext?.http?.method;
+    const path = event.rawPath;
+    const headers = { "Content-Type": "application/json" };
+
+    if (method === "GET" && path === "/") {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          message: "Pre-password update service up and running!",
+          status: "OK",
+        }),
+      };
     }
 
-    if (req.method === "POST" && req.path === "/passwordcheck") {
-      if (!validator.isJSON(JSON.stringify(req.body))) {
-        return res.status(400).json({
-          actionStatus: "ERROR",
-          error: "invalid_request",
-          errorDescription: "Invalid JSON payload."
-        });
+    if (method === "POST" && path === "/passwordcheck") {
+      let body;
+      try {
+        body = JSON.parse(event.body);
+      } catch {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({
+            actionStatus: "ERROR",
+            error: "invalid_request",
+            errorDescription: "Invalid JSON payload.",
+          }),
+        };
       }
 
-      const cred = req.body?.event?.user?.updatingCredential;
+      const cred = body?.event?.user?.updatingCredential;
       if (!cred || cred.type !== "PASSWORD") {
-        return res.status(400).json({
-          actionStatus: "ERROR",
-          error: "invalid_credential",
-          errorDescription: "No password credential found."
-        });
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({
+            actionStatus: "ERROR",
+            error: "invalid_credential",
+            errorDescription: "No password credential found.",
+          }),
+        };
       }
 
-      // Handle encrypted (base64-encoded) or plain text passwords
       let plain = cred.value;
       if (cred.format === "HASH") {
         try {
           plain = Buffer.from(cred.value, "base64").toString("utf8");
         } catch {
-          return res.status(400).json({
-            actionStatus: "ERROR",
-            error: "invalid_credential",
-            errorDescription: "Expects the encrypted credential."
-          });
+          return {
+            statusCode: 400,
+            headers,
+            body: JSON.stringify({
+              actionStatus: "ERROR",
+              error: "invalid_credential",
+              errorDescription: "Expects the encrypted credential.",
+            }),
+          };
         }
       }
 
@@ -218,15 +273,12 @@ module.exports = async (req, res) => {
       const prefix = sha1.slice(0, 5);
       const suffix = sha1.slice(5);
 
-      const hibpResp = await axios.get(
-              `https://api.pwnedpasswords.com/range/${prefix}`,
-              {
-                headers: {
-                  "Add-Padding": "true",
-                  "User-Agent": "hibp-demo"
-                }
-              }
-      );
+      const hibpResp = await axios.get(`https://api.pwnedpasswords.com/range/${prefix}`, {
+        headers: {
+          "Add-Padding": "true",
+          "User-Agent": "hibp-demo",
+        },
+      });
 
       const hitLine = hibpResp.data
               .split("\n")
@@ -235,23 +287,35 @@ module.exports = async (req, res) => {
       const count = hitLine ? parseInt(hitLine.split(":")[1], 10) : 0;
 
       if (count > 0) {
-        return res.status(200).json({
-          actionStatus: "FAILED",
-          failureReason: "password_compromised",
-          failureDescription: "The provided password is compromised."
-        });
+        return {
+          statusCode: 200,
+          headers,
+          body: JSON.stringify({
+            actionStatus: "FAILED",
+            failureReason: "password_compromised",
+            failureDescription: "The provided password is compromised.",
+          }),
+        };
       }
 
-      return res.json({
-        actionStatus: "SUCCESS",
-        message: "Password is not compromised."
-      });
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          actionStatus: "SUCCESS",
+          message: "Password is not compromised.",
+        }),
+      };
     }
 
-    return res.status(404).json({
-      error: "Not Found",
-      message: "Invalid route or method."
-    });
+    return {
+      statusCode: 404,
+      headers,
+      body: JSON.stringify({
+        error: "Not Found",
+        message: "Invalid route or method.",
+      }),
+    };
   } catch (err) {
     console.error("🔥", err);
     const status = err.response?.status || 500;
@@ -259,7 +323,12 @@ module.exports = async (req, res) => {
             status === 429
                     ? "External HIBP rate limit hit—try again in a few seconds."
                     : err.message || "Unexpected server error";
-    return res.status(status).json({error: msg});
+
+    return {
+      statusCode: status,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ error: msg }),
+    };
   }
 };
 
@@ -310,7 +379,7 @@ URL, as it will be used to expose the function to external services.
 To test the deployed service, you will need the function URL. A sample request for a successful scenario is shown below.
 
 ```cURL
-curl --location '<function_url>' \
+curl --location '<function_url>/passwordcheck' \
 --header 'Content-Type: application/json' \
 --data '{
   "actionType": "PRE_UPDATE_PASSWORD",
@@ -346,6 +415,6 @@ First, sign in to your {{product_name}} account using your admin credentials, cl
 action type Pre Update Password.
 
 Add an action name, the endpoint extracted from the deployment, and the appropriate authentication mechanism. For AWS
-Lambda, use the generated function URL directly, and set the authentication mechanism to None, as no authentication is
-required. For the password sharing mechanism, you can use either SHA-256 hashed or plain text, as the implementation 
-supports both formats.
+Lambda, use the generated function URL appended with the endpoint name, and set the authentication mechanism to None, 
+as no authentication is required. For the password sharing mechanism, you can use either SHA-256 hashed or plain text, 
+as the implementation supports both formats.
