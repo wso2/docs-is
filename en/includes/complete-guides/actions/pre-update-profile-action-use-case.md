@@ -7,7 +7,7 @@ flows:
 * Self-service updates performed by the user through their profile management portal.
 * Administrator-initiated updates where an admin modifies a user's profile via the management console or APIs.
 
-![Pre-Update Profile Action Overview]({{base_path}}/assets/img/complete-guides/actions/image19.png)
+![Pre-Update Profile Action Overview]({{base_path}}/assets/img/complete-guides/actions/image22.png)
 
 ## Scenario Overview
 

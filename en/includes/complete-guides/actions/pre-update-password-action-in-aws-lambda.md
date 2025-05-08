@@ -23,8 +23,8 @@ Run the following command to generate a `package.json` file which helps manage y
 npm init -y
 ```
 
-This creates a basic `package.json` with default values. The -y flag automatically accepts all default settings, so you
-don't have to manually answer prompts.
+This creates a basic `package.json` with default values. The `-y` flag automatically accepts all default settings, so 
+you don't have to manually answer prompts.
 
 Install required dependencies for the use case. The Lambda function requires the following packages:
 
@@ -281,7 +281,7 @@ This command includes all necessary files (`index.js`, `node_modules`) required 
 Log in to the AWS Dashboard and navigate to the AWS Lambda Console. Once there, click Create function and choose Author
 from scratch.
 
-![AWS Create Function]({{base_path}}/assets/img/complete-guides/actions/image9.png)
+![AWS Create Function]({{base_path}}/assets/img/complete-guides/actions/image10.png)
 
 Then, fill in the following details and create the function:
 
@@ -293,20 +293,55 @@ Then, fill in the following details and create the function:
 Once the function is created, go to the Code tab, upload the ZIP file (validate-user-password-update.zip) that was
 created earlier, and click Save to upload the source code.
 
-![AWS Upload Source Code]({{base_path}}/assets/img/complete-guides/actions/image10.png)
+![AWS Upload Source Code]({{base_path}}/assets/img/complete-guides/actions/image11.png)
 
 Next, configure the Function URL:
 
 * Navigate to the Configuration tab, then to the Function URL section.
 * Click Create function URL and set the Auth type to None.
 
-![AWS Configure Function URL]({{base_path}}/assets/img/complete-guides/actions/image11.png)
+![AWS Configure Function URL]({{base_path}}/assets/img/complete-guides/actions/image12.png)
 
 The generated function URL will be shown in the dashboard under the function overview tab and please keep note of it
 since it will be the URL exposing the function to the external services.
 
 The generated function URL will be displayed in the Function overview section of the dashboard. Make sure to note this
 URL, as it will be used to expose the function to external services.
+
+### Test Deployed Service
+
+To test the deployed service, you will need the function URL. A sample request for a successful scenario is shown below.
+
+```cURL
+curl --location '<function_url>' \
+--header 'Content-Type: application/json' \
+--data '{
+  "actionType": "PRE_UPDATE_PASSWORD",
+  "event": {
+    "tenant": {
+      "id": "2210",
+      "name": "testwso2"
+    },
+    "user": {
+      "id": "18b6b431-16e9-4107-a828-33778824c8af",
+      "updatingCredential": {
+        "type": "PASSWORD",
+        "format": "HASH",
+        "value": "ec4Zktg/dqruY3ZHVjwTCZ9422Bu0Xi3F56ZcFxkcjU=",
+        "additionalData": {
+          "algorithm": "SHA256"
+        }
+      }
+    },
+    "userStore": {
+      "id": "REVGQVVMVA==",
+      "name": "DEFAULT"
+    },
+    "initiatorType": "ADMIN",
+    "action": "UPDATE"
+  }
+}'
+```
 
 ### Configure {{product_name}} for Pre-Update Password Action Workflow
 

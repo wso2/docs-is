@@ -288,7 +288,7 @@ This command includes all necessary files (`index.js`, `.env`, `node_modules`) r
 Log in to the AWS Dashboard and navigate to the AWS Lambda Console. Once there, click Create function and choose Author
 from scratch.
 
-![AWS Create Function]({{base_path}}/assets/img/complete-guides/actions/image9.png)
+![AWS Create Function]({{base_path}}/assets/img/complete-guides/actions/image10.png)
 
 Then, fill in the following details and create the function:
 
@@ -300,14 +300,14 @@ Then, fill in the following details and create the function:
 Once the function is created, go to the Code tab, upload the ZIP file (validate-user-profile-update.zip) that was
 created earlier, and click Save to upload the source code.
 
-![AWS Upload Source Code]({{base_path}}/assets/img/complete-guides/actions/image10.png)
+![AWS Upload Source Code]({{base_path}}/assets/img/complete-guides/actions/image11.png)
 
 Next, configure the Function URL:
 
 * Navigate to the Configuration tab, then to the Function URL section.
 * Click Create function URL and set the Auth type to None.
 
-![AWS Configure Function URL]({{base_path}}/assets/img/complete-guides/actions/image11.png)
+![AWS Configure Function URL]({{base_path}}/assets/img/complete-guides/actions/image12.png)
 
 The generated function URL will be shown in the dashboard under the function overview tab and please keep note of it
 since it will be the URL exposing the function to the external services.
@@ -321,7 +321,64 @@ environment variables in AWS. To do this:
 * Go to the Configuration tab, then Environment variables.
 * Add the values for the SMTP username and password, and save the changes.
 
-![AWS Configure Environment Variables]({{base_path}}/assets/img/complete-guides/actions/image12.png)
+![AWS Configure Environment Variables]({{base_path}}/assets/img/complete-guides/actions/image27.png)
+
+### Test Deployed Service
+
+To test the deployed service, you will need the function URL. A sample request for a successful scenario is shown below.
+
+```cURL
+curl --location '<function_url>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "actionType": "PRE_UPDATE_PROFILE",
+    "event": {
+        "request": {
+            "claims": [
+                {
+                    "uri": "http://wso2.org/claims/department",
+                    "value": "HR"
+                },
+                {
+                    "uri": "http://wso2.org/claims/mobile",
+                    "value": "+94771223448"
+                },
+                {
+                    "uri": "http://wso2.org/claims/emailaddress",
+                    "value": "testuser@wso2.com"
+                }
+            ]
+        },
+        "tenant": {
+            "id": "2210",
+            "name": "testwso2"
+        },
+        "user": {
+            "id": "57b22cbf-4688-476c-a607-c0c9d089d25d",
+            "claims": [
+                {
+                    "uri": "http://wso2.org/claims/username",
+                    "value": "testuser@wso2.com"
+                },
+                {
+                    "uri": "http://wso2.org/claims/identity/userSource",
+                    "value": "DEFAULT"
+                },
+                {
+                    "uri": "http://wso2.org/claims/identity/idpType",
+                    "value": "Local"
+                }
+            ]
+        },
+        "userStore": {
+            "id": "REVGQVVMVA==",
+            "name": "DEFAULT"
+        },
+        "initiatorType": "ADMIN",
+        "action": "UPDATE"
+    }
+}'
+```
 
 ### Configure {{product_name}} for Pre-Update Profile Action Workflow
 

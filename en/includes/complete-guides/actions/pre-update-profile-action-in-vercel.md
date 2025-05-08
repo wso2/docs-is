@@ -279,7 +279,7 @@ module.exports = async (req, res) => {
 
 ```
 
-Create a .env file at the root of your project to keep your sensitive data secure instead of hardcoding it into your
+Create a `.env` file at the root of your project to keep your sensitive data secure instead of hardcoding it into your
 source code. The file is primarily used for local testing, but these are included separately in the Vercel deployment.
 
 ```bash
@@ -331,8 +331,7 @@ Now you can use the vercel command to deploy or test locally. To run the project
 vercel dev
 ```
 
-This will simulate the Vercel environment locally and allow you to access your API on `http://localhost:3000/api/<
-endpoint-name>`.
+This will simulate the Vercel environment locally and allow you to access your API on `http://localhost:3000/api/<endpoint-name>`.
 
 ### Push Your Code to GitHub
 
@@ -342,7 +341,8 @@ First, initialize a Git repository in your project folder:
 git init
 ```
 
-Then, add all your project files to the Git repository:
+Then, add all your project files to the Git repository. Make sure not to commit files containing sensitive information
+or unnecessary files, you can use the `.gitignore` file to exclude them.
 
 ```bash
 git add .
@@ -367,7 +367,7 @@ This makes your code available in the cloud and allows easy collaboration or ver
 
 Log in to the Vercel Dashboard, click on **Add New > Project**, and import the GitHub repository you pushed earlier.
 
-![Vercel Add Project]({{base_path}}/assets/img/complete-guides/actions/image7.png)
+![Vercel Add Project]({{base_path}}/assets/img/complete-guides/actions/image25.png)
 
 During the setup:
 
@@ -377,7 +377,66 @@ During the setup:
 Finally, deploy the project. Vercel will automatically build and host your serverless functions. Once deployed, you'll
 receive a live endpoint URL that you can use under Domains.
 
-![Vercel Deployed Project]({{base_path}}/assets/img/complete-guides/actions/image8.png)
+![Vercel Deployed Project]({{base_path}}/assets/img/complete-guides/actions/image26.png)
+
+### Test Deployed Service
+
+To test the deployed service, you will need the URL (extracted from Domains) and the API key. A sample request for a 
+successful scenario is shown below.
+
+```cURL
+curl --location '<domains_url>/validate-user-profile-update' \
+--header 'Content-Type: application/json' \
+--header 'api-key: <api_key>' \
+--data-raw '{
+    "actionType": "PRE_UPDATE_PROFILE",
+    "event": {
+        "request": {
+            "claims": [
+                {
+                    "uri": "http://wso2.org/claims/department",
+                    "value": "HR"
+                },
+                {
+                    "uri": "http://wso2.org/claims/mobile",
+                    "value": "+94771223448"
+                },
+                {
+                    "uri": "http://wso2.org/claims/emailaddress",
+                    "value": "testuser@wso2.com"
+                }
+            ]
+        },
+        "tenant": {
+            "id": "2210",
+            "name": "testwso2"
+        },
+        "user": {
+            "id": "57b22cbf-4688-476c-a607-c0c9d089d25d",
+            "claims": [
+                {
+                    "uri": "http://wso2.org/claims/username",
+                    "value": "testuser@wso2.com"
+                },
+                {
+                    "uri": "http://wso2.org/claims/identity/userSource",
+                    "value": "DEFAULT"
+                },
+                {
+                    "uri": "http://wso2.org/claims/identity/idpType",
+                    "value": "Local"
+                }
+            ]
+        },
+        "userStore": {
+            "id": "REVGQVVMVA==",
+            "name": "DEFAULT"
+        },
+        "initiatorType": "ADMIN",
+        "action": "UPDATE"
+    }
+}'
+```
 
 ### Configure {{product_name}} for Pre-Update Profile Action Workflow
 

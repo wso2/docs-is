@@ -12,8 +12,10 @@ These prerequisites will help you to successfully complete the hands-on exercise
 * An SMTP server is required for scenarios involving email sending. For this, we will
   use [Mailtrap](https://mailtrap.io/register/signup?ref=header){:target="_blank"}. Once your account is created, you
   will find the SMTP credentials under **My Inbox > Integration > SMTP**. If Gmail SMTP is used, you can follow the
-  steps mentioned in the [Google Support article](https://support.google.com/a/answer/176600?hl=en) to set up the SMTP
-  server.
+  steps mentioned in the [Google Support article](https://support.google.com/a/answer/176600?hl=en){:target="_blank"}
+  to set up the SMTP server.
+* An [AbuseIPDB account](https://www.abuseipdb.com/register?plan=free){:target="_blank"} with an API key is required to
+  check for abusive IP addresses in real time.
 
 You will also need the following accounts to deploy and test the sample services:
 

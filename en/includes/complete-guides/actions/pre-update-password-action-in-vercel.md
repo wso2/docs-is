@@ -76,7 +76,7 @@ import {json} from "express";
 
 const app = express();
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
+const PORT = 3000;
 
 app.use(json({limit: "100kb"}));
 ```
@@ -183,7 +183,7 @@ import {json} from "express";
 
 const app = express();
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
+const PORT = 3000;
 
 app.use(json({limit: "100kb"}));
 
@@ -324,8 +324,7 @@ Now you can use the vercel command to deploy or test locally. To run the project
 vercel dev
 ```
 
-This will simulate the Vercel environment locally and allow you to access your API on `http://localhost:3000/api/<
-endpoint-name>`.
+This will simulate the Vercel environment locally and allow you to access your API on `http://localhost:3000/<endpoint-name>`.
 
 ### Push Your Code to GitHub
 
@@ -335,7 +334,8 @@ First, initialize a Git repository in your project folder:
 git init
 ```
 
-Then, add all your project files to the Git repository:
+Then, add all your project files to the Git repository. Make sure not to commit files containing sensitive information
+or unnecessary files, you can use the `.gitignore` file to exclude them.
 
 ```bash
 git add .
@@ -360,7 +360,7 @@ This makes your code available in the cloud and allows easy collaboration or ver
 
 Log in to the Vercel Dashboard, click on **Add New > Project**, and import the GitHub repository you pushed earlier.
 
-![Vercel Add Project]({{base_path}}/assets/img/complete-guides/actions/image7.png)
+![Vercel Add Project]({{base_path}}/assets/img/complete-guides/actions/image19.png)
 
 During the setup:
 
@@ -369,9 +369,45 @@ During the setup:
 Finally, deploy the project. Vercel will automatically build and host your serverless functions. Once deployed, you'll
 receive a live endpoint URL that you can use under Domains.
 
-![Vercel Deployed Project]({{base_path}}/assets/img/complete-guides/actions/image8.png)
+![Vercel Deployed Project]({{base_path}}/assets/img/complete-guides/actions/image20.png)
 
-### Configure {{product_name}} for Pre-Update Profile Action Workflow
+### Test Deployed Service
+
+To test the deployed service, you will need the URL (extracted from Domains). A sample request for a successful 
+scenario is shown below.
+
+```cURL
+curl --location 'https://<domains_url>' \
+--header 'Content-Type: application/json' \
+--data '{
+  "actionType": "PRE_UPDATE_PASSWORD",
+  "event": {
+    "tenant": {
+      "id": "2210",
+      "name": "testwso2"
+    },
+    "user": {
+      "id": "18b6b431-16e9-4107-a828-33778824c8af",
+      "updatingCredential": {
+        "type": "PASSWORD",
+        "format": "HASH",
+        "value": "ec4Zktg/dqruY3ZHVjwTCZ9422Bu0Xi3F56ZcFxkcjU=",
+        "additionalData": {
+          "algorithm": "SHA256"
+        }
+      }
+    },
+    "userStore": {
+      "id": "REVGQVVMVA==",
+      "name": "DEFAULT"
+    },
+    "initiatorType": "ADMIN",
+    "action": "UPDATE"
+  }
+}'
+```
+
+### Configure {{product_name}} for Pre-Update Password Action Workflow
 
 First, sign in to your {{product_name}} account using your admin credentials, click on "Actions" and then select the
 action type Pre Update Password.

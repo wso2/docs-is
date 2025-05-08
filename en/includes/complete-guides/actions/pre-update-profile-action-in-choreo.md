@@ -179,7 +179,7 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
@@ -272,8 +272,8 @@ app.listen(PORT, () => {
 
 ### Prepare for Choreo Deployment
 
-Create a .env file to store sensitive information by adding a new file named .env in your project folder. The file is
-primarily used for local testing, but these are included separately in the Choreo deployment.
+Create a `.env` file to store sensitive information by adding a new file named `.env` in your project folder. The file 
+is primarily used for local testing, but these are included separately in the Choreo deployment.
 
 ```bash
 touch .env
@@ -324,7 +324,8 @@ First, initialize a Git repository in your project folder:
 git init
 ```
 
-Then, add all your project files to the Git repository:
+Then, add all your project files to the Git repository. Make sure not to commit files containing sensitive information
+or unnecessary files, you can use the `.gitignore` file to exclude them.
 
 ```bash
 git add .
@@ -350,7 +351,7 @@ This makes your code available in the cloud and allows easy collaboration or ver
 Log in to your Choreo Console and create a new project by signing in to your Choreo account and creating a new project
 from the dashboard.
 
-![Create Choreo Project]({{base_path}}/assets/img/complete-guides/actions/image1.png)
+![Create Choreo Project]({{base_path}}/assets/img/complete-guides/actions/image2.png)
 
 Within the created project, go to the "Components" section and create a new component. Select 'API Service' as the
 component type.
@@ -358,32 +359,93 @@ component type.
 Link your GitHub account and select the profile-update-validator repository that contains your code. Choreo will use
 this to build the project.
 
-![Create Choreo Service]({{base_path}}/assets/img/complete-guides/actions/image2.png)
+![Create Choreo Service]({{base_path}}/assets/img/complete-guides/actions/image23.png)
 
 After the build is complete, navigate to the "Deploy" tab, click 'Configure and Deploy', and provide values for any
 required environment variables (like email credentials) so that they will be available during execution.
 
-![Setup Choreo Environment_Variables]({{base_path}}/assets/img/complete-guides/actions/image3.png)
+![Setup Choreo Environment_Variables]({{base_path}}/assets/img/complete-guides/actions/image24.png)
 
 For security, make sure to enable the API Key protection mechanism. This will ensure that only authorized users can
 access your API.
 
-![Add Choreo API Key Protection]({{base_path}}/assets/img/complete-guides/actions/image4.png)
+![Add Choreo API Key Protection]({{base_path}}/assets/img/complete-guides/actions/image5.png)
 
-After deployment is complete, Choreo will provide a URL for your API. Make sure to copy this URL for future reference.
+After the deployment is complete, Choreo will provide a 'Public URL' for your API under **Endpoints > 
+Endpoint Details**. Be sure to copy this URL for future reference.
+
 Additionally, Go to **Manage > Lifecycle** and click 'Publish' to move your API from the "Created" state to the 
 "Published" state.
 
-![Choreo API Lifecycle Update]({{base_path}}/assets/img/complete-guides/actions/image5.png)
+![Choreo API Lifecycle Update]({{base_path}}/assets/img/complete-guides/actions/image6.png)
 
 Once the API is published, navigate to the Dev portal (via the "Go to Devportal" link in the top right corner). In the
 Dev portal, go to **Credentials > Sandbox** and generate a new API key. This key is required for accessing the API 
 securely.
 
-![Create Choreo API Key]({{base_path}}/assets/img/complete-guides/actions/image6.png)
+![Create Choreo API Key]({{base_path}}/assets/img/complete-guides/actions/image7.png)
 
 The API key will be generated along with an application in Asgardeo. Copy and save the key securely for later use in
 your API calls.
+
+### Test Deployed Service
+
+To test the deployed service, you will need the public URL and the API key. A sample request for a successful scenario
+is shown below.
+
+```cURL
+curl --location '<public_url>/validate-user-profile-update' \
+--header 'Content-Type: application/json' \
+--header 'api-key: <api_key>' \
+--data-raw '{
+    "actionType": "PRE_UPDATE_PROFILE",
+    "event": {
+        "request": {
+            "claims": [
+                {
+                    "uri": "http://wso2.org/claims/department",
+                    "value": "HR"
+                },
+                {
+                    "uri": "http://wso2.org/claims/mobile",
+                    "value": "+94771223448"
+                },
+                {
+                    "uri": "http://wso2.org/claims/emailaddress",
+                    "value": "testuser@wso2.com"
+                }
+            ]
+        },
+        "tenant": {
+            "id": "2210",
+            "name": "testwso2"
+        },
+        "user": {
+            "id": "57b22cbf-4688-476c-a607-c0c9d089d25d",
+            "claims": [
+                {
+                    "uri": "http://wso2.org/claims/username",
+                    "value": "testuser@wso2.com"
+                },
+                {
+                    "uri": "http://wso2.org/claims/identity/userSource",
+                    "value": "DEFAULT"
+                },
+                {
+                    "uri": "http://wso2.org/claims/identity/idpType",
+                    "value": "Local"
+                }
+            ]
+        },
+        "userStore": {
+            "id": "REVGQVVMVA==",
+            "name": "DEFAULT"
+        },
+        "initiatorType": "ADMIN",
+        "action": "UPDATE"
+    }
+}'
+```
 
 ### Configure {{product_name}} for Pre-Update Profile Action Workflow
 

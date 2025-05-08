@@ -19,7 +19,7 @@ Using this extension point, you can enforce additional password validation logic
 This action helps enforce stronger security standards by allowing proactive checks during all major password update
 scenarios.
 
-![Pre-Update Profile Action Overview]({{base_path}}/assets/img/complete-guides/actions/image19.png) // TODO - Replace image
+![Pre-Update Password Action Overview]({{base_path}}/assets/img/complete-guides/actions/image16.png)
 
 ## Scenario Overview
 
@@ -36,7 +36,7 @@ hygiene and strengthening overall account security.
 ## Request and Response Handling
 
 When a password update request is made, Asgardeo or WSO2 Identity Server (WSO2 IS) will send a request to your 
-configured extension service containing the updated attribute information.
+configured extension service containing the updated password information.
 
 Your service will process this request and respond with an appropriate status:
 
