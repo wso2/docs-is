@@ -226,7 +226,7 @@ Depending on the code editor you're using, you should see a list of results. The
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image5.png){: width="800" style="display: block; margin: 0;"}
 
-## Build a Real-World Sample
+## Build a real-world sample
 
 Now that you’ve configured and verified the Asgardeo MCP Server with your preferred code editor, it’s time to build a real-world example. The following quickstarts are great starting points to try out the Asgardeo MCP Server alongside your AI toolkit:
 
