@@ -33,6 +33,7 @@
     --md-box-shadow-2: 0 12px 32px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .08);
     --md-sidebar-width: 15.2rem;
     --md-sidebar-hide-width: -15.2rem;
+    --md-default-letter-spacing: 0.1px;
 }
 
 :root,
@@ -113,7 +114,6 @@
 :root, [data-md-color-scheme=slate] {
     /* START OF - Default Material Theme Overrides  */
     --md-default-bg-color: #232327;
-    --md-default-letter-spacing: 0.5px;
     --md-redoc-example-bg-color: #36363b;
     /* END OF - Default Material Theme Overrides  */
 

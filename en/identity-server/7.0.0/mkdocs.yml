@@ -34,10 +34,14 @@ extra:
             url: Get started|Introduction
           - title: Quick Setup
             url: Get started|Quick Setup
-          - title: Start Integrating Apps
-            url: Get started|Start integrating apps|Start integrating apps
-          - title: About this release
-            url: Get started|About this release
+          - title: Connect React App
+            url: Get started|Connect App|React|Quickstart
+          - title: Connect Angular App
+            url: Get started|Connect App|Angular Quickstart
+          - title: Connect Next.js App
+            url: Get started|Connect App|Next.js Quickstart
+          - title: Connect Spring Boot App
+            url: Get started|Connect App|Spring Boot Quickstart
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
@@ -439,10 +443,6 @@ nav:
     #     - Web apps:
     #       - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
     #       - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
-    # - About this release: get-started/about-this-release.md
-    # - Connect/Build your app:
-    #   - React Quickstart: quick-starts/react.md
-    #   - Angular Quickstart:  quick-starts/angular.md
     - Connect App:
       - React:
         - Quickstart: quick-starts/react.md
@@ -450,6 +450,7 @@ nav:
       - Angular Quickstart: quick-starts/angular.md
       - Next.js Quickstart: quick-starts/nextjs.md
       - Spring Boot Quickstart: quick-starts/springboot.md
+  - About this release: get-started/about-this-release.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:

@@ -47,10 +47,22 @@ extra:
         icon: octicons/rocket-16
         icon_color: icon-color-1
         list_items:
-          - title: Create your Asgardeo account
-            url: Get started|Create your Asgardeo account
-          - title: Try login with Asgardeo
-            url: Get started|Try login with sample
+          - title: Create Account
+            url: Get started|Create Account
+          - title: Connect React App
+            url: Get started|Connect App|React|Quickstart
+          - title: Connect Angular App
+            url: Get started|Connect App|Angular|Quickstart
+          - title: Connect Javascript App
+            url: Get started|Connect App|Javascript|Quickstart
+          - title: Connect Next.js App
+            url: Get started|Connect App|Next.js|Quickstart
+          - title: Connect Node.js App
+            url: Get started|Connect App|Node.js Guide
+          - title: Connect .NET App
+            url: Get started|Connect App|.NET Guide 
+          - title: Connect Spring Boot App
+            url: Get started|Connect App|Spring Boot Quickstart
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
@@ -199,6 +211,8 @@ nav:
           - B2B: complete-guides/nextjs-b2b/introduction.md
           - Redirect-based: complete-guides/nextjs/introduction.md
           - App-Native: complete-guides/app-native/introduction.md
+      - Node.js Guide: complete-guides/nodejs/introduction.md
+      - .NET Guide: complete-guides/dotnet/introduction.md
       - Spring Boot Quickstart: quick-starts/springboot.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:

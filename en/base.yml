@@ -109,12 +109,10 @@ extra:
       options:
         - divider
         - verticle-line
-    - title: Technology Guides
-      options:
-        - divider
     - title: Best Practice Guides
       options:
         - no-indent
+        - divider
     - title: Connect App
     - title: Get started
       options:
@@ -202,7 +200,16 @@ extra:
     .NET:
       icon: assets/libs/custom-icons/dotnet.svg
       level: 3
+    .NET Guide:
+      icon: assets/libs/custom-icons/dotnet.svg
+      level: 3
     Node.js:
+      icon: fontawesome/brands/node-js
+      level: 3
+    Node.js Guide:
+      icon: fontawesome/brands/node-js
+      level: 3
+    Node.js Quickstart:
       icon: fontawesome/brands/node-js
       level: 3
     Next.js:
@@ -218,6 +225,9 @@ extra:
       icon: fontawesome/brands/angular
       level: 3
     Javascript:
+      icon: fontawesome/brands/js
+      level: 3
+    Javascript Quickstart:
       icon: fontawesome/brands/js
       level: 3
     Spring Boot Quickstart:

@@ -96,11 +96,20 @@
       {% set class = class ~ " md-nav--expanded-section" %}
     {% endif %}
 
+    <!-- Hide navigation if configured  -->
+    {% if config.extra.hide_navs and nav_item.title in config.extra.hide_navs %}
+      {% set hide_nav = config.extra.hide_navs[nav_item.title] %}
+
+      {% if 'level' not in hide_nav or hide_nav.level == level %}
+        {% set hide_nav_class = "md-nav--hide" %}
+      {% endif %}
+    {% endif %}
+
     <!-- Pre-filter the relevant nav entry -->
     {% set matched_expanded_nav = config.extra.expanded_navs | selectattr("title", "equalto", nav_item.title) | first %}
 
     {% if matched_expanded_nav is defined and matched_expanded_nav.options is defined %}
-      {% if "divider" in matched_expanded_nav.options %}
+      {% if "divider" in matched_expanded_nav.options and not hide_nav %}
         <hr class="md-nav--expanded-section-divider" />
       {% endif %}
       
@@ -127,17 +136,8 @@
       {% endif %}
     {% endif %}
 
-    <!-- Hide navigation if configured  -->
-    {% if config.extra.hide_navs and nav_item.title in config.extra.hide_navs %}
-      {% set hide_nav = config.extra.hide_navs[nav_item.title] %}
-
-      {% if 'level' not in hide_nav or hide_nav.level == level %}
-        {% set hide_nav = "md-nav--hide" %}
-      {% endif %}
-    {% endif %}
-
     <!-- Render item with nested items -->
-    <li class="{{ class }} md-nav__item--nested {{ has_icon_class }} {{ hide_nav }}">
+    <li class="{{ class }} md-nav__item--nested {{ has_icon_class }} {{ hide_nav_class }}">
       {% set expanded = "navigation.expand" in features %}
       {% set active = nav_item.active or expanded %}
 
