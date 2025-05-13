@@ -107,6 +107,10 @@
       {% if "verticle-line" in matched_expanded_nav.options %}
         {% set class = class ~ " md-nav--expanded-section-verticle-line" %}
       {% endif %}
+
+      {% if "no-indent" in matched_expanded_nav.options %}
+        {% set class = class ~ " md-nav--expanded-section-no-indent" %}
+      {% endif %}
     {% endif %}
 
     <!-- Set css class if there is an icon -->
@@ -123,8 +127,17 @@
       {% endif %}
     {% endif %}
 
+    <!-- Hide navigation if configured  -->
+    {% if config.extra.hide_navs and nav_item.title in config.extra.hide_navs %}
+      {% set hide_nav = config.extra.hide_navs[nav_item.title] %}
+
+      {% if 'level' not in hide_nav or hide_nav.level == level %}
+        {% set hide_nav = "md-nav--hide" %}
+      {% endif %}
+    {% endif %}
+
     <!-- Render item with nested items -->
-    <li class="{{ class }} md-nav__item--nested {{ has_icon_class }}">
+    <li class="{{ class }} md-nav__item--nested {{ has_icon_class }} {{ hide_nav }}">
       {% set expanded = "navigation.expand" in features %}
       {% set active = nav_item.active or expanded %}
 

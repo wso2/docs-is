@@ -59,10 +59,18 @@
     display: flex;
 }
 
+.md-nav__item.md-nav__item--nested > .md-nav__link {
+    display: flex;
+}
+
+.md-nav__item.md-nav--expanded-section > nav.md-nav ul.md-nav__list:not(.guide-page-list) > li.md-nav__item.md-nav__item--active  {
+    padding-left: 0;
+}
+
 @media screen and (min-width: 76.25em) {
     .md-nav--lifted .md-nav__item {
         position: relative;
-        padding-right: .6rem;
+        padding: 0 .6rem;
         vertical-align: top;
         margin-bottom: 10px;
     }
@@ -130,5 +138,11 @@
 @media screen and (min-width: 76.25em) and (max-width: 99.9375em) {
     .md-nav__item:not(.md-nav__item--nested)::before {
         top: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 76.1875em) {
+    .md-nav__item {
+        padding-left: .6rem !important;
     }
 }
