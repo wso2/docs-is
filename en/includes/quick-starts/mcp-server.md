@@ -28,7 +28,7 @@ Next, go to the **API Authorization** tab in your Asgardeo application settings 
 | **Authenticators Management API** (`/api/server/v1/authenticators`) | `internal_authenticator_view` |
 | **Claim Management API** (`/api/server/v1/claim-dialects`) | `internal_claim_meta_view` |
 | **SCIM2 Users API** (`/scim2/Users`) | `internal_user_mgt_create` |
-
+| **OIDC Scope Management API** (`/api/server/v1/oidc/scopes`) | `internal_oidc_scope_mgt_view` |
 
 
 Once completed, your API Authorization configuration should resemble the example shown in the screenshot.
