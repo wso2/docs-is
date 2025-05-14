@@ -1,6 +1,5 @@
 # Asgardeo MCP Server Quickstart <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
 
-
 Welcome to the Asgardeo MCP Server Quickstart! In this document, you will learn how to build, install, and configure the Asgardeo MCP Server with **VS Code, Claude Desktop, Cursor, Windsurf**, and other MCP-compatible clients.
 
 !!! Note
