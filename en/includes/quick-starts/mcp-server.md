@@ -1,6 +1,7 @@
 # Asgardeo MCP Server Quickstart <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
 
-Welcome Asgardeo MCP Server Quickstart! In this document, you will learn to build, install and configure Asgardeo MCP Server with **VS Code, Claude Desktop, Cursor, Windsurf**, and other **MCP-compatible clients**.
+
+Welcome to the Asgardeo MCP Server Quickstart! In this document, you will learn how to build, install, and configure the Asgardeo MCP Server with **VS Code, Claude Desktop, Cursor, Windsurf**, and other MCP-compatible clients.
 
 !!! Note
 
@@ -16,7 +17,7 @@ Sign into {{ product_name }} console and navigate to **Applications > New Applic
     **name:** Asgardeo-MCP-Server
     
 
-Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  Asgardeo React SDK.
+Note down the following values from the **Protocol** tab of the registered application. You will need them in **step-3**.
 
 - **`client-id`** from the **Protocol** tab. 
 - **`client-secret`** from the **Protocol** tab. 
@@ -45,7 +46,7 @@ Download the source code from the [Asgardeo MCP Server GitHub repository](https:
 
 
 === "Clone the repository locally using Git"
-    Make sure **Git** is installed on your machine. Then run the following commands. 
+    Make sure **Git** is installed on your machine, then run the following commands.
 
     Clone the full repo: 
     ```bash
@@ -79,19 +80,17 @@ Now, you can build the Asgardeo MCP server by running the following command. Mak
 go build -o asgardeo-mcp
 ```
 
-After running the above command, make sure to copy the absolute path to the generated binary. This path will be referenced as '<ABSOLUTE-PATH>'in the next step.
+After running the above command, make sure to copy the absolute path to the generated binary. This path will be referenced as `<ABSOLUTE-PATH>`in the next step.
 
 
 ## Configure your code editor
 
 === " VS Code "
-    **Open the VS Code user settings `settings.json` file:**
-
     1. Open **VS Code**.
     2. Press `Ctrl` + `Shift` + `P` (or `Cmd` + `Shift` + `P` on Mac).
     3. Type **"Preferences: Open Settings (JSON)"** and select it.
 
-    Append the following configuration to `settings.json`. Replace the `<ABSOLUTE-PATH>/asgardeo-mcp`, `<client-id>`,  `<client-secret>` and `organization` values from the values you copied from the previous steps. 
+    Append the following configuration to `settings.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json title="settings.json" 
     "mcp": {
@@ -110,14 +109,12 @@ After running the above command, make sure to copy the absolute path to the gene
     ```
 
 === " Cursor "
-    **Open the VS Code user settings `settings.json` file:**
-
     1. Open **Cursor**.
     2. Click on **Cursor > Settings > Cursor Settings**.
     3. Switch to **MCP** tab.
-    4. Click on **Add new global MCP server** button at the bottom. This will open `mcp.json` file in the editor itself.
+    4. Click on **Add new global MCP server** button. This will open `mcp.json` file in the editor itself.
 
-    Append the following configuration to `settings.json`. Replace the `<ABSOLUTE-PATH>/asgardeo-mcp`, `<client-id>`,  `<client-secret>` and `organization` values from the values you copied from the previous steps. 
+    Append the following configuration to `settings.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json title="mcp.json" 
     {
@@ -136,14 +133,12 @@ After running the above command, make sure to copy the absolute path to the gene
     ```
 
 === " Windsurf "
-    **Open the VS Code user settings `settings.json` file:**
-
     1. Open **Windsurf**.
     2. Click on **Windsurf > Windsurf Settings > Cursor Cascade**.
     3. Switch to **MCP** tab.
     4. Click on **Add erver** button next to **Model Context Protocol (MCP) Servers**. Then click the **Add custom Server** button will open `mcp_config.json` file in the editor itself.
 
-    Append the following configuration to `mcp_config.json`. Replace the `<ABSOLUTE-PATH>/asgardeo-mcp`, `<client-id>`,  `<client-secret>` and `organization` values from the values you copied from the previous steps. 
+    Append the following configuration to `mcp_config.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json title="`mcp_config.json.json" 
     "{
@@ -163,13 +158,11 @@ After running the above command, make sure to copy the absolute path to the gene
 
 
 === " Claude Desktop "
-    **Open the VS Code user settings `settings.json` file:**
-
     1. Open **Claude Desktop**.
     2. Click on **Claude Desktop > Settings > Developer**.
-    4. Click on **Edit Config** button at the bottom. This will open `claude_desktop_config.json` file location and you open this file using an text editor.
+    4. Click on **Edit Config** button. This will open `claude_desktop_config.json` file location and you can open this file using an text editor.
 
-    Append the following configuration to `claude_desktop_config.json`. Replace the `<ABSOLUTE-PATH>/asgardeo-mcp`, `<client-id>`,  `<client-secret>` and `organization` values from the values you copied from the previous steps. 
+    Append the following configuration to `claude_desktop_config.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json title="claude_desktop_config.json" 
     {
@@ -189,7 +182,7 @@ After running the above command, make sure to copy the absolute path to the gene
 === " Other "
     **Use the following configuration settings**
 
-    Make sure to replace the `<ABSOLUTE-PATH>/asgardeo-mcp`, `<client-id>`,  `<client-secret>` and `organization` values from the values you copied from the previous steps. 
+    Make sure to replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json  
     {
@@ -220,22 +213,22 @@ List my Asgardeo applications, names only
 Depending on the code editor you're using, you should see a list of results. The output may vary based on the number of applications you've created in Asgardeo, but you should see at least one application name listed.
 
 === " VS Code  "
-    Asgardeo Application List Displayed in VS Code .
+    Asgardeo application list displayed in VS Code.
     
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image2.png){: width="500" style="display: block; margin: 0;"}
 
 === " Cursor  "
-    Asgardeo Application List Displayed in Cursor .
+    Asgardeo application list displayed in Cursor.
     
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image3.png){: width="500" style="display: block; margin: 0;"}
 
 === " Windsurf  "
-    Asgardeo Application List Displayed in Windsurf .
+    Asgardeo application list displayed in Windsurf.
     
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image4.png){: width="500" style="display: block; margin: 0;"}
 
 === " Claude Desktop "
-    Asgardeo Application List Displayed in Claude Desktop.
+    Asgardeo application list displayed in Claude Desktop.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image5.png){: width="800" style="display: block; margin: 0;"}
 
