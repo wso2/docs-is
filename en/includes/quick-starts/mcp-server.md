@@ -179,7 +179,7 @@ After running the above command, make sure to copy the absolute path to the gene
     }
     ```
 === " Other "
-    **Use the following configuration settings**
+    Use the following settings to configure your MCP-compatible client application. 
 
     Make sure to replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
