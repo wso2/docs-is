@@ -732,6 +732,10 @@ nav:
         - Multitenancy: guides/multitenancy/index.md
         - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
         - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
+      - Notification Channels:
+        - Configure Email Provider: guides/notification-channels/configure-email-provider.md
+        - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
+        - Configure Push Provider: guides/notification-channels/configure-push-provider.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -769,7 +773,6 @@ nav:
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
         - Clock tolerance: deploy/configure/clock-tolerance.md
-        - Email sending module : deploy/configure/email-sending-module.md
       - Secure:
         - Mitigate attacks:
           - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md

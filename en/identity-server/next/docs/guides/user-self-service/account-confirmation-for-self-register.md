@@ -34,8 +34,8 @@ The section of the guide walks you through configuring account confirmation meth
 ### Set up self-registration on {{product_name}}
 
 1. Configure the preferred self-registration verification method provider.
-    - [SMS]({{base_path}}/guides/authentication/mfa/add-smsotp-login/#configuring-sms-providers)
-    - [EMAIL]({{base_path}}/deploy/configure/email-sending-module/)
+    - [SMS]({{base_path}}/guides/notification-channels/configure-sms-provider)
+    - [EMAIL]({{base_path}}/guides/notification-channels/configure-email-provider)
 
 2. Add the following configurations to the `deployment.toml` file:
 
