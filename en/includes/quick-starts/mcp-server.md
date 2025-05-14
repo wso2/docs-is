@@ -1,6 +1,10 @@
-# Asgardeo MCP Server Quickstart
+# Asgardeo MCP Server Quickstart <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
 
 Welcome Asgardeo MCP Server Quickstart! In this document, you will learn to build, install and configure Asgardeo MCP Server with **VS Code, Claude Desktop, Cursor, Windsurf**, and other **MCP-compatible clients**.
+
+!!! Note
+
+    The Asgardeo MCP Server is currently in **Preview**. Some features may be subject to changes in future releases.
 
 [//] STEPS_START
 
@@ -41,14 +45,23 @@ Download the source code from the [Asgardeo MCP Server GitHub repository](https:
 
 
 === "Clone the repository locally using Git"
-    Make sure **Git** is installed on your machine. Then run:
+    Make sure **Git** is installed on your machine. Then run the following commands. 
 
+    Clone the full repo: 
     ```bash
     git clone https://github.com/asgardeo/asgardeo-mcp-server
     ```
+    Change directory into `asgardeo-mcp-server`:
+    ```bash
+    cd asgardeo-mcp-server
+    ```
+    Checkout the specific release tag:
+    ```bash
+    git checkout tags/v0.1.0
+    ```
 
 === "Download as a ZIP archive"
-    Click **"Download ZIP"** on the repository page, then extract the contents to your preferred directory.
+    [**Download the source ZIP**](https://github.com/asgardeo/asgardeo-mcp-server/releases/tag/v0.1.0){:target="_blank"} from the release page of the repository, then extract the contents to your preferred directory.
 
 
 Then, install the required dependencies by running the following command. 
