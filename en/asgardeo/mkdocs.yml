@@ -230,6 +230,7 @@ nav:
           - Register a mobile app: guides/applications/register-mobile-app.md
           - Register a machine-to-machine app: guides/applications/register-machine-to-machine-app.md
           - Register a FAPI-compliant app: guides/applications/register-a-fapi-compliant-app.md
+          - Register an MCP client app: guides/applications/register-mcp-client-app.md
       - Authentication:
           - Authentication: guides/authentication/index.md
           - Add login to apps:
