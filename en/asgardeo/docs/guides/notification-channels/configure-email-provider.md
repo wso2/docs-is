@@ -1,6 +1,6 @@
 {% set product_name = "Asgardeo" %}
 
-# Configure the email provider
+# Configure Email Provider
 
 This document explains the steps to configure {{ product_name }} to send emails during multiple email-related customer identity and access management tasks such as [email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/), email notifications, and account recovery.
 
