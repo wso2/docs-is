@@ -423,6 +423,10 @@ nav:
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+      - Notification Channels:
+        - Configure Email Provider: guides/notification-channels/configure-email-provider.md
+        - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
+        - Configure Push Provider: guides/notification-channels/configure-push-provider.md
       - Customizations:
         - Customize branding: 
             - Customize branding: guides/branding/index.md

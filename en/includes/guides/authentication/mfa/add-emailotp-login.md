@@ -14,7 +14,7 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 
 {% if product_name == 'Asgardeo' %}
 {% else %}
-- [Configure the email sending module]({{base_path}}/deploy/configure/email-sending-module/) in {{product_name}}.
+- [Configure the email provider](../../notification-channels/configure-email-provider.md) in {{product_name}}.
 {% endif %}
 
 !!! note "Info"
