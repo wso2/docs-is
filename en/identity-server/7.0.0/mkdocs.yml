@@ -450,7 +450,7 @@ nav:
       - Angular Quickstart: quick-starts/angular.md
       - Next.js Quickstart: quick-starts/nextjs.md
       - Spring Boot Quickstart: quick-starts/springboot.md
-  - About this release: get-started/about-this-release.md
+    - About this release: get-started/about-this-release.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:

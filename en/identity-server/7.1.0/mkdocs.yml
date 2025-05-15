@@ -459,8 +459,8 @@ nav:
       - Next.js Quickstart: quick-starts/nextjs.md
       - Node.js Quickstart: quick-starts/nodejs.md
       - Spring Boot Quickstart: quick-starts/springboot.md
-  - Subscribe to AI features: get-started/subscribe-to-ai-features.md
-  - About this release: get-started/about-this-release.md
+    - Subscribe to AI features: get-started/subscribe-to-ai-features.md
+    - About this release: get-started/about-this-release.md
   - Guides: 
       - Guides: guides/index.md
       - Applications:
