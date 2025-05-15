@@ -109,10 +109,19 @@ extra:
       options:
         - divider
         - verticle-line
-    - title: Technology Guides
-      options:
-        - divider
     - title: Best Practice Guides
+      options:
+        - no-indent
+        - divider
+    - title: Connect App
+    - title: Connect via MCP
+    - title: Get started
+      options:
+        - verticle-line
+
+  hide_navs:
+    Technology Guides:
+      level: 1
 
   # If the nav_override section is a child of expanded_nav. Add +1 to the level value
   nav_overrides:
@@ -185,34 +194,49 @@ extra:
       level: 1
     React:
       icon: fontawesome/brands/react
-      level: 2
-    .NET:
-      icon: assets/libs/custom-icons/dotnet.svg
-      level: 2
-    Node.js:
-      icon: fontawesome/brands/node-js
-      level: 2
-    Next.js:
-      icon: assets/libs/custom-icons/nextjs.svg
-      level: 2
-    Angular:
-      icon: fontawesome/brands/angular
-      level: 2
-    Javascript:
-      icon: fontawesome/brands/js
-      level: 2
+      level: 3
     React Quickstart:
       icon: fontawesome/brands/react
-    Angular Quickstart:
-      icon: fontawesome/brands/angular
-    Javascript Quickstart:
-      icon: fontawesome/brands/js
+      level: 3
+    .NET:
+      icon: assets/libs/custom-icons/dotnet.svg
+      level: 3
+    .NET Guide:
+      icon: assets/libs/custom-icons/dotnet.svg
+      level: 3
+    Node.js:
+      icon: fontawesome/brands/node-js
+      level: 3
+    Node.js Guide:
+      icon: fontawesome/brands/node-js
+      level: 3
+    Node.js Quickstart:
+      icon: fontawesome/brands/node-js
+      level: 3
+    Next.js:
+      icon: assets/libs/custom-icons/nextjs.svg
+      level: 3
     Next.js Quickstart:
       icon: assets/libs/custom-icons/nextjs.svg
+      level: 3
+    Angular:
+      icon: fontawesome/brands/angular
+      level: 3
+    Angular Quickstart:
+      icon: fontawesome/brands/angular
+      level: 3
+    Javascript:
+      icon: fontawesome/brands/js
+      level: 3
+    Javascript Quickstart:
+      icon: fontawesome/brands/js
+      level: 3
     Spring Boot Quickstart:
       icon: assets/libs/custom-icons/spring-boot.svg
     Frontend Security:
       icon: fontawesome/solid/user-shield
+    MCP Server:
+      icon: assets/libs/custom-icons/mcp.svg
 
   integrations:
     - name: Auth React SDK

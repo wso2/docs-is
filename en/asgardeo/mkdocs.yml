@@ -47,10 +47,22 @@ extra:
         icon: octicons/rocket-16
         icon_color: icon-color-1
         list_items:
-          - title: Create your Asgardeo account
-            url: Get started|Create your Asgardeo account
-          - title: Try login with Asgardeo
-            url: Get started|Try login with sample
+          - title: Create Account
+            url: Get started|Create Account
+          - title: Connect React App
+            url: Get started|Connect App|React|Quickstart
+          - title: Connect Angular App
+            url: Get started|Connect App|Angular|Quickstart
+          - title: Connect Javascript App
+            url: Get started|Connect App|Javascript|Quickstart
+          - title: Connect Next.js App
+            url: Get started|Connect App|Next.js|Quickstart
+          - title: Connect Node.js App
+            url: Get started|Connect App|Node.js Guide
+          - title: Connect .NET App
+            url: Get started|Connect App|.NET Guide 
+          - title: Connect Spring Boot App
+            url: Get started|Connect App|Spring Boot Quickstart
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
@@ -162,32 +174,47 @@ nav:
     - Home: index.md
   - Get started:
     - Get Started - Overview: get-started/index.md
-    - Create your Asgardeo account: get-started/create-asgardeo-account.md
-    - Try login with sample: get-started/try-it-application.md
-    - Start integrating Asgardeo into apps:
-      - Start integrating Asgardeo into apps: get-started/start-integrating-apps/index.md
-      - Try for a sample app:
-        - Try for a sample app: get-started/try-samples/index.md
-        - Single Page apps:
-          - React: get-started/try-samples/qsg-spa-react.md
-          - Javascript: get-started/try-samples/qsg-spa-javascript.md
-        - Web apps:
-          - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
-          - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
-      - Try for your own app:
-        - Try for your own app: get-started/try-your-own-app/index.md
-        - Single Page apps:
-          - React: get-started/try-your-own-app/react.md
-          - Javascript: get-started/try-your-own-app/javascript.md
-        - Web apps:
-          - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
-          - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
-    - Connect/Build your app:
-      - React Quickstart: quick-starts/react.md
-      - Angular Quickstart:  quick-starts/angular.md
-      - Javascript Quickstart: quick-starts/javascript.md
-      - Next.js Quickstart:  quick-starts/nextjs.md
-      - Spring Boot Quickstart:  quick-starts/springboot.md
+    - Create Account: get-started/create-asgardeo-account.md
+    # TODO: Clean this once we revist the navigation structure again
+    # - Try login with sample: get-started/try-it-application.md
+    # - Start integrating Asgardeo into apps:
+    #   - Start integrating Asgardeo into apps: get-started/start-integrating-apps/index.md
+    #   - Try for a sample app:
+    #     - Try for a sample app: get-started/try-samples/index.md
+    #     - Single Page apps:
+    #       - React: get-started/try-samples/qsg-spa-react.md
+    #       - Javascript: get-started/try-samples/qsg-spa-javascript.md
+    #     - Web apps:
+    #       - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+    #       - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+    #   - Try for your own app:
+    #     - Try for your own app: get-started/try-your-own-app/index.md
+    #     - Single Page apps:
+    #       - React: get-started/try-your-own-app/react.md
+    #       - Javascript: get-started/try-your-own-app/javascript.md
+    #     - Web apps:
+    #       - OIDC Java EE: get-started/try-your-own-app/java-ee-oidc.md
+    #       - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
+    - Connect App:
+      - React:
+        - Quickstart: quick-starts/react.md
+        - Complete Guide: complete-guides/react/introduction.md
+      - Angular:
+        - Quickstart: quick-starts/angular.md
+        - Complete Guide: complete-guides/angular/introduction.md
+      - Javascript:
+        - Quickstart: quick-starts/javascript.md
+        - Complete Guide: complete-guides/javascript/introduction.md
+      - Next.js:
+        - Quickstart: quick-starts/nextjs.md
+        - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
+        - Complete Guide (App-Native): complete-guides/app-native/introduction.md
+        - Complete Guide (B2B): complete-guides/nextjs-b2b/introduction.md
+      - Node.js Guide: complete-guides/nodejs/introduction.md
+      - .NET Guide: complete-guides/dotnet/introduction.md
+      - Spring Boot Quickstart: quick-starts/springboot.md
+    - Connect via MCP:
+      - MCP Server: quick-starts/mcp-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
