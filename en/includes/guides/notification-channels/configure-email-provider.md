@@ -2,7 +2,7 @@
 
 This document explains the steps to configure {{ product_name }} to send emails during multiple email-related customer identity and access management tasks such as [email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/), email notifications, and account recovery.
 
-## Configure the email provider (globally)
+## Global Configurations of Email Provider
 
 Follow the steps given below to enable the email sender globally for all tenants in {{ product_name }}.
 
@@ -87,7 +87,7 @@ Follow the steps given below to enable the email sender globally for all tenants
 
 3. Save the configurations and start the server.
 
-## Configure the email provider (per tenant)
+## Tenant Specific Configurations of Email Provider
 
 !!! info
     - Super tenant email provider cannot be configured via the {{ product_name }} console. You need to configure the email provider in the `deployment.toml` file as mentioned above.
