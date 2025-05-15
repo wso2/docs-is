@@ -114,6 +114,7 @@ extra:
         - no-indent
         - divider
     - title: Connect App
+    - title: Connect via MCP
     - title: Get started
       options:
         - verticle-line
@@ -234,6 +235,8 @@ extra:
       icon: assets/libs/custom-icons/spring-boot.svg
     Frontend Security:
       icon: fontawesome/solid/user-shield
+    MCP Server:
+      icon: assets/libs/custom-icons/mcp.svg
 
   integrations:
     - name: Auth React SDK

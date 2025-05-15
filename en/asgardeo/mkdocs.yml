@@ -207,13 +207,14 @@ nav:
         - Complete Guide: complete-guides/javascript/introduction.md
       - Next.js:
         - Quickstart: quick-starts/nextjs.md
-        - Complete Guides:
-          - B2B: complete-guides/nextjs-b2b/introduction.md
-          - Redirect-based: complete-guides/nextjs/introduction.md
-          - App-Native: complete-guides/app-native/introduction.md
+        - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
+        - Complete Guide (App-Native): complete-guides/app-native/introduction.md
+        - Complete Guide (B2B): complete-guides/nextjs-b2b/introduction.md
       - Node.js Guide: complete-guides/nodejs/introduction.md
       - .NET Guide: complete-guides/dotnet/introduction.md
       - Spring Boot Quickstart: quick-starts/springboot.md
+    - Connect via MCP:
+      - MCP Server: quick-starts/mcp-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
