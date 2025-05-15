@@ -4,7 +4,7 @@ To send push notifications from {{ product_name }}, you need to configure a Push
 
 !!! note
     Firebase cloud messaging has the capability to send push notification to iOS devices through Apple Push Notification Service (APNs). However, you need to configure APNs separately to send push notifications to iOS devices.
-    For more information, [click here](https://firebase.google.com/docs/cloud-messaging/ios/client).
+    For more information, [refer to the Firebase documentation](https://firebase.google.com/docs/cloud-messaging/ios/client).
 
 Follow the below steps to configure FCM as your Push Provider:
 

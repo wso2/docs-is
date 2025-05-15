@@ -310,6 +310,8 @@ plugins:
         'sdks/start-integrating-apps/integrate-a-js-app.md': 'integrations/index.md'
         'sdks/spring-boot.md': 'integrations/index.md'
 
+        'deploy/configure/email-sending-module.md': 'guides/notification-channels/configure-email-provider.md'
+
         'deploy/security/security-guidelines-for-production-deployment.md': 'deploy/security/security-guidelines/index.md'
         'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
         'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'
@@ -694,6 +696,10 @@ nav:
           - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+      - Notification Channels:
+          - Configure Email Provider: guides/notification-channels/configure-email-provider.md
+          - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
+          - Configure Push Provider: guides/notification-channels/configure-push-provider.md
       - Customizations:
           - Customize branding:
             - Branding: guides/branding/index.md
@@ -721,6 +727,10 @@ nav:
           - ELK Alerts: guides/analytics/elk-analytics/elk-alert-types.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
         - A/B Testing: guides/analytics/ab-testing.md
+      - Multitenancy:
+        - Multitenancy: guides/multitenancy/index.md
+        - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
+        - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
@@ -728,14 +738,6 @@ nav:
         - Recover your password: guides/your-is/recover-password.md
         - Recover your username: guides/your-is/recover-username.md
         - Recover super admin account: guides/your-is/recover-super-admin-account.md
-      - Multitenancy:
-        - Multitenancy: guides/multitenancy/index.md
-        - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
-        - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
-      - Notification Channels:
-        - Configure Email Provider: guides/notification-channels/configure-email-provider.md
-        - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
-        - Configure Push Provider: guides/notification-channels/configure-push-provider.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
