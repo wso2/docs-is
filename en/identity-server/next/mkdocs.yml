@@ -970,8 +970,8 @@ nav:
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
       - Notification sender API:
-        - Notification sender v1 API (deprecated): apis/notification-sender-rest-api.md
-        - Notification sender v2 API: apis/notification-sender-v2-rest-api.md
+        - Notification sender v1 API (deprecated): apis/organization-apis/notification-sender-rest-api.md
+        - Notification sender v2 API: apis/organization-apis/notification-sender-v2-rest-api.md
       - Notification Templates Management API: apis/organization-apis/notification-templates.md
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
