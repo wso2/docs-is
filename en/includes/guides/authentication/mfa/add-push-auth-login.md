@@ -9,7 +9,7 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- You need to configure a Push Provider in {{ product_name }}. If you haven't configured a Push Notification Provider yet, follow the instructions in the [Push Provider Configuration](../../notification-channels/configure-push-provider.md) guide.
+- You need to configure a Push Provider in {{ product_name }}. If you haven't configured a Push Notification Provider yet, follow the instructions in the [Push Provider Configuration]({{base_path}}/guides/notification-channels/configure-push-provider) guide.
 
 - You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
 
