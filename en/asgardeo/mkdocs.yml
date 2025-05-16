@@ -63,14 +63,6 @@ extra:
             url: Get started|Connect App|.NET Guide 
           - title: Connect Spring Boot App
             url: Get started|Connect App|Spring Boot Quickstart
-      - title: Community and Support
-        icon: octicons/light-bulb-16
-        icon_color: icon-color-2
-        list_items:
-          - title: Community Help
-            url: https://discord.com/invite/wso2
-          - title: Enterprise Support
-            url: https://wso2.com/asgardeo/pricing/
     - section:
       - title: Guides
         icon: octicons/book-16
@@ -101,6 +93,14 @@ extra:
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
             url: SDKs|Integrate Asgardeo into your application
+      - title: Community and Support
+        icon: octicons/light-bulb-16
+        icon_color: icon-color-2
+        list_items:
+          - title: Community Help
+            url: https://discord.com/invite/wso2
+          - title: Enterprise Support
+            url: https://wso2.com/asgardeo/pricing/
 
 watch:
   - ../theme/material
