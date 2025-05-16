@@ -230,6 +230,7 @@ nav:
           - Register a mobile app: guides/applications/register-mobile-app.md
           - Register a machine-to-machine app: guides/applications/register-machine-to-machine-app.md
           - Register a FAPI-compliant app: guides/applications/register-a-fapi-compliant-app.md
+          - Register an MCP client app: guides/applications/register-mcp-client-app.md
       - Authentication:
           - Authentication: guides/authentication/index.md
           - Add login to apps:
@@ -423,6 +424,10 @@ nav:
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+      - Notification Channels:
+        - Configure Email Provider: guides/notification-channels/configure-email-provider.md
+        - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
+        - Configure Push Provider: guides/notification-channels/configure-push-provider.md
       - Customizations:
         - Customize branding: 
             - Customize branding: guides/branding/index.md
