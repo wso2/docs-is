@@ -1,18 +1,18 @@
 openapi: 3.0.0
 info:
   title: Notification Senders API
-  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **WSO2 Identity Server**
+  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **WSO2 Identity Server** organizations.
+    To access the notification sender organization APIs in Identity Server, you need to first get an access token from your organization.
   version: "v2"
 servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/api/server/v2
+  - url: https://localhost:9443/t/{root-organization-name}/o/api/server/v2
     variables:
       serverUrl:
-        default: localhost:9443
-      tenantDomain:
-        default: carbon.super
+        default: https://localhost:9443/t/{root-organization-name}/o/
+      root-organization-name:
+        default: "{root-organization-name}"
 security:
   - OAuth2: []
-  - BasicAuth: []
 paths:
   /notification-senders/email:
     get:
