@@ -904,7 +904,9 @@ nav:
       - IdP session extension API: apis/idp-session-extender-endpoint.md
       - Notification sender management:
         - Notification sender configurations: apis/notification-sender.md
-        - Notification sender API: apis/notification-sender-rest-api.md
+        - Notification sender API:
+            - Notification sender v1 API (deprecated): apis/notification-sender-rest-api.md
+            - Notification sender v2 API: apis/notification-sender-v2-rest-api.md
       - Notification Templates Management API: apis/notification-templates.md
       - Organization discovery API: apis/organization-discovery-rest-api.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
@@ -967,7 +969,9 @@ nav:
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
-      - Notification sender API: apis/organization-apis/notification-sender-rest-api.md      
+      - Notification sender API:
+        - Notification sender v1 API (deprecated): apis/notification-sender-rest-api.md
+        - Notification sender v2 API: apis/notification-sender-v2-rest-api.md
       - Notification Templates Management API: apis/organization-apis/notification-templates.md
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
