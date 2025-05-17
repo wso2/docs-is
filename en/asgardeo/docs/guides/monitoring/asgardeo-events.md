@@ -128,17 +128,19 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
     ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Enter a name and a description for your webhook.
+5. Click **Authorize with Github** and connect the relevant organization, repository and the branch of the GitHub repository you created in the above section.
 
-5. Click **Authorize with Github** and connect the relevant organization, repository and the branch of the Github repository you created in the above section.
+    ![Authorize with Github]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-6. Select **Ballerina** to be the Buildpack and select the **Ballerina Project Directory** from your Github repository.
+6. Select the **Component Directory** from your GitHub repository.
 
-7. Select the **Access Mode** as External and click **Create**.
+7. Select **Ballerina** under Build Preset.
 
-    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+8. Click **Create**.
 
-8. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
+     ![Create Choreo Webhook]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-create.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+9. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
 
     !!! note
         If the callback URL fails to populate, it is advised to manually copy the invoke URL and paste it into the designated field. This step ensures seamless continuity in the process.
