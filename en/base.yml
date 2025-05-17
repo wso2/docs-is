@@ -122,6 +122,8 @@ extra:
   hide_navs:
     Technology Guides:
       level: 1
+    Try for a sample app:
+      level: 1
 
   # If the nav_override section is a child of expanded_nav. Add +1 to the level value
   nav_overrides:

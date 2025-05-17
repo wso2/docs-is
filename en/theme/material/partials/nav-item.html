@@ -82,6 +82,15 @@
   <!-- Create new map with expanded_nav titles -->
   {% set expanded_nav_titles = config.extra.expanded_navs | map(attribute='title') | list %}
 
+  <!-- Hide navigation if configured  -->
+  {% if config.extra.hide_navs and nav_item.title in config.extra.hide_navs %}
+    {% set hide_nav = config.extra.hide_navs[nav_item.title] %}
+
+    {% if 'level' not in hide_nav or hide_nav.level == level %}
+      {% set hide_nav_class = "md-nav--hide" %}
+    {% endif %}
+  {% endif %}
+
   <!-- Main navigation item with nested items -->
   {% if nav_item.children %}
 
@@ -94,15 +103,6 @@
 
     {% if nav_item.title in expanded_nav_titles %}
       {% set class = class ~ " md-nav--expanded-section" %}
-    {% endif %}
-
-    <!-- Hide navigation if configured  -->
-    {% if config.extra.hide_navs and nav_item.title in config.extra.hide_navs %}
-      {% set hide_nav = config.extra.hide_navs[nav_item.title] %}
-
-      {% if 'level' not in hide_nav or hide_nav.level == level %}
-        {% set hide_nav_class = "md-nav--hide" %}
-      {% endif %}
     {% endif %}
 
     <!-- Pre-filter the relevant nav entry -->
@@ -313,7 +313,7 @@
 
   <!-- Main navigation item -->
   {% else %}
-    <li class="{{ class }}">
+    <li class="{{ class }} {{ hide_nav_class }}">
       <a href="{{ nav_item.url | url }}" class="md-nav__link">
         <span>
           {% if icon %}
