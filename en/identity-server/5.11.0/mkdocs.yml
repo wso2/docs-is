@@ -780,6 +780,7 @@ nav:
           - 'Renewing a CA-Signed Certificate': administer/renewing-a-ca-signed-certificate-in-a-keystore.md
           - 'Managing Keystores via UI': administer/managing-keystores-with-the-ui.md
           - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
+          - 'Configure Custom Keystores for Authentication Protocols': administer/configure-custom-keystores.md
         - 'Symmetric Encryption': 
           - 'Overview': administer/symmetric-overview.md
           - 'Related Configurations': administer/using-symmetric-encryption.md
