@@ -241,66 +241,76 @@ extra:
       icon: assets/libs/custom-icons/mcp.svg
 
   integrations:
-    - name: Auth React SDK
-      icon: assets/img/logo/react-logo.svg
-      description: An SDK to integrate {{ product_name }} into React applications
-      documentation_link: get-started/try-your-own-app/react/
-      download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/download/v5.2.3/asgardeo-react-app.zip
-      source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
-    - name: Auth SPA SDK
-      icon: assets/img/logo/javascript-logo.svg
-      description: An SDK to integrate {{ product_name }} into single page applications
-      documentation_link: get-started/try-your-own-app/javascript/
-      download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
-      source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
-    - name: Angular OAuth2 OIDC
-      icon: assets/img/logo/angular-logo.svg
-      description: A library for implementing OAuth2 and OIDC in Angular applications
-      source_link: https://github.com/manfredsteyer/angular-oauth2-oidc
-    - name: Next Auth
-      icon: assets/img/logo/nextjs-logo.svg
-      dark_icon: assets/img/logo/nextjs-logo-dark.svg
-      description: A library for implementing OAuth2 and OIDC in NextJS applications
-      source_link: https://github.com/nextauthjs/next-auth
-    - name: Auth Node SDK
-      icon: assets/img/logo/expressjs-logo.svg
-      dark_icon: assets/img/logo/expressjs-logo-dark.svg
-      description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
-      source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
-    - name: Tomcat OIDC Agent
-      icon: assets/img/logo/java-logo.svg
-      description: A Tomcat agent for implementing login/logout for Tomcat web apps
-      documentation_link: get-started/try-your-own-app/java-ee-oidc/
-      download_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war
-      source_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent
-    - name: Tomcat SAML Agent
-      icon: assets/img/logo/java-logo.svg
-      description: A SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
-      documentation_link: get-started/try-your-own-app/java-ee-saml/
-      download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
-      source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
-    - name: Flutter AppAuth
-      icon: assets/img/logo/flutter-logo.svg
-      description: A wrapper for native AppAuth SDKs to integrate OAuth2 and OIDC providers into Flutter apps
-      source_link: https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth
-    - name: React Native AppAuth
-      icon: assets/img/logo/react-logo.svg
-      description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
-      source_link: https://github.com/FormidableLabs/react-native-app-auth
-    - name: AppAuth Android
-      icon: assets/img/logo/android-logo.svg
-      description: A client SDK to integrate OAuth2 and OIDC providers into Android applications
-      source_link: https://github.com/openid/AppAuth-Android
-    - name: AppAuth iOS
-      icon: assets/img/logo/apple-idp-illustration.svg
-      dark_icon: assets/img/logo/apple-logo-dark.svg
-      description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
-      source_link: https://github.com/openid/AppAuth-iOS
-    - name: Android Mobile UI SDK
-      icon: assets/img/logo/android-logo.svg
-      description: A client SDK to integrate {{ product_name }} into Android mobile applications using "app-native authentication"
-      documentation_link: https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html
-      source_link: https://github.com/asgardeo/mobile-ui-sdks/tree/main/android
+    - in_house:
+        - heading: By {{ product_name }}
+        - description: Official SDKs developed and maintained by the {{ product_name }} team for seamless integration.
+        - integrations:
+            - name: Auth React SDK
+              icon: assets/img/logo/react-logo.svg
+              description: An SDK to integrate {{ product_name }} into React applications
+              documentation_link: get-started/try-your-own-app/react/
+              download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/download/v5.2.3/asgardeo-react-app.zip
+              source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
+            - name: Auth SPA SDK
+              icon: assets/img/logo/javascript-logo.svg
+              description: An SDK to integrate {{ product_name }} into single page applications
+              documentation_link: get-started/try-your-own-app/javascript/
+              download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
+              source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
+            - name: Auth Node SDK
+              icon: assets/img/logo/expressjs-logo.svg
+              dark_icon: assets/img/logo/expressjs-logo-dark.svg
+              description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
+              source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
+            - name: Tomcat OIDC Agent
+              icon: assets/img/logo/java-logo.svg
+              description: A Tomcat agent for implementing login/logout for Tomcat web apps
+              documentation_link: get-started/try-your-own-app/java-ee-oidc/
+              download_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war
+              source_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent
+            - name: Tomcat SAML Agent
+              icon: assets/img/logo/java-logo.svg
+              description: A SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
+              documentation_link: get-started/try-your-own-app/java-ee-saml/
+              download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
+              source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
+            - name: Android Mobile UI SDK
+              icon: assets/img/logo/android-logo.svg
+              description: Android SDK for app-native authentication with {{ product_name }}.
+              documentation_link: https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html
+              source_link: https://github.com/asgardeo/mobile-ui-sdks/tree/main/android
+    - community:
+        - heading: Community SDKs
+        - description: Third-party SDKs built by the community to support OIDC and OAuth integration with any provider.
+        - integrations:
+          - name: Angular OAuth2 OIDC
+            icon: assets/img/logo/angular-logo.svg
+            description: A library for implementing OAuth2 and OIDC in Angular applications
+            source_link: https://github.com/manfredsteyer/angular-oauth2-oidc
+          - name: Next Auth
+            icon: assets/img/logo/nextjs-logo.svg
+            dark_icon: assets/img/logo/nextjs-logo-dark.svg
+            description: A library for implementing OAuth2 and OIDC in NextJS applications
+            source_link: https://github.com/nextauthjs/next-auth
+          - name: Flutter AppAuth
+            icon: assets/img/logo/flutter-logo.svg
+            description: An SDK to integrate OAuth2 and OIDC providers with Flutter apps
+            documentation_link: tutorials/auth-users-into-flutter-apps/
+            source_link: https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth
+          - name: React Native AppAuth
+            icon: assets/img/logo/react-logo.svg
+            description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
+            source_link: https://github.com/FormidableLabs/react-native-app-auth
+          - name: AppAuth Android
+            icon: assets/img/logo/android-logo.svg
+            description: A client SDK to integrate OAuth2 and OIDC providers into Android applications
+            source_link: https://github.com/openid/AppAuth-Android
+          - name: AppAuth iOS
+            icon: assets/img/logo/apple-idp-illustration.svg
+            dark_icon: assets/img/logo/apple-logo-dark.svg
+            description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
+            source_link: https://github.com/openid/AppAuth-iOS
+
   redoc_theme: '{
     "colors": {
       "primary": { "main": "#ff7300" }
