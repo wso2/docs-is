@@ -97,11 +97,26 @@ Follow the steps below to send an OIDC logout request:
     <td>Yes</td>
     </tr>
     <tr class="even">
+    <td><code>               client_id              </code></td>
+    <td><div class="content-wrapper">
+    <p>The client ID obtained when registering the application in WSO2 Identity Server.</p>
+    <div class="admonition note">
+	<p class="admonition-title">Note</p>
+    <p>To use the <code>                 client_id                </code> as a logout parameter, add the following configurations to the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml                </code> file.</p>
+    ```toml
+    [oauth.oidc.logout_params]
+    use_client_id=true
+    ```
+    </div>
+    </div></td>
+    <td>Yes (if the <code>                 id_token_hint                </code> is not included)</td>
+    </tr>
+    <tr class="odd">
     <td><code>               id_token_hint              </code></td>
     <td>The <code>               id_token              </code> returned by the identity provider.</td>
     <td>Yes</td>
     </tr>
-    <tr class="odd">
+    <tr class="even">
     <td><code>               post_logout_redirect_uri              </code></td>
     <td><div class="content-wrapper">
     <p>The URL to be redirected to when logging out. The value defined here should be the same as the <code>                 callbackURI                </code> of the client application.</p>
@@ -112,7 +127,7 @@ Follow the steps below to send an OIDC logout request:
     </div></td>
     <td>Yes</td>
     </tr>
-    <tr class="even">
+    <tr class="odd">
     <td><code>               state              </code></td>
     <td>The parameter passed from the application to the identity provider to maintain any state information. This is used to correlate the logout requests and responses. If the state parameter is defined as <code>               state_1              </code>, the logout request and response both have <code>               state_1              </code> in them. This makes it easy for the client to identify the request and responses.</td>
     <td>No</td>
