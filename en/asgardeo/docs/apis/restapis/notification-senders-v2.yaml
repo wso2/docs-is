@@ -24,7 +24,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/view <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+            * internal_notification_senders_view
       operationId: getEmailSenders
       responses:
         "200":
@@ -75,7 +75,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/add <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_add
+            * internal_notification_senders_create
       operationId: createEmailSender
       requestBody:
         content:
@@ -148,7 +148,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/view <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+            * internal_notification_senders_view
       operationId: getEmailSender
       parameters:
         - name: sender-name
@@ -209,7 +209,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/update <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_update
+            * internal_notification_senders_update
       operationId: updateEmailSender
       parameters:
         - name: sender-name
@@ -285,7 +285,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/delete <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_delete
+            * internal_notification_senders_delete
       operationId: deleteEmailSender
       parameters:
         - name: sender-name
@@ -337,7 +337,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/view <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+            * internal_notification_senders_view
       operationId: getSMSSenders
       responses:
         "200":
@@ -384,7 +384,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/add <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_add
+            * internal_notification_senders_create
       operationId: createSMSSender
       requestBody:
         content:
@@ -455,7 +455,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/view <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+            * internal_notification_senders_view
       operationId: getSMSSender
       parameters:
         - name: sender-name
@@ -511,7 +511,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/update <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_update
+            * internal_notification_senders_update
       operationId: updateSMSSender
       parameters:
         - name: sender-name
@@ -585,7 +585,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/delete <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_delete
+            * internal_notification_senders_delete
       operationId: deleteSMSSender
       parameters:
         - name: sender-name
@@ -637,7 +637,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/view <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+            * internal_notification_senders_view
       operationId: getPushSenders
       responses:
         "200":
@@ -683,7 +683,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/add <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_add
+            * internal_notification_senders_create
       operationId: createPushSender
       requestBody:
         content:
@@ -747,7 +747,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/view <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_view
+            * internal_notification_senders_view
       operationId: getPushSender
       parameters:
         - name: sender-name
@@ -803,7 +803,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/update <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_update
+            * internal_notification_senders_update
       operationId: updatePushSender
       parameters:
         - name: sender-name
@@ -870,7 +870,7 @@ paths:
           <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/configmgt/delete <br>
           <b>Scope required:</b> <br>
-            * internal_config_mgt_delete
+            * internal_notification_senders_delete
       operationId: deletePushSender
       parameters:
         - name: sender-name
