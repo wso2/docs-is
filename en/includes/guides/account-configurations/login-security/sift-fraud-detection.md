@@ -25,7 +25,7 @@ To enable Sift fraud detection:
 
 1. On the Asgardeo Console, go to **Applciations**.
 2. Go to the **Login Flow** tab of the application and enable **Conditional Authentication**.
-3. Add a conditional authentication script. Refer to the sample conditional authentication scripts [here](./sift-fraud-detection.md/#sample-conditional-authentication-scripts).
+3. Add a conditional authentication script. Refer to the sample conditional authentication scripts [here](#sample-conditional-authentication-scripts).
 
     !!! note
 
@@ -37,6 +37,15 @@ To enable Sift fraud detection:
 ## Conditional Authentication Functions 
 
 {{product_name}} offers the following Sift-related functions that can be utilized in your conditional authentication scripts, enabling seamless integration with user login flows.
+
+**`getSiftRiskScoreForLogin()`**
+
+- This function returns the Sift risk score for a given login event, which is a value between 0 and 1. Higher the score, greater the risk.
+- If an error occurs due to an invalid API key, network issue or a Sift server issue, this function returns a value of -1.
+- The function takes the following arguments.
+    - `AuthenticationContext` - current authentication context.
+    - `LoginStatus` - Whether the user authentication was successful or not. Accepted values `LOGIN_SUCCESS`, `LOGIN_FAILED`.
+    - `AdditionalParameters` - Any additional parameters in the form of key-value pairs that need to be sent to Sift.
 
 **`getSiftRiskScoreForLogin()`**
 
