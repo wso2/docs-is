@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Notification Senders API
+  title: Notification Senders V2 API
   description: This document specifies **Email, SMS and Push notification sender RESTful API** for **Asgardeo**
   version: "v2"
 servers:
