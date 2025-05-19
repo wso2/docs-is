@@ -47,14 +47,14 @@ To enable Sift fraud detection:
     - `LoginStatus` - Whether the user authentication was successful or not. Accepted values `LOGIN_SUCCESS`, `LOGIN_FAILED`.
     - `AdditionalParameters` - Any additional parameters in the form of key-value pairs that need to be sent to Sift.
 
-**`getSiftRiskScoreForLogin()`**
+**`getSiftWorkflowDecision()`**
 
-- This function returns the Sift risk score for a given login event, which is a value between 0 and 1. Higher the score, greater the risk.
-- If an error occurs due to an invalid API key, network issue or a Sift server issue, this function returns a value of -1.
+- This function returns the Sift decision ID for a given login event. The decision ID is a unique identifier for the decision selected for the login event during the workflow execution. Workflows and decisions can be configured through the Sift console.
+- If an error occurs due to an invalid API key, network issue or a Sift server issue, this function returns a null value.
 - The function takes the following arguments.
-    - `AuthenticationContext` - current authentication context.
-    - `LoginStatus` - Whether the user authentication was successful or not. Accepted values `LOGIN_SUCCESS`, `LOGIN_FAILED`.
-    - `AdditionalParameters` - Any additional parameters in the form of key-value pairs that need to be sent to Sift.
+    - AuthenticationContext - current authentication context.
+    - LoginStatus - Whether the user authentication was successful or not. Accepted values LOGIN_SUCCESS, LOGIN_FAILED.
+    - AdditionalParameters - Any additional parameters can be sent to Sift.
 
 **`publishLoginEventInfoToSift`**
 
