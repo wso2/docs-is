@@ -242,7 +242,7 @@ extra:
 
   integrations:
     - in_house:
-        - heading: By {{ product_name }}
+        - heading: "{{ product_name }} SDKs"
         - description: Official SDKs developed and maintained by the {{ product_name }} team for seamless integration.
         - integrations:
             - name: Auth React SDK

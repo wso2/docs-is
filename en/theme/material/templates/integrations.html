@@ -27,6 +27,22 @@
 <div class="md-content">
   <div class="md-content__inner md-typeset">
     <div class="integrations-list-container">
+      <h2>SDKs</h2>
+
+      <p>{{ config.extra.product_name }} simplifies application integration by offering Software Development Kits (SDKs) that handle
+        authentication in your apps. These SDKs abstract away protocol-level complexities,
+        making it easier and faster for developers to connect their applications to {{ config.extra.product_name }}.</p>
+
+      <p>{{ config.extra.product_name }} officially supports a set of popular programming languages and frameworks by providing and maintaining
+        its own SDKs. These SDKs are kept up-to-date, tested for reliability, and supported as part of the platform.</p>
+
+      <p>For other languages and platforms that do not yet have an official SDK, developers can use community-maintained
+        OAuth/OIDC SDKs to integrate with {{ config.extra.product_name }}. While these SDKs are not maintained by {{ config.extra.product_name }}, they can
+        still offer a reliable way to connect applications.</p>
+
+      <p>We are continuously working on expanding official SDK support to cover as many languages and frameworks as
+        possible.</p>
+
       {% for section in config.extra.integrations %}
       {% if 'in_house' in section %}
       {% for block in section.in_house %}
