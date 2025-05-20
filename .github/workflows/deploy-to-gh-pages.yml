@@ -7,19 +7,9 @@ on:
     paths:
       - 'en/asgardeo/**'
   workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Deployment environment'
-        required: true
-        default: 'development'
-        type: choice
-        options:
-          - development
-          - production
 
 env:
   PYTHON_VERSION: '3.12'
-  ENABLE_HOOKS: ${{ github.event.inputs.environment == 'production' }}
 
 jobs:
   deploy:
@@ -42,6 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          ls
           python -m pip install --upgrade pip
           pip install -r en/asgardeo/requirements.txt
 
