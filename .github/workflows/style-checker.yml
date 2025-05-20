@@ -31,26 +31,33 @@ jobs:
       - name: Get changed Markdown files
         id: changed
         run: |
-          git fetch origin ${{ github.base_ref }}
-          git diff --name-only origin/${{ github.base_ref }}...HEAD -- '*.md' > changed_files.txt
-          echo "Changed files:"
-          cat changed_files.txt
-
-      - name: Run Vale on changed files and save output
-        id: vale
+            git fetch origin ${{ github.base_ref }}
+            git diff --name-only origin/${{ github.base_ref }}...HEAD -- '*.md' > changed_files.txt
+            echo "Changed files:"
+            cat changed_files.txt
+        
+      - name: Run Vale on changed Markdown files
         run: |
-          if [ -s changed_files.txt ]; then
-            echo "## Vale Lint Report" > vale_report.md
-            echo "" >> vale_report.md
-            vale $(cat changed_files.txt) >> vale_report.md || true
-          else
-            echo "No Markdown files changed." > vale_report.md
-          fi
-
-      - name: Comment on PR with Vale results
-        if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr comment ${{ github.event.pull_request.number }} \
-            --body-file vale_report.md
+            if [ -s changed_files.txt ]; then
+              echo "Running Vale on:"
+              cat changed_files.txt
+        
+              # Run Vale on each file individually (safer than passing all at once)
+              fail=0
+              while read -r file; do
+                echo "::group::Vale output for $file"
+                vale --config=.vale/.vale.ini "$file" || fail=1
+                echo "::endgroup::"
+              done < changed_files.txt
+        
+              if [ "$fail" -ne 0 ]; then
+                echo "❌ Vale style issues found."
+                exit 1
+              else
+                echo "✅ No Vale issues found."
+              fi
+            else
+              echo "No changed Markdown files found."
+            fi
+        
+        
