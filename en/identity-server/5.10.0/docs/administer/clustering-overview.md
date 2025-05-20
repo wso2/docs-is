@@ -1,4 +1,4 @@
-# Clustering overview
+# Clustering Overview
 
 ## Introduction to clustering
 
