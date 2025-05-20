@@ -73,10 +73,10 @@ jobs:
 
       - name: 🌩 Upload artifact
         id: upload-artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: en/asgardeo/site
 
       - name: 🔥 Deploy to GitHub Pages
         id: deploy-gh-pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
