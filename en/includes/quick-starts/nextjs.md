@@ -200,13 +200,13 @@ export default function RootLayout({
 }
 ```
 
-## Add `SignIn` and `SignOut` buttons to your app
+## Add `SignInButton` and `SignOutButton` buttons to your app
 
-To add sign-in and sign-out buttons to your app, you can use the `SignIn` and `SignOut` components provided by the Asgardeo SDK.
+To add sign-in and sign-out buttons to your app, you can use the `SignInButton` and `SignOutButton` components provided by the Asgardeo SDK.
 
 ```javascript title="app/layout.tsx" hl_lines="31-39"
 import type { Metadata } from 'next'
-import { AsgardeoProvider, SignedIn, SignedOut, SignIn, SignOut } from '@asgardeo/react'
+import { AsgardeoProvider, SignedIn, SignedOut, SignInButton, SignOutButton } from '@asgardeo/react'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
@@ -236,10 +236,10 @@ export default function RootLayout({
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <header>
             <SignedIn>
-              <SignOut />
+              <SignOutButton />
             </SignedIn>
             <SignedOut>
-              <SignIn />
+              <SignInButton />
             </SignedOut>
             <SignedIn>
               <UserDropdown />
@@ -301,10 +301,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 Then, update `page.tsx` with the following highlighted line to display the username of logged in user.  
 
 ```javascript title="app/sign-in/[[...sign-in]]/page.tsx"
-import { SignIn } from '@asgardeo/next'
+import { SignInButton } from '@asgardeo/next'
 
 export default function Page() {
-  return <SignIn />
+  return <SignInButton />
 }
 ```
 

@@ -130,17 +130,17 @@ Asgardeo SDK provides `useAsgardeo` hook to conveniently access user authenticat
 Replace the existing content of the `App.jsx` file with following content.
 
 ```javascript title="src/App.jsx"  hl_lines="1 7-12"
-import { SignedIn, SignedOut, SignIn, SignOut } from '@asgardeo/react'
+import { SignedIn, SignedOut, SignInButton, SignOutButton } from '@asgardeo/react'
 import './App.css'
 
 function App() {
   return (
     <>
       <SignedIn>
-        <SignOut />
+        <SignOutButton />
       </SignedIn>
       <SignedOut>
-        <SignIn />
+        <SignInButton />
       </SignedOut>
     </>
   )
@@ -170,10 +170,10 @@ function App() {
     <>
       <SignedIn>
         <p>Welcome {user.username}</p>
-        <SignOut />
+        <SignOutButton />
       </SignedIn>
       <SignedOut>
-        <SignIn />
+        <SignInButton />
       </SignedOut>
     </>
   )
