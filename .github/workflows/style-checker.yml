@@ -1,0 +1,27 @@
+name: Vale Lint (Markdown Only)
+
+on:
+    pull_request:
+      paths:
+        - '**.md'
+
+jobs:
+    vale:
+        name: Vale style check
+        runs-on: ubuntu-latest
+    
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v4
+              with:   
+                  fetch-depth: 0
+
+            - name: Vale
+              uses: errata-ai/vale-action@reviewdog
+              with:
+                files: en/
+                vale_flags: --glob=!*/*-fr/*
+                filter_mode: nofilter
+                reporter: github-pr-check
+              env:
+                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

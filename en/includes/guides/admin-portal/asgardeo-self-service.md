@@ -1,6 +1,6 @@
 # Self-service for owners and administrators
 
-If you are an owner or an administrator in an {{ product_name }} organization, go to the [My Account portal](https://myaccount.asgardeo.io){:target="_blank"} to easily access and self-manage your information from anywhere.
+If you are an owner or an administrator in an {{ product_name }} organization, go to the [My Account portal](https://myaccount.asgardeo.io){:target="_blank"} to easily access and self-manage your information from anywhere. testing-one
 
 You can perform the following activities on this portal:
 - Update profile information
