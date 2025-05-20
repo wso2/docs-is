@@ -60,12 +60,6 @@ jobs:
           cd en/asgardeo
           mkdocs build
           cd ../../
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: 'en/asgardeo/site'
           
       - name: ⚙️ Setup Pages
         id: setup-pages
