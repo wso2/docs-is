@@ -1,5 +1,8 @@
 # Configure Custom Keystores for Authentication Protocols
 
+!!! info
+    This capability is available as an update in WSO2 IS 5.11.0 from update level **5.11.0.400** onwards (Updates 2.0 model). See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+
 By default, WSO2 Identity Server uses the private key and certificate from the primary keystore in all authentication flows such as,
 
 - Signing JWT tokens in OAuth authentication flows
