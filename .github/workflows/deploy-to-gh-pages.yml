@@ -9,15 +9,33 @@ on:
 env:
   PYTHON_VERSION: '3.12'
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: ⬇️ Checkout
+        id: checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -42,15 +60,23 @@ jobs:
           cd en/asgardeo
           mkdocs build
           cd ../../
-          
-      - name: Zip the Documentation
-        run: |
-          mkdir -p out/asgardeo/docs
-          cp -r ./en/asgardeo/site/* out/asgardeo/docs/
-          zip -r asgardeo-docs.zip ./out
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: 'en/asgardeo/site'
+          
+      - name: ⚙️ Setup Pages
+        id: setup-pages
+        uses: actions/configure-pages@v3
+
+      - name: 🌩 Upload artifact
+        id: upload-artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: en/asgardeo/site
+
+      - name: 🔥 Deploy to GitHub Pages
+        id: deploy-gh-pages
+        uses: actions/deploy-pages@v1
