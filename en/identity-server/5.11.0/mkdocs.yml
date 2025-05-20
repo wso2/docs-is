@@ -215,7 +215,7 @@ nav:
           - 'Configuring Facebook': learn/configuring-facebook.md
           - 'Configuring Yahoo': learn/configuring-yahoo.md
           - 'Configuring Google': learn/configuring-google.md
-          - 'Configuring Microsoft Windows Live': learn/configuring-microsoft-windows-live.md
+          - 'Configuring Microsoft login': learn/configuring-microsoft-login.md
           - 'Configuring IWA on Linux': learn/configuring-iwa-on-linux.md
           - 'Configuring AD FS as a Federated Authenticator': learn/configuring-ad-fs-as-a-federated-authenticator.md
           - 'Configuring Twitter': learn/configuring-twitter.md
@@ -721,6 +721,7 @@ nav:
       - 'Configuring Cache Layers': setup/configuring-cache-layers.md
     - 'Security':
         - 'Maintaining Logins and Passwords': setup/maintaining-logins-and-passwords.md
+        - 'Recover Super Admin Account': setup/recover-super-admin-account.md
         - 'Securing Passwords in Configuration Files':
             - 'Encrypting Passwords with Cipher Tool': setup/encrypting-passwords-with-cipher-tool.md
             - 'Resolving Encrypted Passwords': setup/resolving-encrypted-passwords.md
@@ -779,6 +780,7 @@ nav:
           - 'Renewing a CA-Signed Certificate': administer/renewing-a-ca-signed-certificate-in-a-keystore.md
           - 'Managing Keystores via UI': administer/managing-keystores-with-the-ui.md
           - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
+          - 'Configure Custom Keystores for Authentication Protocols': administer/configure-custom-keystores.md
         - 'Symmetric Encryption': 
           - 'Overview': administer/symmetric-overview.md
           - 'Related Configurations': administer/using-symmetric-encryption.md

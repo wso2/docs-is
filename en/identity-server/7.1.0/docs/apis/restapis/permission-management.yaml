@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  description: >
+    This document specifies a **UI Permission Management RESTful API** for **WSO2 Identity Server** 
+  version: "v1"
+  title: Permission Management API
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /permission-management/permissions:
+    get:
+      tags:
+        - permissions
+      summary: |
+        List permissions in the permission tree
+      description: >
+        This API provides the array list of permissions in the UI permission
+        tree.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionTreeObject'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/permission-management/permissions' \
+            -H 'accept: application/json'
+      x-wso2-request: ''
+      x-wso2-response: |
+        "HTTP/1.1 200 Ok"
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
+  schemas:
+    PermissionTreeObject:
+      type: array
+      items:
+        $ref: '#/components/schemas/Permission'
+
+    Permission:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: admin permissions
+        resourcePath:
+          type: string
+          example: /permissions
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+

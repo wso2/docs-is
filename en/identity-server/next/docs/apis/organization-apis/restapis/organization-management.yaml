@@ -58,7 +58,7 @@ paths:
             curl --location 'https://localhost:9443/o/api/server/v1/organizations' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "name": "ABC Builders",
               "description": "Building constructions",
@@ -118,7 +118,7 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v1/organizations' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /organizations/check-name:
     post:
       summary: Check organization with given name exist among the organizations hierarchy.
@@ -161,7 +161,7 @@ paths:
             curl --location 'https://localhost:9443/o/api/server/v1/organizations/check-name' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "name": "XYZ Builders"
             }'
@@ -207,7 +207,7 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v1/organizations/{organization-id}' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
     patch:
       description: |
         This API provides the capability to update an organization property
@@ -275,7 +275,7 @@ paths:
             curl --location --request PATCH 'https://localhost:9443/o/api/server/v1/organizations/{organization-id}' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '[
               {
                 "operation": "REPLACE",
@@ -358,7 +358,7 @@ paths:
             curl --location --request PUT 'https://localhost:9443/o/api/server/v1/organizations/{organization-id}' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "name": "ABCD Builders",
               "description": "Building constructions company",
@@ -406,7 +406,7 @@ paths:
           source: |
             curl --location --request DELETE 'https://localhost:9443/o/api/server/v1/organizations/{organization-id}' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /organizations/metadata:
     get:
       tags:
@@ -436,7 +436,7 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v1/organizations/metadata' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /organizations/meta-attributes:
     get:
       tags:
@@ -481,7 +481,7 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v1/organizations/meta-attributes' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   parameters:
     filterQueryParam:
@@ -588,6 +588,9 @@ components:
         name:
           type: string
           example: "ABC Builders"
+        orgHandle:
+          type: string
+          example: "abcbuilders"
         description:
           type: string
           example: "Building constructions"
@@ -624,6 +627,9 @@ components:
         name:
           type: string
           example: "ABCD Builders"
+        orgHandle:
+          type: string
+          example: "abcbuilders"
         description:
           type: string
           example: "Building constructions company"
@@ -696,6 +702,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - ref
       properties:
@@ -705,6 +712,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         status:
           type: string
           enum: [ ACTIVE, DISABLED ]
@@ -721,6 +731,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - created
         - lastModified
@@ -732,6 +743,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -762,6 +776,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - created
         - lastModified
@@ -773,6 +788,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -890,6 +908,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - created
         - lastModified
@@ -901,6 +920,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'

@@ -43,7 +43,8 @@ jobs:
           set +e
           
           SITE_URL=${{ github.event.inputs.siteUrl || env.DEFAULT_URL }}
-          linkchecker -F html $SITE_URL --threads=100
+          # ignore relative paths during link checking
+          linkchecker -F html $SITE_URL --threads=100 --ignore-url='^(\.{1,2})(/[^\s]*)?$|^(\.{1,2})$'
         continue-on-error: true
 
       - name: Filter HTML for specific string and preserve page structure
@@ -85,7 +86,7 @@ jobs:
           echo "broken_links_count=$BROKEN_LINKS_COUNT" >> $GITHUB_ENV
 
       - name: Upload HTML as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: broken_links_report_Asgardeo
           path: broken_links_report_Asgardeo.html

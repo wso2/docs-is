@@ -2779,6 +2779,65 @@ paths:
             'https://localhost:9443/api/server/v1/applications/meta/adaptive-auth-templates' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /applications/meta/groups:
+    get:
+      tags:
+        - Application Metadata
+      summary: |
+        Retrieve the list of groups available for the application.
+      description: >
+        This API provides the capability to retrieve the list of groups available for the application. <br>
+          <b>Scope(Permission) required:</b> `internal_application_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/domainQueryParam'
+        - $ref: '#/components/parameters/groupsFilterQueryParam'
+      operationId: getGroups
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroupBasicInfo'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/applications/meta/groups' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/templates:
     get:
       tags:
@@ -3878,6 +3937,28 @@ components:
         /applications?filter=name+co+prod+or+clientId+co+123
       schema:
         type: string
+    domainQueryParam:
+      in: query
+      name: domain
+      required: false
+      description: |
+        The domain name of the user store used to filter the groups.
+
+        /applications/meta/groups?domain=PRIMARY
+      schema:
+        type: string
+    groupsFilterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description: |
+        Condition to filter the retrieval of records.
+        Supports only the 'co' operation.
+        Currently supports only filtering based on the 'name'.
+
+        /applications/meta/groups?filter=name+co+Employee
+      schema:
+        type: string
     sortOrderQueryParam:
       in: query
       name: sortOrder
@@ -4316,6 +4397,11 @@ components:
           type: boolean
           example: false
           description: Decides whether the application is visible for end users.
+        discoverableGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiscoverableGroup'
+          description: List of groups from user stores where users in those groups can discover the application.
         certificate:
           $ref: '#/components/schemas/Certificate'
         skipLoginConsent:
@@ -5520,6 +5606,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - ref
       properties:
@@ -5529,6 +5616,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         status:
           type: string
           enum: [ ACTIVE, DISABLED ]
@@ -5536,6 +5626,35 @@ components:
         ref:
           type: string
           example: '/t/wso2.com/api/server/v1/organizations/b4526d91-a8bf-43d2-8b14-c548cf73065b'
+    DiscoverableGroup:
+      type: object
+      required:
+        - userStore
+        - groups
+      properties:
+        userStore:
+          type: string
+          description: The user store domain to which the groups belong.
+          example: "PRIMARY"
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupBasicInfo'
+          minItems: 1
+          description: List of groups configured for discoverability.
+    GroupBasicInfo:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the group.
+          example: "bf5abd05-3667-4a2a-a6c2-2fb9f4d26e47"
+        name:
+          type: string
+          description: The name of the group.
+          example: "GroupA"
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:

@@ -41,24 +41,47 @@ The `travelocity.com` application should reside in the internal IdP. Follow the 
 
 3. Configure the following:
 
-    <table>
-        <tr>
-            <td>Name</td>
-            <td><code>travelocity.com</code></td>
-        </tr>
-        <tr>
-            <td>Protocol</td>
-            <td>SAML</td>
-        </tr>
-        <tr>
-            <td>Issuer</td>
-            <td><code>travelocity.com</code></td>
-        </tr>
-        <tr>
-            <td>Assertion consumer service URLs</td>
-            <td><code>http://localhost:8080/travelocity.com/home.jsp</code></td>
-        </tr>
-    </table>
+    === "SAML application"
+
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>travelocity.com</td>
+            </tr>
+            <tr>
+                <td>Protocol</td>
+                <td>SAML</td>
+            </tr>
+            <tr>
+                <td>Issuer</td>
+                <td>travelocity.com</td>
+            </tr>
+            <tr>
+                <td>Assertion consumer service URLs</td>
+                <td>http://localhost:8080/travelocity.com/home.jsp</td>
+            </tr>
+        </table>
+
+    === "OIDC application"
+
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>travelocity.com</td>
+            </tr>
+            <tr>
+                <td>Protocol</td>
+                <td>OIDC</td>
+            </tr>
+            <tr>
+                <td>Allowed Grant Types</td>
+                <td>Code</td>
+            </tr>
+            <tr>
+                <td>Authorized redirect URLs</td>
+                <td>http://localhost:8080/travelocity.com/home.jsp</td>
+            </tr>
+        </table>
 
 4. Click **Create**.
 
@@ -140,27 +163,62 @@ To do so, follow the steps below in the external IdP.
 
 2. Click on **New Application** and select **Standard-Based Application**.
 
-3. Provide `Internal` as the name and select **SAML** as the protocol.
-
 3. Configure the following:
 
-    <table>
-        <thead>
-            <th>Parameter</th>
-            <th>Description</th>
-            <th>Value</th>
-        </thead>
-        <tr>
-            <td>Issuer</td>
-            <td>The ID of the application. In this instance, this application consumes the SAML assertion sent by the external IdP and therefore should match the <code>Service Provider Entity ID</code> that was configured when registering the external IdP as a connector (steps in the section above).</td>
-            <td><code>Internal</code></td>
-        </tr>
-        <tr>
-            <td>Assertion consumer service URLs</td>
-            <td>This is the URL that consumes the assertion sent by the IdP.</td>
-            <td><code>https://localhost:9443/samlsso?spEntityID=travelocity.com</code></td>
-        </tr>
-    </table>
+    === "SAML Application"
+
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Internal</td>
+            </tr>
+            <tr>
+                <td>Protocol</td>
+                <td>SAML</td>
+            </tr>
+            <tr>
+                <td>Issuer</td>
+                <td>Internal</td>
+            </tr>
+            <tr>
+                <td>Assertion consumer service URLs</td>
+                <td>
+                    https://localhost:9443/samlsso?spEntityID=travelocity.com <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Default Assertion Consumer URL</td>
+                <td>https://localhost:9443/samlsso?spEntityID=travelocity.com</td>
+            </tr>
+        </table>
+
+    === "OIDC Application"
+
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Internal</td>
+            </tr>
+            <tr>
+                <td>Protocol</td>
+                <td>SAML</td>
+            </tr>
+            <tr>
+                <td>Issuer</td>
+                <td>Internal</td>
+            </tr>
+            <tr>
+                <td>Assertion consumer service URLs</td>
+                <td>https://localhost:9443/oauth2/authorize?response_type=code&client_id=<client_id>&scope=openid&redirect_uri=<redirect_url></td>
+            </tr>
+            <tr>
+                <td>Default Assertion Consumer URL</td>
+                <td>https://localhost:9443/oauth2/authorize?response_type=code&client_id=<client_id>&scope=openid&redirect_uri=<redirect_url></td>
+            </tr>
+        </table>
+
+    !!! note
+        Add `https://localhost:9443/commonauth` endpoint to Assertion consumer service URLs support the SP initiated SSO flow as well.
 
 4. Click **Create**.
 
@@ -187,15 +245,32 @@ Follow the steps below to download and run the `travelocity.com` application:
 2. Copy the `travelocity.war` file into `<WEBAPPS>`.
 
     !!! note
-        In order to be consistent with the configurations above,
 
-        - Rename the `travelocity.war` file as `travelocity.com.war`.
+        === "SAML Application"
 
-        - Change the following configs in the `<WEBAPPS>/travelocity.com/WEB-INF/classes/travelocity.properties`.
-        ```properties
-        SAML2.EnableSLO=false
-        SAML2.EnableResponseSigning=false
-        ```
+            In order to be consistent with the configurations above,
+
+            - Rename the `travelocity.war` file as `travelocity.com.war`.
+
+            - Change the following configs in the `<WEBAPPS>/travelocity.com/WEB-INF/classes/travelocity.properties`.
+            ```properties
+            SAML2.EnableSLO=false
+            SAML2.EnableResponseSigning=false
+            ```
+
+        === "OIDC Application"
+
+            In order to be consistent with the configurations above,
+
+            - Rename the `travelocity.war` file as `travelocity.com.war`.
+
+            - Change the following configs in the `<WEBAPPS>/travelocity.com/WEB-INF/classes/travelocity.properties`.
+            ```properties
+            SAML2.EnableSLO=false
+            SAML2.EnableResponseSigning=false
+            OAuth2.ClientId=<client_id>
+            OAuth2.ClientSecret=<client_secret>
+            ```
 
 3. Restart the Tomcat server.
 
@@ -225,6 +300,3 @@ Follow the steps below to download and run the `travelocity.com` application:
 
     !!! note
         If you already have a user session in your browser, you will be redirected right into the application as an authenticated user.
-
-
-

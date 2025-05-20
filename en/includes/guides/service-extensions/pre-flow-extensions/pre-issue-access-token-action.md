@@ -109,11 +109,6 @@ All request parameters are not incorporated, specially sensitive parameters like
 </td>
 </tr>
 <tr class="odd">
-<td>event.organization</td>
-<td><p>This property refers to the organization to which the user belongs. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.</p>
-</td>
-</tr>
-<tr class="even">
 <td>event.accessToken</td>
 <td><p>This property represents the access token that is about to be issued. It contains claims and scopes, of the access token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
 .</p>
@@ -179,13 +174,33 @@ All request parameters are not incorporated, specially sensitive parameters like
 </table>
 </td>
 </tr>
+<tr class="even">
+<td>event.refreshToken</td>
+<td><p>This property represents the refresh token associated with the token issuance event. It contains the claims related to the refresh token, such as expires_in. These claims can be modified by your external service during the pre-issue access token action based on custom logic.</p>
+<table>
+<tbody>
+<tr>
+<td>claims</td>
+<td><p>This property is an array that contains the claims related to the refresh token.</p>
+<table>
+<tbody>
+<tr>
+<td>expires_in</td>
+<td>The duration (in seconds) for which the refresh token is valid.</td>
+</tr>
+</tbody>
+</table>
+</tbody>
+</table>
+</td>
+</tr>
 </tbody>
 </table>
 
 #### allowedOperations
 <a name="allowed-operations"></a>
 
-The allowedOperations property in the context of the pre-issue access token action defines the set of operations that your external service is permitted to perform on the access token's claims and scopes. This property is specifically related to the <code>event.accessToken</code> property and outlines which attributes can have additional properties added, values replaced, or be removed. The <code>allowedOperations</code> are defined using JSON Patch modification semantics.
+The allowedOperations property in the context of the pre-issue access token action defines the set of operations that your external service is permitted to perform on the access token's claims as well as on certain claims of the refresh token. This property is specifically related to the <code>event.accessToken</code> and <code>event.refreshToken</code> properties and outlines which attributes can have additional properties added, values replaced, or be removed. The <code>allowedOperations</code> are defined using JSON Patch modification semantics.
 
 In the context of the pre-issue access token action, certain claims related to authorization decisions, such as audience (aud), access token validity (expires_in), and scopes (scopes), are allowed to be modified. These claims are typically associated with the resource server and influence how access is granted.
 
@@ -215,7 +230,8 @@ Here is the example of an allowedOperations object in a request formatted as a J
       "paths": [
         "/accessToken/scopes/",
         "/accessToken/claims/aud/",
-        "/accessToken/claims/expires_in"
+        "/accessToken/claims/expires_in",
+        "/refreshToken/claims/expires_in"
       ]
     }
   ]
@@ -302,6 +318,14 @@ Content-Type: application/json
                     "value": "e204849c-4ec2-41f1-8ff7-ec1ebff02821"
                 }
             ]
+        },
+        "refreshToken": {
+            "claims": {
+                {
+                    "name": "expires_in",
+                    "value": 86400
+                }
+            }
         }
     },
     "allowedOperations": [
@@ -325,7 +349,8 @@ Content-Type: application/json
             "paths": [
                 "/accessToken/scopes/",
                 "/accessToken/claims/aud/",
-                "/accessToken/claims/expires_in"
+                "/accessToken/claims/expires_in",
+                "/refreshToken/claims/expires_in"
             ]
         }
     ]

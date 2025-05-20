@@ -34,18 +34,25 @@ Attributes in your organization are mapped to the following SCIM 2.0 schema mapp
 
     {% if product_name == "WSO2 Identity Server" %}
 
-    Custom user attributes in WSO2 Identity Server are created under the `urn:scim:wso2:schema` schema. You can configure this schema in the following ways by updating the `<IS_HOME>/repository/conf/identity/charon-config.xml` file.
+    {% if is_version >= "7.1.0" %}
+    Custom user attributes in WSO2 Identity Server are created under the `urn:scim:schemas:extension:custom:User` schema. 
+    {% else %}
+    Custom user attributes in WSO2 Identity Server are created under the `urn:scim:wso2:schema` schema.
+    {% endif %}
+    You can configure this schema in the following ways by adding configuration to `<IS_HOME>/repository/conf/deployment.toml`
     
-    - To disable this schema, set the following property to `false`.
-
-        ```bash
-        <Property name=\"custom-user-schema-enabled\">false</Property>
+    - To disable this schema,
+         
+        ```toml
+        [scim2]
+        enable_custom_schema_extension = false
         ```
 
-    - To rename this schema, update the following property.
+    - To rename this schema,
 
-        ```bash
-        <Property name=\"custom-user-schema-uri\">urn:scim:custom:schema:new</Property>
+        ```toml
+        [scim2]
+        custom_user_schema_uri = "urn:scim:custom:schema:new"
         ```
     {% endif %}
 

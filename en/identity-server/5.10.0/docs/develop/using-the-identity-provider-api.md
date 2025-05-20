@@ -347,7 +347,7 @@ Permission Level: `           /permission/admin/manage          `
             <ax2392:properties xsi:type="ax2392:Property">
                <ax2392:confidential>true</ax2392:confidential>
                <ax2392:defaultValue xsi:nil="true"/>
-               <ax2392:description>Enter Microsoft Live client secret value</ax2392:description>
+               <ax2392:description>Enter Microsoft login client secret value</ax2392:description>
                <ax2392:displayName>Client Secret</ax2392:displayName>
                <ax2392:name>ClientSecret</ax2392:name>
                <ax2392:required>true</ax2392:required>
@@ -367,7 +367,7 @@ Permission Level: `           /permission/admin/manage          `
             <ax2392:properties xsi:type="ax2392:Property">
                <ax2392:confidential>false</ax2392:confidential>
                <ax2392:defaultValue xsi:nil="true"/>
-               <ax2392:description>Enter Microsoft Live client identifier value</ax2392:description>
+               <ax2392:description>Enter Microsoft login client identifier value</ax2392:description>
                <ax2392:displayName>Client Id</ax2392:displayName>
                <ax2392:name>ClientId</ax2392:name>
                <ax2392:required>true</ax2392:required>

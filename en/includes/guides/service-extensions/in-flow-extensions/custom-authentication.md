@@ -47,7 +47,7 @@ The [custom authentication API contract]({{base_path}}/references/service-extens
 The request and response structure between {{product_name}} and the external service varies based on the authenticator's invocation step and authentication type (e.g., external, internal, 2FA).
 
 !!! tip
-    Utilize the [sample custom authentication service](https://github.com/wso2/samples-is/tree/master/service-extensions/custom-authentication-service) to quickly experiment with custom authentication, understand its workflow, and familiarize yourself with the required request-response format for seamless implementation.
+    Utilize the [sample custom authentication service](https://github.com/asgardeo-samples/asgardeo-service-extension-samples/tree/main/custom-authentication-service-samples/pin-based-authentication-service-express) to quickly experiment with custom authentication, understand its workflow, and familiarize yourself with the required request-response format for seamless implementation.
 
 ## Configuring a custom authenticator
 
@@ -65,7 +65,7 @@ Ensure that you have:
 Your external web service should implement the following to successfully integrate as a custom authenticator.
 
 !!! tip
-    Utilize the [sample custom authentication service](https://github.com/wso2/samples-is/tree/master/service-extensions/custom-authentication-service) to quickly experiment with custom authentication, understand its workflow, and familiarize yourself with the required request-response format for seamless implementation.
+    Utilize the [sample custom authentication service](https://github.com/asgardeo-samples/asgardeo-service-extension-samples/tree/main/custom-authentication-service-samples/pin-based-authentication-service-express) to quickly experiment with custom authentication, understand its workflow, and familiarize yourself with the required request-response format for seamless implementation.
 
 1. Expose an endpoint that accepts HTTP POST requests with JSON payloads. This endpoint should be deployed in a server accessible to {{product_name}}.
 2. To ensure successful integration, your external web service needs to adhere to the [REST API contract]({{base_path}}/references/service-extensions/in-flow-extensions/custom-authentication/api-contract), including correctly handling requests and responses. Refer to [How custom authentication service extension works](#how-custom-authentication-service-extension-works) for an explanation of the invocation flow and [Custom authentication API deep dive](#custom-authentication-api-deep-dive) for detailed API contract information.
@@ -264,7 +264,7 @@ E.g.,
 </tr>
 <tr class="even">
 <td>event.organization</td>
-<td><p>This property refers to the organization to which the authenticating user belongs. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.</p>
+<td><p>This property refers to the organization to which the authenticating user is trying to log into. Organizations represent partners/enterprise customers in Business-to-Business (B2B) use cases.</p>
 </td>
 </tr>
 <tr class="odd">

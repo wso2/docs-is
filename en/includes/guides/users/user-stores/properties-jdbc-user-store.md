@@ -144,5 +144,13 @@ false: Set it to <code>false</code> if the user roles are changed by external me
 <p>Default : false </p>
 </td>
 </tr>
+<tr class="odd">
+<td>IsBulkImportSupported</td>
+<td>properties.</br>IsBulkImportSupported</td>
+<td>IsBulkImportSupported</td>
+<td>Enables bulk import support for the user store.<br/>
+<p>Default : true </p>
+</td>
+</tr>
 </tbody>
 </table>

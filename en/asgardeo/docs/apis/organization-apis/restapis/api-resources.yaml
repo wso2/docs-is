@@ -126,7 +126,7 @@ paths:
           source: |
             curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/api-resources/{apiResourceId}/scopes' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /scopes:
     get:
       tags:
@@ -168,7 +168,7 @@ paths:
           source: |
             curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/scopes' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   parameters:
     organizationId:
@@ -770,9 +770,6 @@ components:
             error: []
 
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
