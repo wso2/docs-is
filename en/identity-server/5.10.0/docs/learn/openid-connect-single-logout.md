@@ -108,6 +108,7 @@ OP endpoint URLs:
     <p>The client ID obtained when registering the application in WSO2 Identity Server.</p>
     <div class="admonition note">
 	<p class="admonition-title">Note</p>
+    <p>This capability is available as an update in WSO2 IS 5.10.0 from update level **5.10.0.400** onwards (Updates 2.0 model). See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).</p>
     <p>To use the <code>                 client_id                </code> as a logout parameter, add the following configurations to the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml                </code> file.</p>
     ```toml
     [oauth.oidc.logout_params]
