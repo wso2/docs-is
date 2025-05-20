@@ -46,13 +46,13 @@ jobs:
               fail=0
               while read -r file; do
                 echo "::group::Vale output for $file"
-                vale --config=.vale/.vale.ini "$file" || fail=1
+                vale --config=.vale.ini "$file" || fail=1
                 echo "::endgroup::"
               done < changed_files.txt
         
               if [ "$fail" -ne 0 ]; then
                 echo "❌ Vale style issues found."
-                exit 1
+                exit 78
               else
                 echo "✅ No Vale issues found."
               fi
