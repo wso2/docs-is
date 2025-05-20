@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - next-sdks
-    paths:
-      - 'en/asgardeo/**'
   workflow_dispatch:
 
 env:
