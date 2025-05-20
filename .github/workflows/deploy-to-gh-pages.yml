@@ -1,0 +1,70 @@
+name: Deploy Documentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - next-sdks
+    paths:
+      - 'en/asgardeo/**'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+          - development
+          - production
+
+env:
+  PYTHON_VERSION: '3.12'
+  ENABLE_HOOKS: ${{ github.event.inputs.environment == 'production' }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: en/asgardeo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r en/asgardeo/requirements.txt
+
+      - name: Setup caching
+        uses: actions/cache@v3
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+
+      - name: Build MkDocs Documentation
+        run: |
+          cd en/asgardeo
+          mkdocs build
+          cd ../../
+          
+      - name: Zip the Documentation
+        run: |
+          mkdir -p out/asgardeo/docs
+          cp -r ./en/asgardeo/site/* out/asgardeo/docs/
+          zip -r asgardeo-docs.zip ./out
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: 'en/asgardeo/site'
