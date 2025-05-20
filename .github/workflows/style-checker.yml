@@ -1,27 +1,57 @@
-name: Vale Lint (Markdown Only)
+name: Vale Lint (Changed Markdown Only)
 
 on:
-    pull_request:
-      paths:
-        - '**.md'
+  pull_request:
+    paths:
+      - '**/*.md'
 
 jobs:
-    vale:
-        name: Vale style check
-        runs-on: ubuntu-latest
-    
-        steps:
-            - name: Check out code
-              uses: actions/checkout@v4
-              with:   
-                  fetch-depth: 0
+  vale:
+    name: Vale style check
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write  # Needed to post PR comments
+      contents: read
 
-            - name: Vale
-              uses: errata-ai/vale-action@reviewdog
-              with:
-                files: en/
-                vale_flags: --glob=!*/*-fr/*
-                filter_mode: nofilter
-                reporter: github-pr-check
-              env:
-                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Vale
+        run: |
+          curl -fsSL https://github.com/errata-ai/vale/releases/latest/download/vale_Linux_64-bit.tar.gz \
+            | tar -xzf - -C /usr/local/bin vale
+
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
+
+      - name: Get changed Markdown files
+        id: changed
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          git diff --name-only origin/${{ github.base_ref }}...HEAD -- '*.md' > changed_files.txt
+          echo "Changed files:"
+          cat changed_files.txt
+
+      - name: Run Vale on changed files and save output
+        id: vale
+        run: |
+          if [ -s changed_files.txt ]; then
+            echo "## Vale Lint Report" > vale_report.md
+            echo "" >> vale_report.md
+            vale $(cat changed_files.txt) >> vale_report.md || true
+          else
+            echo "No Markdown files changed." > vale_report.md
+          fi
+
+      - name: Comment on PR with Vale results
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --body-file vale_report.md
