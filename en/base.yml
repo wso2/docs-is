@@ -295,7 +295,6 @@ extra:
           - name: Flutter AppAuth
             icon: assets/img/logo/flutter-logo.svg
             description: An SDK to integrate OAuth2 and OIDC providers with Flutter apps
-            documentation_link: tutorials/auth-users-into-flutter-apps/
             source_link: https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth
           - name: React Native AppAuth
             icon: assets/img/logo/react-logo.svg
