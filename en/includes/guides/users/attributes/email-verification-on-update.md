@@ -4,7 +4,7 @@ Email address verification ensures that when a user updates their primary email 
 
 !!! note
     - This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
-    - The verification on update capability is **only** supported for the `http://wso2.org/claims/emailAddresses` and 
+    - The verification on update capability is **only** supported for the `http://wso2.org/claims/emailaddress` and 
     `http://wso2.org/claims/verifiedEmailAddresses` claims.
     - Verification is not triggered if the email address to be updated is the same as a previously verified email address of the user.
 

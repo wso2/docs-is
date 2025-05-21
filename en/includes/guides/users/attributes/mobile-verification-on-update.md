@@ -218,11 +218,9 @@ If you have enabled support for multiple mobile numbers, a user can have several
 
 To verify a mobile number, 
 
-1. On the {{product_name}} Console, go to **User Management** > **Users**.
+1. On the {{product_name}} My Account, go to **Personal Info** tab.
 
-2. Select a user account and go to its **Profile** tab.
-
-3. Under **Mobile**, click the verify icon on an unverified mobile number of the user.
+2. Under **Mobile Numbers**, click the verify icon on an unverified mobile number of the user.
 
 A verification code will be sent to your mobile number.
 
