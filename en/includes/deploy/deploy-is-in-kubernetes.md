@@ -1,6 +1,6 @@
 # Deploy {{product_name}} in Kubernetes using Helm
 
-The Helm hart for the {{product_name}} is available [here](https://github.com/wso2/kubernetes-is){: target="_blank"}.
+The Helm chart for the {{product_name}} is available [here](https://github.com/wso2/kubernetes-is){: target="_blank"}.
 
 The {{product_name}} Helm Chart has been tested in the following environments:
 
