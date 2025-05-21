@@ -102,7 +102,7 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
       --set deployment.image.tag="{{is_version}}" \
       --set deployment.apparmor.enabled="false" \
       --set deployment.securityContext.enableRunAsUser="false" \
-      --set deployment.entrypoint.defaultMode=0457
+      --set deployment.configMaps.entryPoint.defaultMode=0457
     ```
 
     ??? note "Get the latest helm chart version"
@@ -134,7 +134,7 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
       --set deployment.image.tag="{{is_version}}" \
       --set deployment.apparmor.enabled="false" \
       --set deployment.securityContext.enableRunAsUser="false" \
-      --set deployment.entrypoint.defaultMode=0457
+      --set deployment.configMaps.entryPoint.defaultMode=0457
     ```
 
 ??? note "Use a custom docker image digest"
