@@ -101,7 +101,7 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
       --set deployment.image.repository="wso2is" \
       --set deployment.image.tag="{{is_version}}" \
       --set deployment.apparmor.enabled="false" \
-      --set deployment.securityContext.runAsUser.enabled="false" \
+      --set deployment.securityContext.enableRunAsUser="false" \
       --set deployment.entrypoint.defaultMode=0457
     ```
 
@@ -133,7 +133,7 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
       --set deployment.image.repository="wso2is" \
       --set deployment.image.tag="{{is_version}}" \
       --set deployment.apparmor.enabled="false" \
-      --set deployment.securityContext.runAsUser.enabled="false" \
+      --set deployment.securityContext.enableRunAsUser="false" \
       --set deployment.entrypoint.defaultMode=0457
     ```
 
