@@ -415,6 +415,7 @@ plugins:
         'get-started/subscribe-for-ai-features.md': 'get-started/subscribe-to-ai-features.md'
         'deploy/environment-compatibility.md': 'deploy/product-compatibility.md'
         'references/about-this-release.md': 'get-started/about-this-release.md'
+        'deploy/deploy-is-in-kubernetes.md': 'deploy/deploy-is-on-kubernetes.md'
 
 # Navigation
 nav:
@@ -826,7 +827,9 @@ nav:
       - Deploy:
         - Deployment patterns: deploy/deployment-guide.md
         - Deployment checklist: deploy/deployment-checklist.md
-        - Deploy in Kuberenetes: deploy/deploy-is-in-kubernetes.md
+        - Deploy as a contanarized application:
+          - Kuberenetes: deploy/deploy-is-on-kubernetes.md
+          - Openshift: deploy/deploy-is-on-openshift.md
         - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
