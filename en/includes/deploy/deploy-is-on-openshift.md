@@ -1,6 +1,6 @@
 # Deploy {{product_name}} on OpenShift Using Helm
 
-This guide walks you through deploying {{product_name}} as a containerized application on an OpenShift cluster using the official Helm chart. Helm streamlines the deployment process by automating the configuration and lifecycle management of OpenShift resources, simplifying setup and maintenance.
+This guide walks you through deploying {{product_name}} as a containerized application on an OpenShift cluster using the official Helm chart. Helm simplifies the deployment by automating the configuration and management of OpenShift resources, simplifying setup and maintenance.
 
 ## Prerequisites
 
@@ -16,11 +16,11 @@ Before proceeding, ensure you have the following:
     - [OpenShift Local](https://developers.redhat.com/products/openshift-local/getting-started){: target="_blank"}, or
     - An existing remote OpenShift cluster.
 
-- An [Ingress-NGINX Controller](https://www.redhat.com/en/blog/using-nginx-ingress-controller-red-hat-openshift){: target="_blank"} deployed on the cluster (optional, if you’re not using OpenShift Routes).
+- [Optional] If you are not using OpenShift routes, deploy an [Ingress-NGINX Controller](https://www.redhat.com/en/blog/using-nginx-ingress-controller-red-hat-openshift){: target="_blank"} on the cluster.
 
-## Step 1: Set Environment Variables
+## Step 1: Set environment variables
 
-Define environment variables to use throughout the deployment process:
+Define environment variables for the OpenShift namespace and Helm release name.
 
 ```bash
 export NAMESPACE=<your-namespace>
@@ -32,28 +32,34 @@ export RELEASE_NAME=<your-helm-release-name>
     - Replace `<your-namespace>` with the desired OpenShift namespace for deploying {{product_name}}.
     - Replace `<your-helm-release-name>` with a unique name for your Helm release.
 
-## Step 2: Create the OpenShift Namespace
+## Step 2: Create the OpenShift namespace
 
-Ensure the namespace exists or create a new one:
+Ensure that the specified namespace exists or create a new one using the following command.
 
 ```bash
 oc get namespace $NAMESPACE || oc create namespace $NAMESPACE
 ```
 
-## Step 3: Build an OpenShift-Compatible Docker Image
+## Step 3: Build an OpenShift-compatible Docker image
 
-The default WSO2 Identity Server Docker image is not compatible with OpenShift, which runs containers as a randomly assigned, non-root user from the root group (GID 0). To ensure the server can access its necessary files, you must create a custom image that updates the file and directory group ownership to the root group (GID 0) and grants appropriate group permissions.
+OpenShift doesn't let containers run as the root user for security reasons. Instead, each time, it runs them as a random user that belongs to the root group (GID 0). Because of this, the default WSO2 Identity Server Docker image might not work as expected as the random user may not have permission to access important files. To overcome this, you can use one of the following methods.
 
-??? note "Deploy Official Image with disabled seccomp"
+### Option 1: Create a custom Docker image
     
-    - Alternatively, you can use the official image by disabling seccomp:
-    ```bash
-    --set deployment.securityContext.seccompProfile.enabled="false"
-    ```
-    - You also need to grant `anyuid` permissions to the service account used in the deployment:
-    ```bash
-    oc adm policy add-scc-to-user anyuid -z <service-account> -n $NAMESPACE
-    ```
+Create a custom Docker image that sets the group ownership of files and folders to the root group, and give that group the right permissions.
+
+### Option 2: Use the official Docker image by altering settings
+
+Instead of creating a custom Docker image, you can use the official image by adjusting some security settings:
+
+- Disable seccomp during deployment by adding this Helm option:
+```bash
+--set deployment.securityContext.seccompProfile.enabled="false"
+```
+- Grant anyuid permissions to the service account running the deployment with this OpenShift command::
+```bash
+oc adm policy add-scc-to-user anyuid -z <service-account> -n $NAMESPACE
+```
 
 ## Step 4: Install the Helm Chart
 
@@ -88,7 +94,7 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
         Set `--version` with the version of WSO2 Identity Server Helm chart you want to deploy.
 
 
-### Option 2: Install from Source
+### Option 2: Install from source
 
 1. Clone the WSO2 Kubernetes repository:
 
@@ -126,23 +132,23 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
         --set deployment.image.digest=<your-image-digest>
         ```
 
-## (Optional) Step 5: Configure Resource Requests and Limits
+## (Optional) Step 5: Configure resource limits
 
-By default, the chart sets the following values:
+By default, the Helm chart for WSO2 Identity Server requests and limits the following resources in your OpenShift cluster:
 
-**Minimum Required Resources**
+**Minimum required resources**
 
 | CPU      | Memory |
 |----------|--------|
 | 2 cores  | 2Gi    |
 
-**Maximum Allowed Resources**
+**Maximum allowed resources**
 
 | CPU      | Memory |
 |----------|--------|
 | 3 cores  | 4Gi    |
 
-To customize, use:
+To customize resource requests and limits in your Helm deployment, use the following flags:
 
 ```bash
 --set deployment.resources.requests.cpu="<value>" \
@@ -151,19 +157,21 @@ To customize, use:
 --set deployment.resources.limits.memory="<value>"
 ```
 
-## Step 6: Expose {{product_name}} Service
+## Step 6: Expose {{product_name}} service
 
-### Option 1: Using OpenShift Routes
+To make {{product_name}} accessible from outside your OpenShift cluster, you need to expose the service. Depending on your setup, you can use either OpenShift routes or ingress.
 
-To enable route-based access:
+### Option 1: Using OpenShift routes
+
+Enable route-based access by setting the following Helm flag during deployment:
 
 ```bash
 --set deployment.route.enabled=true
 ```
 
-### Option 2: Using Ingress
+### Option 2: Using ingress
 
-After deploying WSO2 Identity Server, you need to find its external IP address to access it outside the cluster. Run the following command to list the ingress resources in your namespace:
+If you prefer to use ingress, after deploying {{product_name}}, find its external IP address by listing the ingress resources in your namespace:
 
 ```bash
 oc get ing -n $NAMESPACE
@@ -171,13 +179,11 @@ oc get ing -n $NAMESPACE
 
 The output will contain the following columns:
 
-- HOSTS: The hostname assigned to WSO2 Identity Server (Default: wso2is.com).
-- ADDRESS: The external IP address that exposes WSO2 Identity Server outside the Kubernetes cluster.
+- HOSTS: The hostname assigned to WSO2 Identity Server (default: wso2is.com).
+- ADDRESS: The external IP address that exposes WSO2 Identity Server outside the OpenShift cluster.
 - PORTS: The externally accessible service ports.
 
 ## Step 7: Configure DNS
-
-To access via a domain name:
 
 If your hostname is backed by a DNS service, create a DNS record that maps the hostname to the external IP. If there is no DNS service, you can manually add an entry to the `/etc/hosts` file on your local machine (for evaluation purposes only):
 
@@ -185,7 +191,7 @@ If your hostname is backed by a DNS service, create a DNS record that maps the h
 <EXTERNAL-IP> wso2is.com
 ```
 
-## Access {{product_name}}
+## Step 8: Access {{product_name}}
 
 Once everything is set up, you can access WSO2 Identity Server using the following URLs:
 
