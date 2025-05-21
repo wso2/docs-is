@@ -7,12 +7,12 @@
 
 ### Step 1: Generate certificate
 
-First, you need to generate a certificate signing request (CSR) for your keystore (`.jks` file). This CSR file can then be certified by a certification authority (CA), which is an entity that issues digital certificates. These certificates certify the ownership of a public key.
+First, you need to generate a certificate signing request (CSR) for your keystore (`.{{default_keystore_ext}}` file). This CSR file can then be certified by a certification authority (CA), which is an entity that issues digital certificates. These certificates certify the ownership of a public key.
 
 1. Execute the following command to generate the CSR:
 
     ``` bash
-    keytool -certreq -alias certalias -file newcertreq.csr -keystore newkeystore.jks
+    keytool -certreq -alias certalias -file newcertreq.csr -keystore newkeystore.{{default_keystore_ext}} -storetype {{default_keystore_type}}
     ```
 
     !!! note
@@ -70,16 +70,16 @@ Follow the steps given below to import the CA-signed certificate to your keystor
         keytool -import -v -alias newcert -file <test_sampleapp_org.crt> -keystore newkeystore.p12 -keypass mypassword -storetype PKCS12 -storepass mypassword
         ```
 
-Now you have a Java keystore, which includes a CA-signed public key certificate that can be used for SSL in a production environment. Next, you may need to add the same CA-signed public key certificate to the `client-truststore.jks` file. This will provide security and trust for backend communication/inter-system communication of WSO2 Identity Server via SSL.
+Now you have a Java keystore, which includes a CA-signed public key certificate that can be used for SSL in a production environment. Next, you may need to add the same CA-signed public key certificate to the `client-truststore.{{default_keystore_ext}}` file. This will provide security and trust for backend communication/inter-system communication of WSO2 Identity Server via SSL.
 
 ### Step 3: Import certificates to the truststore
 
 In SSL handshake, the client needs to verify the certificate presented by the server. For this purpose, the client usually stores the certificates it trusts, in a truststore. To enable secure and trusted
-backend communication, WSO2 Identity Server is shipped with a truststore named `client-truststore.jks`, which resides in the same directory as the default keystore (`<IS_HOME>/repository/resources/security/`).
+backend communication, WSO2 Identity Server is shipped with a truststore named `client-truststore.{{default_keystore_ext}}`, which resides in the same directory as the default keystore (`<IS_HOME>/repository/resources/security/`).
 
-Follow the steps given below to import the same CA-signed public key certificate (which you obtained in the previous step) into your WSO2 Identity Server's default truststore (`client-truststore.jks`).
+Follow the steps given below to import the same CA-signed public key certificate (which you obtained in the previous step) into your WSO2 Identity Server's default truststore (`client-truststore.{{default_keystore_ext}}`).
 
-1. Get a copy of the `client-truststore.jks` file from the `<IS_HOME>/repository/resources/security/` directory.
+1. Get a copy of the `client-truststore.{{default_keystore_ext}}` file from the `<IS_HOME>/repository/resources/security/` directory.
 2. To export the public key from your keystore file, execute the following command.
 
     === "JKS"
@@ -92,13 +92,13 @@ Follow the steps given below to import the same CA-signed public key certificate
         keytool -export -alias certalias -keystore newkeystore.p12 -storetype PKCS12 -file <public key name>.pem
         ```
 
-3. Import the public key you extracted in the previous step to the `client-truststore.jks` file using the following command.
+3. Import the public key you extracted in the previous step to the `client-truststore.{{default_keystore_ext}}` file using the following command.
 
     ``` bash
-    keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon
+    keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.{{default_keystore_ext}} -storepass wso2carbon
     ```
 
-    Now, you have an SSL certificate stored in a Java keystore and a public key added to the `client-truststore.jks` file. Note that both these files should be in the `<IS_HOME>/repository/resources/security/` directory. You can now replace the default `wso2carbon.jks` keystore in your WSO2 Identity Server instance with the newly created keystore by updating the relevant configuration files.
+    Now, you have an SSL certificate stored in a Java keystore and a public key added to the `client-truststore.{{default_keystore_ext}}` file. Note that both these files should be in the `<IS_HOME>/repository/resources/security/` directory. You can now replace the default `wso2carbon.wso2carbon.{{default_keystore_ext}}` keystore in your WSO2 Identity Server instance with the newly created keystore by updating the relevant configuration files.
 
 ## Renew a CA-Signed Certificate in a Keystore
 
@@ -126,7 +126,7 @@ Follow one of the steps below to view the validity period of a certificate.
 - **If you have a java keystore**, execute the following keytool command to view the certificate information:
 
     ``` java
-    keytool -list -keystore <keystore_name.jks> -alias <cert_alias> -v
+    keytool -list -keystore <keystore_name.{{default_keystore_ext}}> -storetype {{default_keystore_type}} -alias <cert_alias> -v
     ```
 
     This prompts for the keystore password. Once you specify the password, you can view the certificate information in a human-readable format where the validity period is displayed as follows.
@@ -160,7 +160,7 @@ Depending on the type of keystore you have, follow one of the steps below to gen
 - **If you have a java keystore**, execute the following command.
 
     ``` java
-    keytool -certreq -alias <cert_alias> -file <CSR.csr> -keystore <keystore_name.jks>
+    keytool -certreq -alias <cert_alias> -file <CSR.csr> -keystore <keystore_name.{{default_keystore_ext}}> -storetype {{default_keystore_type}}
     ```
 
     !!! tip
@@ -169,7 +169,7 @@ Depending on the type of keystore you have, follow one of the steps below to gen
         Following is a sample keytool command that includes a SAN.
     
         ``` java
-        keytool -certreq -alias test -file test.csr -keystore test.jks -ext SAN=dns:test.example.com
+        keytool -certreq -alias test -file test.csr -keystore test.{{default_keystore_ext}} -storetype {{default_keystore_type}} -ext SAN=dns:test.example.com
         ```
 
 - **If you have the private key and public key**, execute the following command:
@@ -187,12 +187,12 @@ After you obtain a new certificate, you have to import the new certificate to a 
 To import a new certificate to a keystore, execute the following command:
 
 ``` java
-keytool -import -v -trustcacerts -alias <current_alias> -file <ca_signed_cert.cer> -keystore <keystore_name.jks>
+keytool -import -v -trustcacerts -alias <current_alias> -file <ca_signed_cert.cer> -keystore <keystore_name.{{default_keystore_ext}}> -storetype {{default_keystore_type}}
 ```
 
 !!! tip
     To view information related to the renewed certificate, execute the following keytool command.
 
     ``` java
-    keytool -list -keystore <keystore_name.jks> -alias <cert_alias> -v
+    keytool -list -keystore <keystore_name.{{default_keystore_ext}}> -storetype {{default_keystore_type}} -alias <cert_alias> -v
     ```
