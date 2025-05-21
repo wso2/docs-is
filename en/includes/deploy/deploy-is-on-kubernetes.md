@@ -1,6 +1,6 @@
-# Deploy {{product_name}} in Kubernetes using Helm
+# Deploy {{product_name}} on Kubernetes using Helm
 
-This guide walks you through deploying WSO2 Identity Server as a containerized application on a Kubernetes cluster using the official Helm chart. Helm simplifies the deployment process by automating the configuration and management of Kubernetes resources, making it easier to set up and maintain your {{product_name}} instance.
+This guide walks you through deploying WSO2 Identity Server as a containerized application on a Kubernetes cluster using the official Helm chart. Helm simplifies the deployment by automating the configuration and management of Kubernetes resources, simplifying setup and maintenance.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ Make sure you have the following before starting this guide.
 
 - A Kubernetes [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/deploy/){:target="_blank"}.
 
-## Set up environment variables
+## Step 1: Set up environment variables
 
 Define environment variables for the Kubernetes namespace and Helm release name.
 
@@ -30,7 +30,7 @@ export RELEASE_NAME=<Helm release name of the deployment>
     - Replace <Kubernetes Namespace to deploy the resources> with the namespace where WSO2 Identity Server should be deployed.
     - Replace <Helm release name for the deployment> with a unique name for the Helm release.
 
-## Create a Kubernetes namespace
+## Step 2: Create a Kubernetes namespace
 
 Ensure that the specified namespace exists or create a new one using the following command.
 
@@ -38,7 +38,7 @@ Ensure that the specified namespace exists or create a new one using the followi
 kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
 ```
 
-## Create a Kubernetes TLS secret
+## Step 3: Create a Kubernetes TLS secret
 
 To enable secure HTTPS communication for your service (e.g., WSO2 Identity Server) within the Kubernetes cluster, you need to provide a TLS certificate and key. Kubernetes uses these to serve traffic over HTTPS using Ingress controllers or other resources that terminate TLS.
 
@@ -60,7 +60,7 @@ kubectl create secret tls is-tls \
     - Ensure that the certificate includes `localhost` as a Subject Alternative Name (SAN) to support B2B related use cases without triggering certification validation errors.
     - When generating the keystore, use the default password `wso2carbon`.
 
-## Create a Kubernetes secret for Java Keystore files
+## Step 4: Create a Kubernetes secret for Java Keystore files
 
 To support secure communication and cryptographic operations, the deployment requires four Java keystore files. These keystores are mounted into the container and used for tasks such as internal encryption, message signing, TLS, and trust validation.
 
@@ -84,7 +84,7 @@ kubectl create secret generic keystores \
     - To learn how to create these keystores and truststores, refer to [Create New Keystores]({{base_path}}/deploy/security/keystores/create-new-keystores/).
     - The `tls.p12` file used here should contain the same certificate and key that were used to create the `is-tls` TLS secret above, to ensure consistency in TLS communication.
 
-## Install the Helm chart
+## Step 5: Install the Helm chart
 
 There are two ways to install the {{product_name}} using the Helm chart. The Helm chart source code can be found in the [kubernetes-is repository](https://github.com/wso2/kubernetes-is/tree/master){:target=" _blank"}.
 
@@ -163,7 +163,7 @@ If you prefer to build the chart from the source, follow the steps below:
         --set deployment.image.digest=<digest> 
         ```
 
-## (Optional) Change of Keystore passwords
+## (Optional) Step 6: Change of Keystore passwords
 
 Generate the keystore using the default password "wso2carbon". However, if you have used a different password, update the following configurations accordingly:
 
@@ -181,9 +181,9 @@ Generate the keystore using the default password "wso2carbon". However, if you h
 --set deploymentToml.truststore.password="<value>"
 ```
 
-## (Optional) Configure resource limits
+## (Optional) Step 7: Configure resource limits
 
-By default, WSO2 Identity Server requests and limits the following resources in your Kubernetes cluster:
+By default, the Helm chart for WSO2 Identity Server requests and limits the following resources in your Kubernetes cluster:
 
 **Resource requests (Minimum required)**
 <table>
@@ -209,7 +209,7 @@ By default, WSO2 Identity Server requests and limits the following resources in 
     </tr>
 </table>
 
-If your Kubernetes cluster has limited resources, you can adjust these values when installing the Helm chart by using the following flags:
+To customize resource requests and limits in your Helm deployment, use the following flags:
 
 ```shell
 --set deployment.resources.requests.cpu="<value>" \
@@ -218,7 +218,7 @@ If your Kubernetes cluster has limited resources, you can adjust these values wh
 --set deployment.resources.limits.memory="<value>"
 ```
 
-## Obtain the External IP
+## Step 8: Obtain the External IP
 
 After deploying WSO2 Identity Server, you need to find its external IP address to access it outside the cluster. Run the following command to list the ingress resources in your namespace:
 
@@ -232,7 +232,7 @@ The output will contain the following columns:
 - ADDRESS: The external IP address that exposes WSO2 Identity Server outside the Kubernetes cluster.
 - PORTS: The externally accessible service ports.
 
-## Configure DNS
+## Step 9: Configure DNS
 
 If your hostname is backed by a DNS service, create a DNS record that maps the hostname to the external IP. If there is no DNS service, you can manually add an entry to the `/etc/hosts` file on your local machine (for evaluation purposes only):
 
@@ -240,7 +240,7 @@ If your hostname is backed by a DNS service, create a DNS record that maps the h
 <EXTERNAL-IP> wso2is.com
 ```
 
-## Access {{product_name}}
+## Step 8: Access {{product_name}}
 
 Once everything is set up, you can access WSO2 Identity Server using the following URLs:
 
