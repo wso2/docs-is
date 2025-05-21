@@ -1,1 +1,1 @@
-{% include "../../../../includes/deploy/deploy-is-in-kubernetes.md" %}
+{% include "../../../../includes/deploy/deploy-is-on-kubernetes.md" %}
