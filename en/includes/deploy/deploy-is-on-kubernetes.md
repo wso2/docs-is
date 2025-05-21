@@ -12,10 +12,6 @@ The {{product_name}} Helm Chart has been tested in the following environments:
 		<td>v1.30.x</td>
 	</tr>
 	<tr>
-		<td>OpenShift</td>
-		<td>v4.18.x</td>
-	</tr>
-	<tr>
 		<td>RKE2</td>
 		<td>v1.31.8+rke2r1</td>
 	</tr>
@@ -270,7 +266,7 @@ If your hostname is backed by a DNS service, create a DNS record that maps the h
 <EXTERNAL-IP> wso2is.com
 ```
 
-## Step 8: Access {{product_name}}
+## Step 10: Access {{product_name}}
 
 Once everything is set up, you can access WSO2 Identity Server using the following URLs:
 

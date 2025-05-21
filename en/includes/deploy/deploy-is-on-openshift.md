@@ -1,5 +1,18 @@
 # Deploy {{product_name}} on OpenShift Using Helm
 
+The Helm chart for the {{product_name}} is available [here](https://github.com/wso2/kubernetes-is){: target="_blank"}.
+
+The {{product_name}} Helm Chart has been tested in the following environments:
+
+<table>
+	<th>Deployment</th>
+	<th>Version</th>
+	<tr>
+		<td>OpenShift</td>
+		<td>v4.18.x</td>
+	</tr>
+</table>
+
 This guide walks you through deploying {{product_name}} as a containerized application on an OpenShift cluster using the official Helm chart. Helm simplifies the deployment by automating the configuration and management of OpenShift resources, simplifying setup and maintenance.
 
 ## Prerequisites
@@ -42,7 +55,7 @@ oc get namespace $NAMESPACE || oc create namespace $NAMESPACE
 
 ## Step 3: Build an OpenShift-compatible Docker image
 
-OpenShift doesn't let containers run as the root user for security reasons. Instead, each time, it runs them as a random user that belongs to the root group (GID 0). Because of this, the default WSO2 Identity Server Docker image might not work as expected as the random user may not have permission to access important files. To overcome this, you can use one of the following methods.
+OpenShift doesn't let containers run as the root user for security reasons. Instead, each time, it runs them as a random user that belongs to the root group (GID 0). Because of this, the default [WSO2 Identity Server Docker image](https://hub.docker.com/r/wso2/wso2is) might not work as expected as the random user may not have permission to access important files. To overcome this, you can use one of the following methods.
 
 ### Option 1: Create a custom Docker image
     
@@ -56,7 +69,12 @@ Instead of creating a custom Docker image, you can use the official image by adj
 ```bash
 --set deployment.securityContext.seccompProfile.enabled="false"
 ```
-- Grant anyuid permissions to the service account running the deployment with this OpenShift command::
+If you are setting this flag, you need to remove following configs from the Helm command:
+```bash
+--set deployment.securityContext.runAsUser.enabled="false" \
+--set deployment.entrypoint.defaultMode=0457
+```
+- Grant anyuid permissions to the service account running the deployment with this OpenShift command:
 ```bash
 oc adm policy add-scc-to-user anyuid -z <service-account> -n $NAMESPACE
 ```
@@ -77,7 +95,7 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
 2. Install the chart:
 
     ```bash
-    helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-1 \
+    helm install $RELEASE_NAME wso2/identity-server --version {{is_version}} \
       -n $NAMESPACE \
       --set deployment.image.registry="wso2" \
       --set deployment.image.repository="wso2is" \
@@ -87,7 +105,7 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
       --set deployment.entrypoint.defaultMode=0457
     ```
 
-    !!! note "Get the latest helm chart version"
+    ??? note "Get the latest helm chart version"
 
         To find the latest version, you can use the [WSO2 Identity Server Artifact Hub](https://artifacthub.io/packages/helm/wso2/identity-server){: target="_blank"}.
     
@@ -119,18 +137,22 @@ The {{product_name}} Helm chart is available through the WSO2 Helm repository or
       --set deployment.entrypoint.defaultMode=0457
     ```
 
-    !!! note "Using a custom Docker image"
+??? note "Use a custom docker image digest"
 
-        To use your custom image, update the following values:
-        ```bash
-        --set deployment.image.registry=<your-registry> \
-        --set deployment.image.repository=<your-repo> \
-        --set deployment.image.tag=<your-tag>
-        ```
-        Or use a digest:
-        ```bash
-        --set deployment.image.digest=<your-image-digest>
-        ```
+    The above commands use the publicly released [WSO2 Identity Server Docker image](https://hub.docker.com/r/wso2/wso2is). To use a custom docker image, update the registry, repository, and tag accordingly. You can also specify an image digest instead of a tag as shown below:
+
+    ```shell
+    --set deployment.image.digest=<digest> 
+    ```
+
+??? note "Troubleshoot startup issues in resource-constrained environments"
+
+    If you are deploying the Helm chart in a resource-constrained environment and the startup takes longer than expected, the shutdown hook of the {{product}} may get triggered due to startup probe failures. To avoid this issue, adjust the startup probe parameters when installing the Helm chart:
+
+    ```shell
+    --set deployment.startupProbe.initialDelaySeconds=<value> \
+    --set deployment.startupProbe.failureThreshold=<value>
+    ```
 
 ## (Optional) Step 5: Configure resource limits
 
