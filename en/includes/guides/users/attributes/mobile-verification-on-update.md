@@ -4,7 +4,8 @@ Mobile number verification ensures that when a user updates their primary mobile
 
 !!! note
     - This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
-    - The verification on update capability is **only** supported for the `http://wso2.org/claims/mobile` and `http://wso2.org/claims/verifiedMobileNumbers` claims.
+    - The verification on update capability is **only** supported for the `Mobile` (`http://wso2.org/claims/mobile`) 
+    and `Verified Mobile Numbers` (`http://wso2.org/claims/verifiedMobileNumbers`) claims.
     - An SMS OTP verification is not triggered if the mobile number to be updated is the same as a previously verified mobile number of the user.
 
 ## Prerequisites
@@ -212,6 +213,14 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
     }
     ```
 
+Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their 
+updated mobile number. Once verified, the `Mobile` claim (`http://wso2.org/claims/mobile`) 
+will be updated to reflect the new mobile number.
+
+!!! note
+    If you directly update the primary `Mobile` claim directly, the change will not be reflected in the  
+    `Verified Mobile Numbers` (`http://wso2.org/claims/verifiedMobileNumbers`) claim after verification.
+
 ### Update the verified mobile numbers list
 
 If you have enabled support for multiple mobile numbers, a user can have several verified mobile numbers and a single primary mobile number.
@@ -308,7 +317,9 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
     }
     ```
 
-Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their updated mobile number. Once verified, the `verifiedMobileNumbers` claim (http://wso2.org/claims/verifiedMobileNumbers) will be updated to reflect the new mobile number.
+Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their 
+updated mobile number. Once verified, the `Verified Mobile Numbers` claim (`http://wso2.org/claims/verifiedMobileNumbers`) 
+will be updated to reflect the new mobile number.
 
 ## Validate the verification code
 
