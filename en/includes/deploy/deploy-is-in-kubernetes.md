@@ -1,5 +1,27 @@
 # Deploy {{product_name}} in Kubernetes using Helm
 
+The Helm hart for the {{product_name}} is available [here](https://github.com/wso2/kubernetes-is){: target="_blank"}.
+
+The {{product_name}} Helm Chart has been tested in the following environments:
+
+<table>
+	<th>Deployment</th>
+	<th>Version</th>
+	<tr>
+		<td>Kubernetes</td>
+		<td>v1.30.x</td>
+	</tr>
+	<tr>
+		<td>OpenShift</td>
+		<td>v4.18.x</td>
+	</tr>
+	<tr>
+		<td>RKE2</td>
+		<td>v1.31.8+rke2r1</td>
+	</tr>
+</table>
+
+
 This guide walks you through deploying WSO2 Identity Server as a containerized application on a Kubernetes cluster using the official Helm chart. Helm simplifies the deployment process by automating the configuration and management of Kubernetes resources, making it easier to set up and maintain your {{product_name}} instance.
 
 ## Prerequisites
@@ -110,7 +132,7 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     ```
     {% else %}
     ```shell
-    helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-1 \
+    helm install $RELEASE_NAME wso2/identity-server --version {{is_version}} \
     -n $NAMESPACE \
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
@@ -120,7 +142,7 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     ```
 {% endif %}
 
-    !!! note "Get the latest helm chart version"
+    ??? note "Get the latest helm chart version"
             To find the latest version, you can use the [WSO2 Identity Server Artifact Hub](https://artifacthub.io/packages/helm/wso2/identity-server){: target="_blank"}.
     
             Set `--version` with the version of WSO2 Identity Server Helm chart you want to deploy.
@@ -155,13 +177,22 @@ If you prefer to build the chart from the source, follow the steps below:
     --set deployment.externalJKS.enabled="true"
     ```
 
-    !!! note "Use a custom docker image"
-    
-        The above commands use the publicly released [WSO2 Identity Server Docker image](https://hub.docker.com/r/wso2/wso2is). To use a custom docker image, update the registry, repository, and tag accordingly. You can also specify an image digest instead of a tag as shown below:
-    
-        ```shell
-        --set deployment.image.digest=<digest> 
-        ```
+??? note "Use a custom docker image"
+
+    The above commands use the publicly released [WSO2 Identity Server Docker image](https://hub.docker.com/r/wso2/wso2is). To use a custom docker image, update the registry, repository, and tag accordingly. You can also specify an image digest instead of a tag as shown below:
+
+    ```shell
+    --set deployment.image.digest=<digest> 
+    ```
+
+??? note "Troubleshoot startup issues in resource-constrained environments"
+
+    If you are deploying the Helm chart in a resource-constrained environment and the startup takes longer than expected, the shutdown hook of the {{product}} may get triggered due to startup probe failures. To avoid this issue, adjust the startup probe parameters when installing the Helm chart:
+
+    ```shell
+    --set deployment.startupProbe.initialDelaySeconds=<value> \
+    --set deployment.startupProbe.failureThreshold=<value>
+    ```
 
 ## (Optional) Change of Keystore passwords
 
