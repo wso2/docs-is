@@ -1,6 +1,6 @@
 # Deploy {{product_name}} on OpenShift Using Helm
 
-The Helm chart for the {{product_name}} is available [here](https://github.com/wso2/kubernetes-is){: target="_blank"}.
+This guide walks you through deploying {{product_name}} as a containerized application on an OpenShift cluster using the official Helm chart. Helm simplifies the deployment by automating the configuration and management of OpenShift resources, simplifying setup and maintenance.
 
 The {{product_name}} Helm Chart has been tested in the following environments:
 
@@ -13,7 +13,7 @@ The {{product_name}} Helm Chart has been tested in the following environments:
 	</tr>
 </table>
 
-This guide walks you through deploying {{product_name}} as a containerized application on an OpenShift cluster using the official Helm chart. Helm simplifies the deployment by automating the configuration and management of OpenShift resources, simplifying setup and maintenance.
+The Helm chart for the {{product_name}} is available [here](https://github.com/wso2/kubernetes-is){: target="_blank"}.
 
 ## Prerequisites
 
@@ -61,7 +61,21 @@ OpenShift doesn't let containers run as the root user for security reasons. Inst
     
 Create a custom Docker image that sets the group ownership of files and folders to the root group, and give that group the right permissions.
 
+??? "Learn more with a sample docker image"
+
+    ```shell
+    FROM wso2/wso2is:7.1.0-alpine
+
+    USER root
+    RUN chgrp -R root /home/wso2carbon/wso2is-* && chmod -R g+rwX /home/wso2carbon/wso2is-*
+    USER wso2carbon
+    ```
+
 ### Option 2: Use the official Docker image by altering settings
+
+!!! warning "Important"
+
+    While it's technically possible to use the official Docker image for WSO2 Identity Server or similar applications without building a custom image, doing so by bypassing OpenShift security mechanisms is [not recommended](https://www.redhat.com/en/blog/a-guide-to-openshift-and-uids), especially for production environments.
 
 Instead of creating a custom Docker image, you can use the official image by adjusting some security settings:
 

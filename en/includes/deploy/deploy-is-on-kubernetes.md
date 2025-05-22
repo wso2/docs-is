@@ -1,6 +1,6 @@
 # Deploy {{product_name}} on Kubernetes using Helm
 
-The Helm chart for the {{product_name}} is available [here](https://github.com/wso2/kubernetes-is){: target="_blank"}.
+This guide walks you through deploying WSO2 Identity Server as a containerized application on a Kubernetes cluster using the official Helm chart. Helm simplifies the deployment by automating the configuration and management of Kubernetes resources, simplifying setup and maintenance.
 
 The {{product_name}} Helm Chart has been tested in the following environments:
 
@@ -17,7 +17,7 @@ The {{product_name}} Helm Chart has been tested in the following environments:
 	</tr>
 </table>
 
-This guide walks you through deploying WSO2 Identity Server as a containerized application on a Kubernetes cluster using the official Helm chart. Helm simplifies the deployment by automating the configuration and management of Kubernetes resources, simplifying setup and maintenance.
+The Helm chart for the {{product_name}} is available [here](https://github.com/wso2/kubernetes-is){: target="_blank"}.
 
 ## Prerequisites
 
