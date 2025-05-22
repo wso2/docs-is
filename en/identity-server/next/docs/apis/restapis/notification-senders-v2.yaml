@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Notification Senders API
+  title: Notification Senders v2 API
   description: This document specifies **Email, SMS and Push notification sender RESTful API** for **WSO2 Identity Server**
   version: "v2"
 servers:
@@ -21,10 +21,8 @@ paths:
       summary: Get a list of email senders
       description: |
         This API provides the capability to retrieve the list of email senders. <br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_view
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getEmailSenders
       responses:
         "200":
@@ -66,16 +64,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v2/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
         - Email Senders
       summary: Create an email sender
       description: |
-        This API provides the capability to create an email sender. If the 'name' is not not defined, 'EmailPublisher' is taken as the default name. The email publisher will support either Basic Authentication or Client Credential authentication type.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/add <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_create
+        This API provides the capability to create an email sender.\n\nIf the 'name' is not defined, 'EmailPublisher' is taken as the default name. <br>
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
       operationId: createEmailSender
       requestBody:
         content:
@@ -137,6 +140,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v2/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "fromAddress": "iam@gmail.com",
+            "authType": "BASIC",
+            "properties": [
+              {
+                "key": "mail.smtp.starttls.enable",
+                "value": true
+              },
+              {
+                "key": "userName",
+                "value": "iam"
+              },
+              {
+                "key": "password",
+                "value": "iam123"
+              }
+            ]
+            }'  
   /notification-senders/email/{sender-name}:
     get:
       tags:
@@ -145,10 +174,8 @@ paths:
       description: |
         This API provides the capability to retrieve an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_view
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getEmailSender
       parameters:
         - name: sender-name
@@ -275,6 +302,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v2/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "fromAddress": "iam@gmail.com",
+            "authType": "BASIC",
+            "properties": [
+              {
+                "key": "mail.smtp.starttls.enable",
+                "value": true
+              },
+              {
+                "key": "userName",
+                "value": "iam"
+              },
+              {
+                "key": "password",
+                "value": "iam123"
+              }
+            ]
+            }' 
     delete:
       tags:
         - Email Senders
@@ -282,10 +335,8 @@ paths:
       description: |
         This API provides the capability to delete an email sender by name.
         The URL encoded email sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/delete <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_delete
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
       operationId: deleteEmailSender
       parameters:
         - name: sender-name
@@ -327,6 +378,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/{tenant-domain}/api/server/v2/notification-senders/email/{email-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='        
   /notification-senders/sms:
     get:
       tags:
@@ -334,10 +392,8 @@ paths:
       summary: Get a list of SMS senders
       description: |
         This API provides the capability to retrieve a list of SMS notification senders.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_view
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getSMSSenders
       responses:
         "200":
@@ -374,17 +430,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v2/notification-senders/sms' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                  
     post:
       tags:
         - SMS Senders
       summary: Create a SMS sender
       description: |
         This API provides the capability to create a SMS sender.
-        If the 'name' is not not defined, 'SMSPublisher' is taken as the default name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/add <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_create
+        If the 'name' is not defined, 'SMSPublisher' is taken as the default name.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
       operationId: createSMSSender
       requestBody:
         content:
@@ -444,6 +505,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v2/notification-senders/sms' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "NEXMO",
+            "providerURL": "https://rest.nexmo.com/sms/json",
+            "key": "123**45",
+            "secret": "5tg**ssd",
+            "sender": "+94 775563324",
+            "type": "json",
+            "properties": [
+              {
+                "key": "body.scope",
+                "value": "internal"
+              },
+              {
+                "key": "http.headers",
+                "value": "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+              }
+            ]
+            }'                 
   /notification-senders/sms/{sender-name}:
     get:
       tags:
@@ -452,10 +539,8 @@ paths:
       description: |
         This API provides the capability to retrieve a SMS notification sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_view
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getSMSSender
       parameters:
         - name: sender-name
@@ -501,6 +586,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v2/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
     put:
       tags:
         - SMS Senders
@@ -508,10 +600,9 @@ paths:
       description: |
         This API provides the capability to update a SMS Sender.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/update <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_update
+        
+        
+        <b>Scope(Permission) required:</b> `internal_notification_senders_update`
       operationId: updateSMSSender
       parameters:
         - name: sender-name
@@ -575,6 +666,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v2/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "NEXMO",
+            "providerURL": "https://rest.nexmo.com/sms/json",
+            "key": "123**45",
+            "secret": "5tg**ssd",
+            "sender": "+94 775563324",
+            "type": "json",
+            "properties": [
+              {
+                "key": "body.scope",
+                "value": "internal"
+              },
+              {
+                "key": "http.headers",
+                "value": "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+              }
+            ]
+            }'                 
     delete:
       tags:
         - SMS Senders
@@ -582,10 +699,8 @@ paths:
       description: |
         This API provides the capability to delete a SMS sender by name.
         The URL encoded SMS sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/delete <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_delete
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
       operationId: deleteSMSSender
       parameters:
         - name: sender-name
@@ -627,17 +742,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v2/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='                 
   /notification-senders/push:
     get:
       tags:
-        - Push Notification Senders
+        - Push Senders
       summary: Get a list of push notification senders
       description: |
         This API provides the capability to retrieve the list of push notification senders. <br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_view
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getPushSenders
       responses:
         "200":
@@ -674,17 +794,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v2/notification-senders/push' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     post:
       tags:
-        - Push Notification Senders
+        - Push Senders
       summary: Create a push notification sender
       description: |
-        This API provides the capability to create a push notification sender.\n\nIf the 'name' is not defined, 'PushPublisher' is taken as the default name. <br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/add <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_create
-      operationId: createPushSender
+        This API provides the capability to create a push notification sender.
+        If the 'name' is not defined, 'PushPublisher' is taken as the default name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_create`
+      operationId: createSMSSender
       requestBody:
         content:
           application/json:
@@ -693,8 +819,8 @@ paths:
             example:
               provider: FCM
               properties:
-                - key: FCM.serviceAccount
-                  value: {"FCMUrl": "UrlValue"}
+                - key: serviceAccountContent
+                  value: "base64EncodedServiceAccountJsonString"
       responses:
         "201":
           description: Successful Response
@@ -736,23 +862,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v2/notification-senders/push' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "FCM",
+            "properties": [
+              {
+                "key": "serviceAccountContent",
+                "value": "base64EncodedServiceAccountJsonString"
+              }
+            ]
+            }'
   /notification-senders/push/{sender-name}:
     get:
       tags:
-        - Push Notification Senders
-      summary: Retrieve a push notification sender by name
+        - Push Senders
+      summary: Get a push sender by name
       description: |
         This API provides the capability to retrieve a push notification sender by name.
-        The URL encoded push notification sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/view <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_view
+        The URL encoded push sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_view`
       operationId: getPushSender
       parameters:
         - name: sender-name
           in: path
-          description: name of the push notification sender
+          description: name of the push sender
           required: true
           style: simple
           explode: false
@@ -760,7 +901,7 @@ paths:
             type: string
       responses:
         "200":
-          description: Successful Response
+          description: Successful response
           content:
             application/json:
               schema:
@@ -793,17 +934,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v2/notification-senders/push/{push-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
     put:
       tags:
-        - Push Notification Senders
+        - Push Senders
       summary: Update a push notification sender
       description: |
-        This API provides the capability to update a push notification sender by name.
+        This API provides the capability to update a push notification sender.
         The URL encoded push notification sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/update <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_update
+
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_update`
       operationId: updatePushSender
       parameters:
         - name: sender-name
@@ -822,12 +969,12 @@ paths:
             example:
               provider: FCM
               properties:
-                - key: FCM.serviceAccount
-                  value: {"FCMUrl": "UrlValue"}
+                - key: serviceAccountContent
+                  value: "base64EncodedServiceAccountJsonString"
         required: true
       responses:
         "200":
-          description: Successful Response
+          description: Successful response
           content:
             application/json:
               schema:
@@ -860,22 +1007,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v2/notification-senders/push/{push-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "FCM",
+            "properties": [
+              {
+                "key": "serviceAccountContent",
+                "value": "base64EncodedServiceAccountJsonString"
+              }
+            ]
+            }'
     delete:
       tags:
-        - Push Notification Senders
+        - Push Senders
       summary: Delete a push notification sender by name
       description: |
         This API provides the capability to delete a push notification sender by name.
         The URL encoded push notification sender name is used as sender-name.<br>
-          <b>Permission required:</b> <br>
-            * /permission/admin/manage/identity/configmgt/delete <br>
-          <b>Scope required:</b> <br>
-            * internal_notification_senders_delete
+
+        <b>Scope(Permission) required:</b> `internal_notification_senders_delete`
       operationId: deletePushSender
       parameters:
         - name: sender-name
           in: path
-          description: name of the email sender
+          description: name of the push notification sender
           required: true
           style: simple
           explode: false
@@ -912,6 +1074,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v2/notification-senders/push/{push-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 components:
   schemas:
     Error:
