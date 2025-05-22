@@ -1,0 +1,1520 @@
+openapi: 3.0.0
+info:
+  title: Notification Senders v2 API
+  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **WSO2 Identity Server** organizations.
+               To access the notification sender organization APIs in Identity Server, you need to first get an access token from your organization.
+  version: "v2"
+servers:
+  - url: https://localhost:9443/t/{root-organization-name}/o/api/server/v2
+    variables:
+      serverUrl:
+        default: https://localhost:9443/t/{root-organization-name}/o/
+      root-organization-name:
+        default: "{root-organization-name}"
+security:
+  - OAuth2: []
+paths:
+  /notification-senders/email:
+    get:
+      tags:
+        - Email Senders
+      summary: Get a list of email senders
+      description: |
+        This API provides the capability to retrieve the list of email senders. <br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
+      operationId: getEmailSenders
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailProviderList'
+              examples:
+                basicAuthWithAuthTypePOSTEXample:
+                  $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypeResponseExample'
+                clientCredentialPOSTEXample:
+                  $ref: '#/components/examples/EmailSenderClientCredentialResponseExample'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    post:
+      tags:
+        - Email Senders
+      summary: Create an email sender
+      description: |
+        This API provides the capability to create an email sender.\n\nIf the 'name' is not defined, 'EmailPublisher' is taken as the default name. <br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
+      operationId: createEmailSender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/EmailSenderAddBasicWithAuthType'
+                - $ref: '#/components/schemas/EmailSenderAddClientCredential'
+            examples:
+              basicAuthWithAuthTypePOSTEXample:
+                $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypePOSTRequestExample'
+              clientCredentialPOSTEXample:
+                $ref: '#/components/examples/EmailSenderClientCredentialPOSTRequestExample'
+      responses:
+        "201":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/EmailSenderAddBasicWithAuthType'
+                  - $ref: '#/components/schemas/EmailSenderAddClientCredential'
+              examples:
+                basicAuthWithAuthTypePOSTEXample:
+                  $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypeResponseExample'
+                clientCredentialPOSTEXample:
+                  $ref: '#/components/examples/EmailSenderClientCredentialResponseExample'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "fromAddress": "iam@gmail.com",
+            "authType": "BASIC",
+            "properties": [
+              {
+                "key": "mail.smtp.starttls.enable",
+                "value": true
+              },
+              {
+                "key": "userName",
+                "value": "iam"
+              },
+              {
+                "key": "password",
+                "value": "iam123"
+              }
+            ]
+            }'  
+  /notification-senders/email/{sender-name}:
+    get:
+      tags:
+        - Email Senders
+      summary: Retrieve an email sender by name
+      description: |
+        This API provides the capability to retrieve an email sender by name.
+        The URL encoded email sender name is used as sender-name.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
+      operationId: getEmailSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the email sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSender'
+              examples:
+                basicAuthWithAuthTypePOSTEXample:
+                  $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypeResponseExample'
+                clientCredentialPOSTEXample:
+                  $ref: '#/components/examples/EmailSenderClientCredentialResponseExample'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/email/{email-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    put:
+      tags:
+        - Email Senders
+      summary: Update an email sender
+      description: |
+        This API provides the capability to update an email sender by name.
+        The URL encoded email sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
+      operationId: updateEmailSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the email sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/EmailSenderAddBasic'
+                - $ref: '#/components/schemas/EmailSenderAddBasicWithAuthType'
+                - $ref: '#/components/schemas/EmailSenderAddClientCredential'
+            examples:
+              basicAuthWithAuthTypePOSTEXample:
+                $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypePUTRequestExample'
+              clientCredentialPOSTEXample:
+                $ref: '#/components/examples/EmailSenderClientCredentialPUTRequestExample'
+
+        required: true
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSender'
+              examples:
+                basicAuthWithAuthTypePOSTEXample:
+                  $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypeResponseExample'
+                clientCredentialPOSTEXample:
+                  $ref: '#/components/examples/EmailSenderClientCredentialResponseExample'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/email' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "fromAddress": "iam@gmail.com",
+            "authType": "BASIC",
+            "properties": [
+              {
+                "key": "mail.smtp.starttls.enable",
+                "value": true
+              },
+              {
+                "key": "userName",
+                "value": "iam"
+              },
+              {
+                "key": "password",
+                "value": "iam123"
+              }
+            ]
+            }'  
+    delete:
+      tags:
+        - Email Senders
+      summary: Delete an email sender by name
+      description: |
+        This API provides the capability to delete an email sender by name.
+        The URL encoded email sender name is used as sender-name.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
+      operationId: deleteEmailSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the email sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/email/{email-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}' 
+  /notification-senders/sms:
+    get:
+      tags:
+        - SMS Senders
+      summary: Get a list of SMS senders
+      description: |
+        This API provides the capability to retrieve a list of SMS notification senders.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
+      operationId: getSMSSenders
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMSProviderList'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/sms' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                  
+    post:
+      tags:
+        - SMS Senders
+      summary: Create a SMS sender
+      description: |
+        This API provides the capability to create a SMS sender.
+        If the 'name' is not defined, 'SMSPublisher' is taken as the default name.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
+      operationId: createSMSSender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSSenderAdd'
+            example:
+              provider: NEXMO
+              providerURL: https://rest.nexmo.com/sms/json
+              key: 123**45
+              secret: 5tg**ssd
+              sender: +94 775563324
+              type : json
+              properties:
+                - key: body.scope
+                  value: "internal"
+                - key: http.headers
+                  value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+      responses:
+        "201":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMSSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/sms' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "NEXMO",
+            "providerURL": "https://rest.nexmo.com/sms/json",
+            "key": "123**45",
+            "secret": "5tg**ssd",
+            "sender": "+94 775563324",
+            "type": "json",
+            "properties": [
+              {
+                "key": "body.scope",
+                "value": "internal"
+              },
+              {
+                "key": "http.headers",
+                "value": "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+              }
+            ]
+            }'                 
+  /notification-senders/sms/{sender-name}:
+    get:
+      tags:
+        - SMS Senders
+      summary: Get a SMS sender by name
+      description: |
+        This API provides the capability to retrieve a SMS notification sender by name.
+        The URL encoded SMS sender name is used as sender-name.<br>
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
+      operationId: getSMSSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the SMS sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMSSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                 
+    put:
+      tags:
+        - SMS Senders
+      summary: Update a SMS sender
+      description: |
+        This API provides the capability to update a SMS Sender.
+        The URL encoded SMS sender name is used as sender-name.<br>
+        
+        
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
+      operationId: updateSMSSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the SMS sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMSSenderUpdateRequest'
+            example:
+              provider: NEXMO
+              providerURL: https://rest.nexmo.com/sms/json
+              key: 123**45
+              secret: 5tg**ssd
+              sender: +94 775563324
+              type : json
+              properties:
+                - key: body.scope
+                  value: "internal"
+                - key: http.headers
+                  value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+        required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMSSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "NEXMO",
+            "providerURL": "https://rest.nexmo.com/sms/json",
+            "key": "123**45",
+            "secret": "5tg**ssd",
+            "sender": "+94 775563324",
+            "type": "json",
+            "properties": [
+              {
+                "key": "body.scope",
+                "value": "internal"
+              },
+              {
+                "key": "http.headers",
+                "value": "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+              }
+            ]
+            }'                 
+    delete:
+      tags:
+        - SMS Senders
+      summary: Delete a SMS sender by name
+      description: |
+        This API provides the capability to delete a SMS sender by name.
+        The URL encoded SMS sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
+      operationId: deleteSMSSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the SMS sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/sms/{sms-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                 
+  /notification-senders/push:
+    get:
+      tags:
+        - Push Senders
+      summary: Get a list of push notification senders
+      description: |
+        This API provides the capability to retrieve the list of push notification senders. <br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
+      operationId: getPushSenders
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushProviderList'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/push' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    post:
+      tags:
+        - Push Senders
+      summary: Create a push notification sender
+      description: |
+        This API provides the capability to create a push notification sender.
+        If the 'name' is not defined, 'PushPublisher' is taken as the default name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
+      operationId: createSMSSender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushSenderAdd'
+            example:
+              provider: FCM
+              properties:
+                - key: serviceAccountContent
+                  value: "base64EncodedServiceAccountJsonString"
+      responses:
+        "201":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "409":
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/push' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "FCM",
+            "properties": [
+              {
+                "key": "serviceAccountContent",
+                "value": "base64EncodedServiceAccountJsonString"
+              }
+            ]
+            }'
+  /notification-senders/push/{sender-name}:
+    get:
+      tags:
+        - Push Senders
+      summary: Get a push sender by name
+      description: |
+        This API provides the capability to retrieve a push notification sender by name.
+        The URL encoded push sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_view`
+      operationId: getPushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/push/{push-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    put:
+      tags:
+        - Push Senders
+      summary: Update a push notification sender
+      description: |
+        This API provides the capability to update a push notification sender.
+        The URL encoded push notification sender name is used as sender-name.<br>
+
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_update`
+      operationId: updatePushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push notification sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushSenderUpdateRequest'
+            example:
+              provider: FCM
+              properties:
+                - key: serviceAccountContent
+                  value: "base64EncodedServiceAccountJsonString"
+        required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PushSender'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/push/{push-sender-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "provider": "FCM",
+            "properties": [
+              {
+                "key": "serviceAccountContent",
+                "value": "base64EncodedServiceAccountJsonString"
+              }
+            ]
+            }'
+    delete:
+      tags:
+        - Push Senders
+      summary: Delete a push notification sender by name
+      description: |
+        This API provides the capability to delete a push notification sender by name.
+        The URL encoded push notification sender name is used as sender-name.<br>
+
+        <b>Scope(Permission) required:</b> `internal_org_notification_senders_delete`
+      operationId: deletePushSender
+      parameters:
+        - name: sender-name
+          in: path
+          description: name of the push notification sender
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "405":
+          description: Method Not Allowed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/t/{root-organization-name}/o/api/server/v2/notification-senders/push/{push-sender-name}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: NSM-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+    EmailSenderAddClientCredential:
+      required:
+        - fromAddress
+      type: object
+      properties:
+        name:
+          type: string
+        smtpServerHost:
+          type: string
+        smtpPort:
+          type: integer
+        fromAddress:
+          type: string
+          example: iam@gmail.com
+        authType:
+          type: string
+          example: CLIENT_CREDENTIAL
+        properties:
+          type: array
+          example:
+            - key: body.scope
+              value: "true"
+            - key: mail.smtp.starttls.enable
+              value: true
+            - key: clientId
+              value: "3e172dd2-901b-43a9-a26a-728466795f01"
+            - key: clientSecret
+              value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+            - key: tokenEndpoint
+              value: "https://login.microsoftonline.com/da76d684-740f-4d94-8717-9d5fb21dd1f9/oauth2/v2.0/token"
+            - key: scopes
+              value: "https://graph.microsoft.com/.default"
+          items:
+            $ref: '#/components/schemas/Properties'
+    EmailSenderAddBasicWithAuthType:
+      required:
+        - fromAddress
+      type: object
+      properties:
+        name:
+          type: string
+        smtpServerHost:
+          type: string
+        smtpPort:
+          type: integer
+        fromAddress:
+          type: string
+          example: iam@gmail.com
+        authType:
+          type: string
+          example: BASIC
+        properties:
+          type: array
+          example:
+            - key: body.scope
+              value: "true"
+            - key: mail.smtp.starttls.enable
+              value: true
+            - key: clientId
+              value: "3e172dd2-901b-43a9-a26a-728466795f01"
+            - key: clientSecret
+              value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+            - key: tokenEndpoint
+              value: "https://login.microsoftonline.com/da76d684-740f-4d94-8717-9d5fb21dd1f9/oauth2/v2.0/token"
+            - key: scopes
+              value: "https://graph.microsoft.com/.default"
+          items:
+            $ref: '#/components/schemas/Properties'
+    SMSSenderAdd:
+      required:
+        - provider
+        - contentType
+      type: object
+      properties:
+        name:
+          type: string
+          example: SMSPublisher
+        provider:
+          type: string
+          example: NEXMO
+        providerURL:
+          type: string
+          example: https://rest.nexmo.com/sms/json
+        key:
+          type: string
+          example: 123**45
+        secret:
+          type: string
+          example: 5tg**ssd
+        sender:
+          type: string
+          example: +94 775563324
+        contentType:
+          type: string
+          enum:
+            - JSON
+            - FORM
+        properties:
+          type: array
+          example:
+            - key: http.headers
+              value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+          items:
+            $ref: '#/components/schemas/Properties'
+    PushSenderAdd:
+      required:
+        - provider
+        - properties
+      type: object
+      properties:
+        name:
+          type: string
+          example: PushPublisher
+        provider:
+          type: string
+          example: fcm
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: jsonString
+            - key: aws.keyId
+              value: sampleKeyId
+          items:
+            $ref: '#/components/schemas/Properties'
+    EmailSender:
+      required:
+        - fromAddress
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          example: EmailPublisher
+        smtpServerHost:
+          type: string
+          example: smtp.gmail.com
+        smtpPort:
+          type: integer
+          example: 587
+        fromAddress:
+          type: string
+          example: iam@gmail.com
+        authType:
+          type: string
+          example: BASIC
+        properties:
+          type: array
+          example:
+            - key: mail.smtp.starttls.enable
+              value: true
+          items:
+            $ref: '#/components/schemas/Properties'
+    SMSSender:
+      required:
+        - providerURL
+        - name
+        - provider
+        - contentType
+      type: object
+      properties:
+        name:
+          type: string
+          example: SMSPublisher
+        provider:
+          type: string
+          example: NEXMO
+        providerURL:
+          type: string
+          example: https://rest.nexmo.com/sms/json
+        key:
+          type: string
+          example: 123**45
+        secret:
+          type: string
+          example: 5tg**ssd
+        sender:
+          type: string
+          example: +94 775563324
+        contentType:
+          type: string
+          enum:
+            - JSON
+            - FORM
+        properties:
+          type: array
+          example:
+            - key: body.scope
+              value: "internal"
+            - key: http.headers
+              value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+          items:
+            $ref: '#/components/schemas/Properties'
+    PushSender:
+      required:
+        - provider
+        - name
+      properties:
+        name:
+          type: string
+          example: PushPublisher
+        provider:
+          type: string
+          example: fcm
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: "jsonString"
+            - key: aws.keyId
+              value: "sampleKeyId"
+          items:
+            $ref: '#/components/schemas/Properties'
+    SMSSenderUpdateRequest:
+      required:
+        - provider
+        - contentType
+      type: object
+      properties:
+        provider:
+          type: string
+          example: NEXMO
+        providerURL:
+          type: string
+          example: https://rest.nexmo.com/sms/json
+        key:
+          type: string
+          example: 123**45
+        secret:
+          type: string
+          example: 5tg**ssd
+        sender:
+          type: string
+          example: +94 775563324
+        contentType:
+          type: string
+          enum:
+            - JSON
+            - FORM
+        properties:
+          type: array
+          example:
+            - key: http.headers
+              value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+          items:
+            $ref: '#/components/schemas/Properties'
+    PushSenderUpdateRequest:
+      required:
+        - provider
+        - properties
+      type: object
+      properties:
+        provider:
+          type: string
+        properties:
+          type: array
+          example:
+            - key: fcm.serviceAccount
+              value: "jsonString"
+            - key: aws.keyId
+              value: "sampleKeyId"
+          items:
+            $ref: '#/components/schemas/Properties'
+    Properties:
+      required:
+        - key
+        - value
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      example:
+        - key: email
+          value: iam@gmail.com
+    EmailProviderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EmailSender'
+    SMSProviderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/SMSSender'
+    PushProviderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PushSender'
+    Schema:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+  parameters:
+    typeQueryParam:
+      name: type
+      in: query
+      description: |
+        Type of authenticators. Can be either 'LOCAL' or 'REQUEST_PATH'
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}
+  examples:
+    EmailSenderClientCredentialPOSTRequestExample:
+      summary: "Post request for email  providers with client credential authentication"
+      value:
+        name: "EmailPublisher"
+        smtpServerHost: "smtp.gmail.com"
+        smtpPort: 587
+        fromAddress: "test@gmail.com"
+        authType: "CLIENT_CREDENTIAL"
+        properties:
+          - key: "mail.smtp.signature"
+            value: "Identity Server"
+          - key: "clientId"
+            value: "3e172dd2-901b-43a9-a26a-728466795f01"
+          - key: "clientSecret"
+            value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+          - key: "tokenEndpoint"
+            value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
+          - key: "scopes"
+            value: "https://graph.microsoft.com/.default"
+    EmailSenderBasicAuthWithAuthTypePOSTRequestExample:
+      summary: "Post request for email providers with basic authentication"
+      value:
+        name: "EmailPublisher"
+        smtpServerHost: "smtp.gmail.com"
+        smtpPort: 587
+        fromAddress: "test@gmail.com"
+        authType: "BASIC"
+        properties:
+          - key: "mail.smtp.signature"
+            value: "Identity Server"
+          - key: "userName"
+            value: "iam"
+          - key: "password"
+            value: "iam123"
+    EmailSenderClientCredentialPUTRequestExample:
+      summary: "Put request for email  providers with client credential authentication"
+      value:
+        name: "EmailPublisher"
+        smtpServerHost: "smtp.gmail.com"
+        smtpPort: 587
+        fromAddress: "test@gmail.com"
+        authType: "CLIENT_CREDENTIAL"
+        properties:
+          - key: "mail.smtp.signature"
+            value: "Identity Server"
+          - key: "clientId"
+            value: "3e172dd2-901b-43a9-a26a-728466795f01"
+          - key: "clientSecret"
+            value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+          - key: "tokenEndpoint"
+            value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
+          - key: "scopes"
+            value: "https://graph.microsoft.com/.default"
+    EmailSenderBasicAuthWithAuthTypePUTRequestExample:
+      summary: "Put request for email providers with basic authentication"
+      value:
+        name: "EmailPublisher"
+        smtpServerHost: "smtp.gmail.com"
+        smtpPort: 587
+        fromAddress: "test@gmail.com"
+        authType: "BASIC"
+        properties:
+          - key: "mail.smtp.signature"
+            value: "Identity Server"
+          - key: "userName"
+            value: "iam"
+          - key: "password"
+            value: "iam123"
+    EmailSenderClientCredentialResponseExample:
+      summary: "Response for email  providers with client credential authentication"
+      value:
+        name: "EmailPublisher"
+        smtpServerHost: "smtp.gmail.com"
+        smtpPort: 587
+        fromAddress: "test@gmail.com"
+        authType: "CLIENT_CREDENTIAL"
+        properties:
+          - key: "mail.smtp.signature"
+            value: "Identity Server"
+          - key: "clientId"
+            value: "3e172dd2-901b-43a9-a26a-728466795f01"
+          - key: "tokenEndpoint"
+            value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
+          - key: "scopes"
+            value: "https://graph.microsoft.com/.default"
+    EmailSenderBasicAuthWithAuthTypeResponseExample:
+      summary: "Response for email providers with basic authentication"
+      value:
+        name: "EmailPublisher"
+        smtpServerHost: "smtp.gmail.com"
+        smtpPort: 587
+        fromAddress: "test@gmail.com"
+        authType: "BASIC"
+        properties:
+          - key: "mail.smtp.signature"
+            value: "Identity Server"
+          - key: "userName"
+            value: "iam"
