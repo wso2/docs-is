@@ -3,8 +3,10 @@
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 Administrators can initiate password reset for users. Once an administrator initiates a password reset, the user's current password becomes invalid and they must complete the password reset process to regain access to their account.
 {% else %}
-Administrators can initiate password reset for users. Once initiated, an email will be sent to the user with a password reset link which can be used to reset the password.
+Administrators can initiate password reset for users. Once initiated, an email will be sent to the user with a password reset link which can be used to reset the password. 
 {% endif %}
+
+Administrators can initiate password reset for users. Once initiated, an email will be sent to the user with a password reset link which can be used to reset the password.
 
 To configure admin-initiated password reset:
 
