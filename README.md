@@ -155,6 +155,7 @@ To install Vale in Visual Studio Code (VSCode),
 
 3. Enable the extension for syntax highlighting.
 
+4. Vale provides three different highlights; `errors` (red), `warnings`(yellow) and `info` (blue). Remove errors and warnings. Optionally, improve info messages as needed.
 
 ## Contribute to documentation
 
