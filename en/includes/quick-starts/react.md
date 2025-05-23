@@ -116,7 +116,7 @@ createRoot(document.getElementById('root')).render(
 
 ## Add signed-in and signed-out to your app
 
-Asgardeo SDK provides `useAsgardeo` hook to conveniently access user authentication data and sign-in and sign-out methods.
+Asgardeo SDK provides `useAsgardeo` hook to conveniently access user authentication data and sign-in and sign-out functions.
 
 Replace the existing content of the `App.jsx` file with following content.
 
@@ -178,5 +178,49 @@ function App() {
 
 export default App
 ```
+
+## Using the `useAsgardeo` Hook (For Programmatic Control)
+
+For more granular control, you can use the `useAsgardeo` hook. This hook provides direct access to SDK's functions and state:
+
+```javascript title="src/components/AuthStatus.jsx"
+import { useAsgardeo } from '@asgardeo/react'
+import './App.css'
+
+function App() {
+  const { user, signIn, signOut, isSignedIn, isLoading } = useAsgardeo()
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  return (
+    <div>
+      {isSignedIn ? (
+        <div>
+          <div>
+            <img src={user.picture} alt={user.name} />
+            <p>Welcome back, {user.name}</p>
+          </div>
+          <button onClick={() => signOut()}>Sign Out</button>
+        </div>
+      ) : (
+        <button onClick={() => signIn()}>Sign In</button>
+      )}
+    </div>
+  )
+}
+```
+
+The `useAsgardeo` hook provides:
+
+- `user` - The authenticated user's profile information
+- `signIn()` - Function to initiate the sign-in flow
+- `signOut()` - Function to sign out the current user
+- `isSignedIn` - Boolean indicating if a user is currently signed in
+- `isLoading` - Boolean indicating if the authentication state is being determined
+
+!!! tip
+    Use `useAsgardeo` when you need programmatic control over authentication or want to access state & functions in custom components.
 
 [//] STEPS_END
