@@ -10,6 +10,7 @@ This is the WSO2 Identity Server and Asgardeo documentation repository. This rep
 * [Run the project locally](#run-the-project-locally)
   + [With Python Virtual Environments](#with-python-virtual-environments)
   + [With Devcontainers](#with-devcontainers)
+* [Install linters](#install-linters)
 * [Contribute to documentation](#contribute-to-documentation)
 * [Survey On Open Source Community Communication](#survey-on-open-source-community-communication)
 * [License](#license)
@@ -124,6 +125,36 @@ Once you have these installed, you can open the repository in VS Code and follow
 - You can now edit, run, debug, and test your code inside the container.
 
 For more information on how to use VS Code dev containers, please refer to the official documentation: https://code.visualstudio.com/docs/remote/containers
+
+## Install linters
+
+To uphold documentation quality, the CI pipeline includes linters to check for writing quality and style. Before creating a pull request (PR), make sure to install the required IDE extensions and test your changes locally to pass these checks.
+
+### Vale
+
+[Vale](https://github.com/errata-ai/vale){: target="_blank"} offers a fast, open-source solution for linting prose, ensuring consistency, clarity, and quality in documentation. It checks text against style rules, like a code linter analyzes source code.
+
+The current setup uses well-established industry rule sets such as [Microsoft](https://github.com/errata-ai/Microsoft){: target="_blank"} and [write-good](https://github.com/errata-ai/write-good){target="_blank"}, which provide guidelines for grammar, tone, and readability. We're working on adding custom rules to align with evolving style and voice requirements.
+
+To install Vale in Visual Studio Code (VSCode),
+
+1. Install the **Vale VSCode** extension.
+
+2. In the extension's settings page, provide the absolute path of the `vale.ini` configuration file as the `config`.
+
+   The configuration file and rule sets live in the following locations of the repository:
+
+   ```text
+   .
+   ├── vale.ini             #Main configuration file for Vale at the root
+   └── .vale/
+       └── styles/          #Contains style guides
+           ├── Microsoft/
+           └── write-good/
+   ```
+
+3. Enable the extension for syntax highlighting.
+
 
 ## Contribute to documentation
 
