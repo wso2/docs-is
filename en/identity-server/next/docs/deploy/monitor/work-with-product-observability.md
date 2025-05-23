@@ -221,3 +221,30 @@ Follow the steps below to configure denylists for threads.
     ```
 
     ![Correlation log screenshot]({{base_path}}/assets/img/setup/monitor/correlation-log-screenshot-2.png){: width="600"}
+
+### Customize JDBC database call logging
+
+You can customize the log pattern for JDBC database call logging by specifying which fields should be included in the logs. This is done by passing the `org.wso2.CorrelationLogInterceptor.JdbcLogFields` system property when starting the server.
+
+The following table lists the fields that can be included:
+
+| Field Name | Description |
+|------------|-------------|
+| `METHOD_NAME` | Method name of the database call |
+| `QUERY` | Executed database query |
+| `CONNECTION_URL` | Database connection URL |
+| `DATABASE_NAME` | Name of the database |
+
+To customize the JDBC log pattern, execute a command similar to the following example when starting the server:
+
+=== "Mac OS/Linux"
+    ```
+    sh wso2server.sh -DenableCorrelationLogs=true -Dorg.wso2.CorrelationLogInterceptor.JdbcLogFields=CONNECTION_URL,DATABASE_NAME start
+    ```
+
+=== "Windows"
+    ```
+    wso2server.bat -DenableCorrelationLogs=true -Dorg.wso2.CorrelationLogInterceptor.JdbcLogFields=CONNECTION_URL,DATABASE_NAME start
+    ```
+
+You can include any combination of the available fields based on your requirements.
