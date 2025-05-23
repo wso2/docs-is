@@ -1,6 +1,6 @@
 # React Quickstart
 
-Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user login and display user profile information using {{ product_name }}.
+Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user sign-in and display user profile information using {{ product_name }}.
 
 [//] STEPS_START
 
@@ -26,17 +26,14 @@ Note down the following values from the **Protocol** tab of the registered appli
 
 ## Create a React app using Vite
 
-Create (a.k.a scaffold) your new React app using Vite.
+Create (a.k.a scaffold) your new React app using [Vite](https://vite.dev/).
 
 === "npm"
 
     ```bash
     npm create vite@latest {{ product }}-react -- --template react
-
     cd {{ product }}-react
-
     npm install
-
     npm run dev
     ```
 
@@ -44,11 +41,8 @@ Create (a.k.a scaffold) your new React app using Vite.
 
     ```bash
     yarn create vite@latest {{ product }}-react -- --template react
-
     cd {{ product }}-react
-
     yarn install
-
     yarn dev
     ```
 
@@ -56,11 +50,8 @@ Create (a.k.a scaffold) your new React app using Vite.
 
     ```bash
     pnpm create vite@latest {{ product }}-react -- --template react
-
     cd {{ product }}-react
-
     pnpm install
-
     pnpm dev
     ```
 
@@ -88,7 +79,7 @@ Asgardeo React SDK provides all the components and hooks you need to integrate {
 
 ## Add `<AsgardeoProvider />` to your app
 
-The `<AsgardeoProvider />` serves as a context provider for user login in the app. You can add the AsgardeoProvider to your app by wrapping  the root component.
+The `<AsgardeoProvider />` serves as a context provider for user sign-in in the app. You can add the AsgardeoProvider to your app by wrapping  the root component.
 
 Add the following changes to the `main.jsx` file.
 
@@ -99,7 +90,7 @@ Add the following changes to the `main.jsx` file.
     - `<your-app-client-id>`
     - `{{content.sdkconfig.baseUrl}}`
 
-```javascript title="src/main.jsx" hl_lines="5 9-14 16"
+```javascript title="src/main.jsx" hl_lines="5 9-12 14"
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -123,7 +114,7 @@ createRoot(document.getElementById('root')).render(
 )
 ```
 
-## Add login and logout link to your app
+## Add signed-in and signed-out to your app
 
 Asgardeo SDK provides `useAsgardeo` hook to conveniently access user authentication data and sign-in and sign-out methods.
 
@@ -153,23 +144,29 @@ Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 !!! Important
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout sign-in and signed-out features.
 
-## Display logged in user details
+## Display signed-in in user details
 
-Modify the code as below to see logged in user details.
+The `User` component from Asgardeo provides access to the signed-in in user's profile information.
+You can use it to display user details like name, email, profile picture, and other user profile attributes.
 
-```javascript title="src/App.jsx" hl_lines="5 10"
-import { useAsgardeo } from '@asgardeo/react'
+```javascript title="src/App.jsx" hl_lines="1 8-15"
+import { User } from '@asgardeo/react'
 import './App.css'
 
 function App() {
-  const { user } = useAsgardeo()
-
   return (
     <>
       <SignedIn>
-        <p>Welcome {user.username}</p>
+        <User>
+          {(user) => (
+            <div>
+              <img src={user.picture} alt={user.name} />
+              <p>Welcome back, {user.name}</p>
+            </div>
+          )}
+        </User>
         <SignOutButton />
       </SignedIn>
       <SignedOut>
