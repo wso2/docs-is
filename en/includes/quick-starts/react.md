@@ -146,7 +146,7 @@ Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
     You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout sign-in and signed-out features.
 
-## Display signed-in in user details
+## Display signed-in user's profile information
 
 The `User` component from Asgardeo provides access to the signed-in in user's profile information.
 You can use it to display user details like name, email, profile picture, and other user profile attributes.
@@ -183,7 +183,7 @@ export default App
 
 For more granular control, you can use the `useAsgardeo` hook. This hook provides direct access to SDK's functions and state:
 
-```javascript title="src/components/AuthStatus.jsx"
+```javascript title="src/App.jsx" hl_lines="1 5 7-9 13 16-17 19 22"
 import { useAsgardeo } from '@asgardeo/react'
 import './App.css'
 
@@ -214,11 +214,11 @@ function App() {
 
 The `useAsgardeo` hook provides:
 
-- `user` - The authenticated user's profile information
+- `user` - The signed-in user's profile information
 - `signIn()` - Function to initiate the sign-in flow
-- `signOut()` - Function to sign out the current user
-- `isSignedIn` - Boolean indicating if a user is currently signed in
-- `isLoading` - Boolean indicating if the authentication state is being determined
+- `signOut()` - Function to sign-out the current user
+- `isSignedIn` - Boolean indicating if a user is currently signed-in
+- `isLoading` - Boolean indicating if the SDK is working on a sign-in, sign-out and other operations
 
 !!! tip
     Use `useAsgardeo` when you need programmatic control over authentication or want to access state & functions in custom components.
