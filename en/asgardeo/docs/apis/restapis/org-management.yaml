@@ -33,7 +33,34 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OrganizationPOSTRequest'
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  example: "ABC Builders"
+                description:
+                  type: string
+                  example: "Building constructions"
+                parentId:
+                  type: string
+                  description: "The parent organization id should be the organization where the request is invoked. If a value is not specified it will be resolved internally."
+                attributes:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Attribute'
+              example:
+                {
+                  "name": "ABC Builders",
+                  "description": "Building constructions",
+                  "attributes": [
+                    {
+                      "key": "Country",
+                      "value": "USA"
+                    }
+                  ]
+                }
         description: This represents the organization to be added.
         required: true
       responses:
