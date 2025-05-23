@@ -199,8 +199,8 @@ function App() {
       {isSignedIn ? (
         <div>
           <div>
-            <img src={user.picture} alt={user.name} />
-            <p>Welcome back, {user.name}</p>
+            <img src={user.photourl} alt={user.username} />
+            <p>Welcome back, {user.givenname}</p>
           </div>
           <button onClick={() => signOut()}>Sign Out</button>
         </div>
