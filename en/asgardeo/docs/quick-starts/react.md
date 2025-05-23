@@ -7,7 +7,7 @@ template: templates/quick-start.html
     what_you_will_learn: [
       "Create new React app using Vite",
       "Install <a href='https://www.npmjs.com/package/@asgardeo/react' target='_blank' rel='noopener noreferrer'>@asgardeo/react</a> package",
-      "Add user login and logout",
+      "Add user sign-in and sign-out",
       "Display user profile information"
     ],
     prerequisites: [
