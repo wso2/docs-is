@@ -132,9 +132,9 @@ To uphold documentation quality, the CI pipeline includes linters to check for w
 
 ### Vale
 
-[Vale](https://github.com/errata-ai/vale){: target="_blank"} offers a fast, open-source solution for linting prose, ensuring consistency, clarity, and quality in documentation. It checks text against style rules, like a code linter analyzes source code.
+[Vale](https://github.com/errata-ai/vale) offers a fast, open-source solution for linting prose, ensuring consistency, clarity, and quality in documentation. It checks text against style rules, like a code linter analyzes source code.
 
-The current setup uses well-established industry rule sets such as [Microsoft](https://github.com/errata-ai/Microsoft){: target="_blank"} and [write-good](https://github.com/errata-ai/write-good){target="_blank"}, which provide guidelines for grammar, tone, and readability. We're working on adding custom rules to align with evolving style and voice requirements.
+The current setup uses well-established industry rule sets such as [Microsoft](https://github.com/errata-ai/Microsoft) and [write-good](https://github.com/errata-ai/write-good), which provide guidelines for grammar, tone, and readability. We're working on adding custom rules to align with evolving style and voice requirements.
 
 To install Vale in Visual Studio Code (VSCode),
 
