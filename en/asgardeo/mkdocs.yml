@@ -31,6 +31,9 @@ theme:
 extra:
   base_path: /asgardeo/docs
   product: asgardeo
+  content:
+    baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
+
   product_name: *site_name
   explicit_tab_list:
     - Home
