@@ -6,3 +6,4 @@ ignorecase: false
 tokens:
   - '\bWSO2 IS\b'
   - '\bIS\b'
+  
