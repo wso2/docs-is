@@ -301,10 +301,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 Then, update `page.tsx` with the following highlighted line to display the username of logged in user.  
 
 ```javascript title="app/sign-in/[[...sign-in]]/page.tsx"
-import { SignInButton } from '@asgardeo/next'
+import { SignIn } from '@asgardeo/next'
 
 export default function Page() {
-  return <SignInButton />
+  return <SignIn />
 }
 ```
 
