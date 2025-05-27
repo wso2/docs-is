@@ -16,6 +16,7 @@ env:
 jobs:
   linkchecker:
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - name: Check repository

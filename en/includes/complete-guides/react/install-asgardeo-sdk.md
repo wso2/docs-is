@@ -31,7 +31,7 @@ const config = {
     signInRedirectURL: "http://localhost:5173",
     signOutRedirectURL: "http://localhost:5173",
     clientID: "<your-app-client-id>",
-    baseUrl: "https://api.asgardeo.io/t/<your-organization-name>",
+    baseUrl: "{{content.baseUrl}}",
     scope: [ "openid","profile" ]
 }
 
