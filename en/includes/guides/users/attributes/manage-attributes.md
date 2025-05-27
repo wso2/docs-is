@@ -224,23 +224,23 @@ To delete an attribute:
     Only custom attributes can be deleted.
 
 {% if product_name == "WSO2 Identity Server" %}
-## Manage Identity Attributes
+## Manage identity attributes
 
 By default, identity claim values are stored in the JDBC datasource configured in the `deployment.toml` file. If required, you can configure WSO2 Identity Server to store the claim values in another user store as well.
 
-1.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore` property value to `IdentityDataStoreService`. This service, functioning as an OSGi service, is dedicated to accessing Identity data stores.
+1.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore.datastore_type` property. The `IdentityDataStoreService` OSGi service uses this value to determine which data store implementation to access.
 
-```
-[identity_datastore]
-datastore_type = "<Name of the identityDataStore class>"
-```
+    ```
+    [identity_datastore]
+    datastore_type = "<Name of the identityDataStore class>"
+    ```
 
-!!! Note
-    The class name configuration for the identity data store has been separated from the listener configurations. If you're using a custom data store class, it's crucial to update your `deployment.toml` file to reflect this choice. This update ensures that your custom class will override the default configuration.
+    !!! Note
+        The class name configuration for the identity data store is now separate from the listener configurations. If you're using a custom data store class, it's crucial to update your `deployment.toml` file to reflect this choice. This update ensures that your custom class will override the default configuration.
 
-    To either maintain the previous behavior or use your custom data store, simply follow these steps and update your deployment.toml:
+        To either maintain the previous behavior or use your custom data store, simply follow these steps and update your deployment.toml:
 
-    By making this configuration adjustment, you can ensure that your system aligns with your preferred data store class, whether it's the previous default or a custom class you've implemented. This helps you tailor the system to your specific needs.
+        By making this configuration adjustment, you can ensure that your system aligns with your preferred data store class, whether it's the previous default or a custom class you've implemented. This helps you tailor the system to your specific needs.
 
 2.  Map the identity claims mentioned below to attributes in the underlying user store.
 
@@ -256,7 +256,28 @@ datastore_type = "<Name of the identityDataStore class>"
 
     -   `http://wso2.org/claims/identity/failedLoginAttempts`: This is
         used to track the number of consecutive failed login attempts.
-        It is based on this that the account is locked.
+        It's based on this that the account is locked.
+{% endif %}
+
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+
+WSO2 Identity Server includes hidden identity attributes that support internal functionality but don't appear in the Console UI by default. These attributes typically don't require mapping with Service Providers (SPs) or Identity Providers (IdPs).
+
+You can customize the set of hidden identity attributes by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+```
+[identity_mgt.claims]
+hidden_claims = [
+    "<attribute_uri_1>",
+    "<attribute_uri_2>",
+    ...
+]
+```
+
+To add new attributes to the hidden list, include their URIs in the hidden_claims array.
+
+To unhide default hidden attributes, override the configuration with an empty list or remove the relevant URIs.
+
 {% endif %}
 
 {% if multi_valued_attributes %}
