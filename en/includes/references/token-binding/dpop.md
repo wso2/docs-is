@@ -1,8 +1,8 @@
 # Demonstrating Proof of Possession
 
-Demonstrating Proof of Possession (DPoP) [(RFC 9449)](https://datatracker.ietf.org/doc/rfc9449/) is a token binding mechanism that ensures the access token is bound to the private key of the client. This mechanism requires the client to include a DPoP proof, in the `DPoP` header of each request. The proof demonstrates possession of the private key, ensuring that the token can only be used by the legitimate client that obtained the token.
+Demonstrating Proof of Possession (DPoP) [(RFC 9449)](https://datatracker.ietf.org/doc/rfc9449/) defines a token binding mechanism that ensures the client binds the access token to its private key. This mechanism requires the client to include a DPoP proof, in the `DPoP` header of each request. The proof demonstrates possession of the private key, ensuring that only the legitimate client that obtained the token can use it.
 
-DPoP enhances security by preventing token misuse and replay attacks, making it a robust solution for securing access tokens in various grant types.
+DPoP enhances security by preventing token misuse and replay attacks, making it a robust solution for securing access tokens across all OAuth 2.0 grant types.
 
 ## Configuring your application for DPoP.
 
@@ -22,7 +22,7 @@ DPoP enhances security by preventing token misuse and replay attacks, making it 
 
 You can test DPoP in {{product_name}} by following the steps below.
 
-Generate a DPoP Proof for the Token Request. This proof will be included in the `DPoP` header when making a token request. You can refer to the sample DPoP proof generator [here](https://github.com/wso2/samples-is/tree/master/oauth2/org.wso2.dpop.proof.generator#dpop-client-application).
+Generate a DPoP Proof for the Token Request. The client includes this proof in the `DPoP` header when making a token request. You can refer to the sample DPoP proof generator [here](https://github.com/wso2/samples-is/tree/master/oauth2/org.wso2.dpop.proof.generator#dpop-client-application).
 
 
 ### Using Client Credentials grant
