@@ -1,4 +1,4 @@
-# Demonstrating Proof of Possession
+# Demonstrating Proof of Possession (DPoP)
 
 Demonstrating Proof of Possession (DPoP) [(RFC 9449)](https://datatracker.ietf.org/doc/rfc9449/) defines a token binding mechanism that ensures the client binds the access token to its private key. This mechanism requires the client to include a DPoP proof, in the `DPoP` header of each request. The proof demonstrates possession of the private key, ensuring that only the legitimate client that obtained the token can use it.
 
@@ -25,7 +25,7 @@ You can test DPoP in {{product_name}} by following the steps below.
 Generate a DPoP Proof for the Token Request. The client includes this proof in the `DPoP` header when making a token request. You can refer to the sample DPoP proof generator [here](https://github.com/wso2/samples-is/tree/master/oauth2/org.wso2.dpop.proof.generator#dpop-client-application).
 
 
-### Using Client Credentials grant
+### Using client credentials grant
 
 Step 1: Get the access token using client credentials grant. 
 
@@ -49,7 +49,7 @@ Step 1: Get the access token using client credentials grant.
     }
     ```
 
-### Using Authorization Code grant
+### Using authorization code grant
 
 Step 1: Get the authorization code. You can optionally include the `dpop_jkt` (the JWK thumbprint of the client's public key) parameter to bind the code to the client.
 
