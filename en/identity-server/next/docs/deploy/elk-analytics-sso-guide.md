@@ -1,13 +1,32 @@
 # Configure Single-Sign-On for ELK analytics
 
- You can enable Single-sign-on for an ElasticSearch/Kibana deployment with WSO2 Identity Server via OpenID Connect. To set this up, follow the steps given below.
+# Configure Single-Sign-On for ELK analytics
+
+## Consecutive title
+
+ You can enable Single-sign-on for an ElasticSearch/Kibana deployment with WSO2 Identity Server via OpenID Connect. To set this up, follow the steps given below. {{ product_name }}
 
 <div class="admonition waening">
 <p class="admonition-title">Premium feature</p>
 <p>To enable Single-Sign-On, you need to be subscribed to an Elastic stack platinum subscription or higher.</p>
 </div>
 
+The class name configuration for the identity data store exists separately from the listener configurations.
+
 ## Prerequisite
+
+> This is a blockquote.
+
+> This is a blockquote.
+
+### Title 3
+
+## Title 2
+
+
+
+### title 4
+
 
 [Configure ELK Analytics](./elk-analytics-installation-guide.md) in WSO2 Identity Server.
 
@@ -19,7 +38,7 @@ To enable Elastic stack SSO with WSO2 Identity Server, follow the steps given be
 
 2. Navigate to **Applications**, click **New Application** and select **Traditional Web Application**.
 
-3. Provide a name for the service provider (e.g. kibana), select **OpenID Connect** as the protocol and provide the following as the authorized redirect URLs.
+3. Provide a name for the service provider (e.g. Kibana), select **OpenID Connect** as the protocol and provide the following as the authorized redirect URLs.
     - https://localhost:5601/api/security/oidc/callback
     - https://localhost:5601/security/logged_out
 
@@ -35,6 +54,15 @@ To enable Elastic stack SSO with WSO2 Identity Server, follow the steps given be
 
 
 ## Configure OIDC Realm in Elasticsearch
+
+## 
+
+
+
+
+
+
+
 
 To configure single sign-on in the Elastic Stack using OpenID connect, follow the steps given [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/oidc-guide.html){: target="_blank"}.
 
