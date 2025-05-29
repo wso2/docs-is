@@ -1,0 +1,14 @@
+Asgardeo
+WSO2
+OIDC
+OAuth2
+IdP
+SAML
+product_name
+keystore
+truststore
+truststores
+is_version
+endif
+browserpwd
+Kibana
