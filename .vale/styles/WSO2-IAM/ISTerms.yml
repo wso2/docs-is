@@ -1,6 +1,5 @@
 extends: existence
 message: "'%s' is not allowed. Use 'WSO2 Identity Server' instead."
-link: https://example.com/style-guide#wso2-identity-server
 level: error
 ignorecase: false
 tokens:
