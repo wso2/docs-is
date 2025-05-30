@@ -998,6 +998,7 @@ nav:
       - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
+        - Organization Me API: apis/user-organization-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
         - SCIM 2.0 Me API: apis/scim2-me-rest-apis.md
         - TOTP API: apis/totp-rest-api.md
