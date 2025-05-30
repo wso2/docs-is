@@ -57,7 +57,7 @@ Use the following command to get a token using the client credentials grant:
 
 Follow the steps below to get a token using the authorization code grant:
 
-1. Get an authorization code. To bind the code to the client, you can optionally add the `dpop_jkt` parameter (the thumbprint of the client’s public key).
+1. Get an authorization code. To bind the code to the client, you can optionally add the `dpop_jkt` parameter (the [thumbprint](https://datatracker.ietf.org/doc/html/rfc9449#section-10) of the client’s public key).
 
     ```curl
     {{base_url}}/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id=   {client_id}&dpop_jkt={dpop_jkt}
