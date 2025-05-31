@@ -353,11 +353,11 @@ To filter users by account status:
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
 2. Click the **Account Status** dropdown and select the relevant filter criteria:
 
-    - **Locked**: Filters users whose accounts are locked.
-    - **Disabled**: Filters users whose accounts are disabled.
-    - **Pending password reset**: Filters users for whom the administrator has initiated a forced password reset, but the users have not yet reset their passwords.
-    - **Pending initial password setup**: Filters users who were asked by the administrator to set their passwords during initial account creation but have not yet done so.
-    - **Pending email verification**: Filters users whose primary email addresses have not yet been verified.
-    - **Pending mobile verification**: Filters users whose primary mobile numbers have not yet been verified.
+    - **Locked**: Filters users with locked accounts.
+    - **Disabled**: Filters users with deactivated accounts.
+    - **Pending password reset**: Filters users for whom the administrator has initiated a forced password reset, but the users haven't yet reset their passwords.
+    - **Pending initial password setup**: Filters users an administrator invited to set their own password during initial account creation but who haven't done so yet.
+   - **Pending email verification**: Filters users who haven't yet verified their primary email addresses.
+   - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
 
         ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
