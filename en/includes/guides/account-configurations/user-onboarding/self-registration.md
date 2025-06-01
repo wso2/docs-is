@@ -173,3 +173,200 @@ Note the following details in the response payload:
 
 Once you have identified the `emailVerified` status of the user and the method by which the user is onboarded (self-registration or onboarded by an administrator), you can enforce any access restrictions for that user through your application logic.
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+## Resend account verification email
+
+The ability to resend the account verification email is useful if the initial email was not received, was accidentally deleted, or if the verification link expired before the user could confirm their account. This ensures users can complete the verification process and gain appropriate access to the application.
+
+!!! tip
+
+    To implement this scenario, you must enforce account verification for self-registered users and activate accounts immediately without waiting for verification.</br></br> Learn more in [enable/disable self-registration](#enabledisable-self-registration).
+
+- To resend the account verification email for your own account, use the resend-code API as shown below.
+
+{% if product_name == "Asgardeo"%}
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/{organization_name}/api/identity/user/v1.0/me/resend-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "SELF_SIGN_UP"
+                }
+            ]
+        }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/{organization_name}/api/identity/user/v1.0/me/resend-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "SELF_SIGN_UP"
+                }
+            ]
+        }'
+        ```
+
+    ---
+    **Response**
+    ```
+    HTTP/1.1 201 Created
+    ```
+{% else %}
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://localhost:9443/api/identity/user/v1.0/me/resend-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "SELF_SIGN_UP"
+                }
+            ]
+        }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/{organization_name}/api/identity/user/v1.0/me/resend-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "SELF_SIGN_UP"
+                }
+            ]
+        }'
+        ```
+
+    ---
+    **Response**
+    ```
+    HTTP/1.1 201 Created
+    ```
+{% endif %}
+
+- To resend the account verification email for other users, use the resend-code API as shown below.
+
+{% if product_name == "Asgardeo"%}
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "<username>",
+                "realm": "<realm>"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "SELF_SIGN_UP"
+                }
+            ]
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "jane",
+                "realm": "DEFAULT"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "SELF_SIGN_UP"
+                }
+            ]
+            }'
+        ```
+
+    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+{% else %}
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/resend-code
+        -H "Authorization: Bearer <access_token>"
+        -H "Content-Type: application/json" \
+        -d '{
+            "user": {
+                "username": <USERNAME>,
+                "realm": <REALM>"
+            },
+            "properties": [{
+                "key": "RecoveryScenario",
+                "value": "SELF_SIGN_UP"
+                }]
+            }'
+        ```
+    === "Sample request"
+
+        ```
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/resend-code 
+        -H "Authorization: Bearer <access_token>"
+        -H "Content-Type: application/json" \
+        -d '{
+            "user": {
+                "username": "bob",
+                "realm": "PRIMARY"
+            },
+            "properties": [{
+                "key": "RecoveryScenario",
+                "value": "SELF_SIGN_UP"
+                }]
+            }'
+        ```
+
+    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+    
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+{% endif %}
+{% endif %}
