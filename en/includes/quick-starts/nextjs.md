@@ -219,7 +219,7 @@ Visit your app's homepage at [http://localhost:3000](http://localhost:3000).
 
 ## Display logged in user details
 
-Update `src/auth.ts` below to make logged in user details available in the session.
+Update `src/auth.ts` as below to make logged in user details available in the session.
 
 !!! Important
 
