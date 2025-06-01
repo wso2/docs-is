@@ -31,6 +31,8 @@ theme:
 extra:
   base_path: /asgardeo/docs
   product: asgardeo
+  content:
+    baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
   product_name: *site_name
   explicit_tab_list:
     - Home
@@ -562,6 +564,7 @@ nav:
       - User account associations API: apis/association-management-by-user.md
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
+      - Organization Me API: apis/user-organization-api.md
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md

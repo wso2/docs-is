@@ -22,6 +22,8 @@ site_url: https://is.docs.wso2.com/en/7.1.0
 extra:
   base_path: /en/7.1.0
   is_version: 7.1.0
+  content:
+    baseUrl: "https://localhost:9443"
   default_keystore_type: PKCS12
   default_keystore_ext: p12
   home_page_cards:
@@ -698,7 +700,6 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Share applications with organizations: guides/organization-management/share-applications.md
           - Application Management:
             - Share applications: guides/organization-management/share-applications.md
             - Organization applications: guides/organization-management/organization-applications.md
@@ -997,6 +998,7 @@ nav:
       - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
+        - Organization Me API: apis/user-organization-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
         - SCIM 2.0 Me API: apis/scim2-me-rest-apis.md
         - TOTP API: apis/totp-rest-api.md
