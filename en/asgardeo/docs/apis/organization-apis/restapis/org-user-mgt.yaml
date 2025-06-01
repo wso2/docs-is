@@ -41,7 +41,7 @@ paths:
             type: string
         - name: filter
           in: query
-          description: The expression used for filtering. Supported filters are ‘Ew’, ‘Eq’, ‘Co’, ‘Sw’, and ‘and’.
+          description: The expression used for filtering. Supported filters are ‘Ew’, ‘Eq’, ‘Co’, ‘Sw’, ‘Ne’ and ‘and’.
           schema:
             type: string
         - name: startIndex
