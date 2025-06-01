@@ -521,3 +521,25 @@ Content-Type: application/json
 
 !!! note
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response is not directly included in the error response sent back to the application.
+
+## Conditional Invocation of Pre-Issue Access Token Action
+
+Pre-issue access token actions can be conditionally triggered based on configurable rule criteria. The rule configuration currently supports the following fields:
+
+- Application: The specific application for which the access token is being issued.
+- Grant Type: The grant type used during the token issuance process.
+
+Each rule field supports the following operators:
+
+- equals
+- not equals
+
+You can specify exact values for these fields, such as a specific application associated with a tenant or a particular grant type. 
+Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-issue access token action should be invoked.
+
+![pre-issue-access-token-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-issue-access-token-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+
+The above rule configuration translates logically to:
+
+- The application is Test App AND the grant type is client_credentials, OR
+- The application is Test App, regardless of the grant type.

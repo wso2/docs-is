@@ -405,3 +405,30 @@ Content-Type: application/json
 
 !!! note
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response is not directly included in the error response sent back to the application.
+
+## Conditional Invocation of Pre-Update Password Action
+
+Pre-update password actions can be conditionally triggered based on configurable rule criteria. The rule configuration currently supports the following field:
+
+- Flow: The specific product flow where the user password is updated are defined below.
+    - Admin initiated password reset
+    - Admin initiated password update
+    - Admin initiated user invite to set password
+    - Application initiated password update
+    - User initiated password reset
+    - User initiated password update
+
+The rule field supports the following operators:
+
+- equals
+- not equals
+
+You can specify exact values for the field, such as an Admin initiated password update. 
+Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-update password action should be invoked.
+
+![pre-update-password-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-update-password-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+
+The above rule configuration translates logically to:
+
+- The flow is Admin initiated password reset OR
+- The flow is Admin initiated password update
