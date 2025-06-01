@@ -14,7 +14,7 @@ Welcome to the Next.js Quickstart guide! In this document, you will learn to bui
 
     **Authorized redirect URL:** http://localhost:3000/api/auth/callback/asgardeo
 
-Note down the following values from the **Protocol** and **Info**  tabs of the registered application. You will need them to configure Asgardeo React SDK.
+Note down the following values from the **Protocol** and **Info** tabs of the registered application. You will need them to configure the Auth.js SDK.
 
 - **`client-id`** from the **Protocol** tab. 
 - **`client-secret`** from the **Protocol** tab. 
@@ -22,7 +22,7 @@ Note down the following values from the **Protocol** and **Info**  tabs of the r
 
 !!! Info
 
-    The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use ` http://localhost:3000/api/auth/callback/asgardeo`, as the authorized redirect URL .
+    The authorized redirect URL specifies where {{product_name}} should send users after they successfully log in. This is usually the web address where your application is running. For this guide, we'll use `http://localhost:3000/api/auth/callback/asgardeo` as the authorized redirect URL, as required by Auth.js.
 
 ## Create a Next.js app 
 
@@ -66,7 +66,7 @@ Create your new Next.js app.
 
 ## Install Auth.js library
 
-Auth.js is a lightweight JavaScript library designed for simplifying authentication workflows in web application. The [Asgardeo provider for Auth.js](https://authjs.dev/reference/core/providers/asgardeo){:target="_blank"}  offers all the components and hooks you need to integrate your app with {{product_name}}.To get started, simply add Auth.js library to the project. Make sure to stop the dev server started in the previous step.
+Auth.js is a lightweight JavaScript library designed for simplifying authentication workflows in JavaScript web applications. The [Asgardeo provider for Auth.js](https://authjs.dev/reference/core/providers/asgardeo){:target="_blank"}  offers all the components and hooks you need to integrate your app with {{product_name}}. To get started, simply add Auth.js library to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
@@ -106,7 +106,7 @@ Next, generate **`AUTH_SECRET`** environment variable.
     pnpm dlx auth secret
     ```
 
-Add following entries to the  .env or .env.local file, and make sure to replace the placeholders in the following code with the **`client-id`**, **`client-secret`** and **`issuer`** values you copied in **Step-1** during the application registration in the {{product_name}} console. 
+Add following entries to the `.env` or `.env.local` file, and make sure to replace the placeholders in the following code with the **`client-id`**, **`client-secret`** and **`issuer`** values you copied in **Step-1** during the application registration in the {{product_name}} console. 
 
 
 ```bash title=".env.local"
@@ -116,19 +116,17 @@ Add following entries to the  .env or .env.local file, and make sure to replace 
 
 ```
 
-
-
 ## Create the `auth.js` configuration File
 
-Create a file called `/src/auth.ts'`. 
+Create a file called `src/auth.ts'`. 
 
 ```bash
 
-touch /src/auth.ts
+touch src/auth.ts
 
 ```
 
-Add {{product_name}} as a provider in the `/src/auth.ts'` file.
+Add {{product_name}} as a provider in the `src/auth.ts'` file.
 
 ```javascript title="auth.ts"
 import NextAuth from "next-auth"
@@ -153,7 +151,6 @@ touch mkdir -p src/app/api/auth/\[...nextauth\]/route.ts
 !!! Note
     The directory `src/app/api/auth/[...nextauth]/route.ts` in a Next.js project is used to define a dynamic API route for handling authentication. The `[...nextauth]` is a catch-all route that processes multiple authentication-related requests such as sign-in, sign-out, and session management. The `route.ts` file specifies the logic for these operations, typically by exporting handlers for HTTP methods like GET and POST. This setup centralizes authentication logic, supports OAuth providers like Google or GitHub, and integrates seamlessly into Next.js applications for secure and scalable authentication workflows.
 
-
 Update the `src/app/api/auth/[...nextauth]/route.ts` file with the following code. 
 
 ```javascript title="route.ts"
@@ -164,17 +161,13 @@ export const { GET, POST } = handlers
 Next, create `src/middleware.ts` file with the following code. 
 
 ```bash
-
 touch mkdir -p src/middleware.ts
-
 ```
-
 
 ```javascript title="middleware.ts"
 export { auth as middleware } from "@/auth"
 
 ```
-
 
 ## Add login and logout link to your app
 
@@ -222,13 +215,17 @@ Visit your app's homepage at [http://localhost:3000](http://localhost:3000).
 
 !!! Important
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
+    You need to create a user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
 
 ## Display logged in user details
 
-Modified the code as below to see logged in user details.
+Update `src/auth.ts` below to make logged in user details available in the session.
 
-```javascript title="auth.ts" hl_lines="14-29"
+!!! Important
+
+    Make sure to mark the user attributes used by the application has been [marked as requested in the application configuration in {{ product_name }}]({{ base_path }}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-user-attributes).
+
+```javascript title="auth.ts" hl_lines="4-8 14-29"
 
 import NextAuth from "next-auth"
 import Asgardeo from "next-auth/providers/asgardeo"
@@ -263,7 +260,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
 ```
 
-Then, update `page.tsx` with the following highlighted line to display the username of logged in user.  
+Then, update `page.tsx` as follows to display the username of logged in user.  
 
 ```javascript title="page.tsx" hl_lines="4"
 
