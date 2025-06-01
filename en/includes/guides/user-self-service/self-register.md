@@ -55,6 +55,17 @@ The user can follow the steps below to sign up using an email.
 
 3. Click **Sign Up** to create the account.
 
-4. If **Account Verification** is enabled, the user can confirm the account from the email.
+4. If **Account Verification** enabled, the user can confirm the account from the email.
 
     ![Account verification email notification]({{base_path}}/assets/img/guides/organization/self-service/customer/account-verification-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+5. If **Account Verification** enabled, users can resend the account verification email if needed.
+    - If **Activate Account Immediately** enabled, after successfully logging into My Account, a warning message with a resend link will appear. Click this link to resend the account verification email.
+
+        ![Immediate Activation Enabled Warning]({{base_path}}/assets/img/guides/organization/self-service/customer/resend-account-verification-email-immediate-account-activation-enabled.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - If **Activate Account Immediately** disabled, attempting to log in to **My Account**, will display a warning message indicating the account lacks activation, along with a resend link. Click this link to resend the account verification email.
+
+        ![Immediate Activation Disabled Warning]({{base_path}}/assets/img/guides/organization/self-service/customer/resend-account-verification-email-immediate-account-activation-disabled.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% endif %}
