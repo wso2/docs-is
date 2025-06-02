@@ -106,7 +106,7 @@ Next, generate **`AUTH_SECRET`** environment variable.
     pnpm dlx auth secret
     ```
 
-Add following entries to the `.env` or `.env.local` file, and make sure to replace the placeholders in the following code with the **`client-id`**, **`client-secret`** and **`issuer`** values you copied in **Step-1** during the application registration in the {{product_name}} console. 
+Add the following entries to the `.env` or `.env.local` file. Replace the placeholders in the following code with the **`client-id`**, **`client-secret`** and **`issuer`** values from **Step-1**.
 
 
 ```bash title=".env.local"
