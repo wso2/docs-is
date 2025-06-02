@@ -12,3 +12,7 @@ is_version
 endif
 browserpwd
 Kibana
+VSCode
+Markdownlint
+markdownlint
+dev
