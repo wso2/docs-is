@@ -53,97 +53,7 @@ Apart from the default attributes, you may define your own custom attributes by 
 
 4. Click **Finish**.
 
-{% if is_version != "7.0.0" %}
-
-## Configure attributes
-
-To configure properties of user attributes:
-
-1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
-2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
-3. Click **Edit** for the attribute you want to update.
-
-    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    !!! note
-        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
-
-4. In the **General** tab, update the following values.
-
-    <table>
-       <tbody>
-            <tr>
-                <td><b>Attribute Display Name</b></td>
-                <td>Update the display name of the attribute that will show in user profiles.</td>
-            </tr>
-            <tr>
-                <td><b>Description</b></td>
-                <td>Update the description for the attribute.</td>
-            </tr>
-            <tr>
-                <td><b>Regular expression</b></td>
-                <td>The attribute value will be validated against the regex pattern specified here.</td>
-            </tr>
-            <tr>
-                <td><b>Select Source for Attribute Value of Shared Users</b></td>
-                <td>When a user's profile is shared across multiple organizations, the value of this attribute will be taken from the selected source.</br>
-                <ul>
-                    <li><b>From Origin:</b> The attribute  value is inherited from the original organization which manages the user's profile.</li>
-                    <li><b>From Shared Profile:</b>  The attribute value is taken from the shared user profile in the respective organization.</li>
-                    <li><b>From First Found in Hierarchy:</b> The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
-                </ul>
-                At the moment, you can only configure this option for custom attributes.
-            </tr>
-            <tr>
-                <td><b>Uniqueness Validation</b></td>
-                <td>Select one of the following scopes to validate attribute uniqueness:
-                    <ul>
-                        <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
-                        <li><b>Within User Store:</b> Users within the same user store cannot have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
-                        <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
-                    </ul>
-                </td>
-            </tr>
-     </tbody>
-    </table>
-
-5. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
-
-    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    The table contains the following entities:
-
-    - Administrator Console: User profiles as seen from the administrator's Console.
-    - End-User Profile: User profiles as seen from the users' My Account portal.
-    - Self-Registration: The form presented to users during self-registration.
-
-    For each of these entities, you can configure the following properties:
-
-    <table>
-        <tbody>
-            <tr>
-                <td><b>Display</b></td>
-                <td>If selected, the attribute is displayed in the entity.</td>
-            </tr>
-            <tr>
-                <td><b>Required</b></td>
-                <td>If selected, the entity must contain a value for this attribute.</td>
-            </tr>
-            <tr>
-                <td><b>Read-only</b></td>
-                <td>If selected, the value will be read-only for the entity and cannot be modified.</td>
-        </tr>
-        </tbody>
-    </table>
-
-!!! note
-    Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when
-    [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) in the console.
-
-    To display an attribute in the user creation form, select the **both** **Display** and **Required** checkboxes for the **Administrator Console** entity.
-
-{% else %}
-
+{% if product_name == "WSO2 Identity Server" and is_version <= "7.0.0" %}
 ## Configure attributes
 
 To configure properties of user attributes:
@@ -187,6 +97,182 @@ To configure properties of user attributes:
             </tr>
      </tbody>
     </table>
+{% endif %}
+
+{% if product_name != "WSO2 Identity Server" or is_version >= "7.1.0" %}
+## Configure attributes
+
+To configure properties of user attributes:
+
+1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
+2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
+3. Click **Edit** for the attribute you want to update.
+
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    !!! note
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
+
+4. In the **General** tab, update the following values.
+{% endif %}
+
+{% if is_version == "7.1.0" %}
+    <table>
+       <tbody>
+            <tr>
+                <td><b>Attribute Display Name</b></td>
+                <td>Update the display name of the attribute that will show in user profiles.</td>
+            </tr>
+            <tr>
+                <td><b>Description</b></td>
+                <td>Update the description for the attribute.</td>
+            </tr>
+            <tr>
+                <td><b>Regular expression</b></td>
+                <td>The attribute value will be validated against the regex pattern specified here.</td>
+            </tr>
+            <tr>
+                <td><b>Select Source for Attribute Value of Shared Users</b></td>
+                <td>When a user's profile is shared across multiple organizations, the value of this attribute will be taken from the selected source.</br>
+                <ul>
+                    <li><b>From Origin:</b> The attribute  value is inherited from the original organization which manages the user's profile.</li>
+                    <li><b>From Shared Profile:</b>  The attribute value is taken from the shared user profile in the respective organization.</li>
+                    <li><b>From First Found in Hierarchy:</b> The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
+                </ul>
+                At the moment, you can only configure this option for custom attributes.
+            </tr>
+            <tr>
+                <td><b>Uniqueness Validation</b></td>
+                <td>Select one of the following scopes to validate attribute uniqueness:
+                    <ul>
+                        <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
+                        <li><b>Within User Store:</b> Users within the same user store cannot have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
+                        <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
+                    </ul>
+                </td>
+            </tr>
+     </tbody>
+    </table>
+{% endif %}
+
+
+{% if product_name != "WSO2 Identity Server" or is_version > "7.1.0" %}
+    <table>
+       <tbody>
+            <tr>
+                <td><b>Attribute Display Name</b></td>
+                <td>Update the display name of the attribute that will show in user profiles.</td>
+            </tr>
+            <tr>
+                <td><b>Description</b></td>
+                <td>Update the description for the attribute.</td>
+            </tr>
+            <tr>
+                <td><b>Regular expression</b></td>
+                <td>The attribute value will be validated against the regex pattern specified here.</td>
+            </tr>
+            <tr>
+                <td><b>Data Type</b></td>
+                <td>Refers to the kind of value it holds, such as a string, boolean or date-time.</td>
+            </tr>
+            <tr>
+                <td><b>Multi Valued</b></td>
+                <td>Specify whether the attribute supports multiple values.</td>
+            </tr>
+            <tr>
+                <td><b>Select Source for Attribute Value of Shared Users</b></td>
+                <td>When a user's profile is shared across multiple organizations, the value of this attribute will be taken from the selected source.</br>
+                <ul>
+                    <li><b>From Origin:</b> The attribute  value is inherited from the original organization which manages the user's profile.</li>
+                    <li><b>From Shared Profile:</b>  The attribute value is taken from the shared user profile in the respective organization.</li>
+                    <li><b>From First Found in Hierarchy:</b> The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
+                </ul>
+                At the moment, you can only configure this option for custom attributes.
+            </tr>
+            <tr>
+                <td><b>Uniqueness Validation</b></td>
+                <td>Select one of the following scopes to validate attribute uniqueness:
+                    <ul>
+                        <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
+                        <li><b>Within User Store:</b> Users within the same user store cannot have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
+                        <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
+                    </ul>
+                </td>
+            </tr>
+     </tbody>
+    </table>
+
+5. Attribute Data Types
+
+    An attribute can be of one of the following data types:
+
+    - **Text** – A plain string value.
+    - **Options** – A pre-defined list of selectable values.
+    - **Integer** – Whole numbers (e.g., `1`, `42`, `-7`).
+    - **Decimal** – Numbers that include decimals (e.g., `3.14`, `-0.5`).
+    - **Boolean** – A true or false value.
+    - **DateTime** – A date and time value.
+    - **Object** – A structured object that can include multiple sub-attributes.
+
+    #### Options Data Type
+
+    The **Options** data type allows you to define selectable values for an attribute using Label–Value pairs, where:
+
+    - **Label** is what the user sees in the UI.
+    - **Value** is what is stored internally.
+
+    ![Options for attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-options.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    #### Object Data Type
+
+    If an attribute needs to hold a structured object, use the **Object** data type and configure its **sub-attributes**.
+
+    ![SubAttributes for attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-addtribute-sub-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    !!! note
+        The following constraints apply if there is a mapped SCIM claim for the attribute:
+
+        - Each sub-attribute SCIM claim must start with the main attribute name followed by a dot (`.`) and a descriptive sub-attribute name.
+        
+        - You cannot assign another attribute of type **Object** as a sub-attribute.
+{% endif %}
+
+{% if product_name != "WSO2 Identity Server" or is_version >= "7.1.0" %}
+6. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
+
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    The table contains the following entities:
+
+    - Administrator Console: User profiles as seen from the administrator's Console.
+    - End-User Profile: User profiles as seen from the users' My Account portal.
+    - Self-Registration: The form presented to users during self-registration.
+
+    For each of these entities, you can configure the following properties:
+
+    <table>
+        <tbody>
+            <tr>
+                <td><b>Display</b></td>
+                <td>If selected, the attribute is displayed in the entity.</td>
+            </tr>
+            <tr>
+                <td><b>Required</b></td>
+                <td>If selected, the entity must contain a value for this attribute.</td>
+            </tr>
+            <tr>
+                <td><b>Read-only</b></td>
+                <td>If selected, the value will be read-only for the entity and cannot be modified.</td>
+        </tr>
+        </tbody>
+    </table>
+
+!!! note
+    Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when
+    [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) in the console.
+
+    To display an attribute in the user creation form, select the **both** **Display** and **Required** checkboxes for the **Administrator Console** entity.
+
 {% endif %}
 
 5. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
