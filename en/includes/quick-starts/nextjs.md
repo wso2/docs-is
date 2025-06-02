@@ -66,7 +66,7 @@ Create your new Next.js app.
 
 ## Install Auth.js library
 
-Auth.js is a lightweight JavaScript library designed for simplifying authentication workflows in JavaScript web applications. The [Asgardeo provider for Auth.js](https://authjs.dev/reference/core/providers/asgardeo){:target="_blank"}  offers all the components and hooks you need to integrate your app with {{product_name}}. To get started, simply add Auth.js library to the project. Make sure to stop the dev server started in the previous step.
+Auth.js, a lightweight JavaScript library, simplifies authentication workflows in JavaScript web applications. The [Asgardeo provider for Auth.js](https://authjs.dev/reference/core/providers/asgardeo){:target="_blank"}  offers all the components and hooks you need to integrate your app with {{product_name}}. To get started, simply add Auth.js library to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
