@@ -24,6 +24,7 @@
 
 4. Go to the **Edit Attribute** of the custom attribute you just created.
 5. Select necessary options in **Attribute Configurations** to make the field visible in user profiles and click **Update**.
+   
    ![local-claim-attribute-configurations]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/local-claim-attribute-configurations.png)
 
 {% if (product_name == "WSO2 Identity Server" and is_version <= "7.1.0" ) %}
@@ -119,6 +120,7 @@ If it is not added, you can add it manually by,
     - **SCIM Attribute**: `customClaim`
     - **User Attribute to map to**: Select local claim from the dropdown
 4. Click **Add Attribute Mapping** and click **Finish**.
+
     ![map-scim2-custom-claim]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/map-scim2-custom-claim.png)
 
 ### Try it out
@@ -238,7 +240,9 @@ If it is not added, refer <a href="#map-the-custom-claim">Map the custom claim</
 1. Create a user from **User Management** > **Users** in console.
 2. Go to the **User Profile** of the user you just created.
 3. Add values for the **Device Names** field and click **Update**.
+
    ![multi-valued-attribute-field]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/multi-valued-attribute-field.png)
+
 {% if product_name ==  "WSO2 Identity Server" %}
 4. Retrieve the user using SCIM and ensure that the custom claim value is present.
 
@@ -319,6 +323,7 @@ If it is not added, refer <a href="#map-the-custom-claim">Map the custom claim</
         }'
         ```
 
+{% endif %}
 
 ## How to add claims to support Complex attributes
 
@@ -347,8 +352,13 @@ Let's see if we have a **manager** complex attribute that has **address** simple
 4. Click Finish.
 5. Go to the **Edit Attribute** of the custom attribute you just created.
 6. Select necessary options in **Attribute Configurations** to make the field visible in user profiles and click **Update**.
+
+{% if (product_name == "WSO2 Identity Server" and is_version <= "7.1.0" ) %}
 7. Navigate to **Additional Properties** tab and enter following property and click **Update**.
     - `multiValued`: `true`
+{% else %}
+7. Check the **Allow multiple values for this attribute**.
+{% endif %}
 
 !!! Note
     SCIM 2.0 protocol mapping in Custom schema, will be created automatically with the Custom local claim creation as mentioned in the **Protocol Mapping** section in the wizard.
@@ -387,7 +397,9 @@ Let's see if we have a **manager** complex attribute that has **address** simple
 1. Create a user from **User Management** > **Users** in console.
 2. Go to the **User Profile** of the user you just created.
 3. Add values for the **Manager Address** field, **Manager Roles** field and click **Update**.
-   ![complex-attribute-fields]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/complex-attribute-fields.png)
+    ![additional-properties-complex-attribute]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/complex-attribute-fields.png)
+{% if product_name ==  "WSO2 Identity Server" %}
+
 4. Retrieve the user using SCIM and ensure that the custom claim value is present.
 
     !!! abstract ""
