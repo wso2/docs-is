@@ -65,7 +65,7 @@ To configure properties of user attributes:
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. You can't edit this.
 
 4. In the **General** tab, update the following values.
 
@@ -111,7 +111,7 @@ To configure properties of user attributes:
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This can't be edited.
 
 4. In the **General** tab, update the following values.
 {% endif %}
@@ -234,7 +234,7 @@ To configure properties of user attributes:
 
         - Each sub-attribute SCIM claim must start with the main attribute name followed by a dot (`.`) and a descriptive sub-attribute name.
         
-        - You cannot assign another attribute of type **Object** as a sub-attribute.
+        - You can't assign another attribute of type **Object** as a sub-attribute.
 {% endif %}
 
 {% if product_name != "WSO2 Identity Server" or is_version >= "7.1.0" %}
