@@ -1,6 +1,5 @@
 extends: capitalization
 message: "'%s' should use sentence-style capitalization."
-link: https://docs.microsoft.com/en-us/style-guide/capitalization
 level: suggestion
 scope: heading
 match: $sentence
@@ -26,3 +25,6 @@ exceptions:
   - Visual
   - VS
   - Windows
+  - Asgardeo
+  - WSO2 Identity Server
+  - Python
