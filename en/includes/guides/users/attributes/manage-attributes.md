@@ -155,7 +155,6 @@ To configure properties of user attributes:
     </table>
 {% endif %}
 
-
 {% if product_name != "WSO2 Identity Server" or is_version > "7.1.0" %}
     <table>
        <tbody>
@@ -235,9 +234,11 @@ To configure properties of user attributes:
         - Each sub-attribute SCIM claim must start with the main attribute name followed by a dot (`.`) and a descriptive sub-attribute name.
         
         - You can't assign another attribute of type **Object** as a sub-attribute.
+        
 {% endif %}
 
 {% if product_name != "WSO2 Identity Server" or is_version >= "7.1.0" %}
+
 6. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
