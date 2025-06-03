@@ -89,7 +89,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Make this attribute required on user's profile</b></td>
-                <td>If this checkbox is selected, users are required to specify a value for this attribute on their profile.</td>
+                <td>If you select this checkbox, users must specify a value for this attribute on their profile.</td>
             </tr>
             <tr>
                 <td><b>Make this attribute read-only on user's profile</b></td>
