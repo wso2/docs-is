@@ -93,7 +93,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Make this attribute read-only on user's profile</b></td>
-                <td>If this checkbox is selected, the value for this attribute will be read-only in user profiles.</td>
+                <td>If you select this checkbox, the value for this attribute becomes read-only in user profiles.</td>
             </tr>
      </tbody>
     </table>
