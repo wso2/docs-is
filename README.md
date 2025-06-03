@@ -1,20 +1,19 @@
-# WSO2 Identity Server and Asgardeo Documentation
+# WSO2 Identity Server and Asgardeo documentation
 
-
-This is the WSO2 Identity Server and Asgardeo documentation repository. This repository is open source and we welcome your contributions!
+Welcome to the WSO2 Identity Server and Asgardeo documentation repository. We welcome your contributions!
 
 - WSO2 Identity Server Docs: [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
 - Asgardeo Docs: [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
 
 ## Table of Content
 
-* [Run the project locally](#run-the-project-locally)
-  + [With Python Virtual Environments](#with-python-virtual-environments)
-  + [With Dev containers](#with-dev-containers)
-* [Install linters](#install-linters)
-* [Contribute to documentation](#contribute-to-documentation)
-* [Survey On Open Source Community Communication](#survey-on-open-source-community-communication)
-* [License](#license)
+- [Run the project locally](#run-the-project-locally)
+  - [With Python Virtual Environments](#with-python-virtual-environments)
+  - [With Dev containers](#with-dev-containers)
+- [Install linters](#install-linters)
+- [Contribute to documentation](#contribute-to-documentation)
+- [Survey On Open Source Community Communication](#survey-on-open-source-community-communication)
+- [License](#license)
 
 ## Run the project locally
 
@@ -26,7 +25,7 @@ git clone https://github.com/wso2/docs-is.git
 
 Choose one of the following methods depending on your preference.
 
-### With Python Virtual Environments
+### With Python virtual environments
 
 You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python virtual environments as well.
 
@@ -43,13 +42,12 @@ You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python
 > Python 3.8.0
 > ```
 >
-> If you receive a response similar to the one shown above, `Python 3.8.0` is your default Python version. 
->
-> If you don't seem to have `Python` installed, grab the latest release from the [official downloads page](https://www.python.org/downloads/).
+> If you receive a response as shown above, `Python 3.8.0` is your default Python version.
+> If you don't have `Python` installed, grab the latest release from the [official downloads page](https://www.python.org/downloads/).
 >
 > - Install pip
 >
-> `pip` is already installed if you are using Python 3 (>=3.4) downloaded from [python.org][python-org] or if you are working in a [Virtual Environment][virtual-env-guide] created by 
+> `pip` is already installed if you use Python 3 (>=3.4) downloaded from [python.org][python-org] or if you are working in a [Virtual Environment][virtual-env-guide] created by
 > [virtualenv][virtualenv] or [pyvenv][pyenv]. Just make sure to [upgrade pip][pip-upgrade-guide].
 >
 > [python-org]: https://www.python.org
@@ -105,8 +103,8 @@ mkdocs serve
 ```
 
 > [!NOTE]
-> If you are getting an error that says "`mkdocs` command is not found", try the following command.
-> 
+> If you get an error that says "`mkdocs` command is not found", try the following command.
+>
 > ```bash
 > python3 -m mkdocs serve
 > ```
@@ -143,10 +141,12 @@ To install markdownlint on Visual Studio Code (VSCode),
 
    The configuration file and rule sets live in the following locations of the repository:
 
+   ```text
    .
    ├── .markdownlint-cli2.jsonc     # Configuration file for markdownlint-cli2
    └── lint-config/                 # Custom lints
        └── custom lint `.js` files
+   ```
 
 3. Reload the extension to load the rules.
 4. Fix all markdownlint errors underlined in yellow.
@@ -183,9 +183,9 @@ To install Vale in Visual Studio Code (VSCode),
 
 Before you contribute, read the following guidelines to understand how you can start contributing:
 
-1. Accept the contributor license agreement (CLA)
+1. Accept the Contributor License Agreement (CLA)
 
-    You need to accept the contributor license agreement (CLA) when you are prompted via a GitHub email notification on sending your first pull request (PR). Subsequent PRs will not require CLA acceptance.
+    You need to accept the contributor license agreement (CLA) sent via a GitHub email notification upon sending your first pull request (PR). Future PRs won't require CLA approval.
 
     If the CLA changes for some (unlikely) reason, you'll have to accept the new CLA text when you send your first PR after the change.
 
@@ -193,11 +193,11 @@ Before you contribute, read the following guidelines to understand how you can s
 
 We look forward to your contributions.
 
-## Survey On Open Source Community Communication
+## Survey on open source community communication
 
 WSO2 wants to learn more about our open source software (OSS) community and your communication preferences to serve you better.
 
-In addition, we may reach out to a small number of respondents to ask additional questions and offer a small gift.
+Also, we may reach out to a small number of respondents to ask more questions in exchange for a small gift.
 
 Link to survey: https://forms.gle/h5q4M3K7vyXba3bK6
 
