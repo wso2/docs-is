@@ -135,25 +135,27 @@ To uphold documentation quality, the CI pipeline includes linters to check for w
 
 ## Markdownlint
 
-[markdownlint](https://github.com/DavidAnson/markdownlint) checks Markdown files for style and syntax issues, helping maintain consistent, clean and readable documentation.
-
-The current setup checks for common markdown errors that violates our style guides.
+[markdownlint](https://github.com/DavidAnson/markdownlint) checks markdown files for style and syntax issues, helping maintain consistent, clean and readable documentation.
 
 To install markdownlint on Visual Studio Code (VSCode),
 
 1. Install the **markdownlint** extension.
 
-2. In the extension's settings page, provide the absolute path of the `.markdownlint.jsonc` configuration file as the config file.
+2. In the extension's settings page, provide the absolute path of the `.markdownlint.jsonc` configuration file as the `Config File`.
 
    The configuration file and rule sets live in the following locations of the repository:
 
+   .
+   ├── .markdownlint-cli2.jsonc     # Configuration file for markdownlint-cli2
+   └── lint-config/                 # Custom lints
+       └── custom lint `.js` files
 
-
-3.
+3. Reload the extension to load the rules.
+4. Fix all markdownlint errors underlined in yellow.
 
 ### Vale
 
-[Vale](https://github.com/errata-ai/vale) offers a fast, open-source solution for linting prose, ensuring consistency, clarity, and quality in documentation. It checks text against style rules, like a code linter analyzes source code.
+[Vale](https://github.com/errata-ai/vale) offers a fast, open-source solution for linting prose, ensuring consistency, clarity, and quality in documentation.
 
 The current setup uses well-established industry rule sets such as [Microsoft](https://github.com/errata-ai/Microsoft) and [write-good](https://github.com/errata-ai/write-good), which provide guidelines for grammar, tone, and readability. We're working on adding custom rules to align with evolving style and voice requirements.
 
