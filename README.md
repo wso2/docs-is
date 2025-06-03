@@ -5,7 +5,7 @@ Welcome to the WSO2 Identity Server and Asgardeo documentation repository. We we
 - WSO2 Identity Server Docs: [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
 - Asgardeo Docs: [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
 
-## Table of Content
+## Table of content
 
 - [Run the project locally](#run-the-project-locally)
   - [With Python Virtual Environments](#with-python-virtual-environments)
@@ -70,19 +70,19 @@ You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python
    cd en/identity-server/{version} 
    ```
 
-3. Initialize a Python virtual environment.
+2. Initialize a Python virtual environment.
 
    ```bash
    python3 -m venv .venv
    ```
 
-4. Activate the created virtual environment.
+3. Activate the created virtual environment.
 
    ```bash
    source .venv/bin/activate
    ```
 
-5. Install the dependencies.
+4. Install the dependencies.
 
    - WSO2 Identity Server
 
@@ -96,7 +96,7 @@ You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python
     cd en/asgardeo && pip3 install -r requirements.txt
     ```
 
-6. Run the project
+5. Run the project
 
 ```bash
 mkdocs serve
