@@ -145,7 +145,7 @@ To configure properties of user attributes:
                 <td><b>Uniqueness Validation</b></td>
                 <td>Select one of the following scopes to validate attribute uniqueness:
                     <ul>
-                        <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
+                        <li><b>None:</b> No validation applies. Users can have duplicate values for the selected attribute.</li>
                         <li><b>Within User Store:</b> Users within the same user store can't have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
                         <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
                     </ul>
@@ -193,7 +193,7 @@ To configure properties of user attributes:
                 <td><b>Uniqueness Validation</b></td>
                 <td>Select one of the following scopes to validate attribute uniqueness:
                     <ul>
-                        <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
+                        <li><b>None:</b> No validation applies. Users can have duplicate values for the selected attribute.</li>
                         <li><b>Within User Store:</b> Users within the same user store can't have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
                         <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
                     </ul>
@@ -206,13 +206,13 @@ To configure properties of user attributes:
 
     An attribute can be of one of the following data types:
 
-    **Text** A plain string value.
-    **Options** A pre-defined list of selectable values.
-    **Integer** Whole numbers (for example `1`, `42`, `-7`).
-    **Decimal** Numbers that include decimals (for example `3.14`, `-0.5`).
-    **Boolean** A true or false value.
-    **DateTime** A date and time value.
-    **Object** A structured object that can include multiple sub-attributes.
+    - **Text** A plain string value.
+    - **Options** A pre-defined list of selectable values.
+    - **Integer** Whole numbers (for example `1`, `42`, `-7`).
+    - **Decimal** Numbers that include decimals (for example `3.14`, `-0.5`).
+    - **Boolean** A true or false value.
+    - **DateTime** A date and time value.
+    - **Object** A structured object that can include multiple sub-attributes.
 
     #### Options Data Type
 
