@@ -1,14 +1,16 @@
-To test the scenario, update the user's password with passwords that are compromised and not compromised
-through [Pwned Passwords](https://haveibeenpwned.com/Passwords). You can perform this update either through the 
-Console (administrator update) or the My Account application (self-update) to verify that the only none compromised 
-passwords are allowed to be set.
+To test this scenario, attempt to update a user's password using both compromised and uncompromised passwords, verified
+through [Pwned Passwords](https://haveibeenpwned.com/Passwords). The update can be performed via either the Console (
+administrator action) or the My Account application (user self-service) to ensure that only uncompromised passwords are
+accepted.
 
 #### Console (administrator update)
 
-Log in to the Console application using the administrator account, navigate to **User Management > Users**, click on a
-specific user, and reset the password.
+1. Log in to the {{product_name}} Console application using an administrator account.
+2. Navigate to **User Management** > **Users**.
+3. Select a user and reset their password.
 
 #### My Account (self-update)
 
-Log in to the My Account application using a specific user, navigate to **Security > Change Password**, and update the 
-password.
+1. Log in to the {{product_name}} My Account as a user.
+2. Go to **Security** > **Change** Password.
+3. Attempt to update the password.
