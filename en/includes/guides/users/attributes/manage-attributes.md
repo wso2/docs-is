@@ -206,20 +206,20 @@ To configure properties of user attributes:
 
     An attribute can be of one of the following data types:
 
-    - **Text**–A plain string value.
-    - **Options**–A pre-defined list of selectable values.
-    - **Integer**–Whole numbers (for example `1`, `42`, `-7`).
-    - **Decimal**–Numbers that include decimals (for example `3.14`, `-0.5`).
-    - **Boolean**–A true or false value.
-    - **DateTime**–A date and time value.
-    - **Object**–A structured object that can include multiple sub-attributes.
+    -**Text**–A plain string value.
+    -**Options**–A pre-defined list of selectable values.
+    -**Integer**–Whole numbers (for example `1`, `42`, `-7`).
+    -**Decimal**–Numbers that include decimals (for example `3.14`, `-0.5`).
+    -**Boolean**–A true or false value.
+    -**DateTime**–A date and time value.
+    -**Object**–A structured object that can include multiple sub-attributes.
 
     #### Options Data Type
 
     The **Options** data type allows you to define selectable values for an attribute using Label–Value pairs, where:
 
     - **Label** is what the user sees in the UI.
-    - **Value** is what is stored internally.
+    - **Value** is what's stored internally.
 
     ![Options for attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-options.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
