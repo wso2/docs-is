@@ -206,13 +206,13 @@ To configure properties of user attributes:
 
     An attribute can be of one of the following data types:
 
-    -**Text**–A plain string value.
-    -**Options**–A pre-defined list of selectable values.
-    -**Integer**–Whole numbers (for example `1`, `42`, `-7`).
-    -**Decimal**–Numbers that include decimals (for example `3.14`, `-0.5`).
-    -**Boolean**–A true or false value.
-    -**DateTime**–A date and time value.
-    -**Object**–A structured object that can include multiple sub-attributes.
+-**Text**–A plain string value.
+-**Options**–A pre-defined list of selectable values.
+-**Integer**–Whole numbers (for example `1`, `42`, `-7`).
+-**Decimal**–Numbers that include decimals (for example `3.14`, `-0.5`).
+-**Boolean**–A true or false value.
+-**DateTime**–A date and time value.
+-**Object**–A structured object that can include multiple sub-attributes.
 
     #### Options Data Type
 
