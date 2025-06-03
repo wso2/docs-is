@@ -26,9 +26,7 @@ git clone https://github.com/wso2/docs-is.git
 
 Choose one of the following methods depending on your preference.
 
-<!-- vale off -->
 ### With Python Virtual Environments
-<!-- vale on -->
 
 You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python virtual environments as well.
 
