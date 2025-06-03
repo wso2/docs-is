@@ -1,5 +1,6 @@
 # WSO2 Identity Server and Asgardeo Documentation
 
+
 This is the WSO2 Identity Server and Asgardeo documentation repository. This repository is open source and we welcome your contributions!
 
 - WSO2 Identity Server Docs: [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
@@ -9,7 +10,7 @@ This is the WSO2 Identity Server and Asgardeo documentation repository. This rep
 
 * [Run the project locally](#run-the-project-locally)
   + [With Python Virtual Environments](#with-python-virtual-environments)
-  + [With Devcontainers](#with-devcontainers)
+  + [With Dev containers](#with-dev-containers)
 * [Install linters](#install-linters)
 * [Contribute to documentation](#contribute-to-documentation)
 * [Survey On Open Source Community Communication](#survey-on-open-source-community-communication)
@@ -29,28 +30,28 @@ Choose one of the following methods depending on your preference.
 
 You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python virtual environments as well.
 
-> #### Prerequisites
-> 
+#### Prerequisites
+>
 > To run the project locally, it requires [python](https://www.python.org/downloads/) & [pip](https://pypi.org/project/pip/).
-> 
+>
 > - Install Python
-> 
+>
 > Check if you already have Python installed by running the following command.
-> 
+>
 > ```bash
 > $ python3 --version
 > Python 3.8.0
 > ```
->     
-> If you receive a response similar to the one shown above, `Python 3.8.0` is your default Python version.
-> 
+>
+> If you receive a response similar to the one shown above, `Python 3.8.0` is your default Python version. 
+>
 > If you don't seem to have `Python` installed, grab the latest release from the [official downloads page](https://www.python.org/downloads/).
-> 
+>
 > - Install pip
-> 
+>
 > `pip` is already installed if you are using Python 3 (>=3.4) downloaded from [python.org][python-org] or if you are working in a [Virtual Environment][virtual-env-guide] created by 
 > [virtualenv][virtualenv] or [pyvenv][pyenv]. Just make sure to [upgrade pip][pip-upgrade-guide].
-> 
+>
 > [python-org]: https://www.python.org
 > [virtual-env-guide]: https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments
 > [virtualenv]: https://packaging.python.org/key_projects/#virtualenv
@@ -70,13 +71,13 @@ You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python
    ```bash
    cd en/identity-server/{version} 
    ```
-   
+
 3. Initialize a Python virtual environment.
 
    ```bash
    python3 -m venv .venv
    ```
-   
+
 4. Activate the created virtual environment.
 
    ```bash
@@ -110,9 +111,9 @@ mkdocs serve
 > python3 -m mkdocs serve
 > ```
 
-### With Devcontainers
+### With dev containers
 
-This repository supports the VS Code dev containers feature, which allows you to create a consistent and isolated development environment inside a Docker container. To use this feature, you need to have the following pre requisites:
+This repository supports the VS Code dev containers feature, which allows you to create a consistent and isolated development environment inside a Docker container. To use this feature, you need to have the following prerequisites:
 
 - VS Code
 - Docker installed on your system
@@ -130,9 +131,29 @@ For more information on how to use VS Code dev containers, please refer to the o
 
 To uphold documentation quality, the CI pipeline includes linters to check for writing quality and style. Before creating a pull request (PR), make sure to install the required IDE extensions and test your changes locally to pass these checks.
 
+## Markdownlint
+
+[markdownlint](https://github.com/DavidAnson/markdownlint) checks markdown files for style and syntax issues, helping maintain consistent, clean and readable documentation.
+
+To install markdownlint on Visual Studio Code (VSCode),
+
+1. Install the **markdownlint** extension.
+
+2. In the extension's settings page, provide the absolute path of the `.markdownlint.jsonc` configuration file as the `Config File`.
+
+   The configuration file and rule sets live in the following locations of the repository:
+
+   .
+   ├── .markdownlint-cli2.jsonc     # Configuration file for markdownlint-cli2
+   └── lint-config/                 # Custom lints
+       └── custom lint `.js` files
+
+3. Reload the extension to load the rules.
+4. Fix all markdownlint errors underlined in yellow.
+
 ### Vale
 
-[Vale](https://github.com/errata-ai/vale) offers a fast, open-source solution for linting prose, ensuring consistency, clarity, and quality in documentation. It checks text against style rules, like a code linter analyzes source code.
+[Vale](https://github.com/errata-ai/vale) offers a fast, open-source solution for linting prose, ensuring consistency, clarity, and quality in documentation.
 
 The current setup uses well-established industry rule sets such as [Microsoft](https://github.com/errata-ai/Microsoft) and [write-good](https://github.com/errata-ai/write-good), which provide guidelines for grammar, tone, and readability. We're working on adding custom rules to align with evolving style and voice requirements.
 
@@ -151,6 +172,7 @@ To install Vale in Visual Studio Code (VSCode),
        └── styles/          #Contains style guides
            ├── Microsoft/
            └── write-good/
+
    ```
 
 3. Enable the extension for syntax highlighting.
