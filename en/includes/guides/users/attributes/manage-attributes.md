@@ -111,7 +111,7 @@ To configure properties of user attributes:
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This can't be edited.
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. You can't edit this field.
 
 4. In the **General** tab, update the following values.
 {% endif %}
