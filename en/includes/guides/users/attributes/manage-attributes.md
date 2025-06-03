@@ -81,11 +81,11 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Display this attribute on the user's profile</b></td>
-                <td>If this checkbox is selected, the attribute is displayed in user profiles.</ td>
+                <td>If you select this checkbox, the attribute appears in user profiles.</ td>
             </tr>
             <tr>
                 <td><b>Regular expression</b></td>
-                <td>The value of the attribute will be validated against the regex pattern specified here.</td>
+                <td>The system validates the attribute value against the regex pattern specified here.</td>
             </tr>
             <tr>
                 <td><b>Make this attribute required on user's profile</b></td>
@@ -206,13 +206,13 @@ To configure properties of user attributes:
 
     An attribute can be of one of the following data types:
 
--**Text**–A plain string value.
--**Options**–A pre-defined list of selectable values.
--**Integer**–Whole numbers (for example `1`, `42`, `-7`).
--**Decimal**–Numbers that include decimals (for example `3.14`, `-0.5`).
--**Boolean**–A true or false value.
--**DateTime**–A date and time value.
--**Object**–A structured object that can include multiple sub-attributes.
+    **Text** A plain string value.
+    **Options** A pre-defined list of selectable values.
+    **Integer** Whole numbers (for example `1`, `42`, `-7`).
+    **Decimal** Numbers that include decimals (for example `3.14`, `-0.5`).
+    **Boolean** A true or false value.
+    **DateTime** A date and time value.
+    **Object** A structured object that can include multiple sub-attributes.
 
     #### Options Data Type
 
