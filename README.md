@@ -33,27 +33,27 @@ Choose one of the following methods depending on your preference.
 You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python virtual environments as well.
 
 #### Prerequisites
-> 
+>
 > To run the project locally, it requires [python](https://www.python.org/downloads/) & [pip](https://pypi.org/project/pip/).
-> 
+>
 > - Install Python
-> 
+>
 > Check if you already have Python installed by running the following command.
-> 
+>
 > ```bash
 > $ python3 --version
 > Python 3.8.0
 > ```
->     
-> If you receive a response similar to the one shown above, `Python 3.8.0` is your default Python version. <!-- vale disable -->
-> 
+>
+> If you receive a response similar to the one shown above, `Python 3.8.0` is your default Python version. 
+>
 > If you don't seem to have `Python` installed, grab the latest release from the [official downloads page](https://www.python.org/downloads/).
-> 
+>
 > - Install pip
-> 
+>
 > `pip` is already installed if you are using Python 3 (>=3.4) downloaded from [python.org][python-org] or if you are working in a [Virtual Environment][virtual-env-guide] created by 
 > [virtualenv][virtualenv] or [pyvenv][pyenv]. Just make sure to [upgrade pip][pip-upgrade-guide].
-> 
+>
 > [python-org]: https://www.python.org
 > [virtual-env-guide]: https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments
 > [virtualenv]: https://packaging.python.org/key_projects/#virtualenv
@@ -73,13 +73,13 @@ You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python
    ```bash
    cd en/identity-server/{version} 
    ```
-   
+
 3. Initialize a Python virtual environment.
 
    ```bash
    python3 -m venv .venv
    ```
-   
+
 4. Activate the created virtual environment.
 
    ```bash
