@@ -54,6 +54,7 @@ Apart from the default attributes, you may define your own custom attributes by 
 4. Click **Finish**.
 
 {% if product_name == "WSO2 Identity Server" and is_version <= "7.0.0" %}
+
 ## Configure attributes
 
 To configure properties of user attributes:
@@ -100,6 +101,7 @@ To configure properties of user attributes:
 {% endif %}
 
 {% if product_name != "WSO2 Identity Server" or is_version >= "7.1.0" %}
+
 ## Configure attributes
 
 To configure properties of user attributes:
@@ -213,7 +215,7 @@ To configure properties of user attributes:
     - **DateTime** A date and time value.
     - **Object** A structured object that can include multiple sub-attributes.
 
-    #### Options Data Type
+#### Options Data Type
 
     The **Options** data type allows you to define selectable values for an attribute using Label–Value pairs, where:
 
@@ -222,7 +224,7 @@ To configure properties of user attributes:
 
     ![Options for attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-options.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    #### Object Data Type
+#### Object Data Type
 
     If an attribute needs to hold a structured object, use the **Object** data type and configure its **sub-attributes**.
 
