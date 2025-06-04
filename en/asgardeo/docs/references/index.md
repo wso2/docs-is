@@ -22,4 +22,4 @@ See the topics in this section for references that will help you while working w
 
 - [Data residency]({{base_path}}/references/data-residency-in-asgardeo/) in Asgardeo.
 
-- [API Resources and Scopes Required for MCP Tools]({{base_path}}/references/mcp-tool-api-resource-access/) in Asgardeo.
+- [API resources and scopes required for MCP tools]({{base_path}}/references/mcp-tool-api-resource-access/) in Asgardeo.
