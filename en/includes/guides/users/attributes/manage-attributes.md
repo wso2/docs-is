@@ -453,7 +453,7 @@ For non-JDBC {{ 'secondary' if product_name == 'WSO2 Identity Server' else 'remo
    2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
    3. Click **Edit** for the attribute you wish to modify.
    4. Go to the **Attribute Mappings** tab.
-   4. Find the corresponding user store and uncheck the **Enable for this user store** checkbox.
-   5. Click **Update** to save the changes
+   5. Find the corresponding user store and uncheck the **Enable for this user store** checkbox.
+   6. Click **Update** to save the changes
 
    ![Enable for user store]({{base_path}}/assets/img/guides/organization/attributes/enable-for-user-store.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
