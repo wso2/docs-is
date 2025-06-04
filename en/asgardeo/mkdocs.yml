@@ -148,7 +148,9 @@ plugins:
         'guides/user-accounts/index.md': 'guides/account-configurations/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs/index.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
-        'guides/authorization/impersonation/user-impersonation.md' : 'guides/authorization/user-impersonation.md'
+        'guides/authorization/impersonation/index.md' : 'guides/authorization/user-impersonation/index.md'
+        'guides/authorization/impersonation/via-console.md' : 'guides/authorization/user-impersonation/via-console.md'
+        'guides/authorization/impersonation/via-business-app.md' : 'guides/authorization/user-impersonation/via-business-app.md'
         'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
         'guides/user-accounts/password-recovery.md': 'guides/account-configurations/account-recovery/password-recovery.md'
         'guides/user-accounts/forced-password-reset.md': 'guides/account-configurations/account-recovery/admin-initiated-password-reset.md'
@@ -341,7 +343,10 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
-        - User impersonation: guides/authorization/user-impersonation.md
+        - User impersonation:
+          - User impersonation: guides/authorization/user-impersonation/index.md
+          - Impersonation via console: guides/authorization/user-impersonation/via-console.md
+          - Impersonation Via business application: guides/authorization/user-impersonation/via-business-application.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
         - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md
