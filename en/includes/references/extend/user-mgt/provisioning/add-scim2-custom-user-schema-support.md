@@ -377,10 +377,10 @@ Let's see if we have a **manager** complex attribute that has **address** simple
 6. Navigate to **Additional Properties** tab and enter following property and click **Update**.
     - `dataType`: `complex`
     - `subAttributes`: `http://wso2.org/claims/manager.address http://wso2.org/claims/manager.roles`
-    
+
     !!! Note
         The values for `subAttributes` must be **space-separated**.
-    
+
     ![additional-properties-complex-attribute]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/additional-properties-complex-attribute.png)
 
 !!! Note
