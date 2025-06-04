@@ -298,7 +298,7 @@ If it is not added, refer <a href="#map-the-custom-claim">Map the custom claim</
         }
         ```
 
-5. You can also try out updating the **Device Names** attribute values using the following SCIM command and check if the values are updated by accessing the user profile on the console. 
+5. You can also try out updating the **Device Names** attribute values using the following SCIM command and check if the values are updated by accessing the user profile on the console.
 
     !!! abstract ""
         **SCIM Patch Request**
