@@ -230,7 +230,6 @@ Let's see when we have a **deviceNames** simple multi-valued attribute.
 7. Check the **Allow multiple values for this attribute**.
 {% endif %}
 
-    
     ![additional-properties-multi-valued-attribute]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/additional-properties-multi-valued-attribute.png)
 
 ### Map the custom claim
