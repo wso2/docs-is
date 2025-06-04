@@ -29,15 +29,8 @@ Note down the following values from the **Protocol** tab of the registered appli
 - **`client-secret`** from the **Protocol** tab. 
 - **The name of your {{ product_name }} organization**
 ---
-Next, you need to authorize the API resources and scopes required for the actions performed by the MCP tools. Each tool
-may require different levels of access, so you can selectively authorize only the API resources and scopes relevant to
-your intended use. To do this, navigate to the **API Authorization** tab of your Asgardeo application and click **Authorize an
-API Resource**. In the pop-up that appears, use the dropdown to search and select the required API Resources from the
-Asgardeo Management API by typing the first few letters of each resource name. For every selected API Resource, ensure
-you assign the appropriate **authorized scopes**. For guidance on which API Resources and Scopes are needed by each tool,
-see the [API Resources and Scopes Required for MCP Tools]({{base_path}}/references/mcp-tool-api-resource-access/) section.
-
-The following table lists the required API resources and scopes for all currently supported tools:
+Next, you need to authorize the API resources and corresponding scopes required for the actions performed by the MCP tools.
+The following table includes the required API resources and scopes for all currently supported tools.
 
 | **Asgardeo Management API** | **Required scopes** |
 |--------|---------|
@@ -49,17 +42,19 @@ The following table lists the required API resources and scopes for all currentl
 | **SCIM2 Users API** (`/scim2/Users`) | `internal_user_mgt_create` |
 | **OIDC Scope Management API** (`/api/server/v1/oidc/scopes`) | `internal_oidc_scope_mgt_view` |
 
+To authorize API resources, navigate to the **API Authorization** tab within your Asgardeo application settings and
+click the **Authorize an API Resource** button. In the pop-up window that appears, use the dropdown to search and select
+the necessary API Resources from the Asgardeo Management APIs by typing the first few letters of each resource name.
+After selecting a resource, ensure you choose the authorized scopes as listed in the table provided.
+
+!!! Note
+
+    You can selectively authorize API Resources and scopes based on the specific MCP tools you plan to use.
+    For detailed guidance on which API Resources and Scopes are needed by each tool, see the [API Resources and Scopes Required for MCP Tools]({{base_path}}/references/mcp-tool-api-resource-access/) section.
 
 Once completed, your API Authorization configuration should resemble the example shown in the screenshot.
 
 ![Asgardeo M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
-
-!!! important
-
-    During tool execution, you will be prompted to give **explicit consent** for the action. It’s recommended to 
-    approve actions with "Approve Once" option rather than selecting "Approve Always" option so you retain full control and visibility
-    over the operations performed in your Asgardeo organization.
-
 
 ## Build Asgardeo MCP Server
 
@@ -262,5 +257,11 @@ Now that you’ve configured and verified the Asgardeo MCP Server with your pref
 - [Asgardeo React Spring Quickstart]({{ base_path }}/quick-starts/springboot/){:target="_blank"} 
 
 Explore these guides to put your setup into action and see how natural-language-powered identity management can accelerate your development workflow.
+
+!!! Note
+
+    During tool execution, you will be prompted to give **explicit consent** for the action. It’s recommended to 
+    approve actions with "Approve Once" option rather than selecting "Approve Always" option so you retain full control and visibility
+    over the operations performed in your Asgardeo organization.
 
 [//] STEPS_END
