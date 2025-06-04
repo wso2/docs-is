@@ -350,7 +350,6 @@ To configure properties of user attributes:
 
     Refer to [Delete an OpenID Connect attribute]({{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#delete-an-openid-connect-attribute) and [Delete a SCIM2 attribute]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings/#delete-a-scim-20-custom-schema-attribute) to delete any existing associations.
 
-
 To delete an attribute:
 
 1. On the {{ product_name }} Console, navigate to **User Attributes and Stores** > **Attributes**.
@@ -365,11 +364,12 @@ To delete an attribute:
     Only custom attributes can be deleted.
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ## Manage identity attributes
 
 By default, identity claim values are stored in the JDBC datasource configured in the `deployment.toml` file. If required, you can configure WSO2 Identity Server to store the claim values in another user store as well.
 
-1.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore.datastore_type` property. The `IdentityDataStoreService` OSGi service uses this value to determine which data store implementation to access.
+1. Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore.datastore_type` property. The `IdentityDataStoreService` OSGi service uses this value to determine which data store implementation to access.
 
     ```
     [identity_datastore]
@@ -388,14 +388,14 @@ By default, identity claim values are stored in the JDBC datasource configured i
     !!! info
         Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).
 
-    -   `http://wso2.org/claims/identity/accountLocked`: This claim is
+    - `http://wso2.org/claims/identity/accountLocked`: This claim is
         used to store the status of the user's account, i.e., if it is
         locked or not.
 
-    -   `http://wso2.org/claims/identity/unlockTime`: This is used to
+    - `http://wso2.org/claims/identity/unlockTime`: This is used to
         store the timestamp that the user's account is unlocked.
 
-    -   `http://wso2.org/claims/identity/failedLoginAttempts`: This is
+    - `http://wso2.org/claims/identity/failedLoginAttempts`: This is
         used to track the number of consecutive failed login attempts.
         It's based on this that the account is locked.
 {% endif %}
