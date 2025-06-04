@@ -12,6 +12,8 @@
 
 ## How to add claims to support simple attributes
 
+To add claims for simple attributes, follow these steps:
+
 ### Add custom local claim
 
 1. Navigate to **User Attributes & Stores** > **Attributes** in console.
@@ -181,8 +183,7 @@ If it is not added, you can add it manually by,
         }
         ```
 
-
-5. You can also try out updating the Custom Claim value using the following SCIM command and check if the value is updated by accessing the user profile on the console. 
+5. You can also try out updating the Custom Claim value using the following SCIM command and check if the value is updated by accessing the user profile on the console.
 
     !!! abstract ""
         **SCIM Patch Request**
@@ -207,7 +208,6 @@ If it is not added, you can add it manually by,
             }'
         ```
 {% endif %}
-
 
 ## How to add claims to support multi-valued simple attributes
 
@@ -399,7 +399,7 @@ Let's see if we have a **manager** complex attribute that has **address** simple
 2. Go to the **User Profile** of the user you just created.
 3. Add values for the **Manager Address** field, **Manager Roles** field and click **Update**.
    ![complex-attribute-fields]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/complex-attribute-fields.png)
-   
+
 {% if product_name ==  "WSO2 Identity Server" %}
 4. Retrieve the user using SCIM and ensure that the custom claim value is present.
 
