@@ -211,7 +211,7 @@ If it is not added, you can add it manually by,
 
 ## How to add claims to support multi-valued simple attributes
 
-Let's see when we have a **deviceNames** simple multi-valued attribute.
+Let's see when we've a **deviceNames** simple multi-valued attribute.
 
 ### Add local claim for deviceNames
 
@@ -453,7 +453,7 @@ Let's see if we have a **manager** complex attribute that has **address** simple
         }
         ```
 
-5. You can also try out updating the **Manager Address** and **Manager Roles** claim values using the following SCIM command and check if the values are updated by accessing the user profile on the console. 
+5. You can also try out updating the **Manager Address** and **Manager Roles** claim values using the following SCIM command and check if the values are updated by accessing the user profile on the console.
 
     !!! abstract ""
         **SCIM Patch Request**

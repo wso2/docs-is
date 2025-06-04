@@ -66,7 +66,7 @@ To configure properties of user attributes:
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This can't be edited.
 
 4. In the **General** tab, update the following values.
 
@@ -82,7 +82,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Display this attribute on the user's profile</b></td>
-                <td>If this checkbox is selected, the attribute is displayed in user profiles.</ td>
+                <td>If you select this checkbox, the attribute appears in user profiles.</td>
             </tr>
             <tr>
                 <td><b>Regular expression</b></td>
@@ -116,7 +116,7 @@ To configure properties of user attributes:
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This can't be edited.
 
 4. In the **General** tab, update the following values.
 
@@ -149,7 +149,7 @@ To configure properties of user attributes:
                 <td>Select one of the following scopes to validate attribute uniqueness:
                     <ul>
                         <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
-                        <li><b>Within User Store:</b> Users within the same user store cannot have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
+                        <li><b>Within User Store:</b> Users within the same user store can't have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
                         <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
                     </ul>
                 </td>
@@ -173,7 +173,7 @@ To configure properties of user attributes:
         <tbody>
             <tr>
                 <td><b>Display</b></td>
-                <td>If selected, the attribute is displayed in the entity.</td>
+                <td>If selected, the entity displays the attribute.</td>
             </tr>
             <tr>
                 <td><b>Required</b></td>
@@ -181,7 +181,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Read-only</b></td>
-                <td>If selected, the value will be read-only for the entity and cannot be modified.</td>
+                <td>If selected, the value will be read-only for the entity and can't be modified.</td>
         </tr>
         </tbody>
     </table>
@@ -209,7 +209,7 @@ To configure properties of user attributes:
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This cannot be edited.
+        The **Attribute** field specifies the unique identifier of the attribute. It always starts with `http://wso2.org/claims`. This can't be edited.
 
 4. In the **General** tab, update the following values.
 
@@ -250,7 +250,7 @@ To configure properties of user attributes:
                 <td>Select one of the following scopes to validate attribute uniqueness:
                     <ul>
                         <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
-                        <li><b>Within User Store:</b> Users within the same user store cannot have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
+                        <li><b>Within User Store:</b> Users within the same user store can't have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
                         <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
                     </ul>
                 </td>
@@ -317,7 +317,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Read-only</b></td>
-                <td>If selected, the value will be read-only for the entity and cannot be modified.</td>
+                <td>If selected, the value will be read-only for the entity and can't be modified.</td>
         </tr>
         </tbody>
     </table>
@@ -346,7 +346,7 @@ Optionally, you may use the **Additional Properties** tab to add additional prop
 
 !!! warning "Before you proceed"
 
-    Attributes cannot be deleted if it has any associations with external schema. If you have attribute mappings, make sure you delete these associations before attempting to delete an attribute.
+    Attributes can't be deleted if it has any associations with external schema. If you have attribute mappings, make sure you delete these associations before attempting to delete an attribute.
 
     Refer to [Delete an OpenID Connect attribute]({{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#delete-an-openid-connect-attribute) and [Delete a SCIM2 attribute]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings/#delete-a-scim-20-custom-schema-attribute) to delete any existing associations.
 
@@ -389,7 +389,7 @@ By default, identity claim values are stored in the JDBC datasource configured i
         Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).
 
     - `http://wso2.org/claims/identity/accountLocked`: This claim is
-        used to store the status of the user's account, i.e., if it is
+        used to store the status of the user's account, that is, if it's
         locked or not.
 
     - `http://wso2.org/claims/identity/unlockTime`: This is used to
