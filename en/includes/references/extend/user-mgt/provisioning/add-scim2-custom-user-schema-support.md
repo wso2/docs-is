@@ -26,7 +26,7 @@
 5. Select necessary options in **Attribute Configurations** to make the field visible in user profiles and click **Update**.
    ![local-claim-attribute-configurations]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/local-claim-attribute-configurations.png)
 
-{% if product_name ==  "WSO2 Identity Server" %}
+{% if (product_name == "WSO2 Identity Server" and is_version <= "7.1.0" ) %}
 !!! Note
     If you want to add any additional properties for the scim attribute in Custom schema, you can add them using **Additional Properties** in the local claim configuration.
 
@@ -68,11 +68,49 @@
         </table>
     </div>
 
+{% endif %}
+
+{% if (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+
+!!! Note
+    If you want to add any additional properties for the scim attribute in Custom schema, you can add them using **Additional Properties** in the local claim configuration.
+
+    <div style="text-align: center;">
+        <table style="margin: 0 auto;">
+            <thead>
+                <tr class="header">
+                    <th>Property Name</th>
+                    <th>Allowed Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tr>
+                <tr class="odd">
+                    <td>caseExact</td>
+                    <td>true, false</td>
+                </tr>
+                <tr class="even">
+                    <td>mutability</td>
+                    <td>readWrite, readOnly, immutable</td>
+                </tr>
+                <tr class="odd">
+                    <td>returned</td>
+                    <td>always, default, never, request</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endif %}
+
+{% if product_name ==  "WSO2 Identity Server" %}
+
 !!! note
 
     - You can use the word `customClaim` or any other preferred word as the **Mapped Attribute** when using a JDBC user store because JDBC user stores will automatically create a new attribute if it does not already exist in the user store. However, if you are using LDAP or Active Directory, you will have to use an attribute that exists in the user store already.
 
     - The configuration above is valid when using the PRIMARY user store. If you have a secondary user store configured, make sure to add another attribute mapping by clicking **Add Attribute Mapping** and selecting the secondary user store.
+
 {% endif %}
 
 ### Map the custom claim
@@ -288,6 +326,7 @@ If it is not added, refer <a href="#map-the-custom-claim">Map the custom claim</
         }'
         ```
 
+{% endif %}
 
 ## How to add claims to support Complex attributes
 
@@ -316,8 +355,12 @@ Let's see if we have a **manager** complex attribute that has **address** simple
 4. Click Finish.
 5. Go to the **Edit Attribute** of the custom attribute you just created.
 6. Select necessary options in **Attribute Configurations** to make the field visible in user profiles and click **Update**.
+{% if (product_name == "WSO2 Identity Server" and is_version <= "7.1.0" ) %}
 7. Navigate to **Additional Properties** tab and enter following property and click **Update**.
     - `multiValued`: `true`
+{% else %}
+7. Check the **Allow multiple values for this attribute**.
+{% endif %}
 
 !!! Note
     SCIM 2.0 protocol mapping in Custom schema, will be created automatically with the Custom local claim creation as mentioned in the **Protocol Mapping** section in the wizard.
@@ -331,6 +374,7 @@ Let's see if we have a **manager** complex attribute that has **address** simple
     - **Attribute Display Name**: `Manager`
 4. Click Finish.
 5. Go to the **Edit Attribute** of the custom attribute you just created.
+{% if (product_name == "WSO2 Identity Server" and is_version <= "7.1.0" ) %}
 6. Navigate to **Additional Properties** tab and enter following property and click **Update**.
     - `dataType`: `complex`
     - `subAttributes`: `http://wso2.org/claims/manager.address http://wso2.org/claims/manager.roles`
@@ -342,7 +386,12 @@ Let's see if we have a **manager** complex attribute that has **address** simple
 
 !!! Note
     SCIM 2.0 protocol mapping in Custom schema, will be created automatically with the Custom local claim creation as mentioned in the **Protocol Mapping** section in the wizard.
+{% else %}
+6. Select the **Object** data type as the attribute data type.
+7. Add the `http://wso2.org/claims/manager.address` and `http://wso2.org/claims/manager.roles` as sub-attributes.
 
+    ![additional-properties-complex-attribute]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/complex-claim-sub-attributes.png)
+{% endif %}
 
 ### Try it out
 
@@ -350,6 +399,8 @@ Let's see if we have a **manager** complex attribute that has **address** simple
 2. Go to the **User Profile** of the user you just created.
 3. Add values for the **Manager Address** field, **Manager Roles** field and click **Update**.
    ![complex-attribute-fields]({{base_path}}/assets/img/references/extend/user-mgt/provisioning/complex-attribute-fields.png)
+   
+{% if product_name ==  "WSO2 Identity Server" %}
 4. Retrieve the user using SCIM and ensure that the custom claim value is present.
 
     !!! abstract ""
