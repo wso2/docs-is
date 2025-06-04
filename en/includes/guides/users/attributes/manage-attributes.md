@@ -336,9 +336,9 @@ To configure properties of user attributes:
 
 {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
 
-8. Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
+Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
 
-    ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% endif %}
 
@@ -371,7 +371,7 @@ By default, identity claim values are stored in the JDBC datasource configured i
 
 1. Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore.datastore_type` property. The `IdentityDataStoreService` OSGi service uses this value to determine which data store implementation to access.
 
-    ```
+    ```toml
     [identity_datastore]
     datastore_type = "<Name of the identityDataStore class>"
     ```
@@ -383,7 +383,7 @@ By default, identity claim values are stored in the JDBC datasource configured i
 
         By making this configuration adjustment, you can ensure that your system aligns with your preferred data store class, whether it's the previous default or a custom class you've implemented. This helps you tailor the system to your specific needs.
 
-2.  Map the identity claims mentioned below to attributes in the underlying user store.
+2. Map the identity claims mentioned below to attributes in the underlying user store.
 
     !!! info
         Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).
@@ -406,7 +406,7 @@ WSO2 Identity Server includes hidden identity attributes that support internal f
 
 You can customize the set of hidden identity attributes by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
-```
+```toml
 [identity_mgt.claims]
 hidden_claims = [
     "<attribute_uri_1>",
