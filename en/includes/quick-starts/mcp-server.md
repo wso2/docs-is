@@ -8,7 +8,14 @@ Welcome to the Asgardeo MCP Server Quickstart! In this document, you will learn 
 
 [//] STEPS_START
 
-## Configure a M2M Application in {{ product_name }}
+## Configure Asgardeo Access for MCP Server
+
+The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perform the actions required by each MCP tool.
+To enable this, it must first obtain an access token with the appropriate scopes. This requires configuring access to
+your Asgardeo organization by creating a Machine-to-Machine (M2M) application and authorizing API Resources and Scopes to access the
+necessary APIs.
+
+Follow these steps to set up the M2M application:
 
 Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name. 
 
@@ -22,7 +29,15 @@ Note down the following values from the **Protocol** tab of the registered appli
 - **`client-secret`** from the **Protocol** tab. 
 - **The name of your {{ product_name }} organization**
 ---
-Next, go to the **API Authorization** tab in your Asgardeo application settings and click the **Authorize an API Resource** button. In the pop-up window, use the dropdown to search and select each required resource from the Asgardeo Management API by typing the first few letters of the resource name. For each selected resource, make sure you select **authorized scopes** to match those listed in the table below.
+Next, you need to authorize the API resources and scopes required for the actions performed by the MCP tools. Each tool
+may require different levels of access, so you can selectively authorize only the API resources and scopes relevant to
+your intended use. To do this, navigate to the **API Authorization** tab of your Asgardeo application and click **Authorize an
+API Resource**. In the pop-up that appears, use the dropdown to search and select the required API Resources from the
+Asgardeo Management API by typing the first few letters of each resource name. For every selected API Resource, ensure
+you assign the appropriate **authorized scopes**. For guidance on which API Resources and Scopes are needed by each tool,
+see the [API Resources and Scopes Required for MCP Tools]({{base_path}}/references/mcp-tool-api-resource-access/) section.
+
+The following table lists the required API resources and scopes for all currently supported tools:
 
 | **Asgardeo Management API** | **Required scopes** |
 |--------|---------|
@@ -38,6 +53,13 @@ Next, go to the **API Authorization** tab in your Asgardeo application settings 
 Once completed, your API Authorization configuration should resemble the example shown in the screenshot.
 
 ![Asgardeo M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
+
+!!! important
+
+    During tool execution, you will be prompted to give **explicit consent** for the action. It’s recommended to 
+    approve actions with "Approve Once" option rather than selecting "Approve Always" option so you retain full control and visibility
+    over the operations performed in your Asgardeo organization.
+
 
 ## Build Asgardeo MCP Server
 

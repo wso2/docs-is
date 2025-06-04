@@ -599,6 +599,7 @@ nav:
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
+    - API Resources and Scopes Required for MCP Tools: references/mcp-tool-api-resource-access.md
     - Production checklist:
       - references/production-checklist/index.md
       - Readiness check: references/production-checklist/readiness-check.md
