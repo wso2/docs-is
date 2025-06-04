@@ -57,7 +57,7 @@ Apart from the default attributes, you may define your own custom attributes by 
 
 To configure properties of user attributes:
 
-{% if is_version < "7.1.0" %}
+{% if product_name == "WSO2 Identity Server" and is_version < "7.1.0" %}
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
@@ -107,7 +107,7 @@ To configure properties of user attributes:
 
     ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-{% elif is_version == "7.1.0" %}
+{% elif product_name == "WSO2 Identity Server" and is_version == "7.1.0" %}
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
