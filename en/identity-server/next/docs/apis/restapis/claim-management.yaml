@@ -1108,7 +1108,7 @@ components:
           enum:
             - string
             - boolean
-            - data_time
+            - date_time
             - integer
             - complex
             - decimal
@@ -1207,7 +1207,7 @@ components:
           enum:
             - string
             - boolean
-            - data_time
+            - date_time
             - integer
             - complex
             - decimal
