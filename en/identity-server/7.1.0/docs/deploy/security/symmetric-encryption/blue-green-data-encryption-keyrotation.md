@@ -1,6 +1,0 @@
----
-search:
-  exclude: true
----
-
-{% include "../../../../../../includes/deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md" %}
