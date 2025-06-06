@@ -10,7 +10,7 @@
 
 {% if is_version == "7.0.0" %}
 !!! note "important"
-    The artifacts necessary for enabling post-quantum TLS are not available in {{product_name}} 7.0.0 by default. If post-quantum TLS is required, the artifacts should be manually applied.
+    The artifacts necessary for enabling post-quantum TLS aren't available in {{product_name}} 7.0.0 by default. If post-quantum TLS is required, the artifacts should be manually applied.
     To manually apply the the artifacts to {{product_name}},
 
     - Download [openssl-tls.sh](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/openssl-tls.sh){:target="_blank"} and copy the file to `<IS_HOME>/bin/`.
@@ -20,7 +20,7 @@
 
 ## Build native libraries
 
-For post-quantum TLS to work, a few native libraries are required. These libraries are not packed with the {{product_name}} distribution by default as native libraries are system architecture-dependent. Hence, these libraries must be built and installed into your {{product_name}} distribution.
+For post-quantum TLS to work, a few native libraries are required. These libraries aren't packed with the {{product_name}} distribution by default as native libraries are system architecture-dependent. Hence, these libraries must be built and installed into your {{product_name}} distribution.
 
 The native libraries can be built using one of two methods given below.
 
@@ -160,6 +160,7 @@ Follow the instructions given below to install the required runtime dependencies
     ```
 
     {% else %}
+
     ``` toml
     [transport.https.openssl]
     enabled = true
