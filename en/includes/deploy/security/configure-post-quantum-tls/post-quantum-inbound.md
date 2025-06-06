@@ -8,16 +8,6 @@
     - Post-quantum TLS only works with TLS 1.3.
     - Currently, post-quantum TLS in {{product_name}} is only supported on Linux and MacOS operating systems.
 
-{% if is_version == "7.0.0" %}
-!!! note "important"
-    The artifacts necessary for enabling post-quantum TLS aren't available in {{product_name}} 7.0.0 by default. If post-quantum TLS is required, the artifacts should be manually applied.
-    To manually apply the the artifacts to {{product_name}},
-
-    - Download [openssl-tls.sh](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/openssl-tls.sh){:target="_blank"} and copy the file to `<IS_HOME>/bin/`.
-    - Download [wso2server.sh](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/wso2server.sh){:target="_blank"} and replace the file in `<IS_HOME>/bin/`.
-    - Download [catalina-server.xml.j2](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/catalina-server.xml.j2){:target="_blank"} and replace the file in `<IS_HOME>/repository/resources/conf/templates/repository/conf/tomcat`.
-{% endif %}
-
 ## Build native libraries
 
 For post-quantum TLS to work, a few native libraries are required. These libraries aren't packed with the {{product_name}} distribution by default as native libraries are system architecture-dependent. Hence, these libraries must be built and installed into your {{product_name}} distribution.
@@ -149,18 +139,6 @@ Follow the instructions given below to install the required runtime dependencies
 1. Shut down the {{product_name}} instance if it's running.
 2. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    {% if is_version == "7.0.0" %}
-
-    ``` toml
-    [transport.https.openssl]
-    enabled = true
-    named_groups="x25519_kyber768:x25519"
-    [transport.https.sslHostConfig.properties]
-    protocols="TLSv1+TLSv1.1+TLSv1.2+TLSv1.3"
-    ```
-
-    {% else %}
-
     ``` toml
     [transport.https.openssl]
     enabled = true
@@ -170,7 +148,6 @@ Follow the instructions given below to install the required runtime dependencies
     protocols="TLSv1+TLSv1.1+TLSv1.2+TLSv1.3"
     ```
 
-    {% endif %}
 3. Restart {{product_name}}.
 
 !!! note "Disable post-quantum TLS"
