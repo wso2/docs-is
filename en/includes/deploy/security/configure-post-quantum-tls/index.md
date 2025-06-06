@@ -1,6 +1,6 @@
 # Configure post-quantum TLS
 
-As quantum computing becomes a reality, traditional public key algorithms like RSA and ECC are increasingly vulnerable. {{ product_name }} supports **post-quantum cryptography (PQC)** to mitigate these future threats by enabling hybrid key exchange algorithms for TLS communication.
+As quantum computing becomes a reality, traditional public key algorithms like RSA and ECC face increasing vulnerability. {{ product_name }} supports **post-quantum cryptography (PQC)** to mitigate these future threats by enabling hybrid key exchange algorithms for TLS communication.
 
 To address the quantum threat, {{ product_name }} integrates post-quantum cryptography with existing classical methods. Specifically, it adopts the [X25519MLKEM768](https://datatracker.ietf.org/doc/draft-ietf-tls-ecdhe-mlkem) hybrid key agreement algorithm for TLS communication, ensuring strong protection against future quantum attacks.
 
