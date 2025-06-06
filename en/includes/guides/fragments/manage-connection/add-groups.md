@@ -24,14 +24,14 @@ Follow the steps below to map attributes of {{product_name}} with that of a conn
 
 {% if product_name == "WSO2 Identity Server" %}
 
-### Specify the required attributed for provisioning
+### Add required attributes for provisioning
 
-Follow the steps below to add the required attributes when provisioning a user.
+When provisioning users from an external identity provider (IdP), you may want to include specific attributes in the user’s profile. Follow the steps below to define the required attributes and assign default values.
 
 1. On the {{ product_name }} Console, go to **Connections**.
 2. Select your connection and go to its **Attributes** tab.
-3. Click **Add Attribute** under Provisioning Attributes Selection.
-4. Move the attributes that you want to include in provisioned user and click **Save**.
+3. Under **Provisioning Attributes Selection**, click **Add Attribute**.
+4. Move the attributes that you want to include in the provisioned user's profile and click **Save**.
 
     ![Add required attributes for provisioning]({{base_path}}/assets/img/guides/idp/add-required-attributes-for-provisioning.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -39,12 +39,14 @@ Follow the steps below to add the required attributes when provisioning a user.
 
     ![Add default value for required attributes]({{base_path}}/assets/img/guides/idp/add-default-value-for-required-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-6. To add default values to the provisioned user’s profile when the federated user has no value, configure the following in the deployment.toml file.
+    !!! note
 
-    ```toml
-    [authentication.endpoint]
-    enable_merging_custom_claim_mappings_with_default = true
-    ```
+        To add default values to the provisioned user’s profile when the federated user has no value, configure the following in the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+        ```toml
+        [authentication.endpoint]
+        enable_merging_custom_claim_mappings_with_default = true
+        ```
 
 {% endif %}
 
