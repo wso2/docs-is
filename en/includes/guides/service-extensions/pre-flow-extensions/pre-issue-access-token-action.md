@@ -282,13 +282,13 @@ Content-Type: application/json
             "name": "carbon.super"
         },
         "organization": {
-            "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d"",
+            "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d",
             "name": "carbon.super"
         },
         "user": {
             "id": "e204849c-4ec2-41f1-8ff7-ec1ebff02821",
             "organization": {
-                "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d"",
+                "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d",
                 "name": "carbon.super"
             }
         },
