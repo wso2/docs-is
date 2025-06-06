@@ -2,7 +2,6 @@
 
  To configure TLS with post-quantum security, {{product_name}} should be configured to utilize OpenSSL 3.x as the JSSE provider, along with [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
 
-
 !!! note
     Characteristics of post-quantum TLS in {{product_name}} are as follows:
 
@@ -39,7 +38,7 @@ The following dependencies are required during build-time.
 - OpenSSL libraries
 
 !!! note "Important"
-    For this method, OpenSSL 3.0 or higher is required as a system library to build the other libraries and for the runtime. 
+    For this method, OpenSSL 3.0 or higher is required as a system library to build the other libraries and for the runtime.
 
 === "Linux"
 
@@ -88,6 +87,7 @@ Follow the instructions given below to install the other required runtime depend
 
 1. Shut down the {{product_name}} instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder, and execute the following command:
+
     ```bash
     sh openssl-tls.sh --build_pqclib
     ```
@@ -148,8 +148,9 @@ Follow the instructions given below to install the required runtime dependencies
 
 1. Shut down the {{product_name}} instance if it's running.
 2. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.
-   
+
     {% if is_version == "7.0.0" %}
+
     ``` toml
     [transport.https.openssl]
     enabled = true
@@ -167,9 +168,9 @@ Follow the instructions given below to install the required runtime dependencies
     [transport.https.sslHostConfig.properties]
     protocols="TLSv1+TLSv1.1+TLSv1.2+TLSv1.3"
     ```
+
     {% endif %}
 3. Restart {{product_name}}.
-
 
 !!! note "Disable post-quantum TLS"
 
@@ -178,7 +179,6 @@ Follow the instructions given below to install the required runtime dependencies
     1. Shut down the {{product_name}} instance if it's running.
     2. In the `<IS_HOME>/repository/conf/deployment.toml` file, remove the previously added configurations.
     3. Restart {{product_name}}.
-
 
     !!! tip
         If you want to keep using TLS 1.3 while disabling post-quantum TLS, change the `<IS_HOME>/repository/conf/deployment.toml` into following configuration.
