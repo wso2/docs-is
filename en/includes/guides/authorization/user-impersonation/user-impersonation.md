@@ -1,120 +1,159 @@
-# Start impersonation via console
+# User impersonation via Console
 
-When you start impersonsation from **Console**, you will get authorized into the **My Account** application as the impersonated user. To start impersonation via different business application, otherthan **My Account** you can refer [this guide]({{base_path}}/guides/authorization/user-impersonation/via-business-application).
+User impersonation lets you perform actions and access resources using another user’s permissions, useful for scenarios like testing and troubleshooting. You can follow this guide and use the My Account portal to start impersonating the user.
 
-Once succeful you can get SSO'd into any other [impersonation authorized applications](#step-3-configure-business-application-to-perform-impersonation) as the impersonated user.
+## Prerequisites
 
-## Prerequisits
+For this method to suit you, your organization should fulfill the following requirements.
 
-To perform impersonation via the console application complete below requirements.
+- Your organization has [enabled]({{base_path}}/guides/user-self-service/configure-self-service-portal/#enabledisable-the-my-account-portal) the My Account portal.
 
-1. Have same login flow for both **My Account** and **Console** application login flows. 
-2. Enable **My Account** Application, if not enabled.
+- Your {{product_name}} Console and My Account portal have the same login flow.
 
-If any of the given requirements remain unsatisfied, impersonation through the Console application can not proceed. In such cases, follow this guide to configure a business application to start impersonation.
-Once you complete given steps, continue with the below guide.
+If your organization can't meet the requirements above, you can start [impersonating via a business application]({{base_path}}/guides/authorization/user-impersonation-via-business-app). Keep in mind that this method involves more technical steps than using the Console.
 
-## Step 1: Prepare the Impersonating Actor
+## Step 1: Assign permissions to the impersonator
 
-1. Log into the Console.
-2. Go to the **Roles** page.
-3. Select the **Impersonator** application role with **My Account** as the audience.
-4. Under the **Users** tab, assign the **Impersonator** role to the user.
-5. Grant **Administrator** privileges to the selected user by [following this guide]({{base_path}}/guides/users/manage-administrators/#assign-admin-privileges-to-users).
+Follow the steps below to assign the right permissions to the impersonator.
 
-## Step 2: Perform Impersonation
+1. The impersonator should have the **Impersonator** role assigned. To do so,
 
-1. Log into the **Console** using the impersonating user’s credentials.
-```
-https://{{console_base_path}}/t/{organization_name}
-```
-2. Go to the **Users** list and select the user you want to impersonate.
-3. Scroll to the bottom and click on the **Impersonate User** button.
+    1. On the {{product_name}} Console, go to **Users** > **Roles**.
+
+    2. Select the **Impersonator** application role that has **My Account** as its audience.
+
+    3. Go to the **Users** tab and add the user's name under **Assigned Users**.
+
+    4. Click **Update** to save the changes.
+
+2. The impersonator also needs administrator permissions for the Console. If this user doesn't already have them,
+
+    1. On the {{product_name}} Console, go to **Console Settings**.
+
+    2. Under the **Administrators** tab, click **Add Administrators**.
+    
+    3. Enter the user's username and assign the **Administrator** role.
+
+    4. Click **Add**.
+
+## Step 2: Impersonate the user
+
+With the required permissions in place, the impersonator can now impersonate another user using the steps below.
+
+1. Log into the {{product_name}} Console with own credentials using the following URL.
+
+    ```
+    {{base_url}}
+    ```
+
+2. Go to the **User management** > **Users** and select the user you want to impersonate.
+
+3. Scroll down and click on **Impersonate User**.
 
     ![User Impersonate Button]({{base_path}}/assets/img/guides/authorization/impersonation/user-impersonate-button.png)
 
-4. You should see logged into the **My Account** application as the impersonated user.
+4. You should now be logged into the **My Account** application as the impersonated user.
 
     ![Discoverable Applications]({{base_path}}/assets/img/guides/authorization/impersonation/impersonated-myaccount-no-applications.png)
 
-After impersonation done via the Console, you can now SSO into any Business Application allowed for impersonation and where the impersonating user has the required application role with impersonation permissions.
+5. The **My Account** portal shows all business applications that the impersonator can access as the impersonated user. Launch any application to log in as that user.
 
-## Step 3: Configure business application to perform impersonation
+    !!! note "Display applications in the My Account portal"
 
-### Register user impersonation api resource
+        To make an application discoverable in the My Account portal for impersonators, you need to both enable impersonation for the application and mark it as discoverable. See [Configure business applications for impersonation](#configure-business-applications-for-impersonation) for instructions.
 
-By registering the user impersonation API resource, you enable the application to use for impersonation.
+## Configure business applications for impersonation
+
+To let an impersonator access a business application as another user, you need to enable impersonation for that app. This section shows you how to set it up.
+
+### Step 1: Authorize application to use the impersonation API
+
+By following the steps below, you permit a business application to use the impersonation API.
 
 1. On the {{ product_name }} Console, go to **Applications**.
+
 2. Select your application and go to its **API Authorization** tab.
+
 3. Click **Authorize an API Resource** and do the following:
+
     1. Under **API Resource**, select **User Impersonation**.
+
     2. Under **Authorized Scopes**, select **User Impersonation Scope**.
+
     3. Click **Finish**.
 
-![Authorize impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Authorize impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### Create impersonator application role
+### Step 2: Create an application role that permits impersonation
 
-Create a role with impersonation permissions.
+At the beginning of this guide, you assigned the impersonator with the *Impersonator* default permission. This permission's audience is **My Account**, which means that the role only grants permission to the impersontated user's My Account portal.
 
-1. Switch to the **Roles** tab of the application.
-2. Under **Role Audience**, select **Application**.
+To access business applications as an impersonated user, you need to create a new role to give the impersonator the right permissions.
+
+To do so,
+
+1. On the {{product_name}} Console, go to **Applications** and select your application.
+
+2. Go to the **Roles** tab of the application.
+
+3. Under **Role Audience**, select **Application**. This sets the audience of this role to the current application.
+
 3. Click **New Role** and do the following:
-    1. Provide a suitable role name (**Impersonator**).
+
+    1. Provide a suitable role name.
+
     2. Under **API Resource**, select **User Impersonation**.
+
     3. Select the checkbox corresponding to **User Impersonation** to select its scopes.
+
     4. Click **Create**.
 
-![Role-Creation]({{base_path}}/assets/img/guides/authorization/impersonation/role-creation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![Role-Creation]({{base_path}}/assets/img/guides/authorization/impersonation/role-creation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### Assign impersonating actor to the impersonator role
+### Step 3: Assign the role to the impersonator
 
-1. Select the **Impersonator** role with your Business Application as the audience.
-    (The role you created while registering the API resource.)
-2. Under the **Users** tab, assign the impersonating user.
-3. Verify the users also have administrator privileges as required.
+To assign the role,
 
-### Skip consent screens (optional)
+1. On the {{product_name}} Console, go to **User Management** > **Roles**.
 
-Since the user pre-approved to impersonate another user, you can bypass the consent prompts during both login and logout processes. If you have already deactivated this feature and want to activate it:
+2. Select the role you just created. The audience of this role is set to your business application.
 
-1. Switch to the **Advanced** tab of the application.
-2. Check **Skip login consent** and **Skip logout consent**.
+3. Under the **Users** tab, click **Assign Users** and select the impersonator.
+
+4. Click **Update** to save the changes.
+
+
+### Step 4: (Optional) Skip consent screens
+
+Since the impersonator is pre-approved to access the application on behalf of another user, you can skip the login and logout consent prompts. To enable this:
+
+1. On the {{product_name}} Console, go to **Applications** and select your application.
+
+2. Switch to the **Advanced** tab of the application.
+
+3. Select the **Skip login consent** and **Skip logout consent** checkboxes.
+
+4. Click **Update** to save the changes.
+
+### Step 5: (Optional) Make business application discoverable
+
+When an impersonator logs into the My Account portal as another user, the portal shows all the applications the impersonator is allowed to access as that user. From there, the impersonator can launch any of those applications directly. To display applications like so, they need to be discoverable.
+
+To make an application discoverable,
+
+1. On the {{product_name}} Console, go to **Applications** and select your application.
+
+2. Under the **General** tab, check the **Discoverable application** checkbox.
+
 3. Click **Update** to save the changes.
-
-#### Step 4: Make business application discoverable (optional)
-
-Make the impersonatable applications [discoverable]({{base_path}}/guides/user-self-service/discover-applications/), so that the impersonator can access the application via the **My Account** Applications menu.
-
-#### Step 5: Perform impersonation on a business application
-
-1. Log into the **Console** using the impersonating user’s credentials.
-```
-https://{{console_base_path}}/t/{organization_name}
-```
-2. Go to the **Users** list and select the user you want to impersonate.
-3. Scroll to the bottom and click on the **Impersonate User** button.
-
-![User Impersonate Button]({{base_path}}/assets/img/guides/authorization/impersonation/user-impersonate-button.png)
-
-4. You should see the **My Account** application showing a session under the impersonated user.
-
-If you have configured discoverable applications, you will prompted with the following screen.
-
-![Discoverable Applications]({{base_path}}/assets/img/guides/authorization/impersonation/impersonated-myaccount.png)
-
-5. **Click** on the Business Application that uses for impersonation.
-
-Once you log in to the Business Application, you will get an **Impersonated Access Token**.
 
 ## Access logs related to user impersonation
 
-To troubleshoot issues and keep track of the actions performed by impersonators, {{product_name}} supports logs for user impersonation. Whenever a resource gets modified using an impersonated access token, an audit log prints with the relevant details of the impersonator.
+To troubleshoot issues and keep track of impersonators' actions, you can use {{product_name}} logs for user impersonation. Whenever a resource gets modified using an impersonated access token, an audit log prints with the relevant details of the impersonator.
 
 {% if product_name == "Asgardeo" %}
 
-You may access these logs from the **Logs** section of the {{product_name}} Console.
+You can access these logs from the **Logs** section of the {{product_name}} Console.
 
 ![Impersonation-Audit-Log]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-audit-logs.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -146,7 +185,7 @@ You may access these logs from the **Logs** section of the {{product_name}} Cons
     Outcome=AUTHORIZED
     ```
 
-Once the impersonator modifies a resource, a log prints as below:
+When an impersonator modifies a resource, the system logs the action as follows:
 
 ```bash
 TID: [-1234] [2024-06-03 14:50:42,976] [1a2ac914-ea61-4699-8778-ea44d2fa27c5]  INFO {AUDIT_LOG} \
@@ -161,8 +200,7 @@ Outcome=Success | Impersonator : 0fa51985-d36d-4492-9ebd-298f9d68861f
 
 ## Notify users on impersonation
 
-When an impersonated access token issued on behalf of a user, {{product_name}} enables you to send a notification email to the affected user. 
-This enhances transparency by keeping the user informed of any actions performed on their behalf.
+When {{product_name}} issues an impersonated access token on behalf of a user, it can send a notification email to that user. This keeps the user informed of actions taken on their behalf, improving transparency.
 
 Follow the steps below to enable or disable email notifications:
 
@@ -180,8 +218,7 @@ The following is the default email notification sent to the impersonated user up
     
 ## Access Organizations as an Impersonator
 
-If the user also a member of a child [organization]({{base_path}}/guides/organization-management/), the impersonator can exchange the impersonated access token for an organization access token.
-This authorizes the impersonator to access child organizations with the same permission level as the impersonated user.
+If the user is also a member of a child [organization]({{base_path}}/guides/organization-management/), the impersonator can exchange the impersonated access token to an organization access token. This authorizes the impersonator to access child organizations with the same permission level as the impersonated user.
 
 !!! note
     
@@ -218,7 +255,7 @@ The following diagram shows the detailed steps involved in receiving an imperson
     --data-urlencode 'token=eyJ4NXQiOiJPV1JpTXpaaVlURXhZVEl4WkdGa05UVTJOVE0zTWpkaFltTmxNVFZrTnpRMU56a3paVGc1TVRrNE0yWmxOMkZoWkdaalpURmlNemxsTTJJM1l6ZzJNZyIsImtpZCI6Ik9XUmlNelppWVRFeFlUSXhaR0ZrTlRVMk5UTTNNamRoWW1ObE1UVmtOelExTnprelpUZzVNVGs0TTJabE4yRmhaR1pqWlRGaU16bGxNMkkzWXpnMk1nX1JTMjU2IiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIzMmJjNDY5Ny1lZDBmLTQ1NDYtODM4Ny1kY2Q2NDAzZTdjYWEiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwiY2xpZW50X2lkIjoialZjVzRvTG4xSmpiMlQ5NEg0Z3RQVjl6NVkwYSIsImF1ZCI6ImpWY1c0b0xuMUpqYjJUOTRINGd0UFY5ejVZMGEiLCJuYmYiOjE3MTg2OTUwNTIsImFjdCI6eyJzdWIiOiIyZDkzMWM5ZC04NzZlLTQ2YzAtOWFiYS1mMzQ1MDE4NzlkZmMifSwiYXpwIjoialZjVzRvTG4xSmpiMlQ5NEg0Z3RQVjl6NVkwYSIsIm9yZ19pZCI6IjEwMDg0YThkLTExM2YtNDIxMS1hMGQ1LWVmZTM2YjA4MjIxMSIsInNjb3BlIjoiaW50ZXJuYWxfbG9naW4gaW50ZXJuYWxfb3JnX3VzZXJfbWd0X2xpc3QgaW50ZXJuYWxfb3JnX3VzZXJfbWd0X3ZpZXcgaW50ZXJuYWxfdXNlcl9tZ3RfbGlzdCBpbnRlcm5hbF91c2VyX21ndF92aWV3IG9wZW5pZCIsImV4cCI6MTcxODY5ODY1Miwib3JnX25hbWUiOiJTdXBlciIsImlhdCI6MTcxODY5NTA1MiwianRpIjoiMDcyOGQ1MTctNzk2OC00NzRmLWJkN2QtMTI1MzdjY2JlNDM2In0.FqavHBDNLo-nMMgJ3OTDswo7pl6zMztpUkm-cgBOgDJPek_FAEQzt4DFxGglnf2-AtnRN14wPOv9_M_DYJWH529hbwYBVrQQDlJmcF1WtWX_MnBgBGsIfA5_3nzocZWBqj5KDjbXS3_3CSexQ9_h3tKWCDX1oit03flcs7E_xG_nkWV1TUPFUAaoHrMWTROIttN1iFqwRjeg6Bkqjx8hHM3Dn7E9Zsmby0EhuC7i41kid2s9F_5XPPMCYM0gyxX5lAjsf6UFth9v3SWIuMLFgiq5Eh6u4pCs9srh2A5t0DIcKMwyXTEm-QVIhGi1zkB-wGV6yYD9TwbiujnrqOyFQA'
     ```
 
-The response will look like following:
+The response looks like the following:
 
 ``` json
 {

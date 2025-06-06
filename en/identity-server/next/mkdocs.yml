@@ -583,8 +583,8 @@ nav:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
         - User impersonation:
           - User impersonation: guides/authorization/user-impersonation/index.md
-          - Impersonation via console: guides/authorization/user-impersonation/via-console.md
-          - Impersonation Via business application: guides/authorization/user-impersonation/via-business-application.md
+          - via Console: guides/authorization/user-impersonation/via-console.md
+          - via business application (advanced): guides/authorization/user-impersonation/via-business-application.md
         - Rich Authorization Requests: guides/authorization/rich-authorization-requests.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
