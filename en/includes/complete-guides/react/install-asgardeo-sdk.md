@@ -31,7 +31,7 @@ const config = {
     signInRedirectURL: "http://localhost:5173",
     signOutRedirectURL: "http://localhost:5173",
     clientID: "<your-app-client-id>",
-    baseUrl: "{{content.baseUrl}}",
+    baseUrl: "{{content.sdkconfig.baseUrl}}",
     scope: [ "openid","profile" ]
 }
 

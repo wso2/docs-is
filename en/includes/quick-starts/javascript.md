@@ -96,7 +96,7 @@ Replace the existing code of the `main.jsx` file with the following code to init
     Replace below placeholders with your registered organization name in {{ product_name }} and the generated`client-id` from the app you registered in {{ product_name }}.
 
     - `<your-app-client-id>`
-    - `{{content.baseUrl}}`
+    - `{{content.sdkconfig.baseUrl}}`
 
 
 
@@ -110,7 +110,7 @@ await auth.initialize({
   signInRedirectURL: "http://localhost:5173",
   signOutRedirectURL: "http://localhost:5173",
   clientID: "<your-app-client-id>",
-  baseUrl: "{{content.baseUrl}}",
+  baseUrl: "{{content.sdkconfig.baseUrl}}",
   scope: ["openid", "profile"]
 });
 

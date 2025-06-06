@@ -97,7 +97,7 @@ Add the following changes to the `main.jsx` file.
     Replace below placeholders with your registered organization name in {{ product_name }} and the generated`client-id` from the app you registered in {{ product_name }}.
 
     - `<your-app-client-id>`
-    - `{{content.baseUrl}}`
+    - `{{content.sdkconfig.baseUrl}}`
 
 ```javascript title="src/main.jsx" hl_lines="5 9-17 19"
 import { StrictMode } from 'react'
@@ -113,7 +113,7 @@ createRoot(document.getElementById('root')).render(
         signInRedirectURL: 'http://localhost:5173',
         signOutRedirectURL: 'http://localhost:5173',
         clientID: '<your-app-client-id>',
-        baseUrl: '{{content.baseUrl}}',
+        baseUrl: '{{content.sdkconfig.baseUrl}}',
         scope: ['openid', 'profile'],
       } }
     >

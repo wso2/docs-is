@@ -23,7 +23,8 @@ extra:
   base_path: /en/next
   is_version: next
   content:
-    baseUrl: "https://localhost:9443"
+    sdkconfig:
+      baseUrl: "https://localhost:9443"
   default_keystore_type: PKCS12
   default_keystore_ext: p12
   home_page_cards:
