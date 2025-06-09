@@ -70,7 +70,6 @@ To assign the role,
 
 4. Click **Update** to save the changes.
 
-
 ### Step 1.4: (Optional) Skip consent screens
 
 Since the impersonator is pre-approved to access the application on behalf of another user, you can skip the login and logout consent prompts. To enable this:
