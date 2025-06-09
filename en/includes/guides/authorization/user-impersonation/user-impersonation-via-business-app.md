@@ -2,7 +2,7 @@
 
 User impersonation lets you perform actions and access resources using another user’s permissions, useful for scenarios like testing and troubleshooting. You can follow this guide and use a business application to start impersonating the user.
 
-!!! tip "[Recommended] Use the My Account portal to start impersonation"
+!!! tip "[Recommended] Use the Console to start impersonation"
 
     Starting impersonation through a business application requires some manual, advanced steps. The recommended method is to impersonate users via the Console. However, your organization must meet the following requirements to do this:
 
@@ -10,7 +10,7 @@ User impersonation lets you perform actions and access resources using another u
 
     - Your {{product_name}} Console and My Account portal have the same login flow.
 
-    If your organization can meet these requirements, follow the guide to [start impersonation from the Console]({{base_path}}/guides/authorization/user-impersonation/via-console/).
+    If your organization can meet these requirements, follow the guide to [start impersonating from the Console]({{base_path}}/guides/authorization/user-impersonation/via-console/).
 
 ## Step 1: Configure business applications for impersonation
 
