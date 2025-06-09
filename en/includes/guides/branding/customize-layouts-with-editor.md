@@ -51,7 +51,6 @@ This section explains the special syntax that you can use to create a custom lay
 - **Data Syntax**
     
     This syntax can be used to add data to the layout code.
-    The collection of `data-attributes` available for the users to reference the portal pages in order to customiza the layout are listed below.
 
     ### Reference: Available `data-*` Attributes for Layout Customization
 
@@ -66,7 +65,7 @@ This section explains the special syntax that you can use to create a custom lay
     | Attribute              | Description                                                                 | Example Value               |
     |------------------------|-----------------------------------------------------------------------------|-----------------------------|
     | `data-page`            | Indicates the current page's name. Derived from `request.setAttribute(...)`. | `sign-in`, `logout`, `error`  |
-    | `data-responsetype`    | Indicates the outcome of the operation. Replaces older `data-isResponsePage`, `data-isErrorResponse`, etc. | `error`, `success`          |
+    | `data-responsetype`    | Indicates the outcome of the operation. Replaces older boolean flags, `isResponsePage`, `isErrorResponse`, etc. | `error`, `success`          |
 
     ---
 
@@ -108,7 +107,6 @@ This section explains the special syntax that you can use to create a custom lay
 
     ---
 
-
     - Example: JSP Injected Data
     ```html
         <body data-page="sign-in" data-error="true">
@@ -133,7 +131,7 @@ This section explains the special syntax that you can use to create a custom lay
             // Perform sign-in page-specific logic
         }
     ```
-    
+
     !!! note
         All `data-*` attributes are injected via `<% request.setAttribute(...) %>` inside `JSP` pages.
         These are guaranteed only if you're using `WSO2 Identity Server versions that have layout editor support`.
@@ -166,12 +164,11 @@ To add a custom layout to the login page:
   		    <div> Welcome to the Login Page!</div>
             <div> Enjoy our new features onboarded. </div>
 	    </div>
-
         <div class="page-wrapper layout-file" id="page-wrapper">
             {{{ProductHeader}}}
             <main class="hero-section">
                 <div class="background-image-wrapper">
-                    <img src="http://localhost:5001/resources/backimg.jpg" alt="Background Image" class="background-image" />
+                    <img src="http://your-domain.com/backgroundimg.jpg" alt="Background Image" class="background-image" />
                 </div>
                 <div class="main-content-box">
                     {{{MainSection}}}
@@ -199,6 +196,10 @@ To add a custom layout to the login page:
         {{{ProductFooter}}}
     </div>
     ```
+
+    !!! warning
+        To avoid breaking the runtime, your HTML layout **must** include both `{{{MainSection}}}` and `{{{ProductFooter}}}`.
+        Additionally, you must **Save and Publish** the HTML code at a minimum. Without a valid HTML layout that includes these required sections, the custom layout will not render correctly.
 
     - Sample CSS code
 
@@ -316,7 +317,6 @@ To add a custom layout to the login page:
     !!! note
         If you are using the default html page provided by the product, please use the exact CSS class names when overriding the existing styles.
 
-
     - Sample JS Code
 
     ```javascript
@@ -344,7 +344,7 @@ To add a custom layout to the login page:
 - Resources Handling
 
     !!! note
-        Use only **absolute URLs** (e.g., https://yourdomain.com/img.jpg) when referencing assets like images, fonts, or icons. These resources must be hosted and publicly accessible.
+        Use only **absolute URLs** (e.g., https://your-domain.com/img.jpg) when referencing assets like images, fonts, or icons. These resources must be hosted and publicly accessible.
 
     - Correct
     ```html
