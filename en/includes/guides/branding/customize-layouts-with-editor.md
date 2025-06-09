@@ -1,35 +1,37 @@
 # Customize layouts with editor
 
-You can now customize the branding and layout of user interfaces like the login page, registration page, username and password recovery pages, and single sign-on pages using an `in-app layout editor` with no need to modify files or rebuild artifacts manually.
+You can now easily customize the branding and layout of user interfaces like the login, registration, username and password recovery, and single sign-on pages using the new in-console editor.
+This feature lets you apply changes instantly, without editing files or rebuilding artifacts manually.
 
-All UIs are available in the following apps located in the `<IS_HOME>/repository/deployment/server/webapps` folder.
+You can find all user interfaces in the following apps under the `<IS_HOME>/repository/deployment/server/webapps` folder.
 
 - `authenticationendpoint`
 - `accountrecoveryendpoint`
- - `x509certificateauthenticationendpoint`
+- `x509certificateauthenticationendpoint`
 
-## Enabling the Editor
+## Enabling the editor
 
 Before using the editor for customizing, follow these steps:
 
 To enable layout customization:
+
 - Log in to the WSO2 Identity Server Console.
 - Click your username in the top-right corner.
 - Enable the `Customize layouts with editor` toggle under `Feature Preview`.
 
 Once enabled, the `Customize` button will appear on the `Preview` tab under `Branding` > `Styles & Text`, after selecting the `Custom` tile from the `Design` tab.
 
-## General components of the UI
+## General components of the user interface
 
-All pages of WSO2 Identity Server are separated into three general components as shown below. You can reference these components when you form the custom layout.
+All pages in WSO2 Identity Server consist of three general components, as shown below. You can reference these components when you form the custom layout.
 
 ![Login Page]({{base_path}}/assets/img/guides/branding/login-page-labelled.png)
 
-## Layout syntaxes
+## Layout syntax formats
 
 This section explains the special syntax that you can use to create a custom layout.
 
-- **Component Syntax**
+- **Component syntax**
 
     This syntax will be used to indicate the position of the general component in the custom layout code. The component syntaxes will be replaced with actual content at runtime.
 
@@ -48,11 +50,11 @@ This section explains the special syntax that you can use to create a custom lay
     </div>
     ```
 
-- **Data Syntax**
-    
+- **Data syntax**
+
     This syntax can be used to add data to the layout code.
 
-    ### Reference: Available `data-*` Attributes for Layout Customization
+    **Reference: Available `data-*` Attributes for Layout Customization**
 
     When customizing layouts using the layout editor, you can style or control logic based on the following `data-*` attributes injected into the `<body>` tag of each page.
 
@@ -60,7 +62,7 @@ This section explains the special syntax that you can use to create a custom lay
 
     ---
 
-    - #### Common `data-*` Attributes
+    - **Common `data-*` Attributes**
 
     | Attribute              | Description                                                                 | Example Value               |
     |------------------------|-----------------------------------------------------------------------------|-----------------------------|
@@ -69,7 +71,7 @@ This section explains the special syntax that you can use to create a custom lay
 
     ---
 
-    - #### Common `data-page` Values
+    - **Common `data-page` Values**
 
     These are the actual page names set in JSP files:
 
@@ -92,7 +94,7 @@ This section explains the special syntax that you can use to create a custom lay
 
     ---
 
-    - #### Deprecated Attributes (Replaced by `data-responsetype`)
+    - **Deprecated Attributes (Replaced by `data-responsetype`)**
 
     The following were removed and replaced with a single simplified `data-responsetype`:
 
@@ -199,7 +201,7 @@ To add a custom layout to the login page:
 
     !!! warning
         To avoid breaking the runtime, your HTML layout **must** include both `{{{MainSection}}}` and `{{{ProductFooter}}}`.
-        Additionally, you must **Save and Publish** the HTML code at a minimum. Without a valid HTML layout that includes these required sections, the custom layout will not render correctly.
+        Additionally, you must **Save and Publish** the HTML code at a minimum. Without a valid HTML layout that includes these required sections, the custom layout won't render correctly.
 
     - Sample CSS code
 
@@ -344,7 +346,7 @@ To add a custom layout to the login page:
 - Resources Handling
 
     !!! note
-        Use only **absolute URLs** (e.g., https://your-domain.com/img.jpg) when referencing assets like images, fonts, or icons. These resources must be hosted and publicly accessible.
+        Use only **absolute URLs** (for example, https://your-domain.com/img.jpg) when referencing assets like images, fonts, or icons. These resources must be hosted and publicly accessible.
 
     - Correct
     ```html
@@ -360,7 +362,7 @@ To add a custom layout to the login page:
     To update the header and the footer, use the [Branding UI]({{base_path}}/guides/branding/configure-ui-branding/#update-branding).
 
 !!! note "Application-specific layouts"
-    To add application-specific custom layouts, just toggle the Application selector at the top-right corner of the Branding view and choose the desired app and apply your custom layout to it specifically.
+    To add application-specific custom layouts, toggle the Application selector at the top-right corner of the Branding view and choose the desired app and apply your custom layout to it specifically.
 
 2. Click **Save & Publish** to apply the custom layout configurations added.
 
@@ -370,6 +372,6 @@ To add a custom layout to the login page:
 
 Use the following best practices when creating a custom layout:
 
-- Add a prefix for the new CSS classes so that the newly added classes will not conflict with existing classes.
+- Add a prefix for the new CSS classes so that the newly added classes won't conflict with existing classes.
 
 - In your development environment, be sure to add the `cache="false"` flag as a parameter in the `<layout:main>` tag of all pages that require testing with the custom layout. With this flag in place, the layouts will compile at runtime eliminating the need to manually recompile layouts. Remember to remove this flag in the production environment.
