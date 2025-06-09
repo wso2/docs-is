@@ -413,7 +413,9 @@ plugins:
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
-        'guides/authorization/impersonation/user-impersonation.md': 'guides/authorization/user-impersonation.md'
+        'guides/authorization/impersonation/index.md' : 'guides/authorization/user-impersonation/index.md'
+        'guides/authorization/impersonation/via-console.md' : 'guides/authorization/user-impersonation/via-console.md'
+        'guides/authorization/impersonation/via-business-application.md' : 'guides/authorization/user-impersonation/via-business-application.md'
         'get-started/subscribe-for-ai-features.md': 'get-started/subscribe-to-ai-features.md'
         'deploy/environment-compatibility.md': 'deploy/product-compatibility.md'
         'references/about-this-release.md': 'get-started/about-this-release.md'
@@ -579,7 +581,10 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
-        - User Impersonation: guides/authorization/user-impersonation.md
+        - User impersonation:
+          - User impersonation: guides/authorization/user-impersonation/index.md
+          - via Console: guides/authorization/user-impersonation/via-console.md
+          - via business application (advanced): guides/authorization/user-impersonation/via-business-application.md
         - Rich Authorization Requests: guides/authorization/rich-authorization-requests.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
