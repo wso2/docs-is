@@ -415,7 +415,7 @@ plugins:
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
         'guides/authorization/impersonation/index.md' : 'guides/authorization/user-impersonation/index.md'
         'guides/authorization/impersonation/via-console.md' : 'guides/authorization/user-impersonation/via-console.md'
-        'guides/authorization/impersonation/via-business-app.md' : 'guides/authorization/user-impersonation/via-business-app.md'
+        'guides/authorization/impersonation/via-business-application.md' : 'guides/authorization/user-impersonation/via-business-application.md'
         'get-started/subscribe-for-ai-features.md': 'get-started/subscribe-to-ai-features.md'
         'deploy/environment-compatibility.md': 'deploy/product-compatibility.md'
         'references/about-this-release.md': 'get-started/about-this-release.md'
