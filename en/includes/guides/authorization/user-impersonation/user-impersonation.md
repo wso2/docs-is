@@ -1,6 +1,6 @@
 # User impersonation via Console
 
-User impersonation lets you perform actions and access resources using another user’s permissions, useful for scenarios like testing and troubleshooting. You can follow this guide and use the My Account portal to start impersonating the user.
+User impersonation lets you perform actions and access resources using another user’s permissions, useful for scenarios like testing and troubleshooting. You can follow this guide and use the My Account portal to start impersonating the user. In this scenario, the impersonator logs into the My Account portal as an impersonated user and Single Sign-On (SSO) into any business application with the impersonated user's permissions.
 
 ## Prerequisites
 
@@ -221,17 +221,18 @@ The following is the default email notification sent to the impersonated user up
 If the user also a member of a child [organization]({{base_path}}/guides/organization-management/), the impersonator can exchange the impersonated access token to an organization access token. This authorizes the impersonator to access child organizations with the same permission level as the impersonated user.
 
 !!! note
-
-    After completing SSO into the target application as the impersonated user, the client receives an access token. Since the flow involves impersonation, the token functions as an impersonated token.
-
-!!! note
     
-    The impersonator can only access organizations in which the impersonated user is an invited member. 
-    Learn more about [inviting users from the parent organization]({{base_path}}/guides/organization-management/invite-parent-organization-users/).
+    The impersonator can only access organizations where the impersonated user is an invited member. Learn more about [inviting users from the parent organization]({{base_path}}/guides/organization-management/invite-parent-organization-users/).
 
 The following diagram shows the detailed steps involved in receiving an impersonated organization access token.
 
 ![Impersonation-sub-org]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-flow-sub-org.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+To access organizations as an impersonator, you need to switch your imperonated access token using the [organization switch grant]({{base_path}}/references/grant-types/#organization-switch-grant) as follows.
+
+!!! tip "Get the impersonated access token"
+
+    When you SSO into a business application from the impersonated user's My Account portal, the token that the application receives works as the impersonated access token.
 
 === "Request Format"
 
@@ -270,4 +271,4 @@ The response looks like the following:
 }
 ```
 
-The impersonated organization access token also includes the act property for detecting impersonation, with `act.sub` containing the impersonator's user ID.
+The impersonator can use the new access token to access any child organization the impersonated user can access.
