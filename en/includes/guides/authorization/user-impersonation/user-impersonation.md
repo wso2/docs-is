@@ -218,7 +218,11 @@ The following is the default email notification sent to the impersonated user up
     
 ## Access Organizations as an Impersonator
 
-If the user is also a member of a child [organization]({{base_path}}/guides/organization-management/), the impersonator can exchange the impersonated access token to an organization access token. This authorizes the impersonator to access child organizations with the same permission level as the impersonated user.
+If the user also a member of a child [organization]({{base_path}}/guides/organization-management/), the impersonator can exchange the impersonated access token to an organization access token. This authorizes the impersonator to access child organizations with the same permission level as the impersonated user.
+
+!!! note
+
+    After completing SSO into the target application as the impersonated user, the client receives an access token. Since the flow involves impersonation, the token functions as an impersonated token.
 
 !!! note
     
