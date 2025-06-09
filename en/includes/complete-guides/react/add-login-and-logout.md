@@ -41,12 +41,12 @@ npm run dev
 
 Once the application is started, you will see the homepage of the application with the changes we made.
 
-![Login screen]({{base_path}}/assets/img//complete-guides/react/image14.png){: width="800" style="display: block; margin: 0;"}
+![Login screen]({{base_path}}/assets/img/complete-guides/react/image14.png){: width="800" style="display: block; margin: 0;"}
 
 Initiate Sign In
 Clicking on the login button will initiate an OIDC request. You will be able to observe the authorize request in the browser devtools as follows. To see this, right click on the application and click inspect and switch to the network tab. In the filter input, type “authorize”, and click on the sign in button.
 
-![OIDC request]({{base_path}}/assets/img//complete-guides/react/image15.png){: width="800" style="display: block; margin: 0;"}
+![OIDC request]({{base_path}}/assets/img/complete-guides/react/image15.png){: width="800" style="display: block; margin: 0;"}
 
 !!! tip "Tip"
 
