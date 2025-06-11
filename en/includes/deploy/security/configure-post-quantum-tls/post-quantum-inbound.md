@@ -1,31 +1,35 @@
-# Configure Post-Quantum Inbound TLS
+# Configure post-quantum TLS for inbound connections
 
- To configure TLS with post-quantum security, {{product_name}} should be configured to utilize OpenSSL 3.x as the JSSE provider, along with [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
+By following this guide, you will enable **post-quantum TLS** in {{ product_name }} for inbound connections. An inbound connection refers to communication initiated by clients, such as browsers, applications, or APIs, connecting securely to {{ product_name }} using TLS.
 
-!!! note
-    Characteristics of post-quantum TLS in {{product_name}} are as follows:
+!!! note "Post-quantum TLS requirements"
 
-    - Post-quantum TLS only works with TLS 1.3.
-    - Currently, post-quantum TLS in {{product_name}} is only supported on Linux and MacOS operating systems.
+    - Post-quantum TLS is only supported over TLS 1.3.
+    - {{product_name}} currently supports post-quantum security only on Linux and MacOS operating systems.
 
-## Build native libraries
+## Step 1: Build native libraries
 
-For post-quantum TLS to work, a few native libraries are required. These libraries aren't packed with the {{product_name}} distribution by default as native libraries are system architecture-dependent. Hence, these libraries must be built and installed into your {{product_name}} distribution.
+For post-quantum TLS to work, {{product_name}} requires a few native libraries. These don't come pre-packaged with the {{product_name}} distribution as native libraries depend on the system architecture.
 
-The native libraries can be built using one of two methods given below.
+Use one of the following methods to build native libraries.
 
-### Method 1: Using system libraries for runtime dependencies
+### Method 1: Use system libraries for build and runtime
 
-In this method, system-level dependencies are utilized for the build-time and runtime, resulting in a faster build time and minimal disk space usage.
+This method relies on your operating system’s existing libraries during both the build process and runtime. This results in a faster build time and minimal disk space usage.
 
 #### Build dependencies
 
-The following dependencies are required during build-time.
+1. Make sure your system has the following dependencies installed:
 
-- Build tools (make, cmake, wget, tar)
-- GNU compiler
-- APR library
-- OpenSSL libraries
+    - Build tools (`make`, `cmake`, `wget`, `tar`)
+    - GNU compiler (`gcc`)
+    - Apache Portable Runtime (APR) library
+
+2. Install OpenSSL 3.0 or higher.
+
+
+
+
 
 !!! note "Important"
     For this method, OpenSSL 3.0 or higher is required as a system library to build the other libraries and for the runtime.
@@ -134,7 +138,7 @@ Follow the instructions given below to install the required runtime dependencies
 !!! note
     If you change the location of the {{product_name}} folder, you need to re-run the above command to reconfigure the runtime libraries.
 
-## Enable post-quantum TLS
+## Step 2: Enable post-quantum TLS
 
 1. Shut down the {{product_name}} instance if it's running.
 2. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file.

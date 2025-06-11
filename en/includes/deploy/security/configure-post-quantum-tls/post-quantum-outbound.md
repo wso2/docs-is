@@ -1,4 +1,4 @@
-# Configure post-quantum outbound TLS
+# Configure post-quantum TLS for outbound connections
 
 Outbound communication refers to {{ product_name }} acting as a client—connecting securely to third-party services such as APIs, OAuth endpoints, or external identity providers.
 
