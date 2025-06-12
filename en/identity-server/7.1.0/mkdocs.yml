@@ -1077,6 +1077,17 @@ nav:
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
   - Technology Guides:
+    - Actions:
+      - Introduction: complete-guides/actions/introduction.md
+      - Prerequisite: complete-guides/actions/prerequisite.md
+      - Pre-Issue Access Token Action Use Case: complete-guides/actions/pre-issue-access-token-action-use-case.md
+      - Configure Pre-Issue Access Token Action with Choreo: complete-guides/actions/pre-issue-access-token-action-in-choreo.md
+      - Configure Pre-Issue Access Token Action with Vercel: complete-guides/actions/pre-issue-access-token-action-in-vercel.md
+      - Configure Pre-Issue Access Token Action with AWS Lambda: complete-guides/actions/pre-issue-access-token-action-in-aws-lambda.md
+      - Pre-Update Password Action Use Case: complete-guides/actions/pre-update-password-action-use-case.md
+      - Configure Pre-Update Password Action with Choreo: complete-guides/actions/pre-update-password-action-in-choreo.md
+      - Configure Pre-Update Password Action with Vercel: complete-guides/actions/pre-update-password-action-in-vercel.md
+      - Configure Pre-Update Password Action with AWS Lambda: complete-guides/actions/pre-update-password-action-in-aws-lambda.md
     - React:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md
