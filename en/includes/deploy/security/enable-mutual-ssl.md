@@ -8,11 +8,11 @@ Let's take a look at how mutual SSL works with clients and {{product_name}}. The
 
 -   {{product_name}} server certificates are stored in,</br>
 
-    `<IS-HOME>/repository/resources/security/wso2carbon.{{default_keystore_ext}}`
+    `<IS-HOME>/repository/resources/security/wso2carbon.{{content.default_keystore_ext}}`
 
 
 -   The trusted client certificates are stored in,</br>
-    `<IS-HOME>/repository/resources/security/clienttruststore.{{default_keystore_ext}}`
+    `<IS-HOME>/repository/resources/security/clienttruststore.{{content.default_keystore_ext}}`
 
 !!! note
 
@@ -72,11 +72,11 @@ To enable mutual SSL,
         1. Extract the public certificate of {{product_name}} using the following command.
 
            ```shell
-           keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.{{default_keystore_ext}} -storetype {{default_keystore_type}} -storepass wso2carbon
+           keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.{{default_keystore_ext}} -storetype {{content.default_keystore_type}} -storepass wso2carbon
            ```
 
         2. Import the public certificate to the truststore using the following command.
 
            ```shell
-           keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore  client-truststore.{{default_keystore_ext}} -storetype {{default_keystore_type}} -storepass wso2carbon
+           keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore  client-truststore.{{default_keystore_ext}} -storetype {{content.default_keystore_type}} -storepass wso2carbon
            ```

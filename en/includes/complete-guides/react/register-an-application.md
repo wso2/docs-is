@@ -17,7 +17,7 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
 
     The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use [http://localhost:5173](http://localhost:5173){:target="_blank"}, as the sample app will be accessible at this URL.
 
-{% if product_name == "Asgardeo"%}
+{% if product == "asgardeo"%}
 You will need the following information available in the Quick Start tab of your app or the Quickstart guide under the React SDK for the `AuthProvider` config.
 
 * Client ID
