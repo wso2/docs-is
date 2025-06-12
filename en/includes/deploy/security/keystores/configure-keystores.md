@@ -11,8 +11,8 @@
 
 WSO2 Identity Server provides default keystore and truststore files:
 
-- `wso2carbon.{{default_keystore_ext}}`: The default keystore that includes a private key and a self-signed certificate.
-- `client-truststore.{{default_keystore_ext}}`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.{{default_keystore_ext}}.
+- `wso2carbon.{{content.default_keystore_ext}}`: The default keystore that includes a private key and a self-signed certificate.
+- `client-truststore.{{content.default_keystore_ext}}`: The default truststore containing Certificate Authority (CA) certificates and the self-signed certificate from wso2carbon.{{content.default_keystore_ext}}.
 
 These files are originally located in the `<IS_HOME>/repository/resources/security` folder. The file settings can be configured by specifying them in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder as follows.
 

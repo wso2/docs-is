@@ -23,9 +23,11 @@ extra:
   base_path: /en/7.1.0
   is_version: 7.1.0
   content:
-    baseUrl: "https://localhost:9443"
-  default_keystore_type: PKCS12
-  default_keystore_ext: p12
+    default_keystore_type: PKCS12
+    default_keystore_ext: p12
+    sdkconfig:
+      baseUrl: "https://localhost:9443"
+
   home_page_cards:
     - section:
       - title: Get Started
