@@ -23,10 +23,11 @@ extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
   content:
+    default_keystore_type: JKS
+    default_keystore_ext: jks
     sdkconfig:
       baseUrl: "https://localhost:9443"
-  default_keystore_type: JKS
-  default_keystore_ext: jks
+  
   home_page_cards:
     - section:
       - title: Get Started
