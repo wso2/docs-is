@@ -1,8 +1,12 @@
-# Configure post-quantum outbound TLS
+# Configure post-quantum TLS for outbound connections
 
-Outbound communication refers to {{ product_name }} acting as a client—connecting securely to third-party services such as APIs, OAuth endpoints, or external identity providers.
+An outbound connection refers to communication initiated by {{ product_name }} when it acts as a client and connects securely to third-party services such as APIs, OAuth endpoints or external identity providers.
 
-1. Add the following configuration to enable TLS with `X25519MLKEM768` for outbound connections:
+To enable TLS to use post-quantum cryptography for outbound connections,
+
+1. Shut down the {{product_name}} instance if running.
+
+2. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ```toml
     [transport.https.client]
@@ -10,4 +14,4 @@ Outbound communication refers to {{ product_name }} acting as a client—connect
     tls_named_groups = "X25519MLKEM768:x25519"
     ```
 
-2. Restart the Server
+3. Restart the Server.

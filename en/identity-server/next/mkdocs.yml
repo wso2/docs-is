@@ -798,8 +798,8 @@ nav:
           - Configure TLS termination: deploy/configure-tls-termination.md
           - Configure post-quantum TLS:
             - Configure post-quantum TLS: deploy/security/configure-post-quantum-tls/index.md
-            - Configure post-quantum inbound TLS: deploy/security/configure-post-quantum-tls/post-quantum-inbound.md
-            - Configure post-quantum outbound TLS: deploy/security/configure-post-quantum-tls/post-quantum-outbound.md
+            - Inbound connections: deploy/security/configure-post-quantum-tls/post-quantum-inbound.md
+            - Outbound connections: deploy/security/configure-post-quantum-tls/post-quantum-outbound.md
         - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
         - Configure Admin Advisory Banner: deploy/security/configure-admin-advisory-banner.md
         - Secure passwords in configuration files:
