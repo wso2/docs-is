@@ -8,11 +8,11 @@ A hybrid key agreement algorithm combines a classical algorithm with a post-quan
 
 ## Why post-quantum TLS?
 
-- **Future-proof Security**: Safeguards TLS communication against future quantum-based attacks.
+- **Future-proof security**: Safeguards TLS communication against future quantum-based attacks.
 
-- **Hybrid Compatibility**: Ensures compatibility with current systems while introducing quantum-resistant security.
+- **Hybrid compatibility**: Ensures compatibility with current systems while introducing quantum-resistant security.
 
-- **Optimized Performance**: Leverages TLS 1.3 for faster handshakes and stronger encryption.
+- **Optimized performance**: Leverages TLS 1.3 for faster handshakes and stronger encryption.
 
 ## Supported communication channels
 
