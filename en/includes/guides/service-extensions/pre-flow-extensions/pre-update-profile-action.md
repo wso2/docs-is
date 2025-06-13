@@ -407,3 +407,28 @@ Content-Type: application/json
 
 !!! note
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response is not directly included in the error response sent back to the application.
+
+## Conditional Invocation of Pre-Update Profile Action
+
+Pre-update profile actions can be conditionally triggered based on configurable rule criteria. The rule configuration currently supports the following fields:
+
+- Flow: The specific product flow where the user profile is updated where the supported flows are defined below.
+    - Admin initiated profile update
+    - User initiated profile update
+    - Application initiated profile update
+
+- Claim: The specific user claim that is getting updated 
+
+The rule field supports the following operators:
+
+- equals
+- not equals
+
+You can specify exact values for the field, such as an Admin initiated profile update or particular user claim that is getting updated. Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-update profile action should be invoked.
+
+![pre-update-profile-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-update-profile-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+
+The above rule configuration translates logically to:
+
+- The flow is Admin initiated profile update AND the claim is Country, OR
+- The claim is First Name
