@@ -8,21 +8,29 @@ Welcome to the Asgardeo MCP Server Quickstart! In this document, you will learn 
 
 [//] STEPS_START
 
-## Configure a M2M Application in {{ product_name }}
+## Configure Asgardeo access for MCP server
 
-Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name. 
+The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perform the actions required by each MCP tool.
+To enable this, it must first get an access token with the appropriate scopes. This requires configuring access to
+your Asgardeo organization by creating a Machine-to-Machine (M2M) application and authorizing API Resources and Scopes to access the
+necessary APIs.
+
+Follow these steps to set up the M2M application:
+
+Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name.
 
 !!! Example
     **name:** Asgardeo-MCP-Server
-    
 
 Note down the following values from the **Protocol** tab of the registered application. You will need them in **step-3**.
 
-- **`client-id`** from the **Protocol** tab. 
-- **`client-secret`** from the **Protocol** tab. 
+- **`client-id`** from the **Protocol** tab.
+- **`client-secret`** from the **Protocol** tab.
 - **The name of your {{ product_name }} organization**
+
 ---
-Next, go to the **API Authorization** tab in your Asgardeo application settings and click the **Authorize an API Resource** button. In the pop-up window, use the dropdown to search and select each required resource from the Asgardeo Management API by typing the first few letters of the resource name. For each selected resource, make sure you select **authorized scopes** to match those listed in the table below.
+Next, you need to authorize the API resources and corresponding scopes required for the actions performed by the MCP tools.
+The following table includes the required API resources and scopes for all currently supported tools.
 
 | **Asgardeo Management API** | **Required scopes** |
 |--------|---------|
@@ -34,15 +42,22 @@ Next, go to the **API Authorization** tab in your Asgardeo application settings 
 | **SCIM2 Users API** (`/scim2/Users`) | `internal_user_mgt_create` |
 | **OIDC Scope Management API** (`/api/server/v1/oidc/scopes`) | `internal_oidc_scope_mgt_view` |
 
+To authorize API resources, navigate to the **API Authorization** tab within your Asgardeo application settings and
+click the **Authorize an API Resource** button. In the pop-up window that appears, use the dropdown to search and select
+the necessary API Resources from the Management APIs and authorize necessary scopes.
+
+!!! Note
+
+    You can selectively authorize API Resources and scopes based on the specific MCP tools you plan to use.
+    For detailed guidance on which API Resources and Scopes are needed by each tool, see the [API resources and scopes required for MCP tools]({{base_path}}/references/mcp-tool-api-resource-access/) section.
 
 Once completed, your API Authorization configuration should resemble the example shown in the screenshot.
 
 ![Asgardeo M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
 
-## Build Asgardeo MCP Server
+## Build Asgardeo MCP server
 
 Download the source code from the [Asgardeo MCP Server GitHub repository](https://github.com/asgardeo/asgardeo-mcp-server){:target="_blank"}. Choose one of the following methods:
-
 
 === "Clone the repository locally using Git"
     Make sure **Git** is installed on your machine, then run the following commands.
@@ -63,16 +78,14 @@ Download the source code from the [Asgardeo MCP Server GitHub repository](https:
 === "Download as a ZIP archive"
     [**Download the source ZIP**](https://github.com/asgardeo/asgardeo-mcp-server/releases/tag/v0.1.0){:target="_blank"} from the release page of the repository, then extract the contents to your preferred directory.
 
-
-Then, install the required dependencies by running the following command. 
+Then, install the required dependencies by running the following command.
 
 ```bash
 
 go mod tidy
 ```
 
-Now, you can build the Asgardeo MCP server by running the following command. Make sure you have installed Go as mentioned in prerequisites section. 
-
+Now, you can build the Asgardeo MCP server by running the following command. Make sure you have installed Go as mentioned in prerequisites section.
 
 ```bash
 
@@ -80,7 +93,6 @@ go build -o asgardeo-mcp
 ```
 
 After running the above command, make sure to copy the absolute path to the generated binary. This path will be referenced as `<ABSOLUTE-PATH>`in the next step.
-
 
 ## Configure your code editor
 
@@ -155,7 +167,6 @@ After running the above command, make sure to copy the absolute path to the gene
     }
     ```
 
-
 === " Claude Desktop "
     1. Open **Claude Desktop**.
     2. Click on **Claude Desktop > Settings > Developer**.
@@ -179,7 +190,7 @@ After running the above command, make sure to copy the absolute path to the gene
     }
     ```
 === " Other "
-    Use the following settings to configure your MCP-compatible client application. 
+    Use the following settings to configure your MCP-compatible client application.
 
     Make sure to replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
@@ -199,12 +210,11 @@ After running the above command, make sure to copy the absolute path to the gene
     }
     ```
 
+## Verify Asgardeo MCP server setup
 
-## Verify Asgardeo MCP Server setup 
+Use the following simple prompt to verify whether you have configured Asgardeo MCP Server successfully.
 
-Use the following simple prompt to verify whether you have configured Asgardeo MCP Server successfully. 
-
-```
+```text
 List my Asgardeo applications, names only
 
 ```
@@ -213,17 +223,17 @@ Depending on the code editor you're using, you should see a list of results. The
 
 === " VS Code  "
     Asgardeo application list displayed in VS Code.
-    
+
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image2.png){: width="500" style="display: block; margin: 0;"}
 
 === " Cursor  "
     Asgardeo application list displayed in Cursor.
-    
+
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image3.png){: width="500" style="display: block; margin: 0;"}
 
 === " Windsurf  "
     Asgardeo application list displayed in Windsurf.
-    
+
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image4.png){: width="500" style="display: block; margin: 0;"}
 
 === " Claude Desktop "
@@ -235,10 +245,16 @@ Depending on the code editor you're using, you should see a list of results. The
 
 Now that you’ve configured and verified the Asgardeo MCP Server with your preferred code editor, it’s time to build a real-world example. The following quickstarts are great starting points to try out the Asgardeo MCP Server alongside your AI toolkit:
 
-- [Asgardeo React Quickstart]({{ base_path }}/quick-starts/react/){:target="_blank"} 
-- [Asgardeo Angular Quickstart]({{ base_path }}/quick-starts/angular/){:target="_blank"} 
-- [Asgardeo React Spring Quickstart]({{ base_path }}/quick-starts/springboot/){:target="_blank"} 
+- [Asgardeo React Quickstart]({{ base_path }}/quick-starts/react/){:target="_blank"}
+- [Asgardeo Angular Quickstart]({{ base_path }}/quick-starts/angular/){:target="_blank"}
+- [Asgardeo React Spring Quickstart]({{ base_path }}/quick-starts/springboot/){:target="_blank"}
 
 Explore these guides to put your setup into action and see how natural-language-powered identity management can accelerate your development workflow.
+
+!!! Note
+
+    During tool execution, you will be prompted to give **explicit consent** for the action. It’s recommended to 
+    approve actions with "Approve Once" option rather than selecting "Approve Always" option so you retain full control and visibility
+    over the operations performed in your Asgardeo organization.
 
 [//] STEPS_END

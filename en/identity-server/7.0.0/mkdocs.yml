@@ -22,8 +22,12 @@ site_url: https://is.docs.wso2.com/en/7.0.0
 extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
-  default_keystore_type: JKS
-  default_keystore_ext: jks
+  content:
+    default_keystore_type: JKS
+    default_keystore_ext: jks
+    sdkconfig:
+      baseUrl: "https://localhost:9443"
+  
   home_page_cards:
     - section:
       - title: Get Started
@@ -917,6 +921,7 @@ nav:
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
+        - Organization Me API: apis/user-organization-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
         - SCIM 2.0 Me API: apis/scim2-me-rest-apis.md
         - TOTP API: apis/totp-rest-api.md

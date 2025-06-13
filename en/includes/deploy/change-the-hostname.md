@@ -107,7 +107,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
         keytool -export -alias newcert -keystore newkeystore.p12 -storetype PKCS12 -file pkn.pem
         ```
 
-4. Import the public key you extracted in the previous step to the `client-truststore.{{default_keystore_ext}}` file using the following command.
+4. Import the public key you extracted in the previous step to the `client-truststore.{{content.default_keystore_ext}}` file using the following command.
 
     === "Format"
 
@@ -128,7 +128,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
         ```
 
     !!! note
-        If you create a new client truststore, in place of the default `client-truststore.{{default_keystore_ext}}`, place the new truststore in the `<IS_HOME>/repository/resources/security/` folder and add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
+        If you create a new client truststore, in place of the default `client-truststore.{{content.default_keystore_ext}}`, place the new truststore in the `<IS_HOME>/repository/resources/security/` folder and add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
         === "JKS"
 
@@ -156,7 +156,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     127.0.0.1       is.dev.wso2.com
     ```
 
-When you fully recreate the keystore, a new key-pair value is created. This means that any existing encrypted data (for example, users created before recreating the keystore) are still encrypted using the original keystore (`wso2carbon.{{default_keystore_ext}}`). Therefore, older users will not be able to log in to My Account and need to be migrated. You can use one of the following options in this situation.
+When you fully recreate the keystore, a new key-pair value is created. This means that any existing encrypted data (for example, users created before recreating the keystore) are still encrypted using the original keystore (`wso2carbon.{{content.default_keystore_ext}}`). Therefore, older users will not be able to log in to My Account and need to be migrated. You can use one of the following options in this situation.
 
 **Option 1**
 

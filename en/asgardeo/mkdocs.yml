@@ -32,7 +32,8 @@ extra:
   base_path: /asgardeo/docs
   product: asgardeo
   content:
-    baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
+    sdkconfig:
+      baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
   product_name: *site_name
   explicit_tab_list:
     - Home
@@ -148,7 +149,9 @@ plugins:
         'guides/user-accounts/index.md': 'guides/account-configurations/index.md'
         'references/application-logs.md' : 'guides/asgardeo-logs/index.md'
         'apis/oauth-dcr.md' : 'apis/dynamic-client-registration-rest-api.md'
-        'guides/authorization/impersonation/user-impersonation.md' : 'guides/authorization/user-impersonation.md'
+        'guides/authorization/impersonation/index.md' : 'guides/authorization/user-impersonation/index.md'
+        'guides/authorization/impersonation/via-console.md' : 'guides/authorization/user-impersonation/via-console.md'
+        'guides/authorization/impersonation/via-business-application.md' : 'guides/authorization/user-impersonation/via-business-application.md'
         'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
         'guides/user-accounts/password-recovery.md': 'guides/account-configurations/account-recovery/password-recovery.md'
         'guides/user-accounts/forced-password-reset.md': 'guides/account-configurations/account-recovery/admin-initiated-password-reset.md'
@@ -341,7 +344,10 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
-        - User impersonation: guides/authorization/user-impersonation.md
+        - User impersonation:
+          - User impersonation: guides/authorization/user-impersonation/index.md
+          - Impersonation via console: guides/authorization/user-impersonation/via-console.md
+          - Impersonation Via business application: guides/authorization/user-impersonation/via-business-application.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
         - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md
@@ -564,6 +570,7 @@ nav:
       - User account associations API: apis/association-management-by-user.md
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
+      - Organization Me API: apis/user-organization-api.md
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md
@@ -598,6 +605,7 @@ nav:
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
+    - API resources and scopes required for MCP tools: references/mcp-tool-api-resource-access.md
     - Production checklist:
       - references/production-checklist/index.md
       - Readiness check: references/production-checklist/readiness-check.md
@@ -616,6 +624,21 @@ nav:
       - App-native authentication: references/app-native-authentication.md
       - Push Notification based authentication: references/push-notification-based-authentication.md
   - Technology Guides:
+    - Actions:
+      - Introduction: complete-guides/actions/introduction.md
+      - Prerequisite: complete-guides/actions/prerequisite.md
+      - Pre-Issue Access Token Action Use Case: complete-guides/actions/pre-issue-access-token-action-use-case.md
+      - Configure Pre-Issue Access Token Action with Choreo: complete-guides/actions/pre-issue-access-token-action-in-choreo.md
+      - Configure Pre-Issue Access Token Action with Vercel: complete-guides/actions/pre-issue-access-token-action-in-vercel.md
+      - Configure Pre-Issue Access Token Action with AWS Lambda: complete-guides/actions/pre-issue-access-token-action-in-aws-lambda.md
+      - Pre-Update Password Action Use Case: complete-guides/actions/pre-update-password-action-use-case.md
+      - Configure Pre-Update Password Action with Choreo: complete-guides/actions/pre-update-password-action-in-choreo.md
+      - Configure Pre-Update Password Action with Vercel: complete-guides/actions/pre-update-password-action-in-vercel.md
+      - Configure Pre-Update Password Action with AWS Lambda: complete-guides/actions/pre-update-password-action-in-aws-lambda.md
+      - Pre-Update Profile Action Use Case: complete-guides/actions/pre-update-profile-action-use-case.md
+      - Configure Pre-Update Profile Action with Choreo: complete-guides/actions/pre-update-profile-action-in-choreo.md
+      - Configure Pre-Update Profile Action with Vercel: complete-guides/actions/pre-update-profile-action-in-vercel.md
+      - Configure Pre-Update Profile Action with AWS Lambda: complete-guides/actions/pre-update-profile-action-in-aws-lambda.md
     - React:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md

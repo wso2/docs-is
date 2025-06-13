@@ -31,7 +31,7 @@ const config = {
     signInRedirectURL: "http://localhost:5173",
     signOutRedirectURL: "http://localhost:5173",
     clientID: "<your-app-client-id>",
-    baseUrl: "{{content.baseUrl}}",
+    baseUrl: "{{content.sdkconfig.baseUrl}}",
     scope: [ "openid","profile" ]
 }
 
@@ -52,7 +52,7 @@ As shown above, we used `<AuthProvider />` at the root level of the application 
 | signInRedirectURL     | The URL to redirect the user to after successfully signing in. This URL should be an absolute URL and only accessible to authenticated users. | `http://localhost:5173`          |
 | signOutRedirectURL    | The URL to redirect the user to after signing out. This should be an absolute URL and should be accessible without authentication. | `http://localhost:5173/login`     |
 | clientID              | The client ID of the created OIDC application                                                                       | -                                 |
-| baseUrl               | The base URL of the Identity Provider API. This depends on the identity provider you are using. For {{product_name}}, this can be obtained from your application settings in the {{product_name}} console. | `https://www.asgardeo.io/t/<org_name>` |
+| baseUrl               | The base URL of the Identity Provider API. This depends on the identity provider you are using. For {{product_name}}, this can be obtained from your application settings in the {{product_name}} console. | `{{content.sdkconfig.baseUrl}}` |
 | scope                 | Specifies the required application scopes as a list. In this guide, we need access to user details, so we will request the 'profile' scope. | `[ "profile" ]`                  |
 
 !!! Info

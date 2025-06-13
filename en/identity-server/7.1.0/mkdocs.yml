@@ -23,9 +23,11 @@ extra:
   base_path: /en/7.1.0
   is_version: 7.1.0
   content:
-    baseUrl: "https://localhost:9443"
-  default_keystore_type: PKCS12
-  default_keystore_ext: p12
+    default_keystore_type: PKCS12
+    default_keystore_ext: p12
+    sdkconfig:
+      baseUrl: "https://localhost:9443"
+
   home_page_cards:
     - section:
       - title: Get Started
@@ -700,7 +702,6 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Share applications with organizations: guides/organization-management/share-applications.md
           - Application Management:
             - Share applications: guides/organization-management/share-applications.md
             - Organization applications: guides/organization-management/organization-applications.md
@@ -999,6 +1000,7 @@ nav:
       - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
+        - Organization Me API: apis/user-organization-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
         - SCIM 2.0 Me API: apis/scim2-me-rest-apis.md
         - TOTP API: apis/totp-rest-api.md
@@ -1077,6 +1079,17 @@ nav:
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
   - Technology Guides:
+    - Actions:
+      - Introduction: complete-guides/actions/introduction.md
+      - Prerequisite: complete-guides/actions/prerequisite.md
+      - Pre-Issue Access Token Action Use Case: complete-guides/actions/pre-issue-access-token-action-use-case.md
+      - Configure Pre-Issue Access Token Action with Choreo: complete-guides/actions/pre-issue-access-token-action-in-choreo.md
+      - Configure Pre-Issue Access Token Action with Vercel: complete-guides/actions/pre-issue-access-token-action-in-vercel.md
+      - Configure Pre-Issue Access Token Action with AWS Lambda: complete-guides/actions/pre-issue-access-token-action-in-aws-lambda.md
+      - Pre-Update Password Action Use Case: complete-guides/actions/pre-update-password-action-use-case.md
+      - Configure Pre-Update Password Action with Choreo: complete-guides/actions/pre-update-password-action-in-choreo.md
+      - Configure Pre-Update Password Action with Vercel: complete-guides/actions/pre-update-password-action-in-vercel.md
+      - Configure Pre-Update Password Action with AWS Lambda: complete-guides/actions/pre-update-password-action-in-aws-lambda.md
     - React:
       - Introduction: complete-guides/react/introduction.md
       - Prerequisite: complete-guides/react/prerequisite.md
