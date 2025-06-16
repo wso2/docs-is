@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   description: >
-      This document specifies an **API Async Operation Status RESTful API of Organizations** for **WSO2
+      This document specifies the **Async Operation Status RESTful API for organizations** in **WSO2
       Identity Server**.
   version: "v1"
   title: Asynchronous Operation Status API
