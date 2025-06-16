@@ -16,6 +16,7 @@ PBKDF2 is supported by [primary JDBC user stores]({{base_path}}/guides/users/use
     [user_store]
     type = "database_unique_id"
     password_digest="PBKDF2"
+    hash_algorithm_properties="{pbkdf2.iteration.count:10000, pbkdf2.dkLength:256, pbkdf2.prf:PBKDF2WithHmacSHA256}"
     ```
 
 ### PBKDF2 for secondary JDBC user stores
