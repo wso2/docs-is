@@ -10,7 +10,7 @@ For this method to suit you, your organization should fulfill the following requ
 
 - Your {{product_name}} Console and My Account portal have the same login flow.
 
-If your organization can't meet the requirements above, you can start [impersonating via a business application]({{base_path}}/guides/authorization/user-impersonation-via-business-app). Keep in mind that this method involves more technical steps than using the Console.
+If your organization can't meet the requirements above, you can start [impersonating via a business application]({{base_path}}/guides/authorization/user-impersonation/via-business-application). Keep in mind that this method involves more technical steps than using the Console.
 
 ## Step 1: Assign permissions to the impersonator
 
