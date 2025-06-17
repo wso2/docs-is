@@ -82,6 +82,15 @@
   <!-- Create new map with expanded_nav titles -->
   {% set expanded_nav_titles = config.extra.expanded_navs | map(attribute='title') | list %}
 
+  <!-- Hide navigation if configured  -->
+  {% if config.extra.hide_navs and nav_item.title in config.extra.hide_navs %}
+    {% set hide_nav = config.extra.hide_navs[nav_item.title] %}
+
+    {% if 'level' not in hide_nav or hide_nav.level == level %}
+      {% set hide_nav_class = "md-nav--hide" %}
+    {% endif %}
+  {% endif %}
+
   <!-- Main navigation item with nested items -->
   {% if nav_item.children %}
 
@@ -100,12 +109,16 @@
     {% set matched_expanded_nav = config.extra.expanded_navs | selectattr("title", "equalto", nav_item.title) | first %}
 
     {% if matched_expanded_nav is defined and matched_expanded_nav.options is defined %}
-      {% if "divider" in matched_expanded_nav.options %}
+      {% if "divider" in matched_expanded_nav.options and not hide_nav %}
         <hr class="md-nav--expanded-section-divider" />
       {% endif %}
       
       {% if "verticle-line" in matched_expanded_nav.options %}
         {% set class = class ~ " md-nav--expanded-section-verticle-line" %}
+      {% endif %}
+
+      {% if "no-indent" in matched_expanded_nav.options %}
+        {% set class = class ~ " md-nav--expanded-section-no-indent" %}
       {% endif %}
     {% endif %}
 
@@ -124,7 +137,7 @@
     {% endif %}
 
     <!-- Render item with nested items -->
-    <li class="{{ class }} md-nav__item--nested {{ has_icon_class }}">
+    <li class="{{ class }} md-nav__item--nested {{ has_icon_class }} {{ hide_nav_class }}">
       {% set expanded = "navigation.expand" in features %}
       {% set active = nav_item.active or expanded %}
 
@@ -300,7 +313,7 @@
 
   <!-- Main navigation item -->
   {% else %}
-    <li class="{{ class }}">
+    <li class="{{ class }} {{ hide_nav_class }}">
       <a href="{{ nav_item.url | url }}" class="md-nav__link">
         <span>
           {% if icon %}

@@ -102,6 +102,22 @@ OP endpoint URLs:
     </div></td>
     </tr>
     <tr class="even">
+    <td><strong>client_id</strong></td>
+    <td>Optional</td>
+    <td><div class="content-wrapper">
+    <p>The client ID obtained when registering the application in WSO2 Identity Server.</p>
+    <div class="admonition note">
+	<p class="admonition-title">Note</p>
+    <p>This capability is available as an update in WSO2 IS 5.10.0 from update level **5.10.0.400** onwards (Updates 2.0 model). See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).</p>
+    <p>To use the <code>                 client_id                </code> as a logout parameter, add the following configurations to the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml                </code> file.</p>
+    ```toml
+    [oauth.oidc.logout_params]
+    use_client_id=true
+    ```
+    </div>
+    </div></td>
+    </tr>
+    <tr class="odd">
     <td><strong>post_logout_redirect_uri</strong></td>
     <td>Optional</td>
     <td><div class="content-wrapper">
@@ -113,7 +129,7 @@ OP endpoint URLs:
     </div>
     </div></td>
     </tr>
-    <tr class="odd">
+    <tr class="even">
     <td><strong>state</strong></td>
     <td>Optional</td>
     <td><p>This is an opaque value that is used by the RP for maintaining the state between the logout request and the callback to the endpoint that is specified in the <code>                post_logout_redirect               </code> query parameter.</p>

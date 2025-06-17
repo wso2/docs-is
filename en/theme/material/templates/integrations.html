@@ -19,52 +19,142 @@
 {% extends "base.html" %}
 
 {% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/css/integrations.css' | url }}">
+{{ super() }}
+<link rel="stylesheet" href="{{ 'assets/css/integrations.css' | url }}">
 {% endblock %}
 
 {% block container %}
-  <div class="md-content">
-    <article class="md-content__inner md-typeset">
-      <div class="integrations-list-container">
-        <div class="flex-grid">
-          {% for integration in config.extra.integrations %}
-            <div class="md-card integration-card">
-              <img class="integration-card-icon" src="{{ integration.icon | url }}#only-light" />
-              {% if integration.dark_icon %}
-                <img class="integration-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
-              {% else %}
-                <img class="integration-card-icon" src="{{ integration.icon | url }}#only-dark" />
-              {% endif %}
-              <p class="integration-card-header">{{ integration.name }}</p>
-              {% set description = integration.description %}
-              {% set description = description.replace('{{ product_name }}', config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
-              <p class="integration-card-description">{{ description }}</p>
-              <div class="integration-card-source-links">
-                {% if integration.documentation_link %}
-                  <a class="tooltip source-link md-icon md-icon--hover" href="{{ integration.documentation_link | url }}">
-                    {% include "/assets/images/icons/book-16.svg" %}
-                    <span class="tooltip-text">Documentation</span>
-                  </a>
-                {% endif %}
-                {% if integration.download_link %}
-                  <a class="source-link tooltip md-icon md-icon--hover" href="{{ integration.download_link }}" target="_blank">
-                    {% include "/assets/images/icons/download.svg" %}
-                    <span class="tooltip-text">Download sample</span>
-                  </a>
-                {% endif %}
-                {% if integration.source_link %}
-                  <a class="source-link tooltip md-icon md-icon--hover" href="{{ integration.source_link }}" target="_blank">
-                    {% include "/assets/images/icons/github.svg" %}
-                    <span class="tooltip-text">Source</span>
-                  </a>
-                {% endif %}
-              </div>
-            </div>
-          {% endfor %}
+<div class="md-content">
+  <div class="md-content__inner md-typeset">
+    <div class="integrations-list-container">
+      <h2>SDKs</h2>
+
+      <p>{{ config.extra.product_name }} provides official SDKs for popular languages and frameworks to simplify authentication in your applications. 
+        They handle protocol-level details, so you can integrate faster and with less effort. Each SDK receives regular updates, thorough testing, and 
+        full support as part of the {{ config.extra.product_name }} platform.</p>
+
+      <p>For others without official SDKs, you can use community-maintained OAuth or OIDC libraries. 
+        We’re actively working on expanding official SDK support for more languages and frameworks.</p>
+
+      {% for section in config.extra.integrations %}
+      {% if 'in_house' in section %}
+      {% for block in section.in_house %}
+
+      {% if block.heading is defined %}
+      {% set heading = block.heading.replace('{{ product_name }}', config.extra.product_name) %}
+      <h2 class="sdk-type-heading">{{ heading }}</h2>
+      {% endif %}
+
+      {% if block.description is defined %}
+      {% set description = block.description.replace('{{ product_name }}', config.extra.product_name) %}
+      <h4 class="sdk-type-description">{{ description }}</h4>
+      {% endif %}
+
+      {% if block.integrations is defined %}
+      <div class="flex-grid">
+        {% for integration in block.integrations %}
+        <div class="md-card integration-card">
+          <img class="integration-card-icon" src="{{ integration.icon | url }}#only-light" />
+          {% if integration.dark_icon %}
+          <img class="integration-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
+          {% else %}
+          <img class="integration-card-icon" src="{{ integration.icon | url }}#only-dark" />
+          {% endif %}
+          <p class="integration-card-header">{{ integration.name }}</p>
+          {% set description = integration.description %}
+          {% set description = description.replace('{{ product_name }}',
+          config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
+          <p class="integration-card-description">{{ description }}</p>
+          <div class="integration-card-source-links">
+            {% if integration.documentation_link %}
+            <a class="tooltip source-link md-icon md-icon--hover" href="{{ integration.documentation_link | url }}">
+              {% include "/assets/images/icons/book-16.svg" %}
+              <span class="tooltip-text">Documentation</span>
+            </a>
+            {% endif %}
+            {% if integration.download_link %}
+            <a class="source-link tooltip md-icon md-icon--hover" href="{{ integration.download_link }}"
+              target="_blank">
+              {% include "/assets/images/icons/download.svg" %}
+              <span class="tooltip-text">Download sample</span>
+            </a>
+            {% endif %}
+            {% if integration.source_link %}
+            <a class="source-link tooltip md-icon md-icon--hover" href="{{ integration.source_link }}" target="_blank">
+              {% include "/assets/images/icons/github.svg" %}
+              <span class="tooltip-text">Source</span>
+            </a>
+            {% endif %}
+          </div>
         </div>
+        {% endfor %}
       </div>
-      {{ page.content }}
+      {% endif %}
+
+
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
+
+      {% for section in config.extra.integrations %}
+      {% if 'community' in section %}
+      {% for block in section.community %}
+      {% if block.heading %}
+      <h2 class="sdk-type-heading">{{ block.heading }}</h2>
+      {% endif %}
+
+      {% if block.description %}
+      <h4 class="sdk-type-description">{{ block.description }}</h4>
+      {% endif %}
+
+      {% if block.integrations %}
+      <div class="flex-grid">
+        {% for integration in block.integrations %}
+        <div class="md-card integration-card">
+          <img class="integration-card-icon" src="{{ integration.icon | url }}#only-light" />
+          {% if integration.dark_icon %}
+          <img class="integration-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
+          {% else %}
+          <img class="integration-card-icon" src="{{ integration.icon | url }}#only-dark" />
+          {% endif %}
+          <p class="integration-card-header">{{ integration.name }}</p>
+          {% set description = integration.description | default('') %}
+          {% set description = description.replace('{{ product_name }}',
+          config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
+          <p class="integration-card-description">{{ description }}</p>
+          <div class="integration-card-source-links">
+            {% if integration.documentation_link %}
+            <a class="tooltip source-link md-icon md-icon--hover" href="{{ integration.documentation_link | url }}">
+              {% include "/assets/images/icons/book-16.svg" %}
+              <span class="tooltip-text">Documentation</span>
+            </a>
+            {% endif %}
+            {% if integration.download_link %}
+            <a class="source-link tooltip md-icon md-icon--hover" href="{{ integration.download_link }}"
+              target="_blank">
+              {% include "/assets/images/icons/download.svg" %}
+              <span class="tooltip-text">Download sample</span>
+            </a>
+            {% endif %}
+            {% if integration.source_link %}
+            <a class="source-link tooltip md-icon md-icon--hover" href="{{ integration.source_link }}" target="_blank">
+              {% include "/assets/images/icons/github.svg" %}
+              <span class="tooltip-text">Source</span>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endfor %}
+
+      {% endif %}
+      {% endfor %}
+
+    </div>
+
+    {{ page.content }}
     </article>
   </div>
-{% endblock %}
+  {% endblock %}

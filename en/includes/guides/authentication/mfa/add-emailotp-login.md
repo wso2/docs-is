@@ -13,6 +13,8 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 - [Update users' profiles]({{base_path}}/guides/users/manage-users/#update-the-profile) with email addresses.
 
 {% if product_name == 'Asgardeo' %}
+{% elif (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+- [Configure the email provider]({{base_path}}/guides/notification-channels/configure-email-provider/) in {{product_name}}.
 {% else %}
 - [Configure the email sending module]({{base_path}}/deploy/configure/email-sending-module/) in {{product_name}}.
 {% endif %}

@@ -657,9 +657,13 @@ components:
         - domain
         - owners
       properties:
+        name:
+          type: string
+          example: "ABC Builders"
+          description: Name of the tenant.
         domain:
           type: string
-          example: wso2.com
+          example: abc.com
           description: Tenant domain of the tenant.
         owners:
           type: array
@@ -673,9 +677,13 @@ components:
         - owners
         - code
       properties:
+        name:
+          type: string
+          example: "ABC Builders"
+          description: Name of the tenant.
         domain:
           type: string
-          example: wso2.com
+          example: abc.com
           description: Tenant domain of the tenant.
         code:
           type: string
@@ -695,6 +703,10 @@ components:
           type: string
           example: "123e4567-e89b-12d3-a456-556642440000"
           description: tenant id of the tenant owner.
+        name:
+          type: string
+          example: "ABC Builders"
+          description: Name of the tenant.
         domain:
           type: string
           example: abc.com
@@ -754,6 +766,10 @@ components:
           type: string
           example: "123e4567-e89b-12d3-a456-556642440000"
           description: tenant id of the tenant owner.
+        name:
+          type: string
+          example: "ABC Builders"
+          description: Name of the tenant.
         domain:
           type: string
           example: abc.com

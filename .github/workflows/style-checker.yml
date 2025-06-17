@@ -1,0 +1,28 @@
+name: Vale Lint (Changed Markdown Only)
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+
+jobs:
+  vale:
+    name: Vale style check
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write  # Needed to post PR comments
+      contents: read
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Vale
+        uses: errata-ai/vale-action@reviewdog
+        with:
+            filter_mode: diff_context
+            reporter: github-pr-check
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

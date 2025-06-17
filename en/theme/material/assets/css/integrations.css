@@ -19,6 +19,14 @@
 .integrations-list-container {
     margin: auto;
     max-width: 1240px;
+
+    .sdk-type-heading  {
+        margin-bottom: 0;        
+    }
+
+    .sdk-type-description {
+        margin-top: 5px;
+    }
 }
 
 [data-md-color-scheme=slate] .integrations-list-item {

@@ -583,15 +583,12 @@ components:
         name:
           type: string
           example: "ABC Builders"
+        orgHandle:
+          type: string
+          example: "abcbuilders"
         description:
           type: string
           example: "Building constructions"
-        type:
-          type: string
-          enum:
-            - TENANT
-            - STRUCTURAL
-          default: TENANT
         parentId:
           type: string
           description: "The parent organization id should be the organization where the request is invoked. If a value is not specified it will be resolved internally."
@@ -619,6 +616,9 @@ components:
         name:
           type: string
           example: "ABCD Builders"
+        orgHandle:
+          type: string
+          example: "abcbuilders"
         description:
           type: string
           example: "Building constructions company"
@@ -691,6 +691,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - ref
       properties:
@@ -700,6 +701,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         status:
           type: string
           enum: [ ACTIVE, DISABLED ]
@@ -716,6 +720,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - created
         - lastModified
@@ -727,6 +732,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -745,7 +753,6 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
         attributes:
@@ -757,6 +764,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - created
         - lastModified
@@ -768,6 +776,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -786,7 +797,6 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
         attributes:
@@ -885,6 +895,7 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
         - created
         - lastModified
@@ -896,6 +907,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -914,7 +928,6 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
         attributes:

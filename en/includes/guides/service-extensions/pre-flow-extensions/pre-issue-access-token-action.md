@@ -98,17 +98,28 @@ All request parameters are not incorporated, specially sensitive parameters like
 <tr class="even">
 <td>event.tenant</td>
 <td><p>This property represents the root organization(tenant) under which the token request is being processed.</p>
-<tr class="odd">
+<tr class="odd">  
+<td>event.organization</td>  
+<td><p>This property represents the organization which is issuing the access token.</p>
+<tr class="even">
 <td>event.user</td>
 <td><p>This property contains information about the authenticated user associated with the token request.</p>
+<table>  
+<tbody>  
+<tr>  
+<td>organization</td>  
+<td>This property represents the organization in which the user has been authenticated.</td>  
+</tr>  
+</tbody>  
+</table>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>event.userStore</td>
 <td><p>This property indicates the user store in which the user's data is being managed.</p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>event.accessToken</td>
 <td><p>This property represents the access token that is about to be issued. It contains claims and scopes, of the access token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
 .</p>
@@ -270,8 +281,16 @@ Content-Type: application/json
             "id": "-1234",
             "name": "carbon.super"
         },
+        "organization": {
+            "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d",
+            "name": "carbon.super"
+        },
         "user": {
-            "id": "e204849c-4ec2-41f1-8ff7-ec1ebff02821"
+            "id": "e204849c-4ec2-41f1-8ff7-ec1ebff02821",
+            "organization": {
+                "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d",
+                "name": "carbon.super"
+            }
         },
         "userStore": {
             "id": "UFJJTUFSWQ==",

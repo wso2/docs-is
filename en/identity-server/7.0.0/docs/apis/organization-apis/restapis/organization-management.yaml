@@ -541,12 +541,6 @@ components:
         description:
           type: string
           example: "Building constructions"
-        type:
-          type: string
-          enum:
-            - TENANT
-            - STRUCTURAL
-          default: TENANT
         parentId:
           type: string
           description: "The parent organization id should be the organization where the request is invoked. If a value is not specified it will be resolved internally."
@@ -696,7 +690,6 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
         attributes:
@@ -737,7 +730,6 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
         attributes:
@@ -841,7 +833,6 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
         attributes:

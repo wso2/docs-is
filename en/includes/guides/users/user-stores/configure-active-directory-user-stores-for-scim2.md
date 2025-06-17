@@ -113,7 +113,7 @@ You need to configure the secondary user store. This can be done in the followin
 To import the user store certificate to the WSO2 Identity Server trust store, navigate to `<IS_HOME>/repository/resources/security` folder and execute the following command:
 
 ``` shell
-keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.{{default_keystore_ext}} -storetype {{default_keystore_type}} -storepass wso2carbon
+keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.{{content.default_keystore_ext}} -storetype {{content.default_keystore_type}} -storepass wso2carbon
 ```
 
 ## Step 3: Map WSO2 attributes to AD attribute
