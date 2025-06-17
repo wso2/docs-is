@@ -22,6 +22,3 @@ template: templates/quick-start.html
 </script>
 
 {% include "../../../includes/quick-starts/cloudflare-mcp-server.md" %}
-
-
-
