@@ -185,7 +185,7 @@ Your MCP server is now running on `http://localhost:8788/sse`.
     You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
 
 
-To test the MCP server go to the Cloudflare [Workers AI LLM Playground](https://playground.ai.cloudflare.com/){:target="_blank"}  and enter the `http://localhost:8788/sse` URL under the MCP Servers section. Then, you’ll be shown a **consent screen**, and once approved, you’ll be redirected to **Asgardeo** for authentication. After completing the authentication flow, you will be presented with the tools exposed by your MCP server. 
+To test the MCP server go to the Cloudflare [Workers AI LLM Playground](https://playground.ai.cloudflare.com/){:target="_blank"}  and enter the `http://localhost:8788/sse` URL under the MCP Servers section. Then, you’ll be shown a **consent screen**, and once approved, you’ll be redirected to **{{ product_name }}** for authentication. After completing the authentication flow, you will be presented with the tools exposed by your MCP server. 
 
 If you invoke the `whoami` tool, you should be able to see your **profile information** returned from the server. Alternatively, you can use any other MCP testing tools you are familiar with to test this MCP server.
 
