@@ -24,7 +24,7 @@ Make a note of the following values from the **Protocol** and **Info** tabs of t
 
 - **`client-id`** from the **Protocol** tab. 
 - **`client-secret`** from the **Protocol** tab. 
-- **The name of your Asgardeo organization**.
+- **The name of your {{ product_name }} organization**.
 
 
 Create a file called `.dev.vars` by running the following command.  
