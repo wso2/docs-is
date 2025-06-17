@@ -6,7 +6,7 @@ template: templates/quick-start.html
   const meta = {
     what_you_will_learn: [
       "Create new Cloudflare MCP server",
-      "Set up Asgardeo for user authentication",
+      "Set up {{ product_name }} for user authentication",
       "Define an MCP tool to return profile information"
     ],
     prerequisites: [
