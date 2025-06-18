@@ -221,7 +221,7 @@ nav:
       - .NET Guide: complete-guides/dotnet/introduction.md
       - Spring Boot Quickstart: quick-starts/springboot.md
       - MCP Server:
-        - Quickstart: quick-starts/cloudflare-mcp-server.md
+        - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
     - Connect via MCP:
       - MCP Server: quick-starts/mcp-server.md
   # TODO: Enable the following sections after the preoper content is added

@@ -27,25 +27,6 @@ Make a note of the following values from the **Protocol** and **Info** tabs of t
 - **The name of your {{ product_name }} organization**.
 
 
-Create a file called `.dev.vars` by running the following command.  
-
-``` bash
-    
-    touch .dev.vars
-
-```
-
-Then add the following values into `.dev.vars` file, and make sure to replace the placeholders with the values you copied above. 
-
-```properties title="index.ts"
-
-ASGARDEO_CLIENT_ID=<your-app-client-id>
-ASGARDEO_CLIENT_SECRET=<your-app-client-secret>
-ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-organization-name>'
-ASGARDEO_SCOPE=openid profile
-
-```
-
 ## Create a Cloudflare MCP server
 
 Create a Cloudflare MCP server project by running the following command. 
@@ -151,6 +132,25 @@ export default new OAuthProvider({
 
 ## Run and test locally 
 
+Create a file called `.dev.vars` by running the following command.  
+
+``` bash
+    
+    touch .dev.vars
+
+```
+
+Then add the following values into `.dev.vars` file, and make sure to replace the placeholders with the values you copied above. 
+
+```properties title="index.ts"
+
+ASGARDEO_CLIENT_ID=<your-app-client-id>
+ASGARDEO_CLIENT_SECRET=<your-app-client-secret>
+ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-organization-name>'
+ASGARDEO_SCOPE=openid profile
+
+```
+
 Start the development server locally by running following command. 
 
 === "npm"
@@ -201,7 +201,8 @@ npx wrangler kv namespace create OAUTH_KV
 
 Make sure to update **wrangler.jsonc** file with the **id** value received after running the above command. 
 
-```
+```json title="wrangler.jsonc"
+
 "kv_namespaces": [
   {
     "binding": "OAUTH_KV",
@@ -256,6 +257,9 @@ The connection URL of the MCP server that we deployed into Cloudflare take the f
 https://remote-mcp-asgardeo.<your-subdomain>.workers.dev/sse
 ```
 
+!!! Important
+
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
 
 You can test the MCP server using the [Cloudflare Workers AI LLM Playground](https://playground.ai.cloudflare.com/).
 Simply enter `https://remote-mcp-asgardeo.<your-subdomain>.workers.dev/sse` as the MCP server URL and click **Connect**. This will redirect you to the Asgardeo login page. Once you've completed the login process, you’ll be able to interact with the LLM in the Playground and use the tools defined in your MCP server.
