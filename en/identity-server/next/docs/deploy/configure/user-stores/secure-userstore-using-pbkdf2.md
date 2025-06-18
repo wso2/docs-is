@@ -1,4 +1,5 @@
 # PBKDF2 hashing
+
 Password-Based Key Derivation Function 2 (PBKDF2) hashing algorithm is a modern hashing algorithm recommended by NIST. We can use the PBKDF2 hashing method to securely store user passwords in user stores. This method reduces the risk of brute-force attacks due to insecure passwords.
 
 This guide walks you through the steps of configuring PBKDF2 as the hashing algorithm of a JDBC user store.
@@ -7,6 +8,7 @@ This guide walks you through the steps of configuring PBKDF2 as the hashing algo
     Currently, PBKDF2 supports only JDBC user stores of WSO2 Identity Server.
 
 ## Configure PBKDF2 hashing
+
 This section guides you on how to configure PBKDF2 hashing on primary and secondary JDBC user stores.
 
 ### PBKDF2 for primary JDBC user stores
@@ -20,6 +22,7 @@ PBKDF2 is supported by [primary JDBC user stores]({{base_path}}/guides/users/use
     ```
 
 ### PBKDF2 for secondary JDBC user stores
+
 To configure PBKDF2 hashing on a JDBC user store:
 
 1. Login to the Identity Server management console (`https://<IS_HOST>:<PORT>/console`) and [create a JDBC user store]({{base_path}}/guides/users/user-stores/configure-secondary-user-stores).
@@ -56,6 +59,7 @@ To configure PBKDF2 hashing on a JDBC user store:
 Successful updation of these configurations will convert the password hashing algorithm of the user store to PBKDF2.
 
 ## PBKDF2 parameters
+
 When configuring the PBKDF2 hashing algorithm the following parameters must be specified in the configurations:
 
 <table>
