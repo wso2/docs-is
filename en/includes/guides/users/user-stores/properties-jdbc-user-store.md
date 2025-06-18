@@ -42,7 +42,7 @@ SHA - Uses SHA digest method including SHA-1 and SHA-256<br />
 MD5 - Uses MD 5 digest method<br />
 PLAIN_TEXT - Plain text passwords
 <a href="{{base_path}}/deploy/configure/user-stores/secure-userstore-using-pbkdf2">PBKDF2</a> – A modern, NIST recommended key derivation function that reduces the risk of brute-force attacks</p>
-<p>If you just enter the value `SHA`, it will be considered as `SHA-1`. It is always better to configure an algorithm with a higher bit value so that the digest bit size would be increased.
+<p>If you just enter the value `SHA`, it will be considered as `SHA-1`. It's always better to configure an algorithm with a higher bit value so that the digest bit size would be increased.
 <br />
 The default value for JDBC user stores is SHA-256.
 </p></td>
@@ -65,7 +65,7 @@ The default value for JDBC user stores is SHA-256.
 <td>UsernameJavaReg<br>ExViolationErrorMsg</td>
 <td>username_java_reg<br>_ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
-<td>Error message when the username does not match with username_java_regex
+<td>Error message when the username doesn't match with username_java_regex
 <br/><p> Default: Username pattern policy violated  </p></td>
 </tr>
 <tr class="even">
