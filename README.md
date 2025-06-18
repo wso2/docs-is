@@ -137,7 +137,7 @@ To install markdownlint on Visual Studio Code (VSCode),
 
 1. Install the **markdownlint** extension.
 
-2. In the extension's settings page, provide the absolute path of the `.markdownlint.jsonc` configuration file as the `Config File`.
+2. In the extension's settings page, provide the absolute path of the `.markdownlint-cli2.jsonc` configuration file as the `Config File`.
 
    The configuration file and rule sets live in the following locations of the repository:
 
