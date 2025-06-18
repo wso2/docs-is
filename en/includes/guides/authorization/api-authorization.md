@@ -84,7 +84,7 @@ Apart from the APIs exposed by {{ product_name }}, administrators can define the
 
 To register an API resource,
 
-1. On the {{ product_name }} Console, go to **API Resources**.
+1. On the {{ product_name }} Console, go to **Resources** > **API Resources**.
 2. Click **+ New API** to register a new API resource.
 3. Enter the following details and click **Next**:
     <table>
