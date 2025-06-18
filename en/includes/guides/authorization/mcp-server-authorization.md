@@ -1,5 +1,9 @@
 # MCP server Authorization
 
+Just like APIs, MCP servers must be secured with fine-grained access control to ensure that only authorized users can access the tools they expose. {{product_name}} offers first-class support for securing MCP servers, allowing you to configure access management and gain visibility into how users and applications interact with them.
+
+## Register an MCP server
+
 Organization administrators can define their MCP servers and configure scopes to enable fine-grained access control to the MCP server tools.
 
 To register an MCP server,
