@@ -56,7 +56,7 @@ To configure PBKDF2 hashing on a JDBC user store:
 
 5. Click **Update** to save the configurations.
 
-Successful updation of these configurations will convert the password hashing algorithm of the user store to PBKDF2.
+Successful update of these configurations will convert the password hashing algorithm of the user store to PBKDF2.
 
 ## PBKDF2 parameters
 
