@@ -188,6 +188,9 @@ extra:
     SDKs:
       icon: octicons/package-16
       level: 1
+    Connectors:
+      icon: octicons/beaker-16
+      level: 1
     APIs:
       icon: octicons/code-16
       level: 1
@@ -309,6 +312,13 @@ extra:
             dark_icon: assets/img/logo/apple-logo-dark.svg
             description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
             source_link: https://github.com/openid/AppAuth-iOS
+
+  connectors:
+    - name: Duo Security
+      icon: assets/img/logo/duo-logo.png
+      description: The Duo Security authenticator allows you to authenticate a user using Duo Security through WSO2 Identity Server.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-duo
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-duo/blob/master/docs/README.md
 
   redoc_theme: '{
     "colors": {

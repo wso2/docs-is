@@ -885,6 +885,10 @@ nav:
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
   - SDKs:
     - Integrate WSO2 IS into your application: integrations/index.md
+  - Connectors:
+    - Connectors: connectors/index.md
+    - Sift: connectors/sift.md
+    - Duo security: connectors/duo-security.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
