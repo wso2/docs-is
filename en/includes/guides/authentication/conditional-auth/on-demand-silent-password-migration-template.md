@@ -20,6 +20,7 @@ var userId = "";
 var username = "";
 var password = "";
 var choreoContextId = "";
+var loginIdentifier = "";
 
 var onLoginRequest = function(context) {
     executeStep(1, {
@@ -65,7 +66,7 @@ var onLoginRequest = function(context) {
 var resolveAndInitUser = function(context) {
 
     // Retrieve login identifier and password provided by the user.
-    var loginIdentifier = context.request.params.username[0];
+    loginIdentifier = context.request.params.username[0];
     password = context.request.params.password[0];
 
     Log.info("User login initiated for the user: " + loginIdentifier);
@@ -277,7 +278,7 @@ var reAuthenticate = function() {
     executeStep(1, {
         authenticatorParams: {
             common: {
-                'username': username,
+                'username': loginIdentifier,
                 'password': password
             }
         },
@@ -336,6 +337,7 @@ var userId = "";
 var username = "";
 var password = "";
 var contextId = "";
+var loginIdentifier = "";
 
 var requestAuthConfig = {
     type: "clientcredential",
@@ -395,7 +397,7 @@ var onLoginRequest = function(context) {
 var resolveAndInitUser = function(context) {
 
     // Retrieve login identifier and password provided by the user.
-    var loginIdentifier = context.request.params.username[0];
+    loginIdentifier = context.request.params.username[0];
     password = context.request.params.password[0];
 
     Log.info("User login initiated for the user: " + loginIdentifier);
@@ -591,7 +593,7 @@ var reAuthenticate = function() {
     executeStep(1, {
         authenticatorParams: {
             common: {
-                'username': username,
+                'username': loginIdentifier,
                 'password': password
             }
         },
