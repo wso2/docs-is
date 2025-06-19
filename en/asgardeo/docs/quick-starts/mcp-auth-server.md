@@ -23,4 +23,3 @@ template: templates/quick-start.html
 </script>
 
 {% include "../../../includes/quick-starts/mcp-auth-server.md" %}
-

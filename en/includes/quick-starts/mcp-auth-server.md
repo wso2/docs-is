@@ -338,4 +338,3 @@ Who am I?
 You should now see your user profile information returned from the server.
 
 [//] STEPS_END
-
