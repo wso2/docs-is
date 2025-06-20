@@ -1,6 +1,6 @@
-# MCP server Authorization
+# Model Context Protocol (MCP) server authorization
 
-Just like APIs, MCP servers must be secured with fine-grained access control to ensure that only authorized users can access the tools they expose. {{product_name}} offers first-class support for securing MCP servers, allowing you to configure access management and gain visibility into how users and applications interact with them.
+Just like APIs, MCP (Model Context Protocol) servers need fine-grained access control so that only authorized users can access the tools they expose. {{product_name}} provides robust support for securing MCP servers, letting you configure access policies and monitor how users and applications interact with them.
 
 ## Register an MCP server
 
@@ -55,7 +55,7 @@ To register an MCP server,
 
 ## Authorize apps to access MCP servers
 
-Applications, by default, do not have permissions to access MCP servers. Administrators can selectively grant authorization for applications to use specific MCP servers, so that users logging into the application will have access to that MCP server, provided they are assigned to a role that grants the necessary permissions.
+Applications, by default, don't have permissions to access MCP servers. Administrators can selectively grant authorization for applications to use specific MCP servers, so that users logging into the application will have access to that MCP server, provided they're assigned to a role that grants the necessary permissions.
 
 !!! note
     Currently MCP servers can only be authorized to applications that are created from the [MCP client Application]({{base_path}}/guides/applications/register-mcp-client-app/) template.
@@ -87,7 +87,3 @@ To authorize an application to consume an MCP server,
 5. Click **Finish**.
 
     ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/authorization/mcp-authorization/authorized-mcp-server-to-mcp-client.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-## What's next?
-
-Follow the [End-to-end MCP authorization with {{product_name}}]({{base_path}}/guides) to learn how to secure MCP servers and MCP clients using {{product_name}}.
