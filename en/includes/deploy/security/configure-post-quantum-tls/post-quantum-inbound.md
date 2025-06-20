@@ -21,7 +21,7 @@ This method relies on your operating system’s existing libraries during both t
 
 {{product_name}} requires the following during the build process.
 
-- Build tools (`make`, `cmake`, `wget`, `tar`)
+- Build tools (`make`, `cmake`, `wget`, `tar`, `autoconf`)
 - GNU compiler (`gcc`)
 - Apache Portable Runtime (APR) library
 - OpenSSL 3.0 or higher.
@@ -37,13 +37,13 @@ To install these dependencies, follow the instructions below based on the operat
         In Debian-based Linux:
 
         ```bash
-        apt-get install make cmake wget tar gcc libapr1-dev libssl-dev
+        apt-get install make cmake autoconf wget tar gcc libapr1-dev libssl-dev
         ```
 
         In Red Hat Linux distributions:
 
         ```bash
-        yum install make cmake wget tar gcc apr-devel openssl-devel perl
+        yum install make cmake autoconf wget tar gcc apr-devel openssl-devel perl
         ```
 
 === "MacOS"
@@ -51,7 +51,7 @@ To install these dependencies, follow the instructions below based on the operat
     1. Use Homebrew to install all the required build dependencies.
 
         ```bash
-        brew install wget cmake openssl@3 apr
+        brew install wget cmake autoconf openssl@3 apr
         ```
 
     2. Add the following line to your shell configuration file (e.g., `~/.bash_profile`, `~/.zshrc`, or `~/.bashrc`):
@@ -95,7 +95,7 @@ This method installs all dependencies into the {{product_name}} directory, ensur
 
 {{product_name}} requires the following during the build process.
 
-- Build tools (`make`, `cmake`, `wget`, `tar`)
+- Build tools (`make`, `cmake`, `wget`, `tar`, `autoconf`)
 - GNU compiler (`gcc`/`clang`)
 
 To install these dependencies, follow the instructions below based on the operating system.
@@ -107,13 +107,13 @@ To install these dependencies, follow the instructions below based on the operat
     In Debian-based Linux:
 
     ```bash
-    apt-get install make cmake wget tar gcc git python3 autoconf libtool-bin
+    apt-get install make cmake autoconf wget tar gcc git python3 autoconf libtool-bin
     ```
 
     In Red Hat Linux distributions:
 
     ```bash
-    yum install make cmake wget tar gcc perl git python3 autoconf libtool
+    yum install make cmake autoconf wget tar gcc perl git python3 autoconf libtool
     ```
 
 === "MacOS"
@@ -121,7 +121,7 @@ To install these dependencies, follow the instructions below based on the operat
     Use Homebrew to install dependencies.
 
     ```bash
-    brew install wget cmake git python3 autoconf libtool
+    brew install wget autoconf cmake git python3 autoconf libtool
     ```
 
 #### Runtime dependencies

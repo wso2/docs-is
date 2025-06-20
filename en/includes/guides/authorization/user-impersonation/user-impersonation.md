@@ -31,7 +31,7 @@ Follow the steps below to assign the right permissions to the impersonator.
     1. On the {{product_name}} Console, go to **Console Settings**.
 
     2. Under the **Administrators** tab, click **Add Administrators**.
-    
+
     3. Enter the user's username and assign the **Administrator** role.
 
     4. Click **Add**.
@@ -42,7 +42,7 @@ With the required permissions in place, the impersonator can now impersonate ano
 
 1. Log into the {{product_name}} Console with own credentials using the following URL.
 
-    ```
+    ```text
     {{base_url}}
     ```
 
@@ -86,7 +86,7 @@ By following the steps below, you permit a business application to use the imper
 
 ### Step 2: Create an application role that permits impersonation
 
-At the beginning of this guide, you assigned the impersonator with the *Impersonator* default permission. This permission's audience is **My Account**, which means that the role only grants permission to the impersontated user's My Account portal.
+At the beginning of this guide, you assigned the impersonator with the *Impersonator* default permission. This permission's audience is **My Account**, which means that the role only grants permission to the impersonated user's My Account portal.
 
 To access business applications as an impersonated user, you need to create a new role to give the impersonator the right permissions.
 
@@ -98,7 +98,7 @@ To do so,
 
 3. Under **Role Audience**, select **Application**. This sets the audience of this role to the current application.
 
-3. Click **New Role** and do the following:
+4. Click **New Role** and do the following:
 
     1. Provide a suitable role name.
 
@@ -121,7 +121,6 @@ To assign the role,
 3. Under the **Users** tab, click **Assign Users** and select the impersonator.
 
 4. Click **Update** to save the changes.
-
 
 ### Step 4: (Optional) Skip consent screens
 
@@ -213,7 +212,7 @@ The following is the default email notification sent to the impersonated user up
 ![Impersonation-Email-Notification]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-email-notification.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! note
-    
+
     If you wish to customize this email template, you may do so by navigating to **Branding** > **Email Templates**. For more information, refer to the [Customize email templates]({{base_path}}/guides/branding/customize-email-templates/) documentation.
     
 ## Access Organizations as an Impersonator
@@ -221,14 +220,14 @@ The following is the default email notification sent to the impersonated user up
 If the user also a member of a child [organization]({{base_path}}/guides/organization-management/), the impersonator can exchange the impersonated access token to an organization access token. This authorizes the impersonator to access child organizations with the same permission level as the impersonated user.
 
 !!! note
-    
+
     The impersonator can only access organizations where the impersonated user is an invited member. Learn more about [inviting users from the parent organization]({{base_path}}/guides/organization-management/invite-parent-organization-users/).
 
 The following diagram shows the detailed steps involved in receiving an impersonated organization access token.
 
 ![Impersonation-sub-org]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-flow-sub-org.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-To access organizations as an impersonator, you need to switch your imperonated access token using the [organization switch grant]({{base_path}}/references/grant-types/#organization-switch-grant) as follows.
+To access organizations as an impersonator, you need to switch your impersonated access token using the [organization switch grant]({{base_path}}/references/grant-types/#organization-switch-grant) as follows.
 
 !!! tip "Get the impersonated access token"
 

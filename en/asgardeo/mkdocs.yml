@@ -280,6 +280,8 @@ nav:
             - Add decentralized login:
               - Add decentralized login: guides/authentication/decentralized-login/index.md
               - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+            - Add eid login:
+              - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
             - Add standard-based login:
               - Add standard-based login: guides/authentication/standard-based-login/index.md
               - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
