@@ -517,6 +517,7 @@ If the external service returns an error response (either defined or undefined) 
 Below is an example of an error response returned by the service implementing the pre issue access token action.
 
 Response from external service:
+
 ```http
 HTTP/1.1 500
 Content-Type: application/json
@@ -531,6 +532,7 @@ Content-Type: application/json
 This will result in the following error response being sent to the application that initiated the token request.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 500 
 Content-Type: application/json
@@ -557,7 +559,7 @@ Each rule field supports the following operators:
 - equals
 - not equals
 
-You can specify exact values for these fields, such as a specific application associated with a tenant or a particular grant type. 
+You can specify exact values for these fields, such as a specific application associated with a tenant or a particular grant type.
 Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-issue access token action should be invoked.
 
 ![pre-issue-access-token-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-issue-access-token-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
