@@ -52,6 +52,7 @@ The [pre-issue access token API contract]({{base_path}}/references/service-exten
 </table>
 
 #### event
+
 <a name="event"></a>
 
 <table>
@@ -209,6 +210,7 @@ All request parameters are not incorporated, specially sensitive parameters like
 </table>
 
 #### allowedOperations
+
 <a name="allowed-operations"></a>
 
 The allowedOperations property in the context of the pre-issue access token action defines the set of operations that your external service is permitted to perform on the access token's claims as well as on certain claims of the refresh token. This property is specifically related to the <code>event.accessToken</code> and <code>event.refreshToken</code> properties and outlines which attributes can have additional properties added, values replaced, or be removed. The <code>allowedOperations</code> are defined using JSON Patch modification semantics.
@@ -454,6 +456,7 @@ Http Status Code: <code>200</code>
 Below is an example of a failed response due to invalid scopes in the access token request.
 
 Response from external service:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -468,6 +471,7 @@ Content-Type: application/json
 This will result in the following error response being sent to the application that initiated the token request.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 400 
 Content-Type: application/json
@@ -480,7 +484,7 @@ Content-Type: application/json
 
 #### Response for ERROR state:
 
-When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
+When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request.
 
 Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 
