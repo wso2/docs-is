@@ -52,6 +52,7 @@ The [pre-issue access token API contract]({{base_path}}/references/service-exten
 </table>
 
 #### event
+
 <a name="event"></a>
 
 <table>
@@ -209,6 +210,7 @@ All request parameters are not incorporated, specially sensitive parameters like
 </table>
 
 #### allowedOperations
+
 <a name="allowed-operations"></a>
 
 The allowedOperations property in the context of the pre-issue access token action defines the set of operations that your external service is permitted to perform on the access token's claims as well as on certain claims of the refresh token. This property is specifically related to the <code>event.accessToken</code> and <code>event.refreshToken</code> properties and outlines which attributes can have additional properties added, values replaced, or be removed. The <code>allowedOperations</code> are defined using JSON Patch modification semantics.
@@ -454,6 +456,7 @@ Http Status Code: <code>200</code>
 Below is an example of a failed response due to invalid scopes in the access token request.
 
 Response from external service:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -468,6 +471,7 @@ Content-Type: application/json
 This will result in the following error response being sent to the application that initiated the token request.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 400 
 Content-Type: application/json
@@ -480,7 +484,7 @@ Content-Type: application/json
 
 #### Response for ERROR state:
 
-When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
+When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request.
 
 Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 
@@ -513,6 +517,7 @@ If the external service returns an error response (either defined or undefined) 
 Below is an example of an error response returned by the service implementing the pre issue access token action.
 
 Response from external service:
+
 ```http
 HTTP/1.1 500
 Content-Type: application/json
@@ -527,6 +532,7 @@ Content-Type: application/json
 This will result in the following error response being sent to the application that initiated the token request.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 500 
 Content-Type: application/json
@@ -539,4 +545,26 @@ Content-Type: application/json
 ```
 
 !!! note
-    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response is not directly included in the error response sent back to the application.
+    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
+
+## Conditional Invocation of Pre-Issue Access Token Action
+
+Pre-issue access token actions can be conditionally triggered based on configurable rule criteria. The rule configuration currently supports the following fields:
+
+- Application: The specific application for which the access token is being issued.
+- Grant Type: The grant type used during the token issuance process.
+
+Each rule field supports the following operators:
+
+- equals
+- not equals
+
+You can specify exact values for these fields, such as a specific application associated with a tenant or a particular grant type.
+Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-issue access token action should be invoked.
+
+![pre-issue-access-token-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-issue-access-token-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+
+The above rule configuration translates logically to:
+
+- The application is Test App AND the grant type is client_credentials, OR
+- The application is Test App, regardless of the grant type.
