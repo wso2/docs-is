@@ -545,7 +545,7 @@ Content-Type: application/json
 ```
 
 !!! note
-    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response is not directly included in the error response sent back to the application.
+    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
 
 ## Conditional Invocation of Pre-Issue Access Token Action
 
