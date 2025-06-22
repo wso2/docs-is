@@ -77,6 +77,8 @@ components:
           $ref: '#/components/schemas/Request'
         tenant:
           $ref: '#/components/schemas/Tenant'
+        organization:
+          $ref: '#/components/schemas/IssuerOrganization'
         user:
           $ref: '#/components/schemas/User'
         userStore:
@@ -137,16 +139,53 @@ components:
           example: 
             bar.com
       description: This property represents the tenant under which the token request is being processed. 
+    IssuerOrganization:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the organization.
+          example:
+            f14962ba-e198-4261-88dd-ea0e25121f83
+        name:
+          type: string
+          description: The name of the organization.
+          example:
+            bar.com
+      description: This property represents the organization which is issuing the access token.
     User:
       type: object
       required:
         - id
+        - organization
       properties:
         id:
           type: string
           description: Defines the unique identifier of the user.
           example: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+        organization:
+          $ref: '#/components/schemas/UserOrganization'
       description: Contains information about the authenticated user associated with the token request.
+    UserOrganization:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the organization.
+          example:
+            f14962ba-e198-4261-88dd-ea0e25121f83
+        name:
+          type: string
+          description: The name of the organization.
+          example:
+            bar.com
+      description: This property represents the organization in which the user has been authenticated.
     UserStore:
       type: object
       required:

@@ -18,7 +18,11 @@ When your application is registered in {{ product_name }}, a client ID is genera
 ![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Allowed grant types
+
 This option determines how the application communicates with the token service. Web application template supports the following grant types:
+
+!!! note
+    Learn more about [OAuth2 grant types]({{base_path}}/references/grant-types/).
 
 <table>
   <thead>
@@ -57,15 +61,11 @@ This option determines how the application communicates with the token service. 
   </tbody>
 </table>
 
-
 !!! tip
 
     - It is recommended to use `Code` grant for public clients.
     - For single-page application templates, the `Code` grant is enabled by default.
     - If `Code` grant is enabled, enable the `Refresh Token` grant to get refresh tokens.
-
-!!! note
-    Learn more about [OAuth2 grant types]({{base_path}}/references/grant-types/).
 
 ### Authorized redirect URLs
 
@@ -75,6 +75,13 @@ The `redirect_uri` sent in the [login request]({{base_path}}/guides/authenticati
 
 !!! note
     Authorized redirect URLs are not required for `Client Credentials` and `Password` grant types.
+
+!!! note
+    If you are planning to enable the Authorization Code grant type for standard-based applications, please note the following when adding the authorized redirect URL. The authorized redirect URL should be defined based on the type of application you are using:
+        
+    - Web-based applications: Use exact URLs or implement logic to dynamically register specific redirect URIs as needed.
+        
+    - Mobile apps with deep links: Wildcard support may be acceptable, but it must be implemented securely and restricted to well-defined patterns to limit its scope.
 
 ### Allowed origins
 

@@ -55,6 +55,39 @@ Follow the steps below to configure an action.
 
 4. Click **Create** to create the action.
 
+## Invoke actions conditionally
+
+Actions can be invoked conditionally based on configurable rules. Currently, all three action types support rule-based invocation:
+
+- [Pre-Issue Access Token]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action/#conditional-invocation-of-pre-issue-access-token-action)
+- [Pre-Update Password]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-update-password-action/#conditional-invocation-of-pre-update-password-action)
+- [Pre-Update Profile]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-update-profile-action/#conditional-invocation-of-pre-update-profile-action)
+
+#### Rule structure
+
+A rule is composed of one or more expressions and can be combined using logical operators (AND/OR). The structure of a rule includes:
+
+- Field: The data attribute evaluated in the rule. Available fields vary depending on the action type. e.g., grant type is available in pre-issue access token action but not in other flows.
+- Operator: Defines how the field is compared to the value. Supported operators (such as equals, not equals) may vary based on the selected field.
+- Value: The specific data compared against the field using the chosen operator. The available values depend on the selected field. e.g., If the field is an application, the value would be the name of a created application.
+- Expression: A single comparison between a field and a value using an operator. This is the smallest unit in a rule.
+- Operators (AND/OR): Multiple expressions can be grouped using logical operators to form complex rule conditions.
+
+#### Configuring a rule
+
+To configure a rule:
+
+- Select the action flow (e.g., Pre-Issue Access Token)
+- Choose a field relevant to that flow.
+- Apply a suitable operator (e.g., equals, not equals).
+- Provide a value corresponding to the field.
+- Combine expressions using AND/OR to define the full rule logic.
+
+This rule configuration mechanism allows you to precisely control when an action should be triggered, ensuring flexibility and flow-specific customization.
+The following example illustrates a rule configuration in pre-issue access token action where the field, operator and value are equivalent to grant type, equals and client credentials respectively.
+
+![action-rule-configuration]({{base_path}}/assets/img/guides/actions/action-rule-configuration-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+
 ## Test your action
 
 Follow the steps below to try out the created action.
