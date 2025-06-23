@@ -1,1 +1,1 @@
-{% include "../../../../includes/guides/authorization/mcp-server-authorization.md" %}
+{% include "../../../../../includes/guides/authorization/mcp-server-authorization.md" %}
