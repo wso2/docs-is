@@ -94,6 +94,7 @@ Below is a list of common `data-page` values that can be used for conditional re
 You can access these attributes in both CSS and JavaScript to apply custom styles or logic.
 
 - **Using CSS**
+
     ```css
     body[data-page="sign-in"][data-response-type="error"] .message {
         color: red;
@@ -102,6 +103,7 @@ You can access these attributes in both CSS and JavaScript to apply custom style
     ```
 
 - **Using JavaScript**
+
     ```javascript
     if (document.body.dataset.page === "sign-in") {
         // Perform sign-in page-specific logic
@@ -126,11 +128,13 @@ Follow these best practices to ensure your custom layouts are effective, maintai
 When referencing assets such as images, fonts, or icons, always use hosted resources that are publicly accessible. This ensures reliability and prevents performance issues.
 
 - **Correct Example**:
+
     ```html
     <img src="https://example.com/assets/img.jpg">
     ```
 
 - **Incorrect Example**:
+
     ```html
     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="blue" />
@@ -143,6 +147,7 @@ When referencing assets such as images, fonts, or icons, always use hosted resou
 To avoid conflicts with existing styles, always add a unique prefix to your custom CSS classes. This helps maintain a clean and organized stylesheet.
 
 - **Example**:
+
     ```css
     .unique-prefix-button {
         background-color: #007bff;
