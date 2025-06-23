@@ -193,10 +193,10 @@ hooks:
   - ../../flatten_markdown.py
 
 plugins:
-  - search: 
+  - search:
       separator: "[^\\w._]+"
       lang: ['en']
-  - markdownextradata
+  - markdownextradata: {}
   - include-markdown
   - glightbox:
       touchNavigation: true
