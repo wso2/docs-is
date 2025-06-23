@@ -23,7 +23,7 @@ jobs:
             port: 8000
           - doc_path: en/identity-server/next
             port: 8001
-          - doc_path: en/identity-server/7.1
+          - doc_path: en/identity-server/7.1.0
             port: 8002
     steps:
       - name: Check out code
