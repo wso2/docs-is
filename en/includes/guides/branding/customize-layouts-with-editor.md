@@ -17,17 +17,17 @@ This feature allows you to make changes instantly, without requiring support fro
 To use the editor for customizing layouts, follow these steps:
 
 1. Log in to the {{product_name}} Console.
-2. Navigate to the **Branding** section from the side panel and select the **Styles & Text** submenu.
+2. Navigate to the **Branding** section from the side panel and select the **Styles & Text** subsection.
 3. Enable branding by clicking the **Save & Publish** button in the **Styles & Text** section.
 4. Go to the **Design** tab under the **Styles & Text** section.
 5. In the **Login Layouts** section, select the **Custom** layout card.
 6. Click the **Create** button in the preview section to load the HTML, CSS, and JavaScript editor.
 
-Once the editor is loaded, you can begin customizing the layout as needed.
+Once you load the editor, you can begin customizing the layout as needed.
 
 ## General components of the user interface
 
-All pages in WSO2 Identity Server consist of three primary components, as illustrated below. These components can be referenced when creating a custom layout.
+All pages in WSO2 Identity Server consist of three primary components, as illustrated below. You can reference these components when creating a custom layout.
 
 ![Login Page]({{base_path}}/assets/img/guides/branding/login-page-labelled.png)
 
@@ -37,10 +37,10 @@ This section describes the special syntax used to define custom layouts.
 
 ### Component syntax
 
-The component syntax specifies the placement of general components within the custom layout code. These syntaxes are replaced with actual content during runtime.
+The component syntax specifies the placement of general components within the custom layout code. During runtime, the system replaces these syntax elements with actual content.
 
 !!! note
-    To successfully publish a layout, the `{% raw %}{{{MainSection}}}{% endraw %}` component must be included in the HTML code. The `{% raw %}{{{ProductHeader}}}{% endraw %}` and `{% raw %}{{{ProductFooter}}}{% endraw %}` components are optional.
+    To successfully publish a layout, make sure to include the `{% raw %}{{{MainSection}}}{% endraw %}` component in the HTML code. The `{% raw %}{{{ProductHeader}}}{% endraw %}` and `{% raw %}{{{ProductFooter}}}{% endraw %}` components are optional.
 
 ```html
 <div class="page-wrapper layout-file">
@@ -70,7 +70,7 @@ The following table lists the `data-*` attributes available for customization:
 
 #### Common `data-page` Values
 
-Below is a list of common `data-page` values that can be used for conditional rendering. You can find all available attributes for each page in the `<body>` tag.
+Below is a list of common `data-page` values that you can use for conditional rendering. You can find all available attributes for each page in the `<body>` tag.
 
 | Page                            | `data-page` Value                      |
 |---------------------------------|----------------------------------------|
@@ -119,11 +119,11 @@ After creating a custom layout using the HTML, CSS, and JS editors, click `Save 
 !!! note "Application-specific layouts"
     To apply custom layouts to a specific application, toggle the Application selector in the top-right corner of the Branding view, select your desired app, and apply the layout accordingly.
 
-## Best Practices for Creating Custom Layouts
+## Best practices for creating custom layouts
 
 Follow these best practices to ensure your custom layouts are effective, maintainable, and compatible:
 
-### Resource Management
+### Resource management
 
 When referencing assets such as images, fonts, or icons, always use hosted resources that are publicly accessible. This ensures reliability and prevents performance issues.
 
@@ -142,7 +142,7 @@ When referencing assets such as images, fonts, or icons, always use hosted resou
     </svg>
     ```
 
-### CSS Class Naming
+### Class names
 
 To avoid conflicts with existing styles, always add a unique prefix to your custom CSS classes. This helps maintain a clean and organized stylesheet.
 
