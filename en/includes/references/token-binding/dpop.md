@@ -4,7 +4,7 @@ Demonstrating Proof of Possession (DPoP) [(RFC 9449)](https://datatracker.ietf.o
 
 DPoP enhances security by preventing token misuse and replay attacks, making it a robust solution for securing access tokens across all OAuth 2.0 grant types.
 
-## Configure your application for DPoP.
+## Configure your application for DPoP
 
 Follow these steps to enable DPoP for your application:
 
@@ -19,7 +19,6 @@ Follow these steps to enable DPoP for your application:
         ![Enabling DPoP]({{base_path}}/assets/img/references/token-binding/enable-dpop.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Update** to save your changes.
-
 
 ## Try it out
 
