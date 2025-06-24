@@ -70,7 +70,7 @@ The following table lists the `data-*` attributes available for customization:
 
 #### Common `data-page` values
 
-Below is a list of common `data-page` values that you can use for conditional rendering. You can find all available attributes for each page in the `<body>` tag.
+The following table shows common `data-page` values for conditional rendering. You can find all available attributes for each page in the `<body>` tag.
 
 | Page                            | `data-page` Value                      |
 |---------------------------------|----------------------------------------|
@@ -117,7 +117,7 @@ By utilizing these attributes, you can create dynamic and responsive layouts tai
 After creating a custom layout using the HTML, CSS, and JS editors, click `Save & Publish` to save your changes. Then, access the login, registration, or recovery pages through a configured application in {{product_name}} to instantly preview your updates.
 
 !!! note "Application-specific layouts"
-    To apply custom layouts to a specific application, toggle the Application selector in the top-right corner of the Branding view, select your desired app, and apply the layout accordingly.
+    To apply custom layouts to a specific application, use the application selector in the top-right corner of the branding view to choose your desired app. The layout changes you apply will then be specific to that application.
 
 ## Best practices for creating custom layouts
 
