@@ -89,7 +89,7 @@ To configure additional properties for the sample application:
         <tr>
             <td>Reply URL</td>
             <td>
-                Provide the URL of the web app you are configuring WS-Federation for. This endpoint URL will handle the token response.
+                Provide the URL of the web app you are configuring WS-Federation for. This endpoint handles the token response.
                 <p><code>http://localhost:8080/PassiveSTSSampleApp/index.jsp</code></p>
             </td>
         </tr>
@@ -97,14 +97,26 @@ To configure additional properties for the sample application:
 
 4. Click **Register** to complete the registration.
 
-5. Go to the **User Attributes** tab and click **Add User Attribute**, and add the following attributes:
+5. Go to the **Protocol** section of the application, configure the following and click **Update** to save the changes.
+
+    <table>
+        <tr>
+            <td>Reply Logout URL</td>
+            <td>
+                This endpoint in your application handles the logout response from {{product_name}}.
+                <p><code>http://localhost:8080/PassiveSTSSampleApp/index.jsp</code></p>
+            </td>
+        </tr>
+    </table>
+
+6. Go to the **User Attributes** tab and click **Add User Attribute**, and add the following attributes:
 
     - `http://wso2.org/claims/username`
     - `http://wso2.org/claims/emailaddress`
 
-5. Select `http://wso2.org/claims/emailaddress` as the **Subject attribute**.
+7. Select `http://wso2.org/claims/emailaddress` as the **Subject attribute**.
 
-6. Click **Update** to save your configurations.
+8. Click **Update** to save your configurations.
 
 !!! tip
     Currently, the signing algorithm used for WS-Federation by default is `rsa-sha256`, and the digest algorithm used is `sha256`. 

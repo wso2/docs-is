@@ -80,7 +80,7 @@ The code given below shows a sample policy that is written to match the
     on **Add New Entitlement Policy.**
 
 3.  Next click on **Import Existing Policy.**  
-    ![import-existing- policy-xacml]({{base_path}}/assets/img/tutorials/import-existing- policy-xacml.png) 
+    ![import-existing- policy-xacml]({{base_path}}/assets/img/tutorials/import-existing-policy-xacml.png) 
 
 4.  Save the above sample policy to a file and import it as follows by
     clicking **upload**.  

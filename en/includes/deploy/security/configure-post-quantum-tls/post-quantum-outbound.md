@@ -11,7 +11,6 @@ To enable TLS to use post-quantum cryptography for outbound connections,
     ```toml
     [transport.https.client]
     provider_name = "BC"
-    tls_named_groups = "X25519MLKEM768:x25519"
     ```
 
 3. Restart the Server.

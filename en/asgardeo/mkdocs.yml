@@ -220,6 +220,8 @@ nav:
       - Node.js Guide: complete-guides/nodejs/introduction.md
       - .NET Guide: complete-guides/dotnet/introduction.md
       - Spring Boot Quickstart: quick-starts/springboot.md
+      - MCP Server:
+        - Quickstart: quick-starts/cloudflare-mcp-server.md
     - Connect via MCP:
       - MCP Server: quick-starts/mcp-server.md
   # TODO: Enable the following sections after the preoper content is added
@@ -278,6 +280,8 @@ nav:
             - Add decentralized login:
               - Add decentralized login: guides/authentication/decentralized-login/index.md
               - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
+            - Add eid login:
+              - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
             - Add standard-based login:
               - Add standard-based login: guides/authentication/standard-based-login/index.md
               - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
@@ -344,10 +348,11 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
+        - MCP server authorization: guides/authorization/mcp-server-authorization.md
         - User impersonation:
           - User impersonation: guides/authorization/user-impersonation/index.md
-          - Impersonation via console: guides/authorization/user-impersonation/via-console.md
-          - Impersonation Via business application: guides/authorization/user-impersonation/via-business-application.md
+          - via Console: guides/authorization/user-impersonation/via-console.md
+          - via business application (advanced): guides/authorization/user-impersonation/via-business-application.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
         - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md

@@ -6,17 +6,18 @@
 
     {% if product_name == "Asgardeo" %}
     === "Classic Editor"
-        To add Signicat login using the Classic Editor:
-        1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
+        To add Signicat login using the Classic Editor: 
 
-        2. Click **Add Authentication** on the step, select your Signicat identity provider, and click **Add**.
+         1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
+         2. Click **Add Authentication** on the step, select your Signicat identity provider, and click **Add**.
+            ![Add Signicat login in {{product_name}}]({{base_path}}/assets/img/guides/idp/signicat-idp/add-signicat-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
-        To add Signicat login using the Visual Editor:
+        To add Signicat login using the Visual Editor: 
 
         1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
-
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Signicat connection.
+          ![Add Signicat login in {{product_name}}]({{base_path}}/assets/img/guides/idp/signicat-idp/add-signicat-federation-with-visual-editor.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
     {% else %}
