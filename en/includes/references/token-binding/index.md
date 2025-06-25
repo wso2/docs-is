@@ -32,7 +32,8 @@ Device flow token binding method binds the token to the `device_code` sent in th
 
 [Client-request token binding method]({{base_path}}/references/token-binding/client-request) is introduced by {{product_name}} for back-channel grant types such as **token exchange** and **password**. It binds the token to the `tokenBindingId` sent in the authentication request.
 
-{% if (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+
 ## DPoP
 
 DPoP (Demonstrating Proof-of-Possession) token binding method binds the access token to the client's private key. For each request, the client includes a DPoP proof generated using its private key, in the DPoP header. This proof demonstrates that the client possesses the corresponding private key, ensuring that only that specific client can use the access token. This method supports all grant types.

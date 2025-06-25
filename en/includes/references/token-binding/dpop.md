@@ -4,7 +4,7 @@ Demonstrating Proof of Possession (DPoP) [(RFC 9449)](https://datatracker.ietf.o
 
 DPoP enhances security by preventing token misuse and replay attacks, making it a robust solution for securing access tokens across all OAuth 2.0 grant types.
 
-## Configure your application for DPoP.
+## Configure your application for DPoP
 
 Follow these steps to enable DPoP for your application:
 
@@ -19,7 +19,6 @@ Follow these steps to enable DPoP for your application:
         ![Enabling DPoP]({{base_path}}/assets/img/references/token-binding/enable-dpop.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Update** to save your changes.
-
 
 ## Try it out
 
@@ -36,7 +35,7 @@ Use the following command to get a token using the client credentials grant:
 === "Sample request (/token)"
 
     ```curl
-     curl -X POST {{base_url}}/oauth2/token \
+     curl -X POST https://{{base_url}}/oauth2/token \
     -u "<client_id>:<client_secret>" \
     -H "Content-Type: application/x-www-form-urlencoded" \
     -H "DPoP: <dpop_proof>" \
@@ -60,7 +59,7 @@ Follow the steps below to get a token using the authorization code grant:
 1. Get an authorization code. To bind the code to the client, you can optionally include the  [thumbprint](https://datatracker.ietf.org/doc/html/rfc9449#section-10) of the client’s public key using the `dpop_jkt` parameter.
 
     ```curl
-    {{base_url}}/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id=   {client_id}&dpop_jkt={dpop_jkt}
+    https://{{base_url}}/oauth2/authorize?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id=   {client_id}&dpop_jkt={dpop_jkt}
     ```
 
 2. Use the following command to get a token using the authorization code grant.
@@ -68,7 +67,7 @@ Follow the steps below to get a token using the authorization code grant:
     === "Sample request (/oauth2/token)"
 
         ```curl
-         curl -X POST {{base_url}}/oauth2/token \
+         curl -X POST https://{{base_url}}/oauth2/token \
         -H "Content-Type: application/x-www-form-urlencoded" \
         -H "DPoP: <dpop_proof>" \
         -d "grant_type=authorization_code" \
