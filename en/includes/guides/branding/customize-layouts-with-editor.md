@@ -1,46 +1,62 @@
-# Customize layouts with editor
+# Customize layouts using the Console editor
 
 {% if product_name == "Asgardeo" %}
-!!! note
+!!! note "Premium feature"
     Only customers on the enterprise tier can access this feature.
 {% endif %}
 
-You can now effortlessly customize the branding and layout of user interfaces such as login, registration, and recovery pages using the new in-console editor.  
+<!--vale off -->
 {% if product_name == "WSO2 Identity Server" %}
-This feature enables you to apply changes instantly, eliminating the need to edit files or manually rebuild artifacts.  
+<!--vale on -->
+You can use the Console editor to customize the branding and layout of user interfaces, such as login, registration and recovery pages, without manually updating server files. This guide walks you through enabling and using the Console editor.
 {% else %}
-This feature allows you to make changes instantly, without requiring support from the Asgardeo team.  
+You can use the Console editor to customize the branding and layout of user interfaces, such as login, registration and recovery pages. This eliminates the need to contact Asgardeo support for these changes. The following sections explain how to enable and use the Console editor.
 {% endif %}
 
-## Enabling the editor
+<!--vale off -->
+## Use the Console editor
+<!--vale on -->
 
-To use the editor for customizing layouts, follow these steps:
+Before using the Console editor, you need to enable branding. To do so,
 
-1. Log in to the {{product_name}} Console.
-2. Navigate to the **Branding** section from the side panel and select the **Styles & Text** subsection.
-3. Enable branding by clicking the **Save & Publish** button in the **Styles & Text** section.
-4. Go to the **Design** tab under the **Styles & Text** section.
-5. In the **Login Layouts** section, select the **Custom** layout card.
-6. Click the **Create** button in the preview section to load the HTML, CSS, and JavaScript editor.
+1. On the {{product_name}} Console, navigate to **Branding** > **Styles & Text**.
 
-Once you load the editor, you can begin customizing the layout as needed.
+2. Click **Save & Publish** to enable branding.
 
-## General components of the user interface
 
-All pages in WSO2 Identity Server consist of three primary components, as illustrated below. You can reference these components when creating a custom layout.
+<!--vale off -->
+Once branding is enabled, follow these steps to customize a layout:
+<!--vale on -->
 
-![Login Page]({{base_path}}/assets/img/guides/branding/login-page-labelled.png)
+1. On the same **Branding > Styles & Text** page, go to the top-right corner and select either:
 
-## Layout syntax formats
+    - **Organization** to apply changes globally across all applications.
+    - **Application** to select a specific app for app-level customizations.
 
-This section describes the special syntax used to define custom layouts.
+2. Switch to the **Design** tab and under **Login Layouts**, select the  **Custom** layout card.
+
+3. In the **Preview** section, use the dropdown to choose the screen you want to customize.
+
+4. Click the **Create** button to load the HTML, CSS, and JavaScript editor.
+
+5. Start customizing the layout and once you finish, click **Save & Publish** to apply the changes.
+
+Continue reading the guide to learn more about,
+
+- [Syntax for custom layouts](#syntax-for-custom-layouts)
+- [Best practices for creating custom layouts](#best-practices-for-creating-custom-layouts)
+
+## Syntax for custom layouts
+
+This section describes the special syntax you can use to define custom layouts.
 
 ### Component syntax
 
-The component syntax specifies the placement of general components within the custom layout code. During runtime, the system replaces these syntax elements with actual content.
+All pages in {{product_name}} share a common structure consisting of three primary layout components as shown below.
 
-!!! note
-    To successfully publish a layout, make sure to include the `{% raw %}{{{MainSection}}}{% endraw %}` component in the HTML code. The `{% raw %}{{{ProductHeader}}}{% endraw %}` and `{% raw %}{{{ProductFooter}}}{% endraw %}` components remain optional.
+![Login Page]({{base_path}}/assets/img/guides/branding/login-page-labelled.png)
+
+When creating a custom layout, you can reference these components using specific syntax. At runtime, {{product_name}} replaces these syntax elements with the appropriate content.
 
 ```html
 <div class="page-wrapper layout-file">
@@ -54,13 +70,16 @@ The component syntax specifies the placement of general components within the cu
 </div>
 ```
 
+!!! note
+    To successfully publish a layout, make sure to include the `{% raw %}{{{MainSection}}}{% endraw %}` component in the HTML code. The `{% raw %}{{{ProductHeader}}}{% endraw %}` and `{% raw %}{{{ProductFooter}}}{% endraw %}` components are optional.
+
 ### Data syntax
 
-When customizing layouts using the layout editor, you can leverage `data-*` attributes injected into the `<body>` tag of each page. These attributes allow you to style or control logic dynamically based on the page context.
+When customizing layouts using the layout editor, you can use `data-*` attributes automatically injected into the `<body>` tag of each page. These attributes allow you to apply conditional logic based on the page's context.
 
 #### Available `data-*` attributes
 
-The following table lists the `data-*` attributes available for customization:
+The following attributes are available for use in your custom layouts:
 
 | Attribute                        | Description                                                                 | Example Value               |
 |----------------------------------|-----------------------------------------------------------------------------|-----------------------------|
@@ -68,30 +87,30 @@ The following table lists the `data-*` attributes available for customization:
 | `data-response-type`              | Indicates whether the page displays an error or success message.            | `error`, `success`          |
 | `data-dynamic-prompt-template-id`| Available only for dynamic prompt pages generated by adaptive scripts.       | `genericForm`              |
 
-#### Common `data-page` values
+??? note "Common `data-page` values"
 
-The following table shows common `data-page` values for conditional rendering. You can find all available attributes for each page in the `<body>` tag.
+    The following table shows common `data-page` values for conditional rendering. You can find all available attributes by inspecting the `<body>` tag of the rendered page.
 
-| Page                            | `data-page` Value                      |
-|---------------------------------|----------------------------------------|
-| Login                           | `sign-in`                              |
-| Logout                          | `logout`                               |
-| Error Pages                     | `error`, `totp-error`, `oauth2-error`, `duo-error`, etc. |
-| Self-Registration               | `self-registration`, `self-registration-complete`, `self-registration-username-request` |
-| Password Recovery               | `password-recovery`, `password-reset`, `password-reset-success` |
-| Username Recovery               | `username-recovery`, `username-recovery-complete` |
-| TOTP                            | `totp`, `totp-error`                   |
-| SMS OTP                         | `sms-otp`, `sms-otp-error`             |
-| Email OTP                       | `email-otp`, `email-otp-error`         |
-| Push Authentication             | `push-auth`, `push-auth-error`         |
-| Device Success Pages            | `device-success`                       |
-| Policies                        | `privacy-policy`, `cookie-policy`      |
-| Account Linking / Invite Flow   | `accept-invitation`                    |
-| Other                           | `retry`, `consent`, `domain`, `oauth2-consent`, etc. |
+    | Page                            | `data-page` Value                      |
+    |---------------------------------|----------------------------------------|
+    | Login                           | `sign-in`                              |
+    | Logout                          | `logout`                               |
+    | Error Pages                     | `error`, `totp-error`, `oauth2-error`, `duo-error`, etc. |
+    | Self-Registration               | `self-registration`, `self-registration-complete`,  `self-registration-username-request` |
+    | Password Recovery               | `password-recovery`, `password-reset`, `password-reset-success` |
+    | Username Recovery               | `username-recovery`, `username-recovery-complete` |
+    | TOTP                            | `totp`, `totp-error`                   |
+    | SMS OTP                         | `sms-otp`, `sms-otp-error`             |
+    | Email OTP                       | `email-otp`, `email-otp-error`         |
+    | Push Authentication             | `push-auth`, `push-auth-error`         |
+    | Device Success Pages            | `device-success`                       |
+    | Policies                        | `privacy-policy`, `cookie-policy`      |
+    | Account Linking / Invite Flow   | `accept-invitation`                    |
+    | Other                           | `retry`, `consent`, `domain`, `oauth2-consent`, etc. |
 
 #### Accessing `data-*` attributes
 
-You can access these attributes in both CSS and JavaScript to apply custom styles or logic.
+You can access these attributes in both CSS and JavaScript to dynamically customize behavior and appearance.
 
 - **Using CSS**
 
@@ -110,20 +129,11 @@ You can access these attributes in both CSS and JavaScript to apply custom style
     }
     ```
 
-By utilizing these attributes, you can create dynamic and responsive layouts tailored to specific pages and scenarios.
-
-## Try out customize layout through an application
-
-After creating a custom layout using the HTML, CSS, and JS editors, click `Save & Publish` to save your changes. Then, access the login, registration, or recovery pages through a configured application in {{product_name}} to instantly preview your updates.
-
-!!! note "Application-specific layouts"
-    To apply custom layouts to a specific application, use the application selector in the top-right corner of the branding view to choose your desired app. The layout changes you apply will then affect only that application.
-
 ## Best practices for creating custom layouts
 
 Follow these best practices to create effective, maintainable, and compatible custom layouts:
 
-### Resource management
+### When managing resources
 
 When referencing assets such as images, fonts, or icons, always use publicly accessible hosted resources. This ensures reliability and prevents performance issues.
 
@@ -142,7 +152,7 @@ When referencing assets such as images, fonts, or icons, always use publicly acc
     </svg>
     ```
 
-### Class names
+### When defining class names
 
 To avoid conflicts with existing styles, always add a unique prefix to your custom CSS classes. This helps maintain a clean and organized stylesheet.
 

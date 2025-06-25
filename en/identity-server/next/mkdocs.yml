@@ -716,8 +716,9 @@ nav:
             - Branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
             - Branding AI: guides/branding/branding-ai.md
-            - Customize layouts: guides/branding/add-custom-layouts.md
-            - Customize layouts with editor: guides/branding/customize-layouts-with-editor.md
+            - Customize layouts:
+              - Using the Console: guides/branding/customize-layouts-with-editor.md
+              - By updating server files: guides/branding/add-custom-layouts.md
             - Customize email templates: guides/branding/customize-email-templates.md
             - Customize SMS templates: guides/branding/customize-sms-templates.md
             - Localization support: guides/branding/localization.md
