@@ -39,9 +39,9 @@ export const authGuard: CanActivateFn = (route, state) => {
 
 #### Step 2: Define Routes
 
-Next, define your routes in `app-routing.module.ts` and apply the AuthGuard to secure specific routes. 
+Next, define your routes in `app.routes.ts` and apply the AuthGuard to secure specific routes. 
 
-```javascript title="app-routing.module.ts" 
+```javascript title="app.routes.ts" 
 
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -50,7 +50,6 @@ import { LoginComponent } from './login/login.component';
 import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
-    { path: '', component: AppComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
     { path: 'login', component: LoginComponent },
     { path: '**', redirectTo: '' } // Redirect any unknown paths to home

@@ -58,19 +58,19 @@ The [Angular OAuth2 OIDC SDK](https://www.npmjs.com/package/angular-oauth2-oidc)
 === "npm"
 
     ``` bash
-    npm install angular-oauth2-oidc
+    npm install angular-oauth2-oidc@17
     ```
 
 === "yarn"
 
     ``` bash
-    yarn add angular-oauth2-oidc
+    yarn add angular-oauth2-oidc@17
     ```
 
 === "pnpm"
 
     ``` bash
-    pnpm add angular-oauth2-oidc
+    pnpm add angular-oauth2-oidc@17
     ```
 
 ## Configure `AuthConfig` in your app
@@ -181,7 +181,11 @@ Next, replace the existing content of the `app.component.html` file with followi
 <button *ngIf="isAuthorized" (click)="logout()">Logout</button>
 
 ```
+Then run the sample in the development mode. This allows you to see real-time updates and debug the app as you make changes.
 
+```bash
+ng serve
+```
 Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
 
 !!! Important

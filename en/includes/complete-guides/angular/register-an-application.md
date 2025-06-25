@@ -2,7 +2,7 @@
 * Sign into {{product_name}} console and navigate to **Applications > New Application.**
 * Select **Single Page Application**
 
-![Select Single Page Application]({{base_path}}/assets/img/complete-guides/angular/image5.png){: width="600" style="display: block; margin: 0;"}  
+![Select Single Page Application]({{base_path}}/assets/img/complete-guides/angular/image8.png){: width="600" style="display: block; margin: 0;"}  
   
 Next, complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
@@ -11,7 +11,7 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
     
     Authorized redirect URL: http://localhost:4200
 
-![Register a new application]({{base_path}}/assets/img/complete-guides/angular/image8.png){: width="600" style="display: block; margin: 0;"}
+![Register a new application]({{base_path}}/assets/img/complete-guides/angular/image5.png){: width="600" style="display: block; margin: 0;"}
 
 !!! Info
 

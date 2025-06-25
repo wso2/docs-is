@@ -7,7 +7,7 @@ The [Angular OAuth2 OIDC SDK](https://github.com/manfredsteyer/angular-oauth2-oi
 Next, change your current directory to the project folder and run the following command to install the Angular OAuth2 OIDC SDK from the npm registry.
 
 ```bash
- npm install angular-oauth2-oidc
+ npm install angular-oauth2-oidc@17
 
 ```
 

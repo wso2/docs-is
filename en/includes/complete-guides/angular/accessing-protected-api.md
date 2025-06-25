@@ -14,7 +14,7 @@ The following is a simple example of how you might use the Angular OAuth2 OIDC S
 Update the `app.config.ts` file as follows to configure the allowed URLs and include the access token in API requests. Ensure you refer to the domains of your API server under `allowedUrls` and set `sendAccessToken` to `true` so that the access token is included in the requests made to these endpoints:
 
 
-```javascript title="src/main.jsx" hl_lines="5-11"
+```javascript title="app.config.ts" hl_lines="5-11"
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
@@ -53,7 +53,7 @@ export const appConfig: ApplicationConfig = {
 
 In your component, you can use Angular's `HttpClient` to call secure APIs. Here's how to do it:
 
-```javascript title="src/main.jsx" hl_lines="16"
+```javascript title="dashboard.component.ts" hl_lines="16"
 
 import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -80,7 +80,7 @@ export class DashboardComponent {
 
 !!! tip "Tip"
 
-    You need to constrct the '<base-url>' value as per the followng instructions: 
+    You need to constrct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -98,7 +98,7 @@ In the above code, the access token is automatically attached to the `Authorizat
 If you are not using the built-in access token management, you can manually fetch the access token and attach it to your requests. Here’s how to do that:
 
 
-```javascript title="src/main.jsx"
+```javascript title="dashboard.component.ts"
 
 import { Component, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -128,7 +128,7 @@ export class DashboardComponent {
 ```
 !!! tip "Tip"
 
-    You need to constrct the '<base-url>' value as per the followng instructions: 
+    You need to constrct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
