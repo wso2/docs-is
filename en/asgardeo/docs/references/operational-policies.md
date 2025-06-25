@@ -74,7 +74,9 @@ You can onboard to Asgardeo in your preferred region by using the relevant URL b
 - Asgardeo Console - US region: [https://console.asgardeo.io/](https://console.asgardeo.io/){target="_blank"}
 - Asgardeo Console - EU region: [https://console.eu.asgardeo.io/](https://console.eu.asgardeo.io/){target="_blank"}
 
-However, certain types of data are always exclusively stored in the US data center as explained in section 3.3.
+!!! note "Update"
+
+    As of June 27, 2025, certain types of data were always stored exclusively in the US data center. However, with the recent update, those data types are now stored in the regional data center selected during onboarding. See section 3.3 for more details.
 
 ### 3.3 Data types
 
@@ -87,13 +89,19 @@ When you onboard to Asgardeo, the user account created will automatically functi
 - Subscription ID
 - Tier details
 
-Data associated with an Asgardeo subscription account is exclusively stored in the US data center. Even if you choose the EU data center during account creation, this data is still created and stored exclusively in the US data center.
+!!! note "Update"
+
+    As of June 27th, 2025, subscription data is stored in the regional data center selected during onboarding (US or EU), marking a shift from the previous approach where all such data was exclusively stored in the US.
 
 #### 3.3.2 Administrator data
 
-Users onboarded to Asgardeo as organization administrators are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) are also exclusively stored in the US datacenter.
+Users onboarded to Asgardeo as organization administrators are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) was previously stored exclusively in the US datacenter.
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
+
+!!! note "Update"
+
+    Previously, administrator data was stored only in the US data center. Starting June 27th, 2025, it will be stored in the regional data center selected during onboarding (US or EU).
 
 #### 3.3.3 End-user data
 

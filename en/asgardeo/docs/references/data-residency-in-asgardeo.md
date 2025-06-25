@@ -49,7 +49,9 @@ You can onboard to Asgardeo in your preferred region by using the relevant URL (
 - **Asgardeo Console - US region**: https://console.asgardeo.io/
 - **Asgardeo Console - EU region**: https://console.eu.asgardeo.io/
 
-However, note that certain types of data are always exclusively stored in the US datacenter as explained below.
+!!! note "Update"
+
+    Prior to June 27th, 2025, certain types of data were always stored exclusively in the US data center. However, with the recent update, those data types are now stored in the regional data center selected during onboarding.
 
 ### Subscription data
 
@@ -59,13 +61,19 @@ Your subscription account is the user account that is created when you are onboa
 - Subscription ID
 - Tier details
 
-Data from an Asgardeo subscription account is exclusively stored in the US datacenter. That is, even if you choose the EU datacenter when you create your account, this data is always created and stored in the US datacenter at present.
+!!! note "Update"
+
+    Prior to June 27th, 2025, all subscription data was stored exclusively in the US datacenter. We are now introducing regional storage for subscription data. This means your subscription data will reside in the same regional datacenter (US or EU) that you select during onboarding.
 
 ### Administrator data
 
-Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guides/users/manage-administrators/) are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) are also exclusively stored in the US datacenter.
+Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guides/users/manage-administrators/) are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) was previously stored exclusively in the US datacenter.
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
+
+!!! note "Update"
+
+    Previously, administrator data was stored only in the US data center. Starting June 27th, 2025, it will be stored in the regional data center selected during onboarding (US or EU).
 
 ### End-user data
 
