@@ -14,24 +14,34 @@ You can use the Console editor to customize the branding and layout of user inte
 {% endif %}
 
 <!--vale off -->
-## Enable the Console editor
+## Use the Console editor
 <!--vale on -->
 
-To use the editor for customizing layouts, follow these steps:
+Before using the Console editor, you need to enable branding. To do so,
 
 1. On the {{product_name}} Console, navigate to **Branding** > **Styles & Text**.
 
-2. From the top-right corner, select **Organization** to apply changes globally, or select **Application** and choose an app to apply changes to a specific application.
+2. Click **Save & Publish** to enable branding.
 
-3. Enable branding by clicking the **Save & Publish** button.
 
-4. Go to the **Design** tab under the **Styles & Text** section.
+<!--vale off -->
+Once branding is enabled, follow these steps to customize a layout:
+<!--vale on -->
 
-5. In the **Login Layouts** section, select the **Custom** layout card.
+1. On the same **Branding > Styles & Text** page, go to the top-right corner and select either:
 
-6. Click the **Create** button in the preview section to load the HTML, CSS, and JavaScript editor.
+    - **Organization** to apply changes globally across all applications.
+    - **Application** to select a specific app for app-level customizations.
 
-Once you load the editor, you can begin customizing the layout. Read through the guide to learn more about,
+2. Switch to the **Design** tab and under **Login Layouts**, select the  **Custom** layout card.
+
+3. In the **Preview** section, use the dropdown to choose the screen you want to customize.
+
+4. Click the **Create** button to load the HTML, CSS, and JavaScript editor.
+
+5. Start customizing the layout and once you finish, click **Save & Publish** to apply the changes.
+
+Continue reading the guide to learn more about,
 
 - [Syntax for custom layouts](#syntax-for-custom-layouts)
 - [Best practices for creating custom layouts](#best-practices-for-creating-custom-layouts)
