@@ -825,7 +825,7 @@ paths:
         * /permission/admin/manage/identity/usermgt/view
         
         <b>Scope required:</b>
-            * internal_user_mgt_list
+            * internal_user_mgt_view
             
       operationId: getUser by id
       produces:
