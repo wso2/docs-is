@@ -3378,7 +3378,7 @@ components:
           type: array
           items:
             type: string
-          example: [ 'email' ]
+          example: [ 'http://wso2.org/claims/emailaddress' ]
     AssociationResponse:
       type: object
       properties:
@@ -3389,7 +3389,7 @@ components:
           type: array
           items:
             type: string
-          example: [ 'email' ]
+          example: [ 'http://wso2.org/claims/emailaddress' ]
     ProvisioningRequest:
       type: object
       properties:
