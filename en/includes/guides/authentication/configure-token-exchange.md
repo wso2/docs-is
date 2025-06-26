@@ -43,7 +43,6 @@ To register a trusted token issuer:
         {% if product_name == "WSO2 Identity Server" %}
 
         !!! note
-    
             For JWKS endpoints, the default read timeout is 1000 milliseconds. You may change this value by adding the following parameter to the `deployment.toml` file found in the `<IS_HOME>/conf/repository` directory.
 
             ```toml
@@ -95,6 +94,68 @@ To enable token exchange in your application:
         To enable refresh tokens for the token exchange grant, include `Refresh Token` as an **Allowed Grant Type**. Learn more about [how the refresh token grant type works]({{base_path}}/references/grant-types/#refresh-token-grant).
 
 4. Click **Update** to save the configurations.
+
+{% if product_name == "Asgardeo" %}
+
+## Configure token exchange for a local user
+
+{{ product_name }} can exchange a third-party token with a token issued for an existing local user account. This is beneficial if you wish to check for blocked/disabled user accounts or to enforce Role-Based Access Control (RBAC).
+
+You can use the following properties to customize how token exchange occurs for identities with local user accounts.
+
+### Prioritize local account attributes
+
+When this configuration is enabled, {{ product_name }} includes the local user profile information in the exchanged token if the federated identity has a linked local user account. Otherwise, {{ product_name }} returns the profile information received directly from the federated identity.
+
+To prioritize linked local account attributes:
+
+1. On the {{ product_name }} console, go to **Applications**.
+
+2. Open your application from the list and go to its **User Attributes** tab.
+
+3. Scroll down and under **Attribute Resolution for Linked Accounts**, select **Use linked local account attributes**.
+
+    !!! note
+        Select **Require linked local account** for {{ product_name }} to return an error if no user account linked to the federated identity is found.
+
+### Implicit account linking
+
+You can use implicit account linking capability in the registered trusted token issuer to automatically create an account link between a local user account in {{ product_name }} and a federated identity during token exchange.
+
+You can configure lookup attributes that will be used to search for a matching local user account. If an account is found, {{ product_name }} links the local user account automatically to the federated identity.
+
+Once account links are established, administrators cannot delete them. Users can manage their own accounts links using the <a href="{{base_path}}/guides/user-self-service/manage-linked-accounts">Manage linked accounts</a> capability in the Self-service portal.
+
+!!! note
+    If prioritize local account attributes is disabled, {{ product_name }} will not perform implicit account linking even if the option is enabled.
+
+To enable implicit account linking,
+
+1. On the {{ product_name }} console, go to **Connections**.
+
+2. Open the trusted token issuer you configured <a href="#register-a-trusted-token-issuer">above</a> and go to its **Advanced** tab.
+
+3. Select **Implicit account linking**.
+
+4. Select the primary attribute for {{ product_name }} to perform the lookup.
+
+5. Optionally, select a secondary attribute for {{ product_name }} to perform the lookup.
+
+    !!! warning
+        Ensure that the chosen lookup attributes undergo verification by the third-party token issuer. If unverified, malicious users can manipulate attributes to gain access to local accounts that do not belong to them.
+
+!!! note
+    If a matching local user account could not be found using the primary lookup attribute, {{ product_name }} will use the secondary lookup attribute to search for matching local user accounts.  
+
+    Following three attributes can be configured as lookup attributes
+
+    - `http://wso2.org/claims/username`
+    - `http://wso2.org/claims/emailaddress`
+    - `http://wso2.org/claims/mobile`
+
+    {{ product_name }} will look for the <a href="{{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#view-openid-connect-attributes">mapped OpenID Connect attribute</a> in the third-party token.
+
+{% endif %}
 
 ## Try it out
 
