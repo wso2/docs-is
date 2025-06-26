@@ -99,17 +99,13 @@ Administrator data includes any information that organization administrators ent
 
     Effective June 27, 2025, administrator data is stored in the selected regional data center (US or EU), replacing the previous approach of storing it exclusively in the US.
 
-!!! note "Update"
-
-    Previously, administrator data was stored only in the US data center. Starting June 27th, 2025, it will be stored in the regional data center selected during onboarding (US or EU).
-
 #### 3.3.3 End-user data
 
-Data of your end users are only stored in the regional datacenter you selected when onboarding to Asgardeo.
+Data of your end users are only stored in the regional data center you selected when onboarding to Asgardeo.
 
 ### 3.4 Data sharing
 
-Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional datacenter that you have selected.
+Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional data center that you have selected.
 
 Therefore, note that your organization–level logs may include personal information (such as the IP addresses and email addresses) of your end users.
 
