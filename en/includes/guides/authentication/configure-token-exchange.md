@@ -43,7 +43,7 @@ To register a trusted token issuer:
         {% if product_name == "WSO2 Identity Server" %}
 
         !!! note
-    
+
             For JWKS endpoints, the default read timeout is 1000 milliseconds. You may change this value by adding the following parameter to the `deployment.toml` file found in the `<IS_HOME>/conf/repository` directory.
 
             ```toml
@@ -107,6 +107,7 @@ Follow the steps given below.
     curl --location '{{ product_url_format }}/oauth2/token'
     --header 'Content-Type: application/x-www-form-urlencoded'
     --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>'
+    --data-urlencode 'scope=<desired scopes>'
     --data-urlencode 'subject_token=<jwt_token>'
     --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt'
     --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token'
