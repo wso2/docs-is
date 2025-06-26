@@ -10,8 +10,12 @@ By default, your organization's business applications in {{ product_name }} are 
 
 {% endif %}
 
+- [Use the editor to customize layouts]({{base_path}}/guides/branding/customize-layouts-with-editor/) for user login, sign-up, and account recovery flows. <sup>`Paid subscription required`</sup>
+
 {% if product_name == "Asgardeo" %}
+
 - [Branding AI]({{base_path}}/guides/branding/branding-ai/)
+
 - [Customize the domain name]({{base_path}}/guides/branding/configure-custom-domains/) <sup>`Paid subscription required`</sup>
 
 {% endif %}
