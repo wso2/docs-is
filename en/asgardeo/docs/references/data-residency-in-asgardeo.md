@@ -4,9 +4,9 @@ Data residency is the geographical (or regulatory) boundary where your data is s
 
 ![data residency in Asgardeo]({{base_path}}/assets/img/references/asgardeo-data-residency.png){: width="700"}
 
-## Datacenters
+## Data centers
 
-Asgardeo uses two regional datacenters to store data:
+Asgardeo uses two regional data centers to store data:
 
 <table>
     <tr>
@@ -14,7 +14,7 @@ Asgardeo uses two regional datacenters to store data:
             Country
         </th>
         <th>
-            Regional Datacenter
+            Regional Data center
         </th>
         <th>
             Location
@@ -49,21 +49,19 @@ You can onboard to Asgardeo in your preferred region by using the relevant URL (
 - **Asgardeo Console - US region**: https://console.asgardeo.io/
 - **Asgardeo Console - EU region**: https://console.eu.asgardeo.io/
 
-!!! note "Update"
-
-    Prior to June 27th, 2025, certain types of data were always stored exclusively in the US data center. However, with the recent update, those data types are now stored in the regional data center selected during onboarding.
+Effective June 27, 2025, all applicable user and service-related data are stored in the selected regional data center (US or EU), replacing the previous approach of storing some data types only in the US.
 
 ### Subscription data
 
-Your subscription account is the user account that is created when you are onboarded to Asgardeo. Billing details are linked to this account. Listed below are some of the subscription data:
+Your subscription account is the user account that's created when you are onboarded to Asgardeo. Billing details are linked to this account. Listed below are some of the subscription data:
 
 - Billing email
 - Subscription ID
 - Tier details
 
-!!! note "Update"
+!!! warning "Update"
 
-    Prior to June 27th, 2025, all subscription data was stored exclusively in the US datacenter. We are now introducing regional storage for subscription data. This means your subscription data will reside in the same regional datacenter (US or EU) that you select during onboarding.
+    Effective June 27, 2025, subscription data is stored in the regional data center (US or EU) selected during onboarding, replacing the previous approach of storing it exclusively in the US.
 
 ### Administrator data
 
@@ -71,9 +69,9 @@ Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guide
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
 
-!!! note "Update"
+!!! warning "Update"
 
-    Previously, administrator data was stored only in the US data center. Starting June 27th, 2025, it will be stored in the regional data center selected during onboarding (US or EU).
+    Effective June 27, 2025, administrator data is stored in the selected regional data center (US or EU), replacing the previous approach of storing it exclusively in the US.
 
 ### End-user data
 
