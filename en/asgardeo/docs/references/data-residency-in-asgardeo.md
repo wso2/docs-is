@@ -59,7 +59,7 @@ Your subscription account is the user account that's created when you are onboar
 - Subscription ID
 - Tier details
 
-!!! warning "Update"
+!!! note "Update"
 
     Effective June 27, 2025, subscription data is stored in the regional data center (US or EU) selected during onboarding, replacing the previous approach of storing it exclusively in the US.
 
@@ -69,7 +69,7 @@ Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guide
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
 
-!!! warning "Update"
+!!! note "Update"
 
     Effective June 27, 2025, administrator data is stored in the selected regional data center (US or EU), replacing the previous approach of storing it exclusively in the US.
 
