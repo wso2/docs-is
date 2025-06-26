@@ -49,9 +49,15 @@ You can onboard to Asgardeo in your preferred region by using the relevant URL (
 - **Asgardeo Console - US region**: https://console.asgardeo.io/
 - **Asgardeo Console - EU region**: https://console.eu.asgardeo.io/
 
+<<<<<<< pr-5394
 
 Effective June 27, 2025, all applicable user and service-related data are stored in the selected regional data center (US or EU), replacing the previous approach of storing some data types only in the US.
 
+=======
+!!! note "Update"
+
+    Prior to June 27th, 2025, certain types of data were always stored exclusively in the US data center. However, with the recent update, those data types are now stored in the regional data center selected during onboarding.
+>>>>>>> update-asgardeo-data-recidency
 
 ### Subscription data
 
@@ -61,9 +67,15 @@ Your subscription account is the user account that's created when you are onboar
 - Subscription ID
 - Tier details
 
+<<<<<<< pr-5394
 !!! warning "Update"
 
     Effective June 27, 2025, subscription data is stored in the regional data center (US or EU) selected during onboarding, replacing the previous approach of storing it exclusively in the US.
+=======
+!!! note "Update"
+
+    Prior to June 27th, 2025, all subscription data was stored exclusively in the US datacenter. We are now introducing regional storage for subscription data. This means your subscription data will reside in the same regional datacenter (US or EU) that you select during onboarding.
+>>>>>>> update-asgardeo-data-recidency
 
 ### Administrator data
 
@@ -71,9 +83,15 @@ Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guide
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
 
+<<<<<<< pr-5394
 !!! warning "Update"
 
     Effective June 27, 2025, administrator data is stored in the selected regional data center (US or EU), replacing the previous approach of storing it exclusively in the US.
+=======
+!!! note "Update"
+
+    Previously, administrator data was stored only in the US data center. Starting June 27th, 2025, it will be stored in the regional data center selected during onboarding (US or EU).
+>>>>>>> update-asgardeo-data-recidency
 
 ### End-user data
 
