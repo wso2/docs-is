@@ -187,20 +187,20 @@ export default App
 
 Before running the app, you need to decide how you want users to sign into your application:
 
-<div class="mode-selection-container">
-  <button class="md-typeset md-button mode-selection-btn active" data-quickstart-mode="redirect">
-    <input type="radio" name="quickstart-mode" class="mode-radio" checked>
+<div class="mode-selection-container" data-selection-group="quickstart">
+  <button class="md-typeset md-button mode-selection-btn active" data-quickstart="redirect" data-next-step="8" data-default="true">
+    <input type="radio" name="quickstart-mode" class="mode-radio" data-selection-radio checked>
     <span class="radio-circle"></span>
     Redirect to {{ product_name }} (Default)
   </button>
-  <button class="md-typeset md-button mode-selection-btn" data-quickstart-mode="embedded">
-    <input type="radio" name="quickstart-mode" class="mode-radio">
+  <button class="md-typeset md-button mode-selection-btn" data-quickstart="embedded" data-next-step="8">
+    <input type="radio" name="quickstart-mode" class="mode-radio" data-selection-radio>
     <span class="radio-circle"></span>
     Show sign-in form in your app
   </button>
 </div>
 
-<div class="mode-content" id="redirect-content">
+<div class="mode-content" data-content-for="quickstart" data-content-value="redirect">
 
 **Redirect to {{ product_name }} (Default)**
 
@@ -217,7 +217,7 @@ When users click "Sign In", they'll be taken to {{ product_name }}'s sign-in pag
 
 </div>
 
-<div class="mode-content" id="embedded-content" style="display: none;">
+<div class="mode-content" data-content-for="quickstart" data-content-value="embedded" style="display: none;">
 
 **Show sign-in form in your app**
 
@@ -234,7 +234,7 @@ The sign-in form appears directly inside your application using the `SignIn` com
 
 </div>
 
-## Set up the in-app sign-in form [//] SHOW_IF="data-quickstart-mode=embedded"
+## Set up the in-app sign-in form [//] SHOW_IF="data-quickstart=embedded"
 
 If you want the sign-in form to appear inside your app, follow these additional steps:
 
@@ -305,7 +305,7 @@ export default App
 !!! Note
     The sign-in form includes username/email and password fields, plus any social login buttons you've set up (like "Sign in with Google").
 
-## Run the app [//] SHOW_IF="data-quickstart-mode=redirect,data-quickstart-mode=embedded"
+## Run the app [//] SHOW_IF="data-quickstart=redirect,data-quickstart=embedded"
 
 To run the app, use the following command:
 

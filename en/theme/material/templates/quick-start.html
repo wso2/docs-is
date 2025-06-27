@@ -335,6 +335,7 @@
           selectionButtons.forEach(button => {
             button.addEventListener('click', function() {
               const selectedValue = this.getAttribute(dataAttributeType);
+              const stepToNavigate = this.getAttribute('data-next-step');
               
               // Remove active state from all buttons in this container and uncheck radio buttons
               selectionButtons.forEach(btn => {
@@ -362,9 +363,6 @@
               
               // Update the step numbering and TOC
               updateStepNumbering();
-              
-              // Scroll to the next visible step
-              scrollToNextStep();
             });
           });
 
@@ -392,74 +390,6 @@
           }
         }
       });
-
-      // Legacy support for existing class-based implementation
-      handleLegacyClassBasedSelections();
-    }
-
-    /**
-     * Legacy support for existing class-based selections
-     */
-    function handleLegacyClassBasedSelections() {
-      const legacyContainers = document.querySelectorAll('.selection-container:not([data-selection-group]), .mode-selection-container:not([data-selection-group])');
-      
-      legacyContainers.forEach(container => {
-        const selectionButtons = container.querySelectorAll('.selection-btn, .mode-selection-btn');
-        
-        if (selectionButtons.length > 0) {
-          // Extract the data attribute type from the first button
-          const firstButton = selectionButtons[0];
-          const dataAttributes = Array.from(firstButton.attributes)
-            .filter(attr => attr.name.startsWith('data-') && attr.name !== 'data-show-if')
-            .map(attr => attr.name);
-          
-          const dataAttributeType = dataAttributes.length > 0 ? dataAttributes[0] : 'data-quickstart-mode';
-          
-          selectionButtons.forEach(button => {
-            button.addEventListener('click', function() {
-              const selectedValue = this.getAttribute(dataAttributeType);
-              
-              selectionButtons.forEach(btn => {
-                btn.classList.remove('active');
-                const radio = btn.querySelector('.selection-radio, .mode-radio');
-                if (radio) radio.checked = false;
-              });
-              
-              this.classList.add('active');
-              const thisRadio = this.querySelector('.selection-radio, .mode-radio');
-              if (thisRadio) thisRadio.checked = true;
-              
-              handleDynamicContentVisibility(dataAttributeType, selectedValue);
-              hideAllConditionalSteps();
-              
-              const conditionToPass = `${dataAttributeType}=${selectedValue}`;
-              showStepsForSelection(conditionToPass);
-              
-              updateStepNumbering();
-              scrollToNextStep();
-            });
-          });
-
-          const radios = container.querySelectorAll('.selection-radio, .mode-radio');
-          radios.forEach(radio => {
-            radio.addEventListener('change', function() {
-              if (this.checked) {
-                const parentButton = this.closest('.selection-btn, .mode-selection-btn');
-                if (parentButton) {
-                  parentButton.click();
-                }
-              }
-            });
-          });
-
-          const defaultButton = selectionButtons[0];
-          if (defaultButton) {
-            setTimeout(() => {
-              defaultButton.click();
-            }, 100);
-          }
-        }
-      });
     }
 
     /**
@@ -479,18 +409,6 @@
           } else {
             element.style.display = 'none';
           }
-        }
-      });
-      
-      // Legacy support: Handle ID-based content elements
-      const allContentElements = document.querySelectorAll('[id*="-content"]');
-      allContentElements.forEach(element => {
-        const elementId = element.id;
-        // Check if this element's ID corresponds to a selection value
-        if (elementId.includes(`${selectedValue}-content`)) {
-          element.style.display = 'block';
-        } else if (elementId.endsWith('-content') && !element.hasAttribute('data-content-for')) {
-          element.style.display = 'none';
         }
       });
     }
@@ -534,24 +452,6 @@
           step.style.display = 'block';
         }
       });
-    }
-
-    // Legacy function for backward compatibility
-    function showStepsForMode(selectedMode) {
-      showStepsForSelection(selectedMode);
-    }
-
-    /**
-     * Scroll to the next visible step
-     */
-    function scrollToNextStep() {
-      const visibleSteps = Array.from(document.querySelectorAll('[data-step]')).filter(step => {
-        return step.style.display !== 'none';
-      });
-      
-      if (visibleSteps.length > 0) {
-        visibleSteps[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
     }
 
     /**
