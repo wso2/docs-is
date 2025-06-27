@@ -32,7 +32,7 @@ To register a trusted token issuer:
       </tr>
       <tr>
         <td>Alias</td>
-        <td>The name by which the trusted token issuer knows {{ product_name }}. Usually, the <code>aud</code> claim of the token should include the {{ product_name }} organization's issuer value. In case the organization's issuer value is not included in the <code>aud</code> claim, the alias value you assign here will be validated against the <code>aud</code> claim.</td>
+        <td>The name by which the trusted token issuer knows {{ product_name }}. The <code>aud</code> claim of the token should include the {{ product_name }} organization's issuer value. If the <code>aud</code> claim doesn't include the organization's issuer value, the system validates the alias value you assign here against the <code>aud</code> claim.</td>
       </tr>
     </table>
 
@@ -43,7 +43,7 @@ To register a trusted token issuer:
         {% if product_name == "WSO2 Identity Server" %}
 
         !!! note
-            For JWKS endpoints, the default read timeout is 1000 milliseconds. You may change this value by adding the following parameter to the `deployment.toml` file found in the `<IS_HOME>/conf/repository` directory.
+            For JWKS endpoints, the default read timeout equals 1000 milliseconds. To modify this value, add the following parameter to the `deployment.toml` file in the `<PRODUCT_HOME>/conf/repository` directory.
 
             ```toml
             [oauth.jwks_endpoint]
@@ -105,7 +105,7 @@ You can use the following properties to customize how token exchange occurs for 
 
 ### Prioritize local account attributes
 
-When this configuration is enabled, {{ product_name }} includes the local user profile information in the exchanged token if the federated identity has a linked local user account. Otherwise, {{ product_name }} returns the profile information received directly from the federated identity.
+After enabling this configuration, {{ product_name }} includes the local user profile information in the exchanged token if the federated identity has a linked local user account. Otherwise, {{ product_name }} returns the profile information received directly from the federated identity.
 
 To prioritize linked local account attributes:
 
@@ -116,18 +116,18 @@ To prioritize linked local account attributes:
 3. Scroll down and under **Attribute Resolution for Linked Accounts**, select **Use linked local account attributes**.
 
     !!! note
-        Select **Require linked local account** for {{ product_name }} to return an error if no user account linked to the federated identity is found.
+        Select **Require linked local account** for {{ product_name }} to return an error when it can't find a user account linked to the federated identity.
 
 ### Implicit account linking
 
 You can use implicit account linking capability in the registered trusted token issuer to automatically create an account link between a local user account in {{ product_name }} and a federated identity during token exchange.
 
-You can configure lookup attributes that will be used to search for a matching local user account. If an account is found, {{ product_name }} links the local user account automatically to the federated identity.
+You can configure lookup attributes to search for a matching local user account. If the system finds a matching account, {{ product_name }} automatically links the local user account to the federated identity.
 
-Once account links are established, administrators cannot delete them. Users can manage their own accounts links using the <a href="{{base_path}}/guides/user-self-service/manage-linked-accounts">Manage linked accounts</a> capability in the Self-service portal.
+After establishing account links, administrators can't delete them. Users can manage their own accounts links using the <a href="{{base_path}}/guides/user-self-service/manage-linked-accounts">Manage linked accounts</a> capability in the Self-service portal.
 
 !!! note
-    If prioritize local account attributes is disabled, {{ product_name }} will not perform implicit account linking even if the option is enabled.
+    {{ product_name }} skips implicit account linking when **Require linked local account** is disabled, even if the implicit linking option remains enabled.
 
 To enable implicit account linking,
 
@@ -142,10 +142,10 @@ To enable implicit account linking,
 5. Optionally, select a secondary attribute for {{ product_name }} to perform the lookup.
 
     !!! warning
-        Ensure that the chosen lookup attributes undergo verification by the third-party token issuer. If unverified, malicious users can manipulate attributes to gain access to local accounts that do not belong to them.
+        Ensure that the chosen lookup attributes undergo verification by the third-party token issuer. If unverified, malicious users can manipulate attributes to gain access to local accounts that don't belong to them.
 
 !!! note
-    If a matching local user account could not be found using the primary lookup attribute, {{ product_name }} will use the secondary lookup attribute to search for matching local user accounts.  
+    If {{ product_name }} can't find a matching local user account using the primary lookup attribute, it searches for matching accounts using the secondary lookup attribute.
 
     Following three attributes can be configured as lookup attributes
 
