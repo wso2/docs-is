@@ -10,15 +10,15 @@ Welcome to the Next.js Quickstart guide! In this document, you will learn to bui
 - Select **Next.js** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-    **Name:** {{ product }}-nextjs
+    **Name:** `{{ product }}-nextjs`
 
-    **Authorized redirect URL:** http://localhost:3000/api/auth/callback/asgardeo
+    **Authorized redirect URL:** `http://localhost:3000`
 
 Note down the following values from the **Guide** tab of the registered application. You will need them to configure Asgardeo Next.js SDK.
 
-- **`Client ID`** - The unique identifier for your application.
-- **`Client Secret`** - The secret key generated for your application.
-- **`Base URL`** - The base URL for your {{ product_name }} organization. This will be typically in the format `{{content.sdkconfig.baseUrl}}`.
+- **Client ID** - The unique identifier for your application.
+- **Client Secret** - The secret key generated for your application.
+- **Base URL** - The base URL for your {{ product_name }} organization. This will be typically in the format `{{content.sdkconfig.baseUrl}}`
 
 !!! Info
 

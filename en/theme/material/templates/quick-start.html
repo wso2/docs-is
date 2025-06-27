@@ -142,50 +142,37 @@
     let updatedContent = [];
     let sectionCount = 0; // Counter for unique IDs
     
-    // Function to wrap an element
     function wrapElement(targetElements, wrapperElement) {
-        // Move all target elements inside the wrapper
         targetElements.forEach(item => wrapperElement.appendChild(item));
     }
     
-    // Loop through sibling elements
     while (currentElement && currentElement !== stepContentEnd) {
-      // Store the current element in the array
       siblings.push(currentElement);
       
-      // Store the next sibling before removing the current one
       const nextElement = currentElement.nextElementSibling;
       
-      // Remove the current element from the DOM
       currentElement.remove();
       
-      // Move to the next element
       currentElement = nextElement;
     }
     
-    // Process siblings to wrap them and prepend numbers to H2 tags
     siblings.forEach(function(element) {
       if (element.nodeName === 'SCRIPT') {
-          // Skip SCRIPT tag
           return;
       }
 
       if (element.nodeName === 'H2') {
-          // Check if this step has conditional rendering requirements first
           const headingText = element.textContent || element.innerText;
           const showIfMatch = headingText.match(/\[\/\/\] SHOW_IF="([^"]+)"/);
           
           if (newSection.length > 0) {
-              // Create a wrapper for the current section
               const wrapper = document.createElement('div');
               
-              // Assign a unique ID and data attributes to the wrapper
               wrapper.id = `step-${sectionCount}`;
               wrapper.setAttribute('data-step', 'true');
               wrapper.setAttribute('data-step-id', sectionCount);
-              wrapper.className = 'step'; // Keep class for CSS styling
+              wrapper.className = 'step';
               
-              // Check if any element in newSection has conditional data
               const conditionalElement = newSection.find(el => el.getAttribute && el.getAttribute('data-pending-show-if'));
               if (conditionalElement) {
                   const conditions = conditionalElement.getAttribute('data-pending-show-if');
@@ -193,50 +180,38 @@
                   conditionalElement.removeAttribute('data-pending-show-if');
               }
   
-              // Wrap the newSection elements
               wrapElement(newSection, wrapper);
   
-              // Store the wrapped element
               updatedContent.push(wrapper);
   
-              // Clear the newSection for the next group
               newSection = [];
           }
           
-          // Increment section count
           sectionCount++; 
   
-          // Create a span for the section number
           const span = document.createElement('span');
-          span.textContent = sectionCount; // Set the text content to the section number
+          span.textContent = sectionCount;
           span.setAttribute('data-step-number', 'true');
-          span.className = 'step-number'; // Keep class for CSS styling
+          span.className = 'step-number';
           
-          // Store conditional marker in data attribute but don't clean heading text yet
           if (showIfMatch) {
-              // Store the conditions in a data attribute for the wrapper (which will be created next)
               element.setAttribute('data-pending-show-if', showIfMatch[1]);
           }
           
-          // Prepend the span to the H2 element
           element.insertAdjacentElement('afterbegin', span);
       }
   
-      // Add the current element to the new section
       newSection.push(element);
     });
     
-    // Handle any remaining elements after the last H2
     if (newSection.length > 0) {
       const wrapper = document.createElement('div');
       
-      // Assign a unique ID and data attributes to the wrapper
       wrapper.id = `step-${sectionCount}`;
       wrapper.setAttribute('data-step', 'true');
       wrapper.setAttribute('data-step-id', sectionCount);
-      wrapper.className = 'step'; // Keep class for CSS styling
+      wrapper.className = 'step';
       
-      // Check if any element in newSection has conditional data
       const conditionalElement = newSection.find(el => el.getAttribute && el.getAttribute('data-pending-show-if'));
       if (conditionalElement) {
           const conditions = conditionalElement.getAttribute('data-pending-show-if');
@@ -244,34 +219,27 @@
           conditionalElement.removeAttribute('data-pending-show-if');
       }
   
-      // Wrap the remaining elements
       wrapElement(newSection, wrapper);
       updatedContent.push(wrapper);
     }
 
     const sectionsWrapper = document.createElement('div');
                 
-    // Assign a unique ID and class to the wrapper
     sectionsWrapper.id = "steps-section";
-    sectionsWrapper.className = 'steps-section'; // Add your class here
+    sectionsWrapper.className = 'steps-section';
 
     stepContentStart.insertAdjacentElement('afterend', sectionsWrapper);
     
-    // Insert the new elements after the stepContentStart element
     updatedContent.forEach(content => {
       sectionsWrapper.appendChild(content);
     });
 
-    // Add "What's Next?" section
     stepContentEnd.insertAdjacentHTML("afterend", renderWhatsNext(meta));
-    // Add summary box section
     stepContentStart.insertAdjacentHTML("afterend", renderSummaryBox(meta));
 
-    // Remove the original STEPS_START and STEPS_END markers
     stepContentStart.remove();
     stepContentEnd.remove();
     
-    // Clean up conditional markers from headings now that data attributes are set
     function cleanupConditionalMarkers() {
       const allSteps = document.querySelectorAll('[data-step]');
       allSteps.forEach(step => {
@@ -282,26 +250,22 @@
             const stepNumberSpan = heading.querySelector('[data-step-number]');
             const cleanHeading = headingText
               .replace(/\s*\[\/\/\] SHOW_IF="[^"]+"\s*/, '')
-              .replace(/¶/g, '')  // Remove permalink symbols
-              .replace(/^\d+/, '')  // Remove leading numbers
+              .replace(/¶/g, '')
+              .replace(/^\d+/, '')
               .trim();
             
-            // Clean up the heading ID by removing the conditional marker part
             const currentId = heading.id;
             const cleanId = currentId.replace(/-show_if[^-]*$/i, '').replace(/-show_if.*$/, '');
             heading.id = cleanId;
             
-            // Clear the heading content and rebuild it
             heading.innerHTML = '';
             if (stepNumberSpan) {
               heading.appendChild(stepNumberSpan);
             }
             
-            // Add the clean text as a text node
             const textNode = document.createTextNode(cleanHeading);
             heading.appendChild(textNode);
             
-            // Re-add the permalink with the clean ID
             const permalink = document.createElement('a');
             permalink.className = 'headerlink';
             permalink.href = '#' + cleanId;
@@ -329,7 +293,6 @@
         if (selectionButtons.length > 0) {
           const dataAttributeType = `data-${groupType}`;
           
-          // Initially hide all conditional steps
           hideAllConditionalSteps();
 
           selectionButtons.forEach(button => {
@@ -337,41 +300,33 @@
               const selectedValue = this.getAttribute(dataAttributeType);
               const stepToNavigate = this.getAttribute('data-next-step');
               
-              // Remove active state from all buttons in this container and uncheck radio buttons
               selectionButtons.forEach(btn => {
                 btn.removeAttribute('data-active');
-                btn.classList.remove('active'); // Keep for CSS compatibility
+                btn.classList.remove('active');
                 const radio = btn.querySelector('[data-selection-radio]');
                 if (radio) radio.checked = false;
               });
               
-              // Add active state to clicked button and check its radio button
               this.setAttribute('data-active', 'true');
-              this.classList.add('active'); // Keep for CSS compatibility
+              this.classList.add('active');
               const thisRadio = this.querySelector('[data-selection-radio]');
               if (thisRadio) thisRadio.checked = true;
               
-              // Handle dynamic content visibility based on selection value
               handleDynamicContentVisibility(dataAttributeType, selectedValue);
               
-              // Hide all conditional steps first
               hideAllConditionalSteps();
               
-              // Show steps that match the selected value
               const conditionToPass = `${dataAttributeType}=${selectedValue}`;
               showStepsForSelection(conditionToPass);
               
-              // Update the step numbering and TOC
               updateStepNumbering();
             });
           });
 
-          // Also handle direct radio button clicks
           const radios = container.querySelectorAll('[data-selection-radio]');
           radios.forEach(radio => {
             radio.addEventListener('change', function() {
               if (this.checked) {
-                // Find the parent button and trigger its click
                 const parentButton = this.closest(`[data-${groupType}]`);
                 if (parentButton) {
                   parentButton.click();
@@ -380,10 +335,8 @@
             });
           });
 
-          // Set default selection (button with data-default="true" or first button)
           const defaultButton = container.querySelector('[data-default="true"]') || selectionButtons[0];
           if (defaultButton) {
-            // Use setTimeout to ensure TOC is ready
             setTimeout(() => {
               defaultButton.click();
             }, 100);
@@ -396,13 +349,11 @@
      * Handle dynamic content visibility based on selection
      */
     function handleDynamicContentVisibility(dataAttributeType, selectedValue) {
-      // Handle data attribute-based content elements
       const dataBasedElements = document.querySelectorAll(`[data-content-for]`);
       dataBasedElements.forEach(element => {
         const contentFor = element.getAttribute('data-content-for');
         const contentValue = element.getAttribute('data-content-value');
         
-        // Check if this element corresponds to the current selection type
         if (dataAttributeType === `data-${contentFor}`) {
           if (contentValue === selectedValue) {
             element.style.display = 'block';
@@ -420,7 +371,6 @@
       const allSteps = document.querySelectorAll('[data-step]');
       
       allSteps.forEach(step => {
-        // Check if this step has conditional rendering requirements
         const hasConditions = step.getAttribute('data-show-if');
         
         if (hasConditions) {
@@ -441,14 +391,12 @@
         if (conditions) {
           const conditionList = conditions.split(',').map(c => c.trim());
           
-          // Show step if the selected condition is in the conditions
           if (conditionList.includes(selectedCondition)) {
             step.style.display = 'block';
           } else {
             step.style.display = 'none';
           }
         } else {
-          // Steps without conditional markers are always visible
           step.style.display = 'block';
         }
       });
@@ -458,13 +406,11 @@
      * Update step numbering after conditional content is shown/hidden
      */
     function updateStepNumbering() {
-      // Get all visible steps
       const allSteps = document.querySelectorAll('[data-step]');
       const visibleSteps = Array.from(allSteps).filter(step => {
         return step.style.display !== 'none';
       });
       
-      // Renumber visible steps
       visibleSteps.forEach((step, index) => {
         const stepNumber = step.querySelector('[data-step-number]');
         if (stepNumber) {
@@ -472,7 +418,6 @@
         }
       });
       
-      // Update TOC numbering for visible steps
       updateTOCForVisibleSteps(visibleSteps);
     }
 
@@ -486,21 +431,16 @@
       tocLinks.forEach((link) => {
         const href = link.getAttribute('href');
         if (href && href.startsWith('#')) {
-          // Check if this TOC link has conditional markers in its text or stored data
           const linkText = link.textContent || link.innerText;
           let conditions = link.getAttribute('data-toc-conditions');
           
           if (!conditions) {
-            // First time processing - extract conditions from text
             const showIfMatch = linkText.match(/\[\/\/\] SHOW_IF="([^"]+)"/);
             if (showIfMatch) {
               conditions = showIfMatch[1];
-              // Store conditions in data attribute for future use
               link.setAttribute('data-toc-conditions', conditions);
               
-              // Clean up the text by removing the conditional marker
               const cleanText = linkText.replace(/\s*\[\/\/\] SHOW_IF="[^"]+"\s*/, '');
-              // Find text nodes and update them, preserving the span element
               const textNodes = Array.from(link.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
               textNodes.forEach(textNode => {
                 const nodeText = textNode.textContent;
@@ -515,16 +455,13 @@
           let isVisible = true;
           
           if (conditions) {
-            // This TOC link has conditional requirements
             const conditionList = conditions.split(',').map(c => c.trim());
             
-            // Find any active selection button to determine current selection
             const activeButtons = document.querySelectorAll('[data-active="true"], .selection-btn.active, .mode-selection-btn.active');
-            let currentSelection = 'data-quickstart-mode=redirect'; // default fallback
+            let currentSelection = 'data-quickstart-mode=default';
             
             if (activeButtons.length > 0) {
               const activeButton = activeButtons[0];
-              // Extract the data attribute type and value
               const dataAttributes = Array.from(activeButton.attributes)
                 .filter(attr => attr.name.startsWith('data-') && attr.name !== 'data-show-if' && attr.name !== 'data-active');
               
@@ -538,7 +475,6 @@
           }
           
           if (isVisible) {
-            // Update step number if this link has a step number span
             const tocStepNumber = link.querySelector('[data-toc-step-number]');
             if (tocStepNumber) {
               tocStepNumber.textContent = visibleStepIndex;
@@ -555,7 +491,6 @@
       });
     }
 
-    // Initialize conditional steps handling
     handleConditionalSteps();
     
   </script>
@@ -563,32 +498,25 @@
 
     const toc = document.querySelector('.md-sidebar--secondary [data-md-component="toc"]');
 
-    // Initialize the section count
     let sectionCountw = 1;
 
-    // Loop through each child element
     Array.from(toc.children).forEach(child => {
-        // Find the 'a' tag within the child element
         const link = child.querySelector('a');
 
         if (link) {
-            // Clean up the href to remove conditional markers
             const href = link.getAttribute('href');
             if (href && href.includes('show_if')) {
                 const cleanHref = href.replace(/-show_if[^-#]*$/i, '').replace(/-show_if[^#]*/, '');
                 link.setAttribute('href', cleanHref);
             }
             
-            // Create a span for the section number
             const span = document.createElement('span');
-            span.textContent = sectionCountw; // Set the text content to the section number
+            span.textContent = sectionCountw;
             span.setAttribute('data-toc-step-number', 'true');
-            span.className = 'toc-step-number';  // Keep class for CSS styling
+            span.className = 'toc-step-number';
 
-            // Prepend the span to the 'a' tag
             link.prepend(span);
 
-            // Increment the section count for the next child
             sectionCountw++;
         }
     });

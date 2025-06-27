@@ -10,14 +10,14 @@ Welcome to the React Quickstart guide! In this document, you will learn to build
 - Select **React** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
 
 !!! Example
-    **Name:** {{ product }}-react
+    **Name:** `{{ product }}-react`
     
-    **Authorized redirect URL:** http://localhost:5173
+    **Authorized redirect URL:** `http://localhost:5173`
 
 Note down the following values from the **Guide** tab of the registered application. You will need them to configure Asgardeo React SDK.
 
-- **`Client ID`** - The unique identifier for your application.
-- **`Base URL`** - The base URL for your {{ product_name }} organization. This will be typically in the format `{{content.sdkconfig.baseUrl}}`.
+- **Client ID** - The unique identifier for your application.
+- **Base URL** - The base URL for your {{ product_name }} organization. This will be typically in the format `{{content.sdkconfig.baseUrl}}`
 
 !!! Info
 
