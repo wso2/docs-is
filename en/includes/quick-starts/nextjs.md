@@ -231,35 +231,13 @@ Before running the app, you need to decide how you want users to sign into your 
 
 <div class="mode-content" data-content-for="quickstart" data-content-value="redirect">
 
-**Redirect to {{ product_name }} (Default)**
-
 When users click "Sign In", they'll be taken to {{ product_name }}'s sign-in page. After signing in, they'll be brought back to your app. This is the default option and works out of the box.
-
-**Pros:**
-- Easy to set up
-- More secure (login details never pass through your app)
-- Same look and feel across all your apps
-
-**Cons:**
-- Users temporarily leave your app to sign in
-- Less control over how the sign-in page looks
 
 </div>
 
 <div class="mode-content" data-content-for="quickstart" data-content-value="embedded" style="display: none;">
 
-**Show sign-in form in your app**
-
 The sign-in form appears directly inside your application using the `SignIn` component. Users never leave your app during the sign-in process.
-
-**Pros:**
-- Users stay on your app the entire time
-- You control exactly how the sign-in form looks
-- Smoother user experience with your branding
-
-**Cons:**
-- Requires a few extra setup steps
-- Slightly more configuration needed
 
 </div>
 

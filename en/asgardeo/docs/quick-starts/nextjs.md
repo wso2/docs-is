@@ -6,7 +6,7 @@ template: templates/quick-start.html
   const meta = {
     what_you_will_learn: [
       "Create new Next.js app",
-      "Install <a href='https://www.npmjs.com/package/@asgardeo/next' target='_blank' rel='noopener noreferrer'>@asgardeo/next</a> package",
+      "Install <a href='https://www.npmjs.com/package/@asgardeo/nextjs' target='_blank' rel='noopener noreferrer'>@asgardeo/nextjs</a> package",
       "Add user login and logout",
       "Display user profile information"
     ],
