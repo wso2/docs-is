@@ -179,9 +179,11 @@
               // Create a wrapper for the current section
               const wrapper = document.createElement('div');
               
-              // Assign a unique ID and class to the wrapper
+              // Assign a unique ID and data attributes to the wrapper
               wrapper.id = `step-${sectionCount}`;
-              wrapper.className = 'step'; // Add your class here
+              wrapper.setAttribute('data-step', 'true');
+              wrapper.setAttribute('data-step-id', sectionCount);
+              wrapper.className = 'step'; // Keep class for CSS styling
               
               // Check if any element in newSection has conditional data
               const conditionalElement = newSection.find(el => el.getAttribute && el.getAttribute('data-pending-show-if'));
@@ -207,7 +209,8 @@
           // Create a span for the section number
           const span = document.createElement('span');
           span.textContent = sectionCount; // Set the text content to the section number
-          span.className = 'step-number';
+          span.setAttribute('data-step-number', 'true');
+          span.className = 'step-number'; // Keep class for CSS styling
           
           // Store conditional marker in data attribute but don't clean heading text yet
           if (showIfMatch) {
@@ -227,9 +230,11 @@
     if (newSection.length > 0) {
       const wrapper = document.createElement('div');
       
-      // Assign a unique ID and class to the wrapper
+      // Assign a unique ID and data attributes to the wrapper
       wrapper.id = `step-${sectionCount}`;
-      wrapper.className = 'step';
+      wrapper.setAttribute('data-step', 'true');
+      wrapper.setAttribute('data-step-id', sectionCount);
+      wrapper.className = 'step'; // Keep class for CSS styling
       
       // Check if any element in newSection has conditional data
       const conditionalElement = newSection.find(el => el.getAttribute && el.getAttribute('data-pending-show-if'));
@@ -268,13 +273,13 @@
     
     // Clean up conditional markers from headings now that data attributes are set
     function cleanupConditionalMarkers() {
-      const allSteps = document.querySelectorAll('.step');
+      const allSteps = document.querySelectorAll('[data-step]');
       allSteps.forEach(step => {
         const heading = step.querySelector('h2');
         if (heading && step.getAttribute('data-show-if')) {
           const headingText = heading.textContent || heading.innerText;
           if (headingText.includes('[//] SHOW_IF=')) {
-            const stepNumberSpan = heading.querySelector('.step-number');
+            const stepNumberSpan = heading.querySelector('[data-step-number]');
             const cleanHeading = headingText
               .replace(/\s*\[\/\/\] SHOW_IF="[^"]+"\s*/, '')
               .replace(/¶/g, '')  // Remove permalink symbols
@@ -311,90 +316,190 @@
     cleanupConditionalMarkers();
 
     /**
-      * Handle conditional step rendering based on mode selection buttons
+      * Handle conditional step rendering based on selection buttons
       */
     function handleConditionalSteps() {
-      const modeButtons = document.querySelectorAll('.mode-selection-btn');
+      // Find all selection containers using data attribute
+      const selectionContainers = document.querySelectorAll('[data-selection-group]');
       
-      if (modeButtons.length > 0) {
-        // Initially hide all conditional steps
-        hideAllConditionalSteps();
+      selectionContainers.forEach(container => {
+        const groupType = container.getAttribute('data-selection-group');
+        const selectionButtons = container.querySelectorAll(`[data-${groupType}]`);
+        
+        if (selectionButtons.length > 0) {
+          const dataAttributeType = `data-${groupType}`;
+          
+          // Initially hide all conditional steps
+          hideAllConditionalSteps();
 
-        modeButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            const selectedMode = this.getAttribute('data-quickstart-mode'); // 'redirect' or 'embedded'
-            
-            // Remove active state from all buttons and uncheck radio buttons
-            modeButtons.forEach(btn => {
-              btn.classList.remove('active');
-              const radio = btn.querySelector('.mode-radio');
-              if (radio) radio.checked = false;
+          selectionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              const selectedValue = this.getAttribute(dataAttributeType);
+              
+              // Remove active state from all buttons in this container and uncheck radio buttons
+              selectionButtons.forEach(btn => {
+                btn.removeAttribute('data-active');
+                btn.classList.remove('active'); // Keep for CSS compatibility
+                const radio = btn.querySelector('[data-selection-radio]');
+                if (radio) radio.checked = false;
+              });
+              
+              // Add active state to clicked button and check its radio button
+              this.setAttribute('data-active', 'true');
+              this.classList.add('active'); // Keep for CSS compatibility
+              const thisRadio = this.querySelector('[data-selection-radio]');
+              if (thisRadio) thisRadio.checked = true;
+              
+              // Handle dynamic content visibility based on selection value
+              handleDynamicContentVisibility(dataAttributeType, selectedValue);
+              
+              // Hide all conditional steps first
+              hideAllConditionalSteps();
+              
+              // Show steps that match the selected value
+              const conditionToPass = `${dataAttributeType}=${selectedValue}`;
+              showStepsForSelection(conditionToPass);
+              
+              // Update the step numbering and TOC
+              updateStepNumbering();
+              
+              // Scroll to the next visible step
+              scrollToNextStep();
             });
-            
-            // Add active state to clicked button and check its radio button
-            this.classList.add('active');
-            const thisRadio = this.querySelector('.mode-radio');
-            if (thisRadio) thisRadio.checked = true;
-            
-            // Handle toggle content visibility
-            const redirectContent = document.getElementById('redirect-content');
-            const embeddedContent = document.getElementById('embedded-content');
-            
-            if (redirectContent && embeddedContent) {
-              if (selectedMode === 'redirect') {
-                redirectContent.style.display = 'block';
-                embeddedContent.style.display = 'none';
-              } else if (selectedMode === 'embedded') {
-                redirectContent.style.display = 'none';
-                embeddedContent.style.display = 'block';
-              }
-            }
-            
-            // Hide all conditional steps first
-            hideAllConditionalSteps();
-            
-            // Show steps that match the selected mode
-            const modeToPass = `data-quickstart-mode=${selectedMode}`;
-            showStepsForMode(modeToPass);
-            
-            // Update the step numbering and TOC
-            updateStepNumbering();
-            
-            // Scroll to the next visible step
-            scrollToNextStep();
           });
-        });
 
-        // Also handle direct radio button clicks
-        const modeRadios = document.querySelectorAll('.mode-radio');
-        modeRadios.forEach(radio => {
-          radio.addEventListener('change', function() {
-            if (this.checked) {
-              // Find the parent button and trigger its click
-              const parentButton = this.closest('.mode-selection-btn');
-              if (parentButton) {
-                parentButton.click();
+          // Also handle direct radio button clicks
+          const radios = container.querySelectorAll('[data-selection-radio]');
+          radios.forEach(radio => {
+            radio.addEventListener('change', function() {
+              if (this.checked) {
+                // Find the parent button and trigger its click
+                const parentButton = this.closest(`[data-${groupType}]`);
+                if (parentButton) {
+                  parentButton.click();
+                }
               }
-            }
+            });
           });
-        });
 
-        // Set default selection (redirect mode)
-        const defaultButton = document.querySelector('[data-quickstart-mode="redirect"]');
-        if (defaultButton) {
-          // Use setTimeout to ensure TOC is ready
-          setTimeout(() => {
-            defaultButton.click();
-          }, 100);
+          // Set default selection (button with data-default="true" or first button)
+          const defaultButton = container.querySelector('[data-default="true"]') || selectionButtons[0];
+          if (defaultButton) {
+            // Use setTimeout to ensure TOC is ready
+            setTimeout(() => {
+              defaultButton.click();
+            }, 100);
+          }
         }
-      }
+      });
+
+      // Legacy support for existing class-based implementation
+      handleLegacyClassBasedSelections();
+    }
+
+    /**
+     * Legacy support for existing class-based selections
+     */
+    function handleLegacyClassBasedSelections() {
+      const legacyContainers = document.querySelectorAll('.selection-container:not([data-selection-group]), .mode-selection-container:not([data-selection-group])');
+      
+      legacyContainers.forEach(container => {
+        const selectionButtons = container.querySelectorAll('.selection-btn, .mode-selection-btn');
+        
+        if (selectionButtons.length > 0) {
+          // Extract the data attribute type from the first button
+          const firstButton = selectionButtons[0];
+          const dataAttributes = Array.from(firstButton.attributes)
+            .filter(attr => attr.name.startsWith('data-') && attr.name !== 'data-show-if')
+            .map(attr => attr.name);
+          
+          const dataAttributeType = dataAttributes.length > 0 ? dataAttributes[0] : 'data-quickstart-mode';
+          
+          selectionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              const selectedValue = this.getAttribute(dataAttributeType);
+              
+              selectionButtons.forEach(btn => {
+                btn.classList.remove('active');
+                const radio = btn.querySelector('.selection-radio, .mode-radio');
+                if (radio) radio.checked = false;
+              });
+              
+              this.classList.add('active');
+              const thisRadio = this.querySelector('.selection-radio, .mode-radio');
+              if (thisRadio) thisRadio.checked = true;
+              
+              handleDynamicContentVisibility(dataAttributeType, selectedValue);
+              hideAllConditionalSteps();
+              
+              const conditionToPass = `${dataAttributeType}=${selectedValue}`;
+              showStepsForSelection(conditionToPass);
+              
+              updateStepNumbering();
+              scrollToNextStep();
+            });
+          });
+
+          const radios = container.querySelectorAll('.selection-radio, .mode-radio');
+          radios.forEach(radio => {
+            radio.addEventListener('change', function() {
+              if (this.checked) {
+                const parentButton = this.closest('.selection-btn, .mode-selection-btn');
+                if (parentButton) {
+                  parentButton.click();
+                }
+              }
+            });
+          });
+
+          const defaultButton = selectionButtons[0];
+          if (defaultButton) {
+            setTimeout(() => {
+              defaultButton.click();
+            }, 100);
+          }
+        }
+      });
+    }
+
+    /**
+     * Handle dynamic content visibility based on selection
+     */
+    function handleDynamicContentVisibility(dataAttributeType, selectedValue) {
+      // Handle data attribute-based content elements
+      const dataBasedElements = document.querySelectorAll(`[data-content-for]`);
+      dataBasedElements.forEach(element => {
+        const contentFor = element.getAttribute('data-content-for');
+        const contentValue = element.getAttribute('data-content-value');
+        
+        // Check if this element corresponds to the current selection type
+        if (dataAttributeType === `data-${contentFor}`) {
+          if (contentValue === selectedValue) {
+            element.style.display = 'block';
+          } else {
+            element.style.display = 'none';
+          }
+        }
+      });
+      
+      // Legacy support: Handle ID-based content elements
+      const allContentElements = document.querySelectorAll('[id*="-content"]');
+      allContentElements.forEach(element => {
+        const elementId = element.id;
+        // Check if this element's ID corresponds to a selection value
+        if (elementId.includes(`${selectedValue}-content`)) {
+          element.style.display = 'block';
+        } else if (elementId.endsWith('-content') && !element.hasAttribute('data-content-for')) {
+          element.style.display = 'none';
+        }
+      });
     }
 
     /**
      * Hide all conditional steps
      */
     function hideAllConditionalSteps() {
-      const allSteps = document.querySelectorAll('.step');
+      const allSteps = document.querySelectorAll('[data-step]');
       
       allSteps.forEach(step => {
         // Check if this step has conditional rendering requirements
@@ -407,10 +512,10 @@
     }
 
     /**
-     * Show steps that match the selected mode
+     * Show steps that match the selected value
      */
-    function showStepsForMode(selectedMode) {
-      const allSteps = document.querySelectorAll('.step');
+    function showStepsForSelection(selectedCondition) {
+      const allSteps = document.querySelectorAll('[data-step]');
       
       allSteps.forEach(step => {
         const conditions = step.getAttribute('data-show-if');
@@ -418,8 +523,8 @@
         if (conditions) {
           const conditionList = conditions.split(',').map(c => c.trim());
           
-          // Show step if the selected mode is in the conditions
-          if (conditionList.includes(selectedMode)) {
+          // Show step if the selected condition is in the conditions
+          if (conditionList.includes(selectedCondition)) {
             step.style.display = 'block';
           } else {
             step.style.display = 'none';
@@ -431,11 +536,16 @@
       });
     }
 
+    // Legacy function for backward compatibility
+    function showStepsForMode(selectedMode) {
+      showStepsForSelection(selectedMode);
+    }
+
     /**
      * Scroll to the next visible step
      */
     function scrollToNextStep() {
-      const visibleSteps = Array.from(document.querySelectorAll('.step')).filter(step => {
+      const visibleSteps = Array.from(document.querySelectorAll('[data-step]')).filter(step => {
         return step.style.display !== 'none';
       });
       
@@ -449,20 +559,17 @@
      */
     function updateStepNumbering() {
       // Get all visible steps
-      const allSteps = document.querySelectorAll('.step');
+      const allSteps = document.querySelectorAll('[data-step]');
       const visibleSteps = Array.from(allSteps).filter(step => {
         return step.style.display !== 'none';
       });
       
       // Renumber visible steps
       visibleSteps.forEach((step, index) => {
-        const stepNumber = step.querySelector('.step-number');
+        const stepNumber = step.querySelector('[data-step-number]');
         if (stepNumber) {
           stepNumber.textContent = index + 1;
         }
-        
-        // Don't update step ID to avoid conflicts - keep original IDs
-        // step.id = `step-${index + 1}`;
       });
       
       // Update TOC numbering for visible steps
@@ -510,14 +617,29 @@
           if (conditions) {
             // This TOC link has conditional requirements
             const conditionList = conditions.split(',').map(c => c.trim());
-            const selectedButton = document.querySelector('.mode-selection-btn.active');
-            const selectedMode = selectedButton ? `data-quickstart-mode=${selectedButton.getAttribute('data-quickstart-mode')}` : 'data-quickstart-mode=redirect';
-            isVisible = conditionList.includes(selectedMode);
+            
+            // Find any active selection button to determine current selection
+            const activeButtons = document.querySelectorAll('[data-active="true"], .selection-btn.active, .mode-selection-btn.active');
+            let currentSelection = 'data-quickstart-mode=redirect'; // default fallback
+            
+            if (activeButtons.length > 0) {
+              const activeButton = activeButtons[0];
+              // Extract the data attribute type and value
+              const dataAttributes = Array.from(activeButton.attributes)
+                .filter(attr => attr.name.startsWith('data-') && attr.name !== 'data-show-if' && attr.name !== 'data-active');
+              
+              if (dataAttributes.length > 0) {
+                const dataAttr = dataAttributes[0];
+                currentSelection = `${dataAttr.name}=${dataAttr.value}`;
+              }
+            }
+            
+            isVisible = conditionList.includes(currentSelection);
           }
           
           if (isVisible) {
             // Update step number if this link has a step number span
-            const tocStepNumber = link.querySelector('.toc-step-number');
+            const tocStepNumber = link.querySelector('[data-toc-step-number]');
             if (tocStepNumber) {
               tocStepNumber.textContent = visibleStepIndex;
               visibleStepIndex++;
@@ -560,7 +682,8 @@
             // Create a span for the section number
             const span = document.createElement('span');
             span.textContent = sectionCountw; // Set the text content to the section number
-            span.className = 'toc-step-number';  // Assign a class for styling if needed
+            span.setAttribute('data-toc-step-number', 'true');
+            span.className = 'toc-step-number';  // Keep class for CSS styling
 
             // Prepend the span to the 'a' tag
             link.prepend(span);

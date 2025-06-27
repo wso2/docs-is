@@ -188,12 +188,12 @@ export default App
 Before running the app, you need to decide how you want users to sign into your application:
 
 <div class="mode-selection-container">
-  <button class="mode-selection-btn active" data-quickstart-mode="redirect">
+  <button class="md-typeset md-button mode-selection-btn active" data-quickstart-mode="redirect">
     <input type="radio" name="quickstart-mode" class="mode-radio" checked>
     <span class="radio-circle"></span>
     Redirect to {{ product_name }} (Default)
   </button>
-  <button class="mode-selection-btn" data-quickstart-mode="embedded">
+  <button class="md-typeset md-button mode-selection-btn" data-quickstart-mode="embedded">
     <input type="radio" name="quickstart-mode" class="mode-radio">
     <span class="radio-circle"></span>
     Show sign-in form in your app
