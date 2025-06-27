@@ -10,7 +10,7 @@ Welcome to the React Quickstart guide! In this document, you will learn to build
 - Select **React** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
 
 !!! Example
-    **name:** {{ product }}-react
+    **Name:** {{ product }}-react
     
     **Authorized redirect URL:** http://localhost:5173
 
@@ -21,7 +21,7 @@ Note down the following values from the **Guide** tab of the registered applicat
 
 !!! Info
 
-    The authorized redirect URL determines where {{ product_name }} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
+    The authorized redirect URL determines where {{ product_name }} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use `http://localhost:5173`, as the sample app will be accessible at this URL.
 
 ## Create a React app using Vite
 
@@ -78,7 +78,7 @@ Asgardeo React SDK provides all the components and hooks you need to integrate {
 
 ## Add `<AsgardeoProvider />` to your app
 
-The `<AsgardeoProvider />` serves as a context provider for user sign-in in the app. You can integrate this provider to your app by wrapping the root component.
+The `<AsgardeoProvider />` serves as a context provider for the SDK. You can integrate this provider to your app by wrapping the root component.
 
 Add the following changes to the `main.jsx` file.
 
@@ -134,12 +134,6 @@ function App() {
 export default App
 ```
 
-Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
-
-!!! Important
-
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout sign-in and signed-out features.
-
 ## Display signed-in user's profile information
 
 The SDK provides several ways to access the signed-in user's profile information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
@@ -148,7 +142,7 @@ The SDK provides several ways to access the signed-in user's profile information
 - `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
 - `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
 
-```javascript title="src/App.jsx" hl_lines="1 10 18-25"
+```javascript title="src/App.jsx" hl_lines="1 9 18-25"
 import { SignedIn, SignedOut, SignInButton, SignOutButton, User } from '@asgardeo/react'
 import './App.css'
 
@@ -183,128 +177,6 @@ function App() {
 export default App
 ```
 
-## Choose how users will sign in
-
-Before running the app, you need to decide how you want users to sign into your application:
-
-<div class="mode-selection-container" data-selection-group="quickstart">
-  <button class="md-typeset md-button mode-selection-btn active" data-quickstart="redirect" data-next-step="8" data-default="true">
-    <input type="radio" name="quickstart-mode" class="mode-radio" data-selection-radio checked>
-    <span class="radio-circle"></span>
-    Redirect to {{ product_name }} (Default)
-  </button>
-  <button class="md-typeset md-button mode-selection-btn" data-quickstart="embedded" data-next-step="8">
-    <input type="radio" name="quickstart-mode" class="mode-radio" data-selection-radio>
-    <span class="radio-circle"></span>
-    Show sign-in form in your app
-  </button>
-</div>
-
-<div class="mode-content" data-content-for="quickstart" data-content-value="redirect">
-
-**Redirect to {{ product_name }} (Default)**
-
-When users click "Sign In", they'll be taken to {{ product_name }}'s sign-in page. After signing in, they'll be brought back to your app. This is the default option and works out of the box.
-
-**Pros:**
-- Easy to set up
-- More secure (login details never pass through your app)
-- Same look and feel across all your apps
-
-**Cons:**
-- Users temporarily leave your app to sign in
-- Less control over how the sign-in page looks
-
-</div>
-
-<div class="mode-content" data-content-for="quickstart" data-content-value="embedded" style="display: none;">
-
-**Show sign-in form in your app**
-
-The sign-in form appears directly inside your application using the `SignIn` component. Users never leave your app during the sign-in process.
-
-**Pros:**
-- Users stay on your app the entire time
-- You control exactly how the sign-in form looks
-- Smoother user experience with your branding
-
-**Cons:**
-- Requires a few extra setup steps
-- Slightly more configuration needed
-
-</div>
-
-## Set up the in-app sign-in form [//] SHOW_IF="data-quickstart=embedded"
-
-If you want the sign-in form to appear inside your app, follow these additional steps:
-
-1. **Update your main.jsx file** to enable the in-app sign-in form:
-
-```javascript title="src/main.jsx" hl_lines="11"
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { AsgardeoProvider } from '@asgardeo/react'
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <AsgardeoProvider
-      clientId="<your-app-client-id>"
-      baseUrl="{{content.sdkconfig.baseUrl}}"
-      enableEmbeddedMode={true}
-    >
-      <App />
-    </AsgardeoProvider>
-  </StrictMode>
-)
-```
-
-2. **Replace the Sign In button with the sign-in form** in your App.jsx:
-
-```javascript title="src/App.jsx" hl_lines="1 12"
-import { SignedIn, SignedOut, SignIn, SignOutButton, User, UserDropdown, UserProfile } from '@asgardeo/react'
-import './App.css'
-
-function App() {
-  return (
-    <>
-      <header>
-        <SignedIn>
-          <UserDropdown />
-          <SignOutButton />
-        </SignedIn>
-        <SignedOut>
-          <SignIn />
-        </SignedOut>
-      </header>
-      <main>
-        <SignedIn>
-          <User>
-            {(user) => (
-              <div>
-                <p>Welcome back, {user.username}</p>
-              </div>
-            )}
-          </User>
-          <UserProfile />
-        </SignedIn>
-      </main>
-    </>
-  )
-}
-
-export default App
-```
-
-3. **Update your app settings** in {{ product_name }}:
-   - Go to **Applications > Your App > Protocol**
-   - Turn on **Allow authentication without redirection**
-   - Add your app's web address (e.g., `http://localhost:5173`) to the **Allowed Origins** list
-
-!!! Note
-    The sign-in form includes username/email and password fields, plus any social login buttons you've set up (like "Sign in with Google").
-
 ## Run the app [//] SHOW_IF="data-quickstart=redirect,data-quickstart=embedded"
 
 To run the app, use the following command:
@@ -327,6 +199,10 @@ To run the app, use the following command:
     pnpm dev
     ```
 
-Visit your app's homepage at [http://localhost:5173](http://localhost:5173) to see the user sign-in and profile information in action.
+Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
+
+!!! Important
+
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout sign-in and sign-out features.
 
 [//] STEPS_END

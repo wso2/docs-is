@@ -7,22 +7,22 @@ Welcome to the Next.js Quickstart guide! In this document, you will learn to bui
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to **Applications > New Application.**
-- Select **Traditional Web Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.(*Ensure that the protocol remains set to OpenID Connect (OIDC).)* 
+- Select **Next.js** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-    **name:** nextjs-react
+    **Name:** {{ product }}-nextjs
 
     **Authorized redirect URL:** http://localhost:3000/api/auth/callback/asgardeo
 
-Note down the following values from the **Protocol** and **Info** tabs of the registered application. You will need them to configure the Auth.js SDK.
+Note down the following values from the **Guide** tab of the registered application. You will need them to configure Asgardeo Next.js SDK.
 
-- **`client-id`** from the **Protocol** tab. 
-- **`client-secret`** from the **Protocol** tab. 
-- **`issuer`** from the **Info** tab. 
+- **`Client ID`** - The unique identifier for your application.
+- **`Client Secret`** - The secret key generated for your application.
+- **`Base URL`** - The base URL for your {{ product_name }} organization. This will be typically in the format `{{content.sdkconfig.baseUrl}}`.
 
 !!! Info
 
-    The authorized redirect URL specifies where {{product_name}} should send users after they successfully log in. This is usually the web address where your application is running. For this guide, we'll use `http://localhost:3000/api/auth/callback/asgardeo` as the authorized redirect URL, as required by Auth.js.
+    The authorized redirect URL specifies where {{product_name}} should send users after they successfully log in. This is usually the web address where your application is running. For this guide, we'll use `http://localhost:3000`, as the sample app will be accessible at this URL.
 
 ## Create a Next.js app 
 
@@ -31,283 +31,297 @@ Create your new Next.js app.
 === "npm"
 
     ``` bash
-    npx create-next-app@latest --typescript {{ product }}-nextjs
-
+    npm create next-app@latest {{ product }}-nextjs -- --yes
     cd {{ product }}-nextjs
-
-    npm install
-
     npm run dev
     ```
 
 === "yarn"
 
     ``` bash
-    yarn create next-app --typescript {{ product }}-nextjs
-
+    yarn create next-app@latest {{ product }}-nextjs -- --yes
     cd {{ product }}-nextjs
-
-    yarn install
-
     yarn dev
     ```
 
 === "pnpm"
 
     ``` bash
-    pnpm create next-app --typescript {{ product }}-nextjs
-
+    pnpm create next-app@latest {{ product }}-nextjs -- --yes
     cd {{ product }}-nextjs
-
-    pnpm install
-
-    pnpm run dev
+    pnpm dev
     ```
 
-## Install `@asgardeo/next`
+## Install `@asgardeo/nextjs`
 
-Auth.js, a lightweight JavaScript library, simplifies authentication workflows in JavaScript web applications. The [Asgardeo provider for Auth.js](https://authjs.dev/reference/core/providers/asgardeo){:target="_blank"}  offers all the components and hooks you need to integrate your app with {{product_name}}. To get started, simply add Auth.js library to the project. Make sure to stop the dev server started in the previous step.
+Asgardeo Next.js SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo Next.js SDK to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
     ``` bash
-    npm install @asgardeo/next
+    npm install @asgardeo/nextjs
     ```
 
 === "yarn"
 
     ``` bash
-    yarn add @asgardeo/next
+    yarn add @asgardeo/nextjs
     ```
 
 === "pnpm"
 
     ``` bash
-    pnpm add @asgardeo/next
+    pnpm add @asgardeo/nextjs
     ```
 
 ## Set up environment variables
 
-Add the following entries to the `.env` or `.env.local` file. Replace the placeholders in the following code with the **`client-id`**, **`client-secret`** and **`issuer`** values from **Step-1**.
+Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the Asgardeo Next.js SDK to function properly.
 
 
 ```bash title=".env.local"
-    AUTH_ASGARDEO_ID="<your-app-client-id>"
-    AUTH_ASGARDEO_SECRET="<your-app-client-secret>"
-    AUTH_ASGARDEO_ISSUER="<your-app-issuer-url>"
+NEXT_PUBLIC_ASGARDEO_BASE_URL="https://api.asgardeo.io/t/<your-org-name>"
+NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
+ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
+```
 
+## Setup the Middleware
+
+Create a file called `middleware.ts` in the root of your Next.js project and integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.
+
+The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application through Middleware. asgardeoMiddleware() is compatible with both the App and Pages routers.
+
+```bash title="middleware.ts"
+import {asgardeoMiddleware} from '@asgardeo/nextjs';
+
+export default asgardeoMiddleware();
+
+export const config = {
+  matcher: [
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    '/(api|trpc)(.*)',
+  ],
+};
 ```
 
 
+## Add `<AsgardeoProvider />` to your app
 
-## Create the `auth.js` configuration File
+The `<AsgardeoProvider />` serves as a context provider for the SDK. You can integrate this provider to your app by wrapping the root component.
 
-Create a file called `/src/auth.ts'`. 
+Add the following changes to the `app/layout.tsx` file in your Next.js project.
 
-```bash
-
-touch /src/auth.ts
-
-```
-
-Add {{product_name}} as a provider in the `/src/auth.ts'` file.
-
-```javascript title="auth.ts"
-import NextAuth from "next-auth"
-import Asgardeo from "next-auth/providers/asgardeo"
-
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Asgardeo({
-    issuer: process.env.AUTH_ASGARDEO_ISSUER
-  })],
-})
-
-```
-
-Create a Route Handler file in the `src/app/api/auth/[...nextauth]/route.ts` location. 
-
-```bash
-mkdir -p src/app/api/auth/\[...nextauth\]
-
-touch mkdir -p src/app/api/auth/\[...nextauth\]/route.ts
-```
-
-!!! Note
-    The directory `src/app/api/auth/[...nextauth]/route.ts` in a Next.js project is used to define a dynamic API route for handling authentication. The `[...nextauth]` is a catch-all route that processes multiple authentication-related requests such as sign-in, sign-out, and session management. The `route.ts` file specifies the logic for these operations, typically by exporting handlers for HTTP methods like GET and POST. This setup centralizes authentication logic, supports OAuth providers like Google or GitHub, and integrates seamlessly into Next.js applications for secure and scalable authentication workflows.
-
-
-Update the `src/app/api/auth/[...nextauth]/route.ts` file with the following code. 
-
-```javascript title="route.ts"
-import { handlers } from "@/auth" 
-export const { GET, POST } = handlers
-```
-
-Next, create `src/middleware.ts` file with the following code. 
-
-```bash
-
-touch mkdir -p src/middleware.ts
-
-```
-
-
-```javascript title="middleware.ts"
-export { auth as middleware } from "@/auth"
-
-```
-
-
-## Add login and logout link to your app
-
-Replace the existing content of the `page.tsx` file with following content to add login and logout features from Auth.JS. 
-
-```javascript title="app/layout.tsx" hl_lines="2 27 33"
-import type { Metadata } from 'next'
-import { AsgardeoProvider } from '@asgardeo/next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
+```javascript title="app/layout.tsx" hl_lines="3 31"
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import {AsgardeoProvider} from '@asgardeo/nextjs';
+import "./globals.css";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: 'Asgardeo Next.js Quickstart',
-  description: 'Generated by create next app',
-}
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <AsgardeoProvider>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          {children}
-        </body>
-      </html>
-    </AsgardeoProvider>
-  )
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <AsgardeoProvider>{children}</AsgardeoProvider>
+      </body>
+    </html>
+  );
 }
 ```
 
-## Add `SignInButton` and `SignOutButton` buttons to your app
+## Add sign-in and sign-out to your app
 
-To add sign-in and sign-out buttons to your app, you can use the `SignInButton` and `SignOutButton` components provided by the Asgardeo SDK.
+Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
-```javascript title="app/layout.tsx" hl_lines="31-39"
-import type { Metadata } from 'next'
-import { AsgardeoProvider, SignedIn, SignedOut, SignInButton, SignOutButton } from '@asgardeo/react'
-import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
+Replace the existing content of the `app/page.tsx` file with following content.
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
+```javascript title="app/page.tsx"  hl_lines="1 6-11"
+import {SignInButton, SignedIn, SignOutButton, SignedOut} from '@asgardeo/nextjs';
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
-
-export const metadata: Metadata = {
-  title: 'Asgardeo Next.js Quickstart',
-  description: 'Generated by create next app',
-}
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function Home() {
   return (
-    <AsgardeoProvider>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <header>
-            <SignedIn>
-              <SignOutButton />
-            </SignedIn>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserDropdown />
-            </SignedIn>
-          </header>
-          {children}
-        </body>
-      </html>
-    </AsgardeoProvider>
-  )
+    <>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <SignOutButton />
+      </SignedIn>
+    </>
+  );
 }
 ```
+
+## Display signed-in user's profile information
+
+The SDK provides several ways to access the signed-in user's profile information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
+
+- `User`: The `User` component provides a render prop pattern to access user profile information:
+- `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
+- `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
+
+```javascript title="app/page.tsx" hl_lines="1 8 17-24"
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserProfile } from '@asgardeo/nextjs';
+
+export default function Home() {
+  return (
+    <>
+      <header>
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.username}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile
+        </SignedIn>
+      </main>
+    </>
+  );
+}
+```
+
+## Choose how users will sign in
+
+Before running the app, you need to decide how you want users to sign into your application:
+
+<div class="mode-selection-container" data-selection-group="quickstart">
+  <button class="md-typeset md-button mode-selection-btn active" data-quickstart="redirect" data-next-step="8" data-default="true">
+    <input type="radio" name="quickstart-mode" class="mode-radio" data-selection-radio checked>
+    <span class="radio-circle"></span>
+    Redirect to {{ product_name }} (Default)
+  </button>
+  <button class="md-typeset md-button mode-selection-btn" data-quickstart="embedded" data-next-step="8">
+    <input type="radio" name="quickstart-mode" class="mode-radio" data-selection-radio>
+    <span class="radio-circle"></span>
+    Show sign-in form in your app
+  </button>
+</div>
+
+<div class="mode-content" data-content-for="quickstart" data-content-value="redirect">
+
+**Redirect to {{ product_name }} (Default)**
+
+When users click "Sign In", they'll be taken to {{ product_name }}'s sign-in page. After signing in, they'll be brought back to your app. This is the default option and works out of the box.
+
+**Pros:**
+- Easy to set up
+- More secure (login details never pass through your app)
+- Same look and feel across all your apps
+
+**Cons:**
+- Users temporarily leave your app to sign in
+- Less control over how the sign-in page looks
+
+</div>
+
+<div class="mode-content" data-content-for="quickstart" data-content-value="embedded" style="display: none;">
+
+**Show sign-in form in your app**
+
+The sign-in form appears directly inside your application using the `SignIn` component. Users never leave your app during the sign-in process.
+
+**Pros:**
+- Users stay on your app the entire time
+- You control exactly how the sign-in form looks
+- Smoother user experience with your branding
+
+**Cons:**
+- Requires a few extra setup steps
+- Slightly more configuration needed
+
+</div>
+
+## Enable `App-Native Authentication` [//] SHOW_IF="data-quickstart=embedded"
+
+The embedded sign-in functionality depends on the `App-Native Authentication` feature. This feature allows your app to authenticate users without redirecting them to the {{ product_name }} sign-in page.
+
+To enable this feature, follow these steps:
+- Navigate to {{ product_name }} Console
+- Go to **Applications > Your App > Advanced**
+- Enable **App-Native Authentication** by checking the checkbox.
+
+!!! Info
+
+    Read more about [App-Native Authentication]({{ base_path }}/guides/authentication/app-native-authentication/){:target="_blank"} to understand how it works.
+
+## Set up the in-app sign-in form [//] SHOW_IF="data-quickstart=embedded"
+
+First lets create an app route for the sign-in page. Create a new file called `app/sign-in/page.tsx` and add the following code:
+
+```javascript title="app/sign-in/page.tsx"
+'use client'
+
+import { SignIn } from '@asgardeo/nextjs';
+
+export default function SignInPage() {
+  return <SignIn />;
+}
+```
+
+Then lets update the `.env` file with the route for the sign-in page. Add the following line to your `.env` file:
+
+```bash title=".env"
+NEXT_PUBLIC_ASGARDEO_SIGN_IN_URL="/sign-in"
+```
+
+## Run the app [//] SHOW_IF="data-quickstart=redirect,data-quickstart=embedded"
+
+To run the app, use the following command:
+
+=== "npm"
+
+    ```bash
+    npm run dev
+    ```
+    
+=== "yarn"
+
+    ```bash
+    yarn dev
+    ```
+    
+=== "pnpm"
+
+    ```bash
+    pnpm dev
+    ```
 
 Visit your app's homepage at [http://localhost:3000](http://localhost:3000).
 
 !!! Important
 
-    You need to create a user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
-
-## Display logged in user details
-
-Modified the code as below to see logged in user details.
-
-```javascript title="auth.ts" hl_lines="14-29"
-
-import NextAuth from "next-auth"
-import Asgardeo from "next-auth/providers/asgardeo"
-
-declare module "next-auth" {
-  interface User {
-    username?: string;
-  }
-}
-
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Asgardeo({
-    issuer: process.env.AUTH_ASGARDEO_ISSUER
-  })],
-  callbacks: {
-    async jwt({ token, profile }) {
-      if (profile) {
-        token.username = profile.username;
-      }
-
-      return token;
-    },
-    async session({ session, token }) {            
-      if (token) {
-        session.user.username = token.username as string;
-      }
-
-      return session;
-    }
-  }
-})
-
-```
-
-Then, update `page.tsx` with the following highlighted line to display the username of logged in user.  
-
-```javascript title="app/sign-in/[[...sign-in]]/page.tsx"
-import { SignIn } from '@asgardeo/next'
-
-export default function Page() {
-  return <SignIn />
-}
-```
-
-Same way you can create a dedicated `SignUp` page in your Next.js app. 
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout sign-in and sign-out features.
 
 [//] STEPS_END
