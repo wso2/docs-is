@@ -174,10 +174,13 @@ To install Vale in Visual Studio Code (VSCode),
            └── write-good/
 
    ```
+   <!-- vale off -->
+3. On the same settings page, select the **Install Vale** checkbox. When you enable the extension, this option attempts to install Vale on your system. If the installation fails, manually install Vale by following the instructions in the [Vale documentation](https://vale.sh/docs/install) and ensure that Vale is added to your system's PATH.
+   <!-- vale on -->
 
-3. Enable the extension for syntax highlighting.
+4. Enable the extension for syntax highlighting.
 
-4. Vale provides three different highlights; `errors` (red), `warnings`(yellow) and `info` (blue). Remove errors and warnings. Optionally, improve info messages as needed.
+5. Vale provides three different highlights; `errors` (red), `warnings`(yellow) and `info` (blue). Remove errors and warnings. Optionally, improve info messages as needed.
 
 ## Contribute to documentation
 
