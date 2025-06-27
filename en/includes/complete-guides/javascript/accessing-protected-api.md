@@ -1,5 +1,4 @@
 
-
 In this section, we will focus on how to call a secure API from your JavaScript app using the other token—the access token.
 
 For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer— in this case, the same {{product_name}} organization. This is typical when JavaScript apps are interacting with internal APIs within the same organization.
@@ -10,7 +9,7 @@ For simplicity, let's assume that the APIs we’re calling are secured by the sa
 
 ## Using SDK Built-in HTTP client
 
-You can use the `httpRequest` API provided by the Asgardeo SDK to make HTTP requests to these endpoints. This method is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this method does it automatically. 
+You can use the `httpRequest` API provided by the Asgardeo SDK to make HTTP requests to these endpoints. This method is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this method does it automatically.
 
 The following is a simple example of how you might use the Asgardeo SDK’s `httpRequest` to call a protected API endpoint, such as `/scim2/Me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
 
@@ -69,6 +68,7 @@ const requestConfig = {
 };
 
 ```
+
 !!! tip "Tip"
 
     You need to constrct the '<base-url>' value as per the followng instructions: 
