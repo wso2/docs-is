@@ -7,18 +7,17 @@ Welcome to the React Quickstart guide! In this document, you will learn to build
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to **Applications > New Application**.
-- Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
+- Select **React** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
 
 !!! Example
     **name:** {{ product }}-react
     
     **Authorized redirect URL:** http://localhost:5173
 
-Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  Asgardeo React SDK.
+Note down the following values from the **Guide** tab of the registered application. You will need them to configure Asgardeo React SDK.
 
-- **`client-id`** from the **Protocol** tab. 
-- **The name of your {{ product_name }} organization**
-
+- **`Client ID`** - The unique identifier for your application.
+- **`Base URL`** - The base URL for your {{ product_name }} organization. This will be typically in the format `{{content.sdkconfig.baseUrl}}`.
 
 !!! Info
 
@@ -79,13 +78,13 @@ Asgardeo React SDK provides all the components and hooks you need to integrate {
 
 ## Add `<AsgardeoProvider />` to your app
 
-The `<AsgardeoProvider />` serves as a context provider for user sign-in in the app. You can add the AsgardeoProvider to your app by wrapping  the root component.
+The `<AsgardeoProvider />` serves as a context provider for user sign-in in the app. You can integrate this provider to your app by wrapping the root component.
 
 Add the following changes to the `main.jsx` file.
 
 !!! Important
 
-    Replace below placeholders with your registered organization name in {{ product_name }} and the generated`client-id` from the app you registered in {{ product_name }}.
+    Replace below placeholders with your registered organization name in {{ product_name }} and the generated `client-id` from the app you registered in {{ product_name }}.
 
     - `<your-app-client-id>`
     - `{{content.sdkconfig.baseUrl}}`
@@ -100,13 +99,8 @@ import { AsgardeoProvider } from '@asgardeo/react'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AsgardeoProvider
-      config={ {
-        signInRedirectURL: 'http://localhost:5173',
-        signOutRedirectURL: 'http://localhost:5173',
-        clientID: '<your-app-client-id>',
-        baseUrl: '{{content.sdkconfig.baseUrl}}',
-        scope: ['openid', 'profile'],
-      } }
+      clientId="<your-app-client-id>"
+      baseUrl="{{content.sdkconfig.baseUrl}}"
     >
       <App />
     </AsgardeoProvider>
@@ -114,9 +108,9 @@ createRoot(document.getElementById('root')).render(
 )
 ```
 
-## Add signed-in and signed-out to your app
+## Add sign-in and sign-out to your app
 
-Asgardeo SDK provides `useAsgardeo` hook to conveniently access user authentication data and sign-in and sign-out functions.
+Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
 Replace the existing content of the `App.jsx` file with following content.
 
@@ -126,14 +120,14 @@ import './App.css'
 
 function App() {
   return (
-    <>
+    <header>
       <SignedIn>
         <SignOutButton />
       </SignedIn>
       <SignedOut>
         <SignInButton />
       </SignedOut>
-    </>
+    </header>
   )
 }
 
@@ -148,30 +142,40 @@ Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 ## Display signed-in user's profile information
 
-The `User` component from Asgardeo provides access to the signed-in in user's profile information.
-You can use it to display user details like name, email, profile picture, and other user profile attributes.
+The SDK provides several ways to access the signed-in user's profile information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
 
-```javascript title="src/App.jsx" hl_lines="1 8-15"
-import { User } from '@asgardeo/react'
+- `User`: The `User` component provides a render prop pattern to access user profile information:
+- `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
+- `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
+
+```javascript title="src/App.jsx" hl_lines="1 10 18-25"
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User } from '@asgardeo/react'
 import './App.css'
 
 function App() {
   return (
     <>
-      <SignedIn>
-        <User>
-          {(user) => (
-            <div>
-              <img src={user.picture} alt={user.name} />
-              <p>Welcome back, {user.name}</p>
-            </div>
-          )}
-        </User>
-        <SignOutButton />
-      </SignedIn>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
+      <header>
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.username}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile
+        </SignedIn>
+      </main>
     </>
   )
 }
@@ -179,48 +183,150 @@ function App() {
 export default App
 ```
 
-## Using the `useAsgardeo` Hook (For Programmatic Control)
+## Choose how users will sign in
 
-For more granular control, you can use the `useAsgardeo` hook. This hook provides direct access to SDK's functions and state:
+Before running the app, you need to decide how you want users to sign into your application:
 
-```javascript title="src/App.jsx" hl_lines="1 5 7-9 13 16-17 19 22"
-import { useAsgardeo } from '@asgardeo/react'
+<div class="mode-selection-container">
+  <button class="mode-selection-btn active" data-quickstart-mode="redirect">
+    <input type="radio" name="quickstart-mode" class="mode-radio" checked>
+    <span class="radio-circle"></span>
+    Redirect to {{ product_name }} (Default)
+  </button>
+  <button class="mode-selection-btn" data-quickstart-mode="embedded">
+    <input type="radio" name="quickstart-mode" class="mode-radio">
+    <span class="radio-circle"></span>
+    Show sign-in form in your app
+  </button>
+</div>
+
+<div class="mode-content" id="redirect-content">
+
+**Redirect to {{ product_name }} (Default)**
+
+When users click "Sign In", they'll be taken to {{ product_name }}'s sign-in page. After signing in, they'll be brought back to your app. This is the default option and works out of the box.
+
+**Pros:**
+- Easy to set up
+- More secure (login details never pass through your app)
+- Same look and feel across all your apps
+
+**Cons:**
+- Users temporarily leave your app to sign in
+- Less control over how the sign-in page looks
+
+</div>
+
+<div class="mode-content" id="embedded-content" style="display: none;">
+
+**Show sign-in form in your app**
+
+The sign-in form appears directly inside your application using the `SignIn` component. Users never leave your app during the sign-in process.
+
+**Pros:**
+- Users stay on your app the entire time
+- You control exactly how the sign-in form looks
+- Smoother user experience with your branding
+
+**Cons:**
+- Requires a few extra setup steps
+- Slightly more configuration needed
+
+</div>
+
+## Set up the in-app sign-in form [//] SHOW_IF="data-quickstart-mode=embedded"
+
+If you want the sign-in form to appear inside your app, follow these additional steps:
+
+1. **Update your main.jsx file** to enable the in-app sign-in form:
+
+```javascript title="src/main.jsx" hl_lines="11"
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import { AsgardeoProvider } from '@asgardeo/react'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <AsgardeoProvider
+      clientId="<your-app-client-id>"
+      baseUrl="{{content.sdkconfig.baseUrl}}"
+      enableEmbeddedMode={true}
+    >
+      <App />
+    </AsgardeoProvider>
+  </StrictMode>
+)
+```
+
+2. **Replace the Sign In button with the sign-in form** in your App.jsx:
+
+```javascript title="src/App.jsx" hl_lines="1 12"
+import { SignedIn, SignedOut, SignIn, SignOutButton, User, UserDropdown, UserProfile } from '@asgardeo/react'
 import './App.css'
 
 function App() {
-  const { user, signIn, signOut, isSignedIn, isLoading } = useAsgardeo()
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
   return (
-    <div>
-      {isSignedIn ? (
-        <div>
-          <div>
-            <img src={user.photourl} alt={user.username} />
-            <p>Welcome back, {user.givenname}</p>
-          </div>
-          <button onClick={() => signOut()}>Sign Out</button>
-        </div>
-      ) : (
-        <button onClick={() => signIn()}>Sign In</button>
-      )}
-    </div>
+    <>
+      <header>
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignIn />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.username}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
+    </>
   )
 }
+
+export default App
 ```
 
-The `useAsgardeo` hook provides:
+3. **Update your app settings** in {{ product_name }}:
+   - Go to **Applications > Your App > Protocol**
+   - Turn on **Allow authentication without redirection**
+   - Add your app's web address (e.g., `http://localhost:5173`) to the **Allowed Origins** list
 
-- `user` - The signed-in user's profile information
-- `signIn()` - Function to initiate the sign-in flow
-- `signOut()` - Function to sign-out the current user
-- `isSignedIn` - Boolean indicating if a user is currently signed-in
-- `isLoading` - Boolean indicating if the SDK is working on a sign-in, sign-out and other operations
+!!! Note
+    The sign-in form includes username/email and password fields, plus any social login buttons you've set up (like "Sign in with Google").
 
-!!! tip
-    Use `useAsgardeo` when you need programmatic control over authentication or want to access state & functions in custom components.
+## Run the app [//] SHOW_IF="data-quickstart-mode=redirect,data-quickstart-mode=embedded"
+
+To run the app, use the following command:
+
+=== "npm"
+
+    ```bash
+    npm run dev
+    ```
+    
+=== "yarn"
+
+    ```bash
+    yarn dev
+    ```
+    
+=== "pnpm"
+
+    ```bash
+    pnpm dev
+    ```
+
+Visit your app's homepage at [http://localhost:5173](http://localhost:5173) to see the user sign-in and profile information in action.
 
 [//] STEPS_END
