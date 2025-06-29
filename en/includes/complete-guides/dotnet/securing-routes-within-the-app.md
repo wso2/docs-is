@@ -1,5 +1,4 @@
 
-
 In a .NET Blazor Web Application, handling and securing routes is an important aspect of managing user access, ensuring the right content is displayed to the right users, and protecting sensitive resources.
 
 Blazor uses the `RouteView` component and a built-in routing system to manage navigation within the application. Routes are defined using the `@page` directive at the top of a Razor component (.razor file). You can also navigate to different routes programmatically using the `NavigationManager` service, which we will also cover in this guide when securing the routes.
@@ -11,7 +10,7 @@ Let’s first navigate to the `NavMenu.razor` file under the `/Components/Layout
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">asgardeo-dotnet</a>
+        <a class="navbar-brand" href="">wso2-dotnet</a>
     </div>
 </div>
 

@@ -1,5 +1,4 @@
 
-
 Provided that you have already installed the .NET SDK, we will proceed with setting up the development environment. This guide will utilize `Visual Studio Code` as the text editor and the official `C# Dev Kit` extension from Microsoft to help streamline the creation of the .NET application, which is of the Blazor Web app type.
 
 There are several other approaches of creating a .NET application. If you need to create a rich, interactive web application, Blazor is a great choice. For cloud-based solutions, Azure Functions or ASP.NET Core are the go-to choices. If you're building a native mobile app, Xamarin or MAUI would be ideal, and for desktop apps, WPF, WinForms, or MAUI would be suitable. For the purposes of this guide we will be creating a server side web app with Blazor since it is a .NET frontend web framework that supports both server-side rendering and client interactivity in a single programming model.
@@ -10,7 +9,6 @@ This in turn allows for the following benefits:
 - Share server-side and client-side app logic written in .NET.
 - Render the UI as HTML and CSS for wide browser support, including mobile browsers.
 - Build hybrid desktop and mobile apps with .NET and Blazor.
-
 
 ## Creating a New Project in Visual Studio Code
 
@@ -29,11 +27,11 @@ This in turn allows for the following benefits:
 Alternatively, if you prefer creating the application via the command line, you can use the following commands:
 
 ```bash
-dotnet new blazor -o asgardeo-dotnet
+dotnet new blazor -o wso2-dotnet
 ```
 
 ```bash
-cd asgardeo-dotnet
+cd wso2-dotnet
 ```
 
 # Running the Application

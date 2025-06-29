@@ -1,16 +1,14 @@
 
-
-
 * Sign into {{product_name}} console and navigate to **Applications > New Application.**
 * Select **Traditional Web Application** (*Make sure that the protocol remains set to OpenID Connect (OIDC)*)
 
 ![Select Traditional Web Application]({{base_path}}/assets/img/complete-guides/dotnet/image1.png){: width="800" style="display: block; margin: 0;"}
 
-Next, complete the wizard popup by providing a suitable name, a suitable protocol, and the authorized redirect URLs. You also have the option to share the application across all organizations, which can be set according to your preference. 
+Next, complete the wizard popup by providing a suitable name, a suitable protocol, and the authorized redirect URLs. You also have the option to share the application across all organizations, which can be set according to your preference.
 
 !!! Example
 
-    Name: `asgardeo-dotnet`
+    Name: `wso2-dotnet`
 
     Protocol: `OIDC`
 
@@ -21,7 +19,6 @@ Next, complete the wizard popup by providing a suitable name, a suitable protoco
     `https://localhost:5001/signin-oidc`
 
 ![Register a new application]({{base_path}}/assets/img/complete-guides/dotnet/image2.png){: width="800" style="display: block; margin: 0;"}
-
 
 !!! Info
 
@@ -35,18 +32,17 @@ https://localhost:5001
 
 You will need the following information available in the `Quick Start` tab of your application or the `Protocol` tab to configure in the .NET application.
 
-- Client ID
-- Client Secret
+* Client ID
+* Client Secret
 
 ![Quick Start Page]({{base_path}}/assets/img/complete-guides/dotnet/image3.png){: width="800" style="display: block; margin: 0;"}
 
-
 Additionally, please take a note of the following endpoints that are available in the `Info` tab of your application.
 
-- Issuer
-- Authorize
-- JWKS
-- Logout
+* Issuer
+* Authorize
+* JWKS
+* Logout
 
 ![Info Page]({{base_path}}/assets/img/complete-guides/dotnet/image4.png){: width="800" style="display: block; margin: 0;"}
 
