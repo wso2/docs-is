@@ -1,8 +1,7 @@
 
-
 We’ve covered most of the key activities for adding user login to your Angular app. To recap, during user login, the Angular OAuth2 OIDC SDK provides both an ID token and an access token. We’ve been using the ID token in the previous sections to establish the logged-in user context and enable secure access. In this section, we’ll focus on how to call a secure API from your Angular app using the other token—the access token.
 
-For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer. This is typical when Angular apps are interacting with internal APIs within the same organization. However, if your app needs to call APIs secured by a different IdP, you’ll need to exchange your current access token for a new one issued by the IdP securing those APIs. This can be done using the OAuth2 token exchange grant type or other supported grant types. We will cover these scenarios in a separate guide. 
+For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer. This is typical when Angular apps are interacting with internal APIs within the same organization. However, if your app needs to call APIs secured by a different IdP, you’ll need to exchange your current access token for a new one issued by the IdP securing those APIs. This can be done using the OAuth2 token exchange grant type or other supported grant types. We will cover these scenarios in a separate guide.
 
 ## Using SDK Built-in HTTP client
 
@@ -12,7 +11,6 @@ The following is a simple example of how you might use the Angular OAuth2 OIDC S
 ### Step 1: Import Required Modules
 
 Update the `app.config.ts` file as follows to configure the allowed URLs and include the access token in API requests. Ensure you refer to the domains of your API server under `allowedUrls` and set `sendAccessToken` to `true` so that the access token is included in the requests made to these endpoints:
-
 
 ```javascript title="app.config.ts" hl_lines="5-11"
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
@@ -36,6 +34,7 @@ export const appConfig: ApplicationConfig = {
 };
 
 ```
+
 !!! tip "Tip"
 
     You need to constrct the '<base-url>' value as per the followng instructions: 
@@ -47,7 +46,6 @@ export const appConfig: ApplicationConfig = {
     For WSO2 Idenity Server: 
 
     `<base-url> =https://localhost:9443`
-
 
 ### Step 2: Make HTTP Requests
 
@@ -92,11 +90,9 @@ export class DashboardComponent {
 
 In the above code, the access token is automatically attached to the `Authorization` header by the Angular OAuth2 OIDC SDK when you make requests to the specified allowed URLs.
 
-
 ## Manually Managing Access Tokens in API Requests
 
 If you are not using the built-in access token management, you can manually fetch the access token and attach it to your requests. Here’s how to do that:
-
 
 ```javascript title="dashboard.component.ts"
 
@@ -123,9 +119,8 @@ export class DashboardComponent {
   }
 }
 
-
-
 ```
+
 !!! tip "Tip"
 
     You need to constrct the `<base-url>` value as per the followng instructions: 
@@ -137,3 +132,4 @@ export class DashboardComponent {
     For WSO2 Idenity Server: 
 
     `<base-url> =https://localhost:9443`
+  
