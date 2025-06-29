@@ -47,6 +47,28 @@ paths:
         description: Define the order by which the retrieved records should be sorted. <br><b> This option is not yet supported. </b>
         schema:
           type: string
+      - name: profile
+        in: query
+        description: |
+          The claims belong to the given profile. This is used to filter claims based on the profile.
+          <br>Available profiles:
+          <ul>
+            <li>console</li>
+            <li>endUser</li>
+            <li>selfRegistration</li>
+          </ul>
+        schema:
+          type: string
+      - name: exclude-identity-claims
+        in: query
+        description: Exclude identity claims when listing local claims.
+        schema:
+          type: boolean
+      - name: exclude-hidden-claims
+        in: query
+        description: Exclude hidden claims when listing local claims.
+        schema:
+          type: boolean
       responses:
         200:
           description: Local claims.
@@ -1102,7 +1124,6 @@ components:
           description: The possible values for the attribute.
           items:
             $ref: '#/components/schemas/LabelValue'
-          example: [{"label": "Admin", "value": "admin"}, {"label": "User", "value": "user"}]
         multiValued:
           type: boolean
           description: Specifies if the claim can hold multiple values or not.
@@ -1206,6 +1227,8 @@ components:
           type: boolean
           description: Specifies if the claim can hold multiple values or not.
           example: true
+        inputFormat:
+          $ref: '#/components/schemas/InputFormat'
         uniquenessScope:
           type: string
           description: Specifies the scope of uniqueness validation for the claim value.
@@ -1337,8 +1360,25 @@ components:
       properties:
         label:
           type: string
+          description: The display name shown to the user.
+          example: Work Account
         value:
           type: string
+          description: The internal value used in processing.
+          example: WorkAccount
+      example:
+        label: Work Account
+        value: WorkAccount
+    InputFormat:
+      type: object
+      description: The input formatting of the attribute.
+      properties:
+        inputType:
+          type: string
+          description: Type of the input format (e.g., dropdown, checkbox, etc.)
+          example: dropdown
+      example:
+        inputType: dropdown
     Error:
       required:
       - code
