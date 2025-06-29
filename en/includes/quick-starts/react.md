@@ -143,7 +143,7 @@ The SDK provides several ways to access the signed-in user's profile information
 - `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
 
 ```javascript title="src/App.jsx" hl_lines="1 9 18-25"
-import { SignedIn, SignedOut, SignInButton, SignOutButton, User } from '@asgardeo/react'
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserDropdown, UserProfile } from '@asgardeo/react'
 import './App.css'
 
 function App() {
@@ -163,11 +163,11 @@ function App() {
           <User>
             {(user) => (
               <div>
-                <p>Welcome back, {user.username}</p>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
               </div>
             )}
           </User>
-          <UserProfile
+          <UserProfile />
         </SignedIn>
       </main>
     </>
