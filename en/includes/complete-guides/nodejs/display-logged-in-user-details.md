@@ -1,7 +1,7 @@
 
-At this point, we’ve successfully implemented login and logout capabilities using the Passport {{product_name}} strategy. The next step is to explore how to access and display logged-in user details within the app. 
+At this point, we’ve successfully implemented login and logout capabilities using the Passport Asgardeo strategy. The next step is to explore how to access and display logged-in user details within the app.
 
-If you observe the `routes/auth.js` file, you can see that the {{product_name}} strategy loads the basic user attribute details in the id token, and these attributes are accessible through the `uiProfile` object in the `verify` callback.
+If you observe the `routes/auth.js` file, you can see that the Asgardeo strategy loads the basic user attribute details in the id token, and these attributes are accessible through the `uiProfile` object in the `verify` callback.
 
 ```javascript
 function verify(
@@ -95,7 +95,7 @@ Now, let's modify the `views/index.ejs` file to display the user details.
 </html>
 ```
 
-Now, when you log in to the application, you will see that the user's first name and last name are not displayed even though the username is displayed. This is because the {{product_name}} strategy does not return the first name and last name in the id token by default. 
+Now, when you log in to the application, you will see that the user's first name and last name are not displayed even though the username is displayed. This is because the Asgardeo strategy does not return the first name and last name in the id token by default.
 
 ![Display user details]({{base_path}}/assets/img/complete-guides/nodejs/image12.png){: width="800" style="display: block; margin: 0;"}
 

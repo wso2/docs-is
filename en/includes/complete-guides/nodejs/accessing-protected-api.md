@@ -1,5 +1,4 @@
 
-
 In this section, we will focus on how to call a secure API from your Node.js app using the other token—the access token.
 
 For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer— in this case, the same {{product_name}} organization. This is typical when Node.js apps are interacting with internal APIs within the same organization.
@@ -8,38 +7,34 @@ For simplicity, let's assume that the APIs we’re calling are secured by the sa
 
     If your app needs to call APIs secured by a different IdP, you’ll need to exchange your current access token for a new one issued by the IdP securing those APIs. This can be done using the OAuth2 token exchange grant type or other supported grant types. We will cover these scenarios in a separate guide.
 
-In the following example we'll see how to call a protected API endpoint, such as [scim2/Me](https://wso2.com/asgardeo/docs/apis/scim2-me/) (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
+In the following example we'll see how to call a protected API endpoint, such as scim2/Me (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
 
 If you observe the `routes/auth.js` file, you can see that the {{product_name}} strategy loads the access token in the `accessToken` parameter of the `verify` callback. This access token can be used to call the protected API.
 
-Let's return the access token from the callback and serialize it to the session. 
+Let's return the access token from the callback and serialize it to the session.
 
 You will notice that the {{product_name}} documentation lists the scopes required to access the SCIM 2 API. In this case, the `internal_login` scope is required to access the `/scim2/Me` endpoint.
 
 We will add the `internal_login` scope as well to the `scope` parameter in the {{product_name}} strategy configuration.
 
-```javascript hl_lines="23 38 51"
+```javascript hl_lines="19 34 47"
 var passport = require("passport");
 var AsgardeoStrategy = require("@asgardeo/passport-asgardeo");
-const ASGARDEO_BASE_URL = "https://api.asgardeo.io/t/";
+const BASE_URL = "{{content.sdkconfig.baseUrl}}";
 
 passport.use(
   new AsgardeoStrategy(
     {
       issuer:
-        ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/oauth2/token",
+        BASE_URL + "/oauth2/token",
       authorizationURL:
-        ASGARDEO_BASE_URL +
-        process.env.ASGARDEO_ORGANISATION +
-        "/oauth2/authorize",
+        BASE_URL + "/oauth2/authorize",
       tokenURL:
-        ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/oauth2/token",
+        BASE_URL + "/oauth2/token",
       userInfoURL:
-        ASGARDEO_BASE_URL +
-        process.env.ASGARDEO_ORGANISATION +
-        "/oauth2/userinfo",
-      clientID: process.env.ASGARDEO_CLIENT_ID,
-      clientSecret: process.env.ASGARDEO_CLIENT_SECRET,
+        BASE_URL + "/oauth2/userinfo",
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
       callbackURL: "/oauth2/redirect",
       scope: ["profile internal_login"],
     },
@@ -88,7 +83,7 @@ Now we can use the access token to call the protected API. Let's modify the `rou
 var express = require("express");
 var ensureLogIn = require("connect-ensure-login").ensureLoggedIn;
 var router = express.Router();
-const ASGARDEO_BASE_URL = "https://api.asgardeo.io/t/";
+const BASE_URL = "{{content.sdkconfig.baseUrl}}";
 
 var ensureLoggedIn = ensureLogIn();
 /* GET users listing. */
@@ -96,7 +91,7 @@ router.get("/", ensureLoggedIn, async function (req, res, next) {
   try {
     console.log("Calling scim2/Me endpoint");
     const response = await fetch(
-      ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/scim2/Me",
+      BASE_URL + "/scim2/Me",
       {
         method: "GET",
         headers: {

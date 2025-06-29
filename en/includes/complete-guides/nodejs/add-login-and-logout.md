@@ -1,5 +1,4 @@
 
-
 ## Modify Index page
 
 Let's create a simple login page for our app.
@@ -24,7 +23,7 @@ Open `views/login.ejs` and add the following code:
 <body>
   <div>
     <form action="/login">
-      <button type="submit">Login with Asgardeo</button>
+      <button type="submit">Login with {{product_name}}</button>
     </form>
   </div>
 </body>
@@ -52,7 +51,7 @@ module.exports = router;
 
 ## Add routes
 
-When the user clicks the "Login with Asgardeo" button, they will be redirected to our app's login page, which is hosted by {{product_name}}. Once on that page, the user will log in by providing their credentials. After they've logged in, the user will be redirected back to our app.
+When the user clicks the "Login with {{product_name}}" button, they will be redirected to our app's login page, which is hosted by {{product_name}}. Once on that page, the user will log in by providing their credentials. After they've logged in, the user will be redirected back to our app.
 
 Open `routes/auth.js` and add the following code at the end of the file, which creates two routes. The first will redirect the user to the sigin page. The second will process the authentication result when the user is redirected back.
 
@@ -73,6 +72,7 @@ router.get(
 
 module.exports = router;
 ```
+
 Next, we need to add these routes to our app. Open `app.js` and modify the file as shown below to require the new auth router and add it to the app.
 
 ```javascript hl_lines="11 27"
@@ -197,8 +197,6 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 ```
 
-
-
 Next we need to configure Passport to manage the login session by adding serializeUser and deserializeUser functions. Open `routes/auth.js` and add the following code lines after the AsgardeoStrategy configuration.
 
 ```javascript
@@ -246,12 +244,10 @@ router.post("/logout", function (req, res, next) {
     }
     var params = {
       post_logout_redirect_uri: "http://localhost:3000",
-      client_id: process.env.ASGARDEO_CLIENT_ID,
+      client_id: process.env.CLIENT_ID,
     };
     res.redirect(
-      ASGARDEO_BASE_URL +
-        process.env.ASGARDEO_ORGANISATION +
-        "/oidc/logout?" +
+      BASE_URL + "/oidc/logout?" +
         qs.stringify(params)
     );
   });
@@ -292,4 +288,3 @@ We need to modify the `views/index.ejs` file as shown and add a logout button.
 Return to the app, where you should already be signed in, and click "Log out."
 
 We've now got a working app where users can sign in and sign out!
-

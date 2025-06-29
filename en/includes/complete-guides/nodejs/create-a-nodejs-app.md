@@ -1,21 +1,20 @@
 
-
 For this guide, you will be creating a simple Node.js app using the npx [express-generator](https://www.npmjs.com/package/express-generator) command.
 
 Open a terminal and run the following command to create a new Node.js app using the Express.js framework (Provide a suitable name for the app):
 
 ```bash
-npx express-generator passport-asgardeo-sample --view=ejs
+npx express-generator passport-{{product}}-sample --view=ejs
 ```
 
 Next, change the directory to the newly created app and install the dependencies.
 
 ```bash
-cd passport-asgardeo-sample
+cd passport-{{product}}-sample
 npm install
 ```
 
-Then run the following command to start the application. 
+Then run the following command to start the application.
 
 ```bash
 npm start

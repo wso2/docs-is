@@ -7,29 +7,23 @@ Welcome to the Node.js Quickstart guide! In this document, you will learn to bui
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to **Applications > New Application.**
-- Select **Traditional Web Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. (*Ensure that the protocol remains set to OpenID Connect (OIDC).)* 
+- Select **Traditional Web Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. (*Ensure that the protocol remains set to OpenID Connect (OIDC).)*
 
 !!! Example
     Name : {{ product }}-nodejs
 
     Authorized redirect URL: http://localhost:3000/oauth2/redirect, http://localhost:3000/
 
- 
-
 !!! Info
 
     The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use `http://localhost:3000/oauth2/redirect` and http://localhost:3000 as the authorized redirect URL. The http://localhost:3000/ URL is used to redirect the user after logging out. 
-  
-
 
 Make a note of the following values from the **Protocol** tab of the registered application. You will need them during the **Step 4**
 
-- **`client-id`** from the **Protocol** tab. 
-- **`client-secret`** from the **Protocol** tab. 
-- **The name of your {{ product_name }} organization**
+- **`client-id`** from the **Protocol** tab.
+- **`client-secret`** from the **Protocol** tab.
 
-
-## Create a Node.js app 
+## Create a Node.js app
 
 Create your new Node.js app using npx `express-generator` command.
 
@@ -69,11 +63,11 @@ Create your new Node.js app using npx `express-generator` command.
     pnpm start
     ```
 
-Navigate to [http://localhost:3000](http://localhost:3000){:target="_blank"} and you should see the sample app working in the browser. 
+Navigate to [http://localhost:3000](http://localhost:3000){:target="_blank"} and you should see the sample app working in the browser.
 
 ## Install @asgardeo/passport-asgardeo
 
-Passport Asgardeo strategy is a Passport strategy that allows you to authenticate  using {{product_name}}. To get started, simply add the Passport Asgardeo strategy to the project together with the other required dependencies. Make sure to stop the dev server started in the previous step. 
+Passport Asgardeo strategy is a Passport strategy that allows you to authenticate  using {{product_name}}. To get started, simply add the Passport Asgardeo strategy to the project together with the other required dependencies. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
@@ -101,10 +95,8 @@ Passport Asgardeo strategy is a Passport strategy that allows you to authenticat
 Create `.env` environment properties file, and add the following  variables:
 
 ```bash
-ASGARDEO_ORGANISATION=<YOUR_ORGANISATION_NAME>
-ASGARDEO_CLIENT_ID=<YOUR_CLIENT_ID>
-ASGARDEO_CLIENT_SECRET=<YOUR_CLIENT_SECRET>
-
+CLIENT_ID=<YOUR_CLIENT_ID>
+CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 
 ```
 
@@ -114,8 +106,6 @@ ASGARDEO_CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 
     - `<YOUR_CLIENT_ID>`
     - `<YOUR_CLIENT_SECRET>`
-    - `<YOUR_ORGANISATION_NAME>`
-
 
 Then, Add the following line to the start of the `app.js` file to load the environment variables from the `.env` file.
 
@@ -126,31 +116,29 @@ var createError = require("http-errors");
 var express = require("express");
 ```
 
+Next, create `routes/auth.js` file and add the following code to configure the app with the {{product_name}} configuration parameters.
 
-Next, create `routes/auth.js` file and add the following code to configure the app with the {{product_name}} configuration parameters. 
-
-
-```javascript title="routes/auth.js" 
+```javascript title="routes/auth.js"
 
 var passport = require("passport");
 var AsgardeoStrategy = require("@asgardeo/passport-asgardeo");
-const ASGARDEO_BASE_URL = "https://api.asgardeo.io/t/";
+const BASE_URL = "{{content.sdkconfig.baseUrl}}";
 
 passport.use(
     new AsgardeoStrategy(
         {
             issuer:
-                ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/oauth2/token",
+                BASE_URL + "/oauth2/token",
             authorizationURL:
-                ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/oauth2/authorize",
+                BASE_URL + "/oauth2/authorize",
             tokenURL:
-                ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/oauth2/token",
+                BASE_URL + "/oauth2/token",
             userInfoURL:
-                ASGARDEO_BASE_URL + process.env.ASGARDEO_ORGANISATION + "/oauth2/userinfo",
+                BASE_URL + "/oauth2/userinfo",
             clientID:
-                process.env.ASGARDEO_CLIENT_ID,
+                process.env.CLIENT_ID,
             clientSecret:
-                process.env.ASGARDEO_CLIENT_SECRET,
+                process.env.CLIENT_SECRET,
             callbackURL:
                 "/oauth2/redirect",
             scope:
@@ -178,7 +166,7 @@ passport.use(
 
 ## Add login and logout link to your app
 
-Modify the `views/index.ejs` file with the following code to show the login and logout buttons. 
+Modify the `views/index.ejs` file with the following code to show the login and logout buttons.
 
 ```html title="views/index.ejs" hl_lines="10-22"
 
@@ -209,7 +197,7 @@ Modify the `views/index.ejs` file with the following code to show the login and 
 
 ```
 
-Next, modify the `routes/index.js` file to pass the user object to the view. 
+Next, modify the `routes/index.js` file to pass the user object to the view.
 
 ```javascript title="routes/index.js" hl_lines="6"
 
@@ -225,9 +213,9 @@ module.exports = router;
 
 ```
 
-Update the `routes/auth.js` file by adding following code at the end. This code creates two routes to handle login and request and response, and also configure Passport to manage the login session by adding serializeUser and deserializeUser functions. 
+Update the `routes/auth.js` file by adding following code at the end. This code creates two routes to handle login and request and response, and also configure Passport to manage the login session by adding serializeUser and deserializeUser functions.
 
-```javascript title="routes/auth.js" 
+```javascript title="routes/auth.js"
 
 passport.serializeUser(function (user, cb) {
     process.nextTick(function () {
@@ -267,11 +255,10 @@ router.post("/logout", function (req, res, next) {
         }
         var params = {
             post_logout_redirect_uri: "http://localhost:3000/",
-            client_id: process.env.ASGARDEO_CLIENT_ID,
+            client_id: process.env.CLIENT_ID,
         };
         res.redirect(
-            ASGARDEO_BASE_URL +
-            process.env.ASGARDEO_ORGANISATION +
+            BASE_URL +
             "/oidc/logout?" +
             qs.stringify(params)
         );
@@ -282,8 +269,7 @@ module.exports = router;
 
 ```
 
-
-Finally, add these routes to our app by modifying the `app.js` file with the following highlighted code. This code defines a new auth router and add it to the app, and also configure session support for the app. 
+Finally, add these routes to our app by modifying the `app.js` file with the following highlighted code. This code defines a new auth router and add it to the app, and also configure session support for the app.
 
 ```javascript title="app.js"  hl_lines="7 8 12 25-32 36"
 
@@ -346,8 +332,7 @@ module.exports = app;
 
 ```
 
-
-Visit your app's homepage at [http://localhost:3000](http://localhost:3000){:target="_blank"} 
+Visit your app's homepage at [http://localhost:3000](http://localhost:3000){:target="_blank"}
 
 !!! Important
 
