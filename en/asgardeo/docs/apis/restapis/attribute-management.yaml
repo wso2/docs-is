@@ -50,7 +50,7 @@ paths:
       - name: profile
         in: query
         description: |
-          The claims belongs to given profile. This is used to filter claims based on the profile.
+          The claims belong to the given profile. This is used to filter claims based on the profile.
           <br>Available profiles:
           <ul>
             <li>console</li>
@@ -1489,31 +1489,6 @@ components:
         object.
       schema:
         type: string
-    excludeIdentityClaimsQueryParam:
-      in: query
-      name: exclude-identity-claims
-      required: false
-      type: boolean
-      description: Exclude identity claims when listing local claims.
-    excludeHiddenClaimsQueryParam:
-      in: query
-      name: exclude-hidden-claims
-      required: false
-      type: boolean
-      description: Exclude hidden claims when listing local claims.
-    profileQueryParam:
-      in: query
-      name: profile
-      required: false
-      type: string
-      description: |
-        The claims belongs to given profile. This is used to filter claims based on the profile.
-        <br>Available profiles:
-        <ul>
-          <li>console</li>
-          <li>endUser</li>
-          <li>selfRegistration</li>
-        </ul>
     dialectIdPathParam:
       name: dialect-id
       in: path

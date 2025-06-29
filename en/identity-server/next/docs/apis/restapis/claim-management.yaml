@@ -57,7 +57,7 @@ paths:
       - name: profile
         in: query
         description: |
-          The claims belongs to given profile. This is used to filter claims based on the profile.
+          The claims belong to the given profile. This is used to filter claims based on the profile.
           <br>Available profiles:
           <ul>
             <li>console</li>
