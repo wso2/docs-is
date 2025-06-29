@@ -7,7 +7,7 @@
 Next, complete the wizard popup by providing a suitable name and following authorized redirect URLs. Keep OpenID Connect selected as the protocol.
 
 !!! Example
-    **name:** wso2-nodejs
+    **name:** {{product}}-nodejs
 
     **Authorized redirect URLs:** http://localhost:3000/oauth2/redirect,http://localhost:3000
 
