@@ -58,7 +58,7 @@ Follow the steps below to encrypt passwords:
     keystore_password = "xxxxxxx"
     key_password = "xxxxxxx"
     truststrore_password = "xxxxxxx"
-    "log4j2_password" = "xxxxxxx"
+    log4j2_password = "xxxxxxx"
     ```
 
 {% else %}
@@ -89,7 +89,7 @@ To encrypt passwords on the WSO2 Identity Server:
     keystore_password = "xxxxxxx"
     key_password = "xxxxxxx"
     truststrore_password = "xxxxxxx"
-    "log4j2_password" = "xxxxxxx"
+    log4j2_password = "xxxxxxx"
     ```
 
 {% endif %}
@@ -124,7 +124,7 @@ password = "$secret{keystore_password}"
 You may include encrypted passwords in the `log4j2.properties` file found in the `<IS_HOME>/repository/conf` directory. For example, you may set `log4j.appender.LOGEVENT.password` as shown below:
 
 ```
-log4j.appender.LOGEVENT.password=secretAlias:log4j2_password
+log4j.appender.LOGEVENT.password=$secret{log4j2_password}
 ```
 
 ## Change encrypted passwords
