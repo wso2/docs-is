@@ -1143,18 +1143,18 @@ nav:
           - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
           - Accessing protected API: complete-guides/nodejs/accessing-protected-api.md
           - Next Steps: complete-guides/nodejs/next-steps.md
-      - .NET:
-          - Introduction: complete-guides/dotnet/introduction.md
-          - Prerequisites: complete-guides/dotnet/prerequisites.md
-          - Register an application: complete-guides/dotnet/register-an-application.md
-          - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
-          - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
-          - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
-          - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
-          - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
-          - Accessing protected API: complete-guides/dotnet/protected-api.md
-          - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
-          - Next Steps: complete-guides/dotnet/next-steps.md
+  - .NET:
+      - Introduction: complete-guides/dotnet/introduction.md
+      - Prerequisites: complete-guides/dotnet/prerequisites.md
+      - Register an application: complete-guides/dotnet/register-an-application.md
+      - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
+      - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
+      - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
+      - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
+      - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
+      - Accessing protected API: complete-guides/dotnet/protected-api.md
+      - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
+      - Next Steps: complete-guides/dotnet/next-steps.md
   - Best Practice Guides:
       - Frontend Security:
           - Introduction: complete-guides/fesecurity/introduction.md

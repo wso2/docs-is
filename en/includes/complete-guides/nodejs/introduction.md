@@ -27,6 +27,3 @@ In this guide, you will:
     This guide takes approximately 60 minutes to complete and covers everything required to add user login and secure your Node.js apps.
 
 
-!!! tip "Tip"
-    
-    If you are already familiar with the concepts discussed in the guide, you can clone the sample Node.js application configured with {{product_name}} from the [repository](https://github.com/pabasara-mahindapala/passport-asgardeo-sample). All you need to do is registering a **Traditional Web Application** in {{product_name}} and updating the environment variables in the `.env` file as explained in the **README.md** file.
