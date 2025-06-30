@@ -11,19 +11,19 @@ Welcome to the Angular Quickstart guide! In this document, you will learn to bui
 
 !!! Example
     **name:** {{ product }}-angular
-    
+
     **Authorized redirect URL:** http://localhost:4200
 
 Note down the following values from the **Protocol** and the **Info** tabs of the registered application. You will need them to configure the SDK.
 
-- **`client-id`** from the **Protocol** tab. 
-- **`issuer`** from the **Info** tab. 
+- **`client-id`** from the **Protocol** tab.
+- **`issuer`** from the **Info** tab.
 
 !!! Info
 
     The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:4200`, as the sample app will be accessible at this URL.
 
-## Create an Angular app 
+## Create an Angular app
 
 Create an Angular app using Angular CLI.
 
@@ -33,7 +33,7 @@ ng new {{ product }}-angular
 
 !!! tip "Tip"
     To run the command above, you need to have Angular CLI installed. You can install it using the following command.
-    
+
     === "npm"
 
         ``` bash
@@ -53,31 +53,31 @@ ng new {{ product }}-angular
 
 ## Install angular-oauth2-oidc
 
-The [Angular OAuth2 OIDC SDK](https://www.npmjs.com/package/angular-oauth2-oidc){:target="_blank"} is a production-ready OIDC SDK that simplifies integrating {{product_name}} into your Angular applications. To get started, simply add the Angular OAuth2 OIDC SDK to the project. Make sure to stop the dev server started in the previous step. 
+The [Angular OAuth2 OIDC SDK](https://www.npmjs.com/package/angular-oauth2-oidc){:target="_blank"} is a production-ready OIDC SDK that simplifies integrating {{product_name}} into your Angular applications. To get started, simply add the Angular OAuth2 OIDC SDK to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
     ``` bash
-    npm install angular-oauth2-oidc
+    npm install angular-oauth2-oidc@17
     ```
 
 === "yarn"
 
     ``` bash
-    yarn add angular-oauth2-oidc
+    yarn add angular-oauth2-oidc@17
     ```
 
 === "pnpm"
 
     ``` bash
-    pnpm add angular-oauth2-oidc
+    pnpm add angular-oauth2-oidc@17
     ```
 
 ## Configure `AuthConfig` in your app
 
-The `AuthConfig` object holds the configuration necessary for connecting your app to {{product_name}}. 
+The `AuthConfig` object holds the configuration necessary for connecting your app to {{product_name}}.
 
-Replace the content of `app.config.ts` file with the following code. 
+Replace the content of `app.config.ts` file with the following code.
 
 !!! Important
 
@@ -134,7 +134,7 @@ export const appConfig: ApplicationConfig = {
 
 Angular uses services to access authentication data, and you can inject the `OAuthService` into your components to manage user authentication.
 
-The `OAuthService` provides methods for logging in and out, checking the authentication status, and retrieving access tokens. 
+The `OAuthService` provides methods for logging in and out, checking the authentication status, and retrieving access tokens.
 
 Replace the existing content of the `app.component.ts` file with following content.
 
@@ -174,12 +174,18 @@ export class AppComponent {
 
 Next, replace the existing content of the `app.component.html` file with following content to add login and logout URLs.  
 
-```html title="app.component.html" 
+```html title="app.component.html"
 
 <button *ngIf="!isAuthorized" (click)="login()">Login</button>
 
 <button *ngIf="isAuthorized" (click)="logout()">Logout</button>
 
+```
+
+Then run the sample in the development mode. This allows you to see real-time updates and debug the app as you make changes.
+
+```bash
+ng serve
 ```
 
 Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
@@ -192,8 +198,7 @@ Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
 
 Modified the code as below to see logged in user details.
 
-
-Add the `username()` function to the `app.component.ts` file to access the username attribute. 
+Add the `username()` function to the `app.component.ts` file to access the username attribute.
 
 ```javascript title="app.component.ts" hl_lines="3-6"
 
@@ -207,7 +212,7 @@ Add the `username()` function to the `app.component.ts` file to access the usern
 
 ```
 
-Modify the `app.component.html` file with the following code. 
+Modify the `app.component.html` file with the following code.
 
 ```html title="app.component.html" hl_lines="2"
 

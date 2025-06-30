@@ -1,5 +1,4 @@
 
-
 The information that was noted in step 3 can now be utilized in the created .NET application.
 
 For the purpose of this guide, these properties will be added to the `/Properties/launchSettings.json` file. You can, however, use any other configuration source according to your preference. The following are the properties that you need to configure.
@@ -27,25 +26,25 @@ An example configuration is shown below (placeholders have to be replaced with t
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "AUTHORIZATION_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/authorize",
-        "TOKEN_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/token",
-        "JWKS_URI": "https://api.asgardeo.io/t/<org>/oauth2/jwks",
-        "LOGOUT_URI": "https://api.asgardeo.io/t/<org>/oidc/logout",
-        "AUTHORITY": "https://api.asgardeo.io/t/<org>/",
+        "AUTHORIZATION_ENDPOINT": "{{content.sdkconfig.baseUrl}}/oauth2/authorize",
+        "TOKEN_ENDPOINT": "{{content.sdkconfig.baseUrl}}/oauth2/token",
+        "JWKS_URI": "{{content.sdkconfig.baseUrl}}/oauth2/jwks",
+        "LOGOUT_URI": "{{content.sdkconfig.baseUrl}}/oidc/logout",
+        "AUTHORITY": "{{content.sdkconfig.baseUrl}}",
         "CLIENT_ID": "<client_id>",
         "CLIENT_SECRET": "<client_secret>",
-        "METADATA_ADDRESS": "https://api.asgardeo.io/t/<org>/oauth2/token/.well-known/openid-configuration"
+        "METADATA_ADDRESS": "{{content.sdkconfig.baseUrl}}/oauth2/token/.well-known/openid-configuration"
       }
     },
   }
 }
 ```
 
-## Add authentication package 
+## Add authentication package
 
-As the next step we have to add `Microsoft.AspNetCore.Authentication.OpenIdConnect` package to our application. This package allows your .NET app to authenticate users using an OIDC identity providers such as Asgardeo and WSO2 Identity Server and also manage authentication tokens. 
+As the next step we have to add `Microsoft.AspNetCore.Authentication.OpenIdConnect` package to our application. This package allows your .NET app to authenticate users using an OIDC identity providers such as Asgardeo and WSO2 Identity Server and also manage authentication tokens.
 
-When adding `Microsoft.AspNetCore.Authentication.OpenIdConnect` package, make sure to pick the right version as per your .Net SDK installation. 
+When adding `Microsoft.AspNetCore.Authentication.OpenIdConnect` package, make sure to pick the right version as per your .Net SDK installation.
 
 === ".Net 8 SDK "
 

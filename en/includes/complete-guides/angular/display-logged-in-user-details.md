@@ -1,10 +1,9 @@
 
-
 At this point, we’ve successfully implemented login and logout capabilities by integrating your Angular app with {{product_name}}. The next step is to access and display the logged-in user details within the application. The SDK provides a way to retrieve the authenticated user’s basic information.
 
-To do this, you can leverage the `getIdentityClaims` method to fetch the user’s profile information. The following code example demonstrates how to access and display the user's profile information in your Angular component. 
+To do this, you can leverage the `getIdentityClaims` method to fetch the user’s profile information. The following code example demonstrates how to access and display the user's profile information in your Angular component.
 
-Add the `username()` function to the `app.component.ts` file to access the username attribute. 
+Add the `username()` function to the `app.component.ts` file to access the username attribute.
 
 ```javascript title="app.component.ts"
 
@@ -18,8 +17,7 @@ Add the `username()` function to the `app.component.ts` file to access the usern
 
 ```
 
-
-Next, modify the `app.component.html` file with the following code. 
+Next, modify the `app.component.html` file with the following code.
 
 ```html title="app.component.html" hl_lines="2"
 
@@ -29,19 +27,18 @@ Next, modify the `app.component.html` file with the following code.
 
 ```
 
-
 ## Getting additional user attributes
 
-In the above code, we have rendered only the username of the logged-in user. Similarly, you can access other user attributes, such as given_name and and country. The following code snippet illustrates how to access these attributes in your app. The Angular OAuth2 OIDC SDK is responsible for processing the ID token and decoding these attributes. 
+In the above code, we have rendered only the username of the logged-in user. Similarly, you can access other user attributes, such as given_name and country. The following code snippet illustrates how to access these attributes in your app. The Angular OAuth2 OIDC SDK is responsible for processing the ID token and decoding these attributes.
 
 1. Log in to the {{product_name}} console and select the application you created.
 2. Go to the **User Attributes** tab.
 3. Select the **given_name** attribute.
 4. Click Update to save the changes.
 
-Add the `username()` function to the `app.component.ts` file to access the username attribute. 
+Add the `givenName()` function to the `app.component.ts` file to access the username attribute.
 
-```javascript title="app.component.ts" hl_lines="7-11" 
+```javascript title="app.component.ts" hl_lines="7-11"
   get username() {
     var claims = this.oAuthService.getIdentityClaims();
     if (!claims) return null;
@@ -56,8 +53,7 @@ Add the `username()` function to the `app.component.ts` file to access the usern
 
 ```
 
-
-Now, we can display the given_name attribute by modify the `app.component.html` file with the following code. 
+Now, we can display the given_name attribute by modify the `app.component.html` file with the following code.
 
 ```html title="app.component.html" hl_lines="3"
 
@@ -68,5 +64,10 @@ Now, we can display the given_name attribute by modify the `app.component.html` 
 
 ```
 
+To get the first name and last name, we need to configure the {{product_name}} application to include these attributes in the id token when we request the profile scope.
+
+Let's login to the {{product_name}} console and go to the application settings of the application you created. Then go to the User Attributes tab and update the application after checking the **First Name (given_name)** and **Last Name (family_name)** under the **Profile** scope. This will tell {{product_name}} to send the checked attributes under the profile OIDC scope.
+
+![Configure user attributes]({{base_path}}/assets/img/complete-guides/nodejs/image13.png){: width="800" style="display: block; margin: 0;"}
 
 In this step, we further improved our Angular app to display the user attributes. As the next step, we will try to secure routes within the app.
