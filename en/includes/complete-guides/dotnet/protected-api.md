@@ -1,5 +1,4 @@
 
-
 In this section, we'll focus on how to securely call an API from your .NET Blazor Web application.
 
 Previously, we've covered the essential steps for implementing user login and managing authentication in your .NET Blazor app. To recap, during the user login process, your authentication service provides both an ID token and an access token. So far, you've likely been using the ID token to establish the logged-in user's context, ensuring secure access to protected routes. Now, we'll shift our focus to the access token, which is critical for making authenticated API calls in your application.
@@ -32,15 +31,15 @@ To access this endpoint, define it under `environmentVariables` in the `Properti
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "AUTHORIZATION_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/authorize",
-        "TOKEN_ENDPOINT": "https://api.asgardeo.io/t/<org>/oauth2/token",
-        "JWKS_URI": "https://api.asgardeo.io/t/<org>/oauth2/jwks",
-        "LOGOUT_URI": "https://api.asgardeo.io/t/<org>/oidc/logout",
-        "AUTHORITY": "https://api.asgardeo.io/t/<org>/",
+        "AUTHORIZATION_ENDPOINT": "{{content.sdkconfig.baseUrl}}/oauth2/authorize",
+        "TOKEN_ENDPOINT": "{{content.sdkconfig.baseUrl}}/oauth2/token",
+        "JWKS_URI": "{{content.sdkconfig.baseUrl}}/oauth2/jwks",
+        "LOGOUT_URI": "{{content.sdkconfig.baseUrl}}/oidc/logout",
+        "AUTHORITY": "{{content.sdkconfig.baseUrl}}",
         "CLIENT_ID": "<client_id>",
         "CLIENT_SECRET": "<client_secret>",
-        "METADATA_ADDRESS": "https://api.asgardeo.io/t/<org>/oauth2/token/.well-known/openid-configuration"
-        "SCIM2_ME_ENDPOINT": "https://api.asgardeo.io/t/<org>/scim2/Me"
+        "METADATA_ADDRESS": "{{content.sdkconfig.baseUrl}}/oauth2/token/.well-known/openid-configuration"
+        "SCIM2_ME_ENDPOINT": "{{content.sdkconfig.baseUrl}}/scim2/Me"
       }
     },
   }
@@ -283,7 +282,7 @@ Additionally, we need to navigate to the `Components/Layout/NavMenu.razor` file 
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">asgardeo-dotnet</a>
+        <a class="navbar-brand" href="">wso2-dotnet</a>
     </div>
 </div>
 

@@ -1,5 +1,4 @@
 
-
 ## Displaying User Information
 
 In this guide, we will display user information in two different places:
@@ -17,7 +16,6 @@ At the current state of the application, the user's name is not displayed on the
 4. Click **Update** to save the changes.
 
 ![User Attributes]({{base_path}}/assets/img/complete-guides/dotnet/image9.png){: width="800" style="display: block; margin: 0;"}
-
 
 Now that we have updated the application, we can navigate to the `Home.razor` file under the `/Components/Pages` directory and add the following code.
 
@@ -170,7 +168,7 @@ Let's now add a navigation link to the `UserClaims` page in the `NavMenu.razor` 
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">asgardeo-dotnet</a>
+        <a class="navbar-brand" href="">wso2-dotnet</a>
     </div>
 </div>
 
@@ -195,7 +193,6 @@ Let's now add a navigation link to the `UserClaims` page in the `NavMenu.razor` 
 </div>
 
 ```
-
 
 In the above code, we have used the `AuthorizeView` component to conditionally display UI elements based on the user's authentication and authorization state. This can be used to control access to specific sections of your Blazor UI. In this case, we want to protect the User Claims page.
 
