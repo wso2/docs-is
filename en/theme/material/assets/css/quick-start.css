@@ -170,3 +170,73 @@ ul.tick-list > li:before {
         display: block;
     }
 }
+
+/* Mode selection styles */
+
+.mode-selection-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.mode-selection-container .mode-selection-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: 2px solid var(--md-default-fg-color--light);
+    color: var(--md-default-fg-color--light);
+    border-radius: var(--md-border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.mode-selection-container .mode-selection-btn:hover {
+    border-color: var(--md-primary-fg-color);
+    background: rgba(var(--md-primary-fg-color-rgb), 0.05);
+    color: var(--md-default-fg-color--light);
+}
+
+.mode-selection-container .mode-selection-btn.active {
+    border-color: var(--md-primary-fg-color);
+    background: rgba(var(--md-primary-fg-color-rgb), 0.1);
+    color: var(--md-primary-fg-color);
+}
+
+.mode-selection-container .mode-selection-btn .mode-radio {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--md-primary-fg-color);
+    transform: scale(1.2);
+}
+
+.mode-selection-container .mode-selection-btn.radio-circle {
+    display: none;
+}
+
+/* Dark mode adjustments for buttons */
+[data-md-color-scheme="slate"] .mode-selection-btn {
+    color: var(--md-default-fg-color);
+    border-color: var(--md-default-fg-color--lightest);
+}
+
+[data-md_color-scheme="slate"] .mode-selection-btn:hover {
+    background-color: rgba(82, 108, 254, 0.1);
+    border-color: var(--md-primary-fg-color);
+}
+
+[data-md_color-scheme="slate"] .mode-selection-btn.active {
+    background-color: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+    border-color: var(--md-primary-fg-color);
+}
+
+[data-md_color-scheme="slate"] .mode-selection-container .mode-selection-btn .mode-radio {
+    accent-color: var(--md-primary-fg-color);
+}

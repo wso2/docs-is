@@ -142,128 +142,381 @@
     let updatedContent = [];
     let sectionCount = 0; // Counter for unique IDs
     
-    // Function to wrap an element
     function wrapElement(targetElements, wrapperElement) {
-        // Move all target elements inside the wrapper
         targetElements.forEach(item => wrapperElement.appendChild(item));
     }
     
-    // Loop through sibling elements
     while (currentElement && currentElement !== stepContentEnd) {
-      // Store the current element in the array
       siblings.push(currentElement);
       
-      // Store the next sibling before removing the current one
       const nextElement = currentElement.nextElementSibling;
       
-      // Remove the current element from the DOM
       currentElement.remove();
       
-      // Move to the next element
       currentElement = nextElement;
     }
     
-    // Process siblings to wrap them and prepend numbers to H2 tags
     siblings.forEach(function(element) {
       if (element.nodeName === 'SCRIPT') {
-          // Skip SCRIPT tag
           return;
       }
 
       if (element.nodeName === 'H2') {
-          // Increment section count
-          sectionCount++; 
-  
-          // Create a span for the section number
-          const span = document.createElement('span');
-          span.textContent = sectionCount; // Set the text content to the section number
-          span.className = 'step-number';
-          
-          // Prepend the span to the H2 element
-          element.insertAdjacentElement('afterbegin', span);
+          const headingText = element.textContent || element.innerText;
+          const showIfMatch = headingText.match(/\[\/\/\] SHOW_IF="([^"]+)"/);
           
           if (newSection.length > 0) {
-              // Create a wrapper for the current section
               const wrapper = document.createElement('div');
               
-              // Assign a unique ID and class to the wrapper
-              wrapper.id = `step-${sectionCount-1}`;
-              wrapper.className = 'step'; // Add your class here
+              wrapper.id = `step-${sectionCount}`;
+              wrapper.setAttribute('data-step', 'true');
+              wrapper.setAttribute('data-step-id', sectionCount);
+              wrapper.className = 'step';
+              
+              const conditionalElement = newSection.find(el => el.getAttribute && el.getAttribute('data-pending-show-if'));
+              if (conditionalElement) {
+                  const conditions = conditionalElement.getAttribute('data-pending-show-if');
+                  wrapper.setAttribute('data-show-if', conditions);
+                  conditionalElement.removeAttribute('data-pending-show-if');
+              }
   
-              // Wrap the newSection elements
               wrapElement(newSection, wrapper);
   
-              // Store the wrapped element
               updatedContent.push(wrapper);
   
-              // Clear the newSection for the next group
               newSection = [];
           }
+          
+          sectionCount++; 
+  
+          const span = document.createElement('span');
+          span.textContent = sectionCount;
+          span.setAttribute('data-step-number', 'true');
+          span.className = 'step-number';
+          
+          if (showIfMatch) {
+              element.setAttribute('data-pending-show-if', showIfMatch[1]);
+          }
+          
+          element.insertAdjacentElement('afterbegin', span);
       }
   
-      // Add the current element to the new section
       newSection.push(element);
     });
     
-    // Handle any remaining elements after the last H2
     if (newSection.length > 0) {
-      sectionCount++; // Increment section count for the last group
       const wrapper = document.createElement('div');
       
-      // Assign a unique ID and class to the wrapper
-      wrapper.id = `step-${sectionCount-1}`;
+      wrapper.id = `step-${sectionCount}`;
+      wrapper.setAttribute('data-step', 'true');
+      wrapper.setAttribute('data-step-id', sectionCount);
       wrapper.className = 'step';
+      
+      const conditionalElement = newSection.find(el => el.getAttribute && el.getAttribute('data-pending-show-if'));
+      if (conditionalElement) {
+          const conditions = conditionalElement.getAttribute('data-pending-show-if');
+          wrapper.setAttribute('data-show-if', conditions);
+          conditionalElement.removeAttribute('data-pending-show-if');
+      }
   
-      // Wrap the remaining elements
       wrapElement(newSection, wrapper);
       updatedContent.push(wrapper);
     }
 
     const sectionsWrapper = document.createElement('div');
                 
-    // Assign a unique ID and class to the wrapper
     sectionsWrapper.id = "steps-section";
-    sectionsWrapper.className = 'steps-section'; // Add your class here
+    sectionsWrapper.className = 'steps-section';
 
     stepContentStart.insertAdjacentElement('afterend', sectionsWrapper);
     
-    // Insert the new elements after the stepContentStart element
     updatedContent.forEach(content => {
       sectionsWrapper.appendChild(content);
     });
 
-    // Add "What's Next?" section
     stepContentEnd.insertAdjacentHTML("afterend", renderWhatsNext(meta));
-    // Add summary box section
     stepContentStart.insertAdjacentHTML("afterend", renderSummaryBox(meta));
 
-    // Remove the original STEPS_START and STEPS_END markers
     stepContentStart.remove();
     stepContentEnd.remove();
+    
+    function cleanupConditionalMarkers() {
+      const allSteps = document.querySelectorAll('[data-step]');
+      allSteps.forEach(step => {
+        const heading = step.querySelector('h2');
+        if (heading && step.getAttribute('data-show-if')) {
+          const headingText = heading.textContent || heading.innerText;
+          if (headingText.includes('[//] SHOW_IF=')) {
+            const stepNumberSpan = heading.querySelector('[data-step-number]');
+            const cleanHeading = headingText
+              .replace(/\s*\[\/\/\] SHOW_IF="[^"]+"\s*/, '')
+              .replace(/¶/g, '')
+              .replace(/^\d+/, '')
+              .trim();
+            
+            const currentId = heading.id;
+            const cleanId = currentId.replace(/-show_if[^-]*$/i, '').replace(/-show_if.*$/, '');
+            heading.id = cleanId;
+            
+            heading.innerHTML = '';
+            if (stepNumberSpan) {
+              heading.appendChild(stepNumberSpan);
+            }
+            
+            const textNode = document.createTextNode(cleanHeading);
+            heading.appendChild(textNode);
+            
+            const permalink = document.createElement('a');
+            permalink.className = 'headerlink';
+            permalink.href = '#' + cleanId;
+            permalink.title = 'Permanent link';
+            permalink.innerHTML = '¶';
+            heading.appendChild(permalink);
+          }
+        }
+      });
+    }
+    
+    cleanupConditionalMarkers();
+
+    /**
+      * Handle conditional step rendering based on selection buttons
+      */
+    function handleConditionalSteps() {
+      // Find all selection containers using data attribute
+      const selectionContainers = document.querySelectorAll('[data-selection-group]');
+      
+      selectionContainers.forEach(container => {
+        const groupType = container.getAttribute('data-selection-group');
+        const selectionButtons = container.querySelectorAll(`[data-${groupType}]`);
+        
+        if (selectionButtons.length > 0) {
+          const dataAttributeType = `data-${groupType}`;
+          
+          hideAllConditionalSteps();
+
+          selectionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              const selectedValue = this.getAttribute(dataAttributeType);
+              const stepToNavigate = this.getAttribute('data-next-step');
+              
+              selectionButtons.forEach(btn => {
+                btn.removeAttribute('data-active');
+                btn.classList.remove('active');
+                const radio = btn.querySelector('[data-selection-radio]');
+                if (radio) radio.checked = false;
+              });
+              
+              this.setAttribute('data-active', 'true');
+              this.classList.add('active');
+              const thisRadio = this.querySelector('[data-selection-radio]');
+              if (thisRadio) thisRadio.checked = true;
+              
+              handleDynamicContentVisibility(dataAttributeType, selectedValue);
+              
+              hideAllConditionalSteps();
+              
+              const conditionToPass = `${dataAttributeType}=${selectedValue}`;
+              showStepsForSelection(conditionToPass);
+              
+              updateStepNumbering();
+            });
+          });
+
+          const radios = container.querySelectorAll('[data-selection-radio]');
+          radios.forEach(radio => {
+            radio.addEventListener('change', function() {
+              if (this.checked) {
+                const parentButton = this.closest(`[data-${groupType}]`);
+                if (parentButton) {
+                  parentButton.click();
+                }
+              }
+            });
+          });
+
+          const defaultButton = container.querySelector('[data-default="true"]') || selectionButtons[0];
+          if (defaultButton) {
+            setTimeout(() => {
+              defaultButton.click();
+            }, 100);
+          }
+        }
+      });
+    }
+
+    /**
+     * Handle dynamic content visibility based on selection
+     */
+    function handleDynamicContentVisibility(dataAttributeType, selectedValue) {
+      const dataBasedElements = document.querySelectorAll(`[data-content-for]`);
+      dataBasedElements.forEach(element => {
+        const contentFor = element.getAttribute('data-content-for');
+        const contentValue = element.getAttribute('data-content-value');
+        
+        if (dataAttributeType === `data-${contentFor}`) {
+          if (contentValue === selectedValue) {
+            element.style.display = 'block';
+          } else {
+            element.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    /**
+     * Hide all conditional steps
+     */
+    function hideAllConditionalSteps() {
+      const allSteps = document.querySelectorAll('[data-step]');
+      
+      allSteps.forEach(step => {
+        const hasConditions = step.getAttribute('data-show-if');
+        
+        if (hasConditions) {
+          step.style.display = 'none';
+        }
+      });
+    }
+
+    /**
+     * Show steps that match the selected value
+     */
+    function showStepsForSelection(selectedCondition) {
+      const allSteps = document.querySelectorAll('[data-step]');
+      
+      allSteps.forEach(step => {
+        const conditions = step.getAttribute('data-show-if');
+        
+        if (conditions) {
+          const conditionList = conditions.split(',').map(c => c.trim());
+          
+          if (conditionList.includes(selectedCondition)) {
+            step.style.display = 'block';
+          } else {
+            step.style.display = 'none';
+          }
+        } else {
+          step.style.display = 'block';
+        }
+      });
+    }
+
+    /**
+     * Update step numbering after conditional content is shown/hidden
+     */
+    function updateStepNumbering() {
+      const allSteps = document.querySelectorAll('[data-step]');
+      const visibleSteps = Array.from(allSteps).filter(step => {
+        return step.style.display !== 'none';
+      });
+      
+      visibleSteps.forEach((step, index) => {
+        const stepNumber = step.querySelector('[data-step-number]');
+        if (stepNumber) {
+          stepNumber.textContent = index + 1;
+        }
+      });
+      
+      updateTOCForVisibleSteps(visibleSteps);
+    }
+
+    /**
+     * Update TOC to show only visible steps
+     */
+    function updateTOCForVisibleSteps(visibleSteps) {
+      const tocLinks = document.querySelectorAll('.md-sidebar--secondary [data-md-component="toc"] a');
+      let visibleStepIndex = 1;
+      
+      tocLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const linkText = link.textContent || link.innerText;
+          let conditions = link.getAttribute('data-toc-conditions');
+          
+          if (!conditions) {
+            const showIfMatch = linkText.match(/\[\/\/\] SHOW_IF="([^"]+)"/);
+            if (showIfMatch) {
+              conditions = showIfMatch[1];
+              link.setAttribute('data-toc-conditions', conditions);
+              
+              const cleanText = linkText.replace(/\s*\[\/\/\] SHOW_IF="[^"]+"\s*/, '');
+              const textNodes = Array.from(link.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+              textNodes.forEach(textNode => {
+                const nodeText = textNode.textContent;
+                const cleanNodeText = nodeText.replace(/\s*\[\/\/\] SHOW_IF="[^"]+"\s*/, '');
+                if (nodeText !== cleanNodeText) {
+                  textNode.textContent = cleanNodeText;
+                }
+              });
+            }
+          }
+          
+          let isVisible = true;
+          
+          if (conditions) {
+            const conditionList = conditions.split(',').map(c => c.trim());
+            
+            const activeButtons = document.querySelectorAll('[data-active="true"], .selection-btn.active, .mode-selection-btn.active');
+            let currentSelection = 'data-quickstart-mode=default';
+            
+            if (activeButtons.length > 0) {
+              const activeButton = activeButtons[0];
+              const dataAttributes = Array.from(activeButton.attributes)
+                .filter(attr => attr.name.startsWith('data-') && attr.name !== 'data-show-if' && attr.name !== 'data-active');
+              
+              if (dataAttributes.length > 0) {
+                const dataAttr = dataAttributes[0];
+                currentSelection = `${dataAttr.name}=${dataAttr.value}`;
+              }
+            }
+            
+            isVisible = conditionList.includes(currentSelection);
+          }
+          
+          if (isVisible) {
+            const tocStepNumber = link.querySelector('[data-toc-step-number]');
+            if (tocStepNumber) {
+              tocStepNumber.textContent = visibleStepIndex;
+              visibleStepIndex++;
+            }
+            
+            link.style.display = '';
+            link.parentElement.style.display = '';
+          } else {
+            link.style.display = 'none';
+            link.parentElement.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    handleConditionalSteps();
     
   </script>
   <script>
 
     const toc = document.querySelector('.md-sidebar--secondary [data-md-component="toc"]');
 
-    // Initialize the section count
     let sectionCountw = 1;
 
-    // Loop through each child element
     Array.from(toc.children).forEach(child => {
-        // Find the 'a' tag within the child element
         const link = child.querySelector('a');
 
         if (link) {
-            // Create a span for the section number
+            const href = link.getAttribute('href');
+            if (href && href.includes('show_if')) {
+                const cleanHref = href.replace(/-show_if[^-#]*$/i, '').replace(/-show_if[^#]*/, '');
+                link.setAttribute('href', cleanHref);
+            }
+            
             const span = document.createElement('span');
-            span.textContent = sectionCountw; // Set the text content to the section number
-            span.className = 'toc-step-number';  // Assign a class for styling if needed
+            span.textContent = sectionCountw;
+            span.setAttribute('data-toc-step-number', 'true');
+            span.className = 'toc-step-number';
 
-            // Prepend the span to the 'a' tag
             link.prepend(span);
 
-            // Increment the section count for the next child
             sectionCountw++;
         }
     });
