@@ -79,7 +79,7 @@ Asgardeo Next.js SDK provides all the components and hooks you need to integrate
 Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the Asgardeo Next.js SDK to function properly.
 
 
-```bash title=".env.local"
+```bash title=".env"
 NEXT_PUBLIC_ASGARDEO_BASE_URL="https://api.asgardeo.io/t/<your-org-name>"
 NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
 ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
@@ -160,14 +160,14 @@ import {SignInButton, SignedIn, SignOutButton, SignedOut} from '@asgardeo/nextjs
 
 export default function Home() {
   return (
-    <>
+    <header>
       <SignedOut>
         <SignInButton />
       </SignedOut>
       <SignedIn>
         <SignOutButton />
       </SignedIn>
-    </>
+    </header>
   );
 }
 ```
@@ -181,7 +181,9 @@ The SDK provides several ways to access the signed-in user's profile information
 - `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
 
 ```javascript title="app/page.tsx" hl_lines="1 8 17-24"
-import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserProfile } from '@asgardeo/nextjs';
+'use client'
+
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserDropdown, UserProfile } from '@asgardeo/nextjs';
 
 export default function Home() {
   return (
@@ -200,11 +202,11 @@ export default function Home() {
           <User>
             {(user) => (
               <div>
-                <p>Welcome back, {user.username}</p>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
               </div>
             )}
           </User>
-          <UserProfile
+          <UserProfile />
         </SignedIn>
       </main>
     </>
