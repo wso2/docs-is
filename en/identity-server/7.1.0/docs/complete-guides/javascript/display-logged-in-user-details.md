@@ -4,4 +4,4 @@ heading: Display logged-in user details
 read_time: 2 min
 ---
 
-{% include "../../../../includes/complete-guides/javascript/display-logged-in-user-details.md" %}
+{% include "../../../../../includes/complete-guides/javascript/display-logged-in-user-details.md" %}
