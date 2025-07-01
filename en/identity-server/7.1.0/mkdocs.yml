@@ -1154,7 +1154,7 @@ nav:
           - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
           - Accessing protected API: complete-guides/dotnet/protected-api.md
           - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
-        - Next Steps: complete-guides/dotnet/next-steps.md
+          - Next Steps: complete-guides/dotnet/next-steps.md
   - Best Practice Guides:
       - Frontend Security:
           - Introduction: complete-guides/fesecurity/introduction.md
