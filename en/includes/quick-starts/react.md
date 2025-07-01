@@ -177,7 +177,7 @@ function App() {
 export default App
 ```
 
-## Run the app [//] SHOW_IF="data-quickstart=redirect,data-quickstart=embedded"
+## Run the app
 
 To run the app, use the following command:
 
