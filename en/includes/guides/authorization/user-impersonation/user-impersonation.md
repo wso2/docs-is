@@ -71,7 +71,7 @@ Sub organization administrators also impersonate users within their organization
 
     !!! note "Limitations"
         Sub organization impersonation doesn't support the following use cases.
-        
+
         - Invited parent org user impersonating a sub organization user.
         - Sub organization user impersonating a invited parent org user.
 
