@@ -6,15 +6,15 @@ Welcome to the React Quickstart guide! In this document, you will learn to build
 
 ## Configure an Application in {{ product_name }}
 
-- Sign into {{ product_name }} console and navigate to **Applications > New Application**.
-- Select **React** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
+- Sign into the {{ product_name }} Console and navigate to **Applications > New Application**.
+- Select **React** and complete the wizard by providing a suitable name and an authorized redirect URL.
 
 !!! Example
     **Name:** `{{ product }}-react`
 
     **Authorized redirect URL:** `http://localhost:5173`
 
-Note down the following values from the **Guide** tab of the registered application. You will need them to configure Asgardeo React SDK.
+Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure Asgardeo React SDK.
 
 - **Client ID** - The unique identifier for your application.
 - **Base URL** - The base URL of your {{ product_name }} organization. This typically follows the format `{{content.sdkconfig.baseUrl}}`
@@ -25,7 +25,7 @@ Note down the following values from the **Guide** tab of the registered applicat
 
 ## Create a React app using Vite
 
-Create (a.k.a scaffold) your new React app using [Vite](https://vite.dev/).
+Create (scaffold) your new React app using [Vite](https://vite.dev/).
 
 === "npm"
 
@@ -56,7 +56,7 @@ Create (a.k.a scaffold) your new React app using [Vite](https://vite.dev/).
 
 ## Install `@asgardeo/react`
 
-Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step.
+Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server you started in the previous step.
 
 === "npm"
 
@@ -136,7 +136,7 @@ export default App
 
 ## Display signed-in user's profile information
 
-The SDK provides several ways to access the signed-in user's profile information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
+You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
 
 - `User`: The `User` component provides a render prop pattern to access user profile information:
 - `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
@@ -203,6 +203,6 @@ Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 !!! Important
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout sign-in and sign-out features.
+    To try out sign-in and sign-out features, create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"}.
 
 [//] STEPS_END

@@ -1,20 +1,20 @@
 # Next.JS Quickstart
 
-Welcome to the Next.js Quickstart guide! In this document, you will learn to build a Next.js app, add user login and display user profile information using {{ product_name }}.
+Welcome to the Next.js quickstart guide! In this document, you will learn to build a Next.js app, add user login and display user profile information using {{ product_name }}.
 
 [//] STEPS_START
 
 ## Configure an Application in {{ product_name }}
 
-- Sign into {{ product_name }} console and navigate to **Applications > New Application.**
-- Select **Next.js** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
+- Sign into the {{ product_name }} Console and navigate to **Applications > New Application.**
+- Select **Next.js** and complete the wizard by providing a suitable name and an authorized redirect URL.
 
 !!! Example
     **Name:** `{{ product }}-nextjs`
 
     **Authorized redirect URL:** `http://localhost:3000`
 
-Note down the following values from the **Guide** tab of the registered application. You will need them to configure Asgardeo Next.js SDK.
+Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure Asgardeo Next.js SDK.
 
 - **Client ID** - The unique identifier for your application.
 - **Client Secret** - The secret key generated for your application.
@@ -84,11 +84,11 @@ NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
 ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
 ```
 
-## Setup the Middleware
+## Setup the middleware
 
 Create a file called `middleware.ts` in the root of your Next.js project and integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.
 
-The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application through Middleware. asgardeoMiddleware() is compatible with both the App and Pages routers.
+The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application and supports both the App and Pages routers.
 
 ```bash title="middleware.ts"
 import {asgardeoMiddleware} from '@asgardeo/nextjs';
@@ -231,7 +231,7 @@ Before running the app, you need to decide how you want users to sign into your 
 
 <div class="mode-content" data-content-for="quickstart" data-content-value="redirect">
 
-When users click "Sign In", they'll be taken to {{ product_name }}'s sign-in page. After signing in, they'll be brought back to your app. This is the default option and works out of the box.
+When users click `Sign In`, your app redirects them to {{ product_name }}'s sign-in page. After they sign in, it redirects them back to your app. This default behavior works without extra configurations.
 
 </div>
 
@@ -257,7 +257,7 @@ To enable this feature, follow these steps:
 
 ## Set up the in-app sign-in form [//] SHOW_IF="data-quickstart=embedded"
 
-First lets create an app route for the sign-in page. Create a new file called `app/sign-in/page.tsx` and add the following code:
+First, create an app route for the sign-in page. Create a new file called `app/sign-in/page.tsx` and add the following code:
 
 ```javascript title="app/sign-in/page.tsx"
 'use client'
@@ -269,7 +269,7 @@ export default function SignInPage() {
 }
 ```
 
-Then lets update the `.env` file with the route for the sign-in page. Add the following line to your `.env` file:
+Then, update the `.env` file with the route for the sign-in page. Add the following line to your `.env` file:
 
 ```bash title=".env"
 NEXT_PUBLIC_ASGARDEO_SIGN_IN_URL="/sign-in"
