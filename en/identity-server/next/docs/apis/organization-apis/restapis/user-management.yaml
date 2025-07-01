@@ -585,11 +585,6 @@ components:
         urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
           type: object
           properties:
-            askPassword:
-              type: boolean
-              description: If this parameter is set to `true`, users will be allowed configure their own password. An email is sent to the specified email address, which will have instructions for the user to set the password and confirm the new user account.
-              examples:
-                - true
             manager:
               type: object
               properties:
@@ -597,6 +592,14 @@ components:
                   type: string
                   examples:
                     - Taylor
+        urn:scim:wso2:schema:
+          type: object
+          properties:
+            askPassword:
+              type: boolean
+              description: If this parameter is set to `true`, users will be allowed configure their own password. An email is sent to the specified email address, which will have instructions for the user to set the password and confirm the new user account.
+              examples:
+                - true
     UserResponseObject:
       required:
         - meta

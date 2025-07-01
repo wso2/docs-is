@@ -1,6 +1,6 @@
 # Register an MCP Client Application
 
-{{ product_name }} provides an application template with default configurations to register an MCP client with minimal effort. This template has been configured to create an OAuth application that adheres to the guidelines and best practices outlined in the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization).
+{{ product_name }} provides an application template with default configurations to register an MCP client with minimal effort. This template has been configured to create an OAuth application that adheres to the guidelines and best practices outlined in the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
 
 To regiser an MCP Client application,  
 

@@ -293,7 +293,42 @@ To configure properties of user attributes:
 
         2. You can't assign another attribute of type **Object** as a sub-attribute.
 
-6. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
+6. **Attribute Input Formats**
+
+    The input format determines how attributes appear in the user interface. The available formats depend on the data type:
+
+    ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-input-format.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    <table>
+        <tbody>
+            <tr>
+                <td><b>Data Type</b></td>
+                <td><b>Available Input Formats</b></td>
+            </tr>
+            <tr>
+                <td><b>Boolean</b></td>
+                <td>Checkbox, Toggle</td>
+            </tr>
+            <tr>
+                <td><b>Options (Single)</b></td>
+                <td>Dropdown, Radio Group</td>
+            </tr>
+            <tr>
+                <td><b>Options (Multiple)</b></td>
+                <td>Multi-select Dropdown, Checkbox Group</td>
+            </tr>
+            <tr>
+                <td><b>Integer</b></td>
+                <td>Text Input, Number Picker</td>
+            </tr>
+            <tr>
+                <td><b>DateTime</b></td>
+                <td>Text Input, Date Picker</td>
+            </tr>
+        </tbody>
+    </table>
+
+7. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -328,7 +363,7 @@ To configure properties of user attributes:
 
     To display an attribute in the user creation form, select the **both** **Display** and **Required** checkboxes for the **Administrator Console** entity.
 
-7. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
+8. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
 
     ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

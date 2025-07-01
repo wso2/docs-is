@@ -1,42 +1,38 @@
 # React Quickstart
 
-Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user login and display user profile information using {{ product_name }}.
+Welcome to the React Quickstart guide! In this document, you will learn to build a React app, add user sign-in and display user profile information using {{ product_name }}.
 
 [//] STEPS_START
 
 ## Configure an Application in {{ product_name }}
 
-- Sign into {{ product_name }} console and navigate to **Applications > New Application**.
-- Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
+- Sign into the {{ product_name }} Console and navigate to **Applications > New Application**.
+- Select **React** and complete the wizard by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-    **name:** {{ product }}-react
-    
-    **Authorized redirect URL:** http://localhost:5173
+    **Name:** `{{ product }}-react`
 
-Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  Asgardeo React SDK.
+    **Authorized redirect URL:** `http://localhost:5173`
 
-- **`client-id`** from the **Protocol** tab. 
-- **The name of your {{ product_name }} organization**
+Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure Asgardeo React SDK.
 
+- **Client ID** - The unique identifier for your application.
+- **Base URL** - The base URL of your {{ product_name }} organization. This typically follows the format `{{content.sdkconfig.baseUrl}}`
 
 !!! Info
 
-    The authorized redirect URL determines where {{ product_name }} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use`http://localhost:5173`, as the sample app will be accessible at this URL.
+    The authorized redirect URL determines where {{ product_name }} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use `http://localhost:5173`, as the sample app will be accessible at this URL.
 
 ## Create a React app using Vite
 
-Create (a.k.a scaffold) your new React app using Vite.
+Create (scaffold) your new React app using [Vite](https://vite.dev/).
 
 === "npm"
 
     ```bash
     npm create vite@latest {{ product }}-react -- --template react
-
     cd {{ product }}-react
-
     npm install
-
     npm run dev
     ```
 
@@ -44,11 +40,8 @@ Create (a.k.a scaffold) your new React app using Vite.
 
     ```bash
     yarn create vite@latest {{ product }}-react -- --template react
-
     cd {{ product }}-react
-
     yarn install
-
     yarn dev
     ```
 
@@ -56,132 +49,160 @@ Create (a.k.a scaffold) your new React app using Vite.
 
     ```bash
     pnpm create vite@latest {{ product }}-react -- --template react
-
     cd {{ product }}-react
-
     pnpm install
-
     pnpm dev
     ```
 
-## Install @asgardeo/auth-react
+## Install `@asgardeo/react`
 
-Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step. 
+Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server you started in the previous step.
 
 === "npm"
 
     ```bash
-    npm install @asgardeo/auth-react
+    npm install @asgardeo/react
     ```
 
 === "yarn"
 
     ```bash
-    yarn add @asgardeo/auth-react
+    yarn add @asgardeo/react
     ```
 
 === "pnpm"
 
     ```bash
-    pnpm add @asgardeo/auth-react
+    pnpm add @asgardeo/react
     ```
 
-## Add `<AuthProvider />` to your app
+## Add `<AsgardeoProvider />` to your app
 
-The `<AuthProvider />` serves as a context provider for user login in the app. You can add the AuthProvider to your app by wrapping  the root component.
+The `<AsgardeoProvider />` serves as a context provider for the SDK. You can integrate this provider to your app by wrapping the root component.
 
 Add the following changes to the `main.jsx` file.
 
 !!! Important
 
-    Replace below placeholders with your registered organization name in {{ product_name }} and the generated`client-id` from the app you registered in {{ product_name }}.
+    Replace below placeholders with your registered organization name in {{ product_name }} and the generated `client-id` from the app you registered in {{ product_name }}.
 
     - `<your-app-client-id>`
     - `{{content.sdkconfig.baseUrl}}`
 
-```javascript title="src/main.jsx" hl_lines="5 9-17 19"
+```javascript title="src/main.jsx" hl_lines="5 9-12 14"
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { AuthProvider } from '@asgardeo/auth-react'
+import { AsgardeoProvider } from '@asgardeo/react'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider
-      config={ {
-        signInRedirectURL: 'http://localhost:5173',
-        signOutRedirectURL: 'http://localhost:5173',
-        clientID: '<your-app-client-id>',
-        baseUrl: '{{content.sdkconfig.baseUrl}}',
-        scope: ['openid', 'profile'],
-      } }
+    <AsgardeoProvider
+      clientId="<your-app-client-id>"
+      baseUrl="{{content.sdkconfig.baseUrl}}"
     >
       <App />
-    </AuthProvider>
+    </AsgardeoProvider>
   </StrictMode>
 )
 ```
 
-## Add login and logout link to your app
+## Add sign-in and sign-out to your app
 
-Asgardeo SDK provides `useAuthContext` hook to conveniently access user authentication data and sign-in and sign-out methods.
+Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
 Replace the existing content of the `App.jsx` file with following content.
 
-```javascript title="src/App.jsx"  hl_lines="1 5 9-13"
-import { useAuthContext } from '@asgardeo/auth-react'
+```javascript title="src/App.jsx"  hl_lines="1 7-12"
+import { SignedIn, SignedOut, SignInButton, SignOutButton } from '@asgardeo/react'
 import './App.css'
 
 function App() {
-  const { state, signIn, signOut } = useAuthContext();
+  return (
+    <header>
+      <SignedIn>
+        <SignOutButton />
+      </SignedIn>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+    </header>
+  )
+}
 
+export default App
+```
+
+## Display signed-in user's profile information
+
+You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
+
+- `User`: The `User` component provides a render prop pattern to access user profile information:
+- `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
+- `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
+
+```javascript title="src/App.jsx" hl_lines="1 9 18-25"
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserDropdown, UserProfile } from '@asgardeo/react'
+import './App.css'
+
+function App() {
   return (
     <>
-      {state.isAuthenticated ? (
-        <button onClick={() => signOut()}>Logout</button>
-      ) : (
-        <button onClick={() => signIn()}>Login</button>
-      )}
+      <header>
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
     </>
   )
 }
 
 export default App
 ```
+
+## Run the app
+
+To run the app, use the following command:
+
+=== "npm"
+
+    ```bash
+    npm run dev
+    ```
+    
+=== "yarn"
+
+    ```bash
+    yarn dev
+    ```
+    
+=== "pnpm"
+
+    ```bash
+    pnpm dev
+    ```
 
 Visit your app's homepage at [http://localhost:5173](http://localhost:5173).
 
 !!! Important
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
-
-## Display logged in user details
-
-Modify the code as below to see logged in user details.
-
-```javascript title="src/App.jsx" hl_lines="11"
-import { useAuthContext } from '@asgardeo/auth-react'
-import './App.css'
-
-function App() {
-  const { state, signIn, signOut } = useAuthContext();
-
-  return (
-    <>
-      {state.isAuthenticated ? (
-        <>
-          <p>Welcome {state.username}</p>
-          <button onClick={() => signOut()}>Logout</button>
-        </>
-      ) : (
-        <button onClick={() => signIn()}>Login</button>
-      )}
-    </>
-  )
-}
-
-export default App
-```
+    To try out sign-in and sign-out features, create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"}.
 
 [//] STEPS_END
