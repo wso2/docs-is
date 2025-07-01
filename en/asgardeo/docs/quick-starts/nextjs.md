@@ -6,7 +6,7 @@ template: templates/quick-start.html
   const meta = {
     what_you_will_learn: [
       "Create new Next.js app",
-      "Install <a href='https://authjs.dev/reference/core/providers/asgardeo' target='_blank' rel='noopener noreferrer'>Asgardeo provider for Auth.js </a>",
+      "Install <a href='https://www.npmjs.com/package/@asgardeo/nextjs' target='_blank' rel='noopener noreferrer'>@asgardeo/nextjs</a> package",
       "Add user login and logout",
       "Display user profile information"
     ],
@@ -16,6 +16,7 @@ template: templates/quick-start.html
       "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
       "A favorite text editor or IDE"
     ],
+    source_code: "<a href='https://github.com/asgardeo/web-ui-sdks/tree/main/samples/teamspace-nextjs' target='_blank' class='github-icon'>Next.js App Sample</a>",
     whats_next: [
       "Try out <a href='{{ base_path }}/complete-guides/nextjs/introduction/' target='_blank'>{{ product_name }} complete Next.js guide</a>"
     ]
