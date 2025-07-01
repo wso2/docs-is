@@ -18,7 +18,7 @@ Note down the following values from the **Guide** tab of the registered applicat
 
 - **Client ID** - The unique identifier for your application.
 - **Client Secret** - The secret key generated for your application.
-- **Base URL** - The base URL for your {{ product_name }} organization. This will be typically in the format `{{content.sdkconfig.baseUrl}}`
+- **Base URL** - The base URL of your {{ product_name }} organization. This typically follows the format `{{content.sdkconfig.baseUrl}}`
 
 !!! Info
 

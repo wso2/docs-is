@@ -17,7 +17,7 @@ Welcome to the React Quickstart guide! In this document, you will learn to build
 Note down the following values from the **Guide** tab of the registered application. You will need them to configure Asgardeo React SDK.
 
 - **Client ID** - The unique identifier for your application.
-- **Base URL** - The base URL for your {{ product_name }} organization. This will be typically in the format `{{content.sdkconfig.baseUrl}}`
+- **Base URL** - The base URL of your {{ product_name }} organization. This typically follows the format `{{content.sdkconfig.baseUrl}}`
 
 !!! Info
 
