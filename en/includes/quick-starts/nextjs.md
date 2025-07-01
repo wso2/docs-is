@@ -24,7 +24,7 @@ Note down the following values from the **Guide** tab of the registered applicat
 
     The authorized redirect URL specifies where {{product_name}} should send users after they successfully log in. This is usually the web address where your application is running. For this guide, we'll use `http://localhost:3000`, as the sample app will be accessible at this URL.
 
-## Create a Next.js app 
+## Create a Next.js app
 
 Create your new Next.js app.
 
@@ -78,7 +78,6 @@ Asgardeo Next.js SDK provides all the components and hooks you need to integrate
 
 Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the Asgardeo Next.js SDK to function properly.
 
-
 ```bash title=".env"
 NEXT_PUBLIC_ASGARDEO_BASE_URL="https://api.asgardeo.io/t/<your-org-name>"
 NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
@@ -103,7 +102,6 @@ export const config = {
   ],
 };
 ```
-
 
 ## Add `<AsgardeoProvider />` to your app
 
@@ -248,6 +246,7 @@ The sign-in form appears directly inside your application using the `SignIn` com
 The embedded sign-in functionality depends on the `App-Native Authentication` feature. This feature allows your app to authenticate users without redirecting them to the {{ product_name }} sign-in page.
 
 To enable this feature, follow these steps:
+
 - Navigate to {{ product_name }} Console
 - Go to **Applications > Your App > Advanced**
 - Enable **App-Native Authentication** by checking the checkbox.

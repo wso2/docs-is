@@ -7,11 +7,11 @@ Welcome to the React Quickstart guide! In this document, you will learn to build
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to **Applications > New Application**.
-- Select **React** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
+- Select **React** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
 !!! Example
     **Name:** `{{ product }}-react`
-    
+
     **Authorized redirect URL:** `http://localhost:5173`
 
 Note down the following values from the **Guide** tab of the registered application. You will need them to configure Asgardeo React SDK.
@@ -56,7 +56,7 @@ Create (a.k.a scaffold) your new React app using [Vite](https://vite.dev/).
 
 ## Install `@asgardeo/react`
 
-Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step. 
+Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
