@@ -16,6 +16,7 @@ template: templates/quick-start.html
       "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
       "A favorite text editor or IDE"
     ],
+    source_code: "<a href='https://github.com/asgardeo/web-ui-sdks/tree/main/samples/asgardeo-nextjs' target='_blank' class='github-icon'>Next.js App Sample</a>",
     whats_next: [
       "Try out <a href='{{ base_path }}/complete-guides/nextjs/introduction/' target='_blank'>{{ product_name }} complete Next.js guide</a>"
     ]

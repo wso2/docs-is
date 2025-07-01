@@ -17,7 +17,7 @@ template: templates/quick-start.html
       "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
       "A favorite text editor or IDE"
     ],
-    source_code: "<a href='https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app' target='_blank' class='github-icon'>React Vite App Sample</a>",
+    source_code: "<a href='https://github.com/asgardeo/web-ui-sdks/tree/main/samples/asgardeo-react' target='_blank' class='github-icon'>React Vite App Sample</a>",
     whats_next: [
       "Try out <a href='{{ base_path }}/complete-guides/react/introduction/' target='_blank'>{{ product_name }} complete React guide</a>"
     ]
