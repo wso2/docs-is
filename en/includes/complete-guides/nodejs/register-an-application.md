@@ -7,9 +7,9 @@
 Next, complete the wizard popup by providing a suitable name and following authorized redirect URLs. Keep OpenID Connect selected as the protocol.
 
 !!! Example
-    **name:** is-nodejs
-    
-    **Authorized redirect URLs:** http://localhost:3000/oauth2/redirect, http://localhost:3000
+    **name:** {{product}}-nodejs
+
+    **Authorized redirect URLs:** http://localhost:3000/oauth2/redirect,http://localhost:3000
 
 ![Register a new application]({{base_path}}/assets/img/complete-guides/nodejs/image8.png){: width="800" style="display: block; margin: 0;"}
 

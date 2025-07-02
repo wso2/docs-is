@@ -465,6 +465,9 @@ nav:
               - Complete Guide: complete-guides/javascript/introduction.md
           - Next.js Quickstart: quick-starts/nextjs.md
           - Node.js Quickstart: quick-starts/nodejs.md
+          - Node.js:
+              - Quickstart: quick-starts/nodejs.md
+              - Complete Guide: complete-guides/nodejs/introduction.md
           - .NET Guide: complete-guides/dotnet/introduction.md
           - Spring Boot Quickstart: quick-starts/springboot.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
@@ -1128,6 +1131,18 @@ nav:
           - Accessing protected API: complete-guides/javascript/accessing-protected-api.md
           - Manage tokens in JavaScript: complete-guides/javascript/manage-tokens-in-apps.md
           - Next Steps: complete-guides/javascript/next-steps.md
+      - Node.js:
+          - Introduction: complete-guides/nodejs/introduction.md
+          - Prerequisite: complete-guides/nodejs/prerequisite.md
+          - Configure an application: complete-guides/nodejs/register-an-application.md
+          - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
+          - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
+          - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+          - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
+          - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
+          - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
+          - Accessing protected API: complete-guides/nodejs/accessing-protected-api.md
+          - Next Steps: complete-guides/nodejs/next-steps.md
       - .NET:
           - Introduction: complete-guides/dotnet/introduction.md
           - Prerequisites: complete-guides/dotnet/prerequisites.md
