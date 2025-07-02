@@ -42,8 +42,8 @@ To enable the self-registration Flow Builder, you have two options:
 1. Click on the user dropdown in the top right corner.
 2. Select **Feature Preview**.
 3. In the feature preview dialog, toggle the feature status switch to **Enabled** mode and close the dialog.
-4. Go to **Login & Registration**.
-5. Click on the **Registration Flow** card.
+4. Go to **Flows**.
+5. Click on the **Self Registration** card.
 
 ![Enable self-register flow builder from Feature Preview]({{base_path}}/assets/img/guides/organization/self-registration/enable-self-registration-flow-builder-from-feature-preview.gif){: width="auto" style="display: block; margin: 0;"}
 
