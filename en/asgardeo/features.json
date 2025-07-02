@@ -55,7 +55,7 @@
     },
 
     "react_nextjs_application_templates": {
-        "enabled": false,
+        "enabled": true,
         "page": [
             "guides/applications/register-react-app.md",
             "guides/applications/register-nextjs-app.md"
