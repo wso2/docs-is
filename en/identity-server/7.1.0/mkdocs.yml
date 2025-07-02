@@ -460,7 +460,9 @@ nav:
           - Angular:
               - Quickstart: quick-starts/angular.md
               - Complete Guide: complete-guides/angular/introduction.md
-          - Javascript Quickstart: quick-starts/javascript.md
+          - Javascript:
+              - Quickstart: quick-starts/javascript.md
+              - Complete Guide: complete-guides/javascript/introduction.md
           - Next.js Quickstart: quick-starts/nextjs.md
           - Node.js Quickstart: quick-starts/nodejs.md
           - .NET Guide: complete-guides/dotnet/introduction.md
@@ -1115,6 +1117,17 @@ nav:
           - Accessing protected API: complete-guides/angular/accessing-protected-api.md
           - Manage tokens in Angular: complete-guides/angular/manage-tokens.md
           - Next Steps: complete-guides/angular/next-steps.md
+      - Javascript:
+          - Introduction: complete-guides/javascript/introduction.md
+          - Prerequisite: complete-guides/javascript/prerequisite.md
+          - Register an application: complete-guides/javascript/register-an-application.md
+          - Create a JavaScript app: complete-guides/javascript/create-app.md
+          - Configure Asgardeo SDK: complete-guides/javascript/install-asgardeo-sdk.md
+          - Add login and logout: complete-guides/javascript/add-login-and-logout.md
+          - Display user details: complete-guides/javascript/display-logged-in-user-details.md
+          - Accessing protected API: complete-guides/javascript/accessing-protected-api.md
+          - Manage tokens in JavaScript: complete-guides/javascript/manage-tokens-in-apps.md
+          - Next Steps: complete-guides/javascript/next-steps.md
       - .NET:
           - Introduction: complete-guides/dotnet/introduction.md
           - Prerequisites: complete-guides/dotnet/prerequisites.md
