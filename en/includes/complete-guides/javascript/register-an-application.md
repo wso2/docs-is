@@ -8,7 +8,7 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
 
 !!! Example
     name: wso2-javascript
-    
+
     Authorized redirect URL: http://localhost:5173
 
 ![Register a new application]({{base_path}}/assets/img/complete-guides/javascript/image8.png){: width="600" style="display: block; margin: 0;"}
@@ -20,8 +20,6 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
     
 Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  Asgardeo JavaScript SDK.
 
-- **`client-id`** from the **Protocol** tab. 
-- **The name of your Asgardeo organization**
+* **`client-id`** from the **Protocol** tab.
 
-
-In this step, we have ve registered our JavaScript app as an application in the {{product_name}} console and generated the required metadata. Next, we will create a JavaScript app using Vite.
+In this step, we have registered our JavaScript app as an application in the {{product_name}} console and generated the required metadata. Next, we will create a JavaScript app using Vite.
