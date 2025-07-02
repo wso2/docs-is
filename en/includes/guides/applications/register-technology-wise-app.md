@@ -6,11 +6,11 @@ To register a {{ technology }} application,
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Click **New Application** and select **{{ technology }}**. The application creation wizard will appear.
+2. Click **New Application** and select **{{ technology }}**.
 
     ![Select {{ technology }} application template]({{base_path}}/assets/img/guides/applications/select-technology-app-template.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Enter the following details:
+3. In the wizard that appears, enter the following details:
 
     ![Create a {{ technology }} application]({{base_path}}/assets/img/guides/applications/create-technology-application.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
