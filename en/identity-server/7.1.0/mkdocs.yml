@@ -464,7 +464,6 @@ nav:
               - Quickstart: quick-starts/javascript.md
               - Complete Guide: complete-guides/javascript/introduction.md
           - Next.js Quickstart: quick-starts/nextjs.md
-          - Node.js Quickstart: quick-starts/nodejs.md
           - Node.js:
               - Quickstart: quick-starts/nodejs.md
               - Complete Guide: complete-guides/nodejs/introduction.md
