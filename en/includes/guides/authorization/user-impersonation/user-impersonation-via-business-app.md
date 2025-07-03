@@ -46,7 +46,7 @@ To do so,
 
 3. Under **Role Audience**, select **Application**. This sets the audience of this role to the current application.
 
-3. Click **New Role** and do the following:
+4. Click **New Role** and do the following:
 
     1. Provide a suitable role name.
 
@@ -86,17 +86,17 @@ Since the impersonator is pre-approved to access the application on behalf of an
 
 The subject token contains information about the impersonated user and used when obtaining access tokens and ID tokens on their behalf. Your application should enable subject tokens as an acceptable response type to authorization calls. To do so:
 
-1. On the {{product_name}} Console, go to **Applications** and select your applcation.
+1. On the {{product_name}} Console, go to **Applications** and select your application.
 
-1. Switch to the **Protocol** tab of your application.
+2. Switch to the **Protocol** tab of your application.
 
-2. Under **Allowed grant types**, select **Token Exchange**.
+3. Under **Allowed grant types**, select **Token Exchange**.
 
-3. Under **Access Token** > **Token type**, select **JWT**.
+4. Under **Access Token** > **Token type**, select **JWT**.
 
-4. Under **Subject Token**, select **Enable subject token response type**. Optionally, set the token expiry time in seconds.
+5. Under **Subject Token**, select **Enable subject token response type**. Optionally, set the token expiry time in seconds.
 
-5. Click **Update** to save the changes.
+6. Click **Update** to save the changes.
 
 ![Subject-Token-Config]({{base_path}}/assets/img/guides/authorization/impersonation/subject-token-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -129,7 +129,6 @@ A subject token refers to a JSON Web Token (JWT) containing details about both t
     ```
 
 === "Example"
-    
     ```bash
     https://{{base_url_sample}}/oauth2/authorize?
       client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a
@@ -274,7 +273,6 @@ The decoded access token looks as follows:
 
 - The `act.sub` property holds the user ID of the impersonator. In the given exmaple, the `act.sub` property holds the value of `2d931c9d-876e-46c0-9aba-f34501879dfc`, the user ID of the impersonator.
 
- 
 ## Configure more impersonation options
 
 To learn how to check impersonation logs, notify users on impersonation and how to access child organizations as an impersonator, see the end of the [User impersonation via Console]({{base_path}}/guides/authorization/user-impersonation/via-console/) guide.
