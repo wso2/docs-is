@@ -84,6 +84,20 @@ A sample configuration is given below.
         <Property name="CaseInsensitiveUsername">false</Property>
         <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
         ```
+
+    !!! note
+        To store user attributes as Unicode for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configuration under the primary user store.
+
+        ```toml
+        [user_store.properties]
+        StoreUserAttributeValueAsUnicode = true
+        ```
+
+        For secondary user stores, this setting is enabled by default. However, if you need to explicitly configure it, add the following property to the `<userstore>.xml` file located in the `<IS_HOME>/repository/deployment/server/userstores` directory.
+
+        ```xml
+        <Property name="StoreUserAttributeValueAsUnicode">true</Property>
+        ```
     
 3.  Download the MS SQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
 
