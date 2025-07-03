@@ -1,0 +1,16 @@
+
+{
+  "config": {
+    "MD010": false,
+    "MD013": false,
+    "MD033": false,
+    "MD034": false,
+    "MD041": false,
+    "MD046": false,
+    "MD055": false
+  },
+
+  "customRules": [
+    "./lint-config/no-consecutive-headings.js"   // no consecutive headings
+  ]
+}

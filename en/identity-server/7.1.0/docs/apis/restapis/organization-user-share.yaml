@@ -166,7 +166,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/users/share-all' \
+            curl --location 'https://localhost:9443/api/server/v1/users/share-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -312,7 +312,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/users/unshare-all' \
+            curl --location 'https://localhost:9443/api/server/v1/users/unshare-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \

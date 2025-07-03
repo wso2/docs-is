@@ -1,4 +1,4 @@
-# On-demand silent password migration 
+# On-demand silent password migration
 
 This adaptive authentication script is specifically designed for on-demand silent password migration. A migrated user's password can be seamlessly migrated to {{ product_name }} using this method without forcing the user to reset the password.
 
@@ -6,6 +6,7 @@ This adaptive authentication script is specifically designed for on-demand silen
     Learn how to set up [on-demand silent password migration]({{base_path}}/guides/users/migrate-users/migrate-passwords/).
 
 ## Conditional template
+
 Shown below is the conditional authentication template for on-demand silent password migration.
 
 !!! note
@@ -20,6 +21,7 @@ var userId = "";
 var username = "";
 var password = "";
 var choreoContextId = "";
+var loginIdentifier = "";
 
 var onLoginRequest = function(context) {
     executeStep(1, {
@@ -65,7 +67,7 @@ var onLoginRequest = function(context) {
 var resolveAndInitUser = function(context) {
 
     // Retrieve login identifier and password provided by the user.
-    var loginIdentifier = context.request.params.username[0];
+    loginIdentifier = context.request.params.username[0];
     password = context.request.params.password[0];
 
     Log.info("User login initiated for the user: " + loginIdentifier);
@@ -277,7 +279,7 @@ var reAuthenticate = function() {
     executeStep(1, {
         authenticatorParams: {
             common: {
-                'username': username,
+                'username': loginIdentifier,
                 'password': password
             }
         },
@@ -336,6 +338,7 @@ var userId = "";
 var username = "";
 var password = "";
 var contextId = "";
+var loginIdentifier = "";
 
 var requestAuthConfig = {
     type: "clientcredential",
@@ -395,7 +398,7 @@ var onLoginRequest = function(context) {
 var resolveAndInitUser = function(context) {
 
     // Retrieve login identifier and password provided by the user.
-    var loginIdentifier = context.request.params.username[0];
+    loginIdentifier = context.request.params.username[0];
     password = context.request.params.password[0];
 
     Log.info("User login initiated for the user: " + loginIdentifier);
@@ -591,7 +594,7 @@ var reAuthenticate = function() {
     executeStep(1, {
         authenticatorParams: {
             common: {
-                'username': username,
+                'username': loginIdentifier,
                 'password': password
             }
         },
@@ -642,10 +645,10 @@ Let's look at how the above conditional authentication script works.
 1. The first authentication step (Username & Password) is initiated with the `executeStep(1, ..)` function. Based on its status, one of the following happens.
 
     - If the entered credentials match, the user's password is already migrated. Hence, the `onSuccess` function will be called and the user will be authenticated.
-    
+
     - If the user's credentials don't match, either the credentials are incorrect or the password may not have be migrated yet. Hence, the `onFail` callback function is called and the script continues.
 
-2. If the `onFail` function is called, the script will next try to locate a unique user in the system using the `resolveAndInitUser` function. 
+2. If the `onFail` function is called, the script will next try to locate a unique user in the system using the `resolveAndInitUser` function.
 
     !!! note "Adjust script for alternate login identifiers"
 
@@ -659,8 +662,8 @@ Let's look at how the above conditional authentication script works.
 
 3. If a unique user is found, the script checks the value of the `is_migrated` attribute of the user and does one of the following. (The `is_migrated` user attribute holds the status of the password migration.)
 
-    - If this is set to `true`, user's password is already migrated. Hence, the entered credentials are incorrect and the flow fails with an error. 
-    
+    - If this is set to `true`, user's password is already migrated. Hence, the entered credentials are incorrect and the flow fails with an error.
+
     - If it is not set to `true`, the user's password is not yet migrated. Hence, the script calls for external authentication.
 
 4. The script calls for external authentication with the `authenticateExternally` function and it works as follows:
@@ -694,6 +697,6 @@ Let's look at how the above conditional authentication script works.
     {% endif %}
 
     - If the API call is successful, the `onSuccess()` callback function is called and the response message is checked. If it is `SUCCESS`, the external authentication was successful.
-    - The script then calls the `updateUserPassword()` function to update the user password in the {{ product_name }} user store. 
+    - The script then calls the `updateUserPassword()` function to update the user password in the {{ product_name }} user store.
     - Afterwards, the `is_migrated` attribute of the user is set to `true` and the user is re-authenticated.
     - The `reAuthenticate()` function that handles the re-authentication performs a silent authentication. This means that the user is not prompted to enter the credentials again.

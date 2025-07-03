@@ -78,13 +78,13 @@ The relationship between these entities is as follows:
 
 In {{product_name}}, you can follow the steps below to enforce RBAC for users logging in to an application.
 
-
 ## Register a business API
+
 Apart from the APIs exposed by {{ product_name }}, administrators can define their own API resources and their scopes as API resources.
 
 To register an API resource,
 
-1. On the {{ product_name }} Console, go to **API Resources**.
+1. On the {{ product_name }} Console, go to **Resources** > **API Resources**.
 2. Click **+ New API** to register a new API resource.
 3. Enter the following details and click **Next**:
     <table>
@@ -192,10 +192,10 @@ To select the application audience,
 
     !!! warning
         If you switch the role audience to **Organization**, application roles created for the application will be permanently deleted.
-    {% if product_name == "WSO2 Identity Server" %}    
+    {% if product_name == "WSO2 Identity Server" %}
     !!! note
         In WSO2 Identity Server versions prior to update level 25, if the application's role audience is set to organization, users were required to manually assign organization-level roles to the application . This behavior has since changed. Now, all organization-level roles are automatically assigned to the application by default. If you are experiencing the previous behavior, download the updated [product pack](https://wso2.com/identity-server/) to receive the latest changes.
-    {% endif %}    
+    {% endif %}
 
 ## Create roles and assign users
 
@@ -214,9 +214,9 @@ To enforce RBAC policies,
 
 Imagine you have an issue management application. For this you employ the **issues API** that let users perform view, create and delete operations on the issues. In order to enforce RBAC on the issues API, you create the following application roles.
 
-  - **Reporters** can view, create and delete issues.
+- **Reporters** can view, create and delete issues.
 
-  - **Reviewers** can only read issues.
+- **Reviewers** can only read issues.
 
 Follow the steps below to use the {{product_name}}'s [React sample application]({{base_path}}/get-started/try-samples/qsg-spa-react/) to see this scenario in action.
 

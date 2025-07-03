@@ -1,17 +1,6 @@
 # Register a standard-based application
-When you integrate an application with {{ product_name }}, the first step is to register your app from the {{ product_name }} Console. If you choose the standard-based application type when you register your app, it allows you to configure the protocol settings (OIDC or SAML) from scratch.
 
-You can also use the standard-based application type in the following scenarios:
-
-- Integrate a web/mobile application with the password grant type. The application types for, single- page applications and, traditional web applications and mobile applications do not support password grant type as it is not recommended.
-- Access the [management APIs]({{base_path}}/apis/) of {{ product_name }}.
-
-!!! note
-    Alternatively, you can register using an application type that has configurations optimized for specific applications.
-
-    - [Register an SPA]({{base_path}}/guides/applications/register-single-page-app/)
-    - [Register an OIDC web application]({{base_path}}/guides/applications/register-single-page-app/)
-    - [Register a SAML web application]({{base_path}}/guides/applications/register-saml-web-app/)
+To integrate an application with {{product_name}}, you need to register it through the {{product_name}} Console. Registering a standard-based application lets you configure protocol settings (OIDC, SAML{% if product=="is"%} , WS-Fed{% endif%}) from scratch.
 
 ## Register an application
 

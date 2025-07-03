@@ -52,6 +52,7 @@ The [pre-issue access token API contract]({{base_path}}/references/service-exten
 </table>
 
 #### event
+
 <a name="event"></a>
 
 <table>
@@ -98,17 +99,28 @@ All request parameters are not incorporated, specially sensitive parameters like
 <tr class="even">
 <td>event.tenant</td>
 <td><p>This property represents the root organization(tenant) under which the token request is being processed.</p>
-<tr class="odd">
+<tr class="odd">  
+<td>event.organization</td>  
+<td><p>This property represents the organization which is issuing the access token.</p>
+<tr class="even">
 <td>event.user</td>
 <td><p>This property contains information about the authenticated user associated with the token request.</p>
+<table>  
+<tbody>  
+<tr>  
+<td>organization</td>  
+<td>This property represents the organization in which the user has been authenticated.</td>  
+</tr>  
+</tbody>  
+</table>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>event.userStore</td>
 <td><p>This property indicates the user store in which the user's data is being managed.</p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>event.accessToken</td>
 <td><p>This property represents the access token that is about to be issued. It contains claims and scopes, of the access token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
 .</p>
@@ -174,13 +186,34 @@ All request parameters are not incorporated, specially sensitive parameters like
 </table>
 </td>
 </tr>
+<tr class="even">
+<td>event.refreshToken</td>
+<td><p>This property represents the refresh token associated with the token issuance event. It contains the claims related to the refresh token, such as expires_in. These claims can be modified by your external service during the pre-issue access token action based on custom logic.</p>
+<table>
+<tbody>
+<tr>
+<td>claims</td>
+<td><p>This property is an array that contains the claims related to the refresh token.</p>
+<table>
+<tbody>
+<tr>
+<td>expires_in</td>
+<td>The duration (in seconds) for which the refresh token is valid.</td>
+</tr>
+</tbody>
+</table>
+</tbody>
+</table>
+</td>
+</tr>
 </tbody>
 </table>
 
 #### allowedOperations
+
 <a name="allowed-operations"></a>
 
-The allowedOperations property in the context of the pre-issue access token action defines the set of operations that your external service is permitted to perform on the access token's claims and scopes. This property is specifically related to the <code>event.accessToken</code> property and outlines which attributes can have additional properties added, values replaced, or be removed. The <code>allowedOperations</code> are defined using JSON Patch modification semantics.
+The allowedOperations property in the context of the pre-issue access token action defines the set of operations that your external service is permitted to perform on the access token's claims as well as on certain claims of the refresh token. This property is specifically related to the <code>event.accessToken</code> and <code>event.refreshToken</code> properties and outlines which attributes can have additional properties added, values replaced, or be removed. The <code>allowedOperations</code> are defined using JSON Patch modification semantics.
 
 In the context of the pre-issue access token action, certain claims related to authorization decisions, such as audience (aud), access token validity (expires_in), and scopes (scopes), are allowed to be modified. These claims are typically associated with the resource server and influence how access is granted.
 
@@ -210,7 +243,8 @@ Here is the example of an allowedOperations object in a request formatted as a J
       "paths": [
         "/accessToken/scopes/",
         "/accessToken/claims/aud/",
-        "/accessToken/claims/expires_in"
+        "/accessToken/claims/expires_in",
+        "/refreshToken/claims/expires_in"
       ]
     }
   ]
@@ -249,8 +283,16 @@ Content-Type: application/json
             "id": "-1234",
             "name": "carbon.super"
         },
+        "organization": {
+            "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d",
+            "name": "carbon.super"
+        },
         "user": {
-            "id": "e204849c-4ec2-41f1-8ff7-ec1ebff02821"
+            "id": "e204849c-4ec2-41f1-8ff7-ec1ebff02821",
+            "organization": {
+                "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d",
+                "name": "carbon.super"
+            }
         },
         "userStore": {
             "id": "UFJJTUFSWQ==",
@@ -297,6 +339,14 @@ Content-Type: application/json
                     "value": "e204849c-4ec2-41f1-8ff7-ec1ebff02821"
                 }
             ]
+        },
+        "refreshToken": {
+            "claims": {
+                {
+                    "name": "expires_in",
+                    "value": 86400
+                }
+            }
         }
     },
     "allowedOperations": [
@@ -320,7 +370,8 @@ Content-Type: application/json
             "paths": [
                 "/accessToken/scopes/",
                 "/accessToken/claims/aud/",
-                "/accessToken/claims/expires_in"
+                "/accessToken/claims/expires_in",
+                "/refreshToken/claims/expires_in"
             ]
         }
     ]
@@ -405,6 +456,7 @@ Http Status Code: <code>200</code>
 Below is an example of a failed response due to invalid scopes in the access token request.
 
 Response from external service:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -419,6 +471,7 @@ Content-Type: application/json
 This will result in the following error response being sent to the application that initiated the token request.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 400 
 Content-Type: application/json
@@ -431,7 +484,7 @@ Content-Type: application/json
 
 #### Response for ERROR state:
 
-When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
+When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request.
 
 Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 
@@ -464,6 +517,7 @@ If the external service returns an error response (either defined or undefined) 
 Below is an example of an error response returned by the service implementing the pre issue access token action.
 
 Response from external service:
+
 ```http
 HTTP/1.1 500
 Content-Type: application/json
@@ -478,6 +532,7 @@ Content-Type: application/json
 This will result in the following error response being sent to the application that initiated the token request.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 500 
 Content-Type: application/json
@@ -490,4 +545,26 @@ Content-Type: application/json
 ```
 
 !!! note
-    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response is not directly included in the error response sent back to the application.
+    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
+
+## Conditional Invocation of Pre-Issue Access Token Action
+
+Pre-issue access token actions can be conditionally triggered based on configurable rule criteria. The rule configuration currently supports the following fields:
+
+- Application: The specific application for which the access token is being issued.
+- Grant Type: The grant type used during the token issuance process.
+
+Each rule field supports the following operators:
+
+- equals
+- not equals
+
+You can specify exact values for these fields, such as a specific application associated with a tenant or a particular grant type.
+Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-issue access token action should be invoked.
+
+![pre-issue-access-token-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-issue-access-token-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+
+The above rule configuration translates logically to:
+
+- The application is Test App AND the grant type is client_credentials, OR
+- The application is Test App, regardless of the grant type.

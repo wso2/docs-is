@@ -3,14 +3,14 @@ info:
   version: "v1"
   title: 'User Sharing API Definition'
   description: |-
-    This document specifies the **User Sharing RESTful API** for **WSO2 Identity Server**. This API enables organization administrators to share user access across child organizations, manage shared access, revoke access, and retrieve shared organizations and roles.
+    This document specifies the **User Sharing RESTful API** for **Asgardeo**. This API enables organization administrators to share user access across child organizations, manage shared access, revoke access, and retrieve shared organizations and roles.
 
 security:
   - OAuth2: []
   - BasicAuth: []
 
 servers:
-  - url: 'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1'
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
     variables:
       tenant-domain:
         default: "{tenant-domain}"
@@ -74,7 +74,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/share' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/share' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token} \
@@ -165,7 +165,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/share-all' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/share-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token} \
@@ -249,7 +249,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/unshare' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/unshare' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token} \
@@ -311,7 +311,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/unshare-all' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/unshare-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token} \
@@ -389,7 +389,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/{userId}/shared-organizations' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/{userId}/shared-organizations' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}
 
@@ -464,7 +464,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/{userId}/shared-roles?orgId={orgId}' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/{userId}/shared-roles?orgId={orgId}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}
 
@@ -479,8 +479,8 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://api.asgardeo.io/t/{root-organization-name}/oauth2/authorize'
-          tokenUrl: 'https://api.asgardeo.io/t/{root-organization-name}/oauth2/token'
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
           scopes:
             share: internal_user_share
             unshare: internal_user_unshare

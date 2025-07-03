@@ -31,7 +31,7 @@ paths:
         description: |
           Specifies the flow to retrieve rule metadata. This ensures that the metadata returned is relevant to the given flow.
 
-          Note: At present, only the 'preIssueAccessToken' and 'preUpdatePassword' flows are supported.
+          Note: At present, only the 'preIssueAccessToken','preUpdatePassword' and 'preUpdateProfile' flows are supported.
         required: true
         style: form
         explode: true
@@ -40,7 +40,7 @@ paths:
           enum:
           - preIssueAccessToken
           - preUpdatePassword
-          - preProfileUpdate
+          - preUpdateProfile
           - preLogin
           - postLogin
           - inLogin
@@ -126,7 +126,45 @@ paths:
                       - name: userInitiatedPasswordReset
                         displayName: User initiated password reset
                       - name: userInitiatedPasswordUpdate
-                        displayName: User initiated password update  
+                        displayName: User initiated password update
+                preUpdateProfile:
+                  summary: Sample response for pre-update profile flow
+                  value:
+                    - field:
+                        name: flow
+                        displayName: flow
+                      operators:
+                        - name: equals
+                          displayName: equals
+                        - name: notEquals
+                          displayName: not equals
+                      value:
+                        inputType: options
+                        valueType: string
+                        values:
+                          - name: adminInitiatedProfileUpdate
+                            displayName: Admin initiated profile update
+                          - name: applicationInitiatedProfileUpdate
+                            displayName: Application initiated profile update
+                          - name: userInitiatedProfileUpdate
+                            displayName: User initiated profile update
+                    - field:
+                        name: claim
+                        displayName: claim
+                      operators:
+                        - name: equals
+                          displayName: equals
+                        - name: notEquals
+                          displayName: not equals
+                      value:
+                        inputType: options
+                        valueType: reference
+                        valueReferenceAttribute: claimURI
+                        valueDisplayAttribute: displayName
+                        links:
+                          - href: /claim-dialects/local/claims?exclude-hidden-claims=true
+                            method: GET
+                            rel: values
                 inLogin:
                   summary: Sample response for login flow
                   value:

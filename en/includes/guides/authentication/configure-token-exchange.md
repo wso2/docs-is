@@ -32,7 +32,7 @@ To register a trusted token issuer:
       </tr>
       <tr>
         <td>Alias</td>
-        <td>The name by which the trusted token issuer knows {{ product_name }}. Usually, the <code>aud</code> claim of the token should include the {{ product_name }} organization's issuer value. In case the organization's issuer value is not included in the <code>aud</code> claim, the alias value you assign here will be validated against the <code>aud</code> claim.</td>
+        <td>The name by which the trusted token issuer knows {{ product_name }}. The <code>aud</code> claim of the token should include the {{ product_name }} organization's issuer value. If the <code>aud</code> claim doesn't include the organization's issuer value, the system validates the alias value you assign here against the <code>aud</code> claim.</td>
       </tr>
     </table>
 
@@ -43,8 +43,7 @@ To register a trusted token issuer:
         {% if product_name == "WSO2 Identity Server" %}
 
         !!! note
-    
-            For JWKS endpoints, the default read timeout is 1000 milliseconds. You may change this value by adding the following parameter to the `deployment.toml` file found in the `<IS_HOME>/conf/repository` directory.
+            For JWKS endpoints, the default read timeout equals 1000 milliseconds. To modify this value, add the following parameter to the `deployment.toml` file in the `<PRODUCT_HOME>/conf/repository` directory.
 
             ```toml
             [oauth.jwks_endpoint]
@@ -96,6 +95,68 @@ To enable token exchange in your application:
 
 4. Click **Update** to save the configurations.
 
+{% if product_name == "Asgardeo" %}
+
+## Configure token exchange for a local user
+
+{{ product_name }} can exchange a third-party token with a token issued for an existing local user account. This is beneficial if you wish to check for blocked/disabled user accounts or to enforce Role-Based Access Control (RBAC).
+
+You can use the following properties to customize how token exchange occurs for identities with local user accounts.
+
+### Prioritize local account attributes
+
+After enabling this configuration, {{ product_name }} includes the local user profile information in the exchanged token if the federated identity has a linked local user account. Otherwise, {{ product_name }} returns the profile information received directly from the federated identity.
+
+To prioritize linked local account attributes:
+
+1. On the {{ product_name }} console, go to **Applications**.
+
+2. Open your application from the list and go to its **User Attributes** tab.
+
+3. Scroll down and under **Attribute Resolution for Linked Accounts**, select **Use linked local account attributes**.
+
+    !!! note
+        Select **Require linked local account** for {{ product_name }} to return an error when it can't find a user account linked to the federated identity.
+
+### Implicit account linking
+
+You can use implicit account linking capability in the registered trusted token issuer to automatically create an account link between a local user account in {{ product_name }} and a federated identity during token exchange.
+
+You can configure lookup attributes to search for a matching local user account. If the system finds a matching account, {{ product_name }} automatically links the local user account to the federated identity.
+
+After establishing account links, administrators can't delete them. Users can manage their own accounts links using the <a href="{{base_path}}/guides/user-self-service/manage-linked-accounts">Manage linked accounts</a> capability in the Self-service portal.
+
+!!! note
+    {{ product_name }} skips implicit account linking when **Require linked local account** is disabled, even if the implicit linking option remains enabled.
+
+To enable implicit account linking,
+
+1. On the {{ product_name }} console, go to **Connections**.
+
+2. Open the trusted token issuer you configured <a href="#register-a-trusted-token-issuer">above</a> and go to its **Advanced** tab.
+
+3. Select **Implicit account linking**.
+
+4. Select the primary attribute for {{ product_name }} to perform the lookup.
+
+5. Optionally, select a secondary attribute for {{ product_name }} to perform the lookup.
+
+    !!! warning
+        Ensure that the chosen lookup attributes undergo verification by the third-party token issuer. If unverified, malicious users can manipulate attributes to gain access to local accounts that don't belong to them.
+
+!!! note
+    If {{ product_name }} can't find a matching local user account using the primary lookup attribute, it searches for matching accounts using the secondary lookup attribute.
+
+    Following three attributes can be configured as lookup attributes
+
+    - `http://wso2.org/claims/username`
+    - `http://wso2.org/claims/emailaddress`
+    - `http://wso2.org/claims/mobile`
+
+    {{ product_name }} will look for the <a href="{{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#view-openid-connect-attributes">mapped OpenID Connect attribute</a> in the third-party token.
+
+{% endif %}
+
 ## Try it out
 
 Follow the steps given below.
@@ -107,6 +168,7 @@ Follow the steps given below.
     curl --location '{{ product_url_format }}/oauth2/token'
     --header 'Content-Type: application/x-www-form-urlencoded'
     --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>'
+    --data-urlencode 'scope=<desired scopes>'
     --data-urlencode 'subject_token=<jwt_token>'
     --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:jwt'
     --data-urlencode 'requested_token_type=urn:ietf:params:oauth:token-type:access_token'

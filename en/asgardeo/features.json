@@ -52,5 +52,13 @@
         "page": [
             "guides/users/attributes/configure-unique-attributes.md"
         ]
+    },
+
+    "react_nextjs_application_templates": {
+        "enabled": true,
+        "page": [
+            "guides/applications/register-react-app.md",
+            "guides/applications/register-nextjs-app.md"
+        ]
     }
 }

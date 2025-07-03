@@ -109,10 +109,21 @@ extra:
       options:
         - divider
         - verticle-line
-    - title: Technology Guides
-      options:
-        - divider
     - title: Best Practice Guides
+      options:
+        - no-indent
+        - divider
+    - title: Connect App
+    - title: Connect via MCP
+    - title: Get started
+      options:
+        - verticle-line
+
+  hide_navs:
+    Technology Guides:
+      level: 1
+    Try for a sample app:
+      level: 1
 
   # If the nav_override section is a child of expanded_nav. Add +1 to the level value
   nav_overrides:
@@ -125,15 +136,15 @@ extra:
     Angular:
       link: complete-guides/angular/introduction
       level: 2
-    Node.js:
-      link: complete-guides/nodejs/introduction
-      level: 2
     .NET:
       link: complete-guides/dotnet/introduction
       level: 2
     Javascript:
       link: complete-guides/javascript/introduction
       level: 2
+    B2B:
+      link: complete-guides/nextjs-b2b/introduction
+      level: 3
     Redirect-Based:
       link: complete-guides/nextjs/introduction
       level: 3
@@ -148,6 +159,9 @@ extra:
     Design login flow:
       type: ai
       level: 1
+    Self-registration flow:
+      type: Preview
+      level: 4
 
   nav_icons:
     Home:
@@ -182,96 +196,120 @@ extra:
       level: 1
     React:
       icon: fontawesome/brands/react
-      level: 2
-    .NET:
-      icon: assets/libs/custom-icons/dotnet.svg
-      level: 2
-    Node.js:
-      icon: fontawesome/brands/node-js
-      level: 2
-    Next.js:
-      icon: assets/libs/custom-icons/nextjs.svg
-      level: 2
-    Angular:
-      icon: fontawesome/brands/angular
-      level: 2
-    Javascript:
-      icon: fontawesome/brands/js
-      level: 2
+      level: 3
     React Quickstart:
       icon: fontawesome/brands/react
-    Angular Quickstart:
-      icon: fontawesome/brands/angular
-    Javascript Quickstart:
-      icon: fontawesome/brands/js
+      level: 3
+    .NET:
+      icon: assets/libs/custom-icons/dotnet.svg
+      level: 3
+    .NET Guide:
+      icon: assets/libs/custom-icons/dotnet.svg
+      level: 3
+    Node.js:
+      icon: fontawesome/brands/node-js
+      level: 3
+    Node.js Guide:
+      icon: fontawesome/brands/node-js
+      level: 3
+    Node.js Quickstart:
+      icon: fontawesome/brands/node-js
+      level: 3
+    Next.js:
+      icon: assets/libs/custom-icons/nextjs.svg
+      level: 3
     Next.js Quickstart:
       icon: assets/libs/custom-icons/nextjs.svg
+      level: 3
+    Angular:
+      icon: fontawesome/brands/angular
+      level: 3
+    Angular Quickstart:
+      icon: fontawesome/brands/angular
+      level: 3
+    Javascript:
+      icon: fontawesome/brands/js
+      level: 3
+    Javascript Quickstart:
+      icon: fontawesome/brands/js
+      level: 3
     Spring Boot Quickstart:
       icon: assets/libs/custom-icons/spring-boot.svg
     Frontend Security:
       icon: fontawesome/solid/user-shield
+    MCP Server:
+      icon: assets/libs/custom-icons/mcp.svg
 
   integrations:
-    - name: Auth React SDK
-      icon: assets/img/logo/react-logo.svg
-      description: An SDK to integrate {{ product_name }} into React applications
-      documentation_link: get-started/try-your-own-app/react/
-      download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip
-      source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
-    - name: Auth SPA SDK
-      icon: assets/img/logo/javascript-logo.svg
-      description: An SDK to integrate {{ product_name }} into single page applications
-      documentation_link: get-started/try-your-own-app/javascript/
-      download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
-      source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
-    - name: Angular OAuth2 OIDC
-      icon: assets/img/logo/angular-logo.svg
-      description: A library for implementing OAuth2 and OIDC in Angular applications
-      source_link: https://github.com/manfredsteyer/angular-oauth2-oidc
-    - name: Next Auth
-      icon: assets/img/logo/nextjs-logo.svg
-      dark_icon: assets/img/logo/nextjs-logo-dark.svg
-      description: A library for implementing OAuth2 and OIDC in NextJS applications
-      source_link: https://github.com/nextauthjs/next-auth
-    - name: Auth Node SDK
-      icon: assets/img/logo/expressjs-logo.svg
-      dark_icon: assets/img/logo/expressjs-logo-dark.svg
-      description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
-      source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
-    - name: Tomcat OIDC Agent
-      icon: assets/img/logo/java-logo.svg
-      description: A Tomcat agent for implementing login/logout for Tomcat web apps
-      documentation_link: get-started/try-your-own-app/java-ee-oidc/
-      download_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war
-      source_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent
-    - name: Tomcat SAML Agent
-      icon: assets/img/logo/java-logo.svg
-      description: A SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
-      documentation_link: get-started/try-your-own-app/java-ee-saml/
-      download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
-      source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
-    - name: Flutter AppAuth
-      icon: assets/img/logo/flutter-logo.svg
-      description: A wrapper for native AppAuth SDKs to integrate OAuth2 and OIDC providers into Flutter apps
-      source_link: https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth
-    - name: React Native AppAuth
-      icon: assets/img/logo/react-logo.svg
-      description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
-      source_link: https://github.com/FormidableLabs/react-native-app-auth
-    - name: AppAuth Android
-      icon: assets/img/logo/android-logo.svg
-      description: A client SDK to integrate OAuth2 and OIDC providers into Android applications
-      source_link: https://github.com/openid/AppAuth-Android
-    - name: AppAuth iOS
-      icon: assets/img/logo/apple-idp-illustration.svg
-      dark_icon: assets/img/logo/apple-logo-dark.svg
-      description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
-      source_link: https://github.com/openid/AppAuth-iOS
-    - name: Android Mobile UI SDK
-      icon: assets/img/logo/android-logo.svg
-      description: A client SDK to integrate {{ product_name }} into Android mobile applications using "app-native authentication"
-      documentation_link: https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html
-      source_link: https://github.com/asgardeo/mobile-ui-sdks/tree/main/android
+    - in_house:
+        - heading: "{{ product_name }} SDKs"
+        - description: Official SDKs developed and maintained by the {{ product_name }} team for seamless integration.
+        - integrations:
+            - name: Auth React SDK
+              icon: assets/img/logo/react-logo.svg
+              description: An SDK to integrate {{ product_name }} into React applications
+              documentation_link: get-started/try-your-own-app/react/
+              download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/download/v5.2.3/asgardeo-react-app.zip
+              source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
+            - name: Auth SPA SDK
+              icon: assets/img/logo/javascript-logo.svg
+              description: An SDK to integrate {{ product_name }} into single page applications
+              documentation_link: get-started/try-your-own-app/javascript/
+              download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
+              source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
+            - name: Auth Node SDK
+              icon: assets/img/logo/expressjs-logo.svg
+              dark_icon: assets/img/logo/expressjs-logo-dark.svg
+              description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
+              source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
+            - name: Tomcat OIDC Agent
+              icon: assets/img/logo/java-logo.svg
+              description: A Tomcat agent for implementing login/logout for Tomcat web apps
+              documentation_link: get-started/try-your-own-app/java-ee-oidc/
+              download_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war
+              source_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent
+            - name: Tomcat SAML Agent
+              icon: assets/img/logo/java-logo.svg
+              description: A SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
+              documentation_link: get-started/try-your-own-app/java-ee-saml/
+              download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
+              source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
+            - name: Android Mobile UI SDK
+              icon: assets/img/logo/android-logo.svg
+              description: Android SDK for app-native authentication with {{ product_name }}.
+              documentation_link: https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html
+              source_link: https://github.com/asgardeo/mobile-ui-sdks/tree/main/android
+    - community:
+        - heading: Community SDKs
+        - description: Third-party SDKs built by the community to support OIDC and OAuth integration with any provider.
+        - integrations:
+          - name: Angular OAuth2 OIDC
+            icon: assets/img/logo/angular-logo.svg
+            description: A library for implementing OAuth2 and OIDC in Angular applications
+            source_link: https://github.com/manfredsteyer/angular-oauth2-oidc
+          - name: Next Auth
+            icon: assets/img/logo/nextjs-logo.svg
+            dark_icon: assets/img/logo/nextjs-logo-dark.svg
+            description: A library for implementing OAuth2 and OIDC in NextJS applications
+            source_link: https://github.com/nextauthjs/next-auth
+          - name: Flutter AppAuth
+            icon: assets/img/logo/flutter-logo.svg
+            description: An SDK to integrate OAuth2 and OIDC providers with Flutter apps
+            source_link: https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth
+          - name: React Native AppAuth
+            icon: assets/img/logo/react-logo.svg
+            description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
+            source_link: https://github.com/FormidableLabs/react-native-app-auth
+          - name: AppAuth Android
+            icon: assets/img/logo/android-logo.svg
+            description: A client SDK to integrate OAuth2 and OIDC providers into Android applications
+            source_link: https://github.com/openid/AppAuth-Android
+          - name: AppAuth iOS
+            icon: assets/img/logo/apple-idp-illustration.svg
+            dark_icon: assets/img/logo/apple-logo-dark.svg
+            description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
+            source_link: https://github.com/openid/AppAuth-iOS
+
   redoc_theme: '{
     "colors": {
       "primary": { "main": "#ff7300" }

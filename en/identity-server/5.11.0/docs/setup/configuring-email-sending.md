@@ -25,8 +25,8 @@ This document explains the steps to configure WSO2 Identity Server to send email
     | `               password                        ` | Provide the password of the SMTP account. <br/> Password of the mail you have provided in **from_address**     |
     | `               host                        ` | The SMTP server to connect to. |
     | `               port                         `|The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25. |
-   | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust theserver's certificate. Defaults to false.
-   | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to false.|
+   | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust the server's certificate. Defaults to true.
+   | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to true.|
    | `signature`                                   | Signature of the sender account |
     
     !!! Tip 

@@ -21,8 +21,10 @@ In this example scenario,
 ## Enable email domain based organization discovery
 
 !!! note "Important"
-    - Enabling this feature and mapping email domains to organizations is only permitted in the root organization. 
+    - Enabling this feature and mapping email domains to organizations is only permitted in the root organization.
+    {% if product_name == "WSO2 Identity Server" %}
     - For this feature to work, make sure to [enable email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/) so that users may log in to applications with their email addresses.
+    {% endif %}
 
 === "Using the Console"
 

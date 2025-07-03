@@ -62,7 +62,7 @@ Here are a few examples of regex patterns.
 </table>
 
 !!! note
-    Username regex configuration is already available in the user store configurations. You can update the regex pattern as needed. Refer to [User Store Properties]({{base_path}}/guides/users/user-stores/user-store-properties/) to learn more.
+    Username regex configuration is already available in the user store configurations. You can update the regex pattern as needed. Refer to [User Store Properties]({{base_path}}/guides/users/user-stores/user-store-properties/) to learn more. Once the username regex is updated, the usernames of existing users must comply with the new pattern; otherwise, authentication will fail.
 
 You have now successfully set up {{product_name}} to allow multi-attribute login.
 

@@ -62,7 +62,7 @@ To configure the login flow with concurrent session-based access control:
 
 ## How it works
 
-Shown below is the user age-based conditional authentication template.
+Shown below is the concurrent session-based conditional authentication template.
 
 ```js
 // This script will prompt concurrent session handling

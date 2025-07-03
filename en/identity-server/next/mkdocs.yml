@@ -22,8 +22,12 @@ site_url: https://is.docs.wso2.com/en/next
 extra:
   base_path: /en/next
   is_version: next
-  default_keystore_type: PKCS12
-  default_keystore_ext: p12
+  content:
+    default_keystore_type: PKCS12
+    default_keystore_ext: p12
+    sdkconfig:
+      baseUrl: "https://localhost:9443"
+
   home_page_cards:
     - section:
       - title: Get Started
@@ -310,6 +314,8 @@ plugins:
         'sdks/start-integrating-apps/integrate-a-js-app.md': 'integrations/index.md'
         'sdks/spring-boot.md': 'integrations/index.md'
 
+        'deploy/configure/email-sending-module.md': 'guides/notification-channels/configure-email-provider.md'
+
         'deploy/security/security-guidelines-for-production-deployment.md': 'deploy/security/security-guidelines/index.md'
         'deploy/security/network-level-security-guidelines.md': 'deploy/security/security-guidelines/network-level-security-guidelines.md'
         'deploy/security/os-level-security-guidelines.md': 'deploy/security/security-guidelines/os-level-security-guidelines.md'
@@ -409,10 +415,13 @@ plugins:
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
-        'guides/authorization/impersonation/user-impersonation.md': 'guides/authorization/user-impersonation.md'
+        'guides/authorization/impersonation/index.md' : 'guides/authorization/user-impersonation/index.md'
+        'guides/authorization/impersonation/via-console.md' : 'guides/authorization/user-impersonation/via-console.md'
+        'guides/authorization/impersonation/via-business-application.md' : 'guides/authorization/user-impersonation/via-business-application.md'
         'get-started/subscribe-for-ai-features.md': 'get-started/subscribe-to-ai-features.md'
         'deploy/environment-compatibility.md': 'deploy/product-compatibility.md'
         'references/about-this-release.md': 'get-started/about-this-release.md'
+        'deploy/deploy-is-in-kubernetes.md': 'deploy/deploy-is-on-kubernetes.md'
 
 # Navigation
 nav:
@@ -453,6 +462,9 @@ nav:
           - Register a mobile app: guides/applications/register-mobile-app.md
           - Register a machine-to-machine (M2M) app: guides/applications/register-machine-to-machine-app.md
           - Register a FAPI-compliant app: guides/applications/register-a-fapi-compliant-app.md
+          - Register an MCP client app: guides/applications/register-mcp-client-app.md
+          - Register a React app: guides/applications/register-react-app.md
+          - Register a Next.js app: guides/applications/register-nextjs-app.md
       - Authentication:
           - Authentication: guides/authentication/index.md
           - Add login to apps:
@@ -504,6 +516,10 @@ nav:
               - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
               - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
               - Add AD FS login: guides/authentication/enterprise-login/add-ad-fs-login.md
+            - Add eID login:
+              - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
+              - Add FranceConnect login: guides/authentication/eid-login/add-franceconnect-login.md
+              - Add SwissID login: guides/authentication/eid-login/add-swissid-login.md
             - Configure a custom connector:  guides/authentication/configure-custom-connector.md
           - Enable user attributes:
               - Enable user attributes: guides/authentication/user-attributes/index.md
@@ -569,7 +585,11 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
-        - User Impersonation: guides/authorization/user-impersonation.md
+        - MCP server authorization: guides/authorization/mcp-server-authorization.md
+        - User impersonation:
+          - User impersonation: guides/authorization/user-impersonation/index.md
+          - via Console: guides/authorization/user-impersonation/via-console.md
+          - via business application (advanced): guides/authorization/user-impersonation/via-business-application.md
         - Rich Authorization Requests: guides/authorization/rich-authorization-requests.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
@@ -677,7 +697,6 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Share applications with organizations: guides/organization-management/share-applications.md
           - Application Management:
             - Share applications: guides/organization-management/share-applications.md
             - Organization applications: guides/organization-management/organization-applications.md
@@ -690,12 +709,18 @@ nav:
           - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+      - Notification Channels:
+          - Configure Email Provider: guides/notification-channels/configure-email-provider.md
+          - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
+          - Configure Push Provider: guides/notification-channels/configure-push-provider.md
       - Customizations:
           - Customize branding:
             - Branding: guides/branding/index.md
             - Configure UI branding: guides/branding/configure-ui-branding.md
             - Branding AI: guides/branding/branding-ai.md
-            - Customize layouts: guides/branding/add-custom-layouts.md
+            - Customize layouts:
+              - Using the Console: guides/branding/customize-layouts-with-editor.md
+              - By updating server files: guides/branding/add-custom-layouts.md
             - Customize email templates: guides/branding/customize-email-templates.md
             - Customize SMS templates: guides/branding/customize-sms-templates.md
             - Localization support: guides/branding/localization.md
@@ -717,6 +742,10 @@ nav:
           - ELK Alerts: guides/analytics/elk-analytics/elk-alert-types.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
         - A/B Testing: guides/analytics/ab-testing.md
+      - Multitenancy:
+        - Multitenancy: guides/multitenancy/index.md
+        - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
+        - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
@@ -724,10 +753,6 @@ nav:
         - Recover your password: guides/your-is/recover-password.md
         - Recover your username: guides/your-is/recover-username.md
         - Recover super admin account: guides/your-is/recover-super-admin-account.md
-      - Multitenancy:
-        - Multitenancy: guides/multitenancy/index.md
-        - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
-        - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -765,7 +790,6 @@ nav:
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
         - Clock tolerance: deploy/configure/clock-tolerance.md
-        - Email sending module : deploy/configure/email-sending-module.md
       - Secure:
         - Mitigate attacks:
           - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md
@@ -784,7 +808,10 @@ nav:
         - Transport Level Security:
           - Configure TLS: deploy/security/configure-transport-level-security.md
           - Configure TLS termination: deploy/configure-tls-termination.md
-          - Configure post-quantum TLS: deploy/security/configure-post-quantum-tls.md
+          - Configure post-quantum TLS:
+            - Configure post-quantum TLS: deploy/security/configure-post-quantum-tls/index.md
+            - Inbound connections: deploy/security/configure-post-quantum-tls/post-quantum-inbound.md
+            - Outbound connections: deploy/security/configure-post-quantum-tls/post-quantum-outbound.md
         - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
         - Configure Admin Advisory Banner: deploy/security/configure-admin-advisory-banner.md
         - Secure passwords in configuration files:
@@ -812,9 +839,13 @@ nav:
             - Create new keystores: deploy/security/keystores/create-new-keystores.md
             - Manage keystores: deploy/security/keystores/configure-keystores.md
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
+            - Configure custom keystores for authentication protocols: deploy/security/keystores/configure-custom-keystores.md
       - Deploy:
         - Deployment patterns: deploy/deployment-guide.md
         - Deployment checklist: deploy/deployment-checklist.md
+        - Deploy as a contanarized application:
+          - Kuberenetes: deploy/deploy-is-on-kubernetes.md
+          - Openshift: deploy/deploy-is-on-openshift.md
         - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
         - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
         - Change the hostname: deploy/change-the-hostname.md
@@ -892,7 +923,9 @@ nav:
       - IdP session extension API: apis/idp-session-extender-endpoint.md
       - Notification sender management:
         - Notification sender configurations: apis/notification-sender.md
-        - Notification sender API: apis/notification-sender-rest-api.md
+        - Notification sender API:
+            - Notification sender v1 API (deprecated): apis/notification-sender-rest-api.md
+            - Notification sender v2 API: apis/notification-sender-v2-rest-api.md
       - Notification Templates Management API: apis/notification-templates.md
       - Organization discovery API: apis/organization-discovery-rest-api.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
@@ -955,7 +988,9 @@ nav:
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
       - Invite parent organization's users API: apis/organization-apis/organization-user-invitation.md
-      - Notification sender API: apis/organization-apis/notification-sender-rest-api.md      
+      - Notification sender API:
+        - Notification sender v1 API (deprecated): apis/organization-apis/notification-sender-rest-api.md
+        - Notification sender v2 API: apis/organization-apis/notification-sender-v2-rest-api.md
       - Notification Templates Management API: apis/organization-apis/notification-templates.md
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
@@ -973,6 +1008,7 @@ nav:
       - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
+        - Organization Me API: apis/user-organization-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
         - SCIM 2.0 Me API: apis/scim2-me-rest-apis.md
         - TOTP API: apis/totp-rest-api.md
@@ -1027,6 +1063,7 @@ nav:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
+        - SCIM2 Custom User Schema Support: references/extend/user-mgt/provisioning/add-scim2-custom-user-schema-support.md
       - User Stores: 
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Default ports: references/default-ports.md
@@ -1047,6 +1084,7 @@ nav:
       - Token binding:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
+        - DPoP: references/token-binding/dpop.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md

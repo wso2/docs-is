@@ -18,14 +18,16 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
 ### Onboard single user
 
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
-2. Click **Add User** button and select **Single User** option and provide the following details:
+2. Click **Add User** button and select **Single User** option and provide the user's details.
 
     ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-           - A username is always unique to the organization and you can't change the username once it is created.
-           - Instead of using a username to login, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, you will be asked to enter the email address when logging in.
-           - The user can change the password set by the administrator from the [My Account Portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
+        - The user's username is always unique to the organization and you can't change the username once it is created.
+        - Optionally, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, the user must enter the email address when logging in.
+
+    !!! tip "Add additional fields to the user onboarding form"
+        The default form requests for basic information of the user. If you wish to include additional details, such as the user's phone number, address, and other custom attributes, you need to make these attributes available in the **Administrator Console**. Learn how to do so in [attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
 
 3. You can either request the user to set the password or set one on the user's behalf.
 
@@ -138,6 +140,96 @@ To update the user profile:
 
 4. Click **Update** to save.
 
+## Resend password setup link/code
+
+If a user is pending to set up an initial password or is required to reset their password through an admin-initiated password reset, and the previously sent link or code has expired, an administrator can resend the link or code.
+
+To resend the link/code:
+
+- Click the **Resend** link available in the warning message displayed at the top of the user's profile.
+
+    ![Resend link]({{base_path}}/assets/img/guides/users/resend-password-setup-link.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+Alternatively, administrators can use the resend-code API to resend the link or code as shown below.
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://localhost:9443/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "<username>",
+                "realm": "<realm>"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "<recovery_scenario>"
+                }
+            ]
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X 'POST' \
+        'https://localhost:9443/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "jane",
+                "realm": "PRIMARY"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "ASK_PASSWORD"
+                }
+            ]
+            }'
+        ```
+
+    The recovery scenario should be specified in the properties parameter of the API request body, as follows:
+
+    - `ASK_PASSWORD`: When the user is pending to set up an initial password using the setup link.
+    - `ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK`: When the user is pending an admin-forced password reset via an email link.
+    - `ADMIN_FORCED_PASSWORD_RESET_VIA_OTP`: When the user is pending an admin-forced password reset via an OTP sent through email.
+
+    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+
+## Set a user's password
+
+Administrators can set a user's password if the user is unable to set the password via the initial setup email link shared during user creation.
+
+To set the password:
+
+1. Click **Set password** at the bottom of the user's profile.
+
+    ![Set password button]({{base_path}}/assets/img/guides/users/set-password.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+2. Type the new password.
+
+    ![Set password]({{base_path}}/assets/img/guides/users/set-password-modal.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Click **Set Password**.
+
+    !!! note
+        Once the administrator set the password, the user's account will get unlocked.
+
 ## Reset the user's password
 
 Administrators can reset a user's password or initiate the password reset process from the WSO2 Identity Server Console.
@@ -150,6 +242,10 @@ To reset the password:
 
     - **Set a new password for the user:**
         If this option is selected, the owner or an administrator can set a new password for the user.
+
+        !!! note
+            If the user is in pending admin forced password reset, once the admin resets the password,
+            the account will get unlocked.
 
     - **Invite user to reset the password:**
         If this option is selected, a password reset request can be sent to the user using one of the password recovery methods you have enabled for the organization.
@@ -217,7 +313,7 @@ To lock a user account:
 Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
 
 !!! note "Enable account disabling"
-    
+
     Account disabling is not an option available for a users' accounts by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
 
 To disable a user account,
@@ -247,3 +343,21 @@ To delete a user account:
 
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.
+
+## Filter users
+
+Administrators can filter users based on their account status from the {{ product_name }} Console.
+
+To filter users by account status:
+
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
+2. Click the **Account Status** dropdown and select the relevant filter criteria:
+
+    - **Locked**: Filters users with locked accounts.
+    - **Disabled**: Filters users with deactivated accounts.
+    - **Pending password reset**: Filters users for whom the administrator has initiated a forced password reset, but the users haven't yet reset their passwords.
+    - **Pending initial password setup**: Filters users an administrator invited to set their own password during initial account creation but who haven't done so yet.
+   - **Pending email verification**: Filters users who haven't yet verified their primary email addresses.
+   - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
+
+        ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

@@ -42,3 +42,8 @@ Click the **filter icon** next to one or more of the log parameters and Asgardeo
 For example, if you would like to view logs related to a request, click the filter icon next to the relevant traceId and click **Run Query** to filter out all the related logs.
 
 ![Logs filter by specific value]({{base_path}}/assets/img/guides/asgardeo-logs/logs-filter-by-specific-value.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+
+## Remote Log Publishing
+
+Asgardeo allows you to securely publish both audit and diagnostic logs to external servers for long-term storage and analysis. You can configure separate publishers for audit and diagnostic logs with custom settings for each. Learn more about setting up [Remote Log Publishing]({{base_path}}/guides/asgardeo-logs/remote-log-publish).
