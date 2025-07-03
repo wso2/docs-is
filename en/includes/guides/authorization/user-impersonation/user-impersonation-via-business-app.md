@@ -86,7 +86,7 @@ Since the impersonator is pre-approved to access the application on behalf of an
 
 The subject token contains information about the impersonated user and used when obtaining access tokens and ID tokens on their behalf. Your application should enable subject tokens as an acceptable response type to authorization calls. To do so:
 
-1. On the {{product_name}} Console, go to **Applications** and select your applcation.
+1. On the {{product_name}} Console, go to **Applications** and select your application.
 
 2. Switch to the **Protocol** tab of your application.
 

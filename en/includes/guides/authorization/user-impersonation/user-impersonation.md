@@ -18,7 +18,7 @@ Follow the steps below to assign the right permissions to the impersonator.
 
 1. The impersonator should have the **Impersonator** role assigned. To do so,
 
-    1. On the {{product_name}} Console, go to **Users** > **Roles**.
+    1. On the {{product_name}} Console, go to **User Management** > **Roles**.
 
     2. Select the **Impersonator** application role that has **My Account** as its audience.
 
@@ -52,7 +52,7 @@ With the required permissions in place, the impersonator can now impersonate ano
 
     ![User Impersonate Button]({{base_path}}/assets/img/guides/authorization/impersonation/user-impersonate-button.png)
 
-4. You will log into **My Account** application as the impersonated user.
+4. Log into **My Account** application as the impersonated user.
 
     ![Discoverable Applications]({{base_path}}/assets/img/guides/authorization/impersonation/impersonated-myaccount-no-applications.png)
 
@@ -102,7 +102,7 @@ Follow the steps below to assign the right permissions to the impersonator.
 
 2. The impersonator should have the **Impersonator** role assigned. To do so,
 
-    1. On the {{product_name}} Sub Organization Console, go to **Users** > **Roles**.
+    1. On the {{product_name}} Sub Organization Console, go to **User Management** > **Roles**.
 
     2. Select the **Impersonator** application role that has **My Account** as its audience.
 
@@ -154,11 +154,11 @@ By following the steps below, you permit a business application to use the imper
 
     4. Enable user impersonation for sub organization user by registering ***Organization User Impersonation** API resource. (Optional)
 
-        1. Under **API Resource**, select **Organization User Impersonation**.
+        i. Under **API Resource**, select **Organization User Impersonation**.
 
-        2. Under **Authorized Scopes**, select **User Impersonation Scope for Organizations**.
+        ii. Under **Authorized Scopes**, select **User Impersonation Scope for Organizations**.
 
-        3. Click **Finish**.
+        iii. Click **Finish**.
 
             ![Authorize org impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/org-api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
