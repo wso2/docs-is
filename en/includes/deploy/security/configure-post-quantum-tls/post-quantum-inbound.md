@@ -1,19 +1,17 @@
 {% if is_version > "7.1.0" %}
 # Configure post-quantum TLS for inbound connections
+
 {% else %}
 # Configure Post-Quantum TLS
+
 {% endif %}
 
 {% if is_version == "7.0.0" %}
-
 To overcome the quantum threat on traditional cryptographic techniques, WSO2 Identity Server integrates post-quantum cryptography with the current traditional methods. Specifically, it adopts the [X25519+Kyber](https://datatracker.ietf.org/doc/draft-tls-westerbaan-xyber768d00/) key agreement algorithm for inbound TLS communications, ensuring robust protection against quantum threats. To configure TLS with post-quantum security, WSO2 Identity Server should be configured to utilize OpenSSL 3.x as the JSSE provider, along with [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
-
 {% endif %}
 
 {% if is_version == "7.1.0" %}
-
 To overcome the quantum threat on traditional cryptographic techniques, {{product_name}} integrates post-quantum cryptography with the current traditional methods. Specifically, it adopts the [X25519MLKEM768](https://datatracker.ietf.org/doc/draft-ietf-tls-ecdhe-mlkem) key agreement algorithm for inbound TLS communications, ensuring robust protection against quantum threats. To configure TLS with post-quantum security, {{product_name}} should be configured to utilize OpenSSL 3.x as the JSSE provider, along with [liboqs](https://openquantumsafe.org/liboqs/) library to support post-quantum algorithms.
-
 {% endif %}
 
 By following this guide, you will enable **post-quantum TLS** in {{ product_name }} for inbound connections. An inbound connection refers to communication initiated by clients, such as browsers, applications, or APIs, connecting securely to {{ product_name }} using TLS.
