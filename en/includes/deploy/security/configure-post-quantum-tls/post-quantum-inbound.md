@@ -7,7 +7,7 @@ By following this guide, you will enable **post-quantum TLS** in {{ product_name
 
 {% if is_version == "7.0.0" %}
 !!! note "important"
-    The artifacts necessary for enabling post-quantum TLS aren't available in {{product_name}} 7.0.0 by default. Manually apply the artifacts to {{product_name}} to enable post-quantum TLS by following the steps below.
+    Post-quantum TLS artifacts don't ship with {{product_name}} 7.0.0. To enable post-quantum TLS, manually apply the following artifacts by using the steps below.
 
     - Download [openssl-tls.sh](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/openssl-tls.sh){:target="_blank"} and copy the file to `<IS_HOME>/bin/`.
     - Download [wso2server.sh](https://gist.github.com/maheshika/abc3052967c3a363ebfddce7258f6faf/raw/f701542b48e9a78135946ab4c3b348283d2637c0/wso2server.sh){:target="_blank"} and replace the file in `<IS_HOME>/bin/`.
