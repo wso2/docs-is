@@ -4,13 +4,13 @@ By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
 you need to follow in order to use MS SQL for this purpose.
 
----    
+---
 
 ## Set up datasource configurations
 
 {% include "../../../../includes/datasource-config.md" %}
-                       
-After setting up the MS SQL database, you can point the `WSO2_IDENTITY_DB` or 
+
+After setting up the MS SQL database, you can point the `WSO2_IDENTITY_DB` or
 `WSO2_SHARED_DB` or both to that MS SQL database by following the instructions given below.
 
 ---
@@ -18,16 +18,16 @@ After setting up the MS SQL database, you can point the `WSO2_IDENTITY_DB` or
 ## Change the default datasource
 
 ### Minimum configurations for changing default datasource to MS SQL
- 
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
 
-Following are the basic configurations and their descriptions. 
+You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`.
+
+Following are the basic configurations and their descriptions.
 
 {% include "../../../../includes/db-basic-config.md" %}
- 
+
 A sample configuration is given below.
 
-1. `WSO2_IDENTITY_DB` 
+1. `WSO2_IDENTITY_DB`
 
     1. Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
 
@@ -40,16 +40,16 @@ A sample configuration is given below.
         password = "regadmin"
         port = "1433"
         ```
-    
+
     2. Execute database scripts.
-    
+
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files against the database created.
         
         - `<IS-HOME>/dbscripts/identity/mssql.sql`
         - `<IS-HOME>/dbscripts/consent/mssql.sql`
-        
+
 2. `WSO2_SHARED_DB`
-    
+
     1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
 
         ``` toml
@@ -61,9 +61,9 @@ A sample configuration is given below.
         password = "regadmin"
         port = "1433"
         ```
-        
+
     2.  Execute database scripts.
-    
+
         Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
 
     !!! note
@@ -77,12 +77,26 @@ A sample configuration is given below.
         CaseInsensitiveUsername = false
         UseCaseSensitiveUsernameForCacheKeys = false
         ```  
-    
+
         For secondary user stores, add the following configurations to the `<userstore>.xml` file found in the `<IS_HOME>/repository/deployment/server/userstores` directory.
 
         ``` xml
         <Property name="CaseInsensitiveUsername">false</Property>
         <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
+        ```
+
+    !!! note
+        To store user attributes as Unicode for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configuration under the primary user store.
+
+        ```toml
+        [user_store.properties]
+        StoreUserAttributeValueAsUnicode = true
+        ```
+
+        For secondary user stores, this setting is enabled by default. However, if you need to explicitly configure it, add the following property to the `<userstore>.xml` file located in the `<IS_HOME>/repository/deployment/server/userstores` directory.
+
+        ```xml
+        <Property name="StoreUserAttributeValueAsUnicode">true</Property>
         ```
     
 3.  Download the MS SQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
