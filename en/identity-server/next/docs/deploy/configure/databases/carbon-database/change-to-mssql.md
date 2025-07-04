@@ -9,7 +9,7 @@ you need to follow in order to use MS SQL for this purpose.
 ## Set up datasource configurations
 
 {% include "../../../../includes/datasource-config.md" %}
-                 
+
 After setting up the MS SQL database, you can point the `WSO2_IDENTITY_DB` or
 `WSO2_SHARED_DB` or both to that MS SQL database by following the instructions given below.
 
@@ -24,7 +24,7 @@ You can configure the datasource by editing the default configurations in `<IS-H
 Following are the basic configurations and their descriptions.
 
 {% include "../../../../includes/db-basic-config.md" %}
- 
+
 A sample configuration is given below.
 
 1. `WSO2_IDENTITY_DB`
@@ -40,16 +40,16 @@ A sample configuration is given below.
         password = "regadmin"
         port = "1433"
         ```
-    
+
     2. Execute database scripts.
-    
+
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files against the database created.
         
         - `<IS-HOME>/dbscripts/identity/mssql.sql`
         - `<IS-HOME>/dbscripts/consent/mssql.sql`
-        
+
 2. `WSO2_SHARED_DB`
-    
+
     1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
 
         ``` toml
@@ -61,9 +61,9 @@ A sample configuration is given below.
         password = "regadmin"
         port = "1433"
         ```
-        
+
     2.  Execute database scripts.
-    
+
         Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
 
     !!! note
@@ -77,7 +77,7 @@ A sample configuration is given below.
         CaseInsensitiveUsername = false
         UseCaseSensitiveUsernameForCacheKeys = false
         ```  
-    
+
         For secondary user stores, add the following configurations to the `<userstore>.xml` file found in the `<IS_HOME>/repository/deployment/server/userstores` directory.
 
         ``` xml
