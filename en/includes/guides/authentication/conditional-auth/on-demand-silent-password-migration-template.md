@@ -126,7 +126,8 @@ var authenticateExternally = function() {
                             "pollingEndpoint": "<polling_endpoint>",
                             "requestMethod": "GET",
                             "requestData": "contextId=" + choreoContextId,
-                            "pollingInterval": "2"
+                            "pollingInterval": "2",
+                            "callbackOnFailure": true
                         }
                     }, {
                         onSuccess: function(context) {
@@ -137,6 +138,11 @@ var authenticateExternally = function() {
                         },
                         onFail: function(context, data) {
                             Log.info("Error occurred while redirecting. Please retry!");
+                            sendError(null, {
+                                'status': 'Authentication failed',
+                                'statusMsg': 'Please contact your administrator.',
+                                'i18nkey': 'auth.fail.error'
+                            });
                         }
                     });
                 } else {
