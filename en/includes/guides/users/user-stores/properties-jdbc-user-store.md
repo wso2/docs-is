@@ -159,7 +159,7 @@ false: Set it to <code>false</code> if the user roles are changed by external me
 <td>Store User Attribute Value As Unicode</td>
 <td>
 Applicable only to MSSQL user stores. Specifies whether user attributes are stored as Unicode (<code>true</code>) or plain text (<code>false</code>). To ensure compatibility with non-ASCII characters, it's recommended to set this property to true.<br/>
-{% if product_version > "7.1.0" %}
+{% if is_version > "7.1.0" %}
 <p>Default : false for primary user store, true for secondary user stores </p>
 {% else %}
 <p>Default : false </p>
