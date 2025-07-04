@@ -4,13 +4,13 @@ By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
 you need to follow in order to use MS SQL for this purpose.
 
----    
+---
 
 ## Set up datasource configurations
 
 {% include "../../../../includes/datasource-config.md" %}
-                       
-After setting up the MS SQL database, you can point the `WSO2_IDENTITY_DB` or 
+                 
+After setting up the MS SQL database, you can point the `WSO2_IDENTITY_DB` or
 `WSO2_SHARED_DB` or both to that MS SQL database by following the instructions given below.
 
 ---
@@ -18,16 +18,16 @@ After setting up the MS SQL database, you can point the `WSO2_IDENTITY_DB` or
 ## Change the default datasource
 
 ### Minimum configurations for changing default datasource to MS SQL
- 
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
 
-Following are the basic configurations and their descriptions. 
+You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`.
+
+Following are the basic configurations and their descriptions.
 
 {% include "../../../../includes/db-basic-config.md" %}
  
 A sample configuration is given below.
 
-1. `WSO2_IDENTITY_DB` 
+1. `WSO2_IDENTITY_DB`
 
     1. Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
 

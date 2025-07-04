@@ -84,7 +84,7 @@ Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="even">
 <td>PasswordJavaReg<br>ExViolationErrorMsg</td>
-<td><code>password_java_reg<br>ex_violation_error_msg</code></td>
+<td><code>password_java_regex_violation_error_msg</code></td>
 <td>Password RegEx Violation Error Message</td>
 <td>Error message when the Password is not matched with passwordJavaRegEx<br />
 <p>Default: The password length should be within 5 to 30 characters.</p></td>
@@ -155,10 +155,10 @@ false: Set it to <code>false</code> if the user roles are changed by external me
 </tr>
 <tr class="even">
 <td>StoreUserAttribute</br>ValueAsUnicode</td>
-<td><code>properties.StoreUserAttribute.ValueAsUnicode</code></td>
+<td><code>properties.StoreUserAttributeValueAsUnicode</code></td>
 <td>Store User Attribute Value As Unicode</td>
 <td>
-Applicable only to MSSQL user stores. Specifies whether user attributes are stored as Unicode (<code>true</code>) or plain text (<code>false</code>). To ensure compatibility with non-ASCII characters, it is recommended to set this property to true.<br/>
+Applicable only to MSSQL user stores. Specifies whether user attributes are stored as Unicode (<code>true</code>) or plain text (<code>false</code>). To ensure compatibility with non-ASCII characters, it's recommended to set this property to true.<br/>
 {% if product_version > "7.1.0" %}
 <p>Default : false for primary user store, true for secondary user stores </p>
 {% else %}
