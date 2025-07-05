@@ -60,5 +60,14 @@
             "guides/applications/register-react-app.md",
             "guides/applications/register-nextjs-app.md"
         ]
+    },
+
+    "webhooks": {
+        "enabled": false,
+        "page": [
+            "guides/webhooks/understanding-webhooks.md",
+            "guides/webhooks/setup-webhooks.md",
+            "guides/webhooks/webhook-events-and-payloads.md"
+        ]
     }
 }
