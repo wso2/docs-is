@@ -43,11 +43,11 @@ extra:
             - title: Connect Angular App
               url: Get started|Connect App|Angular|Quickstart
             - title: Connect Javascript App
-              url: Get started|Connect App|Javascript Quickstart
+              url: Get started|Connect App|Javascript|Quickstart
             - title: Connect Next.js App
               url: Get started|Connect App|Next.js Quickstart
             - title: Connect Node.js App
-              url: Get started|Connect App|Node.js Quickstart
+              url: Get started|Connect App|Node.js|Quickstart
             - title: Connect Spring Boot App
               url: Get started|Connect App|Spring Boot Quickstart
         - title: Community and Support
