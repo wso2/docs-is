@@ -132,7 +132,7 @@ plugins:
         "guides/login/webapp-saml.md": "guides/authentication/add-login-to-web-app.md"
         "guides/login/webapp-ws-federation.md": "guides/authentication/enterprise-login/add-iwa-login.md"
         "guides/login/sso-for-oidc.md": "guides/authentication/standard-based-login/add-oidc-idp-login.md"
-        "guides/login/sso-for-saml.md": "guides/authentication/enterprise-login/add-saml-idp-login.md"
+        "guides/login/sso-for-saml.md": "guides/authentication/standard-based-login/add-saml-idp-login.md"
         "guides/login/oidc-backchannel-logout.md": "guides/authentication/oidc/add-back-channel-logout.md"
         "guides/authentication/enterprise-login/index.md": "guides/authentication/standard-based-login/index.md"
         "guides/authentication/enterprise-login/add-oidc-idp-login.md": "guides/authentication/standard-based-login/add-oidc-idp-login.md"
