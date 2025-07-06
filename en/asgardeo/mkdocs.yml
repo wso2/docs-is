@@ -217,20 +217,26 @@ nav:
         - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
         - Complete Guide (App-Native): complete-guides/app-native/introduction.md
         - Complete Guide (B2B): complete-guides/nextjs-b2b/introduction.md
-      - Node.js Guide: complete-guides/nodejs/introduction.md
-      - .NET Guide: complete-guides/dotnet/introduction.md
-      - Spring Boot Quickstart: quick-starts/springboot.md
+      - Node.js:
+        - Complete Guide: complete-guides/nodejs/introduction.md
+      - .NET: 
+        - Complete Guide: complete-guides/dotnet/introduction.md
+      - Spring Boot:
+        - Quickstart: quick-starts/springboot.md
       - MCP Server:
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
         - MCP-Auth Quickstart: quick-starts/mcp-auth-server.md
-    - Connect via MCP:
-      - MCP Server: quick-starts/mcp-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
   #   - Customize login flow: guides/authentication/login-flow-ai.md
   - Guides:
       - Guides - Overview: guides/index.md
+      - AI & IAM:
+        - IAM for AI:
+          - Identity for AI Agents: guides/ai-and-iam/iam-for-ai/identity-for-ai-agents.md
+        - AI for IAM:
+          - Asgardeo MCP Server: guides/ai-and-iam/ai-for-iam/asgardeo-mcp-server.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md

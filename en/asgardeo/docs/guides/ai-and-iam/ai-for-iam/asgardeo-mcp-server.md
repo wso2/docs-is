@@ -22,10 +22,4 @@ template: templates/quick-start.html
   };
 </script>
 
-{% include "../../../includes/quick-starts/mcp-server.md" %}
-
-
-
-
-
-
+{% include "../../../../../includes/quick-starts/mcp-server.md" %}
