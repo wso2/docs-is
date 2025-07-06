@@ -326,9 +326,8 @@ plugins:
         'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md'
         'deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md'
         'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md'
-        'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md.md'
+        'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md'
         'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
-        'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
         'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
         'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
 
@@ -368,9 +367,8 @@ plugins:
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
 
         'references/concepts/introduction-to-multitenancy.md': 'guides/multitenancy/index.md'
-        'references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md': 'references/extend/authentication/oauth2/writ-a-custom-oauth-2.0-grant-type.md'
+        'references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md': 'references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md'
         'references/extend/write-custom-functions-for-adaptive-authentication.md': 'references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md'
-        'references/extend/provisioning/extend-scim2-user-schemas.md': 'references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md'
         'references/extend/write-a-custom-user-store-manager.md': 'references/extend/user-stores/write-a-custom-user-store-manager.md'
 
         'references/extend/myaccount/customize-my-account-ui.md': 'guides/branding/configure-ui-branding.md'
