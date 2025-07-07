@@ -167,6 +167,25 @@ To authorize an application to consume an API resource:
 
     ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/authorization/api-authorization/authorize-an-api-resource.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+## Business API authorization
+
+When exposing your own business APIs (Or hosted on a separate application server or API gateway), {{product_name}} doesn't enforce authorization decisions for those APIs. It only issues access tokens with the relevant scopes based on the configuration you define.
+
+To enforce access control for your own APIs:
+
+1. Extract and validate the access token issued by {{product_name}} in your application or API gateway.
+
+2. Validate the token using [introspection]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens) or [JWT validation]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-jwt-tokens).
+
+3. Extract the scopes from the validated token.
+
+4. Check if the scopes match the required permissions for the API resource.
+
+5. Allow or deny access based on the scope validation result.
+
+!!! note
+    Failing to enforce this logic at your application level may result in unauthorized access to protected resources, even if the scopes defined correctly in {{product_name}}.
+
 ## Set the role audience for apps
 
 In {{product_name}}, applications can be configured to work with one of the following roles.
