@@ -167,24 +167,23 @@ To authorize an application to consume an API resource:
 
     ![Successfully authorized an API resource in the app]({{base_path}}/assets/img/guides/authorization/api-authorization/authorize-an-api-resource.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Business API authorization
+## Set up access control rules in your application
 
-When exposing your own business APIs (Or hosted on a separate application server or API gateway), {{product_name}} doesn't enforce authorization decisions for those APIs. It only issues access tokens with the relevant scopes based on the configuration you define.
+For the business APIs you register, {{product_name}} issues access tokens with the appropriate scopes, if the requesting user has the correct permissions. Your application must enforce access control by evaluating these scopes when handling requests.
 
-To enforce access control for your own APIs:
+You can implement access control for business APIs by following the steps below:
 
-1. Extract and validate the access token issued by {{product_name}} in your application or API gateway.
+1. Extract the access token issued by {{product_name}} in your application or API gateway.
 
-2. Validate the token using [introspection]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens) or [JWT validation]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-jwt-tokens).
+2. Validate opaque tokens through [introspection]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens) or JWTs (JSON Web Tokens) through [JWT validation]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-jwt-tokens).
 
-3. Extract the scopes from the validated token.
+3. Extract the scopes from the token and check if the scopes match the required permissions.
 
-4. Check if the scopes match the required permissions for the API resource.
-
-5. Allow or deny access based on the scope validation result.
+4. Based on this result, allow or deny access.
 
 !!! note
-    Failing to enforce this logic at your application level may result in unauthorized access to protected resources, even if the scopes defined correctly in {{product_name}}.
+
+    As {{product_name}} doesn't enforce access control for business APIs, make sure to implement access control in your applications to prevent unauthorized access.
 
 ## Set the role audience for apps
 
