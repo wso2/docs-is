@@ -174,7 +174,7 @@ The following shows how the <code>initiatorType</code> and <code>action</code> p
 <td>User initiated password update</td>
 <td>USER</td>
 <td>UPDATE</td>
-<td><p>This occurs when a user updates their password directly through their profile settings in MyAccount app or via 
+<td><p>This occurs when a user updates their password directly through their profile settings in MyAccount app or via
 {% if product_name == "WSO2 Identity Server"%}
 <a href="{{base_path}}/apis/scim2-me-rest-apis/">SCIM 2.0 Me API</a>
 {% elif product_name == "Asgardeo" %}
