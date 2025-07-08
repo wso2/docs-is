@@ -16,3 +16,9 @@ VSCode
 Markdownlint
 markdownlint
 dev
+Asgardeo's
+IPs
+APIs
+middleware
+passwordless
+base_path

@@ -62,18 +62,18 @@ With the required permissions in place, the impersonator can now impersonate ano
 
         To make an application discoverable in the **My Account** portal for impersonators, you need to both enable impersonation for the application and mark it as discoverable. See [Configure business applications for impersonation](#configure-business-applications-for-impersonation) for instructions.
 
-## Impersonate users in a sub organization
+## Impersonate users in an organization
 
-Sub organization administrators also impersonate users within their organization by following these steps:
+Organization administrators also impersonate users within their organization by following these steps:
 
 1. Share **My Account** with the required organization.
 2. Assign users with Impersonation Access.
 
     !!! note "Limitations"
-        Sub organization impersonation doesn't support the following use cases.
+        Organization impersonation doesn't support the following use cases.
 
-        - Invited parent org user impersonating a sub organization user.
-        - Sub organization user impersonating a invited parent org user.
+        - Invited parent org user impersonating a organization user.
+        - Organization user impersonating a invited parent org user.
 
 ### Step 1: Share **My Account** with the required organization
 
@@ -92,7 +92,7 @@ Sub organization administrators also impersonate users within their organization
 
 Follow the steps below to assign the right permissions to the impersonator.
 
-1. Switch to the Sub organization.
+1. Switch to the organization.
 
     1. Login to your organization (root) from the **{{product_name}} Console**.
 
@@ -102,7 +102,7 @@ Follow the steps below to assign the right permissions to the impersonator.
 
 2. The impersonator should have the **Impersonator** role assigned. To do so,
 
-    1. On the {{product_name}} Sub Organization Console, go to **User Management** > **Roles**.
+    1. On the {{product_name}} organization Console, go to **User Management** > **Roles**.
 
     2. Select the **Impersonator** application role that has **My Account** as its audience.
 
@@ -122,7 +122,7 @@ Follow the steps below to assign the right permissions to the impersonator.
 
 ### Step 3: Perform Impersonation
 
-1. Log in to the sub organization Console using the business user credentials.
+1. Log in to the organization Console using the business user credentials.
 
 2. Go to the Users tab.
 
@@ -152,7 +152,7 @@ By following the steps below, you permit a business application to use the imper
 
         ![Authorize impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    4. Enable user impersonation for sub organization user by registering ***Organization User Impersonation** API resource. (Optional)
+    4. Enable user impersonation for organization user by registering ***Organization User Impersonation** API resource. (Optional)
 
         i. Under **API Resource**, select **Organization User Impersonation**.
 
@@ -180,7 +180,7 @@ To do so,
 
     1. Provide a suitable role name.
 
-    2. Under **API Resource**, select **User Impersonation**. If planning to allow impersonation for sub organizations, select Organization User Impersonation resource as well.
+    2. Under **API Resource**, select **User Impersonation**. If planning to allow impersonation for organizations, select Organization User Impersonation resource as well.
 
     3. Select the checkbox corresponding to **User Impersonation** to select its scopes.
 
@@ -224,9 +224,9 @@ To make an application discoverable,
 
 3. Click **Update** to save the changes.
 
-### Step 4: Share Application with Sub Organization(Optional)
+### Step 4: Share Application with Organization(Optional)
 
-To allow impersonating sub organization users, share the business applications with the relevant organization. Use the [documentation here]({{base_path}}/guides/organization-management/share-applications/#share-a-registered-application) to proceed with configuring.
+To allow impersonating organization users, share the business applications with the relevant organization. Use the [documentation here]({{base_path}}/guides/organization-management/share-applications/#share-a-registered-application) to proceed with configuring.
 
 ## Access logs related to user impersonation
 
