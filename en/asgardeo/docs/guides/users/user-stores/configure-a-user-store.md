@@ -171,6 +171,12 @@ To configure a remote user store for your organization:
 
 6. Click **Finish** to complete the registration.
 
+!!! note
+
+    You can register only one remote user store per organization without an enterprise tier account. If you want to connect a different user store, [delete the existing user store]({{base_path}}/guides/users/user-stores/update-user-stores/#delete-a-remote-user-store) and register a new one.
+
+    If you're on the enterprise tier and need to connect more than one user store, please contact our support team through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"} or email us at `asgardeo-help@wso2.com`. We'll guide you through the process.
+
 ### Set up the remote user store
 
 After registering the user store, you'll be redirected to the **Setup Guide** of the user store agent. To assemble and configure the user store agent bundle, follow the steps below for the appropriate agent.
