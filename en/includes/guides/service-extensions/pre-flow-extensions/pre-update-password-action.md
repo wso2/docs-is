@@ -1,23 +1,23 @@
 # Pre-update password action
 
-The pre-update password action in {{product_name}} allows you to validate a password during various password update flows. This can be achieved by integrating with credential intelligence services (like haveibeenpwned or SpyCloud) to check for compromised passwords or by comparing passwords against allowed or disallowed lists.
+The pre-update password action in {{product_name}} lets you validate a password during password update flows. You can integrate it with credential intelligence services (like HaveIBeenPwned or SpyCloud) to detect compromised passwords or to compare passwords with allowed or disallowed lists.
 
-This action is triggered during following flows that incorporate password updates.
+The {{product_name}} triggers this action during the following flows involving password updates.
 
 - Self-Service Password Reset: An end-user clicks "forgot password" and goes through the password recovery process.
-- Profile Update: An end-user updates their password through a self-service portal like the My Account application.
+- Profile Update: An end-user updates their password through a self-service portal like the MyAccount application.
 - Admin-Initiated Password Reset: An administrator forces a password reset, and the end-user subsequently resets their password.
 - Admin-Initiated User Invitation: An administrator invites a new user to register by resetting the password. The user then sets a new password as part of the registration flow.
 - Direct Admin Update: An administrator directly updates a user's password.
 
 !!! note
-     Currently, this action can only be applied at the root organization level and is invoked for any of the flows mentioned above.
+     Currently, only the root organization can apply this action, and the {{product_name}} triggers it during any of the flows listed earlier.
 
 ## How pre-update password action works
 
-When a pre-update password action is configured with your external service endpoint, {{product_name}} will call your service and wait for a response whenever a password update action is triggered. Upon receiving the response, {{product_name}} will either return a client error, server error or execute based on the response received.
+When you configure a pre-update password action with your external service endpoint, {{product_name}} calls your service and waits for a response whenever a password update action triggers. Upon receiving the response, {{product_name}} either returns a client error, server error, or executes based on the response.
 
-The [pre-update password API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract/) defines the request and response structures that your service must implement.
+The [pre-update password API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract/) defines the request and response structures that your service must follow.
 
 ### Request from {{product_name}}
 
@@ -33,7 +33,7 @@ The request from {{product_name}} includes following in the JSON request payload
 <tbody>
 <tr class="even">
 <td>actionType</td>
-<td><p>Specifies the action being triggered, which in this case is <code>PRE_UPDATE_PASSWORD</code>.</p></td>
+<td><p>Defines the triggering action as <code>PRE_UPDATE_PASSWORD</code> for this case.</p></td>
 </tr>
 <tr class="odd">
 <td>event</td>
@@ -43,6 +43,7 @@ The request from {{product_name}} includes following in the JSON request payload
 </table>
 
 #### event
+
 <a name="event"></a>
 
 <table>
@@ -55,22 +56,65 @@ The request from {{product_name}} includes following in the JSON request payload
 <tbody>
 <tr class="even">
 <td>event.tenant</td>
-<td><p>This property represents the tenant (root organization) under which the password update request is being processed.</p>
+<td><p>This property identifies the tenant (root organization) handling the password update request.</p>
 <tr class="odd">
 <td>event.user</td>
-<td><p>This property contains information about the user whose password is being updated.</p>
+<td><p>This property contains information about the user associated with the password update.</p>
 <table>
 <tbody>
 <tr>
 <td>id</td>
-<td><p>The unique numeric identifier of the user whose password is being updated.</p>
+<td><p>The unique numeric identifier of the user associated with the password update.</p>
+</td>
+</tr>
+<tr>
+<td>claims</td>
+<td>
+<p>Includes the user attribute values configured for sharing with the external service during the password update flow. These attributes represent claims using the WSO2 claim dialect: <code>http://wso2.org/claims</code>.</p>
+<p>For example,</p>
+<p>
+```json
+[
+  {
+    "uri": "http://wso2.org/claims/identity/accountLocked",
+    "value": "false"
+  },
+  {
+    "uri": "http://wso2.org/claims/username",
+    "value": "bob@aol.com"
+  },
+  {
+    "uri": "http://wso2.org/claims/verifiedEmailAddresses",
+    "value": [
+      "bob@work.example.com"
+    ]
+  },
+  {
+    "uri": "http://wso2.org/claims/emailAddresses",
+    "value": [
+      "bob@work.example.com",
+      "bob@personal.example.com"
+    ]
+  }
+]
+```
+</p>
+</td>
+</tr>
+<tr>
+<td>groups</td>
+<td>
+<p>
+Indicates the user groups to which the user belongs.
+The <code>event.user</code> context includes the <code>groups</code> attribute only when the pre-update password action configuration contains the <code>http://wso2.org/claims/groups</code> attribute for sharing with the external service.
+</p>
 </td>
 </tr>
 <tr>
 <td>updatingCredential</td>
 <td>
-<p>The user's new password, provided either as a hashed value or in plain text, depending on how the pre-update password action is configured. This is a JSON object that includes the password, the format in which the password is shared (hashed or plain text), and additional data that includes the algorithm used if the password is hashed.</p>
-<p>e.g.,</p>
+<p>The user's new password, provided either as a hashed value or in plain text, depending on the pre-update password action configuration. This JSON object includes the password, the format used to share it (hashed or plain text), and the hashing algorithm if used.</p>
+<p>For example,</p>
 <p>
 ```json
 {
@@ -83,7 +127,7 @@ The request from {{product_name}} includes following in the JSON request payload
 }
 ```
 </p>
-<p>If the pre-update password action configuration is set to encrypt the password payload, the above object will be encrypted with the public certificate uploaded with asymmetric encryption and will be shared as a <a href="https://datatracker.ietf.org/doc/html/rfc7516">JWE</a>.</p>
+<p>The pre-update password action configuration can enforce encryption of the <code>updatingCredential</code> object by providing a public certificate. The {{product_name}} uses this certificate to encrypt the object with asymmetric encryption and shares it as a <a href="https://datatracker.ietf.org/doc/html/rfc7516">JWE</a>.</p>
 </td>
 </tr>
 </tbody>
@@ -92,28 +136,29 @@ The request from {{product_name}} includes following in the JSON request payload
 </tr>
 <tr class="even">
 <td>event.userStore</td>
-<td><p>This property indicates the user store in which the user's data is being managed.</p>
+<td><p>This property indicates the user store that manages the user's data.</p>
 </td>
 </tr>
 <tr class="odd">
 <td>event.initiatorType</td>
-<td><p>This property indicates whether the password update was initiated by an administrator, a user, or an application. Refer <a href="#initatorType-and-action">initiatorType and action properties in request</a> section for details.</p>
+<td><p>This property indicates whether an administrator, a user, or an application initiated the password update. Refer <a href="#initatorType-and-action">initiatorType and action properties in request</a> section for details.</p>
 </td>
 </tr>
 <tr class="even">
 <td>event.action</td>
-<td><p>This property indicates whether the password update was initiated over a password reset flow, update flow, or an invite flow. Refer <a href="#initatorType-and-action">initiatorType and action properties in request</a> section for details.</p>
+<td><p>This property indicates whether a password reset flow, update flow, or an invite flow initiated the password update. Refer <a href="#initatorType-and-action">initiatorType and action properties in request</a> section for details.</p>
 </td>
 </tr>
 </tbody>
 </table>
 
 #### <code>initiatorType</code> and <code>action</code> properties in request
+
 <a name="initatorType-and-action"></a>
 
-The <code>initiatorType</code> and the <code>action</code> property in combination will denote the flow for which a password update is triggered.
+The <code>initiatorType</code> and the <code>action</code> property in combination denotes the flow that triggers a password update.
 
-Following is how the <code>initiatorType</code> and <code>action</code> property will differ based on the flow.
+The following shows how the <code>initiatorType</code> and <code>action</code> properties differ based on the flow.
 
 <table>
 <thead>
@@ -129,7 +174,7 @@ Following is how the <code>initiatorType</code> and <code>action</code> property
 <td>User initiated password update</td>
 <td>USER</td>
 <td>UPDATE</td>
-<td><p>This occurs when a user updates their password directly through their profile settings in my account app or via 
+<td><p>This occurs when a user updates their password directly through their profile settings in MyAccount app or via 
 {% if product_name == "WSO2 Identity Server"%}
 <a href="{{base_path}}/apis/scim2-me-rest-apis/">SCIM 2.0 Me API</a>
 {% elif product_name == "Asgardeo" %}
@@ -162,7 +207,7 @@ Following is how the <code>initiatorType</code> and <code>action</code> property
 <td>Admin initiated user invite to set password</td>
 <td>ADMIN</td>
 <td>INVITE</td>
-<td><p>This occurs when an administrator invites a new user to join the system, where the user is then prompted to set their password.
+<td><p>This occurs when an administrator invites a new user to join the system, prompting the user to set their password.
 </p>
 </tr>
 <tr class="even">
@@ -174,7 +219,7 @@ Following is how the <code>initiatorType</code> and <code>action</code> property
 </tbody>
 </table>
 
-#### Example request from {{product_name}}:
+#### Example request from {{product_name}}
 
 This example illustrates a request sent to an external service configured as a pre-update password action, triggered when a user updates their password.
 
@@ -183,7 +228,6 @@ POST /password-update-action HTTP/1.1
 Host: localhost
 Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
 Content-Type: application/json
-
 
 {
   "actionType": "PRE_UPDATE_PASSWORD",
@@ -194,6 +238,23 @@ Content-Type: application/json
     },
     "user": {
       "id": "8eebb941-51e1-4d13-9d5a-81da190383ae",
+      "claims": [
+        {
+          "uri": "http://wso2.org/claims/username",
+          "value": "bob@aol.com"
+        },
+        {
+          "uri": "http://wso2.org/claims/emailAddresses",
+          "value": [
+            "bob@work.example.com",
+            "bob@personal.example.com"
+          ]
+        }
+        ],
+        "groups": [
+          "employee",
+          "manager"
+        ],
       "updatingCredential": {
         "type": "PASSWORD",
         "format": "HASH",
@@ -213,25 +274,24 @@ Content-Type: application/json
 }
 ```
 
-### Expected Response from External Service:
+### Expected response from external service
 
 When {{product_name}} invokes your external service as part of the pre-password update action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract/) here.
 
-This response plays a crucial role in determining whether password update is allowed or not.
+This response plays a crucial role in determining whether to permit the password update.
 Here’s a breakdown of the expected response:
 
 The response can have three possible states: <code>SUCCESS</code>, <code>FAILED</code>and <code>ERROR</code>.
 
-<code>SUCCESS</code>: Indicates that the request was processed successfully, and password update is allowed.
+<code>SUCCESS</code>: Indicates successful request processing and permits the password update.
 
-<code>FAILED</code>: Represents a selective failure within the password update flow due to password validation logic or business rules enforced by your external service. A <code>400 (Client Error)</code> response is returned to the application, incorporating the failure message provided by your external service. 
+<code>FAILED</code>: Represents a selective failure within the password update flow due to password validation logic or business rules enforced by your external service. The application receives a <code>400 (Client Error)</code> response that includes the failure message from your external service.
 
-<code>ERROR</code>: Indicates a processing failure, typically caused by server-side issues. A <code>500 (Server Error)</code> response is returned to the application.
+<code>ERROR</code>: Indicates a processing failure, typically caused by server-side issues. The application receives a <code>500 (Server Error)</code> response.
 
+#### Response for SUCCESS state
 
-#### Response for SUCCESS state:
-
-When the external service responds with a 200 status code and a SUCCESS state, it indicates that the request was processed correctly and password update is allowed. 
+When the external service responds with a 200 status code and a SUCCESS state, it indicates that the request completed successfully and permits the password update.
 
 Http Status Code: <code>200</code>
 
@@ -245,15 +305,16 @@ Http Status Code: <code>200</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For an allowed password update, this should be set to <code>SUCCESS</code>.</p></td>
+<td><p>Indicates the outcome of the request. To permit the password update, set this to <code>SUCCESS</code>.</p></td>
 </tr>
 </tr>
 </tbody>
 </table>
 
-Below is an example of a success response at a password update request.
+The following shows an example of a success response from a password update request.
 
 Response from external service:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -263,9 +324,9 @@ Content-Type: application/json
 }
 ```
 
-#### Response for FAILED state:
+#### Response for FAILED state
 
-When the external service returns a 200 OK status code with a <code>FAILED</code> state, it means the service has intentionally opted to reject the password update. This decision is based on specific validation logic or business rules defined by your application's requirements.
+When the external service returns a 200 OK status code with a <code>FAILED</code> state, it means the service has intentionally opted to reject the password update. This decision follows specific validation logic or business rules defined by your application.
 
 The response body must be a JSON object containing the following properties:
 
@@ -281,23 +342,24 @@ Http Status Code: <code>200</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For a failed operation, this should be set to <code>FAILED</code>.</p></td>
+<td><p>Indicates the outcome of the request. For a failed operation, set this to <code>FAILED</code>.</p></td>
 </tr>
 </tr>
 <tr class="even">
 <td>failureReason</td>
-<td><p>Provides the reason for failing to update the password. This value is not currently mapped to the SCIM API response.</code>.</p></td>
+<td><p>Provides the reason for failing to update the password. This value currently doesn't map to the SCIM API response.</p></td>
 </tr>
 <tr class="odd">
 <td>failureDescription</td>
-<td><p>Offers a detailed explanation of the failure. This value will be mapped to the detail field in error response of the SCIM API.</p></td>
+<td><p>Offers a detailed explanation of the failure. This value maps to the <code>detail</code> field in the error response of the SCIM API.</p></td>
 </tr>
 </tbody>
 </table>
 
-Below is an example of a failed response due to a validation of compromised passwords.
+The following shows an example of a failed response due to a validation of compromised passwords.
 
 Response from external service:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -309,9 +371,10 @@ Content-Type: application/json
 }
 ```
 
-This will result in the following error response being sent to the application that initiated a password update request over SCIM API.
+This results in the following error response sent to the application that initiated the password update request over the SCIM API.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 400 
 Content-Type: application/json
@@ -326,9 +389,10 @@ Content-Type: application/json
 }
 ```
 
-And this will result in following error response being sent to the application that initiated a password update request via the forgot password, forced password reset, or user invitation flow using the password reset API.
+Following error response returned to the application that initiated the password update request through the forgot password, forced reset, or user invitation flow using the password reset API.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 400 
 Content-Type: application/json
@@ -341,9 +405,9 @@ Content-Type: application/json
 }
 ```
 
-#### Response for ERROR state:
+#### Response for ERROR state
 
-When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
+When the external service returns an <code>ERROR</code> state, it sends a 400, 401, or 500 HTTP status code indicating validation failure or processing issues.
 
 Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 
@@ -357,7 +421,7 @@ Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For an error operation, this should be set to <code>ERROR</code>.</p></td>
+<td><p>Indicates the request outcome. Set this to <code>ERROR</code> for an error operation.</p></td>
 </tr>
 </tr>
 <tr class="even">
@@ -371,11 +435,12 @@ Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 </tbody>
 </table>
 
-If the external service returns an error response (either defined or undefined) or fails to respond entirely, it will be treated as an error in executing the action. In any of these cases, the application that initiated the password update request will receive a 500 Internal Server Error.
+If the external service returns an error response (either defined or undefined) or fails to respond entirely, the {{product_name}} treats it as an error in executing the action. In any of these cases, the application that initiated the password update request will receive a 500 Internal Server Error.
 
-Below is an example of an error response returned by the service implementing the pre-update password action.
+The following shows an example of an error response returned by the service implementing the pre-update password action.
 
 Response from external service:
+
 ```http
 HTTP/1.1 500
 Content-Type: application/json
@@ -387,9 +452,10 @@ Content-Type: application/json
 }
 ```
 
-This will result in the following error response being sent to the application that initiated the password update request over SCIM API.
+This results in the following error response sent to the application that initiated the password update request over SCIM API.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 500 
 Content-Type: application/json
@@ -404,31 +470,30 @@ Content-Type: application/json
 ```
 
 !!! note
-    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response is not directly included in the error response sent back to the application.
+    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response doesn't directly include in the error response sent back to the application.
 
-## Conditional Invocation of Pre-Update Password Action
+## Conditional invocation of pre-update password action
 
-Pre-update password actions can be conditionally triggered based on configurable rule criteria. The rule configuration currently supports the following field:
+Pre-update password actions trigger conditionally based on configurable rule criteria. The rule configuration currently supports the following field:
 
-- Flow: The specific product flow where the user password is updated are defined below.
-    - Admin initiated password reset
-    - Admin initiated password update
-    - Admin initiated user invite to set password
-    - Application initiated password update
-    - User initiated password reset
-    - User initiated password update
+- Flow: The specific user password updating flows in the product.
+  - Admin initiated password reset
+  - Admin initiated password update
+  - Admin initiated user invite to set password
+  - Application initiated password update
+  - User initiated password reset
+  - User initiated password update
 
 The rule field supports the following operators:
 
 - equals
 - not equals
 
-You can specify exact values for the field, such as an Admin initiated password update. 
-Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-update password action should be invoked.
+You can specify exact values for the field, such as an Admin initiated password update.
+Combine rules using logical AND/OR operators to control precisely when the pre-update password action triggers.
 
 ![pre-update-password-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-update-password-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
-The above rule configuration translates logically to:
+This rule configuration translates logically to:
 
-- The flow is Admin initiated password reset OR
-- The flow is Admin initiated password update
+- The flow should equals to <code>Admin initiated password reset</code> or <code>Admin initiated password update</code> to trigger the pre-update password action.
