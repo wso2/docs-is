@@ -68,7 +68,7 @@ A sample configuration is given below.
                     
         - `<IS-HOME>/dbscripts/oracle.sql`
     
-3.  Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
+3.  Download the Oracle JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ---
             
