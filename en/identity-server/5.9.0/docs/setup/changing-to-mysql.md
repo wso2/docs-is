@@ -104,8 +104,7 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
-   4.  Download the MySQL JDBC driver for the version you are using and
-            copy it to the `<IS_HOME>/repository/components/lib` folder  
+   4.  Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
     
     !!! note     
         In earlier versions, WSO2 Identity Server had the option to create databases automatically using the 

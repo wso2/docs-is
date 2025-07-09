@@ -101,7 +101,7 @@ You can configure the datasource by editing the default configurations in `<IS-H
            
    3. If you have a requirement to use the workflow feature, see [Changing the default database of BPS database](../../setup/changing-datasource-bpsds).
        
-   4.  Download the Postgres JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
+   4.  Download the PostgreSQL JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
     
     !!! note     
         In earlier versions WSO2 Identity Server had the option to create databases automatically using the 

@@ -66,7 +66,7 @@ A sample configuration is given below.
         
 3. If you have a requirement to use the workflow feature, see [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds).
     
-4.  Download the Postgres JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
+4.  Download the PostgreSQL JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ---           
 

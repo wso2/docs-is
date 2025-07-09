@@ -44,7 +44,7 @@ type = "database_unique_id"
 
           - `<IS-HOME>/dbscripts/postgresql.sql`
           
-    3. Download the PostgreSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
+    3. Download the PostgreSQL JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ??? example "MySQL"
 
@@ -64,7 +64,7 @@ type = "database_unique_id"
             
           - `<IS-HOME>/dbscripts/mysql.sql`
 
-    3. Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder          
+    3. Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ??? example "DB2"
 
@@ -83,7 +83,7 @@ type = "database_unique_id"
             
           - `<IS-HOME>/dbscripts/db2.sql`
    
-    3. Download the DB2 JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
+    3. Download the DB2 JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ??? example "MSSQL"
 
@@ -102,7 +102,7 @@ type = "database_unique_id"
             
           - `<IS-HOME>/dbscripts/mssql.sql`
           
-    3. Download the MSSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
+    3. Download the MSSQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 
 ??? example "Oracle"
@@ -122,7 +122,7 @@ type = "database_unique_id"
             
           - `<IS-HOME>/dbscripts/oracle.sql`
           
-    3. Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder 
+    3. Download the Oracle JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ## Properties used in JDBC user store manager
 
