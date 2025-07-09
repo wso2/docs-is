@@ -1,36 +1,157 @@
 
+At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo React SDK. The next step is to explore how to access and display logged-in user details within the app.
 
-At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo React SDK. The next step is to explore how to access and display logged-in user details within the app. The Asgardeo React SDK loads the basic user attribute details to the authentication state, so that you can directly access those from the state (such as `state.username`) and use them in the application. First, let’s try to display the username using state.username.Replace the code in app.jsx with the following.
+The React SDK has components that can be used to display user information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
 
-```javascript
-import { useAuthContext } from "@asgardeo/auth-react";
-import './App.css';
+- `User`: The `User` component provides a render prop pattern to access user profile information:
+- `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
+- `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
 
-const App = () => {
-  const { state, signIn, signOut } = useAuthContext();
+First let's use the `User` Component to display the username as below.
 
+```javascript title="src/App.jsx" hl_lines="1 18-24"
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User } from '@asgardeo/react'
+import './App.css'
+
+function App() {
   return (
     <>
-      {
-        state.isAuthenticated
-          ? <>
-            <p>Welcome {state.username}</p>
-            <button onClick={() => signOut()}>Logout</button>
-          </>
-          : <button onClick={() => signIn()}>Login</button>
-      }
+      <header>
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
+              </div>
+            )}
+          </User>
+        </SignedIn>
+      </main>
     </>
   )
-};
+}
 
 export default App;
 ```
 
+Now let's use the `UserProfile` component to display and update user profile information.
+
+```javascript title="src/App.jsx" hl_lines="1 24"
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserProfile } from '@asgardeo/react'
+import './App.css'
+
+function App() {
+  return (
+    <>
+      <header>
+        <SignedIn>
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
+    </>
+  )
+}
+
+export default App;
+```
+
+Finally we can use the `UserDropdown` component to provide a dropdown menu with built-in user information and sign-out functionality.
+
+```javascript title="src/App.jsx" hl_lines="1 9"
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserDropdown, UserProfile } from '@asgardeo/react'
+import './App.css'
+
+function App() {
+  return (
+    <>
+      <header>
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
+    </>
+  )
+}
+
+export default App;
+```
+
+Alternatively the Asgardeo React SDK webhook which is useAsgardeo() can be used to fetch user information, so that you can directly access those from the state (such as `user.username`) and use them in the application. First, let’s try to display the username using user.username. Replace the code in app.jsx with the following.
+
+```javascript
+import { useAsgardeo } from '@asgardeo/react';
+import './App.css'
+
+const AuthenticatedApp = () => {
+  const {
+    isSignedIn,
+    signIn,
+    signOut,
+    user
+  } = useAsgardeo();
+
+  return (
+    <div>
+      {isSignedIn && user ? (
+        <>
+          <p>Welcome {user.userName || user.username || user.sub}</p>
+          <button onClick={() => signOut()}>Sign Out</button>
+        </>
+      ) : (
+        <button onClick={() => signIn()}>Sign In</button>
+      )}
+    </div>
+  );
+};
+
+export default AuthenticatedApp;
+```
+
 If your React application is already running in the development mode, the home page will be reloaded and you will see the updated user interface.
 
-![Logout screen]({{base_path}}/assets/img//complete-guides/react/image18.png){: width="800" style="display: block; margin: 0;"}
+![Logout screen]({{base_path}}/assets/img/complete-guides/react/image18.png){: width="800" style="display: block; margin: 0;"}
 
-There may be instances where you’d need to retrieve user attributes outside React components. Asgardeo React SDK provides a [getBasicUserInfo](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#getbasicuserinfo){:target="_blank"}  function, which allows you to retrieve the authenticated user’s basic information. The code example in the following section demonstrates this process and can be adapted to fit your application with any necessary customizations.
+<!-- There may be instances where you’d need to retrieve user attributes outside React components. Asgardeo React SDK provides a [getBasicUserInfo](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#getbasicuserinfo){:target="_blank"}  function, which allows you to retrieve the authenticated user’s basic information. The code example in the following section demonstrates this process and can be adapted to fit your application with any necessary customizations.
 
 Again, replace the code in `app.jsx` with the following.
 
@@ -51,7 +172,6 @@ const App = () => {
       console.error(error);
     });
   }, [state]);
-
 
   return (
     <>
@@ -98,9 +218,7 @@ To get additional user attributes to the ID token, the application should be con
 
 const { state, signIn, signOut, getDecodedIDToken } = useAuthContext();
 
-
 const [mobileNumber, setMobileNumber] = useState("")
-
 
 useEffect(() => {
   if (state.isAuthenticated) {
@@ -113,7 +231,6 @@ useEffect(() => {
   }
 }, [ state.isAuthenticated ]);
 
-
 return (
    <>
     <p>Your mobile number: {mobileNumber}</p>
@@ -124,6 +241,6 @@ return (
 
 In the above code snippet, we run the `getDecodedIDToken` method if the user is authenticated, and print the output to the browser console. The decoded ID token response will be printed to the browser console as follows.
 
-![ID token]({{base_path}}/assets/img//complete-guides/react/image19.png){: width="800" style="display: block; margin: 0;"}
+![ID token]({{base_path}}/assets/img//complete-guides/react/image19.png){: width="800" style="display: block; margin: 0;"} -->
 
 In this step, we further improved our React app to display the user attributes. As the next step, we will try to secure routes within the app.

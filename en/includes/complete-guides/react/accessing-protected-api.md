@@ -1,7 +1,7 @@
 
 In this section, we will focus on how to call a secure API from your React app using the other token—the access token.
 
-For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer— in this case, the same {{product_name}} organization. This is typical when React apps are interacting with internal APIs within the same organization.
+For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer— in this case, {{product_name}}. This is typical when React apps are interacting with internal APIs within the same organization.
 
 !!! tip "Tip"
 
@@ -9,9 +9,9 @@ For simplicity, let's assume that the APIs we’re calling are secured by the sa
 
 ## Using SDK Built-in HTTP client
 
-You can use the `httpRequest` API provided by the Asgardeo SDK to make HTTP requests to these endpoints. This function is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this function does it automatically.
+You can use the `fetch` API provided by the Asgardeo SDK to make HTTP requests to these endpoints. This function is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this function does it automatically.
 
-The following is a simple example of how you might use the Asgardeo SDK’s `httpRequest` to call a protected API endpoint, such as `/scim2/me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
+The following is a simple example of how you might use the Asgardeo SDK’s `fetch` to call a protected API endpoint, such as `/scim2/me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by {{product_name}} . {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
 
 !!! note "Note"
 
@@ -19,25 +19,27 @@ The following is a simple example of how you might use the Asgardeo SDK’s `htt
 
 ```javascript
 
+import { useAsgardeo } from '@asgardeo/react';
+import { useEffect } from 'react';
+import './App.css'
+
 const App = () => {
+const {http, isSignedIn, signIn, signOut, user} = useAsgardeo();
 
 
-   const { httpRequest } = useAuthContext();
+   useEffect(() => {
 
+       // Make a GET request to a protected endpoint
 
-   const requestConfig = {
+       http.request({
+
        headers: {
            "Accept": "application/json",
            "Content-Type": "application/scim+json"
        },
        method: "GET",
        url: "<base-url>/scim2/me"
-   };
-
-
-   useEffect(() => {
-       // Make a GET request to a protected endpoint
-       httpRequest(requestConfig)
+   })
            .then((response) => {
                // Handle successful response
                console.log('Response:', response.data);
@@ -47,14 +49,26 @@ const App = () => {
                console.error('Error:', error);
            });
    }, [])
-}
 
+
+  return (
+    <div>
+      {isSignedIn ? (
+        <>
+          <button onClick={() => signOut()}>Sign Out</button>
+        </>
+      ) : (
+        <button onClick={() => signIn()}>Sign In</button>
+      )}
+    </div>
+  );
+  };
+export default App;
 ```
-
 
 !!! tip "Tip"
 
-    You need to constrct the '<base-url>' value as per the followng instructions: 
+    You need to constrct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -64,10 +78,9 @@ const App = () => {
 
     `<base-url> =https://localhost:9443`
 
+Note that you don’t need to manually specify the Authorization header under headers in `fetchData`, as `fetch` function intercepts the request and attaches the access token to the network request as the Authorization header.
 
-Note that you don’t need to manually specify the Authorization header under headers in `requestConfig`, as `httpRequest` function intercepts the request and attaches the access token to the network request as the Authorization header.
-
-In the above example, the final request config sent by the `httpRequest` function would be as follows
+In the above example, the final request config sent by the `fetch` function would be as follows
 
 ```javascript
 const requestConfig = {
@@ -85,7 +98,7 @@ const requestConfig = {
 
 !!! tip "Tip"
 
-    You need to constrct the '<base-url>' value as per the followng instructions: 
+    You need to constrct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -95,24 +108,19 @@ const requestConfig = {
 
     `<base-url> =https://localhost:9443`
 
-
-In case you want to send multiple API requests in parallel, you can use the `httpRequestAll` function to simultaneously trigger parallel network requests and receive responses after all network requests are completed.
+<!-- In case you want to send multiple API requests in parallel, you can use the `httpRequestAll` function to simultaneously trigger parallel network requests and receive responses after all network requests are completed.
 
 The following code snippet shows a javascript function which accepts a list of application IDs and sends multiple network requests for each app ID in parallel. The responses will contain results for each id, as an array of responses.
 
 ```javascript
 import { AsgardeoSPAClient } from "@asgardeo/auth-react";
 
-
 const httpClientAll = AsgardeoSPAClient.getInstance()
    .httpRequestAll.bind(AsgardeoSPAClient.getInstance());
 
-
 export const getApplicationsByIds = async (ids) => {
 
-
    const requests = [];
-
 
    for (const id of ids) {
        requests.push({
@@ -125,10 +133,8 @@ export const getApplicationsByIds = async (ids) => {
        });
    }
 
-
    try {
        const responses = await httpClientAll(requests);
-
 
        return Promise.resolve(responses);
    } catch (error) {
@@ -137,9 +143,10 @@ export const getApplicationsByIds = async (ids) => {
 };
 
 ```
+
 !!! tip "Tip"
 
-    You need to constrct the '<base-url>' value as per the followng instructions: 
+    You need to constrct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -156,14 +163,12 @@ In case you are not using the webWorker as the storage type, the `getAccessToken
 ```javascript
 import { useAuthContext } from "@asgardeo/auth-react";
 
-
 const App = () => {
    const { getAccessToken } = useAuthContext();
 
-
    useEffect(() => {
       getAccessToken().then(async (accessToken) => {
-          const response = await fetch("<base-url>/scim2/me", {
+          const response = await fetch("<base-url>/scim2/Me", {
            "Authorization": "Bearer " + accessToken
           })
           console.log(response)
@@ -180,7 +185,7 @@ const App = () => {
 
 !!! tip "Tip"
 
-    You need to constrct the '<base-url>' value as per the followng instructions: 
+    You need to constrct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -188,4 +193,4 @@ const App = () => {
 
     For WSO2 Idenity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> =https://localhost:9443` -->

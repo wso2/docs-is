@@ -1,37 +1,67 @@
 
+Next, let’s implement login and logout for our React app.
 
-Next, let’s implement login and logout for our React app. React hooks are a special type of functions that let you access state and other React features in React functional components. Asgardeo provides one such hook, `useAuthContext()`, to conveniently access user authentication data such as the logged in user’s information, etc and utility functions, such as a function to validate user’s authentication status, and retrieve access tokens.
+Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
-`useAuthContext` hook also provides us access with two key functions to perform sign in and sign out in your React application, `signIn` and `signOut` respectively. You can directly invoke the respective functions in our React application to trigger sign-in and sign-out requests as follows.
+Replace the existing content of the `App.jsx` file with following content.
 
-Update the `App.jsx` with the following code.
+```javascript title="src/App.jsx"  hl_lines="1 7-12"
+import { SignedIn, SignedOut, SignInButton, SignOutButton } from '@asgardeo/react'
+import './App.css'
 
-```javascript
-import { useAuthContext } from "@asgardeo/auth-react";
-import './App.css';
-
-const App = () => {
-const { state, signIn, signOut } = useAuthContext();
-
-return (
-    <>
-    {
-        state.isAuthenticated
-        ? <button onClick={() => signOut()}>Logout</button>
-        : <button onClick={() => signIn()}>Login</button>
-    }
-    </>
-)
-};
+function App() {
+  return (
+    <header>
+      <SignedIn>
+        <SignOutButton />
+      </SignedIn>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+    </header>
+  )
+}
 
 export default App;
 ```
 
+Alternatively a React hook can be used to perform this as well. React hooks are a special type of functions that let you access state and other React features in React functional components. Asgardeo SDK provides one such hook, `useAsgardeo()`, to conveniently access user authentication data such as the logged in user’s information, etc and utility functions, such as a function to validate user’s authentication status, and retrieve access tokens.
+
+`useAsgardeo` hook also provides us access with two key functions to perform sign in and sign out in your React application, `signIn` and `signOut` respectively. You can directly invoke the respective functions in our React application to trigger sign-in and sign-out requests as follows.
+
+Update the `App.jsx` with the following code.
+
+```javascript
+import { useAsgardeo } from '@asgardeo/react';
+import './App.css'
+
+const AuthenticatedApp = () => {
+  const {
+    isSignedIn,
+    signIn,
+    signOut,
+  } = useAsgardeo();
+
+  return (
+    <div>
+      {isSignedIn && user ? (
+        <>
+          <button onClick={() => signOut()}>Sign Out</button>
+        </>
+      ) : (
+        <button onClick={() => signIn()}>Sign In</button>
+      )}
+    </div>
+  );
+};
+
+export default AuthenticatedApp;
+
+```
+
 Let’s look into the underlying details of what’s happening here.
 
-The `authConfig` object holds the configuration necessary for connecting the app to {{product_name}}. It includes properties like `signInRedirectURL` and `signOutRedirectURL`, which determine where users are redirected after signing in or out. The `clientID` identifies the application, and `baseUrl` specifies the Asgardeo API endpoint specific to your organization. The scope array lists the OAuth 2.0 permissions the app requires, such as `openid` and `profile`. The scops are used to indicate what user attributes are expected by our React app.
-
-The App component leverages the `useAuthContext` hook to access the authentication state (`state`) and actions (`signIn` and `signOut`). Inside the `AuthProvider`, the app conditionally renders a login or logout button based on whether the user is authenticated. If `state.isAuthenticated` is true, a "Logout" button is shown that triggers the `signOut` function. Otherwise, a "Login" button appears, which initiates the signIn process.
+The AuthenticatedApp component leverages the `useAsgardeo` hook to access the authentication state (`isSignedIn`) and actions (`signIn` and `signOut`). Inside the `AsgardeoProvider`, the app conditionally renders a signIn or signOut button based on whether the user is authenticated. If `isSignedIn` is true, a "Sign Out" button is shown that triggers the `signOut` function. Otherwise, a "Sign In" button appears, which initiates the signIn process.
 
 Save the changes and re-run the application in development mode if it is not running already.
 
@@ -54,13 +84,11 @@ Clicking on the login button will initiate an OIDC request. You will be able to 
 
 Asgardeo will receive this authorization request and respond by redirecting the user to a login page to enter their credentials.
 
-![OIDC request]({{base_path}}/assets/img//complete-guides/react//image16.png){: width="800" style="display: block; margin: 0;"}
-
-At this stage, **you need to create a [test user in Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-users){:target="_blank"}  to try out the application.** Once you create a test user, you can enter the username and password of the test user to the login screen.
+At this stage, **you need to create a [test user in {{product_name}}]({{base_path}}/guides/users/manage-users/#onboard-users){:target="_blank"}  to try out the application.** Once you create a test user, you can enter the username and password of the test user to the login screen.
 
 If the login is successful, you should be able to see the application as shown below.
 
-![Login flow]({{base_path}}/assets/img//complete-guides/react/image17.png){: width="800" style="display: block; margin: 0;"}
+![Login flow]({{base_path}}/assets/img/complete-guides/react/image17.png){: width="800" style="display: block; margin: 0;"}
 
 !!! tip "Tip"
 
