@@ -89,42 +89,53 @@ Silent login allows an app to check if a user is already authenticated, either t
 
 ```javascript
 
-// import { AuthProvider, useAuthContext } from "@asgardeo/auth-react";
+import { SignedIn, SignedOut, SignInButton, SignOutButton, useAsgardeo, User, UserDropdown, UserProfile } from '@asgardeo/react'
+import { useEffect } from 'react'
 
+function App() {
+  const {signInSilently} = useAsgardeo();
 
-// const authConfig = {
-//   signInRedirectURL: "http://localhost:5173",
-//   signOutRedirectURL: "http://localhost:5173",
-//   clientID: "<client_ID>",
-//   baseUrl: "https://api.asgardeo.io/t/<org_name>",
-//   scope: ["openid", "profile"],
-//   enableSilentSignIn: true // Enable silent sign-in
-// };
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await signInSilently();
+        
+        if (!response) {
+          console.warn('User is not authenticated');
+        }
+      } catch (error) {
+        console.error('Error during silent sign-in:', error);
+      }
+    })();
+  }, []);
 
+  return (
+    <>
+      <header>
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user?.userName || user?.username || user?.sub}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
+    </>
+  )
+}
 
-// const App = () => {
-//  const { state, signIn } = useAuthContext();
-
-
-//  React.useEffect(() => {
-//    if (!state.isAuthenticated) {
-//      signIn({ prompt: "none" }).catch(() => {
-//        // Handle silent sign-in failure
-//      });
-//    }
-//  }, [state.isAuthenticated, signIn]);
-
-
-//  return (
-//    <AuthProvider config={authConfig}>
-//       {/* App content */}
-//    </AuthProvider>
-//  )
-// }
-
-
-// export default App;
-// useAuthContext
-
+export default App;
 
 ```
