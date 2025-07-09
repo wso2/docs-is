@@ -70,4 +70,4 @@ Confirm that the dev server is up and running by verifying the output in the ter
 
 ![Navigate to localhost]({{base_path}}/assets/img/complete-guides/react/image6.png){: width="600" style="display: block; margin: 0;"}
 
-At this point, you have a simple yet fully functional React app. In the next step, let’s try to integrate an OIDC SDK with the app. 
+At this point, you have a simple yet fully functional React app. In the next step, let’s try to integrate an OIDC SDK with the app.
