@@ -11,7 +11,7 @@ When a user signs in, the Asgardeo React SDK acquires an access token (and often
 
 - **Issuer Validation:** The SDK verifies that the `iss` (issuer) claim in the token matches the expected issuer URL, which is typically the base URL specified in the `authConfig`.
 
-- **Audience Validation:** The SDK checks the aud (audience) claim to ensure the token is intended for your application (identified by the `clientID` in your   `authConfig`).
+- **Audience Validation:** The SDK checks the aud (audience) claim to ensure the token is intended for your application (identified by the `clientID` in your   `AsgardeoProvider`).
 
 If the token is close to being expired, the SDK will automatically attempt to renew the token by performing a silent sign-in (explained below). This helps maintain a seamless user experience without requiring the user to re-authenticate frequently. If the token has already expired and cannot be renewed silently, the user will be redirected to the login page to obtain a new token.
 
@@ -25,10 +25,10 @@ You can specify the storage mechanism in the authConfig object using the storage
 
 ```javascript
 
-const authConfig = {
+<AsgardeoProvider
    // other configs
    storage: "localStorage"
-}
+>
 
 ```
 
@@ -36,10 +36,10 @@ const authConfig = {
 
 ```javascript
 
-const authConfig = {
+<AsgardeoProvider
    // other configs
    storage: "sessionStorage"
-}
+>
 
 
 ```
@@ -48,10 +48,10 @@ const authConfig = {
 
 ```javascript
 
-const authConfig = {
+<AsgardeoProvider
    // other configs
    storage: "webWorker"
-}
+>
 
 ```
 
@@ -89,42 +89,53 @@ Silent login allows an app to check if a user is already authenticated, either t
 
 ```javascript
 
-import { AuthProvider, useAuthContext } from "@asgardeo/auth-react";
+import { SignedIn, SignedOut, SignInButton, SignOutButton, useAsgardeo, User, UserDropdown, UserProfile } from '@asgardeo/react'
+import { useEffect } from 'react'
 
+function App() {
+  const {signInSilently} = useAsgardeo();
 
-const authConfig = {
-  signInRedirectURL: "http://localhost:5173",
-  signOutRedirectURL: "http://localhost:5173",
-  clientID: "<client_ID>",
-  baseUrl: "https://api.asgardeo.io/t/<org_name>",
-  scope: ["openid", "profile"],
-  enableSilentSignIn: true // Enable silent sign-in
-};
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await signInSilently();
+        
+        if (!response) {
+          console.warn('User is not authenticated');
+        }
+      } catch (error) {
+        console.error('Error during silent sign-in:', error);
+      }
+    })();
+  }, []);
 
-
-const App = () => {
- const { state, signIn } = useAuthContext();
-
-
- React.useEffect(() => {
-   if (!state.isAuthenticated) {
-     signIn({ prompt: "none" }).catch(() => {
-       // Handle silent sign-in failure
-     });
-   }
- }, [state.isAuthenticated, signIn]);
-
-
- return (
-   <AuthProvider config={authConfig}>
-      {/* App content */}
-   </AuthProvider>
- )
+  return (
+    <>
+      <header>
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main>
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user?.userName || user?.username || user?.sub}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
+    </>
+  )
 }
 
-
 export default App;
-useAuthContext
-
 
 ```

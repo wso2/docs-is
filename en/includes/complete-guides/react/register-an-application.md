@@ -1,15 +1,10 @@
 
-* Sign into {{product_name}} console and navigate to **Applications > New Application.**
-* Select Single Page Application
-
-![Select Single Page Application]({{base_path}}/assets/img/complete-guides/react/image5.png){: width="600" style="display: block; margin: 0;"}  
-
 Next, complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-    name: is-react
-    
-    Authorized redirect URL: http://localhost:5173*
+    name: {{product}}-react
+
+    Authorized redirect URL: http://localhost:5173
 
 ![Register a new application]({{base_path}}/assets/img/complete-guides/react/image8.png){: width="600" style="display: block; margin: 0;"}
 
@@ -34,4 +29,4 @@ You need the following information.
 * Redirect URL - `http://localhost:5173` or the custom redirect URL you specified when creating the application.
 {% endif %}
 
-In this step, we have ve registered our React app as an application in the {{product_name}} console and generated the required metadata. Next, we will create a React app using Vite.
+In this step, we have registered our React app as an application in the {{product_name}} console and generated the required metadata. Next, we will create a React app using Vite.
