@@ -82,7 +82,7 @@ Clicking on the login button will initiate an OIDC request. You will be able to 
 
     The OpenID Connect specification offers several functions, known as grant types, to obtain an access token in exchange for user credentials. This example uses the authorization code grant type. In this process, the app first requests a unique code from the authentication server, which can later be used to obtain an access token.
 
-Asgardeo will receive this authorization request and respond by redirecting the user to a login page to enter their credentials.
+{{product_name}} will receive this authorization request and respond by redirecting the user to a login page to enter their credentials.
 
 At this stage, **you need to create a [test user in {{product_name}}]({{base_path}}/guides/users/manage-users/#onboard-users){:target="_blank"}  to try out the application.** Once you create a test user, you can enter the username and password of the test user to the login screen.
 
