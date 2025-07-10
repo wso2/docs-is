@@ -96,8 +96,7 @@ A sample configuration is given below.
         <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
         ```
     
-3.  Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
-          
+    3.  Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 ---
 
 ### Advanced database configurations

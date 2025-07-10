@@ -32,7 +32,7 @@ Following are the sample configuration for each database type.
         Execute the scripts in the `<IS-HOME>/dbscripts/postgresql.sql` file against 
         the created database.    
 
-    3. Download the Postgres JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.
+    3. Download the PostgreSQL JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
           
 ??? Example "MySQL"
 
@@ -53,7 +53,7 @@ Following are the sample configuration for each database type.
         Execute the scripts in the `<IS-HOME>/dbscripts/mysql.sql` file against 
         the created database.   
 
-    3. Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.
+    3.  Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
             
 ??? Example "DB2"
     1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
@@ -72,7 +72,7 @@ Following are the sample configuration for each database type.
         Execute the scripts in the `<IS-HOME>/dbscripts/db2.sql` file against 
         the created database.    
 
-    3. Download the DB2 JDBC driver for the version, you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.
+    3. Download the DB2 JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ??? Example "MSSQL"
     1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
@@ -91,7 +91,7 @@ Following are the sample configuration for each database type.
         Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file against 
         the created database.   
 
-    3. Download the MS SQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder. 
+    3. Download the MSSQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ??? Example "Oracle"
     1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
@@ -110,7 +110,7 @@ Following are the sample configuration for each database type.
         Execute the scripts in the `<IS-HOME>/dbscripts/oracle.sql` file against 
         the created database.    
 
-    3. Download the Oracle JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.
+    3. Download the Oracle JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ---
 

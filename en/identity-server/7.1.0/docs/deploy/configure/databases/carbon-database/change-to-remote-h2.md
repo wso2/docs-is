@@ -109,7 +109,7 @@ A sample configuration is given below.
     
         Execute the scripts in the `<IS-HOME>/dbscripts/h2.sql` file against the database created.
     
-3.  Download the H2 JDBC driver for the version, you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
+3.  Download the H2 JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 ---            
 

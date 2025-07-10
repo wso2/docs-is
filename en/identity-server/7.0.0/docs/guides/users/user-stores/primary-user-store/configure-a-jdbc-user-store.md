@@ -47,7 +47,7 @@ as the user store. Refer the following topic for further instructions.
 			
 		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/postgresql.sql` file against the database created.    
 			
-		3. Download the PostgreSQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.
+		3. Download the PostgreSQL JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 	??? example "MySQL"
 
@@ -66,7 +66,7 @@ as the user store. Refer the following topic for further instructions.
 		
 		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/mysql.sql` file against the database created.        
 
-		3. Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.          
+		3.  Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.          
 
 	??? example "DB2"
 
@@ -86,7 +86,7 @@ as the user store. Refer the following topic for further instructions.
 		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/db2.sql` file
 			against the database created.       
 	
-		3.	Download the DB2 JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder. 
+		3.	Download the DB2 JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 	??? example "MSSQL"
 
@@ -106,8 +106,7 @@ as the user store. Refer the following topic for further instructions.
 			[User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/mssql.sql` file
 			against the database created.        
 			
-		3. Download the MSSQL JDBC driver for the version you are using and
-					copy it to the `<IS_HOME>/repository/components/lib` folder  
+		3. Download the MSSQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 		
 
 	??? example "Oracle"
@@ -127,8 +126,7 @@ as the user store. Refer the following topic for further instructions.
 		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS-HOME>/dbscripts/oracle.sql` file
 			against the database created.      
 			
-		3. Download the Oracle JDBC driver for the version you are using and
-					copy it to the `<IS_HOME>/repository/components/lib` folder 
+		3. Download the Oracle JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 !!! note
     You can configure SQL queries that are used in the JDBC user store manager and if required can change default queries. 
