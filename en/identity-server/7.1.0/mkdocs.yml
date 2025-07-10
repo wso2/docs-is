@@ -463,7 +463,11 @@ nav:
           - Javascript:
               - Quickstart: quick-starts/javascript.md
               - Complete Guide: complete-guides/javascript/introduction.md
-          - Next.js Quickstart: quick-starts/nextjs.md
+          - Next.js:
+              - Quickstart: quick-starts/nextjs.md
+              - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
+              - Complete Guide (App-Native): complete-guides/app-native/introduction.md
+              - Complete Guide (B2B): complete-guides/nextjs-b2b/introduction.md
           - Node.js:
               - Quickstart: quick-starts/nodejs.md
               - Complete Guide: complete-guides/nodejs/introduction.md
@@ -1107,6 +1111,43 @@ nav:
           - Accessing protected API: complete-guides/react/accessing-protected-api.md
           - Manage tokens in React: complete-guides/react/manage-tokens-in-React-apps.md
           - Next Steps: complete-guides/react/next-steps.md
+      - Next.js:
+          - B2B:
+              - Introduction: complete-guides/nextjs-b2b/introduction.md
+              - Prerequisites: complete-guides/nextjs-b2b/prerequisite.md
+              - Register an application: complete-guides/nextjs-b2b/register-an-application.md
+              - Give access to APIs and create roles: complete-guides/nextjs-b2b/give-access-to-apis-and-create-roles.md
+              - Create a Next.js app: complete-guides/nextjs-b2b/create-app.md
+              - Configure app for login: complete-guides/nextjs-b2b/configure-app-for-login.md
+              - Add user sign up: complete-guides/nextjs-b2b/add-user-sign-up.md
+              - Add login and logout: complete-guides/nextjs-b2b/add-login-and-logout.md
+              - Manage teams: complete-guides/nextjs-b2b/manage-teams.md
+              - Switch to a team: complete-guides/nextjs-b2b/switch-to-a-team.md
+              - Manage team members: complete-guides/nextjs-b2b/manage-team-members.md
+          - Redirect-Based:
+              - Introduction: complete-guides/nextjs/introduction.md
+              - Prerequisite: complete-guides/nextjs/prerequisite.md
+              - Register an application: complete-guides/nextjs/register-an-application.md
+              - Create a Next.js app: complete-guides/nextjs/create-app.md
+              - Configure Asgardeo SDK: complete-guides/nextjs/install-asgardeo-sdk.md
+              - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
+              - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
+              - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
+              - Accessing protected API: complete-guides/nextjs/accessing-protected-api.md
+              - Manage tokens in Next.js: complete-guides/nextjs/manage-tokens-in-apps.md
+              - Next Steps: complete-guides/nextjs/next-steps.md
+          - App-Native:
+              - Introduction: complete-guides/app-native/introduction.md
+              - Prerequisites: complete-guides/app-native/prerequisites.md
+              - Register an application: complete-guides/app-native/register-an-application.md
+              - Create an app for app-native authentication: complete-guides/app-native/create-app.md
+              - Configure Asgardeo SDK: complete-guides/app-native/configure-provider.md
+              - Configure utility functions for app-native authentication: complete-guides/app-native/configure-utility-functions.md
+              - Add login and logout: complete-guides/app-native/add-login-and-logout.md
+              - Add MFA using app-native APIs: complete-guides/app-native/add-mfa.md
+              - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
+              - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
+              - Next Steps: complete-guides/app-native/next-steps.md
       - Angular:
           - Introduction: complete-guides/angular/introduction.md
           - Prerequisite: complete-guides/angular/prerequisite.md
