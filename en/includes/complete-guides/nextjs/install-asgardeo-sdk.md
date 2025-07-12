@@ -31,6 +31,21 @@ NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
 ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
 ```
 
+!!! danger "Warning"
+
+    There is a Secret used for signing JWT session cookies. If this is not defined, it will use the default one configured in the Asgardeo SDK. However it is mandatory to change this in a production environment.
+
+    Please generate a random key with the following.
+
+    ```bash
+    openssl rand -base64 32
+    ```
+    Add it to the .env file as below.
+    
+    ```bash
+    ASGARDEO_SECRET="<your-secret-key-for-jwt-signing>"
+    ```
+
 ## Setup the middleware
 
 Create a file called `middleware.ts` in the root of your Next.js project and integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.

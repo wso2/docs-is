@@ -25,7 +25,7 @@ Next, complete the wizard popup by providing a suitable name and an authorized r
 
     The authorized redirect URL determines where Asgardeo should send users after they successfully log in. Typically, this will be the web address where your application is hosted. For this guide, we'll use http://localhost:3000, as the sample application will be accessible at this URL
 
-Make a note of the following values from the **Protocol** and **Info** tabs of the registered application. You will need them to configure  Asgardeo provider for Auth.js.
+Make a note of the following values from the **Protocol** and **Info** tabs of the registered application. You will need them to configure the Asgardeo provider.
 
 * **`client-id`** from the **Protocol** tab.
 * **`client-secret`** from the **Protocol** tab.

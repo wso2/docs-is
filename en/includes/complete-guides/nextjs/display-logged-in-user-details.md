@@ -286,7 +286,7 @@ The Next SDK has components that can be used to display user information. You ca
 
 First let's use the `User` Component to display the username as below.
 
-```javascript title="src/App.jsx" hl_lines="1 17-27"
+```javascript title="app/page.tsx" hl_lines="1 17-27"
 'use client'
 
 import { SignedIn, SignedOut, SignInButton, SignOutButton, User } from '@asgardeo/nextjs';
@@ -322,7 +322,7 @@ export default function Home() {
 
 Now let's use the `UserProfile` component to display and update user profile information.
 
-```javascript title="src/App.jsx" hl_lines="1 26"
+```javascript title="app/page.tsx" hl_lines="1 26"
 'use client'
 
 import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserProfile } from '@asgardeo/nextjs';
@@ -359,7 +359,7 @@ export default function Home() {
 
 Finally we can use the `UserDropdown` component to provide a dropdown menu with built-in user information and sign-out functionality.
 
-```javascript title="src/App.jsx" hl_lines="1 11"
+```javascript title="app/page.tsx" hl_lines="1 11"
 'use client'
 
 import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserDropdown, UserProfile } from '@asgardeo/nextjs';

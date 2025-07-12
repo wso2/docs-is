@@ -7,17 +7,17 @@ Whether you're looking to improve user engagement, protect sensitive data, or si
 
 ### Learning objectives
 
-This guide will provide you with a comprehensive understanding of how to implement app-native authentication in a Next.js application using {{product_name}}. You will learn how to integrate authentication seamlessly within your application, ensuring a secure and smooth login experience without external browser redirections. Additionally, you will gain insights into securing API calls, managing authentication tokens, and protecting user data.
+This guide will provide you with a comprehensive understanding of how to implement app-native authentication in a Next.js application using {{product_name}}. You will learn how to integrate authentication seamlessly within your application, ensuring a secure and smooth login experience without external browser redirection. Additionally, you will gain insights into securing API calls, managing authentication tokens, and protecting user data.
 
 By the end of this guide, you will be able to:
 
 - Register an application in {{product_name}} to enable authentication.
 - Set up a Next.js application with authentication capabilities.
 - Install and configure the Asgardeo SDK, enabling seamless authentication.
-- Implement login and logout functionality to allow users to authenticate within the app.
+- Implement login and logout functionality to allow users to authenticate within the app using app native authentication.
 - Retrieve and display user details after a successful login.
-- Secure application routes to restrict access based on authentication status.
-- Access a protected API from your Next.js app using OAuth2 tokens.
+- Add Multi Factor Authentication with app native authentication
+- Add Social Login with app native authentication
 - Manage authentication tokens effectively within the application to maintain session security.
 
 By following this step-by-step guide, you will be equipped to integrate {{product_name}} app-native authentication into your Next.js app, ensuring a secure and streamlined user experience.
