@@ -1,25 +1,32 @@
 # Pre-issue access token action
 
-The pre-issue access token action in {{product_name}} allows you to execute custom logic before issuing an access token. This action is triggered during the OAuth2 token issuance process, enabling you to modify the access token or implement additional checks before the token is issued.
+The pre-issue access token action in {{product_name}} lets you execute custom logic before issuing an access token.
+
+{{product_name}} triggers this action during the OAuth2 token issuance process. You can change the access token or add checks before issuing the token using the action.
 
 You can use this functionality to:
 
-- Add, modify, or remove scopes.
-- Add, modify, or remove audience values.
-- Modify or remove user attributes incorporated into the access token.
-- Add custom claims (only string, number, boolean, and string type arrays are allowed).
+- Add, change, or remove scopes.
+- Add, change, or remove audience values.
+- Change or remove user attributes incorporated into the access token.
+- Add custom claims. You can use string, number, boolean, and string type arrays.
 - Update the validity period of the access token.
 
-Once an access token is modified, the changes are persisted as transactional data (for the period access token is active, until it is purged from the underlying data store). In subsequent flows, the modified access token is made available to applications, resource servers, and any actions engaged in later flows. For example, if an access token is modified during the authorization code flow, the same modified access token is used in the refresh token flow.
+When your external service modifies an access token, {{product_name}} saves the changes as transactional data for the token's active period.
+In later flows, {{product_name}} provides the updated access token to applications, resource servers, and any actions.
+For example, when your service modifies an access token during the authorization code flow, {{product_name}} uses the same updated access token in the refresh token flow.
 
 !!! note
-    Currently, this action can only be applied at the root organization level and is available exclusively for <code>JWT</code> tokens. It supports the following grant types: <code>authorization code</code>, <code>client credentials</code>, <code>password</code>, and <code>refresh token</code>.
+    Currently, this action applies only at the root organization level and is available only for <code>JWT</code> tokens.
+    It supports the following grant types: <code>authorization code</code>, <code>client credentials</code>, <code>password</code>, and <code>refresh token</code>.
 
 ## How pre-issue access token action works
 
-When a pre-issue access token action is configured with your external service endpoint, {{product_name}} will call your service and wait for a response whenever a token request is received. Upon receiving the response, {{product_name}} will apply any modifications to the access token as specified in the response and then continue with the flow.
+Configure a pre-issue access token action with your external service endpoint.
+{{product_name}} calls your service and waits for a response whenever a token request arrives.
+Upon receiving the response, {{product_name}} applies any modifications to the access token as specified in the response and then continues with the flow.
 
-The [pre-issue access token API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract/) defines the request and response structures that your service must implement.
+The [pre-issue access token API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract/) defines the request and response structures that your service must follow.
 
 ### Request from {{product_name}}
 
@@ -31,14 +38,23 @@ The [pre-issue access token API contract]({{base_path}}/references/service-exten
 </tr>
 </thead>
 <tbody>
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 <tr class="odd">
 <td>requestId</td>
-<td><p>A unique correlation identifier that associates with the token request received by {{product_name}}.</p></td>
+<td>
+<p>A unique correlation identifier that associates with the token request received by {{product_name}}.</p>
+{% if product_name == "WSO2 Identity Server"%}
+<p>
+<i>The property appears in the request payload only when you enable <a href="{{base_path}}/deploy/monitor/work-with-product-observability">product observability</a>.</i>
+</p>
+{%endif %}
+</td>
 </tr>
 </tr>
+{%endif %}
 <tr class="even">
 <td>actionType</td>
-<td><p>Specifies the action being triggered, which in this case is <code>PRE_ISSUE_ACCESS_TOKEN</code>.</p></td>
+<td><p>Specifies the action. In this case, <code>PRE_ISSUE_ACCESS_TOKEN</code> triggers the pre-issue access token flow.</p></td>
 </tr>
 <tr class="odd">
 <td>event</td>
@@ -46,7 +62,7 @@ The [pre-issue access token API contract]({{base_path}}/references/service-exten
 </tr>
 <tr class="even">
 <td>allowedOperations</td>
-<td><p>Specifies the objects within the event data that can be modified. Refer <a href="#allowed-operations">allowedOperations</a> section for details.</p></td>
+<td><p>Specifies the objects within the event data that your external service can change. Refer <a href="#allowed-operations">allowedOperations</a> section for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -71,11 +87,11 @@ The [pre-issue access token API contract]({{base_path}}/references/service-exten
 <tbody>
 <tr>
 <td>clientId</td>
-<td>The unique identifier of the client (application) that is requesting the access token.</td>
+<td>The unique identifier of the client (application) that's requesting the access token.</td>
 </tr>
 <tr>
 <td>grantType</td>
-<td>The type of OAuth2 grant used for the token request, such as authorization code, client credentials, password, or refresh token. This defines the flow that is being used to obtain the access token.</td>
+<td>OAuth2 grant used for the token request, such as authorization code, client credentials, password, or refresh token.</td>
 </tr>
 <tr>
 <td>scopes</td>
@@ -83,13 +99,13 @@ The [pre-issue access token API contract]({{base_path}}/references/service-exten
 </tr>
 <tr>
 <td>additionalHeaders</td>
-<td>Any additional HTTP headers included in the access token request. These may contain custom information or metadata that the client has sent.
-All headers in request are not incorporated specially sensitive headers like ‘Authorization’, ‘Cookie’, etc.</td>
+<td>Extra HTTP headers in the access token request. These may contain custom information or metadata sent by the client.
+Sensitive headers like ‘Authorization’ and ‘Cookie’ don't appear in the request.</td>
 </tr>
 <tr>
 <td>additionalParams</td>
-<td>Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows.
-All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc.</td>
+<td>Extra parameters in the access token request. These may contain custom information or metadata sent by the client.
+Sensitive parameters like client secret, username, and password don't appear.</td>
 </tr>
 </tbody>
 </table>
@@ -98,7 +114,7 @@ All request parameters are not incorporated, specially sensitive parameters like
 </tr>
 <tr class="even">
 <td>event.tenant</td>
-<td><p>This property represents the root organization(tenant) under which the token request is being processed.</p>
+<td><p>This property shows the root organization (tenant) where {{product_name}} processes the token request.</p>
 <tr class="odd">  
 <td>event.organization</td>  
 <td><p>This property represents the organization which is issuing the access token.</p>
@@ -109,7 +125,7 @@ All request parameters are not incorporated, specially sensitive parameters like
 <tbody>  
 <tr>  
 <td>organization</td>  
-<td>This property represents the organization in which the user has been authenticated.</td>  
+<td>This property represents the organization in which the user authenticated successfully.</td>  
 </tr>  
 </tbody>  
 </table>
@@ -117,18 +133,18 @@ All request parameters are not incorporated, specially sensitive parameters like
 </tr>
 <tr class="odd">
 <td>event.userStore</td>
-<td><p>This property indicates the user store in which the user's data is being managed.</p>
+<td><p>This property indicates the user store that manages the user's data.</p>
 </td>
 </tr>
 <tr class="even">
 <td>event.accessToken</td>
-<td><p>This property represents the access token that is about to be issued. It contains claims and scopes, of the access token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
-.</p>
+<td><p>This property shows the access token that {{product_name}} will issue. It contains claims and scopes. Your external service can change these using logic in the pre-issue access token action.
+</p>
 <table>
 <tbody>
 <tr>
 <td>claims</td>
-<td><p>This property is an array that contains both standard access token claims and any OpenID Connect (OIDC) claims configured to be included in the access token.</p>
+<td><p>This property is an array that contains both standard access token claims and any OpenID Connect (OIDC) claims configured to include in the access token.</p>
 <p>Standard claims:</p>
 <table>
 <tbody>
@@ -138,7 +154,7 @@ All request parameters are not incorporated, specially sensitive parameters like
 </tr>
 <tr>
 <td>iss</td>
-<td>The issuer of the token, which is the tenant of WSO2 Identity Server that act as the authorization server.</td>
+<td>The issuer of the token, which is the tenant of {{product_name}} that act as the authorization server.</td>
 </tr>
 <tr>
 <td>aud</td>
@@ -152,8 +168,8 @@ All request parameters are not incorporated, specially sensitive parameters like
 <td>aut</td>
 <td><p>The authorized user type associated with the token.</p>
 <p>Can have the following values:</p>
-<p><code>APPLICATION</code>: Indicates that the token is authorized for an application.
-<code>APPLICATION_USER</code>: Indicates that the token is authorized for a user.</p>
+<p><code>APPLICATION</code>: The token authorizes an application.
+<code>APPLICATION_USER</code>: The token authorizes a user.</p>
 </td>
 </tr>
 <tr>
@@ -162,7 +178,7 @@ All request parameters are not incorporated, specially sensitive parameters like
 </tr>
 <tr>
 <td>binding_type</td>
-<td>Indicates the <a href="{{base_path}}/references/token-binding/">type of binding</a> associated with the token, if applicable.</td>
+<td>Indicates the <a href="{{base_path}}/references/token-binding/">binding type</a> associated with the token, if applicable.</td>
 </tr>
 <tr>
 <td>binding_ref</td>
@@ -170,12 +186,12 @@ All request parameters are not incorporated, specially sensitive parameters like
 </tr>
 <tr>
 <td>subject_type</td>
-<td>Specifies the type of subject (e.g., public or pairwise) as per OIDC specifications.
+<td>Indicates the subject type (public or pairwise) per OIDC specifications.
 </td>
 </tr>
 </tbody>
 </table>
-<p>OIDC claims are any additional claims configured in the application to be included in the access token. These claims are based on the OIDC standard and may include user profile information such as email, given-name, or custom claims specific to the application.</p>
+<p>OIDC claims are any extra claims configured in the application to include in the access token. These claims follow the OIDC standard and may include user profile information such as email, given-name, or custom claims specific to the application.</p>
 </td>
 </tr>
 <tr>
@@ -213,13 +229,13 @@ All request parameters are not incorporated, specially sensitive parameters like
 
 <a name="allowed-operations"></a>
 
-The allowedOperations property in the context of the pre-issue access token action defines the set of operations that your external service is permitted to perform on the access token's claims as well as on certain claims of the refresh token. This property is specifically related to the <code>event.accessToken</code> and <code>event.refreshToken</code> properties and outlines which attributes can have additional properties added, values replaced, or be removed. The <code>allowedOperations</code> are defined using JSON Patch modification semantics.
+The allowedOperations property in the context of the pre-issue access token action defines the set of operations that your external service can perform on the access token's claims and on certain claims of the refresh token. This property specifically relates to the <code>event.accessToken</code> and <code>event.refreshToken</code> properties and outlines which attributes let your external service add extra properties, replace values, or remove attributes. The <code>allowedOperations</code> use JSON Patch modification semantics.
 
-In the context of the pre-issue access token action, certain claims related to authorization decisions, such as audience (aud), access token validity (expires_in), and scopes (scopes), are allowed to be modified. These claims are typically associated with the resource server and influence how access is granted.
+In the context of the pre-issue access token action, your external service can change certain claims related to authorization decisions, such as audience (aud), access token validity (expires_in), and scopes (scopes). These claims typically associate with the resource server and influence how access gets granted.
 
-However, other standard access token claims, such as the issuer (iss) and token bindings (binding_type), represent the authorization server and are critical for authorization decisions. As such, these properties are not available for modification through the action. Instead, application and organization-level configurations should be used to change these properties and their associated behaviors.
+But other standard access token claims, such as the issuer (iss) and token bindings (binding_type), represent the authorization server and play a critical role in authorization decisions. These properties aren't allowed for modification through the action. Use application and organization-level configurations to change these properties and their behaviors.
 
-Additionally, any OIDC claims incorporated into the access token are also allowed to be modified.
+Additionally, your external service can change any OIDC claims incorporated into the access token.
 
 Here is the example of an allowedOperations object in a request formatted as a JSON payload:
 
@@ -251,7 +267,7 @@ Here is the example of an allowedOperations object in a request formatted as a J
 }
 ```
 
-#### Example request from {{product_name}}:
+#### Example request from {{product_name}}
 
 This example illustrates a request sent to an external service configured as a pre-issue access token action, for an application authorizing a user via the authorization code grant flow.
 
@@ -271,9 +287,6 @@ Content-Type: application/json
                 ],
                 "user-agent": [
                     "curl/7.79.1"
-                ],
-                "accept": [
-                    "*/*"
                 ]
             },
             "clientId": "1u31N7of6gCNR9FqkG1neSlsF_Qa",
@@ -378,23 +391,23 @@ Content-Type: application/json
 }
 ```
 
-### Expected Response from External Service:
+### Expected response from external service
 
 When {{product_name}} invokes your external service as part of the pre-issue access token action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract/) here.
 
-This response plays a crucial role in determining how the access token is ultimately issued or modified. Here’s a breakdown of the expected response:
+This response plays a crucial role in determining how {{product_name}} issues or modifies the access token. Here’s a breakdown of the expected response:
 
 The response can have three possible states: <code>SUCCESS</code>, <code>FAILED</code>and <code>ERROR</code>.
 
-<code>SUCCESS</code>: Indicates that the request was processed successfully, including any state changes or modifications that need to be applied.
+<code>SUCCESS</code>: Indicates that your external service processes the request successfully and for {{product_name}} to apply any required state changes or modifications.
 
-<code>FAILED</code>: Represents a selective failure within the token flow due to validation logic or business rules enforced by your external service. A <code>400 (Client Error)</code> response is returned to the application, incorporating the failure message provided by your external service. It is your responsibility to supply an OAuth 2.0-compliant failure message when extending the flow.
+<code>FAILED</code>: Represents a selective failure within the token flow due to validation logic or business rules enforced by your external service. {{product_name}} returns a <code>400 (Client Error)</code> response to the application, incorporating the failure message provided by your external service. You must supply an OAuth 2.0-compliant failure message when extending the flow.
 
-<code>ERROR</code>: Indicates a processing failure, typically caused by server-side issues. A <code>500 (Server Error)</code> response is returned to the application.
+<code>ERROR</code>: Indicates a processing failure in your external service, typically caused by server-side issues. {{product_name}} returns a <code>500 (Server Error)</code> response to the application.
 
-#### Response for SUCCESS state:
+#### Response for SUCCESS state
 
-When the external service responds with a 200 status code and a <code>SUCCESS</code> state, it indicates that the request was processed correctly and that any requested modifications to the access token or associated data have been completed. The response should include details about these modifications, typically in the form of an <code>operations</code> object that outlines the changes made to the token's claims, scopes, or other relevant attributes.
+When the external service responds with a 200 status code and a <code>SUCCESS</code> state, it means the service processes the request correctly and completes any requested modifications to the access token or associated data. The response should include details about these modifications, typically in the form of an <code>operations</code> object that outlines the changes made to the token's claims, scopes, or other relevant attributes.
 
 Http Status Code: <code>200</code>
 
@@ -408,12 +421,12 @@ Http Status Code: <code>200</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For a successful operation, this should be set to <code>SUCCESS</code>.</p></td>
+<td><p>Indicates the outcome of the request. Set this value to <code>SUCCESS</code> for a successful operation.</p></td>
 </tr>
 </tr>
 <tr class="even">
 <td>operations</td>
-<td><p>Define an array of operations that needs to be performed on the <code>event.accessToken</code> in the request. These operations must adhere to the [JSON Patch](https://datatracker.ietf.org/doc/html/rfc6902) modification format.</code>.</p></td>
+<td><p>Define an array of operations that your external service performs on the <code>event.accessToken</code> in the request. These operations must follow the [JSON Patch](https://datatracker.ietf.org/doc/html/rfc6902) modification format.</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -421,9 +434,9 @@ Http Status Code: <code>200</code>
 !!! tip
     Refer the [sample responses for successful access token updates]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses/) to learn how to construct success responses for different scenarios.
 
-#### Response for FAILED state:
+#### Response for FAILED state
 
-When the external service returns a 200 OK status code with a <code>FAILED</code> state, it means the service has intentionally opted to prevent access token issuance. This decision is based on specific validation logic or business rules defined by your application's requirements.
+When the external service returns a 200 OK status code with a <code>FAILED</code> state, it means the service has intentionally opted to prevent access token issuance. The service makes this decision using specific validation logic or business rules defined by your application's requirements.
 
 The response body must be a JSON object containing the following properties:
 
@@ -439,16 +452,16 @@ Http Status Code: <code>200</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For a failed operation, this should be set to <code>FAILED</code>.</p></td>
+<td><p>Indicates the outcome of the request. For a failed operation, set this value to <code>FAILED</code>.</p></td>
 </tr>
 </tr>
 <tr class="even">
 <td>failureReason</td>
-<td><p>Provides the reason for failing to issue an access token. This value will be mapped to the error field in the response returned from the /oauth2/token endpoint.</code>.</p></td>
+<td><p>Provides the reason for failing to issue an access token. {{product_name}} maps this value to the error field in the response from the /oauth2/token endpoint.</code>.</p></td>
 </tr>
 <tr class="odd">
 <td>failureDescription</td>
-<td><p>Offers a detailed explanation of the failure. This value will be mapped to the error_description field in the <code>/oauth2/token</code> endpoint response.</p></td>
+<td><p>Offers a detailed explanation of the failure. {{product_name}} maps this value to the error_description field in the <code>/oauth2/token</code> endpoint response.</p></td>
 </tr>
 </tbody>
 </table>
@@ -468,7 +481,7 @@ Content-Type: application/json
 }
 ```
 
-This will result in the following error response being sent to the application that initiated the token request.
+The application that initiates the token request receives the following error response.
 
 Error response to the application:
 
@@ -482,7 +495,7 @@ Content-Type: application/json
 }
 ```
 
-#### Response for ERROR state:
+#### Response for ERROR state
 
 When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request.
 
@@ -498,7 +511,7 @@ Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For an error operation, this should be set to <code>ERROR</code>.</p></td>
+<td><p>Indicates the outcome of the request. Set this value to <code>ERROR</code> for an error operation.</p></td>
 </tr>
 </tr>
 <tr class="even">
@@ -512,7 +525,7 @@ Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 </tbody>
 </table>
 
-If the external service returns an error response (either defined or undefined) or fails to respond entirely, it will be treated as an error in executing the action. In any of these cases, the application that initiated the token request will receive a 500 Internal Server Error.
+If the external service returns an error response (either defined or undefined) or fails to respond entirely, {{product_name}} treats this as an error in executing the action. In any of these cases, the application that initiated the token request receives a 500 Internal Server Error.
 
 Below is an example of an error response returned by the service implementing the pre issue access token action.
 
@@ -529,7 +542,7 @@ Content-Type: application/json
 }
 ```
 
-This will result in the following error response being sent to the application that initiated the token request.
+The application that initiates the token request receives the following error response.
 
 Error response to the application:
 
@@ -547,11 +560,11 @@ Content-Type: application/json
 !!! note
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
 
-## Conditional Invocation of Pre-Issue Access Token Action
+## Conditional invocation of pre-issue access token action
 
 Pre-issue access token actions can be conditionally triggered based on configurable rule criteria. The rule configuration currently supports the following fields:
 
-- Application: The specific application for which the access token is being issued.
+- Application: The specific application that requests the access token.
 - Grant Type: The grant type used during the token issuance process.
 
 Each rule field supports the following operators:
@@ -560,11 +573,12 @@ Each rule field supports the following operators:
 - not equals
 
 You can specify exact values for these fields, such as a specific application associated with a tenant or a particular grant type.
-Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-issue access token action should be invoked.
+You can also combine rules using logical AND and OR operators.
+This approach gives you flexible and precise control over when to invoke a pre-issue access token action.
 
 ![pre-issue-access-token-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-issue-access-token-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
 The above rule configuration translates logically to:
 
-- The application is Test App AND the grant type is client_credentials, OR
+- The application is Test App *and* the grant type is client_credentials, *or*
 - The application is Test App, regardless of the grant type.
