@@ -31,6 +31,20 @@ The request from {{product_name}} includes following in the JSON request payload
 </tr>
 </thead>
 <tbody>
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+<tr class="odd">
+<td>requestId</td>
+<td>
+<p>A unique correlation identifier that associates with the token request received by {{product_name}}.</p>
+{% if product_name == "WSO2 Identity Server"%}
+<p>
+<i>The property appears in the request payload only when you enable <a href="{{base_path}}/deploy/monitor/work-with-product-observability">product observability</a>.</i>
+</p>
+{%endif %}
+</td>
+</tr>
+</tr>
+{%endif %}
 <tr class="even">
 <td>actionType</td>
 <td><p>Defines the triggering action as <code>PRE_UPDATE_PASSWORD</code> for this case.</p></td>
@@ -73,6 +87,7 @@ The request from {{product_name}} includes following in the JSON request payload
 <p>Includes the user attribute values configured for sharing with the external service during the password update flow. These attributes represent claims using the WSO2 claim dialect: <code>http://wso2.org/claims</code>.</p>
 <p>For example,</p>
 <p>
+
 ```json
 [
   {
@@ -98,6 +113,7 @@ The request from {{product_name}} includes following in the JSON request payload
   }
 ]
 ```
+
 </p>
 </td>
 </tr>
@@ -116,6 +132,7 @@ The <code>event.user</code> context includes the <code>groups</code> attribute o
 <p>The user's new password, provided either as a hashed value or in plain text, depending on the pre-update password action configuration. This JSON object includes the password, the format used to share it (hashed or plain text), and the hashing algorithm if used.</p>
 <p>For example,</p>
 <p>
+
 ```json
 {
   "type": "PASSWORD",
@@ -126,6 +143,7 @@ The <code>event.user</code> context includes the <code>groups</code> attribute o
   }
 }
 ```
+
 </p>
 <p>The pre-update password action configuration can enforce encryption of the <code>updatingCredential</code> object by providing a public certificate. The {{product_name}} uses this certificate to encrypt the object with asymmetric encryption and shares it as a <a href="https://datatracker.ietf.org/doc/html/rfc7516">JWE</a>.</p>
 </td>
@@ -320,7 +338,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "actionStatus": "SUCCESS",
+  "actionStatus": "SUCCESS"
 }
 ```
 

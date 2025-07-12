@@ -1,21 +1,22 @@
 # Pre-update profile action
 
-The pre-update profile action in {{product_name}} allows you to the validate user attributes during profile update processes. This action enables you to implement use cases such as automated verification of updated data (e.g., cross-referencing with passport or driving license information), persisting changes, or triggering notifications to updated contact details.
+The pre-update profile action in {{product_name}} lets you verify user attributes during profile update processes. This action helps you automate verification of updated data, save changes, or send notifications to updated contact details.
 
-This action is triggered during the following profile update flows:
+The following profile update flows trigger this action:
 
 - Self-Service Profile Update: When an end-user modifies their profile through a self-service portal like the My Account application.
 - Administrator-Initiated Profile Update: When an administrator updates a user's profile through a user management portal, such as the Console application.
 
 !!! note
-     Currently, this action can only be applied at the root organization level and is invoked for any of the flows mentioned above.
+     Currently, you can configure this action only at the root organization level.
 
 ## How pre-update profile action works
 
-When a pre-update profile action is configured with your external service endpoint, {{product_name}} will call your service and wait for a response whenever a profile update action is triggered. Upon receiving the response, {{product_name}} will either return a client error, server error or execute based on the response received.
+Configure a pre-update profile action with your external service endpoint.
+{{product_name}} calls your service and waits for a response whenever a profile update action starts.
+Upon receiving the response, {{product_name}} returns a client error, server error, or executes based on the response.
 
-
-The [pre-update profile API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract/) defines the request and response structures that your service must implement.
+The [pre-update profile API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract/) defines the request and response structures that your service must use.
 
 ### Request from {{product_name}}
 
@@ -29,9 +30,23 @@ The request from {{product_name}} includes following in the JSON request payload
 </tr>
 </thead>
 <tbody>
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+<tr class="odd">
+<td>requestId</td>
+<td>
+<p>A unique correlation identifier that associates with the profile update request received by {{product_name}}.</p>
+{% if product_name == "WSO2 Identity Server"%}
+<p>
+<i>The property appears in the request payload only when you enable <a href="{{base_path}}/deploy/monitor/work-with-product-observability">product observability</a>.</i>
+</p>
+{%endif %}
+</td>
+</tr>
+</tr>
+{%endif %}
 <tr class="even">
 <td>actionType</td>
-<td><p>Specifies the action being triggered, which in this case is <code>PRE_UPDATE_PROFILE</code>.</p></td>
+<td><p>Triggers the action, which in this case is <code>PRE_UPDATE_PROFILE</code>.</p></td>
 </tr>
 <tr class="odd">
 <td>event</td>
@@ -41,6 +56,7 @@ The request from {{product_name}} includes following in the JSON request payload
 </table>
 
 #### event
+
 <a name="event"></a>
 
 <table>
@@ -57,24 +73,25 @@ The request from {{product_name}} includes following in the JSON request payload
 </tr>
 <tr class="odd">
 <td>event.tenant</td>
-<td><p>This property represents the tenant (root organization) under which the profile update request is being processed.</p>
+<td><p>This property shows the tenant (root organization) where {{product_name}} processes the profile update request.</p>
 </tr>
 <tr class="even">
 <td>event.user</td>
-<td><p>This property contains information about the user whose profile is being updated.</p>
+<td><p>This property contains information about the user whose profile gets update.</p>
 <table>
 <tbody>
 <tr>
 <td>id</td>
-<td><p>The unique numeric identifier of the user whose profile is being updated.</p>
+<td><p>The unique numeric identifier of the user whose profile gets update.</p>
 </td>
 </tr>
 <tr>
 <td>claims</td>
 <td>
-<p>Includes the user attributes that are configured to be shared with the external service during profile update flow. These attributes are represented as claims and represented with the WSO2 claim dialect: <code>http://wso2.org/claims</code>.</p>
-<p>e.g.,</p>
+<p>Includes the user attributes you configure to share with the external service during profile update flow. These attributes appear as claims using the WSO2 claim dialect: <code>http://wso2.org/claims</code>.</p>
+<p>for example</p>
 <p>
+
 ```json
 [
   {
@@ -103,16 +120,17 @@ The request from {{product_name}} includes following in the JSON request payload
   }
 ]
 ```
+
 </p>
-<p>If any updating claims in the profile update request are configured to be shared with the service, the value updating will be included under the claim's <code>updatingValue</code> property.</p>
+<p>If you share any updating claims in the profile update request with the service, the claim's <code>updatingValue</code> property includes the updating value.</p>
 </td>
 </tr>
 <tr>
 <td>groups</td>
 <td>
 <p>
-Indicates the user groups to which the user belongs. 
-The groups attribute is only included in the <code>event.user</code> context if the <code>http://wso2.org/claims/groups</code> attribute is configured to be shared with the service implementing action, in the pre-update profile action configuration.
+Indicates the user groups to which the user belongs.
+The groups attribute only appears in the <code>event.user</code> context when you configure the <code>http://wso2.org/claims/groups</code> attribute to share with the service in the pre-update profile action configuration.
 </p>
 </td>
 </tr>
@@ -122,23 +140,23 @@ The groups attribute is only included in the <code>event.user</code> context if 
 </tr>
 <tr class="odd">
 <td>event.userStore</td>
-<td><p>This property indicates the user store in which the user's data is being managed.</p>
+<td><p>This property indicates the user store that manages the user's data.</p>
 </td>
 </tr>
 <tr class="even">
 <td>event.initiatorType</td>
-<td><p>This property indicates whether the profile update was initiated by an administrator, a user, or an application.</p>
+<td><p>This property shows who initiates the profile update: administrator, user, or application.</p>
 </td>
 </tr>
 <tr class="odd">
 <td>event.action</td>
-<td><p>This property shows if the profile update started through an update flow. Right now, it only has the value <code>UPDATE</code> which means the profile update is done using a standard profile update flow.</p>
+<td><p>This property shows if the profile update starts through an update flow. Right now, it only has the value <code>UPDATE</code>.</p>
 </td>
 </tr>
 </tbody>
 </table>
 
-#### Example request from {{product_name}}:
+#### Example request from {{product_name}}
 
 This example illustrates a request sent to an external service configured as a pre-update profile action, triggered when an administrator updates the user’s profile.
 
@@ -229,26 +247,24 @@ Content-Type: application/json
 }
 ```
 
-### Expected Response from External Service:
+### Expected response from external service
 
 When {{product_name}} invokes your external service as part of the pre-update profile action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract/) here.
 
-This response plays a crucial role in determining whether profile update is allowed or not.
+This response lets {{product_name}} decide whether to allow the profile update.
 Here’s a breakdown of the expected response:
 
 The response can have three possible states: <code>SUCCESS</code>, <code>FAILED</code>and <code>ERROR</code>.
 
-<code>SUCCESS</code>: Indicates that the request was processed successfully, and profile update is allowed.
+<code>SUCCESS</code>: The service processes the request and allows the profile update.
 
-<code>FAILED</code>: Represents a selective failure within the profile update flow due to attribute validation logic or business rules enforced by your external service. A <code>400 (Client Error)</code> response is returned to the application, incorporating the failure message provided by your external service. It is your responsibility to provide a SCIM API compliant failure message when extending the flow if you expect SCIM compliance.
- 
+<code>FAILED</code>: Represents a selective failure within the profile update flow due to attribute validation logic or business rules enforced by your external service. The application receives a <code>400 (Client Error)</code> response, which includes the failure message provided by your external service. You must provide a SCIM API compliant failure message when extending the flow if you expect SCIM compliance.
 
-<code>ERROR</code>: Indicates a processing failure, typically caused by server-side issues. A <code>500 (Server Error)</code> response is returned to the application.
+<code>ERROR</code>: Indicates a processing failure in your external service, typically caused by server-side issues. The application receives a <code>500 (Server Error)</code> response.
 
+#### Response for SUCCESS state
 
-#### Response for SUCCESS state:
-
-When the external service responds with a 200 status code and a SUCCESS state, it indicates that the request was processed correctly and profile update is allowed. 
+When the external service responds with a 200 status code and a SUCCESS state, it means the service processed the request and allowed the profile update.
 
 Http Status Code: <code>200</code>
 
@@ -262,7 +278,7 @@ Http Status Code: <code>200</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For an allowed profile update, this should be set to <code>SUCCESS</code>.</p></td>
+<td><p>Indicates the outcome of the request. Set this to <code>SUCCESS</code> for an allowed profile update.</p></td>
 </tr>
 </tr>
 </tbody>
@@ -271,6 +287,7 @@ Http Status Code: <code>200</code>
 Below is an example of a success response at a profile update request.
 
 Response from external service:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -280,9 +297,9 @@ Content-Type: application/json
 }
 ```
 
-#### Response for FAILED state:
+#### Response for FAILED state
 
-When the external service returns a 200 OK status code with a <code>FAILED</code> state, it means the service has intentionally opted to reject the profile update. This decision is based on specific validation logic or business rules defined by your application's requirements.
+When the external service returns a 200 OK status code with a <code>FAILED</code> state, it means the service has intentionally opted to reject the profile update. Your external service makes this decision using specific validation logic or business rules.
 
 The response body must be a JSON object containing the following properties:
 
@@ -298,16 +315,16 @@ Http Status Code: <code>200</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For a failed operation, this should be set to <code>FAILED</code>.</p></td>
+<td><p>Indicates the outcome of the request. Set this to <code>FAILED</code> for a failed operation.</p></td>
 </tr>
 </tr>
 <tr class="even">
 <td>failureReason</td>
-<td><p>Provides the reason for failing to update the profile. This value is mapped to the <code>scimType</code> field in error response of the SCIM API.</p></td>
+<td><p>Provides the reason for failing to update the profile. {{product_name}} maps this value to the <code>scimType</code> field in error response of the SCIM API.</p></td>
 </tr>
 <tr class="odd">
 <td>failureDescription</td>
-<td><p>Offers a detailed explanation of the failure. This value is mapped to the <code>detail</code> field in error response of the SCIM API.</p></td>
+<td><p>Offers a detailed explanation of the failure. {{product_name}} maps this value to the <code>detail</code> field in error response of the SCIM API.</p></td>
 </tr>
 </tbody>
 </table>
@@ -315,6 +332,7 @@ Http Status Code: <code>200</code>
 Below is an example of a failed response due to a validation of invalid attributes.
 
 Response from external service:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -326,9 +344,10 @@ Content-Type: application/json
 }
 ```
 
-This will result in the following error response being sent to the application that initiated the profile update request over SCIM API.
+The application that initiates the profile update request over SCIM API receives the following error response.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 400 
 Content-Type: application/json
@@ -343,9 +362,9 @@ Content-Type: application/json
 }
 ```
 
-#### Response for ERROR state:
+#### Response for ERROR state
 
-When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
+When the external service responds with an <code>ERROR</code> state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request.
 
 Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 
@@ -359,7 +378,7 @@ Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Indicates the outcome of the request. For an error operation, this should be set to <code>ERROR</code>.</p></td>
+<td><p>Indicates the outcome of the request. Set this to <code>ERROR</code> for an error operation.</p></td>
 </tr>
 </tr>
 <tr class="even">
@@ -373,11 +392,12 @@ Http Status Code: <code>400</code>, <code>401</code> or <code>500</code>
 </tbody>
 </table>
 
-If the external service returns an error response (either defined or undefined) or fails to respond entirely, it will be treated as an error in executing the action. In any of these cases, the application that initiated the profile update request will receive a 500 Internal Server Error.
+If the external service returns an error response (either defined or undefined) or fails to respond entirely, {{product_name}} marks the action as an error. In any of these cases, the application that initiated the profile update request receives a 500 Internal Server Error.
 
 Below is an example of an error response returned by the service implementing the pre-update profile action.
 
 Response from external service:
+
 ```http
 HTTP/1.1 500
 Content-Type: application/json
@@ -389,9 +409,10 @@ Content-Type: application/json
 }
 ```
 
-This will result in the following error response being sent to the application that initiated the profile update request over SCIM API.
+The application that initiates the profile update request over SCIM API receives the following error response.
 
 Error response to the application:
+
 ```http
 HTTP/1.1 500 
 Content-Type: application/json
@@ -406,29 +427,31 @@ Content-Type: application/json
 ```
 
 !!! note
-    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response is not directly included in the error response sent back to the application.
+    Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
 
-## Conditional Invocation of Pre-Update Profile Action
+## Conditional invocation of pre-update profile action
 
 Pre-update profile actions can be conditionally triggered based on configurable rule criteria. The rule configuration currently supports the following fields:
 
-- Flow: The specific product flow where the user profile is updated where the supported flows are defined below.
-    - Admin initiated profile update
-    - User initiated profile update
-    - Application initiated profile update
+- Flow: The specific product flow where a user updates their profile. The following list shows applicable flows.
+      - Admin initiated profile update
+      - User initiated profile update
+      - Application initiated profile update
 
-- Claim: The specific user claim that is getting updated 
+- Claim: The specific user claim that's getting updated.
 
 The rule field supports the following operators:
 
 - equals
 - not equals
 
-You can specify exact values for the field, such as an Admin initiated profile update or particular user claim that is getting updated. Rules can be combined using logical AND/OR operators, allowing for flexible and precise control over when a pre-update profile action should be invoked.
+You can specify exact values for each field, such as an Admin initiated profile update or particular user claim that's getting updated.
+
+Combine rules using logical AND/OR operators. This approach gives you flexible and precise control over when a pre-update profile action triggers.
 
 ![pre-update-profile-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-update-profile-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
 The above rule configuration translates logically to:
 
-- The flow is Admin initiated profile update AND the claim is Country, OR
+- The flow is Admin initiated profile update *and* the claim is Country, *or*
 - The claim is First Name
