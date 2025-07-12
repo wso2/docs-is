@@ -255,6 +255,7 @@ paths:
                     "id": "d90f322f-59d9-39b8-8555-f049fa318397",
                     "ref": "/o/api/server/v1/organizations/d90f322f-59d9-39b8-8555-f049fa318397"
                   },
+                  "hasChildren": false,
                   "attributes": [
                     {
                       "key": "Country",
@@ -338,6 +339,7 @@ paths:
                     "id": "d90f322f-59d9-39b8-8555-f049fa318397",
                     "ref": "/o/api/server/v1/organizations/d90f322f-59d9-39b8-8555-f049fa318397"
                   },
+                  "hasChildren": false,
                   "attributes": [
                     {
                       "key": "Town",
@@ -718,6 +720,9 @@ components:
           type: string
           enum: [ ACTIVE, DISABLED ]
           example: ACTIVE
+        hasChildren:
+          type: boolean
+          example: false
         ref:
           type: string
           example: '/o/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1'
@@ -765,6 +770,9 @@ components:
             - TENANT
         parent:
           $ref: '#/components/schemas/ParentOrganization'
+        hasChildren:
+          type: boolean
+          example: false
         attributes:
           type: array
           items:
@@ -807,6 +815,9 @@ components:
           example: "TENANT"
           enum:
             - TENANT
+        hasChildren:
+          type: boolean
+          example: false
         parent:
           $ref: '#/components/schemas/ParentOrganization'
         attributes:
@@ -817,6 +828,31 @@ components:
           type: array
           items:
             type: string
+        ancestorPath:
+          type: array
+          description: 'Ancestors up to the request initiated organization'
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              depth:
+                type: integer
+          example:
+            [
+              {
+                "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+                "name": "Global Holding Corp",
+                "depth": 0
+              },
+              {
+                "id": "d90f322f-59d9-39b8-8555-f049fa318397",
+                "name": "South Asia Division",
+                "depth": 1
+              }
+            ]
     MetaAttributesResponse:
       type: object
       properties:
