@@ -8,7 +8,7 @@ read_time: 30 secs
 
 * About 60 minutes
 * WSO2 Identity Server [setup](https://is.docs.wso2.com/en/latest/get-started/quick-set-up/){:target="_blank"}
-* [Node.js](https://nodejs.org/en/download/package-manager){:target="_blank"} v18+ and npm
+* [Node.js](https://nodejs.org/en/download/package-manager){:target="_blank"} v20+ and npm
 * A favorite text editor or IDE
 
 {% include "../../../../../includes/complete-guides/nextjs/prerequisite.md" %}

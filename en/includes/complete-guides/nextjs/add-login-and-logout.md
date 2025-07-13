@@ -3,7 +3,7 @@ Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user 
 
 Replace the existing content of the `app/page.tsx` file with following content.
 
-```javascript title="app/page.tsx"  hl_lines="1 6-11"
+```javascript title="app/page.tsx"  hl_lines="1 7-12"
 import {SignInButton, SignedIn, SignOutButton, SignedOut} from '@asgardeo/nextjs';
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
 }
 ```
 
-This code snippet adds a login button in the application that triggers the signIn function from @asgardeo/nextjs when the user clicks the "Sign in" button. The form uses an asynchronous action to securely initiate the login process with {{product_name}}. When the user submits the form, the app redirects them to the {{product_name}} login page, and once logged in, they are returned to the app with their session established.
+This code snippet adds a login button in the application that triggers the signIn function from @asgardeo/nextjs when the user clicks the "Sign in" button. The button uses an asynchronous action to securely initiate the login process with {{product_name}}. When the user clicks the button, the app redirects them to the {{product_name}} login page, and once logged in, they are returned to the app with their session established.
 
 Save the changes and re-run the application in development mode if it is not running already.
 

@@ -3,7 +3,7 @@ For this guide, we will walk you through setting up a simple Next.js application
 
 Open a terminal, change directory to where you want to initialize the project, and run the following command to create your first Next.js sample app.
 
-Running the above command will generate a new folder named asgardeo-nextjs, containing a ready-to-use Next.js project set up with TypeScript. The project includes a development server that automatically reloads the app whenever changes are made.
+Running the above command will generate a new folder named {{ product }}-nextjs, containing a ready-to-use Next.js project set up with TypeScript. The project includes a development server that automatically reloads the app whenever changes are made.
 
 === "npm"
 
@@ -27,7 +27,7 @@ Once this command is executed, if everything goes smoothly, your terminal output
 
 ![Create Next.js app]({{base_path}}/assets/img/complete-guides/nextjs/image3.png){: width="800" style="display: block; margin: 0;"}
 
-Once the application is created, navigae to the app folder. Then run the sample in the development mode. This allows you to see real-time updates and debug the app as you make changes.
+Once the application is created, navigate to the app folder. Then run the sample in the development mode. This allows you to see real-time updates and debug the app as you make changes.
 
 === "npm"
 
