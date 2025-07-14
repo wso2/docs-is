@@ -678,19 +678,15 @@ components:
       type: object
       properties:
         schemas:
-          type: object
-          items:
-            type: string
-            example:
+          type: array
+          example:
             - urn:ietf:params:scim:api:messages:2.0:SearchRequest
         attributes:
           type: array
           description: SCIM defined attributes parameter.
-          items:
-            type: string
-            example:
-              - name.familyName
-              - userName
+          example:
+            - name.familyName
+            - userName
         filter:
           type: string
           description: The expression used for filtering. Supported filters are <code>ew</code>, <code>eq</code>, <code>co</code>, <code>sw</code>, and <code>and</code>.
