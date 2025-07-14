@@ -12,5 +12,4 @@ read_time: 30 secs
 * [Node.js](https://nodejs.org/en/download/package-manager){:target="_blank"} v20+ and npm
 * A favorite text editor or IDE
 
-
 {% include "../../../../includes/complete-guides/react/prerequisite.md" %}
