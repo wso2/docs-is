@@ -1,5 +1,77 @@
 
+Now since Self Registration has been enabled in the {{product_name}} let's move on to configuring this in the Next application.
 
+Asgardeo SDK provides `SignUp`, `SignUpButton`components to handle user self sign up.
+
+Replace the existing content of the `app/page.tsx` file with following content to add the Sign Up button.
+
+```javascript title="app/page.tsx"  hl_lines="1 7"
+import {SignUpButton, SignedOut } from '@asgardeo/nextjs';
+
+export default function Home() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen text-center gap-6">
+      <header className="flex flex-col items-center gap-2">
+        <SignUpButton />
+      </header>
+    </div>
+  );
+}
+```
+
+This code snippet adds a Sign Up button in the application.
+
+Now since we need to display a Sign Up Page, the following can be done to integrate the Asgardeo Next SDK with {{product_name}} and perform the Sign Up.
+
+First, create an app route for the sign-up page. Create a new file called `app/sign-up/page.tsx` and add the following code:
+
+```javascript title="app/sign-in/page.tsx"
+'use client';
+
+import Link from 'next/link';
+import {SignUp} from '@asgardeo/nextjs';
+
+export default function SignUpPage() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-background to-purple-50 p-4">
+      <div className="w-full max-w-md">
+        <SignUp />
+        <div className="mt-8 text-center">
+          <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
+            ← Back to home
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+Then, update the `.env` file with the route for the sign-in page. Add the following line to your `.env` file:
+
+```bash title=".env"
+NEXT_PUBLIC_ASGARDEO_SIGN_UP_URL="/sign-up"
+```
+
+Save the changes and re-run the application in development mode if it is not running already.
+
+```bash
+npm run dev
+```
+
+Once the application is started, you will see the homepage of the application with the changes we made.
+
+![Home screen]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image17.png){: width="800" style="display: block; margin: 0;"}
+
+## Initiate Sign Up
+
+Clicking on the Sign Up button will display the Sign Up page from the Asgardeo SDK as follows.
+
+![Sign Up page]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image18.png){: width="800" style="display: block; margin: 0;"}
+
+Once you fill this information and click 'Continue' the user will be created in {{product_name}}.
+
+<!-- 
 In this step, we implement user sign up using SCIM APIs and OAuth 2.0 Client Credentials Flow. The implementation includes user creation, role assignment, and error handling.
 
 Key steps of the sign up flow:
@@ -225,7 +297,6 @@ async function getUser(accessToken: string, email: string): Promise<any | null> 
     return data?.totalResults > 0 ? data?.Resources[0] : null;
 }
 
-
 // Create user
 export async function createUser(
   accessToken: string,
@@ -332,4 +403,4 @@ This component includes a form with fields for email, password, first name, and 
     - [OAuth 2.0 Client Credentials Grant]({{base_path}}/references/grant-types/#client-credentials-grant){:target="\_blank"}
 
 !!! Note
-    Refer to Step 1 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation.
+    Refer to Step 1 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation. -->

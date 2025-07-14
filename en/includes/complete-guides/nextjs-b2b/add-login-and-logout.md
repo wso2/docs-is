@@ -1,4 +1,76 @@
 
+Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
+
+The Next SDK has components can be used to display user information as well. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
+
+- `User`: The `User` component provides a render prop pattern to access user profile information:
+- `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
+- `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
+
+Replace the existing content of the `app/page.tsx` file with following content.
+
+```javascript title="app/page.tsx"  hl_lines="1 7-12"
+'use client'
+
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserDropdown, UserProfile, SignUpButton } from '@asgardeo/nextjs';
+
+export default function Home() {
+  return (
+    <>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center gap-6">
+      <header className="flex flex-col items-center gap-2">
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+          <SignUpButton />
+        </SignedOut>
+      </header>
+      <main className="flex flex-col items-center gap-4">
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
+      </div>
+    </>
+  );
+}
+```
+
+This code snippet adds a Sign In button in the application that triggers the signIn function from @asgardeo/nextjs when the user clicks it. The button uses an asynchronous action to securely initiate the login process with {{product_name}}. When the user clicks the button, the app redirects them to the {{product_name}} login page, and once logged in, they are returned to the app with their session established.
+
+Save the changes and re-run the application in development mode if it is not running already.
+
+```bash
+npm run dev
+```
+
+Once the application is started, you will see the homepage of the application with the changes we made.
+
+![Login screen]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image19.png){: width="800" style="display: block; margin: 0;"}
+
+## Initiate Sign In
+
+Clicking on the login button will initiate an OIDC request. You will be able to observe the authorize request in the browser devtools as follows. To see this, right click on the application and click inspect and switch to the network tab. In the filter input, type “authorize”, and click on the sign in button.
+
+![OIDC request]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image20.png){: width="800" style="display: block; margin: 0;"}
+
+!!! tip "Tip"
+
+    The OpenID Connect specification offers several functions, known as grant types, to obtain an access token in exchange for user credentials. This example uses the authorization code grant type. In this process, the app first requests a unique code from the authentication server, which can later be used to obtain an access token. 
+    
+{{product_name}} will receive this authorization request and respond by redirecting the user to a login page to enter their credentials.
+
+<!-- 
 
 ## Implement log in
 
@@ -117,7 +189,6 @@ async session({ session, token }) {
 
 Introspect token sample method:
 
-
 ```javascript title="app/auth-utils"
 // Helper function to introspect the token
 export async function introspectToken(accessToken: string) {
@@ -235,4 +306,4 @@ const handleSignOut = async () => {
      Read more on [adding logout to an application.]({{base_path}}/guides/authentication/oidc/add-logout/){:target="\_blank"}
 
 !!! Note
-     Refer to Step 2 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation.
+     Refer to Step 2 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation. -->
