@@ -1,30 +1,52 @@
-# Configuring Sift Fraud Detection
+# Sift
 
-Sift uses machine learning and real-time data analysis to detect fraud. You can use Sift fraud detection with WSO2 Identity Server by following the steps below.
+The following guide explains how you can use Sift for fraud detection.
 
-## Prerequisites
-- You need to have a Sift account. If you do not have an account, create one by visiting the [Sift website](https://sift.com/).
+## Overview
 
-## Install the Sift connector
+Sift uses machine learning and real-time data analysis to detect fraud.
 
-The latest project artifacts can be downloaded from the Connector Store (https://store.wso2.com/connector/identity-fraud-detection-sift). 
+In {{product_name}}, Sift calculates a risk score for each user login based on behavioral and contextual signals. You can use this score to customize your authentication flow.
 
-**Step 1:** Deploy the Sift connector
+For example,
 
-1. Copy the `org.wso2.carbon.identity.fraud.detection.sift-<version>.jar` file to the `<IS_HOME>/repository/components/dropins` directory.
-3. Restart the WSO2 Identity Server.
+1. Deny login when the user's risk score exceeds the threshold.
 
-## Access the Console UI for the Sift connector
+2. Trigger TOTP step when the user's risk score exceeds the threshold.
 
-Once the connector is added successfully to WSO2 Identity Server, the Sift connector UI will be accessible from the Console, which enables developers to easily configure Sift for their organization by adding the API key.
-To do so,
-  1. In the WSO2 Console, go to `Login and Registration` section and click on `Fraud Detection`.
+## Set up
 
-![Configuring Sift in WSO2 Console](../images/wso2console.png)
+The following guide explains how you can install and set up Sift in {{product_name}}.
 
-Add the `API key` you received from Sift.
+### Prerequisites
 
-## Sift Fraud Detection with Conditional Authentication
+You need to have a Sift account. If you don't have an account, create one by visiting the [Sift website](https://sift.com/).
+
+### Step 1: Install the Sift connector
+
+Follow the steps below to install Sift in {{product_name}}.
+
+1. Download the project artifacts from the {{product_name}} [connector store](https://store.wso2.com/connector/identity-fraud-detection-sift){: target="_blank"}.
+
+2. Copy the `org.wso2.carbon.identity.fraud.detection.sift-<version>.jar` file to the `<IS_HOME>/repository/components/dropins` directory.
+
+3. Restart {{product_name}}.
+
+### Step 2: Add the API key
+
+To work with Sift, you need to register your Sift API key in {{product_name}}. To do so,
+
+1. On the {{product_name}} Console, go to **Login & Registration**.
+
+2. Click **Fraud Detection** and enter the API key.
+
+    ![Configuring Sift in WSO2 Console]({{base_path}}/assets/img/connectors/sift/sift-api-key.png)
+
+3. Click **Update** to save the changes.
+
+## Usage
+
+In {{product_name}}, you can customize an application's login flow using [conditional authentication scripts]({{base_path}}/guides/authentication/conditional-auth/).
 
 WSO2 Identity Server offers the following Sift-related functions that can be utilized in your conditional authentication scripts, enabling seamless integration of Sift into the user authentication process.
 

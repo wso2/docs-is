@@ -886,9 +886,12 @@ nav:
   - SDKs:
     - Integrate WSO2 IS into your application: integrations/index.md
   - Connectors:
-    - Connectors: connectors/index.md
-    - Sift: connectors/sift.md
-    - Duo security: connectors/duo-security.md
+    - Fraud:
+      - Sift:
+        - What is Sift: connectors/sift/what-is-sift.md
+        - Set up: connectors/sift/install-sift.md
+        - Use: connectors/sift/use-sift.md
+      - Duo security: connectors/duo-security.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
