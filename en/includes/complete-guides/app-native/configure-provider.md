@@ -52,7 +52,7 @@ Create a file called `middleware.ts` in the root of your Next.js project and int
 The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application and supports both the App and Pages routers.
 
 ```bash title="middleware.ts"
-import {asgardeoMiddleware} from '@asgardeo/nextjs';
+import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
 
 export default asgardeoMiddleware();
 
@@ -73,7 +73,7 @@ Add the following changes to the `app/layout.tsx` file in your Next.js project.
 ```javascript title="app/layout.tsx" hl_lines="3 31"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import {AsgardeoProvider} from '@asgardeo/nextjs';
+import {AsgardeoProvider} from '@asgardeo/nextjs/server';
 import "./globals.css";
 
 const geistSans = Geist({

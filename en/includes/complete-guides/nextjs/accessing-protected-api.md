@@ -17,8 +17,10 @@ NEXT_PUBLIC_AUTH_ASGARDEO_ME_ENDPOINT="{{content.sdkconfig.baseUrl}}/scim2/Me"
 Use the following snippet to access the scim2/Me endpoint.
 
 ```javascript
-import { asgardeo } from "@asgardeo/nextjs";
-import { SignOutButton } from "@/components/sign-out-button";
+'use server';
+
+import { asgardeo } from "@asgardeo/nextjs/server";
+import { SignOutButton } from "@asgardeo/nextjs";
 import { redirect } from "next/navigation";
 
 interface UserDetails {
@@ -28,6 +30,11 @@ interface UserDetails {
         familyName: string;
     };
 }
+
+export const goToHome = async () => {
+    "use server";
+    redirect("/");
+};
 
 const fetchUserDetails = async (accessToken: string): Promise<UserDetails> => {
     try {
@@ -50,15 +57,16 @@ const fetchUserDetails = async (accessToken: string): Promise<UserDetails> => {
 };
 
 const ServerProfile = async () => {
-    const sessionId = await asgardeo.sessionId();
-    const accessToken = await asgardeo.getAccessToken(sessionId);
+    const client = await asgardeo();
+    const sessionId = await client.getSessionId();
+    const accessToken = await client.getAccessToken(sessionId as string);
 
     if (!sessionId || !accessToken) {
         return;
     }
-    
+
     let userDetails: UserDetails;
-    
+
     try {
         userDetails = await fetchUserDetails(accessToken);
     } catch {
@@ -68,24 +76,19 @@ const ServerProfile = async () => {
             </div>
         );
     }
-    
-    const goToIndex = async () => {
-        "use server";
-        redirect("/");
-    };
-    
+
     return (
         <div className="h-screen w-full flex flex-col items-center justify-center">
             <h1 className="mb-5">Profile Page</h1>
             <p>Email: {userDetails.emails?.[0]}</p>
             <p>First Name: {userDetails.name?.givenName}</p>
             <p>Last Name: {userDetails.name?.familyName}</p>
-            <form action={goToIndex}>
+            <form action={goToHome}>
                 <button
                     type="submit"
                     className="rounded-full border border-solid flex items-center justify-center text-sm h-10 px-4 mt-3"
                 >
-                    Go to index page
+                    Go to Home page
                 </button>
             </form>
             <div className="mt-5">
@@ -96,6 +99,7 @@ const ServerProfile = async () => {
 };
 
 export default ServerProfile;
+
 ```
 
 By following the above steps we can access protected APIs.
