@@ -5,9 +5,19 @@ The business APIs you deploy, whether used by your internal applications or exte
 
 {{product_name}} can secure your APIs and make sure only authorized applications and  authorized users can access the APIs. {{product_name}} can be integrated with your APIs in two approaches:
 
-- **Security Token Service and Authorization Provider** – You can integrate  with API gateways such as Azure, AWS, or any OpenID Connect-supported gateway. {{product_name}} will provide OAuth2-based Security Token Service and API authorization based on RBAC (Role-Based Access Control). This option is particularly useful if you are developing and hosting your own APIs without using an API gateway, as you only need to verify the tokens issued by {{product_name}}.
+- **{{product_name}} as OAuth2 Token Service + Authorization Provider** - Use this approach when your APIs rely on {{product_name}} to handle both authentication and authorization. {{product_name}} issues tokens and enforces access control (RBAC). Your API simply validates the token's scopes/roles without relying on a separate API management platform.
 
-- **OAuth2 Token Service Provider** – You can also integrate {{product_name}} as an Identity Provider (IdP) with existing API management solutions such as WSO2 API Manager, Choreo API Management, or any API management platform that supports OpenID Connect IdP integration. In this scenario, {{product_name}} offers OAuth2-based Security Token Service, while your API management solution handles API authorization. This is the preferred option when you want to use platform-level customer identity or workforce identity provider with all your applications and APIs. 
+    Suitable when,
+
+    - You don't use a dedicated API management platform.
+    - You want Asgardeo to enforce access policies.
+
+- **{{product_name}} as OAuth2 Token Service only** - Use this approach when you integrate {{product_name}} as the Identity Provider (IdP) for an API management platform (WSO2 API Manager, Choreo, etc.). {{product_name}} issues tokens, but the API management platform enforces authorization.
+
+    Suitable when,
+    
+    - You already have an API gateway or management platform handling access policies.
+    - You want centralized identity management via Asgardeo across different applications and APIs.
 
 ## Define and secure API resources  
 
