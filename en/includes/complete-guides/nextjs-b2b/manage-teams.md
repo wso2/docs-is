@@ -1,5 +1,4 @@
 
-
 In this step, we implement team management functionality including adding and listing teams.
 
 ## Adding a team
