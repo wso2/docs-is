@@ -4,7 +4,7 @@ The business APIs you deploy, whether used by your internal applications or exte
 
 {{product_name}} can secure your APIs and make sure only authorized applications and  authorized users can access the APIs. {{product_name}} can be integrated with your APIs in two approaches:
 
-- **{{product_name}} as OAuth2 Token Service + Authorization Provider** - Use this approach when your APIs rely on {{product_name}} to handle both authentication and authorization. {{product_name}} issues tokens and enforces access control (RBAC). Your API simply validates the token's scopes/roles without relying on a separate API management platform.
+- **{{product_name}} as OAuth2 Token Service + Access control policy provider** - In this approach, {{product_name}} handles both authentication and authorization. {{product_name}} issues access tokens and enforces access control policies (for example role-based access control). Your APIs validate the token and trust the access control decisions already made by {{product_name}}.
 
     Suitable when,
 
