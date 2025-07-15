@@ -19,3 +19,7 @@ Let's now set up Google as an option as the first authentication step in your {{
 Once this is added to the login flow as one of the first factor options, you should now be able to successfully sign in with Google in your Next.js application. After clicking on the `Sign In With Google` button, the user will be redirected to the Google sign-in page, and upon successful sign-in, the user will be redirected back to the application to complete the second authentication step (i.e. in this case email OTP) before being redirected to the home page. After signing in you should be able to see the relevant user's first and last name along with the `Sign Out` button.
 
 ![Sign In With Google Button]({{base_path}}/assets/img/complete-guides/app-native/image15.png){: width="800" style="display: block; margin: 0;"}
+
+!!! tip "Tip"
+
+    If you need to display the User Information properly in the application after a successful Sign In with the Google Connector, make sure you have enabled JIT provisioning in the connector configurations. You can follow the documentation for [JIT Provisioning]({{base_path}}/guides/authentication/jit-user-provisioning) for this.
