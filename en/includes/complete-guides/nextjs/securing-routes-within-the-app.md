@@ -1,7 +1,9 @@
-
+<!-- 
 The `<Profile/>` components (server-side and client-side) we developed in the previous step should only be accessible when a user is already logged in. Because if a valid user is not in the session, there is no point of showing an empty profile page. Therefore we need to secure the routes: **http://localhost:3000/client-profile** and **http://localhost:3000/server-profile**. In this example, we will be demonstrating how to secure a route using Auth.js in both server-side and client-side.
 
 ## Securing the Server-Side Components
+
+Here we will be securing the server-side components
 
 ### Update middleware to secure the server-side route
 
@@ -43,8 +45,9 @@ This callback checks the auth parameter, which holds the user's authentication d
 
 Now verify that you cannot access http://localhost:3000/server-profile URL when you are not logged in. You will be redirected to http://localhost:3000 if you do not have a valid user logged in.
 
-
 ## Securing the Client-Side Components
+
+Here we will be securing the client-side components
 
 ### Create a Higher-Order Component (HOC) - withProtectedRoute
 
@@ -57,7 +60,6 @@ This can be achieved by using the status object in the `useSession()` hook provi
 - **loading** - Auth.js is still processing the request and is in an intermediate loading state. This useful to show proper loading screens in the UI and avoid inconsistencies.
 
 Depending on these states, let’s create the `withProtectedRoute` using the following code:
-
 
 ```javascript title="components/with-protected-component.tsx"
 
@@ -89,7 +91,6 @@ export const withProtectedRoute = (WrappedComponent: React.ComponentType) => {
 
   return ComponentWithAuth;
 };
-
 
 ```
 
@@ -139,8 +140,42 @@ export default withProtectedRoute(Profile);
 
 Now verify that you cannot access http://localhost:3000/client-profile URL when you are not logged in. You will be redirected to http://localhost:3000 if you do not have a valid user logged in.
 
+In this step, we looked into how to secure component routes within a Next.js app. Next, we will try to access a protected API from our Next.js app, which is a common requirement. -->
+
+Using the Next Asgardeo SDK you can also secure routes. For example if you have a page you need to show only when the user is logged in, you can follow the below steps.
+
+Add the following to the middleware.ts file
+
+```javascript title="middleware.ts"
+import {asgardeoMiddleware, createRouteMatcher} from '@asgardeo/nextjs/server';
+
+const isProtectedRoute = createRouteMatcher([
+  '/dashboard',
+  '/dashboard/(.*)',
+]);
+
+export default asgardeoMiddleware(async (asgardeo, req) => {
+  if (isProtectedRoute(req)) {
+    const protectionResult = await asgardeo.protectRoute();
+
+    if (protectionResult) {
+      return protectionResult;
+    }
+  }
+});
+
+export const config = {
+  matcher: [
+    // Skip Next.js internals and all static files, unless found in search params
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    // Always run for API routes
+    '/(api|trpc)(.*)',
+  ],
+};
+```
+
+Here you need to create the relevant `/dashboard` page in your app accordingly.
+
+Now verify that you cannot access `http://localhost:3000/dashboard` URL when you are not logged in. You will be redirected to `http://localhost:3000` if you do not have a valid user logged in.
 
 In this step, we looked into how to secure component routes within a Next.js app. Next, we will try to access a protected API from our Next.js app, which is a common requirement.
-
-
-

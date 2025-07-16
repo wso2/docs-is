@@ -1,136 +1,109 @@
+## Install `@asgardeo/nextjs`
 
+Asgardeo Next.js SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo Next.js SDK to the project. Make sure to stop the dev server started in the previous step.
 
-Auth.js is a flexible authentication library designed to streamline authentication workflows in web applications. When implementing custom authentication in a Next.js app, configuring a Credentials Provider allows you to authenticate users with custom logic, such as verifying credentials against a database or an external API.
+=== "npm"
 
-Using a Credentials Provider in Auth.js offers several advantages over rolling out a completely custom authentication system:
+    ``` bash
+    npm install @asgardeo/nextjs
+    ```
 
-- **Full Control Over Authentication Logic**: Unlike OAuth-based authentication, a Credentials Provider allows you to define exactly how users are authenticated, whether through a database lookup, API call, or even third-party services, which makes it suitable for the use case of app-native authentication covered in this guide.
+=== "yarn"
 
-- **Flexible Identity Management**: A Credentials Provider can be configured to work alongside other authentication methods (e.g., OAuth, Magic Link, or Passwordless authentication), providing hybrid authentication support.
+    ``` bash
+    yarn add @asgardeo/nextjs
+    ```
 
-- **Session and Token Management**: Auth.js handles session management, token validation, and security best practices like CSRF protection, reducing the burden of implementing these manually.
+=== "pnpm"
 
-By leveraging a Credentials Provider, you can implement custom authentication flows in a Next.js app while still benefiting from Auth.js's built-in security and session management features.
+    ``` bash
+    pnpm add @asgardeo/nextjs
+    ```
 
-As the next step, run the following command to install Auth.js in your Next.js project:
+## Set up environment variables
 
-```bash
-npm install next-auth@beta
+Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the Asgardeo Next.js SDK to function properly.
 
+```bash title=".env"
+NEXT_PUBLIC_ASGARDEO_BASE_URL="{{content.sdkconfig.baseUrl}}"
+NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
+ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
 ```
 
-## Generate Auth Secret Environment Variable
+!!! danger "Warning"
 
-The only environment variable that is mandatory is the AUTH_SECRET. This is a random value used by the library to encrypt tokens and email verification hashes. You can generate one via the [Auth.js](https://github.com/nextauthjs/cli){:target="_blank"}  CLI by running the following command;
+    There is a Secret used for signing JWT session cookies. If this is not defined, it will use the default one configured in the Asgardeo SDK. However it is mandatory to change this in a production environment.
 
-```bash
-npx auth secret
+    Please generate a random key with the following.
 
+    ```bash
+    openssl rand -base64 32
+    ```
+    Add it to the .env file as below.
+
+    ```bash
+    ASGARDEO_SECRET="<your-secret-key-for-jwt-signing>"
+    ```
+
+## Setup the middleware
+
+Create a file called `middleware.ts` in the root of your Next.js project and integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.
+
+The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application and supports both the App and Pages routers.
+
+```bash title="middleware.ts"
+import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+
+export default asgardeoMiddleware();
+
+export const config = {
+  matcher: [
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    '/(api|trpc)(.*)',
+  ],
+};
 ```
 
-Running this command will add an `AUTH_SECRET` to your .env file.
+## Add `<AsgardeoProvider />` to your app
 
-### Retrieve authenticator IDs from {{product_name}}
+The `<AsgardeoProvider />` serves as a context provider for the SDK. You can integrate this provider to your app by wrapping the root component.
 
-In this guide, we will be working with 3 different authenticators in {{product_name}}. They are:
+Add the following changes to the `app/layout.tsx` file in your Next.js project.
 
-- Username & Password
-- Email OTP
-- Google
+```javascript title="app/layout.tsx" hl_lines="3 31"
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import {AsgardeoProvider} from '@asgardeo/nextjs/server';
+import "./globals.css";
 
-The above authenticators will help cover integrating basic authentication, MFA factors, and also social login scenarios into your application via app-native authentication APIs provided by {{product_name}}.
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
-The first two authenticators are local authenticators, whereas Google is a federated authenticator.
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
-In this guide, since we know what the authenticators will be for the given {{product_name}} application, and to simplify the implementation of the application as much as possible, we will maintain the authenticator IDs in the `.env.local` file and utilize them instead of relying on API responses.
-
-The `authenticatorId` is built up of a base64 encoded value of the authenticator name and the Identity Provider name (in the case of a federated authenticator), where the plain-text values of the three authenticators that we would use in our case would be as follows:
-
-- `BasicAuthenticator:LOCAL`
-- `email-otp-authenticator:LOCAL`
-- `GoogleOIDCAuthenticator:Google`
-
-As the next step, add following entries to the `.env` or `.env.local` file, and make sure to replace the placeholders in the following code with the Client ID, and Client Secret values you copied during in **Step-3** the application registration in the {{product_name}} console and the base64 encoded values of the authenticator IDs as mentioned above.
-
-```sh title=".env.local"
-    NEXT_PUBLIC_ORGANIZATION_NAME="<org_name>"
-    NEXT_PUBLIC_CLIENT_ID="<client_id>"
-    NEXT_PUBLIC_CLIENT_SECRET="<client_secret>"
-    NEXT_PUBLIC_SCOPE="openid profile"
-    NEXT_PUBLIC_REDIRECT_URI="http://localhost:3000"
-    NEXT_PUBLIC_BASIC_AUTHENTICATOR_ID="QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM"
-    NEXT_PUBLIC_EMAIL_OTP_AUTHENTICATOR_ID="ZW1haWwtb3RwLWF1dGhlbnRpY2F0b3I6TE9DQUw"
-    NEXT_PUBLIC_GOOGLE_AUTHENTICATOR_ID="R29vZ2xlT0lEQ0F1dGhlbnRpY2F0b3I6R29vZ2xl"
-    NEXT_PUBLIC_GOOGLE_REDIRECT_URI="http://localhost:3000/api/auth/callback/google"
-```
-
-!!! note
-
-    We utilize `http://localhost:3000` as the application hostname and port for this guide as those are the default values that Next.js use. If you are already running a process on port 3000 and if you observe the Next.js application created in `Step 4` runs on a different hostname/port combination, please make sure to update the following in the `.env` or `.env.local` file with the correct hostname and port values:
-    
-    - `NEXT_PUBLIC_REDIRECT_URI`
-    - `NEXT_PUBLIC_GOOGLE_REDIRECT_URI`
-    
-    Then make sure to update the following URLs in the `Protocol` tab in your **{{product_name}}** application that we configured in `Step 3` of this guide to reflect the correct hostname and port values.
-        
-    - `Authorized redirect URLs`
-    - `Allowed origins`
-
-## Create the auth.tsx Configuration File
-
-We need to create a configuration file for Auth.js. This is where you define the behavior of the library, including custom authentication logic, specifying adapters, token handling, and more. In this file, you'll pass all the necessary options to the framework-specific initialization function and export route handlers like sign in, sign out, and any additional methods you need.
-Although you're free to name and place this file wherever you want, the following conventions are recommended for better organization in Next.js.
-
-First, create an `auth.tsx` file in `src/auth.tsx` directory.
-
-```bash
-
-touch src/auth.tsx
-
-```
-
-Add the following configurations for a custom `CredentialsProvider` in the `/src/auth.tsx'` file.
-
-```javascript title="auth.tsx"
-import NextAuth, { NextAuthConfig } from 'next-auth';
-import CredentialsProvider from "next-auth/providers/credentials";
-
-const options: NextAuthConfig = {
-    providers: [
-        CredentialsProvider({
-            name: "Asgardeo OAuth2",
-            credentials: {
-                code: { label: "Code", type: "text" },
-            },
-        }),
-    ],
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
 };
 
-export const { handlers, signIn, signOut, auth } = NextAuth(options);
-
-```
-
-Note that we have only passed the `code` as the credential to the `CredentialsProvider()` function. The Client ID and the Client Secret will be automatically used by Auth.js under-the-hood. Therefore, we do not need to include them in the provider configuration.
-
-As the next step, create a Route Handler file named `route.ts` in the `src/app/api/auth/[...nextauth]/` directory.
-
-First, let's create the directory structure for the Route Handler.
-
-```bash
-mkdir -p src/app/api/auth/\[...nextauth\]
-
-touch src/app/api/auth/\[...nextauth\]/route.ts
-
-```
-
-!!! Note
-
-    The directory `src/app/api/auth/[...nextauth]/route.ts` in a Next.js project is used to define a dynamic API route for handling authentication. The `[...nextauth]` is a catch-all route that processes multiple authentication-related requests such as sign-in, sign-out, and session management. The `route.ts` file specifies the logic for these operations, typically by exporting handlers for HTTP methods like GET and POST. This setup centralizes authentication logic, supports OAuth providers like Google or GitHub, and integrates seamlessly into Next.js applications for secure and scalable authentication workflows.
-
-
-Then add the following code into `src/app/api/auth/[...nextauth]/route.ts` file.
-
-```javascript title="route.ts"
-import { handlers } from "@/auth" 
-export const { GET, POST } = handlers
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <AsgardeoProvider>{children}</AsgardeoProvider>
+      </body>
+    </html>
+  );
+}
 ```

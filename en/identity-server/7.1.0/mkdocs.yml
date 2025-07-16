@@ -463,7 +463,10 @@ nav:
           - Javascript:
               - Quickstart: quick-starts/javascript.md
               - Complete Guide: complete-guides/javascript/introduction.md
-          - Next.js Quickstart: quick-starts/nextjs.md
+          - Next.js:
+              - Quickstart: quick-starts/nextjs.md
+              - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
+              - Complete Guide (App-Native): complete-guides/app-native/introduction.md
           - Node.js:
               - Quickstart: quick-starts/nodejs.md
               - Complete Guide: complete-guides/nodejs/introduction.md
@@ -1107,6 +1110,30 @@ nav:
           - Accessing protected API: complete-guides/react/accessing-protected-api.md
           - Manage tokens in React: complete-guides/react/manage-tokens-in-React-apps.md
           - Next Steps: complete-guides/react/next-steps.md
+      - Next.js:
+          - Redirect-Based:
+              - Introduction: complete-guides/nextjs/introduction.md
+              - Prerequisite: complete-guides/nextjs/prerequisite.md
+              - Register an application: complete-guides/nextjs/register-an-application.md
+              - Create a Next.js app: complete-guides/nextjs/create-app.md
+              - Configure Asgardeo SDK: complete-guides/nextjs/install-asgardeo-sdk.md
+              - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
+              - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
+              - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
+              - Accessing protected API: complete-guides/nextjs/accessing-protected-api.md
+              - Manage tokens in Next.js: complete-guides/nextjs/manage-tokens-in-apps.md
+              - Next Steps: complete-guides/nextjs/next-steps.md
+          - App-Native:
+              - Introduction: complete-guides/app-native/introduction.md
+              - Prerequisites: complete-guides/app-native/prerequisites.md
+              - Register an application: complete-guides/app-native/register-an-application.md
+              - Create an app for app-native authentication: complete-guides/app-native/create-app.md
+              - Configure Asgardeo SDK: complete-guides/app-native/configure-provider.md
+              - Add login and logout: complete-guides/app-native/add-login-and-logout.md
+              - Add MFA using app-native APIs: complete-guides/app-native/add-mfa.md
+              - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
+              - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
+              - Next Steps: complete-guides/app-native/next-steps.md
       - Angular:
           - Introduction: complete-guides/angular/introduction.md
           - Prerequisite: complete-guides/angular/prerequisite.md

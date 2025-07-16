@@ -1,7 +1,7 @@
 
 At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo React SDK. The next step is to explore how to access and display logged-in user details within the app.
 
-The React SDK has components that can be used to display user information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
+The React SDK has components can be used to display user information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
 
 - `User`: The `User` component provides a render prop pattern to access user profile information:
 - `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.

@@ -1,52 +1,54 @@
 
 For this guide, we will walk you through setting up a simple Next.js application.
 
-Open a terminal, change directory to where you want to initialize the project, and run the following command to create your first Next.js sample app. 
+Open a terminal, change directory to where you want to initialize the project, and run the following command to create your first Next.js sample app.
 
-Running the above command will generate a new folder named asgardeo-nextjs, containing a ready-to-use Next.js project set up with TypeScript. The project includes a development server that automatically reloads the app whenever changes are made.
+Running the above command will generate a new folder named {{ product }}-nextjs, containing a ready-to-use Next.js project set up with TypeScript. The project includes a development server that automatically reloads the app whenever changes are made.
 
+=== "npm"
 
+    ``` bash
+    npm create next-app@latest {{ product }}-nextjs -- --yes
+    ```
 
-```bash
+=== "yarn"
 
-npx create-next-app@latest --typescript asgardeo-nextjs
+    ``` bash
+    yarn create next-app@latest {{ product }}-nextjs -- --yes
+    ```
 
-```
+=== "pnpm"
 
-!!! note
+    ``` bash
+    pnpm create next-app@latest {{ product }}-nextjs -- --yes
+    ```
 
-    In this guide, we'll be using TypeScript. However, you can still follow along even if you prefer to use JavaScript you can simply add `–javascript` flag instead of `–typescript`. Also, verify that you are using the `src` directory in options.
-
-
-Once this command is executed, you will be prompted with various configuration options for your application. We will use the default options to keep the configurations as simple as possible. If everything goes smoothly, your terminal output should resemble the following.
-
+Once this command is executed, if everything goes smoothly, your terminal output should resemble the following.
 
 ![Create Next.js app]({{base_path}}/assets/img/complete-guides/nextjs/image3.png){: width="800" style="display: block; margin: 0;"}
 
+Once the application is created, navigate to the app folder. Then run the sample in the development mode. This allows you to see real-time updates and debug the app as you make changes.
 
+=== "npm"
 
+    ``` bash
+    cd {{ product }}-nextjs
+    npm run dev
+    ```
 
-!!! note
+=== "yarn"
 
-    Since we are using the default options, we are working with the **app router** instead of the **pages router**.
-    
+    ``` bash
+    cd {{ product }}-nextjs
+    yarn dev
+    ```
 
-Once the application is created, install the dependencies using the following command.
+=== "pnpm"
 
-```bash
-
-cd asgardeo-nextjs
-
-npm install
-```
-
-Then run the sample in the development mode. This allows you to see real-time updates and debug the app as you make changes.
-
-```bash
-
-npm run dev
-
-```
+    ``` bash
+    cd {{ product }}-nextjs
+    pnpm dev
+    ```
 
 This will start the Next.js development server, typically at [http://localhost:3000](http://localhost:3000){:target="_blank"}, and you should see the default Next.js starter page. Confirm that everything is set up correctly by checking for the terminal output indicating that the server is running.
 

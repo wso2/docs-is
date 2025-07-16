@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Manage tokens in React apps 
+heading: Manage tokens in Next apps 
 read_time: 2 min
 ---
 
