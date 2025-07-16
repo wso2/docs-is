@@ -1,6 +1,5 @@
 
-
-In this step, we implement team member management functionality into Teamspace using Asgardeo's SCIM APIs. This includes inviting new members to teams and adding existing team members.
+In this step, we implement team member management functionality into Teamspace using {{product_name}}'s SCIM APIs. This includes inviting new members to teams and adding existing team members.
 
 ## Invite members
 
