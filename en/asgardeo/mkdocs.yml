@@ -669,7 +669,6 @@ nav:
         - Introduction: complete-guides/nextjs-b2b/introduction.md
         - Prerequisites: complete-guides/nextjs-b2b/prerequisite.md
         - Register an application: complete-guides/nextjs-b2b/register-an-application.md
-        - Give access to APIs and create roles: complete-guides/nextjs-b2b/give-access-to-apis-and-create-roles.md
         - Create a Next.js app: complete-guides/nextjs-b2b/create-app.md
         - Configure app for login: complete-guides/nextjs-b2b/configure-app-for-login.md
         - Add user sign up: complete-guides/nextjs-b2b/add-user-sign-up.md
@@ -682,7 +681,7 @@ nav:
         - Prerequisite: complete-guides/nextjs/prerequisite.md
         - Register an application: complete-guides/nextjs/register-an-application.md
         - Create a Next.js app: complete-guides/nextjs/create-app.md
-        - Configure Asgardeo provider: complete-guides/nextjs/install-asgardeo-sdk.md
+        - Configure Asgardeo SDK: complete-guides/nextjs/install-asgardeo-sdk.md
         - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
         - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
         - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
@@ -694,8 +693,7 @@ nav:
         - Prerequisites: complete-guides/app-native/prerequisites.md
         - Register an application: complete-guides/app-native/register-an-application.md
         - Create an app for app-native authentication: complete-guides/app-native/create-app.md
-        - Configure Provider: complete-guides/app-native/configure-provider.md
-        - Configure utility functions for app-native authentication: complete-guides/app-native/configure-utility-functions.md
+        - Configure Asgardeo SDK: complete-guides/app-native/configure-provider.md
         - Add login and logout: complete-guides/app-native/add-login-and-logout.md
         - Add MFA using app-native APIs: complete-guides/app-native/add-mfa.md
         - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md

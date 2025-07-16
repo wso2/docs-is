@@ -1,5 +1,5 @@
-
-At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo provider for Auth.js. The next step is to explore how to access and display logged-in user details within the app utilizing the callbacks provided by auth.js library. To retrieve user information from the ID token provided by {{product_name}}, the simplest approach is to use the JWT (JSON Web Token) returned during authentication. In auth.js, you can leverage the JWT callback function to access and manipulate this token. The JWT callback is triggered whenever a JWT is created or updated (e.g., at sign-in), making it a great place to include the user's information
+<!-- 
+At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo SDK. The next step is to explore how to access and display logged-in user details within the app utilizing the callbacks provided by auth.js library. To retrieve user information from the ID token provided by {{product_name}}, the simplest approach is to use the JWT (JSON Web Token) returned during authentication. In auth.js, you can leverage the JWT callback function to access and manipulate this token. The JWT callback is triggered whenever a JWT is created or updated (e.g., at sign-in), making it a great place to include the user's information
 
 Modified the code as below to see logged in user details.
 
@@ -41,9 +41,6 @@ Auth.js is made to work with many identity providers and some of the objects/arg
 
 Once this user information is returned from the `jwt` callback, we need to pass this data to the `session` object of the `auth()` function. To do that, we will be using the `session` callback. In the `session` callback, `session` is the object that is available in the `auth()` function and `token` object is the object returned from the `jwt` callback.
 
-
-
-
 Then, update `page.tsx` with the following highlighted line to display the username of logged in user.  
 
 ```javascript title="page.tsx" hl_lines="4"
@@ -66,13 +63,9 @@ Then, update `page.tsx` with the following highlighted line to display the usern
 
 ```
 
-
-
 If your Next.js application is already running in the development mode, the home page will be reloaded and you will see the updated user interface.
 
 ![Logout screen]({{base_path}}/assets/img/complete-guides/nextjs/image8.png){: width="800" style="display: block; margin: 0;"}
-
-
 
 ## Getting additional user attributes
 
@@ -86,11 +79,7 @@ To get additional user attributes to the ID token, the application should be con
 4. Select the **Last Name (family_name))**.
 5. Click Update to save the changes.
 
-
- 
-
 Now, you need to modify the `auth.ts` with the required user attributes as shown in the following example.  
-
 
 ```javascript title="auth.ts" hl_lines="7-8 20-21 29-30"
 
@@ -135,7 +124,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
 Since we are adding new information to the user object inside the `session object` (which is having the interface - User), note that we also have to update the interface to contain this new information.
 
-
 Then, you can update `page.tsx` as given below to display the above user attributes.  
 
 ```javascript title="page.tsx" hl_lines="5-6"
@@ -163,7 +151,6 @@ Then, you can update `page.tsx` as given below to display the above user attribu
 !!! Tip
 
     If you don’t get any value for given_name and family_name, it might be because you have not added these values when creating the user in {{product_name}}. You can add these values either using the **{{product_name}} console** or logging into the **My Account** of that particular user.
-
 
 ## Displaying user details in the server side
 
@@ -211,7 +198,6 @@ This component is fully server-side rendered and will fetch the user details fro
 When a user is logged in and if your visit **http://localhost:3000/server-profile**, the following content should be visible:
 
 ![Profile screen (server component)]({{base_path}}/assets/img/complete-guides/nextjs/image23.png){: width="800" style="display: block; margin: 0;"}
-
 
 ## Displaying user details in the client side
 
@@ -280,7 +266,6 @@ export default function RootLayout({
 !!! note
     This a good time to remove the `<SessionProvider/>` we added to the `/src/app/page.tsx` in previous steps as this is no longer required.
 
-
 When a user is logged in and if your visit http://localhost:3000/client-profile, the following content should be visible:
 
 ![Profile screen (client component)]({{base_path}}/assets/img/complete-guides/nextjs/image21.png){: width="800" style="display: block; margin: 0;"}
@@ -289,5 +274,129 @@ When a user is not logged in, it should look as follows:
 
 ![Profile screen (Not logged in)]({{base_path}}/assets/img/complete-guides/nextjs/image22.png){: width="800" style="display: block; margin: 0;"}
 
+In this step, we further improved our Next.js app to display the user attributes. As the next step, we will try to secure routes within the app. -->
 
-In this step, we further improved our Next.js app to display the user attributes. As the next step, we will try to secure routes within the app.
+At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo  SDK. The next step is to explore how to access and display logged-in user details within the app.
+
+The Next SDK has components can be used to display user information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
+
+- `User`: The `User` component provides a render prop pattern to access user profile information:
+- `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
+- `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
+
+First let's use the `User` Component to display the username as below.
+
+```javascript title="app/page.tsx" hl_lines="1 17-27"
+'use client'
+
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User } from '@asgardeo/nextjs';
+
+export default function Home() {
+  return (
+    <>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center gap-6">
+      <header className="flex flex-col items-center gap-2">
+        <SignedIn>
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main className="flex flex-col items-center gap-4">
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
+              </div>
+            )}
+          </User>
+        </SignedIn>
+      </main>
+      </div>
+    </>
+  );
+}
+```
+
+Now let's use the `UserProfile` component to display and update user profile information.
+
+```javascript title="app/page.tsx" hl_lines="1 26"
+'use client'
+
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserProfile } from '@asgardeo/nextjs';
+
+export default function Home() {
+  return (
+    <>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center gap-6">
+      <header className="flex flex-col items-center gap-2">
+        <SignedIn>
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main className="flex flex-col items-center gap-4">
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
+      </div>
+    </>
+  );
+}
+```
+
+Finally we can use the `UserDropdown` component to provide a dropdown menu with built-in user information and sign-out functionality.
+
+```javascript title="app/page.tsx" hl_lines="1 11"
+'use client'
+
+import { SignedIn, SignedOut, SignInButton, SignOutButton, User, UserDropdown, UserProfile } from '@asgardeo/nextjs';
+
+export default function Home() {
+  return (
+    <>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center gap-6">
+      <header className="flex flex-col items-center gap-2">
+        <SignedIn>
+          <UserDropdown />
+          <SignOutButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </header>
+      <main className="flex flex-col items-center gap-4">
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div>
+                <p>Welcome back, {user.userName || user.username || user.sub}</p>
+              </div>
+            )}
+          </User>
+          <UserProfile />
+        </SignedIn>
+      </main>
+      </div>
+    </>
+  );
+}
+```
+
+If your Next application is already running in the development mode, the home page will be reloaded and you will see the updated user interface.
+
+![Logout screen]({{base_path}}/assets/img/complete-guides/nextjs/image25.png){: width="800" style="display: block; margin: 0;"}
+
+In this step, we further improved our React app to display the user attributes. As the next step, we will try to secure routes within the app.

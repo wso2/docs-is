@@ -1,6 +1,5 @@
 
-
-This guide you just completed covered how to add user authentication to a Next.js application using **Auth.js** and an Identity Provider (IdP) like **{{product_name}}**. It also explored making authenticated requests to an OAuth2-protected API.
+This guide you just completed covered how to add user authentication to a Next.js application using Next Asgardeo SDK and an Identity Provider (IdP) like **{{product_name}}**. It also explored making authenticated requests to an OAuth2-protected API.
 
 ---
 

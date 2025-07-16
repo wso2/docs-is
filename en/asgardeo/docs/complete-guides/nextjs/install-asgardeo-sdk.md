@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Install and configure Asgardeo Provider for Auth.js
+heading: Install and configure @asgardeo/nextjs
 read_time: 2 min
 ---
 
