@@ -74,7 +74,8 @@ export default function Home() {
               <SignedIn>
                 <UserDropdown />
                 <SignOutButton />
-                  <button className="px-4 py-2 text-white rounded-full hover:opacity-90 transition" style={{ backgroundColor: "#FF7300" }}>
+                  <Link href="/add-organizations">
+                    <button className="px-4 py-2 text-white rounded-full hover:opacity-90 transition" style={{ backgroundColor: "#FF7300" }}>
                       Add Teams
                     </button>
                   </Link>
@@ -109,6 +110,7 @@ export default function Home() {
     </div>
   );
 }
+
 ```
 
 {% endraw %}
