@@ -37,7 +37,7 @@ export default function Home() {
               <SignedIn>
                 {/* Add logo or navigation for signed-in users if needed */}
                 <Link href="/invite-users">
-                  <button className="px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition asgardeo-avatar">
+                  <button className="px-4 py-2 text-white rounded-full hover:opacity-90 transition" style={{ backgroundColor: "#FF7300" }}>
                     Invite Users
                   </button>
                 </Link>
@@ -53,7 +53,7 @@ export default function Home() {
                 <UserDropdown />
                 <SignOutButton />
                   <Link href="/add-organizations">
-                    <button className="px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition asgardeo-avatar">
+                  <button className="px-4 py-2 text-white rounded-full hover:opacity-90 transition" style={{ backgroundColor: "#FF7300" }}>
                       Add Organizations
                     </button>
                   </Link>
@@ -158,12 +158,12 @@ export default function Home() {
               <SignedIn>
                 {/* Add logo or navigation for signed-in users if needed */}
                 <Link href="/invite-users">
-                  <button className="px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition asgardeo-avatar">
+                  <button className="px-4 py-2 text-white rounded-full hover:opacity-90 transition" style={{ backgroundColor: "#FF7300" }}>
                     Invite Users
                   </button>
                 </Link>
                 <Link href="/view-users">
-                  <button className="px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition asgardeo-avatar">
+                  <button className="px-4 py-2 text-white rounded-full hover:opacity-90 transition" style={{ backgroundColor: "#FF7300" }}>
                     View Users
                   </button>
                 </Link>
@@ -179,7 +179,7 @@ export default function Home() {
                 <UserDropdown />
                 <SignOutButton />
                   <Link href="/add-organizations">
-                    <button className="px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition asgardeo-avatar">
+                  <button className="px-4 py-2 text-white rounded-full hover:opacity-90 transition" style={{ backgroundColor: "#FF7300" }}>
                       Add Organizations
                     </button>
                   </Link>

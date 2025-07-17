@@ -37,4 +37,4 @@ Team 1, team2, ...team (n) etc are considered as organizations under the root or
 
 !!! tip "Tip"
 
-    This guide takes approximately 120 minutes to complete and covers managing organizations and users within an app. If you’re looking for a shorter guide, try the [Next.js Quick Start guide]({{base_path}}/quick-starts/nextjs/){:target="_blank"}, which takes around 15 minutes to complete, or the [Next.js Complete Guide.]({{base_path}}/complete-guides/nextjs/introduction/){:target="_blank"}
+    This guide takes approximately 60 minutes to complete and covers managing organizations and users within an app. If you’re looking for a shorter guide, try the [Next.js Quick Start guide]({{base_path}}/quick-starts/nextjs/){:target="_blank"}, which takes around 15 minutes to complete, or the [Next.js Complete Guide.]({{base_path}}/complete-guides/nextjs/introduction/){:target="_blank"}

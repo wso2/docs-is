@@ -3,24 +3,24 @@ Let’s walk through setting up a Next.js application. Next.js is a React framew
 
 Open a terminal, navigate to the directory where you'd like to create your project, and run the following command to set up a Next.js project:
 
-Running the above command will generate a new folder named Teamspace, containing a ready-to-use Next.js project set up with TypeScript. The project includes a development server that automatically reloads the app whenever changes are made.
+Running the below command will generate a new folder named Teamspace, containing a ready-to-use Next.js project set up with TypeScript. The project includes a development server that automatically reloads the app whenever changes are made.
 
 === "npm"
 
     ``` bash
-    npm create next-app@latest Teamspace -- --yes
+    npm create next-app@latest teamspace -- --yes
     ```
 
 === "yarn"
 
     ``` bash
-    yarn create next-app@latest Teamspace -- --yes
+    yarn create next-app@latest teamspace -- --yes
     ```
 
 === "pnpm"
 
     ``` bash
-    pnpm create next-app@latest Teamspace -- --yes
+    pnpm create next-app@latest teamspace -- --yes
     ```
 
 Once the application is created, navigate to the app folder. Then run the sample in the development mode. This allows you to see real-time updates and debug the app as you make changes.
@@ -28,7 +28,7 @@ Once the application is created, navigate to the app folder. Then run the sample
 === "npm"
 
     ``` bash
-    cd Teamspace
+    cd teamspace
     npm run dev
     ```
 

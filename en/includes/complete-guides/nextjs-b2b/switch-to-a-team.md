@@ -35,8 +35,8 @@ export default function Home() {
                 <UserDropdown />
                 <SignOutButton />
                   <Link href="/add-organizations">
-                    <button className="px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition asgardeo-avatar">
-                      Add Organizations
+                  <button className="px-4 py-2 text-white rounded-full hover:opacity-90 transition" style={{ backgroundColor: "#FF7300" }}>
+                      Add Teams
                     </button>
                   </Link>
                 <OrganizationSwitcher />
