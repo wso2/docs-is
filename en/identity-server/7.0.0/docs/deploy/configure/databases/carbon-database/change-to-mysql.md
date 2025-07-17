@@ -96,7 +96,7 @@ A sample configuration is given below.
         <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
         ```
 
-3.  Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
+3.  Download the [MySQL JDBC driver](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j) and copy the JAR (mysql-connector-j-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder.
           
 ---
 
