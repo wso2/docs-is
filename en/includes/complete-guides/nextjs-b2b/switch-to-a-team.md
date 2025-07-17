@@ -5,6 +5,8 @@ In this step, we implement team switching functionality using {{product_name}}'s
 
 With the component 'OrganizationSwitcher' that is provided by the SDK, we can list the current Teams as well as Switch Teams. Let's implement this by importing this component and adding it to the page.tsx file.
 
+{% raw %}
+
 ```javascript title="app/page.tsx"
 'use client'
 
@@ -73,3 +75,5 @@ export default function Home() {
 }
 
 ```
+
+{% endraw %}

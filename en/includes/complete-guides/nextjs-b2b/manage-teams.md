@@ -12,7 +12,7 @@ In this step, let's see how to make Teamspace a self-service portal and implemen
 !!! Info
     Read more on the [self-service approach]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#self-service-approach){:target="\_blank"} and [maintaining admins in root organization]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-in-the-root-organization){:target="\_blank"} in the Asgardeo documentation.
 
-### Create API route
+### Create route
 
 First, create an app route for the organization creation page. Create a new file called `app/create-organizations/page.tsx` and add the following code:
 
@@ -41,6 +41,8 @@ export default function CreateOrganizations() {
 ### Implementation
 
 Now let's modify the page.tsx file to include this component when the user has signed in.
+
+{% raw %}
 
 ```javascript title="app/page.tsx"
 
@@ -108,6 +110,8 @@ export default function Home() {
   );
 }
 ```
+
+{% endraw %}
 
 Now when the app is running, once the user logs in you should see an 'Add Teams' button and once clicked it should appear as below. This can be used to add a new Team as a sub Organization in to {{product_name}}.
 

@@ -19,6 +19,8 @@ Asgardeo SDK provides InviteUser, UserList components to handle managing users a
 
 Replace the existing content of the app/page.tsx file with following content to add the Invite Users button.
 
+{% raw %}
+
 ```javascript title="app/page.tsx"  
 'use client'
 
@@ -126,6 +128,8 @@ export default function InviteUsers() {
 }
 ```
 
+{% endraw %}
+
 Save the changes and re-run the application in development mode if it is not running already.
 
 ```bash
@@ -139,6 +143,8 @@ Clicking on the Invite Users button will display the user invite page from the A
 ## View Members
 
 Replace the existing content of the app/page.tsx file with following content to add the Invite Users button.
+
+{% raw %}
 
 ```javascript title="app/page.tsx"  
 'use client'
@@ -216,6 +222,8 @@ export default function Home() {
   );
 }
 ```
+
+{% endraw %}
 
 This code snippet adds a View Users button in the application.
 

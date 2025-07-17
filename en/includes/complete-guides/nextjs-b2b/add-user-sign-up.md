@@ -9,7 +9,6 @@ Replace the existing content of the `app/page.tsx` file with following content t
 'use client'
 
 import {SignedOut, SignUpButton} from '@asgardeo/nextjs';
-import Link from 'next/link';
 
 export default function Home() {
   return (
