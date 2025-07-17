@@ -20,7 +20,7 @@
 
 {% block styles %}
 {{ super() }}
-<link rel="stylesheet" href="{{ 'assets/css/integrations.css' | url }}">
+<link rel="stylesheet" href="{{ 'assets/css/sdks.css' | url }}">
 {% endblock %}
 
 {% block container %}
@@ -29,20 +29,13 @@
     <div class="integrations-list-container">
       <h2>SDKs</h2>
 
-      <p>{{ config.extra.product_name }} provides official SDKs for popular languages and frameworks to simplify authentication in your applications. 
-        They handle protocol-level details, so you can integrate faster and with less effort. Each SDK receives regular updates, thorough testing, and 
-        full support as part of the {{ config.extra.product_name }} platform.</p>
-
-      <p>For others without official SDKs, you can use community-maintained OAuth or OIDC libraries. 
-        We’re actively working on expanding official SDK support for more languages and frameworks.</p>
-
       {% for section in config.extra.integrations %}
       {% if 'official' in section %}
       {% for block in section.official %}
 
       {% if block.heading is defined %}
       {% set heading = block.heading.replace('{{ product_name }}', config.extra.product_name) %}
-      <h2 class="sdk-type-heading">{{ heading }}</h2>
+      <h3 class="sdk-type-heading">{{ heading }}</h3>
       {% endif %}
 
       {% if block.description is defined %}
@@ -53,18 +46,40 @@
       {% if block.integrations is defined %}
       <div class="flex-grid">
         {% for integration in block.integrations %}
-        <div class="md-card integration-card">
-          <img class="integration-card-icon" src="{{ integration.icon | url }}#only-light" />
-          {% if integration.dark_icon %}
-          <img class="integration-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
-          {% else %}
-          <img class="integration-card-icon" src="{{ integration.icon | url }}#only-dark" />
-          {% endif %}
-          <p class="integration-card-header">{{ integration.name }}</p>
-          {% set description = integration.description %}
-          {% set description = description.replace('{{ product_name }}',
-          config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
-          <p class="integration-card-description">{{ description }}</p>
+        <div class="md-card sdk-card">
+          <div class="sdk-card-header">
+            <div class="sdk-card-info">
+              <div class="sdk-card-icon-container">
+                <img class="sdk-card-icon" src="{{ integration.icon | url }}#only-light" />
+                {% if integration.dark_icon %}
+                <img class="sdk-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
+                {% else %}
+                <img class="sdk-card-icon" src="{{ integration.icon | url }}#only-dark" />
+                {% endif %}
+              </div>
+              <div class="sdk-card-package-info">
+                <h4 class="sdk-card-heading">{{ integration.name }}</h4>
+                {% set description = integration.description %}
+                {% set description = description.replace('{{ product_name }}',
+                config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
+                <div class="sdk-card-artifact-id">
+                  <code>{{ integration.artifact_id }}</code>
+                </div>
+              </div>
+            </div>
+            {% set version = integration.version %}
+            {% if version or integration.registry_url %}
+            <div class="sdk-card-version">
+              <div class="sdk-card-version-number md-chip">
+                {% if version %}
+                  {{ version }}
+                {% elif integration.registry_url %}
+                  <span id="sdk-version-{{ integration.artifact_id | replace('@', '') | replace('/', '-') }}" data-registry-url="{{ integration.registry_url }}">Loading...</span>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+          </div>
           <div class="integration-card-source-links">
             {% if integration.documentation_link %}
             <a class="tooltip source-link md-icon md-icon--hover" href="{{ integration.documentation_link | url }}">
@@ -100,7 +115,7 @@
       {% if 'community' in section %}
       {% for block in section.community %}
       {% if block.heading %}
-      <h2 class="sdk-type-heading">{{ block.heading }}</h2>
+      <h2>{{ block.heading }}</h2>
       {% endif %}
 
       {% if block.description %}
@@ -153,6 +168,38 @@
       {% endfor %}
 
     </div>
+
+    <script>
+      const sdkVersionMap = {};
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const sdkElements = document.querySelectorAll('[id^="sdk-version-"]');
+
+        sdkElements.forEach(function(el) {
+          // Extract artifact_id from element id
+          const id = el.id.replace('sdk-version-', '');
+          // Find registry_url from a global variable or data attribute
+          // For this example, assume registry_url is set as a data attribute
+          const registryUrl = el.getAttribute('data-registry-url');
+
+          if (registryUrl) {
+            fetch(registryUrl)
+              .then(response => response.json())
+              .then(data => {
+                if (data.version) {
+                  el.textContent = `v${data.version}`;
+                  sdkVersionMap[id] = data.version;
+                } else {
+                  el.textContent = 'N/A';
+                }
+              })
+              .catch(() => {
+                el.textContent = 'Error';
+              });
+          }
+        });
+      });
+    </script>
 
     {{ page.content }}
     </article>

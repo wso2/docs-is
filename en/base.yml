@@ -103,6 +103,7 @@ extra:
   generator: false
   isolated_templates:
     - templates/complete-guide.html
+    - templates/sdk.html
 
   expanded_navs:
     - title: Guides
@@ -120,6 +121,8 @@ extra:
         - verticle-line
 
   hide_navs:
+    SDK Documentation:
+      level: 1
     Technology Guides:
       level: 1
     Try for a sample app:
@@ -188,6 +191,12 @@ extra:
     SDKs:
       icon: octicons/package-16
       level: 1
+    React SDK:
+      icon: fontawesome/brands/react
+      level: 2
+    Next.js SDK:
+      icon: assets/libs/custom-icons/nextjs.svg
+      level: 2
     APIs:
       icon: octicons/code-16
       level: 1
@@ -241,19 +250,29 @@ extra:
       icon: assets/libs/custom-icons/mcp.svg
 
   integrations:
-    - in_house:
-        - heading: "{{ product_name }} SDKs"
+    - official:
         - description: Official SDKs developed and maintained by the {{ product_name }} team for seamless integration.
         - integrations:
-            - name: Auth React SDK
+            - name: React SDK
+              artifact_id: '@asgardeo/react'
               icon: assets/img/logo/react-logo.svg
-              description: An SDK to integrate {{ product_name }} into React applications
-              documentation_link: get-started/try-your-own-app/react/
-              download_link: https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/download/v5.2.3/asgardeo-react-app.zip
-              source_link: https://github.com/asgardeo/asgardeo-auth-react-sdk
+              description: React implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/react/latest
+              version: ''
+              documentation_link: sdks/react/overview
+              source_link: https://github.com/asgardeo/asgardeo/tree/main/packages/react
+            - name: Next.js SDK
+              artifact_id: '@asgardeo/nextjs'
+              icon: assets/img/logo/nextjs-logo-dark.svg
+              description: Next.js implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/nextjs/latest
+              version: ''
+              documentation_link: sdks/react/overview
+              source_link: https://github.com/asgardeo/asgardeo/tree/main/packages/nextjs
             - name: Auth SPA SDK
               icon: assets/img/logo/javascript-logo.svg
               description: An SDK to integrate {{ product_name }} into single page applications
+              registry_url: https://registry.npmjs.org/@asgardeo/auth-spa/latest
               documentation_link: get-started/try-your-own-app/javascript/
               download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
               source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
@@ -261,6 +280,7 @@ extra:
               icon: assets/img/logo/expressjs-logo.svg
               dark_icon: assets/img/logo/expressjs-logo-dark.svg
               description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
+              registry_url: https://registry.npmjs.org/@asgardeo/auth-node/latest
               source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
             - name: Tomcat OIDC Agent
               icon: assets/img/logo/java-logo.svg
