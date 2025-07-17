@@ -125,18 +125,31 @@
       {% if block.integrations %}
       <div class="flex-grid">
         {% for integration in block.integrations %}
-        <div class="md-card integration-card">
-          <img class="integration-card-icon" src="{{ integration.icon | url }}#only-light" />
-          {% if integration.dark_icon %}
-          <img class="integration-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
-          {% else %}
-          <img class="integration-card-icon" src="{{ integration.icon | url }}#only-dark" />
-          {% endif %}
-          <p class="integration-card-header">{{ integration.name }}</p>
-          {% set description = integration.description | default('') %}
-          {% set description = description.replace('{{ product_name }}',
-          config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
-          <p class="integration-card-description">{{ description }}</p>
+        <div class="md-card sdk-card">
+          <div class="sdk-card-header">
+            <div class="sdk-card-info">
+              <div class="sdk-card-icon-container">
+                <img class="sdk-card-icon" src="{{ integration.icon | url }}#only-light" />
+                {% if integration.dark_icon %}
+                <img class="sdk-card-icon" src="{{ integration.dark_icon | url }}#only-dark" />
+                {% else %}
+                <img class="sdk-card-icon" src="{{ integration.icon | url }}#only-dark" />
+                {% endif %}
+              </div>
+              <div class="sdk-card-package-info">
+                <h4 class="sdk-card-heading">{{ integration.name }}</h4>
+                {% set description = integration.description | default('') %}
+                {% set description = description.replace('{{ product_name }}',
+                config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
+                <div class="sdk-card-artifact-id">
+                  <code>{{ integration.artifact_id }}</code>
+                </div>
+              </div>
+            </div>
+            <div class="sdk-card-description">
+              {{ description }}
+            </div>
+          </div>
           <div class="integration-card-source-links">
             {% if integration.documentation_link %}
             <a class="tooltip source-link md-icon md-icon--hover" href="{{ integration.documentation_link | url }}">
