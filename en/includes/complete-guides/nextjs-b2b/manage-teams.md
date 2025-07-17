@@ -21,12 +21,19 @@ First, create an app route for the organization creation page. Create a new file
 
 import Link from 'next/link';
 import {CreateOrganization} from '@asgardeo/nextjs';
+import { useRouter } from 'next/navigation';
 
 export default function CreateOrganizations() {
+    const router = useRouter();
+    
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-background to-purple-50 p-4">
       <div className="w-full max-w-md">
-        <CreateOrganization />
+        <CreateOrganization
+          onSuccess={() => {
+            router.push('/');
+          }}
+        />
         <div className="mt-8 text-center">
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
             ← Back to home
@@ -36,6 +43,7 @@ export default function CreateOrganizations() {
     </div>
   );
 }
+
 ```
 
 ### Implementation
