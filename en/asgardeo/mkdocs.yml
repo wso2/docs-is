@@ -669,6 +669,7 @@ nav:
         - Introduction: complete-guides/nextjs-b2b/introduction.md
         - Prerequisites: complete-guides/nextjs-b2b/prerequisite.md
         - Register an application: complete-guides/nextjs-b2b/register-an-application.md
+        - Give access to APIs and create roles: complete-guides/nextjs-b2b/give-access-to-apis-and-create-roles.md
         - Create a Next.js app: complete-guides/nextjs-b2b/create-app.md
         - Configure app for login: complete-guides/nextjs-b2b/configure-app-for-login.md
         - Add user sign up: complete-guides/nextjs-b2b/add-user-sign-up.md
@@ -680,7 +681,6 @@ nav:
         - Introduction: complete-guides/nextjs/introduction.md
         - Prerequisite: complete-guides/nextjs/prerequisite.md
         - Register an application: complete-guides/nextjs/register-an-application.md
-        - Give access to APIs and create roles: complete-guides/nextjs-b2b/give-access-to-apis-and-create-roles.md
         - Create a Next.js app: complete-guides/nextjs/create-app.md
         - Configure Asgardeo SDK: complete-guides/nextjs/install-asgardeo-sdk.md
         - Add login and logout: complete-guides/nextjs/add-login-and-logout.md

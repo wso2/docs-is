@@ -29,6 +29,7 @@ Create a `.env` or an appropriate environment configuration file in the root of 
 NEXT_PUBLIC_ASGARDEO_BASE_URL="{{content.sdkconfig.baseUrl}}"
 NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
 ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
+NEXT_PUBLIC_ASGARDEO_SCOPES="<scopes copied from your application API Authorization>"
 ```
 
 !!! danger "Warning"
