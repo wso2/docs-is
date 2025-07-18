@@ -260,7 +260,7 @@ extra:
               registry_url: https://registry.npmjs.org/@asgardeo/react/latest
               version: ''
               documentation_link: sdks/react/overview
-              source_link: https://github.com/asgardeo/asgardeo/tree/main/packages/react
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/react
             - name: Next.js SDK
               artifact_id: '@asgardeo/nextjs'
               icon: assets/img/logo/nextjs-logo-dark.svg
