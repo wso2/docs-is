@@ -488,7 +488,7 @@ Content-Type: application/json
 ```
 
 !!! tip
-    Utilize the [pre-update password extension samples](https://github.com/asgardeo-samples/asgardeo-service-extension-samples/tree/main/pre-update-password-extension-samples) to understand how to validate passwords against a compromised password list and how to handle the response appropriately.
+    Use the [pre-update password extension samples](https://github.com/asgardeo-samples/asgardeo-service-extension-samples/tree/main/pre-update-password-extension-samples) to understand how to check passwords against a compromised password list and how to handle the response appropriately.
 
 !!! note
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response doesn't directly include in the error response sent back to the application.
