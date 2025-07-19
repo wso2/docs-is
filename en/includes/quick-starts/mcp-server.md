@@ -1,12 +1,10 @@
-# Asgardeo MCP Server Quickstart <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# Asgardeo MCP Server <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
 
-Welcome to the Asgardeo MCP Server Quickstart! In this document, you will learn how to build, install, and configure the Asgardeo MCP Server with **VS Code, Claude Desktop, Cursor, Windsurf**, and other MCP-compatible clients.
+Asgardeo MCP server enables you to manage the identity configurations in your {{ product_name }} organization using natural language. In this document, you will learn how to build, install, and configure the Asgardeo MCP Server with **VS Code, Claude Desktop, Cursor, Windsurf**, and other MCP-compatible clients.
 
 !!! Note
 
     The Asgardeo MCP Server is currently in **Preview**. Some features may be subject to changes in future releases.
-
-[//] STEPS_START
 
 ## Configure Asgardeo access for MCP server
 
@@ -17,20 +15,15 @@ necessary APIs.
 
 Follow these steps to set up the M2M application:
 
-Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name.
+1. Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name.
 
-!!! Example
-    **name:** Asgardeo-MCP-Server
-
-Note down the following values from the **Protocol** tab of the registered application. You will need them in **step-3**.
+2. Note down the following values from the **Protocol** tab of the registered application. You will need them in the next steps.
 
 - **`client-id`** from the **Protocol** tab.
 - **`client-secret`** from the **Protocol** tab.
 - **The name of your {{ product_name }} organization**
 
----
-Next, you need to authorize the API resources and corresponding scopes required for the actions performed by the MCP tools.
-The following table includes the required API resources and scopes for all currently supported tools.
+3. Authorize the API resources and corresponding scopes required for the actions performed by the MCP tools. The following table includes the required API resources and scopes for all currently supported tools.
 
 | **Asgardeo Management API** | **Required scopes** |
 |--------|---------|
@@ -48,10 +41,10 @@ the necessary API Resources from the Management APIs and authorize necessary sco
 
 !!! Note
 
-    You can selectively authorize API Resources and scopes based on the specific MCP tools you plan to use.
+    You can selectively authorize API resources and scopes based on the specific MCP tools you plan to use.
     For detailed guidance on which API Resources and Scopes are needed by each tool, see the [API resources and scopes required for MCP tools]({{base_path}}/references/mcp-tool-api-resource-access/) section.
 
-Once completed, your API Authorization configuration should resemble the example shown in the screenshot.
+Once completed, your API Authorization configuration should look like follows.
 
 ![Asgardeo M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
 
@@ -62,37 +55,42 @@ Download the source code from the [Asgardeo MCP Server GitHub repository](https:
 === "Clone the repository locally using Git"
     Make sure **Git** is installed on your machine, then run the following commands.
 
-    Clone the full repo: 
+    Clone the repository.
+    
     ```bash
     git clone https://github.com/asgardeo/asgardeo-mcp-server
     ```
-    Change directory into `asgardeo-mcp-server`:
+
+    Change directory into `asgardeo-mcp-server`.
+    
     ```bash
     cd asgardeo-mcp-server
     ```
-    Checkout the specific release tag:
+
+    Checkout the specific release tag.  
+
+    Eg:
+    
     ```bash
     git checkout tags/v0.1.0
     ```
 
 === "Download as a ZIP archive"
-    [**Download the source ZIP**](https://github.com/asgardeo/asgardeo-mcp-server/releases/tag/v0.1.0){:target="_blank"} from the release page of the repository, then extract the contents to your preferred directory.
+    [**Download the source ZIP**](https://github.com/asgardeo/asgardeo-mcp-server/releases/latest){:target="_blank"} from the release page of the repository, then extract the contents to your preferred directory.
 
-Then, install the required dependencies by running the following command.
+Install the dependencies.
 
 ```bash
-
 go mod tidy
 ```
 
-Now, you can build the Asgardeo MCP server by running the following command. Make sure you have installed Go as mentioned in prerequisites section.
+Build the Asgardeo MCP server by running the following command. Make sure you have installed Go as mentioned in [prerequisites](#prerequisites) section.
 
 ```bash
-
 go build -o asgardeo-mcp
 ```
 
-After running the above command, make sure to copy the absolute path to the generated binary. This path will be referenced as `<ABSOLUTE-PATH>`in the next step.
+Copy the absolute path to the generated binary executable. This path will be referenced as `<ASGARDEO-MCP-SERVER-ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>`in the next step.
 
 ## Configure your code editor
 
@@ -101,13 +99,13 @@ After running the above command, make sure to copy the absolute path to the gene
     2. Press `Ctrl` + `Shift` + `P` (or `Cmd` + `Shift` + `P` on Mac).
     3. Type **"Preferences: Open Settings (JSON)"** and select it.
 
-    Append the following configuration to `settings.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
+    Append the following configuration to `settings.json` file. Replace the `<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json title="settings.json" 
     "mcp": {
         "servers": {
             "asgardeo-mcp": {
-                "command": "<ABSOLUTE-PATH>/asgardeo-mcp",
+                "command": "<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>/asgardeo-mcp",
                 "args": [],
                 "env": {
                     "ASGARDEO_BASE_URL": "https://api.asgardeo.io/t/<organization>",
@@ -125,13 +123,13 @@ After running the above command, make sure to copy the absolute path to the gene
     3. Switch to **MCP** tab.
     4. Click on **Add new global MCP server** button. This will open `mcp.json` file in the editor itself.
 
-    Append the following configuration to `settings.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
+    Append the following configuration to `settings.json` file. Replace the `<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json title="mcp.json" 
     {
         "mcpServers": {
             "asgardeo-mcp": {
-                "command": "<ABSOLUTE-PATH>/asgardeo-mcp",
+                "command": "<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>/asgardeo-mcp",
                 "args": [],
                 "env": {
                     "ASGARDEO_BASE_URL": "https://api.asgardeo.io/t/<organization>",
@@ -149,13 +147,13 @@ After running the above command, make sure to copy the absolute path to the gene
     3. Switch to **MCP** tab.
     4. Click on **Add erver** button next to **Model Context Protocol (MCP) Servers**. Then click the **Add custom Server** button will open `mcp_config.json` file in the editor itself.
 
-    Append the following configuration to `mcp_config.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
+    Append the following configuration to `mcp_config.json` file. Replace the `<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json title="`mcp_config.json.json" 
     "{
         "servers": {
             "asgardeo-mcp": {
-                "command": "<ABSOLUTE-PATH>/asgardeo-mcp",
+                "command": "<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>/asgardeo-mcp",
                 "args": [],
                 "env": {
                     "ASGARDEO_BASE_URL": "https://api.asgardeo.io/t/<organization>",
@@ -172,13 +170,13 @@ After running the above command, make sure to copy the absolute path to the gene
     2. Click on **Claude Desktop > Settings > Developer**.
     4. Click on **Edit Config** button. This will open `claude_desktop_config.json` file location and you can open this file using an text editor.
 
-    Append the following configuration to `claude_desktop_config.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
+    Append the following configuration to `claude_desktop_config.json` file. Replace the `<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json title="claude_desktop_config.json" 
     {
         "mcpServers": {
             "asgardeo-mcp": {
-                "command": "<ABSOLUTE-PATH>/asgardeo-mcp",
+                "command": "<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>/asgardeo-mcp",
                 "args": [],
                 "env": {
                     "ASGARDEO_BASE_URL": "https://api.asgardeo.io/t/<organization>",
@@ -192,13 +190,13 @@ After running the above command, make sure to copy the absolute path to the gene
 === " Other "
     Use the following settings to configure your MCP-compatible client application.
 
-    Make sure to replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
+    Make sure to replace the `<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
     ```json  
     {
         "mcpServers": {
             "asgardeo-mcp": {
-                "command": "<ABSOLUTE-PATH>/asgardeo-mcp",
+                "command": "<ASGARDEO-MCP-SERVER-ABSOLUTE-PATH>/asgardeo-mcp",
                 "args": [],
                 "env": {
                     "ASGARDEO_BASE_URL": "https://api.asgardeo.io/t/<organization>",
@@ -216,7 +214,6 @@ Use the following simple prompt to verify whether you have configured Asgardeo M
 
 ```text
 List my Asgardeo applications, names only
-
 ```
 
 Depending on the code editor you're using, you should see a list of results. The output may vary based on the number of applications you've created in Asgardeo, but you should see at least one application name listed.
@@ -256,5 +253,3 @@ Explore these guides to put your setup into action and see how natural-language-
     During tool execution, you will be prompted to give **explicit consent** for the action. It’s recommended to 
     approve actions with "Approve Once" option rather than selecting "Approve Always" option so you retain full control and visibility
     over the operations performed in your Asgardeo organization.
-
-[//] STEPS_END
