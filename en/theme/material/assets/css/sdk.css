@@ -24,9 +24,9 @@
     .md-nav[data-md-level="1"] > .md-nav__list > .md-nav__item > label.md-nav__link {
         display: none;
     }
-    
-    .md-nav[data-md-level="1"] > .md-nav__list > .md-nav__item:not(:first-child) {
-        display: none;
+
+    .md-nav[data-md-level="1"] > .md-nav__list >  .md-nav__item:not(.md-nav__item--active) {
+        display: none !important;
     }
 
     .md-nav[data-md-level="2"] > .md-nav__list > .md-nav__item, .md-nav[data-md-level="3"] > .md-nav__list > .md-nav__item  {

@@ -1,39 +1,65 @@
 
-React is a widely used JavaScript library designed for creating dynamic single-page apps (SPAs). It enables developers to build responsive interfaces by breaking down complex UIs into reusable components. Unlike traditional UI technologies, React updates specific parts of the page without re-rendering the entire page, thanks to its virtual DOM. This capability makes React popular for developing SPAs.
+![Next.js SDK]({{base_path}}/assets/img/sdks/nextjs/banner.png){: width="auto" style="display: block; margin-bottom: 20px;"}
 
-Implementing login functionality in your React app is essential for managing user access, personalizing user experiences, and securing the app. It enhances user experience, protects user data, boosts engagement, and helps ensure regulatory compliance.
+The Asgardeo Next.js SDK (`@asgardeo/nextjs`) is a component-first library, offering a highly customizable set of components for authentication, user self-care, and organization management in Next.js applications.
 
+## Contexts
 
-## Learning objectives 
+The SDK provides a context-based architecture, allowing you to easily manage authentication state and user data across your application. The main context is provided by the `AsgardeoProvider`, which wraps your application and provides access to authentication methods and user information.
 
-This guide will walk you through everything you need to know about securing React apps, including implementing user login in your React app, integrating it with an Identity Provider (IdP) to make the login process simple and secure, and general guidelines to protect your end users. It also covers how to make secure API calls to an OAuth2-protected API within your React app.
+- **`AsgardeoProvider`** – The main provider component that wraps your application, providing authentication context and configuration.
 
-In this guide, you will:
+## Components
 
-* Register an application in {{product_name}}
-* Create a React app
-* Install Asgardeo React SDK
-* Add login and logout  to your app
-* Display logged in user detail
-* Securing routes within the app
-* Accessing protected API from your React app
-* Managing tokens in your React app
+The Asgardeo Next.js SDK provides a comprehensive set of components to handle authentication, user management, and organization features in your Next.js applications. The components are organized into different categories based on their functionality.
 
+### Action Components
 
-!!! tip "Tip"
-    
-    This guide takes approximately 60 minutes to complete and covers everything required to add user login and secure your React apps. If you’re looking for a shorter guide, try the [React Quick Start guide](https://is.docs.wso2.com/en/latest/quick-starts/react/){:target="_blank"}, which takes around 15 minutes to complete.
+Action components trigger specific authentication-related actions when users interact with them.
 
+- **`SignInButton`** – A customizable button that initiates the sign-in flow.
+- **`SignUpButton`** – A button for user registration flows.
+- **`SignOutButton`** – A button that handles user sign-out.
 
-!!! tip "Tip"
-    
-    If you are already familiar with the concepts discussed in the guide, you can use the Asgardeo React template to bootstrap your application by running the following command.  
+These components support both render props and traditional props patterns, giving you flexibility in how you implement them.
 
-    ```bash
+### Control Components
 
-    npx tmplr --dir my-vite-react-app asgardeo/asgardeo-vite-react-template
+Control components manage the conditional rendering of content based on authentication state.
 
-    ```
-    The Asgardeo React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
+- **`SignedIn`** – Renders children only when the user is authenticated.
+- **`SignedOut`** – Renders children only when the user is not authenticated.
+- **`Loading`** – Shows loading state during authentication operations.
 
-    All you need is a `client_id`, which you can obtain by registering a **Single Page Application** in {{product_name}}.
+### User Self-care Components
+
+- **`User`** – Provides render props access to user data.
+- **`UserProfile`** – Displays comprehensive user profile information.
+- **`UserDropdown`** – A dropdown menu with user info and actions.
+
+### Organization Components (B2B)
+
+- **`Organization`** – Displays organization information.
+- **`OrganizationProfile`** – Shows detailed organization profile.
+- **`OrganizationSwitcher`** – Allows switching between organizations.
+- **`OrganizationList`** – Lists available organizations.
+- **`CreateOrganization`** – Form for creating new organizations.
+
+### Authentication Components
+
+- **`SignIn`** – Complete sign-in form with multiple authentication options.
+- **`SignUp`** – User registration form.
+
+## Hooks
+
+- **`useAsgardeo`** – Access authentication state and imperative methods for sign-in, sign-out, and token management.
+
+## Customization
+
+- Supports CSS classes, custom properties, and render props for full control over UI and theming.
+- Integrates with popular UI libraries (Material-UI, Ant Design, Chakra UI, Tailwind CSS).
+
+## Next Steps
+
+- [Quick Start Guide]({{base_path}}/quick-starts/nextjs) – Get started with the Asgardeo Next.js SDK.
+- [AsgardeoProvider]({{base_path}}/sdks/nextjs/asgardeo-provider/) – Learn how to configure the root provider component.

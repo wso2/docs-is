@@ -267,7 +267,7 @@ extra:
               description: Next.js implementation of Asgardeo JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/nextjs/latest
               version: ''
-              documentation_link: sdks/react/overview
+              documentation_link: sdks/nextjs/overview
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/nextjs
             - name: Auth SPA SDK
               artifact_id: '@asgardeo/auth-spa'
