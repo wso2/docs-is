@@ -823,7 +823,60 @@ nav:
         - Work with product observability: deploy/monitor/work-with-product-observability.md
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
   - SDKs:
-    - Integrate WSO2 IS into your application: integrations/index.md
+    - Integrate Asgardeo into your application: sdks/index.md
+  - SDK Documentation:
+    - React SDK:
+      - Overview: sdks/react/overview.md
+      - Contexts:
+        - "&lt;AsgardeoProvider /&gt;": sdks/react/contexts/asgardeo-provider.md
+      - Components:
+        - Action Components:
+          - "&lt;SignInButton /&gt;": sdks/react/components/action-components/sign-in-button.md
+          - "&lt;SignOutButton /&gt;": sdks/react/components/action-components/sign-out-button.md
+          - "&lt;SignUpButton /&gt;": sdks/react/components/action-components/sign-up-button.md
+        - Control Components:
+          - "&lt;SignedIn /&gt;": sdks/react/components/control-components/signed-in.md
+          - "&lt;SignedOut /&gt;": sdks/react/components/control-components/signed-out.md
+          - "&lt;Loading /&gt;": sdks/react/components/control-components/loading.md
+        - User Self-care Components:
+          - "&lt;UserDropdown /&gt;": sdks/react/components/user-selfcare-components/user-dropdown.md
+          - "&lt;UserProfile /&gt;": sdks/react/components/user-selfcare-components/user-profile.md
+          - "&lt;User /&gt;": sdks/react/components/user-selfcare-components/user.md
+        - Organization Components (B2B):
+          - "&lt;CreateOrganization /&gt;": sdks/react/components/organization-components/create-organization.md
+          - "&lt;OrganizationProfile /&gt;": sdks/react/components/organization-components/organization-profile.md
+          - "&lt;OrganizationSwitcher /&gt;": sdks/react/components/organization-components/organization-switcher.md
+          - "&lt;OrganizationList /&gt;": sdks/react/components/organization-components/organization-list.md
+          - "&lt;Organization /&gt;": sdks/react/components/organization-components/organization.md
+      - hooks:
+        - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
+    - Next.js SDK:
+      - Overview: sdks/nextjs/overview.md
+      - Contexts:
+        - "&lt;AsgardeoProvider /&gt;": sdks/nextjs/contexts/asgardeo-provider.md
+      - Middleware:
+        - "&lt;asgardeoMiddleware() /&gt;": sdks/nextjs/middleware/asgardeo-middleware.md
+      - Components:
+        - Action Components:
+          - "&lt;SignInButton /&gt;": sdks/nextjs/components/action-components/sign-in-button.md
+          - "&lt;SignOutButton /&gt;": sdks/nextjs/components/action-components/sign-out-button.md
+          - "&lt;SignUpButton /&gt;": sdks/nextjs/components/action-components/sign-up-button.md
+        - Control Components:
+          - "&lt;SignedIn /&gt;": sdks/nextjs/components/control-components/signed-in.md
+          - "&lt;SignedOut /&gt;": sdks/nextjs/components/control-components/signed-out.md
+          - "&lt;Loading /&gt;": sdks/nextjs/components/control-components/loading.md
+        - User Self-care Components:
+          - "&lt;UserDropdown /&gt;": sdks/nextjs/components/user-selfcare-components/user-dropdown.md
+          - "&lt;UserProfile /&gt;": sdks/nextjs/components/user-selfcare-components/user-profile.md
+          - "&lt;User /&gt;": sdks/nextjs/components/user-selfcare-components/user.md
+        - Organization Components (B2B):
+          - "&lt;CreateOrganization /&gt;": sdks/nextjs/components/organization-components/create-organization.md
+          - "&lt;OrganizationProfile /&gt;": sdks/nextjs/components/organization-components/organization-profile.md
+          - "&lt;OrganizationSwitcher /&gt;": sdks/nextjs/components/organization-components/organization-switcher.md
+          - "&lt;OrganizationList /&gt;": sdks/nextjs/components/organization-components/organization-list.md
+          - "&lt;Organization /&gt;": sdks/nextjs/components/organization-components/organization.md
+      - hooks:
+        - useAsgardeo(): sdks/nextjs/hooks/use-asgardeo.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
