@@ -9,6 +9,16 @@ The Remote Log Publishing feature in {{ product_name }} allows organizations to 
     - Ensure that the WSO2 Identity Server is up and running.
     - Have access to an external log storage solution that is reachable over the network.
 
+!!! note "Important"
+
+    Add the following property to the `<IS_HOME>/repository/conf/deployment.toml` file to hide credentials after you configure remote log publishing.
+
+    ```toml
+    [remote_logging]
+    encrypt_secrets=true
+    hide_secrets=true
+    ```
+
 Follow the steps below to configure remote log publishing to an external system:
 
 1. On the {{ product_name }} Console, go to **Server**.
