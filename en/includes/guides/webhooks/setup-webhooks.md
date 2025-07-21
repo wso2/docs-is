@@ -1,6 +1,10 @@
-# Setup webhooks
+# Setup webhooks <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
 
 This guide provides a step-by-step approach to setting up webhooks in {{product_name}} to integrate external systems.
+
+!!! Note
+      This feature is currently in **Preview**. Functionality and event payloads may change during development.  
+      Expect updates without prior notice.
 
 ## Prerequisites
 

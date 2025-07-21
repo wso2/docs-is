@@ -1,6 +1,10 @@
-# Webhook events and payloads
+# Webhook events and payloads <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
 
 This guide details the webhook event types dispatched by {{product_name}}. For each event, you'll find JSON payload examples and descriptions of their properties.
+
+!!! Note
+      This feature is currently in **Preview**. Functionality and event payloads may change during development.  
+      Expect updates without prior notice.
 
 ## Login events
 

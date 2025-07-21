@@ -1,4 +1,4 @@
-# Understanding webhooks
+# Understanding webhooks <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
 
 Webhooks enable your applications to receive instant notifications from {{product_name}}, allowing you to respond immediately to important identity-related events. Common use cases for {{product_name}} webhooks include:
 
@@ -8,6 +8,10 @@ Webhooks enable your applications to receive instant notifications from {{produc
 - Integrate with SIEM systems to instantly detect and respond to suspicious login attempts or failed authentications.
 
 Using webhooks, you can seamlessly integrate external systems with {{product_name}}'s identity flows. When an event happens, {{product_name}} immediately sends HTTP callbacks to your configured webhook endpoints. {{product_name}} webhooks use the [WebSubHub](https://websubhub.com/) protocol for secure and reliable event delivery.
+
+!!! Note
+      This feature is currently in **Preview**. Functionality and event payloads may change during development.  
+      Expect updates without prior notice.
 
 ## How webhooks work
 
