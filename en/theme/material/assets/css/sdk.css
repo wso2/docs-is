@@ -28,10 +28,18 @@
     .md-nav[data-md-level="1"] > .md-nav__list >  .md-nav__item:not(.md-nav__item--active) {
         display: none !important;
     }
-
+    
     .md-nav[data-md-level="2"] > .md-nav__list > .md-nav__item, .md-nav[data-md-level="3"] > .md-nav__list > .md-nav__item  {
         display: flex;
         flex-direction: column;
+    }
+
+    .md-nav.md-nav--primary.md-nav--lifted > .md-nav__list .md-nav--expanded-section-divider {
+        display: block !important;
+    }
+
+    .md-nav.md-nav--primary.md-nav--lifted > .md-nav__list > .md-nav--expanded-section-divider {
+        display: none !important;
     }
     
     .md-nav[data-md-level="2"] > .md-nav__list > .md-nav__item .md-nav__link {

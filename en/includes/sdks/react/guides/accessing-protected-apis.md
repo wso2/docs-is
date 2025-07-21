@@ -1,12 +1,3 @@
-
-In this section, we will focus on how to call a secure API from your React app using the access token.
-
-For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer— in this case, {{product_name}}. This is typical when React apps are interacting with internal APIs within the same organization.
-
-!!! tip "Tip"
-
-    If your app needs to call APIs secured by a different IdP, you’ll need to exchange your current access token for a new one issued by the IdP securing those APIs. This can be done using the OAuth2 token exchange grant type or other supported grant types. We will cover these scenarios in a separate guide.
-
 ## Using SDK Built-in HTTP client
 
 When your application is wrapped with `AsgardeoProvider`, you can use the `useAsgardeo` hook to access the authenticated `http` module. This module has the following features:
@@ -72,7 +63,7 @@ export default function UserProfile() {
 
 !!! tip "Tip"
 
-    You need to construct the `<base-url>` value as per the followng instructions: 
+    You need to u the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -102,7 +93,7 @@ const response = await http.request({
 
 !!! tip "Tip"
 
-    You need to construct the `<base-url>` value as per the followng instructions: 
+    You need to u the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -173,7 +164,7 @@ export default function UserProfile() {
 
 !!! tip "Tip"
 
-    You need to construct the `<base-url>` value as per the followng instructions: 
+    You need to u the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -186,6 +177,10 @@ export default function UserProfile() {
 ## Using a custom HTTP client
 
 In case you are not using the webWorker as the storage type, the `getAccessToken` function can be used to fetch the access token and manually attach it to the network request. The following is an example where the access token is fetched and manually attached to the authorization header of a Fetch request.
+
+!!! note "Note"
+
+    This approach is not available when the storage type is set to `webWorker`, as the access token is automatically managed by the SDK and not exposed to the main thread.
 
 ```javascript
 import React, { useEffect, useState } from 'react';

@@ -167,6 +167,9 @@ extra:
       level: 4
 
   nav_icons:
+    Overview:
+      icon: octicons/file-16
+      level: 3
     Home:
       icon: octicons/home-16
       level: 1
@@ -181,7 +184,7 @@ extra:
       level: 1
     Guides:
       icon: octicons/book-16
-      level: 1
+      level: [1, 2, 3, 4]
     Tutorials:
       icon: octicons/mortar-board-16
       level: 1
@@ -199,7 +202,7 @@ extra:
       level: 2
     APIs:
       icon: octicons/code-16
-      level: 1
+      level: [1, 2, 3]
     References:
       icon: octicons/link-external-16
       level: 1
