@@ -254,6 +254,7 @@ extra:
 
   integrations:
     - official:
+        - heading: Official SDKs
         - description: Official SDKs developed and maintained by the {{ product_name }} team for seamless integration.
         - integrations:
             - name: React SDK
