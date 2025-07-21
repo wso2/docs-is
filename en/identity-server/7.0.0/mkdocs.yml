@@ -853,6 +853,7 @@ nav:
           - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
       - Guides:
         - Accessing Protected APIs: sdks/react/guides/accessing-protected-apis.md
+        - Protecting Routes: sdks/react/guides/protecting-routes.md
     - Next.js SDK:
       - Overview: sdks/nextjs/overview.md
       - APIs:
@@ -883,6 +884,7 @@ nav:
           - useAsgardeo(): sdks/nextjs/hooks/use-asgardeo.md
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
+        - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
