@@ -31,10 +31,12 @@ import { User } from '@asgardeo/nextjs'
 
 ## Props
 
+<!-- markdownlint-disable MD056 -->
 | Prop       | Type                              | Required | Description                                      |
 |------------|-----------------------------------|----------|--------------------------------------------------|
-| `children` | `(user: IUser \| null) => ReactNode` | ✅       | Render prop function that receives the user object|
+| `children` | `(user: IUser | null) => ReactNode` | ✅       | Render prop function that receives the user object|
 | `fallback` | `ReactNode`                       | ❌       | Content to render when no user is signed in       |
+<!-- markdownlint-enable MD056 -->
 
 ## Notes
 

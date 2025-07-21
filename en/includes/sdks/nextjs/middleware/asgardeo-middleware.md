@@ -62,12 +62,14 @@ export default asgardeoMiddleware(async (asgardeo, req) => {
 
 The handler receives an `asgardeo` context object with the following properties and methods:
 
+<!-- markdownlint-disable MD056 -->
 | Property         | Type                                         | Description                                                      |
 |------------------|----------------------------------------------|------------------------------------------------------------------|
-| `protectRoute`   | `(options?: {redirect?: string}) => Promise<NextResponse \| void>` | Redirects unauthenticated users to a sign-in page                |
+| `protectRoute`   | `(options?: {redirect?: string}) => Promise<NextResponse | void>` | Redirects unauthenticated users to a sign-in page                |
 | `isSignedIn`     | `() => boolean`                              | Returns `true` if the request has a valid session                |
-| `getSessionId`   | `() => string \| undefined`                  | Gets the session ID from the request                             |
-| `getSession`     | `() => Promise<SessionTokenPayload \| undefined>` | Gets the session payload from the request                        |
+| `getSessionId`   | `() => string | undefined`                  | Gets the session ID from the request                             |
+| `getSession`     | `() => Promise<SessionTokenPayload | undefined>` | Gets the session payload from the request                        |
+<!-- markdownlint-enable MD056 -->
 
 ## Error Handling
 

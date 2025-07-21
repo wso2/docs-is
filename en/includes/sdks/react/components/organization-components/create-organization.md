@@ -50,6 +50,7 @@ Show fallback content when the user is not signed in:
 
 ## Props
 
+<!-- markdownlint-disable MD056 -->
 | Prop              | Type                                      | Required | Description                                                      |
 |-------------------|-------------------------------------------|----------|------------------------------------------------------------------|
 | `fallback`        | `ReactElement`                            | ❌       | Content to show when the user is not signed in                   |
@@ -58,12 +59,13 @@ Show fallback content when the user is not signed in:
 | `onCancel`        | `() => void`                              | ❌       | Callback when the user cancels the form                          |
 | `defaultParentId` | `string`                                  | ❌       | Parent organization ID (defaults to current organization)        |
 | `cardLayout`      | `boolean`                                 | ❌       | Show form in a card layout                                       |
-| `mode`            | `'inline' \| 'popup'`                     | ❌       | Display mode for the form (inline or popup)                      |
+| `mode`            | `'inline' | 'popup'`                     | ❌       | Display mode for the form (inline or popup)                      |
 | `open`            | `boolean`                                 | ❌       | Whether the popup is open (for `mode="popup"`)                   |
 | `onOpenChange`    | `(open: boolean) => void`                 | ❌       | Callback when popup open state changes                           |
 | `initialValues`   | `Partial<{ name, handle, description }>`  | ❌       | Initial values for the form fields                               |
 | `renderAdditionalFields` | `() => ReactNode`                  | ❌       | Render additional custom fields in the form                      |
 | `title`           | `string`                                  | ❌       | Custom form title                                                |
+<!-- markdownlint-enable MD056 -->
 
 ## Customization
 

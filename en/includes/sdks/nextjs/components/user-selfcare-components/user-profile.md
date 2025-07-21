@@ -52,7 +52,7 @@ Show the profile as a popup dialog:
 | `user`           | `any`       | ❌       | User object to display (defaults to Asgardeo user)  |
 | `cardLayout`     | `boolean`   | ❌       | Show profile in a card layout                       |
 | `fallback`       | `ReactNode` | ❌       | Content to show when no user is signed in           |
-| `mode`           | `'inline' | 'popup'` | ❌ | Display mode for the profile (inline or popup)      |
+| `mode`           | `'inline' or 'popup'` | ❌ | Display mode for the profile (inline or popup)      |
 | `open`           | `boolean`   | ❌       | Whether the popup is open (for `mode="popup"`)      |
 | `onOpenChange`   | `(open: boolean) => void` | ❌ | Callback when popup open state changes              |
 | `onUpdate`       | `(payload: any) => Promise<void>` | ❌ | Callback after profile update                       |
