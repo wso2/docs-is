@@ -66,6 +66,7 @@ Customize how each organization is rendered:
 
 ## Props
 
+<!-- markdownlint-disable MD056 -->
 | Prop                   | Type                                                    | Required | Description                                                      |
 |------------------------|---------------------------------------------------------|----------|------------------------------------------------------------------|
 | `autoFetch`            | `boolean`                                               | ❌       | Automatically fetch organizations on mount                       |
@@ -73,7 +74,7 @@ Customize how each organization is rendered:
 | `limit`                | `number`                                                | ❌       | Number of organizations to fetch per page                        |
 | `recursive`            | `boolean`                                               | ❌       | Include recursive organizations                                  |
 | `onOrganizationSelect` | `(organization: OrganizationWithSwitchAccess) => void`  | ❌       | Callback when an organization is selected/clicked                |
-| `mode`                 | `'inline' \| 'popup'`                                   | ❌       | Display mode: inline or popup dialog                             |
+| `mode`                 | `'inline' | 'popup'`                                   | ❌       | Display mode: inline or popup dialog                             |
 | `open`                 | `boolean`                                               | ❌       | Whether the popup is open (for `mode="popup"`)                   |
 | `onOpenChange`         | `(open: boolean) => void`                               | ❌       | Callback when popup open state changes                           |
 | `title`                | `string`                                                | ❌       | Title for the popup dialog                                       |
@@ -85,6 +86,7 @@ Customize how each organization is rendered:
 | `showStatus`           | `boolean`                                               | ❌       | Show organization status in the list                             |
 | `className`            | `string`                                                | ❌       | Additional CSS class names                                       |
 | `style`                | `React.CSSProperties`                                   | ❌       | Inline styles for the container                                  |
+<!-- markdownlint-enable MD056 -->
 
 ## Customization
 

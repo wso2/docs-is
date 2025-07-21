@@ -72,7 +72,7 @@ export default function UserProfile() {
 
 !!! tip "Tip"
 
-    You need to constrct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -102,7 +102,7 @@ const response = await http.request({
 
 !!! tip "Tip"
 
-    You need to constrct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -173,7 +173,7 @@ export default function UserProfile() {
 
 !!! tip "Tip"
 
-    You need to constrct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -241,7 +241,7 @@ export default function UserProfile() {
 
 !!! tip "Tip"
 
-    You need to constrct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 

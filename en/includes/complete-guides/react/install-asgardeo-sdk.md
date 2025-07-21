@@ -54,14 +54,16 @@ createRoot(document.getElementById('root')).render(
 
 As shown above, we used `<AuthProvider />` at the root level of the application to ensure that all components can interact with the authentication logic provided by {{product_name}}. It takes the configuration object with the following values for the single page application defined in the {{product_name}} console. You can copy these values from the {{product_name}}  console.
 
+<!-- markdownlint-disable MD056 -->
 | Parameter | Type | Required | Description | Example
 |------|-----------|----------|-------------|-----------------------------------|
 | `baseUrl` | `string` | Yes | The base URL of the Identity Provider API. This depends on the identity provider you are using. For {{product_name}}, this can be obtained from your application settings in the {{product_name}} console. | `{{content.sdkconfig.baseUrl}}` |
 | `clientId` | `string` | Yes | Your application's client ID | -                                 |
 | `afterSignInUrl` | `string` | No | URL to redirect after sign in (defaults to current URL) | `http://localhost:5173`          |
 | `afterSignOutUrl` | `string` | No | URL to redirect after sign out (defaults to current URL) | `http://localhost:5173/login`     |
-| `scopes` | `string[] \| string` | No | OAuth scopes to request (defaults to `'openid profile internal_login'`) | `[ "openid profile internal_login" ]`                  |
-| `storage` | `'localStorage' \| 'sessionStorage'` | No | Storage mechanism for tokens (defaults to `'localStorage'`) | `localStorage`          |
+| `scopes` | `string[] | string` | No | OAuth scopes to request (defaults to `'openid profile internal_login'`) | `[ "openid profile internal_login" ]`                  |
+| `storage` | `'localStorage' | 'sessionStorage'` | No | Storage mechanism for tokens (defaults to `'localStorage'`) | `localStorage`          |
+<!-- markdownlint-enable MD056 -->
 
 !!! Info
 
