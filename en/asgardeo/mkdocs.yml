@@ -232,11 +232,12 @@ nav:
   #   - Customize login flow: guides/authentication/login-flow-ai.md
   - Guides:
       - Guides - Overview: guides/index.md
-      - AI & IAM:
-        - IAM for AI:
-          - Identity for AI Agents: guides/ai-and-iam/iam-for-ai/identity-for-ai-agents.md
-        - AI for IAM:
-          - Asgardeo MCP Server: guides/ai-and-iam/ai-for-iam/asgardeo-mcp-server.md
+      - Agentic AI:
+        - Identity for AI Agents:
+          - Identity for AI Agents: guides/agentic-ai/ai-agents/index.md
+          - Register & Manage AI Agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
+          - Agent Credentials: guides/agentic-ai/ai-agents/agent-credentials.md
+          - Access Control: guides/agentic-ai/ai-agents/access-control-for-agents.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md
