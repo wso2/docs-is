@@ -62,4 +62,4 @@ Control components manage the conditional rendering of content based on authenti
 ## Next Steps
 
 - [Quick Start Guide]({{base_path}}/quick-starts/nextjs) – Get started with the Asgardeo Next.js SDK.
-- [AsgardeoProvider]({{base_path}}/sdks/nextjs/asgardeo-provider/) – Learn how to configure the root provider component.
+- [AsgardeoProvider]({{base_path}}/sdks/nextjs/contexts/asgardeo-provider/) – Learn how to configure the root provider component.
