@@ -839,10 +839,6 @@ nav:
             - "&lt;SignedIn /&gt;": sdks/react/components/control-components/signed-in.md
             - "&lt;SignedOut /&gt;": sdks/react/components/control-components/signed-out.md
             - "&lt;Loading /&gt;": sdks/react/components/control-components/loading.md
-          - Authentication Components:
-            - "&lt;SignIn /&gt;": sdks/nextjs/components/authentication/sign-in.md
-            # App-native Sign Up is not available for this version of the Identity Server.
-            # - "&lt;SignUp /&gt;": sdks/nextjs/components/authentication/sign-up.md
           - User Self-care Components:
             - "&lt;UserDropdown /&gt;": sdks/react/components/user-selfcare-components/user-dropdown.md
             - "&lt;UserProfile /&gt;": sdks/react/components/user-selfcare-components/user-profile.md
@@ -874,6 +870,10 @@ nav:
             - "&lt;SignedIn /&gt;": sdks/nextjs/components/control-components/signed-in.md
             - "&lt;SignedOut /&gt;": sdks/nextjs/components/control-components/signed-out.md
             - "&lt;Loading /&gt;": sdks/nextjs/components/control-components/loading.md
+          - Authentication Components:
+            - "&lt;SignIn /&gt;": sdks/nextjs/components/authentication/sign-in.md
+            # App-native Sign Up is not available for this version of the Identity Server.
+            # - "&lt;SignUp /&gt;": sdks/nextjs/components/authentication/sign-up.md
           - User Self-care Components:
             - "&lt;UserDropdown /&gt;": sdks/nextjs/components/user-selfcare-components/user-dropdown.md
             - "&lt;UserProfile /&gt;": sdks/nextjs/components/user-selfcare-components/user-profile.md
