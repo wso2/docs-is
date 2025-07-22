@@ -104,7 +104,6 @@ To invoke the required APIs, the self-service application should receive an acce
         </tr>
     </table>
 
-
     !!! note
 
         \* Only required if your admins are [maintained within the organization](#maintain-admins-within-the-organization). </br>
@@ -113,7 +112,7 @@ To invoke the required APIs, the self-service application should receive an acce
 2. Get an access token for the self-service application using the following command.
 
     ``` bash
-    curl -X POST https://{{ host_name }}/oauth2/token \
+    curl -X POST https://{{ host_name }}{{ root_organization_path }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d 'grant_type=client_credentials&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view internal_organization_view internal_organization_create internal_user_mgt_view internal_user_mgt_create'
@@ -122,7 +121,6 @@ To invoke the required APIs, the self-service application should receive an acce
     !!! note
 
         The access token expiration time is set to `3600` seconds by default. If you wish to modify this duration, you can do so in the **Protocol** section of the application.
-
 
 ## Maintain organization admins
 
@@ -141,7 +139,7 @@ To create and maintain admins in the organization:
 1. Use the following command to check if the name of the organization you wish to create is available.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer <access token>' \
     --header 'Content-Type: application/json' \
     --data '{"name": "<organization name>"}'
@@ -153,7 +151,7 @@ To create and maintain admins in the organization:
 2. If the required organization name is available for use, use the following command to create the organization.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/api/server/v1/organizations' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/api/server/v1/organizations' \
     --header 'Authorization: Bearer <access token>' \
     --header 'Content-Type: application/json' \
     --data '{"name": "<organization name>"}'
@@ -169,7 +167,7 @@ To create and maintain admins in the organization:
         Learn more about the [organization switch grant]({{base_path}}/references/grant-types/#organization-switch-grant).
 
     ``` bash
-    curl -X POST https://{{ host_name }}/oauth2/token \
+    curl -X POST https://{{ host_name }}{{ root_organization_path }}/oauth2/token \
     -u '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d 'grant_type=organization_switch&token=<access token obtained for root organization>&switching_organization=<id of created organization>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
@@ -178,7 +176,7 @@ To create and maintain admins in the organization:
 4. Create a user in the organization using the following command.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/o/scim2/Users' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/o/scim2/Users' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer <token obtained in step 3>' \
     --data-raw '{
@@ -205,7 +203,7 @@ To create and maintain admins in the organization:
 5. Use the following command to obtain the `id` of the administrator role associated with the B2B application.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/o/scim2/v2/Roles?filter=displayName eq <admin-role-name> and audience.value eq <role-audience-value>' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/o/scim2/v2/Roles?filter=displayName eq <admin-role-name> and audience.value eq <role-audience-value>' \
     --header 'Accept: application/json' \
     --header 'Authorization: Bearer <access-token-obtained-for-the-organization>'
     ```
@@ -218,14 +216,14 @@ To create and maintain admins in the organization:
         <td>Name of the administrator role associated with your B2B application.</td>
         <tr>
         <td>role-audience-value</td>
-        <td>If the B2B application's audience is `application`, provide the application id. You may use the following command to obtain the application id. 
+        <td>If the B2B application's audience is `application`, provide the application id. You may use the following command to obtain the application id.
             
         ```bash
-        curl --location 'https://{{ host_name }}/o/api/server/v1/applications?filter=name eq <B2B-application-name>'
+        curl --location 'https://{{ host_name }}{{ root_organization_path }}/o/api/server/v1/applications?filter=name eq <B2B-application-name>'
         --header 'Authorization: Bearer <access-token-obtained-for-the-organization>'
         ```
 
-        If the B2B application's audience is `organization`, provide the organization id. 
+        If the B2B application's audience is `organization`, provide the organization id.
         Learn more about role audiences in [manage roles]({{base_path}}/guides/users/manage-roles/).
         </td>
         </tr>
@@ -234,7 +232,7 @@ To create and maintain admins in the organization:
 6. Assign the user created in step 4 to the administrator role of your B2B application by using the following command.
 
     ``` bash
-    curl --location --request PATCH 'https://{{ host_name }}/o/scim2/v2/Roles/{admin-role-id}' \
+    curl --location --request PATCH 'https://{{ host_name }}{{ root_organization_path }}/o/scim2/v2/Roles/{admin-role-id}' \
     --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -265,7 +263,7 @@ To create and maintain admins in the root organization:
 1. Create a user in the root organization (root) using {{ product_name }}'s SCIM APIs.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/scim2/Users' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/scim2/Users' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer { access token }' \
     --data-raw '{
@@ -293,7 +291,7 @@ To create and maintain admins in the root organization:
 2. Use the following command to check if the name of the organization you wish to create is available.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/api/server/v1/organizations/check-name' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/api/server/v1/organizations/check-name' \
     --header 'Authorization: Bearer <access token>'  \
     --header 'Content-Type: application/json' \
     --data '{"name": "<organization name>"}'
@@ -305,7 +303,7 @@ To create and maintain admins in the root organization:
 3. If the required organization name is available for use, use the following command to create the organization and assign the user created in step 1 as the admin of that organization.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/api/server/v1/organizations' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/api/server/v1/organizations' \
     --header 'Authorization: Bearer <access token>' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -330,7 +328,7 @@ To create and maintain admins in the root organization:
         Learn more about the [organization switch grant]({{base_path}}/references/grant-types/#organization-switch-grant).
 
     ``` bash
-    curl -X POST https://{{ host_name }}/oauth2/token \
+    curl -X POST https://{{ host_name }}{{ root_organization_path }}/oauth2/token \
     -u  '<client_id>:<client_secret>' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d 'grant_type=organization_switch&token=<access token obtained for root organization>&switching_organization=<created organization id>&scope=internal_org_role_mgt_view internal_org_role_mgt_update internal_org_user_mgt_create internal_org_user_mgt_list internal_org_application_mgt_view'
@@ -339,7 +337,7 @@ To create and maintain admins in the root organization:
 5. A shadow user account is created in the new organization for the organization creator. Get the shadow account's user id using the following command.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/o/scim2/Users?filter=userName eq <username of the user created in step 1>' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/o/scim2/Users?filter=userName eq <username of the user created in step 1>' \
     --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
     --header 'Content-Type: application/json'
     ```
@@ -347,7 +345,7 @@ To create and maintain admins in the root organization:
 6. Use the following command to obtain the `id` of the administrator role defined for your B2B application.
 
     ``` bash
-    curl --location 'https://{{ host_name }}/o/scim2/v2/Roles?filter=displayName eq <admin-role-name> and audience.value eq <role-audience-value>' \
+    curl --location 'https://{{ host_name }}{{ root_organization_path }}/o/scim2/v2/Roles?filter=displayName eq <admin-role-name> and audience.value eq <role-audience-value>' \
     --header 'Accept: application/json' \
     --header 'Authorization: Bearer <access-token-obtained-for-the-organization>'
     ```
@@ -360,14 +358,14 @@ To create and maintain admins in the root organization:
         <td>Name of the administrator role associated with your B2B application.</td>
         <tr>
         <td>role-audience-value</td>
-        <td>If the B2B application's audience is `application`, provide the application id. You may use the following command to obtain the application id. 
+        <td>If the B2B application's audience is `application`, provide the application id. You may use the following command to obtain the application id.
             
         ```bash
-        curl --location 'https://{{ host_name }}/o/api/server/v1/applications?filter=name eq <B2B-application-name>'
+        curl --location 'https://{{ host_name }}{{ root_organization_path }}/o/api/server/v1/applications?filter=name eq <B2B-application-name>'
         --header 'Authorization: Bearer <access-token-obtained-for-the-organization>'
         ```
 
-        If the B2B application's audience is `organization`, provide the organization id. 
+        If the B2B application's audience is `organization`, provide the organization id.
         Learn more about role audiences in [manage roles]({{base_path}}/guides/users/manage-roles/).
         </td>
         </tr>
@@ -377,7 +375,7 @@ To create and maintain admins in the root organization:
 7. Assign the shadow account to the administrator role of your B2B application by using the following command.
 
     ``` bash
-    curl --location --request PATCH 'https://{{ host_name }}/o/scim2/v2/Roles/<admin-role-id>' \
+    curl --location --request PATCH 'https://{{ host_name }}{{ root_organization_path }}/o/scim2/v2/Roles/<admin-role-id>' \
     --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
     --header 'Content-Type: application/json' \
     --data '{
