@@ -1,4 +1,4 @@
-The `SignUp` component provides a flexible, styled registration flow for browser-based Next.js applications using Asgardeo authentication. It manages the entire sign-up process, including API calls, error handling, and redirection, and can be customized for your application's needs.
+Use the `SignUp` component to add a flexible, styled registration flow for browser-based Next.js applications with Asgardeo authentication. The component manages the entire sign-up process, including API calls, error handling, and redirection. Customize it for your application's needs.
 
 ## Overview
 
@@ -42,7 +42,7 @@ The `SignUp` component accepts all props from `BaseSignUp`, plus:
 | `shouldRedirectAfterSignUp` | `boolean`                     | ❌       | Whether to redirect after sign-up (default: `true`)              |
 <!-- markdownlint-enable MD056 -->
 
-All other props are passed to the underlying `BaseSignUp` component for further customization.
+You can provide all other props to the underlying `BaseSignUp` component for further customization.
 
 ## Customization
 

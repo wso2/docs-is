@@ -1,4 +1,4 @@
-The `SignIn` component provides a flexible, styled authentication flow for browser-based Next.js applications using Asgardeo authentication. It manages the entire sign-in process, including API calls, error handling, and redirection, and can be customized for your application's needs.
+Use the `SignIn` component to add a flexible, styled authentication flow for browser-based Next.js applications with Asgardeo authentication. The component manages the entire sign-in process, including API calls, error handling, and redirection. Customize it for your application's needs.
 
 !!! info "Note"
 
@@ -44,7 +44,7 @@ The `SignIn` component accepts all props from `BaseSignIn`, plus:
 | `afterSignInUrl` | `string`                               | ❌       | URL to redirect to after successful sign-in                      |
 <!-- markdownlint-enable MD056 -->
 
-All other props are passed to the underlying `BaseSignIn` component for further customization.
+You can provide all other props to the underlying `BaseSignIn` component for further customization.
 
 ## Customization
 
@@ -62,7 +62,7 @@ You can use the `className` prop to apply custom styles:
 
 The component includes a default vendor-prefixed class for targeting:
 
-- `.asgardeo-sign-in` – Main sign-in card element
+- `.asgardeo-sign-in`–Main sign-in card element
 
 ### CSS Custom Properties (CSS Variables)
 
