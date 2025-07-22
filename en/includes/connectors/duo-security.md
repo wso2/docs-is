@@ -1,40 +1,31 @@
-# Configuring Duo Security Authenticator
+# Duo security
 
-This topic provides instructions on how to configure the Duo Security app and the Identity Server. A sample app is used to demonstrate this integration. See the following sections for more information.
- ````
-This is tested for Web v4 SDK - Duo Universal Prompt.
- ````
-See the following sections for more information.
+The following guide explains how you can use Duo security for secure login.
 
-* [Configuring the Duo Security app](#configuring-the-duo-security-app)
-* [Deploying Duo Security artifacts](#deploying-duo-security-artifacts)
-* [Configuring the Duo Connection](#configuring-the-duo-connection)
-* [Migration Guide](#migration-guide)
-* [Deploying the sample React SPA](#deploying-the-sample-react-spa)
-* [Configuring Duo as MFA](#configuring-duo-as-mfa)
-* [Testing the sample](#testing-the-sample)
+## Overview
 
-### Configuring the Duo Security app
-1. Go to [https://duo.com](https://duo.com) and register a Duo account.
-2. Log in to the Duo admin panel. Click **Applications** from the left panel and then click the **Protect an Application** button.
+[Duo Security](https://duo.com/){: target="_blank"} provides Multi-Factor Authentication (MFA) by adding a second verification step, such as push notifications or SMS OTP alongside passwords. It helps prevent unauthorized access when attackers use compromised passwords.
 
-   ![alt text](images/duodoc1.png)
-3. In the **Protect an Application**  page, select **Web SDK** from the list. **Web SDK** credentials are **mandatory**.
+In {{product_name}}, you can configure Duo as a connection and seamlessly add it to your application's login flow to add an extra layer of protection.
 
-   ![alt text](images/duodoc2.png)
-4. Once the integration is created, you are given a **Client ID** and a **Client Secret** for your integration. You can use these along with your Duo API hostname when accessing Duo Security APIs.
+## Set up
 
-   ![alt text](images/duodoc3.png)
-5.  You can also configure the **Admin API** credentials if you need to validate the mobile numbers. When you verify the mobile number, use only these credentials. Navigate back to the **Protect an Application**  page and select  **Admin API**  from the list.  Once the Integration is created, you are given a **Secret key** and an **Integration key** for your integration.
+The following guide explains how you can install and set up Duo Security in WSO2 Identity Server.
 
-    ![alt text](images/duodoc4.png)
-    ![alt text](images/duodoc5.png)
-6. When configuring the Admin API, select the Grant read resource permission.
+### Prerequisites
 
-   ![alt text](images/duodoc6.png)
+- Add a **Web SDK** app in your Duo Security dashboard and get its client ID and secret.  
+  See [Duo Security docs](https://duo.com/docs/protecting-applications#add-an-application){: target="_blank" } for details.
 
->> NOTE : This step is mandatory if you need to verify the user's mobile number in the user store with the mobile number in Duo Security. This is configured in step 6 of [Deploying Duo Security artifacts](#deploying-duo-security-artifacts).
+- (Optional) To verify users’ mobile numbers, integrate the Duo Admin API:  
+    - Create an Admin API app and get its integration key and secret.  
+    - Grant it **Grant resource - Read** permission to access user and device info.
 
+    See [Duo Admin API docs](https://duo.com/docs/adminapi#overview){: target="_blank" } for more information.
+
+### Step 1: (Optional) Add the 
+
+## Step 1: Install the Duo connector
 ### Deploying Duo Security artifacts
 
 If you are migrating to IS 7.0.0 from a previous version, please go through the [Migration Guide](#migration-guide) before proceeding with the following steps.
