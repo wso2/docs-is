@@ -3,6 +3,7 @@
 {{ product_name }} enables the creation of well-defined roles, each encapsulating a specific set of permissions tailored to different operational responsibilities. These roles provide a streamlined way to manage access rights by grouping relevant permissions, which can then be assigned to AI agents according to their function within your organization.
 
 For example,
+
 - An AI Customer Support Agent role may include permissions to access customer databases, knowledge bases, and support ticket systems.
 
 - An AI Data Analysis Agent role might be granted access to data lakes, analytical tools, and reporting dashboards.
