@@ -453,12 +453,6 @@ nav:
     - About this release: get-started/about-this-release.md
   - Guides: 
       - Guides: guides/index.md
-      - Agentic AI:
-        - Identity for AI Agents:
-          - Identity for AI Agents: guides/agentic-ai/ai-agents/index.md
-          - Register & Manage AI Agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
-          - Agent Credentials: guides/agentic-ai/ai-agents/agent-credentials.md
-          - Access Control: guides/agentic-ai/ai-agents/access-control-for-agents.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md
@@ -752,6 +746,12 @@ nav:
         - Multitenancy: guides/multitenancy/index.md
         - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
         - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
+      - Agentic AI:
+        - Identity for AI Agents:
+          - Identity for AI Agents: guides/agentic-ai/ai-agents/index.md
+          - Register & Manage AI Agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
+          - Agent Credentials: guides/agentic-ai/ai-agents/agent-credentials.md
+          - Access Control: guides/agentic-ai/ai-agents/access-control-for-agents.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md

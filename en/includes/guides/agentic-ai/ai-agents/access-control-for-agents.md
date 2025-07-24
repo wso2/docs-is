@@ -1,6 +1,17 @@
-{{ product_name }} allows for the creation of distinct roles, each with a predefined set of permissions. These roles can then be assigned to AI agents based on their operational responsibilities. For instance, an "AI Customer Support Agent" role might have permissions to access customer databases and knowledge bases, while an "AI Data Analysis Agent" role would have permissions to access data lakes and analytical tools.
+## Role Based Access Control (RBAC)
 
-### Assigning a role to an agent
+{{ product_name }} enables the creation of well-defined roles, each encapsulating a specific set of permissions tailored to different operational responsibilities. These roles provide a streamlined way to manage access rights by grouping relevant permissions, which can then be assigned to AI agents according to their function within your organization.
+
+For example,
+- An AI Customer Support Agent role may include permissions to access customer databases, knowledge bases, and support ticket systems.
+
+- An AI Data Analysis Agent role might be granted access to data lakes, analytical tools, and reporting dashboards.
+
+This role-based approach simplifies permission management, enhances security, and ensures that agents operate strictly within their designated scope.
+
+### Assigning a Role to an Agent
+
+To assign a role to an AI agent in {{ product_name }},
 
 1. On the {{ product_name }} Console, go to **Roles**.
 2. Select the role that you need to assign to the agent.
@@ -9,16 +20,34 @@
 5. Select the Agent/s that you need to assign the role.
 6. Click Save.
 
-### View assigned roles of an Agent
+### Viewing Assigned Roles of an Agent
 
 1. On the {{ product_name }} Console, go to **Agents**.
 2. Click on the agent you want to view details.
 3. In the **Roles** tab, you can see the roles assigned to the agent.
 
-## Attribute Based Access Control (ABAC)
+## Attribute-Based Access Control (ABAC)
 
-{{ product_name }} currently facilitates the control of agent authentication to applications through an attribute-based access control (ABAC) model, mirroring the capabilities available for user authentication. This is achieved via conditional authentication policies, which allow administrators to define rules based on various attributes associated with an agent, such as their role, department, location, or time of access.
+{{ product_name }} supports controlling agent authentication to applications through an Attribute-Based Access Control (ABAC) model, providing flexible and dynamic access decisions based on agent attributes. This model aligns with the attribute-driven controls used for user authentication, enabling consistent security policies across all identities.
 
-For instance, an organization can configure a policy that only allows agents from the "Support" department to access a specific application during business hours.
+Using [conditional authentication]({{base_path}}/references/conditional-auth/api-reference/), administrators can define granular access rules for agents authenticating into their applications by evaluating attributes such as:
 
-Future developments will focus on comprehensive access control for authorization, enabling fine-grained control over agent actions within applications. Enhancements may include hierarchical attribute structures, policy-based access control (PBAC), and real-time attribute evaluation using external data, aiming for a robust and flexible authorization framework.
+- Agent role or function
+- Department or business unit
+- Geographic location or IP range
+- Time of day or day of the week
+- Device or network context
+
+For example, you can enforce a policy that permits only agents belonging to the “Support” department to access a particular application during standard business hours, enhancing both security and compliance.
+
+### Future Enhancements
+
+Looking ahead, {{ product_name }} will expand its capabilities to include comprehensive authorization control for AI agents, enabling fine-grained, attribute-based permissioning within applications. Planned improvements include,
+
+- Support for hierarchical and multi-dimensional attribute structures
+
+- Policy-Based Access Control (PBAC) that combines multiple policies for nuanced authorization decisions
+
+- Enhanced audit and compliance reporting for agent access and actions
+
+These enhancements aim to build a robust, adaptable framework that provides both security and operational flexibility as AI agents become integral parts of enterprise ecosystems.

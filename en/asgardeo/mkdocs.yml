@@ -234,12 +234,6 @@ nav:
   #   - Customize login flow: guides/authentication/login-flow-ai.md
   - Guides:
       - Guides - Overview: guides/index.md
-      - Agentic AI:
-        - Identity for AI Agents:
-          - Identity for AI Agents: guides/agentic-ai/ai-agents/index.md
-          - Register & Manage AI Agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
-          - Agent Credentials: guides/agentic-ai/ai-agents/agent-credentials.md
-          - Access Control: guides/agentic-ai/ai-agents/access-control-for-agents.md
       - Applications:
           - Applications: guides/applications/index.md
           - Register an SPA: guides/applications/register-single-page-app.md
@@ -500,7 +494,13 @@ nav:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
         - Asgardeo events: guides/monitoring/asgardeo-events.md
-      - Organization insights: guides/organization-insights.md
+        - Organization insights: guides/organization-insights.md
+      - Agentic AI:
+        - Identity for AI Agents:
+          - Identity for AI Agents: guides/agentic-ai/ai-agents/index.md
+          - Register and Manage Agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
+          - Agent Credentials: guides/agentic-ai/ai-agents/agent-credentials.md
+          - Access Control for Agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
   - Tutorials:
     - Tutorials - Overview: tutorials/index.md
     - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md

@@ -1,53 +1,109 @@
-{{ product_name }} supports multiple authentication methods for AI agents, providing flexibility based on security requirements and implementation preferences.
+{{ product_name }} supports multiple authentication methods tailored for AI agents, allowing you to choose the best fit based on your security posture, operational needs, and integration preferences.
 
 ## Agent ID and Secret (Current)
 
-The default authentication method uses an Agent ID and secret pair.
+This is the default and most widely used authentication method for AI agents on {{ product_name }}. It leverages a simple yet effective credential pair consisting of an **Agent ID** and a **secret**.
+
+### How It Works
+
+* Each agent is assigned a unique **Agent ID**.
+* The secret acts as a password-like token, which the agent uses alongside its ID to authenticate.
 
 ### Obtaining Credentials
 
-You will obtain the agent credentials at the time of registering the agent. In case you lost it or need a new secret, you can regenerate it by following the steps.
+* Credentials are generated when registering the agent.
+* You can view and manage these credentials through the {{ product_name }} Console.
 
-1. On the {{ product_name }} Console, go to **Agents**.
-2. Click on the agent you want to update.
-3. Go to the Credentials tab.
-4. Under **Agent Secret**, click **Regenerate**.
+### Regenerating Agent Secret
+
+If you suspect that your secret is compromised or want to update it for security reasons,
+
+1. Log into the {{ product_name }} Console.
+2. Navigate to **Agents** from the main menu.
+3. Select the agent whose credentials you want to regenerate.
+4. Go to the **Credentials** tab.
+5. Click **Regenerate** under **Agent Secret**.
+
+    !!! warning
+        After regenerating the agent secret, make sure to update all services that are using the previous credentials. Using the old secret will cause authentication failures and may disrupt service access.
 
 ## Private Key JWT (Coming Soon)
 
-Private Key JWT authentication enables AI agents to authenticate with {{ product_name }} using a JSON Web Token (JWT) signed with a private key. This method eliminates the need for shared secrets, enhancing security by relying on asymmetric cryptography.
+    !!! note
+        Private Key JWT authentication for AI agents is currently under development and will be available soon.
 
-### Key Requirements:
+Private Key JWT authentication offers a more secure and modern approach by using asymmetric cryptography. Instead of sharing a secret, agents authenticate by signing a JSON Web Token (JWT) with their private key.
 
-- RSA or ECDSA private key
-- Corresponding public key registered with {{ product_name }}
-- JWT signed with the private key
+### How It Works
 
-### Benefits:
+* Agent holds a private key used to sign JWT tokens.
+* {{ product_name }} holds the corresponding public key to verify the signature.
+* Tokens include claims such as agent identity and expiration, ensuring authenticity.
 
-- No shared secrets
-- Cryptographically strong authentication
-- Support for key rotation
+### Key Requirements
+
+* **Key Type:** RSA or ECDSA private key.
+* **Key Registration:** The public key must be registered in {{ product_name }} during agent setup.
+* **JWT Format:** Tokens must conform to JWT standards and be signed with the private key.
+
+### Benefits
+
+* Eliminates shared secret risks — private key never leaves the agent.
+* Enables cryptographically strong proof of identity.
+* Supports seamless **key rotation** without downtime.
+* Improves compliance with security standards requiring asymmetric authentication.
 
 ## Mutual TLS (mTLS) (Coming Soon)
 
-mTLS provides an additional layer of security by requiring both the agent and server to authenticate each other using digital certificates. This ensures that only trusted agents can connect to your services.
+    !!! note
+        Mutual TLS (mTLS) authentication for AI agents is currently under development and will be available soon.
 
-### Requirements:
+Mutual TLS (mTLS) authentication enhances security by requiring both the agent and {{ product_name }} server to present and verify digital certificates during the TLS handshake. This mutual verification establishes a trusted, encrypted connection.
 
-- Client certificate issued by a trusted CA
-- Private key corresponding to the client certificate
-- TLS client authentication during the handshake
+### How It Works
 
-### Benefits:
+* Both client (agent) and server authenticate each other using X.509 certificates.
+* Agents prove identity by presenting a client certificate signed by a trusted Certificate Authority (CA).
+* {{ product_name }} validates the certificate before allowing the connection.
 
-- Certificate-based authentication
-- Strong cryptographic identity
-- Industry-standard security
+### Requirements
+
+* **Client Certificate:** Issued by a trusted CA recognized by {{ product_name }}.
+* **Private Key:** Corresponds to the client certificate and is securely stored on the agent side.
+* **TLS Client Authentication:** Enabled on the communication channel to enforce certificate verification.
+
+### Benefits
+
+* Strong, certificate-based cryptographic authentication.
+* Prevents man-in-the-middle attacks by ensuring both parties are verified.
+* Widely adopted in high-security environments, including banking and healthcare.
+* Supports certificate lifecycle management, including renewal and revocation.
 
 ## Credential Management Best Practices
 
-- Rotate credentials regularly - Set up automated credential rotation
-- Use environment variables - Never hardcode credentials in source code
-- Implement secure storage - Use secure vaults or key management systems
-- Revoke compromised credentials - Immediately revoke and replace compromised credentials
+To maintain a strong security posture for your AI agents, follow these best practices when managing credentials.
+
+* **Regular Rotation:**
+
+  * Schedule automated credential rotations to minimize exposure.
+  * Ensure your agent applications support seamless updates to credentials.
+
+* **Secure Storage:**
+
+  * Never hardcode credentials or keys in source code repositories.
+  * Use dedicated secrets management solutions such as HashiCorp Vault, AWS Secrets Manager, or Azure Key Vault.
+  * Restrict access to credentials to only authorized services or personnel.
+
+* **Use Environment Variables:**
+
+  * Load secrets dynamically at runtime using environment variables or configuration files secured outside source control.
+
+* **Immediate Revocation:**
+
+  * Revoke credentials immediately if you suspect compromise.
+  * Monitor usage logs to detect anomalous access patterns.
+
+* **Audit and Monitoring:**
+
+  * Enable audit logging for authentication events to track access and troubleshoot incidents.
+  * Regularly review logs for unauthorized or suspicious activities.
