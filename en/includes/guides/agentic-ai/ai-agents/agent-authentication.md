@@ -4,8 +4,8 @@
 
 This guide walks you through how to authenticate AI agents into your applications secured by **{{ product_name }}**. It covers two key authentication scenarios:
 
-* When an AI agent acts independently
-* When an AI agent acts on behalf of a user
+* [When an AI agent acts independently](#ai-agent-acting-on-its-own)
+* [When an AI agent acts on behalf of a user](#ai-agent-acting-on-behalf-of-a-user)
 
 <!-- vale off -->
 Each scenario leverages standard or emerging OAuth 2.0-based protocols to ensure secure and scalable access delegation.
