@@ -31,4 +31,25 @@
     **Note:** By default, using `client_credentials` grant type for public clients is disabled as it is logically invalid.
 '%}
 
+{% set password_grant_show_auth_failure_reason_note = '
+!!! note
+    From WSO2 Identity Server 7.1.0 onwards, the specific authentication failure reason is not retuned with the API response by default. The API response will only indicate that the authentication has failed.
+    If you want to return the specific reason for authentication failure, you can add the below configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+
+    ``` toml
+    [oauth.grant_type.password]
+    show_auth_failure_reason = true
+    ```
+
+    If you are migrating from an earlier version you would already be using the below set of configurations in the `deployment.toml` file to show the authentication failure reason for password grant based on the `show_auth_failure_reason` configuration of basic authenticator. In that case, you can use the below configurations together to show the authentication failure reason. These concigurations will be given priority over the `show_auth_failure_reason` configuration of the password grant.
+
+    ``` toml
+    [oauth.password_grant]
+    use_show_auth_failure_reason = true
+
+    [authentication.authenticator.basic.parameters]
+    showAuthFailureReason = true
+    ```
+'%}
+
 {% include "../../../../includes/references/grant-types.md" %}
