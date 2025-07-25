@@ -1,5 +1,5 @@
 <!-- vale off -->
-# Authenticating AI Agents
+# Authenticating AI agents
 <!-- vale on -->
 
 This guide walks you through how to authenticate AI agents into your applications secured by **{{ product_name }}**. It covers two key authentication scenarios:
