@@ -2,7 +2,7 @@
 # Authenticating AI Agents
 <!-- vale on -->
 
-This guide will walk you through how to authenticate AI agents into your applications secured by **{{ product_name }}**. It covers two key authentication scenarios:
+This guide walks you through how to authenticate AI agents into your applications secured by **{{ product_name }}**. It covers two key authentication scenarios:
 
 * When an AI agent acts independently
 * When an AI agent acts on behalf of a user
