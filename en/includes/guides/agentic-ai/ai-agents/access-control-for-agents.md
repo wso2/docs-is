@@ -10,7 +10,7 @@ For example,
 
 This role-based approach simplifies permission management, enhances security, and ensures that agents operate within their designated scope.
 
-### Assigning a role to an agent
+### Assign a role to an agent
 
 To assign a role to an AI agent in {{ product_name }},
 
@@ -21,7 +21,7 @@ To assign a role to an AI agent in {{ product_name }},
 5. Select the Agent/s that you need to assign the role.
 6. Click Save.
 
-### Viewing assigned roles of an agent
+### View assigned roles of an agent
 
 1. On the {{ product_name }} Console, go to **Agents**.
 2. Click on the agent you want to view details.
