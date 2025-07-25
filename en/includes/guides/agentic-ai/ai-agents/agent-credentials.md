@@ -17,7 +17,7 @@ Credentials are generated during agent registration and can be viewed or managed
 
 ### Advanced Authentication Methods (Coming Soon)
 
-We are actively working on providing enhanced authentication options to improve security and flexibility for AI agents:
+We're actively working on providing enhanced authentication options to improve security and flexibility for AI agents:
 
 * **Private Key JWT Authentication**
   This method uses asymmetric cryptography, allowing agents to sign JSON Web Tokens (JWTs) with a private key that never leaves the agent environment. {{ product_name }} holds the corresponding public key to verify the signature. JWTs include claims such as agent identity and expiration to ensure authenticity.

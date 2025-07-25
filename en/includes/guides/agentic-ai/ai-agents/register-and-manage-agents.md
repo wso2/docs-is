@@ -4,17 +4,29 @@ This guide walks you through key processes involved in managing AI agents, inclu
 
 ## AI agent lifecycle Management
 
-- **Create Agent Identity** - Begin by defining your AI agent’s identity. This includes setting a clear and descriptive name, a detailed description that outlines its purpose, and specifying the operational context such as the environment or systems it will interact with. A well-defined identity helps in tracking and managing agents effectively throughout their lifecycle.
+- **Create Agent Identity**  
 
-- **Generate Credentials** - Issue secure authentication credentials necessary for the AI agent to authenticate with your systems. These may include client ID and secret pairs, private key certificates, or other cryptographic credentials. Secure generation and handling of these credentials are critical to prevent unauthorized access.
+Begin by defining your AI agent’s identity. This includes setting a clear and descriptive name, a detailed description that outlines its purpose, and specifying the operational context such as the environment or systems it will interact with. A well-defined identity helps in tracking and managing agents effectively throughout their lifecycle.
 
-- **Assign Roles and Permissions** - Configure granular access controls by assigning appropriate roles and permissions to the agent. This step involves applying the principle of least privilege to ensure the agent only has the minimum access necessary to perform its functions, reducing potential security risks.
+- **Generate Credentials**  
 
-- **Integrate and Deploy** - Integrate the authentication mechanism into the AI agent’s implementation code or runtime environment. Deploy the agent with the issued credentials, ensuring that it can securely authenticate and operate within the designated infrastructure.
+Issue secure authentication credentials necessary for the AI agent to authenticate with your systems. These may include client ID and secret pairs, private key certificates, or other cryptographic credentials. Secure generation and handling of these credentials are critical to prevent unauthorized access.
 
-- **Set Up Security Policies and Logging** - Configure required security policies on resource servers that the agent accesses. This includes enforcing validation policies, access control rules, and enabling detailed audit and access logs. These logs provide traceability for agent actions and support compliance audits.
+- **Assign Roles and Permissions**  
 
-- **Monitor Agent Activities** - Continuously monitor the agent’s activities through audit logs and monitoring dashboards. Set up alerts for any suspicious or anomalous behavior, enabling rapid detection and mitigation of potential security incidents or operational failures.
+Configure granular access controls by assigning appropriate roles and permissions to the agent. This step involves applying the principle of least privilege to ensure the agent only has the minimum access necessary to perform its functions, reducing potential security risks.
+
+- **Integrate and Deploy**  
+
+Integrate the authentication mechanism into the AI agent’s implementation code or runtime environment. Deploy the agent with the issued credentials, ensuring that it can securely authenticate and operate within the designated infrastructure.
+
+- **Set Up Security Policies and Logging**  
+
+Configure required security policies on resource servers that the agent accesses. This includes enforcing validation policies, access control rules, and enabling detailed audit and access logs. These logs provide traceability for agent actions and support compliance audits.
+
+- **Monitor Agent Activities**  
+
+Continuously monitor the agent’s activities through audit logs and monitoring dashboards. Set up alerts for any suspicious or anomalous behavior, enabling rapid detection and mitigation of potential security incidents or operational failures.
 
 ### Registering an AI agent
 
@@ -51,7 +63,7 @@ Deactivation is a vital security control used to temporarily suspend an AI agent
 5. Confirm the action.
 
     !!! warning
-        Deactivating an AI agent will immediately revoke all its active access tokens, rendering any existing sessions invalid. Furthermore, it prevents the agent from initiating any new authentication attempts, effectively halting its operations until it is reactivated.
+        Deactivating an AI agent will immediately revoke all its active access tokens, rendering any existing sessions invalid. Furthermore, it prevents the agent from initiating any new authentication attempts, effectively halting its operations until it's reactivated.
 
 ### Deleting an Agent
 

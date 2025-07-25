@@ -1,6 +1,6 @@
-AI agents are increasingly transforming how organizations automate business processes, decision-making, and system interactions. These agents, primarily powered by large language models, can independently perform complex tasks—ranging from data analysis and customer support to orchestrating workflows and executing critical backend operations.
+AI agents are increasingly transforming how organizations automate business processes, decision-making, and system interactions. These agents, primarily powered by large language models, can independently perform complex tasks—ranging from data analysis and customer support to orchestrating workflows and executing critical system operations.
 
-However, as AI agents become more deeply integrated into enterprise systems, it's no longer sufficient to treat them as anonymous or generic actors. Just like human users or applications, AI agents must be explicitly configured and governed to access only the resources they need and perform only the actions they are authorized to.
+However, as AI agents become more deeply integrated into enterprise systems, it's no longer sufficient to treat them as anonymous or generic actors. Just like human users or applications, AI agents must be explicitly configured and governed to access only the resources they need and perform only the actions they're authorized to.
 
 In many scenarios, agents operate on their own behalf, making decisions or triggering processes autonomously. In others, they act on behalf of a user, a group, or even another agent—requiring proper delegation and trust models to be in place. This level of autonomy and interactivity makes it essential to assign each agent a distinct, manageable identity, with well-defined access scopes, permissions, and compliance controls.
 
@@ -56,12 +56,20 @@ Beyond incident response, audit logs also support ongoing compliance monitoring.
 
 To tackle the challenges of managing AI agents securely and at scale, {{ product_name }} delivers first-class identity management designed specifically for autonomous agents. This enables secure authentication, fine-grained authorization, robust access control, and full auditability of automated systems.
 
-- **First-Class Agent Identities** — Each AI agent is provisioned with a unique, distinguishable identity that includes specific attributes, credentials, and metadata. This identity enables precise tracking, management, and lifecycle control of agents, ensuring that each automated actor is treated as a trusted entity within the organization.
+- **First-Class Agent Identities**  
 
-- **Credential Management** — {{ product_name }} supports multiple authentication methods tailored for AI agents, including client credentials today and JWT-based authentication coming soon. These methods provide flexibility to integrate agents across various environments securely, with built-in mechanisms for credential rotation, expiration, and revocation to minimize risk.
+Each AI agent is provisioned with a unique, distinguishable identity that includes specific attributes, credentials, and metadata. This identity enables precise tracking, management, and lifecycle control of agents, ensuring that each automated actor is treated as a trusted entity within the organization.
 
-- **Access Control** — Through fine-grained permissions and role-based access control (RBAC), organizations can assign precise privileges to each agent. This ensures agents operate with the minimum necessary permissions, reducing attack surfaces and enforcing strict boundaries on what actions and resources are accessible.
+- **Credential Management**  
 
-- **Audit & Compliance** — Comprehensive logging and continuous monitoring of agent activities allow organizations to maintain full transparency over automated processes. This supports regulatory compliance, enables forensic investigations, and helps detect unusual or unauthorized behavior promptly.
+{{ product_name }} supports multiple authentication methods tailored for AI agents, including client credentials today and JWT-based authentication coming soon. These methods provide flexibility to integrate agents across various environments securely, with built-in mechanisms for credential rotation, expiration, and revocation to minimize risk.
+
+- **Access Control**  
+
+Through fine-grained permissions and role-based access control (RBAC), organizations can assign precise privileges to each agent. This ensures agents operate with the minimum necessary permissions, reducing attack surfaces and enforcing strict boundaries on what actions and resources are accessible.
+
+- **Audit & Compliance**  
+
+Comprehensive logging and continuous monitoring of agent activities allow organizations to maintain full transparency over automated processes. This supports regulatory compliance, enables forensic investigations, and helps detect unusual or unauthorized behavior promptly.
 
 In the next few pages, you will learn {{ product_name }} Agent Identity Management in detail.
