@@ -33,8 +33,8 @@ We are actively working on providing enhanced authentication options to improve 
 
 To maintain robust security for your AI agents, adhere to the following guidelines:
 
-- **Regular Rotation:** Automate credential rotation and ensure your agents can seamlessly update credentials without downtime.
-- **Secure Storage:** Avoid hardcoding credentials or keys in source code. Use dedicated secrets management systems like HashiCorp Vault, AWS Secrets Manager, or Azure Key Vault, and limit access strictly.
-- **Use Environment Variables:** Inject credentials dynamically at runtime through environment variables or secure configuration files, keeping them out of source control.
-- **Immediate Revocation:** Revoke credentials immediately upon suspected compromise and monitor usage logs for anomalies.
-- **Audit and Monitoring:** Enable comprehensive logging of authentication events and review logs regularly to detect unauthorized activity early.
+* **Regular Rotation:** Automate credential rotation and ensure your agents can seamlessly update credentials without downtime.
+* **Secure Storage:** Avoid hardcoding credentials or keys in source code. Use dedicated secrets management systems like HashiCorp Vault, AWS Secrets Manager, or Azure Key Vault, and limit access strictly.
+* **Use Environment Variables:** Inject credentials dynamically at runtime through environment variables or secure configuration files, keeping them out of source control.
+* **Immediate Revocation:** Revoke credentials immediately upon suspected compromise and monitor usage logs for anomalies.
+* **Audit and Monitoring:** Enable comprehensive logging of authentication events and review logs regularly to detect unauthorized activity early.
