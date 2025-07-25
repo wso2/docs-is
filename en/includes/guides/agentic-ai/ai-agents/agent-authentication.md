@@ -15,7 +15,7 @@ In this scenario, the AI agent performs operations autonomously without user inv
 
 When acting on its own, the AI agent uses its **Agent ID** and **Agent Secret** to authenticate with the authorization server and obtain an access token.
 
-![Agent Acting on its Own Flow Diagram](../../../../assets/img/guides/agentic-ai/ai-agent-identity-token-flow.png)
+![Agent Acting on its Own Flow Diagram](../../../assets/img/guides/agentic-ai/ai-agent-identity-token-flow.png)
 
 * The AI agent begins the authentication flow by initiating an authorize request.
 
@@ -137,7 +137,7 @@ When an AI agent needs to act on behalf of a user—such as initiating a transac
 
 This scenario follows an enhanced authorization code flow, inspired by the [OAuth for AI Agents IETF draft](https://datatracker.ietf.org/doc/draft-oauth-ai-agents-on-behalf-of-user/), which introduces a structured delegation model using an `actor_token`.
 
-![Agent Acting on-behalf-of User Flow Diagram](../../../../assets/img/guides/agentic-ai/ai-agent-on-behalf-flow.png)
+![Agent Acting on-behalf-of User Flow Diagram](../../../assets/img/guides/agentic-ai/ai-agent-on-behalf-flow.png)
 
 As shown in the above sequence diagram, the flow proceeds as follows.
 
