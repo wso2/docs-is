@@ -748,11 +748,11 @@ nav:
         - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
       - Agentic AI:
         - Identity for AI Agents:
-          - Identity for AI Agents: guides/agentic-ai/ai-agents/index.md
-          - Register and Manage Agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
-          - Agent Credentials: guides/agentic-ai/ai-agents/agent-credentials.md
-          - Access Control for Agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
-          - Agent Authentication: guides/agentic-ai/ai-agents/agent-authentication.md
+          - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
+          - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
+          - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
+          - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
+          - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
