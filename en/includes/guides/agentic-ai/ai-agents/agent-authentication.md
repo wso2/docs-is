@@ -14,7 +14,7 @@ Each scenario leverages standard or emerging OAuth 2.0-based protocols to ensure
 ---
 
 <!-- vale off -->
-## AI Agent Acting on Its Own
+## AI agent acting on its own
 <!-- vale on -->
 
 In this scenario, the AI agent operates autonomously without user involvement, supporting background processes, monitoring tasks, and independently running automation workflows.
