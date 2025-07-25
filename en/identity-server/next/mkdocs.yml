@@ -749,9 +749,9 @@ nav:
       - Agentic AI:
         - Identity for AI Agents:
           - Identity for AI Agents: guides/agentic-ai/ai-agents/index.md
-          - Register & Manage AI Agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
+          - Register and Manage Agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
           - Agent Credentials: guides/agentic-ai/ai-agents/agent-credentials.md
-          - Access Control: guides/agentic-ai/ai-agents/access-control-for-agents.md
+          - Access Control for Agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
           - Agent Authentication: guides/agentic-ai/ai-agents/agent-authentication.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md

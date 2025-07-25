@@ -9,7 +9,7 @@ Each scenario leverages standard or emerging OAuth 2.0-based protocols to ensure
 
 ---
 
-## Agent Acting on Its Own
+## AI Agent Acting on Its Own
 
 In this scenario, the AI agent performs operations autonomously without user involvement. This is suitable for background processes, monitoring tasks, or automation workflows that operate independently.
 
@@ -131,7 +131,7 @@ curl --location '{{ api_base_path }}/oauth2/token' \
 --data-urlencode 'resource=booking_api'
 ```
 
-## 2. Agent Acting on Behalf of a User
+## AI Agent Acting on Behalf of a User
 
 When an AI agent needs to act on behalf of a user—such as initiating a transaction, making a booking, or retrieving user-specific data—it must do so with explicit user consent. This is typically required for user-facing assistants, copilots, or delegated decision-making agents.
 
