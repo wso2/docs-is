@@ -39,7 +39,7 @@ Registering an AI agent is the first step to bring an autonomous system into you
     - **Description** (optional): Purpose and functionality of the agent
 4. Click **Create** to complete the registration.
 
-Upon successful registration, the agent will be assigned a unique Agent ID, which serves as its permanent identifier within the system. You will also receive a secret credential required for authentication. This secret is shown only once at creation — make sure to store it securely for agent deployment. You may generate new credentials later if needed. For detailed information on managing credentials, refer to the [Agent Credentials]({{base_path}}/guides/agentic-ai/ai-agents/agent-credentials/) section.
+After successful registration, the agent receives a unique Agent ID that acts as its permanent identifier within the system. A secret credential is also issued at this point and is displayed only once. Be sure to store it securely for deployment. If needed, you can generate new credentials later. For detailed information on managing credentials, refer to the [Agent Credentials]({{base_path}}/guides/agentic-ai/ai-agents/agent-credentials/) section.
 
 ### Updating Agent Information
 

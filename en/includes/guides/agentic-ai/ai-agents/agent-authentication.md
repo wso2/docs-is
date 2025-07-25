@@ -1,17 +1,23 @@
+<!-- vale off -->
 # Authenticating AI Agents
+<!-- vale on -->
 
 This guide will walk you through how to authenticate AI agents into your applications secured by **{{ product_name }}**. It covers two key authentication scenarios:
 
-* When an AI agent is acting independently
-* When an AI agent is acting on behalf of a user
+* When an AI agent acts independently
+* When an AI agent acts on behalf of a user
 
+<!-- vale off -->
 Each scenario leverages standard or emerging OAuth 2.0-based protocols to ensure secure and scalable access delegation.
+<!-- vale on -->
 
 ---
 
+<!-- vale off -->
 ## AI Agent Acting on Its Own
+<!-- vale on -->
 
-In this scenario, the AI agent performs operations autonomously without user involvement. This is suitable for background processes, monitoring tasks, or automation workflows that operate independently.
+In this scenario, the AI agent operates autonomously without user involvement, supporting background processes, monitoring tasks, and independently running automation workflows.
 
 When acting on its own, the AI agent uses its **Agent ID** and **Agent Secret** to authenticate with the authorization server and obtain an access token.
 

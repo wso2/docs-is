@@ -43,11 +43,11 @@ For example, you can enforce a policy that permits only agents belonging to the 
 
 ### Future enhancements
 
-Looking ahead, {{ product_name }} will expand its capabilities to include comprehensive authorization control for AI agents, enabling fine-grained, attribute-based permissioning within applications. Planned improvements include,
+Looking ahead, {{ product_name }} will expand its capabilities to include comprehensive authorization control for AI agents, enabling fine-grained, attribute-based access control within applications. Planned improvements include,
 
 - Support for hierarchical and multi-dimensional attribute structures
 
-- Policy-Based Access Control (PBAC) that combines multiple policies for nuanced authorization decisions
+- Policy-Based Access Control (PBAC) that combines composite policies for nuanced authorization decisions
 
 - Enhanced audit and compliance reporting for agent access and actions
 
