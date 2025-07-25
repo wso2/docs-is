@@ -17,7 +17,7 @@ When acting on its own, the AI agent uses its **Agent ID** and **Agent Secret** 
 
 ![Agent Acting on its Own Flow Diagram](../../../../assets/img/guides/agentic-ai/ai-agent-identity-token-flow.png)
 
-- The AI agent begins the authentication flow by initiating an authorize request.
+* The AI agent begins the authentication flow by initiating an authorize request.
 
 ```java
 curl --location '{{api_base_path}}/oauth2/authorize' \
@@ -90,7 +90,7 @@ The agent receives the following response that contains key components like the 
 }
 ```
 
-- The agent makes a POST request to the `/authn` endpoint using the Authentication API. The payload of this request includes the flowId and the selectedAuthenticator object which contains credentials for the user-selected authentication option.
+* The agent makes a POST request to the `/authn` endpoint using the Authentication API. The payload of this request includes the flowId and the selectedAuthenticator object which contains credentials for the user-selected authentication option.
 
 ```bash
 curl --location '{{ api_base_path }}/oauth2/authn' \
@@ -118,7 +118,7 @@ If the request is successful, the agent will receive a response with the followi
 }
 ```
 
-- As the final step, the agent sends a token request with the received authorization code to the authorization server’s token endpoint, using its own credentials (Agent ID and Secret). The server verifies these credentials, and upon successful authentication, issues an access token. The agent then includes this access token in its requests to securely access protected resources.
+* As the final step, the agent sends a token request with the received authorization code to the authorization server’s token endpoint, using its own credentials (Agent ID and Secret). The server verifies these credentials, and upon successful authentication, issues an access token. The agent then includes this access token in its requests to securely access protected resources.
 
 ```bash
 curl --location '{{ api_base_path }}/oauth2/token' \
