@@ -245,6 +245,8 @@ extra:
     Javascript Quickstart:
       icon: fontawesome/brands/js
       level: 3
+    Spring Boot:
+      icon: assets/libs/custom-icons/spring-boot.svg
     Spring Boot Quickstart:
       icon: assets/libs/custom-icons/spring-boot.svg
     Frontend Security:
