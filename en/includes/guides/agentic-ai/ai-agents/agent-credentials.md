@@ -1,7 +1,7 @@
 {{ product_name }} offers several authentication options tailored for AI agents, letting you choose the best fit based on your security needs and integration preferences.
 
 <!-- vale off -->
-### Agent ID and secret (Default Method)
+### Agent ID and secret (default method)
 <!-- vale on -->
 
 This is the most widely used authentication method for agents on {{ product_name }}. Each agent is assigned a unique **Agent ID** paired with a secret that functions similarly to a password. The agent authenticates by presenting this credential pair.
