@@ -61,11 +61,11 @@ extra:
           - title: Connect Next.js App
             url: Get started|Connect App|Next.js|Quickstart
           - title: Connect Node.js App
-            url: Get started|Connect App|Node.js Guide
+            url: Get started|Connect App|Node.js|Complete Guide
           - title: Connect .NET App
-            url: Get started|Connect App|.NET Guide 
+            url: Get started|Connect App|.NET|Complete Guide
           - title: Connect Spring Boot App
-            url: Get started|Connect App|Spring Boot Quickstart
+            url: Get started|Connect App|Spring Boot|Quickstart
     - section:
       - title: Guides
         icon: octicons/book-16
