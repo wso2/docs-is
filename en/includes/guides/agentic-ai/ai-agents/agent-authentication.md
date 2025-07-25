@@ -137,7 +137,7 @@ curl --location '{{ api_base_path }}/oauth2/token' \
 --data-urlencode 'resource=booking_api'
 ```
 
-## AI Agent Acting on Behalf of a User
+## AI agent acting on behalf of a user
 
 When an AI agent needs to act on behalf of a user—such as initiating a transaction, making a booking, or retrieving user-specific data—it must do so with explicit user consent. This is typically required for user-facing assistants, copilots, or delegated decision-making agents.
 
