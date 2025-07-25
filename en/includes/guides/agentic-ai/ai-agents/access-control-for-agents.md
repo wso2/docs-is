@@ -21,13 +21,13 @@ To assign a role to an AI agent in {{ product_name }},
 5. Select the Agent/s that you need to assign the role.
 6. Click Save.
 
-### Viewing Assigned Roles of an Agent
+### Viewing assigned roles of an agent
 
 1. On the {{ product_name }} Console, go to **Agents**.
 2. Click on the agent you want to view details.
 3. In the **Roles** tab, you can see the roles assigned to the agent.
 
-## Attribute-Based Access Control (ABAC)
+## Attribute-based access control
 
 {{ product_name }} supports controlling agent authentication to applications through an Attribute-Based Access Control (ABAC) model, providing flexible and dynamic access decisions based on agent attributes. This model aligns with the attribute-driven controls used for user authentication, enabling consistent security policies across all identities.
 
@@ -41,7 +41,7 @@ Using [conditional authentication]({{base_path}}/references/conditional-auth/api
 
 For example, you can enforce a policy that permits only agents belonging to the “Support” department to access a particular application during standard business hours, enhancing both security and compliance.
 
-### Future Enhancements
+### Future enhancements
 
 Looking ahead, {{ product_name }} will expand its capabilities to include comprehensive authorization control for AI agents, enabling fine-grained, attribute-based permissioning within applications. Planned improvements include,
 
