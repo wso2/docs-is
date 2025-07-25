@@ -41,7 +41,7 @@ Registering an AI agent is the first step to bring an autonomous system into you
 
 After successful registration, the agent receives a unique Agent ID that acts as its permanent identifier within the system. A secret credential is also issued at this point and is displayed only once. Be sure to store it securely for deployment. If needed, you can generate new credentials later. For detailed information on managing credentials, refer to the [Agent Credentials]({{base_path}}/guides/agentic-ai/ai-agents/agent-credentials/) section.
 
-### Updating Agent Information
+### Updating agent information
 
 Keeping your AI agent’s information current ensures smooth operation and compliance.
 
@@ -52,7 +52,7 @@ Keeping your AI agent’s information current ensures smooth operation and compl
 
 Regular updates are recommended whenever there is a change in the agent’s role, purpose, or operational environment.
 
-### Deactivating an Agent
+### Deactivating an agent
 
 Deactivation is a vital security control used to temporarily suspend an AI agent’s access and functionality without deleting its data. This can be useful during maintenance windows, incident investigations, or when an agent is no longer needed temporarily.
 
@@ -65,7 +65,7 @@ Deactivation is a vital security control used to temporarily suspend an AI agent
     !!! warning
         Deactivating an AI agent will immediately revoke all its active access tokens, rendering any existing sessions invalid. Furthermore, it prevents the agent from initiating any new authentication attempts, effectively halting its operations until it's reactivated.
 
-### Deleting an Agent
+### Deleting an agent
 
 Deleting an AI agent permanently removes the agent and all associated data, including credentials and configurations. This action is irreversible and should only be performed when you are certain that the agent is no longer needed.
 
@@ -75,7 +75,7 @@ Deleting an AI agent permanently removes the agent and all associated data, incl
 4. Click **Delete agent**.
 5. Confirm the deletion when prompted.
 
-## Best Practices
+## Best practices
 
 - Apply the Principle of Least Privilege
 
