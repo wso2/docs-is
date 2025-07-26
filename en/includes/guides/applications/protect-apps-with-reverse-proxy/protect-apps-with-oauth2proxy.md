@@ -63,7 +63,7 @@ OAuth2 Proxy is an open-source reverse proxy that authenticates users via an ext
 ### 2.2 Set Up Your Backend
 
 If you don’t have a backend, you can use the sample Java app:
-download here https://drive.google.com/file/d/18SJfZY99JdBjVZyQh7PkRAVjBl1NNTqk/view
+download [here]
 
 ```sh
 cd path/to/app/folder
