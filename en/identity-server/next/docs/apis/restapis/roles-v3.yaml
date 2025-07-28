@@ -558,7 +558,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PUT 'https://localhost:9443/scim2/v3/Roles/{role-id}/Users' \
+            curl -X 'PUT' 'https://localhost:9443/scim2/v3/Roles/{role-id}/Users' \
             --header 'accept: application/scim+json' \
             --header 'Content-Type: application/scim+json' \
             --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -624,7 +624,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PATCH 'https://localhost:9443/scim2/v3/Roles/{role-id}/Users' \
+            curl -X 'PATCH' 'https://localhost:9443/scim2/v3/Roles/{role-id}/Users' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -714,7 +714,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PUT 'https://localhost:9443/scim2/v3/Roles/{role-id}/Groups' \
+            curl -X 'PUT' 'https://localhost:9443/scim2/v3/Roles/{role-id}/Groups' \
             --header 'accept: application/scim+json' \
             --header 'Content-Type: application/scim+json' \
             --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -781,7 +781,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PATCH 'https://localhost:9443/scim2/v3/Roles/{role-id}/Groups' \
+            curl -X 'PATCH' 'https://localhost:9443/scim2/v3/Roles/{role-id}/Groups' \
             --header 'accept: application/scim+json' \
             --header 'Content-Type: application/scim+json' \
             --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
