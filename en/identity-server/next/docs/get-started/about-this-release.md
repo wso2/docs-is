@@ -277,7 +277,7 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
 - **SCIM2 Roles V3 API for Granular Role Management**
 
-    The SCIM2 Roles API has been enhanced to introduce a **SCIM2 Roles V3 API**, which separates role metadata management and role assignment into distinct permission sets. This allows more granular control by assigning different responsibilities to different user roles.
+    The latest update introduces a **SCIM2 Roles V3 API** for the SCIM2 Roles API. This version separates role metadata management and role assignment into distinct permission sets. You can now assign different responsibilities to different user roles for more granular control.
 
     This change applies only if explicitly enabled from the server configuration in WSO2 Identity Server 7.2. Existing setups continue to use the current behavior unless updated.
 

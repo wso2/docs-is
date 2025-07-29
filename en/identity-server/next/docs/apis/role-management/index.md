@@ -2,7 +2,7 @@
 
 WSO2 Identity Server supports role management through different versions of the SCIM2 Roles API.
 
-## Roles V3 API
+## Roles API (V3)
 
 The SCIM2 Roles V3 API introduces a permission model that separates role metadata management and role assignment operations. This allows administrators to delegate responsibilities more precisely—for example, allowing one set of users to create and edit roles, while another manages user and group assignments.
 
@@ -22,12 +22,12 @@ Once enabled, the API resource related to the Roles V3 API will become available
 
 - The `internal_role_mgt_update` permission handled both role metadata updates and role assignments. V3 splits these operations as below:
 
-    - `internal_role_mgt_meta_update`: for metadata updates.
+  - `internal_role_mgt_meta_update`: for metadata updates.
 
-    - `internal_role_mgt_users_update`: for user assignments.
+  - `internal_role_mgt_users_update`: for user assignments.
 
-    - `internal_role_mgt_groups_update`: for group assignments.
-    
+  - `internal_role_mgt_groups_update`: for group assignments.
+
 - Console roles with permissions `Roles` lose assignment privileges under V3. To keep role assignment capabilities, update these roles to include `Role Assignments` permissions.
 
 ### Register SCIM2 Roles V1/V2 API under an application (optional)
@@ -38,10 +38,10 @@ Once enabled, the API resource related to the Roles V3 API will become available
 
 ### Add role assignment permission to existing console roles (optional)
 
-1. On the WSO2 Identity Server Console, go to Console Settings.
-2. Select the Roles tab.
+1. On the WSO2 Identity Server Console, go to **Console Settings**.
+2. Select the **Roles** tab.
 3. Click on the role to update.
-4. Select permissions tab.
+4. Select **Permissions** tab.
 
     ![Role Permissions View]({{base_path}}/assets/img/apis/management-apis/role-management/role-view.png)
 
@@ -50,8 +50,3 @@ Once enabled, the API resource related to the Roles V3 API will become available
     ![Role Permissions View]({{base_path}}/assets/img/apis/management-apis/role-management/role-assignment-permission.png)
 
 6. Choose the privilege level accordingly (Give edit permission if `Roles` also has edit permissions).
-
-## Roles V2 API
-
-## Roles V1 API (Deprecated)
-
