@@ -411,7 +411,7 @@ will be terminated.
 <td>GroupLastModified<br>DateAttribute</td>
 <td>group_modified_timestamp_attribute</td>
 <td>Group Last Modified Date Attribute</td>
-<td>Specifies the LDAP attribute that indicates the last modification time of a group.</td>
+<td>LDAP attribute that specifies the timestamp when a group was last modified. </td>
 </tr>
 </tbody>
 </table>
