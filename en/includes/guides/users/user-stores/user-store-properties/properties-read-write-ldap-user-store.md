@@ -399,7 +399,7 @@ will be terminated.
 <td>GroupIdAttribute</td>
 <td>group_id_attribute</td>
 <td>Group Id Attribute</td>
-<td>Defines which LDAP attribute should be used as the SCIM group ID</td>
+<td>LDAP attribute that should be used as the SCIM group ID</td>
 </tr>
 <tr class="even">
 <td>GroupCreated<br>DateAttribute</td>
