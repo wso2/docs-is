@@ -275,6 +275,14 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
     
     Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
 
+- **SCIM2 Roles V3 API for Granular Role Management**
+
+    The SCIM2 Roles API has been enhanced to introduce a **SCIM2 Roles V3 API**, which separates role metadata management and role assignment into distinct permission sets. This allows more granular control by assigning different responsibilities to different user roles.
+
+    This change applies only if explicitly enabled from the server configuration in WSO2 Identity Server 7.2. Existing setups continue to use the current behavior unless updated.
+
+    Learn more about using [SCIM2 Roles V3 API and updated permission mappings]({{base_path}}/apis/role-management).
+
 ## Deprecated features
 
 In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).

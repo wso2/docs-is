@@ -938,8 +938,9 @@ nav:
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
       - Role management:
-          - Roles v2 API: apis/roles-v2-rest-api.md
-          - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
+          - Role management: apis/role-management/index.md
+          - Roles v2 API: apis/role-management/roles-v2-rest-api.md
+          - Roles v1 API (deprecated): apis/role-management/roles-v1-rest-api.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md   
       - Server management:
         - Configuration management:
