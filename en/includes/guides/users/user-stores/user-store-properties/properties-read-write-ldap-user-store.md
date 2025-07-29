@@ -405,7 +405,7 @@ will be terminated.
 <td>GroupCreated<br>DateAttribute</td>
 <td>group_created_timestamp_attribute</td>
 <td>Group Created Date Attribute</td>
-<td>Specifies the LDAP attribute that represents the group's creation time.</td>
+<td>LDAP attribute that specifies the timestamp when a group was created.</td>
 </tr>
 <tr class="odd">
 <td>GroupLastModified<br>DateAttribute</td>
