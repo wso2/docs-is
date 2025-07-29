@@ -402,6 +402,7 @@ plugins:
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
+        'apis/roles-v3-rest-api.md': 'apis/role-management/roles-v3-rest-api.md'
         'apis/roles-v2-rest-api.md': 'apis/role-management/roles-v2-rest-api.md'
         'apis/roles-v1-rest-api.md': 'apis/role-management/roles-v1-rest-api.md'
         'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
@@ -941,7 +942,7 @@ nav:
       - Organization management API: apis/organization-mgt-rest-api.md
       - Role management:
           - Role management: apis/role-management/index.md
-          - Roles v3 API: apis/roles-v3-rest-api.md
+          - Roles v3 API: apis/role-management/roles-v3-rest-api.md
           - Roles v2 API (deprecated): apis/role-management/roles-v2-rest-api.md
           - Roles v1 API (deprecated): apis/role-management/roles-v1-rest-api.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md   
