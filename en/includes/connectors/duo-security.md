@@ -14,56 +14,82 @@ The following guide explains how you can install and set up Duo Security in WSO2
 
 ### Prerequisites
 
-- Add a **Web SDK** app in your Duo Security dashboard and get its client ID and secret.  
+Make sure you configure the following in the Duo Security dashboard and get the necessary credentials.
+
+- Add a **Web SDK** app and get its client ID and secret.  
   See [Duo Security docs](https://duo.com/docs/protecting-applications#add-an-application){: target="_blank" } for details.
 
 - (Optional) To verify users’ mobile numbers, integrate the Duo Admin API:  
     - Create an Admin API app and get its integration key and secret.  
     - Grant it **Grant resource - Read** permission to access user and device info.
 
-    See [Duo Admin API docs](https://duo.com/docs/adminapi#overview){: target="_blank" } for more information.
+    See [Duo Admin API docs](https://duo.com/docs/adminapi#overview){: target="_blank" } for details.
 
-### Step 1: (Optional) Add the 
+### Step 1: Install the Duo Security connector
 
-## Step 1: Install the Duo connector
-### Deploying Duo Security artifacts
+Follow the steps below to install Duo Security in {{product_name}}.
 
-If you are migrating to IS 7.0.0 from a previous version, please go through the [Migration Guide](#migration-guide) before proceeding with the following steps.
+1. Download the project artifacts from the {{product_name}} [connector store](https://store.wso2.com/connector/identity-outbound-auth-duo){: target="_blank"}.
 
-To download the authenticator and artifacts, go to the [WSO2 store](https://store.wso2.com/connector/identity-outbound-auth-duo).
+2. Copy the following artifacts into the relevant directories in {{product_name}}:
 
-1. Place the `org.wso2.carbon.extension.identity.authenticator.duo.connector-4.x.x.jar` file into the `<IS_HOME>/repository/components/dropins` directory.
+      - Copy the `org.wso2.carbon.extension.identity.authenticator.duo.connector-4.x.x.jar` file into the `<IS_HOME>/repository/components/dropins` directory.
 
-2. From the artifacts, copy the `is-7.0.0/template/duo` directory and paste it in the `<IS_HOME>/repository/resources/identity/extensions/connections` directory.
+      - Copy the `is-7.0.0/template/duo` directory and paste it in the `<IS_HOME>/repository/resources/identity/extensions/connections` directory. *If migrating from a different {{product_name}} version, read the note at the end of the section to select the right template for you*.
 
-3. Copy the `is-7.0.0/images/duo` directory and paste it in the `<IS_HOME>/repository/deployment/server/webapps/console/resources/connections/assets/images` directory.
+      - Copy the `is-7.0.0/images/duo` directory and paste it in the `<IS_HOME>/repository/deployment/server/webapps/console/resources/connections/assets/images` directory.
 
-4. To enable the Duo Security authenticator, add the following configuration to the
-   `<IS_HOME>/repository/conf/deployment.toml` file.
+3. To enable the Duo Security authenticator, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ```toml
     [authentication.authenticator.DuoAuthenticator]
     name="DuoAuthenticator"
     enable=true
     ```
-5. If you are migrating to IS 7.0.0 from a previous version, add the following configuration to the
-   `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    ```toml
-    [authentication.authenticator.DuoAuthenticator.parameters]
-    EnableUsernameAsDuoIdentifier=true
-    ```
-    
-6. Optionally, to verify the user store user's mobile number with the same user's mobile number in Duo Security, add the following configuration to the
-   `<IS_HOME>/repository/conf/deployment.toml` file. This verification requires the Admin API credentials that we configured above.
+4. Restart {{product_name}}.
+
+!!! note "[Important] Migrating from a previous {{product_name}} version?"
+
+    If you are migrating to {{product_name}} 7.0.0 from a previous version, note the following changes to the Duo Security connector.
+
+    - **Change in user identifier** - In previous versions, Duo enrollment used the username as the unique identifier. Starting from 7.0.0, the user ID is used instead. As a result, users who enrolled using their username must re-enroll to continue using Duo with {{product_name}}.
+
+         If you prefer to keep the old behavior, add the following configuration to your `<IS_HOME>/repository/conf/deployment.toml` file.
+
+         ```toml
+         [authentication.authenticator.DuoAuthenticator.parameters]
+         EnableUsernameAsDuoIdentifier=true
+         ```
+
+    - **Change in username formatting options** - Since user IDs are now used, the Duo template no longer supports the following properties:
+
+        - Disable User Store – controls whether to append the user store domain to the username.
+
+        - Disable Tenant Domain – controls whether to append the tenant domain to the username.
+
+        If you enable the old behavior (`EnableUsernameAsDuoIdentifier=true`), these options are still relevant. In this case,
+
+        -  when deploying artifacts, make sure to use the content from the `migration-is-7.0.0/template/duo` directory instead of `is-7.0.0/template/duo`.
+        - Ensure correct values are set for **Disable User Store** and **Disable Tenant Domain** in the template.
+
+### Step 2: Configure connector options
+
+Configure the following settings to use the Duo Security connector with these use cases:
+
+- **Verify mobile numbers during Duo login**: To verify that the mobile number registered in {{product_name}} matches the one registered in Duo, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ```toml
     [authentication.authenticator.DuoAuthenticator.parameters]
     EnableMobileVerification=true
     ```
->> NOTE : When you update the mobile claim in user profile , use the same format of mobile number with country code as you registered in the DUO site. (i.e +9477*******)
 
-7. Optionally, if Duo authenticator is configured as the second factor in multi-factor authentication where a federated identity provider is configured as the first step, the following properties should be configured.
+    !!! note "Mobile number format"
+
+        For successful validation, mobile numbers in {{product_name}} should use the same format in Duo i.e., country code + phone number (e.g., +9477****).
+
+- **Use Duo as the second factor when using a federated identity provider as the first factor**: Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
     ```toml
     [authentication.authenticator.DuoAuthenticator.parameters]
     usecase="association"
@@ -72,14 +98,16 @@ To download the authenticator and artifacts, go to the [WSO2 store](https://stor
     secondaryUserstore="primary"
     ```
 
-- `sendDuoToFederatedMobileAttribute` - This specifies whether the mobile number claim should be taken from the claims provided by the Identity Provider.
-- `federatedMobileNumberAttributeKey` - This specifies the value of the mobile claim provided by the Identity Provider. This property must be configured if the `sendDuoToFederatedMobileAttribute` is `true`.
-- `usecase` - This field can take one of the following values: local, association, userAttribute, subjectUri. If you do not specify any usecase, the default value is local.
-- `secondaryUserstore` - The user store configuration is maintained per tenant as comma separated values. For example, <Parameter name="secondaryUserstore">jdbc, abc, and xyz</Parameter>.
+    - `sendDuoToFederatedMobileAttribute` - If set to `true`, Duo will receive the mobile number attribute from the external identity provider.
+
+    - `federatedMobileNumberAttributeKey` - If `sendDuoToFederatedMobileAttribute` set to `true`, you must provide the mobile number attribute key received from the external identity provider.
+
+    - `usecase` - This field can take one of the following values: local, association, userAttribute, subjectUri. If you do not specify any usecase, the default value is local.
+    - `secondaryUserstore` - The user store configuration is maintained per tenant as comma separated values. For example, <Parameter name="secondaryUserstore">jdbc, abc, and xyz</Parameter>.
 
   The usecase value can be `local`, `association`,
-  `             userAttribute            ` or
-  `             subjectUri            ` .
+  `userAttribute` or
+  `subjectUri` .
 
     <table>
     <tbody>
@@ -125,21 +153,6 @@ To download the authenticator and artifacts, go to the [WSO2 store](https://stor
     </tbody>
     </table>
 
-### Migration Guide
-If you are migrating to IS 7.0.0 from a previous version, you need to consider the following points.
-
-Prior to IS 7.0.0, the username was used as the unique identifier when enrolling users in Duo. Since IS 7.0.0, the user ID is used instead of the username for user enrolment.
-Users who are already enrolled in Duo will have to go through the enrolment process again because the new identifier will be used for the first time.
-If you wish to preserve the previous behaviour, you can set the `EnableUsernameAsDuoIdentifier` parameter to `true` in the `deployment.toml` file.
-```toml
-[authentication.authenticator.DuoAuthenticator.parameters]
-EnableUsernameAsDuoIdentifier=true
-```
-
-Further, two properties (Disable User Store and Disable Tenant Domain) were used to append the user store domain and tenant domain to the username in the previous versions.
-In IS 7.0.0, the new Duo template does not include these properties since the username is not used for the Duo identifier. 
-If you wish to add them to the template, make sure to use the content from the `migration-is-7.0.0/template/duo` directory when deploying the Duo Security artifacts.
-Also make sure that the correct values are set for the two properties.
 
 ### Configuring the Duo connection
 Now you have to configure WSO2 Identity Server by adding adding it as a new connection.
