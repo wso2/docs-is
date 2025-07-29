@@ -248,3 +248,79 @@ To customize the JDBC log pattern, execute a command similar to the following ex
     ```
 
 You can include any combination of the available fields based on your requirements.
+
+## LDAP Tracing with OpenTelemetry
+
+!!! note
+    By default this feature is disabled, as it may impact performance.
+
+The WSO2 Identity Server supports OpenTelemetry-based tracing for LDAP operations, enabling improved observability and
+diagnostics for key identity interactions such as user search, bind, and lookup.
+
+The implementation wraps the LdapContext to create OpenTelemetry spans for common LDAP methods. These spans can be
+captured by an OpenTelemetry agent (such as the Datadog Java Agent) using standard OTel mechanisms and visualized in
+tools like Datadog or Jaeger.
+
+### How It Works
+
+When enabled, the server wraps the standard LdapContext with an OpenTelemetry-instrumented implementation. Each call to
+operations like search, bind, or lookup results in a span being generated.
+
+Spans include key metadata such as:
+
+- LDAP operation type
+- LDAP provider details
+- Base DN or target DN (if applicable)
+- Search filters and attributes (if applicable)
+- Execution duration
+- Error status (if applicable)
+
+The spans are exported through the OpenTelemetry SDK. It is expected that an agent (e.g., Datadog Java Agent) handles
+the export to external observability platforms. A sample span content should resemble the following (extracted from
+Datadog for the `ldap.search` operation):
+
+```json
+{
+  "ldap": {
+    "filter": "(&(objectClass=***)(member=uid=***,ou=***,dc=***,dc=***))",
+    "search": {
+      "controls": "{scope=2, countLimit=0, timeLimit=0, returningAttributes=[cn], derefLinkFlag=false, returningObjFlag=false}"
+    },
+    "success": "true",
+    "dn": "ou=***,dc=***,dc=***"
+  },
+  "peer": {
+    "hostname": "localhost",
+    "port": 10390,
+    "service": "ldap"
+  },
+  "correlation_id": "8787f3ba-6149-4aa7-a620-77889664bae3",
+  "language": "java",
+  "thread": {
+    "name": "https-jsse-nio-9443-exec-9",
+    "id": 244
+  },
+  "env": "dev",
+  "version": "1.0",
+  "span": {
+    "kind": "client"
+  },
+  "duration": 1211208
+}
+```
+
+### Configuration
+
+To enable LDAP tracing with OpenTelemetry in WSO2 Identity Server, a dedicated configuration section
+`[tracing.opentelemetry]` is available in the deployment.toml file. A sample configuration is shown below:
+
+```toml
+[tracing.opentelemetry]
+ldap.enabled = true
+ldap.scope_name = "wso2isldap"
+```
+
+| Configuration Parameter | Description                                                                                                                                                              |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ldap.enabled`          | Enables OpenTelemetry-based tracing for LDAP operations. When set to `true`, WSO2 IS instruments LDAP interactions such as search, bind, and lookup. Default is `false`. |
+| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for LDAP spans. Default is `"wso2isldap"`.                                                                          |
