@@ -402,6 +402,8 @@ plugins:
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
+        'apis/roles-v2-rest-api.md': 'apis/role-management/roles-v2-rest-api.md'
+        'apis/roles-v1-rest-api.md': 'apis/role-management/roles-v1-rest-api.md'
         'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
         'apis/scim2-groups-rest-apis.md': 'apis/scim2/scim2-groups-rest-api.md'
         'apis/scim2-patch-operations.md': 'apis/scim2/scim2-patch-operations.md'
