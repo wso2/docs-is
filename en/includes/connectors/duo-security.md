@@ -75,7 +75,7 @@ Follow the steps below to install Duo Security in {{product_name}}.
 
 ### Step 2: Configure connector options
 
-Configure the following settings to use the Duo Security connector with these use cases:
+Configure the settings below to use Duo Security connector for these specific use cases.
 
 - **Verify mobile numbers during Duo login**: To verify that the mobile number registered in {{product_name}} matches the one registered in Duo, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
@@ -98,68 +98,76 @@ Configure the following settings to use the Duo Security connector with these us
     secondaryUserstore="primary"
     ```
 
-    - `sendDuoToFederatedMobileAttribute` - If set to `true`, Duo will receive the mobile number attribute from the external identity provider.
+    - `sendDuoToFederatedMobileAttribute` - If set to **true**, Duo will receive the mobile number attribute from the external identity provider.
 
-    - `federatedMobileNumberAttributeKey` - If `sendDuoToFederatedMobileAttribute` set to `true`, you must provide the mobile number attribute key received from the external identity provider.
+    - `federatedMobileNumberAttributeKey` - If `sendDuoToFederatedMobileAttribute` set to **true**, you must provide the mobile number attribute key received from the external identity provider.
 
-    - `usecase` - This field can take one of the following values: local, association, userAttribute, subjectUri. If you do not specify any usecase, the default value is local.
+    - `usecase` - You must specify how {{product_name}} determines the local username to use during MFA with Duo. This can take local, association, userAttribute or subjectUri:
+
+        ??? note "Learn more about these values"
+
+            <table>
+            <tr>
+               <td>local</td>
+               <td>The default value for <code>usecase</code>. If set to local, username coming from the external identity provider should exactly match the username in the local user store.</td>
+            </tr>
+            <tr>
+            <td>association</td>
+            <td>If set to <b>association</b>, {{product_name}} looks up a predetermined association set up in users' profiles. To associate the external account with a local account, log into the End User Dashboard and go to <strong>Associated Account</strong> by clicking <strong>View details</strong></td>
+            </tr>
+            <tr>
+            <td>userAttribute</td>
+            <td>
+            If set to <b>userAttribute</b>, {{product_name}} retrieves the username directly from the claims returned by the external identity provider. To define which attributes to use, add the following configuration to the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file. </br></br>
+
+            In Duo authenticator configurations, specify which attribute of the federated identity provider works as the user's identifier.
+
+            <pre><code>
+            [authentication.authenticator.DuoAuthenticator]
+            userAttribute = "mobile"
+            </code></pre>
+
+            If you use Open ID Connect-supported authenticators such as LinkedIn, Foursquare, etc., for each authenticator, specify which claim to use as email address and mobile numbers. For example,
+
+            Facebook
+
+            <pre><code>
+               [authentication.authenticator.facebook.parameters]
+               EmailOTP-userAttribute = "mobile"
+               federatedEmailAttributeKey = "mobile"
+               </code></pre>
+
+            Foursquare
+
+            <pre><code>      
+            [[authentication.custom_authenticator]]
+            name= "Foursquare"
+            [authentication.custom_authenticator.parameters]
+            EmailOTP-userAttribute = "http://wso2.org/foursquare/claims/mobile"
+            federatedEmailAttributeKey = "http://wso2.org/foursquare/claims/mobile"
+            </code></pre>
+            </td>
+            </tr>
+            <tr>
+               <td>subjectUri</td>
+               <td> If set to <b>subjectUri</b>, {{product_name}} retrieves the username directly from the subject identifier.</td>
+            </tr>
+            </table>
+
     - `secondaryUserstore` - The user store configuration is maintained per tenant as comma separated values. For example, <Parameter name="secondaryUserstore">jdbc, abc, and xyz</Parameter>.
 
-  The usecase value can be `local`, `association`,
-  `userAttribute` or
-  `subjectUri` .
+### Step 3:  Configure the Duo connection
 
-    <table>
-    <tbody>
-    <tr class="odd">
-    <td><code>                 local                </code></td>
-    <td><p>This is based on the federated username. This is the default value. You must set the federated username in the localuserstore. Basically, the federated username must be the same as the local username.</p></td>
-    </tr>
-    <tr class="even">
-    <td><code>                 association                </code></td>
-    <td><p>The federated username must be associated with the local account in advance in the Dashboard. So the local username is retrieved from the association. To associate the user, log into the end user dashboard and go to <strong>Associated Account</strong> by clicking <strong>View details</strong> .</p></td>
-    </tr>
-    <tr class="odd">
-    <td><code>                 userAttribute                </code></td>
-    <td><div class="content-wrapper">
-    <p>The name of the  federatedauthenticator's user attribute. That is,the local user namewhich is contained in a federated user's attribute. When using this, add the following parameter under the <code>                   authentication.authenticator.DuoAuthenticator                  </code> section in the <code>                   &lt;IS_HOME&gt;/repository/conf/deployment.toml                  </code> file and put the value (e.g., email, screen_name, id, etc.).</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><p class="kw">[authentication.authenticator.DuoAuthenticator]</p><span class="st">userAttribute</span><span class="kw">&#61;</span>&quot;mobile&quot;</a></code></pre></div>
-    </div>
-    </div>
-    <p>If you use, OpenID Connect supported authenticators such as LinkedIn, Foursquare, etc., or in the case of multiple social login options as the first step and Duo as second step, you need to add similar configuration for the specific authenticator in the <code>                   &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file under the corresponding authenticator's configuration section section as follows (the following shows the configuration for Facebook and Foursquare  authenticator respectively).</p>
-    <p><b>Facebook</b></p>
-          <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">                
-     [authentication.authenticator.facebook.parameters]
-     EmailOTP-userAttribute = "mobile"
-     federatedEmailAttributeKey = "mobile"
-         </span></a></code></pre></div>                    
-     <p><b>Foursquare</b></p>
-          <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">               
-     [[authentication.custom_authenticator]]
-     name= "Foursquare"
-     [authentication.custom_authenticator.parameters]
-     EmailOTP-userAttribute = "http://wso2.org/foursquare/claims/mobile"
-     federatedEmailAttributeKey = "http://wso2.org/foursquare/claims/mobile"
-      </span></a></code></pre></div>                               
-    <p>Likewise, you can add the AuthenticatorConfig for Amazon, Google, Twitterand Instagram with relevant values.</p>
-    </div></td>
-    </tr>
-    <tr class="even">
-    <td><code>                 subjectUri                </code></td>
-    <td><p>When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in UI, this is used as the username of the Duo authenticator.</p></td>
-    </tr>
-    </tbody>
-    </table>
+Now that you have installed the Duo connector, follow the steps below to register Duo as a connection in {{product_name}}.
 
-
-### Configuring the Duo connection
-Now you have to configure WSO2 Identity Server by adding adding it as a new connection.
 1. Log in to the [Console Application ](https://is.docs.wso2.com/en/next/get-started/quick-set-up/#access-the-console) as an administrator.
+
 2. Navigate to **Connections**  >  **+ New Connection** and select Duo from the listed templates.
+
 3. Enter the client ID, client secret and the API hostname obtained from the above steps and create the connection.
+
    ![alt text](images/duo-template.png)
+
 6. Navigate to the **Settings** tab in the newly created Duo connection. If mobile number verification was enbaled, add the **Admin Integration Key** and the **Admin Secret Key**.
 
    ![alt text](images/duo-settings.png)
