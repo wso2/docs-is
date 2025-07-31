@@ -16,3 +16,4 @@ VSCode
 Markdownlint
 markdownlint
 dev
+hostname

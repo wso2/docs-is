@@ -35,7 +35,7 @@ Follow the steps below to install Duo Security in {{product_name}}.
 
       - Copy the `org.wso2.carbon.extension.identity.authenticator.duo.connector-4.x.x.jar` file into the `<IS_HOME>/repository/components/dropins` directory.
 
-      - Copy the `is-7.0.0/template/duo` directory and paste it in the `<IS_HOME>/repository/resources/identity/extensions/connections` directory. *If migrating from a different {{product_name}} version, read the note at the end of the section to select the right template for you*.
+      - Copy the `is-7.0.0/template/duo` directory and paste it in the `<IS_HOME>/repository/resources/identity/extensions/connections` directory. *If migrating from a previous {{product_name}} version, read the note at the end of the section to select the right template for you*.
 
       - Copy the `is-7.0.0/images/duo` directory and paste it in the `<IS_HOME>/repository/deployment/server/webapps/console/resources/connections/assets/images` directory.
 
@@ -62,7 +62,7 @@ Follow the steps below to install Duo Security in {{product_name}}.
          EnableUsernameAsDuoIdentifier=true
          ```
 
-    - **Change in username formatting options** - Since user IDs are now used, the Duo template no longer supports the following properties:
+    - **Change in username formatting options** - Since the new template uses user IDs, it no longer supports the following properties:
 
         - Disable User Store – controls whether to append the user store domain to the username.
 
@@ -102,7 +102,7 @@ Configure the settings below to use Duo Security connector for these specific us
 
     - `federatedMobileNumberAttributeKey` - If `sendDuoToFederatedMobileAttribute` set to **true**, you must provide the mobile number attribute key received from the external identity provider.
 
-    - `usecase` - You must specify how {{product_name}} determines the local username to use during MFA with Duo. This can take local, association, userAttribute or subjectUri:
+    - `usecase` - You must specify how {{product_name}} determines the local username to use during MFA with Duo. This can take **local**, **association**, **userAttribute** or **subjectUri**:
 
         ??? note "Learn more about these values"
 
@@ -160,33 +160,50 @@ Configure the settings below to use Duo Security connector for these specific us
 
 Now that you have installed the Duo connector, follow the steps below to register Duo as a connection in {{product_name}}.
 
-1. Log in to the [Console Application ](https://is.docs.wso2.com/en/next/get-started/quick-set-up/#access-the-console) as an administrator.
+1. Log in to the [Console Application](https://is.docs.wso2.com/en/next/get-started/quick-set-up/#access-the-console) as an administrator.
 
-2. Navigate to **Connections**  >  **+ New Connection** and select Duo from the listed templates.
+2. Go to **Connections**  >  **New Connection** and select Duo from the listed templates.
 
-3. Enter the client ID, client secret and the API hostname obtained from the above steps and create the connection.
+3. Enter the client ID, client secret and the API hostname that you received from Duo and click **Create**.
 
-   ![alt text](images/duo-template.png)
+      ![Dup template]({{base_path}}/assets/img/connectors/duo/duo-template.png)
 
-6. Navigate to the **Settings** tab in the newly created Duo connection. If mobile number verification was enbaled, add the **Admin Integration Key** and the **Admin Secret Key**.
+4. In the Duo connection you created, go to its **Settings** tab.
 
-   ![alt text](images/duo-settings.png)
-7. If you are migrating to IS 7.0.0 from a previous version, make sure the values set for **Disable User Store** and **Disable Tenant Domain** are correct.
-   >> NOTE :  Disable User Store Domain and Disable Tenant Domain are optional configurations. If you want to strip off both user store domain and tenant domain from user name, configure both as true. Otherwise, keep the fields empty.
+5. If you enabled mobile number verification when setting Duo, enter the **Admin Integration Key** and the **Admin Secret Key** and click **Update**.
 
+      ![Duo settings]({{base_path}}/assets/img/connectors/duo/duo-settings.png)
 
-### Deploying the sample React SPA
+!!! note "Migrating from a previous {{product_name}} version?"
+
+    In the older Duo template, **Disable User Store** and **Disable Tenant Domain** options dictate whether to append the user store name and/or the tenant domain respectively to the username to ensure uniqueness throughout your {{product_name}} environment. Make sure you correctly set these values.
+
+    As the new template uses the user ID as the unique identifier, these options are unnecessary.
+
+## Usage
+
+You can now start using the Duo connection in the login flow of applications. To do so,
+
+!!! note "Before you begin"
+
+    Register an application in {{product_name}}. Refer to [applications]({{base_path}}/guides/applications/) for instructions.
+
+1. On the {{product_name}} Console, go to **Applications** and select your application.
+
+2. Go to its **Login Flow** tab. You will see the application's existing login flow.
+
+3. Click on the **+** icon to add another step to the login flow.
+
+4. Click **+ Add Sign In Option**, select the configured Duo connection from the list and click **Add**.
+
+      ![Login flow with Duo]({{base_path}}/assets/img/connectors/duo/duo-login-flow.png)
+
+5. Click **Update** to save the changes.
+
+## Test
 
 The next step is to deploy the sample React SPA in order to use it in this scenario.
 To do this, see the topic on [Sample React SPA](https://is.docs.wso2.com/en/next/get-started/try-samples/qsg-spa-react).
-
-### Configuring Duo as MFA
-The next step is to add Duo as an MFA option to the login flow of the application.
-1. Navigate to the **Login Flow** tab in the sample application. Username and Password will be added as the default login method.
-2. Click on the **+** icon to add a new step to the login flow. Then, click on the **+ Add Sign In Option** button in step 2.
-3. Select the Duo connection from the authenticator list and click **Add**. Update the changes by clicking the **Update** button.
-
-   ![alt text](images/duo-login-flow.png)
 
 ### Testing the sample
 
