@@ -708,7 +708,9 @@ nav:
           - Onboard users: guides/organization-management/onboard-users.md
           - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-          - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+          - Organization discovery:
+            - Organization discovery: guides/organization-management/organization-discovery/index.md
+            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
       - Notification Channels:
           - Configure Email Provider: guides/notification-channels/configure-email-provider.md
           - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
