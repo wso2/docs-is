@@ -180,6 +180,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
         ??? tip "Click to see the instructions for the AWS ECS membership scheme"  
                       
             1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
+                -   Select the `EC2 instance` type.
                 -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
                 -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached. 
                         ```
@@ -209,12 +210,17 @@ The following configurations need to be done in both the WSO2 Identity Server no
                     [clustering.properties]
                     region = "us-east-1"
                     clusterName = "ECS-IS-CLUSTER"
+                    hostHeader = "ec2"
                     vpcCidrBlock = "10.0.*.*"
+                    tagValue = "a_tag_value"
                     ```                    
-            Under the `clustering.properties` section, set the `region`, `clusterName`, and `vpcCidrBlock` based on the AWS ECS cluster you created in the previous step.       
+            Under the `clustering.properties` section, set the `region`, `clusterName`, `tagValue` and `vpcCidrBlock` based on the AWS ECS cluster you created in the previous step. The `tagValue` is derived from the auto-generated tag `aws:cloudformation:stack-name` in the AWS cluster. If the `aws:cloudformation:stack-name` tag is not available in the cluster or you prefer to use a custom tag, make sure to specify both the `tagKey` and `tagValue`.
 
             !!! note
-                Once all the configurations are complete, build a docker image including the configurations. You can consume this docker image to create a `Task Definition` and run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
+                As only the `host` network mode is supported, the `hostHeader` value should be set to `"ec2"` in the `clustering.properties` section.
+
+            !!! note
+                Once all the configurations are complete, build a docker image including the configurations. You can use this Docker image to create a `Task Definition`, and make sure to set the network mode to `host` in the definition. Then run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
 
         ??? tip "Click to see the instructions for the AWS EC2 membership scheme"  
 
