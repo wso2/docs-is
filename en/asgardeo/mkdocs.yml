@@ -513,6 +513,7 @@ nav:
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
+    - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
   - SDKs:
     - Integrate Asgardeo into your application: sdks/index.md
   - SDK Documentation:
