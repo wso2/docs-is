@@ -300,6 +300,8 @@ The following diagram shows how the password grant flow works.
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
+{{password_grant_show_auth_failure_reason_note}}
+
 {% if product_name == "WSO2 Identity Server" %}
 ## Device authorization grant
 
