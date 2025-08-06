@@ -13,7 +13,7 @@ The {{product_name}} Helm Chart has been tested in the following environments:
 	</tr>
 	<tr>
 		<td>RKE2</td>
-		<td>v1.31.8+rke2r1</td>
+		<td>v1.32.6+rke2r1</td>
 	</tr>
 </table>
 

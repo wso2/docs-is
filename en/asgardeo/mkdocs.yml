@@ -61,11 +61,11 @@ extra:
           - title: Connect Next.js App
             url: Get started|Connect App|Next.js|Quickstart
           - title: Connect Node.js App
-            url: Get started|Connect App|Node.js Guide
+            url: Get started|Connect App|Node.js|Complete Guide
           - title: Connect .NET App
-            url: Get started|Connect App|.NET Guide 
+            url: Get started|Connect App|.NET|Complete Guide
           - title: Connect Spring Boot App
-            url: Get started|Connect App|Spring Boot Quickstart
+            url: Get started|Connect App|Spring Boot|Quickstart
     - section:
       - title: Guides
         icon: octicons/book-16
@@ -217,9 +217,12 @@ nav:
         - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
         - Complete Guide (App-Native): complete-guides/app-native/introduction.md
         - Complete Guide (B2B): complete-guides/nextjs-b2b/introduction.md
-      - Node.js Guide: complete-guides/nodejs/introduction.md
-      - .NET Guide: complete-guides/dotnet/introduction.md
-      - Spring Boot Quickstart: quick-starts/springboot.md
+      - Node.js:
+        - Complete Guide: complete-guides/nodejs/introduction.md
+      - .NET: 
+        - Complete Guide: complete-guides/dotnet/introduction.md
+      - Spring Boot:
+        - Quickstart: quick-starts/springboot.md
       - MCP Server:
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
         - MCP-Auth Quickstart: quick-starts/mcp-auth-server.md
@@ -491,7 +494,14 @@ nav:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
         - Asgardeo events: guides/monitoring/asgardeo-events.md
-      - Organization insights: guides/organization-insights.md
+        - Organization insights: guides/organization-insights.md
+      - Agentic AI:
+        - Identity for AI Agents:
+          - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
+          - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
+          - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
+          - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
+          - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
   - Tutorials:
     - Tutorials - Overview: tutorials/index.md
     - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
