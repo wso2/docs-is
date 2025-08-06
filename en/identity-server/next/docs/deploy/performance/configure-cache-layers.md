@@ -6,8 +6,8 @@ WSO2 Identity Server has multiple cache layers which are used to improve perform
     Each cacher layer contains the following attributes:
 
 	- **enable**: This is used to enable the cache usage for a specific cache layer. If this parameter is disabled, it means that the feature will not cache the value and depending on the feature, will either persist it in a database or not store it at all at the server level.
-	- **timeout**: When a cache entry is added to the cache instance, the start time is recorded and the entry is stored until the time exceeds the timeout value. Once the time reaches the timeout, the cache entry is evicted from the cache. Set this value to `-1` to store the cache entry indefinitely. 
-	- **capacity**: This is the count of the cache entry. Note that this value is not related to the size of the cache. 
+	- **timeout**: When a cache entry is added to the cache instance, the start time is recorded and the entry is stored until the time exceeds the timeout value. Once the time reaches the timeout, the cache entry is evicted from the cache. Set this value to `-1` to store the cache entry indefinitely.
+	- **capacity**: This is the count of the cache entry. Note that this value is not related to the size of the cache.
 
 ## Identity application management cache layer
 
@@ -287,12 +287,11 @@ WSO2 Identity Server allows you to configure the following identity claim metada
 	</tr>
 </table>
 
-
 ## Add a new CacheManager
 
-To add a new cache manager, add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`. 
+To add a new cache manager, add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
-```toml 
+```toml
 [[cache_config.cache_manager]]
 name="sampleCacheManager"
 [[cache_config.cache_manager.cache]]
