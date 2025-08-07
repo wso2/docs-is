@@ -1076,6 +1076,8 @@ nav:
           - Send notifications through an external scheduled task: references/tutorials/send-notification-external-schedular.md
           - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
           - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
+          - Protect apps with Identity Gateway (OAuth2 Proxy): tutorials/protect-apps-with-identity-gateway/protect-apps-with-oauth2proxy.md
+          - Protect apps with Identity Gateway (Oathkeeper): tutorials/protect-apps-with-identity-gateway/protect-apps-with-oathkeeper.md
       - IAM concepts:
           - OAuth2 grant types: references/grant-types.md
           - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
