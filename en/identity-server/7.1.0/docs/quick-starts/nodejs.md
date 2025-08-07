@@ -17,7 +17,7 @@ template: templates/quick-start.html
       "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
       "A favorite text editor or IDE"
     ],
-    source_code: "<a href='https://github.com/asgardeo-samples/asgardeo-javascript-samples/tree/main/passport-asgardeo-sample' target='_blank' class='github-icon'>Asgardeo Node.js Sample</a>"
+    source_code: "<a href='https://github.com/asgardeo-samples/asgardeo-javascript-samples/tree/main/passport-asgardeo-sample' target='_blank' class='github-icon'>WSO2 IS Node.js Sample</a>"
   };
 </script>
 
