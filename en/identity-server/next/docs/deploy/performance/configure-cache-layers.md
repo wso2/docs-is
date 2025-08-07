@@ -3,7 +3,7 @@
 WSO2 Identity Server has multiple cache layers which are used to improve performance. The following configurations that can be configured in the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory are used to manage and configure the cache layers.
 
 !!! info "Cache layer attributes"
-    Each cacher layer contains the following attributes:
+    Each cache layer contains the following attributes:
 
 	- **enable**: This is used to enable the cache usage for a specific cache layer. If this parameter is disabled, it means that the feature will not cache the value and depending on the feature, will either persist it in a database or not store it at all at the server level.
 	- **timeout**: When a cache entry is added to the cache instance, the start time is recorded and the entry is stored until the time exceeds the timeout value. Once the time reaches the timeout, the cache entry is evicted from the cache. Set this value to `-1` to store the cache entry indefinitely.
