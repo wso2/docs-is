@@ -1,4 +1,4 @@
-# Configure Cache Layers
+# Configure cache layers
 
 WSO2 Identity Server includes several cache layers that boost performance. You can manage and configure the cache layers using the following settings in the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory.
 
