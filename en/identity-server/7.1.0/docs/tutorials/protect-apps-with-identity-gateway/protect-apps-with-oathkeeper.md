@@ -63,7 +63,7 @@ Follow the below steps
 
 ### Step 2: Set up your back-end
 
-If you don't already have a back-end implemented, you can download the [sample application](https://drive.google.com/file/d/1yVerVPLj2cf7jMmHiTIszkEfLVDcdFhJ/view?usp=sharing) for testing.
+If you don't already have a back-end implemented, you can download the [sample application](https://github.com/wso2/samples-is/tree/master/identity-gateway/sample-request-logger-app) for testing.
 
 Once downloaded, run the app:
 

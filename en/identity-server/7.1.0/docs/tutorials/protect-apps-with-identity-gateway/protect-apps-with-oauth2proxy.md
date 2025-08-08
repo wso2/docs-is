@@ -68,7 +68,7 @@ Follow the following steps
 ### 2.2 Set up your back-end
 
 If you don't have a back-end, you can use the sample Java app:
-[Download the sample app here](https://drive.google.com/file/d/1yVerVPLj2cf7jMmHiTIszkEfLVDcdFhJ/view?usp=sharing)
+[Download the sample app here](https://github.com/wso2/samples-is/tree/master/identity-gateway/sample-request-logger-app)
 
 ```sh
 cd path/to/app/folder
