@@ -41,7 +41,7 @@
     show_auth_failure_reason = true
     ```
 
-    If you are migrating from an earlier version you would already be using the below set of configurations in the `deployment.toml` file to show the authentication failure reason for password grant based on the `show_auth_failure_reason` configuration of basic authenticator. In that case, you can use the below configurations together to show the authentication failure reason. These concigurations will be given priority over the `show_auth_failure_reason` configuration of the password grant.
+    If you are migrating from an earlier version you would already be using the below set of configurations in the `deployment.toml` file to show the authentication failure reason for password grant based on the `show_auth_failure_reason` configuration of basic authenticator. In that case, you can use the below configurations together to show the authentication failure reason. These configurations will be given priority over the `show_auth_failure_reason` configuration of the password grant.
 
     ``` toml
     [oauth.password_grant]
