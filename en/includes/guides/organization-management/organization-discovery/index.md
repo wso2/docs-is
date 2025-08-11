@@ -13,7 +13,7 @@ This guide explains available discovery types and shows how to integrate them in
 | Discovery Type                    | Use Case                                                  |
 |-----------------------------------|-----------------------------------------------------------|
 | **Organization Name-Based**       | Direct users to their organization using a human-readable name. |
-| **Organization ID-Based**         | Route users using a unique organization identifier (UUID). Suitable for server-side integrations. |
+| **Organization ID-Based**         | Route users using a unique organization identifier. Suitable for server-side integrations. |
 | **Email Domain-Based**            | Automatically identify organizations from email domains. Ideal for corporate email addresses. |
 | **Custom Attribute-Based**        | Enable advanced discovery using custom attributes. |
 
@@ -21,7 +21,7 @@ This guide explains available discovery types and shows how to integrate them in
 
 ## How organization discovery works
 
-Organization discovery routes users to their organization's login page. You can bypass the **"Sign in with SSO"** selection screen using two methods:
+Organization discovery routes users to their organization's login page. You can bypass the **"Sign in with Single Sign-On (SSO)"** selection screen using two methods:
 
 ### Method 1: Direct routing with query parameters
 
@@ -43,7 +43,7 @@ Use the organization's name to route users to their login page.
 
 Add the `org` parameter with the organization name to your authentication request.
 
-=== "OIDC Authorization Request"
+=== "OpenID Connect (OIDC) Authorization Request"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
@@ -55,7 +55,7 @@ Add the `org` parameter with the organization name to your authentication reques
     &fidp=OrganizationSSO
     ```
 
-=== "SAML Request"
+=== "Security Assertion Markup Language (SAML) Request"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/samlsso?
@@ -64,13 +64,13 @@ Add the `org` parameter with the organization name to your authentication reques
     &fidp=OrganizationSSO
     ```
 
-**Example**: If your organization name is `"acme-corp"`, add `org=acme-corp` to the request.
+**Example**: For an organization named `"acme-corp"`, add `org=acme-corp` to the request.
 
 ---
 
 ## Organization identifier-based discovery
 
-Use the organization's unique ID (UUID) to route users to their login page.
+Use the organization's unique ID to route users to their login page.
 
 Add the `orgId` parameter with the organization ID to your authentication request.
 
