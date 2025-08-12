@@ -1,8 +1,10 @@
 # Email domain based organization discovery
 
-In the realm of Business-to-Business (B2B), seamlessly authenticating users from external organizations into your applications remains essential for a smooth user experience. One way to achieve this involves email domain-based organization discovery. With this feature, your application can provide a customized and familiar login experience for a user based on the domain of their email address.
+In Business-to-Business (B2B) applications, seamlessly authenticating users from external organizations remains essential. This ensures a smooth user experience.
 
-For example, when users log in with an `@xyz.com` email address, the system automatically redirects them to the login screen customized for the `XYZ` organization, providing a familiar and consistent experience.
+One way to achieve this involves **email domain-based organization discovery**. With this feature, your application can provide a customized login experience. The experience depends on the domain of the user's email address.
+
+For example, when users log in with an `@xyz.com` email address, the system automatically redirects them to the login screen customized for the `XYZ` organization. This provides a familiar and consistent experience.
 
 This guide explains how you may use {{product_name}} to configure email domain-based organization discovery for your B2B applications.
 
@@ -10,7 +12,7 @@ This guide explains how you may use {{product_name}} to configure email domain-b
 
 **Guardio Insurance** serves as an insurance provider. *Best Car Mart* and *Glory Car Mart* represent two of its customer organizations.
 
-When a user enters an email address to log into the Guardio Insurance platform, you need to resolve the user's organization based on the email domain. Then redirect them to the respective organization's login screen.
+When a user enters an email address to log into the Guardio Insurance platform, the system needs to resolve the user's organization. It does this based on the email domain. Then it redirects them to the respective organization's login screen.
 
 ![Email domain based organization discovery scenario]({{base_path}}/assets/img/guides/organization/manage-organizations/email-domain-based-organization-discovery.png){: width="700" style="display: block; margin: 0;"}
 

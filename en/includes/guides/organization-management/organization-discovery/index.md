@@ -21,7 +21,7 @@ This guide explains available discovery types and shows how to integrate them in
 
 ## How organization discovery works
 
-Organization discovery routes users to their organization's login page. You can bypass the **"Sign in with Single Sign-On (SSO)"** selection screen using two methods:
+Organization discovery routes users to their organization's login page. You can bypass the **"Sign in with Single Sign-On (SSO)"** selection screen. Use one of these two methods:
 
 ### Method 1: Direct routing with query parameters
 
@@ -140,6 +140,6 @@ var onLoginRequest = function(context) {
 
 Automatically identify organizations based on user email domains. This method routes users to their organization's login page without requiring them to specify the organization name or ID.
 
-**How it works**: {{ product_name }} extracts the domain from the user's email address and matches it to a configured organization.
+**How it works**: {{ product_name }} extracts the domain from the user's email address. Then it matches the domain to a configured organization.
 
 How to configure email domain discovery: [Email Domain-Based Discovery](./email-domain-based-organization-discovery.md)
