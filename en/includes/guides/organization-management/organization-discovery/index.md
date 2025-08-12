@@ -10,28 +10,40 @@ This guide explains available discovery types and shows how to integrate them in
 
 {{ product_name }} supports the below organization discovery methods:
 
+{% if product_name == "Asgardeo" %}
+
 | Discovery Type                    | Use Case                                                  |
 |-----------------------------------|-----------------------------------------------------------|
-| **Organization Name-Based**       | Direct users to their organization using a human-readable name. |
-| **Organization ID-Based**         | Route users using a unique organization identifier. Suitable for server-side integrations. |
+| **Organization Name-Based**       | Direct users to their organization using the organization name. |
+| **Organization ID-Based**         | Route users using the organization id. Suitable for server-side integrations. |
 | **Email Domain-Based**            | Automatically identify organizations from email domains. Ideal for corporate email addresses. |
-| **Custom Attribute-Based**        | Enable advanced discovery using custom attributes. |
+
+{% else %}
+
+| Discovery Type                    | Use Case                                                  |
+|-----------------------------------|-----------------------------------------------------------|
+| **Organization Name-Based**       | Direct users to their organization using the organization name. |
+| **Organization ID-Based**         | Route users using the organization id. Suitable for server-side integrations. |
+| **Email Domain-Based**            | Automatically identify organizations from email domains. Ideal for corporate email addresses. |
+| **Custom Attribute-Based**        | Enable advanced discovery options using custom attributes. |
+
+{% endif %}
 
 ---
 
 ## How organization discovery works
 
-Organization discovery routes users to their organization's login page. You can bypass the **"Sign in with Single Sign-On (SSO)"** selection screen. Use one of these two methods:
+Organization discovery routes users to their organization's login page directly. You can bypass the **"Sign in with Single Sign-On (SSO)"** selection screen. Use one of these two methods:
 
 ### 1. Direct routing with query parameters
 
-Add the `fidp=OrganizationSSO` parameter along with the **organization identifier** to your authentication requests.
+Add the `fidp=OrganizationSSO` parameter along with the **organization discovery parameters** to your authentication requests.
 
 **Why use this method**: Direct users to their organization login page through the application.
 
-### 2. Adaptive authentication script
+### 2. Conditional authentication script
 
-Use an adaptive script to automatically select the SSO authenticator based on organization parameters.
+Use an conditional authentication script to automatically select the SSO authenticator based on organization parameters.
 
 **Why use this method**: Provides more control over the authentication flow logic.
 
@@ -96,9 +108,9 @@ Add the `orgId` parameter with the organization ID to your authentication reques
     ```
 ---
 
-## Alternative: Use adaptive authentication
+## Alternative: Use conditional authentication
 
-Instead of using the `fidp=OrganizationSSO` parameter, you can use an adaptive script to automatically route users.
+Instead of using the `fidp=OrganizationSSO` parameter, you can use an conditional authentication script to automatically route users.
 
 Add this script to your application's authentication flow:
 

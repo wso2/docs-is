@@ -231,11 +231,13 @@ To try out user login,
 
 6. Log in to the Guardio business app by selecting `Sign In With Single Sign-On (SSO)`.
 
-    {% if (product_name == "WSO2 Identity Server" and is_version != "7.0.0") or product_name == "Asgardeo" %}
-
     !!! note
 
-        You can bypass the `Sign In With SSO` page and go directly to your organization's login page by adding the following query parameters in the login request. 
+        {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
+        In {{product_name}} {{is_version}} from update level **7.0.0.88** onwards (Updates 2.0 model), you can bypass the `Sign In With SSO` page and go directly to your organization's login page by adding the following query parameters in the login request.
+        {% else %}
+        You can bypass the `Sign In With SSO` page and go directly to your organization's login page by adding the following query parameters in the login request.
+        {% endif %} 
         
         - `login_hint`: The email address of the user that will be used to resolve the domain.
         - `fidp`: If you have additional B2C login options configured for the application, you can set this parameter to `OrganizationSSO` to direct users straight to the organization login page.
@@ -246,7 +248,7 @@ To try out user login,
         === "OIDC"
             
             ```curl
-            https://api.asgardeo.io/t/<root_organization_name>/oauth2/authorize?
+            https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
             client_id=<client_id>
             &redirect_uri=<redirect_url>
             &scope=<scopes>
@@ -257,13 +259,11 @@ To try out user login,
         === "SAML"
             
             ```curl
-            https://api.asgardeo.io/t/<root_organization_name>/samlsso?
+            https://{{host_name}}{{organization_path_param}}/samlsso?
             spEntityID=<app_entity_id>
             &login_hint=<user_email>
             &fidp=OrganizationSSO
             ```
-
-    {% endif %}
 
 7. Input the email address associated with the username for `Alice` within the *Best Car Mart* organization.
 
