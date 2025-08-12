@@ -23,13 +23,13 @@ This guide explains available discovery types and shows how to integrate them in
 
 Organization discovery routes users to their organization's login page. You can bypass the **"Sign in with Single Sign-On (SSO)"** selection screen. Use one of these two methods:
 
-### Method 1: Direct routing with query parameters
+### 1. Direct routing with query parameters
 
 Add the `fidp=OrganizationSSO` parameter along with the **organization identifier** to your authentication requests.
 
 **Why use this method**: Direct users to their organization login page through the application.
 
-### Method 2: Adaptive authentication script
+### 2. Adaptive authentication script
 
 Use an adaptive script to automatically select the SSO authenticator based on organization parameters.
 
@@ -43,7 +43,7 @@ Use the organization's name to route users to their login page.
 
 Add the `org` parameter with the organization name to your authentication request.
 
-=== "OpenID Connect (OIDC) Authorization Request"
+=== "OpenID Connect (OIDC) Authorization"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
@@ -55,7 +55,7 @@ Add the `org` parameter with the organization name to your authentication reques
     &fidp=OrganizationSSO
     ```
 
-=== "Security Assertion Markup Language (SAML) Request"
+=== "Security Assertion Markup Language (SAML)"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/samlsso?
@@ -74,7 +74,7 @@ Use the organization's unique ID to route users to their login page.
 
 Add the `orgId` parameter with the organization ID to your authentication request.
 
-=== "OIDC Authorization Request"
+=== "OpenID Connect (OIDC) Authorization"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
@@ -86,7 +86,7 @@ Add the `orgId` parameter with the organization ID to your authentication reques
     &fidp=OrganizationSSO
     ```
 
-=== "SAML Request"
+=== "Security Assertion Markup Language (SAML)"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/samlsso?
