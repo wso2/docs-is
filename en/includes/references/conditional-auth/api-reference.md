@@ -21,7 +21,10 @@
     - [`callChoreo`](#call-a-choreo-api)
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
+    - [`getUsersWithClaimValues()`](#get-multiple-users)
     - [`getAssociatedLocalUser()`](#get-associated-user)
+    - [`doAssociationWithLocalUser()`](#do-association-with-local-user)
+    - [`removeAssociatedLocalUser()`](#remove-associated-local-user)
     - [`getMaskedValue()`](#get-masked-value)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
@@ -818,6 +821,39 @@ The utility function will search the underlying user stores and return a unique 
     var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
     ```
 
+### Get multiple users
+
+`getUsersWithClaimValues(claimMap, context)`
+
+This function will search the underlying user stores and return a list of users with the expected claim values. The claim map consists of the claim and value.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>claimMap</code></td>
+          <td>A map that contains the claim URI and claim value.</td>
+        </tr>
+        <tr>
+          <td><code>context</code></td>
+          <td>The authentication context, which contains the context information about the request.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ``` js
+    var claimMap = {};
+    claimMap["http://wso2.org/claims/mobile"] = "1234567890";
+    var usersList = getUsersWithClaimValues(claimMap, context);
+    for (var key in usersList) {
+        var userObj = userList[key];
+        Log.info("Username: " + userObj.username):
+    }
+    ```
+
 ### Get associated user
 
 `getAssociatedLocalUser(federatedUser)`
@@ -834,6 +870,59 @@ This function returns the local user associated with the federate username given
         </tr>
       </tbody>
     </table>
+
+### Do association with local user
+
+`doAssociationWithLocalUser(federatedUser, localUsername, tenantDomain, userStoreDomain)`
+
+This function sets association to the local user with federated user. It includes the following parameters.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>federatedUser</code></td>
+          <td>The federated user object.</td>
+        </tr>
+        <tr>
+          <td><code>localUsername</code></td>
+          <td>The username of the local user to be associated.</td>
+        </tr>
+        <tr>
+          <td><code>tenantDomain</code></td>
+          <td>The tenant domain of the local user.</td>
+        </tr>
+        <tr>
+          <td><code>userStoreDomain</code></td>
+          <td>The user store domain of the local user.</td>
+        </tr>
+      </tbody>
+    </table>
+
+### Remove associated local user
+
+`removeAssociatedLocalUser(federatedUser)`
+
+This function removes the existing association of a federated user with the local user.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>federatedUser</code></td>
+          <td>The federated user object.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ``` js
+    var federatedUser = context.steps[1].subject;
+    removeAssociatedLocalUser(federatedUser)
+    ```
 
 ### Get masked value
 
