@@ -159,6 +159,7 @@ plugins:
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
+        'guides/organization-management/email-domain-based-organization-discovery.md': 'guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md'
         'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
         'apis/notification-sender-rest-api.md': 'apis/notification-sender-v2-rest-api.md'
         'apis/organization-apis/notification-sender-rest-api.md':  'apis/organization-apis/notification-sender-rest-api.md'
@@ -444,7 +445,9 @@ nav:
         - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-        - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+        - Organization discovery:
+            - Organization discovery: guides/organization-management/organization-discovery/index.md
+            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
       - Notification Channels:
         - Configure Email Provider: guides/notification-channels/configure-email-provider.md
         - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
