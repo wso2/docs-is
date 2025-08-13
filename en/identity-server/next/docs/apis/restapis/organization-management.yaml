@@ -404,6 +404,81 @@ paths:
             curl --location --request DELETE 'https://localhost:9443/api/server/v1/organizations/{organization-id}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /organizations/self:
+    get:
+      tags:
+        - Organization
+      description: |
+        This API retrieves the organization information associated with the currently accessing organization.
+        
+        <b>Scopes (Permissions) required:</b> `internal_organization_view`
+      summary: Get organization details of the currently accessing organization.
+      operationId: getSelfOrganization
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request GET 'https://localhost:9443/api/server/v1/organizations/self' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    patch:
+      tags:
+        - Organization
+      description: |
+        This API updates the editable fields of the organization associated with the currently accessing organization.
+        Currently only the organization name can be updated using this API.
+        
+        <b>Scopes (Permissions) required:</b> `internal_organization_update`
+      summary: Update organization details of the currently accessing organization.
+      operationId: patchSelfOrganization
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationPatchRequest'
+        description: Partial update payload for the organization.
+        required: true
+      responses:
+        '200':
+          description: Successfully updated organization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/organizations/self' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+              {
+                "operation": "REPLACE",
+                "path": "/name",
+                "value": "ABCD Builders"
+              }
+            ]'
   /organizations/metadata:
     get:
       tags:
