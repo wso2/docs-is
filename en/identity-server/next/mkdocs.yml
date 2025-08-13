@@ -994,6 +994,7 @@ nav:
       - Email templates APIs:
         - Email templates v1 API: apis/organization-apis/email-templates-rest-api.md
         - Email templates v2 API: apis/organization-apis/email-templates-v2-rest-api.md
+      - Identity governance API: apis/organization-apis/identity-governance.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
@@ -1008,6 +1009,8 @@ nav:
       - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
+      - Server configuration API: apis/organization-apis/configs.md
+      - Validation rules API: apis/organization-apis/validation-rules.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
