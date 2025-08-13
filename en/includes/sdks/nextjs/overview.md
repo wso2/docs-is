@@ -3,6 +3,32 @@
 
 The Asgardeo Next.js SDK (`@asgardeo/nextjs`) is a component-first library, offering a highly customizable set of components for authentication, user self-care, and organization management in Next.js applications.
 
+## Installation
+Use one of the following options to install the Asgardeo Next.js SDK. 
+
+=== "npm"
+
+    ```bash
+    npm install @asgardeo/nextjs
+    ```
+
+=== "yarn"
+
+    ```bash
+    yarn add @asgardeo/nextjs
+    ```
+
+=== "pnpm"
+
+    ```bash
+    pnpm add @asgardeo/nextjs
+    ```
+
+## Getting started
+
+ Try out the [{{product_name}} Next.js quickstart guide.]({{base_path}}/quick-starts/Nextjs/)
+
+
 ## Contexts
 
 The SDK provides a context-based architecture, allowing you to easily manage authentication state and user data across your application. The main context is provided by the `AsgardeoProvider`, which wraps your application and provides access to authentication methods and user information.
@@ -62,4 +88,5 @@ Control components manage the conditional rendering of content based on authenti
 ## Next Steps
 
 - [Quick Start Guide]({{base_path}}/quick-starts/nextjs) – Get started with the Asgardeo Next.js SDK.
+- [Complete Guide]({{base_path}}/complete-guides/nextjs/introduction/) – Build a complete application using the Asgardeo Next.js SDK.
 - [AsgardeoProvider]({{base_path}}/sdks/nextjs/contexts/asgardeo-provider/) – Learn how to configure the root provider component.
