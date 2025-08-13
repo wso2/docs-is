@@ -5,7 +5,7 @@ The Asgardeo Next.js SDK (`@asgardeo/nextjs`) is a component-first library, offe
 
 ## Installation
 
-Use one of the following options to install the Asgardeo Next.js SDK. 
+Use one of the following options to install the Asgardeo Next.js SDK.
 
 === "npm"
 
@@ -27,7 +27,7 @@ Use one of the following options to install the Asgardeo Next.js SDK.
 
 ## Getting started
 
- Try out the [{{product_name}} Next.js quickstart guide.]({{base_path}}/quick-starts/nextjs) 
+ Try out the [{{product_name}} Next.js quickstart guide.]({{base_path}}/quick-starts/nextjs)
 
 ## Contexts
 
