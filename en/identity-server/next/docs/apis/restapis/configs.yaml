@@ -1018,6 +1018,34 @@ paths:
             "metadataValidityPeriod": 60,
             "enableMetadataSigning": false
             }'                 
+    delete:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Delete SAML2 inbound authentication configurations.
+      description: |
+        Delete all SAML2 inbound authentication configurations.<br><br>
+        <b>Scope (Permission) required:</b> internal_config_update
+      operationId: deleteSAMLInboundAuthConfig
+      responses:
+        '204':
+          description: Successful deletion
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/saml2' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='  
   /configs/authentication/inbound/passivests:
     get:
       tags:
@@ -1114,6 +1142,34 @@ paths:
             -d '{
             "enableRequestSigning": false
             }'                
+    delete:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Delete WS Federation (Passive STS) inbound authentication configurations.
+      description: |
+        Delete all WS Federation (Passive STS) inbound authentication configurations.<br><br>
+        <b>Scope (Permission) required:</b> internal_config_update
+      operationId: deletePassiveSTSInboundAuthConfig
+      responses:
+        '204':
+          description: Successful deletion
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/passivests' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='   
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
