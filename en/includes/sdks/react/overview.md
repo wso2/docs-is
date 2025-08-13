@@ -3,7 +3,8 @@
 The Asgardeo React SDK (`@asgardeo/react`) is a component-first library, offering a highly customizable set of components for authentication, user self-care, and organization management in React applications.
 
 ## Installation
-Use one of the following options to install the Asgardeo React SDK. 
+
+Use one of the following options to install the Asgardeo React SDK.
 
 === "npm"
 
