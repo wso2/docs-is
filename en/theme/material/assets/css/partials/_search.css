@@ -199,6 +199,6 @@
 
 @media screen and (min-width: 60em) {
     [dir=ltr] .md-search__suggest {
-        top: 0px;
+        top: 0;
     }
 }
