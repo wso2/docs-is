@@ -150,6 +150,11 @@
   font-size: var(--md-header-link-font-size);
 }
 
+[dir=ltr] .md-search__suggest {
+    padding-left: 1.8rem;
+    top: 1px;
+}
+
 .md-header .md-search .md-search__inner .md-search__form .md-search__icon.md-icon,
 .md-header .md-search .md-search__inner .md-search__form .md-search__options {
   display: flex;
@@ -190,4 +195,10 @@
   .md-search {
     margin: 0 !important;
   }
+}
+
+@media screen and (min-width: 60em) {
+    [dir=ltr] .md-search__suggest {
+        top: 0px;
+    }
 }
