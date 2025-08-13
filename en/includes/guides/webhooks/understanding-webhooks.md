@@ -1,4 +1,4 @@
-# Understanding webhooks <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# Understanding webhooks {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
 
 Webhooks enable your applications to receive instant notifications from {{product_name}}, allowing you to respond immediately to important identity-related events. Common use cases for {{product_name}} webhooks include:
 
@@ -7,11 +7,15 @@ Webhooks enable your applications to receive instant notifications from {{produc
 - Notify external services or security teams immediately upon password changes or resets.
 - Integrate with SIEM systems to instantly detect and respond to suspicious login attempts or failed authentications.
 
-Using webhooks, you can seamlessly integrate external systems with {{product_name}}'s identity flows. When an event happens, {{product_name}} immediately sends HTTP callbacks to your configured webhook endpoints. {{product_name}} webhooks use the [WebSubHub](https://websubhub.com/) protocol for secure and reliable event delivery.
+Using webhooks, you can seamlessly integrate external systems with {{product_name}}'s identity flows. When an event happens, {{product_name}} immediately sends HTTP callbacks to your configured webhook endpoints. 
+
+{% if product_name == "Asgardeo" %}
+{{product_name}} webhooks use the [WebSubHub](https://websubhub.com/) protocol for secure and reliable event delivery.
 
 !!! Note
       This feature is currently in **Preview**. Functionality and event payloads may change during development.  
       Expect updates without prior notice.
+{% endif %}
 
 ## How webhooks work
 
@@ -27,6 +31,13 @@ When an identity-related event (for example user registration, login success, pr
 - **Registration events**
       - Registration success
       - Registration failure
+- **Token events**
+      - Access token issued
+      - Access token revoked
+- **Session events**
+      - Session established
+      - Session presented
+      - Session revoked      
 - **Credential events**
       - Credential updates
 - **User Account Management events**
