@@ -45,4 +45,8 @@ To regiser an MCP Client application,
 ## What's next?
 
 - [Obtain an M2M token using client credential grant]({{base_path}}/references/grant-types/#client-credentials-grant)
+{% if product_name == "Asgardeo" %}
+- [End-to-end MCP Authorization with Asgardeo]({{base_path}}/tutorials/end-to-end-mcp-authorization-with-asgardeo/)
+{% else %}
 - [Implement authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/)
+{% endif %}
