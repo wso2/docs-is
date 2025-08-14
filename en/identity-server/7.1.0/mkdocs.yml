@@ -1080,6 +1080,7 @@ nav:
             - Use WSO2 Identity Server with identity gateways: references/tutorials/protect-apps-with-identity-gateway/index.md
             - OAuth2 Proxy: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-oauth2proxy.md
             - Oathkeeper: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-oathkeeper.md
+            - Mod Auth OpenIDC: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-mod-auth-openidc.md
       - IAM concepts:
           - OAuth2 grant types: references/grant-types.md
           - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
