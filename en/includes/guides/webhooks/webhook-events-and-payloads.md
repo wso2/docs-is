@@ -19,6 +19,7 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
 **Example payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -61,7 +62,9 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -104,6 +107,7 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a successful login, identified by the URI <code>https://schemas.identity.wso2.org/events/login/event-type/loginSuccess</code>. This URI signifies a successful login event.
@@ -128,7 +132,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) under which the login processes.</p></td>
+<td><p>Represents the organization under which the login processes.</p></td>
 </tr>
 <tr class="even">
 <td>userStore</td>
@@ -152,6 +156,7 @@ The table below explains each property in the event data.
 **Example payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -159,7 +164,32 @@ The table below explains each property in the event data.
   "iat": 1751709144508,
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginFailed": {
-      "user": {},
+      "user": {
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "johndoe@aol.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "johndoe@aol.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/lastname",
+            "value": "Doe"
+          },
+          {
+            "uri": "http://wso2.org/claims/givenname",
+            "value": "John"
+          }
+        ],
+        "organization": {
+          "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        }
+      },
       "tenant": {
         "id": "12402",
         "name": "myorg"
@@ -188,7 +218,9 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -196,10 +228,35 @@ The table below explains each property in the event data.
   "iat": 1751709144508,
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginFailed": {
-      "user": {},
+      "user": {
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "johndoe@aol.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "johndoe@aol.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/lastname",
+            "value": "Doe"
+          },
+          {
+            "uri": "http://wso2.org/claims/givenname",
+            "value": "John"
+          }
+        ],
+        "organization": {
+          "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        }
+      },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
       },
       "organization": {
         "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
@@ -225,6 +282,7 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a failed login, identified by the URI <code>https://schemas.identity.wso2.org/events/login/event-type/loginFailed</code>. This URI signifies a successful login event.
@@ -249,7 +307,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) that processes the login.</p></td>
+<td><p>Represents the organization that processes the login.</p></td>
 </tr>
 <tr class="even">
 <td>userStore</td>
@@ -289,6 +347,7 @@ The table below explains each property in the event data.
 **Example payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -344,7 +403,9 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -383,7 +444,7 @@ The table below explains each property in the event data.
       },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
       },
       "organization": {
         "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
@@ -400,6 +461,7 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a successful registration, identified by the URI <code>https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess</code>. This URI signifies a successful user registration event.
@@ -424,7 +486,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) that processes the user registration.</p></td>
+<td><p>Represents the organization that processes the user registration.</p></td>
 </tr>
 <tr class="even">
 <td>userStore</td>
@@ -448,6 +510,7 @@ The table below explains each property in the event data.
 **Example payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -496,7 +559,9 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -529,7 +594,7 @@ The table below explains each property in the event data.
       },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
       },
       "organization": {
         "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
@@ -539,12 +604,13 @@ The table below explains each property in the event data.
       },
       "action": "REGISTER",
       "reason": {
-        "description": "The provided username already exists in the tenant: myorg"
+        "description": "The provided username already exists in the tenant: myorg.com"
       }
     }
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a failed registration, identified by the URI <code>https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed</code>. This URI signifies a failed user registration event.
@@ -569,7 +635,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) that processed the registration attempt.</p></td>
+<td><p>Represents the organization that processed the registration attempt.</p></td>
 </tr>
 <tr class="even">
 <td>initiatorType</td>
@@ -638,6 +704,7 @@ The table below explains how these properties differ based on each flow.
 **Example payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -682,7 +749,9 @@ The table below explains how these properties differ based on each flow.
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -709,7 +778,7 @@ The table below explains how these properties differ based on each flow.
       },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
       },
       "organization": {
         "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
@@ -727,6 +796,7 @@ The table below explains how these properties differ based on each flow.
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a credential update, identified by the URI <code>https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated</code>. This URI signifies a successful credential update event.
@@ -751,7 +821,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) that processed the credential update.</p></td>
+<td><p>Represents the organization that processed the credential update.</p></td>
 </tr>
 <tr class="even">
 <td>userStore</td>
@@ -794,7 +864,7 @@ The table below explains how these properties differ based on each flow.
 <td>User initiated password update</td>
 <td>USER</td>
 <td>UPDATE</td>
-<td><p>Occurs when a user updates their password through profile settings in My Account app or via 
+<td><p>Occurs when a user updates their password through profile settings in My Account app or via
 {% if product_name == "WSO2 Identity Server"%}
 <a href="{{base_path}}/apis/scim2-me-rest-apis/">SCIM 2.0 Me API</a>
 {% elif product_name == "Asgardeo" %}
@@ -845,6 +915,7 @@ The table below explains how these properties differ based on each flow.
 **Example payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -894,7 +965,9 @@ The table below explains how these properties differ based on each flow.
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -927,7 +1000,7 @@ The table below explains how these properties differ based on each flow.
       },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
       },
       "organization": {
         "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
@@ -944,6 +1017,7 @@ The table below explains how these properties differ based on each flow.
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a user profile update, identified by the URI <code>https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated</code>. This URI signifies a successful user profile update event.
@@ -975,7 +1049,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) that processed the profile update.</p></td>
+<td><p>Represents the organization that processed the profile update.</p></td>
 </tr>
 <tr class="even">
 <td>userStore</td>
@@ -999,6 +1073,7 @@ The table below explains each property in the event data.
 **Example payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -1041,7 +1116,9 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -1068,7 +1145,7 @@ The table below explains each property in the event data.
       },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
       },
       "organization": {
         "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
@@ -1084,6 +1161,7 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a user disabled event, identified by the URI <code>https://schemas.identity.wso2.org/events/user/event-type/userDisabled</code>. This URI signifies a successful user account disablement.
@@ -1108,7 +1186,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) that processed the user disablement.</p></td>
+<td><p>Represents the organization that processed the user disablement.</p></td>
 </tr>
 <tr class="even">
 <td>userStore</td>
@@ -1128,6 +1206,7 @@ The table below explains each property in the event data.
 **Example payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -1170,7 +1249,9 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -1197,7 +1278,7 @@ The table below explains each property in the event data.
       },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
       },
       "organization": {
         "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
@@ -1213,6 +1294,7 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a user enabled event, identified by the URI <code>https://schemas.identity.wso2.org/events/user/event-type/userEnabled</code>. This URI signifies a successful user account enablement.
@@ -1237,7 +1319,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) that processed the user enablement.</p></td>
+<td><p>Represents the organization that processed the user enablement.</p></td>
 </tr>
 <tr class="even">
 <td>userStore</td>
@@ -1257,6 +1339,7 @@ The table below explains each property in the event data.
 **Example Payload:**
 
 {% if product_name == "Asgardeo" %}
+
 ```json
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -1299,7 +1382,9 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% else %}
+
 ```json
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -1326,7 +1411,7 @@ The table below explains each property in the event data.
       },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
       },
       "organization": {
         "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
@@ -1342,6 +1427,7 @@ The table below explains each property in the event data.
   }
 }
 ```
+
 {% endif %}
 
 The <code>events</code> object contains the actual event data for a user deleted event, identified by the URI <code>https://schemas.identity.wso2.org/events/user/event-type/userDeleted</code>. This URI signifies a user account deletion.
@@ -1366,7 +1452,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>organization</td>
-<td><p>Represents the root organization (organization) that processed the user deletion.</p></td>
+<td><p>Represents the organization that processed the user deletion.</p></td>
 </tr>
 <tr class="even">
 <td>userStore</td>

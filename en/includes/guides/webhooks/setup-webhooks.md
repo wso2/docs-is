@@ -1,4 +1,5 @@
 # Setup webhooks {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview">
+
 <span class="md-chip__label">Preview</span></div>{% endif %}
 
 This guide provides a step-by-step approach to setting up webhooks in {{product_name}} to integrate external systems.
@@ -21,8 +22,8 @@ Ensure that you have:
 Your external web service should do the following to receive event notifications:
 
 1. Expose an endpoint that accepts both HTTP GET and POST requests with JSON payloads.
-    {{product_name}} sends GET requests for subscription and unsubscription verification. 
 {% if product_name == "Asgardeo" %}
+    {{product_name}} sends GET requests for subscription and unsubscription verification.
     Your endpoint must respond to these GET requests with the <code>hub.challenge</code> string to confirm its readiness to receive events.
 {% endif %}
     {{product_name}} sends POST requests to deliver the actual event notifications. These requests contain the event payload in JSON format.  
@@ -47,7 +48,6 @@ Follow the steps below to configure a webhook.
 
 {% if product_name == "Asgardeo" %}
 5. {{product_name}} sends a verification call upon activation. Your endpoint must respond successfully for activation to complete. Refer to [Verify your webhook endpoint subscription](#verify-your-webhook-subscription) for detailed instructions.
-
 6. After creation, you can:
     - Deactivate or reactivate the webhook.
     - Resend subscription or unsubscription requests.
@@ -127,11 +127,23 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
+        "organization": {
+          "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
         "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/d4002616-f00c-49d5-b9b7-63b063819049"
       },
       "tenant": {
         "id": "12402",
         "name": "myorg"
+      },
+      "organization": {
+        "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
       },
       "userStore": {
         "id": "UFJJTUFSWQ==",
@@ -148,6 +160,7 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
   }
 }
 ```
+
 {% else %}
 
 ```http
@@ -156,18 +169,30 @@ Content-Type: application/json
 X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
 
 {
-  "iss": "https://localhost:9443/t/carbon.super",
+  "iss": "https://localhost:9443/t/myorg.com",
   "jti": "051f0c37-b689-44d4-b7d2-29b980ece273",
   "iat": 1751705149662,
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
-        "ref": "https://localhost:9443/t/carbon.super/scim2/Users/d4002616-f00c-49d5-b9b7-63b063819049"
+        "organization": {
+          "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/d4002616-f00c-49d5-b9b7-63b063819049"
       },
       "tenant": {
         "id": "12402",
-        "name": "myorg"
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
       },
       "userStore": {
         "id": "UFJJTUFSWQ==",

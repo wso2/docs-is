@@ -7,7 +7,7 @@ Webhooks enable your applications to receive instant notifications from {{produc
 - Notify external services or security teams immediately upon password changes or resets.
 - Integrate with SIEM systems to instantly detect and respond to suspicious login attempts or failed authentications.
 
-Using webhooks, you can seamlessly integrate external systems with {{product_name}}'s identity flows. When an event happens, {{product_name}} immediately sends HTTP callbacks to your configured webhook endpoints. 
+Using webhooks, you can seamlessly integrate external systems with {{product_name}}'s identity flows. When an event happens, {{product_name}} immediately sends HTTP callbacks to your configured webhook endpoints.
 
 {% if product_name == "Asgardeo" %}
 {{product_name}} webhooks use the [WebSubHub](https://websubhub.com/) protocol for secure and reliable event delivery.
@@ -37,7 +37,7 @@ When an identity-related event (for example user registration, login success, pr
 - **Session events**
       - Session established
       - Session presented
-      - Session revoked      
+      - Session revoked
 - **Credential events**
       - Credential updates
 - **User Account Management events**
