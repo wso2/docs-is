@@ -164,6 +164,8 @@ plugins:
         'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
         'apis/notification-sender-rest-api.md': 'apis/notification-sender-v2-rest-api.md'
         'apis/organization-apis/notification-sender-rest-api.md':  'apis/organization-apis/notification-sender-rest-api.md'
+        'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
+        'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -245,7 +247,6 @@ nav:
           - Register a mobile app: guides/applications/register-mobile-app.md
           - Register a machine-to-machine app: guides/applications/register-machine-to-machine-app.md
           - Register a FAPI-compliant app: guides/applications/register-a-fapi-compliant-app.md
-          - Register an MCP client app: guides/applications/register-mcp-client-app.md
           - Register a React app: guides/applications/register-react-app.md
           - Register a Next.js app: guides/applications/register-nextjs-app.md
       - Authentication:
@@ -356,7 +357,6 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
-        - MCP server authorization: guides/authorization/mcp-server-authorization.md
         - User impersonation:
           - User impersonation: guides/authorization/user-impersonation/index.md
           - via Console: guides/authorization/user-impersonation/via-console.md
@@ -512,6 +512,9 @@ nav:
         - Asgardeo events: guides/monitoring/asgardeo-events.md
         - Organization insights: guides/organization-insights.md
       - Agentic AI:
+        - MCP Authorization:
+          - Securing MCP Servers: guides/agentic-ai/mcp/mcp-server-authorization.md
+          - Securing MCP Client: guides/agentic-ai/mcp/register-mcp-client-app.md
         - Identity for AI Agents:
           - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
           - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
