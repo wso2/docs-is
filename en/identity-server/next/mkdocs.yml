@@ -736,6 +736,10 @@ nav:
               - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
               - Pre update password action: guides/service-extensions/pre-flow-extensions/pre-update-password-action.md
               - Pre update profile action: guides/service-extensions/pre-flow-extensions/pre-update-profile-action.md
+          - Integrate with webhooks:
+              - Understanding webhooks: guides/webhooks/understanding-webhooks.md
+              - Setup webhooks: guides/webhooks/setup-webhooks.md
+              - Webhook events and payloads: guides/webhooks/webhook-events-and-payloads.md
       - Analytics:
         - ELK Analytics:
           - Elk analytics: guides/analytics/elk-analytics/index.md

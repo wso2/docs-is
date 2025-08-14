@@ -1,10 +1,14 @@
-# Setup webhooks <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# Setup webhooks {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview">
+
+<span class="md-chip__label">Preview</span></div>{% endif %}
 
 This guide provides a step-by-step approach to setting up webhooks in {{product_name}} to integrate external systems.
 
+{% if product_name == "Asgardeo" %}
 !!! Note
       This feature is currently in **Preview**. Functionality and event payloads may change during development.  
       Expect updates without prior notice.
+{% endif %}
 
 ## Prerequisites
 
@@ -18,7 +22,10 @@ Ensure that you have:
 Your external web service should do the following to receive event notifications:
 
 1. Expose an endpoint that accepts both HTTP GET and POST requests with JSON payloads.
-    {{product_name}} sends GET requests for subscription and unsubscription verification. Your endpoint must respond to these GET requests with the <code>hub.challenge</code> string to confirm its readiness to receive events.
+{% if product_name == "Asgardeo" %}
+    {{product_name}} sends GET requests for subscription and unsubscription verification.
+    Your endpoint must respond to these GET requests with the <code>hub.challenge</code> string to confirm its readiness to receive events.
+{% endif %}
     {{product_name}} sends POST requests to deliver the actual event notifications. These requests contain the event payload in JSON format.  
 
 2. Deploy this endpoint on a server accessible to {{product_name}}.
@@ -32,15 +39,15 @@ Follow the steps below to configure a webhook.
 2. Click **Add Webhook** and provide the following:
     - **Name**: A descriptive name for the webhook.
     - **Endpoint**: The URL of your web service, where {{product_name}} will send event notifications.
-    - **Secret**: A unique string for HMAC signature (<code>X-Hub-Signature header</code>) to verify event security.
+    - **Secret**: A unique string for HMAC signature {% if product_name == "Asgardeo" %} (<code>x-hub-signature</code>) {% else %} (<code>x-wso2-event-signature</code>) {% endif %} header to verify event security.
     - **Events to subscribe**: Select event types for notifications (for example choosing Logins notifies of successful and failed login attempts).
 
 3. Click **Create** to create the webhook.
 
 4. Webhooks are inactive by default. Toggle the switch to activate it during or after creation.
 
+{% if product_name == "Asgardeo" %}
 5. {{product_name}} sends a verification call upon activation. Your endpoint must respond successfully for activation to complete. Refer to [Verify your webhook endpoint subscription](#verify-your-webhook-subscription) for detailed instructions.
-
 6. After creation, you can:
     - Deactivate or reactivate the webhook.
     - Resend subscription or unsubscription requests.
@@ -84,6 +91,12 @@ Content-Type: text/plain
 
 This process adheres to the [WebSub specification](https://www.w3.org/TR/2018/REC-websub-20180123/#hub-verifies-intent), which defines how hubs verify subscription intent.
 
+{% else %}
+6. After creation, you can:
+    - Deactivate or reactivate the webhook.
+    - Delete the webhook.
+{% endif %}
+
 ## Receive webhook events
 
 {{product_name}} sends an HTTP POST request to your webhook endpoint when a subscribed event is triggered. This request contains a JSON message with event details. Your service can then parse and use this information as needed.
@@ -99,6 +112,8 @@ Webhook event payloads adhere to the [Security Event Token (SET) specification (
 
 **Example event payload for login success event**:
 
+{% if product_name == "Asgardeo" %}
+
 ```http
 POST /your-webhook-endpoint
 Content-Type: application/json
@@ -112,11 +127,23 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
+        "organization": {
+          "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
         "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/d4002616-f00c-49d5-b9b7-63b063819049"
       },
       "tenant": {
         "id": "12402",
         "name": "myorg"
+      },
+      "organization": {
+        "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
       },
       "userStore": {
         "id": "UFJJTUFSWQ==",
@@ -134,9 +161,60 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
 }
 ```
 
+{% else %}
+
+```http
+POST /your-webhook-endpoint
+Content-Type: application/json
+X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
+
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "051f0c37-b689-44d4-b7d2-29b980ece273",
+  "iat": 1751705149662,
+  "events": {
+    "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
+      "user": {
+        "id": "d4002616-f00c-49d5-b9b7-63b063819049",
+        "organization": {
+          "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/d4002616-f00c-49d5-b9b7-63b063819049"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "application": {
+        "id": "40d982e5-23be-4ee1-8540-9cb696d8c321",
+        "name": "MyApp"
+      },
+      "authenticationMethods": [
+        "BasicAuthenticator"
+      ]
+    }
+  }
+}
+```
+
+{% endif %}
+
 ### Event signature using hash-based message authentication code
 
-To ensure the authenticity and integrity of events, {{product_name}} includes an <code>X-Hub-Signature</code> header with each webhook payload. This header contains an hash-based message authentication code (HMAC) signature computed using the **Secret** you provided when configuring the webhook.
+To ensure the authenticity and integrity of events, {{product_name}} includes an {% if product_name == "Asgardeo" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header with each webhook payload. This header contains an hash-based message authentication code (HMAC) signature computed using the **Secret** you provided when configuring the webhook.
 
 **Verifying the signature:**
 
@@ -144,7 +222,7 @@ Verify the signature to confirm that {{product_name}} sent the event and that no
 
 1. **Retrieve the secret:** Use the same secret string you configured in {{product_name}} for the webhook.  
 2. **Compute HMAC:** Generate an HMAC-SHA256 hash of the raw request body using your secret as the key.  
-3. **Compare Signatures:** Compare the computed HMAC with the value in the <code>X-Hub-Signature</code> header. If they match, the event is authentic.
+3. **Compare Signatures:** Compare the computed HMAC with the value in the {% if product_name == "Asgardeo" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header. If they match, the event is authentic.
 
 ## Test your webhook
 
@@ -153,7 +231,9 @@ After you configure and activate your webhook, test it by triggering the specifi
 Here's how to test different event types:
 
 - **Login events**: Initiate a login request with a user from your organization (for example through a configured application).  
-- **Registration events**: Attempt to onboard a new user into your organization.  
+- **Registration events**: Attempt to onboard a new user into your organization.
+- **Token events**: Issue or revoke an access token for a user or an application.
+- **Session events**: Create, extend, or terminate a user session within the system.
 - **Credential events**: Update the password of an existing user.  
 - **User account management events**: Perform actions such as updating a user's profile or changing their account status (for example enabling or disabling a user).
 
@@ -162,6 +242,8 @@ Observe the requests received by your webhook endpoint to confirm that it succes
 ## Troubleshoot issues
 
 If your webhook isn't functioning as expected, consider the following common issues and their solutions:
+
+{% if product_name == "Asgardeo" %}
 
 1. **Webhook verification failed**
 
@@ -185,7 +267,7 @@ If your webhook isn't functioning as expected, consider the following common iss
 
 3. **Event signature (HMAC) mismatch**
 
-      - **Problem**: Your endpoint receives events, but the <code>X-Hub-Signature</code> verification fails.  
+      - **Problem**: Your endpoint receives events, but the <code>x-hub-signature</code> verification fails.  
       - **Cause**: You may use an incorrect secret key for HMAC computation, or you may calculate the HMAC incorrectly in your endpoint.  
       - **Solution**:  
           - Make sure that the **Secret** configured in {{product_name}} for your webhook exactly matches the secret key used in your endpoint's signature verification logic.
@@ -211,6 +293,19 @@ If your webhook isn't functioning as expected, consider the following common iss
           - Check your endpoint's server logs for any errors during the unsubscription verification request process. Confirm that your endpoint responds with a <code>2xx</code> HTTP status code and returns the exact <code>hub.challenge</code> string in the response body.
           - If you delete your webhook, contact {{product_name}} support for assistance. You can get help from the [community help](https://discord.com/invite/wso2), send a request email to *asgardeo-help@wso2.com*, or contact {{product_name}} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/).
 
+{% else %}
+
+1. **Event signature (HMAC) mismatch**
+
+      - **Problem**: Your endpoint receives events, but the <code>x-wso2-event-signature</code> verification fails.  
+      - **Cause**: You may use an incorrect secret key for HMAC computation, or you may calculate the HMAC incorrectly in your endpoint.  
+      - **Solution**:  
+          - Make sure that the **Secret** configured in {{product_name}} for your webhook exactly matches the secret key used in your endpoint's signature verification logic.
+          - Ensure you are computing the HMAC on the raw, unmodified request body received by your endpoint, not a parsed or formatted version. Encoding issues (for example UTF-8) can also cause     mismatches.
+          - Confirm you are using HMAC-SHA256, as specified by {{product_name}}.
+
+{% endif %}
+
 ## Security best practices
 
 To maintain the security and integrity of your webhook integration, follow these best practices:
@@ -225,7 +320,7 @@ To maintain the security and integrity of your webhook integration, follow these
 
 - **Verify signatures**:
 
-    Always validate the <code>X-Hub-Signature</code> header for every incoming webhook event. This step protects you from spoofed or tampered events. Discard any events with invalid signatures.
+    Always validate the {% if product_name == "Asgardeo" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header for every incoming webhook event. This step protects you from spoofed or tampered events. Discard any events with invalid signatures.
 
 - **Idempotency**:
 
