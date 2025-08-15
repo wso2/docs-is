@@ -28,6 +28,7 @@ In this example scenario:
     {% if product_name == "WSO2 Identity Server" %}
     - For this feature to work, make sure to [enable email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/) so that users may log in to applications with their email addresses.
     {% endif %}
+    - **For Just-In-Time (JIT) provisioning**: Set the Subject Attribute to `http://wso2.org/claims/emailaddress` in your external identity provider. See [Map email domains to organizations](#map-email-domains-to-organizations) below.
 
 === "Using the Console"
 
@@ -81,15 +82,44 @@ In this example scenario:
 
 ## Map email domains to organizations
 
-Mapping an email domain to an organization allows for a customized user experience, but this remains optional. When an organization lacks a mapped email domain, the behavior changes as follows:
+Mapping an email domain to an organization allows for a customized user experience, but this remains optional. When an organization have a mapped email domain, the behavior changes as follows:
 
-- If an organization registers an email domain mapping,
-  - a user can only onboard to the organization if the user's email domain matches one of the domains claimed by the organization.
-  {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
-  - The system restricts federated authentication and Just-In-Time (JIT) provisioning for users logging in with email domains not claimed by the organization.
-  {% else %}
-  - Just-In-Time (JIT) provisioning during federated authentication only occurs if the user's email domain matches one of the domains claimed by the organization.
-  {% endif %}
+- If an organization registers an email domain mapping:
+    <!-- markdownlint-disable MD007 -->
+    - A user can only onboard to the organization if the user's email domain matches one of the domains claimed by the organization.
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
+    - Just-In-Time (JIT) provisioning during federated authentication only occurs if the user's email domain matches one of the domains claimed by the organization.
+
+        !!! warning "Subject attribute mapping for JIT provisioning"
+            When email domain-based organization discovery gets enabled, **JIT provisioning requires proper subject attribute mapping** to function successfully.
+
+            For JIT provisioning to work correctly:
+
+            - Configure the external identity provider with **User ID Claim URI** (Subject Attribute) set to `http://wso2.org/claims/emailaddress`.
+            - This ensures the system can uniquely identify users during provisioning.
+
+            **Why this matters**: Domain discovery relies on email addresses to resolve organizations. The subject attribute must map to the email claim to enable proper user provisioning.
+
+            **Configure subject attribute mapping**: See [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute) for OIDC applications and [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-saml-app/#select-the-subject-attribute) for SAML applications.
+
+    {% else %}
+    - The system restricts federated authentication and Just-In-Time (JIT) provisioning for users logging in with email domains not claimed by the organization.
+
+        !!! warning "Subject attribute mapping for federated authentication and JIT provisioning"
+            When email domain-based organization discovery gets enabled, **federated authentication and JIT provisioning require proper subject attribute mapping**.
+
+            For federated authentication and JIT provisioning to work correctly:
+
+            - Configure the external identity provider with **User ID Claim URI** (Subject Attribute) set to `http://wso2.org/claims/emailaddress`.
+            - This ensures the system can uniquely identify users during provisioning.
+
+            **Why this matters**: Domain discovery relies on email addresses to resolve organizations. The subject attribute must map to the email claim to enable proper user provisioning.
+
+            **Configure subject attribute mapping**: See [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute) for OIDC applications and [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-saml-app/#select-the-subject-attribute) for SAML applications.
+
+    {% endif %}
+    <!-- markdownlint-enable MD007: othervise the sub bullet points are not rendered properly. -->
+
 - If not, a user can register to the organization with an email address of any domain (other than the domains claimed by other organizations).
 
 === "Using the Console"
