@@ -130,14 +130,14 @@ Follow the steps below to set up Oathkeeper with {{product_name}}.
         - `<OATHKEEPER_HOME>/rule/rule.go`
         - `<OATHKEEPER_HOME>/spec/config.schema.json`
 
-    - Add these files from `<CUSTOM_HOME>/pipeline/authn` to `<OATHKEEPER_HOME>/pipeline/authn`
+    - Add these files from `<CUSTOM_HOME>/pipeline/authn/` to `<OATHKEEPER_HOME>/pipeline/authn/`
 
         - `authenticator_callback.go`
         - `authenticator_callback_test.go`
         - `authenticator_session_jwt.go`
         - `authenticator_session_jwt_test.go`
 
-    - Add these configuration schema from `<CUSTOM_HOME>/spec/pipeline/` to `<OATHKEEPER_HOME>/spec/pipeline`
+    - Add these configuration schema from `<CUSTOM_HOME>/spec/pipeline/` to `<OATHKEEPER_HOME>/spec/pipeline/`
 
         - `Authenticators.callback.schema.json`
         - `Authenticators.session_jwt.schema.json`
