@@ -1,8 +1,6 @@
-# Integrate Ory Oathkeeper with custom OIDC module with WSO2 Identity Server
+# Integrate Ory Oathkeeper with WSO2 Identity Server
 
-This customized [Oathkeeper](https://github.com/ory/oathkeeper){: target="_blank"} setup functions as an identity gateway. It authenticates incoming requests via {{product_name}} (or any other identity provider), establishes a secure session by storing a session for each authenticated user, and forwards the request to the back-end service.
-
-For authenticated users, it injects authentication details (such as tokens and user information) into HTTP headers before proxying the request. Upon receiving a response from the back-end, Oathkeeper captures it, attaches the necessary cookies, and then sends the complete response back to the client.
+[Oathkeeper](https://github.com/ory/oathkeeper){: target="_blank"} is an open-source identity gateway that authenticates users through an external identity provider (such as {{product_name}}) and forwards user identity and session information to your back-end services via HTTP headers and cookies. This guide explains how you can connect {{product_name}} with Oathkeeper.
 
 ![Oathkeeper flow diagram showing authentication flow between client, Oathkeeper, WSO2 Identity Server, and back-end application]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/oathkeeper-architecture.png)
 
@@ -10,13 +8,9 @@ For authenticated users, it injects authentication details (such as tokens and u
 
 - **Go 1.16 or later**. To install Go, follow the steps in the [Go documentation](https://go.dev/doc/install){:target="_blank"}.
 
-- An application with a back-end. If not, you can use this [sample application](https://github.com/wso2/samples-is/raw/refs/heads/master/identity-gateway/sample-request-logger-app/request-logger.jar){: target="_blank"}.
+- An application with a back-end. If you don't have one, you can use this [sample application](https://github.com/wso2/samples-is/raw/refs/heads/master/identity-gateway/sample-request-logger-app/request-logger.jar){: target="_blank"}.
 
-- OIDC-compliant Identity Provider (for example WSO2 Identity Server 7.0.0 or later)
-
-- (Optional)Redis server for session storage
-  - Default port: 6379
-  - Optional: Set a password for production use
+- (Optional) Redis server for session storage.
 
 ## Step 1: Install and run {{product_name}}
 
@@ -94,57 +88,60 @@ If you have your own application, you can skip this step. If you want to use the
 
       ![Sample app running showing the application startup and running status]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/sample-app-running.png)
 
-## Step 4: Build from source and configure Oathkeeper
+## Step 4: Install and configure Oathkeeper
 
 Follow the steps below to set up Oathkeeper with {{product_name}}.
 
-1. Create and navigate to a new directory:
+1. Create a new directory and navigate to it.
 
-   ```bash
-   mkdir oathkeeper-demo
-   cd oathkeeper-demo
-   ```
+      ```bash
+      mkdir oathkeeper-demo
+      cd oathkeeper-demo
+      ```
 
-2. Fork the repository:
-   https://github.com/ory/oathkeeper.git
+2. Fork and clone the [Oathkeeper repository](https://github.com/ory/oathkeeper.git){: target="_blank"}.
 
-   Clone it:
+      ```bash
+      git clone --branch v0.40.9 --single-branch https://github.com/<your-github-username>/  oathkeeper.git
+      cd oathkeeper
+      ```
 
-   ```bash
-   git clone --branch v0.40.9 --single-branch https://github.com/<your-github-username>/oathkeeper.git
-   cd oathkeeper
-   ```
+3. Download all the customization files created for Oathkeeper from [this repository](https://github.com/wso2/samples-is/tree/master/identity-gateway/oathkeeper/customization-files){: target="_blank"}.
 
-3. Download all the [customization files](https://github.com/wso2/samples-is/tree/master/identity-gateway/oathkeeper/customization-files){: target="_blank"}
+4. Make the following changes to your original Oathkeeper clone using the customization files you downloaded earlier, keeping the same file names.
 
-4. Replace the following folders and files:
+    !!! "note"
 
-   **Folders:**
-   - `root/proxy`
-   - `root/pipeline/errors`
+        In the following files and folders, 
 
-   **Files:**
-   - `root/driver/configuration/provider_koanf.go`
-   - `root/driver/configuration/provider.go`
-   - `root/driver/registry_memory.go`
-   - `root/rule/rule.go`
+          - <OATHKEEPER_HOME> refers to the root directory of the Oathkeeper clone.
+          - <CUSTOM_HOME> refers to the root directory of the customization files.
 
-   **Add the below authenticator files in:**
-   - `root/pipeline/authn`
-     - `authenticator_callback.go`
-     - `authenticator_callback_test.go`
-     - `authenticator_session_jwt.go`
-     - `authenticator_session_jwt_test.go`
+    - Replace the following folders in `<OATHKEEPER_HOME>` with the corresponding folders from `<CUSTOM_HOME>` in the same relative path.
 
-   **Add session store folder to:**
-   - `root/pipeline`
+        - `<OATHKEEPER_HOME>/proxy/`
+        - `<OATHKEEPER_HOME>/pipeline/errors/`
 
-   **Add the following configuration schemas to:**
-   - `root/pipeline/spec`
-     - `Authenticators.callback.schema.json`
-     - `Authenticators.session_jwt.schema.json`
-     - `Errors.redirect.schema.json`
-     - `Session_store.schema.json`
+    - Replace the following files in `<OATHKEEPER_HOME>` with the corresponding files from `<CUSTOM_HOME>` in the same relative path.
+
+        - `<OATHKEEPER_HOME>/driver/configuration/provider_koanf.go`
+        - `<OATHKEEPER_HOME>/driver/configuration/provider.go`
+        - `<OATHKEEPER_HOME>/driver/registry_memory.go`
+        - `<OATHKEEPER_HOME>/rule/rule.go`
+
+    - Add these files from `<CUSTOM_HOME>/pipeline/authn` to `<OATHKEEPER_HOME>/pipeline/authn`
+
+        - `authenticator_callback.go`
+        - `authenticator_callback_test.go`
+        - `authenticator_session_jwt.go`
+        - `authenticator_session_jwt_test.go`
+
+    - Add these configuration schema from `<CUSTOM_HOME>/spec/pipeline/` to `<OATHKEEPER_HOME>/pipeline/spec/`
+
+        - `Authenticators.callback.schema.json`
+        - `Authenticators.session_jwt.schema.json`
+        - `Errors.redirect.schema.json`
+        - `Session_store.schema.json`
 
    **Replace `root/config.schema.json`**
 
@@ -267,6 +264,9 @@ Now that you’ve successfully connected {{product_name}} with Oathkeeper, you c
 This setup secures dashboards, microservices, and legacy apps, improving stack security, scalability, and maintainability.
 
 ### Improving scalability for the connection between {{product_name}} and Oathkeeper
+
+   **Add session store folder to:**
+   - `root/pipeline`
 
 Once you have Oathkeeper running, you can enhance its scalability in distributed environments with the following configurations to use Redis for session storage.
 
