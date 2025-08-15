@@ -1,6 +1,8 @@
 # Integrate OAuth2 Proxy with WSO2 Identity Server
 
-[OAuth2 Proxy](https://github.com/oauth2-proxy/oauth2-proxy){: target="_blank"} is an open-source reverse proxy that authenticates users through an external OAuth2 provider (such as WSO2 Identity Server) and forwards user identity information to your application via HTTP headers. You can use OAuth2 Proxy if you want to,
+[OAuth2 Proxy](https://github.com/oauth2-proxy/oauth2-proxy){: target="_blank"} is an open-source reverse proxy that authenticates users through an external OAuth2 provider (such as WSO2 Identity Server) and forwards user identity information to your application via HTTP headers. This tutorial explains how you can connect {{product_name}} with OAuth2 Proxy.
+
+You can use OAuth2 Proxy if you want to,
 
 - add OAuth2/OIDC authentication to legacy apps without code changes.
 - centralize authentication logic.
@@ -14,13 +16,11 @@ Follow the steps below to connect {{product_name}} with OAuth2 Proxy.
 
 - **Go 1.16 or later**. To install Go, follow the steps in the [Go documentation](https://go.dev/doc/install){:target="_blank"}.
 
-- An application with a back-end. If not, you can use this [sample application](https://github.com/wso2/samples-is/raw/refs/heads/master/identity-gateway/sample-request-logger-app/request-logger.jar){: target="_blank"}.
+- An application with a back-end. If you don't have one, you can use this [sample application](https://github.com/wso2/samples-is/raw/refs/heads/master/identity-gateway/sample-request-logger-app/request-logger.jar){: target="_blank"}.
 
 - OIDC-compliant Identity Provider (for example WSO2 Identity Server 7.0.0 or later)
 
 - (Optional) Redis for advanced session storage.
-  - Default port: 6379
-  - Optional: Set a password for production use
 
 ## Step 1: Install and run {{product_name}}
 
@@ -182,18 +182,19 @@ Now that you’ve set up {{product_name}}, the sample application (or your own),
 
 2. Log in with an existing user.
 
-   !!! note
-       The app URL `https://localhost:8080` is no longer used directly. Instead, use the new proxy URL of OAuth2 Proxy.
-
 3. After successfully logging in, OAuth2 Proxy forwards identity headers (for example X-Forwarded-User, X-Forwarded-Email) to your application.
 
       ![OAuth2 Proxy logged in showing successful authentication and user information]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/oauth2proxy-logged-in.png)
 
-### Improving scalability for the connection between {{product_name}} and OAuth2 Proxy
+## Advanced configurations
 
-Once you have OAuth2 Proxy running, you can enhance its scalability in distributed enviroment with the following configurations to use Redis for session storage
+You can enhance the integration between {{product_name}} and OAuth2 Proxy with the following advanced options.
 
-By default, OAuth2 Proxy stores sessions in an encrypted cookie. For better scalability and performance in distributed environments, you can use **Redis** as a central session store. To do so, add the following to your `oauth2-proxy.cfg` configuration file.
+### Integrate a Redis server for storing sessions
+
+By default, OAuth2 Proxy keeps sessions in encrypted cookies. While this works for single-instance deployments, using Redis as a central session store offers better performance and consistency across multiple instances.
+
+If you have a Redis server, add the following to your `oauth2-proxy.cfg` configuration file to connect it.
 
 ```ini
 session_store_type = "redis"
@@ -208,9 +209,9 @@ redis_connection_url = "redis://127.0.0.1:6379/1"
     redis://[:password@]host[:port][/db-number]
     ```
 
-### Securing the connection between {{product_name}} and OAuth2 Proxy
+### Encrypt connections with TLS
 
-To secure communication between clients and OAuth2 Proxy, you can enable TLS so that requests are encrypted in transit. To do so, add the following to your `oauth2-proxy.cfg` configuration file:
+To encrypt communication between clients and OAuth2 Proxy, you can enable TLS. To do so, add the following to your `oauth2-proxy.cfg` configuration file:
 
 ```ini
 http_address = "0.0.0.0:443"
@@ -231,6 +232,16 @@ tls_min_version = "TLS1.3"  # Optional, for stronger security
     -days 365 \
     -subj "/CN=localhost"
     ```
+
+!!! tip "Learn more"
+
+    Refer to the following documentation to learn more about these options.
+
+    - [session storage](https://oauth2-proxy.github.io/oauth2-proxy/configuration/session_storage){: target="_blank"}.
+
+    - [TLS encryption](https://oauth2-proxy.github.io/oauth2-proxy/configuration/tls){: target="_blank"}.
+
+---
 
 Now that you’ve successfully connected {{product_name}} with OAuth2 Proxy, you can leverage this integration to:
 
