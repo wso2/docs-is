@@ -5812,7 +5812,7 @@ components:
           type: string
           enum: [ "ALL_EXISTING_AND_FUTURE_ORGS", "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN" ]
           description: |
-            This will only shows the future sharing modes.
+            This will only show the future sharing modes.
             - ALL_EXISTING_AND_FUTURE_ORGS: Share with all current and any newly created organizations in future.
             - SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN: Share with this organization and its current & future children.
         roleSharing:
@@ -5904,7 +5904,7 @@ components:
           enum: [ "SELECTED_ORG_ONLY",
                   "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN"]
           description: |
-            - SELECTED_ORG_ONLY: Share app with only this specific organizations.
+            - SELECTED_ORG_ONLY: Share app with only this specific organization.
             - SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN: Share with this organization and its current & future children.
         roleSharing:
           $ref: "#/components/schemas/RoleSharing"
