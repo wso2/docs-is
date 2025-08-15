@@ -128,6 +128,7 @@ Follow the steps below to set up Oathkeeper with {{product_name}}.
         - `<OATHKEEPER_HOME>/driver/configuration/provider.go`
         - `<OATHKEEPER_HOME>/driver/registry_memory.go`
         - `<OATHKEEPER_HOME>/rule/rule.go`
+        - `<OATHKEEPER_HOME>/spec/config.schema.json`
 
     - Add these files from `<CUSTOM_HOME>/pipeline/authn` to `<OATHKEEPER_HOME>/pipeline/authn`
 
@@ -136,14 +137,12 @@ Follow the steps below to set up Oathkeeper with {{product_name}}.
         - `authenticator_session_jwt.go`
         - `authenticator_session_jwt_test.go`
 
-    - Add these configuration schema from `<CUSTOM_HOME>/spec/pipeline/` to `<OATHKEEPER_HOME>/pipeline/spec/`
+    - Add these configuration schema from `<CUSTOM_HOME>/spec/pipeline/` to `<OATHKEEPER_HOME>/spec/pipeline`
 
         - `Authenticators.callback.schema.json`
         - `Authenticators.session_jwt.schema.json`
         - `Errors.redirect.schema.json`
         - `Session_store.schema.json`
-
-   **Replace `root/config.schema.json`**
 
    Run the following commands:
 
