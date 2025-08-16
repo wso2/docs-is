@@ -88,7 +88,7 @@ paths:
               preIssueAccessToken:
                 summary: Sample payload for pre issue access token action
                 value:
-                  name: Access Token Pre Issue
+                  name: Pre Issue Access Token
                   description: This action invokes before issuing an access token.
                   endpoint:
                     uri: https://myextension.com/token
@@ -197,7 +197,7 @@ paths:
                   summary: Sample response for pre issue access token action
                   value:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: INACTIVE
                     createdAt: 2025-08-01T12:00:00Z
@@ -323,7 +323,7 @@ paths:
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
-                "name": "Access Token Pre Issue",
+                "name": "Pre Issue Access Token",
                 "description": "This action invokes before issuing an access token.",
                 "endpoint": {
                     "uri": "https://myextension.com/token",
@@ -414,7 +414,7 @@ paths:
                   value:
                   - id: 24f64d17-9824-4e28-8413-de45728d8e84
                     type: PRE_ISSUE_ACCESS_TOKEN
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
                     createdAt: 2025-08-01T12:00:00Z
@@ -523,7 +523,7 @@ paths:
                   value:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
                     type: PRE_ISSUE_ACCESS_TOKEN
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
                     createdAt: 2025-08-01T12:00:00Z
@@ -688,7 +688,7 @@ paths:
               preIssueAccessToken:
                 summary: Sample payload for pre issue access token action update
                 value:
-                  name: Updated Access Token Pre Issue
+                  name: Updated Pre Issue Access Token
                   description: This action invokes before issuing an access token.
                   endpoint:
                     uri: https://myextension.com/external/token
@@ -775,7 +775,7 @@ paths:
                   summary: Sample response for pre issue access token action
                   value:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
-                    name: Updated Access Token Pre Issue
+                    name: Updated Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
                     createdAt: 2025-08-01T12:00:00Z
@@ -891,7 +891,7 @@ paths:
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
             -d '{
-                "name": "Access Token Pre Issue action",
+                "name": "Pre Issue Access Token action",
                 "description": "This is the configuration of pre-action for issuing access token from myextensions.com.",
                 "endpoint": {
                     "uri": "http://myextensions.com/access-token",
@@ -1040,7 +1040,7 @@ paths:
                   value:
                   - id: 24f64d17-9824-4e28-8413-de45728d8e84
                     type: PRE_ISSUE_ACCESS_TOKEN
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
                     createdAt: 2025-08-01T12:00:00Z
@@ -1149,7 +1149,7 @@ paths:
                   value:
                   - id: 24f64d17-9824-4e28-8413-de45728d8e84
                     type: PRE_ISSUE_ACCESS_TOKEN
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: INACTIVE
                     createdAt: 2025-08-01T12:00:00Z
@@ -1240,7 +1240,7 @@ components:
   schemas:
     ActionType:
       type: string
-      description: Action types supported. As of now only 'PRE_ISSUE_ACCESS_TOKEN' is implemented.
+      description: Action types supported.
       enum:
         - PRE_ISSUE_ACCESS_TOKEN
         - PRE_UPDATE_PASSWORD
@@ -1336,7 +1336,7 @@ components:
           minLength: 1
           maxLength: 255
           description: Name of the action.
-          example: Access Token Pre Issue
+          example: Pre Issue Access Token
         description:
           type: string
           maxLength: 255
