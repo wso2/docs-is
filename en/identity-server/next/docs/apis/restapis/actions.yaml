@@ -104,6 +104,11 @@ paths:
                         username: auth_username
                         password: auth_password
                       type: BASIC
+                    allowedHeaders:
+                      - x-geo-location
+                      - host
+                    allowedParameters:
+                      - device-id
                   rule:
                     condition: OR
                     rules:
@@ -202,10 +207,17 @@ paths:
                     name: Access Token Pre Issue
                     description: This action invokes before issuing an access token.
                     status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/token
                       authentication:
                         type: BASIC
+                      allowedHeaders:
+                        - x-geo-location
+                        - host
+                      allowedParameters:
+                        - device-id
                     rule:
                       condition: OR
                       rules:
@@ -229,6 +241,8 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/pre-update-password
                       authentication:
@@ -262,6 +276,8 @@ paths:
                     name: Profile Update Action
                     description: This action invokes before updating a user profile.
                     status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/pre-update-profile
                       authentication:
@@ -324,7 +340,9 @@ paths:
                             "password": "auth_password"
                         },
                         "type": "BASIC"
-                    }
+                    },
+                    "allowedHeaders": [ "x-geo-location", "host" ],
+                    "allowedParameters": [ "device-id" ]
                 }
             }'
         - lang: Curl - preUpdatePassword
@@ -406,6 +424,8 @@ paths:
                     name: Access Token Pre Issue
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -418,6 +438,8 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -430,6 +452,8 @@ paths:
                       name: Profile Update Action
                       description: This action invokes before updating a user profile.
                       status: ACTIVE
+                      createdAt: 2025-08-01T12:00:00Z
+                      updatedAt: 2025-09-01T13:00:00Z
                       links:
                         - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
                           method: GET
@@ -509,10 +533,17 @@ paths:
                     name: Access Token Pre Issue
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/token
                       authentication:
                         type: BASIC
+                      allowedHeaders:
+                        - x-geo-location
+                        - host
+                      allowedParameters:
+                        - device-id
                     rule:
                       condition: OR
                       rules:
@@ -537,6 +568,8 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/pre-update-password
                       authentication:
@@ -571,6 +604,8 @@ paths:
                     name: Profile Update Action
                     description: This action invokes before updating a user profile.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/pre-update-profile
                       authentication:
@@ -668,6 +703,11 @@ paths:
                       properties:
                         token: 346dfbb5-6a8c-447a-9aaa-88fa2dd95962
                       type: BEARER
+                    allowedHeaders:
+                      - x-geo-location
+                      - host
+                    allowedParameters:
+                      - device-id
                   rule:
                     condition: OR
                     rules:
@@ -745,10 +785,17 @@ paths:
                     name: Updated Access Token Pre Issue
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/external/token
                       authentication:
                         type: BEARER
+                      allowedHeaders:
+                        - x-geo-location
+                        - host
+                      allowedParameters:
+                        - device-id
                     rule:
                       condition: OR
                       rules:
@@ -767,6 +814,8 @@ paths:
                     name: Updated Password Update Action
                     description: This action invokes before updating a user password.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/external/pre-update-password
                       authentication:
@@ -788,12 +837,14 @@ paths:
                           operator: notEquals
                           value: adminInitiatedPasswordUpdate
                 preUpdateProfile:
-                  summary: Sample response for pre update profile action update
+                  summary: Sample response for pre update profile action
                   value:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
                     name: Updated Profile Update Action
                     description: This action invokes before updating a user profile.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/external/pre-update-profile
                       authentication:
@@ -857,7 +908,9 @@ paths:
                             "header": "sample_header",
                             "value": "sample_value"
                         }
-                    }
+                    },
+                    "allowedHeaders": [ "x-geo-location", "host" ],
+                    "allowedParameters": [ "device-id" ]
                 }
             }'
         - lang: Curl - preUpdatePassword
@@ -997,6 +1050,8 @@ paths:
                     name: Access Token Pre Issue
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -1009,6 +1064,8 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -1021,6 +1078,8 @@ paths:
                       name: Profile Update Action
                       description: This action invokes before updating a user profile.
                       status: ACTIVE
+                      createdAt: 2025-08-01T12:00:00Z
+                      updatedAt: 2025-09-01T13:00:00Z
                       links:
                         - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
                           method: GET
@@ -1100,6 +1159,8 @@ paths:
                     name: Access Token Pre Issue
                     description: This action invokes before issuing an access token.
                     status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -1112,6 +1173,8 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -1124,6 +1187,8 @@ paths:
                       name: Profile Update Action
                       description: This action invokes before updating a user profile.
                       status: INACTIVE
+                      createdAt: 2025-08-01T12:00:00Z
+                      updatedAt: 2025-09-01T13:00:00Z
                       links:
                         - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
                           method: GET
@@ -1224,6 +1289,18 @@ components:
           example: https://myextension.com/token
         authentication:
           $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host"]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id"]
 
     EndpointResponse:
       type: object
@@ -1239,6 +1316,18 @@ components:
           example: https://myextension.com/token
         authentication:
           $ref: '#/components/schemas/AuthenticationTypeResponse'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host" ]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id" ]
 
     ActionResponse:
       type: object
@@ -1267,6 +1356,14 @@ components:
             - INACTIVE
           description: Status of the action.
           example: ACTIVE
+        createdAt:
+          type: string
+          description: Created time of the action.
+          example: "2025-08-01T12:00:00Z"
+        updatedAt:
+          type: string
+          description: Last updated time of the action.
+          example: "2025-09-01T13:00:00Z"
         endpoint:
           $ref: '#/components/schemas/EndpointResponse'
         rule:
@@ -1298,6 +1395,14 @@ components:
             - ACTIVE
             - INACTIVE
           description: Status of the action.
+        createdAt:
+          type: string
+          description: Created time of the action.
+          example: "2025-08-01T12:00:00Z"
+        updatedAt:
+          type: string
+          description: Last updated time of the action.
+          example: "2025-09-01T13:00:00Z"
         links:
           type: array
           items:
@@ -1454,9 +1559,20 @@ components:
           pattern: '^https?://.+'
           description: Updating HTTPS URI of the endpoint.
           example: https://myextension.com/token
-          
         authentication:
           $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host" ]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id" ]
 
     ORRule:
       type: object
