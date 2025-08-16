@@ -12,21 +12,7 @@ Customizations take effect at two levels:
 By branding these interfaces, your users will experience a familiar and consistent look and feel that aligns with your organizational or application-specific themes.
 
 !!! note "UI Branding for B2B applications"
-
-    If you have implemented [B2B organizations]({{base_path}}/guides/organization-management/), the behavior of each branding levels will work as follows:
-
-    **For organization-specific branding**:
-
-    - You may configure separate UI branding for each organization. 
-    - If you have not configured UI branding for your organization, the UI branding of your immediate parent  organization will be applied to the organization. If your parent organization has no branding, the  grand-parent organization's branding will apply. This will continue all the way until the root organization.  If the root organization has no branding, the default {{product_name}} branding will apply.
-     
-    **For application-specific branding**:
-
-    - If you configure application-specific branding, it will override the organization’s branding for that  application.
-    - If no application-specific branding is set, the UI branding of the organization will be applied. If the  organization has no branding, the application-specific branding of the immediate parent's organization will  apply. This will continue all the way until the root organization. If the root organization has no branding, the default {{product_name}} branding will apply.
-
-
-    ![{{ product_name }} branding path resolver]({{base_path}}/assets/img/guides/branding/generic-app-branding-resolver-path.png)
+    If you have implemented [B2B organizations]({{base_path}}/guides/organization-management/), refer [UI branding inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/ui-branding-inheritance) to see how branding configurations are inherited.
 
 !!! note
     See the complete list of [UI branding options](#ui-branding-preferences) currently available in {{ product_name }}.
