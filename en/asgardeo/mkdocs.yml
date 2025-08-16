@@ -626,6 +626,7 @@ nav:
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Action Management API: apis/organization-apis/action-management-rest-api.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
       - Application management API: 
         - Application management API (Shared Applications): apis/organization-apis/shared-application-management.md
