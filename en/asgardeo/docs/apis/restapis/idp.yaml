@@ -2507,6 +2507,11 @@ components:
           type: string
           example: SAML2Authenticator
           description: The name of the authenticator
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
         self:
           type: string
           example: /t/{org_name}/api/server/v1/identity-providers/meta/federated-authenticators/U0FNTFNTT0F1dGhlbnRpY2F0b3I
@@ -2523,6 +2528,11 @@ components:
         displayName:
           type: string
           example: 'SAML2 Web SSO Configuration'
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
         properties:
           type: array
           items:
@@ -2562,6 +2572,11 @@ components:
           type: boolean
           default: false
           example: true
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
         isDefault:
           type: boolean
           default: false
@@ -2569,6 +2584,84 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Property'
+        endpoint:
+          $ref: '#/components/schemas/Endpoint'
+    Endpoint:
+      type: object
+      required:
+        - uri
+        - authentication
+      properties:
+        uri:
+          type: string
+          example: https://abc.com/token
+          pattern: '^https?://.+'
+        authentication:
+          $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host"]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id"]
+    AuthenticationType:
+      type: object
+      description: >
+            The type of authentication required by the action's endpoint. The following options are supported:
+            
+            - NONE: No authentication is required. <br>
+              ``{
+                "type": "NONE"
+              }``
+              
+            - BASIC: Basic authentication with a username and password.<br>
+              ``{
+                "type": "BASIC",
+                "properties": {
+                  "username": "auth_username",
+                  "password": "auth_password"
+                }
+              }``
+              
+            - API_KEY: API key-based authentication, where the key is provided in an HTTP header.<br>
+              ``{
+                "type": "API_KEY",
+                "properties": {
+                  "header": "X-API-Key",
+                  "value": "12345-abcde-67890"
+                }
+              }``
+            
+            - BEARER: Bearer token-based authentication.<br/>
+              ``{
+                "type": "BEARER",
+                "properties": {
+                  "accessToken": "0d6fed02-eac0-332b-8998-213a543139a0"
+                }
+              }``
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum:
+            - NONE
+            - BEARER
+            - API_KEY
+            - BASIC
+          example: BASIC
+        properties:
+          type: object
+          additionalProperties: true
+          example:
+            username: "auth_username"
+            password: "auth_password"
     FederatedAuthenticatorPUTRequest:
       type: object
       properties:
@@ -2588,10 +2681,17 @@ components:
           type: boolean
           default: false
           example: false
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
         properties:
           type: array
           items:
             $ref: '#/components/schemas/Property'
+        endpoint:
+          $ref: '#/components/schemas/Endpoint'
     FederatedAuthenticatorListResponse:
       type: object
       properties:
@@ -2617,6 +2717,11 @@ components:
           type: boolean
           default: false
           example: true
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
         self:
           type: string
           example: /t/{org_name}/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y
@@ -3165,6 +3270,11 @@ components:
             properties:
               username: "auth_username"
               password: "auth_password"
+          allowedHeaders:
+            - x-geo-location
+            - host
+          allowedParameters:
+            - device-id
     SystemDefinedAuthenticatorPUTRequestExample:
       summary: "Put request for system defined authenticators"
       value:
@@ -3190,6 +3300,11 @@ components:
                 properties:
                   username: "auth_username"
                   password: "auth_password"
+              allowedHeaders:
+                - x-geo-location
+                - host
+              allowedParameters:
+                - device-id
     SystemDefinedAuthenticatorsListPUTRequestExample:
       summary: "Put request for system defined authenticators list"
       value:
@@ -3309,6 +3424,11 @@ components:
                   properties:
                     username: "auth_username"
                     password: "auth_password"
+                allowedHeaders:
+                  - x-geo-location
+                  - host
+                allowedParameters:
+                  - device-id
         provisioning:
           jit:
             isEnabled: true
@@ -3458,6 +3578,11 @@ components:
           uri: "https://abc.com/token"
           authentication:
             type: "BASIC"
+          allowedHeaders:
+            - x-geo-location
+            - host
+          allowedParameters:
+            - device-id
     SystemDefinedAuthenticatorListResponseExample:
       summary: "List of authenticators with system defined authenticator"
       value:
