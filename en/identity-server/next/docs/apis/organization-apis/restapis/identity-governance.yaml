@@ -1,16 +1,10 @@
 openapi: 3.0.0
 info:
   description: >-
-    This document specifies **Identity Governance Configurations RESTful API** for **WSO2
+    This document specifies **Identity Governance Configurations RESTful API of organizations** for **WSO2
     Identity Server**.
   version: "v1"
   title: Governance connectors Admin API
-tags:
-  - name: Management
-    description: Secured Admin-only calls
-security:
-  - OAuth2: []
-  - BasicAuth: []
 paths:
   /identity-governance/:
     get:
@@ -19,9 +13,9 @@ paths:
       summary: Retrieve governance connector categories.
       operationId: getCategories
       description: |
-        Retrieve governance connector categories.
+        Retrieve governance connector categories of an organization.
 
-        <b>Scope(Permission) required:</b> `internal_governance_view`
+        <b>Scope(Permission) required:</b> `internal_org_governance_view`
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -46,19 +40,19 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/identity-governance/' \
+            'https://localhost:9443/o/api/server/v1/identity-governance/' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /identity-governance/{category-id}:
     get:
       tags:
         - Management
-      summary: Retrieve governance connectors of a category
+      summary: Retrieve governance connectors of a category in an organization.
       operationId: getConnectorCategory
       description: |
         Retrieve governance connectors of a category. <br>
 
-        <b>Scope(Permission) required:</b> ` internal_governance_view`
+        <b>Scope(Permission) required:</b> ` internal_org_governance_view`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
       responses:
@@ -78,19 +72,19 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}' \
+            'https://localhost:9443/o/api/server/v1/identity-governance/{catergory-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /identity-governance/{category-id}/connectors:
     get:
       tags:
         - Management
-      summary: Retrieve governance connectors of a category
+      summary: Retrieve governance connectors of a category in an organization.
       operationId: getConnectorsOfCategory
       description: |
         Retrieve governance connectors of a category.<br>
 
-        <b>Scope(Permission) required:</b> `internal_governance_view`
+        <b>Scope(Permission) required:</b> `internal_org_governance_view`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
       responses:
@@ -112,9 +106,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors' \
+            'https://localhost:9443/o/api/server/v1/identity-governance/{catergory-id}/connectors' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
   /identity-governance/{category-id}/connectors/revert:
     post:
       tags:
@@ -122,8 +116,8 @@ paths:
       summary: Remove properties of a governance connector
       operationId: revertConnectorProperties
       description: |
-        Remove the given properties of a governance connector.<br>
-        <b>Scope (Permission) required:</b> `internal_governance_update`
+        Remove the given properties of a governance connector in an organization.<br>
+        <b>Scope (Permission) required:</b> `internal_org_governance_update`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: "#/components/parameters/connectorIdQueryParam"
@@ -144,9 +138,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors/revert?connectorId={connector-id}' \
+            'https://localhost:9443/o/api/server/v1/identity-governance/{catergory-id}/connectors/revert?connectorId={connector-id}' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization:  Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "properties": [
@@ -166,9 +160,9 @@ paths:
       summary: Retrieve governance connector
       operationId: getConnector
       description: |
-        Retrieve governance connector.<br>
+        Retrieve a governance connector of an organization.
 
-        <b>Scope(Permission) required:</b> `internal_governance_view`
+        <b>Scope(Permission) required:</b> `internal_org_governance_view`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: '#/components/parameters/connectorIdPathParam'
@@ -189,18 +183,18 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
+            'https://localhost:9443/o/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
     patch:
       tags:
         - Management
       summary: Patch governance connector
       operationId: patchConnector
       description: |
-        Patch governance connector.<br>
+        Patch a governance connector of an organization.
 
-        <b>Scope(Permission) required:</b> `internal_governance_update`
+        <b>Scope(Permission) required:</b> `internal_org_governance_update`
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: '#/components/parameters/connectorIdPathParam'
@@ -219,9 +213,9 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
+            'https://localhost:9443/o/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
             -H 'accept: */*' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
             "operation": "UPDATE",
@@ -239,7 +233,7 @@ paths:
               $ref: '#/components/schemas/ConnectorsPatchReq'
         description: governance-connector to update
 servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/api/server/v1
+  - url: https://{serverUrl}/t/{tenantDomain}/o/api/server/v1
     variables:
       serverUrl:
         default: localhost:9443
@@ -356,7 +350,7 @@ components:
         self:
           type: string
           description: Path to retrieve the full connector information.
-          example: /api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz
+          example: /o/api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz
         connectors:
           type: array
           description: Connectors of the category with minimal attributes.
@@ -373,7 +367,7 @@ components:
         self:
           type: string
           description: Path to retrieve the full connector information.
-          example: /api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz/connectors/c3VzcGVuc2lvbi5ub3RpZmljYXRpb24
+          example: /o/api/server/v1/identity-governance/QWNjb3VudCBNYW5hZ2VtZW50IFBvbGljaWVz/connectors/c3VzcGVuc2lvbi5ub3RpZmljYXRpb24
     CategoryRes:
       type: object
       description: Governance connector category response.

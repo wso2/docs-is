@@ -775,6 +775,7 @@ components:
         - name
         - orgHandle
         - status
+        - version
         - ref
       properties:
         id:
@@ -790,6 +791,9 @@ components:
           type: string
           enum: [ ACTIVE, DISABLED ]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         hasChildren:
           type: boolean
           example: false
@@ -807,6 +811,7 @@ components:
         - name
         - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -827,6 +832,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'
@@ -854,6 +862,7 @@ components:
         - name
         - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -874,6 +883,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'
@@ -1013,6 +1025,7 @@ components:
         - name
         - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -1033,6 +1046,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'
