@@ -987,6 +987,7 @@ nav:
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Action Management API: apis/organization-apis/action-management-rest-api.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API (Shared Applications): apis/organization-apis/shared-application-mgt.md
@@ -1009,6 +1010,7 @@ nav:
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
+      - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
