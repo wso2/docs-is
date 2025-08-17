@@ -313,6 +313,11 @@ paths:
                       uri: "https://abc.com/authenticate"
                       authentication:
                         type: "BASIC"
+                      allowedHeaders:
+                        - x-geo-location
+                        - host
+                      allowedParameters:
+                        - device-id
         '400':
           description: Bad Request
           content:
@@ -1321,6 +1326,18 @@ components:
           pattern: '^https?://.+'
         authentication:
           $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host"]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id"]
     AuthenticationType:
       type: object
       required:
