@@ -137,6 +137,137 @@ paths:
             curl --location 'https://localhost:9443/o/api/server/v1/authenticators/{authenticator-id}/connected-apps' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
+  /authenticators/custom:
+    post:
+      tags:
+        - User defined local authenticators
+      summary: |
+        Create a new user defined local authenticator.
+      description: |
+        This API provides the capability to create a new user defined local authenticator.
+
+        <b>Scope(Permission) required: </b> `internal_org_custom_authenticator_create`
+      operationId: addUserDefinedLocalAuthenticator
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authenticator'
+              examples:
+                example:
+                  $ref: '#/components/examples/UserDefinedAuthenticatorExample'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDefinedLocalAuthenticatorCreation'
+        description: This represents the user defined local authenticator to be created.
+        required: true
+  /authenticators/custom/{authenticator-id}:
+    put:
+      tags:
+        - User defined local authenticators
+      summary: |
+        Update a user defined local authenticator.
+      description: |
+        This API provides the capability to update a user defined local authenticator configurations.
+        
+        <b>Scope(Permission) required:</b> `internal_org_custom_authenticator_update`
+      operationId: updateUserDefinedLocalAuthenticator
+      parameters:
+        - name: authenticator-id
+          in: path
+          description: ID of an authenticator
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authenticator'
+              examples:
+                example:
+                  $ref: '#/components/examples/UserDefinedAuthenticatorExample'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDefinedLocalAuthenticatorUpdate'
+        description: This represents the user defined local authenticator to be created.
+        required: true
+    delete:
+      tags:
+        - User defined local authenticators
+      summary: |
+        Delete a user defined local authenticator.
+      description: |
+        This API provides the capability to delete a user defined local authenticators.
+
+        <b>Scope required:</b> `internal_org_custom_authenticator_delete`
+      operationId: deleteUserDefinedLocalAuthenticator
+      parameters:
+        - name: authenticator-id
+          in: path
+          description: ID of an authenticator
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successful response
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
 components:
   parameters:
@@ -213,6 +344,7 @@ components:
         id:
           type: string
           example: QmFzaWNBdXRoZW50aWNhdG9y
+          readOnly: true
         name:
           type: string
           example: BasicAuthenticator
@@ -222,11 +354,18 @@ components:
         isEnabled:
           type: boolean
           example: true
+        definedBy:
+          type: string
+          enum:
+            - SYSTEM
+            - USER
+          readOnly: true
         type:
           type: string
           enum:
             - LOCAL
             - FEDERATED
+          readOnly: true
         image:
           type: string
           example: basic-authenticator-logo-url
@@ -238,9 +377,142 @@ components:
           items:
             type: string
           example: [2FA, MFA]
+          readOnly: true
         self:
           type: string
           example: /t/carbon.super/api/server/v1/configs/authenticators/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+    UserDefinedLocalAuthenticatorCreation:
+      description: This represents the configuration for creating a user defined local authenticator.
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the user defined local authenticator. It must be started with 'custom-'.
+          example: custom-authenticator
+        id:
+          type: string
+          example: Y3VzdG9tLWF1dGhlbnRpY2F0b3I
+        displayName:
+          type: string
+          example: Custom Local Authenticator
+        isEnabled:
+          type: boolean
+          example: true
+        authenticationType:
+          type: string
+          enum:
+            - IDENTIFICATION
+            - VERIFICATION
+        image:
+          type: string
+          example: https://custom-authenticator-logo-url
+        description:
+          type: string
+          example: The user defined custom local authenticator.
+        endpoint:
+          $ref: '#/components/schemas/Endpoint'
+      required:
+        - name
+        - displayName
+        - isEnabled
+        - endpoint
+    UserDefinedLocalAuthenticatorUpdate:
+      description: This represents the configuration for updating a user defined local authenticator.
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: Custom Local Authenticator
+        isEnabled:
+          type: boolean
+          example: true
+        image:
+          type: string
+          example: https://custom-authenticator-logo-url-new
+        description:
+          type: string
+          example: The user defined custom local authenticator.
+        endpoint:
+          $ref: '#/components/schemas/Endpoint'
+      required:
+        - name
+        - displayName
+        - isEnabled
+        - endpoint
+    Endpoint:
+      type: object
+      properties:
+        uri:
+          type: string
+          example: https://abc.com/token
+          pattern: '^https?://.+'
+        authentication:
+          $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host"]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id"]
+    AuthenticationType:
+      type: object
+      description: >
+            The type of authentication required by the action's endpoint. The following options are supported:
+            
+            - NONE: No authentication is required. <br>
+              ``{
+                "type": "NONE"
+              }``
+              
+            - BASIC: Basic authentication with a username and password.<br>
+              ``{
+                "type": "BASIC",
+                "properties": {
+                  "username": "auth_username",
+                  "password": "auth_password"
+                }
+              }``
+              
+            - API_KEY: API key-based authentication, where the key is provided in an HTTP header.<br>
+              ``{
+                "type": "API_KEY",
+                "properties": {
+                  "header": "X-API-Key",
+                  "value": "12345-abcde-67890"
+                }
+              }``
+            
+            - BEARER: Bearer token-based authentication.<br/>
+              ``{
+                "type": "BEARER",
+                "properties": {
+                  "accessToken": "0d6fed02-eac0-332b-8998-213a543139a0"
+                }
+              }``
+      required:
+        - type
+        - properties
+      properties:
+        type:
+          type: string
+          enum:
+            - NONE
+            - BEARER
+            - API_KEY
+            - BASIC
+          example: BASIC
+        properties:
+          type: object
+          additionalProperties: true
+          example:
+            username: "auth_username"
+            password: "auth_password"
     ConnectedApps:
       type: object
       properties:
@@ -336,3 +608,15 @@ components:
           authorizationUrl: 'https://localhost:9443/oauth2/authorize'
           tokenUrl: 'https://localhost:9443/oauth2/token'
           scopes: {}
+  examples:
+    UserDefinedAuthenticatorExample:
+      summary: "Response for user defined authenticator"
+      value:
+        id: "Y3VzdG9tLWF1dGhlbnRpY2F0b3I"
+        name: "custom-authenticator"
+        displayName: "Custom Local Authenticator"
+        definedBy: "USER"
+        type: "LOCAL"
+        isEnabled: true
+        tags: [ Custom ]
+        self: "/o/api/server/v1/configs/authenticators/Y3VzdG9tLWF1dGhlbnRpY2F0b3I="

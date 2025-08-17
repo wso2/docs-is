@@ -237,11 +237,9 @@ paths:
       summary: |
         Delete a user defined local authenticator.
       description: |
-        This API provides the capability to delete a user defined local authenticator. <br>
-        <b>Permission required:</b> <br>
-            * /permission/admin/manage/custom_authenticator/delete <br>
-        <b>Scope required:</b> <br>
-            * internal_custom_authenticator_delete <br>
+        This API provides the capability to delete a user defined local authenticators.
+
+        <b>Scope required:</b> `internal_custom_authenticator_delete`
       operationId: deleteUserDefinedLocalAuthenticator
       parameters:
         - name: authenticator-id
@@ -378,6 +376,7 @@ components:
           items:
             type: string
           example: [2FA, MFA]
+          readOnly: true
         self:
           type: string
           example: /t/carbon.super/api/server/v1/configs/authenticators/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
@@ -448,8 +447,53 @@ components:
           pattern: '^https?://.+'
         authentication:
           $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host"]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id"]
     AuthenticationType:
       type: object
+      description: >
+            The type of authentication required by the action's endpoint. The following options are supported:
+            
+            - NONE: No authentication is required. <br>
+              ``{
+                "type": "NONE"
+              }``
+              
+            - BASIC: Basic authentication with a username and password.<br>
+              ``{
+                "type": "BASIC",
+                "properties": {
+                  "username": "auth_username",
+                  "password": "auth_password"
+                }
+              }``
+              
+            - API_KEY: API key-based authentication, where the key is provided in an HTTP header.<br>
+              ``{
+                "type": "API_KEY",
+                "properties": {
+                  "header": "X-API-Key",
+                  "value": "12345-abcde-67890"
+                }
+              }``
+            
+            - BEARER: Bearer token-based authentication.<br/>
+              ``{
+                "type": "BEARER",
+                "properties": {
+                  "accessToken": "0d6fed02-eac0-332b-8998-213a543139a0"
+                }
+              }``
       required:
         - type
         - properties
