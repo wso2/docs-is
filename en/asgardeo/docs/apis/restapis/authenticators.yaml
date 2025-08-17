@@ -233,7 +233,7 @@ paths:
       summary: |
         Delete a user defined local authenticator.
       description: |
-        This API provides the capability to delete a user defined local authenticators.
+        This API provides the capability to delete a user defined local authenticator.
 
         <b>Scope(Permission) required:</b> `internal_custom_authenticator_delete`
       operationId: deleteUserDefinedLocalAuthenticator
@@ -430,7 +430,6 @@ components:
         endpoint:
           $ref: '#/components/schemas/Endpoint'
       required:
-        - name
         - displayName
         - isEnabled
         - endpoint
