@@ -197,7 +197,7 @@ extra:
     Setup:
       icon: octicons/gear-16
       level: 1
-    SDKs:
+    Developer Tools:
       icon: octicons/package-16
       level: 1
     React SDK:

@@ -16,9 +16,7 @@ template: templates/quick-start.html
       "You need to have one of the following tools installed: <a href='https://code.visualstudio.com/download' target='_blank' rel='noopener noreferrer'>VS Code</a>, <a href='https://claude.ai/download' target='_blank' rel='noopener noreferrer'>Claude Desktop</a>, <a href='https://www.cursor.com/en/downloads' target='_blank' rel='noopener noreferrer'>Cursor</a>,  <a href='https://windsurf.com/download' target='_blank' rel='noopener noreferrer'>Windsurf</a> or any other MCP-compatible client"
     ],
     source_code: "<a href='https://github.com/asgardeo/asgardeo-mcp-server' target='_blank' class='github-icon'>Asgardeo MCP Server</a>",
-    whats_next: [
-      "Read Asgardeo MCP Server release blog"
-    ]
+    
   };
 </script>
 
