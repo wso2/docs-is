@@ -1,23 +1,18 @@
-# Asgardeo MCP Server Quickstart <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# Asgardeo MCP Server <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
 
-Welcome to the Asgardeo MCP Server Quickstart! In this document, you will learn how to build, install, and configure the Asgardeo MCP Server with **VS Code, Claude Desktop, Cursor, Windsurf**, and other MCP-compatible clients.
+The **Asgardeo MCP Server** helps you manage identity and access management tasks using natural language prompts. It connects your code editor or AI tool to Asgardeo’s Management APIs, letting you automate common identity management operations—such as listing applications, updating application settings, or managing users—without going through UI interfaces or needing to write API calls.
+
+You can use the Asgardeo MCP Server with popular editors and tools like **VS Code, Claude Desktop, Cursor, Windsurf**, and others. The MCP server acts as a bridge between your editor and Asgardeo, handling authentication and API requests for you. This quickstart explains how to set up the server, connect it to your Asgardeo organization, and verify your setup.
 
 !!! Note
 
     The Asgardeo MCP Server is currently in **Preview**. Some features may be subject to changes in future releases.
 
-[//] STEPS_START
+## On Asgardeo
 
-## Configure Asgardeo access for MCP server
+The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perform the actions required by each MCP tool. To make this work, it must first get an access token with the appropriate scopes. This requires configuring access to your {{ product_name }} organization by creating a Machine-to-Machine (M2M) application and authorizing API Resources and Scopes to access the necessary APIs.
 
-The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perform the actions required by each MCP tool.
-To enable this, it must first get an access token with the appropriate scopes. This requires configuring access to
-your Asgardeo organization by creating a Machine-to-Machine (M2M) application and authorizing API Resources and Scopes to access the
-necessary APIs.
-
-Follow these steps to set up the M2M application:
-
-Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name.
+1. Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name.
 
 !!! Example
     **name:** Asgardeo-MCP-Server
@@ -28,9 +23,7 @@ Note down the following values from the **Protocol** tab of the registered appli
 - **`client-secret`** from the **Protocol** tab.
 - **The name of your {{ product_name }} organization**
 
----
-Next, you need to authorize the API resources and corresponding scopes required for the actions performed by the MCP tools.
-The following table includes the required API resources and scopes for all currently supported tools.
+2. Authorize the API resources and corresponding scopes required for the actions performed by the MCP tools. The following table includes the required API resources and scopes for all currently supported tools.
 
 | **Asgardeo Management API** | **Required scopes** |
 |--------|---------|
@@ -42,57 +35,16 @@ The following table includes the required API resources and scopes for all curre
 | **SCIM2 Users API** (`/scim2/Users`) | `internal_user_mgt_create` |
 | **OIDC Scope Management API** (`/api/server/v1/oidc/scopes`) | `internal_oidc_scope_mgt_view` |
 
-To authorize API resources, navigate to the **API Authorization** tab within your Asgardeo application settings and
-click the **Authorize an API Resource** button. In the pop-up window that appears, use the dropdown to search and select
-the necessary API Resources from the Management APIs and authorize necessary scopes.
+To authorize API resources, navigate to the **API Authorization** tab within your Asgardeo application settings and click the **Authorize an API Resource** button. In the pop-up window that appears, use the dropdown to search and select the necessary API Resources from the Management APIs and authorize necessary scopes.
 
 !!! Note
 
     You can selectively authorize API Resources and scopes based on the specific MCP tools you plan to use.
     For detailed guidance on which API Resources and Scopes are needed by each tool, see the [API resources and scopes required for MCP tools]({{base_path}}/references/mcp-tool-api-resource-access/) section.
 
-Once completed, your API Authorization configuration should resemble the example shown in the screenshot.
+Once completed, your API Authorization configuration should look as follows.
 
 ![Asgardeo M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
-
-## Build Asgardeo MCP server
-
-Download the source code from the [Asgardeo MCP Server GitHub repository](https://github.com/asgardeo/asgardeo-mcp-server){:target="_blank"}. Choose one of the following methods:
-
-=== "Clone the repository locally using Git"
-    Make sure **Git** is installed on your machine, then run the following commands.
-
-    Clone the full repo: 
-    ```bash
-    git clone https://github.com/asgardeo/asgardeo-mcp-server
-    ```
-    Change directory into `asgardeo-mcp-server`:
-    ```bash
-    cd asgardeo-mcp-server
-    ```
-    Checkout the specific release tag:
-    ```bash
-    git checkout tags/v0.1.0
-    ```
-
-=== "Download as a ZIP archive"
-    [**Download the source ZIP**](https://github.com/asgardeo/asgardeo-mcp-server/releases/tag/v0.1.0){:target="_blank"} from the release page of the repository, then extract the contents to your preferred directory.
-
-Then, install the required dependencies by running the following command.
-
-```bash
-
-go mod tidy
-```
-
-Now, you can build the Asgardeo MCP server by running the following command. Make sure you have installed Go as mentioned in prerequisites section.
-
-```bash
-
-go build -o asgardeo-mcp
-```
-
-After running the above command, make sure to copy the absolute path to the generated binary. This path will be referenced as `<ABSOLUTE-PATH>`in the next step.
 
 ## Configure your code editor
 

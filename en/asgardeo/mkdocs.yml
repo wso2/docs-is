@@ -165,7 +165,7 @@ plugins:
         'apis/organization-apis/notification-sender-rest-api.md':  'apis/organization-apis/notification-sender-rest-api.md'
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
-
+        'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
 exclude_docs: |
   /get-started/hello-world.md
 
@@ -229,8 +229,6 @@ nav:
       - MCP Server:
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
         - MCP-Auth Quickstart: quick-starts/mcp-auth-server.md
-    - Connect via MCP:
-      - MCP Server: quick-starts/mcp-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
@@ -500,8 +498,9 @@ nav:
         - Organization insights: guides/organization-insights.md
       - Agentic AI:
         - MCP Authorization:
+          - MCP Authorization: guides/agentic-ai/mcp/index.md
           - Securing MCP Servers: guides/agentic-ai/mcp/mcp-server-authorization.md
-          - Securing MCP Client: guides/agentic-ai/mcp/register-mcp-client-app.md
+          - Securing MCP Clients: guides/agentic-ai/mcp/register-mcp-client-app.md
         - Identity for AI Agents:
           - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
           - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
@@ -517,8 +516,10 @@ nav:
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
-  - SDKs:
-    - Integrate Asgardeo into your application: sdks/index.md
+  - Developer Tools:
+    - SDKs:
+      - Integrate Asgardeo into your application: sdks/index.md
+    - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
