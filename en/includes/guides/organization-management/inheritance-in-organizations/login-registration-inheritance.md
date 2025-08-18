@@ -9,6 +9,9 @@ The inheritance for login and registration configurations is as follows:
 - Configuration settings are inherited hierarchically. An organization receives its settings from the nearest ancestor with a custom configuration. If no ancestor has a custom setting, the default value is applied.
 - Any organization can override an inherited value. This new setting will then be inherited by all of its descendant organizations. An override can be reverted at any time to restore the inherited configuration.
 
+!!! note
+    Child organizations cannot override `Idle Session Timeout` and `Remember Me Period` configurations related to session management. 
+
 ## Configure login and registration flows
 
 To learn how to configure login and registration flows, see the following guides:
