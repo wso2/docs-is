@@ -503,7 +503,7 @@ components:
           example: "ACTIVE"
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/webhooks/123e4567-e89b-12d3-a456-556642440000
+          example: /t/{organization_name}/api/server/v1/webhooks/123e4567-e89b-12d3-a456-556642440000
 
     WebhookList:
       type: object

@@ -169,7 +169,7 @@ components:
           example: "https://schemas.identity.wso2.org"
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/webhooks/metadata/event-profiles/WSO2
+          example: /t/{organization_name}/api/server/v1/webhooks/metadata/event-profiles/WSO2
 
     Error:
       type: object

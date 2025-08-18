@@ -46,7 +46,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks/metadata/event-profiles' -H 'Authorization: Bearer {bearer_token}'
+              curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/metadata/event-profiles' -H 'Authorization: Bearer {bearer_token}'
 
   /webhooks/metadata/event-profiles/{profileName}:
     get:
@@ -175,7 +175,7 @@ components:
           example: "https://schemas.identity.wso2.org"
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/webhooks/metadata/event-profiles/WSO2
+          example: /t/{tenant-domain}/api/server/v1/webhooks/metadata/event-profiles/WSO2
 
     Error:
       type: object

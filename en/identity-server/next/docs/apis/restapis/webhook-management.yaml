@@ -51,7 +51,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks' -H 'Authorization: Bearer {bearer_token}'
+              curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks' -H 'Authorization: Bearer {bearer_token}'
 
     post:
       summary: Add Webhook
@@ -91,7 +91,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location --request POST 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks' \
+              curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks' \
               -H 'Authorization: Bearer {bearer_token}' \
               -H 'Content-Type: application/json' \
               -d '{
@@ -151,7 +151,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks/{webhookId}' -H 'Authorization: Bearer {bearer_token}'
+              curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}' -H 'Authorization: Bearer {bearer_token}'
 
     put:
       summary: Update Webhook
@@ -203,7 +203,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location --request PUT 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks/{webhookId}' \
+              curl --location --request PUT 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}' \
               -H 'Authorization: Bearer {bearer_token}' \
               -H 'Content-Type: application/json' \
               -d '{
@@ -253,7 +253,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location --request DELETE 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks/{webhookId}' -H 'Authorization: Bearer {bearer_token}'
+              curl --location --request DELETE 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}' -H 'Authorization: Bearer {bearer_token}'
   
 
   /webhooks/{webhookId}/activate:
@@ -301,7 +301,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location --request POST 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks/{webhookId}/activate' \
+              curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}/activate' \
               -H 'Authorization: Bearer {bearer_token}'
 
   /webhooks/{webhookId}/deactivate:
@@ -349,7 +349,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location --request POST 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks/{webhookId}/deactivate' \
+              curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}/deactivate' \
               -H 'Authorization: Bearer {bearer_token}'
 
 components:
@@ -505,7 +505,7 @@ components:
           example: "ACTIVE"
         self:
           type: string
-          example: /t/carbon.super/api/server/v1/webhooks/123e4567-e89b-12d3-a456-556642440000
+          example: /t/{tenant-domain}/api/server/v1/webhooks/123e4567-e89b-12d3-a456-556642440000
 
     WebhookList:
       type: object
