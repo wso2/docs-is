@@ -202,7 +202,7 @@ The table below explains each property in the event data.
       },
       "application": {
         "id": "63d8a96f-ff87-4f38-a1d7-4d10ee470d9a",
-        "name": "My Account"
+        "name": "Test App"
       },
       "reason": {
         "description": "User authentication failed due to invalid credentials",
@@ -266,7 +266,7 @@ The table below explains each property in the event data.
       },
       "application": {
         "id": "63d8a96f-ff87-4f38-a1d7-4d10ee470d9a",
-        "name": "My Account"
+        "name": "Test App"
       },
       "reason": {
         "description": "User authentication failed due to invalid credentials",
@@ -693,6 +693,839 @@ The table below explains how these properties differ based on each flow.
 <td>APPLICATION</td>
 <td>REGISTER</td>
 <td><p>Occurs when an application with appropriate permissions automatically registers a user. This happens during automated user provisioning or integration with external identity management systems via <a href="{{base_path}}/apis/scim2/scim2-users-rest-api">SCIM 2.0 Users API</a>.</p></td>
+</tr>
+</tbody>
+</table>
+
+## Token events
+
+{{product_name}} dispatches webhook events for both token issuance and revocation. Each event provides detailed context.
+
+### Access token issued event
+
+{{product_name}} sends an <code>accessTokenIssued</code> event when an access token gets successfully issued to a client application.
+
+**Example payload:**
+
+{% if product_name == "Asgardeo" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "f30f6807-192a-40b0-99b9-b176d3b94a94",
+  "iat": 1755541962092,
+  "events": {
+    "https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          },
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "test1@test.com"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "application": {
+        "name": "Test App",
+        "consumerKey": "eaSbhGeDL7ek2ypVrb0h4ZYMSN0a"
+      },
+      "accessToken": {
+        "tokenType": "Opaque",
+        "iat": "1755541962069",
+        "grantType": "authorization_code"
+      }
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "f30f6807-192a-40b0-99b9-b176d3b94a94",
+  "iat": 1755541962092,
+  "events": {
+    "https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          },
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "test1@test.com"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "application": {
+        "name": "Test App",
+        "consumerKey": "eaSbhGeDL7ek2ypVrb0h4ZYMSN0a"
+      },
+      "accessToken": {
+        "tokenType": "Opaque",
+        "iat": "1755541962069",
+        "grantType": "authorization_code"
+      }
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a successful token issuance, identified by the URI <code>https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued</code>. This URI signifies a successful access token issuance event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user for whom the token gets issued along with user resident organization.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the token issuance processes.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization under which the token issuance processes.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>application</td>
+<td><p>Contains information about the application that requested the token.</p></td>
+</tr>
+<tr class="even">
+<td>accessToken</td>
+<td>
+<p>Contains details about the issued token including:</p>
+<ul>
+<li><strong>tokenType</strong>: Token type (for example "Opaque" or "JWT")</li>
+<li><strong>iat</strong>: Token issued at timestamp</li>
+<li><strong>grantType</strong>: OAuth2 grant type used for token issuance (for example "authorization_code")</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Access token revoked event
+
+{{product_name}} sends an <code>accessTokenRevoked</code> event when an access token gets revoked.
+
+**Example payload:**
+
+{% if product_name == "Asgardeo" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "d801a275-e64b-4998-90d9-2ed1601a0d19",
+  "iat": 1755541966592,
+  "events": {
+    "https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "test1@test.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "applications": [
+        {
+          "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+          "name": "Test App",
+          "consumerKey": "eaSbhGeDL7ek2ypVrb0h4ZYMSN0a"
+        }
+      ]
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "d801a275-e64b-4998-90d9-2ed1601a0d19",
+  "iat": 1755541966592,
+  "events": {
+    "https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "test1@test.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "applications": [
+        {
+          "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+          "name": "Test App",
+          "consumerKey": "eaSbhGeDL7ek2ypVrb0h4ZYMSN0a"
+        }
+      ]
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a token revocation, identified by the URI <code>https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked</code>. This URI signifies an access token revocation event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user whose token gets revoked.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processes the token revocation.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processes the token revocation.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>applications</td>
+<td><p>Contains information about applications associated with the revoked token. This appears as an array because token revocation can affect multiple applications.</p></td>
+</tr>
+</tbody>
+</table>
+
+## Session events
+
+{{product_name}} dispatches webhook events for session establishment, presentation, and revocation. Each event provides detailed context about user sessions and associated applications.
+
+### Session established event
+
+{{product_name}} sends a <code>sessionEstablished</code> event when a user logs in for the first time and creates a new session.
+
+This event triggers for every new session creation during the login process. It helps you track when users establish new sessions in your system.
+
+**Example payload:**
+
+{% if product_name == "Asgardeo" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "1a9b7a5f-42f3-4f87-a03d-6962b32a219b",
+  "iat": 1755541960053,
+  "events": {
+    "https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "application": {
+        "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+        "name": "Test App"
+      },
+      "session": {
+        "id": "68d1f2861461c69d8e821d91839bbf8e23ef04fb96c1ac655f452d94d1fd6e4d",
+        "loginTime": 1755541960025,
+        "applications": [
+          {
+            "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+            "name": "Test App"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "1a9b7a5f-42f3-4f87-a03d-6962b32a219b",
+  "iat": 1755541960053,
+  "events": {
+    "https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "application": {
+        "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+        "name": "Test App"
+      },
+      "session": {
+        "id": "68d1f2861461c69d8e821d91839bbf8e23ef04fb96c1ac655f452d94d1fd6e4d",
+        "loginTime": 1755541960025,
+        "applications": [
+          {
+            "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+            "name": "Test App"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a session establishment, identified by the URI <code>https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished</code>. This URI signifies a new session establishment event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user who established the session.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the session gets established.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization under which the session gets established.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>application</td>
+<td><p>Contains information about the application through which the session gets established.</p></td>
+</tr>
+<tr class="even">
+<td>session</td>
+<td>
+<p>Contains details about the established session including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier for the session</li>
+<li><strong>loginTime</strong>: Timestamp when the session gets created</li>
+<li><strong>applications</strong>: Array of applications associated with this session</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Session presented event
+
+{{product_name}} sends a <code>sessionPresented</code> event when an existing session gets used for authentication.
+
+**Example payload:**
+
+{% if product_name == "Asgardeo" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "2837280b-5229-462a-afb6-dc84e97ca152",
+  "iat": 1755541961796,
+  "events": {
+    "https://schemas.identity.wso2.org/events/session/event-type/sessionPresented": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "application": {
+        "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+        "name": "Test App"
+      },
+      "session": {
+        "id": "68d1f2861461c69d8e821d91839bbf8e23ef04fb96c1ac655f452d94d1fd6e4d",
+        "loginTime": 1755541961792,
+        "applications": [
+          {
+            "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+            "name": "Test App"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "2837280b-5229-462a-afb6-dc84e97ca152",
+  "iat": 1755541961796,
+  "events": {
+    "https://schemas.identity.wso2.org/events/session/event-type/sessionPresented": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "application": {
+        "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+        "name": "Test App"
+      },
+      "session": {
+        "id": "68d1f2861461c69d8e821d91839bbf8e23ef04fb96c1ac655f452d94d1fd6e4d",
+        "loginTime": 1755541961792,
+        "applications": [
+          {
+            "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+            "name": "Test App"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a session presentation, identified by the URI <code>https://schemas.identity.wso2.org/events/session/event-type/sessionPresented</code>. This URI signifies a session presentation event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user whose session gets presented.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the session gets presented.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization under which the session gets presented.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>application</td>
+<td><p>Contains information about the application that requested the session presentation.</p></td>
+</tr>
+<tr class="even">
+<td>session</td>
+<td>
+<p>Contains details about the presented session including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier for the session</li>
+<li><strong>loginTime</strong>: Timestamp when the session originally started</li>
+<li><strong>applications</strong>: Array of applications associated with this session</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Session revoked event
+
+{{product_name}} sends a <code>sessionRevoked</code> event when one or more user sessions get revoked.
+
+**Example payload:**
+
+{% if product_name == "Asgardeo" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "61503199-bdf7-4f44-8f50-60c78bf419ad",
+  "iat": 1755541966644,
+  "events": {
+    "https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "sessions": [
+        {
+          "id": "68d1f2861461c69d8e821d91839bbf8e23ef04fb96c1ac655f452d94d1fd6e4d",
+          "loginTime": 1755541961792,
+          "applications": [
+            {
+              "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+              "name": "Test App"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "61503199-bdf7-4f44-8f50-60c78bf419ad",
+  "iat": 1755541966644,
+  "events": {
+    "https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked": {
+      "user": {
+        "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "test1"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/1801d35e-1339-4c16-9c53-61321cf37fb9"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "sessions": [
+        {
+          "id": "68d1f2861461c69d8e821d91839bbf8e23ef04fb96c1ac655f452d94d1fd6e4d",
+          "loginTime": 1755541961792,
+          "applications": [
+            {
+              "id": "eb395ddd-1280-46e9-98fb-810948c1dab4",
+              "name": "Test App"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a session revocation, identified by the URI <code>https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked</code>. This URI signifies a session revocation event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user whose sessions get revoked.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processes the session revocation.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processes the session revocation.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>sessions</td>
+<td>
+<p>Array of revoked sessions. Each session contains:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier for the revoked session</li>
+<li><strong>loginTime</strong>: Timestamp when the session originally started</li>
+<li><strong>applications</strong>: Array of applications that lost access due to session revocation</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
