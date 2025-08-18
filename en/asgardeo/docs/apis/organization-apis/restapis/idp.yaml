@@ -191,7 +191,18 @@ paths:
                 "isEnabled": true,
                 "scheme": "PROVISION_SILENTLY",
                 "userstore": "DEFAULT",
-                "associateLocalUser": true
+                "attributeSyncMethod": "OVERRIDE_ALL",
+                "associateLocalUser": true,
+                "accountLookupAttributeMappings": [
+                  {
+                    "federatedAttribute": "email",
+                    "localAttribute": "http://wso2.org/claims/email"
+                  },
+                  {
+                    "federatedAttribute": "mobile",
+                    "localAttribute": "http://wso2.org/claims/mobile"
+                  }
+                ]
               },
               "outboundConnectors": {
                 "defaultConnectorId": "U0NJTQ",
@@ -1712,7 +1723,18 @@ paths:
             "isEnabled": true,
             "scheme": "PROVISION_SILENTLY",
             "userstore": "DEFAULT",
-            "associateLocalUser": true
+            "attributeSyncMethod": "OVERRIDE_ALL",
+            "associateLocalUser": true,
+            "accountLookupAttributeMappings": [
+                  {
+                    "federatedAttribute": "email",
+                    "localAttribute": "http://wso2.org/claims/email"
+                  },
+                  {
+                    "federatedAttribute": "mobile",
+                    "localAttribute": "http://wso2.org/claims/mobile"
+                  }
+                ]
             }'
       requestBody:
         content:
@@ -2615,6 +2637,33 @@ components:
           type: boolean
           default: false
           example: true
+        skipJITForLookupFailure:
+            type: boolean
+            default: false
+            example: true
+        accountLookupAttributeMappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountLookupAttributeMapping'
+          description: >
+            List of local and federated attributes to be used for account lookup.
+            The maximum number of mappings is 2.
+        attributeSyncMethod:
+          type: string
+          enum:
+            - OVERRIDE_ALL
+            - NONE
+            - PRESERVE_LOCAL
+          default: OVERRIDE_ALL
+    AccountLookupAttributeMapping:
+      type: object
+      properties:
+        localAttribute:
+          type: string
+          example: http://wso2.org/claims/emailaddress
+        federatedAttribute:
+          type: string
+          example: email
     ConnectedApps:
       type: object
       properties:
@@ -2868,6 +2917,11 @@ components:
             userstore: "PRIMARY"
             associateLocalUser: true
             attributeSyncMethod: "OVERRIDE_ALL"
+            accountLookupAttributeMappings:
+              - federatedAttribute: "email"
+                localAttribute: "http://wso2.org/claims/email"
+              - federatedAttribute: "mobile"
+                localAttribute: "http://wso2.org/claims/mobile"
           outboundConnectors:
             defaultConnectorId: "U0NJTQ"
             connectors:
@@ -2933,6 +2987,11 @@ components:
             userstore: "PRIMARY"
             associateLocalUser: true
             attributeSyncMethod: "OVERRIDE_ALL"
+            accountLookupAttributeMappings:
+              - federatedAttribute: "email"
+                localAttribute: "http://wso2.org/claims/email"
+              - federatedAttribute: "mobile"
+                localAttribute: "http://wso2.org/claims/mobile"
     SystemDefinedIdentityProviderResponseExample:
       summary: "Response for identity provider creation with system defined authenticator"
       value:
@@ -2995,6 +3054,11 @@ components:
             userstore: "PRIMARY"
             associateLocalUser: true
             attributeSyncMethod: "OVERRIDE_ALL"
+            accountLookupAttributeMappings:
+              - federatedAttribute: "email"
+                localAttribute: "http://wso2.org/claims/email"
+              - federatedAttribute: "mobile"
+                localAttribute: "http://wso2.org/claims/mobile"
           outboundConnectors:
             defaultConnectorId: "U0NJTQ"
             connectors:

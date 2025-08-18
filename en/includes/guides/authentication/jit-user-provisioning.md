@@ -43,6 +43,12 @@ To enable/disable JIT user provisioning for an external Identity provider:
     <br />
     - When JIT is disabled, a user profile is not created. Therefore, there is no location to store the attributes of the user. In such cases, the attributes are directly passed to the application.
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version == "7.2.0") %}
+!!! note
+    - When `Associate provisioned users with existing local users` configuration is enabled, {{ product_name }} uses the Account Linking rules to find a matching local user and link the federated user with the matching local user. If first match rule and fallback match rule are not defined, {{ product_name }} will match the federated users email with the local users' usernames to find a match.
+    - When `Skip Jit provisioning when no rule matches` cnfiguration is enabled, {{ product_name }} will skip creating a new local user account in case there are no local found using the account linking rules.
+{% endif %}
+
 !!! warning
     If you have configured multi-factor authentication (MFA), disabling JIT user provisioning might break the application login flow. Learn more about [troubleshooting sign-in flow errors with JIT](#troubleshoot-sign-in-flow-errors).
 
