@@ -16,6 +16,7 @@ servers:
 
 security:
   - OAuth2: []
+  - BasicAuth: []
 
 paths:
   /webhooks:
