@@ -397,6 +397,7 @@ nav:
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approve workflow: guides/workflows/approve-workflow.md
+        - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
