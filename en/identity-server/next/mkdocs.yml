@@ -657,6 +657,9 @@ nav:
           - Migrate users to WSO2 Identity Server: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
           - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
+      - Workflows:
+        - Workflows: guides/workflows/index.md
+        - Approve workflow: guides/workflows/approve-workflow.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:

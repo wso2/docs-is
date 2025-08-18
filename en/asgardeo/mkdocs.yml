@@ -394,6 +394,9 @@ nav:
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
           - Deployment best practices: guides/users/user-stores/deployment-best-practices.md
           - Advanced configuration for the agent: guides/users/user-stores/advanced-configurations-for-the-agent.md
+      - Workflows:
+        - Workflows: guides/workflows/index.md
+        - Approve workflow: guides/workflows/approve-workflow.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
