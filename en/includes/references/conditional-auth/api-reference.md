@@ -1119,7 +1119,7 @@ If [alternative login identifiers]({{base_path}}/guides/user-accounts/account-lo
 
 ### Update user password
 
-`updateUserPassword(user, newPassword, eventHandlers)`
+`updateUserPassword(user, newPassword, eventHandlers, skipPasswordValidation)`
 
 This function updates the user password.
 
@@ -1139,6 +1139,10 @@ This function updates the user password.
           <td><code>eventHandlers</code></td>
           <td>Optional callback event handlers.</td>
         </tr>
+        <tr>
+          <td><code>skipPasswordValidation</code></td>
+          <td>Optional parameter to skip password pattern validation.</td>
+        </tr>
       </tbody>
     </table>
 
@@ -1155,6 +1159,15 @@ This function updates the user password.
         Log.info("Password update failed.");
       }
     });
+
+    updateUserPassword(user, "newPassword", {
+      onSuccess: function(context) {
+        Log.info("Password updated successfully.");
+      },
+      onFail: function(context) {
+        Log.info("Password update failed.");
+      }
+    }, true);
     ```
 
 

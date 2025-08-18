@@ -29,6 +29,8 @@
     - [`removeAssociatedLocalUser()`](#remove-associated-local-user)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
+    - [`resolveMultiAttributeLoginIdentifier()`](#resolve-multi-attribute-login-identifier)
+    - [`updateUserPassword()`](#update-user-password)
   
 - [Object references](#object-reference): You can use objects to capture user behaviors and set attributes. For example, you can use the **user** and **request** objects and write the login conditions accordingly. Listed below are the object references that can be used in conditional authentication scripts.
   
@@ -1046,6 +1048,89 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
     http_connections.request_timeout = 3000
     http_connections.connection_timeout = 3000
     http_connections.request_retry_count = 2
+    ```
+
+### Resolve multi attribute login identifier
+
+`resolveMultiAttributeLoginIdentifier(loginIdentifier, tenantDomain)`
+
+If [alternative login identifiers]({{base_path}}/guides/user-accounts/account-login/configure-login-identifiers/) are enabled, this function resolves the username from the provided login identifier.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>loginIdentifier</code></td>
+          <td>User provided login identifier.</td>
+        </tr>
+        <tr>
+          <td><code>organization</code></td>
+          <td>Organization name.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ```
+    var loginIdentifier = context.request.params.username[0];
+    var tenantDomain = context.tenantDomain;
+
+    var username = resolveMultiAttributeLoginIdentifier(loginIdentifier, tenantDomain);
+    ```
+
+### Update user password
+
+`updateUserPassword(user, newPassword, eventHandlers, skipPasswordValidation)`
+
+This function updates the user password.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>user</code></td>
+          <td>The user object.</td>
+        </tr>
+        <tr>
+          <td><code>newPassword</code></td>
+          <td>New user password.</td>
+        </tr>
+        <tr>
+          <td><code>eventHandlers</code></td>
+          <td>Optional callback event handlers.</td>
+        </tr>
+        <tr>
+          <td><code>skipPasswordValidation</code></td>
+          <td>Optional parameter to skip password pattern validation.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ```
+    updateUserPassword(user, "newPassword");
+
+    updateUserPassword(user, "newPassword", {
+      onSuccess: function(context) {
+        Log.info("Password updated successfully.");
+      },
+      onFail: function(context) {
+        Log.info("Password update failed.");
+      }
+    });
+
+    updateUserPassword(user, "newPassword", {
+      onSuccess: function(context) {
+        Log.info("Password updated successfully.");
+      },
+      onFail: function(context) {
+        Log.info("Password update failed.");
+      }
+    }, true);
     ```
 
 ## Object reference
