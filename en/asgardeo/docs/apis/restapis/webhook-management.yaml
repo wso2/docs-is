@@ -8,7 +8,6 @@ info:
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
 security:
-  - BasicAuth: []
   - OAuth2: []
 
 paths:
@@ -45,7 +44,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks' -H 'Authorization: Basic YWRtaW46YWRtaW4='
+              curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks' -H 'Authorization: Bearer {bearer_token}'
 
     post:
       summary: Add Webhook
@@ -86,7 +85,7 @@ paths:
           - lang: Curl
             source: |
               curl --location --request POST 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks' \
-              -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+              -H 'Authorization: Bearer {bearer_token}' \
               -H 'Content-Type: application/json' \
               -d '{
                 "endpoint": "https://example.com/webhook",
@@ -145,7 +144,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks/101' -H 'Authorization: Basic YWRtaW46YWRtaW4='
+              curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks/{webhookId}' -H 'Authorization: Bearer {bearer_token}'
 
     delete:
       summary: Delete Webhook
@@ -187,7 +186,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks/101' -H 'Authorization: Basic YWRtaW46YWRtaW4='
+              curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks/{webhookId}' -H 'Authorization: Bearer {bearer_token}'
   
 
   /webhooks/{webhookId}/activate:
@@ -236,7 +235,7 @@ paths:
           - lang: Curl
             source: |
               curl --location --request POST 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks/{webhookId}/activate' \
-              -H 'Authorization: Basic YWRtaW46YWRtaW4='
+              -H 'Authorization: Bearer {bearer_token}'
 
   /webhooks/{webhookId}/deactivate:
     post:
@@ -284,7 +283,7 @@ paths:
           - lang: Curl
             source: |
               curl --location --request POST 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks/{webhookId}/deactivate' \
-              -H 'Authorization: Basic YWRtaW46YWRtaW4='
+              -H 'Authorization: Bearer {bearer_token}'
 
   /webhooks/{webhookId}/retry:
     post:
@@ -332,7 +331,7 @@ paths:
           - lang: Curl
             source: |
               curl --location --request POST 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/webhooks/{webhookId}/retry' \
-              -H 'Authorization: Basic YWRtaW46YWRtaW4='
+              -H 'Authorization: Bearer {bearer_token}'
 
 components:
   securitySchemes:

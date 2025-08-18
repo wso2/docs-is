@@ -16,7 +16,6 @@ servers:
         default: carbon.super
 
 security:
-  - BasicAuth: []
   - OAuth2: []
 
 paths:
@@ -47,7 +46,7 @@ paths:
         x-codeSamples:
           - lang: Curl
             source: |
-              curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks/metadata/event-profiles' -H 'Authorization: Basic YWRtaW46YWRtaW4='
+              curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/webhooks/metadata/event-profiles' -H 'Authorization: Bearer {bearer_token}'
 
   /webhooks/metadata/event-profiles/{profileName}:
     get:
