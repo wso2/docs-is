@@ -604,6 +604,8 @@ nav:
       - Organization management API: apis/organization-management.md
       - Role management (SCIM 2.0) API: apis/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
+      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook Metadata API: apis/webhook-metadata-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md

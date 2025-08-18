@@ -952,7 +952,9 @@ nav:
           - Roles v3 API: apis/role-management/roles-v3-rest-api.md
           - Roles v2 API (deprecated): apis/role-management/roles-v2-rest-api.md
           - Roles v1 API (deprecated): apis/role-management/roles-v1-rest-api.md
-      - Rule Metadata API: apis/rule-metadata-rest-api.md   
+      - Rule Metadata API: apis/rule-metadata-rest-api.md
+      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook Metadata API: apis/webhook-metadata-rest-api.md   
       - Server management:
         - Configuration management:
             - Configuration management API: apis/use-the-configuration-management-rest-apis.md
