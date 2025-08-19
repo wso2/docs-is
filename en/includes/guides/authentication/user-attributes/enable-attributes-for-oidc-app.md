@@ -35,7 +35,7 @@ To add user attributes to the app:
 
 ### Select an alternate subject attribute
 
-The subject attribute exchanges information about the user. The ID token contains this as the **sub** attribute. By default, {{ product_name }} uses the **User ID** as the subject. You can select any user attribute as the subject.
+The **subject** attribute (`sub`) in the ID token uniquely identifies a user. By default, {{ product_name }} sets `sub` to the User ID, but you can configure it to use any other user attribute as the subject.
 
 To define a different attribute as the subject:
 
