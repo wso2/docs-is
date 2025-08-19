@@ -75,6 +75,11 @@ The request from {{product_name}} includes following in the JSON request payload
 <td>event.tenant</td>
 <td><p>This property shows the tenant (root organization) where {{product_name}} processes the profile update request.</p>
 </tr>
+{% if not is_version == "7.1.0" %}
+<tr class="even">
+<td>event.organization</td>
+<td><p>This property represents the organization handling the profile update request.</p>
+{% endif %}
 <tr class="even">
 <td>event.user</td>
 <td><p>This property contains information about the user whose profile gets update.</p>
@@ -85,6 +90,12 @@ The request from {{product_name}} includes following in the JSON request payload
 <td><p>The unique numeric identifier of the user whose profile gets update.</p>
 </td>
 </tr>
+{% if not is_version == "7.1.0" %}
+<tr>  
+<td>organization</td>  
+<td>This property identifies the user's resident organization.</td>
+</tr>
+{% endif %}
 <tr>
 <td>claims</td>
 <td>
@@ -159,6 +170,108 @@ The groups attribute only appears in the <code>event.user</code> context when yo
 #### Example request from {{product_name}}
 
 This example illustrates a request sent to an external service configured as a pre-update profile action, triggered when an administrator updates the user’s profile.
+
+{% if not is_version == "7.1.0" %}
+
+```http
+POST /profile-update-action HTTP/1.1
+Host: localhost
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+Content-Type: application/json
+
+{
+  "actionType": "PRE_UPDATE_PROFILE",
+  "event": {
+    "request": {
+      "claims": [
+       {
+          "uri": "http://wso2.org/claims/emailAddresses",
+          "value": [
+            "emily@aol.com",
+            "emily@gmail.com",
+          ]
+        },
+        {
+          "uri": "http://wso2.org/claims/mobileNumbers",
+          "value": [
+            "1234566234",
+            "1234566235",
+            "1234566236"
+          ]
+        },
+        {
+          "uri": "http://wso2.org/claims/emailaddress",
+          "value": "emily@gmail.com"
+        }
+      ]
+    },
+    "tenant": {
+      "id": "12402",
+      "name": "bar.com"
+    },
+    "organization": {
+      "id": "eb1115f6-274f-4bb7-9b6d-d31f678e81f7",
+      "name": "Bar",
+      "orgHandle": "bar.com",
+      "depth": 0
+    },
+    "user": {
+      "id": "ab49e1b8-2d1b-424d-b136-debdca67bfcc",
+      "organization": {
+        "id": "eb1115f6-274f-4bb7-9b6d-d31f678e81f7",
+        "name": "Bar",
+        "orgHandle": "bar.com",
+        "depth": 0
+      },
+      "claims": [
+        {
+          "uri": "http://wso2.org/claims/emailAddresses",
+          "value": [
+            "emily@aol.com"
+          ],
+          "updatingValue": [
+            "emily@aol.com",
+            "emily@gmail.com",
+
+          ]
+        },
+        {
+          "uri": "http://wso2.org/claims/mobileNumbers",
+          "value": [
+            "1234566234",
+            "1234566235",
+          ],
+          "updatingValue": [
+            "1234566234",
+            "1234566235",
+            "1234566236"
+          ]
+        },
+        {
+          "uri": "http://wso2.org/claims/identity/accountState",
+          "value": "UNLOCKED"
+        },
+        {
+          "uri": "http://wso2.org/claims/emailaddress",
+          "value": "emily@aol.com",
+          "updatingValue": "emily@gmail.com"
+        },
+      ],
+      "groups": [
+        "gold-tier"
+      ]
+    },
+    "userStore": {
+      "id": "REVGQVVMVA==",
+      "name": "DEFAULT"
+    },
+    "initiatorType": "ADMIN",
+    "action": "UPDATE"
+  }
+}
+```
+
+{% else %}
 
 ```http
 POST /profile-update-action HTTP/1.1
@@ -246,6 +359,8 @@ Content-Type: application/json
   }
 }
 ```
+
+{% endif %}
 
 ### Expected response from external service
 
