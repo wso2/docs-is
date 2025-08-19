@@ -25,6 +25,7 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "051f0c37-b689-44d4-b7d2-29b980ece273",
   "iat": 1751705149662,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
@@ -70,6 +71,7 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "051f0c37-b689-44d4-b7d2-29b980ece273",
   "iat": 1751705149662,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
@@ -162,6 +164,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "7ef94943-2004-4f72-b476-9baffe5623c7",
   "iat": 1751709144508,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginFailed": {
       "user": {
@@ -226,6 +229,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "7ef94943-2004-4f72-b476-9baffe5623c7",
   "iat": 1751709144508,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginFailed": {
       "user": {
@@ -353,6 +357,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "e558b025-58ae-4e29-8242-75d6bfdfcbda",
   "iat": 1751709420327,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess": {
       "initiatorType": "ADMIN",
@@ -411,6 +416,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "e558b025-58ae-4e29-8242-75d6bfdfcbda",
   "iat": 1751709420327,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess": {
       "initiatorType": "ADMIN",
@@ -516,6 +522,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "43e76a18-f3b3-400c-bf76-9761b4ec5d57",
   "iat": 1751565405544,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed": {
       "initiatorType": "USER",
@@ -567,6 +574,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "43e76a18-f3b3-400c-bf76-9761b4ec5d57",
   "iat": 1751565405544,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed": {
       "initiatorType": "USER",
@@ -714,6 +722,7 @@ The table below explains how these properties differ based on each flow.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "f30f6807-192a-40b0-99b9-b176d3b94a94",
   "iat": 1755541962092,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued": {
       "user": {
@@ -771,6 +780,7 @@ The table below explains how these properties differ based on each flow.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "f30f6807-192a-40b0-99b9-b176d3b94a94",
   "iat": 1755541962092,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued": {
       "user": {
@@ -882,6 +892,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "d801a275-e64b-4998-90d9-2ed1601a0d19",
   "iat": 1755541966592,
+  "rci": "48eaeb32-76c0-4af8-b04e-9ce0c00cb61f",
   "events": {
     "https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked": {
       "user": {
@@ -937,6 +948,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "d801a275-e64b-4998-90d9-2ed1601a0d19",
   "iat": 1755541966592,
+  "rci": "48eaeb32-76c0-4af8-b04e-9ce0c00cb61f",
   "events": {
     "https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked": {
       "user": {
@@ -1041,6 +1053,7 @@ This event triggers for every new session creation during the login process. It 
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "1a9b7a5f-42f3-4f87-a03d-6962b32a219b",
   "iat": 1755541960053,
+  "rci": "b8b6ccbd-69b0-47d3-b0ae-b2b0df085f7c",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished": {
       "user": {
@@ -1099,6 +1112,7 @@ This event triggers for every new session creation during the login process. It 
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "1a9b7a5f-42f3-4f87-a03d-6962b32a219b",
   "iat": 1755541960053,
+  "rci": "b8b6ccbd-69b0-47d3-b0ae-b2b0df085f7c",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished": {
       "user": {
@@ -1211,6 +1225,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "2837280b-5229-462a-afb6-dc84e97ca152",
   "iat": 1755541961796,
+  "rci": "60f7dd4f-a791-4135-94d6-d26795629361",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionPresented": {
       "user": {
@@ -1269,6 +1284,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "2837280b-5229-462a-afb6-dc84e97ca152",
   "iat": 1755541961796,
+  "rci": "60f7dd4f-a791-4135-94d6-d26795629361",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionPresented": {
       "user": {
@@ -1381,6 +1397,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "61503199-bdf7-4f44-8f50-60c78bf419ad",
   "iat": 1755541966644,
+  "rci": "48eaeb32-76c0-4af8-b04e-9ce0c00cb61f",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked": {
       "user": {
@@ -1437,6 +1454,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "61503199-bdf7-4f44-8f50-60c78bf419ad",
   "iat": 1755541966644,
+  "rci": "48eaeb32-76c0-4af8-b04e-9ce0c00cb61f",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked": {
       "user": {
@@ -1543,6 +1561,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "24fc890a-41c5-4397-9cc9-b9f48102384e",
   "iat": 1751566637663,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated": {
       "initiatorType": "ADMIN",
@@ -1590,6 +1609,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "24fc890a-41c5-4397-9cc9-b9f48102384e",
   "iat": 1751566637663,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated": {
       "initiatorType": "ADMIN",
@@ -1754,6 +1774,7 @@ The table below explains how these properties differ based on each flow.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "2371a91d-66e8-400b-a8de-6e8ee2b8175e",
   "iat": 1751569642578,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated": {
       "initiatorType": "ADMIN",
@@ -1806,6 +1827,7 @@ The table below explains how these properties differ based on each flow.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "2371a91d-66e8-400b-a8de-6e8ee2b8175e",
   "iat": 1751569642578,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated": {
       "initiatorType": "ADMIN",
@@ -1912,6 +1934,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "d32b6be7-1675-4e7d-b118-7346ad53c046",
   "iat": 1751570468806,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDisabled": {
       "initiatorType": "ADMIN",
@@ -1957,6 +1980,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "d32b6be7-1675-4e7d-b118-7346ad53c046",
   "iat": 1751570468806,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDisabled": {
       "initiatorType": "ADMIN",
@@ -2045,6 +2069,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "285a876f-ea57-47b6-9a9d-fc452a04413a",
   "iat": 1751570713348,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userEnabled": {
       "initiatorType": "ADMIN",
@@ -2090,6 +2115,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "285a876f-ea57-47b6-9a9d-fc452a04413a",
   "iat": 1751570713348,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userEnabled": {
       "initiatorType": "ADMIN",
@@ -2178,6 +2204,7 @@ The table below explains each property in the event data.
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "21f03016-632d-4266-9e8b-8863001109f2",
   "iat": 1751571143534,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDeleted": {
       "initiatorType": "ADMIN",
@@ -2223,6 +2250,7 @@ The table below explains each property in the event data.
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "21f03016-632d-4266-9e8b-8863001109f2",
   "iat": 1751571143534,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDeleted": {
       "initiatorType": "ADMIN",

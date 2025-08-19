@@ -1,6 +1,4 @@
-# Setup webhooks {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview">
-
-<span class="md-chip__label">Preview</span></div>{% endif %}
+# Setup webhooks {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
 
 This guide provides a step-by-step approach to setting up webhooks in {{product_name}} to integrate external systems.
 
@@ -107,7 +105,8 @@ Webhook event payloads adhere to the [Security Event Token (SET) specification (
 
 - <code>iss</code> **(Issuer)**: Identifies the {{product_name}} instance that issued the event.  
 - <code>iat</code> **(Issued At)**: Timestamp showing when {{product_name}} issues the event.  
-- <code>jti</code> **(JWT ID)**: A unique identifier for the event.  
+- <code>rci</code> **(Request Correlation ID)**: A unique identifier that correlates the event with the original request that triggered it.
+- <code>jti</code> **(JWT ID)**: A unique identifier for the event.
 - <code>events</code>: This object holds the actual event data. Its internal structure changes depending on the specific event types you've subscribed to. For instance, subscribing to **Logins** will deliver both successful and failed login events, with distinct data structures for each.
 
 **Example event payload for login success event**:
