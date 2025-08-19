@@ -82,7 +82,7 @@ In this example scenario:
 
 ## Map email domains to organizations
 
-Mapping an email domain to an organization allows for a customized user experience, but this remains optional. When an organization have a mapped email domain, the behavior changes as follows:
+When you map an email domain to an organization, the organization's behavior changes as follows:
 
 - If an organization registers an email domain mapping:
     <!-- markdownlint-disable MD007 -->
