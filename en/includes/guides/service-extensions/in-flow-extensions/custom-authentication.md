@@ -116,7 +116,7 @@ Follow the steps below to configure a custom authenticator.
 5. If you select **External (Federated) User Authentication**, configure [JIT-User Provisioning]({{base_path}}/guides/authentication/jit-user-provisioning) according to your requirements. Additionally, review and set up [role assignments for user groups]({{base_path}}/guides/users/manage-roles/#assign-external-groups-to-a-role) to ensure seamless integration.
 
 !!! note
-    If you want to send extra HTTP request headers or extra parameters to your external service, you can add them in **Allowed headers** and **Allowed parameters** under the **Settings** tab in Custom Authenticator configuration.
+    If you want to send extra HTTP request headers or extra parameters to your external service, you can add them in **Allowed headers** and **Allowed parameters** under the **Settings** tab in custom authenticator configuration.
 
 ### Add to an application login flow
 

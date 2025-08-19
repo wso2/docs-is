@@ -11,7 +11,7 @@ The {{product_name}} triggers this action during the following flows involving p
 - Direct Admin Update: An administrator directly updates a user's password.
 {% if not is_version == "7.1.0" %}
 - Admin-Initiated Registration: An administrator registers a new user and directly sets the user's password.
-- User self-registration: A user registers themselves and sets their password.
+- User Self-Registration: The user creates their own account and sets a password through the self-registration portal.
 {% endif %}
 
 !!! note
