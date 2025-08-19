@@ -1,6 +1,4 @@
-# Setup webhooks {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview">
-
-<span class="md-chip__label">Preview</span></div>{% endif %}
+# Setup webhooks {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
 
 This guide provides a step-by-step approach to setting up webhooks in {{product_name}} to integrate external systems.
 
@@ -21,10 +19,13 @@ Ensure that you have:
 
 Your external web service should do the following to receive event notifications:
 
-1. Expose an endpoint that accepts both HTTP GET and POST requests with JSON payloads.
 {% if product_name == "Asgardeo" %}
+
+1. Expose an endpoint that accepts both HTTP GET and POST requests with JSON payloads.
     {{product_name}} sends GET requests for subscription and unsubscription verification.
     Your endpoint must respond to these GET requests with the <code>hub.challenge</code> string to confirm its readiness to receive events.
+{% else %}
+1. Expose an endpoint that accepts HTTP POST requests with JSON payloads.
 {% endif %}
     {{product_name}} sends POST requests to deliver the actual event notifications. These requests contain the event payload in JSON format.  
 
@@ -99,7 +100,7 @@ This process adheres to the [WebSub specification](https://www.w3.org/TR/2018/RE
 
 ## Receive webhook events
 
-{{product_name}} sends an HTTP POST request to your webhook endpoint when a subscribed event is triggered. This request contains a JSON message with event details. Your service can then parse and use this information as needed.
+{{product_name}} sends an HTTP POST request to your webhook endpoint when a subscribed event is triggered. This request contains a JSON message with event details. Your service can then use this information as needed.
 
 ### Event payload structure
 
@@ -118,7 +119,7 @@ Webhook event payloads adhere to the [Security Event Token (SET) specification (
 ```http
 POST /your-webhook-endpoint
 Content-Type: application/json
-X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
+x-hub-signature: sha256=abcdef12345... (HMAC signature)
 
 {
   "iss": "https://api.asgardeo.io/t/myorg",
@@ -129,6 +130,12 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "peter@aol.com"
+          }
+        ],
         "organization": {
           "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
           "name": "myorg",
@@ -168,7 +175,7 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
 ```http
 POST /your-webhook-endpoint
 Content-Type: application/json
-X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
+x-wso2-event-signature: sha256=abcdef12345... (HMAC signature)
 
 {
   "iss": "https://localhost:9443/t/myorg.com",
@@ -179,6 +186,12 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "peter@aol.com"
+          }
+        ],
         "organization": {
           "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
           "name": "myorg",
@@ -265,7 +278,7 @@ If your webhook isn't functioning as expected, consider the following common iss
           - Verify that your webhook endpoint is online, running, and publicly accessible to {{product_name}}. Tools like <code>curl</code> or online HTTP testing services can help check external reachability.  
           - Check your endpoint's server logs for incoming GET requests from {{product_name}}. Configure your endpoint to read the <code>hub.challenge</code> query parameter and respond with a <code>2xx</code> HTTP status code, returning the exact <code>hub.challenge</code> string in the response body. {{product_name}} delivers events only after a successful subscription.  
           - Ensure that no firewalls, security groups, or network ACLs are blocking incoming connections from [{{product_name}}'s IP ranges]({{base_path}}/references/asgardeo-outbound-ip-addresses/).  
-          - If your endpoint receives the request but doesn't process it, there might be an issue with your code parsing the JSON payload or handling the <code>X-Hub-Signature</code> header. Review your application logs for errors.  
+          - If your endpoint receives the request but doesn't process it, there might be an issue with your code parsing the JSON payload or handling the <code>x-hub-signature</code> header. Review your application logs for errors.  
           - {{product_name}} retries failed deliveries. Consistent failures show a persistent issue with your endpoint. Look at addressing them.
 
 3. **Event signature (HMAC) mismatch**
@@ -351,7 +364,7 @@ Follow these guidelines to ensure your webhook implementation remains resilient 
 
      Events might also apply to different resources under the same event type. For example, *credential updated events* currently happen for password updates, indicated by the <code>credentialType</code> property in the payload. In the future, the same event could happen for passkeys, TOTP, or other credential types, introducing new values for <code>credentialType</code>. Design your logic to safely ignore or specifically handle new values for such properties if you only want particular resource updates (for example, only password updates).
 
-3. Ensure graceful unknown property handling:
+3. Ensure graceful unknown property handling  
    Avoid strict schema validation that would cause your webhook to fail if {{product_name}} adds new, optional properties to an existing event payload. Your parser should be able to ignore unrecognized properties, ensuring forward compatibility.
 
 By following these practices, your webhook will be more adaptable to future enhancements in {{product_name}}'s event delivery, requiring fewer updates on your side to maintain functionality.
