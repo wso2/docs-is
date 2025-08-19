@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
   description: |
-    This document specifies an **Input Validation Management RESTful API** for **WSO2
+    This document specifies the **Input Validation Management RESTful API** of organizations for **WSO2
     Identity Server**.
-    Currently used to configure the password pattern.
+    This API is currently used to configure password validation rules.
   version: "v1"
   title: Validation Rules Management API
 
 servers:
-  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
+  - url: 'https://{server-url}/t/{tenant-domain}/o/api/server/v1'
     variables:
       server-url:
         default: "localhost:9443"
@@ -38,7 +38,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/validation-rules' \
+            curl --location 'https://localhost:9443/o/api/server/v1/validation-rules' \
             -H 'Accept: application/json'
     put:
       tags:
@@ -46,7 +46,7 @@ paths:
       description: |
         Update validation rules for user inputs
         
-        <b>Scope(Permission) required:</b> `internal_validation_rule_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_validation_rule_mgt_update`
       operationId: updateValidationRules
       requestBody:
         content:
@@ -88,10 +88,10 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/validation-rules' \
+            curl --location --request PUT 'https://localhost:9443/o/api/server/v1/validation-rules' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '[
               {
                 "field": "password",
@@ -118,8 +118,8 @@ paths:
       tags:
         - Revert Validation Rules
       description: |
-        Revert validation rules of given fields to the default value.<br><br>
-        <b>Scope (Permission) required:</b> internal_validation_rule_mgt_update
+        Revert validation rules of given fields of the organization to the default value.<br><br>
+        <b>Scope (Permission) required:</b> internal_org_validation_rule_mgt_update
       operationId: revertValidationRulesForFields
       requestBody:
         content:
@@ -149,10 +149,10 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/validation-rules/revert' \
+            curl --location --request PUT 'https://localhost:9443/o/api/server/v1/validation-rules/revert' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "fields": [
                 "password"
@@ -192,7 +192,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/validation-rules/{input-field}' \
+            curl --location 'https://localhost:9443/o/api/server/v1/validation-rules/{input-field}' \
             -H 'Accept: application/json'
     put:
       tags:
@@ -200,7 +200,7 @@ paths:
       description: |
         Update validation rules for user inputs for a field
         
-        <b>Scope(Permission) required:</b> `internal_validation_rule_mgt_update`
+        <b>Scope(Permission) required:</b> `internal_org_validation_rule_mgt_update`
       operationId: updateValidationRulesForField
       parameters:
         - name: field
@@ -234,10 +234,10 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PUT 'https://localhost:9443/api/server/v1/validation-rules/{input-field}' \
+            curl --location --request PUT 'https://localhost:9443/o/api/server/v1/validation-rules/{input-field}' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "rules": [
                 {
@@ -285,7 +285,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/validation-rules/validators' \
+            curl --location 'https://localhost:9443/o/api/server/v1/validation-rules/validators' \
             -H 'Accept: application/json'
 components:
   schemas:
@@ -664,3 +664,4 @@ components:
       description: Field not found
     OK:
       description: OK.
+      
