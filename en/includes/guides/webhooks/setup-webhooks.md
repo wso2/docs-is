@@ -107,7 +107,8 @@ Webhook event payloads adhere to the [Security Event Token (SET) specification (
 
 - <code>iss</code> **(Issuer)**: Identifies the {{product_name}} instance that issued the event.  
 - <code>iat</code> **(Issued At)**: Timestamp showing when {{product_name}} issues the event.  
-- <code>jti</code> **(JWT ID)**: A unique identifier for the event.  
+- <code>rci</code> **(Request Correlation ID)**: A unique identifier that correlates the event with the original request that triggered it.
+- <code>jti</code> **(JWT ID)**: A unique identifier for the event.
 - <code>events</code>: This object holds the actual event data. Its internal structure changes depending on the specific event types you've subscribed to. For instance, subscribing to **Logins** will deliver both successful and failed login events, with distinct data structures for each.
 
 **Example event payload for login success event**:
@@ -123,6 +124,7 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
   "iss": "https://api.asgardeo.io/t/myorg",
   "jti": "051f0c37-b689-44d4-b7d2-29b980ece273",
   "iat": 1751705149662,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
@@ -172,6 +174,7 @@ X-Hub-Signature: sha256=abcdef12345... (HMAC signature)
   "iss": "https://localhost:9443/t/myorg.com",
   "jti": "051f0c37-b689-44d4-b7d2-29b980ece273",
   "iat": 1751705149662,
+  "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
