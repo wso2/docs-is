@@ -1797,19 +1797,19 @@ This event triggers when administrators, applications, or users create accounts 
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test2"
+            "value": "johndoe@aol.com"
           },
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test2@test.com"
+            "value": "johndoe@aol.com"
           },
           {
             "uri": "http://wso2.org/claims/lastname",
-            "value": "Test2"
+            "value": "Doe"
           },
           {
             "uri": "http://wso2.org/claims/givenname",
-            "value": "Test2"
+            "value": "John"
           }
         ],
         "organization": {
@@ -1856,19 +1856,19 @@ This event triggers when administrators, applications, or users create accounts 
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test2"
+            "value": "johndoe@aol.com"
           },
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test2@test.com"
+            "value": "johndoe@aol.com"
           },
           {
             "uri": "http://wso2.org/claims/lastname",
-            "value": "Test2"
+            "value": "Doe"
           },
           {
             "uri": "http://wso2.org/claims/givenname",
-            "value": "Test2"
+            "value": "John"
           }
         ],
         "organization": {
@@ -2393,7 +2393,7 @@ This event triggers when accounts get locked due to failed login attempts, admin
         "claims": [
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test2@test.com"
+            "value": "johndoe@aol.com"
           }
         ],
         "organization": {
@@ -2438,7 +2438,7 @@ This event triggers when accounts get locked due to failed login attempts, admin
         "claims": [
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test2@test.com"
+            "value": "johndoe@aol.com"
           }
         ],
         "organization": {
@@ -2524,7 +2524,7 @@ This event triggers when locked accounts get restored to normal status through a
         "claims": [
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test2@test.com"
+            "value": "johndoe@aol.com"
           }
         ],
         "organization": {
@@ -2569,7 +2569,7 @@ This event triggers when locked accounts get restored to normal status through a
         "claims": [
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test2@test.com"
+            "value": "johndoe@aol.com"
           }
         ],
         "organization": {
