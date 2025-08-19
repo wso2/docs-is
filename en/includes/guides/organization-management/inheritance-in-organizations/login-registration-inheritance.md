@@ -10,7 +10,7 @@ The inheritance for login and registration configurations is as follows:
 - Any organization can override an inherited value. This new setting will then be inherited by all of its descendant organizations. An override can be reverted at any time to restore the inherited configuration.
 
 !!! note
-    Child organizations cannot override `Idle Session Timeout` and `Remember Me Period` configurations related to session management. 
+    Child organizations can't override `Idle Session Timeout` and `Remember Me Period` configurations related to session management. 
 
 ## Configure login and registration flows
 
