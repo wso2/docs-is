@@ -20,6 +20,18 @@ This guide explains available discovery types and shows how to integrate them in
 
 {% else %}
 
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+
+| Discovery Type                    | Use Case                                                  |
+|-----------------------------------|-----------------------------------------------------------|
+| **Organization Handle-Based**     | Route users using the organization handle, a human-readable, unique identifier. |
+| **Organization Name-Based**       | Direct users to their organization using the organization name. |
+| **Organization ID-Based**         | Route users using the organization id. Suitable for server-side integrations. |
+| **Email Domain-Based**            | Automatically identify organizations from email domains. Ideal for corporate email addresses. |
+| **Custom Attribute-Based**        | Enable advanced discovery options using custom attributes. |
+
+{% else %}
+
 | Discovery Type                    | Use Case                                                  |
 |-----------------------------------|-----------------------------------------------------------|
 | **Organization Name-Based**       | Direct users to their organization using the organization name. |
@@ -29,23 +41,54 @@ This guide explains available discovery types and shows how to integrate them in
 
 {% endif %}
 
+{% endif %}
+
 ---
 
 ## How organization discovery works
 
-Organization discovery routes users to their organization's login page directly. You can bypass the **"Sign in with Single Sign-On (SSO)"** selection screen. Use one of these two methods:
+Organization discovery routes users directly to their organization's login page. This bypasses the **"Sign in with Single Sign-On (SSO)"** selection screen.
 
-### 1. Direct routing with query parameters
+Use one of these two methods:
 
-Add the `fidp=OrganizationSSO` parameter along with the **organization discovery parameters** to your authentication requests.
+- **Direct routing with query parameters**: Add the `fidp=OrganizationSSO` parameter along with the *organization discovery parameters* to your authentication requests. This directly routes users to their organization login page through the application.
 
-**Why use this method**: Direct users to their organization login page through the application.
+- **Conditional authentication script**: Use an conditional authentication script to automatically select the SSO authenticator based on organization parameters.
 
-### 2. Conditional authentication script
+---
 
-Use an conditional authentication script to automatically select the SSO authenticator based on organization parameters.
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
 
-**Why use this method**: Provides more control over the authentication flow logic.
+## Organization handle-based discovery
+
+Use the organization's handle (tenant domain) to route users to their login page. Organization handles provide a human-readable, unique identifier that users can remember more than organization IDs.
+
+Add the `orgHandle` parameter with the organization handle to your authentication request.
+
+=== "OIDC"
+
+    ```bash
+    https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
+    client_id=<client_id>
+    &redirect_uri=<redirect_url>
+    &scope=<scopes>
+    &response_type=code
+    &orgHandle=<organization_handle>
+    &fidp=OrganizationSSO
+    ```
+
+=== "SAML"
+
+    ```bash
+    https://{{host_name}}{{organization_path_param}}/samlsso?
+    spEntityID=<app_entity_id>
+    &orgHandle=<organization_handle>
+    &fidp=OrganizationSSO
+    ```
+
+**Example**: For an organization with handle `"abc.com"`, add `orgHandle=abc.com` to the request.
+
+{% endif %}
 
 ---
 
@@ -76,7 +119,7 @@ Add the `org` parameter with the organization name to your authentication reques
     &fidp=OrganizationSSO
     ```
 
-**Example**: For an organization named `"acme-corp"`, add `org=acme-corp` to the request.
+**Example**: For an organization named `"ABC Builders"`, add `org=ABC+Builders` to the request.
 
 ---
 
@@ -130,6 +173,89 @@ var onLoginRequest = function(context) {
 
 **How this works**: The script checks for the `orgId` parameter and automatically selects the SSO authenticator.
 
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+
+**For organization handle**: Change the script to check for the `orgHandle` parameter instead:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        authenticationOptions: [{
+            idp: (context.request.params.orgHandle && !context.steps[1].idp) ? "SSO" : context.steps[1].idp
+        }]
+    }, {
+        onSuccess: function(context) {
+            Log.info("User successfully completed initial authentication with IDP: " + context.steps[1].idp);
+        }
+    });
+};
+```
+
+## Configure default parameter for organization discovery
+
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+
+You can set the default discovery parameter for organization discovery across your server or for your root organization. This configuration determines which parameter users provide during SSO login, affecting the user experience.
+
+### Server-wide configuration
+
+Add the following configuration to your deployment configuration file:
+
+```toml
+[organization_discovery]
+default_param = "orgHandle"
+```
+
+**Available options**:
+
+- `"orgHandle"` (recommended): Users provide the organization handle (tenant domain)
+- `"orgName"`: Users provide the organization name
+
+### Root organization configuration
+
+Use the following API to configure the default parameter for your root organization only:
+
+```bash
+curl --location --request PUT 'https://localhost:9443/api/server/v1/organization-configs/discovery' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+--data '{
+    "properties": [
+        {
+            "key": "defaultParam",
+            "value": "orgHandle"
+        }
+    ]
+}'
+```
+
+**Note**: By default, the system uses `"orgHandle"` for better user experience with human-readable identifiers. You can change it to `"orgName"` if your organization names preferably for users to remember than handles.'
+
+### User experience impact of organization discovery configuration
+
+Configure `default_param` to control what users enter during Single Sign-On (SSO)
+
+**When `default_param = "orgHandle"`** (recommended):
+
+When users log in to the app by selecting **Sign In With Single Sign-On (SSO)**, they get redirected to the default SSO option. Users provide the **organization handle** (tenant domain).
+
+When you enable email domain discovery, the UI shows the default prompt option as follows:
+
+![Email input for Single Sign-On (SSO) login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login-with-handle.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+**When `default_param = "orgName"`** (legacy behavior):
+
+Users provide the **organization name** instead.
+
+When you enable email domain discovery, the UI shows the default prompt option as follows:
+
+![Email input for Single Sign-On (SSO) login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+{% endif %}
+
+{% else %}
+
 **For organization names**: Change the script to check for the `org` parameter instead:
 
 ```javascript
@@ -145,6 +271,8 @@ var onLoginRequest = function(context) {
     });
 };
 ```
+
+{% endif %}
 
 ---
 
