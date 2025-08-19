@@ -1,21 +1,14 @@
-# Integrate `mod_auth_openidc` Apache HTTPD module with WSO2 Identity Server
+# Integrate mod_auth_openidc with WSO2 Identity Server
 
-[mod_auth_openidc](https://github.com/zmartzone/mod_auth_openidc){: target="_blank"} is an Apache HTTP Server module that provides OpenID Connect authentication. It acts as a reverse proxy that authenticates users via an external OIDC provider (like WSO2 Identity Server) and forwards identity information to your back-end app via HTTP headers. You can use it if you want to,
-
-- Add Oauth2/OIDC authentication to legacy apps without code changes
-- Centralize authentication logic in Apache
-- Forward user identity (for example username, email) as headers
-- Leverage Apache's robust proxy and security features
+[mod_auth_openidc](https://github.com/zmartzone/mod_auth_openidc){: target="_blank"} is an Apache HTTP Server module that provides OpenID Connect authentication. It acts as a reverse proxy that authenticates users via an external OIDC provider (like WSO2 Identity Server) and forwards identity information to your back-end app via HTTP headers. This guide explains how you can connect {{product_name}} with mod_auth_openidc.
 
 ![mod_auth_openidc flow diagram showing authentication flow between client, Apache with mod_auth_openidc, WSO2 Identity Server, and back-end application]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/mod_auth_openidc_architecture.png)
 
-Follow the steps below to connect {{product_name}} with mod_auth_openidc Apache HTTPD module.
-
 ## Prerequisites
 
-- Homebrew package manager (for macOS users). Install from [brew.sh](https://brew.sh/){: target="_blank"} if not already installed.
-- OIDC-compliant Identity Provider (for example WSO2 Identity Server 7.0.0 or later)
-- An application with a back-end. If not, you can use this [sample application](https://github.com/wso2/samples-is/raw/refs/heads/master/identity-gateway/sample-request-logger-app/request-logger.jar){: target="_blank"}.
+- A package manager (e.g. apt, yum, Homebrew) to install Apache HTTPD.
+
+- An application with a back-end. If you don't have one, you can use this [sample application](https://github.com/wso2/samples-is/raw/refs/heads/master/identity-gateway/sample-request-logger-app/request-logger.jar){: target="_blank"}.
 
 ## Step 1: Install and run {{product_name}}
 
@@ -95,54 +88,57 @@ If you have your own application, you can skip this step. If you want to use the
 
 ## Step 4: Install Apache and mod_auth_openidc
 
-1. Install Apache (if not already installed).
+Follow the steps below to install Apache httpd and the required dependencies.
 
-   ```sh
-   brew install httpd
-   ```
+!!! note
 
-2. Install Dependencies for mod_auth_openidc.
+    The commands below assume a macOS environment. Use the corresponding package manager in your environment for installations. To learn more, refer to the [Apache httpd documentation](https://httpd.apache.org/docs/2.4/install.html){: target="_blank"}.
 
-   mod_auth_openidc requires several dependencies, especially `libcurl` and `jansson`. Install them with:
+1. Install Apache httpd if you don't have it already.
 
-   ```sh
-   brew install jansson cjose libcurl
-   ```
+    ```sh
+    brew install httpd
+    ```
 
-3. Clone and Build mod_auth_openidc.
+2. Install the following dependencies required by mod_auth_openidc.
 
-   ```sh
-   git clone https://github.com/zmartzone/mod_auth_openidc.git
-   cd mod_auth_openidc
-   ./autogen.sh
-   ./configure --with-apxs=$(which apxs)
-   make
-   make install
-   ```
+    ```sh
+    brew install jansson cjose libcurl
+    ```
 
-   If the `./configure --with-apxs=$(which apxs)` command fails, use:
+3. Clone and build mod_auth_openidc.
 
-   ```sh
-   ./configure --with-apxs2=/opt/homebrew/bin/apxs \
+    ```sh
+    git clone https://github.com/zmartzone/mod_auth_openidc.git
+    cd mod_auth_openidc
+    ./autogen.sh
+    ./configure --with-apxs=$(which apxs)
+    make
+    make install
+    ```
+
+    !!! tip "Troubleshoot build errors"
+
+        Homebrew may install dependencies in non-standard locations, which can cause the installation to fail. 
+
+        If the `./configure --with-apxs=$(which apxs)` command fails, try specifying the exact paths to the dependencies:
+
+        ```sh
+        ./configure --with-apxs2=/opt/homebrew/bin/apxs \
             --with-openssl=/opt/homebrew/opt/openssl@3 \
             --with-jansson=/opt/homebrew/opt/jansson \
             --with-cjose=/opt/homebrew/opt/cjose
-   make
-   make install
-   ```
+        make
+        make install
+        ```
 
-   After building, the .so module should appear in `/opt/homebrew/lib/httpd/modules/mod_auth_openidc.so`.
+        After building, the .so module should appear in `/opt/homebrew/lib/httpd/modules/mod_auth_openidc.so`.
 
-## Step 5: Configure Apache with mod_auth_openidc
+## Step 5: Configure Apache to use mod_auth_openidc with {{product_name}}
 
-1. Load the Module in Apache
-   Open your Apache configuration file
+The following steps explain how to configure mod_auth_openidc to act as a reverse proxy and authenticate users via WSO2 Identity Server.
 
-    ```sh
-    nano /opt/homebrew/etc/httpd/httpd.conf
-    ```
-
-    Add:
+1. Open your Apache configuration file at `/opt/homebrew/etc/httpd/httpd.conf` and add the following line to load the mod_auth_openidc module
 
     ```apache
     LoadModule auth_openidc_module /path/to/mod_auth_openidc.so
@@ -151,71 +147,62 @@ If you have your own application, you can skip this step. If you want to use the
     !!! tip
         Load this module only once to avoid conflicts.
 
-## Step 6: Create the OIDC Virtual Host Configuration
+2. Create a new file at `/opt/homebrew/etc/httpd/extra/httpd-oidc.conf` and add the following content. This file will contain the VirtualHost configuration for OIDC authentication.
 
-1. Create `/opt/homebrew/etc/httpd/extra/httpd-oidc.conf` with the following content:
+    ```apache
+    Listen 8002
+    <VirtualHost *:8002>
+        ServerName localhost
 
-   ```apache
-   Listen 8002
-   <VirtualHost *:8002>
-       ServerName localhost
+        OIDCCryptoPassphrase a-random-secret-value
 
-       OIDCCryptoPassphrase a-random-secret-value
+        OIDCProviderMetadataURL https://localhost:9443/oauth2/oidcdiscovery/.well-known/openid-configuration
 
-       OIDCProviderMetadataURL https://localhost:9443/oauth2/oidcdiscovery/.well-known/openid-configuration
+        OIDCClientID YOUR_CLIENT_ID
+        OIDCClientSecret YOUR_CLIENT_SECRET
+        OIDCRedirectURI http://localhost:8002/callback
 
-       OIDCClientID YOUR_CLIENT_ID
-       OIDCClientSecret YOUR_CLIENT_SECRET
-       OIDCRedirectURI http://localhost:8002/callback
+        OIDCRemoteUserClaim sub
+        OIDCSSLValidateServer Off
 
-       OIDCRemoteUserClaim sub
-       OIDCSSLValidateServer Off
+        ProxyPass / http://localhost:8080/
+        ProxyPassReverse / http://localhost:8080/
 
-       ProxyPass / http://localhost:8080/
-       ProxyPassReverse / http://localhost:8080/
+        <Location />
+            AuthType openid-connect
+            Require valid-user
+        </Location>
+    </VirtualHost>
+    ```
 
-       <Location />
-           AuthType openid-connect
-           Require valid-user
-       </Location>
-   </VirtualHost>
-   ```
+    !!! note
 
-   !!! note
-    - Replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with your actual values from WSO2 Identity Server
-    - The setup assumes the following services are running locally with these default ports:
-        - WSO2 Identity Server: https://localhost:9443
-        - Apache with mod_auth_openidc: http://localhost:8002
-        - Back-end Service (API or Web Application): http://localhost:8080
+        - Replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with the client ID and the client secret you received earlier when registering the application in {{product_name}}.
 
-2. Include the OIDC configuration in main httpd.conf
+        - This sample configuration file assumes that the following services run on the specified ports. If your setup differs, adjust the configuration accordingly.
+            - WSO2 Identity Server: https://localhost:9443
+            - Apache with mod_auth_openidc: http://localhost:8002
+            - Back-end Service (API or Web application): http://localhost:8080
 
-   Open your Apache configuration file:
+3. Open the Apache configuration file at `/opt/homebrew/etc/httpd/httpd.conf` and include the following line to include the VirtualHost configuration file you created above.
 
-   ```sh
-   nano /opt/homebrew/etc/httpd/httpd.conf
-   ```
+    ```apache
+    Include /opt/homebrew/etc/httpd/extra/httpd-oidc.conf
+    ```
 
-   ```apache
-   Include /opt/homebrew/etc/httpd/extra/httpd-oidc.conf
-   ```
+4. Start Apache.
 
-3. Start Apache
-
-```sh
-sudo apachectl restart
-```
+    ```sh
+    sudo apachectl restart
+    ```
 
 ## Try it out
 
 Now that you’ve set up {{product_name}}, the sample application (or your own), and mod_auth_openidc Apache HTTPD module, follow the steps below to test them in action.
 
-1. Log in to your app through Apache server by visiting [http://localhost:8002](http://localhost:8002){: target="_blank"}. You will be redirected to the login page of {{product_name}}.
+1. Log in to your app through the Apache server by visiting [http://localhost:8002](http://localhost:8002){: target="_blank"}. You will be redirected to the login page of {{product_name}}.
 
 2. Log in with an existing user.
-
-    !!! note
-       The app URL `https://localhost:8080` is no longer used directly. Instead, use the new proxy URL of Apache server.
 
 3. After successfully logging in, the mod_auth_openidc module automatically injects OIDC claims into HTTP headers for your back-end application. You can access user information through headers like:
 
@@ -227,7 +214,8 @@ Now that you’ve set up {{product_name}}, the sample application (or your own),
     ![mod_auth_openidc logged in showing successful authentication and user information]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/mod_auth_openidc_logged_in.png)
 
     !!! tip
-        Configure which claims to forward to your back-end:
+
+        Include these configurations in your `httpd-oidc.conf` VirtualHost file to control which claims mod_auth_openidc forwards to the application.
 
         ```apache
         OIDCRemoteUserClaim sub
@@ -235,9 +223,15 @@ Now that you’ve set up {{product_name}}, the sample application (or your own),
         OIDCClaimDelimiter "_"
         ```
 
-### Securing the connection between {{product_name}} and mod_auth_openidc
+        Learn more about these configurations in the [Apache documentation](https://github.com/OpenIDC/mod_auth_openidc/blob/master/auth_openidc.conf){: target="_blank"}.
 
-Add to your VirtualHost configuration:
+## Advanced configurations
+
+You can enhance the integration between {{product_name}} and mod_auth_openidc with the following advanced options.
+
+### Encrypt connections with TLS
+
+To encrypt communication between clients and mod_auth_openidc, you can enable TLS. To do so, add the following to your `httpd-oidc.conf` VirtualHost configuration file:
 
 ```apache
 <VirtualHost *:443>
@@ -245,14 +239,13 @@ Add to your VirtualHost configuration:
     SSLCertificateFile /path/to/cert.pem
     SSLCertificateKeyFile /path/to/cert.key
     
-    # ... rest of your OIDC configuration
+    # ... rest of your OIDC configurations
 </VirtualHost>
 ```
 
+### Configure sessions handling
 
-### Configuring Session management
-
-Configure session handling:
+To manage user sessions for mod_auth_openidc, add the following directives to your `httpd-oidc.conf` VirtualHost configuration:
 
 ```apache
 OIDCSessionInactivityTimeout 3600
@@ -260,6 +253,10 @@ OIDCSessionMaxDuration 86400
 OIDCCookieHTTPOnly On
 OIDCCookieSecure Off  # Set to On for production HTTPS
 ```
+
+Learn more about these configurations in the [Apache documentation](https://github.com/OpenIDC/mod_auth_openidc/blob/master/auth_openidc.conf){: target="_blank"}.
+
+---
 
 Now that you’ve successfully connected {{product_name}} with mod_auth_openidc module, you can leverage this integration to:
 

@@ -22,3 +22,4 @@ APIs
 middleware
 passwordless
 base_path
+mod_auth_openidc

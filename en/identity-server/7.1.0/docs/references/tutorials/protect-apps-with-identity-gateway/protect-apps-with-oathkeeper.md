@@ -110,12 +110,12 @@ Follow the steps below to set up Oathkeeper with {{product_name}}.
 
 4. Make the following changes to your original Oathkeeper clone using the customization files you downloaded earlier, keeping the same file names.
 
-    !!! "note"
+    !!! note
 
-        In the following files and folders, 
-
-          - <OATHKEEPER_HOME> refers to the root directory of the Oathkeeper clone.
-          - <CUSTOM_HOME> refers to the root directory of the customization files.
+        In the following files and folders:
+        
+          - `<OATHKEEPER_HOME>` refers to the root directory of your Oathkeeper clone.
+          - `<CUSTOM_HOME>` refers to the root directory of the customization files.
 
     - Replace the following folders in `<OATHKEEPER_HOME>` with the corresponding folders from `<CUSTOM_HOME>` in the same relative path.
 
@@ -128,9 +128,8 @@ Follow the steps below to set up Oathkeeper with {{product_name}}.
         - `<OATHKEEPER_HOME>/driver/configuration/provider.go`
         - `<OATHKEEPER_HOME>/driver/registry_memory.go`
         - `<OATHKEEPER_HOME>/rule/rule.go`
-        - `<OATHKEEPER_HOME>/spec/config.schema.json`
 
-    - Add these files from `<CUSTOM_HOME>/pipeline/authn/` to `<OATHKEEPER_HOME>/pipeline/authn/`
+    - Add these files from `<CUSTOM_HOME>/pipeline/authn` to `<OATHKEEPER_HOME>/pipeline/authn`
 
         - `authenticator_callback.go`
         - `authenticator_callback_test.go`
@@ -144,98 +143,74 @@ Follow the steps below to set up Oathkeeper with {{product_name}}.
         - `Errors.redirect.schema.json`
         - `Session_store.schema.json`
 
-   Run the following commands:
+    - Replace the configuration file `<OATHKEEPER_HOME>/spec/config.schema.json` with `<CUSTOM_HOME>/spec/config.schema.json`.
 
-   ```bash
-   go get github.com/redis/go-redis/v9
-   go mod tidy
-   ```
+    - To add Redis support, add the `<CUSTOM_HOME>/pipeline/session_store/` folder to `<OATHKEEPER_HOME>/pipeline/` folder.
 
-5. Build from source:
+5. To use a Redis server for advanced session or cache storage, install the Redis client library in your Oathkeeper project root.
 
-   ```bash
-   go build -o ./bin/oathkeeper .
-   ```
-
-6. Configure Oathkeeper:
-
-   Download the [sample configuration files](https://github.com/wso2/samples-is/tree/master/identity-gateway/oathkeeper/sample-configuration){: target="_blank"}.
-
-   Update the configuration files:
-   - `config.yml`: Main configuration file
-   - `rules.json`: Access rules configuration
-
-   !!! note
-
-   - This sample configuration file assumes that the following services run on the specified ports:
-
-     - WSO2 Identity Server: `https://localhost:9443`
-     - Oathkeeper: `http://localhost:9444` with TLS
-     - Back-end Service (API or Web Application): `http://localhost:8080`
-
-   - Replace `<your_client_id>`, `<your_client_secret>` with the client ID and the client secret you received earlier when registering the application in {{product_name}}.
-
-   - If you aren't using a Redis store, change the session store configuration:
-
-     ```yaml
-     # Session store configuration
-     session_store:
-       type: memory
+     ```bash
+     go get github.com/redis/go-redis/v9
+     go mod tidy
      ```
 
-     Instead of:
+6. Run the following command in the root directory of your Oathkeeper clone to compile the binary:
 
-     ```yaml
-     # Session store configuration
-     session_store:
-       type: redis
-       redis:
-         addr: "127.0.0.1:6379"
-         password: "<your_redis_password>"
-         db: 0
-         session_prefix: "session:"
-         state_prefix: "state:"
-         ttl: "24h"
+     ```bash
+     go build -o ./bin/oathkeeper .
      ```
 
-   - Add the actual path for rules: `/path/to/rules.sample.json`
+6. [Download](https://github.com/wso2/samples-is/tree/master/identity-gateway/oathkeeper/sample-configuration){: target="_blank"} the sample configuration and rule files.
 
-   - Add the actual path for TLS certificate and key: `/path/to/certificates/cert.pem` and `/path/to/certificates/key.pem`
+7. Update the downloaded `config.yml` file with the following values.
 
-      !!! note "Generate a self-signed TLS certificate"
+    - This sample configuration file assumes that the following services run on the specified ports. If your setup differs, adjust the configuration accordingly.
 
-      To create a self-signed TLS certificate for development purposes, run the following command. For production environments, always use a certificate issued by a trusted Certificate Authority (CA), such as [Let’s Encrypt](https://letsencrypt.org/){: target="_blank"}.
+        - WSO2 Identity Server: `https://localhost:9443`
+        - Oathkeeper: `http://localhost:9444`
+        - Back-end Service (API or Web Application): `http://localhost:8080`
 
-      ```sh
-      openssl req -x509 -newkey rsa:2048 -nodes \
-      -keyout /path/to/cert.key \
-      -out /path/to/cert.pem \
-      -days 365 \
-      -subj "/CN=localhost"
-      ```
+    - Replace `<your_client_id>`, `<your_client_secret>` with the client ID and the client secret you received earlier when registering the application in {{product_name}}.
 
-   - The configuration also assumes you're running Oathkeper with TLS enabled
-      - If you aren't using TLS, you can change the port:
+    - Under `access_rules`, specify the path to the rules file. You can use the sample rules file if you don't have your own.
 
-      ```yaml
-      port: 4455 # 9444 if TLS configured
-      ```
+    - The sample configuration file assumes a system with a Redis server. If you don't have one, remove the session store configurations and add this:
 
-      and remove the TLS configs:
+        ```yaml
+        # Session store configuration
+        session_store:
+          type: memory
+        ```
 
-      ```yaml
-      tls:
-        cert:
-          path: /path/to/certificates/cert.pem
-        key:
-          path: /path/to/certificates/key.pem
-      ```
+    - The sample configuration file also assumes TLS encryption. If you don't use it, make the following changes.
 
-7. Start Oathkeeper:
+        - Change the proxy port to `4455`. The default port `9444` uses TLS.
 
-   ```bash
-   ./bin/oathkeeper serve --config /path/to/config.yml
-   ```
+            ```yaml
+            proxy:
+              port: 4455
+
+            ```
+
+        - Remove TLS-related configurations:
+
+            ```yaml
+            tls:
+              cert:
+                path: /path/to/certificates/cert.pem
+              key:
+                path: /path/to/certificates/key.pem
+            ```
+
+8. Start Oathkeeper:
+
+    ```bash
+    ./bin/oathkeeper serve --config /path/to/config.yml
+    ```
+
+!!! note "Learn more"
+
+    Refer to the Oathkeepr documentation for more information on [Oathkeeper configurations](https://www.ory.sh/docs/oathkeeper/configure-deploy){: target="_blank"}.
 
 ## Try it out
 
@@ -243,33 +218,25 @@ Now that you’ve set up {{product_name}}, the sample application (or your own),
 
 1. Log in to your app through Oathkeeper by visiting [http://localhost:9444/home](http://localhost:9444/home){: target="_blank"}. You will be redirected to the login page of {{product_name}}.
 
-   !!! note
-       The app URL `https://localhost:8080` is no longer used directly. Instead, use the new proxy URL of Oathkeeper.
-
 2. Log in with an existing user.
 
 3. After successfully logging in, Oathkeeper forwards identity headers (for example X-User, X-User-Name, X-User-Email) to your application.
 
     ![Oathkeeper logged in showing successful authentication and user information]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/oathkeeper-logged-in.png)
 
-Now that you’ve successfully connected {{product_name}} with Oathkeeper, you can leverage this integration to:
+## Advanced configurations
 
-- Add authentication to applications that lack native OIDC support.
+You can enhance the integration between {{product_name}} and Oathkeeper with the following advanced options.
 
-- Replace custom or insecure authentication methods.
+### Integrate a Redis server for storing sessions
 
-- Centralize and simplify authentication logic.
+By default, Oathkeeper keeps sessions in memory. While this works for single-instance deployments, using Redis as a central session store provides better performance and consistency across multiple instances.
 
-This setup secures dashboards, microservices, and legacy apps, improving stack security, scalability, and maintainability.
+If you have a Redis server, add the following to your `config.yml` configuration file to connect it.
 
-### Improving scalability for the connection between {{product_name}} and Oathkeeper
+!!! tip "Before you begin"
 
-   **Add session store folder to:**
-   - `root/pipeline`
-
-Once you have Oathkeeper running, you can enhance its scalability in distributed environments with the following configurations to use Redis for session storage.
-
-By default, Oathkeeper stores sessions in memory. For better scalability and performance in distributed environments, you can use **Redis** as a central session store. To do so, update your `config.yml` configuration file with the following session store configuration.
+    In Step 4, make sure the Oathkeeper binary is built with all necessary files and libraries required for Redis support.
 
 ```yaml
 session_store:
@@ -291,9 +258,9 @@ session_store:
     redis://[:password@]host[:port][/db-number]
     ```
 
-### Securing the connection between {{product_name}} and Oathkeeper
+### Encrypt connections with TLS
 
-To secure communication between clients and Oathkeeper, you can enable TLS so that requests are encrypted in transit. To do so, update your `config.yml` configuration file with the following TLS configuration:
+To encrypt communication between clients and OAuth2 Proxy, you can enable TLS. To do so, add the following to your `config.yml` configuration file:
 
 ```yaml
 port: 9444
@@ -315,7 +282,9 @@ tls:
     -days 365 \
     -subj "/CN=localhost"
     ```
-  
+
+---
+
 Now that you’ve successfully connected {{product_name}} with Oathkeeper, you can leverage this integration to:
 
 - Add authentication to applications that lack native OIDC support.

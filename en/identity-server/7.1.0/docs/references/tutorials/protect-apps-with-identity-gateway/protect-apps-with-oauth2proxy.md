@@ -18,8 +18,6 @@ Follow the steps below to connect {{product_name}} with OAuth2 Proxy.
 
 - An application with a back-end. If you don't have one, you can use this [sample application](https://github.com/wso2/samples-is/raw/refs/heads/master/identity-gateway/sample-request-logger-app/request-logger.jar){: target="_blank"}.
 
-- OIDC-compliant Identity Provider (for example WSO2 Identity Server 7.0.0 or later)
-
 - (Optional) Redis for advanced session storage.
 
 ## Step 1: Install and run {{product_name}}
@@ -143,7 +141,7 @@ Follow the steps below to set up OAuth2 Proxy with {{product_name}}.
       cookie_secret = "<your_32_byte_base64_secret>"
       ```
 
-      - This sample configuration file assumes that the following services run on the specified ports.
+      - This sample configuration file assumes that the following services run on the specified ports. If your setup differs, adjust the configuration accordingly.
 
          - WSO2 Identity Server: https://localhost:9443
          - OAuth2 Proxy: http://localhost:4180
