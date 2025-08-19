@@ -209,7 +209,17 @@ paths:
                 "scheme": "PROVISION_SILENTLY",
                 "userstore": "PRIMARY",
                 "associateLocalUser": true,
-                "attributeSyncMethod": "OVERRIDE_ALL"
+                "attributeSyncMethod": "OVERRIDE_ALL",
+                "accountLookupAttributeMappings": [
+                  {
+                    "federatedAttribute": "email",
+                    "localAttribute": "http://wso2.org/claims/username"
+                  },
+                  {
+                    "federatedAttribute": "mobile",
+                    "localAttribute": "http://wso2.org/claims/mobile"
+                  }
+                ]
               },
               "outboundConnectors": {
                 "defaultConnectorId": "U0NJTQ",
@@ -2165,7 +2175,17 @@ paths:
             "scheme": "PROVISION_SILENTLY",
             "userstore": "PRIMARY",
             "associateLocalUser": true,
-            "attributeSyncMethod": "OVERRIDE_ALL"
+            "attributeSyncMethod": "OVERRIDE_ALL",
+            "accountLookupAttributeMappings": [
+              {
+                "federatedAttribute": "email",
+                "localAttribute": "http://wso2.org/claims/email"
+              },
+              {
+                "federatedAttribute": "mobile",
+                "localAttribute": "http://wso2.org/claims/mobile"
+              }
+            ]
             }'
       requestBody:
         content:
@@ -3658,6 +3678,18 @@ components:
           type: boolean
           default: false
           example: true
+        accountLookupAttributeMappings:
+          description: "This variable specifies the mapping between the federated attributes and the local user attributes for account lookup."
+          type: array
+          items:
+            type: object
+            properties:
+              federatedAttribute:
+                type: string
+                example: email
+              localAttribute:
+                type: string
+                example: http://wso2.org/claims/email
         attributeSyncMethod:
           description: "Specify the method used for syncing attributes between a JIT-provisioned user account and a local user account. \n\n
             The following methods are allowed: \n\n
@@ -4002,6 +4034,11 @@ components:
             userstore: "PRIMARY"
             associateLocalUser: true
             attributeSyncMethod: "OVERRIDE_ALL"
+            accountLookupAttributeMappings:
+              - federatedAttribute: "email"
+                localAttribute: "http://wso2.org/claims/email"
+              - federatedAttribute: "mobile"
+                localAttribute: "http://wso2.org/claims/mobile"
           outboundConnectors:
             defaultConnectorId: "U0NJTQ"
             connectors:
@@ -4067,6 +4104,11 @@ components:
             userstore: "PRIMARY"
             associateLocalUser: true
             attributeSyncMethod: "OVERRIDE_ALL"
+            accountLookupAttributeMappings:
+              - federatedAttribute: "email"
+                localAttribute: "http://wso2.org/claims/email"
+              - federatedAttribute: "mobile"
+                localAttribute: "http://wso2.org/claims/mobile"
     SystemDefinedIdentityProviderResponseExample:
       summary: "Response for identity provider creation with system defined authenticator"
       value:
@@ -4129,6 +4171,11 @@ components:
             userstore: "PRIMARY"
             associateLocalUser: true
             attributeSyncMethod: "OVERRIDE_ALL"
+            accountLookupAttributeMappings:
+              - federatedAttribute: "email"
+                localAttribute: "http://wso2.org/claims/email"
+              - federatedAttribute: "mobile"
+                localAttribute: "http://wso2.org/claims/mobile"
           outboundConnectors:
             defaultConnectorId: "U0NJTQ"
             connectors:
