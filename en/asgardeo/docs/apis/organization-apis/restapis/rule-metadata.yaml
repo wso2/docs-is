@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Asgardeo Rule Metadata REST API
+  title: WSO2 Identity Server Rule Metadata REST API
   description: "The Rule Metadata API provides the essential metadata required to configure rules dynamically based on the flow context. \nThe metadata retrieved by this API is designed to support rule configuration in the user interface (UI) by delivering information about each configurable field, the set of applicable comparison operators (e.g., equals, contains) for each field, and lists of possible values or options for fields.\n"
   contact:
     name: WSO2
@@ -10,7 +10,12 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: v1
 servers:
-  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
+- url: "https://{server-url}/t/{tenant-domain}/api/server/v1"
+  variables:
+    tenant-domain:
+      default: carbon.super
+    server-url:
+      default: localhost:9443
 security:
 - OAuth2: []
 paths:
@@ -22,7 +27,7 @@ paths:
       description: |+
         This API provides a list of fields, associated metadata, and applicable operators for each field based on the specified flow type. This information is used to populate the UI for rule configuration.
 
-         <b>Scope (Permission) required:</b> ``internal_rule_metadata_view``
+         <b>Scope (Permission) required:</b> ``internal_org_rule_metadata_view``
 
       operationId: getExpressionMeta
       parameters:
@@ -31,7 +36,7 @@ paths:
         description: |
           Specifies the flow to retrieve rule metadata. This ensures that the metadata returned is relevant to the given flow.
 
-          Note: At present, only the 'preIssueAccessToken','preUpdatePassword' and 'preUpdateProfile' flows are supported.
+          Note: At present, only the 'preUpdatePassword' and 'preUpdateProfile' flows are supported.
         required: true
         style: form
         explode: true
@@ -55,51 +60,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExpressionMeta'
               examples:
-                preIssueAccessToken:
-                  summary: Sample response for pre-issue access token flow
-                  value:
-                  - field:
-                      name: application
-                      displayName: application
-                    operators:
-                    - name: equals
-                      displayName: equals
-                    - name: notEquals
-                      displayName: not equals
-                    value:
-                      inputType: options
-                      valueType: reference
-                      valueReferenceAttribute: id
-                      valueDisplayAttribute: name
-                      links:
-                      - href: /applications?offset=0&limit=10
-                        method: GET
-                        rel: values
-                      - href: /applications?filter=name+eq+*&limit=10
-                        method: GET
-                        rel: filter
-                  - field:
-                      name: grantType
-                      displayName: grant type
-                    operators:
-                    - name: equals
-                      displayName: equals
-                    - name: notEquals
-                      displayName: not equals
-                    value:
-                      inputType: options
-                      valueType: string
-                      values:
-                      - name: authorization_code
-                        displayName: authorization code
-                      - name: password
-                        displayName: password
-                      - name: refresh_token
-                        displayName: refresh token
-                      - name: client_credentials
-                        displayName: client credentials
-                      - name: urn:ietf:params:oauth:grant-type:token-exchange
-                        displayName: token exchange
                 preUpdatePassword:
                   summary: Sample response for pre-update password flow
                   value:
@@ -171,66 +131,6 @@ paths:
                           - href: /claim-dialects/local/claims?exclude-hidden-claims=true
                             method: GET
                             rel: values
-                inLogin:
-                  summary: Sample response for login flow
-                  value:
-                  - field:
-                      name: role
-                      displayName: user.role
-                    operators:
-                    - name: equals
-                      displayName: equals
-                    - name: notEquals
-                      displayName: not equals
-                    value:
-                      inputType: options
-                      valueType: reference
-                      valueReferenceAttribute: id
-                      valueDisplayAttribute: name
-                      links:
-                      - href: /scim2/Roles?offset=0&limit=10
-                        method: GET
-                        rel: values
-                      - href: /scim2/Roles?filter=name+eq+*&limit=10
-                        method: GET
-                        rel: filter
-                  - field:
-                      name: group
-                      displayName: user.group
-                    operators:
-                    - name: equals
-                      displayName: equals
-                    - name: notEquals
-                      displayName: not equals
-                    value:
-                      inputType: options
-                      valueType: reference
-                      valueReferenceAttribute: id
-                      valueDisplayAttribute: name
-                      links:
-                      - href: /scim2/Groups?offset=0&limit=10
-                        method: GET
-                        rel: values
-                      - href: /scim2/Groups?filter=name+eq+*&limit=10
-                        method: GET
-                        rel: filter
-                  - field:
-                      name: email
-                      displayName: user.email
-                    operators:
-                    - name: equals
-                      displayName: equals
-                    - name: notEquals
-                      displayName: not equals
-                    - name: startsWith
-                      displayName: starts with
-                    - name: endsWith
-                      displayName: ends with
-                    - name: contains
-                      displayName: contains
-                    value:
-                      inputType: input
-                      valueType: string
         "400":
           description: Bad Request
         "401":
@@ -244,8 +144,8 @@ paths:
       x-codeSamples:
       - lang: Curl
         source: |
-          curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/rules/metadata?flow=preIssueAccessToken' \
-            --header 'Authorization: Bearer {bearer_token}'
+          curl --location 'https://localhost:9443/api/server/v1/rules/metadata?flow=preUpdatePassword' \
+          -H 'Authorization: Bearer {bearer_token}'
 components:
   schemas:
     ExpressionMeta:
@@ -395,7 +295,7 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
-          tokenUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
           scopes:
             read: internal_rule_metadata_view

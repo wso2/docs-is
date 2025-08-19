@@ -403,6 +403,9 @@ plugins:
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
+        'apis/roles-v3-rest-api.md': 'apis/role-management/roles-v3-rest-api.md'
+        'apis/roles-v2-rest-api.md': 'apis/role-management/roles-v2-rest-api.md'
+        'apis/roles-v1-rest-api.md': 'apis/role-management/roles-v1-rest-api.md'
         'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
         'apis/scim2-groups-rest-apis.md': 'apis/scim2/scim2-groups-rest-api.md'
         'apis/scim2-patch-operations.md': 'apis/scim2/scim2-patch-operations.md'
@@ -736,6 +739,10 @@ nav:
               - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
               - Pre update password action: guides/service-extensions/pre-flow-extensions/pre-update-password-action.md
               - Pre update profile action: guides/service-extensions/pre-flow-extensions/pre-update-profile-action.md
+          - Integrate with webhooks:
+              - Understanding webhooks: guides/webhooks/understanding-webhooks.md
+              - Setup webhooks: guides/webhooks/setup-webhooks.md
+              - Webhook events and payloads: guides/webhooks/webhook-events-and-payloads.md
       - Analytics:
         - ELK Analytics:
           - Elk analytics: guides/analytics/elk-analytics/index.md
@@ -941,9 +948,11 @@ nav:
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
       - Role management:
-          - Roles v2 API: apis/roles-v2-rest-api.md
-          - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
-      - Rule Metadata API: apis/rule-metadata-rest-api.md   
+          - Role management: apis/role-management/index.md
+          - Roles v3 API: apis/role-management/roles-v3-rest-api.md
+          - Roles v2 API (deprecated): apis/role-management/roles-v2-rest-api.md
+          - Roles v1 API (deprecated): apis/role-management/roles-v1-rest-api.md
+      - Rule Metadata API: apis/rule-metadata-rest-api.md
       - Server management:
         - Configuration management:
             - Configuration management API: apis/use-the-configuration-management-rest-apis.md
@@ -980,9 +989,12 @@ nav:
         - Identity verification API: apis/admin-identity-verification.md
       - User sharing management API: apis/organization-user-share-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
+      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook Metadata API: apis/webhook-metadata-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Action Management API: apis/organization-apis/action-management-rest-api.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API (Shared Applications): apis/organization-apis/shared-application-mgt.md
@@ -1006,11 +1018,13 @@ nav:
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
+      - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
       - Server configuration API: apis/organization-apis/configs.md
       - Validation rules API: apis/organization-apis/validation-rules.md
+      - SCIM 2.0 Role management API V3: apis/organization-apis/org-role-v3-mgt.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md

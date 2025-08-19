@@ -45,7 +45,7 @@ extra:
             - title: Connect Javascript App
               url: Get started|Connect App|Javascript|Quickstart
             - title: Connect Next.js App
-              url: Get started|Connect App|Next.js Quickstart
+              url: Get started|Connect App|Next.js|Quickstart
             - title: Connect Node.js App
               url: Get started|Connect App|Node.js|Quickstart
             - title: Connect Spring Boot App

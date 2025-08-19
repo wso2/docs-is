@@ -133,6 +133,12 @@ paths:
                         displayName: User initiated password reset
                       - name: userInitiatedPasswordUpdate
                         displayName: User initiated password update
+                      - name: adminInitiatedRegistration
+                        displayName: Admin initiated registration
+                      - name: applicationInitiatedRegistration
+                        displayName: Application initiated registration
+                      - name: userInitiatedRegistration
+                        displayName: User initiated registration
                 preUpdateProfile:
                   summary: Sample response for pre-update profile flow
                   value:

@@ -623,9 +623,12 @@ nav:
       - User sharing management API: apis/organization-user-share-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
+      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook Metadata API: apis/webhook-metadata-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Action Management API: apis/organization-apis/action-management-rest-api.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
       - Application management API: 
         - Application management API (Shared Applications): apis/organization-apis/shared-application-management.md
@@ -642,6 +645,7 @@ nav:
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
+      - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
