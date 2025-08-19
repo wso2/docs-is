@@ -870,7 +870,7 @@ The table below explains each property in the event data.
 <td>
 <p>Contains details about the issued token including:</p>
 <ul>
-<li><strong>tokenType</strong>: Token type (for example "Opaque" or "JWT")</li>
+<li><strong>tokenType</strong>: Token type (for example "Opaque" or "jwt")</li>
 <li><strong>iat</strong>: Token issued at timestamp</li>
 <li><strong>grantType</strong>: OAuth2 grant type used for token issuance (for example "authorization_code")</li>
 </ul>
