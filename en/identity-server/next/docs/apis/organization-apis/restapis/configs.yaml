@@ -6,7 +6,6 @@ info:
     This document specifies the **Server related Configurations RESTful API** of organizations in **WSO2 Identity Server**.
 security:
   - OAuth2: []
-  - BasicAuth: []
 paths:
   /configs:
     get:
@@ -17,7 +16,7 @@ paths:
       description: |
         Retrieve server configs of the organization. 
         
-        <b>Scope(Permission) required:</b> `internal_org_login`
+        <b>Scope(Permission) required:</b> `internal_login`
       responses:
         '200':
           description: Successful Response
@@ -62,7 +61,7 @@ paths:
       description: |
         Retrieve SAML2 inbound authentication configurations of the organization.
         
-        <b>Scope(Permission) required:</b> `internal_org_login`
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getSAMLInboundAuthConfig
       responses:
         '200':
@@ -190,7 +189,7 @@ paths:
       description: |
         Retrieve WS Federation (Passive STS) inbound authentication configurations of the organization.
         
-        <b>Scope(Permission) required:</b> `internal_org_login`
+        <b>Scope(Permission) required:</b> `internal_login`
       operationId: getPassiveSTSInboundAuthConfig
       responses:
         '200':

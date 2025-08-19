@@ -324,9 +324,6 @@ components:
     OK:
       description: OK.
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
