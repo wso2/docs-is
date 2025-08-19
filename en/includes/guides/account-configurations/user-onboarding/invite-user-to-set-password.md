@@ -15,6 +15,10 @@ For inviting users to set their password, follow these instructions:
 5. Select either Email Link to send an invitation link. Alternatively, choose OTP (delivered via Email or SMS) to start the invitation flow.
 6. Set the **Invitation link/OTP expiry time** in minutes. This defines how long the password setup invitation email or OTP remains valid. For infinite validity, set -1. Setting 0 causes immediate expiry.
 7. Configure the OTP code options: enable uppercase, lowercase, and numeric characters, then set the desired OTP code length.
+
+    !!! note
+        When using OTP invitation method, users can use the received OTP as a temporary password to log in. After login, they will be redirected to the password setup page to create their permanent password.
+
 8. Click **Update** to save the changes.
 {% else %}
 5. Set the **Password setup invitation code expiration time** in minutes to define how long the password setup invitation e-mail would be valid. For infinite validity period, set -1. Setting 0 will cause immediate expiry of the invitation.
@@ -33,7 +37,10 @@ For inviting users to set their password, follow these instructions:
   </tr>
   <tr>
     <td><code>Choose invitation method</code></td>
-    <td>Select the method for sending password setup invitations: • Email with password setup link • Email with OTP code • SMS with OTP code</td>
+    <td>Select the method for sending password setup invitations:<br>
+        • Email with password setup link<br>
+        • Email with OTP code<br>
+        • SMS with OTP code</td>
   </tr>
   <tr>
     <td><code>Invitation link/OTP expiry time</code></td>
