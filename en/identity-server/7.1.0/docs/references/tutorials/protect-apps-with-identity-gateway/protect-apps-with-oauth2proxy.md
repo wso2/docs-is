@@ -30,7 +30,7 @@ Follow the following steps below to download and install {{product_name}}. Refer
 
       ```sh
       unzip wso2is-<version>.zip
-      # Replace <version> with your downloaded version, e.g., wso2is-7.0.0
+      # Replace <version> with your downloaded version, e.g., wso2is-7.1.0
       ```
 
 3. Start the server:
@@ -73,7 +73,7 @@ To connect your OAuth2 Proxy reverse proxy to {{product_name}}, you need to regi
       - **Protocol** - Select OpenID Connect
       - **Callback URL** -The URL where WSO2 Identity Server sends the authentication response after login. For example: `http://localhost:4180/oauth2/callback` (or your proxy callback URL)
 
-      ![Fill app details step showing the application configuration form with name and callback URL fields]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/fill-app-details-step.png)
+      ![Fill app details step showing the application configuration form with name and callback URL fields]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/fill-app-details-step-oauth2proxy.png)
 
 4. Take note of the **Client ID** and **Client Secret** generated for your application.
 
@@ -89,10 +89,10 @@ If you have your own application, you can skip this step. If you want to use the
 
       ```java
       cd path/to/app/folder
-      java -jar request-logger-Sample-application.jar
+      java -jar request-logger.jar
       ```
 
-3. Go to [http://localhost:8080](http://localhost:8080){: target="_blank"} and verify that the application works.
+3. Go to `http://localhost:8080` and verify that the application works.
 
       ![Sample app running showing the application startup and running status]({{base_path}}/assets/img/tutorials/protect-apps-with-identity-gateway/sample-app-running.png)
 
@@ -143,9 +143,9 @@ Follow the steps below to set up OAuth2 Proxy with {{product_name}}.
 
       - This sample configuration file assumes that the following services run on the specified ports. If your setup differs, adjust the configuration accordingly.
 
-         - WSO2 Identity Server: https://localhost:9443
-         - OAuth2 Proxy: http://localhost:4180
-         - Back-end Service (API or Web Application): http://localhost:8080
+         - WSO2 Identity Server: `https://localhost:9443`
+         - OAuth2 Proxy: `http://localhost:4180`
+         - Back-end Service (API or Web Application): `http://localhost:8080`
 
       - Replace `<your_client_id>`, `<your_client_secret>` with the client ID and the client secret you received earlier when registering the application in {{product_name}}.
 
@@ -176,7 +176,7 @@ Follow the steps below to set up OAuth2 Proxy with {{product_name}}.
 
 Now that you’ve set up {{product_name}}, the sample application (or your own), and OAuth2 Proxy, follow the steps below to test them in action.
 
-1. Log in to your app through OAuth2 Proxy by visiting [http://localhost:4180/home](http://localhost:4180/home){: target="_blank"}. You will be redirected to the login page of {{product_name}}.
+1. Log in to your app through OAuth2 Proxy by visiting `http://localhost:4180/home`. You will be redirected to the login page of {{product_name}}.
 
 2. Log in with an existing user.
 
