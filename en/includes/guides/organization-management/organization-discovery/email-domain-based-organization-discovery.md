@@ -84,7 +84,6 @@ In this example scenario:
 
 When you map an email domain to an organization, the organization's behavior changes as follows:
 
-- If an organization registers an email domain mapping:
     <!-- markdownlint-disable MD007 -->
     - A user can only onboard to the organization if the user's email domain matches one of the domains claimed by the organization.
     {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
