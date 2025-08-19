@@ -6,7 +6,6 @@ Allow administrator to invite users to set their own passwords during the onboar
 
 For inviting users to set their password, follow these instructions:
 
-
 1. On the {{product_name}} Console, go to **Login & Registration** > **User Onboarding** > **Invite User to Set Password**.
 2. Check the **Enable email invitations for user password setup** to send an email to the user to set the password after user creation.
 3. Select the **Enable account lock on creation** to lock the user account during user creation.
