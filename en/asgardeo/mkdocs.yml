@@ -158,6 +158,7 @@ plugins:
         'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/login-security/login-attempts.md'
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
+        'guides/identity-lifecycles/invitation-workflow.md': 'guides/account-configurations/user-onboarding/invite-user-to-set-password.md'
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
         'guides/organization-management/email-domain-based-organization-discovery.md': 'guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md'
         'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
@@ -407,6 +408,7 @@ nav:
         - User onboarding:
           - Self-registration: guides/account-configurations/user-onboarding/self-registration.md
           - Self-registration flow: guides/account-configurations/user-onboarding/self-registration-flow.md
+          - Invite user to set password: guides/account-configurations/user-onboarding/invite-user-to-set-password.md
         - Manage login identifiers:
           - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
@@ -445,9 +447,15 @@ nav:
         - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+        - Inheritance in organizations:
+            - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
+            - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
+            - Email and SMS template inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
         - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+        - Customizations:
+            - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
       - Notification Channels:
         - Configure Email Provider: guides/notification-channels/configure-email-provider.md
         - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
@@ -623,9 +631,12 @@ nav:
       - User sharing management API: apis/organization-user-share-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
+      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook Metadata API: apis/webhook-metadata-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Action Management API: apis/organization-apis/action-management-rest-api.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
       - Application management API: 
         - Application management API (Shared Applications): apis/organization-apis/shared-application-management.md
@@ -642,6 +653,7 @@ nav:
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
+      - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md

@@ -98,7 +98,7 @@ Use the organization's name to route users to their login page.
 
 Add the `org` parameter with the organization name to your authentication request.
 
-=== "OpenID Connect (OIDC) Authorization"
+=== "OIDC"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
@@ -110,7 +110,7 @@ Add the `org` parameter with the organization name to your authentication reques
     &fidp=OrganizationSSO
     ```
 
-=== "Security Assertion Markup Language (SAML)"
+=== "SAML"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/samlsso?
@@ -129,7 +129,7 @@ Use the organization's unique ID to route users to their login page.
 
 Add the `orgId` parameter with the organization ID to your authentication request.
 
-=== "OpenID Connect (OIDC) Authorization"
+=== "OIDC"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
@@ -141,7 +141,7 @@ Add the `orgId` parameter with the organization ID to your authentication reques
     &fidp=OrganizationSSO
     ```
 
-=== "Security Assertion Markup Language (SAML)"
+=== "SAML"
 
     ```bash
     https://{{host_name}}{{organization_path_param}}/samlsso?
