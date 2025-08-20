@@ -452,6 +452,8 @@ nav:
         - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+        - Customizations:
+            - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
       - Notification Channels:
         - Configure Email Provider: guides/notification-channels/configure-email-provider.md
         - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
