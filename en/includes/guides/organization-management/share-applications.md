@@ -118,7 +118,7 @@ Enable **Share application and roles with future child organizations** to automa
 
 !!! warning
 
-    If you remove a role that has been shared already, it will remove that roles from the organizations it was shared with. This action cannot be undo. So be cautious when removing roles.
+    If you remove a role that has been shared already, it will remove that role from the organizations it was shared with. This action cannot be undone. So be cautious when removing roles.
 
 ## Share the My Account Portal
 
