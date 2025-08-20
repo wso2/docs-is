@@ -5,7 +5,7 @@ Enable HTTP Strict Transport Security (HSTS) headers for the applications deploy
 !!! note
     HSTS should not be enabled in development environments because transport security validations can interrupt the development processes by validating signatures of self-signed certificates.
 
-## Enable for Console
+## Enable for console
 
 To enable HSTS for the WSO2 Identity Server Console, update the `web.xml` file located at
 `<IS_HOME>/repository/deployment/server/webapps/console/WEB-INF` and add the following filter configuration:
@@ -52,7 +52,7 @@ Add the same filter configuration used for the Console:
 </filter-mapping>
 ```
 
-This ensures HSTS is enforced consistently across web applications running on WSO2 Identity Server.
+This configuration applies HSTS consistently across specified web applications running on WSO2 Identity Server.
 
 <!--## Enable for Jaggery applications
 
