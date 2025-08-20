@@ -1,18 +1,23 @@
-# Login and registration configuration inheritance
+# Login and registration settings inheritance
 
-In {{product_name}}, login and registration settings are managed at the organization level. Child organizations inherit these configurations from their parent, while still allowing for organization-specific customizations.
+In {{product_name}}, child organizations inherit configurations related to login and registration from their parent organizations. Child organizations can make their own customizations to these inherited settings.
+
+Organization administrators can access these settings in the {{product_name}} Console under **Login & Registration**.
 
 ## How it works
 
-The inheritance for login and registration configurations is as follows:
+Inheritance for login and registration configurations works as follows:
 
-- Configuration settings are inherited hierarchically. An organization receives its settings from the nearest ancestor with a custom configuration. If no ancestor has a custom setting, the default value is applied.
-- Any organization can override an inherited value. This new setting will then be inherited by all of its descendant organizations. An override can be reverted at any time to restore the inherited configuration.
+- Child organizations inherit settings from the nearest ancestor with a custom configuration. If no ancestor has customized settings, the default value applies.
 
-!!! note
-    Child organizations can't override `Idle Session Timeout` and `Remember Me Period` configurations related to session management. 
+- Organizations can customize their own settings, overriding the inherited values. These overridden settings then pass down to the organization’s descendants.
 
-## Configure login and registration flows
+- Organizations can also revert their customizations, restoring the inherited values.
+
+!!! note "Important"
+    Child organizations can't override `Idle Session Timeout` and `Remember Me Period` configurations related to session management.
+
+## Configure login and registration settings
 
 To learn how to configure login and registration flows, see the following guides:
 
