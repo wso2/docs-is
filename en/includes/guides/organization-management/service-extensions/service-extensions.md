@@ -32,7 +32,7 @@ Behavior by user type:
 
 - Organization users: The pre update password action executes in all password update flows of these users.
   
-  The following example shows a request sent to an external service configured as a pre-update password action, triggered when an administrator updates the organization user’s password.
+  The following example shows a request sent to an external service configured as a pre update password action, triggered when an administrator updates the organization user’s password.
 
 ```http
 POST /password-update-action HTTP/1.1
@@ -107,9 +107,9 @@ To learn more, refer to the [Pre update profile action]({{base_path}}/guides/ser
 
 Behavior by user type:
 
-- Organization users: The pre update profile action runs during all profile update flows for users who resides in the organization.
+- Organization users: The pre update profile action runs during all profile update flows for users created in the organization.
 
-  The following example shows a request sent to an external service configured as a pre-update profile action, triggered when an administrator updates the organization user’s profile.
+  The following example shows a request sent to an external service configured as a pre update profile action, triggered when an administrator updates the organization user’s profile.
 
 ```http
 POST /profile-update-action HTTP/1.1
@@ -167,9 +167,9 @@ Content-Type: application/json
 }
 ```
 
-- Shared/ invited users: The pre-update profile action only executes for the profile updates happen for the attributes mentioned in [Customize user attributes in shared user profiles]({{base_path}}/guides/organization-management/share-user-profiles/#customize-user-attributes-in-shared-user-profiles).
+- Shared/ invited users: The pre update profile action only executes for the profile updates that happen for the attributes mentioned in [Customize user attributes in shared user profiles]({{base_path}}/guides/organization-management/share-user-profiles/#customize-user-attributes-in-shared-user-profiles).
 
-    The following example shows a request sent to an external service configured as a pre-update profile action, triggered when an administrator updates the shared user’s profile.
+    The following example shows a request sent to an external service configured as a pre update profile action, triggered when an administrator updates the shared user’s profile.
 
 ```http
 POST /profile-update-action HTTP/1.1
