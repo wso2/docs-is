@@ -6,20 +6,24 @@ Allow administrator to invite users to set their own passwords during the onboar
 
 For inviting users to set their password, follow these instructions:
 
-1. On the {{product_name}} Console, go to **Login & Registration** > **User Onboarding** > **Invite User to Set Password**.
-2. Check the **Enable email invitations for user password setup** to send an email to the user to set the password after user creation.
-3. Select the **Enable account lock on creation** to lock the user account during user creation.
-4. If you want to send an account activation confirmation email, enable the **Send account activation email**.
 {% if (is_version is defined and is_version > "7.1.0") or product_name == "Asgardeo" %}
-5. Select either Email Link to send an invitation link. Alternatively, choose OTP (delivered via Email or SMS) to start the invitation flow.
-6. Set the **Invitation link/OTP expiry time** in minutes. This defines how long the password setup invitation email or OTP remains valid. For infinite validity, set -1. Setting 0 causes immediate expiry.
-7. Configure the OTP code options: enable uppercase, lowercase, and numeric characters, then set the desired OTP code length.
+1. On the {{product_name}} Console, go to **Login & Registration** > **User Onboarding** > **Invite User to Set Password**.
+2. Enable the **Invite User to Set Password** feature to invite user to set the password after user creation.
+3. From **Choose invitation method** select either Email Link to send an invitation link. Alternatively, choose OTP (delivered via Email or SMS) to start the invitation flow.
+4. Set the **Invitation link/OTP expiry time** in minutes. This defines how long the password setup invitation email or OTP remains valid. For infinite validity, set -1. Setting 0 causes immediate expiry.
+5. If you want to send an account activation confirmation notification, enable the **Send account activation notification**.
+6. Select the **Lock account until password is set** to lock the user account during user creation.
+7. Configure the OTP code options from **OTP Code Configuration**: enable uppercase, lowercase, and numeric characters, then set the desired OTP code length.
 
     !!! note
         When using OTP invitation method, users can use the received OTP as a temporary password to log in. After login, they will be redirected to the password setup page to create their permanent password.
 
 8. Click **Update** to save the changes.
 {% else %}
+1. On the {{product_name}} Console, go to **Login & Registration** > **User Onboarding** > **Invite User to Set Password**.
+2. Check the **Enable email invitations for user password setup** to send an email to the user to set the password after user creation.
+3. Select the **Enable account lock on creation** to lock the user account during user creation.
+4. If you want to send an account activation confirmation email, enable the **Send account activation email**.
 5. Set the **Password setup invitation code expiration time** in minutes to define how long the password setup invitation e-mail would be valid. For infinite validity period, set -1. Setting 0 will cause immediate expiry of the invitation.
 6. Click **Update** to save the changes.
 {% endif %}
@@ -47,7 +51,7 @@ For inviting users to set their password, follow these instructions:
   </tr>
   <tr>
     <td><code>Send account activation notification</code></td>
-    <td>When enabled, users receive a confirmation email after activating their account.</td>
+    <td>When enabled, users receive a confirmation notification after activating their account.</td>
   </tr>
   <tr>
     <td><code>Lock account until password is set</code></td>
