@@ -5,7 +5,11 @@
 
 You can add or remove language support to customize the user interface for different regions and languages.
 
-### My Account
+{% raw %}
+
+### My Account {#add-remove-locales-in-myaccount}
+
+{% endraw %}
 
 Configure localization for the My Account application.
 
@@ -81,7 +85,11 @@ To hide a language from the language switcher while keeping it available in othe
     }
     ```
 
-### Console
+{% raw %}
+
+### Console {#add-remove-locales-in-console}
+
+{% endraw %}
 
 Configure localization for the Console application.
 
@@ -101,14 +109,14 @@ To add a new language (e.g., Arabic - `ar-SA`) to Console:
             "flag": "sa",
             "name": "Arabic (Saudi Arabia)",
             "namespaces": [
-                "common",
-                "console",
-                "extensions"
+                "applications",
+                "users",
+                ...rest of the namespaces
             ],
             "paths": {
-                "common": "extensions/i18n/ar-SA/portals/common.json",
-                "console": "extensions/i18n/ar-SA/portals/console.json",
-                "extensions": "extensions/i18n/ar-SA/portals/extensions.json"
+                "applications": "extensions/i18n/ar-SA/portals/applications.json",
+                "users": "extensions/i18n/ar-SA/portals/users.json",
+                ...rest of the paths
             }
         }
     }
@@ -157,7 +165,11 @@ To hide a language from the language switcher while keeping it available in othe
     }
     ```
 
-### Authentication & Recovery endpoints
+{% raw %}
+
+### Authentication & Recovery endpoints {#add-remove-locales-in-authentication-recovery-endpoints}
+
+{% endraw %}
 
 The authentication and recovery endpoints use traditional properties files for localization.
 
@@ -230,53 +242,168 @@ To remove a language from your endpoints:
 
 3. Restart the server for changes to take effect.
 
-## Configure RTL & LTR support
+## Configure Text Direction (RTL & LTR)
 
-WSO2 Identity Server supports both Right-to-Left (RTL) and Left-to-Right (LTR) text directions for authentication and recovery endpoints.
+WSO2 Identity Server supports both Right-to-Left (RTL) and Left-to-Right (LTR) text directions. **LTR is the default text direction** for most languages and doesn't require explicit configuration. RTL languages like Arabic, Hebrew, and Persian automatically adjust the interface layout and content flow when configured properly.
 
-### LTR (Left-to-Right)
+{% raw %}
 
-LTR (Left-to-Right) is the **default text direction** for most languages. You don't need to explicitly configure LTR support.
+### My Account {#configure-text-direction-in-myaccount}
 
-To ensure a language uses LTR direction:
+{% endraw %}
 
-1. Open the `LanguageOptions.properties` file.
+To configure text direction for languages in My Account:
 
-2. Add the language entry without the `rtl` suffix, or explicitly specify `ltr`:
+1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/myaccount/extensions/i18n/`.
+
+2. Update your `meta.json` file to include the `direction` property:
+
+    **For LTR languages (default):**
+
+    ```json
+    {
+        "en-US": {
+            "enabled": true,
+            "code": "en-US",
+            "flag": "us",
+            "name": "English (United States)",
+            "direction": "ltr",
+            "namespaces": [
+                "common",
+                "myAccount",
+                "extensions"
+            ],
+            "paths": {
+                "common": "extensions/i18n/en-US/portals/common.json",
+                "myAccount": "extensions/i18n/en-US/portals/myAccount.json",
+                "extensions": "extensions/i18n/en-US/portals/extensions.json"
+            }
+        }
+    }
+    ```
+
+    **For RTL languages:**
+
+    ```json
+    {
+        "ar-SA": {
+            "enabled": true,
+            "code": "ar-SA",
+            "flag": "sa",
+            "name": "Arabic (Saudi Arabia)",
+            "direction": "rtl",
+            "namespaces": [
+                "common",
+                "myAccount",
+                "extensions"
+            ],
+            "paths": {
+                "common": "extensions/i18n/ar-SA/portals/common.json",
+                "myAccount": "extensions/i18n/ar-SA/portals/myAccount.json",
+                "extensions": "extensions/i18n/ar-SA/portals/extensions.json"
+            }
+        }
+    }
+    ```
+
+3. Save the file and restart the server for changes to take effect.
+
+{% raw %}
+
+### Console {#configure-text-direction-in-console}
+
+{% endraw %}
+
+To configure text direction for languages in Console:
+
+1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/console/extensions/i18n/`.
+
+2. Update your `meta.json` file to include the `direction` property:
+
+    **For LTR languages (default):**
+
+    ```json
+    {
+        "en-US": {
+            "enabled": true,
+            "code": "en-US",
+            "flag": "us",
+            "name": "English (United States)",
+            "direction": "ltr",
+            "namespaces": [
+                "applications",
+                "users",
+                ...rest of the namespaces
+            ],
+            "paths": {
+                "applications": "extensions/i18n/ar-SA/portals/applications.json",
+                "users": "extensions/i18n/ar-SA/portals/users.json",
+                ...rest of the paths
+            }
+        }
+    }
+    ```
+
+    **For RTL languages:**
+
+    ```json
+    {
+        "ar-SA": {
+            "enabled": true,
+            "code": "ar-SA",
+            "flag": "sa",
+            "name": "Arabic (Saudi Arabia)",
+            "direction": "rtl",
+            "namespaces": [
+                "applications",
+                "users",
+                ...rest of the namespaces
+            ],
+            "paths": {
+                "applications": "extensions/i18n/ar-SA/portals/applications.json",
+                "users": "extensions/i18n/ar-SA/portals/users.json",
+                ...rest of the paths
+            }
+        }
+    }
+    ```
+
+3. Save the file and restart the server for changes to take effect.
+
+{% raw %}
+
+### Authentication & Recovery endpoints {#configure-text-direction-in-authentication-recovery-endpoints}
+
+{% endraw %}
+
+To configure text direction for authentication and recovery endpoints:
+
+1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/`.
+
+2. Open the `LanguageOptions.properties` file.
+
+3. Configure the language entry based on text direction:
+
+    **For LTR languages (default):**
 
     ```properties
     lang.switch.en_US=en,English,ltr
     ```
-
-    or simply:
+    
+    or simply (LTR is assumed if not specified):
 
     ```properties
     lang.switch.en_US=en,English
     ```
 
-3. Save the file and restart the server.
-
-### RTL (Right-to-Left)
-
-When you select an RTL language, the interface automatically adjusts text alignment and content flow to follow RTL formatting conventions.
-
-To enable RTL support for a specific language:
-
-1. Navigate to the following directory based on the endpoint you want to configure:
-
-    - **Authentication endpoint**: `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/`
-    - **Recovery endpoint**: `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/`
-
-2. Open the `LanguageOptions.properties` file.
-
-3. Add the `,rtl` suffix to the language entry. For example, to enable RTL for Arabic:
+    **For RTL languages:**
 
     ```properties
     lang.switch.ar_AE=ar,Arabic - العربية,rtl
     ```
 
-4. Save the file and restart the server for the changes to take effect.
+4. Save the file and restart the server for changes to take effect.
 
 !!! tip
 
-    The RTL/LTR configuration applies to both authentication and recovery endpoints when you update the `LanguageOptions.properties` file in the authentication endpoint directory.
+    The RTL/LTR configuration for authentication and recovery endpoints applies to both applications when you update the `LanguageOptions.properties` file in the authentication endpoint directory.
