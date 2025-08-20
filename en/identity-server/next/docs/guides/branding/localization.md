@@ -392,7 +392,7 @@ To configure text direction for authentication, recovery, and accounts endpoints
     ```properties
     lang.switch.en_US=en,English,ltr
     ```
-    
+
     or simply (LTR is assumed if not specified):
 
     ```properties
