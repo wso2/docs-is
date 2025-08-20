@@ -50,9 +50,9 @@ This defines how long the password setup invitation email or OTP remains valid.
   </tr>
   <tr>
     <td><code>Invitation link/OTP expiry time</code></td>
-    <td>Defines the validity period in minutes for the password setup invitation link or OTP.
-        • Set -1 for infinite validity
-        • Set 0 for immediate expiry'</td>
+    <td>Defines the validity period in minutes for the password setup invitation link or OTP.<br>
+        • Set -1 for infinite validity<br>
+        • Set 0 for immediate expiry</td>
   </tr>
   <tr>
     <td><code>Send account activation notification</code></td>
