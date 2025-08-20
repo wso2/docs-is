@@ -3908,6 +3908,26 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ApplicationShareSelectedRequestBody"
+            example:
+              applicationId: "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+              organizations:
+                - orgId: "13b92afa-e7ee-4b01-bee0-2afb503b4d15"
+                  policy: "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN"
+                  roleSharing:
+                    mode: "SELECTED"
+                    roles:
+                      - displayName: "App Viewer"
+                        audience:
+                          display: "Pickup App"
+                          type: "application"
+                      - displayName: "App Admin"
+                        audience:
+                          display: "Pickup App"
+                          type: "application"
+                - orgId: "682edf68-4835-4bb8-961f-0a16bc6cc866"
+                  policy: "SELECTED_ORG_ONLY"
+                  roleSharing:
+                    mode: "ALL"
       responses:
         "202":
           description: Sharing process triggered successfully
@@ -3915,6 +3935,51 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProcessSuccessResponse"
+              example:
+                status: "Processing"
+                details: "Application sharing process triggered successfully."
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/applications/share' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b",
+              "organizations": [
+                {
+                  "orgId": "13b92afa-e7ee-4b01-bee0-2afb503b4d15",
+                  "policy": "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN",
+                  "roleSharing": {
+                    "mode": "SELECTED",
+                    "roles": [
+                      {
+                        "displayName": "App Viewer",
+                        "audience": {
+                          "display": "Pickup App",
+                          "type": "application"
+                        }
+                      },
+                      {
+                        "displayName": "App Admin",
+                        "audience": {
+                          "display": "Pickup App",
+                          "type": "application"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "orgId": "682edf68-4835-4bb8-961f-0a16bc6cc866",
+                  "policy": "SELECTED_ORG_ONLY",
+                  "roleSharing": {
+                    "mode": "ALL"
+                  }
+                }
+              ]
+            }'
     patch:
       tags: [ Application Sharing ]
       summary: Perform incremental sharing operations on an already shared application.
@@ -3961,6 +4026,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProcessSuccessResponse'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/api/server/v1/applications/share' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b",
+              "Operations": [
+                {
+                  "op": "add",
+                  "path": "organizations[orgId eq 13b92afa-e7ee-4b01-bee0-2afb503b4d15].roles",
+                  "value": [
+                    {
+                      "displayName": "App Viewer",
+                      "audience": {
+                        "display": "Pickup App",
+                        "type": "application"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }'
   /applications/share-with-all:
     post:
       tags: [ Application Sharing ]
@@ -3972,6 +4062,11 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ApplicationShareAllRequestBody"
+            example:
+              applicationId: "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+              policy: "ALL_EXISTING_AND_FUTURE_ORGS"
+              roleSharing:
+                mode: "ALL"
       responses:
         "202":
           description: Sharing process triggered successfully
@@ -3979,6 +4074,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProcessSuccessResponse"
+              example:
+                status: "Processing"
+                details: "Application sharing process triggered successfully."
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/applications/share-with-all' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b",
+              "policy": "ALL_EXISTING_AND_FUTURE_ORGS",
+              "roleSharing": {
+                "mode": "ALL"
+              }
+            }'
   /applications/unshare:
     post:
       tags: [ Application Sharing ]
@@ -3990,6 +4102,11 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ApplicationUnshareSelectedRequestBody"
+            example:
+              applicationId: "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+              orgIds:
+                - "13b92afa-e7ee-4b01-bee0-2afb503b4d15"
+                - "682edf68-4835-4bb8-961f-0a16bc6cc866"
       responses:
         "202":
           description: Unsharing process triggered successfully
@@ -3997,6 +4114,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProcessSuccessResponse"
+              example:
+                status: "Processing"
+                details: "Application unsharing process triggered successfully."
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/applications/unshare' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b",
+              "orgIds": [
+                "13b92afa-e7ee-4b01-bee0-2afb503b4d15",
+                "682edf68-4835-4bb8-961f-0a16bc6cc866"
+              ]
+            }'
   /applications/unshare-with-all:
     post:
       tags: [ Application Sharing ]
@@ -4008,6 +4142,8 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ApplicationUnshareAllRequestBody"
+            example:
+              applicationId: "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
       responses:
         "202":
           description: Unsharing process triggered successfully
@@ -4015,6 +4151,19 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProcessSuccessResponse"
+              example:
+                status: "Processing"
+                details: "Application unsharing process triggered successfully."
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/applications/unshare-with-all' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+            }'
 components:
   parameters:
     limitQueryParam:
@@ -5161,18 +5310,19 @@ components:
           example: 3600
         bindingType:
           type: string
-          description: "OAuth2 access token and refresh token can be bound to an external attribute during the token
-          generation so that it can be optionally validated during the API invocation."
+          description: >
+            OAuth2 access token and refresh token can be bound to an external attribute during the token
+            generation so that it can be optionally validated during the API invocation.
           default: "None"
           example: cookie
         revokeTokensWhenIDPSessionTerminated:
           type: boolean
-          description: "If enabled, when the IDP session is terminated, all the access tokens bound to the session
-          will get revoked."
+          description: >
+            If enabled, when the IDP session is terminated, all the access tokens bound to the session will get revoked.
         validateTokenBinding:
           type: boolean
-          description: "If enabled, both access token and the token binding needs to be present for a successful API
-          invocation."
+          description: >
+            If enabled, both access token and the token binding need to be present for a successful API invocation.
         accessTokenAttributes:
           type: array
           items:
@@ -5343,10 +5493,9 @@ components:
       properties:
         type:
           type: string
-          description: "
-          - DEFAULT type indicates that the application will use the default authentication sequence specified at the tenant level. When the DEFAULT type is used, the information given in the other fields of the AuthenticationSequence will be ignored and overriden with values defined at the tenant level.
-
-           - USER_DEFINED type indicates that the application will use a user-defined authentication sequence."
+          description: |-
+            - DEFAULT type indicates that the application will use the default authentication sequence specified at the tenant level. When the DEFAULT type is used, the information given in the other fields of the AuthenticationSequence will be ignored and overridden with values defined at the tenant level.
+            - USER_DEFINED type indicates that the application will use a user-defined authentication sequence.
           enum:
             - DEFAULT
             - USER_DEFINED
