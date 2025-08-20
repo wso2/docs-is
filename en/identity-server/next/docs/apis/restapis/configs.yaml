@@ -1652,22 +1652,12 @@ components:
           type: string
           description: "The username to be used for authentication with the remote server"
           example: "admin"
-        password:
-          type: string
-          description: "The password to be used for authentication with the remote server"
-          example: "admin"
         keystoreLocation:
           type: string
           description: "The location of the keystore which contains your private keys and certificates to be sent for authentication to the remote server"
-        keystorePassword:
-          type: string
-          description: " The password of the keystore"
         truststoreLocation:
           type: string
           description: " The location of the truststore which contains the certificates of the remote server"
-        truststorePassword:
-          type: string
-          description: " The password of the truststore"
     InboundAuthSAML2Config:
       type: object
       properties:

@@ -18,6 +18,8 @@ The Remote Log Publishing feature in {{ product_name }} allows organizations to 
     hide_secrets=true
     ```
 
+Follow the steps below to configure remote log publishing to an external system:
+
 1. On the {{ product_name }} Console, click the **Root Organization** dropdown at the top and click **Manage Root Organizations**.
 2. Click on the gear icon to enter the system settings.
 
