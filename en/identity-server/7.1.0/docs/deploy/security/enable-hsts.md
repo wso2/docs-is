@@ -10,7 +10,7 @@ Enable HTTP Strict Transport Security (HSTS) headers for the applications deploy
 To enable HSTS for the WSO2 Identity Server Console, update the `web.xml` file located at
 `<IS_HOME>/repository/deployment/server/webapps/console/WEB-INF` and add the following filter configuration:
 
-```
+```xml
 <!-- Tomcat HTTP header security filter -->
 <filter>
     <filter-name>HttpHeaderSecurityFilter</filter-name>
@@ -36,7 +36,7 @@ To enable HSTS for other web applications deployed in WSO2 Identity Server, upda
 
 Add the same filter configuration used for the Console:
 
-```
+```xml
 <filter>
     <filter-name>HttpHeaderSecurityFilter</filter-name>        
     <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
