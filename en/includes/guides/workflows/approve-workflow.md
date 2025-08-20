@@ -1,4 +1,4 @@
-To view the workflow approvals, you need to navigate to the **Approvals** page under the **User Management** in the admin console. There, you will see a list of approvals that you can approve.
+To view the workflow approvals, you need to navigate to the **Approvals** page under the **User Management** in the admin console or in the **My Account**. There, you will see a list of approvals that you can approve.
 
 ![Workflow approval page]({{base_path}}/assets/img/guides/workflows/workflow-approvals.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

@@ -33,4 +33,4 @@ Once you have configured the steps, you can save the workflow. The workflow will
     And also other participants of the first step will also receive the approval request.
 
 Once the workflow is created, you can view the details of the workflow, edit it or delete it.
-To approve the workflow, you need to go the approvals section under the User Management. See [Approve a workflow]({{base_path}}/guides/workflows/approve-workflow/) for more information on how to approve a workflow.
+To approve the workflow, you need to go the approvals section under the User Management in the console or use my account approvals. See [Approve a workflow]({{base_path}}/guides/workflows/approve-workflow/) for more information on how to approve a workflow.

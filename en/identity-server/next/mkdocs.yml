@@ -659,7 +659,7 @@ nav:
           - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
       - Workflows:
         - Workflows: guides/workflows/index.md
-        - Approve workflow: guides/workflows/approve-workflow.md
+        - Approvals: guides/workflows/approve-workflow.md
         - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
@@ -696,6 +696,8 @@ nav:
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
+          - Manage approvals: guides/user-self-service/manage-approvals.md
+
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md

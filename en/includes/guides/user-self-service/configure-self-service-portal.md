@@ -29,6 +29,7 @@ Listed below are self-service features that are available for the user in the **
 - [Manage password recovery]({{base_path}}/guides/user-self-service/user-password-recovery/)
 - [Discover and maintain applications]({{base_path}}/guides/user-self-service/discover-applications/)
 - [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/)
+- [View and update the approvals]({{base_path}}/guides/user-self-service/manage-approvals/)
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
 ## Enable/Disable the My Account portal
