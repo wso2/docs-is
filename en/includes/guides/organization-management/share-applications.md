@@ -1,31 +1,47 @@
 # Share applications with organizations
 
-Applications in the root organization can be shared with child organizations. Once an application is shared with an organization, organization users may log in to the applications.
+Share **root organization applications** with child organizations. This gives organization users access to these applications.
 
-You may share the following applications with organizations.
+Organization users can then log in to shared applications using their credentials.
 
-- Registered applications - Any application that you register in {{product_name}}.
+Share these application types with organizations:
 
-- My Account portal - The self-service portal available for users of the root organization.
+- [**Registered applications**](#share-a-registered-application) - Applications you register in {{product_name}}
+
+- [**My Account portal**](#share-the-my-account-portal) - Self-service portal for root organization users
+
+- [**Admin Console**](#share-console-application) - Management console for root organization administrators
+
+!!! note
+    {{product_name}} shares the Admin Console by default. You control which roles to share with it.
 
 ## Share a registered application
 
-Follow the steps below to share a registered application with organizations.
+Share registered applications with their **bound roles**. This gives organization users access to specific application features.
 
-1. Login to the root organization on the {{ product_name }} Console.
+**Why share applications?** Organization users need access to applications to perform their tasks within their organization context.
 
-2. Go to **Applications** and select the application that you want to share with organizations.
+Learn about [application and role management]({{base_path}}/guides/users/manage-roles/) in {{product_name}}.
 
-3. Go to its **Shared Access** tab and do one of the following:
+Follow these steps to share a registered application:
 
-    - Select **Share with all organizations** for the application to be shared with all existing organizations and new organizations you may create in the future.
+1. Log in to the **root organization** on the {{product_name}} Console.
 
-    -   Select **Share with only selected organizations** and select the relevant organizations.
+2. Navigate to **Applications**.
 
-        ![Share application with organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/share-application.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+3. Select the application you want to share.
 
-4. Click **Update** to save the configurations.
-5. Go to the **Protocol** tab of the application and under **Allowed grant types**, ensure the following [grant types]({{base_path}}/references/grant-types/) are selected.
+4. Click the **Shared Access** tab.
+
+5. Choose your sharing method:
+
+    [Option 1: Share with all organizations](#share-application-with-all-organizations)
+
+    [Option 2: Share with selected organizations](#share-application-with-selected-organizations)
+
+6. Click **Update** to save your configurations.
+
+7. Go to the **Protocol** tab of the application and under **Allowed grant types**, ensure the following [grant types]({{base_path}}/references/grant-types/) are selected.
 
     - Client Credential
     - Code
@@ -35,7 +51,7 @@ Follow the steps below to share a registered application with organizations.
 
         The `Organization Switch` grant will only be visible after you have shared the application with one or more organizations.
 
-6. Click **Update** to save the changes.
+8. Click **Update** to save the changes.
 
 !!! tip
 
@@ -50,6 +66,57 @@ Follow the steps below to share a registered application with organizations.
         ![Shared Guardio Insurance Application]({{base_path}}/assets/img/guides/organization/manage-organizations/fragmented-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     - While in the organization, select the shared application and ensure the username and password authenticator is enabled in the login flow. The organization users can then use the **Sign In with SSO** option to log in using their credentials.
+
+### Share application with all organizations
+
+Enable sharing for **all existing and future organizations**. New organizations automatically inherit shared access.
+
+![Share with all organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/share-with-all-organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+**Why use this option?** When application's access is needed for all organizations without any restrictions.
+
+#### Advanced mode
+
+Share **specific roles only** with all organizations:
+
+1. Enable `Share a subset of roles with all organizations`
+
+2. Select the roles you want to share
+
+![Share a subset of roles with all organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/share-a-subset-of-roles-with-all-organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+**Why use advanced mode?** This gives you precise control over application access. You select which roles to share initially, and these become the default for all organizations. Later, you can customize access by adding or removing specific roles for individual organizations.
+
+### Share application with selected organizations
+
+Enable sharing for **specific organizations only**. This gives you granular control over application access.
+
+![Share with selected organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/share-with-selected-organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+**Why use this option?** Control exactly which organizations access your application and which roles they receive.
+
+Select **specific organizations** and choose which roles to share with each. Keep these rules in mind:
+
+- Share with **parent organizations first** before sharing with child organizations
+- Child organizations can only access roles available in their parent organization
+
+#### Sharing options
+
+**Option 1: Share all roles**
+
+Click **Share All Roles** to automatically share every role with selected organizations.
+
+**Option 2: Automatic inheritance**
+
+Enable **Share application and roles with future child organizations** to automatically share with new child organizations under your selected organization.
+
+![Share application and roles with future child organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/share-with-selected-and-all-organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+**Why use automatic inheritance?** New child organizations get access without manual configuration.
+
+!!! warning
+
+    If you remove a role that has been shared already, it will remove that roles from the organizations it was shared with. This action cannot be undo. So be cautious when removing roles.
 
 ## Share the My Account Portal
 
@@ -72,11 +139,11 @@ If you wish to restrict access to the My Account portal to some or all organizat
 
 2. Go to **Applications** and on the top of the page, select the **Settings** icon corresponding to **My Account**.
 
-3. Go to its **Shared Access** tab and do one of the following:
+3. Go to its **Shared Access** tab, which has the same configuration options as registered application sharing.
 
-    - Select **Do not share with any organization** to restrict any existing organizations or future organizations you may create from accessing the My Account portal.
+    - Select **Share with all organizations** for the application to be shared with all existing organizations and new organizations you may create in the future. Refer [Share application with all organizations](#share-application-with-all-organizations) for more details.
 
-    - Select **Share with only selected organizations** and select the organizations that you wish to grant access to the My Account portal.
+    - Select **Share with only selected organizations** and select the relevant organizations. Refer [Share application with selected organizations](#share-application-with-selected-organizations) for more details.
 
 4. Click **Update** to save the changes.
 
@@ -102,11 +169,43 @@ To share the My Account portal with organizations,
 
 2. Go to **Applications** and on the top of the page, select the **Settings** icon corresponding to **My Account**.
 
-3. Go to its **Shared Access** tab and do one of the following:
+3. Go to its **Shared Access** tab, which has the same configuration options as registered application sharing.
 
-    - Select **Share with all organizations** for the application to be shared with all existing organizations and new organizations you may create in the future.
+    - Select **Share with all organizations** for the application to be shared with all existing organizations and new organizations you may create in the future. Refer [Share application with all organizations](#share-application-with-all-organizations) for more details.
 
-    -   Select **Share with only selected organizations** and select the relevant organizations.
+    - Select **Share with only selected organizations** and select the relevant organizations. Refer [Share application with selected organizations](#share-application-with-selected-organizations) for more details.
 
 4. Click **Update** to save the changes.
 {% endif %}
+
+## Share Console application
+
+1. Navigate to **Console Settings**.
+
+2. Go to **Shared Access** tab.
+
+3. Choose your sharing method:
+
+    By default, {{product_name}} shares the **Console application with all organizations** using all available roles.
+
+    ![Share Console application]({{base_path}}/assets/img/guides/organization/manage-organizations/share-console-application.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    **Why use this default?** All organizations get consistent access to Console features without any restriction
+
+    #### Advanced mode
+
+    Share **specific roles only** with all organizations:
+
+    1. Select the second option **Share a common set of roles with all organizations**
+
+    2. Choose which roles to share across organizations
+
+    ![Share Console application roles selectively]({{base_path}}/assets/img/guides/organization/manage-organizations/share-console-application-roles-selectively.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    **Why use advanced mode?** Control which Console features organizations can access through specific roles. Selected roles share with all organizations by default. Later, you can customize access by adding or removing specific roles for individual organizations.
+
+    !!! warning
+    
+        If you remove a role that has been shared already, it will remove that roles from the organizations it was shared with. This action cannot be undo. So be cautious when removing roles.
+
+4. Click **Save** to save the changes.
