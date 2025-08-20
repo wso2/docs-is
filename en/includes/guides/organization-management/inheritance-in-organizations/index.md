@@ -11,6 +11,8 @@ The following guides explain how inheritance works for different features:
 {% if product_name != "Asgardeo" and (product_name == "WSO2 Identity Server" and is_version != "7.0.0" and is_version != "7.1.0") %}
 
 - **[Login & registration configuration inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/login-registration-inheritance/)**: Learn how login and registration configurations can be inherited and customized.
+- **[User attribute inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/attribute-inheritance/)**: Learn how to manage user attribute configurations in organizations.
+- **[OIDC scope inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance/)**: Learn how organizations inherit OpenID Connect (OIDC) scopes.
 
 {% endif %}
 
