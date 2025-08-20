@@ -165,6 +165,12 @@ extra:
     Self-registration flow:
       type: Preview
       level: 4
+    Self Registration:
+      type: Preview
+      level: 3
+    Password Recovery:
+      type: Preview
+      level: 3
 
   nav_icons:
     Overview:

@@ -413,6 +413,11 @@ nav:
           - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
         - Account disabling: guides/account-configurations/account-disabling.md
+      - Flows:
+        - Flows: guides/flows/index.md
+        - Get Started: guides/flows/build-a-flow.md
+        - Self Registration: guides/flows/self-registration.md
+        - Password Recovery: guides/flows/password-recovery.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
