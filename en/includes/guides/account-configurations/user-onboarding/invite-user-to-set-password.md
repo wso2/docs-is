@@ -9,14 +9,17 @@ For inviting users to set their password, follow these instructions:
 {% if (is_version is defined and is_version > "7.1.0") or product_name == "Asgardeo" %}
 1. On the {{product_name}} Console, go to **Login & Registration** > **User Onboarding** > **Invite User to Set Password**.
 2. Enable the **Invite User to Set Password** feature to invite user to set the password after user creation.
-3. From **Choose invitation method** select either Email Link to send an invitation link. Alternatively, choose OTP (delivered via Email or SMS) to start the invitation flow.
-4. Set the **Invitation link/OTP expiry time** in minutes. This defines how long the password setup invitation email or OTP remains valid. For infinite validity, set -1. Setting 0 causes immediate expiry.
+3. From **Choose invitation method**, select Email Link to send an invitation link. Alternatively, select OTP (delivered via Email or SMS) to start the invitation flow.
+4. Set the **Invitation link/OTP expiry time** in minutes.
+This defines how long the password setup invitation email or OTP remains valid.
+    - For infinite validity, set -1
+    - Setting 0 causes immediate expiry
 5. If you want to send an account activation confirmation notification, enable the **Send account activation notification**.
 6. Select the **Lock account until password is set** to lock the user account during user creation.
 7. Configure the OTP code options from **OTP Code Configuration**: enable uppercase, lowercase, and numeric characters, then set the desired OTP code length.
 
     !!! note
-        When using OTP invitation method, users can use the received OTP as a temporary password to log in. After login, they will be redirected to the password setup page to create their permanent password.
+        When using OTP invitation method, users can use the received OTP as a temporary password to log in. The system redirects users to the password setup page after login to create their permanent password.
 
 8. Click **Update** to save the changes.
 {% else %}
@@ -47,7 +50,9 @@ For inviting users to set their password, follow these instructions:
   </tr>
   <tr>
     <td><code>Invitation link/OTP expiry time</code></td>
-    <td>Defines the validity period in minutes for the password setup invitation link or OTP. Set -1 for infinite validity. Set 0 for immediate expiry.</td>
+    <td>Defines the validity period in minutes for the password setup invitation link or OTP.
+        • Set -1 for infinite validity
+        • Set 0 for immediate expiry'</td>
   </tr>
   <tr>
     <td><code>Send account activation notification</code></td>
@@ -55,7 +60,7 @@ For inviting users to set their password, follow these instructions:
   </tr>
   <tr>
     <td><code>Lock account until password is set</code></td>
-    <td>When enabled, the system locks the user account upon creation until the user sets their password.</td>
+    <td>When enabled, the system locks the user account upon creation until the user creates their password.</td>
   </tr>
   <tr>
     <td><code>Include uppercase letters in OTP</code></td>
