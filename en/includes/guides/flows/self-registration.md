@@ -1,4 +1,5 @@
 # Self Registration <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+
 Self registration allows new users to create an account without admin intervention. The flow can include steps to collect user details, verify identity and set credentials before the account becomes active.
 
 In the **Flow Builder**, you can create a self registration journey in two ways:
@@ -22,6 +23,7 @@ This ensures that every registered user has a valid mobile number, reducing the 
 ![Final Flow]({{base_path}}/assets/img/guides/flows/flow-builder-registration-final-flow.png){: width="auto" style="display: block; margin: 0;"}
 
 ## Building the Sample Use Case
+
 This use case is a minimal sign up journey that collects only Email, Mobile, and Password, and requires SMS OTP verification before completing registration. We’ll start from the Basic Details template and modify it as follows:
 
 - Keep only **Email, Mobile, Password**.
@@ -40,6 +42,7 @@ Follow the steps below to configure it.
 ![Step 1]({{base_path}}/assets/img/guides/flows/flow-registration-step-01.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Step 2 – Keep Only Email, Mobile, and Password Fields
+
 We can simplify the form to collect only the essentials for registration and ensure that mobile is mandatory for SMS OTP verification later.
 
 1. In the first Sign Up view, keep only the fields **Email**, **Mobile**, and **Password**, and delete the rest.
@@ -53,6 +56,7 @@ We can simplify the form to collect only the essentials for registration and ens
 3. Click **Save Draft** to keep your progress.
 
 ### Step 3 – Remove the Existing Connection
+
 We can now remove the direct link from the sign up button to the success state so we can insert the SMS OTP verification step in between.
 
 1. Locate the line that connects the **Sign Up** button to the **green tick**.
@@ -61,6 +65,7 @@ We can now remove the direct link from the sign up button to the success state s
 ![Step 3]({{base_path}}/assets/img/guides/flows/flow-registration-step-03.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Step 4 – Change Sign Up Button Action to Navigation
+
 We should now make the sign up button move the user to the next step (SMS OTP) instead of finalizing the registration immediately.
 
 1. Click the **Sign Up** button.
@@ -69,6 +74,7 @@ We should now make the sign up button move the user to the next step (SMS OTP) i
 ![Step 4]({{base_path}}/assets/img/guides/flows/flow-registration-step-04.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Step 5 – Add an SMS OTP Verification Step
+
 This step verifies the mobile number provided during sign up before completing account creation.
 
 1. Navigate to the **Steps** section and drag and drop an **SMS OTP View** onto the canvas.
@@ -81,4 +87,4 @@ This step verifies the mobile number provided during sign up before completing a
 With these changes, new users will only provide the essentials **Email**, **mobile number**, and **password** and must verify their mobile via SMS OTP before completing registration.
 
 !!! Note
-    When using a connection based sign up option (such as Google or Microsoft), configure the authorized redirect URL as: `https://accounts.asgardeo.io/t/{tenant-domain}/accounts/register`
+        When using a connection based sign up option (such as Google or Microsoft), configure the authorized redirect URL as: `https://accounts.asgardeo.io/t/{tenant-domain}/accounts/register`

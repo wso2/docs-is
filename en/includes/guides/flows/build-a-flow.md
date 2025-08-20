@@ -31,7 +31,7 @@ Describe your ideal flow in plain language, and the builder will generate it aut
 ![Flow builder AI]({{base_path}}/assets/img/guides/flows/flow-builder-generate-with-ai.png){: width="auto" style="display: block; margin: 0;"}
 
 ### Use Starter Templates
-    
+
 Starter templates give you a quick start with predefined flows that are easily customizable. Click the `+` button next to a template to add it to the flow.
 
 ![Starter Templates]({{base_path}}/assets/img/guides/flows/flow-builder-starter-templates.png){: width="auto" style="display: block; margin: 0;"}
@@ -44,7 +44,7 @@ Begin with a blank canvas and use the drag-and-drop interface to add steps, widg
 
 ## Flow Elements
 
-Flows are made up of different types of elements that work together to create the user journey. These elements let you control the structure, functionality, and appearance of each step in the flow. 
+Flows are made up of different types of elements that work together to create the user journey. These elements let you control the structure, functionality, and appearance of each step in the flow.
 
 ### Widgets
 
@@ -64,7 +64,6 @@ Components are atomic UI elements added to steps. Drag and drop components insid
 
 !!! Note
     Field components such as **Text Inputs**, **Email Inputs**, etc. have the following constraints:
-    
     - They must be added inside a **Form** component.
     - They must be mapped to a user attribute. Do this by clicking the pencil icon on the element action panel and selecting the relevant attribute from the `Attribute` dropdown. Only attributes set to display on the respective user profile in the [Attribute Configurations]({{base_path}}/guides/users/attributes/manage-attributes) will be available for mapping.
 
