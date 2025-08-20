@@ -158,6 +158,7 @@ plugins:
         'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/login-security/login-attempts.md'
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
+        'guides/identity-lifecycles/invitation-workflow.md': 'guides/account-configurations/user-onboarding/invite-user-to-set-password.md'
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
         'guides/organization-management/email-domain-based-organization-discovery.md': 'guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md'
         'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
@@ -407,6 +408,7 @@ nav:
         - User onboarding:
           - Self-registration: guides/account-configurations/user-onboarding/self-registration.md
           - Self-registration flow: guides/account-configurations/user-onboarding/self-registration-flow.md
+          - Invite user to set password: guides/account-configurations/user-onboarding/invite-user-to-set-password.md
         - Manage login identifiers:
           - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
