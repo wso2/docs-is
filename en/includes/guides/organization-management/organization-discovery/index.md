@@ -51,9 +51,9 @@ Organization discovery routes users directly to their organization's login page.
 
 Use one of these two methods:
 
-- **Direct routing with query parameters**: Add the `fidp=OrganizationSSO` parameter along with the *organization discovery parameters* to your authentication requests. This directly routes users to their organization login page through the application.
+- **Direct routing with query parameters**: Add the `fidp=OrganizationSSO` parameter along with the *organization discovery parameters* to your authentication requests. This routes users directly to their organization login page.
 
-- **Conditional authentication script**: Use an conditional authentication script to automatically select the SSO authenticator based on organization parameters.
+- **Conditional authentication script**: Use a conditional authentication script to automatically select the SSO authenticator based on organization parameters.
 
 ---
 
@@ -61,7 +61,7 @@ Use one of these two methods:
 
 ## Organization handle-based discovery
 
-Use the organization's handle (tenant domain) to route users to their login page. Organization handles provide a human-readable, unique identifier that users can remember more than organization IDs.
+Use the organization's handle to route users to their login page. Organization handle provides a human-readable, unique identifier that users can remember better than organization IDs.
 
 Add the `orgHandle` parameter with the organization handle to your authentication request.
 
@@ -153,7 +153,7 @@ Add the `orgId` parameter with the organization ID to your authentication reques
 
 ## Alternative: Use conditional authentication
 
-Instead of using the `fidp=OrganizationSSO` parameter, you can use an conditional authentication script to automatically route users.
+Instead of using the `fidp=OrganizationSSO` parameter, you can use a conditional authentication script to automatically route users.
 
 Add this script to your application's authentication flow:
 
@@ -195,7 +195,7 @@ var onLoginRequest = function(context) {
 
 {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
 
-You can set the default discovery parameter for organization discovery across your server or for your root organization. This configuration determines which parameter users provide during SSO login, affecting the user experience.
+You can set the default discovery parameter for organization discovery across your server or for your root organization. This configuration determines which parameter users provide during SSO login. It affects the user experience.
 
 ### Server-wide configuration
 
@@ -208,7 +208,7 @@ default_param = "orgHandle"
 
 **Available options**:
 
-- `"orgHandle"` (recommended): Users provide the organization handle (tenant domain)
+- `"orgHandle"` (recommended): Users provide the organization handle
 - `"orgName"`: Users provide the organization name
 
 ### Root organization configuration
@@ -225,12 +225,13 @@ curl --location --request PUT 'https://localhost:9443/api/server/v1/organization
         {
             "key": "defaultParam",
             "value": "orgHandle"
-        }
+        },
+        < other available key value properties >
     ]
 }'
 ```
 
-**Note**: By default, the system uses `"orgHandle"` for better user experience with human-readable identifiers. You can change it to `"orgName"` if your organization names preferably for users to remember than handles.'
+**Note**: By default, the system uses `"orgHandle"` for better user experience with human-readable identifiers. You can change it to `"orgName"` if organization names are easier for users to remember.
 
 ### User experience impact of organization discovery configuration
 
@@ -238,7 +239,7 @@ Configure `default_param` to control what users enter during Single Sign-On (SSO
 
 **When `default_param = "orgHandle"`** (recommended):
 
-When users log in to the app by selecting **Sign In With Single Sign-On (SSO)**, they get redirected to the default SSO option. Users provide the **organization handle** (tenant domain).
+Users select **Sign In With Single Sign-On (SSO)** to log in. They get redirected to the default SSO option. Users should provide the **organization handle**.
 
 When you enable email domain discovery, the UI shows the default prompt option as follows:
 
