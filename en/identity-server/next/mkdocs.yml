@@ -717,7 +717,7 @@ nav:
             - Login & registration settings inheritance: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
             - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
             - Email and SMS templates inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
-            - User attribute inheritance: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
+            - User attributes inheritance: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
             - OIDC scope inheritance: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
           - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md

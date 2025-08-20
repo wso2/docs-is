@@ -1,6 +1,6 @@
 # Login and registration settings inheritance
 
-In {{product_name}}, child organizations inherit configurations related to login and registration from their parent organizations. Child organizations can make their own customizations to these inherited settings.
+In {{product_name}}, child organizations inherit configurations related to login and registration from the organizational hierarchy. Child organizations can make their own customizations to these inherited settings.
 
 Organization administrators can access these settings in the {{product_name}} Console under **Login & Registration**.
 
