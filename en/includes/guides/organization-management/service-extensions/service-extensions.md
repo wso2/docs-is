@@ -30,8 +30,8 @@ To learn more, refer to the [Pre update password action]({{base_path}}/guides/se
 
 Behavior by user type:
 
-- Organization users: The pre update password action executes in all password update flows of these users.
-  
+- Organization users: The pre update password action executes in all password update flows for users created in the organization.
+
   The following example shows a request sent to an external service configured as a pre update password action, triggered when an administrator updates the organization user’s password.
 
 ```http
