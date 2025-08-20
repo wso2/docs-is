@@ -209,7 +209,18 @@ paths:
                 "scheme": "PROVISION_SILENTLY",
                 "userstore": "PRIMARY",
                 "associateLocalUser": true,
-                "attributeSyncMethod": "OVERRIDE_ALL"
+                "skipJITForLookupFailure": false,
+                "attributeSyncMethod": "OVERRIDE_ALL",
+                "accountLookupAttributeMappings": [
+                  {
+                    "federatedAttribute": "email",
+                    "localAttribute": "http://wso2.org/claims/email"
+                  },
+                  {
+                    "federatedAttribute": "mobile",
+                    "localAttribute": "http://wso2.org/claims/mobile"
+                  }
+                ]
               },
               "outboundConnectors": {
                 "defaultConnectorId": "U0NJTQ",
@@ -2165,7 +2176,18 @@ paths:
             "scheme": "PROVISION_SILENTLY",
             "userstore": "PRIMARY",
             "associateLocalUser": true,
-            "attributeSyncMethod": "OVERRIDE_ALL"
+            "skipJITForLookupFailure": false,
+            "attributeSyncMethod": "OVERRIDE_ALL",
+            "accountLookupAttributeMappings": [
+                  {
+                    "federatedAttribute": "email",
+                    "localAttribute": "http://wso2.org/claims/email"
+                  },
+                  {
+                    "federatedAttribute": "mobile",
+                    "localAttribute": "http://wso2.org/claims/mobile"
+                  }
+                ]
             }'
       requestBody:
         content:
@@ -2413,7 +2435,18 @@ paths:
                   "scheme": "PROVISION_SILENTLY",
                   "userstore": "PRIMARY",
                   "associateLocalUser": true,
-                  "attributeSyncMethod": "OVERRIDE_ALL"
+                  "skipJITForLookupFailure": false,
+                  "attributeSyncMethod": "OVERRIDE_ALL",
+                  "accountLookupAttributeMappings": [
+                  {
+                    "federatedAttribute": "email",
+                    "localAttribute": "http://wso2.org/claims/email"
+                  },
+                  {
+                    "federatedAttribute": "mobile",
+                    "localAttribute": "http://wso2.org/claims/mobile"
+                  }
+                ]
                 },
                 "outboundConnectors": {
                   "defaultConnectorId": "U0NJTQ",
@@ -2647,7 +2680,18 @@ paths:
                   "scheme": "PROVISION_SILENTLY",
                   "userstore": "PRIMARY",
                   "associateLocalUser": true,
-                  "attributeSyncMethod": "OVERRIDE_ALL"
+                  "skipJITForLookupFailure": false,
+                  "attributeSyncMethod": "OVERRIDE_ALL",
+                  "accountLookupAttributeMappings": [
+                  {
+                    "federatedAttribute": "email",
+                    "localAttribute": "http://wso2.org/claims/email"
+                  },
+                  {
+                    "federatedAttribute": "mobile",
+                    "localAttribute": "http://wso2.org/claims/mobile"
+                  }
+                ]
                 },
                 "outboundConnectors": {
                   "defaultConnectorId": "U0NJTQ",
@@ -3658,6 +3702,14 @@ components:
           type: boolean
           default: false
           example: true
+        skipJITForLookupFailure:
+          type: boolean
+          default: false
+          example: true
+        accountLookupAttributeMappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountLookupAttributeMapping'
         attributeSyncMethod:
           description: "Specify the method used for syncing attributes between a JIT-provisioned user account and a local user account. \n\n
             The following methods are allowed: \n\n
@@ -3672,6 +3724,15 @@ components:
             - NONE
             - PRESERVE_LOCAL
           default: OVERRIDE_ALL
+    AccountLookupAttributeMapping:
+      type: object
+      properties:
+        localAttribute:
+          type: string
+          example: http://wso2.org/claims/emailaddress
+        federatedAttribute:
+          type: string
+          example: email
     ConnectedApps:
       type: object
       properties:
@@ -4001,6 +4062,12 @@ components:
             scheme: "PROVISION_SILENTLY"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: true
+            accountLookupAttributeMappings:
+              - localAttribute: http://wso2.org/claims/emailaddress
+                federatedAttribute: email
+              - localAttribute: http://wso2.org/claims/mobile
+                federatedAttribute: mobile
             attributeSyncMethod: "OVERRIDE_ALL"
           outboundConnectors:
             defaultConnectorId: "U0NJTQ"
@@ -4066,6 +4133,12 @@ components:
             scheme: "PROVISION_SILENTLY"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: true
+            accountLookupAttributeMappings:
+              - localAttribute: http://wso2.org/claims/emailaddress
+                federatedAttribute: email
+              - localAttribute: http://wso2.org/claims/mobile
+                federatedAttribute: mobile
             attributeSyncMethod: "OVERRIDE_ALL"
     SystemDefinedIdentityProviderResponseExample:
       summary: "Response for identity provider creation with system defined authenticator"
@@ -4128,6 +4201,12 @@ components:
             scheme: "PROMPT_USERNAME_PASSWORD_CONSENT"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: true
+            accountLookupAttributeMappings:
+              - localAttribute: http://wso2.org/claims/emailaddress
+                federatedAttribute: email
+              - localAttribute: http://wso2.org/claims/mobile
+                federatedAttribute: mobile
             attributeSyncMethod: "OVERRIDE_ALL"
           outboundConnectors:
             defaultConnectorId: "U0NJTQ"

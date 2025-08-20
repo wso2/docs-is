@@ -193,6 +193,7 @@ paths:
                 "userstore": "DEFAULT",
                 "attributeSyncMethod": "OVERRIDE_ALL",
                 "associateLocalUser": true,
+                "skipJITForLookupFailure": false,
                 "accountLookupAttributeMappings": [
                   {
                     "federatedAttribute": "email",
@@ -1725,6 +1726,7 @@ paths:
             "userstore": "DEFAULT",
             "attributeSyncMethod": "OVERRIDE_ALL",
             "associateLocalUser": true,
+            "skipJITForLookupFailure": false,
             "accountLookupAttributeMappings": [
                   {
                     "federatedAttribute": "email",
@@ -2916,6 +2918,7 @@ components:
             scheme: "PROVISION_SILENTLY"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: false
             attributeSyncMethod: "OVERRIDE_ALL"
             accountLookupAttributeMappings:
               - federatedAttribute: "email"
@@ -2986,6 +2989,7 @@ components:
             scheme: "PROVISION_SILENTLY"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: false
             attributeSyncMethod: "OVERRIDE_ALL"
             accountLookupAttributeMappings:
               - federatedAttribute: "email"
@@ -3053,6 +3057,7 @@ components:
             scheme: "PROMPT_USERNAME_PASSWORD_CONSENT"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: false
             attributeSyncMethod: "OVERRIDE_ALL"
             accountLookupAttributeMappings:
               - federatedAttribute: "email"
