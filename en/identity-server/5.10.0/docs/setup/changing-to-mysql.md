@@ -279,4 +279,32 @@ The elements in the above configuration are described below:
  | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
 
-    
+### Driver-Level Timeouts (Recommended for Production)
+
+When the database becomes unresponsive, WSO2 IS threads may remain stuck while waiting for a JDBC connection. This happens because the Tomcat JDBC Pool cannot abort connection creation by itself ([reference](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L693-L702)).
+
+To mitigate this, configure **driver-level timeouts** in the JDBC URL:
+
+- **`connectTimeout`** → time to wait while establishing a DB connection.  
+- **`socketTimeout`** (or driver-equivalent) → time to wait for responses on an established connection.  
+- **`tcpKeepAlive=true`** (if supported) → helps detect dead peers.
+
+Also note the distinction:
+
+- **`maxWait`** (Tomcat pool) → how long to wait for a **free** pool connection when all are busy.  
+- **`connectTimeout` / `socketTimeout`** (driver) → how long to connect/read at the DB level.
+
+> **Note:** The WARN for `PoolExhaustedException` is logged only when `maxWait` elapses ([reference](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741)). This does not cover waits inside the driver’s connect/read paths; hence driver timeouts are required.
+
+#### Example (MySQL)
+
+```toml
+[database.identity_db]
+url = "jdbc:mysql://DB_HOST:3306/WSO2_IDENTITY_DB?connectTimeout=10000&socketTimeout=60000&tcpKeepAlive=true"
+username = "..."
+password = "..."
+driver = "com.mysql.cj.jdbc.Driver"
+```
+
+Reference: [MySQL Connector/J properties](https://docs.oracle.com/cd/E19509-01/820-3497/agqju/index.html)
+

@@ -201,4 +201,31 @@ validate, it will be dropped from the pool, and another attempt will be made to 
     Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
   
     
-    
+### Driver-Level Timeouts (Recommended for Production)
+
+When the database becomes unresponsive, WSO2 IS threads may remain stuck while waiting for a JDBC connection. This happens because the Tomcat JDBC Pool cannot abort connection creation by itself ([reference](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L693-L702)).
+
+To mitigate this, configure **driver-level timeouts** in the JDBC URL:
+
+- **`connectTimeout`** → time to wait while establishing a DB connection.  
+- **`socketTimeout`** (or driver-equivalent) → time to wait for responses on an established connection.  
+- **`tcpKeepAlive=true`** (if supported) → helps detect dead peers.
+
+Also note the distinction:
+
+- **`maxWait`** (Tomcat pool) → how long to wait for a **free** pool connection when all are busy.  
+- **`connectTimeout` / `socketTimeout`** (driver) → how long to connect/read at the DB level.
+
+> **Note:** The WARN for `PoolExhaustedException` is logged only when `maxWait` elapses ([reference](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741)). This does not cover waits inside the driver’s connect/read paths; hence driver timeouts are required.
+
+#### Example (Oracle RAC)
+
+```toml
+[database.identity_db]
+url = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST2)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=WSO2_IDENTITY_DB)))?oracle.net.CONNECT_TIMEOUT=10000&oracle.jdbc.ReadTimeout=60000"
+username = "..."
+password = "..."
+driver = "oracle.jdbc.OracleDriver"
+```
+
+Reference: [Oracle JDBC RAC URLs](https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/data-sources-and-URLs.html)
