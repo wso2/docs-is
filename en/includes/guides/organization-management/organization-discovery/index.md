@@ -14,8 +14,8 @@ This guide explains available discovery types and shows how to integrate them in
 
 | Discovery Type                    | Use Case                                                  |
 |-----------------------------------|-----------------------------------------------------------|
-| **Organization Name-Based**       | Direct users to their organization using the organization name. |
-| **Organization ID-Based**         | Route users using the organization id. Suitable for server-side integrations. |
+| **Organization Name-Based**       | Route users using the organization name. |
+| **Organization ID-Based**         | Route users using the organization ID. Suitable for server-side integrations. |
 | **Email Domain-Based**            | Automatically identify organizations from email domains. Ideal for corporate email addresses. |
 
 {% else %}
@@ -25,8 +25,8 @@ This guide explains available discovery types and shows how to integrate them in
 | Discovery Type                    | Use Case                                                  |
 |-----------------------------------|-----------------------------------------------------------|
 | **Organization Handle-Based**     | Route users using the organization handle, a human-readable, unique identifier. |
-| **Organization Name-Based**       | Direct users to their organization using the organization name. |
-| **Organization ID-Based**         | Route users using the organization id. Suitable for server-side integrations. |
+| **Organization Name-Based**       | Route users using the organization name. |
+| **Organization ID-Based**         | Route users using the organization ID. Suitable for server-side integrations. |
 | **Email Domain-Based**            | Automatically identify organizations from email domains. Ideal for corporate email addresses. |
 | **Custom Attribute-Based**        | Enable advanced discovery options using custom attributes. |
 
@@ -34,8 +34,8 @@ This guide explains available discovery types and shows how to integrate them in
 
 | Discovery Type                    | Use Case                                                  |
 |-----------------------------------|-----------------------------------------------------------|
-| **Organization Name-Based**       | Direct users to their organization using the organization name. |
-| **Organization ID-Based**         | Route users using the organization id. Suitable for server-side integrations. |
+| **Organization Name-Based**       | Route users using the organization name. |
+| **Organization ID-Based**         | Route users using the organization ID. Suitable for server-side integrations. |
 | **Email Domain-Based**            | Automatically identify organizations from email domains. Ideal for corporate email addresses. |
 | **Custom Attribute-Based**        | Enable advanced discovery options using custom attributes. |
 
