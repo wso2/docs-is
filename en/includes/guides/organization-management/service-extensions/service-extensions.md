@@ -97,7 +97,7 @@ Content-Type: application/json
 }
 ```
 
-- Shared/ invited users: The pre update password action doesn't execute because the parent organization manages the credentials of these users.
+- Shared/ invited users: The pre update password action doesn't execute because the parent organization manages the credentials for the shared/ invited users.
 
 ### Pre update profile action
 
