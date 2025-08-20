@@ -5,11 +5,167 @@
 
 You can add or remove language support to customize the user interface for different regions and languages.
 
-### Add a new locale
+### My Account
+
+Configure localization for the My Account application.
+
+#### Add a locale to My Account
+
+To add a new language (e.g., Arabic - `ar-SA`) to My Account:
+
+1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/myaccount/extensions/i18n/`.
+
+2. Create a `meta.json` file with the following content:
+
+    ```json
+    {
+        "ar-SA": {
+            "enabled": true,
+            "code": "ar-SA",
+            "flag": "sa",
+            "name": "Arabic (Saudi Arabia)",
+            "namespaces": [
+                "common",
+                "myAccount",
+                "extensions"
+            ],
+            "paths": {
+                "common": "extensions/i18n/ar-SA/portals/common.json",
+                "myAccount": "extensions/i18n/ar-SA/portals/myAccount.json",
+                "extensions": "extensions/i18n/ar-SA/portals/extensions.json"
+            }
+        }
+    }
+    ```
+
+3. Copy the `en-US` bundle from `<IS_HOME>/repository/deployment/server/webapps/myaccount/resources/i18n/`.
+
+4. Rename the copied bundle to `ar-SA` and place it inside `<IS_HOME>/repository/deployment/server/webapps/myaccount/extensions/i18n/`.
+
+5. Translate the content in the JSON files within the new language bundle.
+
+6. The new language will now appear in the language switcher.
+
+#### Remove a locale from My Account
+
+You can remove language support using different options based on your requirements.
+
+##### Remove from all places in My Account
+
+To remove a language from language switcher, branding, email templates, and all other places:
+
+1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/myaccount/extensions/i18n/`.
+
+2. Create or update the `meta.json` file with the following content:
+
+    ```json
+    {
+        "pt-PT": {
+            "enabled": false
+        }
+    }
+    ```
+
+##### Remove from language switcher only in My Account
+
+To hide a language from the language switcher while keeping it available in other places:
+
+1. Update the `meta.json` file with the following content:
+
+    ```json
+    {
+        "pt-PT": {
+            "enabled": true,
+            "showOnLanguageSwitcher": false
+        }
+    }
+    ```
+
+### Console
+
+Configure localization for the Console application.
+
+#### Add a locale to Console
+
+To add a new language (e.g., Arabic - `ar-SA`) to Console:
+
+1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/console/extensions/i18n/`.
+
+2. Create a `meta.json` file with the following content:
+
+    ```json
+    {
+        "ar-SA": {
+            "enabled": true,
+            "code": "ar-SA",
+            "flag": "sa",
+            "name": "Arabic (Saudi Arabia)",
+            "namespaces": [
+                "common",
+                "console",
+                "extensions"
+            ],
+            "paths": {
+                "common": "extensions/i18n/ar-SA/portals/common.json",
+                "console": "extensions/i18n/ar-SA/portals/console.json",
+                "extensions": "extensions/i18n/ar-SA/portals/extensions.json"
+            }
+        }
+    }
+    ```
+
+3. Copy the `en-US` bundle from `<IS_HOME>/repository/deployment/server/webapps/console/resources/i18n/`.
+
+4. Rename the copied bundle to `ar-SA` and place it inside `<IS_HOME>/repository/deployment/server/webapps/console/extensions/i18n/`.
+
+5. Translate the content in the JSON files within the new language bundle.
+
+6. The new language will now appear in the language switcher.
+
+#### Remove a locale from Console
+
+You can remove language support using different options based on your requirements.
+
+##### Remove from all places in Console
+
+To remove a language from language switcher, branding, email templates, and all other places:
+
+1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/console/extensions/i18n/`.
+
+2. Create or update the `meta.json` file with the following content:
+
+    ```json
+    {
+        "pt-PT": {
+            "enabled": false
+        }
+    }
+    ```
+
+##### Remove from language switcher only in Console
+
+To hide a language from the language switcher while keeping it available in other places:
+
+1. Update the `meta.json` file with the following content:
+
+    ```json
+    {
+        "pt-PT": {
+            "enabled": true,
+            "showOnLanguageSwitcher": false
+        }
+    }
+    ```
+
+### Authentication & Recovery endpoints
+
+The authentication and recovery endpoints use traditional properties files for localization.
+
+#### Add a locale to endpoints
 
 Follow these steps to add a new language to your authentication and recovery endpoints:
 
-#### Step 1: Create locale-specific resource files
+##### Step 1: Create locale-specific resource files
 
 1. Navigate to the following directories based on the endpoint you want to configure:
 
@@ -34,7 +190,7 @@ Follow these steps to add a new language to your authentication and recovery end
 
 5. Save the file.
 
-#### Step 2: Configure language options
+##### Step 2: Configure language options
 
 1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/`.
 
@@ -52,23 +208,19 @@ Follow these steps to add a new language to your authentication and recovery end
 
 4. Save the file.
 
-#### Step 3: Enable the locale in your browser
+##### Step 3: Test the configuration
 
-1. Go to your browser settings.
+1. Go to your browser settings and add the language you configured above to your preferred languages list.
 
-2. Add the language you configured above to your preferred languages list.
+2. Restart the WSO2 Identity Server.
 
-#### Step 4: Test the configuration
-
-1. Restart the WSO2 Identity Server.
-
-2. Open a browser and navigate to the My Account portal URL.
+3. Open a browser and navigate to the My Account portal URL.
 
    - For localhost: [https://localhost:9443/myaccount/](https://localhost:9443/myaccount/)
 
-3. You should see the login screen displaying content in the configured language.
+4. You should see the login screen displaying content in the configured language.
 
-### Remove a locale
+#### Remove a locale from endpoints
 
 To remove a language from your endpoints:
 
@@ -78,11 +230,11 @@ To remove a language from your endpoints:
 
 3. Restart the server for changes to take effect.
 
-## RTL & LTR support
+## Configure RTL & LTR support
 
-WSO2 Identity Server supports both Right-to-Left (RTL) and Left-to-Right (LTR) text directions. This ensures that languages like Arabic, Hebrew, and Persian display correctly with proper layout and content flow.
+WSO2 Identity Server supports both Right-to-Left (RTL) and Left-to-Right (LTR) text directions for authentication and recovery endpoints.
 
-### Configure LTR support
+### LTR (Left-to-Right)
 
 LTR (Left-to-Right) is the **default text direction** for most languages. You don't need to explicitly configure LTR support.
 
@@ -104,7 +256,7 @@ To ensure a language uses LTR direction:
 
 3. Save the file and restart the server.
 
-### Configure RTL support
+### RTL (Right-to-Left)
 
 When you select an RTL language, the interface automatically adjusts text alignment and content flow to follow RTL formatting conventions.
 
