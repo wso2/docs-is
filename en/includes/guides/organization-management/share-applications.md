@@ -102,11 +102,13 @@ Select **specific organizations** and choose which roles to share with each. Kee
 
 #### Sharing options
 
-**Option 1: Share all roles**
+You have two ways to configure role sharing for selected organizations:
+
+##### Option 1: Share all roles
 
 Click **Share All Roles** to automatically share every role with selected organizations.
 
-**Option 2: Automatic inheritance**
+##### Option 2: Automatic inheritance
 
 Enable **Share application and roles with future child organizations** to automatically share with new child organizations under your selected organization.
 
@@ -192,7 +194,7 @@ To share the My Account portal with organizations,
 
     **Why use this default?** All organizations get consistent access to Console features without any restriction
 
-    #### Advanced mode
+    **Console advanced mode**
 
     Share **specific roles only** with all organizations:
 
@@ -204,8 +206,8 @@ To share the My Account portal with organizations,
 
     **Why use advanced mode?** Control which Console features organizations can access through specific roles. Selected roles share with all organizations by default. Later, you can customize access by adding or removing specific roles for individual organizations.
 
-    !!! warning
-    
-        If you remove a role that has been shared already, it will remove that roles from the organizations it was shared with. This action cannot be undo. So be cautious when removing roles.
-
 4. Click **Save** to save the changes.
+
+!!! warning
+
+        If you remove a role that has been shared already, it will remove that roles from the organizations it was shared with. This action cannot be undo. So be cautious when removing roles.
