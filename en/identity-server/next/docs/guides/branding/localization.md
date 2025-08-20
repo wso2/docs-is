@@ -7,6 +7,86 @@ You can add or remove language support to customize the user interface for diffe
 
 {% raw %}
 
+### Authentication, Recovery & Accounts endpoints {#add-remove-locales-in-authentication-recovery-accounts-endpoints}
+
+{% endraw %}
+
+Configure localization for authentication, recovery, and accounts endpoints using traditional properties files.
+
+#### Add a locale to endpoints
+
+Follow these steps to add a new language to your authentication, recovery, and accounts endpoints:
+
+##### Step 1: Create locale-specific resource files
+
+1. Navigate to the following directories based on the endpoint you want to configure:
+
+    - **Authentication endpoint**: `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/`
+    - **Recovery endpoint**: `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/org/wso2/carbon/identity/mgt/recovery/endpoint/i18n/`
+    - **Accounts endpoint**: `<IS_HOME>/repository/deployment/server/webapps/accounts/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/`
+
+2. Duplicate the `Resources.properties` file in the same location.
+
+3. Rename the duplicated file with the required locale suffix:
+    - For British English: `Resources_en_GB.properties`
+    - For French (Standard): `Resources_fr.properties`
+
+    !!! note
+
+        Refer to [Web browser language identification codes](https://www.localeplanet.com/icu/){target="_blank"} for more information on locale suffixes.
+
+4. Update the values for each key in the new file:
+
+    ```properties
+    login=<Value in the required locale>
+    ```
+
+5. Save the file.
+
+##### Step 2: Configure language options
+
+1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/`.
+
+2. Open the `LanguageOptions.properties` file.
+
+3. Add information about the new language in the following format:
+
+    ```properties
+    <language switcher name>=<language code>,<language name>,<text direction>
+    ```
+
+    !!! note
+
+        The `<text direction>` parameter is optional. The default text direction is "ltr" (Left-to-Right).
+
+4. Save the file.
+
+##### Step 3: Test the configuration
+
+1. Go to your browser settings and add the language you configured above to your preferred languages list.
+
+2. Restart the WSO2 Identity Server.
+
+3. Open a browser and navigate to test the endpoints:
+
+   - **Authentication**: [https://localhost:9443/myaccount/](https://localhost:9443/myaccount/) (triggers login screen)
+   - **Recovery**: [https://localhost:9443/accountrecovery/](https://localhost:9443/accountrecovery/)
+   - **Accounts**: [https://localhost:9443/accounts/](https://localhost:9443/accounts/)
+
+4. You should see the screens displaying content in the configured language.
+
+#### Remove a locale from endpoints
+
+To remove a language from your authentication, recovery, and accounts endpoints:
+
+1. Delete the corresponding `Resources_<locale>.properties` files from authentication, recovery, and accounts endpoint directories.
+
+2. Remove the language entry from the `LanguageOptions.properties` file.
+
+3. Restart the server for changes to take effect.
+
+{% raw %}
+
 ### My Account {#add-remove-locales-in-myaccount}
 
 {% endraw %}
@@ -165,89 +245,51 @@ To hide a language from the language switcher while keeping it available in othe
     }
     ```
 
+## Configure Text Direction (RTL & LTR)
+
+WSO2 Identity Server supports both Right-to-Left (RTL) and Left-to-Right (LTR) text directions. **LTR is the default text direction** for most languages and doesn't require explicit configuration. RTL languages like Arabic, Hebrew, and Persian automatically adjust the interface layout and content flow when configured properly.
+
+!!! Note
+
+    The text direction is not currently configurable for the **Console**.
+
 {% raw %}
 
-### Authentication, Recovery & Accounts endpoints {#add-remove-locales-in-authentication-recovery-accounts-endpoints}
+### Authentication, Recovery & Accounts endpoints {#configure-text-direction-in-authentication-recovery-accounts-endpoints}
 
 {% endraw %}
 
-Configure localization for authentication, recovery, and accounts endpoints using traditional properties files.
-
-#### Add a locale to endpoints
-
-Follow these steps to add a new language to your authentication, recovery, and accounts endpoints:
-
-##### Step 1: Create locale-specific resource files
-
-1. Navigate to the following directories based on the endpoint you want to configure:
-
-    - **Authentication endpoint**: `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/`
-    - **Recovery endpoint**: `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/org/wso2/carbon/identity/mgt/recovery/endpoint/i18n/`
-    - **Accounts endpoint**: `<IS_HOME>/repository/deployment/server/webapps/accounts/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/`
-
-2. Duplicate the `Resources.properties` file in the same location.
-
-3. Rename the duplicated file with the required locale suffix:
-    - For British English: `Resources_en_GB.properties`
-    - For French (Standard): `Resources_fr.properties`
-
-    !!! note
-
-        Refer to [Web browser language identification codes](https://www.localeplanet.com/icu/){target="_blank"} for more information on locale suffixes.
-
-4. Update the values for each key in the new file:
-
-    ```properties
-    login=<Value in the required locale>
-    ```
-
-5. Save the file.
-
-##### Step 2: Configure language options
+To configure text direction for authentication, recovery, and accounts endpoints:
 
 1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/`.
 
 2. Open the `LanguageOptions.properties` file.
 
-3. Add information about the new language in the following format:
+3. Configure the language entry based on text direction:
+
+    **For LTR languages (default):**
 
     ```properties
-    <language switcher name>=<language code>,<language name>,<text direction>
+    lang.switch.en_US=en,English,ltr
     ```
 
-    !!! note
+    or simply (LTR is assumed if not specified):
 
-        The `<text direction>` parameter is optional. The default text direction is "ltr" (Left-to-Right).
+    ```properties
+    lang.switch.en_US=en,English
+    ```
 
-4. Save the file.
+    **For RTL languages:**
 
-##### Step 3: Test the configuration
+    ```properties
+    lang.switch.ar_AE=ar,Arabic - العربية,rtl
+    ```
 
-1. Go to your browser settings and add the language you configured above to your preferred languages list.
+4. Save the file and restart the server for changes to take effect.
 
-2. Restart the WSO2 Identity Server.
+!!! tip
 
-3. Open a browser and navigate to test the endpoints:
-
-   - **Authentication**: [https://localhost:9443/myaccount/](https://localhost:9443/myaccount/) (triggers login screen)
-   - **Recovery**: [https://localhost:9443/accountrecovery/](https://localhost:9443/accountrecovery/)
-   - **Accounts**: [https://localhost:9443/accounts/](https://localhost:9443/accounts/)
-
-4. You should see the screens displaying content in the configured language.
-
-#### Remove a locale from endpoints
-
-To remove a language from your authentication, recovery, and accounts endpoints:
-
-1. Delete the corresponding `Resources_<locale>.properties` files from authentication, recovery, and accounts endpoint directories.
-
-2. Remove the language entry from the `LanguageOptions.properties` file.
-
-3. Restart the server for changes to take effect.
-
-## Configure Text Direction (RTL & LTR)
-
-WSO2 Identity Server supports both Right-to-Left (RTL) and Left-to-Right (LTR) text directions. **LTR is the default text direction** for most languages and doesn't require explicit configuration. RTL languages like Arabic, Hebrew, and Persian automatically adjust the interface layout and content flow when configured properly.
+    The RTL/LTR configuration applies to all three endpoints (authentication, recovery, and accounts) since they share the same `LanguageOptions.properties` file.
 
 {% raw %}
 
@@ -310,103 +352,3 @@ To configure text direction for languages in My Account:
     ```
 
 3. Save the file and restart the server for changes to take effect.
-
-{% raw %}
-
-### Console {#configure-text-direction-in-console}
-
-{% endraw %}
-
-To configure text direction for languages in Console:
-
-1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/console/extensions/i18n/`.
-
-2. Update your `meta.json` file to include the `direction` property:
-
-    **For LTR languages (default):**
-
-    ```json
-    {
-        "en-US": {
-            "enabled": true,
-            "code": "en-US",
-            "flag": "us",
-            "name": "English (United States)",
-            "direction": "ltr",
-            "namespaces": [
-                "applications",
-                "users",
-                ...rest of the namespaces
-            ],
-            "paths": {
-                "applications": "extensions/i18n/ar-SA/portals/applications.json",
-                "users": "extensions/i18n/ar-SA/portals/users.json",
-                ...rest of the paths
-            }
-        }
-    }
-    ```
-
-    **For RTL languages:**
-
-    ```json
-    {
-        "ar-SA": {
-            "enabled": true,
-            "code": "ar-SA",
-            "flag": "sa",
-            "name": "Arabic (Saudi Arabia)",
-            "direction": "rtl",
-            "namespaces": [
-                "applications",
-                "users",
-                ...rest of the namespaces
-            ],
-            "paths": {
-                "applications": "extensions/i18n/ar-SA/portals/applications.json",
-                "users": "extensions/i18n/ar-SA/portals/users.json",
-                ...rest of the paths
-            }
-        }
-    }
-    ```
-
-3. Save the file and restart the server for changes to take effect.
-
-{% raw %}
-
-### Authentication, Recovery & Accounts endpoints {#configure-text-direction-in-authentication-recovery-accounts-endpoints}
-
-{% endraw %}
-
-To configure text direction for authentication, recovery, and accounts endpoints:
-
-1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/`.
-
-2. Open the `LanguageOptions.properties` file.
-
-3. Configure the language entry based on text direction:
-
-    **For LTR languages (default):**
-
-    ```properties
-    lang.switch.en_US=en,English,ltr
-    ```
-
-    or simply (LTR is assumed if not specified):
-
-    ```properties
-    lang.switch.en_US=en,English
-    ```
-
-    **For RTL languages:**
-
-    ```properties
-    lang.switch.ar_AE=ar,Arabic - العربية,rtl
-    ```
-
-4. Save the file and restart the server for changes to take effect.
-
-!!! tip
-
-    The RTL/LTR configuration applies to all three endpoints (authentication, recovery, and accounts) since they share the same `LanguageOptions.properties` file.
