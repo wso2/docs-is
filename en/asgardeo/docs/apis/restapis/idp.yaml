@@ -204,6 +204,7 @@ paths:
                 "scheme": "PROVISION_SILENTLY",
                 "userstore": "DEFAULT",
                 "associateLocalUser": true,
+                "skipJITForLookupFailure": false,
                 "attributeSyncMethod": "OVERRIDE_ALL",
                 "accountLookupAttributeMappings": [
                   {
@@ -1612,6 +1613,7 @@ paths:
             "scheme": "PROVISION_SILENTLY",
             "userstore": "DEFAULT",
             "associateLocalUser": true,
+            "skipJITForLookupFailure": false,
             "attributeSyncMethod": "OVERRIDE_ALL",
             "accountLookupAttributeMappings": [
               {
@@ -3021,6 +3023,11 @@ components:
           type: boolean
           default: false
           example: true
+        skipJITForLookupFailure:
+          description: "Specifies if the JIT provisioning should be skipped in case of lookup failure."
+          type: boolean
+          default: false
+          example: true
         accountLookupAttributeMappings:
           description: "This variable specifies the mapping between the federated attributes and the local user attributes for account lookup."
           type: array
@@ -3402,6 +3409,7 @@ components:
             scheme: "PROVISION_SILENTLY"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: false
             attributeSyncMethod: "OVERRIDE_ALL"
             accountLookupAttributeMappings:
               - federatedAttribute: "email"
@@ -3472,6 +3480,7 @@ components:
             scheme: "PROVISION_SILENTLY"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: false
             attributeSyncMethod: "OVERRIDE_ALL"
             accountLookupAttributeMappings:
               - federatedAttribute: "email"
@@ -3539,6 +3548,7 @@ components:
             scheme: "PROMPT_USERNAME_PASSWORD_CONSENT"
             userstore: "PRIMARY"
             associateLocalUser: true
+            skipJITForLookupFailure: false
             attributeSyncMethod: "OVERRIDE_ALL"
             accountLookupAttributeMappings:
               - federatedAttribute: "email"
