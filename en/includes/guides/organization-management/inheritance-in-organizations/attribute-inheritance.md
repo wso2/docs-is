@@ -14,7 +14,7 @@ You can find these configurations in the **Attribute Mappings** tab of an attrib
 
 You can edit mappings related to user stores ( **MY USER STORE** in this example) independently for each organization.
 
-![The relationship between terms]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
+![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
 
 {% else %}
 
@@ -22,7 +22,7 @@ You can edit the **PRIMARY** user store mappings shown below only in the root or
 
 However, you can edit mappings related to secondary user stores (**MY USER STORE** in this example) independently for each organization.
 
-![The relationship between terms]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
+![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
 
 {% endif %}
 
