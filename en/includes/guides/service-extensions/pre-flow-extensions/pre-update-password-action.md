@@ -14,8 +14,10 @@ The {{product_name}} triggers this action during the following flows involving p
 - User Self-Registration: The user creates their own account and sets a password through the self-registration portal.
 {% endif %}
 
+{% if is_version == "7.1.0" %}
 !!! note
      Currently, only the root organization can apply this action, and the {{product_name}} triggers it during any of the flows listed earlier.
+{% endif %}
 
 ## How pre-update password action works
 

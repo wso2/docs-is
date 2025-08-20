@@ -7,9 +7,6 @@ The following profile update flows trigger this action:
 - Self-Service Profile Update: When an end-user modifies their profile through a self-service portal like the My Account application.
 - Administrator-Initiated Profile Update: When an administrator updates a user's profile through a user management portal, such as the Console application.
 
-!!! note
-     Currently, you can configure this action only at the root organization level.
-
 ## How pre-update profile action works
 
 Configure a pre-update profile action with your external service endpoint.
