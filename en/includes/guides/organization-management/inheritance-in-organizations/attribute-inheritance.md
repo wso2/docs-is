@@ -33,7 +33,7 @@ Each user store in an organization maintains mappings for user attributes. Inher
 
         - Editing mappings for user attributes inherited by the root organization.
 
-        - Whether to enable multi-valued user attributes (e.g. emailAddresses) for the secondary user stores. Only supported attributes can be enabled/disabled.
+        - Whether to enable multi-valued user attributes (e.g. emailAddresses) for the secondary user stores. This option is only available for supported attributes.
 
     Organization administrators can access user store mappings from the {{product_name}} Console by selecting an attribute from **User Attributes & Stores** > **User Attributes** and going to its **Attribute Mappings** tab.
 
