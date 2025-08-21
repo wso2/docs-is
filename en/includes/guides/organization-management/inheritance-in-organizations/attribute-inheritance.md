@@ -16,7 +16,7 @@ Organization administrators can access inherited user attributes from the {{prod
 
 ### User store mappings
 
-Each user store in an organization maintains mappings for user attributes. Inheritance of user store mappings work in the following way.
+Each user store in an organization maintains mappings for user attributes. Inheritance of user store mappings works in the following way.
 
 {% if product_name == "WSO2 Identity Server" %}
 - **Primary user store**
