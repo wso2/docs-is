@@ -1,11 +1,17 @@
-# OpenID Connect scope inheritance
+# OpenID Connect scopes inheritance
 
-OpenID Connect (OIDC) scopes defined in root organizations are inherited by child organizations, including both system default OIDC scopes in {{ product_name }} and any custom OIDC scopes created in the root organization.
+In {{product_name}}, child organizations inherit OpenID Connect scopes from the root organization, ensuring consistency across the organization hierarchy.
 
-Child organizations, however, can't create new OIDC scopes or modify those inherited from the root.
+## How it works
 
-## Configure OIDC scopes
+Inheritance for OIDC scopes works as follows.
 
-To learn how to configure OIDC scopes in the root organization, see the following guide:
+- Child organizations inherit both the system-defined and custom OIDC scopes from the root organization.
 
-- [Manage OIDC Scopes]({{base_path}}/guides/users/attributes/manage-scopes)
+- Only the root organization can create or modify custom OIDC scopes.
+
+Organization administrators can view inherited OIDC scopes from the {{product_name}} Console by going to **User Attributes & Stores** > **User Attributes** > **OpenID Connect** and selecting **Scopes**.
+
+## Configure OIDC scopes at the root organization
+
+Administrators can create and modify OIDC scopes at the root organization. Follow the [Manage OIDC Scopes]({{base_path}}/guides/users/attributes/manage-scopes) guide to learn more.
