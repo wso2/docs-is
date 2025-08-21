@@ -770,6 +770,9 @@ nav:
         - Recover your password: guides/your-is/recover-password.md
         - Recover your username: guides/your-is/recover-username.md
         - Recover super admin account: guides/your-is/recover-super-admin-account.md
+  - Tutorials:
+    - Tutorials - Overview: tutorials/index.md
+    - Secure Agentic AI Systems with WSO2 Identity Server: tutorials/secure-agentic-ai-systems.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
