@@ -21,8 +21,6 @@ Each user store in an organization maintains mappings for user attributes. Inher
 {% if product_name == "WSO2 Identity Server" %}
 - **Primary user store**
 
-    - Only the root organization can manage the primary user store.
-
     - Only the root organization can edit the user mappings for the primary user store.
 
     - Child organizations inherit primary user store mappings from the root organization.
@@ -41,9 +39,9 @@ Each user store in an organization maintains mappings for user attributes. Inher
 
     ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
 
-    - Organizations can't edit the attribute mapping or disable it for the primary user store (**PRIMARY**)
+    - Organizations can't edit the attribute mapping or disable it for the primary user store (**PRIMARY**).
 
-    - Organizations can freely manage and disable the attribute for secondary user stores (**MY USER STORE**).
+    - Organizations can edit attribute mappings and disable the attribute for secondary user stores (**MY USER STORE**).
 
     {% else %}
 
