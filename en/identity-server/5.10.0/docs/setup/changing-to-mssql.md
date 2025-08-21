@@ -297,4 +297,3 @@ driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
 ```
 
 Reference: [Microsoft JDBC driver properties](https://learn.microsoft.com/sql/connect/jdbc/setting-the-connection-properties)
-

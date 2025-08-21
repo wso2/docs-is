@@ -307,4 +307,3 @@ driver = "com.mysql.cj.jdbc.Driver"
 ```
 
 Reference: [MySQL Connector/J properties](https://docs.oracle.com/cd/E19509-01/820-3497/agqju/index.html)
-
