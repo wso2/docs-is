@@ -50,7 +50,7 @@ Each user store in an organization maintains mappings for user attributes. Inher
 
     - Child organizations can onboard their own user stores.
 
-    - They have full control over attribute mappings for these stores, including:
+    - They have full control over attribute mappings for these user stores, including:
 
         - Editing mappings for attributes inherited by the root organization.
 
@@ -62,7 +62,7 @@ Each user store in an organization maintains mappings for user attributes. Inher
 
     ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/  b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
 
-    Child organizations can freely manage and disable attributes for user stores (**MY USER STORE**).
+    Child organizations can manage and disable attributes for user stores (**MY USER STORE**).
 
 {% endif %}
 
