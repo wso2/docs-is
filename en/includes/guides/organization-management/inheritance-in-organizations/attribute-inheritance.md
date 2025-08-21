@@ -43,7 +43,8 @@ Each user store in an organization maintains mappings for user attributes. Inher
 
     - Organizations can't edit the attribute mapping or disable it for the primary user store (**PRIMARY**).
 
-    - Organizations can edit attribute mappings and disable the attribute for secondary user stores (**MY USER STORE**).
+    - Child organizations can edit attribute mappings for secondary user stores (**MY USER STORE**).
+
 
     {% else %}
 
