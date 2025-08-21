@@ -10,7 +10,7 @@ This section explains the inheritance mechanism for attributes, mappings, and di
 
 - Child organizations inherit both the system-defined and custom attributes from the root organization.
 
-- Only the root organization can created custom attributes.
+- Only the root organization can create custom attributes.
 
 Organization administrators can access inherited user attributes from the {{product_name}} Console under **User Attributes & Stores** > **User Attributes**.
 
