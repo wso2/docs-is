@@ -354,7 +354,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-              'https://localhost:9443/api/users/v1/federated-associations/bulk' \
+              'https://localhost:9443/t/<tenant-domain>/o/api/users/v1/federated-associations/bulk' \
               -H 'accept: */*' \
               -H 'Authorization: Bearer {bearer-token}' \
               -d '{
