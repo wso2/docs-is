@@ -3990,6 +3990,7 @@ paths:
       description: |
         This API allows for incremental updates to the sharing configuration of an application.
         It supports adding or removing roles from organizations that the application is already shared with. <br>
+        **NOTE:** Adding or removing roles is supported only if the role sharing mode is set to `SELECTED`.</br>
           <b>Scope(Permission) required:</b> `internal_shared_application_create`
       operationId: patchApplicationSharing
       requestBody:
