@@ -14,4 +14,4 @@ Organization administrators can view inherited OIDC scopes from the {{product_na
 
 ## Configure OIDC scopes at the root organization
 
-Root organization administrators can create OIDC scopes at the root organization. Follow the [Manage OIDC Scopes]({{base_path}}/guides/users/attributes/manage-scopes) guide to learn more.
+Administrators can create and modify OIDC scopes at the root organization. Follow the [Manage OIDC Scopes]({{base_path}}/guides/users/attributes/manage-scopes) guide to learn more.
