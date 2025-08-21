@@ -2,7 +2,7 @@
 
 Share **root organization applications** with child organizations. This gives organization users access to these applications.
 
-Organization users can then log in to shared applications using their credentials.
+By sharing applications with organizations, users of that organization can log in to the application.
 
 Share these application types with organizations:
 
@@ -19,7 +19,7 @@ Share these application types with organizations:
 
 Share registered applications with their **bound roles**. This gives organization users access to specific application features.
 
-**Why share applications?** Organization users need access to applications to perform their tasks within their organization context.
+**Why share applications?** Enable organization users to access your applications so they can perform their business tasks within their organization context.
 
 Learn about [application and role management]({{base_path}}/guides/users/manage-roles/) in {{product_name}}.
 
@@ -108,13 +108,13 @@ You have two ways to configure role sharing for selected organizations:
 
 Click **Share All Roles** to automatically share every role with selected organizations.
 
-##### Option 2: Automatic inheritance
+##### Option 2: Enable inheritance
 
 Enable **Share application and roles with future child organizations** to automatically share with new child organizations under your selected organization.
 
 ![Share application and roles with future child organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/share-with-selected-and-all-organizations.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-**Why use automatic inheritance?** New child organizations get access without manual configuration.
+**Why use inheritance?** New child organizations get access without manual configuration.
 
 !!! warning
 
