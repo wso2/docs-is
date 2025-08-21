@@ -1,10 +1,10 @@
 # User attribute inheritance
 
-In {{product_name}}, child organizations inherit user attributes, mappings, and dialects from the root organization, ensuring consistency across the organization hierarchy.
+In {{product_name}}, child organizations inherit user attributes, user store mappings, and dialects from the root organization, ensuring consistency across the organization hierarchy.
 
 ## How it works
 
-This section explains the inheritance mechanism for attributes, mappings, and dialects across organizations.
+This section explains the inheritance mechanism for attributes, user store mappings, and dialects across organizations.
 
 ### User attributes
 
@@ -14,14 +14,14 @@ This section explains the inheritance mechanism for attributes, mappings, and di
 
 Organization administrators can access inherited user attributes from the {{product_name}} Console under **User Attributes & Stores** > **User Attributes**.
 
-### User attribute mappings
+### User store mappings
 
-Each user store in an organization maintains mappings for user attributes. Inheritance of user attribute mappings work in the following way.
+Each user store in an organization maintains mappings for user attributes. Inheritance of user store mappings work in the following way.
 
 {% if product_name == "WSO2 Identity Server" %}
 - **Primary user store**
 
-    - Only the root organization can edit the user mappings for the primary user store.
+    - Only the root organization can edit the user store mappings for the primary user store.
 
     - Child organizations inherit primary user store mappings from the root organization.
 
@@ -29,13 +29,15 @@ Each user store in an organization maintains mappings for user attributes. Inher
 
     - Child organizations can onboard their own secondary user stores.
 
-    - Child organizations have full control over attribute mappings for secondary user stores, including:
+    - Child organizations have full control over user store mappings for secondary user stores, including:
 
         - Editing mappings for user attributes inherited by the root organization.
 
-        - Whether to enable multi-valued user attributes (e.g. emailAddresses) for the secondary user stores.
+        - Whether to enable multi-valued user attributes (e.g. emailAddresses) for the secondary user stores. Only supported attributes can be enabled/disabled.
 
-    The following diagram illustrates how inheritance work for the multi-valued `emailAddresses` attribute.
+    Organization administrators can access user store mappings from the {{product_name}} Console by selecting an attribute from **User Attributes & Stores** > **User Attributes** and going to its **Attribute Mappings** tab.
+
+    The following diagram illustrates the attribute mapping section for the multi-valued `emailAddresses` attribute.
 
     ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
 
@@ -45,25 +47,23 @@ Each user store in an organization maintains mappings for user attributes. Inher
 
     {% else %}
 
-    - Child organizations can onboard their own secondary user stores.
+    - Child organizations can onboard their own user stores.
 
     - They have full control over attribute mappings for these stores, including:
 
         - Editing mappings for attributes inherited by the root organization.
 
-        - Whether to enable multi-valued user attributes (e.g. **emailAddresses**) for the secondary user   stores.
+        - Whether to enable multi-valued user attributes (e.g. emailAddresses) for the user stores. Only supported attributes can be enabled/disabled.
 
-    The following diagram illustrates how settings work for the multi-valued emailAddresses attribute. 
+    Organization administrators can access user store mappings from the {{product_name}} Console by selecting an attribute from **User Attributes & Stores** > **User Attributes** and going to its **Attribute Mappings** tab.
 
-    !!! abstract ""
-
-        Child organizations can freely manage and disable the attribute for secondary user stores (**MY USER STORE**).
+    The following diagram illustrates the attribute mapping section for the multi-valued `emailAddresses` attribute.
 
     ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/  b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
 
-{% endif %}
+    Child organizations can freely manage and disable attributes for user stores (**MY USER STORE**).
 
-Organization administrators can access user attribute mappings from the {{product_name}} Console by selecting an attribute from **User Attributes & Stores** > **User Attributes** and going to its **Attribute Mappings** tab.
+{% endif %}
 
 ### Attribute dialects
 
