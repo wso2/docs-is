@@ -1,7 +1,7 @@
 {% set product_url_format = "https://localhost:9443" %}
 {% include "../../../../../includes/guides/branding/localization.md" %}
 
-## Add/Remove locales
+## Add or remove locales
 
 You can add or remove language support to customize the user interface for different regions and languages.
 
@@ -95,7 +95,7 @@ Configure localization for the My Account application.
 
 #### Add a locale to My Account
 
-To add a new language (e.g., Arabic - `ar-SA`) to My Account:
+To add a new language (for example, Arabic - `ar-SA`) to My Account:
 
 1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/myaccount/extensions/i18n/`.
 
@@ -175,7 +175,7 @@ Configure localization for the Console application.
 
 #### Add a locale to Console
 
-To add a new language (e.g., Arabic - `ar-SA`) to Console:
+To add a new language (for example, Arabic - `ar-SA`) to Console:
 
 1. Navigate to `<IS_HOME>/repository/deployment/server/webapps/console/extensions/i18n/`.
 
@@ -247,7 +247,7 @@ To hide a language from the language switcher while keeping it available in othe
 
 ## Configure Text Direction (RTL & LTR)
 
-WSO2 Identity Server supports both Right-to-Left (RTL) and Left-to-Right (LTR) text directions. **LTR is the default text direction** for most languages and doesn't require explicit configuration. RTL languages like Arabic, Hebrew, and Persian automatically adjust the interface layout and content flow when configured properly.
+WSO2 Identity Server supports both Right-to-Left (RTL) and Left-to-Right (LTR) text directions. **LTR serves as the default text direction** for most languages and doesn't require explicit configuration. RTL languages like Arabic, Hebrew, and Persian automatically adjust the interface layout and content flow when configured.
 
 !!! Note
 
