@@ -87,4 +87,4 @@ Organization administrators can view user attribute dialects from the {{product_
 
 ## Configure user attributes at the root organization
 
-Root organization administrators can create user attributes, mappings and dialects at the root organization. Follow the [Manage attributes and mappings]({{base_path}}//users/attributes/) guide to learn more.
+Root organization administrators can create user attributes, user store mappings and dialects at the root organization. Follow the [Manage attributes and mappings]({{base_path}}//users/attributes/) guide to learn more.
