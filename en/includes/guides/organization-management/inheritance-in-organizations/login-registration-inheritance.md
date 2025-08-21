@@ -2,7 +2,7 @@
 
 In {{product_name}}, child organizations inherit configurations related to login and registration from the organizational hierarchy. Child organizations can make their own customizations to these inherited settings.
 
-Organization administrators can access these settings in the {{product_name}} Console under **Login & Registration**.
+Organization administrators can access login and registration settings in the {{product_name}} Console under **Login & Registration**.
 
 ## How it works
 
@@ -19,14 +19,4 @@ Inheritance for login and registration configurations works as follows:
 
 ## Configure login and registration settings
 
-To learn how to configure login and registration flows, see the following guides:
-
-- [Admin initiated password reset]({{base_path}}/guides/account-configurations/account-recovery/admin-initiated-password-reset)
-- [Password recovery]({{base_path}}/guides/account-configurations/account-recovery/password-recovery)
-- [Username recovery]({{base_path}}/guides/account-configurations/account-recovery/username-recovery)
-- [Bot detection]({{base_path}}/guides/account-configurations/login-security/bot-detection)
-- [Login attempts security]({{base_path}}/guides/account-configurations/login-security/login-attempts)
-- [Password validation]({{base_path}}/guides/account-configurations/login-security/password-validation)
-- [Session management]({{base_path}}/guides/account-configurations/login-security/session-management)
-- [Account disabling]({{base_path}}/guides/account-configurations/account-disabling)
-- [Notification settings]({{base_path}}/guides/account-configurations/notification-settings)
+To learn how to configure login and registration settings for an organization, see the [Account configurations]({{base_path}}/guides/account-configurations/) guides.

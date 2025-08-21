@@ -42,7 +42,6 @@ The following diagram explains how inheritance works for UI branding when your o
 
 ![{{ product_name }} branding path resolver]({{base_path}}/assets/img/guides/branding/generic-app-branding-resolver-path.png)
 
-
 ## Configure UI branding
 
 To learn how to configure UI branding for an organization, see the [Configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/) guide.

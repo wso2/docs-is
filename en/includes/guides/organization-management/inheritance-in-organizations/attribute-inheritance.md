@@ -1,34 +1,51 @@
 # User attribute inheritance
 
-In {{product_name}}, child organizations inherit user attributes from the root organization, including both system-defined defaults and any custom attributes created by the root organization.
+In {{product_name}}, child organizations inherit user attributes, mappings, and dialects from the root organization, ensuring consistency across the organization hierarchy.
 
 ## How it works
 
-This section explains how inheritance works for user attributes, attribute mappings, and attribute dialects across organizations.
+This section explains the inheritance mechanism for attributes, mappings, and dialects across organizations.
 
 ### User attributes
 
-- Child organizations inherit both system-defined attributes and custom attributes from the root organization.
+- Child organizations inherit both the system-defined and custom attributes from the root organization.
 
-- Custom attributes can only be created at the root level.
+- Only the root organization can created custom attributes.
 
-Organization administrators can access user attributes from the {{product_name}} Console under **User Attributes & Stores** > **User Attributes**.
+Organization administrators can access inherited user attributes from the {{product_name}} Console under **User Attributes & Stores** > **User Attributes**.
 
 ### User attribute mappings
 
-Each user store in an organization maintains mappings for user attributes. These mappings define how attributes from the user store correspond to the attributes used in {{product_name}}. Inheritance of user attribute mappings work in the following way for each user store.
+Each user store in an organization maintains mappings for user attributes. Inheritance of user attribute mappings work in the following way.
 
-Organization administrators can access user attribute mappings from the {{product_name}} Console by selecting an inherited attribute from **User Attributes & Stores** > **User Attributes** and going to its **Attribute Mappings** tab.
-
+{% if product_name == "WSO2 Identity Server" %}
 - **Primary user store**
 
     - Only the root organization can manage the primary user store.
 
     - Only the root organization can edit the user mappings for the primary user store.
 
-    - Child organizations inherit user store mappings from the root organization.
+    - Child organizations inherit primary user store mappings from the root organization.
 
 - **Secondary user stores**
+
+    - Child organizations can onboard their own secondary user stores.
+
+    - Child organizations have full control over attribute mappings for secondary user stores, including:
+
+        - Editing mappings for user attributes inherited by the root organization.
+
+        - Whether to enable multi-valued user attributes (e.g. emailAddresses) for the secondary user stores.
+
+    The following diagram illustrates how inheritance work for the multi-valued `emailAddresses` attribute.
+
+    ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
+
+    - Organizations can't edit the attribute mapping or disable it for the primary user store (**PRIMARY**)
+
+    - Organizations can freely manage and disable the attribute for secondary user stores (**MY USER STORE**).
+
+    {% else %}
 
     - Child organizations can onboard their own secondary user stores.
 
@@ -36,31 +53,25 @@ Organization administrators can access user attribute mappings from the {{produc
 
         - Editing mappings for attributes inherited by the root organization.
 
-        - Whether to enable multi-valued user attributes (e.g. **emailAddresses**) for the secondary user stores.
+        - Whether to enable multi-valued user attributes (e.g. **emailAddresses**) for the secondary user   stores.
 
-{% if product_name == "Asgardeo" %}
+    The following diagram illustrates how settings work for the multi-valued emailAddresses attribute. 
 
-You can edit mappings related to user stores ( **MY USER STORE** in this example) independently for each organization.
+    !!! abstract ""
 
-    ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
+        Child organizations can freely manage and disable the attribute for secondary user stores (**MY USER STORE**).
 
-    {% else %}
+    ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/  b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
 
-    You can edit the **PRIMARY** user store mappings shown below only in the root organization, which manages the primary user store shared across organizations.
+{% endif %}
 
-    However, you can edit mappings related to secondary user stores (**MY USER STORE** in this example) independently for each organization.
-
-    ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
-
-    {% endif %}
-
-
-For certain multi-valued attributes, such as **Email Addresses**, organizations can configure whether the attribute should be enabled for a specific user store as seen in the above image. For secondary user stores, you can independently manage this setting within each organization.
-
+Organization administrators can access user attribute mappings from the {{product_name}} Console by selecting an attribute from **User Attributes & Stores** > **User Attributes** and going to its **Attribute Mappings** tab.
 
 ### Attribute dialects
 
-- Child organizations inherit all external attribute dialects defined at the root, such as:
+Attribute dialects define the naming and format of user attributes when exchanging data with external systems.
+
+- Child organizations inherit all external attribute dialects defined in the root organization, such as:
 
     - SCIM 2.0
 
@@ -74,38 +85,8 @@ For certain multi-valued attributes, such as **Email Addresses**, organizations 
 
 - Attribute dialects are read-only for child organizations. They can't create new dialects or modify inherited ones.
 
-{% if product_name == "Asgardeo" %}
+Organization administrators can view user attribute dialects from the {{product_name}} Console by going to **User Attributes & Stores** > **User Attributes** and selecting the relevant dialect under **Manage Attribute Mappings**.
 
-Child organizations inherit external attribute dialects defined by the system in {{ product_name }} such as SCIM 2.0 and OpenID Connect (OIDC).
+## Configure user attributes at the root organization
 
-{% else %}
-
-Child organizations inherit external attribute dialects defined by the system in {{ product_name }} such as SCIM 2.0, OpenID Connect (OIDC) and any other custom attribute dialects.
-
-{% endif %}
-
-However, child organizations can't create new attribute dialects or modify those inherited from the root.
-
-
-
-
-
-
-
-### Configuring other properties of attributes
-
-All other configurations are directly inherited from root organizations. Therefore, you must set them at the root organization level.
-
-To learn how to configure user attributes in the root organization, see the following guides:
-
-- [Manage attributes]({{base_path}}/guides/users/attributes/manage-attributes)
-- [Configure unique attributes]({{base_path}}/guides/users/attributes/configure-unique-attributes)
-
-## User attributes in external attribute dialects
-
-
-
-To learn how to configure external user attributes in the root organization, see the following guides:
-
-- [Manage SCIM 2.0 attribute mappings]({{base_path}}/guides/users/attributes/manage-scim2-attribute-mappings)
-- [Manage OpenID Connect attribute mappings]({{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings)
+Root organization administrators can create user attributes, mappings and dialects at the root organization. Follow the [Manage attributes and mappings]({{base_path}}//users/attributes/) guide to learn more.
