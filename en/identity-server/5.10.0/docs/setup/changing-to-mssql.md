@@ -271,7 +271,7 @@ The elements in the above configuration are described below:
 
 ### Driver-Level Timeouts (Recommended for Production)
 
-When the database becomes unresponsive, WSO2 IS threads may remain stuck while waiting for a JDBC connection. This happens because the Tomcat JDBC Pool cannot abort connection creation by itself ([reference](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L693-L702)).
+When the database becomes unresponsive, WSO2 Identity Server threads may remain stuck while waiting for a JDBC connection. This happens because the Tomcat JDBC Pool can't abort connection creation by itself ([reference](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L693-L702)).
 
 To mitigate this, configure **driver-level timeouts** in the JDBC URL:
 
@@ -284,7 +284,7 @@ Also note the distinction:
 - **`maxWait`** (Tomcat pool) → how long to wait for a **free** pool connection when all are busy.  
 - **`connectTimeout` / `socketTimeout`** (driver) → how long to connect/read at the DB level.
 
-> **Note:** The WARN for `PoolExhaustedException` is logged only when `maxWait` elapses ([reference](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741)). This does not cover waits inside the driver’s connect/read paths; hence driver timeouts are required.
+> **Note:** The WARN for `PoolExhaustedException` is logged only when `maxWait` elapses ([reference](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741)). This doesn't cover waits inside the driver’s connect/read paths; hence driver timeouts are required.
 
 #### Example (MSSQL)
 
