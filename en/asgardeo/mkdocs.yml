@@ -152,7 +152,7 @@ plugins:
         'guides/authorization/impersonation/index.md' : 'guides/authorization/user-impersonation/index.md'
         'guides/authorization/impersonation/via-console.md' : 'guides/authorization/user-impersonation/via-console.md'
         'guides/authorization/impersonation/via-business-application.md' : 'guides/authorization/user-impersonation/via-business-application.md'
-        'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization.md'
+        'guides/branding/localization-in-asgardeo.md': 'guides/branding/localization/localization-overview.md'
         'guides/user-accounts/password-recovery.md': 'guides/account-configurations/account-recovery/password-recovery.md'
         'guides/user-accounts/forced-password-reset.md': 'guides/account-configurations/account-recovery/admin-initiated-password-reset.md'
         'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/login-security/login-attempts.md'
@@ -474,7 +474,7 @@ nav:
             - Configure custom domains: guides/branding/configure-custom-domains.md
             - Customize email templates: guides/branding/customize-email-templates.md
             - Customize SMS templates: guides/branding/customize-sms-templates.md
-            - Localization in Asgardeo: guides/branding/localization.md
+            - Localization in Asgardeo: guides/branding/localization/localization-overview.md
         - Extend with service extensions:
             - Understanding service extensions: guides/service-extensions/understanding-service-extensions.md
             - In-flow extensions:

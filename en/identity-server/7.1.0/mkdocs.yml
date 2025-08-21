@@ -737,7 +737,7 @@ nav:
               - Customize layouts: guides/branding/add-custom-layouts.md
               - Customize email templates: guides/branding/customize-email-templates.md
               - Customize SMS templates: guides/branding/customize-sms-templates.md
-              - Localization support: guides/branding/localization.md
+              - Localization support: guides/branding/localization/localization-overview.md
           - Extend with service extensions:
               - Understanding service extensions: guides/service-extensions/understanding-service-extensions.md
               - In-flow extensions:

@@ -581,7 +581,7 @@ nav:
         - Configure UI branding: guides/branding/configure-ui-branding.md
         - Customize layouts: guides/branding/add-custom-layouts.md
         - Customize email templates: guides/branding/customize-email-templates.md
-        - Localization support: guides/branding/localization.md
+        - Localization support: guides/branding/localization/localization-overview.md
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md

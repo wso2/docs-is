@@ -1,5 +1,5 @@
 {% set product_url_format = "https://localhost:9443" %}
-{% include "../../../../../includes/guides/branding/localization.md" %}
+{% include "../../../../../includes/guides/branding/localization/localization-overview.md" %}
 
 ## Add or remove locales
 
