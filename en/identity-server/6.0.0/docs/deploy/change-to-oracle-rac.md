@@ -128,4 +128,18 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 {!./includes/db-config-table.md !}
 
     
-    
+### Driver-Level Timeouts (Recommended for Production)
+
+{!./includes/driver-level-timeouts.md !}
+
+#### Example: Oracle RAC database
+
+```toml
+[database.identity_db]
+url = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST2)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=WSO2_IDENTITY_DB)))?oracle.net.CONNECT_TIMEOUT=10000&oracle.jdbc.ReadTimeout=60000"
+username = "..."
+password = "..."
+driver = "oracle.jdbc.OracleDriver"
+```
+
+Learn more in [Oracle JDBC RAC URLs](https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/data-sources-and-URLs.html){: target="_blank"}.

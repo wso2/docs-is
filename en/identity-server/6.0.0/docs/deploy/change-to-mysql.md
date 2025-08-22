@@ -116,5 +116,18 @@ A sample configuration is given below.
 
 {!./includes/rollback-pending.md !}
 
+### Driver-Level Timeouts (Recommended for Production)
 
-    
+{!./includes/driver-level-timeouts.md !}
+
+#### Example: MySQL database
+
+```toml
+[database.identity_db]
+url = "jdbc:mysql://DB_HOST:3306/WSO2_IDENTITY_DB?connectTimeout=10000&socketTimeout=60000&tcpKeepAlive=true"
+username = "..."
+password = "..."
+driver = "com.mysql.cj.jdbc.Driver"
+```
+
+Learn more in [MySQL Connector/J properties](https://docs.oracle.com/cd/E19509-01/820-3497/agqju/index.html){: target="_blank"}.

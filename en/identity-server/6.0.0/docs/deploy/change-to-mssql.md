@@ -95,3 +95,19 @@ A sample configuration is given below.
 ### Configure the connection pool to rollback pending transactions on connection return
 
 {!./includes/rollback-pending.md !}
+
+### Driver-Level Timeouts (Recommended for Production)
+
+{!./includes/driver-level-timeouts.md !}
+
+#### Example: MSSQL database
+
+```toml
+[database.identity_db]
+url = "jdbc:sqlserver://DB_HOST:1433;databaseName=WSO2_IDENTITY_DB;loginTimeout=10;socketTimeout=60000"
+username = "..."
+password = "..."
+driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+```
+
+Learn more in [Microsoft JDBC driver properties](https://learn.microsoft.com/sql/connect/jdbc/setting-the-connection-properties){: target="_blank"}.
