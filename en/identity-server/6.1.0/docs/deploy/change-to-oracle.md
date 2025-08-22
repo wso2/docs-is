@@ -135,11 +135,11 @@ When the database owner is not the user used to connect to the database, specify
 
 {!./includes/rollback-pending.md !}
 
-### Driver-Level Timeouts (Recommended for Production)
+## Driver-Level Timeouts (Recommended for Production)
 
 {!./includes/driver-level-timeouts.md !}
 
-#### Example: Oracle database
+### Example: Oracle database
 
 ```toml
 [database.identity_db]

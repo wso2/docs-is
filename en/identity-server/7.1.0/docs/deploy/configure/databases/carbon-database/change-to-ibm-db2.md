@@ -124,11 +124,11 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 
 {% include "../../../../includes/rollback-pending.md" %}
 
-### Driver-Level Timeouts (Recommended for Production)
+## Driver-Level Timeouts (Recommended for Production)
 
 {% include "../../../../includes/driver-level-timeouts.md" %}
 
-#### Example: IBM DB2 database
+### Example: IBM DB2 database
 
 ```toml
 [database.identity_db]

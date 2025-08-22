@@ -109,11 +109,11 @@ A sample configuration is given below.
 
 {% include "../../../../includes/rollback-pending.md" %}
 
-### Driver-Level Timeouts (Recommended for Production)
+## Driver-Level Timeouts (Recommended for Production)
 
 {% include "../../../../includes/driver-level-timeouts.md" %}
 
-#### Example: MSSQL database
+### Example: MSSQL database
 
 ```toml
 [database.identity_db]

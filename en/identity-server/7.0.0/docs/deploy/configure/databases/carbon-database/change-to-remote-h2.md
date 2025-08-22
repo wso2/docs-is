@@ -133,11 +133,11 @@ A sample configuration is given below.
 
 {% include "../../../../includes/rollback-pending.md" %}
 
-### Driver-Level Timeouts (Recommended for Production)
+## Driver-Level Timeouts (Recommended for Production)
 
 {% include "../../../../includes/driver-level-timeouts.md" %}
 
-#### Example: Remote H2 database
+### Example: Remote H2 database
 
 ```toml
 [database.identity_db]

@@ -123,11 +123,11 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 
 {% include "../../../../includes/db-config-table.md" %}
 
-### Driver-Level Timeouts (Recommended for Production)
+## Driver-Level Timeouts (Recommended for Production)
 
 {% include "../../../../includes/driver-level-timeouts.md" %}
 
-#### Example: Oracle RAC database
+### Example: Oracle RAC database
 
 ```toml
 [database.identity_db]

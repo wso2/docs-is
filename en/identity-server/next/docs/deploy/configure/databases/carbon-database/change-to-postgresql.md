@@ -116,11 +116,11 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 
 {% include "../../../../includes/rollback-pending.md" %}
 
-### Driver-Level Timeouts (Recommended for Production)
+## Driver-Level Timeouts (Recommended for Production)
 
 {% include "../../../../includes/driver-level-timeouts.md" %}
 
-#### Example: PostgreSQL database
+### Example: PostgreSQL database
 
 ```toml
 [database.identity_db]

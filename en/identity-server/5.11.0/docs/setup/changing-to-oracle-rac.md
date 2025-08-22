@@ -200,7 +200,7 @@ validate, it will be dropped from the pool, and another attempt will be made to 
     JDBC Connection
     Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
   
-### Driver-Level Timeouts (Recommended for Production)
+## Driver-Level Timeouts (Recommended for Production)
 
 If the database becomes unresponsive, WSO2 Identity Server threads can get stuck waiting for a JDBC connection. This happens because the Tomcat JDBC Pool can't abort connection creation by itself ([source](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L693-L702){: target="_blank"}).
 
@@ -217,7 +217,7 @@ Also note the distinction:
 
 > **Note:** The `PoolExhaustedException` warning log is logged only when `maxWait` expires ([source](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741){: target="_blank"}). It does **not** cover delays inside the driver’s connection or read operations. Driver-level timeouts are required to handle those cases.
 
-#### Example: Oracle RAC database
+### Example: Oracle RAC database
 
 ```toml
 [database.identity_db]
