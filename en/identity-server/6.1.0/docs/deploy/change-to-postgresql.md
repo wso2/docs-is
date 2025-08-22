@@ -117,3 +117,19 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 ### Configure the connection pool to rollback pending transactions on connection return
 
 {!./includes/rollback-pending.md !}
+
+### Driver-Level Timeouts (Recommended for Production)
+
+{!./includes/driver-level-timeouts.md !}
+
+#### Example: PostgreSQL database
+
+```toml
+[database.identity_db]
+url = "jdbc:postgresql://DB_HOST:5432/WSO2_IDENTITY_DB?connectTimeout=10&socketTimeout=60&tcpKeepAlive=true"
+username = "..."
+password = "..."
+driver = "org.postgresql.Driver"
+```
+
+Learn more in [PostgreSQL JDBC connection parameters](https://jdbc.postgresql.org/documentation/use/#connection-parameters){: target="_blank"}.
