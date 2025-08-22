@@ -141,7 +141,7 @@ curl --location '{{ api_base_path }}/oauth2/token' \
 
 When an AI agent needs to act on behalf of a user—such as initiating a transaction, making a booking, or retrieving user-specific data—it must do so with explicit user consent. This is typically required for user-facing assistants, copilots, or delegated decision-making agents.
 
-This scenario follows an enhanced authorization code flow, inspired by the [OAuth for AI Agents IETF draft](https://datatracker.ietf.org/doc/draft-oauth-ai-agents-on-behalf-of-user/), which introduces a structured delegation model using an `actor_token`.
+This scenario follows an enhanced authorization code flow, adopting the [OAuth Extension for AI Agents IETF draft](https://datatracker.ietf.org/doc/draft-oauth-ai-agents-on-behalf-of-user/), which introduces a structured and dynamic delegation model.
 
 ![Agent Acting on-behalf-of User Flow Diagram](../../../assets/img/guides/agentic-ai/ai-agent-on-behalf-flow.png)
 
