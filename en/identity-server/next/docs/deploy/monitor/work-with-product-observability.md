@@ -249,7 +249,7 @@ To customize the JDBC log pattern, execute a command similar to the following ex
 
 You can include any combination of the available fields based on your requirements.
 
-## Lightweight Directory Access Protocol tracing with OpenTelemetry
+## Lightweight directory access protocol tracing with OpenTelemetry
 
 !!! note
     By default, the feature remains turned off to prevent potential performance impact.
@@ -312,9 +312,9 @@ operation):
 
 ### Configuring the WSO2 Identity Server
 
-To enable LDAP tracing with OpenTelemetry in WSO2 Identity Server, a dedicated configuration section
-`[tracing.opentelemetry]` is available in the `<IS_HOME>/repository/conf/deployment.toml` file. A sample configuration
-is shown below:
+To enable Lightweight Directory Access Protocol tracing with OpenTelemetry in WSO2 Identity Server, configure the
+`[tracing.opentelemetry]` section in the `<IS_HOME>/repository/conf/deployment.toml` file. The following example
+illustrates the configuration:
 
 ```toml
 [tracing.opentelemetry]
@@ -322,14 +322,14 @@ ldap.enabled = true
 ldap.scope_name = "wso2isldap"
 ```
 
-| Configuration Parameter | Description                                                                                                                                                                           |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ldap.enabled`          | Enables OpenTelemetry-based tracing for LDAP operations. When set to `true`, WSO2 Identity Server instruments LDAP interactions such as search, bind, and lookup. Default is `false`. |
-| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for LDAP spans. Default is `"wso2isldap"`.                                                                                       |
+| Configuration Parameter | Description                                                                                                                                                                                                                                             |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ldap.enabled`          | Enables OpenTelemetry-based tracing for Lightweight Directory Access Protocol operations. When set to `true`, WSO2 Identity Server instruments Lightweight Directory Access Protocol interactions such as search, bind, and lookup. Default is `false`. |
+| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for Lightweight Directory Access Protocol spans. Default is `"wso2isldap"`.                                                                                                                        |
 
 ### Configuring with Datadog Java Agent
 
-To forward LDAP spans from WSO2 Identity Server to Datadog APM, you need both:
+To forward Lightweight Directory Access Protocol spans from WSO2 Identity Server to Datadog APM, you need both:
 
 - The Datadog Java Agent (`dd-java-agent.jar`) attached to the WSO2 Identity Server JVM to instrument and generate
   spans.
@@ -359,16 +359,16 @@ Steps:
     -Ddd.trace.agent.host=localhost \
     -Ddd.trace.otel.enabled=true \
     ```
-5. Verify traces in Datadog - Restart the WSO2 Identity Server, perform LDAP operation related scenarios such as
-   authentication flows, and verify that spans appear in
+5. Verify traces in Datadog - Restart the WSO2 Identity Server, perform Lightweight Directory Access Protocol operation
+   related scenarios such as authentication flows, and verify that spans appear in
    your [Datadog APM dashboard](https://docs.datadoghq.com/tracing/).
 
 ### Configuring with OpenTelemetry Java Agent
 
-The WSO2 Identity Server supports exporting LDAP spans via the OpenTelemetry Java Agent, allowing you to send traces to
-any OpenTelemetry-compatible collector or observability platform. This provides flexibility to use open-source tools
-like Jaeger or Zipkin, as well as commercial platforms like Datadog APM. Please note that you will need both a receiver
-and an exporter to capture and forward the traces.
+The WSO2 Identity Server supports exporting Lightweight Directory Access Protocol spans via the OpenTelemetry Java
+Agent, allowing you to send traces to any OpenTelemetry-compatible collector or observability platform. This provides
+flexibility to use open-source tools like Jaeger or Zipkin, as well as commercial platforms like Datadog APM. Please
+note that you will need both a receiver and an exporter to capture and forward the traces.
 
 Steps:
 
@@ -384,8 +384,9 @@ Steps:
    theo [OpenTelemetry Java Agent documentation](https://opentelemetry.io/docs/zero-code/java/agent/configuration/).
    ```shell
    -Dotel.service.name=wso2is \
-   -Dotel.exporter.otlp.endpoint=http://localhost:4318 \
+   -Dotel.exporter.otlp.protocol=grpc \
+   -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
    -Dotel.resource.attributes=env=dev,service.version=1.0.0 \
    ```
 4. Restart the WSO2 Identity Server - Once the agent is attached and configured, restart the server to begin tracing
-   LDAP operations.
+   Lightweight Directory Access Protocol operations.
