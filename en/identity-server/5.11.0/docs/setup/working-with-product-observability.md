@@ -287,9 +287,9 @@ The WSO2 Identity Server supports OpenTelemetry-based tracing for Lightweight Di
 improves observability and diagnostics for key identity interactions, such as user search, bind, and
 lookup.
 
-The implementation wraps the LdapContext to create OpenTelemetry spans for common LDAP methods. An OpenTelemetry agent, 
-such as the Datadog Java Agent, captures these spans using standard OTel mechanisms and displays them in tools
-like the Datadog platform.
+The implementation wraps the LdapContext to create OpenTelemetry spans for common Lightweight Directory Access Protocol 
+methods. An OpenTelemetry agent, such as the Datadog Java Agent, captures these spans using standard 
+OpenTelemetry mechanisms and displays them in tools like Datadog.
 
 #### How it works
 
@@ -298,16 +298,16 @@ operations like search, bind, or lookup generates a span.
 
 Spans include key metadata such as:
 
-- LDAP operation type
-- LDAP provider details
+- Lightweight Directory Access Protocol operation type
+- Lightweight Directory Access Protocol provider details
 - Base DN or target DN (if applicable)
 - Search filters and attributes (if applicable)
 - Execution duration
 - Error status (if applicable)
 
-The spans are exported through the OpenTelemetry SDK. The OpenTelemetry SDK exports the spans. An agent, such as the
-Datadog Java Agent, captures and sends them to external observability platforms. A sample span content should resemble
-the following (extracted from Datadog for the `ldap.search` operation):
+The OpenTelemetry SDK exports spans. An agent, such as the Datadog Java Agent, then captures and sends them to external
+observability platforms. A sample span content resembles the following (extracted from Datadog for the `ldap.search`
+operation):
 
 ```json
 {
@@ -371,8 +371,8 @@ Steps:
    the Agent.
 2. Download the Datadog Java Agent - Obtain the latest `dd-java-agent.jar `from
    the [Datadog releases page](https://docs.datadoghq.com/tracing/trace_collection/automatic_instrumentation/dd_libraries/java/?tab=wget).
-3. Attach the Java Agent to WSO2 IS - Edit `<IS_HOME>/bin/wso2server.sh` (Linux/macOS) or `wso2server.bat` (Windows) and
-   add the following as a java option:
+3. Attach the Java Agent to WSO2 Identity Server - Edit `<IS_HOME>/bin/wso2server.sh` (Linux/macOS) or
+   `wso2server.bat` (Windows) and add the following as a java option:
     ```shell
     -javaagent:/path/to/dd-java-agent.jar
     ```
@@ -395,10 +395,9 @@ Steps:
 #### Configuring with OpenTelemetry Java Agent
 
 The WSO2 Identity Server supports exporting LDAP spans via the OpenTelemetry Java Agent, allowing you to send traces to
-any
-OpenTelemetry-compatible collector or observability backend. This provides flexibility to use open-source tools like
-Jaeger or Zipkin, as well as commercial platforms like Datadog APM. Please note that you will need both a receiver and
-an exporter to capture and forward the traces.
+any OpenTelemetry-compatible collector or observability platform. This provides flexibility to use open-source tools 
+like Jaeger or Zipkin, as well as commercial platforms like Datadog APM. Please note that you will need both a receiver 
+and an exporter to capture and forward the traces.
 
 Steps:
 
@@ -414,8 +413,8 @@ Steps:
    theo [OpenTelemetry Java Agent documentation](https://opentelemetry.io/docs/zero-code/java/agent/configuration/).
    ```shell
    -Dotel.service.name=wso2is \
-   -Dotel.traces.exporter=otlp \
-   -Dotel.exporter.otlp.endpoint=http://<collector-host>:4318/v1/traces\
+   -Dotel.exporter.otlp.endpoint=http://localhost:4318 \
+   -Dotel.resource.attributes=env=dev,service.version=1.0.0 \
    ```
 4. Restart the WSO2 Identity Server - Once the agent is attached and configured, restart the server to begin tracing
    LDAP operations.
