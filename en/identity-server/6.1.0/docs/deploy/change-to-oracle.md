@@ -135,3 +135,18 @@ When the database owner is not the user used to connect to the database, specify
 
 {!./includes/rollback-pending.md !}
 
+## Driver-Level Timeouts (Recommended for Production)
+
+{!./includes/driver-level-timeouts.md !}
+
+### Example: Oracle database
+
+```toml
+[database.identity_db]
+url = "jdbc:oracle:thin:@//DB_HOST:1521/WSO2_IDENTITY_DB?oracle.net.CONNECT_TIMEOUT=10000&oracle.jdbc.ReadTimeout=60000"
+username = "..."
+password = "..."
+driver = "oracle.jdbc.OracleDriver"
+```
+
+Learn more in [Oracle JDBC data sources & URLs](https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/data-sources-and-URLs.html){: target="_blank"}.
