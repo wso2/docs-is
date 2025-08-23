@@ -1,8 +1,17 @@
-# Get Started
+# Get started with flows
 
-A **flow** defines a guided user journey, such as registration or recovery. The **Flow Builder** provides administrators with a visual environment to create and manage these journeys. From simple single step forms to complex, multi stage sequences, you can design flows that meet both security requirements and user experience goals.
+A **flow** defines the sequence of steps a user goes through during a specific interaction with your application. {{product_name}} supports building fully customizable flows for,
 
-## Enabling a Flow
+- Self-registration
+- Password recovery
+
+This guide introduces the **Flow Builder**, a visual environment with all the necessary elements to create flows that meet both security requirements and user experience goals.
+
+## Enable a flow
+
+{{product_name}} has default flows for each of the flows that you define with the flow builder. You can keep the flow disabled until you are ready to deploy and the users can continue using the default flow.
+
+For each of the flows you can build with the flow builder, {{product_name}} has default flows. Until you enable the your customized flow, users 
 
 To enable a flow, please follow the steps below.
 
