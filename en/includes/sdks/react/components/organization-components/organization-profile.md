@@ -81,13 +81,14 @@ Show the profile in a popup dialog:
 
 ## Props
 
+<!-- markdownlint-disable MD056 -->
 | Prop            | Type                                      | Required | Description                                                      |
 |-----------------|-------------------------------------------|----------|------------------------------------------------------------------|
 | `organizationId`| `string`                                  | ✅       | The ID of the organization to fetch and display                  |
 | `editable`      | `boolean`                                 | ❌       | Enable editing of organization fields                            |
 | `fields`        | `Array<{ key, label, editable?, render? }>`| ❌       | Custom field configuration for display/editing                   |
 | `cardLayout`    | `boolean`                                 | ❌       | Show profile in a card layout                                    |
-| `mode`          | `'default' \| 'popup'`                    | ❌       | Display mode: inline or popup dialog                             |
+| `mode`          | `'default' | 'popup'`                    | ❌       | Display mode: inline or popup dialog                             |
 | `open`          | `boolean`                                 | ❌       | Whether the popup is open (for `mode="popup"`)                   |
 | `onOpenChange`  | `(open: boolean) => void`                 | ❌       | Callback when popup open state changes                           |
 | `onUpdate`      | `(payload: any) => Promise<void>`         | ❌       | Callback after organization update                               |
@@ -96,6 +97,7 @@ Show the profile in a popup dialog:
 | `loadingFallback`| `ReactElement`                           | ❌       | Content to show while loading organization data                  |
 | `errorFallback` | `ReactElement`                            | ❌       | Content to show on error                                         |
 | `fallback`      | `ReactElement`                            | ❌       | Content to show when no organization data is available           |
+<!-- markdownlint-enable MD056 -->
 
 ## Customization
 

@@ -126,3 +126,19 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 
 {!./includes/rollback-pending.md !}
     
+## Driver-Level Timeouts (Recommended for Production)
+
+{!./includes/driver-level-timeouts.md !}
+
+### Example: IBM DB2 database
+
+```toml
+[database.identity_db]
+url = "jdbc:db2://DB_HOST:50000/WSO2_IDENTITY_DB:loginTimeout=10;queryTimeout=60;"
+username = "..."
+password = "..."
+driver = "com.ibm.db2.jcc.DB2Driver"
+```
+
+Learn more in [IBM DB2 connection settings](https://www.ibm.com/docs/en/db2/11.5?topic=client-jdbc-properties){: target="_blank"}.
+    

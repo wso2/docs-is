@@ -27,7 +27,9 @@
 <div class="md-content">
   <div class="md-content__inner md-typeset">
     <div class="integrations-list-container">
-      <h2>SDKs</h2>
+      <h1>SDKs</h1>
+      
+      <p>Explore our official and community SDKs to integrate with {{ config.extra.product_name }} easily.</p>
 
       {% for section in config.extra.integrations %}
       {% if 'official' in section %}
@@ -115,7 +117,7 @@
       {% if 'community' in section %}
       {% for block in section.community %}
       {% if block.heading %}
-      <h2>{{ block.heading }}</h2>
+      <h3 class="sdk-type-heading">{{ block.heading }}</h3>
       {% endif %}
 
       {% if block.description %}

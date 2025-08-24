@@ -23,10 +23,14 @@
     - [`sendEmail()`](#send-email)
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
+    - [`getUsersWithClaimValues()`](#get-multiple-users)
     - [`getAssociatedLocalUser()`](#get-associated-user)
     - [`doAssociationWithLocalUser()`](#do-association-with-local-user)
+    - [`removeAssociatedLocalUser()`](#remove-associated-local-user)
     - [`httpGet()`](#http-get)
     - [`httpPost()`](#http-post)
+    - [`resolveMultiAttributeLoginIdentifier()`](#resolve-multi-attribute-login-identifier)
+    - [`updateUserPassword()`](#update-user-password)
   
 - [Object references](#object-reference): You can use objects to capture user behaviors and set attributes. For example, you can use the **user** and **request** objects and write the login conditions accordingly. Listed below are the object references that can be used in conditional authentication scripts.
   
@@ -763,6 +767,39 @@ The utility function will search the underlying user stores and return a unique 
     var mappedUsername = getUniqueUserWithClaimValues(claimMap, context);
     ```
 
+### Get multiple users
+
+`getUsersWithClaimValues(claimMap, context)`
+
+This function will search the underlying user stores and return a list of users with the expected claim values. The claim map consists of the claim and value.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>claimMap</code></td>
+          <td>A map that contains the claim URI and claim value.</td>
+        </tr>
+        <tr>
+          <td><code>context</code></td>
+          <td>The authentication context, which contains the context information about the request.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ``` js
+    var claimMap = {};
+    claimMap["http://wso2.org/claims/mobile"] = "1234567890";
+    var usersList = getUsersWithClaimValues(claimMap, context);
+    for (var key in usersList) {
+        var userObj = userList[key];
+        Log.info("Username: " + userObj.username):
+    }
+    ```
+
 ### Get associated user
 
 `getAssociatedLocalUser(federatedUser)`
@@ -782,7 +819,7 @@ This function returns the local user associated with the federate username given
 
 ### Do association with local user
 
-`doAssociationWithLocalUser()`
+`doAssociationWithLocalUser(federatedUser, localUsername, tenantDomain, userStoreDomain)`
 
 This function sets association to the local user with federated user. It includes the following parameters.
 
@@ -800,7 +837,7 @@ This function sets association to the local user with federated user. It include
         </tr>
         <tr>
           <td><code>tenantDomain</code></td>
-          <td>The tenant domain of the local user..</td>
+          <td>The tenant domain of the local user.</td>
         </tr>
         <tr>
           <td><code>userStoreDomain</code></td>
@@ -808,6 +845,30 @@ This function sets association to the local user with federated user. It include
         </tr>
       </tbody>
     </table>
+
+### Remove associated local user
+
+`removeAssociatedLocalUser(federatedUser)`
+
+This function removes the existing association of a federated user with the local user.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>federatedUser</code></td>
+          <td>The federated user object.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ``` js
+    var federatedUser = context.steps[1].subject;
+    removeAssociatedLocalUser(federatedUser);
+    ```
 
 ### HTTP GET
 
@@ -987,6 +1048,89 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
     http_connections.request_timeout = 3000
     http_connections.connection_timeout = 3000
     http_connections.request_retry_count = 2
+    ```
+
+### Resolve multi attribute login identifier
+
+`resolveMultiAttributeLoginIdentifier(loginIdentifier, tenantDomain)`
+
+If [alternative login identifiers]({{base_path}}/guides/user-accounts/account-login/configure-login-identifiers/) are enabled, this function resolves the username from the provided login identifier.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>loginIdentifier</code></td>
+          <td>User provided login identifier.</td>
+        </tr>
+        <tr>
+          <td><code>organization</code></td>
+          <td>Organization name.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ```
+    var loginIdentifier = context.request.params.username[0];
+    var tenantDomain = context.tenantDomain;
+
+    var username = resolveMultiAttributeLoginIdentifier(loginIdentifier, tenantDomain);
+    ```
+
+### Update user password
+
+`updateUserPassword(user, newPassword, eventHandlers, skipPasswordValidation)`
+
+This function updates the user password.
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>user</code></td>
+          <td>The user object.</td>
+        </tr>
+        <tr>
+          <td><code>newPassword</code></td>
+          <td>New user password.</td>
+        </tr>
+        <tr>
+          <td><code>eventHandlers</code></td>
+          <td>Optional callback event handlers.</td>
+        </tr>
+        <tr>
+          <td><code>skipPasswordValidation</code></td>
+          <td>Optional parameter to skip password pattern validation.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ```
+    updateUserPassword(user, "newPassword");
+
+    updateUserPassword(user, "newPassword", {
+      onSuccess: function(context) {
+        Log.info("Password updated successfully.");
+      },
+      onFail: function(context) {
+        Log.info("Password update failed.");
+      }
+    });
+
+    updateUserPassword(user, "newPassword", {
+      onSuccess: function(context) {
+        Log.info("Password updated successfully.");
+      },
+      onFail: function(context) {
+        Log.info("Password update failed.");
+      }
+    }, true);
     ```
 
 ## Object reference

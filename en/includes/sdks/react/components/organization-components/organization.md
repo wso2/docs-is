@@ -35,10 +35,12 @@ import { Organization } from '@asgardeo/react'
 
 ## Props
 
+<!-- markdownlint-disable MD056 -->
 | Prop       | Type                                         | Required | Description                                      |
 |------------|----------------------------------------------|----------|--------------------------------------------------|
-| `children` | `(organization: IOrganization \| null) => ReactNode` | ✅       | Render prop function that receives the organization object |
+| `children` | `(organization: IOrganization | null) => ReactNode` | ✅       | Render prop function that receives the organization object |
 | `fallback` | `ReactNode`                                  | ❌       | Content to render when no organization is selected|
+<!-- markdownlint-enable MD056 -->
 
 ## Notes
 

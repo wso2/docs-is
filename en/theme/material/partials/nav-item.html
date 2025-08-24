@@ -59,8 +59,8 @@
   {% if config.extra.nav_icons and nav_item.title in config.extra.nav_icons %}
     {% set nav_item_icon = config.extra.nav_icons[nav_item.title] %}
 
-    {% if 'level' not in nav_item_icon or nav_item_icon.level == level %}
-      {% set icon = config.extra.nav_icons[nav_item.title].icon %}
+    {% if 'level' not in nav_item_icon or (nav_item_icon.level is iterable and level in nav_item_icon.level) or nav_item_icon.level == level %}
+      {% set icon = nav_item_icon.icon %}
     {% endif %}
   {% endif %}
 

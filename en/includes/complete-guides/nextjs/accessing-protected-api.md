@@ -8,7 +8,7 @@ For simplicity, let's assume that the APIs you're calling are secured by the sam
 
 ## Access scim2/Me endpoint
 
-In Asgargeo, `scim2/` REST API implements the SCIM 2.0 Protocol according to the [SCIM 2.0 specification](https://datatracker.ietf.org/doc/html/rfc7644). The scim2/Me endpoint will return the user details of the currently authenticated user. To access this endpoint, we’ll define this endpoint in our .env file as follows.
+In {{product_name}}, `scim2/` REST API implements the SCIM 2.0 Protocol according to the [SCIM 2.0 specification](https://datatracker.ietf.org/doc/html/rfc7644). The scim2/Me endpoint will return the user details of the currently authenticated user. To access this endpoint, we’ll define this endpoint in our .env file as follows.
 
 ```bash title=".env"
 NEXT_PUBLIC_AUTH_ASGARDEO_ME_ENDPOINT="{{content.sdkconfig.baseUrl}}/scim2/Me"

@@ -36,14 +36,16 @@ const MyComponent = () => {
 
 The hook returns all properties and methods provided by `AsgardeoContextProps`:
 
+<!-- markdownlint-disable MD056 -->
 | Property            | Type                                         | Description                                                      |
 |---------------------|----------------------------------------------|------------------------------------------------------------------|
 | `isSignedIn`        | `boolean`                                    | Whether the user is currently signed in                          |
-| `user`              | `IUser \| null`                              | The authenticated user object, or `null` if not signed in        |
+| `user`              | `IUser | null`                              | The authenticated user object, or `null` if not signed in        |
 | `signIn`            | `() => Promise<void>`                        | Initiates the sign-in flow                                       |
 | `signOut`           | `() => Promise<void>`                        | Initiates the sign-out flow                                      |
 | `loading`           | `boolean`                                    | Indicates if an authentication operation is in progress          |
-| `error`             | `Error \| null`                              | The last error encountered during authentication, if any         |
+| `error`             | `Error | null`                              | The last error encountered during authentication, if any         |
+<!-- markdownlint-enable MD056 -->
 
 ## Error Handling
 

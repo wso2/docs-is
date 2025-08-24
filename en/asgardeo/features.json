@@ -63,7 +63,7 @@
     },
 
     "webhooks": {
-        "enabled": false,
+        "enabled": true,
         "page": [
             "guides/webhooks/understanding-webhooks.md",
             "guides/webhooks/setup-webhooks.md",
