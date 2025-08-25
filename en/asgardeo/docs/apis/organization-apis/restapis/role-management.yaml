@@ -1,10 +1,9 @@
 openapi: 3.0.1
 info:
-  version: "v2"
-  title:  Asgardeo - SCIM 2.0 Roles API
+  title:  Asgardeo - SCIM 2.0 Roles V3 API
   description: |
-    "This is the RESTful API for SCIM 2.0 Roles API in Asgardeo organizations. 
-    This API allows listing roles and updating users and groups of the roles."
+    This is the deprecated RESTful API for SCIM 2.0 Roles API in Asgardeo organizations. 
+    This API allows listing roles and updating users and groups of the roles.
 servers:
   - url: https://api.asgardeo.io/t/{root-organization-name}/o/scim2/v2
     variables:
