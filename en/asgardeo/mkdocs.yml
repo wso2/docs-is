@@ -615,7 +615,8 @@ nav:
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
-      - Role management (SCIM 2.0) API: apis/roles.md
+      - Role management (SCIM 2.0) V3 API: apis/roles-v3.md
+      - Role management (SCIM 2.0) API (deprecated): apis/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
         - SCIM 2.0 API:
@@ -657,7 +658,8 @@ nav:
       - Offline user onboard management API: apis/organization-apis/organization-discovery.md
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
-      - Role management API: apis/organization-apis/org-role-mgt.md
+      - Role management V3 API: apis/organization-apis/org-role-mgt-v3.md
+      - Role management API (deprecated): apis/organization-apis/org-role-mgt.md
       - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
