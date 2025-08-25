@@ -1,20 +1,21 @@
 # Localization in {{ product_name }}
 
-{{ product_name }} enables a language picker on the following interfaces exposed to business users, allowing business users to select their preferred language.
+{{ product_name }} lets you pick the language for the following interfaces exposed to business users.
 
-- Interfaces related to the business user registration/sign-up flow, login flows (including MFA), and the account recovery flow.
-- Interfaces of the self-care portal (My Account)
+- User registration, sign-up, login and the account recovery flows.
+- Self-care portal, **My Account**.
 
 The **default language** on these interfaces is configured as explained in the [language settings](#language-settings) section.
 
 !!! note "Important"
-    When [user attributes]({{base_path}}/guides/users/attributes/manage-attributes/) configured on {{ product_name }} are displayed to users (during user sign-up and consent management flows), only the default user attributes get translated.
 
-These interfaces are i18n-supported, which allows {{ product_name }} to update the text content from i18n resource files. This feature allows your business users to experience these use cases in their preferred language. The languages that {{ product_name }} currently supports are listed below.
+    In the user **sign-up** and **attribute consent** screens, {{product_name}} only translates the default user attributes.
+
+These interfaces support i18n, allowing {{product_name}} to load text content from i18n resource files. This ensures that your business users can experience these use cases in their preferred language.
 
 ## Supported languages
 
-Below are the languages currently available for the i18n-supported user interfaces of {{ product_name }}.
+{{product_name}} provides i18n-supported user interfaces in the following languages.
 
 <table>
     <tr>
@@ -99,45 +100,52 @@ Below are the languages currently available for the i18n-supported user interfac
     </tr>
 </table>
 
-## Language settings
+## Configure language settings
 
-The following methods can set the language used by {{ product_name }} interfaces exposed to business users.
+You can use the following language settings to configure the {{product_name}} interfaces exposed to the business user.
 
 ### Language switcher
 
-The language switcher is available at the footer of the (i18n-supported) {{ product_name }} interfaces, which allows business users to select the preferred language for {{ product_name }}.
+Users can use the language switcher available at the footer of the i18n-supported {{ product_name }} interfaces to select the preferred language.
 
-Note that {{ product_name }} will remember the language selected from this switcher, and it will be applied to all i18n-supported interfaces.
+!!! note
+
+    {{ product_name }} remembers this setting and applies it to all i18n-supported interfaces.
 
 ### Browser-level settings
 
-{{ product_name }} interfaces automatically adapt to the language preference set in the user's browser, as long as the language is supported by {{ product_name }}. However, the user can still change the language on the {{ product_name }} interfaces by using the [language switcher](#language-switcher).
+{{product_name}} automatically adapts to each user's browser language preference as long as it's a  supported language. Users can still manually change the language using the [language switcher](#language-switcher).
 
 ### Application-level settings
 
-As an application developer, you can configure the application to send the `ui_locales` parameter in the sign-in request or authorization request when the user signs in to the application.
+You can configure the application to send the `ui_locales` parameter in the sign-in or authorization request when a user signs in to the application.
+
+It works as follows,
+
+- You provide a list of strings, separated by a space, to define the locales.
+
+- {{ product_name }} searches through the list until it finds a supported locale.
+
+- If found, {{product_name}} sets that language as the default locale. If not, it uses the [browser-level](#browser-level-settings) setting.
 
 !!! note "Important"
-    The `ui_locale` parameter is only available for OIDC flows and not for SAML flows.
 
-You can provide a list of strings, separated by a space, to define the locales. {{ product_name }} will search through the list until an {{ product_name }}-supported locale is found, and the first {{ product_name }}-supported locale in the list will be used as the default locale. If a supported locale is not found, {{ product_name }} will use the [browser-level locale](#browser-level-settings).
+    The `ui_locale` parameter works only with OIDC flows and not with SAML flows.
 
 Consider the following examples:
 
-- If the `ui_locales` is sent as `fr_FR`, **French** is used as the default locale.
-- If the `ui_locales` is sent as `fr_FR en_US`, **French** will be the default locale since it's the first {{ product_name }}-support locale in the list.
-- If the `ui_locales` is sent as `it_IT en_US`, **English (en_US)** will be used as the default locale because the first given locale (`it_IT`) is not supported.
+- If the `ui_locales` set to `fr_FR`, {{product_name}} sets **French**  as the default locale.
+- If the `ui_locales` set to `fr_FR en_US`, {{product_name}} sets **French** as the default locale since it's the first language in the list that {{ product_name }} supports.
+- If the `ui_locales` set to `it_IT en_US`, {{product_name}} sets **English (en_US)** as the default locale as it doesn't support `it_IT`.
 
-The following examples demonstrate how to set the `ui_locales` parameter in your application.
+The following examples show how to set the `ui_locales` parameter in your application.
 
-- **Example 1:** Setting the default locale from the `signIn` request.
+- **Example 1:** Using the SDK.
 
-    You can send the `ui_locales` in the signIn request as a parameter.
+    The following sample illustrates how to set the `ui_locales` parameter in the `signIn` request using the JS/React SDK.
   
     !!! note
         Learn more about [setting the signIn request](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signin){:target="_blank"} using the {{ product_name }} SDKs.
-
-    The following sample illustrates the `signIn` request using the JS/React SDK.
 
     ``` Js
         <SecureApp
@@ -152,13 +160,17 @@ The following examples demonstrate how to set the `ui_locales` parameter in your
         </SecureApp>
     ```
 
-- **Example 2:** Setting the default locale from the authorization request.
+- **Example 2:** Directly in the authorization request.
 
-   If you are sending the locale in the authorization request directly, you can append the `ui_locales` query parameter with the list of locales as shown below.
+    You can append the `ui_locales` directly in the authorization request as a query parameter as shown below.
 
-``` 
-{{ product_url_format }}/oauth2/userinfo?scope={scope}&response_type=code&redirect_uri={redirect_uri}&client_id={client_id}&ui_locales={ locales list }
-```
+    ``` 
+    {{ product_url_format }}/oauth2/userinfo?scope={scope}\
+    &response_type=code\
+    &redirect_uri={redirect_uri}\
+    &client_id={client_id}\
+    &ui_locales={ locales list }
+    ```
 
-!!! note "Privacy policy and Terms of conditions URLs"
-    The privacy policy and terms of conditions URLs are specified in your [branding configurations]({{base_path}}/guides/branding/configure-ui-branding/#advanced-preferences). The `ui_locales={ locales list }` parameter is appended to these URLs, which allows you to show the translated content for the user from your end.
+!!! note "Translation of privacy policy and terms of conditions"
+    {{product_name}} attaches the `ui_locales={ locales list }` parameter to the privacy policy and terms of condition URLs set in the [branding configurations]({{base_path}}/guides/branding/configure-ui-branding/#advanced-preferences). This allows you to show users the translated content.
