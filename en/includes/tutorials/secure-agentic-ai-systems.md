@@ -14,7 +14,7 @@ By the end of this tutorial, you will understand how to:
 
 ## System Overview
 
-This tutorial uses a hotel booking system to demonstrate how AI agents can securely interact with users and backend services using {{ product_name }}'s identity and access management.
+This tutorial uses a hotel booking system to demonstrate how AI agents can securely interact with users and APIs using {{ product_name }}'s identity and access management.
 
 ### Components
 
@@ -110,7 +110,7 @@ cd iam-ai-samples/hotel-booking-agent-autogen-agent-iam
 
 #### 2\. Configure environment variables
 
-Create a `.env` file in each service directory (e.g., `assistant-agent`, `backend`, `frontend`). Copy the contents from the corresponding `.env.example` file and update the values with your {{ product_name }} configurations and Gemini API key.
+Create a `.env` file in each service directory (for example `assistant-agent`, `backend`, `frontend`). Copy the contents from the corresponding `.env.example` file and update the values with your {{ product_name }} configurations and Gemini API key.
 
 -----
 
@@ -207,8 +207,8 @@ Here is a detailed comparison:
 | **Primary Subject (`sub`)** | User's ID | User's ID | Agent's ID |
 | **Delegation (`act`)** | Not present | **Present.** Contains Agent's ID (`act.sub`) | Not present |
 | **Auth Type (`aut`)**| `APPLICATION_USER` | `APPLICATION_USER` | `AGENT` |
-| **Scopes** | User's full allowed scopes (e.g., `read_bookings`) | Subset of user scopes consented to (e.g., `create_bookings`) | Agent's own scopes (e.g., `admin_read_staff`) |
+| **Scopes** | User's full allowed scopes (for example `read_bookings`) | Subset of user scopes consented to (for example `create_bookings`) | Agent's own scopes (for example `admin_read_staff`) |
 | **Obtained via** | Authorization Code Flow | On-Behalf-Of Flow (with consent) | Client Credentials Grant |
 | **User Control** | Full control | Explicit consent required | No user involvement |
 
-This structure allows your backend APIs to perform robust authorization checks. For a delegated action, the API can verify both the user's identity (`sub`) and the authorized agent's identity (`act.sub`), ensuring that every action is secure, audited, and compliant with the user's consent.
+This structure allows your APIs to perform robust authorization checks. For a delegated action, the API can verify both the user's identity (`sub`) and the authorized agent's identity (`act.sub`), ensuring that every action is secure, audited, and compliant with the user's consent.
