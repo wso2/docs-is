@@ -13,9 +13,6 @@ Users can access the My Account portal using the following link - {{my_account_l
     ``` bash
     {{my_account_org_link}}
     ```
-
-
-
 Listed below are self-service features that are available for the user in the **My Account portal**.
 
 - [Update profile information]({{base_path}}/guides/user-self-service/update-profile-info/)
@@ -29,8 +26,10 @@ Listed below are self-service features that are available for the user in the **
 - [Manage password recovery]({{base_path}}/guides/user-self-service/user-password-recovery/)
 - [Discover and maintain applications]({{base_path}}/guides/user-self-service/discover-applications/)
 - [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/)
+- [View and update the approvals]({{base_path}}/guides/user-self-service/manage-approvals/)
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
+
 ## Enable/Disable the My Account portal
 
 Follow the steps given below to manage access to the My Account portal for users in your organization.
