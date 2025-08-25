@@ -12,3 +12,4 @@ See the topics listed below for end-to-end tutorials on how to use Asgardeo with
 - [Connect Asgardeo as an OIDC attribute provider for verifiable credentials (VC) with MATTR]({{base_path}}/tutorials/connect-asgardeo-with-mattr/)
 - [Secure Spring Boot API with Asgardeo]({{base_path}}/tutorials/secure-spring-boot-api/)
 - [Integrate Asgardeo with SMART on FHIR healthcare apps]({{base_path}}/tutorials/smart-on-fhir/)
+- [Secure Agentic AI Systems with Asgardeo]({{base_path}}/tutorials/secure-agentic-ai-systems/)
