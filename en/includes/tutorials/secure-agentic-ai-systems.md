@@ -29,19 +29,17 @@ The system consists of four main components:
 
 ## What You'll Need
 
-{% if product_name == "Asgardeo" %}
-* An [**Asgardeo account**](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/).
-{% else %}
-* An [**Identity Server**](https://wso2.com/identity-server/).
-{% endif %}
-* A **Gemini API key** (a free key is available from [Google AI Studio](https://aistudio.google.com/)).
-* **Python** 3.10+
-* **Node.js** 16+
+* {% if product_name == "Asgardeo" %}An [**Asgardeo account**](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/){% else %}An [**Identity Server**](https://wso2.com/identity-server/){% endif %}
+* **Gemini API key** (free from [Google AI Studio](https://aistudio.google.com/))
+* **Python 3.10+**
+* **Node.js 16+**
 * A basic understanding of AI agents and OAuth 2.0 concepts.
 
 -----
 
 ## Configuration Steps
+
+Complete these setup steps in {{ product_name }} before starting the sample.
 
 ### Step 1: Register the components in {{ product_name }}
 
@@ -51,8 +49,8 @@ First, log in to the {{ product_name }} Console and configure the required ident
 
 In the {{ product_name }} console, navigate to **Agents**. Create two **Agents**:
 
-  * `Gardeo Guest Assistant Agent` (for user interactions)
-  * `Gardeo Staff Management Agent` (for background operations)
+* `Gardeo Guest Assistant Agent` (for user interactions)
+* `Gardeo Staff Management Agent` (for background operations)
 
 > **Note:** Store the generated agent credentials securely. These will be used for agent authentication in your services's environment configuration.
 
@@ -79,7 +77,7 @@ Navigate to **API Resources** to define the APIs the agents will interact with.
 
 You need to register two applications to represent the different clients interacting with your system.
 
-**A. User-Facing Application (Standard-Based)**
+##### A. User-facing application (standard-based)
 
 1. Go to **Applications** and create a **Standard-Based Application**.
 2. Enable the option to **Allow AI agents to sign into this application**.
@@ -88,7 +86,7 @@ You need to register two applications to represent the different clients interac
 5. In the **Roles** tab, set the role audience to **Organization**.
 6. From the **Protocol** tab, copy the **Client ID** for use in the next step.
 
-**B. Management Agent Application (M2M)**
+##### B. Management agent application (M2M)
 
 1. Create a new **Machine-to-Machine (M2M) Application**.
 2. In the **API Authorization** tab, authorize the **Staff Management Agent API** with the `invoke` scope.
@@ -97,6 +95,8 @@ You need to register two applications to represent the different clients interac
 -----
 
 ### Step 2: Set up the sample application
+
+Now that you have configured {{ product_name }}, set up and run the sample application on your local machine.
 
 #### 1\. Download the sample
 
@@ -142,7 +142,7 @@ Interact with the application to see the security flows in action. This scenario
 
     The agent will search for options and present you with suitable rooms directly in the chat.
 
-    ![Search for a Room]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-2.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}    
+    ![Search for a Room]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-2.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. **Confirm the Booking**
     After reviewing the options, confirm that you want to book a room by typing:
@@ -151,22 +151,22 @@ Interact with the application to see the security flows in action. This scenario
 4. **Provide Consent for the Agent**
     Once you confirm, the agent will prompt for your approval to make the booking on your behalf. This is a critical security step where the agent requests your explicit permission. Click the **Approve** button that appears in the chat.
 
-    ![Provide Consent for the Agent]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-3.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}  
+    ![Provide Consent for the Agent]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-3.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. **Authenticate with {{ product_name }}**
     After clicking "Approve," you will be redirected to the {{ product_name }} login and consent page. This is the **On-Behalf-Of (OBO) flow** in action. Sign in with your test user's credentials to securely grant the agent permission to act for you.
 
-    ![Authenticate with {{ product_name }}]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-4.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}  
+    ![Authenticate with {{ product_name }}]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-4.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. **Verify the Completed Booking**
     After successful authentication, you'll be redirected back to the chat UI, where you will see a confirmation message that your booking is complete.
 
-    ![Authenticate with {{ product_name }}]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-5.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}      
+    ![Authenticate with {{ product_name }}]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-5.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 7. **Observe the Autonomous Agent**
     The booking has now triggered the autonomous **Staff Management Agent** in the background. Using its own secure identity, this agent analyzes your profile, checks staff availability, and assigns the most suitable contact person for your stay. You can now see the assigned contact person in your booking details.
 
-    ![Observe the Autonomous Agent]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-6.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}       
+    ![Observe the Autonomous Agent]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-6.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 -----
 
