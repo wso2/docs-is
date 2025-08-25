@@ -1,7 +1,6 @@
 openapi: 3.1.0
 info:
-  version: "v3"
-  title:  Asgardeo - SCIM 2.0 Roles API
+  title:  Asgardeo - SCIM 2.0 Roles V3 API
   description: |
     This is the latest RESTful API for SCIM 2.0 Roles API in Asgardeo organizations. 
     This API allows listing roles and updating users and groups of the roles.
