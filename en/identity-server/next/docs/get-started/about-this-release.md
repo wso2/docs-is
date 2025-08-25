@@ -62,17 +62,6 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
     
     Learn more about [user impersonation]({{base_path}}/guides/authorization/user-impersonation/).
 
-- **SCIM 2.0 Roles V3 API**
-
-    The new SCIM2 Roles V3 API introduces a permission model that separates role metadata management and role assignment operations. This allows administrators to delegate responsibilities more precisely—for example, allowing one set of users to create and edit roles, while another manages user and group assignments.
-
-    WSO2 Identity Server 7.2 keeps this API active by default. If you are migrating from a previous version, add the following configuration to the deployment.toml file to enable the API:
-
-    ```toml
-    [scim2]
-    enable_scim2_roles_v3_api=true
-    ```
-
 - **Enhanced security and cryptographic capabilities**
 
     - **Post-Quantum TLS Support** 
