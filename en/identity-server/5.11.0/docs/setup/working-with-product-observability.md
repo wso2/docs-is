@@ -351,14 +351,15 @@ ldap.enabled = true
 ldap.scope_name = "wso2isldap"
 ```
 
-| Configuration Parameter | Description                                                                                                                                                                                                                                             |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ldap.enabled`          | Enables OpenTelemetry-based tracing for Lightweight Directory Access Protocol operations. When set to `true`, WSO2 Identity Server instruments Lightweight Directory Access Protocol interactions such as search, bind, and lookup. Default is `false`. |
-| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for Lightweight Directory Access Protocol spans. Default is `"wso2isldap"`.                                                                                                                        |
+| Configuration Parameter | Description                                                                                                                                                                                                                                                           |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ldap.enabled`          | Enables OpenTelemetry-based tracing for Lightweight Directory Access Protocol operations. When set to `true`, WSO2 Identity Server instruments Lightweight Directory Access Protocol interactions such as search, bind, and lookup. The default value equals `false`. |
+| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for Lightweight Directory Access Protocol spans. The default value equals `"wso2isldap"`.                                                                                                                        |
 
-#### Configuring with Datadog Java Agent
+#### Configuring with Datadog Java agent
 
-To forward Lightweight Directory Access Protocol spans from WSO2 Identity Server to Datadog APM, you need both:
+To forward Lightweight Directory Access Protocol spans from WSO2 Identity Server to Datadog Application Performance 
+Monitoring, you need both:
 
 - The Datadog Java Agent (`dd-java-agent.jar`) attached to the WSO2 Identity Server JVM to instrument and generate
   spans.
