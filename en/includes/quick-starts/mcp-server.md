@@ -208,5 +208,3 @@ Explore these guides to put your setup into action and see how natural-language-
     During tool execution, you will be prompted to give **explicit consent** for the action. It’s recommended to 
     approve actions with "Approve Once" option rather than selecting "Approve Always" option so you retain full control and visibility
     over the operations performed in your Asgardeo organization.
-
-[//] STEPS_END

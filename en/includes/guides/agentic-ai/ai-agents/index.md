@@ -53,7 +53,7 @@ To effectively navigate this new paradigm, enterprise IAM solutions must evolve 
 
 The agentic AI era necessitates a proactive and fundamental rethinking of enterprise IAM. It's no longer just about managing who logs in, but about managing *what* can act autonomously, *why* it can act, and *how* its actions are governed and audited. Enterprises that embrace this paradigm shift and invest in robust, future-proof IAM solutions will be better positioned to harness the full potential of AI while mitigating the associated risks, ensuring a secure and compliant future for their AI-driven operations.
 
-# {{product\_name}} for AI Agents: Key Capabilities
+# {{product_name}} for AI Agents: Key Capabilities
 
 Asgardeo now enables organizations to manage AI agents as first-class digital identities. This ensures agentic AI systems are secure, auditable, and compliant with governance requirements, while also boosting scalability and operational efficiency. Key functionalities include:
 

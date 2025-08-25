@@ -1,8 +1,10 @@
+# Securing MCP Clients
+
 The Model Context Protocol (MCP) specification defines that authorization is initiated by MCP clients. These clients handle authorization flows, manage tokens and sessions with MCP servers, and provide end-user experiences based on user permissions.
 
 {{ product_name }} provides an application template with default configurations to register an MCP client with minimal effort. This template has been configured to create an OAuth application that adheres to the guidelines and best practices outlined in the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
 
-# Register an MCP Client Application
+## Register an MCP Client Application
 
 To regiser an MCP Client application,  
 
