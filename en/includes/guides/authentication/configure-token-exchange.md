@@ -126,7 +126,7 @@ After establishing account links, administrators can't delete them. Users can ma
 
 !!! important
     When configuring implicit account linking, ensure that the chosen lookup attribute (for example, `email`, `username`, or `externalId`) is unique across all user stores. 
-    If the attribute value matches multiple users across stores, the implicit linking operation fails because the system cannot determine a single local account to associate with the federated identity.
+    If the attribute value matches multiple users across stores, the implicit linking operation fails because the system can't determine a single local account to associate with the federated identity.
 
     {% if product_name == "WSO2 Identity Server" and (product_version == "7.0.0" or product_version == "7.1.0") %}
     
