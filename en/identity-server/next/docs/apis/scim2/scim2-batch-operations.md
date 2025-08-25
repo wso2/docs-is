@@ -11,16 +11,81 @@ The SCIM2 API allows you to send multiple resource operations in a single reques
     [scim2]
     max_bulk_operations = 500
     ```
- 
+
+## Scope(permission) required for batch operations
+
+{{ product_name }} now introduces operation-wise scopes for batch operations. This allows you to enforce more granular access control for each SCIM2 operation within a batch request.
+
+Though the `internal_bulk_resource_create` scope continues to support, it's advised to use the new operation-wise scopes.
+
+
+
+<table>
+    <tr>
+        <th>Operation</th>
+        <th>Scope</th>
+    </tr>
+    <tr>
+        <td>Create Users</td>
+        <td>internal_bulk_user_create</td>
+    </tr>
+    <tr>
+        <td>Update Users</td>
+        <td>internal_bulk_user_update</td>
+    </tr>
+    <tr>
+        <td>Replace Users</td>
+        <td>internal_bulk_user_update</td>
+    </tr>
+    <tr>
+        <td>Delete Users</td>
+        <td>internal_bulk_user_delete</td>
+    </tr>
+    <tr>
+        <td>Create Groups</td>
+        <td>internal_bulk_group_create</td>
+    </tr>
+    <tr>
+        <td>Update Groups</td>
+        <td>internal_bulk_group_update</td>
+    </tr>
+    <tr>
+        <td>Replace Groups</td>
+        <td>internal_bulk_group_update</td>
+    </tr>
+    <tr>
+        <td>Delete Groups</td>
+        <td>internal_bulk_group_delete</td>
+    </tr>
+    <tr>
+        <td>Create Roles</td>
+        <td>internal_bulk_role_create</td>
+    </tr>
+    <tr>
+        <td>Update Roles</td>
+        <td>internal_bulk_role_update</td>
+    </tr>
+    <tr>
+        <td>Replace Roles</td>
+        <td>internal_bulk_role_update</td>
+    </tr>
+    <tr>
+        <td>Delete Roles</td>
+        <td>internal_bulk_role_delete</td>
+    </tr>
+</table>
+
 ## Manage users in bulk
- 
+
 You can use the **bulk** operations to add, remove, update, and replace users in bulk.
 
 !!! Info
     The examples given below show individual resource operations (POST, PATCH, PUT, or DELETE) handled in a single request. However, note that a single request can execute a combination of operation types simultaneously.
- 
+
 ### Add users
- 
+
+**Scope (permission) required**: `internal_bulk_user_create`
+
 Given below is an example request payload to manage users in bulk. This request includes an array of operations that adds multiple new users.
  
 ```json
@@ -184,7 +249,9 @@ The parameters in the request body are explained below.
     </table>
  
 ### Update users
- 
+
+**Scope (permission) required**: `internal_bulk_user_update`
+
 Given below is an example request payload to update users in bulk. This request includes an array of operations that updates multiple details of multiple users.
  
 ```json
@@ -353,7 +420,9 @@ The parameters in the request body are explained below.
     </table>
  
 ### Replace users
- 
+
+**Scope (permission) required**: `internal_bulk_user_update`
+
 Given below is an example request payload to replace existing users in bulk. This request includes an array of operations that replace multiple users.
  
 ```json
@@ -509,7 +578,9 @@ The parameters in the request body are explained below.
     </table>
  
 ### Delete users
- 
+
+**Scope (permission) required**: `internal_bulk_user_delete`
+
 Given below is an example request payload to delete existing users in bulk. This request includes an array of operations that delete multiple users.
  
 ```json
@@ -596,7 +667,9 @@ You can use **bulk** operations to add, update, replace, and delete user groups 
     The examples given below show individual resource operations (POST, PATCH, PUT, or DELETE) handled in a single request. However, note that a single request can execute a combination of operation types simultaneously.
  
 ### Add user groups
- 
+
+**Scope (permission) required**: `internal_bulk_group_create`
+
 Given below is an example request payload to add user groups in bulk. This request includes an array of operations that adds multiple new user groups.
  
 ```json
@@ -756,7 +829,9 @@ The parameters in the request body are explained below.
     </table>
  
 ### Update groups
- 
+
+**Scope (permission) required**: `internal_bulk_group_update`
+
 Given below is an example request payload to update user groups in bulk. This request includes an array of operations that update multiple details in multiple user groups.
  
 ```json
@@ -946,7 +1021,9 @@ The parameters in the request body are explained below.
     </table>
  
 ### Replace groups
- 
+
+**Scope (permission) required**: `internal_bulk_group_update`
+
 Given below is an example request payload to replace existing user groups in bulk. This request includes an array of operations that replace multiple user groups.
  
 ```json
@@ -1100,8 +1177,10 @@ The parameters in the request body are explained below.
        </tr>
     </table>
  
-### Delete users
- 
+### Delete groups
+
+**Scope (permission) required**: `internal_bulk_group_delete`
+
 Given below is an example request payload to delete existing user groups in bulk. This request includes an array of operations that delete multiple user groups.
  
 ```json
