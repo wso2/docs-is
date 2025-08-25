@@ -4,7 +4,7 @@ You can add or remove language support to customize the user interface for diffe
 
 {% raw %}
 
-### Authentication, Recovery & Accounts endpoints {#add-remove-locales-in-authentication-recovery-accounts-endpoints}
+### Authentication, recovery & accounts endpoints {#add-remove-locales-in-authentication-recovery-accounts-endpoints}
 
 {% endraw %}
 
@@ -12,7 +12,7 @@ Configure localization for authentication, recovery, and accounts endpoints usin
 
 #### Add a locale to endpoints
 
-Follow these steps to add a new language to your authentication, recovery, and accounts endpoints:
+To add a new locale to the authentication, recovery, and accounts endpoints:
 
 ##### Step 1: Create locale-specific resource files
 
