@@ -92,6 +92,7 @@ You need to register two applications to represent the different clients interac
 2. In the **API Authorization** tab, authorize the **Staff Management Agent API** with the `invoke` scope.
 3. Authorize the **SCIM2 User API** with the `internal_user_mgt_view` scope.
 4. From the **Protocol** tab, copy the **Client ID** and **Client Secret** for use in the next step.
+
 -----
 
 ### Step 2: Set up the sample application
