@@ -4,6 +4,6 @@ To view the approvals, user can navigate to the **Approvals** section from the M
 
 ![My Account Approvals]({{base_path}}/assets/img/guides/workflows/myaccount-approval.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-This page lists all the approvals that can be approved by the user.
+This page shows all the approvals available for the user to approve.
 
 Learn more about the approvals and its lifecycle in the [Approvals]({{base_path}}/guides/workflows/approve-workflow/) guide.
