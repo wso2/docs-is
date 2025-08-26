@@ -135,4 +135,4 @@ The registered MCP client needs to be authorized to access the MCP server. To do
 
 ### In Your App
 
-Implement [OAuth/OIDC authorization grant code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce.md) in Vet Assist AI app to integrate with {{ product_name}} for user authentication and obtaining tokens on behalf of the user.
+Implement [OAuth/OIDC authorization grant code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce) in Vet Assist AI app to integrate with {{ product_name}} for user authentication and obtaining tokens on behalf of the user.

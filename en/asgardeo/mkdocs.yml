@@ -95,7 +95,7 @@ extra:
           - title: Tutorials
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
-            url: SDKs|Integrate Asgardeo into your application
+            url: Developer Tools|SDKs|Integrate Asgardeo into your application
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
