@@ -55,7 +55,6 @@ The following sequence diagram demonstrates the interactions between the end use
 
 ![Sequence Diagram for VetAssist MCP Server Authorization]({{base_path}}/assets/img/tutorials/e2e-mcp-authz/vetassist-mcp-auth-sequence-diagram.png)
 
-
 Bob starts chatting with the Vet Assist AI app and asks it to check the next vaccination date for his dog, Fido. The Vet Assist AI App (MCP Client/OAuth Client) needs to access data made available over the Vet Assist MCP Server (OAuth Resource Server).
 To gain access, the Assistant starts an OAuth flow with {{ product_name }}, which acts as the Authorization Server, specifying the necessary scopes. {{ product_name }} then requests Bob (the User) to log in and verifies if Bob's account has the required Roles/Permissions (RBAC) for the Assistant's intended action.
 

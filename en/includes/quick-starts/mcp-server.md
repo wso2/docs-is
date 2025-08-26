@@ -14,14 +14,14 @@ The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perfor
 
 1. Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name.
 
-!!! Example
-    **name:** Asgardeo-MCP-Server
+    !!! Example
+        **name:** Asgardeo-MCP-Server
 
-Note down the following values from the **Protocol** tab of the registered application. You will need them in **step-3**.
+    Note down the following values from the **Protocol** tab of the registered application. You will need them in **step-3**.
 
-- **`client-id`** from the **Protocol** tab.
-- **`client-secret`** from the **Protocol** tab.
-- **The name of your {{ product_name }} organization**
+    - **`client-id`** from the **Protocol** tab.
+    - **`client-secret`** from the **Protocol** tab.
+    - **The name of your {{ product_name }} organization**
 
 2. Authorize the API resources and corresponding scopes required for the actions performed by the MCP tools. The following table includes the required API resources and scopes for all currently supported tools.
 
