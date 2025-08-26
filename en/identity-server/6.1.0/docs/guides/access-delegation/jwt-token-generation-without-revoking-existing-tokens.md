@@ -1,7 +1,7 @@
-# JWT Token Generation Without Revoking Existing Tokens
+# JWT token generation without revoking existing tokens
 
 !!! note
-    Instead of configuring the JWT token in the
+    Instead of configuring the JWT (JSON Web Token) token in the
     `deployment.toml` file, you can also choose to configure
     it using the management console while configuring the OAuth application.
 
@@ -13,7 +13,7 @@
     ![jwt-token-issuer]({{base_path}}/assets/img/guides/jwt-token-issuer.png)
 
 When a request is received for generating a new JWT token, a new token is generated based on "APPLICATION, USER, SCOPE, BINDING" combinations.
-If a token request is received for the same combination again, WSO2 IS revokes the existing token and returns a new token.
+If a token request is received for the same combination again, WSO2 Identity Server revokes the existing token and returns a new token.
 
 If you want to generate a JWT token without revoking the existing token,
 add and configure the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
