@@ -124,7 +124,7 @@ For JWTs, by default token generation or validation triggers interactions with t
 The following sections guide you through how you can further optimize the default JWT persistence in Identity Server using **non-persistence access token**.
 
 !!! note  
-    The non-persistent JWT access-token feature is available starting from update level 410.
+    This feature is available for Identity Server 5.11.0 starting from update level 410.
 
 ### Why optimize JWT token persistence?
 
