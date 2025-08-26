@@ -46,11 +46,11 @@ Access to the  `/console`, `/services` and `/carbon` contexts should be blocked 
 !!! tip
     It is recommended to identify and use components listed under the allowlist when allowing access to resources in your product from the DMZ level.
 
-## Disable Plain HTTP Transport
+## Disable Plain HTTP transport
 
-The Identity Server starts both HTTPS (9443) and HTTP (9763) servlet transports by default. The HTTP transport does not provide encryption and can expose sensitive information such as authentication tokens, session identifiers, and user credentials to attackers.
+The Identity Server starts both HTTPS (9443) and HTTP (9763) servlet transports by default. The HTTP transport doesn't provide encryption and can expose sensitive information such as authentication tokens, session identifiers, and user credentials to attackers.
 
-Do not allow access to the product over plain HTTP in production deployments.
+Don't allow access to the product over plain HTTP in production deployments.
 Always enforce HTTPS for all product consoles, APIs, and application endpoints.
 
 ### How to disable HTTP transport
@@ -66,7 +66,7 @@ Follow one of the following methods to disable the HTTP transport in WSO2 Identi
 
 2. If the server must keep the HTTP connector for internal reasons:
 
-    - Bind the connector only to 127.0.0.1 so it is not externally accessible, or
+    - Bind the connector only to 127.0.0.1 so it's not externally accessible, or
     - Block port 9763 using firewall rules or reverse proxy configuration.
 
 !!! Note
