@@ -118,29 +118,28 @@ and is executed as follows:
     first node to the client.
 -   Both access token requests receive the same access token.
 
-## Optimizing JWT token persistence
+## Optimizing JWT Access token persistence
 
-For JWTs, by default token generation or validation triggers interactions with the database. The JWT token persistence behavior differs from the opaque token persistence behavior, where an existing active token is retrieved upon a token request. The JWT token issuer always provides a new JWT token after invalidating previous active token. 
-The following sections guide you through how you can further optimize the default JWT persistence in Identity Server using **non-persistence access token**.
+By default, JWT access-token generation or validation triggers interactions with the database. JWT access-token persistence differs from opaque-token persistence, where an existing active token is retrieved during a token request. The issuer always issues a new JWT access token. The following sections explain how to optimize the default JWT persistence in Identity Server using **non-persistent access token**.
 
 !!! note  
-    This feature is available for Identity Server 5.11.0 starting from update level 410.
+    This feature is available for **WSO2 Identity Server 5.11.0** as of **update level 410**.
 
-### Why optimize JWT token persistence?
+### Why optimize JWT Acces token persistence?
 
-In large-scale WSO2 Identity Server deployments, especially with millions of users and high concurrency, the number of tokens stored in the database can grow quickly, making it harder to scale. This can lead to reduced performance and lower Transactions Per Second (TPS) for token generation. For instance, a telecom provider with 1.4 million subscribers and a daily token generation rate of 1000 per second might struggle with scaling using traditional methods like adding more nodes, partitioning the database, or running token cleanup scripts. 
+In large-scale WSO2 Identity Server deployments, especially with millions of users and high concurrency, the number of tokens stored in the database can grow quickly, making it harder to scale. This can lead to reduced performance and lower Transactions Per Second (TPS) for token generation. For instance, a telecom provider with 1.4 million subscribers and a token generation rate of 1,000 per second might struggle with scaling using traditional methods like adding more nodes, partitioning the database, or running token cleanup scripts. 
 To address this, token persistence optimization helps by not storing access tokens. This approach avoids storing tokens during generation while still supporting essential features like token revocation and refresh grants, improving scalability and performance.
 
-- **Reduce database queries on token request**: When a token is issued, the **access token** will no longer be stored in the `IDN_ACCESS_TOKEN` table. Only the **refresh token** will be stored. As a result, authorization grants like **Client Credentials**, which do not issue a refresh token, will experience improved throughput due to the reduction in database query overhead.
-- **Efficient database storage**: When tokens are stored in the persistent access_token case, new entries are added to the database with each token request, even if the same refresh token is used. However, with the **non-persistent access token** feature enabled, only the **refresh token** is stored. If the current refresh token is still valid for the grant, no additional database rows will be added during token request, leading to more efficient database storage.
+- **Reduce database queries during token request**: When a token is issued, the **access token** will no longer be stored in the `IDN_ACCESS_TOKEN` table. Only the **refresh token** will be stored. As a result, authorization grants like **Client Credentials**, which do not issue a refresh token, will experience improved throughput due to the reduction in database query overhead.
+- **Efficient database storage**: When tokens are stored in the persistent access_token mode, new entries are added to the database with each token request, even if the same refresh token is used. However, with the **non-persistent access token** feature enabled, only the **refresh token** is stored. If the current refresh token is still valid for the grant, no additional database rows will be added during token requests, leading to more efficient database storage.
 - **Improved token validation**: With the **non-persistent access token** feature enabled, revoked tokens can be stored in the database. However, deployments have the option to opt out of storing revoked tokens and can instead listen for revoked token events, providing greater flexibility in token management. This approach is particularly beneficial when the Identity Server acts as a **Key Manager** for **WSO2 API Manager**, as the Gateway can self-validate JWTs without additional hops to the Key Manager, improving performance and reducing latency.
 
-### Things to consider when using JWT token persistence optimization
+### Things to consider when using JWT access token persistence optimization
 
-- The **token persistence optimization** feature works only with **JWT tokens**, as they can be self-validated.
+- The **token persistence optimization** feature works only with **JWT access tokens**, as they can be self-validated.
 - When enabling this feature in an existing setup:
     - **Opaque token generation** will continue to work as expected for applications configured to use opaque tokens.
-    - Applications configured for **JWT token type** will be switched to **non-persistent access token mode**, meaning all jwt access tokens will not be stored in the database.
+    - Applications configured for **JWT access token type** will be switched to **non-persistent access token mode**, meaning all jwt access tokens will not be stored in the database.
 - In the case of persistent token storage, if an active access token already exists during the token generation flow, the existing token will be marked as inactive. However, in the non-persistent mode, multiple active tokens can exist, as the authorization server does not store the access tokens.
 - Token binding, Retrieving authorized apps for user and OIDC Request Object features are currently not supported for **non-persistent access token mode**.
 - Actions like Revoking issued access token when re-submitting authorization code and Revoking all issued access token when revoking refresh tokens also not supported cause Identity server won't store any access token.
@@ -194,7 +193,7 @@ To address this, token persistence optimization helps by not storing access toke
     </tbody>
 </table>
 
-### Enable JWT token persistence optimization
+### Enable JWT access token persistence optimization
 
 1. Add following tables to the `IDENTITY_DB`.
 
@@ -225,7 +224,7 @@ To address this, token persistence optimization helps by not storing access toke
             TOKEN_SCOPE VARCHAR (255) NOT NULL,
             TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
-            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN_SCOPE(REFRESH_TOKEN_ID) ON DELETE CASCADE)
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE)
         /
 
         CREATE TABLE IDN_OAUTH2_REVOKED_TOKENS (
@@ -242,7 +241,7 @@ To address this, token persistence optimization helps by not storing access toke
             ENTITY_ID VARCHAR(255) NOT NULL,
             ENTITY_TYPE VARCHAR(255) NOT NULL,
             TIME_REVOKED TIMESTAMP NOT NULL,
-            TENANT_ID VARCHAR(255),
+            TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (EVENT_ID),
             CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID))
         /
@@ -294,7 +293,7 @@ To address this, token persistence optimization helps by not storing access toke
             ENTITY_ID VARCHAR(255) NOT NULL,
             ENTITY_TYPE VARCHAR(255) NOT NULL,
             TIME_REVOKED TIMESTAMP NOT NULL,
-            TENANT_ID VARCHAR(255),
+            TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (EVENT_ID),
             CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
         );
@@ -313,7 +312,7 @@ To address this, token persistence optimization helps by not storing access toke
             TENANT_ID INTEGER,
             USER_DOMAIN VARCHAR(50),
             GRANT_TYPE VARCHAR (50),
-            REFRESH_TOKEN_TIME_CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            REFRESH_TOKEN_TIME_CREATED DATETIME,
             REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
             TOKEN_SCOPE_HASH VARCHAR(32),
             TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
@@ -349,7 +348,7 @@ To address this, token persistence optimization helps by not storing access toke
             ENTITY_ID VARCHAR(255) NOT NULL,
             ENTITY_TYPE VARCHAR(255) NOT NULL,
             TIME_REVOKED DATETIME NOT NULL,
-            TENANT_ID VARCHAR(255),
+            TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (EVENT_ID),
             CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
         );
@@ -405,7 +404,7 @@ To address this, token persistence optimization helps by not storing access toke
             ENTITY_ID VARCHAR(255) NOT NULL,
             ENTITY_TYPE VARCHAR(100) NOT NULL,
             TIME_REVOKED TIMESTAMP NOT NULL,
-            TENANT_ID INTEGER DEFAULT -1234,
+            TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (EVENT_ID),
             CONSTRAINT IDN_SUBJECT_ENTITY_REVOKED_EVENT_CONSTRAINT UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
         )ENGINE=InnoDB;
@@ -474,7 +473,7 @@ To address this, token persistence optimization helps by not storing access toke
             ENTITY_ID VARCHAR(255) NOT NULL,
             ENTITY_TYPE VARCHAR(100) NOT NULL,
             TIME_REVOKED TIMESTAMP NOT NULL,
-            TENANT_ID INTEGER DEFAULT -1234,
+            TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (EVENT_ID),
             CONSTRAINT IDN_SUBJECT_ENTITY_REVOKED_EVENT_CONSTRAINT UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
         )ENGINE=InnoDB;
@@ -518,7 +517,7 @@ To address this, token persistence optimization helps by not storing access toke
         CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
             REFRESH_TOKEN_ID VARCHAR2 (255),
             TOKEN_SCOPE VARCHAR2 (255),
-            REFRESH_TOKEN_ID INTEGER DEFAULT -1,
+            TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
             FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
         )
@@ -539,7 +538,7 @@ To address this, token persistence optimization helps by not storing access toke
             ENTITY_ID VARCHAR(255) NOT NULL,
             ENTITY_TYPE VARCHAR(255) NOT NULL,
             TIME_REVOKED TIMESTAMP NOT NULL,
-            TENANT_ID VARCHAR(255),
+            TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (EVENT_ID),
             CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
         )
@@ -549,6 +548,34 @@ To address this, token persistence optimization helps by not storing access toke
     ??? Example "OracleRac"
     
         ```sql
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            REFRESH_TOKEN VARCHAR(2048),
+            CONSUMER_KEY_ID INTEGER,
+            AUTHZ_USER VARCHAR (100),
+            TENANT_ID INTEGER,
+            USER_DOMAIN VARCHAR(50),
+            GRANT_TYPE VARCHAR (50),
+            REFRESH_TOKEN_TIME_CREATED TIMESTAMP,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH VARCHAR(32),
+            TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER VARCHAR(255),
+            REFRESH_TOKEN_HASH VARCHAR(512),
+            IDP_ID INTEGER DEFAULT -1 NOT NULL,
+            PRIMARY KEY (REFRESH_TOKEN_ID),
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
+        )
+        /
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR2 (255),
+            TOKEN_SCOPE VARCHAR2 (255),
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
+        )
+        /
+
         CREATE TABLE IDN_OAUTH2_REVOKED_TOKENS (
             UUID VARCHAR(255) NOT NULL,
             TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
@@ -564,7 +591,7 @@ To address this, token persistence optimization helps by not storing access toke
             ENTITY_ID VARCHAR(255) NOT NULL,
             ENTITY_TYPE VARCHAR(255) NOT NULL,
             TIME_REVOKED TIMESTAMP NOT NULL,
-            TENANT_ID VARCHAR(255),
+            TENANT_ID INTEGER DEFAULT -1,
             PRIMARY KEY (EVENT_ID),
             CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
         )
@@ -594,7 +621,7 @@ To address this, token persistence optimization helps by not storing access toke
 
         CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
             REFRESH_TOKEN_ID VARCHAR(255),
-            TOKEN_SCOPE      VARCHAR(255)),
+            TOKEN_SCOPE      VARCHAR(255),
             TENANT_ID        INTEGER DEFAULT -1,
             PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
             FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
@@ -613,7 +640,7 @@ To address this, token persistence optimization helps by not storing access toke
             ENTITY_ID     VARCHAR(255) NOT NULL,
             ENTITY_TYPE   VARCHAR(100) NOT NULL,
             TIME_REVOKED  TIMESTAMP NOT NULL,
-            TENANT_ID     INTEGER DEFAULT -1234,
+            TENANT_ID INTEGER DEFAULT -1,
             CONSTRAINT IDN_SUBJECT_ENTITY_REVOKED_EVENT_CONSTRAINT
                 UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
         );
@@ -649,7 +676,7 @@ To address this, token persistence optimization helps by not storing access toke
         retain_revoked_access_token = true
     ```
     !!! Tip
-        If you don't want the Identity server to store revoke tokens and details related to revoked subjects, you can disable by changing updating following configuration
+        If you don't want the Identity server to store revoked tokens and details related to revoked subjects, you can disable by changing updating following configuration
         ```
             [oauth.token_persistence]
             retain_revoked_access_token = false
