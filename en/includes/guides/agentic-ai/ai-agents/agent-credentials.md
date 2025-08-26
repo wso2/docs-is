@@ -41,5 +41,4 @@ To maintain robust security for your AI agents, adhere to the following guidelin
 * **Immediate Revocation:** Revoke credentials immediately upon suspected compromise and monitor usage logs for anomalies.
 * **Audit and Monitoring:** Enable comprehensive logging of authentication events and review logs regularly to detect unauthorized activity early.
 
-
 Once the agent has credentials to authenticate, what agents can or cannot do is governed by the permissions assigned to them. For details on managing agent permissions, see [Access control for agents](../agent-access-control.md).
