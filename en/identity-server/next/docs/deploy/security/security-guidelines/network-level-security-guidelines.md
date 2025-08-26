@@ -62,7 +62,7 @@ Follow one of the following methods to disable the HTTP transport in WSO2 Identi
     ```toml
     [transport.http]
     enabled = false
-    ``` 
+    ```
 
 2. If the server must keep the HTTP connector for internal reasons:
 
