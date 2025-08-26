@@ -125,28 +125,24 @@ You can configure lookup attributes to search for a matching local user account.
 After establishing account links, administrators can't delete them. Users can manage their own accounts links using the <a href="{{base_path}}/guides/user-self-service/manage-linked-accounts">Manage linked accounts</a> capability in the Self-service portal.
 
 !!! important
-    When configuring implicit account linking, ensure that the chosen lookup attribute/s (for example, `email`, `username`, or `externalId`) is/are unique across all user stores. 
-    If the attribute value matches multiple users across stores, the implicit linking operation fails because the system can't determine a single local account to associate with the federated identity.
+    When configuring implicit account linking, select lookup attributes (such as `email`, `username`, or `externalId`) that are unique across all user stores. This prevents failures when multiple accounts match the same attribute.
 
     {% if product_name == "WSO2 Identity Server" and (is_version == "7.0.0" or is_version == "7.1.0") %}
     
-    In {{ product_name }} {{ is_version }}, implicit association does **not** include the **PRIMARY** user store by default when secondary user stores are present.  
+    If you have secondary user stores in {{ product_name }}, implicit association **excludes the PRIMARY user store** when searching for matching accounts.  
     
     {% if is_version == "7.1.0" %}
 
-    To include the PRIMARY user store in the lookup, add the following configuration in the `deployment.toml` file:
+    To include the PRIMARY user store in the search, add the following configuration to the `<IS_HOMe>/repository/conf/deployment.toml` file:
 
     ```toml
     [token_exchange.implicit_association]
     include_primary_when_secondary_present = true
     ```
 
-    From {{ product_name }} **7.2.0 onwards**, this property defaults to `true`.  
-
     {% elif is_version == "7.0.0" %}
 
-    In {{ product_name }} **7.1.0** also, PRIMARY user store is not included in the lookup by default. However, there is a config to include PRIMARY user store as well. But it is not yet supported to {{ product_name }} **7.0.0**.
-    From {{ product_name }} **7.2.0 onwards**, PRIMARY user store will be considered in the lookup by default.
+    In {{ product_name }} **7.1.0**, this can be enabled by a configuration. From {{ product_name }} **7.2.0 onwards**, PRIMARY user store will be considered in the lookup by default.
 
     {% endif %}
 
