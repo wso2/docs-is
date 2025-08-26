@@ -23,3 +23,5 @@ middleware
 passwordless
 base_path
 Guardio
+agentic
+OAuth

@@ -2,19 +2,19 @@
 
 This tutorial guides you through setting up and running a sample application that demonstrates how to secure an agentic AI systems using {{ product_name }}.
 
-You will learn how to implement robust security measures for AI agents that operate autonomously or on users' behalf, ensuring all actions are governed by proper authentication, authorization, and fine-grained access control.
+You will learn how to set up robust security measures for AI agents that operate autonomously or on users' behalf, ensuring proper authentication, authorization, and fine-grained access control.
 
-## Learning Objectives
+## Learning objectives
 
 By the end of this tutorial, you will understand how to:
 
 * Configure AI agents as secure, first-class identities in {{ product_name }}.
-* Implement the On-Behalf-Of (OBO) flow for securely delegating user permissions to an agent.
+* Set up the On-Behalf-Of (OBO) flow for securely delegating user permissions to an agent.
 * Set up fine-grained, scope-based access control for all AI agent operations.
 
-## System Overview
+## System overview
 
-This tutorial uses a hotel booking system to demonstrate how AI agents can securely interact with users and APIs using {{ product_name }}'s identity and access management.
+This tutorial uses a hotel booking system to show how AI agents can securely interact with users and APIs using {{ product_name }}'s identity and access management.
 
 ### Components
 
@@ -27,7 +27,7 @@ The system consists of four main components:
 
       ![System Overview]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/system-overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## What You'll Need
+## What you'll need
 
 * {% if product_name == "Asgardeo" %}An [**Asgardeo account**](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/){% else %}An [**Identity Server**](https://wso2.com/identity-server/){% endif %}
 * **Gemini API key** (free from [Google AI Studio](https://aistudio.google.com/))
@@ -37,7 +37,7 @@ The system consists of four main components:
 
 -----
 
-## Configuration Steps
+## Configuration steps
 
 Complete these setup steps in {{ product_name }} before starting the sample.
 
@@ -45,7 +45,7 @@ Complete these setup steps in {{ product_name }} before starting the sample.
 
 First, log in to the {{ product_name }} Console and configure the required identities, APIs, roles, and applications.
 
-#### 1\. Create the AI agents
+#### 1. Create the AI agents
 
 In the {{ product_name }} console, navigate to **Agents**. Create two **Agents**:
 
@@ -54,7 +54,7 @@ In the {{ product_name }} console, navigate to **Agents**. Create two **Agents**
 
 > **Note:** Store the generated agent credentials securely. These will be used for agent authentication in your services's environment configuration.
 
-#### 2\. Define API resources and scopes
+#### 2. Define API resources and scopes
 
 Navigate to **API Resources** to define the APIs the agents will interact with.
 
@@ -63,7 +63,7 @@ Navigate to **API Resources** to define the APIs the agents will interact with.
 | **Hotel API** | `http://localhost:8001/api` | `read_bookings`, `create_bookings`, `admin_read_bookings`, `admin_update_bookings`, `admin_read_staff` |
 | **Staff Management Agent API** | `http://localhost:8002/v1/invoke` | `invoke` |
 
-#### 3\. Set up users and roles
+#### 3. Set up users and roles
 
 1. Navigate to **Users** and create a new test user.
 2. Navigate to **Roles** and create the following two **Organization** roles:
@@ -73,7 +73,7 @@ Navigate to **API Resources** to define the APIs the agents will interact with.
 | **Guest** | Assign the test user you created. | `read_bookings`, `create_bookings` |
 | **Staff** | Assign the **Gardeo Staff Management Agent**. | `admin_read_staff`, `admin_update_bookings`, `admin_read_bookings` |
 
-#### 4\. Register the applications
+#### 4. Register the applications
 
 You need to register two applications to represent the different clients interacting with your system.
 
@@ -99,7 +99,7 @@ You need to register two applications to represent the different clients interac
 
 Now that you have configured {{ product_name }}, set up and run the sample application on your local machine.
 
-#### 1\. Download the sample
+#### 1. Download the sample
 
 Clone the project repository from GitHub to your local machine and navigate into the project directory.
 
@@ -108,13 +108,13 @@ git clone https://github.com/shashimalcse/iam-ai-samples.git
 cd iam-ai-samples/hotel-booking-agent-autogen-agent-iam
 ```
 
-#### 2\. Configure environment variables
+#### 2. Configure environment variables
 
 Create a `.env` file in each service directory (for example `assistant-agent`, `backend`, `frontend`). Copy the contents from the corresponding `.env.example` file and update the values with your {{ product_name }} configurations and Gemini API key.
 
 -----
 
-#### 3\. Run the application
+#### 3. Run the application
 
 With the configuration complete, start all services using the provided bash script.
 
@@ -126,30 +126,28 @@ This starts all four components on their respective ports. Once the services are
 
 -----
 
-## Test the flows
+## Try it out
 
 Interact with the application to see the security flows in action. This scenario walks you through booking a room with the assistant agent's help and triggering the autonomous agent.
 
-### Example Booking Flow
-
-1. **Open the AI Assistant**
+1. **Open the AI assistant**
     Open the application at `http://localhost:3000` and open the AI assistant chat window in the bottom right of the screen.
 
     ![Open the AI Assistant]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-1.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-2. **Search for a Room**
-    Type a natural language query. The agent is designed to understand dates and locations. For example:
+2. **Search for a room**
+    Type a natural language query. The agent can understand dates and locations. For example:
     `I want to book a single room for myself near Colombo from September 2 to 10, 2025.`
 
     The agent will search for options and present you with suitable rooms directly in the chat.
 
     ![Search for a Room]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-2.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. **Confirm the Booking**
+3. **Confirm the booking**
     After reviewing the options, confirm that you want to book a room by typing:
     `That looks great, please confirm the booking.`  
 
-4. **Provide Consent for the Agent**
+4. **Provide consent for the agent**
     Once you confirm, the agent will prompt for your approval to make the booking on your behalf. This is a critical security step where the agent requests your explicit permission. Click the **Approve** button that appears in the chat.
 
     ![Provide Consent for the Agent]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-3.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -159,12 +157,12 @@ Interact with the application to see the security flows in action. This scenario
 
     ![Authenticate with {{ product_name }}]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-4.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-6. **Verify the Completed Booking**
+6. **Verify the completed booking**
     After successful authentication, you'll be redirected back to the chat UI, where you will see a confirmation message that your booking is complete.
 
     ![Authenticate with {{ product_name }}]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-5.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-7. **Observe the Autonomous Agent**
+7. **Observe the autonomous agent**
     The booking has now triggered the autonomous **Staff Management Agent** in the background. Using its own secure identity, this agent analyzes your profile, checks staff availability, and assigns the most suitable contact person for your stay. You can now see the assigned contact person in your booking details.
 
     ![Observe the Autonomous Agent]({{base_path}}/assets/img/tutorials/secure-agentic-ai-systems/flow-6.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -175,17 +173,17 @@ Interact with the application to see the security flows in action. This scenario
 
 Let's break down the two distinct security models you just experienced.
 
-### Guest Assistant Agent Flow (On-Behalf-Of)
+### Guest assistant agent flow (On-Behalf-Of)
 
 When you asked the agent to book a room, it acted as your delegate.
 
 1. **Permission Check:** The agent identified it needed the `create_bookings` scope to fulfill the request.
-2. **Consent Request:** Because it was acting for you, it asked for your explicit permission.
+2. **Consent Request:** As the agent acted on your behalf, it asked for your explicit permission.
 3. **OBO Flow Initiation:** Your approval redirected you to {{ product_name }} to authenticate and formally grant consent. {{ product_name }} then generated a *delegated access token*.
 4. **Secure API Call:** The agent used this delegated token to call the Hotel API.
 5. **Token Validation:** The Hotel API validated the token with {{ product_name }}, confirming that the token represents you (`testuser`) and has the required `create_bookings` scope for this specific action. All actions are attributed to your identity for auditing.
 
-### Staff Management Agent Flow (Autonomous)
+### Staff management agent flow (Autonomous)
 
 After the booking, the staff agent acted independently.
 
@@ -193,7 +191,7 @@ After the booking, the staff agent acted independently.
 2. **Independent Authentication:** The Staff Agent authenticated with {{ product_name }} using its *own* credentials (the ones you configured in Step 1) to get an access token.
 3. **Admin Operations:** Using its token with admin scopes (`admin_read_staff`, `admin_update_bookings`), the agent read your user profile and staff data to assign a contact person.
 
-### Token Comparison: A Look Inside the JWT
+### Token comparison: A look inside the JWT
 
 The fundamental difference between these flows is encoded directly within the JWT access tokens. By examining key claims, we can see precisely how {{ product_name }} represents identity and delegation.
 
@@ -205,9 +203,9 @@ Here is a detailed comparison:
 | :--- | :--- | :--- | :--- |
 | **Identity Represented** | The User | The User (delegated to Agent) | The Agent itself |
 | **Primary Subject (`sub`)** | User's ID | User's ID | Agent's ID |
-| **Delegation (`act`)** | Not present | **Present.** Contains Agent's ID (`act.sub`) | Not present |
+| **Delegation (`act`)** | Not present | Present. Contains Agent's ID (`act.sub`) | Not present |
 | **Auth Type (`aut`)**| `APPLICATION_USER` | `APPLICATION_USER` | `AGENT` |
-| **Scopes** | User's full allowed scopes (for example `read_bookings`) | Subset of user scopes consented to (for example `create_bookings`) | Agent's own scopes (for example `admin_read_staff`) |
+| **Scopes** | User's full allowed scopes (for example `read_bookings`) | Subset of consented user scopes (for example `create_bookings`) | Agent's own scopes (for example `admin_read_staff`) |
 | **Obtained via** | Authorization Code Flow | On-Behalf-Of Flow (with consent) | Client Credentials Grant |
 | **User Control** | Full control | Explicit consent required | No user involvement |
 

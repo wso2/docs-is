@@ -772,6 +772,11 @@ nav:
         - Recover super admin account: guides/your-is/recover-super-admin-account.md
   - Tutorials:
     - Tutorials - Overview: tutorials/index.md
+    - Verifiable credentials with Microsoft Entra Verified ID: references/tutorials/connect-with-ms-entra.md
+    - Verifiable credentials with MATTR: references/tutorials/connect-with-mattr.md
+    - Send notifications through an external scheduled task: references/tutorials/send-notification-external-schedular.md
+    - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
+    - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
     - Secure Agentic AI Systems with WSO2 Identity Server: tutorials/secure-agentic-ai-systems.md
   - Setup:
       - Install:
@@ -1099,12 +1104,6 @@ nav:
       - Error catalog: references/troubleshoot/error-codes.md
       - API error catalog: references/troubleshoot/api-error-codes.md
       - App-native error catalog: references/troubleshoot/app-native-error-codes.md
-    - Tutorials:
-      - Verifiable credentials with Microsoft Entra Verified ID: references/tutorials/connect-with-ms-entra.md
-      - Verifiable credentials with MATTR: references/tutorials/connect-with-mattr.md
-      - Send notifications through an external scheduled task: references/tutorials/send-notification-external-schedular.md
-      - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
-      - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
     - IAM concepts:
       - OAuth2 grant types: references/grant-types.md
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md

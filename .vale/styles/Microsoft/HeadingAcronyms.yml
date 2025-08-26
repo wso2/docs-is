@@ -7,3 +7,8 @@ tokens:
   - '[A-Z]{2,4}'
 exceptions:
   - IP
+  - AI
+  - SAML
+  - OIDC
+  - API
+  - JWT
