@@ -61,11 +61,11 @@ extra:
           - title: Connect Next.js App
             url: Get started|Connect App|Next.js|Quickstart
           - title: Connect Node.js App
-            url: Get started|Connect App|Node.js Guide
+            url: Get started|Connect App|Node.js|Complete Guide
           - title: Connect .NET App
-            url: Get started|Connect App|.NET Guide 
+            url: Get started|Connect App|.NET|Complete Guide
           - title: Connect Spring Boot App
-            url: Get started|Connect App|Spring Boot Quickstart
+            url: Get started|Connect App|Spring Boot|Quickstart
     - section:
       - title: Guides
         icon: octicons/book-16
@@ -158,7 +158,9 @@ plugins:
         'guides/user-accounts/account-security/login-attempts-security.md': 'guides/account-configurations/login-security/login-attempts.md'
         'guides/user-accounts/account-security/password-validation.md': 'guides/account-configurations/login-security/password-validation.md'
         'guides/user-accounts/configure-self-registration.md': 'guides/account-configurations/user-onboarding/self-registration.md'
+        'guides/identity-lifecycles/invitation-workflow.md': 'guides/account-configurations/user-onboarding/invite-user-to-set-password.md'
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
+        'guides/organization-management/email-domain-based-organization-discovery.md': 'guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md'
         'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
         'apis/notification-sender-rest-api.md': 'apis/notification-sender-v2-rest-api.md'
         'apis/organization-apis/notification-sender-rest-api.md':  'apis/organization-apis/notification-sender-rest-api.md'
@@ -217,9 +219,12 @@ nav:
         - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
         - Complete Guide (App-Native): complete-guides/app-native/introduction.md
         - Complete Guide (B2B): complete-guides/nextjs-b2b/introduction.md
-      - Node.js Guide: complete-guides/nodejs/introduction.md
-      - .NET Guide: complete-guides/dotnet/introduction.md
-      - Spring Boot Quickstart: quick-starts/springboot.md
+      - Node.js:
+        - Complete Guide: complete-guides/nodejs/introduction.md
+      - .NET: 
+        - Complete Guide: complete-guides/dotnet/introduction.md
+      - Spring Boot:
+        - Quickstart: quick-starts/springboot.md
       - MCP Server:
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
         - MCP-Auth Quickstart: quick-starts/mcp-auth-server.md
@@ -403,10 +408,16 @@ nav:
         - User onboarding:
           - Self-registration: guides/account-configurations/user-onboarding/self-registration.md
           - Self-registration flow: guides/account-configurations/user-onboarding/self-registration-flow.md
+          - Invite user to set password: guides/account-configurations/user-onboarding/invite-user-to-set-password.md
         - Manage login identifiers:
           - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
         - Account disabling: guides/account-configurations/account-disabling.md
+      - Flows:
+        - Flows: guides/flows/index.md
+        - Get Started: guides/flows/build-a-flow.md
+        - Self Registration: guides/flows/self-registration.md
+        - Password Recovery: guides/flows/password-recovery.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -441,7 +452,15 @@ nav:
         - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
         - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-        - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+        - Inheritance in organizations:
+            - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
+            - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
+            - Email and SMS templates inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+        - Organization discovery:
+            - Organization discovery: guides/organization-management/organization-discovery/index.md
+            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+        - Customizations:
+            - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
       - Notification Channels:
         - Configure Email Provider: guides/notification-channels/configure-email-provider.md
         - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
@@ -491,7 +510,14 @@ nav:
         - Monitoring: guides/monitoring/index.md
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
         - Asgardeo events: guides/monitoring/asgardeo-events.md
-      - Organization insights: guides/organization-insights.md
+        - Organization insights: guides/organization-insights.md
+      - Agentic AI:
+        - Identity for AI Agents:
+          - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
+          - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
+          - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
+          - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
+          - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
   - Tutorials:
     - Tutorials - Overview: tutorials/index.md
     - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
@@ -505,31 +531,67 @@ nav:
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
-      - Contexts:
-        - "&lt;AsgardeoProvider /&gt;": sdks/react/contexts/asgardeo-provider.md
-      - Components:
-        - Action Components:
-          - "&lt;SignInButton /&gt;": sdks/react/components/action-components/sign-in-button.md
-          - "&lt;SignOutButton /&gt;": sdks/react/components/action-components/sign-out-button.md
-          - "&lt;SignUpButton /&gt;": sdks/react/components/action-components/sign-up-button.md
-        - Control Components:
-          - "&lt;SignedIn /&gt;": sdks/react/components/control-components/signed-in.md
-          - "&lt;SignedOut /&gt;": sdks/react/components/control-components/signed-out.md
-          - "&lt;Loading /&gt;": sdks/react/components/control-components/loading.md
-        - User Self-care Components:
-          - "&lt;UserDropdown /&gt;": sdks/react/components/user-selfcare-components/user-dropdown.md
-          - "&lt;UserProfile /&gt;": sdks/react/components/user-selfcare-components/user-profile.md
-          - "&lt;User /&gt;": sdks/react/components/user-selfcare-components/user.md
-        - Organization Components (B2B):
-          - "&lt;CreateOrganization /&gt;": sdks/react/components/organization-components/create-organization.md
-          - "&lt;OrganizationProfile /&gt;": sdks/react/components/organization-components/organization-profile.md
-          - "&lt;OrganizationSwitcher /&gt;": sdks/react/components/organization-components/organization-switcher.md
-          - "&lt;OrganizationList /&gt;": sdks/react/components/organization-components/organization-list.md
-          - "&lt;Organization /&gt;": sdks/react/components/organization-components/organization.md
-      - hooks:
-        - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
+      - APIs:
+        - Contexts:
+          - "&lt;AsgardeoProvider /&gt;": sdks/react/contexts/asgardeo-provider.md
+        - Components:
+          - Action Components:
+            - "&lt;SignInButton /&gt;": sdks/react/components/action-components/sign-in-button.md
+            - "&lt;SignOutButton /&gt;": sdks/react/components/action-components/sign-out-button.md
+            - "&lt;SignUpButton /&gt;": sdks/react/components/action-components/sign-up-button.md
+          - Control Components:
+            - "&lt;SignedIn /&gt;": sdks/react/components/control-components/signed-in.md
+            - "&lt;SignedOut /&gt;": sdks/react/components/control-components/signed-out.md
+            - "&lt;Loading /&gt;": sdks/react/components/control-components/loading.md
+          - User Self-care Components:
+            - "&lt;UserDropdown /&gt;": sdks/react/components/user-selfcare-components/user-dropdown.md
+            - "&lt;UserProfile /&gt;": sdks/react/components/user-selfcare-components/user-profile.md
+            - "&lt;User /&gt;": sdks/react/components/user-selfcare-components/user.md
+          - Organization Components (B2B):
+            - "&lt;CreateOrganization /&gt;": sdks/react/components/organization-components/create-organization.md
+            - "&lt;OrganizationProfile /&gt;": sdks/react/components/organization-components/organization-profile.md
+            - "&lt;OrganizationSwitcher /&gt;": sdks/react/components/organization-components/organization-switcher.md
+            - "&lt;OrganizationList /&gt;": sdks/react/components/organization-components/organization-list.md
+            - "&lt;Organization /&gt;": sdks/react/components/organization-components/organization.md
+        - hooks:
+          - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
+      - Guides:
+        - Accessing Protected APIs: sdks/react/guides/accessing-protected-apis.md
+        - Protecting Routes: sdks/react/guides/protecting-routes.md
     - Next.js SDK:
       - Overview: sdks/nextjs/overview.md
+      - APIs:
+        - Contexts:
+          - "&lt;AsgardeoProvider /&gt;": sdks/nextjs/contexts/asgardeo-provider.md
+        - Middleware:
+          - asgardeoMiddleware(): sdks/nextjs/middleware/asgardeo-middleware.md
+        - Components:
+          - Action Components:
+            - "&lt;SignInButton /&gt;": sdks/nextjs/components/action-components/sign-in-button.md
+            - "&lt;SignOutButton /&gt;": sdks/nextjs/components/action-components/sign-out-button.md
+            - "&lt;SignUpButton /&gt;": sdks/nextjs/components/action-components/sign-up-button.md
+          - Control Components:
+            - "&lt;SignedIn /&gt;": sdks/nextjs/components/control-components/signed-in.md
+            - "&lt;SignedOut /&gt;": sdks/nextjs/components/control-components/signed-out.md
+            - "&lt;Loading /&gt;": sdks/nextjs/components/control-components/loading.md
+          - Authentication Components:
+            - "&lt;SignIn /&gt;": sdks/nextjs/components/authentication/sign-in.md
+            - "&lt;SignUp /&gt;": sdks/nextjs/components/authentication/sign-up.md
+          - User Self-care Components:
+            - "&lt;UserDropdown /&gt;": sdks/nextjs/components/user-selfcare-components/user-dropdown.md
+            - "&lt;UserProfile /&gt;": sdks/nextjs/components/user-selfcare-components/user-profile.md
+            - "&lt;User /&gt;": sdks/nextjs/components/user-selfcare-components/user.md
+          - Organization Components (B2B):
+            - "&lt;CreateOrganization /&gt;": sdks/nextjs/components/organization-components/create-organization.md
+            - "&lt;OrganizationProfile /&gt;": sdks/nextjs/components/organization-components/organization-profile.md
+            - "&lt;OrganizationSwitcher /&gt;": sdks/nextjs/components/organization-components/organization-switcher.md
+            - "&lt;OrganizationList /&gt;": sdks/nextjs/components/organization-components/organization-list.md
+            - "&lt;Organization /&gt;": sdks/nextjs/components/organization-components/organization.md
+        - hooks:
+          - useAsgardeo(): sdks/nextjs/hooks/use-asgardeo.md
+      - Guides:
+        - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
+        - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
@@ -553,7 +615,10 @@ nav:
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
-      - Role management (SCIM 2.0) API: apis/roles.md
+      - Role management: 
+        - Role management: apis/role-management/index.md
+        - Role management (SCIM 2.0) V3 API: apis/role-management/roles-v3.md
+        - Role management (SCIM 2.0) API (deprecated): apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
         - SCIM 2.0 API:
@@ -574,9 +639,12 @@ nav:
       - User sharing management API: apis/organization-user-share-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
+      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook Metadata API: apis/webhook-metadata-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Action Management API: apis/organization-apis/action-management-rest-api.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
       - Application management API: 
         - Application management API (Shared Applications): apis/organization-apis/shared-application-management.md
@@ -592,7 +660,9 @@ nav:
       - Offline user onboard management API: apis/organization-apis/organization-discovery.md
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
-      - Role management API: apis/organization-apis/org-role-mgt.md
+      - Role management V3 API: apis/organization-apis/org-role-mgt-v3.md
+      - Role management API (deprecated): apis/organization-apis/org-role-mgt.md
+      - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md

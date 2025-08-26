@@ -369,6 +369,7 @@ plugins:
         'guides/identity-federation/resident-inbound-provisioning.md': 'guides/authentication/index.md'
         'guides/identity-federation/resident-jit-consent.md': 'guides/authentication/index.md'
         'guides/organization-management/invite-parent-organization-users.md': 'guides/organization-management/onboard-users.md'
+        'guides/organization-management/email-domain-based-organization-discovery.md': 'guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md'
 
         'references/concepts/introduction-to-multitenancy.md': 'guides/multitenancy/index.md'
         'references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md': 'references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md'
@@ -402,6 +403,9 @@ plugins:
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
         'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
+        'apis/roles-v3-rest-api.md': 'apis/role-management/roles-v3-rest-api.md'
+        'apis/roles-v2-rest-api.md': 'apis/role-management/roles-v2-rest-api.md'
+        'apis/roles-v1-rest-api.md': 'apis/role-management/roles-v1-rest-api.md'
         'apis/scim2-users-rest-apis.md': 'apis/scim2/scim2-users-rest-api.md'
         'apis/scim2-groups-rest-apis.md': 'apis/scim2/scim2-groups-rest-api.md'
         'apis/scim2-patch-operations.md': 'apis/scim2/scim2-patch-operations.md'
@@ -708,7 +712,18 @@ nav:
           - Onboard users: guides/organization-management/onboard-users.md
           - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-          - Email domain based organization discovery: guides/organization-management/email-domain-based-organization-discovery.md
+          - Inheritance in organizations:
+            - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
+            - Login & registration settings inheritance: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
+            - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
+            - Email and SMS templates inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+            - User attributes inheritance: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
+            - OIDC scope inheritance: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
+          - Organization discovery:
+            - Organization discovery: guides/organization-management/organization-discovery/index.md
+            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+          - Customizations:
+            - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
       - Notification Channels:
           - Configure Email Provider: guides/notification-channels/configure-email-provider.md
           - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
@@ -733,6 +748,10 @@ nav:
               - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
               - Pre update password action: guides/service-extensions/pre-flow-extensions/pre-update-password-action.md
               - Pre update profile action: guides/service-extensions/pre-flow-extensions/pre-update-profile-action.md
+          - Integrate with webhooks:
+              - Understanding webhooks: guides/webhooks/understanding-webhooks.md
+              - Setup webhooks: guides/webhooks/setup-webhooks.md
+              - Webhook events and payloads: guides/webhooks/webhook-events-and-payloads.md
       - Analytics:
         - ELK Analytics:
           - Elk analytics: guides/analytics/elk-analytics/index.md
@@ -746,6 +765,13 @@ nav:
         - Multitenancy: guides/multitenancy/index.md
         - Manage Root Organizations (Tenants): guides/multitenancy/manage-tenants.md
         - Tenant loading policy: guides/multitenancy/configure-the-tenant-loading-policy.md
+      - Agentic AI:
+        - Identity for AI Agents:
+          - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
+          - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
+          - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
+          - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
+          - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
@@ -931,9 +957,11 @@ nav:
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
       - Role management:
-          - Roles v2 API: apis/roles-v2-rest-api.md
-          - Roles v1 API (deprecated): apis/roles-v1-rest-api.md
-      - Rule Metadata API: apis/rule-metadata-rest-api.md   
+          - Role management: apis/role-management/index.md
+          - Roles v3 API: apis/role-management/roles-v3-rest-api.md
+          - Roles v2 API (deprecated): apis/role-management/roles-v2-rest-api.md
+          - Roles v1 API (deprecated): apis/role-management/roles-v1-rest-api.md
+      - Rule Metadata API: apis/rule-metadata-rest-api.md
       - Server management:
         - Configuration management:
             - Configuration management API: apis/use-the-configuration-management-rest-apis.md
@@ -970,9 +998,12 @@ nav:
         - Identity verification API: apis/admin-identity-verification.md
       - User sharing management API: apis/organization-user-share-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
+      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook Metadata API: apis/webhook-metadata-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
+      - Action Management API: apis/organization-apis/action-management-rest-api.md
       - API resource management API: apis/organization-apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API (Shared Applications): apis/organization-apis/shared-application-mgt.md
@@ -984,6 +1015,7 @@ nav:
       - Email templates APIs:
         - Email templates v1 API: apis/organization-apis/email-templates-rest-api.md
         - Email templates v2 API: apis/organization-apis/email-templates-v2-rest-api.md
+      - Identity governance API: apis/organization-apis/identity-governance.md
       - Identity provider management API: apis/organization-apis/org-idp-mgt.md
       - Identity recovery API: apis/organization-apis/org-account-recovery.md
       - Idle accounts identification API: apis/organization-apis/org-idle-accounts-identification-rest-api.md
@@ -995,9 +1027,13 @@ nav:
       - Offline user onboard management API: apis/organization-apis/org-offline-user-onboard-mgt-rest-api.md
       - Organization discovery API: apis/organization-apis/org-organization-discovery.md
       - Organization management API: apis/organization-apis/org-organization-mgt.md
+      - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
+      - SCIM 2.0 Role management API V3: apis/organization-apis/org-role-v3-mgt.md
+      - Server configuration API: apis/organization-apis/configs.md
+      - Validation rules API: apis/organization-apis/validation-rules.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md

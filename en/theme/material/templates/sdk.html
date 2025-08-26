@@ -129,8 +129,8 @@
     const goBackLabel = document.createElement("label");
     const goBackLink = document.createElement("a");
 
-    goBackLink.href = '{{ base_url | url }}';
-    goBackLink.innerHTML = `<span class="icon">${icon}</span> Go Back Home`;
+    goBackLink.href = '{{ "" | url }}/sdks/';
+    goBackLink.innerHTML = `<span class="icon">${icon}</span> Go Back`;
 
     goBackLabel.classList.add("md-nav__link", "md-nav__go-back");
     goBackLabel.appendChild(goBackLink);

@@ -316,6 +316,11 @@ the authentication flow.
 
 -  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending)
+-  Add the following configuration to the `deployment.toml` file.
+    ```toml
+    [authentication.authenticator.totp.parameters]
+    AllowSendingVerificationCodeByEmail = true
+    ```
 
     !!! tip 
         The email template used to send this email notification is

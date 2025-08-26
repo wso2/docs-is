@@ -47,12 +47,13 @@ Show the profile as a popup dialog:
 
 ## Props
 
+<!-- markdownlint-disable MD056 -->
 | Prop             | Type        | Required | Description                                         |
 |------------------|-------------|----------|-----------------------------------------------------|
 | `user`           | `any`       | ❌       | User object to display (defaults to Asgardeo user)  |
 | `cardLayout`     | `boolean`   | ❌       | Show profile in a card layout                       |
 | `fallback`       | `ReactNode` | ❌       | Content to show when no user is signed in           |
-| `mode`           | `'inline' \| 'popup'` | ❌ | Display mode for the profile (inline or popup)      |
+| `mode`           | `'inline' | 'popup'` | ❌ | Display mode for the profile (inline or popup)      |
 | `open`           | `boolean`   | ❌       | Whether the popup is open (for `mode="popup"`)      |
 | `onOpenChange`   | `(open: boolean) => void` | ❌ | Callback when popup open state changes              |
 | `onUpdate`       | `(payload: any) => Promise<void>` | ❌ | Callback after profile update                       |
@@ -60,6 +61,7 @@ Show the profile as a popup dialog:
 | `editable`       | `boolean`   | ❌       | Allow editing profile fields                        |
 | `title`          | `string`    | ❌       | Custom profile title                                |
 | `error`          | `string`    | ❌       | Error message to display                            |
+<!-- markdownlint-enable MD056 -->
 
 ## Customization
 

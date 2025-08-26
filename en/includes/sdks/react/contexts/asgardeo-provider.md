@@ -96,18 +96,20 @@ createRoot(document.getElementById('root')).render(
 
 The `AsgardeoProvider` component accepts the following props:
 
+<!-- markdownlint-disable MD056 -->
 | Prop                     | Type                           | Required | Description |
 |--------------------------|--------------------------------|----------|-------------|
 | `clientId`               | `string`                       | ✅       | Client ID of your application |
 | `baseUrl`                | `string`                       | ✅       | The base URL of the Asgardeo tenant (e.g., `https://api.asgardeo.io/t/abc-org`)       |
 | `clientSecret`           | `string`                       | ✅       | Client secret of your application |
 | `scopes`                 | `string | string[]`            | ❌       | OpenID Connect Scopes to request during the sign-in. Defaults to `'openid profile internal_login'` if not provided. |
-| `storage`                | `sessionStorage | localStorage | webWorker`            | ❌       | Storage mechanism to use for session management. Defaults to `sessionStorage` if not provided. |
+| `storage`                | `sessionStorage or localStorage | webWorker`            | ❌       | Storage mechanism to use for session management. Defaults to `sessionStorage` if not provided. |
 | `afterSignInUrl`         | `string`                       | ❌       | URL to redirect to after sign-in process is completed. |
 | `afterSignUpUrl`         | `string`                       | ❌       | URL to redirect to after sign-up process is completed. |
 | `afterSignOutUrl`        | `string`                       | ❌       | URL to redirect to after sign-out process is completed. |
 | `tokenValidation`        | `TokenValidation`              | ❌       | Configuration for token validation. |
 | `preferences`            | `Preferences`                  | ❌       | Customization options for UI behavior, internationalization (i18n) and styling. |
+<!-- markdownlint-enable MD056 -->
 
 ---
 

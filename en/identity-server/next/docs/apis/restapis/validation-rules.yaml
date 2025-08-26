@@ -113,6 +113,51 @@ paths:
               }
             ]'
       x-codegen-request-body-name: body
+  /validation-rules/revert:
+    post:
+      tags:
+        - Revert Validation Rules
+      description: |
+        Revert validation rules of given fields to the default value.<br><br>
+        <b>Scope (Permission) required:</b> internal_validation_rule_mgt_update
+      operationId: revertValidationRulesForFields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevertFields'
+            example:
+              fields: [
+                "password",
+                "username"
+              ]
+        description: Represents the fields to revert.
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/OK'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PUT 'https://localhost:9443/api/server/v1/validation-rules/revert' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "fields": [
+                "password"
+              ]
+            }'
   /validation-rules/{field}:
     get:
       tags:
@@ -543,6 +588,15 @@ components:
           type: string
         value:
           type: string
+    RevertFields:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            type: string
+      required:
+        - fields
     Error:
       type: object
       required:
@@ -608,3 +662,5 @@ components:
             $ref: '#/components/schemas/ValidationConfigModel'
     NotFound:
       description: Field not found
+    OK:
+      description: OK.

@@ -37,7 +37,7 @@ export const appConfig: ApplicationConfig = {
 
 !!! tip "Tip"
 
-    You need to constrct the '<base-url>' value as per the followng instructions: 
+    You need to construct the '<base-url>' value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -78,7 +78,7 @@ export class DashboardComponent {
 
 !!! tip "Tip"
 
-    You need to constrct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
@@ -123,7 +123,7 @@ export class DashboardComponent {
 
 !!! tip "Tip"
 
-    You need to constrct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the followng instructions: 
 
     For Asgardeo: 
 
