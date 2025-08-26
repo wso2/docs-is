@@ -1,7 +1,6 @@
 openapi: 3.1.0
 info:
-  version: "v2"
-  title: SCIM 2.0 Roles API
+  title: SCIM 2.0 Roles V2 API (deprecated)
   description: |
     SCIM 2.0 Roles v2 API
 servers:
