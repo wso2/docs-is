@@ -1,9 +1,9 @@
 # Token Persistence
 
-This guide describes OAuth2 token persistence and the possible
-approaches you can follow for token persistence in a production
-environment. The OAuth2 component in WSO2 Identity Server (WSO2 IS) has
-two implementations that can be used to handle token persistence in the
+In WSO2 Identity Server, OAuth2 token persistence is integral to authentication, authorization and token validation. This guide describes OAuth2 token persistence and the possible approaches you can follow for token persistence in a production environment. 
+
+For opaque tokens, by default, Identity Server stores opaque tokens directly in the database, preserving their original form. For JSON Web Tokens (JWTs), by default Identity Server stores references instead of the complete tokens, optimizing storage. The OAuth2 component in WSO2 Identity Server (WSO2 IS) has
+two implementations that can be used to handle access token persistence in the
 database (synchronous and asynchronous token persistence).
 
 The following sections guide you through the difference between these
@@ -117,3 +117,567 @@ and is executed as follows:
     node, the second node now returns the access token persisted by the
     first node to the client.
 -   Both access token requests receive the same access token.
+
+## Optimizing JWT Access token persistence
+
+By default, JWT access-token generation or validation triggers interactions with the database. JWT access-token persistence differs from opaque-token persistence, where an existing active token is retrieved during a token request. The issuer always issues a new JWT access token. The following sections explain how to optimize the default JWT persistence in Identity Server using **non-persistent access token**.
+
+!!! note  
+    This feature is available for **WSO2 Identity Server 5.11.0** as of **update level 410**.
+
+### Why optimize JWT Acces token persistence?
+
+In large-scale WSO2 Identity Server deployments, especially with millions of users and high concurrency, the number of tokens stored in the database can grow quickly, making it harder to scale. This can lead to reduced performance and lower Transactions Per Second (TPS) for token generation. For instance, a telecom provider with 1.4 million subscribers and a token generation rate of 1,000 per second might struggle with scaling using traditional methods like adding more nodes, partitioning the database, or running token cleanup scripts. 
+To address this, token persistence optimization helps by not storing access tokens. This approach avoids storing tokens during generation while still supporting essential features like token revocation and refresh grants, improving scalability and performance.
+
+- **Reduce database queries during token request**: When a token is issued, the **access token** will no longer be stored in the `IDN_ACCESS_TOKEN` table. Only the **refresh token** will be stored. As a result, authorization grants like **Client Credentials**, which do not issue a refresh token, will experience improved throughput due to the reduction in database query overhead.
+- **Efficient database storage**: When tokens are stored in the persistent access_token mode, new entries are added to the database with each token request, even if the same refresh token is used. However, with the **non-persistent access token** feature enabled, only the **refresh token** is stored. If the current refresh token is still valid for the grant, no additional database rows will be added during token requests, leading to more efficient database storage.
+- **Improved token validation**: With the **non-persistent access token** feature enabled, revoked tokens can be stored in the database. However, deployments have the option to opt out of storing revoked tokens and can instead listen for revoked token events, providing greater flexibility in token management. This approach is particularly beneficial when the Identity Server acts as a **Key Manager** for **WSO2 API Manager**, as the Gateway can self-validate JWTs without additional hops to the Key Manager, improving performance and reducing latency.
+
+### Things to consider when using JWT access token persistence optimization
+
+- The **token persistence optimization** feature works only with **JWT access tokens**, as they can be self-validated.
+- When enabling this feature in an existing setup:
+    - **Opaque token generation** will continue to work as expected for applications configured to use opaque tokens.
+    - Applications configured for **JWT access token type** will be switched to **non-persistent access token mode**, meaning all jwt access tokens will not be stored in the database.
+- In the case of persistent token storage, if an active access token already exists during the token generation flow, the existing token will be marked as inactive. However, in the non-persistent mode, multiple active tokens can exist, as the authorization server does not store the access tokens.
+- Token binding, Retrieving authorized apps for user and OIDC Request Object features are currently not supported for **non-persistent access token mode**.
+- Actions like Revoking issued access token when re-submitting authorization code and Revoking all issued access token when revoking refresh tokens also not supported cause Identity server won't store any access token.
+- In non-persistent mode, the cleanup deletes the selected entries; they are not moved to an audit table as in the persistent case.
+- Following are the additional claims that will be added to the JWT access token for the internal references.
+<table>
+    <thead>
+        <tr class="header">
+            <th>Claims</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>entity_id</code></td>
+            <td>
+                <p>Unique Identifier to identify the subject within the system.</p>
+                <p> - For application: Client Id.</p>
+                <p> - For Users from unique Id user store: User Unique Id.</p>
+                <p> - For Users from non-unique Id user store: Username with userstore domain and tenant domain.</p>
+                <p> - For non-JIT provisioned federated Users: Session Id.</p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>entityType</code></td>
+            <td>
+                <p>Type of entity id.</p>
+                <p> - For application: CLIENT_ID.</p>
+                <p> - For Users from unique Id user store: USER_ID.</p>
+                <p> - For Users from non-unique Id user store: USER_NAME.</p>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td><code>is_federated</code></td>
+            <td>
+                <p>Flag to show whether the user is federated or not.</p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>token_id</code></td>
+            <td>
+                <p>Token id for internal reference.</p>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td><code>grantType</code></td>
+            <td>
+                <p>Grant type</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### Enable JWT access token persistence optimization
+
+1. Add following tables to the `IDENTITY_DB`.
+
+    ??? Example "DB2"
+    
+        ```sql
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            REFRESH_TOKEN VARCHAR(2048),
+            CONSUMER_KEY_ID INTEGER,
+            AUTHZ_USER VARCHAR (100),
+            TENANT_ID INTEGER,
+            USER_DOMAIN VARCHAR(50),
+            GRANT_TYPE VARCHAR (50),
+            REFRESH_TOKEN_TIME_CREATED TIMESTAMP,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH VARCHAR(32),
+            TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER VARCHAR(255),
+            REFRESH_TOKEN_HASH VARCHAR(512),
+            IDP_ID INTEGER DEFAULT -1 NOT NULL,
+            PRIMARY KEY (REFRESH_TOKEN_ID),
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE) INDEX IN TS32K
+        /
+
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR (255) NOT NULL,
+            TOKEN_SCOPE VARCHAR (255) NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE)
+        /
+
+        CREATE TABLE IDN_OAUTH2_REVOKED_TOKENS (
+            UUID VARCHAR(255) NOT NULL,
+            TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
+            CONSUMER_KEY VARCHAR(255) NOT NULL,
+            TIME_CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            EXPIRY_TIMESTAMP TIMESTAMP NOT NULL,
+            PRIMARY KEY (UUID))
+        /
+
+        CREATE TABLE IDN_SUBJECT_ENTITY_REVOKED_EVENT (
+            EVENT_ID VARCHAR(255) NOT NULL,
+            ENTITY_ID VARCHAR(255) NOT NULL,
+            ENTITY_TYPE VARCHAR(255) NOT NULL,
+            TIME_REVOKED TIMESTAMP NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (EVENT_ID),
+            CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID))
+        /
+
+
+        ```
+
+    ??? Example "H2"
+    
+        ```sql
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            REFRESH_TOKEN VARCHAR(2048),
+            CONSUMER_KEY_ID INTEGER,
+            AUTHZ_USER VARCHAR (100),
+            TENANT_ID INTEGER,
+            USER_DOMAIN VARCHAR(50),
+            GRANT_TYPE VARCHAR (50),
+            REFRESH_TOKEN_TIME_CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH VARCHAR(32),
+            TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER VARCHAR(255),
+            REFRESH_TOKEN_HASH VARCHAR(512),
+            IDP_ID INTEGER DEFAULT -1 NOT NULL,
+            PRIMARY KEY (REFRESH_TOKEN_ID),
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            TOKEN_SCOPE VARCHAR (255),
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REVOKED_TOKENS (
+            UUID VARCHAR(255) NOT NULL,
+            TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
+            CONSUMER_KEY VARCHAR(255) NOT NULL,
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            EXPIRY_TIMESTAMP TIMESTAMP NOT NULL,
+            PRIMARY KEY (UUID)
+        );
+
+        CREATE TABLE IF NOT EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT (
+            EVENT_ID VARCHAR(255) NOT NULL,
+            ENTITY_ID VARCHAR(255) NOT NULL,
+            ENTITY_TYPE VARCHAR(255) NOT NULL,
+            TIME_REVOKED TIMESTAMP NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (EVENT_ID),
+            CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
+        );
+        ```
+
+    ??? Example "MsSQL"
+    
+        ```sql
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_OAUTH2_REFRESH_TOKEN]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            REFRESH_TOKEN VARCHAR(2048),
+            CONSUMER_KEY_ID INTEGER,
+            AUTHZ_USER VARCHAR (100),
+            TENANT_ID INTEGER,
+            USER_DOMAIN VARCHAR(50),
+            GRANT_TYPE VARCHAR (50),
+            REFRESH_TOKEN_TIME_CREATED DATETIME,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH VARCHAR(32),
+            TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER VARCHAR(255),
+            REFRESH_TOKEN_HASH VARCHAR(512),
+            IDP_ID INTEGER DEFAULT -1 NOT NULL,
+            PRIMARY KEY (REFRESH_TOKEN_ID),
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
+        );
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_OAUTH2_REFRESH_TOKEN_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            TOKEN_SCOPE VARCHAR (255),
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
+        );
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_OAUTH2_REVOKED_TOKENS]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_OAUTH2_REVOKED_TOKENS (
+            UUID VARCHAR(255) NOT NULL,
+            TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
+            CONSUMER_KEY VARCHAR(255) NOT NULL,
+            TIME_CREATED DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            EXPIRY_TIMESTAMP DATETIME NOT NULL,
+            PRIMARY KEY (UUID)
+        );
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_SUBJECT_ENTITY_REVOKED_EVENT]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_SUBJECT_ENTITY_REVOKED_EVENT (
+            EVENT_ID VARCHAR(255) NOT NULL,
+            ENTITY_ID VARCHAR(255) NOT NULL,
+            ENTITY_TYPE VARCHAR(255) NOT NULL,
+            TIME_REVOKED DATETIME NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (EVENT_ID),
+            CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
+        );
+        ```
+
+    ??? Example "MYSQL"
+    
+        ```sql
+        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE;
+        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN;
+        DROP TABLE IF EXISTS IDN_OAUTH2_REVOKED_TOKENS;
+        DROP TABLE IF EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT;
+
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            REFRESH_TOKEN VARCHAR(2048),
+            CONSUMER_KEY_ID INTEGER,
+            AUTHZ_USER VARCHAR (100),
+            TENANT_ID INTEGER,
+            USER_DOMAIN VARCHAR(50),
+            GRANT_TYPE VARCHAR (50),
+            REFRESH_TOKEN_TIME_CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH VARCHAR(32),
+            TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER VARCHAR(255),
+            REFRESH_TOKEN_HASH VARCHAR(512),
+            IDP_ID INTEGER DEFAULT -1 NOT NULL,
+            PRIMARY KEY (REFRESH_TOKEN_ID),
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
+        )ENGINE INNODB;
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            TOKEN_SCOPE VARCHAR (255),
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
+        )ENGINE INNODB;
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REVOKED_TOKENS (
+            UUID VARCHAR(255) NOT NULL,
+            TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
+            CONSUMER_KEY VARCHAR(255) NOT NULL,
+            TIME_CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            EXPIRY_TIMESTAMP TIMESTAMP NOT NULL,
+            PRIMARY KEY (UUID)
+        )ENGINE=InnoDB;
+
+        CREATE TABLE IF NOT EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT (
+            EVENT_ID VARCHAR(255) NOT NULL,
+            ENTITY_ID VARCHAR(255) NOT NULL,
+            ENTITY_TYPE VARCHAR(100) NOT NULL,
+            TIME_REVOKED TIMESTAMP NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (EVENT_ID),
+            CONSTRAINT IDN_SUBJECT_ENTITY_REVOKED_EVENT_CONSTRAINT UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
+        )ENGINE=InnoDB;
+
+        CREATE INDEX IDX_TOKEN_CONSUMER ON IDN_OAUTH2_REVOKED_TOKENS (TOKEN_IDENTIFIER, CONSUMER_KEY);
+
+        CREATE INDEX IDX_ENTITY_TIME_REVOKED ON IDN_SUBJECT_ENTITY_REVOKED_EVENT (ENTITY_ID, TIME_REVOKED);
+
+        CREATE INDEX IDX_REFRESH_TOKEN_HASH ON IDN_OAUTH2_REFRESH_TOKEN (REFRESH_TOKEN_HASH);
+
+        CREATE INDEX IDX_AUTHZ_USER_TENANT_DOMAIN_STATE ON IDN_OAUTH2_REFRESH_TOKEN (AUTHZ_USER, TENANT_ID, USER_DOMAIN, TOKEN_STATE);
+
+        CREATE INDEX IDX_CONSUMER_KEY_STATE ON IDN_OAUTH2_REFRESH_TOKEN (CONSUMER_KEY_ID, TOKEN_STATE);
+
+        CREATE INDEX IDX_CONSUMER_USER_SCOPE_IDP ON IDN_OAUTH2_REFRESH_TOKEN (CONSUMER_KEY_ID, AUTHZ_USER, TENANT_ID, USER_DOMAIN, TOKEN_SCOPE_HASH, TOKEN_STATE, IDP_ID);
+
+        ```
+
+    ??? Example "MYSQL-Cluster"
+    
+        ```sql
+        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE;
+        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN;
+        DROP TABLE IF EXISTS IDN_OAUTH2_REVOKED_TOKENS;
+        DROP TABLE IF EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT;
+
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            REFRESH_TOKEN VARCHAR(2048),
+            CONSUMER_KEY_ID INTEGER,
+            AUTHZ_USER VARCHAR (100),
+            TENANT_ID INTEGER,
+            USER_DOMAIN VARCHAR(50),
+            GRANT_TYPE VARCHAR (50),
+            REFRESH_TOKEN_TIME_CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH VARCHAR(32),
+            TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER VARCHAR(255),
+            REFRESH_TOKEN_HASH VARCHAR(512),
+            IDP_ID INTEGER DEFAULT -1 NOT NULL,
+            PRIMARY KEY (REFRESH_TOKEN_ID),
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
+        )ENGINE INNODB;
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            TOKEN_SCOPE VARCHAR (255),
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
+        )ENGINE INNODB;
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REVOKED_TOKENS (
+            UUID VARCHAR(255) NOT NULL,
+            TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
+            CONSUMER_KEY VARCHAR(255) NOT NULL,
+            TIME_CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            EXPIRY_TIMESTAMP TIMESTAMP NOT NULL,
+            PRIMARY KEY (UUID)
+        )ENGINE=InnoDB;
+
+        CREATE TABLE IF NOT EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT (
+            EVENT_ID VARCHAR(255) NOT NULL,
+            ENTITY_ID VARCHAR(255) NOT NULL,
+            ENTITY_TYPE VARCHAR(100) NOT NULL,
+            TIME_REVOKED TIMESTAMP NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (EVENT_ID),
+            CONSTRAINT IDN_SUBJECT_ENTITY_REVOKED_EVENT_CONSTRAINT UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
+        )ENGINE=InnoDB;
+
+        CREATE INDEX IDX_TOKEN_CONSUMER ON IDN_OAUTH2_REVOKED_TOKENS (TOKEN_IDENTIFIER, CONSUMER_KEY);
+
+        CREATE INDEX IDX_ENTITY_TIME_REVOKED ON IDN_SUBJECT_ENTITY_REVOKED_EVENT (ENTITY_ID, TIME_REVOKED);
+
+        CREATE INDEX IDX_REFRESH_TOKEN_HASH ON IDN_OAUTH2_REFRESH_TOKEN (REFRESH_TOKEN_HASH);
+
+        CREATE INDEX IDX_AUTHZ_USER_TENANT_DOMAIN_STATE ON IDN_OAUTH2_REFRESH_TOKEN (AUTHZ_USER, TENANT_ID, USER_DOMAIN, TOKEN_STATE);
+
+        CREATE INDEX IDX_CONSUMER_KEY_STATE ON IDN_OAUTH2_REFRESH_TOKEN (CONSUMER_KEY_ID, TOKEN_STATE);
+
+        CREATE INDEX IDX_CONSUMER_USER_SCOPE_IDP ON IDN_OAUTH2_REFRESH_TOKEN (CONSUMER_KEY_ID, AUTHZ_USER, TENANT_ID, USER_DOMAIN, TOKEN_SCOPE_HASH, TOKEN_STATE, IDP_ID);
+
+        ```
+
+    ??? Example "Oracle"
+    
+        ```sql
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            REFRESH_TOKEN VARCHAR(2048),
+            CONSUMER_KEY_ID INTEGER,
+            AUTHZ_USER VARCHAR (100),
+            TENANT_ID INTEGER,
+            USER_DOMAIN VARCHAR(50),
+            GRANT_TYPE VARCHAR (50),
+            REFRESH_TOKEN_TIME_CREATED TIMESTAMP,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH VARCHAR(32),
+            TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER VARCHAR(255),
+            REFRESH_TOKEN_HASH VARCHAR(512),
+            IDP_ID INTEGER DEFAULT -1 NOT NULL,
+            PRIMARY KEY (REFRESH_TOKEN_ID),
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
+        )
+        /
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR2 (255),
+            TOKEN_SCOPE VARCHAR2 (255),
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
+        )
+        /
+
+        CREATE TABLE IDN_OAUTH2_REVOKED_TOKENS (
+            UUID VARCHAR(255) NOT NULL,
+            TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
+            CONSUMER_KEY VARCHAR(255) NOT NULL,
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+            EXPIRY_TIMESTAMP TIMESTAMP NOT NULL,
+            PRIMARY KEY (UUID)
+        )
+        /
+
+        CREATE TABLE IDN_SUBJECT_ENTITY_REVOKED_EVENT (
+            EVENT_ID VARCHAR(255) NOT NULL,
+            ENTITY_ID VARCHAR(255) NOT NULL,
+            ENTITY_TYPE VARCHAR(255) NOT NULL,
+            TIME_REVOKED TIMESTAMP NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (EVENT_ID),
+            CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
+        )
+        /
+        ```
+
+    ??? Example "OracleRac"
+    
+        ```sql
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID VARCHAR (255),
+            REFRESH_TOKEN VARCHAR(2048),
+            CONSUMER_KEY_ID INTEGER,
+            AUTHZ_USER VARCHAR (100),
+            TENANT_ID INTEGER,
+            USER_DOMAIN VARCHAR(50),
+            GRANT_TYPE VARCHAR (50),
+            REFRESH_TOKEN_TIME_CREATED TIMESTAMP,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH VARCHAR(32),
+            TOKEN_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER VARCHAR(255),
+            REFRESH_TOKEN_HASH VARCHAR(512),
+            IDP_ID INTEGER DEFAULT -1 NOT NULL,
+            PRIMARY KEY (REFRESH_TOKEN_ID),
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
+        )
+        /
+        CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR2 (255),
+            TOKEN_SCOPE VARCHAR2 (255),
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
+        )
+        /
+
+        CREATE TABLE IDN_OAUTH2_REVOKED_TOKENS (
+            UUID VARCHAR(255) NOT NULL,
+            TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
+            CONSUMER_KEY VARCHAR(255) NOT NULL,
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+            EXPIRY_TIMESTAMP TIMESTAMP NOT NULL,
+            PRIMARY KEY (UUID)
+        )
+        /
+
+        CREATE TABLE IDN_SUBJECT_ENTITY_REVOKED_EVENT (
+            EVENT_ID VARCHAR(255) NOT NULL,
+            ENTITY_ID VARCHAR(255) NOT NULL,
+            ENTITY_TYPE VARCHAR(255) NOT NULL,
+            TIME_REVOKED TIMESTAMP NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            PRIMARY KEY (EVENT_ID),
+            CONSTRAINT CON_SUB_EVT_KEY UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
+        )
+        /
+        ```
+
+    ??? Example "Postgres"
+    
+        ```sql
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
+            REFRESH_TOKEN_ID              VARCHAR(255) PRIMARY KEY,
+            REFRESH_TOKEN                 VARCHAR(2048),
+            CONSUMER_KEY_ID               INTEGER,
+            AUTHZ_USER                    VARCHAR(100),
+            TENANT_ID                     INTEGER,
+            USER_DOMAIN                   VARCHAR(50),
+            GRANT_TYPE                    VARCHAR(50),
+            REFRESH_TOKEN_TIME_CREATED    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            REFRESH_TOKEN_VALIDITY_PERIOD BIGINT,
+            TOKEN_SCOPE_HASH              VARCHAR(32),
+            TOKEN_STATE                   VARCHAR(25) DEFAULT 'ACTIVE',
+            SUBJECT_IDENTIFIER            VARCHAR(255),
+            REFRESH_TOKEN_HASH            VARCHAR(512),
+            IDP_ID                        INTEGER NOT NULL DEFAULT -1,
+            FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
+            REFRESH_TOKEN_ID VARCHAR(255),
+            TOKEN_SCOPE      VARCHAR(255),
+            TENANT_ID        INTEGER DEFAULT -1,
+            PRIMARY KEY (REFRESH_TOKEN_ID, TOKEN_SCOPE),
+            FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REVOKED_TOKENS (
+            UUID             VARCHAR(255) NOT NULL PRIMARY KEY,
+            TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
+            CONSUMER_KEY     VARCHAR(255) NOT NULL,
+            TIME_CREATED     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            EXPIRY_TIMESTAMP TIMESTAMP NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT (
+            EVENT_ID      VARCHAR(255) NOT NULL PRIMARY KEY,
+            ENTITY_ID     VARCHAR(255) NOT NULL,
+            ENTITY_TYPE   VARCHAR(100) NOT NULL,
+            TIME_REVOKED  TIMESTAMP NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            CONSTRAINT IDN_SUBJECT_ENTITY_REVOKED_EVENT_CONSTRAINT
+                UNIQUE (ENTITY_ID, ENTITY_TYPE, TENANT_ID)
+        );
+        -- IDN_OAUTH2_REVOKED_TOKENS
+        CREATE INDEX IF NOT EXISTS idx_token_consumer
+        ON IDN_OAUTH2_REVOKED_TOKENS (token_identifier, consumer_key);
+
+        -- IDN_SUBJECT_ENTITY_REVOKED_EVENT
+        CREATE INDEX IF NOT EXISTS idx_entity_time_revoked
+        ON IDN_SUBJECT_ENTITY_REVOKED_EVENT (entity_id, time_revoked);
+
+        -- IDN_OAUTH2_REFRESH_TOKEN
+        CREATE INDEX IF NOT EXISTS idx_refresh_token_hash
+        ON IDN_OAUTH2_REFRESH_TOKEN (refresh_token_hash);
+
+        CREATE INDEX IF NOT EXISTS idx_authz_user_tenant_domain_state
+        ON IDN_OAUTH2_REFRESH_TOKEN (authz_user, tenant_id, user_domain, token_state);
+
+        CREATE INDEX IF NOT EXISTS idx_consumer_key_state
+        ON IDN_OAUTH2_REFRESH_TOKEN (consumer_key_id, token_state);
+
+        CREATE INDEX IF NOT EXISTS idx_consumer_user_scope_idp
+        ON IDN_OAUTH2_REFRESH_TOKEN
+        (consumer_key_id, authz_user, tenant_id, user_domain, token_scope_hash, token_state, idp_id);
+
+        ```
+
+2. Add the following to the deployment.toml to enable the feature in WSO2 Identity Server. 
+
+    ```
+        [oauth.token_persistence]
+        persist_access_token=false
+        retain_revoked_access_token = true
+    ```
+    !!! Tip
+        If you don't want the Identity server to store revoked tokens and details related to revoked subjects, you can disable by changing updating following configuration
+        ```
+            [oauth.token_persistence]
+            retain_revoked_access_token = false
+        ```
