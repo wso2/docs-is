@@ -13,112 +13,6 @@ To get started, you need to have an application registered in {{ product_name }}
 
 ## Use the discovery endpoint
 
-### Discover the issuer
-
-OpenID Provider issuer discovery refers to the process of determining the location
-of the OpenID Provider. The following endpoint is responsible for revealing the OpenID Provider's
-issuer after validating the required parameters (Resource, Host and rel).
-
-```bash
-{{ product_url_format }}/.well-known/webfinger
-```
-
-Following information is required when making a request to discover the issuer's location.
-
- <table>
- <thead>
- <tr class="header">
- <th>Parameter</th>
- <th>Description</th>
- <th>Sample Value</th>
- </tr>
- </thead>
- <tbody>
- <tr class="odd">
- <td>Resource</td>
- <td>Identifier for the target end user that is the subject of the discovery request.</td>
- <td>acct:admin@localhost</td>
- </tr>
- <tr class="even">
- <td>HostServer</td>
- <td>Where the WebFinger service is hosted.</td>
- <td>localhost</td>
- </tr>
- <tr class="odd">
- <td>rel</td>
- <td>URI identifying the type of service whose location is being requested.</td>
- <td>http://openid.net/specs/connect/1.0/issuer</td>
- </tr>
- </tbody>
- </table>
-
-**Sample request**
-
-=== "cURL"
-
-    ```bash  
-    curl --location 'https://localhost:9443/.well-known/webfinger/openid-configuration?resource=acct:admin@localhost&rel=http://openid.net/specs/connect/1.0/issuer'
-    ```
-
-=== "JavaScript - jQuery"
-
-    ```js 
-    var settings = {
-         "url": "{{ product_url_sample }}/.well-known/webfinger/openid-configuration",
-         "method": "GET",
-         "timeout": 0,
-         "headers": { "Accept": "application/json" },
-         "data": {
-            "resource": "acct:admin@localhost",
-            "rel": "http://openid.net/specs/connect/1.0/issuer"
-         }
-    };
-      
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-    });
-    ```
-
-=== "Nodejs - Axios"
-
-    ```js 
-    var axios = require('axios');
-
-    var config = {
-         method: 'get',
-         url: '{{ product_url_sample }}/.well-known/webfinger/openid-configuration',
-         params: {
-            resource: 'acct:admin@localhost',
-            rel: 'http://openid.net/specs/connect/1.0/issuer'
-         },
-         headers: { 'Accept': 'application/json' }
-    };
-
-    axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    ```
-
-
-**Sample response**
-```json
-{
-   "subject": "acct:admin@localhost",
-   "links": [
-      {
-         "rel": "http://openid.net/specs/connect/1.0/issuer",
-         "href": "{{ product_url_sample }}/oauth2/token"
-      }
-   ]
-}
-```
-
-### Discover the issuer metadata
-
 OpenID Connect Discovery <!-- [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html)--> allows you to discover the metadata such as endpoints, scopes, response types, claims, and supported client authentication methods of identity providers such as {{ product_name }}.
 
 Applications can dynamically discover the OpenID Connect identity provider metadata by calling the OpenID Connect discovery <!-- [OpenID Connect discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest)--> endpoint. The structure of the request URL is as follows: `<issuer>/.well-known/openid-configuration`.  
@@ -189,7 +83,7 @@ Applications can dynamically discover the OpenID Connect identity provider metad
 }
 ```
 
-## Use the console
+## Get endpoints from the console
 
 Some applications and SDKs are not capable of dynamically resolving endpoints from OpenID Connect discovery. For such applications, you need to configure endpoints manually.
 
