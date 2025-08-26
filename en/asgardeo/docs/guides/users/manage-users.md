@@ -189,7 +189,7 @@ Alternatively, administrators can use the resend-code API to resend the link or 
         -d '{
             "user": {
                 "username": "jane",
-                "realm": "PRIMARY"
+                "realm": "DEFAULT"
             },
             "properties": [
                 {
@@ -387,7 +387,7 @@ To filter users by account status:
         }'
 
 
-2: Configure email verification method
+2: Configure email verification method (Optional). Enable this if OTP needs to be received via email.
 
 !!! abstract ""
 
@@ -422,7 +422,7 @@ To filter users by account status:
             "emails": [
                 {
                     "primary": true,
-                    "value": "EMAIL"
+                    "value": "<EMAIL>"
                 }
             ],
             "password": "<PASSWORD>",
@@ -439,7 +439,7 @@ To filter users by account status:
         -H 'Authorization: Bearer <access_token>' \
         -H 'Content-Type: application/json' \
         -d '{
-            "userName": "bob",
+            "userName": "DEFAULT/bob",
             "emails": [
                 {
                     "primary": true,
