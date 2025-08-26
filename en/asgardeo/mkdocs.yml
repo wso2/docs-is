@@ -95,7 +95,7 @@ extra:
           - title: Tutorials
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
-            url: SDKs|Integrate Asgardeo into your application
+            url: Developer Tools|SDKs|Integrate Asgardeo into your application
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
@@ -164,7 +164,9 @@ plugins:
         'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
         'apis/notification-sender-rest-api.md': 'apis/notification-sender-v2-rest-api.md'
         'apis/organization-apis/notification-sender-rest-api.md':  'apis/organization-apis/notification-sender-rest-api.md'
-
+        'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
+        'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
+        'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
 exclude_docs: |
   /get-started/hello-world.md
 
@@ -228,8 +230,6 @@ nav:
       - MCP Server:
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
         - MCP-Auth Quickstart: quick-starts/mcp-auth-server.md
-    - Connect via MCP:
-      - MCP Server: quick-starts/mcp-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
@@ -245,7 +245,6 @@ nav:
           - Register a mobile app: guides/applications/register-mobile-app.md
           - Register a machine-to-machine app: guides/applications/register-machine-to-machine-app.md
           - Register a FAPI-compliant app: guides/applications/register-a-fapi-compliant-app.md
-          - Register an MCP client app: guides/applications/register-mcp-client-app.md
           - Register a React app: guides/applications/register-react-app.md
           - Register a Next.js app: guides/applications/register-nextjs-app.md
       - Authentication:
@@ -356,7 +355,6 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
-        - MCP server authorization: guides/authorization/mcp-server-authorization.md
         - User impersonation:
           - User impersonation: guides/authorization/user-impersonation/index.md
           - via Console: guides/authorization/user-impersonation/via-console.md
@@ -512,6 +510,10 @@ nav:
         - Asgardeo events: guides/monitoring/asgardeo-events.md
         - Organization insights: guides/organization-insights.md
       - Agentic AI:
+        - MCP Authorization:
+          - MCP Authorization: guides/agentic-ai/mcp/index.md
+          - Securing MCP Servers: guides/agentic-ai/mcp/mcp-server-authorization.md
+          - Securing MCP Clients: guides/agentic-ai/mcp/register-mcp-client-app.md
         - Identity for AI Agents:
           - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
           - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
@@ -526,8 +528,11 @@ nav:
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
-  - SDKs:
-    - Integrate Asgardeo into your application: sdks/index.md
+    - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
+  - Developer Tools:
+    - SDKs:
+      - Integrate Asgardeo into your application: sdks/index.md
+    - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
