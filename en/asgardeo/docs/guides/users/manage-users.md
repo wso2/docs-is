@@ -364,3 +364,135 @@ To filter users by account status:
     - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
 
         ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Add users with email verification
+
+1: Enable email verification
+
+!!! abstract ""
+
+
+        curl -X 'PATCH' \
+        'https://api.asgardeo.io/t/<org_name>/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "operation": "UPDATE",
+            "properties": [
+                {
+                    "name": "EmailVerification.Enable",
+                    "value": true
+                }
+            ]
+        }'
+
+
+2: Configure email verification method
+
+!!! abstract ""
+
+        curl -X 'PATCH' \
+        'https://api.asgardeo.io/t/<org_name>/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "operation": "UPDATE",
+            "properties": [
+                {
+                    "name": "EmailVerification.OTP",
+                    "value": true
+                }
+            ]
+        }'
+
+
+3: Create user with email verification required
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/scim2/Users' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "userName": "<USERNAME>",
+            "emails": [
+                {
+                    "primary": true,
+                    "value": "EMAIL"
+                }
+            ],
+            "password": "<PASSWORD>",
+            "urn:scim:wso2:schema": {
+                "verifyEmail": "true"
+            }
+        }'
+        ```
+    === "Sample request"
+
+        ```
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/scim2/Users' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "userName": "bob",
+            "emails": [
+                {
+                    "primary": true,
+                    "value": "bob@gmail.com"
+                }
+            ],
+            "password": "P@ssw0rd",
+            "urn:scim:wso2:schema": {
+                "verifyEmail": "true"
+            }
+        }'
+        ```
+
+    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+    
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+
+
+4: Confirm email or validate OTP
+
+You can verify the email using the confirmation link, or validate the OTP through the following API.
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/api/identity/user/v1.0/validate-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "code": "<CODE>"
+        }'
+        ```
+    === "Sample request"
+
+        ```
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/api/identity/user/v1.0/validate-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "code": "c1KLdm"
+        }'
+        ```
+    
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 202 Accepted"
+    ```
