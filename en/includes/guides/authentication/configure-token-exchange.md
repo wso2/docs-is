@@ -95,6 +95,8 @@ To enable token exchange in your application:
 
 4. Click **Update** to save the configurations.
 
+{% if product_name == "Asgardeo" %}
+
 ## Configure token exchange for a local user
 
 {{ product_name }} can exchange a third-party token with a token issued for an existing local user account. This is beneficial if you wish to check for blocked/disabled user accounts or to enforce Role-Based Access Control (RBAC).
@@ -124,34 +126,8 @@ You can configure lookup attributes to search for a matching local user account.
 
 After establishing account links, administrators can't delete them. Users can manage their own accounts links using the <a href="{{base_path}}/guides/user-self-service/manage-linked-accounts">Manage linked accounts</a> capability in the Self-service portal.
 
-!!! important
-    When configuring implicit account linking, select lookup attributes (such as `email`, `username`, or `externalId`) that are unique across all user stores. This prevents failures when multiple accounts match the same attribute.
-
-    {% if product_name == "WSO2 Identity Server" and (is_version == "7.0.0" or is_version == "7.1.0") %}
-    
-    If you have secondary user stores in {{ product_name }}, implicit association **excludes the PRIMARY user store** when searching for matching accounts.  
-    
-    {% if is_version == "7.1.0" %}
-
-    To include the PRIMARY user store in the search, add the following configuration to the `<IS_HOMe>/repository/conf/deployment.toml` file:
-
-    ```toml
-    [token_exchange.implicit_association]
-    include_primary_when_secondary_present = true
-    ```
-
-    {% elif is_version == "7.0.0" %}
-
-    In {{ product_name }} **7.1.0**, this can be enabled by a configuration. From {{ product_name }} **7.2.0 onwards**, PRIMARY user store will be considered in the lookup by default.
-
-    {% endif %}
-
-    {% endif %}
-
 !!! note
     {{ product_name }} skips implicit account linking when **Require linked local account** is disabled, even if the implicit linking option remains enabled.
-
-{% if product_name == "Asgardeo" %}
 
 To enable implicit account linking,
 
@@ -178,13 +154,6 @@ To enable implicit account linking,
     - `http://wso2.org/claims/mobile`
 
     {{ product_name }} will look for the <a href="{{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#view-openid-connect-attributes">mapped OpenID Connect attribute</a> in the third-party token.
-
-{% else %}
-
-### Implicit account linking
-
-In {{ product_name }}, implicit account linking can be configured via the 
-[Implicit Association API](https://is.docs.wso2.com/en/{{ is_version }}/apis/idp/#tag/Implicit-Association/operation/updateImplicitAssociation).
 
 {% endif %}
 
