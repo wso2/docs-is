@@ -194,6 +194,9 @@ extra:
     Tutorials:
       icon: octicons/mortar-board-16
       level: 1
+    SDKs:
+      icon: octicons/package-16
+      level: 1
     Setup:
       icon: octicons/gear-16
       level: 1
