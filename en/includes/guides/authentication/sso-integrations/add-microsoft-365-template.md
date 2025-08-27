@@ -29,38 +29,30 @@ Follow the steps below to configure Microsoft 365.
 
 ### Install modules
 
-In your Windows system, start Powershell and install the required modules.
+In your Windows system, start Powershell and install the Microsoft Graph Powershell SDK.
  
 ``` java
-#uninstall any existing older version of the AzureAD module
-uninstall-module AzureAD
+Install-Module Microsoft.Graph -Scope CurrentUser -Repository PSGallery -Force
+```
 
+Verify that the Microsoft Graph Powershell SDK is installed.
 
-install-module AzureAD
-install-module AzureADPreview
-install-module MSOnline
+```java
+Get-InstalledModule Microsoft.Graph
 ```
 
 ### Configure Azure AD to trust {{product_name}}
 
-The following steps configure the trust settings for Active Directory.
-
-1. On the Windows Azure Active Directory Powershell, run the following command which prompts for the Azure AD admin credentials. Enter the credentials and click OK.
+1. Run the following command to connect to the Active Directory.
 
     ``` java
-    $cred=Get-Credential
-    ```
-
-3. Run the following command to connect to the service with the stored credentials.
-
-    ``` java
-    Connect-MsolService –Credential $cred
+    Connect-MgGraph
     ```
 
 4. Run the following command to verify the availability of the validated domain.
 
     ``` java
-    Get-MsolDomain
+    Confirm-MgDomain
     ```
     !!! note
         The `Status` of the domain should be `Verified`, and `Authentication` should be `Managed`.
@@ -95,7 +87,7 @@ The following steps configure the trust settings for Active Directory.
     {% else %}
 
     ``` java
-    $issueruri = "localhost"
+    $issueruri = "https://localhost:9443/oauth2/token"
     ```
     {% endif %}
 
@@ -118,22 +110,38 @@ The following steps configure the trust settings for Active Directory.
        $cert = "MIIDCDCCAfCgAwIBAgIEtUo9DDANBgkqhkiG9w0BAQsFADBGMQ0wCwYDVQQGEwROb25lMRQwEgYDVQQKEwtOb25lIEw9Tm9uZTENMAsGA1UECxMETm9uZTEQMA4GA1UEAxMHYWxmaGVpbTAeFw0yNDAyMTgwODM0MzNaFw0zNDAzMTcwODM0MzNaMEYxDTALBgNVBAYTBE5vbmUxFDASBgNVBAoTC05vbmUgTD1Ob25lMQ0wCwYDVQQLEwROb25lMRAwDgYDVQQDEwdhbGZoZWltMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk3tgNcSqohc3Qt1AOYXXUklP1jIgxUBfjV7gWo5NXO9dBjI3ljbATeSP+1QKT9KfOYmz8IcJH00t8dlXeRMeLKywbp3Q2nFLGljL/iBdfzeU8TgyT68M6Evg21STAFx1uQmNwrXpnaB06UcTx2P/Fh5hiMewYpLf907VgQPPTFyMdh+3SanJ1jOX9GtyvUvYWcd2VUh0qeAXw4cei04VzsREhW6Dyx9UxybeqqT54dGOz+QGhkMyY56rwhZdVEHZH1ootdth09aCp66vNaYqIFwBXquyvRuHrG+WvX7oLcxOIwPutajvCXbdO9SepmFZJ5dFteC+Zbi5qYqOMjNPwwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAd/3JJecUOXYbVezUbpq1ICUqZrkDznGBcvjjeUq7NMYtbogC0JlOh+mVRPCn9ypicsF1R5OUfxRG6Bsu3AeyfelEHF870NAS1e5+zprBpWdlHdgznifVs02+1/JBDLWn9uFr35MyC4AE82yOdV5SQ9Xzn3igaXb+4/UtzHKknenHqhdXJ4LfTMVKSDwT8Uxte/XD0NpUZ7YjeOiBcALow7Nbt1JdFqnQ90j79gpJXA3Cz0ar0P58KwPDMurTwAiGaAetYY38XOYNtsyzK9LxLKPH7RX3FOLYYjF4PAZWEGUu7Wxk5t0462Srlru3fMWUksPO6pMEAIm88j7C1LCNc"
        ```
 
-11. Run the following command to establish trust.
+11. Convert certificate string to PEM (Graph expects Base64 encoded DER as plain string)
+
+    ```java
+    $certBytes = [System.Convert]::FromBase64String($cert)
+    $certBase64 = [System.Convert]::ToBase64String($certBytes)
+    ```
+
+12. Run the following command to establish trust.
+
+    ```java
+    Update-MgDomain -DomainId $dom -AuthenticationType "Federated"
+    ```
+
+    ``` java
+    New-MgDomainFederationConfiguration -DomainId $dom `
+    -ActiveSignInUri $logonurl `
+    -PassiveSignInUri $logonurl `
+    -IssuerUri $issueruri `
+    -SigningCertificate $certBase64 `
+    -SignOutUri $logouturl
+    ```
+
+13. Run the following command to verify the federation settings.
 
      ``` java
-     Set-MsolDomainAuthentication –DomainName $dom -Authentication Federated -PassiveLogOnUri $logonurl -SigningCertificate $cert -IssuerUri $issueruri -LogOffUri $logouturl -PreferredAuthenticationProtocol SAMLP
-     ```
-
-12. Run the following command to verify the federation settings.
-
-     ``` java
-     Get-MsolDomainFederationSettings -Domain $dom
+     Get-MgDomainFederationConfiguration -DomainId $dom
      ```
    
 You have now successfully set up trust between {{product_name}} and the Azure Active Directory. If you wish to redo the configurations, run the following command to move your domain back to the `Managed` authentication mode:
     
 ``` bash
-Set-MsolDomainAuthentication -DomainName $dom -Authentication Managed
+Update-MgDomain -DomainId $dom -AuthenticationType "Managed"
 ```
 
 ## Try it out
@@ -144,5 +152,25 @@ Now that you have integrated {{product_name}} with Microsoft 365, follow the ste
 2. Add the same user to Microsoft using the following command. Here, the ImmutableID should be the UUID of the user.
 
     ``` bash
-    New-MsolUser -UserPrincipalName yourdomain.com -ImmutableID userID -LastName lastNameOfUser -FirstName firstNameOfUser -DisplayName "WSO2 Test User"
+    # Variables
+    $upn = "pavindu@tryoutsso.wso2.com"
+    $immutableId = "d0aab6be-f960-47b3-bab0-863a04a2926d"
+    $firstName = "John"
+    $lastName = "Doe"
+    $displayName = "John Doe"
+    $password = "P@ssw0rd!"  # You must specify an initial password
+
+    # Create the user
+    New-MgUser `
+    -UserPrincipalName $upn `
+    -AccountEnabled:$true `
+    -DisplayName $displayName `
+    -GivenName $firstName `
+    -Surname $lastName `
+    -OnPremisesImmutableId $immutableId `
+    -MailNickname ($upn.Split("@")[0]) `
+    -PasswordProfile @{ 
+        ForceChangePasswordNextSignIn = $true
+        Password = "TempP@ssw0rd!"   # must provide an initial password
+    }
     ```
