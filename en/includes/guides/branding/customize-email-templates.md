@@ -97,7 +97,7 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 2. Select the email template and the relevant locale that you wish to modify.
 
     !!! note
-        Asgardeo gives you the option to automatically copy a template from one locale to another so that you do not have to create email templates from scratch. To do so, select a locale with an existing email template, switch over to the new locale and click confirm when the **Replicate content?** prompt appears.
+        {{ product_name }} gives you the option to automatically copy a template from one locale to another so that you don't have to create email templates from scratch. To do so, select a locale with an existing email template, switch over to the new locale and click confirm when the **Replicate content?** prompt appears.
 
     ![Select email template]({{base_path}}/assets/img/guides/branding/select-email-template.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
