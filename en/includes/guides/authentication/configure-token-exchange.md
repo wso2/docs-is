@@ -95,6 +95,8 @@ To enable token exchange in your application:
 
 4. Click **Update** to save the configurations.
 
+{% if product_name == "Asgardeo" %}
+
 ## Configure token exchange for a local user
 
 {{ product_name }} can exchange a third-party token with a token issued for an existing local user account. This is beneficial if you wish to check for blocked/disabled user accounts or to enforce Role-Based Access Control (RBAC).
@@ -124,13 +126,8 @@ You can configure lookup attributes to search for a matching local user account.
 
 After establishing account links, administrators can't delete them. Users can manage their own accounts links using the <a href="{{base_path}}/guides/user-self-service/manage-linked-accounts">Manage linked accounts</a> capability in the Self-service portal.
 
-!!! important
-    When configuring implicit account linking, select lookup attributes (such as `email`, `username`, or `externalId`) that are unique across all user stores. This prevents failures when multiple accounts match the same attribute.
-
 !!! note
     {{ product_name }} skips implicit account linking when **Require linked local account** is disabled, even if the implicit linking option remains enabled.
-
-{% if product_name == "Asgardeo" %}
 
 To enable implicit account linking,
 
@@ -157,13 +154,6 @@ To enable implicit account linking,
     - `http://wso2.org/claims/mobile`
 
     {{ product_name }} will look for the <a href="{{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#view-openid-connect-attributes">mapped OpenID Connect attribute</a> in the third-party token.
-
-{% else %}
-
-### Implicit account linking
-
-In {{ product_name }}, implicit account linking can be configured via the 
-[Implicit Association API](https://is.docs.wso2.com/en/{{ is_version }}/apis/idp/#tag/Implicit-Association/operation/updateImplicitAssociation).
 
 {% endif %}
 
