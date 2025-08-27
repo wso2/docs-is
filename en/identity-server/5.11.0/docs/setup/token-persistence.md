@@ -601,7 +601,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
         ```
 
     ??? Example "Postgres"
-    
+
         ```sql
         CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID              VARCHAR(255) PRIMARY KEY,
@@ -683,6 +683,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
             [oauth.token_persistence]
             retain_revoked_access_token = false
         ```
+
 ### Removing unused refresh tokens and revoke entries from the Database
 
 !!! note
@@ -694,8 +695,8 @@ However, over time, the accumulation of such records can impact overall server p
 
 The following sections guide you through the difference ways to perform cleanup and  how to configure them.
 
--   [**Token Cleanup via Stored Procedure** (Recommended)](#token-cleanup-via-stored-procedure)
--   [**Configuring WSO2 Identity Server for token cleanup**](#configuring-wso2-identity-server-for-token-cleanup)
+- [**Token Cleanup via Stored Procedure** (Recommended)](#token-cleanup-via-stored-procedure)
+- [**Configuring WSO2 Identity Server for token cleanup**](#configuring-wso2-identity-server-for-token-cleanup)
 
 #### Token Cleanup via Stored Procedure
 
@@ -722,9 +723,9 @@ method.
 
    This script:
 
-   * Backs up token-related tables (if enabled)
-   * Deletes eligible expired, revoked, or inactive entries
-   
+   - Backs up token-related tables (if enabled)
+   - Deletes eligible expired, revoked, or inactive entries
+
 3. **Restart the Server**
    Once cleanup is complete, restart **WSO2 Identity Server** with the updated and cleaned database. You can optionally **schedule periodic execution** of the cleanup procedure.
 
