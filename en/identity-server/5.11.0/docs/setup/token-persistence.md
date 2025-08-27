@@ -681,3 +681,84 @@ To address this, token persistence optimization helps by not storing access toke
             [oauth.token_persistence]
             retain_revoked_access_token = false
         ```
+### Removing unused refresh tokens and revoke entries from the Database
+
+!!! note
+    This section applies to database cleanup when the non-persistent access token feature is enabled. For persistent mode, refer to [Clean unused tokens from database](../../setup/removing-unused-tokens-from-the-database).
+
+As you continue to use **WSO2 Identity Server (WSO2 IS)**, the number of **revoked**, **inactive**, and **expired** tokens increases in the `IDN_OAUTH2_REFRESH_TOKEN` table. When a token is revoked, a record is also added to the `IDN_OAUTH2_REVOKED_TOKENS` table. These tokens are retained for purposes such as **logging**, **auditing**, and **validation**.
+
+However, over time, the accumulation of such records can impact overall server performance and increase the size of the database. To ensure optimal performance, it is recommended to periodically clean up unused and expired tokens.
+
+The following sections guide you through the difference ways to perform cleanup and  how to configure them.
+
+-   [**Token Cleanup via Stored Procedure** (Recommended)](#token-cleanup-via-stored-procedure)
+-   [**Configuring WSO2 Identity Server for token cleanup**](#configuring-wso2-identity-server-for-token-cleanup)
+
+#### Token Cleanup via Stored Procedure
+
+You can use the provided stored procedures to run a
+token cleanup task periodically to remove the old and invalid tokens and clean up `IDN_OAUTH2_REVOKED_TOKEN` table.
+Follow the instructions below to configure token cleanup using this
+method.
+
+!!! tip
+    It is safe to run these steps in read-only mode or during a time when traffic on the server is low but that is not mandatory.
+
+1. **Disable Internal Token Cleanup**
+   Update the `deployment.toml` file located in `<IS_HOME>/repository/conf`:
+
+   ```toml
+   [oauth.token_cleanup]
+   enable = false
+   ```
+
+2. **Run the Cleanup Script**
+   Select the appropriate SQL script based on your database type and execute it.
+
+      - [MySQL Stored Procedure Script](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/non-persistence-access-token-cleanup/)
+
+   This script:
+
+   * Backs up token-related tables (if enabled)
+   * Deletes eligible expired, revoked, or inactive entries
+   
+3. **Restart the Server**
+   Once cleanup is complete, restart **WSO2 Identity Server** with the updated and cleaned database. You can optionally **schedule periodic execution** of the cleanup procedure.
+
+#### Configuring WSO2 Identity Server for token cleanup
+
+You can also configure **WSO2 Identity Server** to trigger **refresh token cleanup** during the following events:
+
+1. **On token refresh**: When issuing a new refresh token
+2. **On token revocation**: When a refresh token is explicitly revoked
+3. **User revoke events**: This includes events like **user deletion**, **user locked**, or **user role deletion**.
+4. **Application revoke events**: This includes **application credentials revocation** or **application deletion**.
+
+!!! warning  "Manual Cleanup Required For Cleaning IDN_OAUTH2_REVOKED_TOKENS and IDN_SUBJECT_ENTITY_REVOKED_EVENT"
+    The tables `IDN_OAUTH2_REVOKED_TOKENS` and `IDN_SUBJECT_ENTITY_REVOKED_EVENT` do not have an automatic cleanup procedure by default. You must **manually implement** cleanup scripts for these tables to avoid database bloat and maintain performance.
+
+Enable token cleanup by configuring the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+
+```toml
+[oauth.token_cleanup]
+enable = true
+```
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>enable</code></td>
+            <td>
+                <p>Set this property to <code>true</code> to enable refresh token cleanup.</p>
+                <p>Set it to <code>false</code> to disable token cleanup.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
