@@ -1,8 +1,8 @@
 # Flows
 
-In Asgardeo, a flow defines the sequence a user follows during a specific interaction with your application. These can include forms, verification actions, conditional logic, and other components that guide users from start to finish.
+A flow defines the sequence a user follows during a specific interaction with your application. These can include forms, verification actions, conditional logic, and other components that guide users from start to finish.
 
-The **Flows** section in the {{product_name}} Console allows you to build fully customizable sequences for the following user interactions.
+{{product_name}} lets you build fully customizable sequences for the following user interactions.
 
 - **Self-registration** - Create registration experiences for new users, with support for multi step forms, validations, and identity verification.
 

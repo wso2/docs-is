@@ -5,37 +5,33 @@ A **flow** defines the sequence of steps a user goes through during a specific i
 - Self-registration
 - Password recovery
 
-This guide introduces the **Flow Builder**, a visual environment with all the necessary elements to create flows that meet both security requirements and user experience goals.
+This guide introduces the **Flow Builder**, a visual environment with all the necessary elements to build flows that meet both security requirements and user experience goals.
 
 ## Enable a flow
 
-{{product_name}} has default flows for each of the flows that you define with the flow builder. You can keep the flow disabled until you are ready to deploy and the users can continue using the default flow.
+{{product_name}} provides default sequences for every flow in the flow builder. You can design and refine your customized flow at your own pace, keeping it disabled until you’re ready to share it. While your customized flow is disabled, users continue to experience the default flow. Once enabled, your users will seamlessly change to the customized experience you’ve created.
 
-For each of the flows you can build with the flow builder, {{product_name}} has default flows. Until you enable the your customized flow, users 
+To enable a flow,
 
-To enable a flow, please follow the steps below.
+1. On the {{product_name}} Console, go to **Flows**.
 
-### Steps to Enable a Flow
+2. Select the flow you want to enable.
 
-1. Navigate to **Home → Flows**.
-2. Select the flow **card** you want to enable.
-3. Select a **Template** or **Design Your Flow** <br>
-    - You can either choose a **starter template**, or
-    - Build your own flow using the **drag-and-drop** flow designer.
-4. Save and enable the flow <br>
-    - If you want to save your work and continue later, click **Save Draft**.
-    - To make the flow live, turn on the **Enable** toggle. This saves and publishes your flow.
+3. On the top-right corner of the screen, turn the toggle ON to enable the flow.
 
 !!! Note
-    Enabling a flow overrides the existing experience for that flow in your organization. You can always revert to the previous experience by disabling the toggle.
 
-## Building a Flow
+    If you disable a customized flow, your users will automatically continue with the default experience until you’re ready to publish it again.
 
-The Flow Builder supports multiple approaches so you can create user journeys in the way that best fits your needs.
+## Build a flow
+
+The **Flow builder** provides all the building blocks you need to create seamless user journeys. To get started, go to **Flows** in the {{product_name}} Console and select the flow you want to customize.
+
+You can begin building in one of the following ways:
 
 ### Generate with AI
 
-Describe your ideal flow in plain language, and the builder will generate it automatically. This is ideal for quickly creating complex flows without manually placing every component.
+The **Generate with AI** feature converts plain-language instructions into a complete flow, allowing you to start quickly and customize components as needed.
 
 ![Flow builder AI]({{base_path}}/assets/img/guides/flows/flow-builder-generate-with-ai.png){: width="auto" style="display: block; margin: 0;"}
 
