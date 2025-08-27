@@ -672,14 +672,15 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
 2. Add the following to the deployment.toml to enable the feature in WSO2 Identity Server. 
 
-    ```
+    ```toml
         [oauth.token_persistence]
         persist_access_token=false
         retain_revoked_access_token = true
     ```
+
     !!! Tip
         If you don't want the Identity server to store revoked tokens and details related to revoked subjects, you can disable by changing updating following configuration
-        ```
+        ```toml
             [oauth.token_persistence]
             retain_revoked_access_token = false
         ```
