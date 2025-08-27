@@ -127,8 +127,7 @@ By default, JWT access-token generation or validation triggers interactions with
 
 ### Why optimize JWT Acces token persistence?
 
-In large-scale WSO2 Identity Server deployments, especially with millions of users and high concurrency, the number of tokens stored in the database can grow quickly, making it harder to scale. This can lead to reduced performance and lower Transactions Per Second (TPS) for token generation. For instance, a telecom provider with 1.4 million subscribers and a token generation rate of 1,000 per second might struggle with scaling using traditional methods like adding more nodes, partitioning the database, or running token cleanup scripts. 
-To address this, token persistence optimization helps by not storing access tokens. This approach avoids storing tokens during generation while still supporting essential features like token revocation and refresh grants, improving scalability and performance.
+In large-scale WSO2 Identity Server deployments, especially with millions of users and high concurrency, the number of tokens stored in the database can grow quickly, making it harder to scale. This can lead to reduced performance and lower Transactions Per Second (TPS) for token generation. To address this, token persistence optimization helps by not storing access tokens. This approach avoids storing access tokens during generation while still supporting essential features like token revocation and refresh grants, improving scalability and performance.
 
 - **Reduce database queries during token request**: When a token is issued, the **access token** will no longer be stored in the `IDN_ACCESS_TOKEN` table. Only the **refresh token** will be stored. As a result, authorization grants like **Client Credentials**, which do not issue a refresh token, will experience improved throughput due to the reduction in database query overhead.
 - **Efficient database storage**: When tokens are stored in the persistent access_token mode, new entries are added to the database with each token request, even if the same refresh token is used. However, with the **non-persistent access token** feature enabled, only the **refresh token** is stored. If the current refresh token is still valid for the grant, no additional database rows will be added during token requests, leading to more efficient database storage.
@@ -136,6 +135,9 @@ To address this, token persistence optimization helps by not storing access toke
 
 ### Things to consider when using JWT access token persistence optimization
 
+- This mode is particularly suitable for the following scenarios:
+    - When most token requests are based on authorization grants such as **Client Credentials**, which do not issue a refresh token.
+    - When **Refresh Token Grants** are configured **without refresh token rotation**, reducing the need for persistent token tracking.
 - The **token persistence optimization** feature works only with **JWT access tokens**, as they can be self-validated.
 - When enabling this feature in an existing setup:
     - **Opaque token generation** will continue to work as expected for applications configured to use opaque tokens.
