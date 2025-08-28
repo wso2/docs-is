@@ -70,7 +70,7 @@ The agentic AI era necessitates a proactive and fundamental rethinking of enterp
 
 ??? note "Ready to build AI agents?"
 
-    Start by learning how to [register and manage agents](./register-manage-agents.md). 
+    Start by learning how to [register and manage agents]({{base_path}}/guides/agentic-ai/ai-agents/register-manage-agents/). 
 
     This guide provides step-by-step instructions for setting up agent identities, assigning roles, and managing secure access.
 
