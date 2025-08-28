@@ -322,6 +322,10 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
     With WSO2 Identity Server 7.1, the Carbon Registry, previously used as a data repository, has been deprecated. Registry dependencies have been removed from the WSO2 Identity Server, and the registry core is planned for removal in a future release, streamlining the system and reducing legacy components.
 
+- **SCIM 2.0 Roles API (v2)**
+
+    This release deprecates the [SCIM 2.0 Roles API (v2)]({{base_path}}/apis/role-management/roles-v2-rest-api/). Use the latest [SCIM 2.0 Roles API (v3)]({{base_path}}/apis/role-management/roles-v3-rest-api/) API for listing roles and updating users and groups of the roles.
+
 ## Deprecated configurations
 
 - **use_client_id_as_sub_claim_for_app_tokens & remove_username_from_introspection_response_for_app_tokens**

@@ -438,7 +438,7 @@ paths:
         - Organization
       description: |
         This API updates the editable fields of the organization associated with the currently accessing organization.
-        Currently only the organization name can be updated using this API.
+        Currently only the organization name and version can be updated using this API.
         
         <b>Scopes (Permissions) required:</b> `internal_organization_update`
       summary: Update organization details of the currently accessing organization.
@@ -703,6 +703,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         attributes:
           type: array
           items:
@@ -770,6 +773,7 @@ components:
         - name
         - orgHandle
         - status
+        - version
         - ref
       properties:
         id:
@@ -785,6 +789,9 @@ components:
           type: string
           enum: [ ACTIVE, DISABLED ]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         hasChildren:
           type: boolean
           example: false
@@ -802,6 +809,7 @@ components:
         - name
         - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -822,6 +830,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'
@@ -849,6 +860,7 @@ components:
         - name
         - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -869,6 +881,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'
@@ -1003,6 +1018,7 @@ components:
         - name
         - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -1023,6 +1039,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'

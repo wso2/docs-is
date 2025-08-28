@@ -30,6 +30,12 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "peter@aol.com"
+          }
+        ],
         "organization": {
           "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
           "name": "myorg",
@@ -76,6 +82,12 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "peter@aol.com"
+          }
+        ],
         "organization": {
           "id": "6f8d17ae-1ad5-441b-b9e0-c7731e739e94",
           "name": "myorg",
@@ -730,11 +742,11 @@ The table below explains how these properties differ based on each flow.
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           },
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test1@test.com"
+            "value": "peter@aol.com"
           }
         ],
         "organization": {
@@ -788,11 +800,11 @@ The table below explains how these properties differ based on each flow.
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           },
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test1@test.com"
+            "value": "peter@aol.com"
           }
         ],
         "organization": {
@@ -900,11 +912,11 @@ The table below explains each property in the event data.
         "claims": [
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test1@test.com"
+            "value": "peter@aol.com"
           },
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           }
         ],
         "organization": {
@@ -956,11 +968,11 @@ The table below explains each property in the event data.
         "claims": [
           {
             "uri": "http://wso2.org/claims/emailaddress",
-            "value": "test1@test.com"
+            "value": "peter@aol.com"
           },
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           }
         ],
         "organization": {
@@ -1061,7 +1073,7 @@ This event triggers for every new session creation during the login process. It 
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           }
         ],
         "organization": {
@@ -1120,7 +1132,7 @@ This event triggers for every new session creation during the login process. It 
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           }
         ],
         "organization": {
@@ -1233,7 +1245,7 @@ The table below explains each property in the event data.
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           }
         ],
         "organization": {
@@ -1292,7 +1304,7 @@ The table below explains each property in the event data.
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           }
         ],
         "organization": {
@@ -1405,7 +1417,7 @@ The table below explains each property in the event data.
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           }
         ],
         "organization": {
@@ -1462,7 +1474,7 @@ The table below explains each property in the event data.
         "claims": [
           {
             "uri": "http://wso2.org/claims/username",
-            "value": "test1"
+            "value": "peter"
           }
         ],
         "organization": {
@@ -1760,6 +1772,173 @@ The table below explains how these properties differ based on each flow.
 ## User account management events
 
 {{product_name}} dispatches webhook events for changes to user profiles and account statuses. These events provide detailed context for each action, helping you synchronize external systems with user data and manage user lifecycle within your applications.
+
+### User created event
+
+{{product_name}} sends a <code>userCreated</code> event when a new user account gets created in the system.
+
+This event triggers when administrators, applications, or users create accounts through various flows like direct registration, invitations, or automated provisioning.
+
+**Example payload:**
+
+{% if product_name == "Asgardeo" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "b6148a40-9e3c-45c4-b57d-85c7da482ad5",
+  "iat": 1755618921154,
+  "rci": "dca8d1d5-5a8f-4141-aac6-2abcb27fd168",
+  "events": {
+    "https://schemas.identity.wso2.org/events/user/event-type/userCreated": {
+      "initiatorType": "ADMIN",
+      "user": {
+        "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "johndoe@aol.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "johndoe@aol.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/lastname",
+            "value": "Doe"
+          },
+          {
+            "uri": "http://wso2.org/claims/givenname",
+            "value": "John"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/3987d74e-8432-4f4d-b1a8-cad463af843d"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "action": "REGISTER"
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "b6148a40-9e3c-45c4-b57d-85c7da482ad5",
+  "iat": 1755618921154,
+  "rci": "dca8d1d5-5a8f-4141-aac6-2abcb27fd168",
+  "events": {
+    "https://schemas.identity.wso2.org/events/user/event-type/userCreated": {
+      "initiatorType": "ADMIN",
+      "user": {
+        "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/username",
+            "value": "johndoe@aol.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "johndoe@aol.com"
+          },
+          {
+            "uri": "http://wso2.org/claims/lastname",
+            "value": "Doe"
+          },
+          {
+            "uri": "http://wso2.org/claims/givenname",
+            "value": "John"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/3987d74e-8432-4f4d-b1a8-cad463af843d"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "action": "REGISTER"
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a user creation, identified by the URI <code>https://schemas.identity.wso2.org/events/user/event-type/userCreated</code>. This URI signifies a successful user creation event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the newly created user including user claims and organization details.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the user creation.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the user creation.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the user creation.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Shows the user creation flow type. Can have values like <code>REGISTER</code> for direct registration or <code>INVITE</code> for invitation-based creation.</p></td>
+</tr>
+</tbody>
+</table>
 
 ### User profile updated event
 
@@ -2187,6 +2366,268 @@ The table below explains each property in the event data.
 <tr class="odd">
 <td>initiatorType</td>
 <td><p>Indicates whether an administrator or application initiated the user enablement.</p></td>
+</tr>
+</tbody>
+</table>
+
+### User account locked event
+
+{{product_name}} sends a <code>userAccountLocked</code> event when a user account gets locked.
+
+This event triggers when accounts get locked due to failed login attempts, administrative action, or security policies. Locked accounts prevent users from authenticating until unlocked.
+
+**Example payload:**
+
+{% if product_name == "Asgardeo" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "5ab9d903-a718-4e71-9a16-314203f02778",
+  "iat": 1755619049121,
+  "rci": "24b22c09-ae39-4942-896f-5c14fd18b4e0",
+  "events": {
+    "https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked": {
+      "user": {
+        "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "johndoe@aol.com"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/3987d74e-8432-4f4d-b1a8-cad463af843d"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      }
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "5ab9d903-a718-4e71-9a16-314203f02778",
+  "iat": 1755619049121,
+  "rci": "24b22c09-ae39-4942-896f-5c14fd18b4e0",
+  "events": {
+    "https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked": {
+      "user": {
+        "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "johndoe@aol.com"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/3987d74e-8432-4f4d-b1a8-cad463af843d"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      }
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a user account locked event, identified by the URI <code>https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked</code>. This URI signifies a user account lock event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user whose account got locked.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the account locking.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the account locking.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+</tbody>
+</table>
+
+### User account unlocked event
+
+{{product_name}} sends a <code>userAccountUnlocked</code> event when a user account gets unlocked.
+
+This event triggers when locked accounts get restored to normal status through administrative action or automatic timeout policies. Unlocked accounts allow users to authenticate again.
+
+**Example payload:**
+
+{% if product_name == "Asgardeo" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "7bf8f4ce-816e-46a2-8964-99682ece9084",
+  "iat": 1755619053135,
+  "rci": "e26aade5-ad74-4e5f-a98b-762bd218197e",
+  "events": {
+    "https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked": {
+      "user": {
+        "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "johndoe@aol.com"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg",
+          "depth": 0
+        },
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/3987d74e-8432-4f4d-b1a8-cad463af843d"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      }
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "7bf8f4ce-816e-46a2-8964-99682ece9084",
+  "iat": 1755619053135,
+  "rci": "e26aade5-ad74-4e5f-a98b-762bd218197e",
+  "events": {
+    "https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked": {
+      "user": {
+        "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "johndoe@aol.com"
+          }
+        ],
+        "organization": {
+          "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "name": "myorg",
+          "orgHandle": "myorg.com",
+          "depth": 0
+        },
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/3987d74e-8432-4f4d-b1a8-cad463af843d"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      }
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a user account unlocked event, identified by the URI <code>https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked</code>. This URI signifies a user account unlock event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user whose account got unlocked.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the account unlocking.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the account unlocking.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
 </tr>
 </tbody>
 </table>

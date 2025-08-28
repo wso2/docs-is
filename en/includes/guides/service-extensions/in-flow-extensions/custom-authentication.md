@@ -12,7 +12,7 @@ In {{product_name}}, authenticators identify and verify users. You can use diffe
 
       - **Internal User Identification Authenticators:**
         Authenticate users against the internal user stores (e.g., basic authentication with username and password).
-      - **External(Federated) User Identification Authenticators:**
+      - **External (Federated) User Identification Authenticators:**
         Delegate authentication to external systems like social login providers (e.g., Google, Facebook).
 
 - **Verification Authenticators:**
@@ -30,7 +30,7 @@ When you configure and add a custom authenticator to an application's login flow
 At the relevant login step, if the user selects a custom authenticator, {{product_name}} invokes the corresponding authentication service endpoint. This request includes the <code>flowId</code>, a unique identifier used to track the authentication flow.
 3. The custom authentication service processes the request and either:
     - Authenticates the user directly and returns the response to {{product_name}}.
-    - If required inputs (for example user identifier, PIN) are missing, redirect the user to a designated URL where they can provide the necessary information. This URL is part of your custom authenticator's implementation..
+    - If required inputs (for example user identifier, PIN) are missing, redirect the user to a designated URL where they can provide the necessary information. This URL is part of your custom authenticator's implementation.
 4. When your service requests a redirect, {{product_name}} forwards the user to the provided URL.
 5. The user directly interacts with the custom authentication service and authenticates.
 6. Once authenticated, the external service redirects the user back to {{product_name}}, including the assigned <code>flowId</code> in the request.
@@ -89,17 +89,18 @@ Your external web service should do the following to integrate as a custom authe
 
 Follow the steps below to configure a custom authenticator.
 
-1. Select **CustomAuthenticator** and click **Create**.
+1. On the {{product_name}} Console, navigate to **Connections**.
+2. Click on **New Connection** button, select **Custom Authenticator** and click **Create**.
 
     ![select-custom-authenticator-template-in-ui]({{base_path}}/assets/img/guides/actions/select-custom-authenticator-template-in-ui.png){: width="650" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-2. In the setup wizard, choose the appropriate authentication type and click **Next**. Refer to [Types of authenticators](#types-of-authenticators) for further clarification.
+3. In the setup wizard, choose the appropriate authentication type and click **Next**. Refer to [Types of authenticators](#types-of-authenticators) for further clarification.
 
     ![select-custom-authenticator-type-in-ui]({{base_path}}/assets/img/guides/actions/select-custom-authenticator-type-in-ui.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Under **General Settings**, specify an **identifier** for your authenticator and a **display name** that appears on login pages.
+4. Under **General Settings**, specify an **identifier** for your authenticator and a **display name** that appears on login pages.
 
-4. In the **Configuration** section, fill in the following details and click **Finish**:
+5. In the **Configuration** section, fill in the following details and click **Finish**:
 
     - **Endpoint**: Provide the URL of the web service endpoint you created.
     - **Authentication**: Choose the authentication method required to invoke your endpoint and configure its properties accordingly.
@@ -113,12 +114,12 @@ Follow the steps below to configure a custom authenticator.
         - API Key - Provide the header name and the value.
         - No Authentication - No authentication (recommended only for testing purposes).
 
-5. If you select **External (Federated) User Authentication**, configure [JIT-User Provisioning]({{base_path}}/guides/authentication/jit-user-provisioning) according to your requirements. Additionally, review and set up [role assignments for user groups]({{base_path}}/guides/users/manage-roles/#assign-external-groups-to-a-role) to ensure seamless integration.
+6. If you select **External (Federated) User Authentication**, configure [JIT-User Provisioning]({{base_path}}/guides/authentication/jit-user-provisioning) according to your requirements. Additionally, review and set up [role assignments for user groups]({{base_path}}/guides/users/manage-roles/#assign-external-groups-to-a-role) to ensure seamless integration.
 
 !!! note
     If you want to send extra HTTP request headers or extra parameters to your external service, you can add them in **Allowed headers** and **Allowed parameters** under the **Settings** tab in custom authenticator configuration.
 
-### Add to an application login flow
+### Add the custom authenticator to an application login flow
 
 Follow the steps below to integrate the custom authenticator into your application's login flow:
 
