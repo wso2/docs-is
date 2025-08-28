@@ -62,3 +62,6 @@ exceptions:
   - XSS
   - YAML
   - ZIP
+  - OIDC
+  - SAML
+  - TLS
