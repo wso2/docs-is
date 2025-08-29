@@ -23,7 +23,7 @@ enable = true
 ```
 
 !!! Note
-    This feature is available for token request with the `client_crendetials` grant type by default. If you need to enable for
+    This feature support token requests with the `client_crendetials` grant type by default. If you need to enable for
     other grant types, add the following configuration to `deployment.toml` file.
 
     ```toml
@@ -34,5 +34,5 @@ enable = true
 
 !!! Warning
     Enabling this feature could lead to an exponential growth of tokens.
-    Be sure to configure token clean up scripts with proper time limits.
+    Make sure to configure token clean up scripts with proper time limits.
     See [Remove Unused Tokens from the Database](../../../deploy/remove-unused-tokens-from-the-database/) for details.
