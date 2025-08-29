@@ -1,8 +1,8 @@
-# JSON Web Token (JWT) token generation without revoking existing tokens
+# JSON Web Token generation without revoking existing tokens
 
 When WSO2 Identity Server receives a request to generate a new JSON Web Token (JWT), it issues a token based on the **application, user, scope, and binding** combination. If the server receives another request for the same combination, it revokes the existing token and returns a new one.
 
-If you want to generate a JWT token without revoking the existing token, add and configure the following property in the
+If you want to generate a JWT without revoking the existing token, add and configure the following property in the
 `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
 ```toml
