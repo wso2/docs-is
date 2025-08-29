@@ -1,4 +1,4 @@
-# JWT (JSON Web Token) token generation without revoking existing tokens
+# JSON Web Token (JWT) token generation without revoking existing tokens
 
 !!! note
     Instead of configuring the **JWT** token in the
