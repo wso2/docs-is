@@ -79,6 +79,32 @@ This defines how long the password setup invitation email or OTP remains valid.
     <td>Set the number of characters in the generated OTP codes.</td>
   </tr>
 </table>
+
+## **Try out Invite user to set password** 
+
+1.  On the {{product_name}} Console, go to **User Management**, then go to **Users** 
+
+2. Click **Add User** > **Single User**.
+
+3. Fill in the user's details.
+
+4. Select the **Invite the user to set their own password** option.
+
+5. Click **Next** and **Finish**.
+
+6. You will receive an **email link**, **email OTP**, or **SMS OTP** based on your configuration.
+
+   - **Click the email link** to start the password setup flow.
+   - **If you receive an OTP**, enter it to begin the password setup flow.
+
+  This step verifies the user's identity and starts the password creation process.
+
+   **Tip:**
+   
+   - You can redirect users to the password recovery endpoint with the OTP to initiate setup.
+
+   - Otherwise you can try your application's basic authentication with the username and OTP as the password. This triggers the password setup flow if the OTP is valid.
+   
 {% else %}
 <table>
   <tr>
