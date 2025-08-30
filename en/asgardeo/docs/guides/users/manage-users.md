@@ -371,7 +371,6 @@ To filter users by account status:
 
 !!! abstract ""
 
-
         curl -X 'PATCH' \
         'https://api.asgardeo.io/t/<org_name>/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
         -H 'Authorization: Bearer <access_token>' \
@@ -386,8 +385,7 @@ To filter users by account status:
             ]
         }'
 
-
-2: Configure email verification method (Optional). Enable this if OTP needs to be received via email.
+2: Configure email verification method (Optional). Enable this to send OTP via email.
 
 !!! abstract ""
 
@@ -404,7 +402,6 @@ To filter users by account status:
                 }
             ]
         }'
-
 
 3: Create user with email verification required
 
@@ -461,10 +458,9 @@ To filter users by account status:
     "HTTP/1.1 201 Created"
     ```
 
+4: Confirm email or validate OTP (One-Time Password)
 
-4: Confirm email or validate OTP
-
-You can verify the email using the confirmation link, or validate the OTP through the following API.
+You can verify the email using the confirmation link, or enter the OTP using the following API.
 
 !!! abstract ""
 
