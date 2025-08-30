@@ -48,7 +48,6 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
     !!! note
         If you have selected **Invite offline** or decided to **set a password for the user**, you can copy the corresponding information at the **Summary** page of the wizard and share with the user.
 
-
 ### Onboard multiple users
 
 In addition to adding a single user, you can onboard multiple users at once, either manually or by using a CSV file. This is especially useful for large organizations where bulk operations can save time and reduce the effort of adding users one by one.
