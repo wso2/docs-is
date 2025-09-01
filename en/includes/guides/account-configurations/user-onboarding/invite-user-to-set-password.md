@@ -80,19 +80,21 @@ This defines how long the password setup invitation email or OTP remains valid.
   </tr>
 </table>
 
-## **Try out Invite user to set password** 
+## Try out Invite user to set password
 
-1.  On the {{product_name}} Console, go to **User Management**, then go to **Users** 
+1. On the {{product_name}} Console, go to **User Management**.
 
-2. Click **Add User** > **Single User**.
+2. Go to **Users**.
 
-3. Fill in the user's details.
+3. Click **Add User** > **Single User**.
 
-4. Select the **Invite the user to set their own password** option.
+4. Fill in the user's details.
 
-5. Click **Next** and **Finish**.
+5. Select the **Invite the user to set their own password** option.
 
-6. You will receive an **email link**, **email OTP**, or **SMS OTP** based on your configuration.
+6. Click **Next** and **Finish**.
+
+7. You will receive an **email link**, **email OTP**, or **SMS OTP** based on your configuration.
 
    - **Click the email link** to start the password setup flow.
    - **If you receive an OTP**, enter it to begin the password setup flow.

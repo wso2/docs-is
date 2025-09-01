@@ -3,6 +3,7 @@
 This guide walks you through the process of managing a user account. An owner or an administrator can manage user accounts.
 
 ## Onboard users
+
 There are three ways to onboard a user:
 
 - The user can self-register via the My Account portal or the login page of an application if self-registration is enabled in the organization. Learn how to [configure self-registration]({{base_path}}/guides/user-accounts/configure-self-registration/).
@@ -450,8 +451,6 @@ To filter users by account status:
         }'
         ```
 
-    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
-    
     ---
     **Response**
     ```
