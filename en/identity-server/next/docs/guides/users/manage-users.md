@@ -3,6 +3,7 @@
 This guide walks you through how you can manage user accounts as an administrator.
 
 ## Onboard users
+
 There are three ways to onboard a user:
 
 - The user can self-register via the My Account portal or the login page of an application if self-registration is enabled in the organization. Learn how to [configure self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/).
@@ -84,17 +85,19 @@ In addition to adding a single user, you can onboard multiple users at once, eit
 5. Ensure your CSV file is formatted correctly, with headers that correspond to user attributes. These attributes must be mapped to local attributes.
     - A sample CSV file format would include: `username, givenname, emailaddress, groups`
     - For example:
-      ```
+
+      ```csv
       username,givenname,emailaddress,groups
       user1,john,john@test.com,group1|group2
       user2,jake,jake@test.com,group2
       user3,jane,jane@test.com,group1
       ```
+
 6. Click **Import** to add the users to the system.
 7. An email with a confirmation link will be sent to the provided email addresses, allowing the users to set their own passwords.
 
-
 ## Assign groups
+
 Groups are useful when you wish to assign a certain permission level to multiple users. A user can be a member of multiple groups in the organization. Learn how to [manage groups]({{base_path}}/guides/users/manage-groups/).
 
 To assign users to groups:
@@ -332,6 +335,7 @@ To disable a user account,
 ![Account disable reason]({{base_path}}/assets/img/guides/users/account-disable-text.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Delete a user
+
 A user account can be deleted by administrators. Once an account is deleted, the action is irreversible.
 
 To delete a user account:
@@ -357,7 +361,135 @@ To filter users by account status:
     - **Disabled**: Filters users with deactivated accounts.
     - **Pending password reset**: Filters users for whom the administrator has initiated a forced password reset, but the users haven't yet reset their passwords.
     - **Pending initial password setup**: Filters users an administrator invited to set their own password during initial account creation but who haven't done so yet.
-   - **Pending email verification**: Filters users who haven't yet verified their primary email addresses.
-   - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
+    - **Pending email verification**: Filters users who haven't yet verified their primary email addresses.
+    - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
 
         ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Add users with email verification
+
+1. Enable email verification
+
+!!! abstract ""
+
+        curl -X 'PATCH' \
+        'https://localhost:9443/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "operation": "UPDATE",
+            "properties": [
+                {
+                    "name": "EmailVerification.Enable",
+                    "value": true
+                }
+            ]
+        }'
+
+2. Configure email verification method (Optional). Enable this to send OTP via email.
+
+!!! abstract ""
+
+        curl -X 'PATCH' \
+        'https://localhost:9443/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "operation": "UPDATE",
+            "properties": [
+                {
+                    "name": "EmailVerification.OTP",
+                    "value": true
+                }
+            ]
+        }'
+
+3. Create user with email verification required
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://localhost:9443/scim2/Users' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "userName": "<USERNAME>",
+            "emails": [
+                {
+                    "primary": true,
+                    "value": "<EMAIL>"
+                }
+            ],
+            "password": "<PASSWORD>",
+            "urn:scim:wso2:schema": {
+                "verifyEmail": "true"
+            }
+        }'
+        ```
+    === "Sample request"
+
+        ```
+        curl -X 'POST' \
+        'https://localhost:9443/scim2/Users' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "userName": "bob",
+            "emails": [
+                {
+                    "primary": true,
+                    "value": "bob@gmail.com"
+                }
+            ],
+            "password": "P@ssw0rd",
+            "urn:scim:wso2:schema": {
+                "verifyEmail": "true"
+            }
+        }'
+        ```
+
+    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+    
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+
+4. Confirm email or validate OTP (One-Time Password)
+
+You can verify the email using the confirmation link, or enter the OTP using the following API.
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://localhost:9443/api/identity/user/v1.0/validate-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "code": "<CODE>"
+        }'
+        ```
+    === "Sample request"
+
+        ```
+        curl -X 'POST' \
+        'https://localhost:9443/api/identity/user/v1.0/validate-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "code": "c1KLdm"
+        }'
+        ```
+    
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 202 Accepted"
+    ```
