@@ -819,7 +819,7 @@ nav:
               - Token persistence: deploy/token-persistence.md
               - Remove unused tokens from the database: deploy/remove-unused-tokens-from-the-database.md
               - Enable assertions in access tokens: deploy/enable-assertions-in-access-tokens.md
-              - JWT token generation without revoking existing tokens: deploy/jwt-token-generation-without-revoking-existing-tokens.md
+              - Generate JWT tokens without revoking existing tokens: deploy/generate-jwt-tokens-without-revoking-existing-tokens.md
           #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
           - Enable hostname verification: deploy/enable-hostname-verification.md
           - Transport Level Security:
