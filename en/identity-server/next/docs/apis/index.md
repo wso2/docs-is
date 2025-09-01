@@ -166,8 +166,8 @@ This mode is used for **machine-to-machine (M2M)** calls where no `WSO2-Identity
 
 | Trusted Issuer | Thumbprint | Allowed System User | Description                                                                                                                  |
 |----------------|------------|---------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Specific DN    | *          | *                   | Any certificate from the trusted issuer can be used by any system user.<br/> WSO2 does not recommend this for production use. |
-| Specific DN    | *          | system_user         | Any certificate from the trusted issuer can be used by the specified system user.                                                   |
+| Specific DN    | *          | *                   | Any certificate from the trusted issuer can be used by any system user.<br/> WSO2 doesn't recommend this for production use. |
+| Specific DN    | *          | system_user         | Any certificate from the trusted issuer can be used by the specified system user.                                            |
 | Specific DN    | Specific   | system_user         | Certificates with a listed thumbprint can be used by the specified system user.<br/> **Recommended pattern**.                |
 | Specific DN    | Specific   | *                   | Certificates with a listed thumbprint can be used by any system user.                                                        |
 
@@ -201,12 +201,12 @@ This mode is used when the client presents both a **certificate** and a **user h
 
 ##### Supported patterns
 
-| Trusted Issuer | Thumbprint | Allowed Usernames | Description                                                                                                     |
-|----------------|------------|-------------------|-----------------------------------------------------------------------------------------------------------------|
-| Specific DN    | *          | [*]               | Any certificate from the trusted issuer can be used by any user.<br/>️ It is not recommended for production use. |
-| Specific DN    | *          | [user1, user2]    | Any certificate from the trusted issuer can be used by specific users.                                          |
-| Specific DN    | Specific   | [user1, user2]    | Certificates with a listed thumbprint can be used by the specified users.<br/> **Recommended pattern**.         |
-| Specific DN    | Specific   | [*]               | Certificates with a listed thumbprint can be used by any user.                                                  |
+| Trusted Issuer | Thumbprint | Allowed Usernames | Description                                                                                                    |
+|----------------|------------|-------------------|----------------------------------------------------------------------------------------------------------------|
+| Specific DN    | *          | [*]               | Any certificate from the trusted issuer can be used by any user.<br/>️ It's not recommended for production use. |
+| Specific DN    | *          | [user1, user2]    | Any certificate from the trusted issuer can be used by specific users.                                         |
+| Specific DN    | Specific   | [user1, user2]    | Certificates with a listed thumbprint can be used by the specified users.<br/> **Recommended pattern**.        |
+| Specific DN    | Specific   | [*]               | Certificates with a listed thumbprint can be used by any user.                                                 |
 
 ---
 
@@ -223,7 +223,7 @@ allowed_username = ["admin", "user@tenant.com"]
 ```
 
 !!! note
-WSO2 does not recommend using wildcards in production unless it necessitates.
+WSO2 doesn't recommend using wildcards in production unless it necessitates.
 For stronger security, bind certificates to specific users or system accounts wherever possible.
 
 This section covers the additional configurations that admins can use when using APIS.
