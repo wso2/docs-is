@@ -368,7 +368,7 @@ To filter users by account status:
 
 ## Add users with email verification
 
-1. Enable email verification
+1: Enable email verification
 
 !!! abstract ""
 
@@ -386,7 +386,7 @@ To filter users by account status:
             ]
         }'
 
-2. Configure email verification method (Optional). Enable this to send OTP via email.
+2: Configure email verification method (Optional). Enable this to send OTP via email.
 
 !!! abstract ""
 
@@ -404,7 +404,7 @@ To filter users by account status:
             ]
         }'
 
-3. Create user with email verification required
+3: Create user with email verification required
 
 !!! abstract ""
 
@@ -459,7 +459,7 @@ To filter users by account status:
     "HTTP/1.1 201 Created"
     ```
 
-4. Confirm email or validate OTP (One-Time Password)
+4: Confirm email or validate OTP (One-Time Password)
 
 You can verify the email using the confirmation link, or enter the OTP using the following API.
 
