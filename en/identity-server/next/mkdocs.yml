@@ -72,7 +72,7 @@ extra:
           - title: Configure
             url: Setup|Configure|User Stores|User Stores
           - title: Secure
-            url: 
+            url:
           - title: Deploy
             url: Setup|Deploy|Deployment patterns
           - title: Monitor
@@ -455,7 +455,7 @@ nav:
           - SAML Java EE: get-started/try-your-own-app/java-ee-saml.md
     - Subscribe to AI features: get-started/subscribe-to-ai-features.md
     - About this release: get-started/about-this-release.md
-  - Guides: 
+  - Guides:
       - Guides: guides/index.md
       - Applications:
           - Applications: guides/applications/index.md
@@ -580,7 +580,7 @@ nav:
             - Implement logout: guides/authentication/oidc/add-logout.md
             - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
             - Implement federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
-            
+
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
@@ -648,7 +648,7 @@ nav:
             - Configure a read-write Active Directory user store: guides/users/user-stores/primary-user-store/configure-a-read-write-active-directory-user-store.md
             - Configure a read-write LDAP user store: guides/users/user-stores/primary-user-store/configure-a-read-write-ldap-user-store.md
           - Configure secondary user stores: guides/users/user-stores/configure-secondary-user-stores.md
-          - User store properties: 
+          - User store properties:
             - User store properties: guides/users/user-stores/user-store-properties/index.md
             - Properties used in JDBC user store manager: guides/users/user-stores/user-store-properties/properties-jdbc-user-store.md
             - Properties used in read-only LDAP user store manager: guides/users/user-stores/user-store-properties/properties-read-only-ldap-user-store.md
@@ -711,7 +711,7 @@ nav:
             - Share applications: guides/organization-management/share-applications.md
             - Organization applications: guides/organization-management/organization-applications.md
           - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
-          - Onboard admins: 
+          - Onboard admins:
             - Onboard admins: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
@@ -803,7 +803,7 @@ nav:
         - Run: deploy/get-started/run-the-product.md
         - Get WSO2 updates: deploy/get-started/get-wso2-updates.md
       - Configure:
-        - User Stores: 
+        - User Stores:
           - User Stores: deploy/configure/user-stores/index.md
           - Add high availability for LDAP: deploy/configure/user-stores/configure-high-availability-ldap.md
           - Secure a JDBC user store with PBKDF2 hashing: deploy/configure/user-stores/secure-userstore-using-pbkdf2.md
@@ -847,6 +847,7 @@ nav:
           - Token persistence: deploy/token-persistence.md
           - Remove unused tokens from the database: deploy/remove-unused-tokens-from-the-database.md
           - Enable assertions in access tokens: deploy/enable-assertions-in-access-tokens.md
+          - Generate JWT tokens without revoking existing tokens: deploy/generate-jwt-tokens-without-revoking-existing-tokens.md
         #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
         - Enable hostname verification: deploy/enable-hostname-verification.md
         - Transport Level Security:
@@ -940,7 +941,7 @@ nav:
       - Admin advisory management API: apis/admin-advisory-management-rest-api.md
       - Tenant management API: apis/tenant-management-rest-api.md
     - Management APIs:
-      - Action Management API: apis/action-management-rest-api.md   
+      - Action Management API: apis/action-management-rest-api.md
       - API resource management: apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API: apis/application-rest-api.md
@@ -1097,12 +1098,12 @@ nav:
         - Custom authentication:
           - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
       - Pre-flow extensions (Actions):
-        - Pre issue access token action: 
+        - Pre issue access token action:
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
           - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
-        - Pre update password action: 
+        - Pre update password action:
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract.md
-        - Pre update profile action: 
+        - Pre update profile action:
           - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract.md
     - Architecture: references/architecture.md
     - IS extensions:
@@ -1118,7 +1119,7 @@ nav:
       - User Management:
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
         - SCIM2 Custom User Schema Support: references/extend/user-mgt/provisioning/add-scim2-custom-user-schema-support.md
-      - User Stores: 
+      - User Stores:
         - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
     - Default ports: references/default-ports.md
     - Troubleshoot:
