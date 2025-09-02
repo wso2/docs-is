@@ -27,7 +27,7 @@ To effectively navigate this new paradigm, enterprise IAM solutions must evolve 
 
 * **Least Privilege for Agents:** Implementing the principle of least privilege is paramount. Agents should only possess the minimum necessary permissions to perform their designated functions.
 
-## Robust Authentication Mechanisms for Agents:
+## Robust Authentication Mechanisms for Agents
 
 * **Machine-to-Machine Authentication (M2M) at Scale:** While existing M2M authentication methods (e.g., API keys, OAuth 2.0 client credentials, mTLS) will form the foundation, the sheer volume and dynamic nature of agent interactions will demand highly scalable and automated solutions.
 
@@ -35,13 +35,13 @@ To effectively navigate this new paradigm, enterprise IAM solutions must evolve 
 
 * **Biometric-like Authentication for AI (Future State):** While nascent, future developments might explore "biometric-like" authentication for AI agents, verifying unique patterns or signatures of their operational behavior.
 
-## Comprehensive Auditing and Explainability:
+## Comprehensive Auditing and Explainability
 
 * **Detailed Audit Trails:** Every action performed by an AI agent, including access attempts, data modifications, and decision-making processes, must be logged and auditable.
 
 * **Attribution and Accountability:** It must be possible to trace every action back to the specific AI agent, the human or machine that initiated the request (if applicable), and the underlying policies that granted permission. This is crucial for compliance, debugging, and liability.
 
-## Security and Governance Frameworks:
+## Security and Governance Frameworks
 
 * **Zero Trust for AI Agents:** Adopting a Zero Trust philosophy, where no agent is inherently trusted, regardless of its location within the network, is essential. Every access request must be verified.
 
