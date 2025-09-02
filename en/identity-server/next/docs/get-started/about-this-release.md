@@ -283,6 +283,12 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
     Learn more about using [SCIM2 Roles V3 API and updated permission mappings]({{base_path}}/apis/role-management).
 
+- **Operation-wise access control in SCIM bulk API**
+
+    The SCIM2 bulk API previously required the `internal_bulk_resource_create` scope to allow operations on the endpoint. Starting with Identity Server 7.2, the bulk endpoint supports [operation-wise scopes]({{base_path}}/apis/scim2/scim2-batch-operations/#scopepermission-required-for-batch-operations). The system executes each operation in a bulk request only if the corresponding operation-specific scope exists.
+
+    For backward compatibility, the `internal_bulk_resource_create scope` still supported and allows performing any operation through the bulk endpoint.
+
 ## Deprecated features
 
 In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
