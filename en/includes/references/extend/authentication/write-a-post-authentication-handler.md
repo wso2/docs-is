@@ -2,11 +2,11 @@
 
 WSO2 Identity Server authentication framework facilitates you with the pluggable architecture of multiple inbound/outbound protocols as well as local and federated authenticators including a large number of extension points. The Post Authentication Handler is one such extension point which allows you to do a task upon successful authentication. Authentication to the system is only successful once the execution of post-authentication handlers is completed. The following handlers are examples of post-authentication handlers that are available by default.
 
--   **Application authorization handler** - Once the user successfully authenticates to a service provider, this authorization handler will check whether the given user is entitled to login by evaluating a xacml policy. This happens during authorization.
+- **Application authorization handler** - Once the user successfully authenticates to a service provider, this authorization handler will check whether the given user is entitled to login by evaluating a xacml policy. This happens during authorization.
 
--   **Missing mandatory claim handler** - When mandatory claims are configured in a service provider under claim configurations, the user is prompted to fill in mandatory claim values if the values are not already known at the point of authentication.
+- **Missing mandatory claim handler** - When mandatory claims are configured in a service provider under claim configurations, the user is prompted to fill in mandatory claim values if the values are not already known at the point of authentication.
 
--   **Consent handler / disclaimer dialog** - This handler requests for either consent or disclaimer approval. Once the authentication steps are completed, the user is prompted for consent or disclaimer approval and the user is only able to proceed once it is accepted or approved.
+- **Consent handler / disclaimer dialog** - This handler requests for either consent or disclaimer approval. Once the authentication steps are completed, the user is prompted for consent or disclaimer approval and the user is only able to proceed once it is accepted or approved.
 
 ---
 
@@ -60,12 +60,11 @@ This method of returning the response can have multiple flow statuses:
 
 As seen in the sample implementation, the disclaimer page is redirected and it stores the “consentPoppedUp” state so that next time the post handler continues upon the response, it can look for the disclaimer response and proceed.
 
-
 ### By throwing a PostAuthenticationFailedException
 
 A post-authentication exception along with an error code and message can be thrown if you wish to break the login flow or do not need to continue the login flow. The error code will be displayed in an error page. For example, this exception can be used for failing a login attempt due to an authorization failure.
 
-Follow the steps given in the [sample post-authentication handler readme](https://github.com/wso2/samples-is/blob/master/etc/sample-post-authentication-handler/README.MD){:target="_blank"} to install this sample and get it working with WSO2 Identity Server. You can enable and disable this newly written handler using the configuration shown below in the `<IS_HOME>/repository/conf/deployment.toml`. You can also change the execution order using the ` order` parameter. The handler with the lesser value for the `order` parameter will be executed first.
+Follow the steps given in the [sample post-authentication handler readme](https://github.com/wso2/samples-is/blob/master/etc/sample-post-authentication-handler/README.MD){:target="_blank"} to install this sample and get it working with WSO2 Identity Server. You can enable and disable this newly written handler using the configuration shown below in the `<IS_HOME>/repository/conf/deployment.toml`. You can also change the execution order using the `order` parameter. The handler with the lesser value for the `order` parameter will be executed first.
 
 ```toml
     [[event_listener]]
