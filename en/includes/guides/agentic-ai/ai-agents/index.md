@@ -11,16 +11,15 @@ In the agentic AI era, the definition of an "identity" broadens considerably. En
 
 To effectively navigate this new paradigm, enterprise IAM solutions must evolve to address several critical requirements:
 
-### Granular Identity Management for Agents:
+## Granular Identity Management for Agents
 
 * **Unique Agent IDs:** Every AI agent must be assigned a unique and immutable identifier, independent of the underlying software or hardware it runs on.
 
- * **Agent Lifecycle Management:** Just like human users, AI agents will have a lifecycle (creation, deployment, updates, decommissioning). IAM systems must support the automated provisioning and de-provisioning of agent identities.
+* **Agent Lifecycle Management:** Just like human users, AI agents will have a lifecycle (creation, deployment, updates, decommissioning). IAM systems must support the automated provisioning and de-provisioning of agent identities.
 
 * **Agent Registration and Discovery:** A secure registry of all active AI agents within the enterprise, along with their properties, capabilities, and purpose, will be essential for governance and auditing.
 
-
-### Access Control for Agent Actions:
+## Access Control for Agent Actions
 
 * **Purpose-Based Access:** Agents should only be granted access to resources necessary for their defined purpose, minimizing the risk of unauthorized or unintended actions.
 
@@ -28,7 +27,7 @@ To effectively navigate this new paradigm, enterprise IAM solutions must evolve 
 
 * **Least Privilege for Agents:** Implementing the principle of least privilege is paramount. Agents should only possess the minimum necessary permissions to perform their designated functions.
 
-### Robust Authentication Mechanisms for Agents:
+## Robust Authentication Mechanisms for Agents:
 
 * **Machine-to-Machine Authentication (M2M) at Scale:** While existing M2M authentication methods (e.g., API keys, OAuth 2.0 client credentials, mTLS) will form the foundation, the sheer volume and dynamic nature of agent interactions will demand highly scalable and automated solutions.
 
@@ -36,13 +35,13 @@ To effectively navigate this new paradigm, enterprise IAM solutions must evolve 
 
 * **Biometric-like Authentication for AI (Future State):** While nascent, future developments might explore "biometric-like" authentication for AI agents, verifying unique patterns or signatures of their operational behavior.
 
-### Comprehensive Auditing and Explainability:
+## Comprehensive Auditing and Explainability:
 
 * **Detailed Audit Trails:** Every action performed by an AI agent, including access attempts, data modifications, and decision-making processes, must be logged and auditable.
 
 * **Attribution and Accountability:** It must be possible to trace every action back to the specific AI agent, the human or machine that initiated the request (if applicable), and the underlying policies that granted permission. This is crucial for compliance, debugging, and liability.
 
-### Security and Governance Frameworks:
+## Security and Governance Frameworks:
 
 * **Zero Trust for AI Agents:** Adopting a Zero Trust philosophy, where no agent is inherently trusted, regardless of its location within the network, is essential. Every access request must be verified.
 
@@ -54,8 +53,8 @@ To effectively navigate this new paradigm, enterprise IAM solutions must evolve 
 
 The agentic AI era necessitates a proactive and fundamental rethinking of enterprise IAM. It's no longer just about managing who logs in, but about managing *what* can act autonomously, *why* it can act, and *how* its actions are governed and audited. Enterprises that embrace this paradigm shift and invest in robust, future-proof IAM solutions will be better positioned to harness the full potential of AI while mitigating the associated risks, ensuring a secure and compliant future for their AI-driven operations.
 
-
 # {{product_name}} for AI Agents: Key Capabilities
+
 {{ product_name }} now enables organizations to manage AI agents as first-class digital identities. This ensures agentic AI systems are secure, auditable, and compliant with governance requirements, while also boosting scalability and operational efficiency. Key functionalities include:
 
 * **Register and manage agents as first-class identities:** {{ product_name }} treats AI agents as distinct identities within the system, similar to human users, enabling dedicated registration, identification, and centralized control. This "first-class" treatment allows organizations to track agent activities, manage permissions, and detect anomalies, ensuring agents are independently secured entities rather than mere extensions of user identities.  
@@ -73,4 +72,3 @@ The agentic AI era necessitates a proactive and fundamental rethinking of enterp
     Start by learning how to [register and manage agents]({{base_path}}/guides/agentic-ai/ai-agents/register-and-manage-agents/). 
 
     This guide provides step-by-step instructions for setting up agent identities, assigning roles, and managing secure access.
-
