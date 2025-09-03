@@ -393,6 +393,10 @@ nav:
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
           - Deployment best practices: guides/users/user-stores/deployment-best-practices.md
           - Advanced configuration for the agent: guides/users/user-stores/advanced-configurations-for-the-agent.md
+      - Workflows:
+        - Workflows: guides/workflows/index.md
+        - Approvals: guides/workflows/approve-workflow.md
+        - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
@@ -433,6 +437,7 @@ nav:
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
+          - Manage approvals: guides/user-self-service/manage-approvals.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
@@ -513,7 +518,7 @@ nav:
         - MCP Authorization:
           - MCP Authorization: guides/agentic-ai/mcp/index.md
           - Securing MCP Servers: guides/agentic-ai/mcp/mcp-server-authorization.md
-          - Securing MCP Clients: guides/agentic-ai/mcp/register-mcp-client-app.md
+          - Setting up MCP Clients: guides/agentic-ai/mcp/register-mcp-client-app.md
         - Identity for AI Agents:
           - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
           - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
@@ -528,6 +533,7 @@ nav:
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
+    - Secure Agentic AI Systems with Asgardeo: tutorials/secure-agentic-ai-systems.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
   - Developer Tools:
     - SDKs:

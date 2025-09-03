@@ -1,3 +1,6 @@
+Control which resources your AI agents can access. Use access control to protect sensitive data and enforce security policies. Assign permissions based on agent roles and attributes.
+
+
 ## Role-based access control
 
 {{ product_name }} enables the creation of well-defined roles, each encapsulating a specific set of permissions tailored to different operational responsibilities. These roles provide a streamlined way to manage access rights by grouping relevant permissions, which administrators can assign to AI agents based on their function within your organization.
@@ -52,3 +55,6 @@ Looking ahead, {{ product_name }} will expand its capabilities to include compre
 - Enhanced audit and compliance reporting for agent access and actions
 
 These enhancements aim to build a robust, adaptable framework that provides both security and operational flexibility as AI agents become integral parts of enterprise ecosystems.
+
+??? note "What's Next?"
+    [Integrate authentication]({{base_path}}/guides/agentic-ai/ai-agents/agent-authentication/) with your agent to connect with {{ product_name }}, to obtain tokens and start securely accessing resources.

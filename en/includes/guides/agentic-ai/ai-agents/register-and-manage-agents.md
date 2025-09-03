@@ -81,22 +81,22 @@ Deleting an AI agent permanently removes the agent and all associated data, incl
 
 ## Best practices
 
-- Apply the Principle of Least Privilege
+It's always recomended to follow these best practices to maintain security, reliability, and compliance when managing AI agents in your organization.
 
-Assign only the minimum permissions necessary for the agent to perform its tasks, limiting potential exposure.
+- *Apply the Principle of Least Privilege.*
+    Assign only the minimum permissions necessary for the agent to perform its tasks, limiting potential exposure.
 
-- Regularly Rotate Agent Credentials
+- *Regularly Rotate Agent Credentials.*
+    Periodically update credentials to reduce the risk of compromise and maintain a robust security posture.
 
-Periodically update credentials to reduce the risk of compromise and maintain a robust security posture.
+- *Monitor Agent Activities.*
+    Use audit logs and monitoring tools to continuously track agent actions. Regularly review the logs to identify any suspicious or unauthorized behavior and ensure the agent operates within expected parameters.
 
-- Monitor Agent Activities
+- *Securely Store Agent Secrets.*
+    Treat agent credentials as sensitive information, storing them in secure vaults or secrets managers, never in plain text.
 
-Use audit logs and monitoring tools to continuously track agent actions. Regularly review the logs to identify any suspicious or unauthorized behavior and ensure the agent operates within expected parameters.
+- *Review Agent Access Periodically.*
+    Conduct regular audits of agent roles and permissions to ensure they remain appropriate as organizational needs evolve.
 
-- Securely Store Agent Secrets
 
-Treat agent credentials as sensitive information, storing them in secure vaults or secrets managers, never in plain text.
-
-- Review Agent Access Periodically
-
-Conduct regular audits of agent roles and permissions to ensure they remain appropriate as organizational needs evolve.
+Once you establish the agent identity, agent credentials are key to the agent's authentication and authorization. For more details on managing agent credentials, see the [Agent Credentials]({{base_path}}/guides/agentic-ai/ai-agents/agent-credentials/) guide.

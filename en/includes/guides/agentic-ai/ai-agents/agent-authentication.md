@@ -1,5 +1,5 @@
 <!-- vale off -->
-# Authenticating AI agents
+# Authenticating AI Agents
 <!-- vale on -->
 
 This guide walks you through how to authenticate AI agents into your applications secured by **{{ product_name }}**. It covers two key authentication scenarios:
@@ -18,6 +18,11 @@ Each scenario leverages standard or emerging OAuth 2.0-based protocols to ensure
 <!-- vale on -->
 
 In this scenario, the AI agent operates autonomously without user involvement, supporting background processes, monitoring tasks, and independently running automation workflows.
+
+!!! note "Agent friendly authentication mechanism"
+    - AI agents often require **machine-to-machine communication**.
+    - This flow does **not use redirects**.
+    - The agent leverages **authentication APIs** to securely obtain tokens for autonomous access.
 
 When acting on its own, the AI agent uses its **Agent ID** and **Agent Secret** to authenticate with the authorization server and obtain an access token.
 

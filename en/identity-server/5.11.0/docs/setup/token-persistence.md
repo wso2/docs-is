@@ -127,8 +127,7 @@ By default, JWT access-token generation or validation triggers interactions with
 
 ### Why optimize JWT Acces token persistence?
 
-In large-scale WSO2 Identity Server deployments, especially with millions of users and high concurrency, the number of tokens stored in the database can grow quickly, making it harder to scale. This can lead to reduced performance and lower Transactions Per Second (TPS) for token generation. For instance, a telecom provider with 1.4 million subscribers and a token generation rate of 1,000 per second might struggle with scaling using traditional methods like adding more nodes, partitioning the database, or running token cleanup scripts. 
-To address this, token persistence optimization helps by not storing access tokens. This approach avoids storing tokens during generation while still supporting essential features like token revocation and refresh grants, improving scalability and performance.
+In large-scale WSO2 Identity Server deployments, especially with millions of users and high concurrency, the number of tokens stored in the database can grow quickly, making it harder to scale. This can lead to reduced performance and lower Transactions Per Second (TPS) for token generation. To address this, token persistence optimization helps by not storing access tokens. This approach avoids storing access tokens during generation while still supporting essential features like token revocation and refresh grants, improving scalability and performance.
 
 - **Reduce database queries during token request**: When a token is issued, the **access token** will no longer be stored in the `IDN_ACCESS_TOKEN` table. Only the **refresh token** will be stored. As a result, authorization grants like **Client Credentials**, which do not issue a refresh token, will experience improved throughput due to the reduction in database query overhead.
 - **Efficient database storage**: When tokens are stored in the persistent access_token mode, new entries are added to the database with each token request, even if the same refresh token is used. However, with the **non-persistent access token** feature enabled, only the **refresh token** is stored. If the current refresh token is still valid for the grant, no additional database rows will be added during token requests, leading to more efficient database storage.
@@ -136,6 +135,9 @@ To address this, token persistence optimization helps by not storing access toke
 
 ### Things to consider when using JWT access token persistence optimization
 
+- This mode is particularly suitable for the following scenarios:
+    - When most token requests are based on authorization grants such as **Client Credentials**, which do not issue a refresh token.
+    - When **Refresh Token Grants** are configured **without refresh token rotation**, reducing the need for persistent token tracking.
 - The **token persistence optimization** feature works only with **JWT access tokens**, as they can be self-validated.
 - When enabling this feature in an existing setup:
     - **Opaque token generation** will continue to work as expected for applications configured to use opaque tokens.
@@ -599,7 +601,7 @@ To address this, token persistence optimization helps by not storing access toke
         ```
 
     ??? Example "Postgres"
-    
+
         ```sql
         CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID              VARCHAR(255) PRIMARY KEY,
@@ -670,14 +672,97 @@ To address this, token persistence optimization helps by not storing access toke
 
 2. Add the following to the deployment.toml to enable the feature in WSO2 Identity Server. 
 
-    ```
+    ```toml
         [oauth.token_persistence]
         persist_access_token=false
         retain_revoked_access_token = true
     ```
+
     !!! Tip
         If you don't want the Identity server to store revoked tokens and details related to revoked subjects, you can disable by changing updating following configuration
-        ```
+        ```toml
             [oauth.token_persistence]
             retain_revoked_access_token = false
         ```
+
+### Removing unused refresh tokens and revoke entries from the Database
+
+!!! note
+    This section applies to database cleanup when the non-persistent access token feature is enabled. For persistent mode, refer to [Clean unused tokens from database](../../setup/removing-unused-tokens-from-the-database).
+
+As you continue to use **WSO2 Identity Server (WSO2 IS)**, the number of **revoked**, **inactive**, and **expired** tokens increases in the `IDN_OAUTH2_REFRESH_TOKEN` table. When a token is revoked, a record is also added to the `IDN_OAUTH2_REVOKED_TOKENS` table. These tokens are retained for purposes such as **logging**, **auditing**, and **validation**.
+
+However, over time, the accumulation of such records can impact overall server performance and increase the size of the database. To ensure optimal performance, it is recommended to periodically clean up unused and expired tokens.
+
+The following sections guide you through the difference ways to perform cleanup and  how to configure them.
+
+- [**Token Cleanup via Stored Procedure** (Recommended)](#token-cleanup-via-stored-procedure)
+- [**Configuring WSO2 Identity Server for token cleanup**](#configuring-wso2-identity-server-for-token-cleanup)
+
+#### Token Cleanup via Stored Procedure
+
+You can use the provided stored procedures to run a
+token cleanup task periodically to remove the old and invalid tokens and clean up `IDN_OAUTH2_REVOKED_TOKEN` table.
+Follow the instructions below to configure token cleanup using this
+method.
+
+!!! tip
+    It is safe to run these steps in read-only mode or during a time when traffic on the server is low but that is not mandatory.
+
+1. **Disable Internal Token Cleanup**
+   Update the `deployment.toml` file located in `<IS_HOME>/repository/conf`:
+
+   ```toml
+   [oauth.token_cleanup]
+   enable = false
+   ```
+
+2. **Run the Cleanup Script**
+   Select the appropriate SQL script based on your database type and execute it.
+
+      - [MySQL Stored Procedure Script](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/non-persistence-access-token-cleanup/)
+
+   This script:
+
+   - Backs up token-related tables (if enabled)
+   - Deletes eligible expired, revoked, or inactive entries
+
+3. **Restart the Server**
+   Once cleanup is complete, restart **WSO2 Identity Server** with the updated and cleaned database. You can optionally **schedule periodic execution** of the cleanup procedure.
+
+#### Configuring WSO2 Identity Server for token cleanup
+
+You can also configure **WSO2 Identity Server** to trigger **refresh token cleanup** during the following events:
+
+1. **On token refresh**: When issuing a new refresh token
+2. **On token revocation**: When a refresh token is explicitly revoked
+3. **User revoke events**: This includes events like **user deletion**, **user locked**, or **user role deletion**.
+4. **Application revoke events**: This includes **application credentials revocation** or **application deletion**.
+
+!!! warning  "Manual Cleanup Required For Cleaning IDN_OAUTH2_REVOKED_TOKENS and IDN_SUBJECT_ENTITY_REVOKED_EVENT"
+    The tables `IDN_OAUTH2_REVOKED_TOKENS` and `IDN_SUBJECT_ENTITY_REVOKED_EVENT` do not have an automatic cleanup procedure by default. You must **manually implement** cleanup scripts for these tables to avoid database bloat and maintain performance.
+
+Enable token cleanup by configuring the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+
+```toml
+[oauth.token_cleanup]
+enable = true
+```
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>enable</code></td>
+            <td>
+                <p>Set this property to <code>true</code> to enable refresh token cleanup.</p>
+                <p>Set it to <code>false</code> to disable token cleanup.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
