@@ -1114,6 +1114,7 @@ nav:
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
+        - Write a post-authentication handler: references/extend/authentication/write-a-post-authentication-handler.md
       - Identity Federation:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
