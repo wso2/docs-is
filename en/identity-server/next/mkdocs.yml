@@ -683,7 +683,7 @@ nav:
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
-          - Configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
+          - Overview: guides/user-self-service/overview.md
           - Update profile information: guides/user-self-service/update-profile-info.md
           - Change password: guides/user-self-service/change-password.md
           - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
@@ -700,7 +700,7 @@ nav:
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
           - Manage approvals: guides/user-self-service/manage-approvals.md
-
+          - Configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
