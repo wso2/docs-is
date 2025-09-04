@@ -45,13 +45,15 @@ The **My Account** application can be customized to be consistent with the brand
 
     If you want a user to have a certain scope(s) to be able to create an application, then you can specify that/those scope(s) within the `application.scopes.create` array of the application feature.
 
+### Features
+
 These are the five features in **My Account**.
 
-1.  Overview
-2.  Personal Info
-3.  Security
-4.  Applications
-5.  Operations
+1. Overview
+2. Personal Info
+3. Security
+4. Applications
+5. Operations
 
 #### 1. Overview
 
@@ -159,7 +161,6 @@ operations.scopes.delete = []
 ```
 
 The operations feature has no sub-features.
-
 
 ## Configure My Account session
 
