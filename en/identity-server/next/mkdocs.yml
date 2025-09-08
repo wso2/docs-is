@@ -30,75 +30,82 @@ extra:
 
   home_page_cards:
     - section:
-      - title: Get Started
-        icon: octicons/rocket-16
-        icon_color: icon-color-1
-        list_items:
-          - title: Introduction
-            url: Get started|Introduction
-          - title: Quick Setup
-            url: Get started|Quick Setup
-          - title: Start Integrating Apps
-            url: Get started|Start integrating apps|Start integrating apps
-          - title: About this release
-            url: Get started|About this release
-      - title: Community and Support
-        icon: octicons/light-bulb-16
-        icon_color: icon-color-2
-        list_items:
-          - title: Contributing to the Project
-            url: https://github.com/wso2/product-is/wiki/Contributing-to-Identity-Server
-          - title: Community Help
-            url: https://discord.com/invite/wso2
-          - title: Enterprise Support
-            url: https://wso2.com/subscription/
+        - title: Get Started
+          icon: octicons/rocket-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Introduction
+              url: Get started|Introduction
+            - title: Quick Setup
+              url: Get started|Quick Setup
+            - title: Connect React App
+              url: Get started|Connect App|React|Quickstart
+            - title: Connect Angular App
+              url: Get started|Connect App|Angular|Quickstart
+            - title: Connect Javascript App
+              url: Get started|Connect App|Javascript|Quickstart
+            - title: Connect Next.js App
+              url: Get started|Connect App|Next.js|Quickstart
+            - title: Connect Node.js App
+              url: Get started|Connect App|Node.js|Quickstart
+            - title: Connect Spring Boot App
+              url: Get started|Connect App|Spring Boot Quickstart
+        - title: Community and Support
+          icon: octicons/light-bulb-16
+          icon_color: icon-color-2
+          list_items:
+            - title: Contributing to the Project
+              url: https://github.com/wso2/product-is/wiki/Contributing-to-Identity-Server
+            - title: Community Help
+              url: https://discord.com/invite/wso2
+            - title: Enterprise Support
+              url: https://wso2.com/subscription/
     - section:
-      - title: Developer Resources
-        icon: octicons/tools-16
-        icon_color: icon-color-3
-        list_items:
-          - title: APIs
-            url: APIs|APIs
-          - title: Sample Apps
-            url: Get started|Start integrating apps|Try for a sample app|Try for a sample app
-          - title: SDKs and Integrations
-            url: SDKs|Integrate WSO2 IS into your application
-      - title: Setup
-        icon: octicons/gear-16
-        icon_color: icon-color-1
-        list_items:
-          - title: Install
-            url: Setup|Install|Install
-          - title: Configure
-            url: Setup|Configure|User Stores|User Stores
-          - title: Secure
-            url:
-          - title: Deploy
-            url: Setup|Deploy|Deployment patterns
-          - title: Monitor
-            url: Setup|Monitor|Monitor
-          - title: Upgrade WSO2 Identity Server
-            url: Setup|Upgrade WSO2 Identity Server
+        - title: Developer Resources
+          icon: octicons/tools-16
+          icon_color: icon-color-3
+          list_items:
+            - title: APIs
+              url: APIs|APIs
+            - title: Sample Apps
+              url: Try for a sample app|Try for a sample app
+            - title: SDKs and Integrations
+              url: SDKs|Integrate WSO2 IS into your application
+        - title: Setup
+          icon: octicons/gear-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Install
+              url: Setup|Install|Install
+            - title: Configure
+              url: Setup|Configure|User Stores|User Stores
+            - title: Secure
+              url:
+            - title: Deploy
+              url: Setup|Deploy|Deployment patterns
+            - title: Monitor
+              url: Setup|Monitor|Monitor
+            - title: Upgrade WSO2 Identity Server
+              url: Setup|Upgrade WSO2 Identity Server
     - section:
-      - title: Guides
-        icon: octicons/book-16
-        icon_color: icon-color-4
-        list_items:
-          - title: Applications
-            url: Guides|Applications|Applications
-          - title: Authentication
-            url: Guides|Authentication|Authentication
-          - title: Authorization
-            url: Guides|Authorization|Authorization
-          - title: Branding
-            url: Guides|Customizations|Customize branding|Branding
-          - title: User management
-            url: Guides|User management|User management
-          - title: User self-service
-            url: Guides|User self-service|User self-service
-          - title: Organizations
-            url: Guides|Organizations|Organizations
-
+        - title: Guides
+          icon: octicons/book-16
+          icon_color: icon-color-4
+          list_items:
+            - title: Applications
+              url: Guides|Applications|Applications
+            - title: Authentication
+              url: Guides|Authentication|Authentication
+            - title: Authorization
+              url: Guides|Authorization|Authorization
+            - title: Branding
+              url: Guides|Customizations|Customize branding|Branding
+            - title: User management
+              url: Guides|User management|User management
+            - title: User self-service
+              url: Guides|User self-service|User self-service
+            - title: Organizations
+              url: Guides|Organizations|Organizations
 hooks:
   - hooks.py
 
@@ -955,6 +962,71 @@ nav:
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
   - SDKs:
     - Integrate WSO2 IS into your application: integrations/index.md
+  - SDK Documentation:
+    - React SDK:
+      - Overview: sdks/react/overview.md
+      - APIs:
+        - Contexts:
+          - "&lt;AsgardeoProvider /&gt;": sdks/react/contexts/asgardeo-provider.md
+        - Components:
+          - Action Components:
+            - "&lt;SignInButton /&gt;": sdks/react/components/action-components/sign-in-button.md
+            - "&lt;SignOutButton /&gt;": sdks/react/components/action-components/sign-out-button.md
+            - "&lt;SignUpButton /&gt;": sdks/react/components/action-components/sign-up-button.md
+          - Control Components:
+            - "&lt;SignedIn /&gt;": sdks/react/components/control-components/signed-in.md
+            - "&lt;SignedOut /&gt;": sdks/react/components/control-components/signed-out.md
+            - "&lt;Loading /&gt;": sdks/react/components/control-components/loading.md
+          - User Self-care Components:
+            - "&lt;UserDropdown /&gt;": sdks/react/components/user-selfcare-components/user-dropdown.md
+            - "&lt;UserProfile /&gt;": sdks/react/components/user-selfcare-components/user-profile.md
+            - "&lt;User /&gt;": sdks/react/components/user-selfcare-components/user.md
+          - Organization Components (B2B):
+            - "&lt;CreateOrganization /&gt;": sdks/react/components/organization-components/create-organization.md
+            - "&lt;OrganizationProfile /&gt;": sdks/react/components/organization-components/organization-profile.md
+            - "&lt;OrganizationSwitcher /&gt;": sdks/react/components/organization-components/organization-switcher.md
+            - "&lt;OrganizationList /&gt;": sdks/react/components/organization-components/organization-list.md
+            - "&lt;Organization /&gt;": sdks/react/components/organization-components/organization.md
+        - hooks:
+          - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
+      - Guides:
+        - Accessing Protected APIs: sdks/react/guides/accessing-protected-apis.md
+        - Protecting Routes: sdks/react/guides/protecting-routes.md
+    - Next.js SDK:
+      - Overview: sdks/nextjs/overview.md
+      - APIs:
+        - Contexts:
+          - "&lt;AsgardeoProvider /&gt;": sdks/nextjs/contexts/asgardeo-provider.md
+        - Middleware:
+          - asgardeoMiddleware(): sdks/nextjs/middleware/asgardeo-middleware.md
+        - Components:
+          - Action Components:
+            - "&lt;SignInButton /&gt;": sdks/nextjs/components/action-components/sign-in-button.md
+            - "&lt;SignOutButton /&gt;": sdks/nextjs/components/action-components/sign-out-button.md
+            - "&lt;SignUpButton /&gt;": sdks/nextjs/components/action-components/sign-up-button.md
+          - Control Components:
+            - "&lt;SignedIn /&gt;": sdks/nextjs/components/control-components/signed-in.md
+            - "&lt;SignedOut /&gt;": sdks/nextjs/components/control-components/signed-out.md
+            - "&lt;Loading /&gt;": sdks/nextjs/components/control-components/loading.md
+          - Authentication Components:
+            - "&lt;SignIn /&gt;": sdks/nextjs/components/authentication/sign-in.md
+            # App-native Sign Up is not available for this version of the Identity Server.
+            # - "&lt;SignUp /&gt;": sdks/nextjs/components/authentication/sign-up.md
+          - User Self-care Components:
+            - "&lt;UserDropdown /&gt;": sdks/nextjs/components/user-selfcare-components/user-dropdown.md
+            - "&lt;UserProfile /&gt;": sdks/nextjs/components/user-selfcare-components/user-profile.md
+            - "&lt;User /&gt;": sdks/nextjs/components/user-selfcare-components/user.md
+          - Organization Components (B2B):
+            - "&lt;CreateOrganization /&gt;": sdks/nextjs/components/organization-components/create-organization.md
+            - "&lt;OrganizationProfile /&gt;": sdks/nextjs/components/organization-components/organization-profile.md
+            - "&lt;OrganizationSwitcher /&gt;": sdks/nextjs/components/organization-components/organization-switcher.md
+            - "&lt;OrganizationList /&gt;": sdks/nextjs/components/organization-components/organization-list.md
+            - "&lt;Organization /&gt;": sdks/nextjs/components/organization-components/organization.md
+        - hooks:
+          - useAsgardeo(): sdks/nextjs/hooks/use-asgardeo.md
+      - Guides:
+        - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
+        - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
@@ -1170,6 +1242,101 @@ nav:
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
+  - Technology Guides:
+      - Actions:
+          - Introduction: complete-guides/actions/introduction.md
+          - Prerequisite: complete-guides/actions/prerequisite.md
+          - Pre-Issue Access Token Action Use Case: complete-guides/actions/pre-issue-access-token-action-use-case.md
+          - Configure Pre-Issue Access Token Action with Choreo: complete-guides/actions/pre-issue-access-token-action-in-choreo.md
+          - Configure Pre-Issue Access Token Action with Vercel: complete-guides/actions/pre-issue-access-token-action-in-vercel.md
+          - Configure Pre-Issue Access Token Action with AWS Lambda: complete-guides/actions/pre-issue-access-token-action-in-aws-lambda.md
+          - Pre-Update Password Action Use Case: complete-guides/actions/pre-update-password-action-use-case.md
+          - Configure Pre-Update Password Action with Choreo: complete-guides/actions/pre-update-password-action-in-choreo.md
+          - Configure Pre-Update Password Action with Vercel: complete-guides/actions/pre-update-password-action-in-vercel.md
+          - Configure Pre-Update Password Action with AWS Lambda: complete-guides/actions/pre-update-password-action-in-aws-lambda.md
+      - React:
+          - Introduction: complete-guides/react/introduction.md
+          - Prerequisite: complete-guides/react/prerequisite.md
+          - Configure an application: complete-guides/react/register-an-application.md
+          - Create a React app: complete-guides/react/create-a-react-app.md
+          - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+          - Add login and logout: complete-guides/react/add-login-and-logout.md
+          - Display user details: complete-guides/react/display-logged-in-user-details.md
+          - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
+          - Accessing protected API: complete-guides/react/accessing-protected-api.md
+          - Manage tokens in React: complete-guides/react/manage-tokens-in-React-apps.md
+          - Next Steps: complete-guides/react/next-steps.md
+      - Next.js:
+          - Redirect-Based:
+              - Introduction: complete-guides/nextjs/introduction.md
+              - Prerequisite: complete-guides/nextjs/prerequisite.md
+              - Register an application: complete-guides/nextjs/register-an-application.md
+              - Create a Next.js app: complete-guides/nextjs/create-app.md
+              - Configure Asgardeo SDK: complete-guides/nextjs/install-asgardeo-sdk.md
+              - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
+              - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
+              - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
+              - Accessing protected API: complete-guides/nextjs/accessing-protected-api.md
+              - Manage tokens in Next.js: complete-guides/nextjs/manage-tokens-in-apps.md
+              - Next Steps: complete-guides/nextjs/next-steps.md
+          - App-Native:
+              - Introduction: complete-guides/app-native/introduction.md
+              - Prerequisites: complete-guides/app-native/prerequisites.md
+              - Register an application: complete-guides/app-native/register-an-application.md
+              - Create an app for app-native authentication: complete-guides/app-native/create-app.md
+              - Configure Asgardeo SDK: complete-guides/app-native/configure-provider.md
+              - Add login and logout: complete-guides/app-native/add-login-and-logout.md
+              - Add MFA using app-native APIs: complete-guides/app-native/add-mfa.md
+              - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
+              - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
+              - Next Steps: complete-guides/app-native/next-steps.md
+      - Angular:
+          - Introduction: complete-guides/angular/introduction.md
+          - Prerequisite: complete-guides/angular/prerequisite.md
+          - Register an application: complete-guides/angular/register-an-application.md
+          - Create an Angular app: complete-guides/angular/create-app.md
+          - Configure Auth provider: complete-guides/angular/install-asgardeo-sdk.md
+          - Add login and logout: complete-guides/angular/add-login-and-logout.md
+          - Display user details: complete-guides/angular/display-logged-in-user-details.md
+          - Securing Routes: complete-guides/angular/securing-routes-within-the-app.md
+          - Accessing protected API: complete-guides/angular/accessing-protected-api.md
+          - Manage tokens in Angular: complete-guides/angular/manage-tokens.md
+          - Next Steps: complete-guides/angular/next-steps.md
+      - Javascript:
+          - Introduction: complete-guides/javascript/introduction.md
+          - Prerequisite: complete-guides/javascript/prerequisite.md
+          - Register an application: complete-guides/javascript/register-an-application.md
+          - Create a JavaScript app: complete-guides/javascript/create-app.md
+          - Configure Asgardeo SDK: complete-guides/javascript/install-asgardeo-sdk.md
+          - Add login and logout: complete-guides/javascript/add-login-and-logout.md
+          - Display user details: complete-guides/javascript/display-logged-in-user-details.md
+          - Accessing protected API: complete-guides/javascript/accessing-protected-api.md
+          - Manage tokens in JavaScript: complete-guides/javascript/manage-tokens-in-apps.md
+          - Next Steps: complete-guides/javascript/next-steps.md
+      - Node.js:
+          - Introduction: complete-guides/nodejs/introduction.md
+          - Prerequisite: complete-guides/nodejs/prerequisite.md
+          - Configure an application: complete-guides/nodejs/register-an-application.md
+          - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
+          - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
+          - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
+          - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
+          - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
+          - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
+          - Accessing protected API: complete-guides/nodejs/accessing-protected-api.md
+          - Next Steps: complete-guides/nodejs/next-steps.md
+      - .NET:
+          - Introduction: complete-guides/dotnet/introduction.md
+          - Prerequisites: complete-guides/dotnet/prerequisites.md
+          - Register an application: complete-guides/dotnet/register-an-application.md
+          - Create a .NET app: complete-guides/dotnet/create-a-dotnet-app.md
+          - Configure auth properties: complete-guides/dotnet/configure-authentication-properties.md
+          - Add login and logout: complete-guides/dotnet/add-login-and-logout.md
+          - Securing Routes: complete-guides/dotnet/securing-routes-within-the-app.md
+          - Display user details: complete-guides/dotnet/display-logged-in-user-details.md
+          - Accessing protected API: complete-guides/dotnet/protected-api.md
+          - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
+          - Next Steps: complete-guides/dotnet/next-steps.md
 
 
 not_in_nav: |
