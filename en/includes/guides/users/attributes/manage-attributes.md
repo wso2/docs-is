@@ -335,7 +335,7 @@ To configure properties of user attributes:
 
 
     !!! Important "Scope"
-        These settings affect **UI presentation and validation only** in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** modify backend/API behavior. If you build a custom end-user profile UI, you can read these profile configurations on IDN_CLAIM_PROPERTY table and apply them to your own forms (Display, Required, Read-only).
+        These settings affect **UI presentation and validation only** in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** modify backend/API behavior.
 
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
