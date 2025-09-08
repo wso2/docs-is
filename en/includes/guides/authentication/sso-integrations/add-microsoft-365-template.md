@@ -31,13 +31,13 @@ Follow the steps below to configure Microsoft 365.
 
 Start Powershell and install the Microsoft Graph Powershell SDK.
 
-``` java
+```powershell
 Install-Module Microsoft.Graph -Scope CurrentUser -Repository PSGallery -Force
 ```
 
 Verify that the Microsoft Graph Powershell SDK is installed.
 
-```java
+```powershell
 Get-InstalledModule Microsoft.Graph
 ```
 
@@ -45,7 +45,7 @@ Get-InstalledModule Microsoft.Graph
 
 1. Run the following command to connect to the Active Directory.
 
-    ``` java
+    ```powershell
     Connect-MgGraph -Scopes "Domain.ReadWrite.All"
     ```
 
@@ -83,12 +83,12 @@ Get-InstalledModule Microsoft.Graph
 
 4. Run the following command to verify the federation settings.
 
-     ``` java
+     ```powershell
      Get-MgDomainFederationConfiguration -DomainId $Domain
      ```
-   
+
 You have now successfully set up trust between {{product_name}} and the Azure Active Directory. If you wish to redo the configurations, run the following command to move your domain back to the `Managed` authentication mode:
-    
+
 ```powershell
 Remove-MgDomainFederationConfiguration `
   -DomainId "yourdomain.com" `
@@ -99,10 +99,10 @@ Remove-MgDomainFederationConfiguration `
 
 Now that you have integrated {{product_name}} with Microsoft 365, follow the steps below to test it.
 
-1.  Create a user in {{ product_name }}.
+1. Create a user in {{ product_name }}.
 2. Add the same user to Microsoft using the following command. Here, the `OnPremisesImmutableId` should be the UUID of the user.
 
-    ``` bash
+    ```powershell
     $Password = "p@ssword*123"
     $PasswordProfile = @{ Password = "$Password" }
 
