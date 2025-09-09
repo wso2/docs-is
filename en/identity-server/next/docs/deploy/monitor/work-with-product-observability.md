@@ -249,36 +249,82 @@ To customize the JDBC log pattern, execute a command similar to the following ex
 
 You can include any combination of the available fields based on your requirements.
 
-## Lightweight directory access protocol tracing with OpenTelemetry
+## OpenTelemetry-based Tracing in WSO2 Identity Server
+
+Attaching a Java observability agent such as the Datadog Java Agent enables automatic tracing of common interactions 
+in WSO2 IS, including Application Programming Interface (API) calls and database operations. These traces are produced 
+through the agent’s built-in auto-instrumentation capabilities.
+
+Lightweight Directory Access Protocol (LDAP) operations are not covered by auto-instrumentation. To address this gap,
+WSO2 IS includes explicit OpenTelemetry-based instrumentation for LDAP calls. This provides extended visibility into
+LDAP operations such as search, bind, and lookup when enabled.
+
+The following sections describe how tracing can be configured with Datadog Java agent. Once the agent is
+attached and configured, additional instrumentation for LDAP can be enabled through the WSO2 IS configuration.
+
+### Configuring with Datadog Java Agent
+
+To forward traces from WSO2 IS to Datadog Application Performance Monitoring (APM), the following components are
+required:
+
+- The Datadog Java Agent (`dd-java-agent.jar`) attached to the WSO2 IS Java Virtual Machine.
+- A running Datadog Agent that receives spans from the Java Agent and forwards them to the Datadog platform.
+
+Steps:
+
+1. Install and run the Datadog Agent following
+   the [Datadog Agent installation guide](https://docs.datadoghq.com/getting_started/agent/#setup).
+2. Download the Datadog Java Agent (`dd-java-agent.jar`) from
+   the [Datadog releases page](https://docs.datadoghq.com/tracing/trace_collection/automatic_instrumentation/dd_libraries/java/?tab=wget).
+3. To enable tracing, add the agent and related configurations as Java options when starting WSO2 IS. These options can
+   be provided through the startup scripts (`<IS_HOME>/bin/wso2server.sh` or `<IS_HOME>/bin/wso2server.bat`) by
+   extending the `JAVA_OPTS` variable with the following:
+    ```shell
+    -javaagent:/path/to/dd-java-agent.jar
+    ```
+4. Similarly, in the same file, add the required system properties as Java options to define service metadata and agent
+   settings specific to the environment. For example:
+    ```shell
+    -Ddd.service="wso2is" \
+    -Ddd.env="dev" \
+    -Ddd.version=1.0 \
+    -Ddd.logs.injection=true \
+    -Ddd.trace.agent.host=localhost \
+    -Ddd.trace.otel.enabled=true \
+    ```
+   Refer to
+   the [Datadog Java Agent configuration documentation](https://docs.datadoghq.com/tracing/trace_collection/library_config/java/#configuration-options)
+   for the full set of options.
+5. Restart WSO2 IS and confirm that traces appear in the [Datadog APM dashboard](https://docs.datadoghq.com/tracing/).
+
+### Enabling LDAP Tracing in WSO2 Identity Server
+
+By default, LDAP operations are not instrumented by the Datadog Java agent. The WSO2 IS provides OpenTelemetry-based 
+instrumentation to capture LDAP operations when required. With this, in addition to API and database calls, LDAP 
+operations will also be recorded.
 
 !!! note
     By default, the feature remains turned off to prevent potential performance impact.
 
-The WSO2 Identity Server supports OpenTelemetry-based tracing for Lightweight Directory Access Protocol operations. This
-improves observability and diagnostics for key identity interactions, such as user search, bind, and
-lookup.
+To enable LDAP tracing with OpenTelemetry in WSO2 IS, configure the `[tracing.opentelemetry]` section in the
+`<IS_HOME>/repository/conf/deployment.toml` file and restart the server. The following example illustrates the
+configuration:
 
-The implementation wraps the LdapContext to create OpenTelemetry spans for common Lightweight Directory Access Protocol
-methods. An OpenTelemetry agent, such as the Datadog Java Agent, captures these spans using standard
-OpenTelemetry mechanisms and displays them in tools like Datadog.
+```toml
+[tracing.opentelemetry]
+ldap.enabled = true
+ldap.scope_name = "wso2isldap"
+```
 
-### How it works
+| Configuration Parameter | Description                                                                                                                                                                                  |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ldap.enabled`          | Enables OpenTelemetry-based tracing for LDAP operations. When set to `true`, WSO2 IS instruments LDAP interactions such as `search`, `bind`, and `lookup`. The default value equals `false`. |
+| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for LDAP spans. The default value equals `"wso2isldap"`.                                                                                |
 
-When enabled, the server wraps the standard LdapContext with an OpenTelemetry-instrumented implementation. Each call to
-operations like search, bind, or lookup generates a span.
-
-Spans include key metadata such as:
-
-- Lightweight Directory Access Protocol operation type
-- Lightweight Directory Access Protocol provider details
-- Base DN or target DN (if applicable)
-- Search filters and attributes (if applicable)
-- Execution duration
-- Error status (if applicable)
-
-The OpenTelemetry SDK exports spans. An agent, such as the Datadog Java Agent, then captures and sends them to external
-observability platforms. A sample span content resembles the following (extracted from Datadog for the `ldap.search`
-operation):
+When enabled, LDAP operations generate spans containing metadata such as the operation type, base or target DN, search
+filters, execution duration, and error status based on applicability. These spans are exported through the configured
+Java agent to the observability platform. A sample span content resembles the following (extracted from Datadog for the
+`ldap.search` operation):
 
 ```json
 {
@@ -309,85 +355,3 @@ operation):
   "duration": 1211208
 }
 ```
-
-### Configuring the WSO2 Identity Server
-
-To enable Lightweight Directory Access Protocol tracing with OpenTelemetry in WSO2 Identity Server, configure the
-`[tracing.opentelemetry]` section in the `<IS_HOME>/repository/conf/deployment.toml` file. The following example
-illustrates the configuration:
-
-```toml
-[tracing.opentelemetry]
-ldap.enabled = true
-ldap.scope_name = "wso2isldap"
-```
-
-| Configuration Parameter | Description                                                                                                                                                                                                                                                           |
-|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ldap.enabled`          | Enables OpenTelemetry-based tracing for Lightweight Directory Access Protocol operations. When set to `true`, WSO2 Identity Server instruments Lightweight Directory Access Protocol interactions such as search, bind, and lookup. The default value equals `false`. |
-| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for Lightweight Directory Access Protocol spans. The default value equals `"wso2isldap"`.                                                                                                                        |
-
-### Configuring with Datadog Java agent
-
-To forward Lightweight Directory Access Protocol spans from WSO2 Identity Server to Datadog Application Performance
-Monitoring, you need both:
-
-- The Datadog Java Agent (`dd-java-agent.jar`) attached to the WSO2 Identity Server JVM to instrument and generate
-  spans.
-- A running Datadog Agent that receives spans from the Java Agent and forwards them to the Datadog platform.
-
-Steps:
-
-1. Install and run the Datadog Agent - Follow
-   the [Datadog Agent installation guide](https://docs.datadoghq.com/getting_started/agent/#setup) to install and run
-   the Agent.
-2. Download the Datadog Java Agent - Obtain the latest `dd-java-agent.jar `from
-   the [Datadog releases page](https://docs.datadoghq.com/tracing/trace_collection/automatic_instrumentation/dd_libraries/java/?tab=wget).
-3. Attach the Java Agent to WSO2 Identity Server - Edit `<IS_HOME>/bin/wso2server.sh` (Linux/macOS) or
-   `wso2server.bat` (Windows) and add the following as a java option:
-    ```shell
-    -javaagent:/path/to/dd-java-agent.jar
-    ```
-4. Configure the Java Agent - Add the required system properties to the same file to define service metadata and Agent
-   settings, as shown below (adjust according to your environment). For the complete list of available options and their
-   descriptions, refer to
-   the [Datadog Java Agent configuration documentation](https://docs.datadoghq.com/tracing/trace_collection/library_config/java/#configuration-options).
-    ```shell
-    -Ddd.service="wso2is" \
-    -Ddd.env="dev" \
-    -Ddd.version=1.0 \
-    -Ddd.logs.injection=true \
-    -Ddd.trace.agent.host=localhost \
-    -Ddd.trace.otel.enabled=true \
-    ```
-5. Verify traces in Datadog - Restart the WSO2 Identity Server, perform Lightweight Directory Access Protocol operation
-   related scenarios such as authentication flows, and verify that spans appear in
-   your [Datadog APM dashboard](https://docs.datadoghq.com/tracing/).
-
-### Configuring with OpenTelemetry Java Agent
-
-The WSO2 Identity Server supports exporting Lightweight Directory Access Protocol spans via the OpenTelemetry Java
-Agent, allowing you to send traces to any OpenTelemetry-compatible collector or observability platform. This provides
-flexibility to use open-source tools like Jaeger or Zipkin, as well as commercial platforms like Datadog APM. Please
-note that you will need both a receiver and an exporter to capture and forward the traces.
-
-Steps:
-
-1. Download the OpenTelemetry Java Agent - Obtain the latest `opentelemetry-javaagent.jar` from
-   the [OpenTelemetry releases page](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases).
-2. Attach the agent to the WSO2 Identity Server - Edit your startup script (`<IS_HOME>/bin/wso2server.sh` or
-   `<IS_HOME>/bin/wso2server.bat`) and add the following as a java option:
-   ```shell
-   -javaagent:/path/to/opentelemetry-javaagent.jar
-   ```
-3. Specify where spans should be sent (the collector) and the service name in the same file. Adjust the values according
-   to your environment. For a complete list of available options and their descriptions, refer to
-   theo [OpenTelemetry Java Agent documentation](https://opentelemetry.io/docs/zero-code/java/agent/configuration/).
-   ```shell
-   -Dotel.service.name=wso2is \
-   -Dotel.exporter.otlp.protocol=grpc \
-   -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
-   -Dotel.resource.attributes=env=dev,service.version=1.0.0 \
-   ```
-4. Restart the WSO2 Identity Server - Once the agent is attached and configured, restart the server to begin tracing
-   Lightweight Directory Access Protocol operations.
