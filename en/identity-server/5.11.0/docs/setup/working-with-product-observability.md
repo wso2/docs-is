@@ -283,12 +283,12 @@ Attaching a Java observability agent such as the Datadog Java Agent enables auto
 WSO2 Identity Server, including Application Programming Interface (API) calls and database operations. The agent’s
 built-in auto instrumentation capabilities produce these traces.
 
-Lightweight Directory Access Protocol (LDAP) operations are not covered by auto instrumentation. To address this gap,
+Lightweight Directory Access Protocol (LDAP) operations aren't covered by auto instrumentation. To address this gap,
 WSO2 Identity Server includes explicit OpenTelemetry-based instrumentation for LDAP calls. This provides extended
 visibility into LDAP operations such as search, bind, and lookup when enabled.
 
 The following sections explain how to configure tracing with the Datadog Java Agent. Once you attach and configure the
-agent, you can enable additional instrumentation for LDAP through the WSO2 Identity Server configuration.
+agent, you can enable instrumentation for LDAP through the WSO2 Identity Server configuration.
 
 #### Configuring with Datadog Java Agent
 
@@ -328,7 +328,7 @@ Steps:
 
 #### Enabling LDAP Tracing in WSO2 Identity Server
 
-By default, the Datadog Java Agent does not instrument LDAP operations. WSO2 Identity Server provides
+By default, the Datadog Java Agent doesn't instrument LDAP operations. WSO2 Identity Server provides
 OpenTelemetry-based instrumentation to capture LDAP operations when required. With this capability, in addition to API
 and database calls, LDAP operations are also recorded.
 
@@ -346,10 +346,10 @@ ldap.enabled = true
 ldap.scope_name = "wso2isldap"
 ```
 
-| Configuration Parameter | Description                                                                                                                                                                                  |
-|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ldap.enabled`          | Enables OpenTelemetry-based tracing for LDAP operations. When set to `true`, WSO2 IS instruments LDAP interactions such as `search`, `bind`, and `lookup`. The default value equals `false`. |
-| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for LDAP spans. The default value equals `"wso2isldap"`.                                                                                |
+| Configuration Parameter | Description                                                                                                                                                                                               |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ldap.enabled`          | Enables OpenTelemetry-based tracing for LDAP operations. When set to `true`, WSO2 Identity Server instruments LDAP interactions such as `search`, `bind`, and `lookup`. The default value equals `false`. |
+| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for LDAP spans. The default value equals `"wso2isldap"`.                                                                                             |
 
 When enabled, LDAP operations generate spans containing metadata such as the operation type, base or target DN, search
 filters, execution duration, and error status based on applicability. These spans are exported through the configured
