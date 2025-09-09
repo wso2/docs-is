@@ -196,11 +196,11 @@ To configure properties of user attributes:
 
     To display an attribute in the user creation form, select the **both** **Display** and **Required** checkboxes for the **Administrator Console** entity.
 
-7. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
+6. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
 
     ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-8. Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
+7. Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
 
     ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
