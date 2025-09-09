@@ -160,7 +160,8 @@ To configure properties of user attributes:
 5. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
     !!! Important "Scope"
-        These settings affect **UI presentation and validation only** in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** modify backend/API behavior. If you build a custom end-user profile UI, you can read these profile configurations and apply them to your own forms (Display, Required, Read-only).
+
+        These settings only control how the attributes behave in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** affect backend or API validation. If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms.
 
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -195,11 +196,11 @@ To configure properties of user attributes:
 
     To display an attribute in the user creation form, select the **both** **Display** and **Required** checkboxes for the **Administrator Console** entity.
 
-6. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
+7. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
 
     ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-7. Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
+8. Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
 
     ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
