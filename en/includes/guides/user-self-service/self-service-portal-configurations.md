@@ -74,7 +74,7 @@ The following section explains all the features available in the **My Account** 
 
 === "Overview"
 
-    The `overview` feature can be configured as follows:
+    The `Overview` section provides a summary of your account. It displays the completion status of your profile and offers quick access to update personal details. Additionally, it highlights important account security settings, allowing you to review and manage the measures that help keep your account safe. It can be configured as follows:
 
     ``` toml
     [myaccount]
@@ -97,7 +97,7 @@ The following section explains all the features available in the **My Account** 
 
 === "Personal Info"
 
-    The `personal info` feature can be configured as follows:
+    The `Personal Info` section allows you to view and manage your personal profile details. You can update information such as your name, mobile number, and birth date. Additionally, you can manage and review linked social accounts that are connected to your account. It can be configured as follows:
 
     ``` toml
     [myaccount]
@@ -120,7 +120,7 @@ The following section explains all the features available in the **My Account** 
 
 === "Security"
 
-    The `security` feature can be configured as follows:
+    The `Security` section helps you safeguard your account by managing authentication methods, recovery options, and active sessions. From here, you can update your password, configure account recovery methods, and enable additional authentication options such as TOTP, push authentication, and backup codes. You can also monitor and manage your active sessions to maintain account security. It can be configured as follows:
 
     ```toml
     [myaccount]
@@ -149,7 +149,7 @@ The following section explains all the features available in the **My Account** 
 
 === "Applications"
 
-    The `applications` feature can be configured as follows:
+    The `Applications` section allows you to discover and access applications available within your organization. It can be configured as follows:
 
     ```toml
     [myaccount]
@@ -163,21 +163,25 @@ The following section explains all the features available in the **My Account** 
 
     The applications feature has no sub-features.
 
-=== "Operations"
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
 
-    The `operations` feature can be configured as follows:
+=== "Approvals"
+
+    The Approvals section enables users to review and act on operational tasks that require their attention. From here, users can view pending approval requests, such as user creation, role creation, or user removal requests, and take the necessary actions. It can be configured as follows:
 
     ```toml
     [myaccount]
-    operations.enabled = true
-    operations.disabled_features = []
-    operations.scopes.create = []
-    operations.scopes.read = ["internal_humantask_view"]
-    operations.scopes.update = []
-    operations.scopes.delete = []
+    approvals.enabled = true
+    approvals.disabled_features = []
+    approvals.scopes.create = []
+    approvals.scopes.read = ["internal_approval_task_view"]
+    approvals.scopes.update = ["internal_approval_task_update"]
+    approvals.scopes.delete = []
     ```
 
-    The operations feature has no sub-features.
+    The approvals feature has no sub-features.
+
+{% endif %}
 
 ## Configure My Account sessions
 
