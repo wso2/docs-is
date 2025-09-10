@@ -253,7 +253,7 @@ You can include any combination of the available fields based on your requiremen
 
 Attaching a Java observability agent, such as the Datadog Java Agent, enables WSO2 Identity Server to automatically trace common operations, including API calls and database interactions. The agent’s built-in auto instrumentation generates these traces.
 
-To provide even more comprehensive observability, WSO2 Identity Server offers explicit OpenTelemetry-based instrumentation for Lightweight Directory Protocol (LDAP)  operations, such as search, bind, and lookup. Enabling this feature extends visibility to LDAP calls alongside other automatically traced operations.
+To provide even more comprehensive observability, WSO2 Identity Server offers explicit OpenTelemetry-based instrumentation for Lightweight Directory Protocol (LDAP) operations, such as search, bind, and lookup. Enabling this feature extends visibility to LDAP calls alongside other automatically traced operations.
 
 The following sections explain how to configure tracing with the Datadog Java Agent. Once you attach and configure the agent, you can enable instrumentation for LDAP through the WSO2 Identity Server configuration.
 
