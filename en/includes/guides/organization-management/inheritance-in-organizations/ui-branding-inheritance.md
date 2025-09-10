@@ -1,6 +1,10 @@
 # UI branding inheritance
 
+<<<<<<< Updated upstream
 In {{product_name}}, child organizations inherit branding from the organizational hierarchy. Child organizations can make their own adjustments to these inherited settings.
+=======
+In {{product_name}}, child organizations inherit branding from their parent organizations. Child organizations can make their own adjustments to these inherited settings.
+>>>>>>> Stashed changes
 
 Organization administrators can access these settings in the {{product_name}} Console under **Branding** > **Styles & Text**.
 

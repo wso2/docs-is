@@ -1,19 +1,17 @@
-# Overview
+# Access the My Account portal
 
 Users and administrators in your organization can manage their accounts and information by accessing the **My Account portal**, a self-service portal offered by {{product_name}}.
-
-## Access the My Account portal
 
 Users can access the My Account portal using the following link - {{my_account_link}}
 
 !!! note
 
-    If you have [shared the My Account portal with organization users]({{base_path}}/guides/organization-management/share-applications/#share-the-my-account-portal), they may access the organization-specific My Account Portal using the following link:
+    If you have set up organizations in {{product_name}} and [shared the My Account portal with organization users]({{base_path}}/guides/organization-management/share-applications/#share-the-my-account-portal), they can access the organization-specific My Account Portal using the following link:
 
     ``` bash
     {{my_account_org_link}}
     ```
-Listed below are self-service features that are available for the user in the **My Account portal**.
+You can access the following features from the **My Account portal**.
 
 - [Update profile information]({{base_path}}/guides/user-self-service/update-profile-info/)
 - [Change password]({{base_path}}/guides/user-self-service/change-password/)
@@ -27,18 +25,3 @@ Listed below are self-service features that are available for the user in the **
 - [Discover and maintain applications]({{base_path}}/guides/user-self-service/discover-applications/)
 - [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/)
 - [View and update the approvals]({{base_path}}/guides/user-self-service/manage-approvals/)
-
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
-
-## Enable/Disable the My Account portal
-
-Follow the steps given below to manage access to the My Account portal for users in your organization.
-
-1. On the {{product_name}} Console, go to **Applications** and locate the My Account application at the top.
-
-2. Click the settings icon to enter the **My Account** configuration page.
-
-3. In the **Danger Zone**, under **Disable application**, switch the toggle on to disable the My Account portal or off to enable it for users.
-
-    ![Disable my account application]({{base_path}}/assets/img/guides/users/disable-my-account-application.png)
-{% endif %}
