@@ -8,4 +8,4 @@ For example, if using the default settings, the link to your My Account portal i
 
 {% set my_account_org_link = "https://localhost:9443/t/carbon.super/o/{organization-id}/myaccount" %}
 
-{% include "../../../../../includes/guides/user-self-service/self-service-portal-configurations.md" %}
+{% include "../../../../../includes/guides/user-self-service/overview.md" %}

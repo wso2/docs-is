@@ -682,26 +682,27 @@ nav:
         - Account disabling: guides/account-configurations/account-disabling.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
-        - Self-service portal:
-          - Configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
-          - Update profile information: guides/user-self-service/update-profile-info.md
-          - Change password: guides/user-self-service/change-password.md
-          - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
-          - Export profile information: guides/user-self-service/export-profile-information.md
-          - Manage consents: guides/user-self-service/manage-consents.md
-          - Manage login sessions: guides/user-self-service/manage-login-sessions.md
-          - Self-register: guides/user-self-service/self-register.md
-          - Account confirmation for self-register: guides/user-self-service/account-confirmation-for-self-register.md
-          - Register passkeys: guides/user-self-service/register-passkey.md
-          - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
-          - Password recovery: guides/user-self-service/user-password-recovery.md
-          - Username recovery: guides/user-self-service/user-username-recovery.md
-          - Enroll TOTP: guides/user-self-service/enable-totp.md
-          - Manage backup codes: guides/user-self-service/manage-backup-codes.md
-          - Discover applications: guides/user-self-service/discover-applications.md
-          - Manage approvals: guides/user-self-service/manage-approvals.md
-
-        - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+        - My Account portal:
+          - Access the My Account portal: guides/user-self-service/overview.md
+          - Configure the My Account portal: guides/user-self-service/configure-self-service-portal.md
+          - Explore self-service features:
+            - Update profile information: guides/user-self-service/update-profile-info.md
+            - Change password: guides/user-self-service/change-password.md
+            - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
+            - Export profile information: guides/user-self-service/export-profile-information.md
+            - Manage consents: guides/user-self-service/manage-consents.md
+            - Manage login sessions: guides/user-self-service/manage-login-sessions.md
+            - Self-register: guides/user-self-service/self-register.md
+            - Account confirmation for self-register: guides/user-self-service/account-confirmation-for-self-register.md
+            - Register passkeys: guides/user-self-service/register-passkey.md
+            - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
+            - Password recovery: guides/user-self-service/user-password-recovery.md
+            - Username recovery: guides/user-self-service/user-username-recovery.md
+            - Enroll TOTP: guides/user-self-service/enable-totp.md
+            - Manage backup codes: guides/user-self-service/manage-backup-codes.md
+            - Discover applications: guides/user-self-service/discover-applications.md
+            - Manage approvals: guides/user-self-service/manage-approvals.md
+        - Build your own self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
