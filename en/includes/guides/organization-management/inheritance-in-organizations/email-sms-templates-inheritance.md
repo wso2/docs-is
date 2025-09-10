@@ -1,10 +1,6 @@
 # Email and SMS template inheritance
 
-<<<<<<< Updated upstream
 In {{product_name}}, child organizations inherit email and SMS templates from the organizational hierarchy. Child organizations can make their own adjustments to these inherited templates.
-=======
-In {{product_name}}, child organizations inherit email and SMS templates from their parent organizations. Child organizations can make their own adjustments to these inherited templates.
->>>>>>> Stashed changes
 
 Organization administrators can access email and SMS templates from the {{product_name}} Console under **Branding** > **Email Templates** and **Branding** > **SMS Templates** respectively.
 
