@@ -272,7 +272,7 @@ To configure the Datadog Java Agent with WSO2 Identity Server, follow these step
 
 3. To enable tracing, add the agent and related configurations as Java options when starting WSO2 Identity Server. To do so,
 
-    - Open the corresponding corresponding to your operating system.
+    - Open the corresponding to your operating system.
 
         === "Mac/Linux"
 
