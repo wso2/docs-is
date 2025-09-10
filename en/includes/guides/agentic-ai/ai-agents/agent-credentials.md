@@ -21,12 +21,14 @@ Credentials are generated during agent registration and can be viewed or managed
 
 We're actively working on providing enhanced authentication options to improve security and flexibility for AI agents:
 
-* **Private Key JWT Authentication**
+#### Private Key JWT Authentication
+
   This method uses asymmetric cryptography, allowing agents to sign JSON Web Tokens (JWTs) with a private key that never leaves the agent environment. {{ product_name }} holds the corresponding public key to verify the signature. JWTs include claims such as agent identity and expiration to ensure authenticity.
 
   Requirements include RSA or ECDSA private keys and public key registration during agent setup. This approach eliminates shared secret risks, enables cryptographically strong identity proof, supports key rotation without downtime, and aligns with modern security standards.
 
-* **Mutual TLS (mTLS) Authentication**
+#### Mutual TLS (mTLS) Authentication
+
   Mutual TLS requires both the agent and {{ product_name }} server to present and verify X.509 certificates during the TLS handshake. This mutual verification creates a trusted, encrypted channel and prevents man-in-the-middle attacks.
 
   Agents authenticate by presenting client certificates issued by a trusted Certificate Authority (CA). The private key corresponding to the client certificate must be securely stored by the agent. This method is commonly used in high-security environments and supports certificate lifecycle management including renewal and revocation.
@@ -40,3 +42,5 @@ To maintain robust security for your AI agents, adhere to the following guidelin
 * **Use Environment Variables:** Inject credentials dynamically at runtime through environment variables or secure configuration files, keeping them out of source control.
 * **Immediate Revocation:** Revoke credentials immediately upon suspected compromise and monitor usage logs for anomalies.
 * **Audit and Monitoring:** Enable comprehensive logging of authentication events and review logs regularly to detect unauthorized activity early.
+
+Once the agent has credentials to authenticate, what agents can or cannot do is governed by the permissions assigned to them. For details on managing agent permissions, see [Access control for agents]({{base_path}}/guides/agentic-ai/ai-agents/access-control-for-agents/).

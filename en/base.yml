@@ -165,6 +165,12 @@ extra:
     Self-registration flow:
       type: Preview
       level: 4
+    Self Registration:
+      type: Preview
+      level: 3
+    Password Recovery:
+      type: Preview
+      level: 3
 
   nav_icons:
     Overview:
@@ -188,10 +194,13 @@ extra:
     Tutorials:
       icon: octicons/mortar-board-16
       level: 1
+    SDKs:
+      icon: octicons/package-16
+      level: 1
     Setup:
       icon: octicons/gear-16
       level: 1
-    SDKs:
+    Developer Tools:
       icon: octicons/package-16
       level: 1
     React SDK:

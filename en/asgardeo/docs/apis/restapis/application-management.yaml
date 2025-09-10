@@ -2542,9 +2542,11 @@ paths:
             -H 'Authorization: Bearer {bearer_token}'
   /applications/{applicationId}/share:
     post:
+      deprecated: true
       summary: |
         Share the application from the root organization to the given organization(s).
       description: |
+        **NOTE: This API is deprecated and may be removed in future versions. Use the `/applications/share` endpoint instead.</br>
         This API provides the capability to share an application with organizations.
         <br>
         
@@ -2622,6 +2624,13 @@ paths:
           required: true
           schema:
             type: string
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/sharedOrganizationsLimit'
+        - $ref: '#/components/parameters/recursiveQueryParam'
+        - $ref: '#/components/parameters/applicationShareExcludedQueryParam'
+        - $ref: '#/components/parameters/applicationShareAttributesQueryParam'
       responses:
         '200':
           description: Successful response
@@ -2714,7 +2723,9 @@ paths:
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
     delete:
+      deprecated: true
       description: |
+        ** NOTE: This API is deprecated and may be removed in future versions. Use the `/applications/unshare-with-all` endpoint instead.</br>
         This API provides the capability to stop sharing an application to all organizations the application is shared to.
         <br><br>
         
@@ -2764,7 +2775,9 @@ paths:
             -H 'Authorization: Bearer {bearer_token}'
   /applications/{applicationId}/share/{shared-organization-id}:
     delete:
+      deprecated: true
       description: |
+        **NOTE: This API is deprecated and may be removed in future versions. Use the `/applications/unshare` endpoint instead.</br>
         This API provides the capability to stop sharing an application to an organization by providing its ID.
         <br><br>
         
@@ -2818,6 +2831,404 @@ paths:
             curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/share/{shared-organization-id}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
+  /applications/share:
+    post:
+      tags: [ Application Sharing ]
+      summary: Share a single application with specific organizations.
+      description: |
+        This API provides the capability to share an application with specific organizations.
+        It allows for detailed role sharing configurations per organization. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_create`
+      operationId: shareApplicationWithSelected
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApplicationShareSelectedRequestBody"
+            example:
+              applicationId: "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+              organizations:
+                - orgId: "13b92afa-e7ee-4b01-bee0-2afb503b4d15"
+                  policy: "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN"
+                  roleSharing:
+                    mode: "SELECTED"
+                    roles:
+                      - displayName: "App Viewer"
+                        audience:
+                          display: "Pickup App"
+                          type: "application"
+                      - displayName: "App Admin"
+                        audience:
+                          display: "Pickup App"
+                          type: "application"
+                - orgId: "682edf68-4835-4bb8-961f-0a16bc6cc866"
+                  policy: "SELECTED_ORG_ONLY"
+                  roleSharing:
+                    mode: "ALL"
+      responses:
+        "202":
+          description: Sharing process triggered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProcessSuccessResponse"
+              example:
+                status: "Processing"
+                details: "Application sharing process triggered successfully."
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/share' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b",
+              "organizations": [
+                {
+                  "orgId": "13b92afa-e7ee-4b01-bee0-2afb503b4d15",
+                  "policy": "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN",
+                  "roleSharing": {
+                    "mode": "SELECTED",
+                    "roles": [
+                      {
+                        "displayName": "App Viewer",
+                        "audience": {
+                          "display": "Pickup App",
+                          "type": "application"
+                        }
+                      },
+                      {
+                        "displayName": "App Admin",
+                        "audience": {
+                          "display": "Pickup App",
+                          "type": "application"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "orgId": "682edf68-4835-4bb8-961f-0a16bc6cc866",
+                  "policy": "SELECTED_ORG_ONLY",
+                  "roleSharing": {
+                    "mode": "ALL"
+                  }
+                }
+              ]
+            }'
+    patch:
+      tags: [ Application Sharing ]
+      summary: Perform incremental sharing operations on an already shared application.
+      description: |
+        This API allows for incremental updates to the sharing configuration of an application.
+        It supports adding or removing roles from organizations that the application is already shared with. <br>
+        **NOTE:** Adding or removing roles is supported only if the role sharing mode is set to `SELECTED`.</br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_create`
+      operationId: patchApplicationSharing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationSharingPatchRequest'
+            examples:
+              addRolesToOrg:
+                summary: Add roles to an organization
+                value:
+                  applicationId: "app-123"
+                  Operations:
+                    - op: "add"
+                      path: "organizations[orgId eq 13b92afa-e7ee-4b01-bee0-2afb503b4d15].roles"
+                      value:
+                        - displayName: "App Viewer"
+                          audience:
+                            display: "My Org 1"
+                            type: "organization"
+                        - displayName: "App Admin"
+                          audience:
+                            display: "My Org 1"
+                            type: "organization"
+              removeRolesFromOrg:
+                summary: Remove roles from an organization
+                value:
+                  applicationId: "app-123"
+                  Operations:
+                    - op: "remove"
+                      path: "organizations[orgId eq 13b92afa-e7ee-4b01-bee0-2afb503b4d15].roles"
+                      value:
+                        - displayName: "App Viewer"
+                          audience:
+                            display: "My Org 2"
+                            type: "organization"
+      responses:
+        '202':
+          description: Operation processed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessSuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/share' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b",
+              "Operations": [
+                {
+                  "op": "add",
+                  "path": "organizations[orgId eq 13b92afa-e7ee-4b01-bee0-2afb503b4d15].roles",
+                  "value": [
+                    {
+                      "displayName": "App Viewer",
+                      "audience": {
+                        "display": "Pickup App",
+                        "type": "application"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }'
+  /applications/share-with-all:
+    post:
+      tags: [ Application Sharing ]
+      summary: Share a single application with all organizations.
+      description: |
+        This API provides the capability to share an application with all existing and/or future organizations.
+        It allows for role sharing configurations that apply to all organizations. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_create`
+      operationId: shareApplicationWithAll
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApplicationShareAllRequestBody"
+            example:
+              applicationId: "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+              policy: "ALL_EXISTING_AND_FUTURE_ORGS"
+              roleSharing:
+                mode: "ALL"
+      responses:
+        "202":
+          description: Sharing process triggered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProcessSuccessResponse"
+              example:
+                status: "Processing"
+                details: "Application sharing process triggered successfully."
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/share-with-all' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b",
+              "policy": "ALL_EXISTING_AND_FUTURE_ORGS",
+              "roleSharing": {
+                "mode": "ALL"
+              }
+            }'
+  /applications/unshare:
+    post:
+      tags: [ Application Sharing ]
+      summary: Unshare an application from specific organizations.
+      description: |
+        This API provides the capability to unshare an application from specific organizations.
+        It allows for detailed role unsharing configurations per organization. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_delete`
+      operationId: unshareApplicationFromSelected
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApplicationUnshareSelectedRequestBody"
+            example:
+              applicationId: "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+              orgIds:
+                - "13b92afa-e7ee-4b01-bee0-2afb503b4d15"
+                - "682edf68-4835-4bb8-961f-0a16bc6cc866"
+      responses:
+        "202":
+          description: Unsharing process triggered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProcessSuccessResponse"
+              example:
+                status: "Processing"
+                details: "Application unsharing process triggered successfully."
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/unshare' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b",
+              "orgIds": [
+                "13b92afa-e7ee-4b01-bee0-2afb503b4d15",
+                "682edf68-4835-4bb8-961f-0a16bc6cc866"
+              ]
+            }'
+  /applications/unshare-with-all:
+    post:
+      tags: [ Application Sharing ]
+      summary: Unshare an application from all organizations.
+      description: |
+        This API provides the capability to unshare an application from all organizations.
+        It allows for role unsharing configurations that apply to all organizations. <br>
+          <b>Scope(Permission) required:</b> `internal_shared_application_delete`
+      operationId: unshareApplicationFromAll
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApplicationUnshareAllRequestBody"
+            example:
+              applicationId: "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+      responses:
+        "202":
+          description: Unsharing process triggered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProcessSuccessResponse"
+              example:
+                status: "Processing"
+                details: "Application unsharing process triggered successfully."
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/unshare-with-all' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "applicationId": "c75e27f9-98c7-4518-a968-c6cd59f0ac6b"
+            }'
 components:
   parameters:
     limitQueryParam:
@@ -2879,6 +3290,70 @@ components:
         The domain name of the user store used to filter the groups.
 
         /applications/meta/groups?domain=PRIMARY
+      schema:
+        type: string
+    before:
+      name: before
+      in: query
+      required: false
+      description: |
+        Base64 encoded cursor value for backward pagination.
+      schema:
+        type: string
+      example: Ng==
+    after:
+      name: after
+      in: query
+      required: false
+      description: |
+        Base64 encoded cursor value for forward pagination.
+      schema:
+        type: string
+      example: Ng==
+    filter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew' and 'eq' operations.
+      schema:
+        type: string
+      example: id+eq+088fb49c-46fa-48c1-a0a8-5538ee4b7ec5
+    sharedOrganizationsLimit:
+      name: limit
+      in: query
+      required: false
+      description: |
+        Maximum number of records to return. If you do not specify this parameter, this will return all shared organizations.
+      schema:
+        type: integer
+      example: 10
+    recursiveQueryParam:
+      in: query
+      name: recursive
+      required: false
+      description: |
+        Determines whether a recursive search should happen.<br>
+        If set to true, will include shared organizations in all levels of the hierarchy; If set to false, includes only shared organizations in the next level of the hierarchy.
+      schema:
+        type: boolean
+    applicationShareExcludedQueryParam:
+      in: query
+      name: excludedAttributes
+      description: | 
+        excludedAttribute parameter.<br>
+        Supported values: `roles`
+      required: false
+      schema:
+        type: string
+    applicationShareAttributesQueryParam:
+      in: query
+      name: attributes
+      required: false
+      description: |
+        Specifies the required parameters in the response.
+        supported values: `sharingMode`.<br>
+        /applications/{applicationId}/share?attributes=sharingMode
       schema:
         type: string
     groupsFilterQueryParam:
@@ -4695,10 +5170,49 @@ components:
     SharedOrganizationsResponse:
       type: object
       properties:
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            [
+              {
+                "href": "/api/server/v1/applications/67f5a202-48c4-4313-9327-016da5f08f17/share?limit=10&recursive=false&next=MTA=",
+                "rel": "next",
+              },
+              {
+                "href": "/api/server/v1/applications/67f5a202-48c4-4313-9327-016da5f08f17/share?limit=10&recursive=false&before=MTA=",
+                "rel": "previous",
+              }
+            ]
+        sharingMode:
+          $ref: '#/components/schemas/SharingMode'
+          example:
+            - "policy": "ALL_EXISTING_AND_FUTURE_ORGS"
+              "roleSharing":
+                mode: "SELECTED"
+                roles:
+                  - "displayName": "App Viewer"
+                    "audience":
+                      "display": "My Org 1"
+                      "type": "organization"
         organizations:
           type: array
           items:
             $ref: '#/components/schemas/BasicOrganizationResponse'
+    SharingMode:
+      type: object
+      required: [ roleSharing ]
+      properties:
+        policy:
+          type: string
+          enum: [ "ALL_EXISTING_AND_FUTURE_ORGS", "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN" ]
+          description: |
+            This will only shows the future sharing modes.
+            - ALL_EXISTING_AND_FUTURE_ORGS: Share with all current and any newly created organizations in future.
+            - SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN: Share with this organization and its current & future children.
+        roleSharing:
+          $ref: "#/components/schemas/RoleSharing"
     SharedApplicationsResponse:
       type: object
       properties:
@@ -4723,8 +5237,12 @@ components:
         - id
         - name
         - orgHandle
+        - parentId
         - status
         - ref
+        - hasChildren
+        - depthFromRoot
+        - roles
       properties:
         id:
           type: string
@@ -4735,6 +5253,11 @@ components:
         orgHandle:
           type: string
           example: 'abcbuilders'
+        parentId:
+          type: string
+          example: '08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c'
+          description: |
+              The parent organization ID.
         status:
           type: string
           enum: [ ACTIVE, DISABLED ]
@@ -4742,6 +5265,161 @@ components:
         ref:
           type: string
           example: '/t/<org-name>/api/server/v1/organizations/b4526d91-a8bf-43d2-8b14-c548cf73065b'
+        hasChildren:
+          type: boolean
+          example: true
+        depthFromRoot:
+          type: integer
+          example: 1
+        sharingMode:
+          $ref: '#/components/schemas/SharingMode'
+        roles:
+          type: array
+          items:
+              $ref: '#/components/schemas/RoleShareConfig'
+          description: "List of roles that are shared with the application in this organization."
+    ApplicationShareSelectedRequestBody:
+      type: object
+      required: [ applicationId, organizations ]
+      properties:
+        applicationId:
+          type: string
+        organizations:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrgShareConfig"
+
+    OrgShareConfig:
+      type: object
+      required: [ orgId, policy, roleSharing ]
+      properties:
+        orgId:
+          type: string
+        policy:
+          type: string
+          enum: [ "SELECTED_ORG_ONLY",
+                  "SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN"]
+          description: |
+            - SELECTED_ORG_ONLY: Share app with only this specific organizations.
+            - SELECTED_ORG_WITH_ALL_EXISTING_AND_FUTURE_CHILDREN: Share with this organization and its current & future children.
+        roleSharing:
+          $ref: "#/components/schemas/RoleSharing"
+
+    ApplicationShareAllRequestBody:
+      type: object
+      required: [ applicationId, policy, roleSharing ]
+      properties:
+        applicationId:
+          type: string
+        policy:
+          type: string
+          enum: [ "ALL_EXISTING_ORGS_ONLY",
+                  "ALL_EXISTING_AND_FUTURE_ORGS"]
+          description: |
+            - ALL_EXISTING_ORGS_ONLY: Share with all organizations currently present.
+            - ALL_EXISTING_AND_FUTURE_ORGS: Share with all current and any newly created organizations in future.
+        roleSharing:
+          $ref: "#/components/schemas/RoleSharing"
+
+    ApplicationUnshareSelectedRequestBody:
+      type: object
+      required: [ applicationId, orgIds ]
+      properties:
+        applicationId:
+          type: string
+        orgIds:
+          type: array
+          items:
+            type: string
+
+    ApplicationUnshareAllRequestBody:
+      type: object
+      required: [ applicationId ]
+      properties:
+        applicationId:
+          type: string
+    ApplicationSharingPatchRequest:
+      type: object
+      required: [ applicationId, Operations ]
+      properties:
+        applicationId:
+          type: string
+        Operations:
+          type: array
+          items:
+            $ref: "#/components/schemas/ApplicationSharingPatchOperation"
+    ApplicationSharingPatchOperation:
+      type: object
+      required: [ op, path ]
+      properties:
+        op:
+          type: string
+          description: "Patch operation type (like SCIM): Currently only 'add' and 'remove' are supported."
+        path:
+          type: string
+          description: "Path in the format 'organizations[orgId eq \"abc123\"].roles'"
+        value:
+          type: array
+          description: "List of roles to add/remove"
+          items:
+            type: object
+            example:
+              - "displayName": "App Viewer"
+                "audience":
+                  - "display": "My Org 1"
+                    "type": "organization"
+    RoleSharing:
+      type: object
+      required: [ mode ]
+      properties:
+        mode:
+          type: string
+          enum: [ ALL, NONE, SELECTED ]
+        roles:
+          type: array
+          description: "List of roles (required when mode=SELECTED)"
+          items:
+            $ref: "#/components/schemas/RoleShareConfig"
+      description: |-
+        - ALL => share all roles
+        - NONE => share no roles
+        - SELECTED => provide a list of specific roles
+      example:
+        - "mode": "SELECTED"
+          "roles":
+            - "displayName": "App Viewer"
+              "audience":
+                "display": "My Org 1"
+                "type": "organization"
+    RoleShareConfig:
+      type: object
+      required: [ displayName, audience ]
+      properties:
+        displayName:
+          type: string
+          description: "The human-readable name of the role"
+        audience:
+          type: object
+          required: [ display, type ]
+          properties:
+            display:
+              type: string
+              description: "Display name of the audience (e.g., organization or application name)"
+            type:
+              type: string
+              description: |
+                The type of the role audience:
+                - `organization`: Role is scoped at organization level.
+                - `application`: Role is scoped at application level.
+    ProcessSuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: "Processing"
+        details:
+          type: string
+          example: "Application sharing process triggered successfully."
     DiscoverableGroup:
       type: object
       required:

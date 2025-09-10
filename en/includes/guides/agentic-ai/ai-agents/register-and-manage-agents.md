@@ -4,29 +4,33 @@ This guide walks you through key processes involved in managing AI agents, inclu
 
 ## AI agent lifecycle Management
 
-- **Create Agent Identity**  
+1. **Create Agent Identity**  
 
-Begin by defining your AI agent’s identity. This includes setting a clear and descriptive name, a detailed description that outlines its purpose, and specifying the operational context such as the environment or systems it will interact with. A well-defined identity helps in tracking and managing agents effectively throughout their lifecycle.
+    Begin by defining your AI agent’s identity. This includes setting a clear and descriptive name, a detailed description that outlines its purpose, and specifying the operational context such as the environment or systems it will interact with. A well-defined identity helps in tracking and managing agents effectively throughout their lifecycle.
 
-- **Generate Credentials**  
+2. **Generate Credentials**  
 
-Issue secure authentication credentials necessary for the AI agent to authenticate with your systems. These may include client ID and secret pairs, private key certificates, or other cryptographic credentials. Secure generation and handling of these credentials are critical to prevent unauthorized access.
+    Issue secure authentication credentials necessary for the AI agent to authenticate with your systems. These may include client ID and secret pairs, private key certificates, or other cryptographic credentials. Secure generation and handling of these credentials are critical to prevent unauthorized access.
 
-- **Assign Roles and Permissions**  
+3. **Assign Roles and Permissions**  
 
-Configure granular access controls by assigning appropriate roles and permissions to the agent. This step involves applying the principle of least privilege to ensure the agent only has the minimum access necessary to perform its functions, reducing potential security risks.
+    Configure granular access controls by assigning appropriate roles and permissions to the agent. This step involves applying the principle of least privilege to ensure the agent only has the minimum access necessary to perform its functions, reducing potential security risks.
 
-- **Integrate and Deploy**  
+4. **Integrate and Deploy**  
 
-Integrate the authentication mechanism into the AI agent’s implementation code or runtime environment. Deploy the agent with the issued credentials, ensuring that it can securely authenticate and operate within the designated infrastructure.
+    Integrate the authentication mechanism into the AI agent’s implementation code or runtime environment. Deploy the agent with the issued credentials, ensuring that it can securely authenticate and operate within the designated infrastructure.
 
-- **Set Up Security Policies and Logging**  
+5. **Set Up Security Policies and Logging**  
 
-Configure required security policies on resource servers that the agent accesses. This includes enforcing validation policies, access control rules, and enabling detailed audit and access logs. These logs provide traceability for agent actions and support compliance audits.
+    Configure required security policies on resource servers that the agent accesses. This includes enforcing validation policies, access control rules, and enabling detailed audit and access logs. These logs provide traceability for agent actions and support compliance audits.
 
-- **Monitor Agent Activities**  
+6. **Monitor Agent Activities**  
 
-Continuously monitor the agent’s activities through audit logs and monitoring dashboards. Set up alerts for any suspicious or anomalous behavior, enabling rapid detection and mitigation of potential security incidents or operational failures.
+    Continuously monitor the agent’s activities through audit logs and monitoring dashboards. Set up alerts for any suspicious or anomalous behavior, enabling rapid detection and mitigation of potential security incidents or operational failures.
+
+7. **Retire and Decommission**  
+
+    When an AI agent is no longer needed, it’s important to properly retire and decommission it to prevent unauthorized access and ensure compliance.
 
 ### Registering an AI agent
 
@@ -77,22 +81,22 @@ Deleting an AI agent permanently removes the agent and all associated data, incl
 
 ## Best practices
 
-- Apply the Principle of Least Privilege
+It's always recomended to follow these best practices to maintain security, reliability, and compliance when managing AI agents in your organization.
 
-Assign only the minimum permissions necessary for the agent to perform its tasks, limiting potential exposure.
+- *Apply the Principle of Least Privilege.*
+    Assign only the minimum permissions necessary for the agent to perform its tasks, limiting potential exposure.
 
-- Regularly Rotate Agent Credentials
+- *Regularly Rotate Agent Credentials.*
+    Periodically update credentials to reduce the risk of compromise and maintain a robust security posture.
 
-Periodically update credentials to reduce the risk of compromise and maintain a robust security posture.
+- *Monitor Agent Activities.*
+    Use audit logs and monitoring tools to continuously track agent actions. Regularly review the logs to identify any suspicious or unauthorized behavior and ensure the agent operates within expected parameters.
 
-- Monitor Agent Activities
+- *Securely Store Agent Secrets.*
+    Treat agent credentials as sensitive information, storing them in secure vaults or secrets managers, never in plain text.
 
-Use audit logs and monitoring tools to continuously track agent actions. Regularly review the logs to identify any suspicious or unauthorized behavior and ensure the agent operates within expected parameters.
+- *Review Agent Access Periodically.*
+    Conduct regular audits of agent roles and permissions to ensure they remain appropriate as organizational needs evolve.
 
-- Securely Store Agent Secrets
 
-Treat agent credentials as sensitive information, storing them in secure vaults or secrets managers, never in plain text.
-
-- Review Agent Access Periodically
-
-Conduct regular audits of agent roles and permissions to ensure they remain appropriate as organizational needs evolve.
+Once you establish the agent identity, agent credentials are key to the agent's authentication and authorization. For more details on managing agent credentials, see the [Agent Credentials]({{base_path}}/guides/agentic-ai/ai-agents/agent-credentials/) guide.

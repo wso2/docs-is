@@ -70,7 +70,9 @@ Follow the steps given below.
 2. Click **Login** to open the {{ product_name }} login page.
 
 3. On the {{ product_name }} login page, **Sign in with SwissID**.
-   ![Login with SwissID]({{base_path}}/assets/img/guides/idp/swissid-eid/signin-with-swissid.png){: width="300" style="border: 0.3px solid lightgrey;"}
+
+    ![Login with SwissID]({{base_path}}/assets/img/guides/idp/swissid-eid/signin-with-swissid.png){: width="300" style="border: 0.3px solid lightgrey;"}
+
 4. Log in to SwissID with an existing eID.
 
 ## Configure connection

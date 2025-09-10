@@ -141,3 +141,19 @@ A sample configuration is given below.
 ### Configure the connection pool to rollback pending transactions on connection return
 
 {!./includes/rollback-pending.md !}
+
+## Driver-Level Timeouts (Recommended for Production)
+
+{!./includes/driver-level-timeouts.md !}
+
+### Example: Remote H2 database
+
+```toml
+[database.identity_db]
+url = "jdbc:h2:tcp://localhost/~/WSO2_IDENTITY_DB;QUERY_TIMEOUT=60000"
+username = "..."
+password = "..."
+driver = "org.h2.Driver"
+```
+
+Learn more in [H2 connection settings](http://www.h2database.com/html/features.html#connection_settings){: target="_blank"}.

@@ -19,7 +19,7 @@ The following section explains how to configure WSO2 identity server for multi-a
 To configure multi-attribute login, follow the steps below:
 
 1. On the {{product_name}} Console, go to **Login & Registration** > **Login Identifier** > **Multi Attribute Login**.
-2. Toggle the switch to enable multi attribute login.
+2. Toggle the switch to enable multi-attribute login.
 4. Add attribute URIs for attributes that users are allowed to use as login identifiers.
 5. Click **Update** to save the changes.
 

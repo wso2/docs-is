@@ -115,6 +115,50 @@ paths:
             'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /identity-governance/{category-id}/connectors/revert:
+    post:
+      tags:
+        - Management
+      summary: Remove properties of a governance connector
+      operationId: revertConnectorProperties
+      description: |
+        Remove the given properties of a governance connector.<br>
+        <b>Scope (Permission) required:</b> `internal_governance_update`
+      parameters:
+        - $ref: '#/components/parameters/categoryIdPathParam'
+        - $ref: "#/components/parameters/connectorIdQueryParam"
+      responses:
+        '200':
+          $ref: '#/components/responses/OK'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/identity-governance/{catergory-id}/connectors/revert?connectorId={connector-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "properties": [
+                "Recovery.notication"
+              ]
+            }'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyRevertReq'
+        description: Array of properties to delete.
   /identity-governance/{category-id}/connectors/{connector-id}:
     get:
       tags:
@@ -233,6 +277,13 @@ components:
       description: Define the order in which the retrieved records should be sorted.
       schema:
         type: string
+    connectorIdQueryParam:
+      in: query
+      name: connectorId
+      required: true
+      description: Id of the governance connector.
+      schema:
+        type: string
     categoryIdPathParam:
       in: path
       name: category-id
@@ -250,6 +301,8 @@ components:
   responses:
     Unauthorized:
       description: Unauthorized.
+    Forbidden:
+      description: Resource Forbidden.
     ServerError:
       description: Internal Server Error.
       content:
@@ -420,6 +473,17 @@ components:
           type: string
           description: Property value.
           example: 'false'
+    PropertyRevertReq:
+      type: object
+      description: Governance connector properties to delete.
+      required:
+        - properties
+      properties:
+        properties:
+          type: array
+          minItems: 1
+          items:
+            type: string
     Error:
       type: object
       required:

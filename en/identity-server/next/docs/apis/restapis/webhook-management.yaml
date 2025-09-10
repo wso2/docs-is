@@ -1,0 +1,533 @@
+openapi: 3.0.0
+info:
+  version: v1
+  title: WSO2 Identity Server - Webhook Management Rest API
+  description: >
+    The Webhook Management REST API provides a standardized interface to manage webhooks within WSO2 Identity Server. Webhooks allow external systems to receive real-time notifications for various events, such as login successes or failures, enabling seamless integration and automation across external applications and services. 
+    
+    This API empowers developers and administrators to create, update, delete, and retrieve webhook configurations tailored to their specific business needs and event-driven workflows.
+servers:
+  - url: "https://{server-url}/t/{tenant-domain}/api/server/v1"
+    variables:
+      server-url:
+        default: "localhost:9443"
+      tenant-domain:
+        default: carbon.super
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /webhooks:
+    get:
+      summary: List Webhooks
+      description: "This API returns the detailed summary of the webhooks.\n\n <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+      operationId: getWebhooks
+      tags:
+        - Webhooks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookList'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks' -H 'Authorization: Bearer {bearer_token}'
+
+    post:
+      summary: Add Webhook
+      description: "Create a new webhook. \n\n <b>Scope(Permission) required:</b> `internal_webhook_create` \n\n"
+      operationId: createWebhook
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookRequest'
+      responses:
+        '201':
+          description: Webhook Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks' \
+              -H 'Authorization: Bearer {bearer_token}' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                "endpoint": "https://example.com/webhook",
+                "name": "Login Webhook",
+                "secret": "my-secret",
+                "channelsSubscribed": ["https://schemas.identity.wso2.org/events/login", "https://schemas.identity.wso2.org/events/registration"],
+                "eventProfile": {
+                  "name": "WSO2",
+                  "uri": "https://schemas.identity.wso2.org/events"
+                },
+                "status": "ACTIVE"
+              }'
+
+  /webhooks/{webhookId}:
+    get:
+      summary: Retrieve Webhook by ID
+      description: "This API returns the webhook details along with the webhook unique ID. \n\n <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+      operationId: getWebhookByWebhookId
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}' -H 'Authorization: Bearer {bearer_token}'
+
+    put:
+      summary: Update Webhook
+      description: "This API updates a webhook and return the updated webhook. \n\n <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      operationId: updateWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookRequest'
+      responses:
+        '200':
+          description: Webhook Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location --request PUT 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}' \
+              -H 'Authorization: Bearer {bearer_token}' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                "endpoint": "https://example.com/webhook",
+                "name": "Login webhook",
+                "secret": "my-secret",
+                "channelsSubscribed": ["https://schemas.identity.wso2.org/events/login", "https://schemas.identity.wso2.org/events/registration"]
+              }'
+
+    delete:
+      summary: Delete Webhook
+      description: "This API deletes a webhook using the webhook unique ID. \n\n <b>Scope(Permission) required:</b> `internal_webhook_delete` \n\n"
+      operationId: deleteWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Webhook Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location --request DELETE 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}' -H 'Authorization: Bearer {bearer_token}'
+  
+
+  /webhooks/{webhookId}/activate:
+    post:
+      summary: Activate Webhook
+      description: "Activate a webhook by its unique ID.\n\n <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      operationId: activateWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Webhook Activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}/activate' \
+              -H 'Authorization: Bearer {bearer_token}'
+
+  /webhooks/{webhookId}/deactivate:
+    post:
+      summary: Deactivate Webhook
+      description: "Deactivate a webhook by its unique ID.\n\n <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      operationId: deactivateWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Webhook Deactivated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/{webhookId}/deactivate' \
+              -H 'Authorization: Bearer {bearer_token}'
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes:
+            internal_webhook_view: View webhooks
+            internal_webhook_create: Create webhooks
+            internal_webhook_update: Update webhooks
+            internal_webhook_delete: Delete webhooks
+
+  schemas:
+    WebhookRequest:
+      type: object
+      required:
+        - endpoint
+        - eventProfile
+        - name
+        - channelsSubscribed
+      properties:
+        endpoint:
+          type: string
+          description: Webhook URL.
+          example: https://example.com/webhook
+        eventProfile:
+          type: object
+          required:
+            - name
+            - uri
+          properties:
+            name:
+              type: string
+              description: Webhook Event Profile.
+              example: WSO2
+            uri:
+              type: string
+              description: Webhook Event Profile URI.
+              example: https://schemas.identity.wso2.org/events
+        name:
+          type: string
+          description: Webhook name.
+          example: Login Webhook.
+        secret:
+          type: string
+          description: Secret for validating webhook payloads.
+          example: my-secret
+        channelsSubscribed:
+          type: array
+          items:
+            type: string
+          description: List of channels to subscribe to.
+          example: ["https://schemas.identity.wso2.org/events/login", "https://schemas.identity.wso2.org/events/registration"]
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+          description: Webhook Status.
+          example: "ACTIVE"
+
+    WebhookSubscription:
+      type: object
+      properties:
+        channelUri:
+          type: string
+          description: Channel URI to subscribe to.
+          example: https://schemas.identity.wso2.org/events/login
+
+    WebhookResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 'eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c'
+        createdAt:
+          type: string
+          example: '2024-05-01T12:00:00Z'
+        updatedAt:
+          type: string
+          example: '2024-05-02T12:00:00Z'
+        endpoint:
+          type: string
+          description: Webhook URL.
+          example: https://example.com/webhook
+        eventProfile:
+          type: object
+          required:
+            - name
+            - uri
+          properties:
+            name:
+              type: string
+              description: Webhook Event Profile.
+              example: WSO2
+            uri:
+              type: string
+              description: Webhook Event Profile URI.
+              example: https://schemas.identity.wso2.org/events
+        name:
+          type: string
+          description: Webhook name.
+          example: Login webhook.
+        channelsSubscribed:
+          type: array
+          description: List of channel subscriptions with status.
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+          example:
+            - channelUri: https://schemas.identity.wso2.org/events/login
+            - channelUri: https://schemas.identity.wso2.org/events/registration
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+          description: Webhook Status.
+          example: "ACTIVE"
+
+    WebhookSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 'eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c'
+        createdAt:
+          type: string
+          example: '2024-05-01T12:00:00Z'
+        updatedAt:
+          type: string
+          example: '2024-05-02T12:00:00Z'
+        endpoint:
+          type: string
+          description: Webhook URL.
+          example: https://example.com/webhook
+        name:
+          type: string
+          description: Webhook name.
+          example: Login webhook.
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+          description: Webhook Status.
+          example: "ACTIVE"
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v1/webhooks/123e4567-e89b-12d3-a456-556642440000
+
+    WebhookList:
+      type: object
+      properties:
+        webhooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSummary'
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: WEBHOOK-00001
+        message:
+          type: string
+          example: Some error message.
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047

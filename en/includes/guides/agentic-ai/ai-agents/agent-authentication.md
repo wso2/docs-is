@@ -1,5 +1,5 @@
 <!-- vale off -->
-# Authenticating AI agents
+# Authenticating AI Agents
 <!-- vale on -->
 
 This guide walks you through how to authenticate AI agents into your applications secured by **{{ product_name }}**. It covers two key authentication scenarios:
@@ -18,6 +18,11 @@ Each scenario leverages standard or emerging OAuth 2.0-based protocols to ensure
 <!-- vale on -->
 
 In this scenario, the AI agent operates autonomously without user involvement, supporting background processes, monitoring tasks, and independently running automation workflows.
+
+!!! note "Agent friendly authentication mechanism"
+    - AI agents often require **machine-to-machine communication**.
+    - This flow does **not use redirects**.
+    - The agent leverages **authentication APIs** to securely obtain tokens for autonomous access.
 
 When acting on its own, the AI agent uses its **Agent ID** and **Agent Secret** to authenticate with the authorization server and obtain an access token.
 
@@ -141,7 +146,7 @@ curl --location '{{ api_base_path }}/oauth2/token' \
 
 When an AI agent needs to act on behalf of a user—such as initiating a transaction, making a booking, or retrieving user-specific data—it must do so with explicit user consent. This is typically required for user-facing assistants, copilots, or delegated decision-making agents.
 
-This scenario follows an enhanced authorization code flow, inspired by the [OAuth for AI Agents IETF draft](https://datatracker.ietf.org/doc/draft-oauth-ai-agents-on-behalf-of-user/), which introduces a structured delegation model using an `actor_token`.
+This scenario follows an enhanced authorization code flow, adopting the [OAuth Extension for AI Agents IETF draft](https://datatracker.ietf.org/doc/draft-oauth-ai-agents-on-behalf-of-user/), which introduces a structured and dynamic delegation model.
 
 ![Agent Acting on-behalf-of User Flow Diagram](../../../assets/img/guides/agentic-ai/ai-agent-on-behalf-flow.png)
 
