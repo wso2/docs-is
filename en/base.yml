@@ -114,6 +114,10 @@ extra:
       options:
         - no-indent
         - divider
+    - title: Deployment Guides
+      options:
+        - no-indent
+        - divider
     - title: Connect App
     - title: Connect via MCP
     - title: Get started
@@ -156,6 +160,9 @@ extra:
       level: 3
     Frontend Security:
       link: complete-guides/fesecurity/introduction
+      level: 2
+    AWS:
+      link: complete-guides/aws/introduction
       level: 2
 
   nav_chip:
