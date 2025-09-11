@@ -131,7 +131,16 @@
     const pages = expandedNavSections[expandedNavSections.length - 1].querySelector('ul.md-nav__list');
 
     document.addEventListener("DOMContentLoaded", function () {
-        const lastValidPage = sessionStorage.getItem("lastValidPage");
+
+        if (!document.referrer.includes('/complete-guides/')) {
+    sessionStorage.setItem("lastVisitedPage", document.referrer);}
+
+      let lastValidPage = sessionStorage.getItem("lastVisitedPage");
+
+      let lastVisitedPage = sessionStorage.getItem("lastVisitedPage");
+
+      console.log(sessionStorage);
+
         const isLastPageValid = lastValidPage && (lastValidPage !== window.location.href);
 
         const icon = document.getElementById("prerendered-icons").querySelector(".arrow-left").innerHTML;
@@ -139,7 +148,7 @@
         const goBackLabel = document.createElement("label");
         const goBackLink = document.createElement("a");
 
-        goBackLink.href = isLastPageValid ? lastValidPage : '{{ "" | url }}';
+        goBackLink.href = lastVisitedPage ? lastVisitedPage : '{{ "" | url }}';
         goBackLink.innerHTML =
           `<span class="icon">${icon}</span>` + (isLastPageValid ? "Go Back" : "Go Back Home");
         
