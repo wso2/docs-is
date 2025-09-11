@@ -235,6 +235,7 @@ components:
         - id
         - name
         - status
+        - version
         - ref
       properties:
         id:
@@ -247,6 +248,9 @@ components:
           type: string
           enum: [ ACTIVE, DISABLED ]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         ref:
           type: string
           example: '/t/{tenantDomain}/api/server/v1/organizations/b4526d91-a8bf-43d2-8b14-c548cf73065b'
