@@ -4,13 +4,20 @@ The authentication endpoint is the URL used in authentication requests. The foll
 
 ## Customize the authentication endpoint URL
 
-The authentication endpoint URL is the location in your web application that contains authentication related pages. To customize this endpoint,
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
+!!! note
+    This feature is available for **WSO2 Identity Server 7.0.0** as of **update level 78**.
+{% endif %}
 
-1. Add the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and change the value of the `login_url` parameter depending on the URL on which the web application should run. 
+The authentication endpoint URL is the location in your web application that contains authentication related pages. To customize these endpoints,
+
+1. Add the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and change the value of the parameters according to your web application's URL. Assuming that the web application is running on `https://localhost:8443/authenticationendpoint`, the configuration would look as follows:
 
     ```toml
-    [authentication.endpoints] 
-    login_url="/sso/login"
+    [authentication.endpoints.v2]
+    login_url="https://localhost:8443/authenticationendpoint/login.do"
+    retry_url="https://localhost:8443/authenticationendpoint/retry.do"
+    request_missing_claims_url="https://localhost:8443/authenticationendpoint/claims.do"
     ```
 
 2. Run the web application on the new authentication endpoint URL.
@@ -20,8 +27,8 @@ The authentication endpoint URL is the location in your web application that con
 In addition to the authentication URL itself, you may customize the request parameters sent with the authentication URL by adding the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory.
 
 ```toml
-[authentication.endpoint.query_params] 
-filter_policy = exclude 
+[authentication.endpoint.query_params]
+filter_policy = exclude
 filter_parameters = [username]
 filter_parameters = [password]
 ```
@@ -70,12 +77,12 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
         ```
 
         !!! note
-        
+
             When configuring the `data_listener_urls` property in the above  configuration, note the
             following.
-            
+
             -  In a clustered setup that has multiple authentication endpoint web applications hosted, list all of them under the `data_listener_urls` property.
-            
+
             -  For authentication endpoint web applications hosted outside the WSO2 Identity Server or in other nodes of a cluster, add the absolute URL within the `data_listener_urls` property.
 
 2. Restart the server using one of the following commands.
@@ -86,7 +93,7 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
 3. Once the server is restarted, the **authenticationendpoint.war** file is deployed. The required properties should be configured in the `<IS_HOME>/repository/conf/deployment.toml`. The following are the default values for the properties to be configured.
 
     ``` toml
-    [identity.auth_framework.endpoint] 
+    [identity.auth_framework.endpoint]
     tenant_list_enabled="false"
     hostname_verification_enabled="true"
     mutual_ssl_username="admin"
@@ -101,7 +108,7 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
     Make the following updates:
 
     - Set `tenant_list_enabled` to `true` in order for the tenants to be displayed as a list.
-    
+
     - For the `mutual_ssl_username` property, set a username to be used for mutual SSL authentication. This user needs to have permission to list down tenants.
 
     - Paths for client keystore and truststore can be relative paths or absolute paths. The default paths point to the keystore and truststore of the Identity Server itself. A new keystore can be created and used for the client if necessary. However, you must set the passwords for `carbon_security_keystore_password` and `carbon_security_truststore_password` appropriately.
@@ -110,8 +117,8 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
         If you are hosting the `autheticationendpoint.war` webapp outside the Identity Server (i.e in a different Tomcat or WSO2 Application Server), you cannot add these configurations to the `<IS_HOME>/repository/conf/deployment.toml` file as the webapp does not have access to it. Instead, the same property file can be found at `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties`.
 
         The following are the default values for the properties to be used in this file.
-        
-        ```   
+
+        ```
         tenantListEnabled=false
         mutualSSLManagerEnabled=true
         hostname.verification.enabled=true
@@ -131,12 +138,12 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
         ```
 
         In this scenario, do the following:
-        
+
         - Provide the full URL of the {{product_name}} admin services endpoint to the `identity.server.serviceURL` property in the format `identity.server.serviceURL=https://<ip>:<port>/services`.
-            
+
         -  Set `tenant_list_enabled` to `true` in order for the tenants to be displayed as a list.
         -  For the `mutual_ssl_username` property, set a username to be used for mutual SSL authentication. This user needs to have permission to list down tenants.
-    
+
         -  Paths for client keystore and truststore can be relative paths or absolute paths. The default paths point to the keystore and truststore of the Identity Server itself. A new keystore can be created and used for the client if necessary. However, you must set the passwords for `carbon_security_keystore_password` and `carbon_security_truststore_password` appropriately.
 
 4. For mutual SSL authentication, the public certificate of the {{product_name}} has to be imported to the truststore of the client and the public certificate of the client to the {{product_name}}'s client-truststore.
@@ -150,7 +157,7 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
         ```
 
     === "Import to WSO2 Identity Server truststore"
-    
+
         ``` java
         keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.{{content.default_keystore_ext}} -storetype {{content.default_keystore_type}} -storepass wso2carbon
         ```
@@ -161,13 +168,13 @@ If your {{product_name}} setup includes multiple tenants, users typically log in
         ``` toml
         mutual_ssl_manager_enabled="false"
         ```
-        
+
         Alternatively, if the authentication endpoint is hosted externally, then set the `mutualSSLManagerEnabled` property to false in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
-        
+
         ``` toml
         mutualSSLManagerEnabled=false
         ```
-    
+
         Make sure to restart the server to apply the configuration changes.
 
 ---
@@ -182,15 +189,15 @@ If you want to disable the tenant domain dropdown list from your SSO login page,
     - Set the `tenant_list_enabled` property to **false**.
 
         ``` toml
-        [identity.auth_framework.endpoint] 
+        [identity.auth_framework.endpoint]
         tenant_list_enabled = "false"
         ```
 
         !!! note
-        
+
             If the authentication endpoint is hosted externally, then set the `tenantListEnabled`
             property to false in `<WEBAPP_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties` file.
-            
+
             ```bash
             tenantListEnabled=false
             ```
