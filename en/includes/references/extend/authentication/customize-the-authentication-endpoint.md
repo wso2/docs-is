@@ -11,7 +11,7 @@ The authentication endpoint is the URL used in authentication requests. The foll
 
 The authentication endpoint URL is the location in your web application that contains authentication related pages. To customize these endpoints,
 
-1. Add the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and change the value of the parameters depending on the URL on which the web application should run. Assuming that the web application is running on `https://localhost:8443/authenticationendpoint`, the configuration would look as follows:
+1. Add the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and change the value of the parameters according to your web application's URL. Assuming that the web application is running on `https://localhost:8443/authenticationendpoint`, the configuration would look as follows:
 
     ```toml
     [authentication.endpoints.v2]
