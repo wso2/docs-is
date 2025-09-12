@@ -294,21 +294,21 @@ To set up tracing with the Datadog Java Agent you need the following components:
 
 To configure the Datadog Java Agent with WSO2 Identity Server, follow these steps:
 
-1. Install and run the Datadog Agent following the [Datadog Agent installation guide](https://docs.datadoghq.com/getting_started/agent/#setup){: target="_blank"}.
+1. Install and run the Datadog Agent following the [Datadog Agent installation guide](https://docs.datadoghq.com/getting_started/agent/#setup).
 
-2. Download the Datadog Java Agent (`dd-java-agent.jar`) from the [Datadog releases page](https://docs.datadoghq.com/tracing/trace_collection/automatic_instrumentation/dd_libraries/java/?tab=wget){: target="_blank"}.
+2. Download the Datadog Java Agent (`dd-java-agent.jar`) from the [Datadog releases page](https://docs.datadoghq.com/tracing/trace_collection/automatic_instrumentation/dd_libraries/java/?tab=wget).
 
 3. To enable tracing, add the agent and related configurations as Java options when starting WSO2 Identity Server. To do so,
 
     - Open the corresponding to your operating system.
 
-      === "Mac/Linux"
-
-            `<IS_HOME>/bin/wso2server.sh`
-
-      === "Windows"
-
-            `<IS_HOME>/bin/wso2server.bat`
+        ```shell
+        Mac/Linux:
+        <IS_HOME>/bin/wso2server.sh
+        
+        Windows:
+        <IS_HOME>/bin/wso2server.bat
+        ```
 
     - Extend the `JAVA_OPTS` variable to include the Java agent option.
 
@@ -327,9 +327,9 @@ To configure the Datadog Java Agent with WSO2 Identity Server, follow these step
     -Ddd.trace.otel.enabled=true \
     ```
 
-   Refer to the [Datadog Java Agent configuration documentation](https://docs.datadoghq.com/tracing/trace_collection/library_config/java/#configuration-options){: target="_blank"} for the full set of options.
+   Refer to the [Datadog Java Agent configuration documentation](https://docs.datadoghq.com/tracing/trace_collection/library_config/java/#configuration-options) for the full set of options.
 
-5. Restart WSO2 Identity Server and confirm that traces appear in the [Datadog APM dashboard](https://docs.datadoghq.com/tracing/){: target="_blank"}.
+5. Restart WSO2 Identity Server and confirm that traces appear in the [Datadog APM dashboard](https://docs.datadoghq.com/tracing/).
 
 #### Enable LDAP tracing in WSO2 Identity Server
 
