@@ -696,8 +696,6 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ```
 
-
-
 2. Add the following to the deployment.toml to enable the feature in WSO2 Identity Server. 
 
     ```toml
