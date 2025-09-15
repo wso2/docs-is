@@ -146,6 +146,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+        409:
+          description: User attribute value already exists
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUserConflict'
         500:
           description: Internal Server Error
           content:
@@ -329,6 +335,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/UserResponseObject'
+        400:
+          description: Invalid Input
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
         401:
           description: Unauthorized
           content:
@@ -341,6 +353,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+        409:
+          description: User attribute value already exists
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUserConflict'
       x-codeSamples:
         - lang: Curl
           source: |
@@ -449,6 +467,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/UserResponseObject'
+        400:
+          description: Invalid Input
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
         401:
           description: Unauthorized
           content:
@@ -461,6 +485,12 @@ paths:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/ErrorForbidden'
+        409:
+          description: User attribute value already exists
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUserConflict'
       x-codeSamples:
         - lang: Curl
           source: |
@@ -869,6 +899,24 @@ components:
           type: string
           examples:
             - Internal Server Error.
+    ErrorUserConflict:
+      required:
+        - detail
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          examples:
+            - "409"
+        schemas:
+          type: array
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          examples:
+            - User attribute value already exists
   securitySchemes:
     OAuth2:
       type: oauth2
