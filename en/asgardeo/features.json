@@ -69,5 +69,24 @@
             "guides/webhooks/setup-webhooks.md",
             "guides/webhooks/webhook-events-and-payloads.md"
         ]
+    },
+
+    "workflows": {
+        "enabled": false,
+        "page": [
+            "guides/workflows/index.md",
+            "guides/workflows/approve-workflow.md",
+            "guides/workflows/workflow-requests.md",
+            "guides/user-self-service/manage-approvals.md"
+        ]
+    },
+
+    "rolesv3": {
+        "enabled": false,
+        "page": [
+            "apis/role-management/index.md",
+            "apis/role-management/roles-v3.md",
+            "apis/organization-apis/org-role-mgt-v3.md"
+        ]
     }
 }
