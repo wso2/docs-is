@@ -889,9 +889,10 @@ nav:
     - Fraud:
       - Sift:
         - What is Sift: connectors/sift/what-is-sift.md
-        - Set up: connectors/sift/install-sift.md
-        - Use: connectors/sift/use-sift.md
-      - Duo security: connectors/duo-security.md
+        - Set up: connectors/sift/set-up.md
+        - How to use: connectors/sift/how-to-use.md
+        - Optional configurations: connectors/sift/optional-configurations.md
+        - Example use cases: connectors/sift/examples.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
