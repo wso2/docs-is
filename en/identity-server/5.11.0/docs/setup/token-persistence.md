@@ -681,8 +681,6 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
     protected JWTClaimsSet createJWTClaimSet(
             OAuthAuthzReqMessageContext authAuthzReqMessageContext,
             OAuthTokenReqMessageContext tokenReqMessageContext,
-            OAuthAppDO oAuthAppDO,
-            AuthenticatedUser authenticatedUser,
             String consumerKey) throws IdentityOAuth2Exception {
 
         // ... set your standard logic here ...
