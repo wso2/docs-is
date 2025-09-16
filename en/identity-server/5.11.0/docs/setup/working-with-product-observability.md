@@ -326,7 +326,6 @@ To configure the Datadog Java Agent with WSO2 Identity Server, follow these step
     -Ddd.trace.agent.host=localhost \
     -Ddd.trace.otel.enabled=true \
     ```
-
    Refer to the [Datadog Java Agent configuration documentation](https://docs.datadoghq.com/tracing/trace_collection/library_config/java/#configuration-options) for the full set of options.
 
 5. Restart WSO2 Identity Server and confirm that traces appear in the [Datadog APM dashboard](https://docs.datadoghq.com/tracing/).
