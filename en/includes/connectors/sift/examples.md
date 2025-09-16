@@ -1,4 +1,4 @@
-## Examples
+# Example use cases
 
 To understand how you can use Sift-related functions in a conditional authentication script, let's look at the following examples.
 
@@ -6,7 +6,7 @@ To understand how you can use Sift-related functions in a conditional authentica
 
     To learn more about all the functions and object references you can use to create condiitonal authentication scripts, refer to the [conditional auth API reference]({{base_path}}/references/conditional-auth/api-reference/).
 
-### Workflow-based scenario
+## Workflow-based scenario
 
 You can use [Sift workflows](https://developers.sift.com/tutorials/workflows){: target="_blank"} to define decisions based on risk factors including the risk score. You can then use the [getSiftWorkflowDecision()](#getsiftworkflowdecision) function to get the decision ID.
 
@@ -51,7 +51,7 @@ var onLoginRequest = function (context) {
 };
 ```
 
-### Risk score-based scenario
+## Risk score-based scenario
 
 In the example below,
 

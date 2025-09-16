@@ -1,8 +1,8 @@
-## Optional configurations
+# Optional configurations
 
 You can configure the following options when creating a conditional authentication script using Sift-related functions.
 
-### Customize the data sent to Sift
+## Customize the data sent to Sift
 
 To assess risk of a login event, {{product_name}} sends the following data to Sift:
 
@@ -21,7 +21,7 @@ var additionalParams = {
 }
 ```
 
-### Enable logging
+## Enable logging
 
 You can enable logging by sending `"loggingEnabled": true` as an additional parameter in the functions.
 

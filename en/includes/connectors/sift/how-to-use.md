@@ -1,4 +1,4 @@
-## Usage
+# How to use
 
 Once you complete setting up Sift in {{product_name}}, you can use the following [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) functions to customize the login flow based on risk.
 
@@ -6,7 +6,7 @@ Once you complete setting up Sift in {{product_name}}, you can use the following
 
     To set up conditional authentication, refer to [set up conditional authentication]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/).
 
-### `getSiftRiskScoreForLogin()`
+## `getSiftRiskScoreForLogin()`
 
 This function,
 
@@ -22,7 +22,7 @@ This function,
 
     - `AdditionalParameters` - Any extra parameters you want to send to Sift.
 
-### `getSiftWorkflowDecision()`
+## `getSiftWorkflowDecision()`
 
 This function,
 
@@ -38,7 +38,7 @@ This function,
 
     - `AdditionalParameters` - Any extra parameters you want to send to Sift.
 
-### `publishLoginEventInfoToSift()`
+## `publishLoginEventInfoToSift()`
 
 This function,
 
@@ -51,3 +51,4 @@ This function,
     - `LoginStatus` - Status of login; `LOGIN_SUCCESS` for a success status, `LOGIN_FAILED` for a failed status.
 
     - `AdditionalParameters` - Any extra parameters you want to send to Sift.
+

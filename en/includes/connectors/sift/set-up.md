@@ -1,12 +1,12 @@
-## Set up
+# Set up
 
 The following guide explains how you can install and set up Sift in {{product_name}}.
 
-### Prerequisites
+## Prerequisites
 
 You need to have a Sift account. If you don't have an account, create one by visiting the [Sift website](https://sift.com/).
 
-### Step 1: Install the Sift connector
+## Step 1: Install the Sift connector
 
 Follow the steps below to install Sift in {{product_name}}.
 
@@ -16,7 +16,7 @@ Follow the steps below to install Sift in {{product_name}}.
 
 3. Restart {{product_name}}.
 
-### Step 2: Add the API key
+## Step 2: Add the API key
 
 To work with Sift, you need to register your Sift API key in {{product_name}}. To do so,
 
