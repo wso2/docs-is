@@ -1277,6 +1277,8 @@ nav:
   - Deployment Guides:
       - AWS:
           - Introduction: complete-guides/aws/introduction.md
+          - Prerequisites: complete-guides/aws/prerequisites.md
+          - Deployment Architecture: complete-guides/aws/architecture-overview.md
 not_in_nav: |
   /page-not-found.md
   /guides/authentication/add-identifier-first-login.md
