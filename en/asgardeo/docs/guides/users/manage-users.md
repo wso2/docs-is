@@ -349,7 +349,7 @@ To disable a user account you can use either the Console or the SCIM API.
             Replace `<user_id>` with the ID of the user you want to disable, and `<access_token>` with the access token you obtained in step 1.
 
         ``` curl
-        curl --location --request PATCH 'https://api.asgardeo.io/{organization_name}/o/scim2/Users/<user_id>' \
+        curl --location --request PATCH 'https://api.asgardeo.io/t/{organization_name}/o/scim2/Users/<user-id>' \
         --header 'Content-Type: application/json' \
         --header 'Authorization: Bearer <access_token>' \
         --data '{
