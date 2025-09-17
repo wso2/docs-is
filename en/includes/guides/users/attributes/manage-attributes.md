@@ -159,6 +159,10 @@ To configure properties of user attributes:
 
 5. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
+    !!! Important "Scope"
+
+        These settings only control how the attributes behave in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** affect backend or API validation. If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms.
+
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     The table contains the following entities:
@@ -329,6 +333,10 @@ To configure properties of user attributes:
     </table>
 
 7. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
+
+
+    !!! Important "Scope"
+        These settings only control how the attributes behave in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** affect backend or API validation.
 
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

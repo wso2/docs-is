@@ -12,3 +12,4 @@ exceptions:
   - OIDC
   - API
   - JWT
+  - LDAP

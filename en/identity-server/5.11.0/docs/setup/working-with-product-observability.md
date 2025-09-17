@@ -276,3 +276,109 @@ Follow the steps below to configure denylists for threads.
     ```
 
     ![Correlation log screenshot](../assets/img/using-wso2-identity-server/correlation-log-screenshot-2.png)
+
+### OpenTelemetry-based tracing in WSO2 Identity Server
+
+Attaching a Java observability agent, such as the Datadog Java Agent, enables WSO2 Identity Server to automatically trace common operations, including API calls and database interactions. The agent’s built-in auto instrumentation generates these traces.
+
+To provide even more comprehensive observability, WSO2 Identity Server offers explicit OpenTelemetry-based instrumentation for Lightweight Directory Protocol (LDAP) operations, such as search, bind, and lookup. Enabling this feature extends visibility to LDAP calls alongside other automatically traced operations.
+
+The following sections explain how to configure tracing with the Datadog Java Agent. Once you attach and configure the agent, you can enable instrumentation for LDAP through the WSO2 Identity Server configuration.
+
+#### Configure the Datadog Java Agent
+
+To set up tracing with the Datadog Java Agent you need the following components:
+
+- The Datadog Java Agent (`dd-java-agent.jar`) attached to the WSO2 Identity Server Java Virtual Machine.
+- A running Datadog Agent that receives spans from the Java Agent and forwards them to the Datadog platform.
+
+To configure the Datadog Java Agent with WSO2 Identity Server, follow these steps:
+
+1. Install and run the Datadog Agent following the [Datadog Agent installation guide](https://docs.datadoghq.com/getting_started/agent/#setup).
+
+2. Download the Datadog Java Agent (`dd-java-agent.jar`) from the [Datadog releases page](https://docs.datadoghq.com/tracing/trace_collection/automatic_instrumentation/dd_libraries/java/?tab=wget).
+
+3. To enable tracing, add the agent and related configurations as Java options when starting WSO2 Identity Server. To do so,
+
+    - Open the corresponding to your operating system.
+
+        ```shell
+        Mac/Linux:
+        <IS_HOME>/bin/wso2server.sh
+        
+        Windows:
+        <IS_HOME>/bin/wso2server.bat
+        ```
+
+    - Extend the `JAVA_OPTS` variable to include the Java agent option.
+
+        ```shell
+        -javaagent:/path/to/dd-java-agent.jar
+        ```
+
+4. In the same file, add the required system properties as Java options to define service metadata and agent settings specific to the environment. For example:
+
+    ```shell
+    -Ddd.service="wso2is" \
+    -Ddd.env="dev" \
+    -Ddd.version=1.0 \
+    -Ddd.logs.injection=true \
+    -Ddd.trace.agent.host=localhost \
+    -Ddd.trace.otel.enabled=true \
+    ```
+   Refer to the [Datadog Java Agent configuration documentation](https://docs.datadoghq.com/tracing/trace_collection/library_config/java/#configuration-options) for the full set of options.
+
+5. Restart WSO2 Identity Server and confirm that traces appear in the [Datadog APM dashboard](https://docs.datadoghq.com/tracing/).
+
+#### Enable LDAP tracing in WSO2 Identity Server
+
+WSO2 Identity Server extends the Datadog Java Agent with OpenTelemetry-based LDAP instrumentation, capturing operations such as search, bind, and lookup for full tracing alongside API and database calls.
+
+!!! note
+    This feature became available in WSO2 Identity Server 5.11.0 update level 409. By default, it remains turned off to
+    prevent potential performance impact.
+
+You can enter the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file to enable LDAP tracing.
+
+```toml
+[tracing.opentelemetry]
+ldap.enabled = true
+ldap.scope_name = "wso2isldap"
+```
+
+| Configuration Parameter | Description                                                                                                                                                                                               |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ldap.enabled`          | Enables OpenTelemetry-based tracing for LDAP operations. When set to `true`, WSO2 Identity Server instruments LDAP interactions such as `search`, `bind`, and `lookup`. The default value equals `false`. |
+| `ldap.scope_name`       | Defines the OpenTelemetry instrumentation scope name for LDAP spans. The default value equals `"wso2isldap"`.                                                                                             |
+
+When enabled, LDAP operations produce spans that include metadata such as operation type, base or target DN, search filters, execution duration, and error status where applicable. The configured Java agent exports these spans to the observability platform. The following example shows a sample span for the `ldap.search` operation (from Datadog).
+
+```json
+{
+  "ldap": {
+    "filter": "(&(objectClass=***)(member=uid=***,ou=***,dc=***,dc=***))",
+    "search": {
+      "controls": "{scope=2, countLimit=0, timeLimit=0, returningAttributes=[cn], derefLinkFlag=false, returningObjFlag=false}"
+    },
+    "success": "true",
+    "dn": "ou=***,dc=***,dc=***"
+  },
+  "peer": {
+    "hostname": "localhost",
+    "port": 10390,
+    "service": "ldap"
+  },
+  "correlation_id": "8787f3ba-6149-4aa7-a620-77889664bae3",
+  "language": "java",
+  "thread": {
+    "name": "https-jsse-nio-9443-exec-9",
+    "id": 244
+  },
+  "env": "dev",
+  "version": "1.0",
+  "span": {
+    "kind": "client"
+  },
+  "duration": 1211208
+}
+```
