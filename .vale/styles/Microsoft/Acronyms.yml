@@ -66,3 +66,4 @@ exceptions:
   - OIDC
   - SAML
   - JWT
+  - UTC
