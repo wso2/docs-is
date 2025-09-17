@@ -46,4 +46,32 @@ This step verifies the user's mobile number provided during the registration bef
 
 1. Expand **Steps**, drag **Blank View** onto the canvas and place it between **Confirmation Code** and **Set Password**.
 
-   ![Step 2.1]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-1.gif){: width="auto" style="display: block; margin: 0;"}
+    ![Step 2.1]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-1.gif){: width="auto" style="display: block; margin: 0;"}
+
+2. Remove the connection between **Confirmation Code** and **Set Password** and connect **Confirmation Code** with **Blank view**.
+
+    ![Step 2.2]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-2.gif){: width="auto" style="display: block; margin: 0;"}
+
+3. Expand **Widgets** and drag and drop the **continue with SMS OTP** widget into the newly added blank view.
+
+    ![Step 2.3]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-3.gif){: width="auto" style="display: block; margin: 0;"}
+
+    !!! note
+
+        Where necessary, rearrange the connections so that the flow follows a proper sequence.
+
+4. Connect the **verify OTP** view with the **set password** view.
+
+    ![Step 2.4]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-4.gif){: width="auto" style="display: block; margin: 0;"}
+
+### Step 3 – Require password confirmation
+
+The default reset screen asks for a new password once. Let’s make it more secure by requiring the user to confirm their password before submission.
+
+1. In the **Set Password** view, click the pencil icon on the **Password field** and check the **Require Confirmation** checkbox.
+
+    ![Step 2.5]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-5.gif){: width="auto" style="display: block; margin: 0;"}
+
+2. Click **Save Draft** to save your changes. When ready, toggle the switch on the top right corner to **Enable** and publish the updated flow.
+
+With these two changes, our Email OTP password recovery journey is both more user-friendly and more secure.
