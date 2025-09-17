@@ -316,13 +316,13 @@ To lock a user account:
 
 Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
 
-!!! note "Enable account disabling"
-
-    Account disabling is not an option available for a users' accounts by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
-
-To disable a user account,
+To disable a user account you can use either the Console or the SCIM API.
 
 === "Use the Console"
+
+    !!! note "Enable account disabling"
+
+        Account disabling is not an option available for a users' accounts by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
 
     1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
     2. In the **Danger Zone**, turn the **Disable user** toggle on to disable the user's profile. Turn it off to enable it.
@@ -332,14 +332,13 @@ To disable a user account,
     3. Select the checkbox to confirm your action.
     4. Click **Confirm**.
 
-    !!! note
-        When a user account is disabled, the follwing message will be displayed in the user's profile.
+    When a user account is disabled, the following message will be displayed in the user's profile.
 
     ![Account disable reason]({{base_path}}/assets/img/guides/users/account-disable-text.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 === "Use the API"
 
-    You can also use {{ product_name }}'s [SCIM API]({{base_path}}/apis/scim2/scim2-users-rest-api/#tag/Users-Endpoint/operation/patchUser) to disable user accounts. To do so,
+    You can use {{ product_name }}'s [SCIM API]({{base_path}}/apis/scim2-users-rest-apis/#tag/Users-Endpoint/operation/patchUser) to disable user accounts. To do so,
 
     1. [Get an access token]({{base_path}}/apis/#oauth-based-authentication) with the `internal_user_mgt_update` scope.
 
@@ -347,10 +346,10 @@ To disable a user account,
 
         !!! note
 
-            Replace `<organization-name>` with the name of your organization, `<user_id>` with the ID of the user you want to disable, and `<access_token>` with the access token you obtained in step 1.
+            Replace `<user_id>` with the ID of the user you want to disable, and `<access_token>` with the access token you obtained in step 1.
 
         ``` curl
-        curl --location --request PATCH 'https://api.asgardeo.io/t/<organization-name>/o/scim2/Users/<user-id>' \
+        curl --location --request PATCH 'https://api.console.io/{organization_name}/o/scim2/Users/<user_id>' \
         --header 'Content-Type: application/json' \
         --header 'Authorization: Bearer <access_token>' \
         --data '{

@@ -6,8 +6,6 @@ When a user leaves your organization or stays inactive for a long period, you mi
 
     Account disabling serves as a long-term, permanent solution. If you only want to temporarily lock user accounts, use account locking instead. See [lock users]({{base_path}}/guides/users/manage-users/#lock-a-user-account) for more details.
 
-You can disable users accounts either via the {{ product_name }} Console or by using the SCIM API.
-
 By default, the {{product_name}} Console keeps the account disabling feature turned off in user profiles. To enable account disabling in user profiles,
 
 1. On the {{product_name}} Console, go to **Login and Registration**.
