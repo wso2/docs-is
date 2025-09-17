@@ -333,19 +333,21 @@ The permissions associated with each role are outlined below. Resources not expl
         </tr>
     </table>
 
-## ⚠️ Change in Role Permissions
+## ⚠️ Upcoming change to Console role permissions
 
-Effective from **2nd October, 2025 at 00:00 UTC**, we are updating the permissions of the **Editor - Users** and **Editor - Applications** Console roles:
+Effective **October 2, 2025 at 00:00 UTC**, permissions of the **Editor - Users** and **Editor - Applications** will change as follows:
 
 - **Editor - Users**: No longer able to edit role metadata or change permissions.  
 - **Editor - Applications**: No longer able to assign roles to users or groups.
 
-We are making these permission changes to streamline the application role user personas and ensure each role has only the minimum privileges needed to perform its tasks.
+This change ensures that roles follow the principle of least privilege, granting only the permissions necessary to perform their tasks.
 
-The recommended approach is to follow the updated permissions and assign tasks to users who already have the relevant permissions.
+In line with the updated permissions,
 
-Alternatively, you can assign another role that includes the same permission to an existing user. Please note that the user will also receive any other permissions that come with that role. Carefully review all permissions before making the assignment.
+- Make sure to assign tasks only to users who have the necessary permissions.
 
+- If a user affected by this change needs the lost permissions, you can assign a different role to that user. When doing so, carefully review all permissions in that role before making the assignment.
+  
 The updated permissions will be as follows.
 
 ??? example "Editor - Applications"
