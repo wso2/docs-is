@@ -45,7 +45,6 @@ jobs:
           echo "CURRENT_VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
       - name: Increment version
-        if: ${{ env.IS_HOTFIX != 'true' }}
         run: |
           NEW_VERSION="${{ github.event.inputs.version }}"
           
@@ -53,7 +52,13 @@ jobs:
             set -euxo pipefail
             IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
             echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
-            PATCH=$((PATCH+1))
+
+            # increment version if this is not a hotfix or keep the current version
+            if [[ "${{ env.IS_HOTFIX }}" != "true" ]]; then
+              PATCH=$((PATCH+1))
+              echo "Version is auto incremented."
+            fi
+            
             NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
             echo "Version is auto incremented."
           fi
