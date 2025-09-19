@@ -45,6 +45,7 @@ jobs:
           echo "CURRENT_VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
       - name: Increment version
+        if: ${{ env.IS_HOTFIX != 'true' }}
         run: |
           NEW_VERSION="${{ github.event.inputs.version }}"
           
