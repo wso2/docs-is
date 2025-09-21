@@ -903,7 +903,7 @@ nav:
           - Work with product observability: deploy/monitor/work-with-product-observability.md
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
   - SDKs:
-    - Integrate Asgardeo into your application: sdks/index.md
+    - Integrate WSO2 IS into your application: sdks/index.md
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
