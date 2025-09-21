@@ -1,6 +1,6 @@
 # Resources Cleanup for Deleted Organizations
 
-When you delete an sub-organization in WSO2 Identity Server, the organization and its associated data are not permanently removed from the database. If you want to permanently remove the data associated with deleted organizations, you can use the cleanup scripts provided by WSO2.
+When you delete a sub-organization in WSO2 Identity Server, the organization and its associated data remain in the database. To permanently remove this data, use the cleanup scripts provided by WSO2.
 
 ## Run the cleanup
 
