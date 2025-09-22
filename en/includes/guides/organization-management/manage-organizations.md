@@ -131,3 +131,8 @@ To delete an organization:
 
 !!! note
     If the organization you intend to delete has child organizations, you won't be able to proceed until you have deleted them.
+
+{% if product_name != "Asgardeo" and (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+!!! note
+    Deleting an organization only removes it from the {{ product_name }} Console. The associated data remains in the database. To permanently remove this data, you need to run the cleanup scripts provided by WSO2. See [Resources Cleanup for Deleted Organizations]({{base_path}}/guides/organization-management/cleanup-organization-resources) for more information.
+{% endif %}
