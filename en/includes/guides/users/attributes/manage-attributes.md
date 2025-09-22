@@ -186,6 +186,11 @@ To configure properties of user attributes:
         </tbody>
     </table>
 
+    !!! Danger "Warning"
+        These settings only control how the attributes behave in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** affect backend or API validation.
+
+    If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms.    
+
     !!! note
         Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when
         [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) in the console.
@@ -356,6 +361,11 @@ To configure properties of user attributes:
         </tr>
         </tbody>
     </table>
+
+    !!! Danger "Warning"
+        These settings only control how the attributes behave in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** affect backend or API validation.
+
+    If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms. 
 
     !!! note
         Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when

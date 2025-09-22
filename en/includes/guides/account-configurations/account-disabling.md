@@ -1,17 +1,19 @@
 # Enable account disabling
 
-For scenarios such as a user being inactive for an extended period or leaving your organization, you can disable the user's account instead of permanently deleting it. This allows you to retain the user's information and activity history while preventing the user from logging into applications or to the self-service My Account portal.
+When a user leaves your organization or stays inactive for a long period, you might want to disable their account instead of deleting it permanently. Disabling a user account prevents the user from logging into applications or to the self-service My Account portal, while retaining their information and activity history.
 
-This option is intended for a more permanent solution and should not be used for temporarily locking user accounts. For temporary restrictions, use the user locking option available in each user profile. See [lock users]({{base_path}}/guides/users/manage-users/#lock-a-user-account) for more details.
+!!! note
 
-Follow the steps below to enable the option to disable users of your organization,
+    Account disabling serves as a long-term, permanent solution. If you only want to temporarily lock user accounts, use account locking instead. See [lock users]({{base_path}}/guides/users/manage-users/#lock-a-user-account) for more details.
+
+By default, the {{product_name}} Console keeps the account disabling feature turned off in user profiles. To enable account disabling in user profiles,
 
 1. On the {{product_name}} Console, go to **Login and Registration**.
 
 2. Under **Account Management**, click **Account Disable**.
-    
-3. Toggle the  **Enable account disabling** on to enable the account disabling feature.
+
+3. Toggle **Enable account disabling** on to enable.
 
     ![Account Disable Settings]({{base_path}}/assets/img/guides/users/account-disable-setting.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-When this option is enabled, an additional option appears in each user profile to disable the user. Learn more about user profiles in [manage users]({{base_path}}/guides/users/manage-users/).
+Once enabled, every user profile displays an option to disable the user. Learn more about user profiles in [manage users]({{base_path}}/guides/users/manage-users/).

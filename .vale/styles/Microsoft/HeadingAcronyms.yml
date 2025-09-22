@@ -8,3 +8,9 @@ tokens:
 exceptions:
   - IP
   - SMS OTP
+  - AI
+  - SAML
+  - OIDC
+  - API
+  - JWT
+  - LDAP

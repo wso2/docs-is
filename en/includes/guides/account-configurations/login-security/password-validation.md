@@ -184,3 +184,14 @@ Configure the following parameters to enforce input validation.
 !!! note "Validation for whitespace in passwords"
 
     {{product_name}} automatically trims leading and trailing whitespace from passwords when creating, updating, or entering passwords to login.
+
+{% if product_name == "WSO2 Identity Server" %}
+!!! note "Password maximum allowed length"
+
+    In {{product_name}}, the maximum allowed password length is 64 by defualt and if you need to increase this value for your need you neeed to add below configuration.
+
+    ```toml
+    [identity_mgt.password_policy]
+    max_password_allowed_length = 128
+    ```
+{% endif %}

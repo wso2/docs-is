@@ -84,40 +84,41 @@ In this example scenario:
 
 When you map an email domain to an organization, the organization's behavior changes as follows:
 
-    <!-- markdownlint-disable MD007 -->
-    - A user can only onboard to the organization if the user's email domain matches one of the domains claimed by the organization.
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
-    - Just-In-Time (JIT) provisioning during federated authentication only occurs if the user's email domain matches one of the domains claimed by the organization.
+- A user can only onboard to the organization if the user's email domain matches one of the domains claimed by the organization.
 
-        !!! warning "Map subject attribute for JIT provisioning"
-            In **OIDC** and **SAML** applications, the subject uniquely identifies the user.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
 
-            If your organization uses email domain-based organization discovery, make sure to map the subject attribute correctly as explained below:
+- Just-In-Time (JIT) provisioning during federated authentication only occurs if the user's email domain matches one of the domains claimed by the organization.
 
-            - Set the email attribute as the subject attribute i.e. `http://wso2.org/claims/emailaddress`.
-            - Map the email attribute from the external identity provider to the same WSO2 claim: `http://wso2.org/claims/emailaddress`.
+    !!! warning "Map subject attribute for JIT provisioning"
+        In **OIDC** and **SAML** applications, the subject uniquely identifies the user.
 
-            **Why this matters**: Domain-based organization discovery relies on email addresses to identify organizations. Mapping the subject attribute to the email claim ensures that Just-in-Time (JIT) provisioning creates and updates users correctly.
+        If your organization uses email domain-based organization discovery, make sure to map the subject attribute correctly as explained below:
 
-            Learn more about selecting [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute) for OIDC applications and [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-saml-app/#select-the-subject-attribute) for SAML applications.
+        - Set the email attribute as the subject attribute i.e. `http://wso2.org/claims/emailaddress`.
+        - Map the email attribute from the external identity provider to the same WSO2 claim: `http://wso2.org/claims/emailaddress`.
 
-    {% else %}
-    - The system restricts federated authentication and Just-In-Time (JIT) provisioning for users logging in with email domains not claimed by the organization.
+        **Why this matters**: Domain-based organization discovery relies on email addresses to identify organizations. Mapping the subject attribute to the email claim ensures that Just-in-Time (JIT) provisioning creates and updates users correctly.
 
-        !!! warning "Map subject attribute for JIT provisioning and federated authentication"
-            In **OIDC** and **SAML** applications, the subject uniquely identifies the user.
+        Learn more about selecting [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute) for OIDC applications and [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-saml-app/#select-the-subject-attribute) for SAML applications.
 
-            If your organization uses email domain-based organization discovery, make sure to map the subject attribute correctly as explained below:
+{% else %}
 
-            - Set the email attribute as the subject attribute i.e. `http://wso2.org/claims/emailaddress`.
-            - Map the email attribute from the external identity provider to the same WSO2 claim: `http://wso2.org/claims/emailaddress`.
+- The system restricts federated authentication and Just-In-Time (JIT) provisioning for users logging in with email domains not claimed by the organization.
 
-            **Why this matters**: Domain-based organization discovery relies on email addresses to identify organizations. Mapping the subject attribute to the email claim ensures smooth federated authentication and Just-in-Time (JIT) provisioning creates and updates users correctly.
+    !!! warning "Map subject attribute for JIT provisioning and federated authentication"
+        In **OIDC** and **SAML** applications, the subject uniquely identifies the user.
 
-            Learn more about selecting [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute) for OIDC applications and [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-saml-app/#select-the-subject-attribute) for SAML applications.
+        If your organization uses email domain-based organization discovery, make sure to map the subject attribute correctly as explained below:
 
-    {% endif %}
-    <!-- markdownlint-enable MD007: othervise the sub bullet points are not rendered properly. -->
+        - Set the email attribute as the subject attribute i.e. `http://wso2.org/claims/emailaddress`.
+        - Map the email attribute from the external identity provider to the same WSO2 claim: `http://wso2.org/claims/emailaddress`.
+
+        **Why this matters**: Domain-based organization discovery relies on email addresses to identify organizations. Mapping the subject attribute to the email claim ensures smooth federated authentication and Just-in-Time (JIT) provisioning creates and updates users correctly.
+
+        Learn more about selecting [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#select-an-alternate-subject-attribute) for OIDC applications and [selecting the subject attribute]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-saml-app/#select-the-subject-attribute) for SAML applications.
+
+{% endif %}
 
 - If not, a user can register to the organization with an email address of any domain (other than the domains claimed by other organizations).
 

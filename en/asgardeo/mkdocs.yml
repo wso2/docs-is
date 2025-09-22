@@ -95,7 +95,7 @@ extra:
           - title: Tutorials
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
-            url: SDKs|Integrate Asgardeo into your application
+            url: Developer Tools|SDKs|Integrate Asgardeo into your application
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
@@ -164,7 +164,9 @@ plugins:
         'apis/organization-apis/org-application-management.md': 'apis/organization-apis/shared-application-management.md'
         'apis/notification-sender-rest-api.md': 'apis/notification-sender-v2-rest-api.md'
         'apis/organization-apis/notification-sender-rest-api.md':  'apis/organization-apis/notification-sender-rest-api.md'
-
+        'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
+        'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
+        'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
 exclude_docs: |
   /get-started/hello-world.md
 
@@ -228,8 +230,6 @@ nav:
       - MCP Server:
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
         - MCP-Auth Quickstart: quick-starts/mcp-auth-server.md
-    - Connect via MCP:
-      - MCP Server: quick-starts/mcp-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
@@ -245,7 +245,6 @@ nav:
           - Register a mobile app: guides/applications/register-mobile-app.md
           - Register a machine-to-machine app: guides/applications/register-machine-to-machine-app.md
           - Register a FAPI-compliant app: guides/applications/register-a-fapi-compliant-app.md
-          - Register an MCP client app: guides/applications/register-mcp-client-app.md
           - Register a React app: guides/applications/register-react-app.md
           - Register a Next.js app: guides/applications/register-nextjs-app.md
       - Authentication:
@@ -288,8 +287,10 @@ nav:
             - Add decentralized login:
               - Add decentralized login: guides/authentication/decentralized-login/index.md
               - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
-            - Add eid login:
+            - Add eID login:
               - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
+              - Add FranceConnect login: guides/authentication/eid-login/add-france-connect-login.md
+              - Add SwissID login: guides/authentication/eid-login/add-swiss-id-login.md
             - Add standard-based login:
               - Add standard-based login: guides/authentication/standard-based-login/index.md
               - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
@@ -356,7 +357,6 @@ nav:
         - Authorization: guides/authorization/index.md
         - API authorization:
           - Role-based access control: guides/authorization/api-authorization/api-authorization.md
-        - MCP server authorization: guides/authorization/mcp-server-authorization.md
         - User impersonation:
           - User impersonation: guides/authorization/user-impersonation/index.md
           - via Console: guides/authorization/user-impersonation/via-console.md
@@ -395,6 +395,10 @@ nav:
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
           - Deployment best practices: guides/users/user-stores/deployment-best-practices.md
           - Advanced configuration for the agent: guides/users/user-stores/advanced-configurations-for-the-agent.md
+      - Workflows:
+        - Workflows: guides/workflows/index.md
+        - Approvals: guides/workflows/approve-workflow.md
+        - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
@@ -436,6 +440,7 @@ nav:
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
+          - Manage approvals: guides/user-self-service/manage-approvals.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
@@ -456,7 +461,7 @@ nav:
         - Inheritance in organizations:
             - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
             - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
-            - Email and SMS template inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+            - Email and SMS templates inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
         - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
@@ -513,6 +518,10 @@ nav:
         - Asgardeo events: guides/monitoring/asgardeo-events.md
         - Organization insights: guides/organization-insights.md
       - Agentic AI:
+        - MCP Authorization:
+          - MCP Authorization: guides/agentic-ai/mcp/index.md
+          - Securing MCP Servers: guides/agentic-ai/mcp/mcp-server-authorization.md
+          - Setting up MCP Clients: guides/agentic-ai/mcp/register-mcp-client-app.md
         - Identity for AI Agents:
           - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
           - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
@@ -527,8 +536,12 @@ nav:
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
-  - SDKs:
-    - Integrate Asgardeo into your application: sdks/index.md
+    - Secure Agentic AI Systems with Asgardeo: tutorials/secure-agentic-ai-systems.md
+    - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
+  - Developer Tools:
+    - SDKs:
+      - Integrate Asgardeo into your application: sdks/index.md
+    - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
@@ -616,7 +629,10 @@ nav:
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
-      - Role management (SCIM 2.0) API: apis/roles.md
+      - Role management: 
+        - Role management: apis/role-management/index.md
+        - Role management (SCIM 2.0) V3 API: apis/role-management/roles-v3.md
+        - Role management (SCIM 2.0) API (deprecated): apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
         - SCIM 2.0 API:
@@ -658,7 +674,8 @@ nav:
       - Offline user onboard management API: apis/organization-apis/organization-discovery.md
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
-      - Role management API: apis/organization-apis/org-role-mgt.md
+      - Role management V3 API: apis/organization-apis/org-role-mgt-v3.md
+      - Role management API (deprecated): apis/organization-apis/org-role-mgt.md
       - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md

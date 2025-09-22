@@ -3,6 +3,7 @@
 This guide walks you through the process of managing a user account. An owner or an administrator can manage user accounts.
 
 ## Onboard users
+
 There are three ways to onboard a user:
 
 - The user can self-register via the My Account portal or the login page of an application if self-registration is enabled in the organization. Learn how to [configure self-registration]({{base_path}}/guides/user-accounts/configure-self-registration/).
@@ -189,7 +190,7 @@ Alternatively, administrators can use the resend-code API to resend the link or 
         -d '{
             "user": {
                 "username": "jane",
-                "realm": "PRIMARY"
+                "realm": "DEFAULT"
             },
             "properties": [
                 {
@@ -315,24 +316,61 @@ To lock a user account:
 
 Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
 
-!!! note "Enable account disabling"
+To disable a user account you can use either the Console or the SCIM API.
 
-    Account disabling is not an option available for a user's account by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
+=== "Use the Console"
 
-To disable a user account,
+    !!! note "Enable account disabling"
 
-1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
-2. In the **Danger Zone**, turn the **Disable user** toggle on to disable the user's profile. Turn it off to enable it.
+        Account disabling is not an option available for a users' accounts by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
 
-    ![Disable User Account]({{base_path}}/assets/img/guides/users/user-account-disable.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
+    2. In the **Danger Zone**, turn the **Disable user** toggle on to disable the user's profile. Turn it off to enable it.
 
-3. Select the checkbox to confirm your action.
-4. Click **Confirm**.
+        ![Disable User Account]({{base_path}}/assets/img/guides/users/user-account-disable.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-!!! note
-    When a user account is disabled, the follwing message will be displayed in the user's profile.
+    3. Select the checkbox to confirm your action.
+    4. Click **Confirm**.
 
-![Account disable reason]({{base_path}}/assets/img/guides/users/account-disable-text.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    When a user account is disabled, the following message will be displayed in the user's profile.
+
+    ![Account disable reason]({{base_path}}/assets/img/guides/users/account-disable-text.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+=== "Use the API"
+
+    You can use {{ product_name }}'s [SCIM API]({{base_path}}/apis/scim2/scim2-users-rest-api/#tag/Users-Endpoint/operation/patchUser) to disable user accounts. To do so,
+
+    1. [Get an access token]({{base_path}}/apis/#oauth-based-authentication) with the `internal_user_mgt_update` scope.
+
+    2. Use the obtained access token to execute the following cURL.
+
+        !!! note
+
+            Replace `<user_id>` with the ID of the user you want to disable, and `<access_token>` with the access token you obtained in step 1.
+
+        ``` curl
+        curl --location --request PATCH 'https://api.asgardeo.io/t/{organization_name}/o/scim2/Users/<user-id>' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Bearer <access_token>' \
+        --data '{
+        "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:PatchOp",
+            "urn:scim:wso2:schema"
+        ],
+        "Operations": [
+            {
+                    "op": "replace",
+                    "value": {
+                        "urn:scim:wso2:schema": {
+                            "accountDisabled": false
+                        }
+                    }
+            }
+        ]
+        }'
+        ```
+
+        After you successfully execute the cURL, the user profile gets disabled.
 
 ## Delete a user
 A user account can be deleted by administrators. Once an account is deleted, the action is irreversible.
@@ -364,3 +402,129 @@ To filter users by account status:
     - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
 
         ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Add users with email verification
+
+1: Enable email verification
+
+!!! abstract ""
+
+        curl -X 'PATCH' \
+        'https://api.asgardeo.io/t/<org_name>/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "operation": "UPDATE",
+            "properties": [
+                {
+                    "name": "EmailVerification.Enable",
+                    "value": true
+                }
+            ]
+        }'
+
+2: Configure email verification method (Optional). Enable this to send OTP via email.
+
+!!! abstract ""
+
+        curl -X 'PATCH' \
+        'https://api.asgardeo.io/t/<org_name>/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "operation": "UPDATE",
+            "properties": [
+                {
+                    "name": "EmailVerification.OTP",
+                    "value": true
+                }
+            ]
+        }'
+
+3: Create user with email verification required
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/scim2/Users' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "userName": "<USERNAME>",
+            "emails": [
+                {
+                    "primary": true,
+                    "value": "<EMAIL>"
+                }
+            ],
+            "password": "<PASSWORD>",
+            "urn:scim:wso2:schema": {
+                "verifyEmail": "true"
+            }
+        }'
+        ```
+    === "Sample request"
+
+        ```
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/scim2/Users' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "userName": "DEFAULT/bob",
+            "emails": [
+                {
+                    "primary": true,
+                    "value": "bob@gmail.com"
+                }
+            ],
+            "password": "P@ssw0rd",
+            "urn:scim:wso2:schema": {
+                "verifyEmail": "true"
+            }
+        }'
+        ```
+
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+
+4: Confirm email or validate OTP (One-Time Password)
+
+You can verify the email using the confirmation link, or enter the OTP using the following API.
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/api/identity/user/v1.0/validate-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "code": "<CODE>"
+        }'
+        ```
+    === "Sample request"
+
+        ```
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/api/identity/user/v1.0/validate-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "code": "c1KLdm"
+        }'
+        ```
+    
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 202 Accepted"
+    ```

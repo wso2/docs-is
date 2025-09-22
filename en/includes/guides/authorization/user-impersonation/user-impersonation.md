@@ -43,7 +43,7 @@ With the required permissions in place, the impersonator can now impersonate ano
 1. Log into the {{product_name}} Console with own credentials using the following URL.
 
     ```text
-    {{base_url}}
+    {{console_url}}
     ```
 
 2. Go to the **User management** > **Users** and select the user you want to impersonate.
@@ -152,7 +152,7 @@ By following the steps below, you permit a business application to use the imper
 
         ![Authorize impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    4. Enable user impersonation for organization user by registering ***Organization User Impersonation** API resource. (Optional)
+    4. Enable user impersonation for organization user by registering **Organization User Impersonation** API resource. (Optional)
 
         i. Under **API Resource**, select **Organization User Impersonation**.
 
@@ -160,7 +160,7 @@ By following the steps below, you permit a business application to use the imper
 
         iii. Click **Finish**.
 
-            ![Authorize org impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/org-api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+          ![Authorize org impersonation API]({{base_path}}/assets/img/guides/authorization/impersonation/org-api-authorization-impersonation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Step 2: Create an application role that permits impersonation
 
@@ -318,7 +318,7 @@ To access organizations as an impersonator, you need to switch your impersonated
 === "Request Format"
 
     ```bash
-    curl --location 'https://{{base_url}}/oauth2/token' \
+    curl --location '{{base_url}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
     --data-urlencode 'client_id={Client_Id}' \
@@ -331,7 +331,7 @@ To access organizations as an impersonator, you need to switch your impersonated
 === "Example"
 
     ```bash
-    curl --location 'https://{{base_url_sample}}/oauth2/token' \
+    curl --location '{{base_url_sample}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic QVVhZkoyeWpXM2dUR3JZaWZCTlF1MTBXRWtNYToybWN1blJ1T1Y5WFQ3QXpzRDEyVmY3cGhOVWJRUmdlT0NtZW5Wa0xKQTR3YQ==' \
     --data-urlencode 'client_id=AUafJ2yjW3gTGrYifBNQu10WEkMb' \

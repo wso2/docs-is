@@ -64,3 +64,8 @@ exceptions:
   - XSS
   - YAML
   - ZIP
+  - AI
+  - OIDC
+  - SAML
+  - JWT
+  - UTC
