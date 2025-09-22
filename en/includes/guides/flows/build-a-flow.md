@@ -7,6 +7,8 @@ A **flow** defines the sequence of steps a user goes through during a specific i
 
 This guide introduces the **Flow Builder**, a visual environment with all the necessary elements to build flows that meet both security requirements and user experience goals.
 
+## Enter the flow builder
+
 ## Enable a flow
 
 {{product_name}} provides default sequences for every flow in the flow builder. You can design and refine your customized flow at your own pace, keeping it disabled until you’re ready to share it. While your customized flow is disabled, users continue to experience the default flow. Once enabled, your users will seamlessly change to the customized experience you’ve created.

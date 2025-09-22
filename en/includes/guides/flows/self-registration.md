@@ -1,42 +1,45 @@
 # Self registration <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
 
-Self registration allows new users to create an account without admin intervention. The flow can include steps to collect user details, verify identity and set credentials before the account becomes active.
+Self-registration allows new users to create an account within your organization without the need for admin intervention. The flow can include steps to collect user details, verify identity and set credentials before the account becomes active.
 
 In the **Flow Builder**, you can create a self registration journey in two ways:
 
-- **Use a starter template** – Load a ready made flow and customize it to match your onboarding requirements.
+- **Use a starter template** – Load a ready made flow and customize it to your needs.
 
 - **Build from scratch** – Take full control by designing every step yourself.
 
 ## Sample use case
 
-Imagine you want to simplify user sign up by asking only for essential details, but also enforce stronger security with mobile verification.
+Imagine you want to simplify the self-registration form to only request the essential details from users. For added security, you also want to verify the user's mobile number before creating the account. The flow works as follows.
 
-In this flow:
+- The user enters the email, mobile number and password.
+- {{product_name}} sends a **one-time code** to the user's registered mobile number.
+- The user verifies the mobile number by entering the code.
+- {{product_name}} creates the user's account.
 
-- The user provides **Email**, **mobile number**, and **password**.
-- The system sends an **SMS OTP** to verify the mobile number.
-- Only after OTP verification, the account is created.
-
-This ensures that every registered user has a valid mobile number, reducing the chance of fake sign ups.
+This ensures that only users with a valid mobile number can self-register, helping to prevent fake or fraudulent sign-ups.
 
 ![Final Flow]({{base_path}}/assets/img/guides/flows/flow-builder-registration-final-flow.png){: width="auto" style="display: block; margin: 0;"}
 
 ## Build it
 
-This use case is a minimal sign up journey that collects only Email, Mobile, and Password, and requires SMS OTP verification before completing registration. We’ll start from the Basic Details template and modify it as follows:
+To build the sample use case, you can start from the Basic Details template and adjust it to:
 
-- Keep only **Email, Mobile, Password**.
-- Mark **Mobile** as **Required**.
-- Change the **Sign Up** button action to **Navigation**.
-- Insert an **SMS OTP** step before the success state.
+- Request only email, mobile and password attributes from the user.
+- Make entering a mobile number mandatory.
+- Change the **Sign Up** button to point to the mobile verification step.
+- Insert an **SMS OTP** step.
 
-Follow the steps below to configure it.
+Follow the steps below to configure this flow.
 
-### Step 1 – Load the basic template
+### Step 1 – Load the template
+
+To load the template,
 
 1. Navigate to **Home** > **Flows**.
+
 2. Click on the **Self Registration** card.
+
 3. Click the `+` button next to the **Basic Details** template.
 
 ![Step 1]({{base_path}}/assets/img/guides/flows/flow-registration-step-01.gif){: width="auto" style="display: block; margin: 0;"}

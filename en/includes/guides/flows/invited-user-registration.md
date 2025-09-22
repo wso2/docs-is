@@ -15,8 +15,8 @@ In the **Flow Builder**, you can create the invited user registration journey in
 Imagine you want to verify the user’s identity via **SMS OTP** before allowing them to reset their password. The flow works as follows:
 
 - The user clicks the link in the invitation email or pastes the URL in their browser.
-- A **one-time code** is sent to their registered mobile number.
-- The user verifies the code.
+- {{product_name}} sends a **one-time code** to the user's registered mobile number.
+- The user confirms their identity by entering the code.
 - The user sets their password.
 
 This ensures that only users with access to the registered mobile number can complete the registration, enhancing security.
@@ -25,20 +25,22 @@ This ensures that only users with access to the registered mobile number can com
 
 ## Build it
 
-To build the sample use case, we'll start from the **Invited User Registration** template and adjust it to:
+To build the sample use case, you can start from the **Invited User Registration** template and adjust it to:
 
 - Use **SMS OTP** for identity verification.
 - Require users to confirm their new password during reset.
 
-### Step 1 - Load the Invited User Registration Template
+### Step 1 - Load the template
 
-![Step 1]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-01.gif){: width="auto" style="display: block; margin: 0;"}
+To load the template,
 
 1. Navigate to **Home** > **Flows**.
 
 2. Click on the **Invited User Registration** card.
 
 3. Click the `+` button next to the **Invited User Registration** template.
+
+![Step 1]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-01.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Step 2 - Add an SMS OTP verification step
 
@@ -66,7 +68,7 @@ This step verifies the user's mobile number provided during the registration bef
 
 ### Step 3 – Require password confirmation
 
-The default reset screen asks for a new password once. Let’s make it more secure by requiring the user to confirm their password before submission.
+The default password reset screen only asks to enter the new password once. You can make it more secure by asking the user to confirm the entered password before submission. To do so,
 
 1. In the **Set Password** view, click the pencil icon on the **Password field** and check the **Require Confirmation** checkbox.
 
@@ -74,4 +76,4 @@ The default reset screen asks for a new password once. Let’s make it more secu
 
 2. Click **Save Draft** to save your changes. When ready, toggle the switch on the top right corner to **Enable** and publish the updated flow.
 
-With these two changes, our Email OTP password recovery journey is both more user-friendly and more secure.
+Now that these changes are in place, you have built a secure and user-friendly invited user registration flow.
