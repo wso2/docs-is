@@ -16,7 +16,7 @@ paths:
       summary: |
         Get application by name
       description: |
-        "This API is used to get/retrieve an OAuth2 application by `client_name`. \n\n <b>Scope required:</b> `internal_dcr_view`."
+        "This API is used to get/retrieve an OAuth2 application by `client_name`. \n\n"
         <b>Scope(Permission) required:</b> `internal_dcr_view`
       operationId: getApplicationByName
       parameters:
@@ -60,7 +60,7 @@ paths:
       description: "This API is used to create an OAuth2 application. 
         \n If your want to create your application to use the `implicit` or `authorization_code` grant types, you need to provide the `redirect_uri` field in your request.\
         \n If you are using any other grant type, \nsuch as `password`, you don't need to send the `redirect_uri` field in the request.
-        \n Check the sample request given below.\n\n <b>Scope required:</b> `internal_dcr_create`."
+        \n Check the sample request given below.\n\n"
         <b>Scope(Permission) required:</b> `internal_dcr_create`
       operationId: registerApplication
       requestBody:
@@ -139,7 +139,7 @@ paths:
       summary: |
         Get application by ID  
       description: |
-        "This API is used to retrieve an OAuth2 application by `client_id`. \n\n <b>Scope required:</b> `internal_dcr_view`."
+        "This API is used to retrieve an OAuth2 application by `client_id`. \n\n"
         <b>Scope(Permission) required:</b> `internal_dcr_view`
       operationId: getApplication
       parameters:
@@ -181,7 +181,7 @@ paths:
       summary: |
         Update an OAuth2 app
       description: |
-        "This API is used to update an OAuth2 application.\n\n <b>Scope required:</b> `internal_dcr_update`."
+        "This API is used to update an OAuth2 application.\n\n"
         <b>Scope(Permission) required:</b> `internal_dcr_update`
       operationId: updateApplication
       parameters:
@@ -252,7 +252,7 @@ paths:
       summary: |
         Delete an OAuth2 app
       description: |
-        "This API is used to delete an OAuth2 application by `client_id`.\n\n <b>Scope required:</b> `internal_dcr_delete`."
+        "This API is used to delete an OAuth2 application by `client_id`.\n\n"
         <b>Scope(Permission) required:</b> `internal_dcr_delete`
       operationId: deleteApplication
       parameters:
