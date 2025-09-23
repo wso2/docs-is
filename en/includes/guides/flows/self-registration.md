@@ -82,10 +82,11 @@ This step verifies the mobile number provided during sign up before completing a
 
 1. Navigate to the **Steps** section and drag and drop an **SMS OTP View** onto the canvas.
         ![Step 5.1]({{base_path}}/assets/img/guides/flows/flow-registration-step-05-1.gif){: width="auto" style="display: block; margin: 0;"}
+
 2. Connect the **Sign Up** button to the **SMS OTP View** and connect the **Verify** button to the green tick.
         ![Step 5.2]({{base_path}}/assets/img/guides/flows/flow-registration-step-05-2.gif){: width="auto" style="display: block; margin: 0;"}
+
 3. Click **Save Draft** to save your changes. When ready, toggle the switch on the top right corner to **Enable** and publish the updated flow.
-        ![Step 5.3]({{base_path}}/assets/img/guides/flows/flow-registration-step-05-3.gif){: width="auto" style="display: block; margin: 0;"}
 
 With these changes, new users will only provide the essentials **Email**, **mobile number**, and **password** and must verify their mobile via SMS OTP before completing registration.
 

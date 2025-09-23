@@ -75,12 +75,12 @@ If users change their minds or click the button by accident, they should be able
 
 The default password reset screen only asks to enter the new password once. You can make it more secure by asking the user to confirm the entered password before submission. To do so,
 
-1. Navigate to the `Reset Password` view and click the pencil icon on the **Password field**.
+1. Navigate to the Reset Password view and click the pencil icon on the Password field.
 
 2. Tick the **Require Confirmation** checkbox.
 
 3. Click **Save Draft** to save your changes. When ready, toggle the switch on the top right corner to **Enable** and publish the updated flow.
 
-![Step 3]({{base_path}}/assets/img/guides/flows/flow-password-recovery-step-03.gif){: width="auto" style="display: block; margin: 0;"}
+    ![Step 3]({{base_path}}/assets/img/guides/flows/flow-password-recovery-step-03.gif){: width="auto" style="display: block; margin: 0;"}
 
 Now that these changes are in place, you have built a secure and user-friendly password recovery flow.
