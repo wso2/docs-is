@@ -419,10 +419,10 @@ nav:
         - Account disabling: guides/account-configurations/account-disabling.md
       - Flows:
         - Flows: guides/flows/index.md
-        - Get started: guides/flows/build-a-flow.md
-        - Self registration: guides/flows/self-registration.md
-        - Password recovery: guides/flows/password-recovery.md
-        - Invited user registration: guides/flows/invited-user-registration.md
+        - Get Started: guides/flows/build-a-flow.md
+        - Self Registration: guides/flows/self-registration.md
+        - Password Recovery: guides/flows/password-recovery.md
+        - Invited User Registration: guides/flows/invited-user-registration.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
