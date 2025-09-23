@@ -12,7 +12,7 @@ In the **Flow Builder**, you can create the invited user registration journey in
 
 ## Sample use case
 
-Imagine you want to verify the user’s identity via **SMS OTP** before allowing them to reset their password. The flow works as follows:
+Imagine you want to verify the user’s identity via **SMS OTP** before allowing them to set their password. The flow works as follows:
 
 - The user clicks the link in the invitation email or pastes the URL in their browser.
 - {{product_name}} sends a **one-time code** to the user's registered mobile number.
