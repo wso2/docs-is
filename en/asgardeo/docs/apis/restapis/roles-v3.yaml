@@ -7,7 +7,7 @@ info:
     
     To access the SCIM 2.0 Roles APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization.
 servers:
-  - url: https://api.asgardeo.io/t/{organization-name}/scim2/v2
+  - url: https://api.asgardeo.io/t/{organization-name}/scim2
 security:
   - OAuth2: []
 
