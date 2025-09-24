@@ -5,9 +5,8 @@ By following this guide, you will be able to deploy a WS-Federation-based web ap
 !!! info
     {{product_name}} uses its passive security token service (Passive STS) as its WS-Federation implementation.
     Passive STS is capable of issuing SAML 1.1 and 2.0 security tokens. To request a SAML 2.0 security token, the Request Security Token (RST) should be sent to the passive STS endpoint with the token type, `SAMLV2.0`. If no RST is specified, {{product_name}} issued a SAML 1.1 token by default.
----
 
-### Prerequisites
+## Prerequisites
 
 - Download [Apache Tomcat 8.x](https://tomcat.apache.org/download-80.cgi){:target="_blank"} and install it. Tomcat server installation location will later be referred to as `<TOMCAT_HOME>` in this guide.
 
@@ -28,7 +27,8 @@ To deploy the sample web app on a web container:
 To configure additional properties for the sample application:
 
 1. Add the following configurations to the `web.xml` file in `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/PassiveSTSSampleApp/WEB-INF`.
-    - Specify `idpUrl` as the Identity Server's Passive STS URL.
+    - Specify Asgardeo Passive STS URL as `idpUrl`.
+
         ``` xml
         <init-param>
                 <param-name>idpUrl</param-name>
@@ -37,6 +37,7 @@ To configure additional properties for the sample application:
         ```
 
     - Specify the `replyURL` as the URL of the web app.
+
         ``` xml
         <init-param>
                 <param-name>replyUrl</param-name>
@@ -45,6 +46,7 @@ To configure additional properties for the sample application:
         ```
 
     - Specify the ` realm ` as a unique identifier for the web app.
+
         ``` xml
         <init-param>
                 <param-name>realm</param-name>
@@ -54,9 +56,9 @@ To configure additional properties for the sample application:
 
 2. Restart the tomcat server.
 
-## Configure the service provider
+## Configure the application in Asgardeo
 
-1. On the WSO2 Identity Server Console, go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Click **New Application** and select **Standard-Based Application**.
 
@@ -68,25 +70,25 @@ To configure additional properties for the sample application:
         <tr>
             <td>Name</td>
             <td>
-                Give a unique name to identify your application.
+                An unique name to identify your application.
                 <p>e.g.:<code>PassiveSTSSampleApp</code></p>
             </td>
         </tr>
         <tr>
             <td>Protocol</td>
-            <td>Select <b>WS-Federation</b>.</td>
+            <td><b>WS-Federation</b>.</td>
         </tr>
         <tr>
             <td>Realm</td>
             <td>
-                This should be a unique identifier for the web app. Provide the same realm name given to the web app you are configuring WS-Federation for.
+                An unique identifier for the web app. Provide the same realm name given to the web app you are configuring WS-Federation for.
                 <p>e.g.:<code>PassiveSTSSampleApp</code></p>
             </td>
         </tr>
         <tr>
             <td>Reply URL</td>
             <td>
-                Provide the URL of the web app you are configuring WS-Federation for. This endpoint URL will handle the token response.
+                URL of the web app you are configuring WS-Federation for. This endpoint URL will handle the token response.
                 <p><code>http://localhost:8080/PassiveSTSSampleApp/index.jsp</code></p>
             </td>
         </tr>
