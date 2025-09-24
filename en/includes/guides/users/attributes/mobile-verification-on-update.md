@@ -334,7 +334,10 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
 
 Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their 
 updated mobile number. Once verified, the `Verified Mobile Numbers` claim (`http://wso2.org/claims/verifiedMobileNumbers`) 
-will be updated to reflect the new mobile number.
+will be updated to reflect the new mobile number. {% if product_name == "Asgardeo" or 
+(product_name == "WSO2 Identity Server" and is_version >= "7.2.0")%} If a primary mobile number has not been configured, 
+the verified mobile number will also be set as the primary mobile number.
+{% endif %}
 
 ## Validate the verification code
 
