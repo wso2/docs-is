@@ -333,7 +333,7 @@ The permissions associated with each role are outlined below. Resources not expl
         </tr>
     </table>
 
-## ⚠️ Upcoming change to Console role permissions
+## ⚠️ Change in Role Permissions
 
 Effective **October 2, 2025 at 00:00 UTC**, permissions of the **Editor - Users** and **Editor - Applications** will change as follows:
 
