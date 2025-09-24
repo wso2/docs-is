@@ -19,13 +19,6 @@ authorization codes.
 ## Set up OAuth token hashing
 
 1. Add the following configurations to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
-    - Add the following token persistence processor to  enable token hashing:
-
-        ``` toml
-        [oauth.extensions]
-        token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor"
-        ```
-
     - Add the following property and set it to true to enable hashing.
 
         ``` toml
@@ -33,12 +26,18 @@ authorization codes.
         hash_tokens_and_secrets = true
         ```
 
-    - Add the following configuration to specify the algorithm to use
-        for hashing:
+    - Add the following configuration to specify the algorithm to use for hashing:
 
         ``` toml
         [oauth]
         hash_token_algorithm = "SHA-256"
+        ```
+
+    - Add the following token persistence processor to  enable token hashing:
+
+        ``` toml
+        [oauth.extensions]
+        token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor"
         ```
 
         !!! tip
