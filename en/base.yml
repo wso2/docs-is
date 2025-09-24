@@ -171,6 +171,9 @@ extra:
     Password Recovery:
       type: Preview
       level: 3
+    Invited User Registration:
+      type: Preview
+      level: 3
 
   nav_icons:
     Overview:

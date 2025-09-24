@@ -7,6 +7,7 @@ tokens:
   - '[A-Z]{2,4}'
 exceptions:
   - IP
+  - SMS OTP
   - AI
   - SAML
   - OIDC

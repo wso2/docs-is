@@ -680,6 +680,12 @@ nav:
           - Admin Initiated Password Reset: guides/account-configurations/account-recovery/admin-initiated-password-reset.md
         - Notification settings: guides/account-configurations/notification-settings.md
         - Account disabling: guides/account-configurations/account-disabling.md
+      - Flows:
+        - Flows: guides/flows/index.md
+        - Get Started: guides/flows/build-a-flow.md
+        - Self Registration: guides/flows/self-registration.md
+        - Password Recovery: guides/flows/password-recovery.md
+        - Invited User Registration: guides/flows/invited-user-registration.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - My Account portal:
