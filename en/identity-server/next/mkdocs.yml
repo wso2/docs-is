@@ -1245,6 +1245,7 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
         - DPoP: references/token-binding/dpop.md
+      - Token hashing: references/token-hashing.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
@@ -1344,7 +1345,6 @@ nav:
           - Accessing protected API: complete-guides/dotnet/protected-api.md
           - Manage tokens in .NET: complete-guides/dotnet/manage-tokens-in-dotnet-apps.md
           - Next Steps: complete-guides/dotnet/next-steps.md
-
 
 not_in_nav: |
   /page-not-found.md

@@ -224,7 +224,7 @@ To make an application discoverable,
 
 3. Click **Update** to save the changes.
 
-### Step 4: Share Application with Organization(Optional)
+### Step 6: Share Application with Organization(Optional)
 
 To allow impersonating organization users, share the business applications with the relevant organization. Use the [documentation here]({{base_path}}/guides/organization-management/share-applications/#share-a-registered-application) to proceed with configuring.
 
