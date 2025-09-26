@@ -30,6 +30,8 @@ paths:
         This API is used to search and retrieve child organizations which are authorized for the user.
       description:
         Retrieve authorized organizations which matches the defined search criteria, if any.
+
+        <b>Scope(Permission) required:</b> `internal_login`
       parameters:
         - $ref: '#/components/parameters/filterQueryParam'
         - $ref: '#/components/parameters/limitQueryParam'
