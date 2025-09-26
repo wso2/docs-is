@@ -272,7 +272,6 @@ To configure properties of user attributes:
     - **Integer** Whole numbers (for example `1`, `42`, `-7`).
     - **Decimal** Numbers that include decimals (for example `3.14`, `-0.5`).
     - **Boolean** A true or false value.
-    - **DateTime** A date and time value.
     - **Object** A structured object that can include multiple sub-attributes.
 
     Options Data Type
@@ -326,12 +325,19 @@ To configure properties of user attributes:
                 <td><b>Integer</b></td>
                 <td>Text Input, Number Picker</td>
             </tr>
-            <tr>
-                <td><b>DateTime</b></td>
-                <td>Text Input, Date Picker</td>
-            </tr>
         </tbody>
     </table>
+
+    Once a data type and input format are configured for an attribute, it will be rendered in the corresponding format across all relevant UIs — including the **Console user profile**, **Console user creation wizard**, and the **Self-service portal user profile**. For example, if **Options** is selected with the **Dropdown** input format, the attribute will appear as a dropdown field in each of these UIs.
+
+    - Console user creation wizard
+    ![User creation wizard - dropdown input]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-input-format-user-add-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - Console user profile
+    ![User creation wizard - dropdown input]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-input-format-console-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - Self-service portal user profile
+    ![User creation wizard - dropdown input]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-input-format-self-service-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 7. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
