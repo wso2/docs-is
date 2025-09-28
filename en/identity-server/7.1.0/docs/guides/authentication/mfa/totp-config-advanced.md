@@ -39,49 +39,37 @@ Learn about each TOTP configuration parameter and how to customize them.
 
 ### encodingMethod
 
-**Description:** The encoding method used to generate the TOTP.
-
-**Default value:** `Base32`
+The encoding method used to generate the TOTP.
 
 ---
 
 ### timeStepSize
 
-**Description:** The time step size (in seconds) used to validate the TOTP.
-
-**Default value:** `30`
+The time step size (in seconds) used to validate the TOTP.
 
 ---
 
 ### windowSize
 
-**Description:** The window size used to validate the TOTP. This determines how many time steps before and after the current time step are accepted.
-
-**Default value:** `3`
+The window size used to validate the TOTP. This determines how many time steps before and after the current time step are accepted.
 
 ---
 
 ### authenticationMandatory
 
-**Description:** If this value is `true`, TOTP authentication will be enforced as a second step.
-
-**Default value:** `true`
+If this value is `true`, TOTP authentication will be enforced as a second step.
 
 ---
 
 ### enrolUserInAuthenticationFlow
 
-**Description:** If this value is `true`, it will ask users to enable the TOTP authenticator during the authentication flow.
-
-**Default value:** `true`
+If this value is `true`, it will ask users to enable the TOTP authenticator during the authentication flow.
 
 ---
 
 ### usecase
 
-**Description:** This field can take one of the following values: `local`, `association`, `userAttribute`, `subjectUri`. If you do not specify any usecase, the default value is `local`.
-
-**Default value:** `local`
+This field can take one of the following values: `local`, `association`, `userAttribute`, `subjectUri`. If you do not specify any usecase, the default value is `local`.
 
 If you choose `userAttribute` as the usecase, add the following parameter to specify the user attribute:
 
@@ -93,9 +81,7 @@ userAttribute = "http://wso2.org/foursquare/claims/email"
 
 ### secondaryUserstore
 
-**Description:** If you use secondary user stores, enter all the user store values for the particular tenant as comma-separated values.
-
-**Default value:** `primary`
+If you use secondary user stores, enter all the user store values for the particular tenant as comma-separated values.
 
 **Example:**
 
@@ -108,38 +94,28 @@ secondaryUserstore= "jdbc, abc, xyz"
 
 ### TOTPAuthenticationEndpointURL
 
-**Description:** The endpoint of the UI used to gather the TOTP.
-
-**Default value:** `authenticationendpoint/totp.do`
+The endpoint of the UI used to gather the TOTP.
 
 ---
 
 ### TOTPAuthenticationEndpointErrorPage
 
-**Description:** The endpoint of the error page.
-
-**Default value:** `authenticationendpoint/totp_error.do`
+The endpoint of the error page.
 
 ---
 
 ### TOTPAuthenticationEndpointEnableTOTPPage
 
-**Description:** The endpoint of the TOTP authenticator enrollment page.
-
-**Default value:** `authenticationendpoint/totp_enroll.do`
+The endpoint of the TOTP authenticator enrollment page.
 
 ---
 
 ### Issuer
 
-**Description:** The issuer name that will be shown on the mobile authenticator application. If this parameter is not configured, the tenant domain will be shown.
-
-**Default value:** `WSO2`
+The issuer name that will be shown on the mobile authenticator application. If this parameter is not configured, the tenant domain will be shown.
 
 ---
 
 ### UseCommonIssuer
 
-**Description:** If set to `true`, the issuer name defined in the `deployment.toml` file will be used as the issuer for all tenants.
-
-**Default value:** `true`
+If set to `true`, the issuer name defined in the `deployment.toml` file will be used as the issuer for all tenants.
