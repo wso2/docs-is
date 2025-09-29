@@ -5,7 +5,7 @@ These default databases are located in the `<IS_HOME>/repository/database` direc
 of the pack.
 
 By default, consent management data is stored in the identity database (IDENTITY_DB) with 
-Identity and UMA data. However, you can separate consent specific data into a separate 
+Identity data. However, you can separate consent specific data into a separate 
 datasource to any database type that is supported by WSO2 Identity Server.
 
 !!! note
