@@ -93,6 +93,7 @@ markdown_extensions:
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css
   - assets/css/theme.css
+  - https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/build.css
 
 extra_javascript:
   - assets/js/theme.js
@@ -203,8 +204,8 @@ extra:
     Setup:
       icon: octicons/gear-16
       level: 1
-    Developer Tools:
-      icon: octicons/package-16
+    Asgardeo MCP Server:
+      icon: assets/libs/custom-icons/mcp.svg
       level: 1
     React SDK:
       icon: fontawesome/brands/react
