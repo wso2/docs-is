@@ -20,13 +20,11 @@ The business APIs you deploy, whether used by your internal applications or exte
 
 ## Define and secure API resources  
 
-Define your API resources and associated permissions as scopes in {{product_name}} using the console or API, and attach the authorization policies.
+[Define your APIs]({{base_path}}/guides/authorization/api-authorization/api-authorization/#register-a-business-api) and associated permissions as scopes in {{product_name}} using the console or API, and attach the authorization policies.
 
 !!! note
 
     Learn more about [supported Authorization policies for APIs and apps]({{base_path}}/references/authorization-policies-for-apps/)
-
-[Define an API using {{product_name}} console]({{base_path}}/guides/authorization/api-authorization/api-authorization/#register-a-business-api)
 
 <!-- [Diagram - An API and scope] -->
 
