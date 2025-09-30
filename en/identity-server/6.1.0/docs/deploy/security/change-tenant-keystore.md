@@ -8,8 +8,6 @@ Changing the tenant keystore requires downloading the existing keystore, retriev
 !!! warning
     This process must be done carefully to ensure that existing users do not lose access to the Identity Server after the keystore is updated.
 
----
-
 ## Step 1 - Download the Tenant Keystore
 
 Download the tenant keystore using the following `curl` command.
@@ -49,7 +47,7 @@ where rp.reg_name='password'
 and rp3.reg_name='privatekeyPass';
 ```
 
-<img src="{{base_path}}/assets/img/deploy/security/keystore-password.png" width="600;">
+![Keystore password in the database](../../assets/img/deploy/security/keystore-password.png){: width="600" style="display: block; margin: 0;"}
 
 !!! note
     The default tenant (carbon.super) passwords must be queried separately.
@@ -75,7 +73,7 @@ java -cp org.wso2.custom.password.decrypt-1.0.0.jar:lib/* \
 ```
 
 Sample Output:
-<img src="{{base_path}}/assets/img/deploy/security/decrypted-password.png" width="600;">
+![Decrypted password output](../../assets/img/deploy/security/decrypted-password.png){: width="600" style="display: block; margin: 0;"}
 
 ## Step 4 - Prepare the New Keystore
 
@@ -173,8 +171,7 @@ curl --location 'https://localhost:9443/services/KeyStoreAdminService.KeyStoreAd
 
 If successful, you can see the added `.jks` file in the registry as follows.
 
-<img src="{{base_path}}/assets/img/deploy/security/uploaded-keystore-in-ui.png" width="600;">
-
+![Uploaded keystore in the console](../../assets/img/deploy/security/uploaded-keystore-in-ui.png){: width="400" style="display: block; margin: 0;"}
 
 ## Step 7 - Delete Old Keystore and Rename New One
 
@@ -200,8 +197,7 @@ curl --location 'https://localhost:9443/services/ResourceAdminService.ResourceAd
 ```
 
 Example cookie from response:
-
-<img src="{{base_path}}/assets/img/deploy/security/jsessionid-from-response.png" width="600;">
+![JSESSIONID from the response](../../assets/img/deploy/security/jsessionid-from-response.png){: width="600" style="display: block; margin: 0;"}
 
 ```shell
 JSESSIONID=611D695D3089BD68FE06D16B4278ED55
