@@ -494,7 +494,58 @@ To filter users by account status:
     "HTTP/1.1 201 Created"
     ```
 
-4: Confirm email or validate OTP (One-Time Password)
+4: Resend email verification code (Optional)
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "<username>",
+                "realm": "DEFAULT"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "EMAIL_VERIFICATION_OTP"
+                }
+            ]
+        }'
+        ```
+    === "Sample request"
+
+        ```
+        curl -X 'POST' \
+        'https://api.asgardeo.io/t/<org_name>/api/identity/user/v1.0/resend-code' \
+        -H 'accept: application/json' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "bob@gmail.com",
+                "realm": "DEFAULT"
+            },
+            "properties": [
+                {
+                    "key": "RecoveryScenario",
+                    "value": "EMAIL_VERIFICATION_OTP"
+                }
+            ]
+        }'
+        ```
+
+    ---
+    **Response**
+    ```
+    "HTTP/1.1 201 Created"
+    ```
+
+5: Confirm email or validate OTP (One-Time Password)
 
 You can verify the email using the confirmation link, or enter the OTP using the following API.
 
