@@ -203,8 +203,8 @@ extra:
     Setup:
       icon: octicons/gear-16
       level: 1
-    Developer Tools:
-      icon: octicons/package-16
+    Asgardeo MCP Server:
+      icon: octicons/server-16
       level: 1
     React SDK:
       icon: fontawesome/brands/react
