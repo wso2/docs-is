@@ -54,7 +54,7 @@ and rp3.reg_name='privatekeyPass';
 
 ## Step 3 - Decrypt Keystore Passwords
 
-Use the WSO2 Tenant Password Decryptor (or a similar tool) to decrypt the retrieved keystore passwords.
+Use the WSO2 [Tenant Password Decryptor](https://github.com/wso2/samples-is/tree/master/tenant-password-decryptor) (or a similar tool) to decrypt the retrieved keystore passwords.
 From IS 5.6 onwards, AES encryption is used. Use the `SymmetricKeyDecryptImpl` class as shown below.
 
 ```shell
