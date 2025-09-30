@@ -75,6 +75,30 @@ You can switch to a child organization on the {{ product_name }} Console by sele
 
 ![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-switch.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+
+## Manage current organization
+
+You can view and edit details of the organization you are currently logged into:
+
+1. On the {{ product_name }} Console, click the organization name in the breadcrumb navigation.
+
+2. A dropdown will appear with **Edit** or **View** option based on your admin privileges:
+
+    ![Manage current organization]({{base_path}}/assets/img/guides/organization/manage-organizations/edit-current-organization-dropdown-option.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Select **Edit Organization** to access the page where you can view and update organization details.
+
+    ![Manage current organization]({{base_path}}/assets/img/guides/organization/manage-organizations/edit-current-organization.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+4. Update the organization name and click **Save**.
+
+!!! note
+    - The **Edit/View Organization** options appear only if you have organization administrator privileges.
+    - Currently, you can edit only the organization name.
+
+{% endif %}
+
 ## Build an organizational hierarchy
 
 Organizations can be structured hierarchically in {{product_name}}. This means that if you are a parent organization, you may have multiple child organizations and each child organization can have their own child organizations and so on. This enables you to easily reflect the real-world structure of your business in {{product_name}}.
