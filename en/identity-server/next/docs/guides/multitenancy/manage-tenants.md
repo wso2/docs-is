@@ -54,7 +54,7 @@ Follow the steps given below to add a new root organization from the {{ product_
         </tr>
         <tr>
           <td><code>Organization Handle (Domain)</code></td>
-          <td>Enter an organization handle (domain) (for example, abc) to uniquely identify your organization. Access the new root organization's Console at `https://<IS_HOST>:<PORT>/t/<DOMAIN>/console`.</td>
+          <td>Enter an organization handle (tenant domain) (for example, abc) to uniquely identify your organization. Access the new root organization's Console at `https://<IS_HOST>:<PORT>/t/<DOMAIN>/console`.</td>
         </tr>
         <tr>
           <td><code>First Name</code></td>
@@ -80,7 +80,7 @@ Follow the steps given below to add a new root organization from the {{ product_
     </table>
 
     !!! note
-        Keep the **Organization Name** field blank to use the **Organization Handle** (domain) as the name.
+        Keep the **Organization Name** field blank to use the **Organization Handle** (tenant domain) as the name.
 
 5. Once a new root organization is created, it will be listed in the the **Root Organization** listing page as shown below.
 
