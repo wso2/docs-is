@@ -167,6 +167,7 @@ plugins:
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
         'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
+
 exclude_docs: |
   /get-started/hello-world.md
 
@@ -368,7 +369,9 @@ nav:
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
-        - Manage users: guides/users/manage-users.md
+        - Users: 
+          - Onboard users: guides/users/onboard-users.md
+          - Manage users: guides/users/manage-users.md
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
