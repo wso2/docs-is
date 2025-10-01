@@ -2,6 +2,12 @@
 
 This guide walks you through the process of managing a user account. An owner or an administrator can manage user accounts.
 
+## Onboard users
+
+{{product_name}} provides multiple ways to onboard users to your organization. You can add users individually or in bulk using a CSV file. You can also allow users to self-register.
+
+To learn more about onboarding users, see [Onboard users]({{base_path}}/guides/users/onboard-users/).
+
 ## Assign groups
 A user can be assigned to different [groups]({{base_path}}/guides/users/manage-groups/) in the organization. Groups can be used to restrict the user's access to resources.
 
