@@ -504,6 +504,7 @@ To filter users by account status:
         curl -X 'POST' \
         'https://api.asgardeo.io/t/<org_name>/api/identity/user/v1.0/resend-code' \
         -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
         -H 'Content-Type: application/json' \
         -d '{
             "user": {
@@ -524,6 +525,7 @@ To filter users by account status:
         curl -X 'POST' \
         'https://api.asgardeo.io/t/<org_name>/api/identity/user/v1.0/resend-code' \
         -H 'accept: application/json' \
+        -H 'Authorization: Bearer <access_token>' \
         -H 'Content-Type: application/json' \
         -d '{
             "user": {
