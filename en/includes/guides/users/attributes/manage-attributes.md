@@ -230,7 +230,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Data Type</b></td>
-                <td>Refers to the kind of value it holds, such as a string, boolean or date-time.</td>
+                <td>Refers to the kind of value it holds, such as a string, boolean or date.</td>
             </tr>
             <tr>
                 <td><b>Multi Valued</b></td>
@@ -273,6 +273,9 @@ To configure properties of user attributes:
     - **Decimal** Numbers that include decimals (for example `3.14`, `-0.5`).
     - **Boolean** A true or false value.
     - **Object** A structured object that can include multiple sub-attributes.
+    - **Date** Calendar date without time. Use ISO 8601 `YYYY-MM-DD` (for example `2025-10-01`).
+    - **DateTime** Date and time with timezone. Use ISO 8601 `YYYY-MM-DDTHH:mm:ssZ` or offset `YYYY-MM-DDTHH:mm:ss±HH:mm` (for example `2025-10-01T14:30:00+05:30`).
+    - **Epoch** Unix time since 1970-01-01 UTC. Use seconds or milliseconds as integers (for example `1730399400` or `1730399400000`).
 
     Options Data Type
 
@@ -324,6 +327,10 @@ To configure properties of user attributes:
             <tr>
                 <td><b>Integer</b></td>
                 <td>Text Input, Number Picker</td>
+            </tr>
+            <tr>
+                <td><b>Date</b></td>
+                <td>Text Input, Date Picker. Store dates in ISO 8601 `YYYY-MM-DD`. If the existing value uses another format, render a Text Input.</td>
             </tr>
         </tbody>
     </table>
