@@ -27,6 +27,7 @@ curl -k 'https://localhost:9443/t/wso.com/registry/resource/_system/governance/r
   -H 'Authorization: Basic YWRtaW5Ad3NvLmNvbTphZG1pbg==' \
   --output wso-com.jks
 ```
+
 This will output the keystore as **wso-com.jks**.
 
 Repeat for other tenant keystore files using respective credentials.
@@ -173,9 +174,7 @@ If successful, you can see the added `.jks` file in the registry as follows.
 
 ![Uploaded keystore in the console](../../assets/img/deploy/security/uploaded-keystore-in-ui.png){: width="400" style="display: block; margin: 0;"}
 
-## Step 7 - Delete Old Keystore and Rename New One
-
-### Delete old registry entry
+## Step 7 - Delete old registry entry
 
 You must delete the old keystore entry before updating it.
 
@@ -206,7 +205,7 @@ JSESSIONID=611D695D3089BD68FE06D16B4278ED55
 !!! warning
     Do not proceed without saving the `JSESSIONID`. Without it, you may lose tenant access.
 
-### Rename the new keystore entry
+## Step 8 - Rename the new keystore entry
 
 Rename the newly added keystore to its original name (wso-com.jks) using the captured `JSESSIONID`.
 
