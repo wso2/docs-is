@@ -1,8 +1,6 @@
 # Change the Default Datasource for Agent Identities
 
-WSO2 Identity Server is shipped with an embedded H2 database for storing data. 
-These default databases are located in the `<IS_HOME>/repository/database` directory 
-of the pack.
+WSO2 Identity Server ships with an embedded H2 database for storing data. These default databases are located in the `<IS_HOME>/repository/database` directory.
 
 Agent identity data is stored in the agent database (AGENT). You can use any database type that is supported by WSO2 Identity Server.
 
