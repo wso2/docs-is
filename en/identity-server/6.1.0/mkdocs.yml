@@ -458,6 +458,7 @@ nav:
             - Renew a CA-Signed Certificate in a Keystore: deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md
             - Manage Keystores via UI: deploy/security/manage-keystores-with-the-ui.md
             - Add Multiple Keys to the Primary Keystore: deploy/security/add-multiple-keys-to-the-primary-keystore.md
+            - Change Tenant Keystore: deploy/security/change-tenant-keystore.md
           - Symmetric Encryption:
             - Overview: deploy/security/symmetric-overview.md
             - Configurations Related to Symmetric Key Encryption: deploy/security/use-symmetric-encryption.md
