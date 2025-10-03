@@ -189,7 +189,7 @@ To configure properties of user attributes:
     !!! Danger "Warning"
         These settings only control how the attributes behave in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** affect backend or API validation.
 
-    If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms.    
+    If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms.
 
     !!! note
         Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when
@@ -230,7 +230,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Data Type</b></td>
-                <td>Refers to the kind of value it holds, such as a string, boolean or date-time.</td>
+                <td>Refers to the kind of value it holds, such as a string, boolean or date.</td>
             </tr>
             <tr>
                 <td><b>Multi Valued</b></td>
@@ -272,8 +272,10 @@ To configure properties of user attributes:
     - **Integer** Whole numbers (for example `1`, `42`, `-7`).
     - **Decimal** Numbers that include decimals (for example `3.14`, `-0.5`).
     - **Boolean** A true or false value.
-    - **DateTime** A date and time value.
     - **Object** A structured object that can include multiple sub-attributes.
+    - **Date** Calendar date without time. Use ISO 8601 `YYYY-MM-DD` (for example `2025-10-01`).
+    - **DateTime** Date and time with timezone. Use ISO 8601 `YYYY-MM-DDTHH:mm:ssZ` or offset `YYYY-MM-DDTHH:mm:ss±HH:mm` (for example `2025-10-01T14:30:00+05:30`).
+    - **Epoch** Unix time since 1970-01-01 UTC. Use seconds or milliseconds as integers (for example `1730399400` or `1730399400000`).
 
     Options Data Type
 
@@ -327,11 +329,22 @@ To configure properties of user attributes:
                 <td>Text Input, Number Picker</td>
             </tr>
             <tr>
-                <td><b>DateTime</b></td>
-                <td>Text Input, Date Picker</td>
+                <td><b>Date</b></td>
+                <td>Text Input, Date Picker. Store dates in ISO 8601 `YYYY-MM-DD`. If the existing value uses another format, render a Text Input.</td>
             </tr>
         </tbody>
     </table>
+
+    Once a data type and input format are configured for an attribute, it will be rendered in the corresponding format across all relevant UIs — including the **Console user profile**, **Console user creation wizard**, and the **Self-service portal user profile**. For example, if **Options** is selected with the **Dropdown** input format, the attribute will appear as a dropdown field in each of these UIs.
+
+    - Console user creation wizard
+    ![User creation wizard - dropdown input]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-input-format-user-add-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - Console user profile
+    ![User creation wizard - dropdown input]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-input-format-console-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - Self-service portal user profile
+    ![User creation wizard - dropdown input]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-input-format-self-service-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 7. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
@@ -365,7 +378,7 @@ To configure properties of user attributes:
     !!! Danger "Warning"
         These settings only control how the attributes behave in WSO2-managed UIs (Administrator Console, End-User Profile (i.e. My Account), Self-Registration). They **do not** affect backend or API validation.
 
-    If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms. 
+    If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms.
 
     !!! note
         Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when
