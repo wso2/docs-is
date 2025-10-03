@@ -6,17 +6,17 @@ The business APIs you deploy, whether used by your internal applications or exte
 
 - **{{product_name}} as OAuth2 Token Service with Access control** - In this approach, {{product_name}} handles both authentication and authorization. {{product_name}} issues access tokens with enforced access control policies (for example scopes issued are based on role-based access control). Your APIs validate the token and trust the access control decisions already made by {{product_name}}.
 
-    Suitable when,
+  Suitable when,
 
-    - You don't use a dedicated API management platform.
-    - You want {{product_name}} to enforce access policies.
+  - You don't use a dedicated API management platform.
+  - You want {{product_name}} to enforce access policies.
 
 - **{{product_name}} as OAuth2 Token Service only** - Use this approach when you integrate {{product_name}} as the Identity Provider (IdP) for an API management platform (WSO2 API Manager, Choreo, etc.). {{product_name}} issues tokens, but the API management platform enforces authorization for the token.
 
-    Suitable when,
+  Suitable when,
 
-    - You already have an API gateway or management platform handling access policies.
-    - You want centralized identity management via {{product_name}} across different applications and APIs.
+  - You already have an API gateway or management platform handling access policies.
+  - You want centralized identity management via {{product_name}} across different applications and APIs.
 
 ## Define and secure API resources  
 
