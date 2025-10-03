@@ -49,8 +49,12 @@ Follow the steps given below to add a new root organization from the {{ product_
       </thead>
       <tbody>
         <tr>
-          <td><code>Domain</code></td>
-          <td>The domain name (e.g., abc.com) is used as a unique identifier for your organization. The URL for the new root organization's Console will be `https://<IS_HOST>:<PORT>/t/<DOMAIN>/console` URL.</td>
+          <td><code>Organization Name</code></td>
+          <td>Enter a user friendly name (for example, ABC Builders) for your organization. Your organization will use this name for branding purposes in notification templates.</td>
+        </tr>
+        <tr>
+          <td><code>Organization Handle (Domain)</code></td>
+          <td>Enter an organization handle (tenant domain) (for example, abc) to uniquely identify your organization. Access the new root organization's Console at `https://<IS_HOST>:<PORT>/t/<DOMAIN>/console`.</td>
         </tr>
         <tr>
           <td><code>First Name</code></td>
@@ -70,10 +74,13 @@ Follow the steps given below to add a new root organization from the {{ product_
         </tr>
         <tr>
           <td><code>Password</code></td>
-          <td>The password used when singing in with the username specified above.</td>
+          <td>The password used when signing in with the username specified above.</td>
         </tr>
       </tbody>
     </table>
+
+    !!! note
+        Keep the **Organization Name** field blank to use the **Organization Handle** (tenant domain) as the name.
 
 5. Once a new root organization is created, it will be listed in the the **Root Organization** listing page as shown below.
 
