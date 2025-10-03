@@ -222,7 +222,7 @@ To allow users to disable SMS OTP:
 
 ### Configure backup codes
 
-Optionally, you can configure backup codes to be used when SMS OTP is disabled.
+Optionally, you can configure backup codes to be used as a fallback when SMS OTP is enabled but temporarily inaccessible (for example, when a user cannot receive the SMS).
 
 To configure backup SMS OTP codes:
 
