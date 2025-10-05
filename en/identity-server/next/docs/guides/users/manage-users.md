@@ -142,7 +142,6 @@ Specify the **recovery scenario** in the `properties` parameter of the API reque
     - Provide the username without the user store domain prefix
     - Specify the relevant user store domain name in the `realm` parameter
 
-    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
 
     ---
     **Response**
