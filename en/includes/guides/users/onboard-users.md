@@ -210,7 +210,7 @@ During user onboarding, you can enforce email verification to confirm the provid
             -d '{
                 "user": {
                     "username": "<username>",
-                    "realm": "<user-store-domain>"
+                    "realm": "<user_store_domain>"
                 },
                 "properties": [
                     {
