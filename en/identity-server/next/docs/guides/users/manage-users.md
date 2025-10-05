@@ -60,7 +60,7 @@ To update the user profile:
 Administrators can resend expired invitation links or verification codes to users. This applies when users need to:
 
 - Complete registration
-- Reset passwords through admin-initiated password reset
+- Reset passwords through an admin-initiated password reset
 - Confirm their account
 - Verify their email address
 
