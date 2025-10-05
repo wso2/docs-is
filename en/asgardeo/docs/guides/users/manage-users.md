@@ -56,17 +56,30 @@ To update the user profile:
 
 4. Click **Update** to save.
 
-## Resend password setup link/code
+## Resend invitation links and codes
 
-If a user is pending to set up an initial password or is required to reset their password through an admin-initiated password reset, and the previously sent link or code has expired, an administrator can resend the link or code.
+Administrators can resend expired invitation links or verification codes to users. This applies when users need to:
 
-To resend the link/code:
+- Complete registration
+- Reset passwords through admin-initiated password reset
+- Confirm their account
+- Verify their email address
 
-1. Click the `Resend` link available in the warning message displayed at the top of the user's profile.
+### Use the Console
 
-    ![Resend link]({{base_path}}/assets/img/guides/users/resend-password-setup-link.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+To resend links or codes through the Console:
 
-Alternatively, administrators can use the resend-code API to resend the link or code as shown below.
+1. Navigate to the user's profile in **User Management** > **Users**.
+
+2. Click the **Resend** link in the warning message at the top of the user's profile.
+
+    ![Resend link]({{base_path}}/assets/img/guides/users/resend-account-setup-otp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    ![Resend link]({{base_path}}/assets/img/guides/users/resend-admin-initiated-password-reset.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+### Use the API
+
+You can also use the **resend-code API** to resend links or codes programmatically.
 
 !!! abstract ""
 
@@ -113,11 +126,22 @@ Alternatively, administrators can use the resend-code API to resend the link or 
             }'
         ```
 
-    The recovery scenario should be specified in the properties parameter of the API request body, as follows:
+#### Recovery scenarios
 
-    - `ASK_PASSWORD`: When the user is pending to set up an initial password using the setup link.
-    - `ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK`: When the user is pending an admin-forced password reset via an email link.
-    - `ADMIN_FORCED_PASSWORD_RESET_VIA_OTP`: When the user is pending an admin-forced password reset via an OTP sent through email.
+Specify the **recovery scenario** in the `properties` parameter of the API request:
+
+- **`ASK_PASSWORD`**: User needs to set up their initial password using the setup link.
+- **`ASK_PASSWORD_VIA_EMAIL_OTP`**: User needs to complete registration using an email OTP.
+- **`ASK_PASSWORD_VIA_SMS_OTP`**: User needs to complete registration using an SMS OTP.
+- **`ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK`**: User needs to reset password via an admin-forced email link.
+- **`ADMIN_FORCED_PASSWORD_RESET_VIA_OTP`**: User needs to reset password via an admin-forced OTP sent through email.
+- **`EMAIL_VERIFICATION`**: User needs to verify their email using the setup link.
+- **`EMAIL_VERIFICATION_OTP`**: User needs to verify their email using an email OTP.
+- **`SELF_SIGN_UP`**: User needs to confirm their account using the email link.
+
+!!! note
+    - Provide the username without the user store domain prefix
+    - Specify the relevant user store domain name in the `realm` parameter
 
     Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
 

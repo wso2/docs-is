@@ -110,7 +110,7 @@ During user onboarding, you can enforce email verification to confirm the provid
     !!! abstract ""
 
             curl -X 'PATCH' \
-            '{{base_url}}/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/    dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
+            '{{base_url}}/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
             -H 'Authorization: Bearer <access_token>' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -128,7 +128,7 @@ During user onboarding, you can enforce email verification to confirm the provid
     !!! abstract ""
 
             curl -X 'PATCH' \
-            '{{base_url}}/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/    dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
+            '{{base_url}}/api/server/v1/identity-governance/VXNlciBPbmJvYXJkaW5n/connectors/dXNlci1lbWFpbC12ZXJpZmljYXRpb24' \
             -H 'Authorization: Bearer <access_token>' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -174,7 +174,7 @@ During user onboarding, you can enforce email verification to confirm the provid
             -H 'Authorization: Bearer <access_token>' \
             -H 'Content-Type: application/json' \
             -d '{
-                "userName": "DEFAULT/bob",
+                "userName": "{{user_store_domain}}/bob",
                 "emails": [
                     {
                         "primary": true,
@@ -210,7 +210,7 @@ During user onboarding, you can enforce email verification to confirm the provid
             -d '{
                 "user": {
                     "username": "<username>",
-                    "realm": "DEFAULT"
+                    "realm": "<user-store-domain>"
                 },
                 "properties": [
                     {
@@ -231,7 +231,7 @@ During user onboarding, you can enforce email verification to confirm the provid
             -d '{
                 "user": {
                     "username": "bob@gmail.com",
-                    "realm": "DEFAULT"
+                    "realm": "{{user_store_domain}}"
                 },
                 "properties": [
                     {
