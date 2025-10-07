@@ -628,7 +628,9 @@ nav:
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
-        - Manage users: guides/users/manage-users.md
+        - Users: 
+          - Onboard users: guides/users/onboard-users.md
+          - Manage users: guides/users/manage-users.md
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
@@ -858,6 +860,7 @@ nav:
             - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
             - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
             - Change the Default Datasources for the Registry Data: deploy/configure/databases/carbon-database/change-datasource-registry-data.md
+            - Change the Default Datasource for Agent Identities: deploy/configure/databases/carbon-database/change-datasource-agent-identity.md
           - Data Dictionary:
             - Registry Related Tables: deploy/configure/databases/data-dictionary/registry-related-tables.md
             - User Management Related Tables: deploy/configure/databases/data-dictionary/user-management-related-tables.md

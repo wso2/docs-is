@@ -167,6 +167,7 @@ plugins:
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
         'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
+
 exclude_docs: |
   /get-started/hello-world.md
 
@@ -368,7 +369,9 @@ nav:
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
-        - Manage users: guides/users/manage-users.md
+        - Users: 
+          - Onboard users: guides/users/onboard-users.md
+          - Manage users: guides/users/manage-users.md
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
@@ -538,10 +541,8 @@ nav:
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
     - Secure Agentic AI Systems with Asgardeo: tutorials/secure-agentic-ai-systems.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
-  - Developer Tools:
-    - SDKs:
-      - Integrate Asgardeo into your application: sdks/index.md
-    - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
+  - SDKs:
+    - Integrate Asgardeo into your application: sdks/index.md
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
@@ -606,6 +607,7 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+  - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:

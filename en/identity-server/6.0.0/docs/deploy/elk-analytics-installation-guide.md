@@ -54,13 +54,13 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
     - Add `org.wso2.carbon.event.output.adapter.logger.LoggerEventAdapter` to the list of all loggers as follows:
         ```
-        loggers = {existing loggers}, org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter
+        loggers = {existing loggers}, org-wso2-carbon-event-output-adapter-logger-LoggerEventAdapter
         ```
-    - Add the following logger configs
+    - Add the following logger configurations.
         ```
-        logger.org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter.name=org.wso2.carbon.event.output.adapter.logger.LoggerEventAdapter
-        logger.org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter.level=INFO
-        logger.org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter.appenderRef.CUSTOM_LOGFILE.ref=ANALYTICS_EVENT_LOGFILE
+        logger.org-wso2-carbon-event-output-adapter-logger-LoggerEventAdapter.name = org.wso2.carbon.event.output.adapter.logger.LoggerEventAdapter
+        logger.org-wso2-carbon-event-output-adapter-logger-LoggerEventAdapter.level = INFO
+        logger.org-wso2-carbon-event-output-adapter-logger-LoggerEventAdapter.appenderRef.CUSTOM_LOGFILE.ref = ANALYTICS_EVENT_LOGFILE
         ```
 
         !!! note
