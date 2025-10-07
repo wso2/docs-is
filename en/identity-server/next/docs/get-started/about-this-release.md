@@ -289,6 +289,10 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
     For backward compatibility, the `internal_bulk_resource_create scope` still supported and allows performing any operation through the bulk endpoint.
 
+- **Enabled reCAPTCHA validation for local Email/SMS OTP authenticators**
+
+    reCAPTCHA validation is now enabled for local Email/SMS OTP authenticators when they are used as first-factor authenticators.
+
 ## Deprecated features
 
 In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users. Learn more about [WSO2 Identity Server Feature Deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
