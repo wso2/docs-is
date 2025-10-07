@@ -66,7 +66,7 @@ Click the button below to download the sample. You can also choose to view the s
 <div class="centered-container">
   <div class="border-text">
     <img src="{{base_path}}/assets/img/logo/react-logo.svg" alt="React" width=50><br>
-    <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/download/v5.2.3/asgardeo-react-app.zip" target="_blank">Download sample</a>
+    <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip" target="_blank">Download sample</a>
   </div>
 
   <div class="border-text">
