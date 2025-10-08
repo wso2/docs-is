@@ -60,8 +60,7 @@ paths:
       description: "This API is used to create an OAuth2 application. 
         \n If your want to create your application to use the `implicit` or `authorization_code` grant types, you need to provide the `redirect_uri` field in your request.\
         \n If you are using any other grant type, \nsuch as `password`, you don't need to send the `redirect_uri` field in the request.
-        \n Check the sample request given below.\n\n"
-        <b>Scope(Permission) required:</b> `internal_dcr_create`
+        \n Check the sample request given below.\n\n<b>Scope(Permission) required:</b> `internal_dcr_create`"
       operationId: registerApplication
       requestBody:
         description: Application information to register.
