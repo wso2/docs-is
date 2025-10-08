@@ -76,8 +76,7 @@ paths:
         grant types, you need to provide the redirect_uris field in your request.\
         \ If you are using any other grant type, \nsuch as password, you don't need\
         \ to send the redirect_uri field in the request. Check the sample request\
-        \ given below.\n"
-        <b>Scope(Permission) required:</b> `internal_dcr_create`
+        \ given below.\n\n<b>Scope(Permission) required:</b> `internal_dcr_create`"
       operationId: registerApplication
       requestBody:
         description: Application information to register.
