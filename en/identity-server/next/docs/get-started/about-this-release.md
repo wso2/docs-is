@@ -275,14 +275,6 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
     
     Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
 
-- **SCIM2 Roles V3 API for Granular Role Management**
-
-    The latest update introduces a **SCIM2 Roles V3 API** for the SCIM2 Roles API. This version separates role metadata management and role assignment into distinct permission sets. You can now assign different responsibilities to different user roles for more granular control.
-
-    This change applies only if explicitly enabled from the server configuration in WSO2 Identity Server 7.2. Existing setups continue to use the current behavior unless updated.
-
-    Learn more about using [SCIM2 Roles V3 API and updated permission mappings]({{base_path}}/apis/role-management).
-
 - **Operation-wise access control in SCIM bulk API**
 
     The SCIM2 bulk API previously required the `internal_bulk_resource_create` scope to allow operations on the endpoint. Starting with Identity Server 7.2, the bulk endpoint supports [operation-wise scopes]({{base_path}}/apis/scim2/scim2-batch-operations/#scopepermission-required-for-batch-operations). The system executes each operation in a bulk request only if the corresponding operation-specific scope exists.
@@ -327,10 +319,6 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 - **Carbon Registry**
 
     With WSO2 Identity Server 7.1, the Carbon Registry, previously used as a data repository, has been deprecated. Registry dependencies have been removed from the WSO2 Identity Server, and the registry core is planned for removal in a future release, streamlining the system and reducing legacy components.
-
-- **SCIM 2.0 Roles API (v2)**
-
-    This release deprecates the [SCIM 2.0 Roles API (v2)]({{base_path}}/apis/role-management/roles-v2-rest-api/). Use the latest [SCIM 2.0 Roles API (v3)]({{base_path}}/apis/role-management/roles-v3-rest-api/) API for listing roles and updating users and groups of the roles.
 
 ## Deprecated configurations
 
