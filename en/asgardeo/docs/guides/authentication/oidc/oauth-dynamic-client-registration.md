@@ -1,1 +1,1 @@
-{% include "../../../../../../includes/guides/authentication/oidc/oauth-dynamic-client-registration.md" %}
+{% include "../../../../../includes/guides/authentication/oidc/oauth-dynamic-client-registration.md" %}
