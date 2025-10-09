@@ -1,54 +1,138 @@
 # How to use
 
-Once you complete setting up Sift in {{product_name}}, you can use the following [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) functions to customize the login flow based on risk.
+Administrators can use the risk score or decision ID returned by Sift to decide whether to allow, deny, or step up authentication for a login attempt.
 
-!!! tip "Before you begin"
+This guide gives examples of how to use the Sift functions in [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) scripts to customize the login flow based on risk.
 
-    To set up conditional authentication, refer to [set up conditional authentication]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/).
+## Prerequisites
 
-## `getSiftRiskScoreForLogin()`
+- If you haven't already, [register your application]({{base_path}}/guides/applications/#register-an-application) in {{product_name}}.
 
-This function,
+- [Set up conditional authentication]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/) for your application.
 
-- returns a value between `0` and `1`. Higher the score, greater the risk.
+!!! note
 
-- returns `-1` if an error occurs due to an invalid API key, network issue or a Sift server issue.
+    Learn more about all the elements you can use to create conditional authentication scripts in its [API reference]({{base_path}}/references/conditional-auth/api-reference/).
 
-- takes the following arguments.
+## Risk score-based scenario
 
-    - `AuthenticationContext` - current authentication context.
+In this example scenario, imagine you want to fulfill the following requirements:
 
-    - `LoginStatus` - Status of login; `LOGIN_SUCCESS` for a success status, `LOGIN_FAILED` for a failed status.
+- if the user's risk score exceeds 0.7, fail the login attempt.
 
-    - `AdditionalParameters` - Any extra parameters you want to send to Sift.
+- if the risk score falls between 0.5 and 0.7, prompt for an extra login step.
 
-## `getSiftWorkflowDecision()`
+- if authentication fails, publish a login fail event to Sift.
 
-This function,
+- Enable {{product_name}} to send the user ID, session ID, IP address to Sift for risk evaluation, but prevent sending the user agent information to Sift.
 
-- returns the Sift decision ID for a login event. This ID uniquely identifies the decision made during the Sift workflow for that event. Learn more about [Sift workflows](https://developers.sift.com/tutorials/workflows){: target="_blank"}.
+You can implement this using the [getSiftRiskScoreForLogin()]({{base_path}}/connectors/sift/reference/#getsiftriskscoreforlogin) function in a conditional authentication script as shown below.
 
-- returns `null` if an error occurs due to an invalid API key, network issue or a Sift server issue.
+```javascript
 
-- takes the following arguments.
+var additionalParams = {
+    "loggingEnabled": true, // enable logging for debugging
+    "$user_agent": "" // prevent sending user agent info to Sift
+}
+var errorPage = '';
+var suspiciousLoginError = {
+    'status': 'Login Restricted',
+    'statusMsg': 'You login attempt was identified as suspicious.'
+};
 
-    - `AuthenticationContext` - current authentication context.
+var onLoginRequest = function (context) {
+    executeStep(1, {
+        onSuccess: function (context) {
+            var riskScore = getSiftRiskScoreForLogin(context, "LOGIN_SUCCESS", additionalParams);
+            if (riskScore == -1) {
+                console.log("Error occured while obtaining Sift score.");
+            }
+            if (riskScore > 0.7) {
+                sendError(errorPage, suspiciousLoginError);
+            } else if (riskScore > 0.5) {
+                executeStep(2);
+            }
+        },
+        onFail: function (context) {
+            publishLoginEventToSift(context, 'LOGIN_FAILED', additionalParams);
+        }
+    });
+};
+```
 
-    - `LoginStatus` - Status of login; `LOGIN_SUCCESS` for a success status, `LOGIN_FAILED` for a failed status.
+How it works:
 
-    - `AdditionalParameters` - Any extra parameters you want to send to Sift.
+- When a user attempts to log in, the script executes step 1 (e.g., username/password authentication).
 
-## `publishLoginEventInfoToSift()`
+- If step 1 is successful, it calls the `getSiftRiskScoreForLogin()` function, passing the current authentication context, login status, and additional parameters. This function sends the relevant contextual data to Sift and retrieves the risk score.
 
-This function,
+- Based on the returned risk score:
 
-- publishes the status of the current login event to Sift, indicating whether it succeeded or failed.
+      - If the score is greater than 0.7, it sends an error response, effectively blocking the login attempt.
 
-- takes the following arguments.
+      - If the score is between 0.5 and 0.7, it executes step 2 (e.g., an additional authentication step like OTP).
 
-    - `AuthenticationContext` - current authentication context.
+- If step 1 fails, it calls the `publishLoginEventToSift()` function to notify Sift of the failed login attempt, which can help improve future risk assessments.
 
-    - `LoginStatus` - Status of login; `LOGIN_SUCCESS` for a success status, `LOGIN_FAILED` for a failed status.
+- Additional parameters enable logging and prevent WSO2 Identity Server from sending the user agent information to Sift.
 
-    - `AdditionalParameters` - Any extra parameters you want to send to Sift.
+## Decision ID-based scenario
 
+In this example scenario, imagine you want to fulfill the following requirements:
+
+- if the decision ID is `session_looks_bad_account_takeover`, fail the login attempt.
+
+- if the decision ID is `mfa_account_takeover`, prompt for an extra login step.
+
+- if the login fails, publish a login fail event to Sift.
+
+- Enable {{product_name}} to send the user ID, session ID, IP address to Sift for risk evaluation, but prevent sending the user agent information to Sift.
+
+You can implement this using the [getSiftWorkflowDecision()]({{base_path}}/connectors/sift/reference/#getsiftworkflowdecision) function in a conditional authentication script as shown below.
+
+```javascript
+var additionalParams = {
+    "loggingEnabled": true, // enable logging for debugging
+    "$user_agent": "", // prevent sending user agent info to Sift
+}
+var errorPage = '';
+var suspiciousLoginError = {
+    'status': 'Login Restricted',
+    'statusMsg': 'You login attempt was identified as suspicious.'
+};
+
+var onLoginRequest = function (context) {
+    executeStep(1, {
+        onSuccess: function (context) {
+            var workflowDecision = getSiftWorkflowDecision(context, "LOGIN_SUCCESS", additionalParams);
+            if (workflowDecision == null) {
+                console.log("Error occured while obtaining Sift score.");
+            }
+            if (workflowDecision == "session_looks_bad_account_takeover") {
+                sendError(errorPage, suspiciousLoginError);
+            } else if (workflowDecision == "mfa_account_takeover") {
+                executeStep(2);
+            }
+        },
+        onFail: function (context) {
+            publishLoginEventToSift(context, 'LOGIN_FAILED', additionalParams);
+        }
+    });
+};
+```
+
+How it works:
+
+- When a user attempts to log in, the script executes step 1 (e.g., username/password authentication).
+
+- If step 1 is successful, it calls the `getSiftWorkflowDecision()` function, passing the current authentication context, login status, and additional parameters. This function sends the relevant contextual data to Sift and retrieves the decision ID.
+
+- Based on the returned decision ID:
+
+      - If the decision ID is `session_looks_bad_account_takeover`, it sends an error response, effectively blocking the login attempt.
+
+      - If the decision ID is `mfa_account_takeover`, it executes step 2 (e.g., an additional authentication step like OTP).
+
+- If step 1 fails, it calls the `publishLoginEventToSift()` function to notify Sift of the failed login attempt, which can help improve future risk assessments.
+
+- additional parameters enable logging and prevent {{product_name}} from sending the user agent information to Sift.
