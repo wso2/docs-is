@@ -807,6 +807,7 @@ nav:
           - Session persistence: deploy/configure/session-persistence.md
           - Clock tolerance: deploy/configure/clock-tolerance.md
           - Email sending module: deploy/configure/email-sending-module.md
+          - Cookie consent banner: deploy/configure/cookie-consent-banner.md
 
       - Secure:
           - Mitigate attacks:
