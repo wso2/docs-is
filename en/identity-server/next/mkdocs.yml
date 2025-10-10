@@ -599,6 +599,7 @@ nav:
             - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Implement login using the OIDC Hybrid Flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
             - Configure token exchange: guides/authentication/configure-token-exchange.md
+            - Configure JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
             - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
             - Request user information: guides/authentication/oidc/request-user-info.md
             - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
