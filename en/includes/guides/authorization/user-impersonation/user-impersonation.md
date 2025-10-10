@@ -26,7 +26,7 @@ Follow the steps below to assign the right permissions to the impersonator.
 
     4. Click **Update** to save the changes.
 
-2. The impersonator also needs administrator permissions for the Console. If this user doesn't already have them,
+2. The impersonator also needs permissions to view users from the Console. If this user doesn't already have them,
 
     1. On the {{product_name}} Console, go to **Console Settings**.
 
@@ -119,6 +119,7 @@ Follow the steps below to assign the right permissions to the impersonator.
     3. Enter the user's username and assign the **Administrator** role.
 
     4. Click **Add**.
+   5. 
 
 ### Step 3: Perform Impersonation
 
@@ -199,6 +200,11 @@ To assign the role,
 3. Under the **Users** tab, click **Assign Users** and select the impersonator.
 
 4. Click **Update** to save the changes.
+
+!!! warning "Important"
+     - When the Impersonator role is assigned to a user for a specific application, and that application is configured to support impersonation API resources, the user can impersonate any user within the organization. The impersonator can perform actions on behalf of the impersonated user within the permitted scope of that application. 
+     - To monitor and troubleshoot impersonation activities, you can use the {{product_name}} logs related to user impersonation. For more information, see [Access logs related to user impersonation](#access-logs-related-to-user-impersonation).
+     - To notify users about impersonation events, you can configure email notifications. For details, see [Notify users on impersonation.](#notify-users-on-impersonation).
 
 ### Step 4: (Optional) Skip consent screens
 
