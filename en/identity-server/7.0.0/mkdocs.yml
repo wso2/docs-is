@@ -685,7 +685,7 @@ nav:
           - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
-          - Deleted organizations resources cleanup: guides/organization-management/cleanup-organization-resources.md
+          - Cleaning up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
       - Analytics:
         - ELK Analytics:
           - Elk analytics: guides/analytics/elk-analytics/index.md
