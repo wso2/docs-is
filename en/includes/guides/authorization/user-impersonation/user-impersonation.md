@@ -119,7 +119,6 @@ Follow the steps below to assign the right permissions to the impersonator.
     3. Enter the user's username and assign the **Administrator** role.
 
     4. Click **Add**.
-   5. 
 
 ### Step 3: Perform Impersonation
 
