@@ -1,4 +1,4 @@
-To view the workflow approvals, you need to navigate to the **Approvals** page under the **User Management** in the admin console or in the [My Account]({{base_path}}/guides/user-self-service/manage-approvals/). There, you will see a list of approvals that you can approve.
+To view the workflow approvals, you need to navigate to the **Workflow Requests** page under the **Workflow** in the Console or in the [My Account]({{base_path}}/guides/user-self-service/manage-approvals/). There, you will see a list of approvals that you can approve.
 
 ![Workflow approval page]({{base_path}}/assets/img/guides/workflows/workflow-approvals.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -22,3 +22,14 @@ Approval lifecycle contains several states:
 To view the details of an approval, you can click on the approval in the list. This will open the approval details page where you can see the details of the approval related to the operation.
 
 ![Approval details]({{base_path}}/assets/img/guides/workflows/approval-details.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+### Approve or reject workflow requests
+
+To approve or reject workflow requests, you need to access the My Account application.
+
+1. Sign in to the My Account application.
+2. Navigate to the **Workflow Requests** section.
+3. Select the workflow request you want to act on.
+4. Review the request details.
+5. To approve the request, click **Approve**.
+6. To reject the request, click **Reject**.
