@@ -34,25 +34,94 @@ To enable/disable JIT user provisioning for an external Identity provider:
 
 3. Check/Uncheck the **Just-in-Time (JIT) User Provisioning** checkbox to enable/disable it.
 
-    ![JIT user provisioning configuration is enabled]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![JIT user provisioning configuration is enabled]({{base_path}}/assets/img/guides/jit-provisioning/jit-enabled.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save.
 
 !!! note
-    - When JIT is enabled, {{ product_name }} updates the existing local account created with the same email address or if a new user, creates a user profile with the user attributes received from the external IdP.
-    <br />
     - When JIT is disabled, a user profile is not created. Therefore, there is no location to store the attributes of the user. In such cases, the attributes are directly passed to the application.
-
-{% if show_advanced_account_linking_content == "true" %}
-!!! note
-    - When `Associate provisioned users with existing local users` configuration is enabled, {{ product_name }} uses the Account Linking rules to find a matching local user and link the federated user with the matching local user. If first match rule and fallback match rule are not defined, {{ product_name }} will match the federated users email with the local users' usernames to find a match.
-    - When `Skip Jit provisioning when no rule matches` configuration is enabled, {{ product_name }} will skip creating a new local user account in case there are no local found using the account linking rules.
-{% endif %}
 
 !!! warning
     If you have configured multi-factor authentication (MFA), disabling JIT user provisioning might break the application login flow. Learn more about [troubleshooting sign-in flow errors with JIT](#troubleshoot-sign-in-flow-errors).
 
+{% if show_advanced_account_linking_content == "true" %}
+
 {% if product_name == "WSO2 Identity Server" %}
+
+## Provisioning Scheme During JIT Provisioning
+
+Select the provisioning scheme based on how you want {{ product_name }} to prompt users for credentials and consent during Just-In-Time (JIT) provisioning.
+By default, {{ product_name }} provisions users silently without displaying any prompts.
+
+![JIT provisioning schemes]({{base_path}}/assets/img/guides/jit-provisioning/jit-provisioning-scheme.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+- **Prompt for username, password, and consent:** Prompts the user for a username, password, and consent before account creation.
+- **Prompt for password and consent:** Prompts the user for a password and consent; the username is derived from the federated identity.
+- **Prompt for consent:** Prompts only for user consent before provisioning.
+- **Provision silently:** This is the default scheme. Provisions the user automatically without prompting for credentials or consent.
+
+{% endif %}
+
+## User Attribute Synchronization Methods
+
+You can configure how {{ product_name }} synchronizes user attributes between the federated user account received from the external identity provider (IdP)
+and the corresponding local user account created or linked during Just-In-Time (JIT) provisioning.
+
+Select the desired attribute synchronization method based on how you want user information to be managed.
+
+![Attribute Sync Methods]({{base_path}}/assets/img/guides/jit-provisioning/jit-attribute-sync.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+1. **Override All:** All attributes of the local user account are overridden with the attributes received from the external identity provider.
+2. **None:** None of the attributes received from the external identity provider are synced with the local user account.
+3. **Preserve Local:** Only the attributes received from the identity provider are updated in the local user account, while all other
+local attributes are preserved as-is.
+
+## Link Local User Accounts During JIT Provisioning
+
+When federated users log in to {{ product_name }} through Just-In-Time (JIT) provisioning, the system can automatically link them to existing
+local user accounts based on configurable rules. This helps maintain a unified identity across different identity sources without
+creating duplicate accounts.
+
+Follow the steps below to enable and configure account linking during JIT provisioning.
+
+![Account linking]({{base_path}}/assets/img/guides/jit-provisioning/jit-account-linking.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+### Enable Account Linking
+
+1. On the {{ product_name }} Console, click **Connections** and select the relevant connection.
+2. Go to the **Just-in-Time Provisioning** tab of the selected connection.
+3. Check the **Enable local account linking** checkbok to enable account linking.
+
+When this configuration is enabled, {{ product_name }} will evaluate the defined Account Linking Rules to determine whether the
+federated user matches an existing local user. If a match is found, the federated user will be automatically linked to the
+corresponding local account, and JIT provisioning will continue without creating a new local user.
+
+### Configure Account Linking Rules
+
+Account Linking Rules define how {{ product_name }} identifies a match between a federated user and a local user.
+
+- You can configure the First Match Rule and Fallback Match Rule to specify which attributes should be compared between
+the federated user and the local user.
+- Each rule defines a mapping between a federated attribute and a corresponding local attribute.
+- The system evaluates the First Match Rule first; if no match is found, the Fallback Match Rule is applied.
+- If neither rule is defined, {{ product_name }} defaults to matching the federated user’s email address with
+the local user’s username.
+
+!!! note
+    - The local user attribute used in the account linking rules must be a unique attribute to ensure accurate and
+    consistent user matching. Learn more about [configuring unique attributes.]({{base_path}}/guides/users/attributes/configure-unique-attributes/)
+
+### Skip JIT Provisioning When No Matching Local User Found
+
+- By default, when JIT provisioning is enabled and no account linking rule matches are found, {{ product_name }} automatically
+creates a new local user account for the federated user.
+- To change this default behavior, you can enable the **Skip user provisioning when no local account is found** configuration.
+- When this option is enabled, {{ product_name }} will not create a new local user account if no match is found through
+the configured account linking rules.
+
+{% endif %}
+
+{% if product_name == "WSO2 Identity Server" and hide_legacy_sync_config != "true" %}
 ## Preserve locally added claims of JIT provisioned users
 
 If a user already having an account in {{product_name}} logs in using federated login with the same email address, {{product_name}} deletes any locally added claims of the user and retains only the claims provided by the federated authenticator.
