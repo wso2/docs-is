@@ -32,7 +32,7 @@ The DCR self-registration process consists of the following steps:
 
 Administrators or automated systems can register clients programmatically using the {{product_name}} DCR REST API. Once a client is registered, it can be managed using DCRM REST APIs.
 
-[DCRM](https://tools.ietf.org/html/rfc7592){: target="_blank"} was introduced as an extension to DCR that defines RESTful APIs to manage already registered clients. Using DCRM APIs, you can:
+[Dynamic Client Registration Management (DCRM)](https://tools.ietf.org/html/rfc7592){: target="_blank"} was introduced as an extension to DCR that defines RESTful APIs to manage already registered clients. Using DCRM APIs, you can:
 
 - Read: Retrieve information about an already registered client.
 
