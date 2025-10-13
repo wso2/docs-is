@@ -20,7 +20,6 @@ The flow of JIT user provisioning is as follows:
 
 With this process, new user accounts are automatically provisioned to {{ product_name }} when users log in with external IdPs.
 
-
 ## Enable/Disable JIT user provisioning
 
 !!! Prerequisite
@@ -122,6 +121,7 @@ the configured account linking rules.
 {% endif %}
 
 {% if product_name == "WSO2 Identity Server" and hide_legacy_sync_config != "true" %}
+
 ## Preserve locally added claims of JIT provisioned users
 
 If a user already having an account in {{product_name}} logs in using federated login with the same email address, {{product_name}} deletes any locally added claims of the user and retains only the claims provided by the federated authenticator.
