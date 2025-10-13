@@ -4,7 +4,7 @@
 
 You can register clients dynamically in two ways:
 
-- A client can register itself dynamically by sending a request to the client registration endpoint of {{product_name}}.
+- A client registers itself dynamically by sending a request to the client registration endpoint of {{product_name}}.
 
 - An admin or system registers a client using the {{product_name}} DCR REST API and manages the client via the Dynamic Client Registration Management (DCRM) REST APIs.
 
