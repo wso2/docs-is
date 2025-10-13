@@ -432,7 +432,7 @@ The following diagram shows how the token exchange grant flow works.
 6. The client application can now request resources from the resource server by providing the access token.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
-See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details.
+Token exchange can be used for delegation and impersonation use cases. See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details about delegation usecase. See  [user impersonation]({{base_path}}/guides/authorization/user-impersonation/via-business-application) for more details on user impersonation with token exchange grant.
 
 {% if product_name == "WSO2 Identity Server" %}
 

@@ -32,7 +32,9 @@ To register a trusted token issuer:
       </tr>
       <tr>
         <td>Alias</td>
-        <td>The name by which the trusted token issuer knows {{ product_name }}. The <code>aud</code> claim of the token should include the {{ product_name }} organization's issuer value. If the <code>aud</code> claim doesn't include the organization's issuer value, the system validates the alias value you assign here against the <code>aud</code> claim.</td>
+        <td>The name by which the trusted token issuer knows {{ product_name }}. The <code>aud</code> claim of the token should include the {{ product_name }} organization's issuer value. If the <code>aud</code> claim doesn't include the organization's issuer value, the system validates the alias value you assign here against the <code>aud</code> claim. <br>
+       Example: <code>https://third-party-token-issuers.io/oauth2/token</code></td> 
+       </td>
       </tr>
     </table>
 
@@ -53,23 +55,19 @@ To register a trusted token issuer:
 
     - **Use PEM certificate**: Upload or paste the public certificate of the trusted token issuer. The certificate should be in PEM format.
 
-   - **Use PEM certificate**: Upload or paste the public certificate of the trusted token issuer. The certificate should be in PEM format.
-
-       ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
-           **Convert CRT to PEM**
-           ```bash
-           openssl x509 -in cert.crt -out cert.pem
-           
+        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
+            **Convert CRT to PEM**
+            ```bash
+            openssl x509 -in cert.crt -out cert.pem
             ```
-             **Convert CER to PEM:**
-             ```bash
-             openssl x509 -in cert.cer -out cert.pem
-             ```  
-
-             **Convert DER to PEM:**
-             ```bash
-             openssl x509 -in cert.der -out cert.pem
-             ```
+            **Convert CER to PEM:**
+            ```bash
+            openssl x509 -in cert.cer -out cert.pem
+            ```
+            **Convert DER to PEM:**
+            ```bash
+            openssl x509 -in cert.der -out cert.pem
+            ```
 
 5. Click **Finish** to add the new trusted token issuer.
 
@@ -79,7 +77,7 @@ To register a trusted token issuer:
     You need to register  [Standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/) application types with WSO2 Identity Server.
 
 
-To enable token exchange in your application:
+To enable JWT bearer grant in your application:
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
@@ -94,7 +92,11 @@ To enable token exchange in your application:
 Follow the steps given below.
 
 1. Obtain the JWT token received from the third-party token issuer.
-2. Execute the following cURL command to exchange the third-party token for an {{ product_name }} token.
+2. The application sends the access request to the token endpoint in WSO2 Identity Server with the following:
+    - JWT bearer grant type.
+    - `JWT assertion` that is created by the third-party token issuer.
+    - Service provider's `client ID` and `client secret`.
+3. Execute the following cURL command to exchange the third-party token for an {{ product_name }} token.
 
    ```bash
    curl -v -k -X POST {{base_url}}/oauth2/token \
@@ -114,4 +116,5 @@ Upon successful execution, you will receive the exchanged token issued by {{ pro
     enable_iat_validation="true"
     iat_validity_period=30
    ``` 
-  
+
+Refer [JWT Bearer grant]({{base_path}}/references/grant-types/#jwt-bearer-grant) for more information on how the flow works.
