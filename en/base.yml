@@ -159,23 +159,6 @@ extra:
       link: complete-guides/fesecurity/introduction
       level: 2
 
-  nav_chip:
-    Design login flow:
-      type: ai
-      level: 1
-    Self-registration flow:
-      type: Preview
-      level: 4
-    Self Registration:
-      type: Preview
-      level: 3
-    Password Recovery:
-      type: Preview
-      level: 3
-    Invited User Registration:
-      type: Preview
-      level: 3
-
   nav_icons:
     Overview:
       icon: octicons/file-16

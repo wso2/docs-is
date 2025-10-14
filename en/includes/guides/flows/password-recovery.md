@@ -1,4 +1,4 @@
-# Password recovery <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# Password recovery
 
 Password recovery allows users to securely reset their password if they forget it. The flow generally involves verifying user identity through a secure method, such as an email or SMS code, before letting them set a new password.
 

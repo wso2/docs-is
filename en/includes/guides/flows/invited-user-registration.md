@@ -1,4 +1,4 @@
-# Invited user registration <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# Invited user registration
 
 **Invited User Registration** allows users to securely set their credentials after an administrator registers them in {{product_name}}.
 
