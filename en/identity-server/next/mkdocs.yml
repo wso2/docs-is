@@ -1112,6 +1112,7 @@ nav:
         - Offline user onboard management API: apis/offline-user-onboard-mgt-rest-api.md
         - Self Sign-Up API: apis/use-the-self-sign-up-rest-apis.md
         - User Account Association API: apis/association-rest-api.md
+        - Verification Code Management API: apis/verification-code-management-rest-api.md
         - Identity verification API: apis/admin-identity-verification.md
       - User sharing management API: apis/organization-user-share-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
@@ -1156,6 +1157,7 @@ nav:
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk-mgt.md
         - User Account Association API: apis/organization-apis/org-association-rest-api.md
+        - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/user-store.md
     - End User APIs:
@@ -1168,6 +1170,7 @@ nav:
         - User account association API: apis/me-association-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
         - Identity Verification: apis/user-identity-verification.md
+        - Verification Code Management Me API: apis/verification-code-management-me-api.md
   - References:
     - References: references/index.md
     - Feature deprecation: references/wso2-identity-server-feature-deprecation.md
