@@ -14,6 +14,7 @@ Grant types in OAuth 2.0 are defined as the methods used by a client to obtain a
 {% endif %}
 - [Token exchange grant](#token-exchange-grant)
 {% if product_name == "WSO2 Identity Server" %}
+- [JWT Bearer Grant](#jwt-bearer-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 {% endif %}
 
@@ -431,9 +432,49 @@ The following diagram shows how the token exchange grant flow works.
 6. The client application can now request resources from the resource server by providing the access token.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
-See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details.
+Token exchange can be used for delegation and impersonation use cases. See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details about delegation usecase. See  [user impersonation]({{base_path}}/guides/authorization/user-impersonation/via-business-application) for more details on user impersonation with token exchange grant.
 
 {% if product_name == "WSO2 Identity Server" %}
+
+## JWT Bearer grant
+
+OAuth 2.0 JWT bearer is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another with a different set of permissions or attributes. This grant type is defined in the [RFC7523](https://datatracker.ietf.org/doc/html/rfc7523).
+
+The following diagram shows how the JWT Bearer grant flow works.
+
+![How the JWT bearer grant works]({{base_path}}/assets/img/references/grants/token-exchange-grant.png)
+
+1. The user sends a login request to the client application.
+2. The client application sends an authorization request to the third-party IdP.
+3. The third-party IdP returns the JWT access token for the user to the client application.
+4. The client application makes a token exchange request to the authorization server:
+
+    === "Request format (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
+        --data-urlencode "assertion=<jwt_token>"
+        ```
+    
+    === "Sample request (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url_example}}/oauth2/token \
+        --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
+        --data-urlencode "assertion=eyJ4NXQiOiJJSm5VOF9rbkpQOC1jMEJHWTdOT2N1eWEtSlEiLCJraWQiOiJPRE0wWkRBMk5qQTFOREl4TkdFd05ERmlOakl5TWpRd05qQTJNMlppWVRKak1UbGxObVkzTm1FMVpXWmhPVEV3T1RZd01EQXdOREZpWVROaVpUQTFOQV9SUzI1NiIsInR5cCI6ImF0K2p3dCIsImFsZyI6IlJTMjU2In0.ewogICJzdWIiOiAiNDUzZDBjYTMtN2ZkNi00ZWJhLWJiYWUtNjEwNjI5OSIsCiAgImF1dCI6ICJBUFBMSUNBVElPTl9VU0VSIiwKICAiaXNzIjogImh0dHBzOi8vYXBpLmFzZ2FyZGVvLmlvL3Qvb3JnbmFtZS9vYXV0aDIvdG9rZW4iLAogICJjbGllbnRfaWQiOiAiS2tXclNQMzM0VkVKazNFbnV4NXE3YlFhIiwKICAiYXVkIjogWwogICAgIktrV3JTUDMzNFZFSmszRW51eDVxN2JRYSIsCiAgICAiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0My9vYXV0aDIvdG9rZW4iCiAgXSwKICAibmJmIjogMTc2MDA3NDEzOSwKICAiYXpwIjogIktrV0puclNQMzM0VkVKazNFblFBdXg1cTdiUWEiLAogICJvcmdfaWQiOiAiMWY5ZTk4MWIiLAogICJzY29wZSI6ICJvcGVuaWQiLAogICJleHAiOiAxNzYwMDc3NzM5LAogICJvcmdfbmFtZSI6ICJvcmduYW1lIiwKICAiaWF0IjogMTc2MDA3NDEzOSwKICAianRpIjogImRmZTMzZDRiIiwKICAib3JnX2hhbmRsZSI6ICJvcmduYW1lIgp9.GXwYyOkaMNgFWyksSgSaAKmj6FqSRJX_3e1CxlLZwtoLtndrM2VfzRdx2J-uTdJLNSLF4fyDvdLzM0OC1TAfGaJNxJ2l_CYNvDnNcncMa1nfnmKeydmDbGksLasZah384jt8i49zD1DboMsglv2vFq9v7Ce6BHfPvHiL_nqOW8q34uXt8QmZLugalPA-2qchsi1C0NDu1niXz3DEO7VPMy7S2SZGHBmeoydoifWtKeqzKr5ArU0xJ9w5pW-VmQT8XWctE4UfRaYzpubl6DvAijT4uTAQYAgpk1IJC6Su_OTEEgnGf7L-iQxTf-KdvpNPvL6i-CFkBf9IktMm0o5kXw"
+        ```
+
+5. The authorization server responds to the client with the new access token.
+6. The client application can now request resources from the resource server by providing the access token.
+7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
+
+See [configure the JWT Bearer Grant flow]({{base_path}}/guides/authentication/configure-jwt-bearer-grant) for more details.
+
 ## SAML 2.0 bearer grant
 
 SAML 2.0 bearer grant is a grant type in the OAuth 2.0 framework that enables the exchange of a SAML 2.0 assertion for an OAuth 2.0 access token. This grant type is defined in the [SAML 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants specification (RFC 7522)](https://datatracker.ietf.org/doc/html/rfc7522){:target="_blank"}.

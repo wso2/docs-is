@@ -189,3 +189,4 @@ Follow the steps given below.
         {{ product_name }} only copies the `sub` claim from the token received from the trusted token issuer to the exchanged {{ product_name }} token.
 
 Upon successful execution, you will receive the exchanged token issued by {{ product_name }}.
+
