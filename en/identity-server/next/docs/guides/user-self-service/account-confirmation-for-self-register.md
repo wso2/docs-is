@@ -1,3 +1,7 @@
+---
+search:
+  exclude: true
+---
 # Account Confirmation methods for Self-Registration
 
 {{product_name}} supports self-registration, allowing users to set up their accounts and receive a confirmation when the account is created.
@@ -52,7 +56,7 @@ The section of the guide walks you through configuring account confirmation meth
 
 3. Sign in to the {{product_name}} Console application as an administrator.
 
-4. Enable [User Self Registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration)
+4. Enable [User Self Registration]({{base_path}}/guides/flows/self-registration/)
 
 ### Self registering a user
 
