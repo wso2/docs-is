@@ -1,4 +1,4 @@
-# Self registration <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# Self registration
 
 Self-registration allows new users to create an account within your organization without the need for admin intervention. The flow can include steps to collect user details, verify identity and set credentials before the account becomes active.
 
