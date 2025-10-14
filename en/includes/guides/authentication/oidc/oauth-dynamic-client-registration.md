@@ -1,43 +1,45 @@
-# OpenID Connect Dynamic Client Registration
+# OpenID Connect Dynamic Client Registration (DCR)
 
-This extension provides a mechanism to register clients with the authorization server dynamically or programmatically. 
- 
-## How does it work? 
+[Dynamic Client Registration (DCR)](https://tools.ietf.org/html/rfc7591) allows clients to register with {{product_name}} dynamically without manual intervention. DCR suits scenarios where you have many clients or clients that require frequent creation and deletion.
 
-To register a new client at the authorization server:
+You can register clients dynamically in two ways:
 
-1. Client discovers the client registration endpoint. The registration endpoint URL is discoverable via WebFinger.
-   For more information on discovering the client registration endpoint, see [OpenID Connect Discovery](discovery.md).
-   
-2. Client sends an HTTP POST message to the client registration endpoint with client metadata parameters that the client
-   chooses to specify for itself during the registration.
-   
-3. The authorization server assigns an unique client identifier (client ID) and optionally, a client secret.
+- A client registers itself dynamically by sending a request to the client registration endpoint of {{product_name}}.
 
-4. The authorization server associates the metadata given in the request with the issued client ID.
+- An admin or system registers a client using the {{product_name}} DCR REST API and manages the client via the Dynamic Client Registration Management (DCRM) REST APIs.
 
----
+This guide explains how both methods work.
 
-## DCR vs DCRM
+## How does DCR work?
 
-### What is DCR (Dynamic Client Registration)?
+In the self-registration flow, the client initiates its own registration. The process consists of the following steps:
 
-Dynamic Client Registration is a protocol that allows OAuth clients to register applications in an authorization server.
-Before this mechanism was introduced to the [specification](https://tools.ietf.org/html/rfc7591) the client registration
-happened manually. With this implementation, client registration can be done in two ways.
+### Self-registration of clients
 
-- A client can be registered dynamically with the authorization server itself
-- A programmer can register a client programmatically
+The DCR self-registration process consists of the following steps:
 
+1. Using WebFinger, the client discovers the client registration endpoint of the authorization server. Refer to [OpenID Connect Discovery]({{base_path}}/guides/authentication/oidc/discover-oidc-configs/) for more information on WebFinger.
 
-### What is DCRM (Dynamic Client Registration Management)?
+2. The client sends an HTTP POST request to the client registration endpoint, including any client metadata parameters it chooses to specify during registration.
 
-DCRM is an extension to the DCR, introduced from [this specification](https://tools.ietf.org/html/rfc7592). 
-The main functionalities specified are:
+3. {{product_name}} issues a unique client identifier (client ID) to the client and, optionally, a client secret.
 
-- Current registration state of a client (Client Read Request)
-- Update request to an already registered client (Client Update Request)
-- Delete request to an already registered client (Client Delete Request)
+4. {{product_name}} links the metadata provided in the request to the issued client ID.
 
-!!! info "Related topics"
-        - [API: OpenID Connect Dynamic Client Registration]({{base_path}}/apis/use-the-openid-connect-dynamic-client-registration-rest-apis)
+5. The client can now use the issued client ID and secret to request access tokens from the authorization server.
+
+### Register clients programmatically
+
+Administrators or automated systems can register clients programmatically using the {{product_name}} DCR REST API. Once a client is registered, it can be managed using DCRM REST APIs.
+
+[Dynamic Client Registration Management (DCRM)](https://tools.ietf.org/html/rfc7592){: target="_blank"} was introduced as an extension to DCR that defines RESTful APIs to manage already registered clients. Using DCRM APIs, you can:
+
+- Read: Retrieve information about an already registered client.
+
+- Update: Modify the metadata of an existing client.
+
+- Delete: Remove a registered client from the system.
+
+!!! note "{{product_name}} DCR REST APIs"
+
+    For a comprehensive guide on using DCR REST APIs in {{product_name}}, see [Dynamic Client Registration (DCR) REST APIs]({{base_path}}/apis/dynamic-client-registration-rest-api/).
