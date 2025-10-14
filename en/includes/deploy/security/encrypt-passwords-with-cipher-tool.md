@@ -135,7 +135,7 @@ You may follow the steps below to change passwords that are already encrypted.
 
 2. On a command prompt, navigate to the `<IS_HOME>/bin/` directory where the cipher tool scripts reside.
 
-{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
+{% if product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "next"] %}
 
 3. Run the cipher tool by executing the command corresponding to your encryption method and operating system:
 
