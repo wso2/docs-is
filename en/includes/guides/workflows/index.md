@@ -1,5 +1,17 @@
+Revamped workflow-based approval framework designed to support long-running approval workflows for critical user 
+management operations.
+
 Workflows are a series of steps that require to complete a selected operation in the {{ product_name }}. These workflows
 should be configured by the administrators by defining the steps and the participants involved in each step.
+
+This new implementation enables organizations to design multi-step approval chains, where approvers can be assigned 
+based on roles or groups, reflecting their permission levels and responsibilities. Administrators can configure these 
+workflows through the Console, while users can review and act on approval requests seamlessly from the My Account portal.
+
+!!! note
+    This is a reimplementation of the previous workflow feature. It is not backward compatible with the older workflow 
+    configurations. Existing workflows must be redefined using the new model to take advantage of long-running approval 
+    capabilities.
 
 ### Create a workflow
 
