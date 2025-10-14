@@ -1,0 +1,177 @@
+openapi: 3.1.0
+info:
+  title: Verification Code Management Me API
+  description: |
+    This API provides endpoints for the authenticated user to manage verification codes.
+  version: 1.0.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/api/identity/user/v1.0
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - BasicAuth: []
+  - OAuth2: []
+tags:
+  - name: me
+    description: Operations for the authenticated user
+
+paths:
+  /me/validate-code:
+    post:
+      tags:
+        - me
+      summary: Validate code
+      description: |
+         This API is used by the authenticated user to validate a verification code.
+
+         <b>Scope(Permission) required:</b> `internal_login`
+      operationId: meValidateCode
+      requestBody:
+        description: The validation code retrieved for the verification scenario and optional properties.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeCodeValidationRequest'
+      responses:
+        '202':
+          description: Accepted
+          content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X POST \
+            -H "Authorization: Bearer <bearer_token>" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "code": "string",
+              "properties": []
+            }' \
+            "https://localhost:9443/api/identity/user/v1.0/me/validate-code"
+  /me/resend-code:
+    post:
+      tags:
+        - me
+      summary: Resend code
+      description: |
+        This API is used by the authenticated user to resend a verification code.
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      operationId: meResendCode
+      requestBody:
+        description: Optional property parameters.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeResendCodeRequest'
+      responses:
+        '201':
+          description: Created
+          content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X POST \
+            -H "Authorization: Bearer <bearer_token>" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "properties": [
+                {
+                  "key": "string",
+                  "value": "string"
+                }
+              ]
+            }' \
+            "https://localhost:9443/api/identity/user/v1.0/me/resend-code"
+components:
+  schemas:
+    MeCodeValidationRequest:
+      type: object
+      required:
+        - code
+      properties:
+        code:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    MeResendCodeRequest:
+      type: object
+      required:
+        - properties
+      properties:
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+        traceId:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes:
+            internal_login: Grant permission for an authenticated user for self management.

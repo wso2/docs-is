@@ -335,6 +335,7 @@ nav:
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
+            - Dynamic Client Registration (DCR): guides/authentication/oidc/oauth-dynamic-client-registration.md
             - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
             - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
             - Implement private key JWT client authentication: guides/authentication/oidc/private-key-jwt-client-auth.md
@@ -647,6 +648,7 @@ nav:
         - User account associations API: apis/association-management-by-admin.md
         - Account Recovery API: apis/user-account-recovery.md
         - Offline user onboard management API: apis/offline-user-onboard.md
+        - Verification Code Management API: apis/verification-code-management-rest-api.md
         - Identity verification API: apis/admin-identity-verification.md
       - User sessions:
         - Session management API: apis/session.md
@@ -683,6 +685,7 @@ nav:
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk.md
         - User Account Association API: apis/organization-apis/org-association-rest-api.md
+        - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
@@ -696,6 +699,7 @@ nav:
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
       - Organization Me API: apis/user-organization-api.md
+      - Verification Code Management Me API: apis/verification-code-management-me-api.md
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md
