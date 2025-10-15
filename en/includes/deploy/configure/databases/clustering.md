@@ -34,11 +34,5 @@ The following image shows the default database structure and a recommended datab
 - Session database separation is recommended for deployments that require higher concurrency and throughput.
 - For more information, see [Change the Datasource for Session Database]({{base_path}}/deploy/configure/databases/carbon-database/change-datasource-session/).
 
-**CONSENT_MGT**
-
-- Used for data pertaining to user consents.
-- This separation was used to share consent data across multiple WSO2 products, but now it is not required.
-- For more information, see [Change the Default Datasource for Consent Management]({{base_path}}/deploy/change-datasource-consent-management).
-
 <!-- TODO !!! note
     For more information on `SHARED_DB` and `IDENTITY_DB`, see [Working with Databases]({{base_path}}/deploy/work-with-databases/).-->
