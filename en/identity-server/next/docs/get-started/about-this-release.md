@@ -1,4 +1,4 @@
-# About this Release
+# About this release
 
 WSO2 Identity Server 7.2.0 is the latest release, succeeding WSO2 Identity Server 7.1.0, with enhanced features, improvements, and fixes.
 
@@ -28,16 +28,6 @@ The flow builder supports the following use cases:
 
 - **Invited user registration**  - Build invitation-based registration flows that collect necessary information and set up user accounts. Learn about building an [invited user registration flow using the flow builder]({{base_path}}/guides/flows/invited-user-registration/).
 
-### OpenTelemetry-based LDAP operation tracing
-
-WSO2 Identity Server introduces OpenTelemetry-based tracing for LDAP operations such as search, bind, and modifyAttributes. Previously, even though database calls were traced, LDAP interactions were not visible in tracing tools like Datadog.
-
-This feature gives full visibility into LDAP activity, making it easier to track and troubleshoot authentication and user management workflows.
-
-Admins can enable tracing via a configuration toggle, gaining rich telemetry without affecting existing LDAP logic. This improves troubleshooting and performance insights in complex identity deployments
-
-Learn more about [OpenTelemetry-based LDAP tracing]({{base_path}}/deploy/monitor/work-with-product-observability/#opentelemetry-based-tracing-in-wso2-identity-server).
-
 ### AI agent identity management
 
 WSO2 Identity Server now provides first-class identity management for AI agents, enabling organizations to manage them securely and at scale. Each AI agent is assigned a unique identity with attributes, credentials, and metadata, allowing auditing, lifecycle management, and trusted operation within the organization.
@@ -65,7 +55,7 @@ This capability enables real-time integrations, improves automation, and allows 
 
 Learn more about [webhooks]({{base_path}}/guides/webhooks/understanding-webhooks/).
 
-### Support for granular role sharing with B2B Applications
+### Support for granular role sharing with B2B applications
 
 WSO2 Identity Server now lets admins control which roles are shared when delegating applications to organizations. Previously, application sharing automatically granted all associated roles, which could lead to over-permissive access.
 
@@ -231,7 +221,7 @@ This update ensures compatibility with Microsoft Exchange Online, ahead of the p
 
 Learn more about [configuring email providers]({{base_path}}/guides/notification-channels/configure-email-provider/).
 
-### Preconfigured React and Next.js application templates
+### Pre-configured React and Next.js application templates
 
 WSO2 Identity Server now provides ready-to-use templates for React and Next.js applications.
 
@@ -265,6 +255,16 @@ Currently supported actions include:
 
 Learn more about [service extensions]({{base_path}}/guides/organization-management/service-extensions/service-extensions/).
 
+### OpenTelemetry-based LDAP operation tracing
+
+WSO2 Identity Server introduces OpenTelemetry-based tracing for LDAP operations such as search, bind, and modifyAttributes. Previously, even though database calls were traced, LDAP interactions were not visible in tracing tools like Datadog.
+
+This feature gives full visibility into LDAP activity, making it easier to track and troubleshoot authentication and user management workflows.
+
+Admins can enable tracing via a configuration toggle, gaining rich telemetry without affecting existing LDAP logic. This improves troubleshooting and performance insights in complex identity deployments
+
+Learn more about [OpenTelemetry-based LDAP tracing]({{base_path}}/deploy/monitor/work-with-product-observability/#opentelemetry-based-tracing-in-wso2-identity-server).
+
 ## Improvements
 
 WSO2 Identity Server 7.2.0 improves a number of existing features to enhance your experience.
@@ -289,13 +289,23 @@ Learn more about [encryption for outbound communications]({{base_path}}/deploy/s
 
 WSO2 Identity Server now provides out-of-the-box support for Unicode characters in user attributes. User attributes such as names, addresses, and custom claims can now include characters from multiple languages seamlessly.
 
-Prior to IS 7.2.0, Unicode support was limited for MySQL and MS SQL databases. Starting from this release, Unicode is supported across all supported database types.
+Prior to WSO2 Identity Server 7.2.0, Unicode support was limited for MySQL and MS SQL databases. Starting from this release, Unicode is supported across all supported database types.
 
 !!! note
 
     Usernames cannot use Unicode characters in MySQL and MS SQL databases.
 
 Learn more about enabling unicode support for [MS SQL]({{base_path}}/deploy/configure/databases/carbon-database/change-to-mssql/).
+
+### Operation-wise access control in SCIM bulk API
+
+WSO2 Identity Server now allows fine-grained access control for each operation in the SCIM2 bulk API.
+
+Previously, the `internal_bulk_resource_create` scope was required to perform any operation on the bulk endpoint. Starting with WSO2 Identity Server 7.2, each operation in a bulk request executes only if the corresponding operation-specific scope is available.
+
+For backward compatibility, the API still supports the `internal_bulk_resource_create` scope and allows performing all operations through the bulk endpoint.
+
+Learn more about the [SCIM bulk API]({{base_path}}/apis/scim2/scim2-batch-operations/#scopepermission-required-for-batch-operations).
 
 ### Pre-update password extension support for user registration
 
@@ -356,60 +366,6 @@ Learn more about:
 - [Resending account verification emails]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/#resend-account-verification-email).
 - [Displaying banner in the My Account portal]({{base_path}}/guides/user-self-service/self-register/).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Enhanced language and locale support for My Account & Console
-
-Previously, My Account and Console supported only a limited set of languages. With this release, users can add or remove locales to customize the applications in their preferred languages, providing greater flexibility and improved localization.
-
-Learn more about [adding and removing locales]({{base_path}}/guides/branding/localization/#add-or-remove-locales).
-
-### OAuth-based authentication support for email providers
-
-The Email Provider template now supports OAuth-based authentication for SMTP servers. In addition to the existing Basic authentication, you can now configure SMTP using client credentials, meeting modern authentication standards.
-
-This update ensures compatibility with Microsoft Exchange Online, ahead of the planned retirement of Basic authentication (SMTP AUTH) in April 2026, helping maintain uninterrupted email delivery and compliance with current security best practices.
-
-Learn more about [configuring email providers]({{base_path}}/guides/notification-channels/configure-email-provider/).
-
-### Seamless user impersonation for business applications
-
-WSO2 Identity Server now allows initiating user impersonation without modifying business applications. Previously, impersonation required source code changes in an impersonation-authorized client. With this update, impersonation can be started directly from the Console, enabling seamless Single Sign-On (SSO) to any authorized business application.
-
-Learn more about [user impersonation]({{base_path}}/guides/authorization/user-impersonation/).
-
-### Granular application discoverability in My Account
-
-WSO2 Identity Server now gives administrators enhanced control over application discoverability in the My Account portal. Previously, any application marked as discoverable was visible to all users in the organization.
-
-With this update, administrators can assign specific user groups as discoverable groups, ensuring that applications are visible only to intended audiences. This allows for a more tailored and convenient experience for users.
-
-If no groups are assigned, applications marked as discoverable will continue to be visible to all users in the organization.
-
-Learn more about [discoverable applications]({{base_path}}/guides/applications/#make-an-application-discoverable).
-
-### Protocol-specific keystores for root organizations
-
-WSO2 Identity Server now offers more flexibility in keystore management. In addition to customizing the SAML keystore, you can now set up separate keystores for OAuth, WS-Trust, and WS-Fed.
-
-By default, the server continues to use the primary and tenant keystores for signing and encryption. With this update, organizations can assign dedicated keystores for each protocol, improving security and simplifying compliance management.
-
-Keystores can be configured for all tenants or specifically for the super tenant through deployment settings.
-
-Learn more about [configuring protocol-specific keystores]({{base_path}}/deploy/security/keystores/configure-custom-keystores/).
-
 ### Support for email OTP-based password recovery
 
 WSO2 Identity Server now provides enhanced flexibility in password recovery. In addition to Email link and SMS OTP methods, users can recover their accounts using Email OTP, expanding the available recovery options.
@@ -444,6 +400,8 @@ WSO2 Identity Server introduces two new JavaScript functions for conditional aut
 
 - `removeAssociatedLocalUser` – Removes local user associations from federated accounts, simplifying account linking and unlinking scenarios.
 
+Learn more about these [conditional authentication functions]({{base_path}}/references/conditional-auth/api-reference/#conditional-authentication-api-reference).
+
 ## Deprecated features
 
 In WSO2 Identity Server 7.2.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users.
@@ -470,12 +428,42 @@ Previously, the root organization’s tenant domain served as its display name. 
 
 This separation provides a clear distinction between the organization’s identifier and its display name.
 
+### Legacy user registration and management flows
+
+Previously, WSO2 Identity Server offered built-in flows for user registration and management that provided basic functionality and limited customization options. These are 
+
+These flows are now deprecated and replaced with the new **Flow Builder**, which offers a more flexible and powerful way to design and manage user registration and management journeys.
+
+The deprecated flows include:
+
+- **Legacy self-registration flow**
+
+    Along with this flow, the following related features are also deprecated:
+
+    - Self-registration configurations under the **Login & Registration** tab in the Console.
+
+    - Self-Registration APIs used for building custom registration flows.
+
+- **Legacy password recovery flow**
+
+    Along with this flow, the following related features are also deprecated:
+
+    - Password recovery configurations under the **Login & Registration** tab in the Console.
+
+    - Password recovery APIs under the account recovery V2 APIs.
+
+- **Legacy invited user registration flow**
+
+    Along with this flow, the following related features are also deprecated:
+
+    - Invited user registration APIs.
+
+**Recommended action**: Use the new [Flow Builder](#introducing-flow-builder-build-tailored-user-registration-and-management-flows) to create fully customizable end-user journeys.
+
 ## Fixed issues
 
-For a complete list of issues fixed in this release, see [WSO2 IS 7.2.0 - Fixed Issues](https://github.com/wso2/product-is/issues?q=state%3Aclosed%20project%3Awso2%2F117){:target="_blank"}.
+For a complete list of issues fixed in this release, see [WSO2 Identity Server 7.2.0 - Fixed Issues](https://github.com/wso2/product-is/issues?q=state%3Aclosed%20project%3Awso2%2F117){:target="_blank"}.
 
 ## Known issues
 
-For a complete list of open issues related to the WSO2 Identity Server, see [WSO2 IS - Open Issues](https://github.com/wso2/product-is/issues){:target="_blank"}.
-
-
+For a complete list of open issues related to the WSO2 Identity Server, see [WSO2 Identity Server - Open Issues](https://github.com/wso2/product-is/issues){:target="_blank"}.
