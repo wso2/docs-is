@@ -1,15 +1,19 @@
-Workflow request page is located under the workflows section. It gives administrators full visibility into every workflow approval request across the tenant.  
+Workflow request page is located under the workflows section. It gives administrators full visibility into every workflow approval request.  
 Administrators can use it to check progress, and detect bottlenecks.
 
 ![Workflow request page]({{base_path}}/assets/img/guides/workflows/workflow-requests.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-This page lists all the workflow requests that are the tenant. You can filter the requests by the Operation Type, Status, Created Time Range and Updated Time Range.
+### Filter workflow requests
+
+You can filter workflow requests by operation type, status, created time range, and updated time range.
+
+![Filter Workflow requests]({{base_path}}/assets/img/guides/workflows/workflow-requests-filter.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Status of the workflow requests
 
 - **Pending**: The workflow request is pending and waiting for approval.
-- **Approved**: The workflow request is approved by the participant/s.
-- **Rejected**: The workflow request is rejected by a participant.
+- **Approved**: The workflow request is approved by the approvers.
+- **Rejected**: The workflow request is rejected by an approver.
 - **Failed**: The workflow request has failed after the approval due to an error.
 - **Aborted**: The workflow request has been aborted by the administrator.
 
@@ -18,3 +22,9 @@ This page lists all the workflow requests that are the tenant. You can filter th
 To view the details of a workflow request, you can click on the request in the list.
 
 ![Workflow request page]({{base_path}}/assets/img/guides/workflows/workflow-request-details.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+### Abort workflow request
+
+You can abort a workflow request that is pending approval.
+
+![Abort workflow request]({{base_path}}/assets/img/guides/workflows/workflow-request-abort.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
