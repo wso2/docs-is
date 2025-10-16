@@ -20,6 +20,15 @@ To configure this feature, follow the instructions below.
 2.  These patterns are configured in the `<IS-HOME>/repository/conf/wso2-log-masking.properties`. You can change 
     its default configurations in `<IS-HOME>/repository/conf/deployment.toml`.
 
+### Disabling Default Log Masking
+
+To disable log masking, navigate to `<IS-HOME>/repository/conf/deployment.toml` and add the following configuration.
+
+```toml
+[masking_logs]
+enabled = false
+```
+
 ### The masking pattern file
 
 The masking pattern file is a property file that can contain one or more
