@@ -17,3 +17,14 @@ workflows through the Console, while approvers can review and act on approval re
     - Approval requests from the new workflow feature appear in **My Account** for review.
     - Approval requests from the BPS-based implementation remain accessible via the legacy approval API.
 {% endif %}
+
+## Workflow support in organizations
+
+Approval-based workflow capabilities are available for organizations as well.
+
+!!! note
+    Workflows support user creation and role creation in organizations. However, they do not support the following sharing operations:
+    
+    - User sharing
+    - Role sharing
+    - Inviting parent users
