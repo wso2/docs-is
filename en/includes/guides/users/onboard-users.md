@@ -4,7 +4,7 @@ You can use one of the following methods to onboard users to your organization i
 
 - The user can self-register via the My Account portal or the login page of an application if self-registration is enabled in the organization. Learn how to [configure self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/).
   
-- An administrator can onboard users from a secondary user store by [configuring a secondary user store in {{product_name}}]({{base_path}}/guides/users/user-stores/configure-secondary-user-stores/).
+- An administrator can onboard users from a secondary user store by [configuring a secondary user store in {{product_name}}]({{base_path}}/guides/users/user-stores/configure-a-user-store/).
 
     !!! note
         If the secondary user store access type is read-only, you cannot update the user profiles of users onboarded from this read-only user store.
@@ -21,8 +21,10 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
     ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        - The user's username is always unique to the organization and you can't change the username once it is created.
+        {% if product_name == "WSO2 Identiy Server" %}-{% endif %} The user's username is always unique to the organization and you can't change the username once it is created.
+        {% if product_name == "WSO2 Identity Server "%}
         - Optionally, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, the user must enter the email address when logging in.
+        {% endif %}
 
     !!! tip "Add additional fields to the user onboarding form"
         The default form requests for basic information of the user. If you wish to include additional details, such as the user's phone number, address, and other custom attributes, you need to make these attributes available in the **Administrator Console**. Learn how to do so in [attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
@@ -248,7 +250,7 @@ During user onboarding, you can enforce email verification to confirm the provid
         "HTTP/1.1 201 Created"
         ```
 
-5. If you selected the confirmation link option, use can click the link to verify. If you configured OTP, validate it by submitting the OTP using the following API.
+5. If you selected the confirmation link option, users can click the link to verify. If you configured OTP, validate it by submitting the OTP using the following API.
 
     !!! abstract ""
 
