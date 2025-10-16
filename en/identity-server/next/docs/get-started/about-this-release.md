@@ -22,11 +22,13 @@ With these building blocks, you can create flexible, secure, and user-friendly f
 
 The flow builder supports the following use cases:
 
-- **Self-registration** - Design custom self-registration flows with multiple steps, conditional logic, and data collection. Learn about building a [self-registration flow using the flow builder]({{base_path}}/guides/flows/self-registration/).
+- **Self-registration** - Design custom self-registration flows with multiple steps, conditional logic, and data collection.
 
-- **Password recovery** - Create tailored password recovery experiences with identity verification and secure reset options. Learn about building a [password recovery flow using the flow builder]({{base_path}}/guides/flows/password-recovery/).
+- **Password recovery** - Create tailored password recovery experiences with identity verification and secure reset options.
 
-- **Invited user registration**  - Build invitation-based registration flows that collect necessary information and set up user accounts. Learn about building an [invited user registration flow using the flow builder]({{base_path}}/guides/flows/invited-user-registration/).
+- **Invited user registration**  - Build invitation-based registration flows that collect necessary information and set up user accounts.
+
+Learn more about [Flows]({{base_path}}/guides/flows/).
 
 ### AI agent identity management
 
@@ -430,7 +432,7 @@ This separation provides a clear distinction between the organization’s identi
 
 ### Legacy user registration and management flows
 
-Previously, WSO2 Identity Server offered built-in flows for user registration and management that provided basic functionality and limited customization options. These are 
+Previously, WSO2 Identity Server offered built-in flows for user registration and management that provided basic functionality and limited customization options.
 
 These flows are now deprecated and replaced with the new **Flow Builder**, which offers a more flexible and powerful way to design and manage user registration and management journeys.
 
