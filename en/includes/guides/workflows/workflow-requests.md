@@ -1,4 +1,4 @@
-Workflow request page is located under the workflows section. It gives administrators full visibility into every workflow approval request.  
+The Workflow requests page is located under the workflows section. It gives administrators full visibility into every workflow approval request. 
 Administrators can use it to check progress, and detect bottlenecks.
 
 ![Workflow request page]({{base_path}}/assets/img/guides/workflows/workflow-requests.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -7,7 +7,7 @@ Administrators can use it to check progress, and detect bottlenecks.
 
 You can filter workflow requests by operation type, status, created time range, and updated time range.
 
-![Filter Workflow requests]({{base_path}}/assets/img/guides/workflows/workflow-requests-filter.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Filter workflow requests by operation, status, and created/updated time range]({{base_path}}/assets/img/guides/workflows/workflow-requests-filter.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Status of the workflow requests
 

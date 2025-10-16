@@ -7,20 +7,20 @@ Now you can create a new workflow by clicking on the **New Approval Workflow** b
 ### Configure workflow operations
 
 Once you have provided the name and description, you can select the operations that this workflow should support.
-The workflows are supported following types of operations:
+The workflows support the following types of operations:
 
 - **User Creation**: Triggered when a new user is created.
-- **Self User Registration**: Triggered when a new user is self registered.
+- **Self User Registration**: Triggered when a new user is self-registered.
 - **User Deletion**: Triggered when a user is deleted.
 - **Role Creation**: Triggered when a new role is created.
-- **User Role Assignment**: Triggered when users of a role have changed.
+- **User Role Assignment**: Triggered when users are assigned to or removed from a role.
 
 !!! note
     In the workflow creation page, you can select multiple operations if approval steps are common for those operations.
 
 ### Configure workflow steps
 
-The final configuration of the workflow creation is to configure the steps of the workflow. You can add multiple steps to a workflow and each step can have multiple approvers. The approvers can be belongs to a configured role or defined users.
+The final step in creating a workflow is to configure its steps. You can add multiple steps to a workflow, and each step can have multiple approvers. Approvers can belong to a configured role or be defined as individual users.
 
 ![Workflow steps configuration]({{base_path}}/assets/img/guides/workflows/workflow-steps-configuration.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -28,7 +28,7 @@ Once you have configured the steps, you can save the workflow. The workflow will
 
 !!! note
     If you assign admin user in the first step of approval and if admin creates a user, still workflow will be triggered.
-    And also other participants of the first step will also receive the approval request.
+    Other participants in the first step will also receive the approval request.
 
 After creating the workflow, you can view its details, edit it, or delete it.
 

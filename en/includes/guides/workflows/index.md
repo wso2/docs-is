@@ -1,6 +1,6 @@
-The new workflow framework designed to support long-running approval workflows for critical user management operations.
+The new workflow framework supports long-running approval workflows for critical user management operations.
 
-Workflows are a series of steps that require to complete a selected operation in the {{ product_name }}. These workflows
+Workflows are a series of steps that are required to complete a selected operation in the {{ product_name }}. These workflows
 should be configured by the administrators by defining the steps and the approvers involved in each step.
 
 This new implementation enables organizations to design multi-step approval processes, where approvers can be assigned 

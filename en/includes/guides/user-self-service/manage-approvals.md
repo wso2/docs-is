@@ -1,4 +1,4 @@
-To view the approvals, user can navigate to the **Approvals** section from the My Account Portal side menu.
+To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu.
 
 This page displays all approval requests that you are eligible to act on.
 
@@ -14,7 +14,7 @@ Each approval request can be in one of the following states:
 - **Approved**: You have approved the request.
 - **Rejected**: You have rejected the request.
 
-!!! Note
+!!! note
     Once you reserve (assign yourself) an approval, no one else can approve it. However, you can unassign a reserved approval back to the shared pool at any time, allowing other eligible approvers to act on it.
 
 ![Reserved approval]({{base_path}}/assets/img/guides/workflows/reserved-approval.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
