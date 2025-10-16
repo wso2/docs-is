@@ -401,7 +401,7 @@ nav:
           - Advanced configuration for the agent: guides/users/user-stores/advanced-configurations-for-the-agent.md
       - Workflows:
         - Workflows: guides/workflows/index.md
-        - Approval Workflows: guides/workflows/approval-workflows.md
+        - Approval workflows: guides/workflows/approval-workflows.md
         - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
