@@ -89,6 +89,23 @@ Passkey progressive enrollment enables users to register their FIDO devices on-t
 
     4. Follow the guide below and configure your application for passkey progressive enrollment.
 
+!!! note "Multiple passkey progressive enrollment"
+    
+    When this feature is enabled, users can register multiple passkeys during progressive enrollment. If not, it retains the default behavior of allowing only a single passkey enrollment.
+
+    !!! abstract ""    
+    
+        This feature is available for WSO2 IS 5.11.0 from update level 420 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
+    
+    To allow users to register multiple passkeys under the same account during FIDO key progressive enrollment:
+
+    Add the following configuration under `[fido]` in `<IS_HOME>/repository/conf/deployment.toml`:
+
+        ```toml
+        [fido]
+        allow_multiple_passkey_progressive_enrollment = true
+        ```
+
 ### Configure passkey progressive enrollment
 
 If you have set up **FIDO** as a login option for your application, do the following to enable users to register their FIDO devices during the log in process. Before proceeding, ensure you have enabled the server-wide configuration for passkey progressive enrollment.
