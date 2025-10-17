@@ -265,7 +265,7 @@ To configure properties of user attributes:
 
 5. Attribute Data Types.
 
-    An attribute can be of one of the following data types:
+    An attribute can be one of the following data types:
 
     - **Text** A plain string value.
     - **Options** A pre-defined list of selectable values.
@@ -293,9 +293,9 @@ To configure properties of user attributes:
     ![SubAttributes for attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-addtribute-sub-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        The following constraints apply if there is a mapped SCIM claim for the attribute:
+        The following constraints apply if there is a mapped SCIM attribute for the attribute:
 
-        1. Each sub-attribute SCIM claim must start with the main attribute name followed by a dot (`.`) 
+        1. Each sub-attribute the mapped SCIM attribute must start with the main attribute name followed by a dot (`.`) 
             and a descriptive sub-attribute name.
 
         2. You can't assign another attribute of type **Object** as a sub-attribute.
