@@ -10,7 +10,7 @@ If a rule fails, an error appears. Fix all errors before publishing the flow.
 
 ![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-01.png){: width="auto" style="display: block; margin: 0;"}
 
-- Click the **Show** button (as seen in the screenshot below) to highlight the component with the error.
+- Click the **Show** button (as seen in the screenshot above) to highlight the component with the error.
 
 ![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-02.png){: width="auto" style="display: block; margin: 0;"}
 
