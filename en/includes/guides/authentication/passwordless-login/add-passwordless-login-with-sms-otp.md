@@ -44,6 +44,10 @@ To update the default SMS OTP settings:
            <td><code>SMS OTP length</code></td>
            <td>Specifies the number of characters allowed in the OTP.</td>
          </tr>
+         <tr>
+           <td><code>Allowed OTP resend attempt count</code></td>
+           <td>Specifies the number of allowed OTP resend attempts.</td>
+         </tr>
    </table>
 3. Once you update the SMS OTP settings, click **Update**.
 
