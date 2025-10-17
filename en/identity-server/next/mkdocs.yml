@@ -712,6 +712,7 @@ nav:
         - Self Registration: guides/flows/self-registration.md
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
+        - Troubleshooting: guides/flows/trouble-shooting.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - My Account portal:
