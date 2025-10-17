@@ -326,7 +326,7 @@ To configure properties of user attributes:
     !!! note
         The following constraints apply if there is a mapped SCIM attribute for the attribute:
 
-        1. Each sub-attribute the mapped SCIM attribute must start with the main attribute name followed by a dot (`.`) 
+        1. Each sub-attribute of the mapped SCIM attribute must start with the main attribute name followed by a dot (`.`) 
             and a descriptive sub-attribute name.
 
         2. You can't assign another attribute of type **Object** as a sub-attribute.
