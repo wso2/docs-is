@@ -8,11 +8,11 @@ Design and customize key user journeys in your application with Flows. A flow de
 
 - **Password recovery** - Build secure recovery processes to help users regain access, using steps such as email verification or one-time passwords (OTP).
 
-- **Invited user registration** - Design a secure flow for new users when an administrator invites them. Let users set their password after verifying their identity.
+- **Invited user registration** - Let new users complete creating their accounts when administrators invite them. Design secure flows to verify their identities and set their passwords.
 
 Building with starter templates, widgets, and other components provides complete control over how users interact with the application, all without writing complex code.
 
-## Next steps
+## Start building flows
 
 - To learn the fundamentals of building a flow, refer to the [get started]({{base_path}}/guides/flows/build-a-flow/) guide.
 - For detailed examples of specific use cases, see the guides on [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/) and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
