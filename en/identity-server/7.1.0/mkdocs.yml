@@ -732,6 +732,7 @@ nav:
           - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+          - Cleaning up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
       - Customizations:
           - Customize branding:
               - Branding: guides/branding/index.md
