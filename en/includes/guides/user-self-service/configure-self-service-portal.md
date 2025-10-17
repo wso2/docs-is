@@ -26,7 +26,9 @@ Listed below are self-service features that are available for the user in the **
 - [Manage password recovery]({{base_path}}/guides/user-self-service/user-password-recovery/)
 - [Discover and maintain applications]({{base_path}}/guides/user-self-service/discover-applications/)
 - [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/)
+{% if workflows %}
 - [View and update the approvals]({{base_path}}/guides/user-self-service/manage-approvals/)
+{% endif %}
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
 
