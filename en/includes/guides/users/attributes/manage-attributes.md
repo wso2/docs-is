@@ -265,17 +265,48 @@ To configure properties of user attributes:
 
 5. Attribute Data Types.
 
-    An attribute can be of one of the following data types:
+    An attribute supports one of the following data types:
 
-    - **Text** A plain string value.
-    - **Options** A pre-defined list of selectable values.
-    - **Integer** Whole numbers (for example `1`, `42`, `-7`).
-    - **Decimal** Numbers that include decimals (for example `3.14`, `-0.5`).
-    - **Boolean** A true or false value.
-    - **Object** A structured object that can include multiple sub-attributes.
-    - **Date** Calendar date without time. Use ISO 8601 `YYYY-MM-DD` (for example `2025-10-01`).
-    - **DateTime** Date and time with timezone. Use ISO 8601 `YYYY-MM-DDTHH:mm:ssZ` or offset `YYYY-MM-DDTHH:mm:ss±HH:mm` (for example `2025-10-01T14:30:00+05:30`).
-    - **Epoch** Unix time since 1970-01-01 UTC. Use seconds or milliseconds as integers (for example `1730399400` or `1730399400000`).
+    <table>
+        <tbody>
+            <tr>
+                <td><b>Text</b></td>
+                <td>A plain string value.</td>
+            </tr>
+            <tr>
+                <td><b>Options</b></td>
+                <td>A pre-defined list of selectable values.</td>
+            </tr>
+            <tr>
+                <td><b>Integer</b></td>
+                <td>Whole numbers (for example <code>1</code>, <code>42</code>, <code>-7</code>).</td>
+            </tr>
+            <tr>
+                <td><b>Decimal</b></td>
+                <td>Numbers that include decimals (for example <code>3.14</code>, <code>-0.5</code>).</td>
+            </tr>
+            <tr>
+                <td><b>Boolean</b></td>
+                <td>A true or false value.</td>
+            </tr>
+            <tr>
+                <td><b>Object</b></td>
+                <td>A structured object that can include several sub-attributes.</td>
+            </tr>
+            <tr>
+                <td><b>Date</b></td>
+                <td>Calendar date without time. Use ISO 8601 <code>YYYY-MM-DD</code> (for example <code>2025-10-01</code>).</td>
+            </tr>
+            <tr>
+                <td><b>DateTime</b></td>
+                <td>Date and time with timezone. Use ISO 8601 <code>YYYY-MM-DDTHH&#58;mm&#58;ssZ</code> or offset <code>YYYY-MM-DDTHH&#58;mm&#58;ss±HH&#58;mm</code> (for example <code>2025-10-01T14:30:00+05:30</code>).</td>
+            </tr>
+            <tr>
+                <td><b>Epoch</b></td>
+                <td>Unix time since 1970-01-01 UTC. Use seconds or milliseconds as integers (for example <code>1730399400</code> or <code>1730399400000</code>).</td>
+            </tr>
+        </tbody>
+    </table>
 
     Options Data Type
 
@@ -293,9 +324,9 @@ To configure properties of user attributes:
     ![SubAttributes for attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-addtribute-sub-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        The following constraints apply if there is a mapped SCIM claim for the attribute:
+        The following constraints apply if there is a mapped SCIM attribute for the attribute:
 
-        1. Each sub-attribute SCIM claim must start with the main attribute name followed by a dot (`.`) 
+        1. Each sub-attribute of the mapped SCIM attribute must start with the main attribute name followed by a dot (`.`) 
             and a descriptive sub-attribute name.
 
         2. You can't assign another attribute of type **Object** as a sub-attribute.
