@@ -1,1 +1,0 @@
-{% include "../../../../includes/guides/workflows/approve-workflow.md" %}
