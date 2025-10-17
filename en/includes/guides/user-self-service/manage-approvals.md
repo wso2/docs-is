@@ -9,8 +9,8 @@ This page displays all approval requests that you are eligible to act on.
 Each approval request can be in one of the following states:
 
 - **Ready**: The approval request is available for assignment. You can either approve it immediately or reserve it for review later.
-- **Reserved**: You have assigned yourself this approval for review. Other approvers cannot act on it until you unassign it.
-- **Blocked**: Another approver has already reserved this request, so you cannot act on it.
+- **Reserved**: You have assigned yourself this approval for review. Other approvers can't act on it until you unassign it.
+- **Blocked**: Another approver has already reserved this request, so you can't act on it.
 - **Approved**: You have approved the request.
 - **Rejected**: You have rejected the request.
 

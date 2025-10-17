@@ -1,4 +1,4 @@
-The Workflow requests page is located under the workflows section. It gives administrators full visibility into every workflow approval request. 
+The Workflow requests page is located under the workflows section. It gives administrators full visibility into every workflow approval request.
 Administrators can use it to check progress, and detect bottlenecks.
 
 ![Workflow request page]({{base_path}}/assets/img/guides/workflows/workflow-requests.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -25,6 +25,6 @@ To view the details of a workflow request, you can click on the request in the l
 
 ### Abort workflow request
 
-You can abort a workflow request that is pending approval.
+You can abort a workflow request that's pending approval.
 
 ![Abort workflow request]({{base_path}}/assets/img/guides/workflows/workflow-request-abort.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
