@@ -279,11 +279,11 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Integer</b></td>
-                <td>Whole numbers (e.g. <code>1</code>, <code>42</code>, <code>-7</code>).</td>
+                <td>Whole numbers (for example <code>1</code>, <code>42</code>, <code>-7</code>).</td>
             </tr>
             <tr>
                 <td><b>Decimal</b></td>
-                <td>Numbers that include decimals (e.g. <code>3.14</code>, <code>-0.5</code>).</td>
+                <td>Numbers that include decimals (for example <code>3.14</code>, <code>-0.5</code>).</td>
             </tr>
             <tr>
                 <td><b>Boolean</b></td>
@@ -295,7 +295,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Date</b></td>
-                <td>Calendar date without time. Use ISO 8601 <code>YYYY-MM-DD</code> (e.g. <code>2025-10-01</code>).</td>
+                <td>Calendar date without time. Use ISO 8601 <code>YYYY-MM-DD</code> (for example <code>2025-10-01</code>).</td>
             </tr>
             <tr>
                 <td><b>DateTime</b></td>
@@ -303,7 +303,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Epoch</b></td>
-                <td>Unix time since 1970-01-01 UTC. Use seconds or milliseconds as integers (e.g. <code>1730399400</code> or <code>1730399400000</code>).</td>
+                <td>Unix time since 1970-01-01 UTC. Use seconds or milliseconds as integers (for example <code>1730399400</code> or <code>1730399400000</code>).</td>
             </tr>
         </tbody>
     </table>
