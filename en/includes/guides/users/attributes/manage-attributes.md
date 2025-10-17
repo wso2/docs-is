@@ -265,7 +265,7 @@ To configure properties of user attributes:
 
 5. Attribute Data Types.
 
-    An attribute can be one of the following data types:
+    An attribute supports one of the following data types:
 
     <table>
         <tbody>
@@ -291,7 +291,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>Object</b></td>
-                <td>A structured object that can include multiple sub-attributes.</td>
+                <td>A structured object that can include several sub-attributes.</td>
             </tr>
             <tr>
                 <td><b>Date</b></td>
@@ -299,7 +299,7 @@ To configure properties of user attributes:
             </tr>
             <tr>
                 <td><b>DateTime</b></td>
-                <td>Date and time with timezone. Use ISO 8601 `YYYY-MM-DDTHH:mm:ssZ` or offset `YYYY-MM-DDTHH:mm:ss±HH:mm` (e.g. <code>2025-10-01T14:30:00+05:30</code>).</td>
+                <td>Date and time with timezone. Use ISO 8601 <code>YYYY-MM-DDTHH&#58;mm&#58;ssZ</code> or offset <code>YYYY-MM-DDTHH&#58;mm&#58;ss±HH&#58;mm</code> (for example <code>2025-10-01T14:30:00+05:30</code>).</td>
             </tr>
             <tr>
                 <td><b>Epoch</b></td>
