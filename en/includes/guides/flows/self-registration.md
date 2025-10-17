@@ -96,7 +96,7 @@ New users will now go through the simplified registration process with mandatory
 With these changes, new users will only provide the essentials **Email** and **password** and must verify their email via Magic Link before completing registration.
 
 !!! Note
-    When using a connection based sign up option (such as Google or Microsoft), configure the authorized redirect URL as: `https://{IS_HOST}/t/{tenant-domain}/accounts/register`
+    When using a connection based sign up option (such as Google or Microsoft), configure the authorized redirect URL as: `https://{is_host}/t/{tenant-domain}/accounts/register`
 
 ## Reference
 

@@ -2,15 +2,15 @@
 
 **Flow Builder** uses validation rules to help you build logical, working flows.
 
-If a rule fails, you see an error. You can't publish the flow until you fix all errors.
+If a rule fails, an error appears. Fix all errors before publishing the flow.
 
-**How to find errors**
+### How to find errors
 
 - Click the **bell icon** in the top-right of the builder. A red indicator shows active errors.
 
 ![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-01.png){: width="auto" style="display: block; margin: 0;"}
 
-- The show button highlights the component with the error.
+- Click the **Show** button (as seen in the screenshot below) to highlight the component with the error.
 
 ![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-02.png){: width="auto" style="display: block; margin: 0;"}
 

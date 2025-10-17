@@ -67,7 +67,7 @@ Now that these changes are in place, you have built a secure and user-friendly p
 
 ## Reference
 
-This section provides details on the configuration options available in the Invited User Registration flow.
+This section provides details on the configuration options available in the Password Recovery Flow.
 
 ### Flow completion properties
 

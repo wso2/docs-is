@@ -46,7 +46,7 @@ Select from a list of pre-built templates for common use cases to avoid starting
 
 #### Build from scratch
 
-For complete control, start with a blank canvas and build the flow by dragging and dropping the required [flow elements](#reference-flow-elements).
+For complete control, start with a blank canvas and build the flow by dragging and dropping the required [flow elements](#flow-elements).
 
 ![Build flow manually]({{base_path}}/assets/img/guides/flows/flow-builder-build-flow-manually.png){: width="auto" style="display: block; margin: 0;"}
 
