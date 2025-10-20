@@ -1,0 +1,347 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: 'WSO2 Identity Server - User Organization Management API Definition'
+  description: | 
+    This document specifies an **User Organization Management RESTful API** for **WSO2 Identity Server**.
+    
+    This API provides the capability to retrieve the resident organization of the authenticated user.
+  contact:
+    name: WSO2
+    url: 'https://wso2.com/identity-server/'
+    email: iam-dev@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/users/v1/me/organizations'
+    variables:
+      tenant-domain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+tags:
+  - name: me
+    description: Operations for the authenticated user
+
+paths:
+  /:
+    get:
+      tags:
+        - me
+      summary:
+        This API is used to search and retrieve child organizations which are authorized for the user.
+      description:
+        Retrieve authorized organizations which matches the defined search criteria, if any.
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      parameters:
+        - $ref: '#/components/parameters/filterQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/afterQueryParam'
+        - $ref: '#/components/parameters/beforeQueryParam'
+        - $ref: '#/components/parameters/recursiveQueryParam'
+        - $ref: '#/components/parameters/authorizedAppNameQueryParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/t/{tenant-domain}/api/users/v1/me/organizations' \
+            -H 'Authorization: Bearer {access_token}' \
+            -H 'Content-Type: application/json'
+  /root:
+    get:
+      tags:
+        - me
+      summary: |
+        Get the root organization of the authenticated user
+      description: |
+        This API provides the capability to retrieve the root organization of the authenticated user.
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RootOrganizationResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/t/{tenant-domain}/api/users/v1/me/organizations/root' \
+              -H 'Authorization: Bearer {access_token}' \
+              -H 'Content-Type: application/json'
+  /root/descendants:
+    get:
+      tags:
+        - me
+      summary: |
+        Get the descendant organizations of the authenticated user's resident organization
+      description: |
+        This API provides the capability to retrieve
+        the descendant organizations of the authenticated user's resident organizations. The response includes 
+        the organization's id and name from the resident organization to the accessed child organization.
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RootDescendantsOrganizationResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/t/{tenant-domain}/api/users/v1/me/organizations/root/descendants' \
+            -H 'Authorization: Bearer {access_token}' \
+            -H 'Content-Type: application/json'
+
+components:
+  parameters:
+    filterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description:
+        Condition to filter the retrieval of records.
+      schema:
+        type: string
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description:
+        Maximum number of records to be returned. (Should be greater than 0)
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    beforeQueryParam:
+      in: query
+      name: before
+      required: false
+      description:
+        Points to the previous range of data that can be retrieved.
+      schema:
+        type: string
+    afterQueryParam:
+      in: query
+      name: after
+      required: false
+      description:
+        Points to the next range of data to be returned.
+      schema:
+        type: string
+    recursiveQueryParam:
+      in: query
+      name: recursive
+      required: false
+      description:
+        Determines whether a recursive search should happen.
+      schema:
+        type: boolean
+        default: false
+    authorizedAppNameQueryParam:
+        in: query
+        name: authorizedAppName
+        required: false
+        description:
+          Retrieves the organizations that are authorized for the user through the role bound to the application.
+        schema:
+            type: string
+  schemas:
+    RootOrganizationResponse:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          example: '77084a9d-113f-8281-a0d3-efe34b083213'
+        name:
+          type: string
+          example: 'ABC Builders'
+
+    OrganizationsResponse:
+      type: object
+      properties:
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            [
+              {
+                "href": "/t/{tenantDomain}/api/users/v1/me/organizations?limit=10&filter=name+co+der&next=MjAyMS0xMi0yMSAwNToxODozMS4wMDQzNDg=",
+                "rel": "next",
+              },  {
+              "href": "/t/{tenantDomain}/api/users/v1/me/organizations?limit=10&filter=name+co+der&before=MjAyMS0xMi0yMSAwNToxODozMS4wMDQzNDg=",
+              "rel": "previous",
+            }
+            ]
+        organizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+          description: Endpoint that will return the next or previous page of data.
+        rel:
+          type: string
+          description: Describes whether the provided link is to access the next or previous page of data.
+      readOnly: true
+    Organization:
+      type: object
+      required:
+        - id
+        - name
+        - status
+        - version
+        - ref
+      properties:
+        id:
+          type: string
+          example: 'b4526d91-a8bf-43d2-8b14-c548cf73065b'
+        name:
+          type: string
+          example: 'ABC Builders'
+        status:
+          type: string
+          enum: [ ACTIVE, DISABLED ]
+          example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
+        ref:
+          type: string
+          example: '/t/{tenantDomain}/api/server/v1/organizations/b4526d91-a8bf-43d2-8b14-c548cf73065b'
+
+    BasicOrganizationObject:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          example: '77084a9d-113f-8281-a0d3-efe34b083213'
+        name:
+          type: string
+          example: 'ABC Builders'
+
+    RootDescendantsOrganizationResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/BasicOrganizationObject'
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: UOM-00000
+          description: An error code.
+        message:
+          type: string
+          example: Some Error Message
+          description: An error message.
+        description:
+          type: string
+          example: Some Error Description
+          description: An error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+          description: An error trace identifier.
+
+  #--------------------------------------------------------
+  # Descriptions of error responses.
+  #--------------------------------------------------------
+  responses:
+    BadRequest:
+      description: Invalid input in the request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource is not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication information is missing or invalid.
+    Forbidden:
+      description: Access forbidden.
+    ServerError:
+      description: Internal server error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  #-----------------------------------------------------
+  # Applicable authentication mechanisms.
+  #-----------------------------------------------------
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
