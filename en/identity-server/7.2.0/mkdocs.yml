@@ -20,8 +20,8 @@ INHERIT: ../is_common.yml
 site_url: https://is.docs.wso2.com/en/next
 
 extra:
-  base_path: /en/next
-  is_version: next
+  base_path: /en/7.2.0
+  is_version: 7.2.0
   content:
     default_keystore_type: PKCS12
     default_keystore_ext: p12
