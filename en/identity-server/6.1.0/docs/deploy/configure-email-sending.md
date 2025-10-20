@@ -30,7 +30,7 @@ Follow the steps given below to enable the email sender globally for all tenants
     | `port`|This is the SMTP server port to connect to if the connect() method does not explicitly specify one. Defaults to 25. |
     | `enable_start_tls`    | If true, this enables using the `STARTTLS` command (if enabled before issuing any login commands. Note that an appropriate trust store must be configured so that the client will trust the server's certificate. Defaults to `true`. |
     | `enable_authentication`    | If true, attempt to authenticate the user using the AUTH command. Defaults to `true`.|
-    | `signature`    | Signature of the sender account. |
+    | `signature`    | Specifies the display name for the "From" email address (for example, "ABC Company" results in `"ABC Company" <mail@address.tld>`). <br/><br/>**Note:** If this property is left unset, the display name will be `null`. Some SMTP servers may default to using the authentication `username` as the display name.<br/><br/>To send an email with no display name and show only the email address, set this value to an empty string: `signature = ""` |
 
     !!! Tip
         For information about the SMTP, see
@@ -128,7 +128,7 @@ Follow the steps given below to enable the email sender per tenant.
     </tr>
     <tr class="odd">
     <td><code>             mail.smtp.signature           </code></td>
-    <td>Signature for the sender account</td>
+    <td>Specifies the display name for the "From" email address (for example, "ABC Company" results in <code>"ABC Company" &lt;mail@address.tld&gt;</code>). If this property is left unset, the display name will be <code>null</code>. Some SMTP servers may default to using the authentication <code>username</code> as the display name. To send an email with no display name and show only the email address, set this value to an empty string.</td>
     </tr>
     </tbody>
     </table>

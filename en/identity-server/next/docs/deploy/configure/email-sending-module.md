@@ -68,7 +68,10 @@ Follow the steps given below to enable the email sender globally for all tenants
       </tr>
       <tr>
         <td><code>signature</code></td>
-        <td>Signature of the sender account.</td>
+        <td>Specifies the display name for the "From" email address (for example, "ABC Company" results in <code>"ABC Company" &lt;mail@address.tld&gt;</code>).<br/><br/>
+        <strong>Note:</strong> If this property is left unset, the display name will be <code>null</code>. Some SMTP servers may default to using the authentication <code>username</code> as the display name.<br/><br/>
+        To send an email with no display name and show only the email address, set this value to an empty string: <code>signature = ""</code>
+        </td>
       </tr>
     </table>
 
