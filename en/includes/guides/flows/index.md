@@ -1,17 +1,20 @@
 # Flows
 
-A flow defines the sequence a user follows during a specific interaction with your application. These can include forms, verification actions, conditional logic, and other components that guide users from start to finish.
+Design and customize key user journeys in your application with Flows. A flow defines the step-by-step journey a user takes during a specific interaction, such as registering for your service or recovering a password.
 
-{{product_name}} lets you build fully customizable sequences for the following user interactions.
+{{product_name}} lets you build fully customizable flows for the following user interactions.
 
-- **Self-registration** - Create registration experiences for new users, with support for multi step forms, validations, and identity verification.
+- **Self registration** - Create seamless registration experiences for new users, with support for multi-step forms, data validation, and identity verification checks.
 
-- **Password recovery** - Build secure recovery flows to help users regain access, using steps such as email verification or one time passwords (OTP).
+- **Password recovery** - Build secure recovery processes to help users regain access, using steps such as email verification or one-time passwords (OTP).
 
-- **Invited user registration** - Build flow that allows new users to securely set their password when an administrator creates their account, including steps to verify the user's identity.
+- **Invited user registration** - Let new users complete creating their accounts when administrators invite them. Design secure flows to verify their identities and set their passwords.
 
-You can build flows using starter templates, widgets, steps, and components, giving you complete control over how users interact with your application. To get started with building flows, refer to [Build a flow]({{base_path}}/guides/flows/build-a-flow/).
+Building with starter templates, widgets, and other components provides complete control over how users interact with the application, all without writing complex code.
 
-For specific examples of building flows, refer to [Self-registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/) and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
+## Start building flows
 
-![Flows]({{base_path}}/assets/img/guides/flows/flow-builder-steps.gif){: width="auto" style="display: block; margin: 0;"}
+- To learn the fundamentals of building a flow, refer to the [get started]({{base_path}}/guides/flows/build-a-flow/) guide.
+- For detailed examples of specific use cases, see the guides on [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/) and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
+
+![Flows]({{base_path}}/assets/img/guides/flows/Flow-builder-overview.png){: width="auto" style="display: block; margin: 0;"}

@@ -1,79 +1,87 @@
 # Invited user registration
 
-**Invited User Registration** allows users to securely set their credentials after an administrator registers them in {{product_name}}.
+Invited User Registration allows users to securely set their credentials after an administrator registers them in {{product_name}}.
 
-Once registered, the user receives an email to complete the sign-in process or use a link provided by the administrator offline. The user then clicks the email or link, verify their identity through a secure method (like an SMS or email OTP), and then set up a password.
+Once an admin creates the account, the user receives an email to complete the registration. The user clicks the link in the email, verifies their identity with a one-time code sent to the same email address, and then sets their password.
 
-In the **Flow Builder**, you can create the invited user registration journey in two ways:
+In the Flow Builder, you can create the invited user registration journey in two ways:
 
-- **Use a starter template** – Load a ready made flow and customize it to your needs.
-
+- **Use a starter template** – Load a ready-made flow and customize it to your needs.
 - **Build from scratch** – Take full control by designing every step yourself.
 
 ## Sample use case
 
-Imagine you want to verify the user’s identity via **SMS OTP** before allowing them to set their password. The flow works as follows:
+Imagine you want to verify the user’s identity via Email OTP before allowing them to set their password. The flow works as follows:
 
-- The user clicks the link in the invitation email or pastes the URL in their browser.
-- {{product_name}} sends a **one-time code** to the user's registered mobile number.
-- The user confirms their identity by entering the code.
-- The user sets their password.
+1. The user clicks the link in the invitation email.
+2. {{product_name}} sends a one-time code to the user's registered email address.
+3. The user confirms their identity by entering the code.
+4. The user sets their password.
 
-This ensures that only users with access to the registered mobile number can complete the registration, enhancing security.
+This ensures that only the user with access to the registered email address can complete the registration, enhancing security.
 
-![Invited user registration flow]({{base_path}}/assets/img/guides/flows/flow-builder-invited-user-registration-final-flow.png){: width="auto" style="display: block; margin: 0;"}
+![Invited user registration flow]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration.png){: width="auto" style="display: block; margin: 0;"}
 
-## Build it
+## Build the flow
 
-To build the sample use case, you can start from the **Invited User Registration** template and adjust it to:
+To build the sample use case, start from the Invited User Registration template and adjust it to use Email OTP for identity verification.
 
-- Use **SMS OTP** for identity verification.
-- Require users to confirm their new password during reset.
+Follow the steps below to configure this flow.
 
 ### Step 1 - Load the template
 
-To load the template,
+To load the template:
 
-1. Navigate to **Home** > **Flows**.
+1. On the {{product_name}} console, navigate to Flows.
+2. Click on the Invited User Registration card.
+3. Click the + button next to the Invited User Registration template to load it onto the canvas.
 
-2. Click on the **Invited User Registration** card.
+![Step 1]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-01.png){: width="auto" style="display: block; margin: 0;"}
 
-3. Click the `+` button next to the **Invited User Registration** template.
+### Step 2 - Configure Email OTP verification
 
-![Step 1]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-01.gif){: width="auto" style="display: block; margin: 0;"}
+By default, the template uses a simple password setup link. You can easily switch this to a more secure Email OTP verification.
 
-### Step 2 - Add an SMS OTP verification step
+1. Click on the Confirmation Code node on the canvas.
+2. In the [Confirmation Code Properties](#confirmation-code-properties) pane on the right, under Choose invitation method, select Email with OTP code.
+3. (Optional) You can further customize the OTP's format under OTP Code Configuration, such as its length or character types.
 
-This step verifies the user's mobile number provided during the registration before allowing them to set their password.
+![Step 2]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02.png){: width="auto" style="display: block; margin: 0;"}
 
-1. Expand **Steps**, drag **Blank View** onto the canvas and place it between **Confirmation Code** and **Set Password**.
+### Step 3 - Enable the flow
 
-    ![Step 2.1]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-1.gif){: width="auto" style="display: block; margin: 0;"}
+Once the flow has been fully configured and is ready for users:
 
-2. Remove the connection between **Confirmation Code** and **Set Password** and connect **Confirmation Code** with **Blank view**.
+1. Click Save Draft to save all your changes.
+2. On the top-right corner of the Flow Builder, turn the toggle ON to publish the updated flow.
 
-    ![Step 2.2]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-2.gif){: width="auto" style="display: block; margin: 0;"}
+Now that these changes are in place, you have built a secure invited user registration flow that uses Email OTP for identity verification.
 
-3. Expand **Widgets** and drag and drop the **continue with SMS OTP** widget into the newly added blank view.
+## Reference
 
-    ![Step 2.3]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-3.gif){: width="auto" style="display: block; margin: 0;"}
+This section provides details on the configuration options available in the Invited User Registration flow.
 
-    !!! note
+### Confirmation code properties
 
-        Where necessary, rearrange the connections so that the flow follows a proper sequence.
+The Confirmation Code node is the first step in the flow, where you define how the invited user will verify their identity to set their password.
 
-4. Connect the **verify OTP** view with the **set password** view.
+**Choose invitation method:** Select the method for user verification.
 
-    ![Step 2.4]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-4.gif){: width="auto" style="display: block; margin: 0;"}
+- **Email with password setup link:** Sends the user an email containing a direct link to the password creation screen.
+- **Email with OTP code:** Sends a one-time code to the user's email that they must enter to proceed.
+- **SMS with OTP code:** Sends a one-time code to the user's mobile number.
 
-### Step 3 – Require password confirmation
+**Invitation link/OTP expiry time:** Set the duration (in minutes) for which the invitation link or OTP will be valid.
 
-The default password reset screen only asks to enter the new password once. You can make it more secure by asking the user to confirm the entered password before submission. To do so,
+**Lock account until password is set:** If enabled, the user's account will remain locked and inaccessible until they complete the registration and set their password.
 
-1. In the **Set Password** view, click the pencil icon on the **Password field** and check the **Require Confirmation** checkbox.
+**OTP Code Configuration:** If using an OTP method, you can customize the generated code.
 
-    ![Step 2.5]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02-5.gif){: width="auto" style="display: block; margin: 0;"}
+- **Character types:** Choose to include uppercase letters (A-Z), lowercase letters (a-z), and numbers (0-9) in the OTP.
+- **OTP code length:** Define the total number of characters for the OTP.
 
-2. Click **Save Draft** to save your changes. When ready, toggle the switch on the top right corner to **Enable** and publish the updated flow.
+### Flow completion properties
 
-Now that these changes are in place, you have built a secure and user-friendly invited user registration flow.
+The Flow Completion Properties, configured on the End node, define the final actions that occur after a user successfully sets their password.
+
+- **Send a notification email on flow completion:** When enabled, the user will receive an email confirming that their registration is complete and their account is ready to use.
