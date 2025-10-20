@@ -45,7 +45,7 @@ The End node determines what the user experiences after successfully resetting t
 
 1. Click on the green End node on the canvas (labeled "Password Reset Successfully").
 
-2. With the End node selected, click the gear icon (⚙️) on the top-right to open the **Flow Completion Properties**.
+2. With the End node selected, click the gear icon (⚙️) on the top-right to open the [Flow Completion Properties](#flow-completion-properties).
 
 3. Configure the desired outcomes:
 

@@ -23,7 +23,6 @@ This ensures that only users with a valid email address can self-register, helpi
 
 ![Final Flow]({{base_path}}/assets/img/guides/flows/flow-registration.png){: width="auto" style="display: block; margin: 0;"}
 
-
 ## Build the flow
 
 To build the sample use case, start with the Basic Details template and adjust it to use Magic Link verification.
@@ -52,7 +51,7 @@ Simplify the form to collect only the essentials for this registration flow.
 
 - In the Sign Up view, select and delete any fields that aren't required, keeping only **Email** and **Password**.
 
-- Remove the Email OTP view
+- Remove the Email OTP view.
 
 ![Step 3]({{base_path}}/assets/img/guides/flows/flow-registration-step-03.png){: width="auto" style="display: block; margin: 0;"}
 
@@ -77,7 +76,7 @@ The **End** node determines what the user experiences upon successful registrati
 
 **Set the completion properties:**
 
-1. With the **End** node selected, click the gear icon (⚙️) to open the **Flow Completion Properties**.
+1. With the **End** node selected, click the gear icon (⚙️) to open the [Flow Completion Properties](#flow-completion-properties).
 2. Configure the desired outcomes:
    - **Auto Login:** Immediately logs the user in once the flow is completed, without requiring them to enter their credentials again.
 

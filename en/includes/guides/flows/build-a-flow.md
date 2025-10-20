@@ -52,7 +52,7 @@ You can enable a flow using the toggle on the top right corner of the Flow Build
 
 - If disabled,
 
-    - You can build your flow and save it as a draft. The flow will not be active for users until you enable it.
+    - You can build your flow and save it as a draft. The flow won't be active for users until you enable it.
     - This is the default state for any new flow.
 
 - If enabled,
@@ -60,25 +60,6 @@ You can enable a flow using the toggle on the top right corner of the Flow Build
     - The flow becomes immediately available for users.
     - You can continue to make changes and improvements to the flow even after enabling it. Until you publish those changes, users will continue to experience the last published version.
     - You can disable the flow at any time to remove it from user access temporarily.
-
-## Flow inheritance for sub organizations
-
-If your organization uses sub organizations, flows from the parent are inherited by default. Sub orgs use the parent flow unless you make changes.
-
-!!! Note
-    [Connections]({{base_path}}/guides/authentication/#manage-connections) aren't inherited by sub organizations.
-
-**To customize a flow for a sub org:**
-
-- Go to the Flow Builder in the sub org.
-- Edit the inherited flow as needed.
-- Publish to override the parent flow for this sub org only.
-
-**To undo customizations:**
-
-- Click **Revert** to restore the parent flow and remove all sub org changes.
-
-![Revert flow]({{base_path}}/assets/img/guides/flows/flow-builder-revert.gif){: width="auto" style="display: block; margin: 0;"}
 
 ## Flow elements
 

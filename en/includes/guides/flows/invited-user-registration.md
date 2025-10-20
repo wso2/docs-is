@@ -43,7 +43,7 @@ To load the template:
 By default, the template uses a simple password setup link. You can easily switch this to a more secure Email OTP verification.
 
 1. Click on the Confirmation Code node on the canvas.
-2. In the Confirmation Code Properties pane on the right, under Choose invitation method, select Email with OTP code.
+2. In the [Confirmation Code Properties](#confirmation-code-properties) pane on the right, under Choose invitation method, select Email with OTP code.
 3. (Optional) You can further customize the OTP's format under OTP Code Configuration, such as its length or character types.
 
 ![Step 2]({{base_path}}/assets/img/guides/flows/flow-invited-user-registration-step-02.png){: width="auto" style="display: block; margin: 0;"}
