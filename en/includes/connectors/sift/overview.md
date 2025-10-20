@@ -57,4 +57,3 @@ How it works,
       - Deny login if the decision is `deny`.
 
       - Enforce additional MFA if the decision is `challenge`.
-

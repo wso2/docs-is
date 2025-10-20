@@ -886,12 +886,16 @@ nav:
   - SDKs:
     - Integrate WSO2 IS into your application: integrations/index.md
   - Connectors:
-    - Fraud:
-      - Sift:
-        - What is Sift: connectors/sift/what-is-sift.md
-        - Set up: connectors/sift/set-up.md
-        - How to use: connectors/sift/how-to-use.md
-        - Reference: connectors/sift/reference.md
+    - Sift:
+      - Overview: connectors/sift/overview.md
+      - Set up: connectors/sift/set-up.md
+      - Usage: connectors/sift/usage.md
+      - Reference: connectors/sift/reference.md
+    - OnFido:
+      - Overview: connectors/onfido/overview.md
+      - Set up: connectors/onfido/set-up.md
+      - Usage: connectors/onfido/usage.md
+      - Reference: connectors/onfido/reference.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:

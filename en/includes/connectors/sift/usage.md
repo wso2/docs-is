@@ -1,4 +1,4 @@
-# How to use
+# Usage
 
 Administrators can use the risk score or decision ID returned by Sift to decide whether to allow, deny, or step up authentication for a login attempt.
 
