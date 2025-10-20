@@ -32,7 +32,7 @@ You can abort a workflow request that's pending approval.
 ### Workflow requests cleanup
 
 {% if product_name == "WSO2 Identity Server" %}
-You can clean completed workflow request records if required. Select the cleanup script for your database and run it. You can clean records with or without a backup. You can also schedule the cleanup to run automatically.
+You can clean completed workflow request records to maintain database performance. Select the cleanup script for your database and run it. You can clean records with or without a backup. You can also schedule the cleanup to run automatically.
 
 - [DB2](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/db2/workflow-cleanup)
 - [MSSQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mssql/workflow-cleanup)
