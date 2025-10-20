@@ -48,18 +48,18 @@ The **Flow builder** provides all the building blocks you need to create user jo
 
 ### Step 3: Enable the flow
 
-Your flows can either be in an enabled state or disabled state. You can use the toggle on the top right corner of the Flow Builder to switch between these states.
+You can enable a flow using the toggle on the top right corner of the Flow Builder. Your flows behave as follows based on their state:
 
-- The disabled state,
-    
-    - This is the default state of a flow.
+- If disabled,
+
     - You can build your flow and save it as a draft. The flow will not be active for users until you enable it.
+    - This is the default state for any new flow.
 
-- The enabled state,
+- If enabled,
 
-  - The flow becomes immediately available for users.
-  - You can continue to make changes and improvements to the flow even after it is enabled. Until your publish those changes, users will continue to experience the last published version of the flow.
-  - You can disable the flow at any time to remove it from user access temporarily.
+    - The flow becomes immediately available for users.
+    - You can continue to make changes and improvements to the flow even after enabling it. Until you publish those changes, users will continue to experience the last published version.
+    - You can disable the flow at any time to remove it from user access temporarily.
 
 ## Flow inheritance for sub organizations
 
@@ -82,23 +82,23 @@ If your organization uses sub organizations, flows from the parent are inherited
 
 ## Flow elements
 
-The Flow Builder provides a library of reusable, no-code elements. These building blocks integrate to facilitate the straightforward creation and customization of any user journey.
+The Flow Builder provides a library of reusable, no-code elements to create user journeys. The following sections describe the key flow elements.
 
 ### Steps
 
-Steps function as the core building blocks for creating multi-page experiences. A flow contains one or more steps.
+Steps function as the core building block and represent a distinct part of the login process. A flow can contain one or more steps.
 
 ![Steps]({{base_path}}/assets/img/guides/flows/flow-builder-steps.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Widgets
 
-Widgets provide powerful functionality through pre-built, reusable modules, like a social login button. Drag and drop widgets directly into a step.
+Pre-built login and identity verification components that you can drag and drop into a step.
 
 ![Widgets]({{base_path}}/assets/img/guides/flows/flow-builder-widgets.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Components
 
-Components represent the individual UI elements placed inside a step, such as input fields, buttons, and paragraphs.
+Components are the individual UI elements placed inside a step, such as input fields, buttons, and paragraphs.
 
 !!! Note
 
