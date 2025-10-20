@@ -1,20 +1,20 @@
-## Troubleshooting common Flow Builder errors
+# Troubleshooting
 
-**Flow Builder** uses validation rules to help you build logical, working flows.
+**Flow Builder** uses validation rules to help you build logical, working flows. If a rule fails, an error appears. Fix all errors before publishing the flow.
 
-If a rule fails, an error appears. Fix all errors before publishing the flow.
+## How to find errors
 
-### How to find errors
+- Click the **bell icon** in the top-right corner of the builder. A red indicator will appear if there are any active errors.
 
-- Click the **bell icon** in the top-right of the builder. A red indicator shows active errors.
+    ![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-01.png){: width="auto" style="display: block; margin: 0;"}
 
-![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-01.png){: width="auto" style="display: block; margin: 0;"}
+- Then, click the Show button (as shown in the screenshot above) to highlight the component that contains the error.
 
-- Click the **Show** button (as seen in the screenshot above) to highlight the component with the error.
+    ![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-02.png){: width="auto" style="display: block; margin: 0;"}
 
-![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-02.png){: width="auto" style="display: block; margin: 0;"}
+## Common error messages
 
-Below is a table of common error messages and how to resolve them.
+The following table lists common error messages you may encounter while building flows, along with their recommended solutions.
 
 | **Error Message** | **Context / Flow Type** | **Cause** | **Solution** |
 |--------------------|--------------------------|------------|---------------|
