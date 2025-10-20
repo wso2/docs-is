@@ -8,63 +8,58 @@ The Flow Builder allows full customization of the following user journeys. Click
 - [Password recovery]({{base_path}}/guides/flows/password-recovery/)
 - [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/)
 
-## Create and Enable a flow
+## Create and enable a flow
 
 The following sections outline the process for creating and publishing a custom flow.
 
-### Step 1: Navigate to flow builder
+### Step 1: Access the flow builder
 
-You can access the flow builder by following the steps below:
+To access the flow builder:
 
-1. On the {{product_name}} Console, navigate to **Flows**.
+1. On the {{product_name}} Console, go to **Flows**.
 
-2. Click on the card corresponding to the flow you want to build.
-
-This will open the Flow Builder canvas for that specific flow.
+2. Click on the corresponding flow you want to build. This opens the Flow Builder canvas for that specific flow.
 
 ### Step 2: Build the flow
 
-The **Flow builder** provides all the building blocks you need to create user journeys.
-
-For a selected flow, you can start building it using one of the methods below and use [flow elements](#flow-elements) to customize it to your requirements.
+The **Flow builder** provides all the building blocks you need to create user journeys. To start building, you can choose one of the following methods and use [flow elements](#flow-elements) to customize it.
 
 {% if product_name == "Asgardeo" %}
 
-#### Generate with AI
+- **Generate with AI**
 
-With **Generate with AI**, you can use plain language instructions to build a complete flow, allowing you to start with a minimal effort and customize components as needed.
+    Describe your flow in plain language, and let the generative AI engine automatically build it for you. You can then customize and refine the components as needed.
 
-![Flow builder AI]({{base_path}}/assets/img/guides/flows/flow-builder-generate-with-ai.png){: width="auto" style="display: block; margin: 0;"}
+    ![Flow builder AI]({{base_path}}/assets/img/guides/flows/flow-builder-generate-with-ai.png){: width="auto" style="display: block; margin: 0;"}
 
 {% endif %}
 
-#### Use a starter template
+- **Use a starter template**
 
-Select from a list of pre-built templates for common use cases to avoid starting from scratch. Click the `+` icon next to a template to add it to the canvas.
+    Select from a list of pre-built templates for common use cases to avoid starting from scratch. Click the `+` icon next to a template to add it to the canvas.
 
-![Starter Templates]({{base_path}}/assets/img/guides/flows/flow-password-recovery-start-from-template.png){: width="auto" style="display: block; margin: 0;"}
+    ![Starter Templates]({{base_path}}/assets/img/guides/flows/flow-password-recovery-start-from-template.png){: width="auto" style="display: block; margin: 0;"}
 
-#### Build from scratch
+- **Build from scratch**
 
-For complete control, start with a blank canvas and build the flow by dragging and dropping the required [flow elements](#flow-elements).
+    For complete control, start with a blank canvas and build the flow by dragging and dropping the required [flow elements](#flow-elements).
 
-![Build flow manually]({{base_path}}/assets/img/guides/flows/flow-builder-build-flow-manually.png){: width="auto" style="display: block; margin: 0;"}
-
-!!! Note
-
-    Save the flow at any point while building. The saved version stays as a draft. Edit the draft later as needed.
+    ![Build flow manually]({{base_path}}/assets/img/guides/flows/flow-builder-build-flow-manually.png){: width="auto" style="display: block; margin: 0;"}
 
 ### Step 3: Enable the flow
 
-Once the prepared flow is ready to publish for users, enable it.
+You can enable a flow using the toggle on the top right corner of the Flow Builder. Your flows behave as follows based on their state:
 
-1. On the top-right corner of the screen, turn the toggle ON to enable the flow.
+- If disabled,
 
-!!! warning "Immediate Publication"
-    Enabling the flow will immediately publish the current configuration on the canvas, making it live for all users.
-!!! Note
+    - You can build your flow and save it as a draft. The flow will not be active for users until you enable it.
+    - This is the default state for any new flow.
 
-    If you disable a customized flow, your users will automatically continue with the default experience until you’re ready to publish it again.
+- If enabled,
+
+    - The flow becomes immediately available for users.
+    - You can continue to make changes and improvements to the flow even after enabling it. Until you publish those changes, users will continue to experience the last published version.
+    - You can disable the flow at any time to remove it from user access temporarily.
 
 ## Flow inheritance for sub organizations
 
@@ -87,23 +82,23 @@ If your organization uses sub organizations, flows from the parent are inherited
 
 ## Flow elements
 
-The Flow Builder provides a library of reusable, no-code elements. These building blocks integrate to facilitate the straightforward creation and customization of any user journey.
+The Flow Builder provides a library of reusable, no-code elements to create user journeys. The following sections describe the key flow elements.
 
 ### Steps
 
-Steps function as the core building blocks for creating multi-page experiences. A flow contains one or more steps.
+Steps function as the core building block and represent a distinct part of the login process. A flow can contain one or more steps.
 
 ![Steps]({{base_path}}/assets/img/guides/flows/flow-builder-steps.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Widgets
 
-Widgets provide powerful functionality through pre-built, reusable modules, like a social login button. Drag and drop widgets directly into a step.
+Pre-built login and identity verification components that you can drag and drop into a step.
 
 ![Widgets]({{base_path}}/assets/img/guides/flows/flow-builder-widgets.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Components
 
-Components represent the individual UI elements placed inside a step, such as input fields, buttons, and paragraphs.
+Components are the individual UI elements placed inside a step, such as input fields, buttons, and paragraphs.
 
 !!! Note
 
