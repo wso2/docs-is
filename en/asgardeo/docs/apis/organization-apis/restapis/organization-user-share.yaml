@@ -328,7 +328,7 @@ paths:
     get:
       tags:
         - User Accessible Organizations
-      summary: Get the list of organizations accessible by the use
+      summary: Get the list of organizations accessible by the user
       description: |
         This API retrieves the list of organizations where the specified user has shared access.
 

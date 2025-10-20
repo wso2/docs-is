@@ -74,7 +74,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/t/carbon.super/o/api/server/v1/users/share' \
+            curl --location 'https://localhost:9443/o/api/server/v1/users/share' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -165,7 +165,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/t/carbon.super/o/api/server/v1/users/share-with-all' \
+            curl --location 'https://localhost:9443/o/api/server/v1/users/share-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -249,7 +249,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/t/carbon.super/o/api/server/v1/users/unshare' \
+            curl --location 'https://localhost:9443/o/api/server/v1/users/unshare' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -311,7 +311,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/t/carbon.super/o/api/server/v1/users/unshare-with-all' \
+            curl --location 'https://localhost:9443/o/api/server/v1/users/unshare-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
