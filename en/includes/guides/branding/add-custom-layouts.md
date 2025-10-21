@@ -167,6 +167,13 @@ To create the basic custom layout resources:
 
 ### Step 3: Add a custom layout design
 
+Prerequisites
+- `NodeJS v20.x`
+- `npm v8.x`
+- `PNPM v8.x `
+- `yarn v1.22.x`
+- `JDK 11`
+
 To add a custom layout to the login page:
 
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/carbon.super/` and follow the instructions provided below:
