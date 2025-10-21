@@ -343,7 +343,6 @@ paths:
               "requestPathAuthenticators": [
                 "string"
               ],
-              "script": "string",
               "subjectStepId": 1,
               "attributeStepId": 1
             },
@@ -392,7 +391,18 @@ paths:
       description: >
         This API provides the capability to create an application based on the
         information provided in an XML, YAML, or JSON file. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_create`
+        
+        <b>Scope(Permission) required:</b> 
+        
+          - `internal_application_mgt_create`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To create an application with an authentication script via file import, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Create an application with an authentication script via file import | `internal_application_script_update` |
       requestBody:
         content:
           multipart/form-data:
@@ -447,7 +457,17 @@ paths:
       description: >
         This API provides the capability to update an application based on the
         information provided in an XML, YAML, or JSON file. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update the authentication script of an application via file import, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update the authentication script via file import | `internal_application_script_update` |
       requestBody:
         content:
           multipart/form-data:
@@ -569,7 +589,17 @@ paths:
       operationId: patchApplication
       description: |
         This API provides the capability to partially update an application by ID. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update the authentication script of an application, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update the authentication script | `internal_application_script_update` |
       parameters:
         - name: applicationId
           in: path
@@ -777,7 +807,17 @@ paths:
         Export application as an XML file.
       description: |
         This API provides the capability to retrieve the application as an XML file. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_view`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_view`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To export the application with the client secret, you also need the following additional scope:
+
+          | Action | Scope |
+          |---------|--------|
+          | Export the client secret | `internal_application_mgt_client_secret_view` |
       parameters:
         - name: applicationId
           in: path
@@ -831,7 +871,17 @@ paths:
         Export application in XML, YAML, or JSON file formats.
       description: |
         This API provides the capability to retrieve the application in XML, YAML, or JSON format. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_view`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_view`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To export the application with the client secret, you also need the following additional scope:
+
+          | Action | Scope |
+          |---------|--------|
+          | Export the client secret | `internal_application_mgt_client_secret_view` |
       parameters:
         - name: applicationId
           in: path
@@ -948,6 +998,59 @@ paths:
             -d '{
             "id": "85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
             }'
+  /applications/{applicationId}/authenticationSequence/script:
+    put:
+      tags:
+        - Applications
+      operationId: updateAuthenticationScript
+      summary: Update authentication script of the application
+      description: |
+        This API provides the capability to update the authentication script of the application. <br>
+          <b>Scope(Permission) required:</b> `internal_application_script_update` </br>
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScriptUpdateModel'
+        description: This represents the authentication script to be updated.
+        required: true
+      responses:
+        '200':
+          description: Successfully Updated
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/authenticationSequence/script' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "script": "var onLoginRequest = function(context) {\n    executeStep(1);\n};\n"
+            }'
   /applications/{applicationId}/authenticators:
     get:
       tags:
@@ -1054,7 +1157,18 @@ paths:
       operationId: addAuthorizedAPI
       description: |
         This API provides the capability to authorized an API to the application. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To authorize management/organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Authorize management/organization API | `internal_application_internal_api_update` |
+          | Authorize  business APIs | `internal_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -1111,7 +1225,18 @@ paths:
       operationId: patchAuthorizedAPI
       description: |
         This API provides the capability to update an authorized API of the application. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update authorized management/organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update authorized management/organization API | `internal_application_internal_api_update` |
+          | Update authorized business APIs | `internal_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -1174,7 +1299,18 @@ paths:
       operationId: deleteAuthorizedAPI
       description: |
         This API provides the capability to delete an authorized API of the application. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To remove authorized management/organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Remove authorized management/organization API | `internal_application_internal_api_update` |
+          | Remove authorized business APIs | `internal_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -1629,7 +1765,17 @@ paths:
         Retrieve OIDC authentication protocol parameters.
       description: >
         This API provides the capability to retrieve OIDC authentication protocol parameters of an application. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_view`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_view`
+        
+         <b>➕ Additional Scopes</b>
+        
+          To view the client secret, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | View client secret | `internal_application_mgt_client_secret_view` |
       operationId: getInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -1853,7 +1999,7 @@ paths:
         Regenerate the OAuth2/OIDC client secret.
       description: |
         This API regenerates the OAuth2/OIDC client secret. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_create`
+          <b>Scope(Permission) required:</b> `internal_application_mgt_client_secret_create`
       operationId: regenerateOAuthClientSecret
       parameters:
         - name: applicationId
@@ -4838,6 +4984,15 @@ components:
           example: false
       description: >-
         This property is disabled by default as of Identity Server version 7.0 onwards.
+    ScriptUpdateModel:
+      type: object
+      required:
+        - script
+      properties:
+        script:
+          type: string
+          example: "var onLoginRequest = function(context) {\n    executeStep(1);\n};\n"
+          description: Authentication Script to be updated.
     ConfiguredAuthenticatorsModal:
       type: object
       properties:
