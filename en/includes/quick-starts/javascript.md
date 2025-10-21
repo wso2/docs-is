@@ -130,7 +130,7 @@ await auth.initialize({
   signInRedirectURL: "http://localhost:5173",
   signOutRedirectURL: "http://localhost:5173",
   clientID: "<your-app-client-id>",
-  baseUrl: "https://api.asgardeo.io/t/sagaraorg",
+  baseUrl: "{{content.sdkconfig.baseUrl}}",
   scope: ["openid", "profile"]
 });
 

@@ -97,6 +97,7 @@ Create `.env` environment properties file, and add the following  variables:
 ```bash
 CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
+NODE_TLS_REJECT_UNAUTHORIZED=0
 
 ```
 
