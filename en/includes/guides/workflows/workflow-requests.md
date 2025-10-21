@@ -28,3 +28,18 @@ To view the details of a workflow request, you can click on the request in the l
 You can abort a workflow request that's pending approval.
 
 ![Abort workflow request]({{base_path}}/assets/img/guides/workflows/workflow-request-abort.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+### Workflow requests cleanup
+
+{% if product_name == "WSO2 Identity Server" %}
+You can remove completed workflow request records to improve database performance. Select and run the cleanup script for your database. The cleanup can be performed with or without a backup, and you can also schedule it to run automatically.
+
+- [DB2](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/db2/workflow-cleanup)
+- [MSSQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mssql/workflow-cleanup)
+- [MySQL](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/workflow-cleanup)
+- [Oracle](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/workflow-cleanup)
+- [PostgreSQL 9.X](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-9x/workflow-cleanup)
+- [PostgreSQL 11.X to 17.X](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/workflow-cleanup)
+{% else %}
+The retention period for the completed workflow requests is 1 month.
+{% endif %}
