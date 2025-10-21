@@ -3,7 +3,7 @@ info:
   version: "v1"
   title: 'User Sharing API Definition'
   description: |-
-    This document specifies the **User Sharing RESTful API** for **WSO2 Identity Server**. This API enables organization administrators to share user access across child organizations, manage shared access, revoke access, and retrieve shared organizations and roles.
+    This document defines the **User Sharing REST API for organizations** in **WSO2 Identity Server**. This enables organization administrators to share users across child organizations, manage and revoke shared access, and retrieve users' shared organizations and roles.
 
 security:
   - OAuth2: []
@@ -75,7 +75,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/users/share' \
+            curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/users/share' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -166,7 +166,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/users/share-with-all' \
+            curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/users/share-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -250,7 +250,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/users/unshare' \
+            curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/users/unshare' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -312,7 +312,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://localhost:9443/api/server/v1/users/unshare-with-all' \
+            curl --location 'https://localhost:9443/t/carbon.super/api/server/v1/users/unshare-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
@@ -330,7 +330,7 @@ paths:
     get:
       tags:
         - User Accessible Organizations
-      summary: Get organizations a user has access to
+      summary: Get the list of organizations accessible by the user
       description: |
         This API retrieves the list of organizations where the specified user has shared access.
 
@@ -341,12 +341,12 @@ paths:
           required: true
           schema:
             type: string
-          description: The ID of the user whose accessible organizations are being retrieved.
+          description: The ID of the user.
         - in: query
           name: after
           schema:
             type: string
-          description: The cursor pointing to the item after which the next page of results should be returned.
+          description: The cursor indicating the item after which the next page of results will begin.
         - in: query
           name: before
           schema:
@@ -422,7 +422,7 @@ paths:
           name: after
           schema:
             type: string
-          description: The cursor pointing to the item after which the next page of results should be returned.
+          description: The cursor indicating the item after which the next page of results will begin.
         - in: query
           name: before
           schema:
