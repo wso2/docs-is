@@ -40,7 +40,7 @@ To learn how to review the approval requests, see [Manage Approvals]({{base_path
 
 ## Handle users with pending approvals at login
 
-You can configure {{ product_name }} to handle login attempts from users who have pending approval requests.
+Configure {{ product_name }} to handle login attempts from users with pending approval requests.
 
 Add the following configuration to the `deployment.toml` file:
 
@@ -50,7 +50,7 @@ name= "WorkflowPendingUserAuthnHandler"
 subscriptions =["PRE_AUTHENTICATE_CLAIM_WITH_ID"]
 ```
 
-When a user with a pending approval tries to log in, they see the following message:
+Users with pending approvals see the following message when they attempt to log in.
 
 ![Signin Pending Approval]({{base_path}}/assets/img/guides/workflows/signin-pending-approval.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
