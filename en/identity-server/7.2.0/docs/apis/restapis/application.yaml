@@ -84,7 +84,20 @@ paths:
       operationId: createApplication
       description: >
         This API provides the capability to store the application information that is provided by users. <br>
-          <b>Scope(Permission) required:</b> `internal_application_mgt_create`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_create`
+        
+         <b>➕ Additional Scopes</b>
+        
+          To create an application with an authentication script, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Create an application with an authentication script | `internal_application_script_update` |
+        
+          **Recommendation:** For authentication script updates, we recommend using the
+          [/applications/{applicationId}/authenticationSequence/script](#tag/Applications/operation/updateAuthenticationScript) endpoint.
       parameters:
         - in: query
           name: template
@@ -403,6 +416,9 @@ paths:
           | Action | Scope |
           |---------|--------|
           | Create an application with an authentication script via file import | `internal_application_script_update` |
+        
+        **Recommendation:** For authentication script updates, we recommend using the
+          [/applications/{applicationId}/authenticationSequence/script](#tag/Applications/operation/updateAuthenticationScript) endpoint.
       requestBody:
         content:
           multipart/form-data:
@@ -468,6 +484,9 @@ paths:
           | Action | Scope |
           |---------|--------|
           | Update the authentication script via file import | `internal_application_script_update` |
+        
+          **Recommendation:** For authentication script updates, we recommend using the
+          [/applications/{applicationId}/authenticationSequence/script](#tag/Applications/operation/updateAuthenticationScript) endpoint.
       requestBody:
         content:
           multipart/form-data:
@@ -600,6 +619,9 @@ paths:
           | Action | Scope |
           |---------|--------|
           | Update the authentication script | `internal_application_script_update` |
+        
+        **Recommendation:** For authentication script updates, we recommend using the
+          [/applications/{applicationId}/authenticationSequence/script](#tag/Applications/operation/updateAuthenticationScript) endpoint.
       parameters:
         - name: applicationId
           in: path
