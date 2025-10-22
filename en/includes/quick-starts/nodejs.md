@@ -106,6 +106,7 @@ CLIENT_SECRET=<YOUR_CLIENT_SECRET>
     - `<YOUR_CLIENT_ID>`
     - `<YOUR_CLIENT_SECRET>`
 
+{% if product_name == "WSO2 Identity Server" %}
 !!! Note
     If running in a local development or testing environment using self-signed SSL certificates, application may fail to connect due to TLS(Transport Layer Security) certificate validation errors. To bypass this check add `NODE_TLS_REJECT_UNAUTHORIZED=0` to the `.env` file.
 {% endif %}
