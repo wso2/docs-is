@@ -174,8 +174,13 @@ Prerequisites
 - `yarn v1.22.x`
 - `JDK 11`
 
-To add a custom layout to the login page:
+!!! note 
+    Set the environment variable `MAVEN_OPTS="-Xmx2048M -XX:MaxPermSize=1024m"` to avoid the Maven `OutOfMemoryError`. Make sure the build server has an active Internet connection to download dependencies while building.
 
+!!! tip 
+    Click [here](https://wso2.github.io/using-maven.html) for additional maven compilation guides.
+
+To add a custom layout to the login page:
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/carbon.super/` and follow the instructions provided below:
 
     1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/body.html){target="_blank"} into the `body.html` file.
