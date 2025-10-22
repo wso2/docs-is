@@ -1,4 +1,11 @@
-To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu.
+To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu. 
+
+{% if product_name == "Asgardeo"%}
+!!! note
+    The Approvals tab is hidden in the My Account portal for Asgardeo Administrators.
+    They can manage their approval requests directly from the Asgardeo Console.
+{% endif %}
+
 
 This page displays all approval requests that you are eligible to act on.
 
