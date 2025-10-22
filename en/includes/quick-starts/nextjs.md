@@ -82,8 +82,13 @@ Create a `.env` or an appropriate environment configuration file in the root of 
 NEXT_PUBLIC_ASGARDEO_BASE_URL="{{content.sdkconfig.baseUrl}}"
 NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
 ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
-NODE_TLS_REJECT_UNAUTHORIZED=0
 ```
+
+{% if product_name == "WSO2 Identity Server" %}
+!!! Note
+    If you are running in a local development or testing environment using self-signed SSL certificates, your application may fail to connect due to TLS certificate validation errors. To bypass this check add `NODE_TLS_REJECT_UNAUTHORIZED=0` to the `.env` file.
+{% endif %}
+
 
 ## Setup the middleware
 

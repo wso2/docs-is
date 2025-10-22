@@ -97,8 +97,6 @@ Create `.env` environment properties file, and add the following  variables:
 ```bash
 CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
-NODE_TLS_REJECT_UNAUTHORIZED=0
-
 ```
 
 !!! Important
@@ -107,6 +105,11 @@ NODE_TLS_REJECT_UNAUTHORIZED=0
 
     - `<YOUR_CLIENT_ID>`
     - `<YOUR_CLIENT_SECRET>`
+
+{% if product_name == "WSO2 Identity Server" %}
+!!! Note
+    If you are running in a local development or testing environment using self-signed SSL certificates, your application may fail to connect due to TLS certificate validation errors. To bypass this check add `NODE_TLS_REJECT_UNAUTHORIZED=0` to the `.env` file.
+{% endif %}
 
 Then, Add the following line to the start of the `app.js` file to load the environment variables from the `.env` file.
 
