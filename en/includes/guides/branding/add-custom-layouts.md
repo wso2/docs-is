@@ -211,7 +211,7 @@ To add a custom layout to the login page:
 Select **Custom** layout as the **Login Layout** and click **Save & Publish** to apply the branding configurations.
 
    !!! tip
-   If the server stops working after the changes are added, restart the server before verifying the changes.
+       If the server stops working after the changes are added, restart the server before verifying the changes.
 
 5. Refresh the browser and check out the added custom layout.
 
