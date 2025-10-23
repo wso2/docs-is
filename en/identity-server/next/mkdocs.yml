@@ -873,6 +873,7 @@ nav:
         - Clock tolerance: deploy/configure/clock-tolerance.md
       - Secure:
         - Mitigate attacks:
+          - Mitigate attacks: deploy/mitigate-attacks/index.md
           - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md
           - Authorization Code Interception attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
           - Brute Force attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
