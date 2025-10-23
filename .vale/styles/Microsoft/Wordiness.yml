@@ -7,7 +7,7 @@ action:
   name: replace
 swap:
   "sufficient number(?: of)?": enough
-  (?:extract|take away|eliminate): remove
+  (?:take away|eliminate): remove
   (?:in order to|as a means to): to
   (?:inform|let me know): tell
   (?:previous|prior) to: before

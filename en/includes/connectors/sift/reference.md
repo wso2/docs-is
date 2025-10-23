@@ -1,4 +1,4 @@
-# References: Sift functions and parameters
+# Reference: Sift functions and parameters
 
 This reference describes the functions and parameters you can use in [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) scripts to interact with Sift.
 

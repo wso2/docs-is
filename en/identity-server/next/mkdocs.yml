@@ -891,7 +891,7 @@ nav:
       - Set up: connectors/sift/set-up.md
       - Usage: connectors/sift/usage.md
       - Reference: connectors/sift/reference.md
-    - OnFido:
+    - Onfido:
       - Overview: connectors/onfido/overview.md
       - Set up: connectors/onfido/set-up.md
       - Usage: connectors/onfido/usage.md
