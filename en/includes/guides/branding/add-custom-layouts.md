@@ -175,10 +175,10 @@ Prerequisites
 - `JDK 11`
 
 !!! note 
-    Set the environment variable `MAVEN_OPTS="-Xmx2048M -XX:MaxPermSize=1024m"` to avoid the Maven `OutOfMemoryError`. Make sure the build server has an active Internet connection to download dependencies while building.
+    Make sure the build server has an active Internet connection to download dependencies while building.
 
 !!! tip 
-    Click [here](https://wso2.github.io/using-maven.html) for additional maven compilation guides.
+    Go through the [troubleshooting guides]([https://wso2.github.io/using-maven.html](https://github.com/wso2/identity-apps/blob/master/docs/TROUBLESHOOTING.md)).
 
 To add a custom layout to the login page:
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/carbon.super/` and follow the instructions provided below:
