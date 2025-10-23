@@ -28,7 +28,7 @@ IAM-CTL provides support for propagating the following resource types:
       <td>Applications, Identity Providers, Claims, User Stores</td>
     </tr>
     <tr>
-      <td>Sub-Organization</td>
+      <td>Child Organization</td>
       <td>Applications, Identity Providers, User Stores</td>
     </tr>
   </tbody>
@@ -36,9 +36,7 @@ IAM-CTL provides support for propagating the following resource types:
 
 ## Getting Started
 
-Before using IAM-CTL, you need to register Machine-to-Machine (M2M) applications in your target environments. If you are propagating resources between root orgs, you need to create M2M apps in root organizations. 
-
-If you are propagating resources between sub organization, you need to create application in the root organization and share it with the relevant sub organization. These applications will be used by IAM-CTL to authenticate and perform operations on your behalf.
+Before using IAM-CTL, you need to register Machine-to-Machine (M2M) applications in your target environments. If you are propagating resources between root orgs, you need to create M2M apps in root organizations. If you are propagating resources between child organization, you need to create application in the root organization and share it with the relevant child organization. These applications will be used by IAM-CTL to authenticate and perform operations on your behalf.
 
 ### Register an application for resource propagation across root organizations
 
@@ -71,12 +69,12 @@ Follow the steps below to register an M2M application.
 
 Take note of the **Client ID** and **Client Secret** of the M2M application you created.
 
-### Register an application for resource propagation across sub organizations
+### Register an application for resource propagation across child organizations
 
-If the target environment is a sub organization, ensure that the M2M application is created within that specific sub organization.
+If the target environment is a child organization, ensure that the M2M application is created within that specific child organization.
 
 1. Register a Standard-Based Application in the root organization.
-2. Share the application with the relevant sub-organization (e.g., wso2.com).
+2. Share the application with the relevant child organization (e.g., wso2.com).
 3. Allow following grant types in the newly created Standard-Based Application:
     - Client Credentials
     - Organization Switch
@@ -171,7 +169,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
         }
         ```
 
-    To propagate resources between sub organizations, provide the details of the application created in the sub organization and the sub organization details.
+    To propagate resources between child organizations, provide the details of the application created in the child organization and the child organization details.
     
     === "serverConfig.json"
 
