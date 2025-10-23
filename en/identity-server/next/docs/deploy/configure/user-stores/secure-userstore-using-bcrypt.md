@@ -3,34 +3,42 @@
 Bcrypt is recognized as a password hashing function that is designed to protect sensitive data through generating strong, non-reversible hashes. Salting and an adjustable cost factor are utilized to resist brute-force and pre-computed attacks. This makes it an ideal choice for securely storing credentials in user stores.
 
 > [!NOTE]
+> 
 > * Currently, Bcrypt supports only JDBC user stores of WSO2 Identity Server.
-> * It should be noted that in WSO2 Identity Server version 7.1.0, this connector is supported specifically at update levels 24 and above.
+> * It should be noted that in WSO2 Identity Server version 7.1.0, WSO2 Identity Server supports this connector at update levels 24 and above.
 
-## Configure Bcrypt hashing
+## Configure bcrypt hashing
+
 
 This section guides you on how to configure Bcrypt hashing on primary and secondary JDBC user stores.
+
+
 * Place the `org.wso2.carbon.identity.hash.provider.bcrypt-*.*.*.jar` file into the`<IS_HOME>/repository/components/dropins` directory. You can download the connector from the [WSO2 Store](https://store.wso2.com/connector/identity-hash-provider-bcrypt).
+
 ### Bcrypt for primary JDBC user store
 
 > [!NOTE]
-> Bcrypt is supported by
+> 
+> Bcrypt's supported by
 [primary JDBC user stores](https://is.docs.wso2.com/en/7.0.0/guides/users/user-stores/primary-user-store/configure-a-jdbc-user-store/) but must be enabled in the deployment.toml file before initial server startup. Since Bcrypt automatically generates a unique, cryptographically strong salt for each password, you must also disable the user store's external salt handling for it to function correctly .
 
 1. Open the deployment.toml file located in the `<IS_HOME>/repository/conf` directory.
 
 2. Add the following configurations under the `[user_store.properties]` section. If the section does not exist, you can add it.
 
+
    ```bash
-     [user_store.properties]
-     PasswordDigest = "BCRYPT"
-     StoreSaltedPassword = "false"
-    "Hash.Algorithm.Properties" = "{bcrypt.version:2a,bcrypt.cost.factor:10}"
+   [user_store.properties]
+   PasswordDigest = "BCRYPT"
+   StoreSaltedPassword = "false"
+   "Hash.Algorithm.Properties" = "{bcrypt.version:2a,bcrypt.cost.factor:10}"
    ```
+
 3. Restart the WSO2 Identity Server.
 
 * The `Hash.Algorithm.Properties` [configuration](#bcrypt-parameters) is optional and may be omitted if the default values are sufficient for the deployment.
 
-* If Bcrypt is not defined during the initial server startup, existing passwords will not be hashed using Bcrypt. In such cases, administrators will need to [reset user passwords](https://is.docs.wso2.com/en/latest/guides/account-configurations/account-recovery/password-recovery/) after enabling Bcrypt.
+* If Bcrypt isn't defined during the initial server startup, Bcrypt won't hash existing passwords. In such cases, administrators will need to [reset user passwords](https://is.docs.wso2.com/en/latest/guides/account-configurations/account-recovery/password-recovery/) after enabling Bcrypt.
 
 ### Bcrypt for secondary JDBC user stores
 
@@ -40,7 +48,7 @@ This section guides you on how to configure Bcrypt hashing on primary and second
 
 3. Navigate to the **User** tab of the user store and expand the **Show more** section.
 
-5. Edit the following properties with the values given:
+4. Edit the following properties with the values given:
 
    <table>
     <thead>
@@ -73,12 +81,14 @@ This section guides you on how to configure Bcrypt hashing on primary and second
    Successful updation of these configurations will convert the password hashing algorithm of the user store to Bcrypt.
 
 > [!NOTE]
+> 
 >  **Existing user stores**
-> - You may also use an existing user store which does not have any users in it. If you already have users in the user store, once the hashing algorithm is configured these users will not be able to get authenticated.
+> 
+> * You may also use an existing user store which does not have any users in it. If you already have users in the user store, Once you configure the hashing algorithm, users won't be able to log in.
 >
-> - In such cases users will not get authenticated even when they try to login using the correct  credentials. Admins may use the following approaches to reset the user passwords after configuring the Bcrypt hashing algorithm on an existing user store:
-    >   - Ask users to reset their own passwords.
->   - Trigger password reset for all accounts of the user store using [admin initiated password reset](https://is.docs.wso2.com/en/7.0.0/guides/users/manage-users/#reset-the-users-password).
+> * In such cases users won't get authenticated even when they try to login using the correct  credentials. Admins may use the following approaches to reset the user passwords after configuring the Bcrypt hashing algorithm on an existing user store:
+>  * Ask users to reset their own passwords.
+>  * Trigger password reset for all accounts of the user store using [admin initiated password reset](https://is.docs.wso2.com/en/7.0.0/guides/users/manage-users/#reset-the-users-password).
 
 ### Bcrypt parameters
 
@@ -110,5 +120,6 @@ When configuring the Bcrypt hashing algorithm the following parameters must be s
 </table>
 
 >[!NOTE]
+> 
 >Passwords must be 72 characters or fewer when using the Bcrypt hashing algorithm. For guidance on updating password policy, refer to the [documentation](https://is.docs.wso2.com/en/7.1.0/guides/account-configurations/login-security/password-validation/#password-input-validation).
    
