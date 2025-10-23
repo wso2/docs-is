@@ -31,8 +31,8 @@ Create an Angular app using Angular CLI.
 ng new {{ product }}-angular
 ```
 
-!!! tip "Tip"
-    To run the command above, you need to have Angular CLI installed. You can install it using the following command.
+!!! Important
+    - Before running the command above, make sure you have ***Angular CLI version 17*** installed. This guide is compatible only with Angular CLI 17. You can install it using the following command.
 
     === "npm"
 
@@ -50,6 +50,8 @@ ng new {{ product }}-angular
         ``` bash
         pnpm add -g @angular/cli@17 
         ```
+    
+    - When creating a new Angular project using the above command, if prompted to set up Server-Side Rendering (SSR), choose **No**.
 
 ## Install angular-oauth2-oidc
 
