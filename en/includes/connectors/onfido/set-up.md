@@ -14,19 +14,19 @@ Installing Onfido in {{product_name}} involves two main steps, installing the co
 
 1. To install the connector file,
 
-    - From the WSO2 Identity Server [Connector Store](https://store.wso2.com/connector/identity-verification-onfido){: target="_blank"}, download `org.wso2.carbon.identity.verification.onfido.connector-<version>.jar`.
+    1. From the WSO2 Identity Server [Connector Store](https://store.wso2.com/connector/identity-verification-onfido){: target="_blank"}, download `org.wso2.carbon.identity.verification.onfido.connector-<version>.jar`.
 
-    - Copy the `jar` file into the `<IS_HOME>/repository/components/dropins` directory of your WSO2 Identity Server installation.
+    2. Copy the `jar` file into the `<IS_HOME>/repository/components/dropins` directory of your WSO2 Identity Server installation.
 
 2. To install the web application and resources,
 
-    - Download the `artifacts.zip` file from the WSO2 Identity Server [Connector Store](https://store.wso2.com/connector/identity-verification-onfido){: target="_blank"}.
+    1. Download the `artifacts.zip` file from the WSO2 Identity Server [Connector Store](https://store.wso2.com/connector/identity-verification-onfido){: target="_blank"}.
 
-    - Extract the downloaded zip file.
+    2. Extract the downloaded zip file.
 
-    - From the extracted folder, copy the `idv#onfido.war` file and paste it into the `<IS_HOME>/repository/deployment/server/webapps` directory.
+    3. From the extracted folder, copy the `idv#onfido.war` file and paste it into the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
-    - In the same extracted folder, copy the `onfido` directory and paste it into the `<IS_HOME>/repository/resources/identity/extensions/identity-verification-providers` directory.
+    4. In the same extracted folder, copy the `onfido` directory and paste it into the `<IS_HOME>/repository/resources/identity/extensions/identity-verification-providers` directory.
 
 3. Once you have copied the necessary files, configure the access control for Onfido by adding the following configuration the the `<IS_HOME>/repository/conf/deployment.toml` file.
 
@@ -44,42 +44,47 @@ Installing Onfido in {{product_name}} involves two main steps, installing the co
 
 4. Restart {{product_name}}.
 
-## Step 2: Register Onfido account in {{product_name}}
+## Step 2: Integrate your Onfido account with {{product_name}}
 
-Now that you have installed the Onfido connector, you need to integrate your Onfido account in {{product_name}}. To do so,
+Now that you have installed the Onfido connector, follow the steps below to integrate your Onfido account with {{product_name}}.
 
-1. On the {{product_name}} Console, go to **Connections** and click **New Connections**.
+1. Connect your Onfido account with {{product_name}}.
 
-2. In the list of templates, find the **Onfido** card and click **Create** to add it.
+    1. On the {{product_name}} Console, go to **Connections** and click **New Connections**.
 
-3. Enter a name for the Onfido connector and the necessary configurations:
+    2. In the list of templates, find the **Onfido** card and click **Create** to add it.
 
-     - **API Token**: The API token generated via the Onfido dashboard.
-     - **Workflow ID**: The unique identifier for the Workflow created using Onfido Studio. For more information refer   [Onfido Workflow Setup Guide](onfido-setup-guide.md){: target="_blank"}.
-     - **Base URL**: The regional base URL for Onfido API calls.
+    3. Enter a name for the Onfido connector and the necessary configurations:
+
+        - **API Token**: The API token generated via the Onfido dashboard.
+        - **Workflow ID**: The unique identifier for the Workflow created using Onfido Studio. For more information refer  to the [Onfido Workflow Setup Guide](onfido-setup-guide.md){: target="_blank"}.
+        - **Base URL**: The regional base URL for Onfido API calls.
   
-4. Click **Create** to create the Onfido connector.
+    4. Click **Create** to create the Onfido connector.
 
-5. You will be redirected to the setup guide for the newly created Onfido connector. Follow the instructions displayed:
-   - Log in to your Onfido dashboard and navigate to the Webhook configuration section. Generate a Webhook token by 
-   providing the displayed URL and selecting only the `workflow_run.completed` event.
-   - Return to the WSO2 console and navigate to the **Settings** tab of the newly created Onfido connector. 
-   Enter the obtained token in the Webhook Token field, then click `Update` to finish the setup.
-6. Now that you have created a connection for Onfido, ensure that the attributes used in Onfido are correctly mapped to 
-the attributes in Identity Server. To do this:
-   - Navigate to the **Attributes** tab of the newly created Onfido connector.
-   - Verify that first name and last name are already configured as mandatory attributes. 
-   - To add other attribute mappings, click **Add Attribute Mapping**. 
-   - Enter the attribute name used in Onfido. 
-   - Select the corresponding Identity Server Claim URI. 
-   - Click **Add Attribute Mapping** and then **Update**.
-1. After completing the configuration and attribute mapping, your Onfido connector will be ready for use with WSO2 
-Identity Server. You can now integrate Onfido's identity verification process into your applications.
+    5. On the created connection, note the URL displayed under the **Setup Guide**.
 
-> **Note :**
-> 
-> In WSO2 Identity Server 7.0, the steps differ slightly. To create a new Identity Verification Provider:
-> 1. Log in to the WSO2 Identity Server console using your admin credentials.
-> 2. Navigate to Identity Verification Providers in the left-hand menu.
-> 3. Click + New Identity Verification Provider.
-> 4. Follow steps 4-9 as listed above to complete the setup process.
+2. Generate a webhook token in Onfido and register it in {{product_name}}.
+
+    1. Log in to your Onfido dashboard and navigate to the Webhook configuration section. 
+
+    2. Generate a Webhook token by providing the displayed URL and selecting only the `workflow_run.completed` event.
+
+    3. On the {{product_name}} Console, return to the created connection and navigate to its **Settings** tab.
+
+    4. Enter the obtained token in the Webhook Token field, then click **Update** to finish the setup.
+
+3. Map the Onfido attributes with {{product_name}}.
+
+    1. Open the created **Onfido** connection and go to its Attributes tab.
+
+    2. Update the mandatory first name and last name attribute mappings to match your Onfido configuration.
+
+    3. To add additional attributes,
+
+        1. Click **Add Attribute Mapping**.
+        2. Enter the external attribute and select the corresponding local user attribute.
+
+    4. Click **Update** to save the changes.
+
+You have now successfully installed the Onfido connector and integrated your Onfido account with {{product_name}}.
