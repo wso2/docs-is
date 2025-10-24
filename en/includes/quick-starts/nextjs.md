@@ -76,13 +76,18 @@ Asgardeo Next.js SDK provides all the components and hooks you need to integrate
 
 ## Set up environment variables
 
-Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the Asgardeo Next.js SDK to function properly.
+Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the Asgardeo Next.js SDK to function.
 
 ```bash title=".env"
-NEXT_PUBLIC_ASGARDEO_BASE_URL="https://api.asgardeo.io/t/<your-org-name>"
+NEXT_PUBLIC_ASGARDEO_BASE_URL="{{content.sdkconfig.baseUrl}}"
 NEXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
 ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
 ```
+
+{% if product_name == "WSO2 Identity Server" %}
+!!! Note
+    If running in a local development or testing environment using self-signed SSL certificates, application may fail to connect due to Transport Layer Security(TLS) certificate validation errors. To bypass this check add `NODE_TLS_REJECT_UNAUTHORIZED=0` to the `.env` file.
+{% endif %}
 
 ## Setup the middleware
 
