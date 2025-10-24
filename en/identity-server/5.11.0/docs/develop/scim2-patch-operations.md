@@ -145,7 +145,7 @@ Let's create patch request payloads to `add` user attributes of different types.
 
 **Simple singular attributes**
 
-Consider the `nickname` attribute in the **Core** user schema and the `country` attribute in the **Enterprise** user schema (`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`). These are simple singular attributes.
+Consider the `nickname` attribute in the **Core** user schema and the `country` attribute in the **WSO2 custom** user schema (`urn:scim:wso2:schema`). These are simple singular attributes.
 
 -   **Example 1:** Add the `nickName` attribute in the **Core** user schema (without using the path param):
 
@@ -168,25 +168,25 @@ Consider the `nickname` attribute in the **Core** user schema and the `country` 
     }
     ```
 
--   **Example 3:** Add the `country` attribute in the **Enterprise** user schema (without using the path param):
+-   **Example 3:** Add the `country` attribute in the **WSO2 custom** user schema (without using the path param):
 
     ```json
     {
         "op": "add",
         "value": {
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+            "urn:scim:wso2:schema": {
                 "country": "Sri Lanka"
             }
         }
     }
     ```
 
--   **Example 4:** Add the `country` attribute in the **Enterprise** user schema (using the path param):
+-   **Example 4:** Add the `country` attribute in the **WSO2 custom** user schema (using the path param):
 
     ```json
     {
         "op": "add",
-        "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:country",
+        "path": "urn:scim:wso2:schema:country",
         "value": "India"
     }
     ```
@@ -354,7 +354,7 @@ Let's create patch request payloads to `replace` user attributes of different ty
 
 **Simple singular attributes**
 
-Consider the `nickname` attribute in the **Core** user schema and the `country` attribute in the **Enterprise** user schema (`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`). These are simple singular attributes.
+Consider the `nickname` attribute in the **Core** user schema and the `country` attribute in the **WSO2 custom** user schema (`urn:scim:wso2:schema`). These are simple singular attributes.
 
 -   **Example 1:** Replace the `nickName` attribute in the **Core** user schema (without using the path param):
 
@@ -377,25 +377,25 @@ Consider the `nickname` attribute in the **Core** user schema and the `country` 
     }
     ```
 
--   **Example 3:** Replace the `country` attribute in the **Enterprise** user schema (without using the path param):
+-   **Example 3:** Replace the `country` attribute in the **WSO2 custom** user schema (without using the path param):
 
     ```json
     {
         "op": "replace",
         "value": {
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+            "urn:scim:wso2:schema": {
                 "country": "USA"
             }
         }
     }
     ```
 
--   **Example 4:** Replace the `country` attribute in the **Enterprise** user schema (using the path param):
+-   **Example 4:** Replace the `country` attribute in the **WSO2 custom** user schema (using the path param):
 
     ```json
     {
         "op": "replace",
-        "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:country",
+        "path": "urn:scim:wso2:schema:country",
         "value": "UK"
     }
     ```
@@ -549,7 +549,7 @@ Let's create patch request payloads to `remove` user attributes of different typ
 
 **Simple singular attributes**
 
-Consider the `nickname` attribute in the **Core** user schema and the `country` attribute in the **Enterprise** user schema (`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`). These are simple singular attributes.
+Consider the `nickname` attribute in the **Core** user schema and the `country` attribute in the **WSO2 custom** user schema (`urn:scim:wso2:schema`). These are simple singular attributes.
 
 -   **Example 1:** Remove the `nickName` attribute of a user in the **Core** user schema.
 
@@ -560,12 +560,12 @@ Consider the `nickname` attribute in the **Core** user schema and the `country` 
     }
     ```
 
--   **Example 2:** Remove the `country` attribute of a user in the **Enterprise** user schema.
+-   **Example 2:** Remove the `country` attribute of a user in the **WSO2 custom** user schema.
 
     ```json
     {
         "op": "remove",
-        "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:country"
+        "path": "urn:scim:wso2:schema:country"
     }
     ```
 
