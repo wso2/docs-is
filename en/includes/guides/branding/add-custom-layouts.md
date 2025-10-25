@@ -167,8 +167,20 @@ To create the basic custom layout resources:
 
 ### Step 3: Add a custom layout design
 
-To add a custom layout to the login page:
+Prerequisites
+- `NodeJS v20.x`
+- `npm v8.x`
+- `PNPM v8.x `
+- `yarn v1.22.x`
+- `JDK 11`
 
+!!! note 
+    Make sure the build server has an active Internet connection to download dependencies while building.
+
+!!! tip 
+    Go through the [troubleshooting guides]([https://wso2.github.io/using-maven.html](https://github.com/wso2/identity-apps/blob/master/docs/TROUBLESHOOTING.md)).
+
+To add a custom layout to the login page:
 1. Navigate to `webapps/authenticationendpoint/extensions/layouts/custom/carbon.super/` and follow the instructions provided below:
 
     1. Copy the code snippet from the [html file](https://github.com/wso2/docs-is/tree/master/en/identity-server/{{is_version}}/docs/assets/code-samples/body.html){target="_blank"} into the `body.html` file.
@@ -199,7 +211,7 @@ To add a custom layout to the login page:
 Select **Custom** layout as the **Login Layout** and click **Save & Publish** to apply the branding configurations.
 
    !!! tip
-   If the server stops working after the changes are added, restart the server before verifying the changes.
+       If the server stops working after the changes are added, restart the server before verifying the changes.
 
 5. Refresh the browser and check out the added custom layout.
 
