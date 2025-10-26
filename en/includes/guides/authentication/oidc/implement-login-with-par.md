@@ -60,11 +60,13 @@ You will receive a response with the request_uri and the time of expiry.
 
 !!! note
     - {{product_name}} uses the prefix, `urn:ietf:params:oauth:par:request_uri:` for the request_uri. The `/authorize` endpoint processes the request as initiated with PAR, only if the request_uri is of this format.
+    {% if product_name == "WSO2 Identity Server" %}
     - By default, the request_uri expires after 60 seconds. You can change the time of expiry (e.g. 90 seconds), by adding the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory.
     ```json
      [oauth.par]
      expiry_time=90
     ```
+    {% endif %}
 
 ## Start the authorization flow
 
