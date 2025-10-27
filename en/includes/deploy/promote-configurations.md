@@ -47,7 +47,7 @@ Follow the steps below to register an M2M application.
 <table>
     <tr>
         <td>Management --> Application Management API</td>
-        <td>Create Application, Update Application, Delete Application, View Application, Update authorised business APIs of an Application, Update authorised internal APIs of an Application, View application client secret, Regenerate application client secret</td>
+        <td>Create Application, Update Application, Delete Application, View Application, Update authorized business APIs of an Application, Update authorized internal APIs of an Application, View application client secret, Regenerate Application Secret</td>
     </tr>
     <tr>
         <td>Management --> Application Authentication Script Management API</td>
@@ -71,7 +71,7 @@ Take note of the **Client ID** and **Client Secret** of the M2M application you 
 
 ### Register an application for resource propagation across child organizations
 
-If the target environment is a child organization, ensure that the M2M application is created within that specific child organization.
+If the target environment is a child organization, ensure that a Standard-Based Application is created within the root organization and shared with that specific child organization.
 
 1. Register a Standard-Based Application in the root organization.
 2. Share the application with the relevant child organization (e.g., wso2.com).
@@ -83,7 +83,7 @@ If the target environment is a child organization, ensure that the M2M applicati
 <table>
     <tr>
         <td>Organization --> Application Management API</td>
-        <td>Create Application, Update Application, Delete Application, View Application, Update authorised business APIs of an Application, Update authorised internal APIs of an Application, View application client secret, Regenerate application client secret</td>
+        <td>Create Application, Update Application, Delete Application, View Application, Update authorized business APIs of an Application, Update authorized internal APIs of an Application, View application client secret, Regenerate Application Secret</td>
     </tr>
     <tr>
         <td>Organization --> Application Authentication Script Management API</td>
