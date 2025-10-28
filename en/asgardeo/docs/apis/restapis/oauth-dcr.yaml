@@ -3,15 +3,6 @@ info:
   title: Asgardeo - OAuth2 Dynamic Client Registration API
   description: |
     This document specifies an OAuth2 Dynamic Client Registration endpoint for Asgardeo.
-    <div style="border: 1px solid #f4c542; border-left: 6px solid #f4c542; border-radius: 6px; overflow: hidden; margin: 16px 0; background-color: #fffaf0;">
-      <div style="background-color: #fff8e5; padding: 10px 14px; border-bottom: 1px solid #f4c542;">
-        <span style="font-weight: 600; color: #8a6d00; font-size: 15px;">⚠️ NOTE</span>
-      </div>
-      <div style="padding: 14px 16px; color: #1a1a1a; line-height: 1.6;">
-        Starting <b>May&nbsp;1,&nbsp;2026</b>, <code>null</code> fields will no longer appear in the DCR API response to align with REST best practices.
-        We recommend using this grace period to update your integrations and ensure continued functionality.
-      </div>
-    </div>
   version: 1.1.0
 servers:
 - url: https:/api.asgardeo.io/t/{org-name}/api/identity/oauth2/dcr/v1.1
