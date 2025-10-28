@@ -4,7 +4,6 @@ link: 'https://docs.microsoft.com/en-us/style-guide'
 level: suggestion
 ignorecase: true
 tokens:
-  - above
   - accessible
   - actionable
   - alarm
@@ -19,5 +18,4 @@ tokens:
   - ensure
   - he
   - insure
-  - sample
   - she
