@@ -175,6 +175,9 @@ Configuring a regex pattern for challenge question answers will ensure the uniqu
 
 ![validating-challenge-question-answers.png](../assets/img/using-wso2-identity-server/validating-challenge-question-answers.png)
 
+!!! note
+    `<IS_HOME>` refers to the root directory where your WSO2 Identity Server is installed or extracted. For example, `/home/user/wso2is-5.11.0`.
+
 Alternatively, you can enable this server-wide instead of tenant-wise by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ``` toml
