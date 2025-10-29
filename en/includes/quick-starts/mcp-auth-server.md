@@ -1,6 +1,14 @@
 # MCP-Auth Quickstart
 
-Welcome to the Secure MCP server Quickstart guide! In this document, you will learn to build a Node.js MCP server using Asgardeo MCP Auth SDK, secure it with {{ product_name }} and define a MCP tool to add two numbers and a `greeting` resource.
+Welcome to the Secure MCP server Quickstart guide! This document shows you how to build a secure MCP (Model Context Protocol) server using [MCP TypeScript SDK](https://www.npmjs.com/package/@modelcontextprotocol/sdk) and [WSO2 MCP Auth SDK](https://www.npmjs.com/package/@asgardeo/mcp-express).
+
+You will create an MCP server that:
+
+- **Implements authorization** with {{ product_name }}
+- **Defines a tool** that adds two numbers
+- **Serves a resource** that generates a greeting
+
+After completing this guide, you will have a working MCP server that uses OAuth 2.1 according to the [MCP auth specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
 
 [//] STEPS_START
 
@@ -227,7 +235,7 @@ User **MCP Inspector** as the client application to test the MCP server.
 npx @modelcontextprotocol/inspector http://localhost:3000/mcp
 ```  
 
-Use it to list tools/resources, invoke the "add" tool (e.g., inputs `{ "a": 5, "b": 3 }`), or query the "greeting" resource (e.g., `greeting://world`).
+Use it to list tools/resources, invoke the "add" tool, or query the "greeting" resource using the inspector UI.
 
 
 ## Add auth to the MCP server
@@ -268,7 +276,7 @@ import { z } from 'zod';
 import {McpAuthServer} from '@asgardeo/mcp-express';
 
 // Define the port
-const port = parseInt(process.env.PORT || '3000');
+const port = '3000';
 
 // Initialize McpAuthServer (Asgardeo auth middleware)
 const mcpAuthServer = new McpAuthServer({
@@ -358,7 +366,7 @@ app.listen(port, () => {
 });
 ```
 
-Verify and update the placeholder values of `mcpAuthServer` configurations to properly connect to `{{ product_name }}`.
+Verify and update the placeholder values of `mcpAuthServer` configurations to properly connect to `{{ product_name }}`. Alternatively, you can use environment variables to manage these configurations securely.
 
 First run the dev server by running the following command.
 

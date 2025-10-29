@@ -17,7 +17,7 @@ template: templates/quick-start.html
       "Make sure you have a JavaScript package manager like npm, yarn, or pnpm",
       "A favorite text editor or IDE"
     ],
-    source_code: "<a href='https://github.com/ayshsandu/mcp-auth-quickstart' target='_blank' class='github-icon'>MCP-Auth Sample</a>"
+    source_code: "<a href='https://github.com/wso2/iam-ai-samples/tree/main/mcp-auth/typescript' target='_blank' class='github-icon'>MCP-Auth Sample</a>"
   };
 </script>
 
