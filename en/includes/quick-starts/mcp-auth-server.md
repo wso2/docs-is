@@ -210,7 +210,6 @@ app.post('/mcp', async (req, res) => {
 });
 
 // Start the server
-const port = parseInt(process.env.PORT || '3000');
 app.listen(port, () => {
     console.log(`Demo MCP Server running on http://localhost:${port}/mcp`);
 }).on('error', error => {
