@@ -1,29 +1,34 @@
 # MCP-Auth Quickstart
 
-Welcome to the MCP-Auth server Quickstart guide! In this document, you will learn to build a Node.js MCP server, secure it using {{ product_name }} and define a MCP tool to return profile information.
+Welcome to the Secure MCP server Quickstart guide! This document shows you how to build a secure MCP (Model Context Protocol) server using [MCP TypeScript SDK](https://www.npmjs.com/package/@modelcontextprotocol/sdk) and [WSO2 MCP Auth SDK](https://www.npmjs.com/package/@asgardeo/mcp-express).
+
+You will create an MCP server that:
+
+- **Implements authorization** with {{ product_name }}
+- **Defines a tool** that adds two numbers
+- **Serves a resource** that generates a greeting
+
+After completing this guide, you will have a working MCP server that uses OAuth 2.1 according to the [MCP auth specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
 
 [//] STEPS_START
 
 ## Configure an Application in {{ product_name }}
 
-- Sign into {{ product_name }} console and navigate to **Applications > New Application**.
-- Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
+- Sign in to {{ product_name }} console and navigate to **Applications > New Application**.
+- Select **MCP Client** and complete the wizard popup by providing a suitable name and an the authorized redirect URL.
 
 !!! Example
-    Name : MCPAuthServer
+    Name : MCPInspectorApp
 
-    Authorized redirect URL: http://localhost:47926/oauth/callback
+    Authorized redirect URL: http://localhost:6274/oauth/callback
 
 !!! Info
+    The authorized redirect URL determines where users are sent after login, typically where the client app connecting to the MCP server is running. 
+    For this guide, we'll use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we'll use `http://localhost:6274/oauth/callback`, as the authorized redirect URL.
 
-    The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your app is hosted. For this guide, we'll use `http://localhost:47926/oauth/callback`, as the authorized redirect URL.
+Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Test the MCP server with auth](#test-the-mcp-server-with-auth) section of this guide.
 
-Make a note of the following values from the **Protocol** and **Info** tabs of the registered application. You will need them during the **Step 4**
-
-- **`client-id`** from the **Protocol** tab.
-- **`Token Endpoint`** from the **Info** tab.
-
-## Create a Node.js MCP server
+## Create a Simple MCP server
 
 Create a directory called `mcp-auth-quickstart` by running the following commands.
 
@@ -32,7 +37,7 @@ Create a directory called `mcp-auth-quickstart` by running the following command
   cd mcp-auth-quickstart
 ```
 
-Than initialize a Node.js project using the following command.
+Then initialize a Node.js project using the following command.
 
 === "npm"
 
@@ -57,9 +62,9 @@ Now open the `package.json` file and replace the existing content with the follo
   "name": "mcp-auth-quickstart",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
-    "start": "node index.js"
+    "start": "npx tsx server.ts"
   }
 }
 ```
@@ -69,209 +74,298 @@ Install the following dependencies.
 === "npm"
 
     ``` bash
-    npm install @modelcontextprotocol/sdk express
+    npm install typescript tsx express zod @modelcontextprotocol/sdk
+    npm install --save-dev @types/express @types/node @types/cors
     ```
 
 === "yarn"
 
     ``` bash
-    yarn install @modelcontextprotocol/sdk express
-    ```
+    yarn add typescript tsx express zod @modelcontextprotocol/sdk
+    yarn add --dev @types/express @types/node @types/cors
+    ``` 
 
 === "nnpm"
 
     ``` bash
-    nnpm install @modelcontextprotocol/sdk express
+    nnpm install typescript tsx express zod @modelcontextprotocol/sdk
+    nnpm install --save-dev @types/express @types/node @types/cors
     ```
 
-Crate a file called `index.js` and add the following content.
+Initialize the TypeScript configuration by running the following command.
 
-```javascript title="index.js"
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
+=== "npx"
+
+    ``` 
+    npx tsc --init
+    ``` 
+
+=== "yarn"
+
+    ```
+    yarn tsc --init
+    ```
+
+=== "nnpm"
+
+    ```
+    nnpm tsc --init
+    ```   
+
+Update the `tsconfig.json` file with the following settings.
+```json title="tsconfig.json"
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
+```
+
+Create `server.ts` in the root and add the code below. This implements a Streamable-HTTP MCP server with a basic tool (addition) and resource (greeting), plus CORS handling to avoid cross-origin errors when testing with browser clients.
+
+```typescript title="server.ts"
+import { McpServer, ResourceTemplate } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import express from 'express';
+import cors from 'cors'; // Add this import
+import { z } from 'zod';
 
+// Create an MCP server
 const server = new McpServer({
-  name: 'WhoAmI',
-  version: '0.0.0',
+    name: 'demo-server',
+    version: '1.0.0'
 });
 
-server.tool('whoami', async () => {
-  return {
-    content: [{ type: 'text', text: JSON.stringify({ error: 'Not authenticated' }) }],
-  };
-});
+// Define the port
+const port = '3000';
 
-const PORT = 3001;
+// Register a simple addition tool
+server.registerTool(
+    'add',
+    {
+        title: 'Addition Tool',
+        description: 'Add two numbers',
+        inputSchema: { a: z.number(), b: z.number() },
+        outputSchema: { result: z.number() }
+    },
+    async ({ a, b }) => {
+        const output = { result: a + b };
+        return {
+            content: [{ type: 'text', text: JSON.stringify(output) }],
+            structuredContent: output
+        };
+    }
+);
+
+// Register a dynamic greeting resource
+server.registerResource(
+    'greeting',
+    new ResourceTemplate('greeting://{name}', { list: undefined }),
+    {
+        title: 'Greeting Resource',
+        description: 'Dynamic greeting generator'
+    },
+    async (uri, { name }) => ({
+        contents: [
+            {
+                uri: uri.href,
+                text: `Hello, ${name}!`
+            }
+        ]
+    })
+);
+
+// Set up Express app
 const app = express();
 
-const transports = {};
+// Enable CORS (add this block)
+app.use(
+    cors({
+        origin: '*', // Allow all origins for development; restrict in production (e.g., ['https://your-client-domain.com'])
+        exposedHeaders: ['Mcp-Session-Id'],
+    })
+);
 
-app.get('/sse', async (_req, res) => {
-  const transport = new SSEServerTransport('/messages', res);
-  transports[transport.sessionId] = transport;
+app.use(express.json());
 
-  res.on('close', () => {
-    delete transports[transport.sessionId];
-  });
+// Handle MCP requests at /mcp endpoint
+app.post('/mcp', async (req, res) => {
+    // Create a new transport for each request (stateless mode)
+    const transport = new StreamableHTTPServerTransport({
+        sessionIdGenerator: undefined,
+        enableJsonResponse: true
+    });
 
-  await server.connect(transport);
+    res.on('close', () => {
+        transport.close();
+    });
+
+    await server.connect(transport);
+    await transport.handleRequest(req, res, req.body);
 });
 
-app.post('/messages', async (req, res) => {
-  const sessionId = String(req.query.sessionId);
-  const transport = transports[sessionId];
-  if (transport) {
-    await transport.handlePostMessage(req, res, req.body);
-  } else {
-    res.status(400).send('No transport found for sessionId');
-  }
+// Start the server
+app.listen(port, () => {
+    console.log(`Demo MCP Server running on http://localhost:${port}/mcp`);
+}).on('error', error => {
+    console.error('Server error:', error);
+    process.exit(1);
 });
 
-app.listen(PORT);
 ```
 
 ## Run and test without auth
 
 First run the dev server by running the following command.
-
-=== "npm"
-
-    ``` bash
-    npm start
-    ```
-
-=== "yarn"
-
-    ``` bash
-    npm start
-    ```
-
-=== "nnpm"
-
-    ``` bash
-    npm start
-    ```
-
-Configure **Claude Desktop** as the client application to test the MCP server.
-
-1. Open **Claude Desktop**.
-2. Click on **Claude Desktop > Settings > Developer**.
-3. Click on **Edit Config** button. This will open `claude_desktop_config.json` file location and you can open this file using an text editor.
-
-Add the following configuration to `claude_desktop_config.json` file.
-
-```json title="claude_desktop_config.json"
-{
-    "mcpServers": {
-        "whoami-server": {
-            "command": "npx",
-            "args": [
-                "mcp-remote@latest",
-                "http://localhost:3001/sse"
-            ]
-        }
-    }
-}
+```bash
+npm start
 ```
 
-Use the following simple prompt to test the MCP server.
+User **MCP Inspector** as the client application to test the MCP server.
 
-```text
-Who am I?
-```
+ In a new terminal window, run the following command to launch MCP Inspector against the running MCP server.
 
-You should be able to see "Not authenticated" error message.
+```bash
+npx @modelcontextprotocol/inspector http://localhost:3000/mcp
+```  
+
+Use it to list tools/resources, invoke the "add" tool, or query the "greeting" resource using the inspector UI.
+
 
 ## Add auth to the MCP server
 
-Stop the dev server and install the MCP-auth dependency.
+Stop the dev server and install the Asgardeo MCP Auth SDK.
 
 === "npm"
 
     ``` bash
-    npm install mcp-auth
+    npm install @asgardeo/mcp-express
     ```
 
 === "yarn"
 
     ``` bash
-    yarn install mcp-auth
+    yarn add @asgardeo/mcp-express
     ```
 
 === "nnpm"
+    ```bash
+    nnpm install @asgardeo/mcp-express
+    ``` 
 
-    ``` bash
-    nnpm install mcp-auth
-    ```
-Update the imports section of `index.js` file with the highlighted code.
+Update `server.ts` to integrate the Asgardeo middleware. This adds:
+    - Initialization of `McpAuthServer`.
+    - Registration of OAuth endpoints via `router()`.
+    - Protection of the `/mcp` route with `protect()`.
+    - Optional: Bearer token extraction for use in tools/resources (e.g., to obtain user details).
 
-```javascript title="index.js" hl_lines="3"
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
-import { MCPAuth, fetchServerConfig, MCPAuthTokenVerificationError } from 'mcp-auth';
+Here's the full updated `server.ts`:
+
+```typescript title="server.ts"
+import { McpServer, ResourceTemplate } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import express from 'express';
-```
+import cors from 'cors'; // Add this import
+import { z } from 'zod';
+import {McpAuthServer} from '@asgardeo/mcp-express';
 
-Add `index.js` file to include the MCP Auth configuration as given below.
+// Define the port
+const port = '3000';
 
-```javascript title="index.js"
-const authIssuer = '<Token Endpoint>';
-const mcpAuth = new MCPAuth({
-    server: await fetchServerConfig(authIssuer, { type: 'oidc' }),
+// Initialize McpAuthServer (Asgardeo auth middleware)
+const mcpAuthServer = new McpAuthServer({
+  baseUrl: '{{content.sdkconfig.baseUrl}}',
+  issuer: '{{content.sdkconfig.baseUrl}}/oauth2/token',
+  resource: `http://localhost:${port}/mcp`,
 });
-```
 
-Make sure to update `<Token Endpoint>` with the value you copied during the first step.
+// Create an MCP server
+const server = new McpServer({
+    name: 'demo-auth-server',
+    version: '1.0.0'
+});
 
-Then add the following given `verifyToken` function to the `index.js` file.
+// Register a simple addition tool
+server.registerTool(
+    'add',
+    {
+        title: 'Addition Tool',
+        description: 'Add two numbers',
+        inputSchema: { a: z.number(), b: z.number() },
+        outputSchema: { result: z.number() }
+    },
+    async ({ a, b }) => {
+        const output = { result: a + b };
+        return {
+            content: [{ type: 'text', text: JSON.stringify(output) }],
+            structuredContent: output
+        };
+    }
+);
 
-```javascript title="index.js"
-const verifyToken = async (token) => {
-    const { issuer, userinfoEndpoint } = mcpAuth.config.server.metadata;
+// Register a dynamic greeting resource
+server.registerResource(
+    'greeting',
+    new ResourceTemplate('greeting://{name}', { list: undefined }),
+    {
+        title: 'Greeting Resource',
+        description: 'Dynamic greeting generator'
+    },
+    async (uri, { name }) => ({
+        contents: [
+            {
+                uri: uri.href,
+                text: `Hello, ${name}!`
+            }
+        ]
+    })
+);
 
-    const response = await fetch(userinfoEndpoint, {
-        headers: { Authorization: `Bearer ${token}` },
+// Set up Express app
+const app = express();
+
+// Enable CORS (add this block)
+app.use(
+    cors({
+        origin: '*', // Allow all origins for development; restrict in production (e.g., ['https://your-client-domain.com'])
+        exposedHeaders: ['Mcp-Session-Id'],
+    })
+);
+
+app.use(express.json());
+app.use(mcpAuthServer.router());
+
+// Handle MCP requests at /mcp endpoint
+app.post('/mcp', mcpAuthServer.protect(), async (req, res) => {
+    // Create a new transport for each request (stateless mode)
+    const transport = new StreamableHTTPServerTransport({
+        sessionIdGenerator: undefined,
+        enableJsonResponse: true
     });
 
-    if (!response.ok) {
-        throw new MCPAuthTokenVerificationError('token_verification_failed', response);
-    }
+    res.on('close', () => {
+        transport.close();
+    });
 
-    const userInfo = await response.json();
-
-    if (typeof userInfo !== 'object' || userInfo === null || !('sub' in userInfo)) {
-        throw new MCPAuthTokenVerificationError('invalid_token', response);
-    }
-
-    return {
-        token,
-        issuer,
-        subject: String(userInfo.sub),
-        clientId: '',
-        scopes: [],
-        claims: userInfo,
-    };
-};
-```
-
-Finally update the tool to return the user profile details and apply the MCP Auth route and middleware function by modifying the highlighted code in the `index.js` file.
-
-```javascript title="index.js" hl_lines="1-7 11-12"
-server.tool('whoami', ({ authInfo }) => {
-  return {
-    content: [
-      { type: 'text', text: JSON.stringify(authInfo?.claims ?? { error: 'Not authenticated' }) },
-    ],
-  };
+    await server.connect(transport);
+    await transport.handleRequest(req, res, req.body);
 });
 
-const PORT = 3001;
-const app = express();
-app.use(mcpAuth.delegatedRouter());
-app.use(mcpAuth.bearerAuth(verifyToken));
-const transports = {};
+// Start the server
+app.listen(port, () => {
+    console.log(`Demo MCP Server running on http://localhost:${port}/mcp`);
+}).on('error', error => {
+    console.error('Server error:', error);
+    process.exit(1);
+});
 ```
+
+Verify and update the placeholder values of `mcpAuthServer` configurations to properly connect to `{{ product_name }}`. Alternatively, you can use environment variables to manage these configurations securely.
 
 First run the dev server by running the following command.
 
@@ -295,46 +389,21 @@ First run the dev server by running the following command.
 
 ## Test the MCP server with auth
 
-1. Open **Claude Desktop**.
-2. Click on **Claude Desktop > Settings > Developer**.
-3. Click on **Edit Config** button. This will open `claude_desktop_config.json` file location and you can open this file using an text editor.
+Use MCP Inspector to test (now requires auth):
+   ```
+   npx @modelcontextprotocol/inspector http://localhost:3000/mcp
+   ```
 
-Add the following configuration to `claude_desktop_config.json` file.
+   - In the MCP inspector, open the *Authentication* settings in the left side. Under *OAuth 2.0 Flow* provide the `client-id` obtained earlier in this guide.
+   - Click *Connect*, the inspector will prompt for authentication. Follow the OAuth flow to obtain a bearer token from {{ product_name }}.
 
-```json title="claude_desktop_config.json"
-{
-    "mcpServers": {
-        "whoami-server": {
-            "command": "npx",
-            "args": [
-                "mcp-remote@latest",
-                "http://localhost:3001/sse",
-                "--static-oauth-client-info",
-                "{ \"client_id\": \"<client-id>\"}",
-                "--static-oauth-client-metadata",
-                "{ \"scope\": \"openid profile email\"}"
-            ]
-        }
-    }
-}
-```
+    !!! Info
+        You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
 
-Make sure to replace `<client-id>` with the value you copied during the first step.
-
-Now, when you open Claude Desktop, it will redirect you to the Asgardeo login page for user authentication.
+   - Once the authentication is complete, you should be able to view the resources and invoke the tools exposed by the MCP server. 
+   - Unauthenticated requests to `/mcp` (e.g., via curl without Authorization header)return **401 errors** with **WWW-Authenticate headers**.
 
 !!! Important
-
-    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a Single User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
-
-Once the authentication is complete, you should be able to view the tools exposed by the MCP server.
-
-To test the MCP server, use the following simple prompt:
-
-```text
-Who am I?
-```
-
-You should now see your user profile information returned from the server.
+    With CORS enabled, browser-based clients should connect without errors. For production, customize CORS origins and explore SDK docs for advanced features like stateful sessions.
 
 [//] STEPS_END

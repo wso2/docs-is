@@ -228,9 +228,9 @@ nav:
         - Complete Guide: complete-guides/dotnet/introduction.md
       - Spring Boot:
         - Quickstart: quick-starts/springboot.md
-      - MCP Server:
+    - Secure MCP Servers:
+        - TypeScript: quick-starts/mcp-auth-server.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
-        - MCP-Auth Quickstart: quick-starts/mcp-auth-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
