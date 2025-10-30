@@ -135,4 +135,4 @@ How it works:
 
 - If step 1 fails, it calls the `publishLoginEventToSift()` function to notify Sift of the failed login attempt, which can help improve future risk assessments.
 
-- additional parameters enable logging and prevent {{product_name}} from sending the user agent information to Sift.
+- Additional parameters enable logging and prevent {{product_name}} from sending the user agent information to Sift.

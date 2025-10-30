@@ -1,109 +1,71 @@
 # Usage
 
-This guide explains how to use Onfido for identity verification using a sample scenario.
+This guide explains how to implement an identity verification flow in your application using Onfido and how to finalize the verification process with {{product_name}}. The typical flow includes the following steps:
 
-## Sample scenario
+## Step 1: Create a verification workflow in Onfido
 
-An insurance company called Guardio Life has a Single Page Application (SPA) that lets users browse and select insurance plans. Before selecting a plan, users should verify their identity and age.
+Onfido Studio lets you create a dynamic end-user verification experience by designing customizable workflows that guide users through document submission, identity checks, and any other required steps.
 
-The process goes as follows:
+### Step 1.1 Design the workflow
 
-- The SPA displays the available insurance plans. Until a user verifies their identity and age, the insurance plans remain greyed and not clickable.
+When using the Onfido connector in {{product_name}}, you must create a connector that includes at least document data capture. You can also optionally add face capture to the workflow. Refer to [Onfido studio documentation](https://documentation.onfido.com/getting-started/onfido-studio-product/#building-your-workflow){: target="_blank"} for instructions.
 
-- The application prompts the user for identity and age verification using Onfido.
+The following shows a sample workflow you can create using Onfido studio.
 
-- User submits the documents to Onfido to perform verification.
+![sample Onfido workflow]({{base_path}}/assets/img/connectors/onfido/onfido-sample-workflow.png)
 
-- Once the verification completes, the insurance plans become active and clickable.
+### Step 1.2 Configure workflow inputs
 
-- Users can then proceed to select their desired insurance plan.
+After designing the workflow, configure the input attributes that Onfido will validate. {{product_name}} requires first name and last name as mandatory attributes. Optionally, select any other attributes necessary for your application that Onfido should validate.
 
-## Deploy the sample application
+Refer to [Onfido input data documentation](https://documentation.onfido.com/getting-started/onfido-studio-product/#workflow-input-data){: target="_blank"} for instructions.
 
-In the following sections, you will run the Guardio Life SPA, register it with {{product_name}}, and integrate it with Onfido for identity verification.
+![Onfido workflow inputs]({{base_path}}/assets/img/connectors/onfido/onfido-workflow-input.png)
 
-### Prerequisites
+### Step 1.3 Configure workflow outputs
 
-- [Set up Onfido]({{base_path}}/connectors/onfido/set-up/) in your {{product_name}} installation.
+Workflow outputs specify the data returned at the end of a workflow run. {{product_name}} receives this response in a webhook, which contains all the configured output properties such as document verification results and data comparison details.
 
-- Install Node.js (version 10 or above) in your system. Refer to [Node documentation](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){: target="_blank"} for instructions.
+1. Create a property called `data_comparison` and specify its format as **Other** to allow storing a complex JSON structure.
 
-### Step 1: Configure the required attributes in the Onfido connection
+    ![Configure workflow output property]({{base_path}}/assets/img/connectors/onfido/workflow-output-configure.png)
 
-The Onfido connection, by default, only validates the first name and last name of the user. Since Guardio Life wants to confirm the age of users, you need to add date of birth as an attribute to be validated. To do so,
+2. Specify the sources as **Document report - Breakdown - Data comparison - Breakdown** for both approve applicant and decline applicant paths.
 
-1. On the {{product_name}} Console, go to **Connections** and go to your created Onfido connection.
+    ![Configure workflow output sources]({{base_path}}/assets/img/connectors/onfido/workflow-output-sources.png)
 
-2. Go to its **Attributes** tab and click **Add Attribute Mapping**.
+Refer to [Onfido output data documentation](https://documentation.onfido.com/getting-started/onfido-studio-product/#workflow-output-data){: target="_blank"} for instructions.
 
-3. Add any missing attribute mappings:
+!!! note
 
-    - first_name - `http://wso2.org/claims/givenname` (available by default)
-    - last_name - `http://wso2.org/claims/lastname` (available by default)
-    - dob - `http://wso2.org/claims/dob`
+    Ensure comparison checks are enabled in your Onfido account. For more details, refer to the [comparison checks documentation](https://documentation.onfido.com/api/latest/#data_comparison){: target="_blank"}.
 
-4. Click **Update** to save the changes.
+### Step 1.3 Set workflow conditions
 
-### Step 2: Register application in {{product_name}}
+Workflow conditions determine the criteria used to approve or decline a user. To set these conditions, click on the **If/Else** condition in the workflow builder.
 
-To register your application as a Single Page Application,
+- **Basic condition**: Check whether the Document Report and, optionally, the Face Capture results are marked **Clear**.
 
-1. On the {{product_name}} Console, go to **Applications** > **New Application**.
+    - If both are Clear, the workflow should **Approve** the user.
 
-2. Click **Single-Page Application** and provide the following details:
+    - If either is not Clear, the workflow should **Decline** the user.
 
-    - Name - A name for your application.
-    - Authorized Redirect URLs  - `https://localhost:3000`
+- You can add any other conditions such as other data comparison results and additional document checks.
 
-3. Click **Create** to create the application.
+!!! note
 
-4. In the created application, go to the **Protocol** tab and do the following:
+    {{product_name}} only marks the attribute verification as successful if the workflow returns an approved status.
 
-    - Take note of the Client ID of the application.
-    - Make sure `https://localhost:3000` is listed under **Allowed Origins**.
+- Initiate verification using the Onfido SDK - Integrate the Onfido SDK in your application to capture the user’s documents and perform the necessary checks.
 
-### Step 3: Configure and run application
+Receive webhook notifications from Onfido
 
-Follow the steps below to run the sample application in your system.
+Set up a webhook to receive events from Onfido when the verification process is completed or updated.
 
-1. Clone the [identity-verification-onfido](https://github.com/wso2-extensions/identity-verification-onfido.git){: target="_blank"} repository. The sample application can be found in the `/samples/react-sample-app/` directory. For clarity, this directory will be referred to as `<HOME>` in the instructions below.
+Validate results with {{product_name}}
 
-2. Open the `<HOME>/public/runtime-config.json` file and add the following configurations.
+Use the {{product_name}} verification API to confirm whether the user’s attributes (e.g., identity, documents) have been successfully verified.
 
-    ```
-    {
-    "clientID": "<CLIENT_ID>",
-    "baseUrl": "https://localhost:9443",
-    "signInRedirectURL": "https://localhost:3000",
-    "signOutRedirectURL": "https://localhost:3000",
-    "userPortalURL": "https://localhost:9443/myaccount",
-    "scope": [ "openid", "profile", "internal_login"],
-    "identityVerificationProviderId": "<ONFIDO_IDVP_ID>"
-    }
-    ```
+Control access based on verification outcome
 
-    !!! note
-
-        - Replace `<CLIENT_ID>` with the client ID you copied from Step 2.
-
-        - Replace `<ONFIDO_IDVP_ID>` with the ID of your Onfido connector. To find it,
-            - On the {{product_name}} Console, go to **Connections** and select your Onfido connector.
-            - Copy the ID from the **Setup Guide** of the Onfido connection.
-
-3. To run the application, return to the `<HOME>` directory and execute the following command.
-
-    ```
-    npm install && npm start
-    ```
-
-!!! note "Change the server port of the application"
-
-    To change the port on which the application runs,
-
-    1. Open the `.env` file in the `<HOME>` directory and change the `PORT` value.
-
-    2. Open the `<HOME>/public/runtime-config.json` file and change the `signInRedirectURL` and the `signOutRedirectURL` to match your updated port value.
-
-    3. On the {{product_name}} Console go to **Connections**, select the Onfido connection and in its **Protocol** tab, update the following to match your port value:
-        - Authorized Redirect URL.
-        - Allowed Origins.
+Depending on the verification result, allow or deny the user access to your application’s resources.
