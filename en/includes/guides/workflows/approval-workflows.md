@@ -35,3 +35,23 @@ After creating the workflow, you can view its details, edit it, or delete it.
 ![Approval Workflow configuration]({{base_path}}/assets/img/guides/workflows/workflow-approval-edit.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 To learn how to review the approval requests, see [Manage Approvals]({{base_path}}/guides/user-self-service/manage-approvals/).
+
+{% if product_name == "WSO2 Identity Server" %}
+
+## Handle users with pending approvals at login
+
+Configure {{ product_name }} to handle login attempts from users with pending approval requests.
+
+Add the following configuration to the `deployment.toml` file:
+
+```toml
+[[event_handler]]
+name= "WorkflowPendingUserAuthnHandler"
+subscriptions =["PRE_AUTHENTICATE_CLAIM_WITH_ID"]
+```
+
+Users with pending approvals see the following message when they attempt to log in.
+
+![Signin Pending Approval]({{base_path}}/assets/img/guides/workflows/signin-pending-approval.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+{% endif %}
