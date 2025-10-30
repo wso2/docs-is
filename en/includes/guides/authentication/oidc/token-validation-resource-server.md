@@ -74,6 +74,10 @@ Unlike JWT tokens, opaque tokens are non-transparent. This means that the author
 
 {% endif %}
 
+!!! warning "Security advisory: Avoid using super admin credentials for API authentication"
+
+    When invoking APIs using basic authentication, never use the super admin or any high-privileged user credentials. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
+
 {% if product_name == "WSO2 Identity Server" %}
 
 !!! note
