@@ -588,6 +588,7 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/react/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/react/guides/protecting-routes.md
+        - Internationalization (i18n): sdks/react/guides/internationalization.md
     - Next.js SDK:
       - Overview: sdks/nextjs/overview.md
       - APIs:
@@ -622,6 +623,7 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+        - Internationalization (i18n): sdks/nextjs/guides/internationalization.md
   - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
   - APIs:
     - APIs - Overview: apis/index.md
