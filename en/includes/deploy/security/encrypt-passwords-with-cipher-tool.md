@@ -166,7 +166,7 @@ You may follow the steps below to change passwords that are already encrypted.
 
 6. The system will then prompt you (twice) to enter the new password. Enter your new password.
 
-{% if product_name == "WSO2 Identity Server" and is_version != "7.0..0" %}
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 ## Rotating Encryption Secrets
 
 !!! note
