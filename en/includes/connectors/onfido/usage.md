@@ -2,6 +2,11 @@
 
 This guide explains how to implement an identity verification flow in your application using Onfido and how to finalize the verification process with {{product_name}}. The typical flow includes the following steps:
 
+## Prerequisites
+
+- [Set up Onfido]({{base_path}}/connectors/onfido/set-up/) in your {{product_name}} installation.
+- Make sure the webhook is correctly configured in Onfido to send verification results to {{product_name}}.
+
 ## Step 1: Create a verification workflow in Onfido
 
 Onfido Studio lets you create a dynamic end-user verification experience by designing customizable workflows that guide users through document submission, identity checks, and any other required steps.
@@ -56,16 +61,127 @@ Workflow conditions determine the criteria used to approve or decline a user. To
 
     {{product_name}} only marks the attribute verification as successful if the workflow returns an approved status.
 
-- Initiate verification using the Onfido SDK - Integrate the Onfido SDK in your application to capture the user’s documents and perform the necessary checks.
+## Step 2: Integrate your application with Onfido
 
-Receive webhook notifications from Onfido
+To verify user identity using Onfido, you need to integrate your application with Onfido using the Onfido SDK. The SDK provides a seamless way to capture user documents and faces, and submit them to Onfido for verification.
 
-Set up a webhook to receive events from Onfido when the verification process is completed or updated.
+Refer to the [Onfido SDK documentation](https://documentation.onfido.com/sdk/overview){: target="_blank"} for instructions.
 
-Validate results with {{product_name}}
+## Step 3: Perform the verification process
 
-Use the {{product_name}} verification API to confirm whether the user’s attributes (e.g., identity, documents) have been successfully verified.
+{{product_name}} provides a verification API that you can use to start and complete the identity verification process with Onfido.
 
-Control access based on verification outcome
+```bash
+https://<IS_HOST>:<IS_PORT>/api/users/v1/me/idv/verify
+```
 
-Depending on the verification result, allow or deny the user access to your application’s resources.
+### Step 3.1 Start the verification process
+
+To start the identity verification process, make a POST request with the following payload.
+
+    ```json
+    {
+    "idVProviderId": "<Onfido identity verification provider's ID>",
+    "claims": [
+         "http://wso2.org/claims/givenname",
+         "http://wso2.org/claims/lastname"
+    ],
+    "properties": [
+        {
+            "key": "status",
+            "value": "INITIATED"
+        }
+    ]
+    }
+    ```
+
+!!! note
+
+    - Replace `<Onfido identity verification provider's ID>` with the actual ID of your Onfido connection in {{product_name}}.
+
+    - Including the URLs for the first name and last name is mandatory. You can include any other claims that you configured as workflow inputs in Onfido.
+
+The response looks as follows:
+
+```json
+{
+  "idVProviderId": "<Onfido identity verification provider's ID>",
+  "claims": [
+     {
+        "id": "<ID>",
+        "uri": "<WSO2 Claim URI>",
+        "isVerified": false,
+        "claimMetadata": {
+           "onfido_applicant_id": "<Onfido applicant ID>",
+           "onfido_workflow_run_id": "<Onfido workflow run ID>",
+           "sdk_token": "<Onfido SDK token>",
+           "onfido_workflow_status": "AWAITING_INPUT"
+        }
+     }
+   ]
+}
+
+```
+
+### Step 3.2 Use the Onfido SDK to capture user documents
+
+The response from the previous step contains the `sdk_token` and the `onfido_workflow_run_id`. Use these to initialize the Onfido SDK in your application and capture user documents and faces. 
+
+Refer to [Intializing Onfido SDK](https://documentation.onfido.com/sdk/web/#initializing-the-sdk){: target="_blank"} for instructions.
+
+### Step 3.3 Complete the verification process
+
+After the user completes the document submission using the Onfido SDK, make another POST request with the following payload to complete the verification process.
+
+```json
+{
+    "idVProviderId": "<Onfido identity verification provider's ID>",
+    "claims": [
+        "http://wso2.org/claims/givenname",
+        "http://wso2.org/claims/lastname"
+    ],
+    "properties": [
+        {
+            "key": "status",
+            "value": "COMPLETED"
+        }
+    ]
+}
+```
+
+!!! note
+
+    - Replace `<Onfido identity verification provider's ID>` with the actual ID of your Onfido connection in {{product_name}}.
+
+    - Including the URLs for the first name and last name is mandatory. You can include any other claims that you configured as workflow inputs in Onfido.
+
+### Step 3.4 (Optional) Restart an interrupted verification process
+
+If the user verification process gets interrupted before completion, you can restart it by making a POST request with the following payload.
+
+!!! note
+
+    - You can only restart a verification process if the workflow status is `AWAITING_INPUT`.
+    - After restarting, follow step 3.2 and step 3.3 to complete the verification process.
+
+```json
+{
+    "idVProviderId": "<Onfido identity verification provider's ID>",
+    "claims": [
+        "http://wso2.org/claims/givenname",
+        "http://wso2.org/claims/lastname"
+    ],
+    "properties": [
+        {
+            "key": "status",
+            "value": "REINITIATED"
+        }
+    ]
+}
+```
+
+!!! note
+
+    - Replace `<Onfido identity verification provider's ID>` with the actual ID of your Onfido connection in {{product_name}}.
+
+    - Including the URLs for the first name and last name is mandatory. You can include any other claims that you configured as workflow inputs in Onfido.

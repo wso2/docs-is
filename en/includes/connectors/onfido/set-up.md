@@ -68,9 +68,9 @@ Now that you have installed the Onfido connector, follow the steps below to inte
 
 ### Step 2.2: Generate and register an Onfido webhook
 
-1. Log in to your Onfido dashboard and navigate to the Webhook configuration section. 
+1. Log in to your Onfido dashboard and navigate to the Webhook configuration section.
 
-2. Generate a Webhook token by providing the displayed URL and selecting only the `workflow_run.completed` event.
+2. Generate a Webhook token by providing the URL you noted earlier and selecting only the `workflow_run.completed` event. Onfido will use this webhook to send verification results to {{product_name}}.
 
 3. On the {{product_name}} Console, return to the created connection and navigate to its **Settings** tab.
 

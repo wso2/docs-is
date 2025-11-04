@@ -1,6 +1,6 @@
 # Try it
 
-This guide explains how to use Onfido for identity verification using a sample scenario.
+You can use the following sample scenario along with the sample application to try out Onfido identity verification with {{product_name}}.
 
 ## Sample scenario
 
