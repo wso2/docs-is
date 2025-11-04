@@ -629,7 +629,7 @@ components:
           example:
             - urn:ietf:params:scim:schemas:core:2.0:User
             - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
-        username:
+        userName:
           type: string
           example: DEFAULT/kim@gmail.com
         id:
