@@ -204,7 +204,7 @@ Make sure that the permission for signing in to the WSO2 Identity Server Console
 
 ## Invoke APIs
 
-When invoking WSO2 Identity Server REST APIs using basic authentication, avoid using the super admin or any high-privileged user credentials. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
+Do not use the super admin or any high-privileged user credentials when invoking WSO2 Identity Server REST APIs. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
 
 ## Log rotation and monitoring
 
