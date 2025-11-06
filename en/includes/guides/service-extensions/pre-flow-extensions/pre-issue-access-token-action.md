@@ -576,7 +576,7 @@ You can specify exact values for these fields, such as a specific application as
 You can also combine rules using logical AND and OR operators.
 This approach gives you flexible and precise control over when to invoke a pre-issue access token action.
 
-![pre-issue-access-token-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-issue-access-token-rule-configuration-in-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+![pre-issue-access-token-rule-configuration]({{base_path}}/assets/img/guides/actions/pre-issue-access-token-rule-configuration-in-ui.png)
 
 The above rule configuration translates logically to:
 
