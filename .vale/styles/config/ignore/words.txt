@@ -27,3 +27,8 @@ Guardio
 agentic
 OAuth
 Datadog
+hostname
+watchlists
+watchlist
+onboarding
+Onfido
