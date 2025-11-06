@@ -261,6 +261,12 @@ Make sure that the permission for signing in to the WSO2 Identity Server Managem
 
 ---
 
+## Invoke APIs
+
+Do not use the super admin or any high-privileged user credentials when invoking WSO2 Identity Server APIs. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
+
+---
+
 ## Log rotation and monitoring
 
 Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for WSO2 Identity Server can be configured in the `log4j2.properties` file in the `<IS_HOME>/repository/conf` folder. 
