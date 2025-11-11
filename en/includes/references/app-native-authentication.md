@@ -816,7 +816,7 @@ The application goes through the following steps to complete app-native authenti
         --data-urlencode 'scope=openid profile'
         --data-urlencode 'response_mode=direct'
         ```
-    
+
     === "Response (`/authorize`)"
 
         ```json
@@ -862,7 +862,7 @@ The application goes through the following steps to complete app-native authenti
     !!! tip
         The app can make use of the `state` parameter received in the initial response to correlate Google's response coming back to the app.
 
-- **Step 3**: 
+- **Step 3**:
 Carry the `flowId` and `state` parameters received in the initial response and the `code` parameter received in Google's response and request the `/authn` endpoint for authentication.
 
     !!! note
@@ -885,7 +885,7 @@ Carry the `flowId` and `state` parameters received in the initial response and t
         }'
         ```
 
-    
+
     === "Response (`/authn`)"
 
         ```json
@@ -896,6 +896,146 @@ Carry the `flowId` and `state` parameters received in the initial response and t
           }
         }
         ```
+
+## Exchange authorization code for tokens
+
+After successfully completing the authentication flow and receiving the authorization code, the application needs to exchange this code for access tokens and ID tokens. This is a critical step to obtain the credentials needed to access protected resources and user information.
+
+!!! note
+    This step follows the standard OAuth 2.0 authorization code flow. The authorization code has a short lifespan and must be exchanged promptly for tokens.
+
+### Token endpoint
+
+The token endpoint is used to exchange the authorization code for tokens.
+
+```bash
+https://localhost:9443/oauth2/token
+```
+
+### Token request
+
+The application makes a POST request to the token endpoint with the authorization code. Depending on your application type and security requirements, you can use different client authentication methods:
+
+=== "Using client_secret_post"
+
+    In this method, both the `client_id` and `client_secret` are sent as body parameters.
+
+    ```bash
+    curl --location --request POST 'https://localhost:9443/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'code=bbb0bsdb-857a-3a80-bfbb-48038380bf79' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'client_id=XWRkRNkJDeTiR5MwHdXROGiJka' \
+    --data-urlencode 'client_secret=<your_client_secret>' \
+    --data-urlencode 'redirect_uri=https://example.com/home'
+    ```
+
+=== "Using client_secret_basic"
+
+    In this method, the client credentials are sent as an authorization header using Basic authentication.
+
+    ```bash
+    curl --location --request POST 'https://localhost:9443/oauth2/token' \
+    --header 'Authorization: Basic <Base64_encoded_client_id:client_secret>' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'code=bbb0bsdb-857a-3a80-bfbb-48038380bf79' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'redirect_uri=https://example.com/home'
+    ```
+
+=== "Using private_key_jwt"
+
+    For enhanced security, you can use a signed JWT assertion for client authentication.
+
+    ```bash
+    curl --location --request POST 'https://localhost:9443/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'code=bbb0bsdb-857a-3a80-bfbb-48038380bf79' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
+    --data-urlencode 'client_assertion=<your_jwt_assertion>' \
+    --data-urlencode 'redirect_uri=https://example.com/home'
+    ```
+
+    !!! note
+        Learn more about [private key JWT client authentication]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/).
+
+### Request parameters
+
+The token request includes the following parameters:
+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+    <th>Required</th>
+  </tr>
+  <tr>
+    <td><code>code</code></td>
+    <td>The authorization code received from the authentication flow completion.</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>grant_type</code></td>
+    <td>Must be set to <code>authorization_code</code> for this flow.</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>redirect_uri</code></td>
+    <td>The redirect URI used in the initial authorization request. This must match exactly.</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>client_id</code></td>
+    <td>The client ID of your application (required when using client_secret_post method).</td>
+    <td>Conditional</td>
+  </tr>
+  <tr>
+    <td><code>client_secret</code></td>
+    <td>The client secret of your application (required when using client_secret_post method).</td>
+    <td>Conditional</td>
+  </tr>
+  <tr>
+    <td><code>client_assertion_type</code></td>
+    <td>Set to <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code> when using private_key_jwt authentication.</td>
+    <td>Conditional</td>
+  </tr>
+  <tr>
+    <td><code>client_assertion</code></td>
+    <td>The signed JWT assertion when using private_key_jwt authentication.</td>
+    <td>Conditional</td>
+  </tr>
+</table>
+
+### Token response
+
+Upon successful validation of the authorization code and client credentials, the token endpoint returns the following tokens:
+
+```json
+{
+  "access_token": "54bd024f-5080-3db5-9422-785f5d610605",
+  "refresh_token": "b1a5f710-e6dc-3d0f-a334-a466cd5d72e0",
+  "scope": "openid profile",
+  "id_token": "eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiI4ZTQyYjgzOTQzYWViYTkwMGU3MjJkMWI5NzU3Nzc3OTAyOGRhM2NiZWJmZjhhZTQxMDVhZTA5OTRiZjU5ZDYxIiwiYXRfaGFzaCI6IlZETXZUaWFsbjRRWEk4VUlJUjVlbnciLCJhdWQiOiJ6OFJCNnlzZERaaGU0UU8wekpBUXpLYmk2UDRhIiwiY19oYXNoIjoiOXRMaHJvQnV6Z0I4aDlIWWV6cTBpZyIsInN1YiI6InVzZXIxQGJpZnJvc3QuY29tIiwibmJmIjoxNjIwNzAzODA5LCJhenAiOiJ6OFJCNnlzZERaaGU0UU8wekpBUXpLYmk2UDRhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuYXNnYXJkZW8uaW9cL3RcL2JpZnJvc3RcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MjA3MDc0MDksImlhdCI6MTYyMDcwMzgwOSwic2lkIjoiYWQ3M2NlZGMtMzM3Ny00NDU3LWExYjUtNTZjODgyMTg1MzZmIn0.RSSL3InOFlvt_xQWFDKZY4FjKFFxh8rqGAlm1vKxleP6dKVlDAT4E0sudCJV5paJ-HdxVMd8MveWwpxrIL5NJw9XCa_sCEfso2fsMgRzQyEn1gjKLmr6Fj8Up3BoPnzPzn1cqVd-pKeXomzciM_ZDwsLr8qAEgVp663D4fg_F6pjVdDr17JRCUgO96yyjHRC5Eiqd7MP20Xhb-ZCMe0OhAlJlCmXB0FZV3nOTbza-jGvG8e_k80g3KVPFO7USek2Px3dCYfcbcA3k3cVzbTN8r8PIY3CEIIHtu5RyO_m1v3A0fjKvSaatfN0K2sndnlRpXFtOosIKQDYsy94wGnWkQ",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+
+**Response parameters:**
+
+- **access_token**: The access token that can be used to access protected resources and APIs.
+- **refresh_token**: A token that can be used to obtain new access tokens without requiring the user to reauthenticate (only included if the refresh token grant is enabled for your application).
+- **id_token**: A JSON Web Token (JWT) that contains user identity information and claims.
+- **token_type**: The type of token issued, typically "Bearer".
+- **expires_in**: The lifetime of the access token in seconds.
+- **scope**: The scopes granted to the access token.
+
+!!! tip "Best practices"
+    - **Security**: Always validate the `id_token` by verifying its signature and claims before trusting the user information.
+    - **Token storage**: Store tokens securely using platform-specific secure storage mechanisms (e.g., Keychain on iOS, Keystore on Android).
+    - **Token expiration**: Monitor the `expires_in` value and refresh tokens proactively before they expire to maintain a seamless user experience.
+    - **Error handling**: Implement proper error handling for token exchange failures, including network errors and invalid authorization codes.
 
 
 
