@@ -17,4 +17,4 @@ Building with starter templates, widgets, and other components provides complete
 - To learn the fundamentals of building a flow, refer to the [get started]({{base_path}}/guides/flows/build-a-flow/) guide.
 - For detailed examples of specific use cases, see the guides on [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/) and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
 
-![Flows]({{base_path}}/assets/img/guides/flows/Flow-builder-overview.png){: width="auto" style="display: block; margin: 0;"}
+![Flows]({{base_path}}/assets/img/guides/flows/flow-builder-overview.png){: width="auto" style="display: block; margin: 0;"}
