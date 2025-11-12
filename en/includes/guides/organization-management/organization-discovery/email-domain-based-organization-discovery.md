@@ -21,13 +21,37 @@ In this example scenario:
 - User Alice with email `alice@bcmart.com` should go to the login screen of `Best Car Mart` organization.
 - User Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should go to the login screen of `Glory Car Mart` organization.
 
+## Prerequisites
+
+Before you configure email domain-based organization discovery, understand the following requirements:
+
+### Username requirements during user creation
+
+For any user to be discoverable by their email domain, the following requirements must be met during user creation:
+
+- The user's **username** must be in a valid email format (for example, `user@company-domain.com`).
+- The domain portion of this username (for example, `company-domain.com`) must match one of the domains configured for organization discovery.
+- This is a strict requirement during user creation. Attempting to create a user with a non-email username or a username with a non-matching domain for an organization with this feature enabled will fail.
+
+### Login experience
+
+Once a user with a correctly formatted username exists, organization discovery can be triggered in two different ways:
+
+**Scenario A (Multi-Attribute Login disabled):**
+
+The user enters their full username (which is in email format, for example, `user@company-domain.com`) into the standard username field. The Identity Server detects the domain from the username, automatically discovers the organization, and then asks for the password.
+
+**Scenario B (Multi-Attribute Login enabled):**
+
+This provides a more flexible "identifier-first" login flow. If [Multi-Attribute Login]({{base_path}}/guides/authentication/configure-multi-attribute-login/) is enabled and `email` is an allowed attribute, the user can enter their email attribute (which may be different from their username) into the login field. The Identity Server uses this email attribute's domain to discover the organization. This is recommended for flexibility, as it allows a user's contact email attribute to change without breaking their login or discovery experience.
+
+!!! note "Important: Existing users with non-email usernames"
+    Users with non-email usernames (for example, `john.smith`) who existed before this feature was configured can only use domain-based discovery if Multi-Attribute Login is enabled (Scenario B). Their username cannot be used for discovery.
+
 ## Enable email domain based organization discovery
 
 !!! note "Important"
     - The root organization only permits enabling this feature and mapping email domains to organizations.
-    {% if product_name == "WSO2 Identity Server" %}
-    - For this feature to work, make sure to [enable email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/) so that users may log in to applications with their email addresses.
-    {% endif %}
     - **For Just-In-Time (JIT) provisioning**: Set the Subject Attribute to `http://wso2.org/claims/emailaddress` in your external identity provider. See [Map email domains to organizations](#map-email-domains-to-organizations) below.
 
 === "Using the Console"
