@@ -92,6 +92,16 @@ Unlike JWT tokens, opaque tokens are non-transparent. This means that the author
     allowed_auth_handlers="BasicClientAuthentication"
     ```
 
+!!! note
+    To control which users and applications can access the introspection endpoint using scopes, add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`:
+
+    ``` toml
+    [resource_access_control.introspect]
+    scopes = []
+    ```
+
+    By default, users with the `internal_oauth2_introspect` scope can access the introspection endpoint. You can modify the `scopes` array to include additional scopes as needed. When multiple scopes are configured, users need to have at least one of the specified scopes to access the endpoint.
+
     === "Request format"
 
         ```bash
