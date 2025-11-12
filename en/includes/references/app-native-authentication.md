@@ -186,6 +186,57 @@ This section digs deep into the steps involved in app-native authentication and 
 	}
 	```
 
+8. After receiving the authorization code, the application exchanges it for an access token by making a POST request to the token endpoint.
+
+    === "Sample request (`/token`)"
+
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/token'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'grant_type=authorization_code'
+        --data-urlencode 'code=<authorization_code>'
+        --data-urlencode 'redirect_uri=<redirect_uri>'
+        --data-urlencode 'client_id=<client_id>'
+        --data-urlencode 'client_secret=<client_secret>'
+        ```
+
+    === "Example (`/token`)"
+
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/token'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'grant_type=authorization_code'
+        --data-urlencode 'code=6ff8b7e1-01fc-39b9-b56d-a1f5826e6d2a'
+        --data-urlencode 'redirect_uri=https://example-app.com/redirect'
+        --data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
+        --data-urlencode 'client_secret=your_client_secret'
+        ```
+
+    !!! note
+        The `redirect_uri` must match the value used in the initial authorization request.
+
+    The token endpoint responds with an access token and other OAuth 2.0 artifacts:
+
+    ```json
+    {
+        "access_token": "54bd024f-5080-3db5-9422-785f5d610605",
+        "refresh_token": "a6c7fc96-2fd0-3905-ae8f-d5419d0dd6a5",
+        "scope": "openid internal_login",
+        "id_token": "eyJ4NXQiOiJZemM1T1Rnd1pXSTNNR1F6TXpNd1pqUXpaVEU1TmpVMk1EWXpZemd3TldNMll...",
+        "token_type": "Bearer",
+        "expires_in": 3600
+    }
+    ```
+
+    ??? note "Learn about the parameters"
+
+        - **access_token**: The token that can be used to access protected resources.
+        - **refresh_token**: The token that can be used to obtain new access tokens when the current one expires.
+        - **scope**: The scopes granted by the authorization server.
+        - **id_token**: A JSON Web Token (JWT) that contains user identity information.
+        - **token_type**: The type of token issued (typically "Bearer").
+        - **expires_in**: The lifetime of the access token in seconds.
+
 ## Sample scenarios
 
 The following are several sample scenarios in which users can be logged in using app-native authentication. Each scenario goes through a single or multiple interactions with the `/authn` endpoint based on the number of steps configured for the application.
