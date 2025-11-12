@@ -1,4 +1,4 @@
-To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu. 
+To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu.
 
 {% if product_name == "Asgardeo"%}
 Depending on the type of administrator, approvals can be handled as follows:
@@ -6,7 +6,6 @@ Depending on the type of administrator, approvals can be handled as follows:
 - Privileged user – An administrator with a business user account in the organization. They can manage approvals from MyAccount.
 - Organization owners and invited administrators – They do not have business user accounts or an organization-specific MyAccount, and therefore, cannot handle approvals there. They can manage approvals from the Console.
 {% endif %}
-
 
 This page displays all approval requests that you are eligible to act on.
 
