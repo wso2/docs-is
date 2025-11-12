@@ -32,3 +32,5 @@ exceptions:
   - OpenTelemetry
   - Datadog
   - Java
+  - Asgardeo
+  - React Native App CLI

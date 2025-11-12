@@ -1,181 +1,215 @@
 # Integrate Asgardeo with your React Native App CLI
 
-A comprehensive React Native application demonstrating OAuth 2.0 and OpenID Connect authentication implementation using [Asgardeo](https://wso2.com/asgardeo/){:target="_blank"}. Features include secure token management, protected routes, and TypeScript support.
+The following guide walks you through integrating Asgardeo with your React Native mobile application using the React Native CLI. With {{product_name}}, your app can securely authorize and authenticate users via OAuth 2.0 and OpenID Connect.
 
-Follow the steps given below to authenticate users to your React Native mobile application with OpenID Connect using [react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth){:target="_blank"}, a production-ready library that implements OAuth 2.0 and OpenID Connect authentication flows for React Native apps.
+This integration uses the [react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth){:target="_blank"} library, a production-ready library that handles OAuth 2.0 and OpenID Connect for React Native applications and provides:
+
+- Secure token management.
+- Protected routes.
+- Type-safe development with TypeScript.
 
 ## Prerequisites
 
-- [Node.js v20+](https://nodejs.org/en/download/package-manager){:target="_blank"} installed in your local environment.
-- React Native development environment set up for [iOS](https://reactnative.dev/docs/environment-setup?platform=ios){:target="_blank"} and/or [Android](https://reactnative.dev/docs/environment-setup?platform=android){:target="_blank"}.
-- Android Studio with Android SDK (for Android development).
-- Xcode 12.5 or newer (for iOS development on macOS).
+Make sure to install the required tools and set up your development environment:
 
-!!! note
-    This guide uses React Native CLI (not Expo) as native modules are required for secure authentication.
+=== "Android"
 
-!!! warning "Project naming convention when using React Native CLI"
-    When creating a React Native app using the React Native CLI, the framework enforces strict naming conventions for project identifiers. Project names must contain **only alphabetical characters** (no numbers, hyphens, underscores, or any special characters). If you use a name like `reactnative-app-auth-cli`, `reactnative_app_auth`, or `reactnative123`, you will encounter an error: **"is not a valid name for a project. Please use a valid identifier name (alphanumeric)"**. This is because React Native CLI uses the project name as a module identifier in native code (Java/Kotlin for Android and Objective-C/Swift for iOS), which requires valid programming language identifiers that start with a letter. Use names like `AsgardeoReactNativeApp` or `ReactNativeAuthApp` instead (using PascalCase is recommended).
+    - [Node.js v20+](https://nodejs.org/en/download/package-manager){:target="_blank"} installed in your local environment.
 
-## Create an Asgardeo application and a user
+    - React Native development environment. Follow the guide to set it up for [Android](https://reactnative.dev/docs/environment-setup?platform=android){:target="_blank"}.
 
-To integrate Asgardeo with your mobile app, you first need to create an application on the Asgardeo console and obtain app-specific credentials. Follow the comprehensive guide in the [Asgardeo documentation to create an application]({{base_path}}/guides/applications/register-mobile-app/){:target="_blank"}.
+    - Android Studio with Android SDK.
 
-You also need to have a user in your organization to log into your app using Asgardeo. Create a user in your Asgardeo organization by following [these steps]({{base_path}}/guides/users/manage-users/#onboard-users){:target="_blank"}.
+=== "iOS"
 
-## Create a React Native application
+    - [Node.js v20+](https://nodejs.org/en/download/package-manager){:target="_blank"} installed in your local environment.
 
-Create a new React Native project using the React Native CLI:
+    - React Native development environment. Follow the guide to set it up for [iOS](https://reactnative.dev/docs/environment-setup?platform=ios){:target="_blank"}.
+
+    - Xcode 12.5 or newer.
+
+## Step 1: Set up your Asgardeo environment
+
+Before integrating Asgardeo with your React Native app, set up the following in your Asgardeo organization:
+
+- **Register a mobile application** - Your application must have app-specific credentials to interact with Asgardeo. You can get these credentials by registering an application on the {{product_name}} Console. Follow the guide and [register a mobile application in Asgardeo]({{base_path}}/guides/applications/register-mobile-app/).
+
+- **Create a user** - You also need a user in your Asgardeo organization to log into your application. Follow the guide and [onboard a user]({{base_path}}/guides/users/manage-users/#onboard-users) to your {{product_name}} organization.
+
+## Step 2: Create a React Native application
+
+Use the React Native CLI and create a new React Native project:
 
 ```bash
 npx @react-native-community/cli@latest init AsgardeoReactNativeApp
 cd AsgardeoReactNativeApp
 ```
 
-## Install dependencies
+!!! tip "Correctly name your React Native project"
 
-Install the required libraries for authentication, navigation, and secure storage:
+    When creating a React Native app using the React Native CLI, make sure your project name contains **only alphabetical characters** (no numbers, hyphens, underscores, or any special characters).
+    
+    - **Valid** <span style="color:green;">&#10004;</span> : AsgardeoReactNativeApp, ReactNativeAuthApp (PascalCase recommended)
+    - **Invalid** <span style="color:red;">&#10006;</span>: reactnative-app-auth-cli, reactnative_app_auth, reactnative123
 
-```bash
-npm install react-native-app-auth rn-secure-storage @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context buffer
-```
+    React Native CLI uses the project name as a module identifier in native code (Java/Kotlin for Android and Objective-C/Swift for iOS), which requires valid programming language identifiers that start with a letter.
 
-The following table describes the purpose of each dependency:
+## Step 3: Install dependencies
 
-<table>
-   <thead>
-      <tr>
-         <th style="width: 35%">Dependency</th>
-         <th style="width: 65%">Description</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td style="white-space: nowrap"><code>react-native-app-auth</code></td>
-         <td>A production-ready library that implements OAuth 2.0 and OpenID Connect authentication flows for React Native applications. It wraps the native AppAuth-iOS and AppAuth-Android SDKs to provide secure, standards-compliant authentication.</td>
-      </tr>
-      <tr>
-         <td style="white-space: nowrap"><code>rn-secure-storage</code></td>
-         <td>Provides secure storage capabilities for sensitive data such as access tokens, ID tokens, and refresh tokens. It uses platform-specific secure storage features (iOS Keychain on iOS and EncryptedSharedPreferences on Android) to ensure credentials are stored safely on the device.</td>
-      </tr>
-      <tr>
-         <td style="white-space: nowrap"><code>@react-navigation/native</code></td>
-         <td>A navigation library for React Native that enables seamless navigation between screens in your app. It supports gestures, animations, and extensive customization. This is the core package required for implementing navigation in your mobile app.</td>
-      </tr>
-      <tr>
-         <td style="white-space: nowrap"><code>@react-navigation/native-stack</code></td>
-         <td>Provides native stack navigation with smooth transitions and platform-specific animations. It uses native navigation primitives for optimal performance on both iOS and Android.</td>
-      </tr>
-      <tr>
-         <td style="white-space: nowrap"><code>react-native-screens</code></td>
-         <td>Optimizes screen rendering performance by using native screen containers. This is required for native stack navigation to function correctly.</td>
-      </tr>
-      <tr>
-         <td style="white-space: nowrap"><code>react-native-safe-area-context</code></td>
-         <td>Provides safe area insets information for handling device-specific screen layouts such as notches, rounded corners, and system UI elements. This ensures your app content is displayed correctly on all devices.</td>
-      </tr>
-      <tr>
-         <td style="white-space: nowrap"><code>buffer</code></td>
-         <td>A Node.js Buffer implementation for React Native. Required for decoding Base64-encoded JWT tokens (ID tokens) to extract user information in the mobile environment.</td>
-      </tr>
-   </tbody>
-</table>
+Inside your React Native project directory, install the necessary libraries for authentication, secure storage, and navigation.
 
-For iOS, install CocoaPods dependencies:
+- Install the npm packages:
 
-```bash
-cd ios
-bundle install
-bundle exec pod install
-cd ..
-```
+    ```bash
+    npm install react-native-app-auth rn-secure-storage @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context buffer
+    ```
 
-## Configure deep linking
+    ??? note "Details on installed dependencies"
 
-Deep linking allows your mobile app to handle custom URL schemes, which is essential for OAuth 2.0 authentication flows. When users complete authentication in the browser, {{product_name}} redirects them back to your app using a deep link (e.g., `myapp://oauth2`). Without proper deep linking configuration, the OAuth flow cannot complete, and users will remain stuck in the browser after authentication. Configure platform-specific deep linking to enable this redirect mechanism.
+        <table>
+           <thead>
+              <tr>
+                 <th style="width: 35%">Dependency</th>
+                 <th style="width: 65%">Description</th>
+              </tr>
+           </thead>
+           <tbody>
+              <tr>
+                 <td style="white-space: nowrap"><a href="https://www.npmjs.com/package/react-native-app-auth" target="_blank">react-native-app-auth</a></td>
+                 <td>A production-ready library that implements OAuth 2.0 and OpenID Connect authentication flows for React Native applications. It wraps the native AppAuth-iOS and AppAuth-Android SDKs to provide secure, standards-compliant authentication.</td>
+              </tr>
+              <tr>
+                 <td style="white-space: nowrap"><a href="https://www.npmjs.com/package/rn-secure-storage" target="_blank">rn-secure-storage</a></td>
+                 <td>Provides secure storage capabilities for sensitive data such as access tokens, ID tokens, and refresh tokens. It uses platform-specific secure storage features (iOS Keychain on iOS and EncryptedSharedPreferences on Android) to ensure safe storage of credentials on the device.</td>
+              </tr>
+              <tr>
+                 <td style="white-space: nowrap"><a href="https://www.npmjs.com/package/@react-navigation/native" target="_blank">@react-navigation/native</a></td>
+                 <td>A navigation library for React Native that enables seamless navigation between screens in your app. It supports gestures, animations, and extensive customization. Required to implement navigation in your mobile app.</td>
+              </tr>
+              <tr>
+                 <td style="white-space: nowrap"><a href="https://www.npmjs.com/package/@react-navigation/native-stack" target="_blank">@react-navigation/native-stack</a></td>
+                 <td>Provides native stack navigation with smooth transitions and platform-specific animations. It uses native navigation primitives for optimal performance on both iOS and Android.</td>
+              </tr>
+              <tr>
+                 <td style="white-space: nowrap"><a href="https://www.npmjs.com/package/react-native-screens" target="_blank">react-native-screens</a></td>
+                 <td>Improves screen rendering performance by using native screen containers. Required for native stack navigation.</td>
+              </tr>
+              <tr>
+                 <td style="white-space: nowrap"><a href="https://www.npmjs.com/package/react-native-safe-area-context" target="_blank">react-native-safe-area-context</a></td>
+                 <td>Provides safe area insets information for handling device-specific screen layouts such as notches, rounded corners, and system UI elements. This ensures your app content displays correctly on all devices.</td>
+              </tr>
+              <tr>
+                 <td style="white-space: nowrap"><a href="https://www.npmjs.com/package/buffer" target="_blank">buffer</a></td>
+                 <td>A Node.js Buffer implementation for React Native. Required for decoding Base64-encoded JWT tokens (ID tokens) to extract user information in the mobile environment.</td>
+              </tr>
+          </tbody>
+        </table>
 
-### Android configuration
+- (iOS only) Install CocoaPods dependencies
 
-Edit `android/app/build.gradle`:
+    ```bash
+    cd ios
+    bundle install
+    bundle exec pod install
+    cd ..
+    ```
 
-```gradle
-android {
-    defaultConfig {
-        applicationId "com.asgardeoreactnativeapp"
-        minSdkVersion 24  // Required for rn-secure-storage v3
-        targetSdkVersion 34
-        
-        // Configure OAuth redirect scheme
-        manifestPlaceholders = [
-            appAuthRedirectScheme: 'myapp'
-        ]
+## Step 4: Configure deep linking
+
+Deep linking allows your app to handle custom URLs, which is required for OAuth 2.0 flows. After a user completes authentication in the browser, {{product_name}} redirects them back to the app using a deep link (e.g. `myapp://oauth2`).
+
+To ensure users are redirected correctly, configure deep linking for both Android and iOS platforms.
+
+=== "Android"
+
+    Open the `android/app/build.gradle` file and add the following inside the `android` block:
+
+    ```gradle
+    android {
+        defaultConfig {
+            applicationId "com.asgardeoreactnativeapp"
+            minSdkVersion 24  // Required for rn-secure-storage v3
+            targetSdkVersion 34
+
+            // Configure OAuth redirect scheme
+            manifestPlaceholders = [
+                appAuthRedirectScheme: 'myapp'
+            ]
+        }
     }
-}
-```
+    ```  
 
-### iOS configuration
+=== "iOS"
 
-Edit `ios/AsgardeoReactNativeApp/Info.plist` and add URL scheme configuration:
+    - Open the `ios/AsgardeoReactNativeApp/Info.plist` file and add the following inside the `<dict>` tag to configure deep linking:
 
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleURLSchemes</key>
+        ```xml
+        <key>CFBundleURLTypes</key>
         <array>
-            <string>myapp</string>
+            <dict>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>myapp</string>
+                </array>
+            </dict>
         </array>
-    </dict>
-</array>
-```
+        ```
 
-After adding this, reinstall iOS pods:
-
-```bash
-cd ios && bundle exec pod install && cd ..
-```
+    - After adding this, reinstall iOS pods:
+     
+        ```bash
+        cd ios && bundle exec pod install && cd ..
+        ```
 
 !!! note
-    The URL scheme `myapp` must match what you configured in the {{product_name}} console as the authorized redirect URL (e.g., `myapp://oauth2`).
 
-## Create configuration file
+    The `myapp` URL sceheme must match what you configured in the {{product_name}} Console as the authorized redirect URL (e.g., `myapp://oauth2`).
 
-Create `src/config.ts` to store your {{product_name}} credentials:
+## Step 5: Create a configuration file
 
-```typescript
-import { ASGARDEO_ISSUER, ASGARDEO_CLIENT_ID, ASGARDEO_REDIRECT_URL, ASGARDEO_POST_LOGOUT_REDIRECT_URL } from '@env';
+Your React Native app needs to know your Asgardeo organization details to interact with it. Follow the steps below to create a configuration file in your React Native project.
 
-export const config = {
-  issuer: ASGARDEO_ISSUER,
-  clientId: ASGARDEO_CLIENT_ID,
-  redirectUrl: ASGARDEO_REDIRECT_URL,
-  scopes: ['openid', 'profile'],
-  postLogoutRedirectUrl: ASGARDEO_POST_LOGOUT_REDIRECT_URL,
-};
-```
+1. Create the `src/config.ts` file to store configurations and add the following: (You will define the actual values as environment variables in the next step.)
 
-Here is a short description of each config value:
+    ```typescript
+    import { ASGARDEO_ISSUER, ASGARDEO_CLIENT_ID, ASGARDEO_REDIRECT_URL, ASGARDEO_POST_LOGOUT_REDIRECT_URL } from '@env';
 
-- **issuer** - API endpoint that issues tokens upon request.
-- **clientId** - The Client ID of your {{product_name}} app.
-- **redirectUrl** - The URL to which the app redirects to after user login.
-- **scopes** - The list of OIDC scopes that are used for requesting user information. The `openid` scope is mandatory to get the ID token. You can add other OIDC scopes such as `profile` and `email`.
-- **postLogoutRedirectUrl** - The URL which the app redirects to after user is logged out.
+    export const config = {
+      issuer: ASGARDEO_ISSUER,
+      clientId: ASGARDEO_CLIENT_ID,
+      redirectUrl: ASGARDEO_REDIRECT_URL,
+      scopes: ['openid', 'profile'],
+      postLogoutRedirectUrl: ASGARDEO_POST_LOGOUT_REDIRECT_URL,
+    };
+    ```
 
-Create a `.env` file in your project root with your {{product_name}} credentials:
+    - **issuer** - API endpoint that issues tokens upon request.
+    - **clientId** - The Client ID of your application.
+    - **redirectUrl** - After successful login, Asgardeo redirects the user to the redirect URL of your app.
+    - **scopes** - Scopes needed for requesting user information. The `openid` scope is mandatory to get the ID token. You can add other OIDC scopes such as `profile` and `email`.
+    - **postLogoutRedirectUrl** - After logout, Asgardeo redirects the user to the postLogoutRedirectUrl of your app.
 
-```bash
-ASGARDEO_ISSUER=https://api.asgardeo.io/t/<your-organization-name>/oauth2/token
-ASGARDEO_CLIENT_ID=<your-client-id>
-ASGARDEO_REDIRECT_URL=myapp://oauth2
-ASGARDEO_POST_LOGOUT_REDIRECT_URL=myapp://oauth2
-```
+2. Create a `.env` file in your project root and enter the actual details of your Asgardeo environment:
 
-Replace `<your-organization-name>` with your {{product_name}} organization name and `<your-client-id>` with the Client ID from your registered application.
+    ```bash
+    ASGARDEO_ISSUER=https://api.asgardeo.io/t/<organization-name>/oauth2/token
+    ASGARDEO_CLIENT_ID=<clientID>
+    ASGARDEO_REDIRECT_URL=myapp://oauth2
+    ASGARDEO_POST_LOGOUT_REDIRECT_URL=myapp://oauth2
+    ```
 
-## Create authentication context
+    - Replace `<organization-name>` with your {{product_name}} organization name and `<clientID>` with the Client ID of your registered application.
+    - Replace the redirect URLs with the ones you configured in the {{product_name}} Console.
 
-Create `src/contexts/UserContext.tsx` to manage authentication state:
+## Step 6: Develop the application
+
+This section explains how to create the authentication context, login screen, and dashboard screen for your React Native app.
+
+### Step 6.1: Authentication context
+
+To manage the user’s authentication state across your app, create a dedicated authentication context. This context provides a central place to track whether the user is logged in and to update the login state throughout the app.
+
+To do so, create the `src/contexts/UserContext.tsx` file and add the following:
 
 ```typescript
 import { createContext, Dispatch, SetStateAction } from 'react';
@@ -189,9 +223,11 @@ export const UserContext = createContext<{
 });
 ```
 
-## Implement login screen
+### Step 6.2: Login screen
 
-Create `src/views/HomeScreen.tsx`:
+The login screen allows users to authenticate with {{product_name}} using OAuth 2.0. This section shows how to start the authorization flow, handle the response securely, and update the app’s authentication state when the user successfully signs in.
+
+To do so, create the `src/views/HomeScreen.tsx` file and add the following:
 
 ```typescript
 import React, { useContext, useState } from 'react';
@@ -234,9 +270,11 @@ export const HomeScreen = () => {
 };
 ```
 
-## Implement dashboard screen
+### Step 6.3: Dashboard screen
 
-Create `src/views/DashboardScreen.tsx` to display user information:
+The dashboard screen displays user information retrieved from the authentication response. It also provides a way to securely log out, clearing stored tokens and ending the user session with {{product_name}}.
+
+To do so, create the `src/views/DashboardScreen.tsx` file and add the following:
 
 ```typescript
 import React, { useContext, useEffect, useState } from 'react';
@@ -298,9 +336,11 @@ export const DashboardScreen = () => {
 };
 ```
 
-## Update main App component
+### Step 6.4: App component
 
-Update `App.tsx` to implement navigation:
+The main App.tsx component sets up navigation between the login (Home) and dashboard screens based on the user’s authentication state. Using React Context and React Navigation, the app can dynamically switch screens when the user logs in or out.
+
+To do so, update the `App.tsx` file as follows::
 
 {% raw %}
 
@@ -345,35 +385,40 @@ export default App;
 
 {% endraw %}
 
-## Run the application
+## Step 7: Run the application
 
-Start the Metro bundler:
+Now that you have developed the React Native app and integrated it with Asgardeo, you can run it by following the steps below:
 
-```bash
-npm start
-```
+1. In React Native projects, the Metro Bundler compiles your JavaScript code and serves it to the app. It also watches for file changes and enables hot reloading during development. Start it with:
 
-The Metro bundler is React Native's JavaScript bundler that compiles your code and serves it to your app. It runs as a persistent process that watches for file changes and provides hot reloading during development.
+    ``` bash
+    npm start
+    ```
 
-In a separate terminal, run the app:
+2. In a separate terminal, run the app:
 
-**For Android:**
+    === "Android"
 
-```bash
-npm run android
-```
+        ```bash
+        npm run android
+        ```
 
-**For iOS:**
+    === "iOS"
 
-```bash
-npm run ios
-```
+        ```bash
+        npm run ios
+        ```
 
-## Test authentication
+## Step 8: Try it out
 
-1. Launch the app on your device or emulator
-2. Tap the **Sign In** button
-3. The device browser opens showing the {{product_name}} login page
-4. Enter your credentials and sign in
-5. The app redirects to the dashboard showing your user information
-6. Tap **Sign Out** to return to the login screen
+Once the app is running on your device or emulator, follow the steps below to test the authentication flow:
+
+1. Launch the app on your device or emulator.
+
+2. Tap the **Sign In** button.
+
+3. The device browser opens showing the {{product_name}} login page. Enter your credentials and sign in
+
+4. The app redirects to the dashboard showing your user information.
+
+5. Tap **Sign Out** to return to the login screen.
