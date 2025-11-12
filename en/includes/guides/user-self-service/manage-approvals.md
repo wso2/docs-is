@@ -1,9 +1,10 @@
 To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu. 
 
 {% if product_name == "Asgardeo"%}
-!!! note
-    The Approvals tab is hidden in the My Account portal for Asgardeo Administrators.
-    They can manage their approval requests directly from the Asgardeo Console.
+Depending on the type of administrator, approvals can be handled as follows:
+
+- Privileged user – An administrator with a business user account in the organization. They can manage approvals from MyAccount.
+- Organization owners and invited administrators – They do not have business user accounts or an organization-specific MyAccount, and therefore, cannot handle approvals there. They can manage approvals from the Console.
 {% endif %}
 
 
