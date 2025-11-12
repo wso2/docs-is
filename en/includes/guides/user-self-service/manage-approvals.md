@@ -1,6 +1,6 @@
 To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu.
 
-{% if product_name == "Asgardeo"%}
+{% if product_name == "Asgardeo" %}
 Depending on the type of administrator, approvals can be handled as follows:
 
 - Privileged user – An administrator with a business user account in the organization. They can manage approvals from MyAccount.
