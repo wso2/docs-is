@@ -1,5 +1,12 @@
 To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu.
 
+{% if product_name == "Asgardeo" %}
+Depending on the type of administrator, approvals can be handled as follows:
+
+- **Privileged user** – These administrators have business user accounts and can manage approvals through the organization’s MyAccount portal.
+- **Organization owners and invited administrators** – These administrators do not have business user accounts and therefore cannot access the organization-specific MyAccount portal. They can manage approvals directly from the Console.
+{% endif %}
+
 This page displays all approval requests that you are eligible to act on.
 
 ![Workflow approval page]({{base_path}}/assets/img/guides/workflows/workflow-approvals.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
