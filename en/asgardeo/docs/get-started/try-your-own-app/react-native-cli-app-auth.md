@@ -163,7 +163,7 @@ To ensure users are redirected correctly, configure deep linking for both Androi
 
 !!! note
 
-    The `myapp` URL sceheme must match what you configured in the {{product_name}} Console as the authorized redirect URL (e.g., `myapp://oauth2`).
+    The `myapp` URL scheme must match what you configured in the {{product_name}} Console as the authorized redirect URL (e.g., `myapp://oauth2`).
 
 ## Step 5: Create a configuration file
 
@@ -340,7 +340,7 @@ export const DashboardScreen = () => {
 
 The main App.tsx component sets up navigation between the login (Home) and dashboard screens based on the user’s authentication state. Using React Context and React Navigation, the app can dynamically switch screens when the user logs in or out.
 
-To do so, update the `App.tsx` file as follows::
+To do so, update the `App.tsx` file as follows:
 
 {% raw %}
 
@@ -414,11 +414,18 @@ Now that you have developed the React Native app and integrated it with Asgardeo
 Once the app is running on your device or emulator, follow the steps below to test the authentication flow:
 
 1. Launch the app on your device or emulator.
+![Launch the app]({{base_path}}/assets/img/get-started/hero-page.png){: width="250" style="display: block; margin: 0;"}
 
 2. Tap the **Sign In** button.
+
+    <div style="display: flex; gap: 20px; align-items: center; justify-content: flex-start; flex-wrap: wrap;">
+        <img src="{{base_path}}/assets/img/get-started/sign-in.png" alt="Sign In page" width="250" style="display: block;">
+        <img src="{{base_path}}/assets/img/get-started/example-sign-in.png" alt="Enter the credentials" width="250" style="display: block;">
+    </div>
 
 3. The device browser opens showing the {{product_name}} login page. Enter your credentials and sign in
 
 4. The app redirects to the dashboard showing your user information.
+![Dashboard page]({{base_path}}/assets/img/get-started/dashboard-page.png){: width="250" style="display: block; margin: 0;"}
 
 5. Tap **Sign Out** to return to the login screen.
