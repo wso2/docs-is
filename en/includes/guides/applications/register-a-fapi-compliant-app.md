@@ -1,6 +1,6 @@
 # Register a FAPI-compliant application
 
-Financial-Grade API (FAPI) specification extends the OAuth and OIDC frameworks and defines additional technical requirements to protect high-value APIs. {% if is_version == "7.1.0" %}{{product_name}} provides full support for both FAPI 1.0 Advanced and FAPI 2.0 allowing developers to build applications that meet these advanced security standards.{% endif %}
+Financial-Grade API (FAPI) specification extends the OAuth and OIDC frameworks and defines additional technical requirements to protect high-value APIs. {% if is_version == "7.1.0" %}{{product_name}} provides full support for both [FAPI 1.0 Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} and [FAPI 2.0](https://openid.net/specs/fapi-security-profile-2_0-final.html){: target="_blank"} allowing developers to build applications that meet these advanced security standards.{%else%}{{product_name}} provides full support for [FAPI 1.0 Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} allowing developers to build applications that meet advanced security standards.{% endif %}
 
 This guide walks you through creating and configuring a FAPI-compliant application in WSO2 Identity Server.
 
