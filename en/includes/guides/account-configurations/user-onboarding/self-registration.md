@@ -60,6 +60,29 @@ To enable/disable user self-registration or to change the default configurations
   </tbody>
 </table>
 
+## Configure callback URL validation
+
+When running {{ product_name }} behind a proxy or with a different port configuration, you may encounter callback URL validation errors during the self-registration flow. To resolve this, you need to configure a regex pattern to validate the callback URL.
+
+To configure the callback URL validation:
+
+1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+2. Add the following configuration under the `[identity_mgt.user_self_registration]` section:
+
+    ```toml
+    [identity_mgt.user_self_registration]
+    callback_url = "${carbon.protocol}:\\/\\/${carbon.host}\\/.*"
+    ```
+
+    This regex pattern validates the callback URL sent in the self-registration email.
+
+    !!! note
+        - The sample regex pattern `${carbon.protocol}:\\/\\/${carbon.host}\\/.*` works for most deployments. Modify it to meet your specific requirements.
+        - When testing the product, you can use `^https:\/\/localhost:9443\/.*` as the callback URL regex.
+        - For production deployments, ensure the regex pattern matches your actual deployment URLs.
+
+3. Save the file and restart {{ product_name }} for the changes to take effect.
 
 ## Configure self-registration methods
 
