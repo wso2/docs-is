@@ -595,7 +595,7 @@ nav:
               - Implement logout: guides/authentication/oidc/add-logout.md
               - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
               - Implement federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
-
+              - SAML back-channel logout: guides/authentication/saml/saml-back-channel-logout.md
           - Configure SAML flows:
               - Configure SAML flows: guides/authentication/saml/index.md
               - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
