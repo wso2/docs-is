@@ -56,14 +56,13 @@ The process goes as follows:
 
     The application verifies the signature, extracts attributes, creates a session, and logs the user in.
 
-
 ## Implement artifact binding
 
 {{product_name}} supports SAML artifact binding as specified in the [SAML 2.0 Binding specification](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf){: target="_blank"} specification. The following guides explain how you can set it up for your application.
 
 !!! note "Before you begin"
 
-    Follow the guide and register your [SAML application in {{product_name}}]({{base_path}}/guides/applications/register-saml-web-app/).
+    Follow the guide and [register your SAML application in {{product_name}}]({{base_path}}/guides/applications/register-saml-web-app/).
 
 ### Enable SAML artifact binding
 
@@ -87,7 +86,7 @@ To enable SAML artifact binding for your application,
 
 The [SAML 2.0 Binding specification](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf){: target="_blank"} specifies that the artifacts require a time of expiration. {{product_name}} resolves artifacts only when they fall within the defined expiration period. Expired artifacts are rejected.
 
-The default time limit is set for 4 minutes. To change it, set a custom time (in seconds) for the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
+The default time limit is set for 4 minutes. To change it, set a custom time (in minutes) for the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```
 [saml.artifact] 
@@ -161,3 +160,109 @@ Content-Length: nnnn
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
+## Try it out
+
+The following guide walks you through setting up a sample application to see SAML artifact binding in action.
+
+### Set up the sample
+
+1. Download and install [Apache Tomcat version 8.X](https://tomcat.apache.org/tomcat-8.5-doc/building.html){: target="_blank"}.
+
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.6.2/saml2-web-app-pickup-dispatch.com.war) the sample application.
+
+3. Copy the `saml2-web-app-pickup-dispatch.com.war` file into the `/webapps` folder of your Tomcat installation.
+
+4. Start the Tomcat server.
+
+!!! note
+
+    Learn more about the /webapps directory location and Tomcat commands in the [Tomcat documentation](https://tomcat.apache.org/tomcat-8.0-doc/deployer-howto.html){: target="_blank"}.
+
+### Configure Cross Origin Cross-Origin Resource Sharing (CORS)
+
+SAML2 POST Binding sends the SAML response via browser POST, creating a cross-origin request when the SP and {{product_name}} use different domains. To Configure {{product_name}} to allow requests from the SP’s domain,
+
+1. Open the `IS_HOME/repository/conf/deployment.toml` file and add the following configurations.
+
+    ```toml
+    [cors]
+    allow_generic_http_requests = true
+    allow_any_origin = false
+    allowed_origins = [
+        "http://localhost:8080" 
+    ]
+    allow_subdomains = false
+    supported_methods = [
+        "GET",
+        "POST",
+        "HEAD",
+        "OPTIONS"
+    ]
+    support_any_header = true
+    supported_headers = []
+    exposed_headers = []
+    supports_credentials = true
+    max_age = 3600
+    tag_requests = false
+    ```
+
+    !!! note
+
+        If your are using a different URL, add that as an allowed origin.
+
+2. Restart {{product_name}}.
+
+### Integrate application with {{product_name}}
+
+To integrate the sample application,
+
+1. [Register your SAML application in {{product_name}}]({{base_path}}/guides/applications/register-saml-web-app/) with the following information.
+
+    - **Issuer** - saml2-web-app-pickup-dispatch.com
+    - **Assertion Consumer URL** - http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp
+
+2. On the **Protocol** tab of the created application, do the following:
+
+    - Under **Response Singing** enable **Sign SAML responses**.
+    - Under **Single Sign-On Profile**, select **Artifact** and select **Enable signature validation for artifact binding**.
+    - Under **Certificate**, select **Provide certificate** and upload the application certificate you extracted earlier.
+
+3. Click **Update** to save the changes.
+
+!!! note
+
+    - The sample applications have request and response signing enabled by default. If you want to try the flow without dealing with certificates, open the `<APP_HOME>/WEB-INF/classes/sso.properties` file and set all signing-related properties to false:
+
+        ```bash
+        SAML2.EnableResponseSigning=false
+        SAML2.EnableAssertionSigning=false
+        SAML2.EnableRequestSigning=false
+        SAML2.EnableArtifactResolveSigning=false
+        ```
+
+    - If you prefer to keep the default signing behavior, extract each application's public certificate from `<APP_HOME>/WEB-INF/classes/wso2carbon.p12` and upload it to {{product_name}} under your application's **Protocol** > **Certificates**.
+
+    - If you enable response signing, make sure to also enable **Protocol** > **Response Signing** > **Sign SAML responses**  in your registered application, and upload the IdP certificate to the application (You can find it from the **Info** tab of your application).
+
+### Try artifact binding
+
+Now that you have set the sample application, follow the steps to try out artifact binding.
+
+1. Log into the sample application.
+
+    ```bash
+    http://localhost:8080/saml2-web-app-pickup-dispatch.com
+    ```
+
+2. You will be redirected to the login page of {{product_name}}. Enter your credentials and provide the necessary consent. You will be redirected to the Pickup Dispatch application home page.
+
+3. You can use a SAML tracer add-on with your browser to view the SAML2 response artifact for the SSO authentication request. The code block below shows an example response.
+
+    ```saml
+    HTTP/1.1 302 Object Moved
+    Date: 21 Jan 2004 07:00:49 GMT
+    Location: https://application.com/ACS/URL?
+    SAMLart=AAQAADWNEw5VT47wcO4zX%2FiEzMmFQvGknDfws2ZtqSGdkNSbsW1cmVR0bzU%3D&RelayState=0043bfc1bc45110dae17004005b13a2b
+    Content-Type: text/html; charset=iso-8859-1
+    ```
