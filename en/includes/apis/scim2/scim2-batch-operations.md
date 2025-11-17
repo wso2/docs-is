@@ -287,6 +287,7 @@ Given below is an example request payload to update users in bulk. This request 
          "method":"PATCH",
          "path":"/Users/e67906fb-308f-4b15-89bd-0ab6e3d996e5",
          "data":{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[
                {
                   "op":"replace",
@@ -308,6 +309,7 @@ Given below is an example request payload to update users in bulk. This request 
          "method":"PATCH",
          "path":"/Users/b1781d25-bde5-460a-a58a-8fe8dbfd8487",
          "data":{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[
                {
                   "op":"remove",
@@ -397,7 +399,7 @@ The parameters in the request body are explained below.
     </table>
  
 -   Data parameters
- 
+
     <table>
        <tr>
            <th>Parameter</th>
@@ -405,17 +407,25 @@ The parameters in the request body are explained below.
            <th>Description</th>
        </tr>
        <tr>
+           <td><code>schemas</code></td>
+           <td>Required</td>
+           <td>
+               This is the schema that is required for PATCH operations in bulk requests:</br>
+               <code>urn:ietf:params:scim:api:messages:2.0:PatchOp</code>.
+           </td>
+       </tr>
+       <tr>
            <td><code>op</code></td>
            <td>Required</td>
            <td>
-               The operation that should be applied to the existing user’s data.</br>
+               The operation that should be applied to the existing user's data.</br>
                <b>Possible Values:</b>
                <ul>
                    <li><code>add</code></li>
                    <li><code>replace</code></li>
                    <li><code>remove</code></li>
                </ul>
-               See <a href="/develop/scim2-patch-operations/#patch-users">SCIM2 Patch Operations</a> for details on how to define patch operations. 
+               See <a href="/develop/scim2-patch-operations/#patch-users">SCIM2 Patch Operations</a> for details on how to define patch operations.
            </td>
        </tr>
        <tr>
@@ -866,6 +876,7 @@ Given below is an example request payload to update user groups in bulk. This re
          "method":"PATCH",
          "path":"/Groups/46887262-2ba1-4cee-b3ef-64549423e0b0",
          "data":{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[
                {
                   "op":"replace",
@@ -884,6 +895,7 @@ Given below is an example request payload to update user groups in bulk. This re
          "method":"PATCH",
          "path":"/Groups/18d04a36-0894-4f71-bdc4-2610fcc6ae42",
          "data":{
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[
                {
                   "op":"add",
@@ -981,12 +993,20 @@ The parameters in the request body are explained below.
     </table>
  
 -   Data parameters
- 
+
     <table>
        <tr>
            <th>Parameter</th>
            <th>Required/Optional</th>
            <th>Description</th>
+       </tr>
+       <tr>
+           <td><code>schemas</code></td>
+           <td>Required</td>
+           <td>
+               This is the schema that is required for PATCH operations in bulk requests:</br>
+               <code>urn:ietf:params:scim:api:messages:2.0:PatchOp</code>.
+           </td>
        </tr>
        <tr>
            <td><code>op</code></td>
@@ -998,7 +1018,7 @@ The parameters in the request body are explained below.
                    <li><code>add</code></li>
                    <li><code>replace</code></li>
                    <li><code>remove</code></li>
-               </ul> 
+               </ul>
                See <a href="/develop/scim2-patch-operations/#patch-user-groups">SCIM2 Patch Operations</a> for details on how to define patch operations.
            </td>
        </tr>
