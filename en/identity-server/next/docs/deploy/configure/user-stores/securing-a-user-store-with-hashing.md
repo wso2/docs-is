@@ -130,17 +130,18 @@ When configuring the PBKDF2 hashing algorithm the following parameters must be s
         <td><code>10000</code></td>
         <td>Number of times hashing is performed.</td>
     </tr>
-        <tr>
+    <tr>
         <td><code>pbkdf2.dkLength</code></td>
         <td>Derived Key Length</td>
         <td><code>256</code></td>
         <td>Bit length of the generated hash value.</td>
     </tr>
-        <tr>
+    <tr>
         <td><code>pbkdf2.prf</code></td>
         <td>Pseudo-Random Function </td>
         <td><code>PBKDF2WithHmacSHA256</code></td>
         <td>The key component of the PBKDF2 hashing algorithm in which the actual hashing part is done.</td>
+    </tr>
 </table>
 
 !!! Note
