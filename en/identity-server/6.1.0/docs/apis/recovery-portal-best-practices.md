@@ -1,42 +1,41 @@
-When building a custom self-service password recovery portal using the WSO2 Identity Server (WSO2 IS) Account Recovery APIs, it is important to implement strong security controls around flow initiation, OTP handling and API protection.
-This guide outlines the recommended best practices to follow when designing and deploying such a solution.
+When building a custom self-service password recovery portal that uses the WSO2 Identity Server (WSO2 IS) Account Recovery APIs, implement strong security controls for flow initiation, handling one-time passwords (OTPs), and API protection.
 
-1. Add reCAPTCHA to the Flow Initiation Step
+This guide outlines recommended best practices for designing and deploying such a solution.
 
-   - Before triggering OTP dispatch or recovery codes, apply CAPTCHA verification to prevent brute-force and bot-driven attacks.
-   - Apply CAPTCHA to both:
+1. Add reCAPTCHA to the flow initiation step
+
+   - Before sending an OTP or recovery code, require reCAPTCHA verification to block bots and brute-force attempts.
+   - Apply reCAPTCHA to:
      - Forgot Password initiation
      - Resend recovery code endpoints
-   - This protects the system from automated SMS/email flooding and username enumeration attempts.
+   - reCAPTCHA protects against automated SMS/email flooding and username enumeration.
 
-2. Prevent Username Enumeration
+2. Prevent username enumeration
 
-   - Ensure API responses do not disclose whether an account exists.
-   - Use generic messages such as:
-     - “If the provided username is valid, an OTP will be sent to the registered email or phone number.”
-   - Avoid returning different error messages for invalid and valid usernames to prevent attackers from mapping valid accounts.
+   - Ensure API responses do not reveal whether an account exists.
+   - Use a generic message such as: "If the provided username is valid, an OTP will be sent to the registered email address or phone number."
+   - Return the same response for valid and invalid usernames to avoid revealing account existence.
 
-3. Enforce a Short OTP/recovery link Lifespan
+3. Enforce a short OTP or recovery link lifespan
 
-   - Set a short OTP or recovery link validity period (eg: 1 minutes recommended) to minimize risk from OTP/recovery link interception attacks.
-   - A short expiration window significantly reduces exposure risk.
+   - Set a short validity period for OTPs or recovery links (recommended: 1 minute) to reduce risk from interception.
+   - A short expiration window significantly reduces exposure.
 
-4. Increase OTP Complexity
+4. Increase OTP complexity
 
-   - Enhance OTP strength to protect against brute-force and guess-based attacks:
+   - Use stronger OTPs to resist brute-force and guessing attacks:
      - Use 6–8 digit numeric OTPs or alphanumeric OTPs.
-   - Stronger OTPs increase the difficulty for automated attacks.
+   - Stronger OTPs increase the difficulty of automated attacks.
 
-5. Implement Rate Limiting for OTP Submission
+5. Implement rate limiting for OTP submission
 
-   - Add rate limiting to the OTP verification API endpoint by restricting the number of OTP submissions per IP.
-   - Rate limiting prevents brute-force attempts on OTP validation.
+   - Rate limit OTP verification endpoints by IP address.
+   - Consider progressive delays or temporary lockouts after repeated failures.
 
-6. Notify Users of Password Recovery Attempts
+6. Notify users of password recovery attempts
 
-   - Always notify users when a password recovery flow is successfully completed.
-   - Notifications should include:
-     - A warning if the user did not initiate the request or reset the password.
-     - Recommended security steps to secure their account.
-   - This helps users detect unauthorized activity early.
-
+   - Notify users when a password recovery flow completes successfully.
+   - Include in the notification:
+     - A warning if the user did not initiate the request
+     - Recommended steps to secure their account
+   -  Notifications help users detect unauthorized activity early.
