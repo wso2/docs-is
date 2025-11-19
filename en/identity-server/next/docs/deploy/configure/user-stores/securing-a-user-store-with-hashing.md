@@ -89,21 +89,25 @@ To configure PBKDF2 or BCRYPT in secondary JDBC user store:
             <th>Property</th>
             <th>PBKDF2 Value</th>
             <th>BCRYPT Value</th>
+            <th>Description</th>
         </tr>
         <tr>
             <td>Password Hashing Algorithm</td>
             <td><code>PBKDF2</code></td>
             <td><code>BCRYPT</code></td>
+            <td>Name of the hashing algorithm supported by the user store.</td>
         </tr>
         <tr>
             <td>Enable Salted Passwords</td>
             <td><code>N/A</code></td>
             <td><code>false</code></td>
+            <td>When set to true (which is the default and recommended value for JDBC user stores), WSO2 ensures that a unique, random salt is generated and stored along with the hashed password for every user.</td>
         </tr>
         <tr>
             <td>User Store Hashing Configurations</td>
             <td><code>{pbkdf2.iteration.count:10000, pbkdf2.dkLength:256, pbkdf2.prf:PBKDF2WithHmacSHA256} </code></td>
             <td><code>{bcrypt.version:2b,bcrypt.cost.factor:12}</code></td>
+            <td>Additional parameters required for password hashing algorithm. This should be given in JSON format. Learn more about these configurations in [PBKDF2](#pbkdf2-parameters) and [BCRYPT](#bcrypt-parameters).</td>
         </tr>
     </table>
 
@@ -138,6 +142,13 @@ When configuring the PBKDF2 hashing algorithm the following parameters must be s
         <td><code>PBKDF2WithHmacSHA256</code></td>
         <td>The key component of the PBKDF2 hashing algorithm in which the actual hashing part is done.</td>
 </table>
+
+!!! Note
+    NIST recommends `PBKDF2WithHmacSHA256` as the pseudo-random function (prf) value, but the prf can also be changed. Some examples of possible prf values are as follows:
+
+    - `PBKDF2WithHmacSHA512`
+    - `PBKDF2WithHmacSHA256`
+    - `PBKDF2WithHmacSHA1`
 
 ### BCRYPT Parameters
 
