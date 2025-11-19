@@ -4,27 +4,25 @@ This guide explains SAML artifact binding and how to enable it in {{product_name
 
 ## Overview
 
-During SAML authentication, messages such as authentication requests and responses typically travel between the Service Provider (SP) and Identity Provider (IdP) using HTTP POST or HTTP Redirect bindings. Fo some systems, SAML Artifact Binding can be a more secure and efficient way to send these messages.
+SAML artifact binding eliminates the need to exchange sensitive user information through the user's browser during authentication.
 
-When an SP requests authentication from an IdP using SAML artifact binding, the IdP responds with a small artifact that works as a pointer to the actual SAML response. The SP uses this reference and retrieves the full SAML message from the IdP using a SOAP-based back-channel, ensuring secure and reliable delivery.
+When a Service Provider (SP) requests authentication from an Identity Provider (IdP) using SAML artifact binding, the IdP responds with a small artifact that works as a pointer to the actual SAML response. The SP uses this reference and retrieves the full SAML message from the IdP using a SOAP-based back-channel, ensuring secure and reliable delivery.
 
-This binding prevents sensitive information from passing through the user’s browser, reducing the risk of interception or tampering. But it adds complexity by requiring additional back-channel communication between the SP and IdP.
+This approach minimizes the risk of interception or tampering but introduces additional complexity due to the required back-channel communication between the SP and IdP.
 
 ![SAML artifact binding]({{base_path}}/assets/img/guides/authentication/saml/saml-artifact-binding.png)
 
 The process goes as follows:
 
-1. User tries to access a protected resource. The user opens your application and the application sees that the user needs to log in.
+1. User tries to access a protected resource and the application sees that the user needs to log in.
 
-2. The application creates a SAML AuthnRequest and sends a 302 Redirect to the browser. The redirect contains the AuthnRequest in the query parameters.
+2. The application creates a SAML AuthnRequest and sends a 302 Redirect to the browser which contains the AuthnRequest in the query parameters.
 
-3. The Identity provider (IdP) receives the AuthnRequest. After authenticating the user (login page etc.), the IdP generates a SAML Artifact (a short reference pointer). The IdP sends a 302 Redirect back to the browser containing:
+3. The IdP receives the AuthnRequest, authenticates the user and generates a SAML Artifact (a short reference pointer). The IdP sends a 302 Redirect back to the browser containing:
 
     ```bash
     SAMLart=<artifact>
     ```
-
-    So the browser only carries the artifact, not the SAML response.
 
 4. The browser follows the redirect and sends:
 
@@ -32,13 +30,13 @@ The process goes as follows:
     GET https://your-app.com?SAMLart=xxx
     ```
 
-5. The application now receives only the artifact, not the SAML Response. The application extracts:
+5. The application extracts the artifact:
 
     ```bash
     SAMLart = "ABCDEF123456..."
     ```
 
-6. The SP must now resolve the artifact into a full SAML Response. It does this via a back-channel SOAP call to the IdP:
+6. The SP must now resolve the artifact into a full SAML Response. For this, it sends a back-channel SOAP call to the IdP:
 
     ```saml
     <ArtifactResolve>
@@ -74,7 +72,7 @@ To enable SAML artifact binding for your application,
 
 3. Optionally select the **Enable signature validation for artifact binding** to validate the artifact resolve request signature against the application certificate.
 
-4. If you selected the option in Step 3, provide a certificate under **Certificate** for {{product_name}} to validate the request.
+4. If you selected the option in Step 3, provide the application's certificate under **Certificate** for {{product_name}} to validate the request.
 
     !!! note
 
@@ -84,7 +82,7 @@ To enable SAML artifact binding for your application,
 
 ### Configure artifact expiration time
 
-The [SAML 2.0 Binding specification](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf){: target="_blank"} specifies that the artifacts require a time of expiration. {{product_name}} resolves artifacts only when they fall within the defined expiration period. Expired artifacts are rejected.
+The [SAML 2.0 Binding specification](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf){: target="_blank"} specifies that the artifacts require a time of expiration. {{product_name}} resolves artifacts only when artifacts expiration period. Expired artifacts are rejected.
 
 The default time limit is set for 4 minutes. To change it, set a custom time (in minutes) for the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
@@ -241,9 +239,9 @@ To integrate the sample application,
         SAML2.EnableArtifactResolveSigning=false
         ```
 
-    - If you prefer to keep the default signing behavior, extract each application's public certificate from `<APP_HOME>/WEB-INF/classes/wso2carbon.p12` and upload it to {{product_name}} under your application's **Protocol** > **Certificates**.
+    - If you prefer to keep the default signing behavior, extract each application's public certificate from `<APP_HOME>/WEB-INF/classes/wso2carbon.p12`, and upload it to {{product_name}} under the **Certificate** section of your registered application's **Protocol** tab.
 
-    - If you enable response signing, make sure to also enable **Protocol** > **Response Signing** > **Sign SAML responses**  in your registered application, and upload the IdP certificate to the application (You can find it from the **Info** tab of your application).
+    - If you enable response signing, make sure that in {{product_name}} Console, you go to your registered application's **Protocol** section and under **Response Signing**, enable **Sign SAML responses**. Also from the **Info** tab of your registered application, download the IdP certificate and add it to your installed application as a trusted certificate.
 
 ### Try artifact binding
 
