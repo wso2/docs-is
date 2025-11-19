@@ -9,9 +9,7 @@ Grant types in OAuth 2.0 are defined as the methods used by a client to obtain a
 - [Client credentials grant](#client-credentials-grant)
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
-{% if product_name == "WSO2 Identity Server" %}
 - [Device authorization grant](#device-authorization-grant)
-{% endif %}
 - [Token exchange grant](#token-exchange-grant)
 {% if product_name == "WSO2 Identity Server" %}
 - [JWT Bearer Grant](#jwt-bearer-grant)
@@ -301,12 +299,13 @@ The following diagram shows how the password grant flow works.
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
-{{password_grant_show_auth_failure_reason_note}}
-
 {% if product_name == "WSO2 Identity Server" %}
+{{password_grant_show_auth_failure_reason_note}}
+{% endif %}
+
 ## Device authorization grant
 
-Device authorization grant (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser. 
+[Device authorization grant](https://datatracker.ietf.org/doc/html/rfc8628) (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser. 
 Such devices include smart TVs, printers, and gaming consoles. The device flow does not require two-way communication between the OAuth client and the device. Instead, it guides the end user to another device, such as a smartphone, to complete the sign-in process.
 
 The diagram below illustrates the device flow.
@@ -347,9 +346,9 @@ The diagram below illustrates the device flow.
 
 3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
 
-4. WSO2 Identity server prompts the user to enter the end-user code and the user enters the user code.
+4. {{ product_name }} prompts the user to enter the end-user code and the user enters the user code.
 
-5. WSO2 Identity server validates the code and asks the end user to accept or decline the authorization request.
+5. {{ product_name }} validates the code and asks the end user to accept or decline the authorization request.
 
 6. While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
 
@@ -387,8 +386,6 @@ The diagram below illustrates the device flow.
 8. The client application can now request resources from the resource server by providing the access token.
 
 9. The resource server returns the requested user information to the client application.
-
-{% endif %}
 
 ## Token exchange grant
 
