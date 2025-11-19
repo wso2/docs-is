@@ -24,7 +24,7 @@ This guide outlines the recommended best practices to follow when designing and 
 4. Increase OTP Complexity
 
    - Enhance OTP strength to protect against brute-force and guess-based attacks:
-     - Use 6–8 digit numeric OTPs or alphanumeric OTPs. 
+     - Use 6–8 digit numeric OTPs or alphanumeric OTPs.
    - Stronger OTPs increase the difficulty for automated attacks.
 
 5. Implement Rate Limiting for OTP Submission
