@@ -93,7 +93,7 @@ paths:
                     description: No user found
                     traceId: 23456fghj678vb78
         '409':
-          description: Mutiple users found for the given claims.
+          description: Multiple users found for the given claims.
           content:
             application/json:
               schema:
@@ -368,7 +368,7 @@ paths:
                     description: No user found
                     traceId: 23456fghj678vb78
         '409':
-          description: Mutiple users found for the given claims.
+          description: Multiple users found for the given claims.
           content:
             application/json:
               schema:
@@ -1105,7 +1105,7 @@ components:
         resendCode:
           type: string
           description: >-
-            Code to resend the confirmation code to the user via user user
+            Code to resend the confirmation code to the user via user
             selected channel
           example: 1234-123456-12345-12345
         links:
