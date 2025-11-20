@@ -844,7 +844,7 @@ nav:
         - User Stores:
           - User Stores: deploy/configure/user-stores/index.md
           - Add high availability for LDAP: deploy/configure/user-stores/configure-high-availability-ldap.md
-          - Secure a JDBC user store with PBKDF2 hashing: deploy/configure/user-stores/secure-userstore-using-pbkdf2.md
+          - Secure a JDBC user store with hashing: deploy/configure/user-stores/securing-a-user-store-with-hashing.md
           - Configure the Authorization Manager: deploy/configure/user-stores/configure-authorization-manager.md
           - Configure the System Administrator: deploy/configure/user-stores/configure-system-administrator.md
         - Databases:
