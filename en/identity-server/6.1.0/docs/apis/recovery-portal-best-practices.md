@@ -36,6 +36,6 @@ This guide outlines recommended best practices for designing and deploying such 
 
    - Notify users when a password recovery flow completes successfully.
    - Include in the notification:
-     - A warning if the user did not initiate the request
+     - A warning if the user didn't initiate the request
      - Recommended steps to secure their account
    -  Notifications help users detect unauthorized activity early.
