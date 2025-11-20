@@ -98,7 +98,7 @@ paths:
                     description: No user found
                     traceId: 23456fghj678vb78
         '409':
-          description: Mutiple users found for the given claims.
+          description: Multiple users found for the given claims.
           content:
             application/json:
               schema:
@@ -123,28 +123,6 @@ paths:
                     message: Internal Error
                     description: Internal Error
                     traceId: 23456fghj678vb78
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl -X 'POST' \
-            'https://localhost/api/users/v1/recovery/username/init' \
-            -H 'accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "claims": [
-                {
-                  "uri": "http://wso2.org/claims/givenname",
-                  "value": "user1"
-                }
-              ],
-              "properties": [
-                {
-                  "key": "key",
-                  "value": "value"
-                }
-              ]
-            }'
       requestBody:
         content:
           application/json:
@@ -255,24 +233,6 @@ paths:
                     message: Internal Error
                     description: Internal Error
                     traceId: 23456fghj678vb78
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl -X 'POST' \
-            'https://localhost/api/users/v1/recovery/username/recover' \
-            -H 'accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "recoveryCode": "1234-5678-2455-3433",
-              "channelId": "1",
-              "properties": [
-                {
-                  "key": "key",
-                  "value": "value"
-                }
-              ]
-            }'
       requestBody:
         content:
           application/json:
@@ -407,28 +367,6 @@ paths:
                     message: Internal Error
                     description: Internal Error
                     traceId: 23456fghj678vb78
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl -X 'POST' \
-            'https://localhost/api/users/v1/recovery/password/init' \
-            -H 'accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "claims": [
-                {
-                  "uri": "http://wso2.org/claims/givenname",
-                  "value": "user1"
-                }
-              ],
-              "properties": [
-                {
-                  "key": "key",
-                  "value": "value"
-                }
-              ]
-            }'
       requestBody:
         content:
           application/json:
@@ -582,24 +520,6 @@ paths:
                     message: Internal Error
                     description: Internal Error
                     traceId: 23456fghj678vb78
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl -X 'POST' \
-            'https://localhost/api/users/v1/recovery/password/recover' \
-            -H 'accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "recoveryCode": "1234-5678-2455-3433",
-              "channelId": "1",
-              "properties": [
-                {
-                  "key": "key",
-                  "value": "value"
-                }
-              ]
-            }'
       requestBody:
         content:
           application/json:
@@ -678,7 +598,7 @@ paths:
                     resendCode: 1234-12345-234-123456
                     links:
                       - rel: next
-                        href: api/user/v1/recovery/password/recover
+                        href: api/users/v1/recovery/password/recover
                         type: POST
                       - rel: resend
                         href: api/users/v1/recovery/password/resend
@@ -735,23 +655,6 @@ paths:
                     message: Internal Error
                     description: Internal Error
                     traceId: 23456fghj678vb78
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl -X 'POST' \
-            'https://localhost/api/users/v1/recovery/password/resend' \
-            -H 'accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "resendCode": "1234-2ws34-1234",
-              "properties": [
-                {
-                  "key": "key",
-                  "value": "value"
-                }
-              ]
-            }'
       requestBody:
         content:
           application/json:
@@ -856,23 +759,6 @@ paths:
                     message: Internal Error
                     description: Internal Error
                     traceId: 23456fghj678vb78
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl -X 'POST' \
-            'https://localhost/api/users/v1/recovery/password/confirm' \
-            -H 'accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "confirmationCode": "1234-2ws34-12345",
-              "properties": [
-                {
-                  "key": "key",
-                  "value": "value"
-                }
-              ]
-            }'
       requestBody:
         content:
           application/json:
@@ -984,24 +870,6 @@ paths:
                     message: Internal Error
                     description: Internal Error
                     traceId: 23456fghj678vb78
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl -X 'POST' \
-            'https://localhost/api/users/v1/recovery/password/reset' \
-            -H 'accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
-            -d '{
-              "resetCode": "string",
-              "password": "string",
-              "properties": [
-                {
-                  "key": "key",
-                  "value": "value"
-                }
-              ]
-            }'
       requestBody:
         content:
           application/json:
