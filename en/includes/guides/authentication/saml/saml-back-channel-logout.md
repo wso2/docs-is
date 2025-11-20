@@ -6,32 +6,32 @@ This guide explains SAML back-channel logout and how to implement it with WSO2 I
 
 SAML logout enables a user to log out of an application and automatically log out of other applications without needing to manually log out from each application. You can implement log out in two ways:
 
-- **Asynchronous binding (front-channel logout)** - Uses the user’s browser and redirects to propagate logout requests. Simpler but less reliable, as it depends on the browser session being active.
-- **Synchronous binding (back-channel logout)** - Uses direct server-to-server communication to log out users from all connected applications reliably. End-to-end security can be ensured using mutually authenticated TLS (MTLS).
+- **Asynchronous binding (front-channel logout)** - Propagates logout requests through the browser and redirects. Simpler but less reliable, as it depends on user having an active browser session.
+- **Synchronous binding (back-channel logout)** - Uses direct server-to-server communication to log out users from all connected applications reliably.
 
-**Back-channel logout** provides reliable, consistent logout across all applications because the logout requests are exchanged directly between servers. This server-to-server communication doesn't rely on the user's browser, ensuring that all sessions are terminated even if the user closes the tab or loses connectivity. The following diagrams explain the two use cases for which you can use back-channel logout.
+**Back-channel logout** provides a reliable and consistent logout across all applications as it depends on direct server-to-server communication rather than relying on the user's browser. The following diagrams explain the two use cases for which you can use back-channel logout.
 
 === "Service Provider (SP)-initiated logout"
 
-    SP-initiated logout occurs when the user starts the logout process from a Service Provider (SP) application, rather than from the Identity Provider (IdP) directly.
+    SP-initiated logout occurs when the user starts the logout process from a Service Provider (SP).
 
     ![SP-initiated back-channel logout]({{base_path}}/assets/img/guides/authentication/saml/back-channel-sp-initiated-logout.png)
 
     During this flow,
 
-    - The SP generates an SP-initiated logout request and send it to the Identity Provider (IdP).
+    - Application A (Primary SP) generates a logout request with the session index ID and sends it to the Identity Provider (IdP).
 
-    - IdP sends logout requests to all the SPs that have enabled Single Logout (SLO).
+    - IdP sends logout requests to all other SPs that have enabled Single Logout (SLO) and are sharing the same session identified by the session index ID. For example, to Application B.
 
-    - Since the user has an active session in Application B, it will invalidate its local session associated with the session index ID. This repeats for all session participants.
+    - Application B and all other SPs teminate the local sessions associated with the session index ID.
 
-    - IdP sends a logout response to Application A.
-
+    - Once all other applications send back their logout responses, the IdP sends a logout response to the primary SP (Application A) that initiated the request.
+  
     - Application A invalidates the user session associated with the session index ID and redirects the user to the logout page.
 
 === "Identity Provider (IdP)-initiated logout"
 
-    IdP-initiated logout occurs when the user triggers the logour process directly from the Identity Provider (IdP).
+    IdP-initiated logout occurs when the user triggers the logout process directly from the Identity Provider (IdP).
 
     ![IdP-initiated back-channel logout]({{base_path}}/assets/img/guides/authentication/saml/back-channel-idp-initiated-logout.png)
 
@@ -41,13 +41,13 @@ SAML logout enables a user to log out of an application and automatically log ou
 
     - IdP sends logout requests to all the SPs in the same SAML SSO session (Application A and Application B).
 
-    - All SPs invalidate their local user sessions.
+    - All SPs invalidate their local user sessions and send back logout responses.
 
-    - IdP redirects the user to a pre-configured logout page.
+    - Once all other applications send back their logout responses, IdP invalidates the user session and redirects the user to a pre-configured logout page.
 
 ## Enable and configure Back channel logout
 
-For your applications to seamlessly logout, follow the steps below:
+To enable back-channel logout for your applicaions, follow the steps below:
 
 1. On the WSO2 Identity Server Console, go to **Applications** and select your registered SAML application.
 
@@ -147,7 +147,7 @@ To integrate the sample applications,
 
 !!! note
 
-    - The sample application has request and response signing enabled by default. If you want to try the flow without dealing with certificates, open the `<APP_HOME>/WEB-INF/classes/sso.properties` file and set all signing-related properties to false:
+    - The sample applications have request and response signing enabled by default. If you want to try the flow without dealing with certificates, open the `<APP_HOME>/WEB-INF/classes/sso.properties` file and set all signing-related properties to false:
 
         ```bash
         SAML2.EnableResponseSigning=false
@@ -156,9 +156,9 @@ To integrate the sample applications,
         SAML2.EnableArtifactResolveSigning=false
         ```
 
-    - If you prefer to keep the default signing behavior, extract the application's public certificate from `<APP_HOME>/WEB-INF/classes/wso2carbon.p12` and upload it to {{product_name}} under your application's **Protocol** > **Certificates**.
+    - If you prefer to keep the default signing behavior, extract each application's public certificate from `<APP_HOME>/WEB-INF/classes/wso2carbon.p12`, and upload it to {{product_name}} under the **Certificate** section of your registered application's **Protocol** tab.
 
-    - If you enable response signing, make sure to also enable **Protocol** > **Response Signing** > **Sign SAML responses** in your registered application, and upload the IdP certificate to the application (You can find it from the **Info** tab of your application).
+    - If you enable response signing, make sure that in {{product_name}} Console, you go to your registered application's **Protocol** section and under **Response Signing**, enable **Sign SAML responses**. Also from the **Info** tab of your registered application, download the IdP certificate and add it to your installed application as a trusted certificate.
 
 ### Try back-channel logout
 
