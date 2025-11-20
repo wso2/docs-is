@@ -17,7 +17,7 @@ The table below summarizes the available values for the PasswordDigest property:
     <tbody>
     <tr class="odd">
     <td>SHA</td>
-    <td> Uses SHA digest method (SHA-1 or SHA-256). If you enter only SHA for the PasswordDigest property, it is interpreted as SHA-1. Note that SHA-256 is the default digest method used by WSO2 IS for JDBC user stores if no value is explicitly configured.
+    <td> Uses SHA digest method (SHA-1 or SHA-256). If you enter only SHA for the PasswordDigest property, it is interpreted as SHA-1. Note that SHA-256 is the default digest method used by WSO2 IS for JDBC user stores if no value is explicitly configured.</td>
     </tr>
     <tr class = "odd">
     <td>MD5</td>
