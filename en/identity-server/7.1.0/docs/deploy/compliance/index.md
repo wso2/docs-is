@@ -10,4 +10,6 @@ Being compliant with industry regulations and law is a vital responsibility for 
 
 - [FIPS]({{base_path}}/deploy/compliance/fips)
 
+- [FAPI]({{base_path}}/deploy/compliance/fapi)
+
 - [Accessibility Compliance]({{base_path}}/deploy/compliance/accessibility)
