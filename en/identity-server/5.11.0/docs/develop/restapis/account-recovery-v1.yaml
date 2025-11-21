@@ -5,6 +5,10 @@ info:
   description: |
     This document specifies **User initiated Username and Password Recovery related RESTful API** for **WSO2 Identity Server**. <br>
 
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
 paths:
   /recovery/username/init:
     post:
@@ -1267,3 +1271,14 @@ components:
           type: string
           description: HTTP method type
           example: POST
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
