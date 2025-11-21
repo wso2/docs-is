@@ -25,6 +25,7 @@ extra:
   content:
     default_keystore_type: PKCS12
     default_keystore_ext: p12
+    identity_apps_core_tag: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-3.3.22
     sdkconfig:
       baseUrl: "https://localhost:9443"
 
