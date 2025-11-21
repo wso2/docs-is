@@ -25,6 +25,7 @@ extra:
   content:
     default_keystore_type: JKS
     default_keystore_ext: jks
+    identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.1.31
     sdkconfig:
       baseUrl: "https://localhost:9443"
 
