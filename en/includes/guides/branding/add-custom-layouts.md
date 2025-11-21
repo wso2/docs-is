@@ -186,7 +186,7 @@ To add a custom layout to the login page:
     !!! note
         To update the header and the footer, use the [Branding UI]({{base_path}}/guides/branding/configure-ui-branding/#update-branding).
 
-2. Download the relevant [identity-apps source code]({{content.identity_apps_core_tag}}){target="_blank"} from GitHub and extract it. This directory will be referred to as `IDENTITY-APPS-HOME` in the next step.
+2. Download the relevant [identity-apps source code]({{content.identity_apps_core_release_url}}){target="_blank"} from GitHub and extract it. This directory will be referred to as `IDENTITY-APPS-HOME` in the next step.
 
 3. Setup the development tools.
     1. Install [JDK 11](https://openjdk.org/projects/jdk/)

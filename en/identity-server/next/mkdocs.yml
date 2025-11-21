@@ -25,7 +25,7 @@ extra:
   content:
     default_keystore_type: PKCS12
     default_keystore_ext: p12
-    identity_apps_core_tag: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.14.2
+    identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.14.2
     sdkconfig:
       baseUrl: "https://localhost:9443"
 
