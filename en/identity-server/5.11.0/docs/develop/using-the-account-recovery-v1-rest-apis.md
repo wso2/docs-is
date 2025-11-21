@@ -1,23 +1,22 @@
 ---
 template: templates/swagger.html
 ---
-# Using the Account Recovery v0.9 REST APIs
+# Using the Account Recovery v1 REST APIs
 
-!!! info "Related Links" 
+!!! info "Related Links"
     For information on password and username recovery via the UI instead,
     see [Account Recovery](../../learn/username-recovery/).
 
 
 ??? Note "Click to view"
     Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server.
-    
+
     1.  Click **Authorize** and provide the desired values for authentication. 
     2.  Expand the relevant API operation and click **Try It Out**.  
     3.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
     4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
-     IS. 
-
+     IS.
 
 <div id="swagger-ui"></div>
 <script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
@@ -26,7 +25,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/account-recovery-v0.9.yaml",
+    url: "../../develop/restapis/account-recovery-v1.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
