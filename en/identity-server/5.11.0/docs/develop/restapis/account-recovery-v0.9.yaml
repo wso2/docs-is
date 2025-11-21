@@ -680,9 +680,6 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth/authorize
-          tokenUrl: https://localhost:9443/oauth/token
-          scopes:
-            read: Grants read access
-            write: Grants write access
-            admin: Grants read and write access to administrative information
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}
