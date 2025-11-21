@@ -377,7 +377,31 @@ To configure properties of user attributes:
     - Self-service portal user profile
     ![User creation wizard - dropdown input]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-input-format-self-service-view.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-7. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
+7. **Manage in User Store**
+
+    The **Manage in User Store** option determines where the attribute values are stored and managed.
+
+    ![Managed in User Store]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-managed-in-user-store.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - **Checked**: The attribute values are managed in the user store.
+    - **Unchecked**: The attribute values are managed internally by the system.
+
+    When the Manage in User Store option is selected, you can further refine this behavior in the Attribute Mappings tab. 
+    There, you can exclude specific user stores by clearing the Manage in User Store checkbox for those stores. 
+    The attribute values for the excluded user stores will then be managed internally by the system.
+
+    ![Selective Manage in User Store]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-excluded-user-store.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    !!! Danger "Warning"
+        Changing the attribute storage location may cause any existing attribute values stored in the user store or 
+        managed internally to become inaccessible. Ensure that you understand the impact before making this change.
+
+        If you have configured a **Read-Only User Store** and enable **Manage in User Store** for an identity attribute, 
+        the attribute will not be editable in the user profile. Consequently, certain internal functions that rely on 
+        updating these attributes may not work as expected.
+
+
+8. Under **Attribute Configurations**, use the table to configure how attributes are handled for each entity.
 
     ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
