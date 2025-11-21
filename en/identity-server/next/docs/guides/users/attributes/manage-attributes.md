@@ -1,1 +1,0 @@
-{% include "../../../../../../includes/guides/users/attributes/manage-attributes.md" %}
