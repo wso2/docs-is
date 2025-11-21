@@ -4,8 +4,8 @@ template: templates/swagger.html
 # Using the Account Recovery v1 REST APIs
 
 !!! info "Related Links"
-For information on password and username recovery via the UI instead,
-see [Account Recovery](../../learn/username-recovery/).
+    For information on password and username recovery via the UI instead,
+    see [Account Recovery](../../learn/username-recovery/).
 
 
 ??? Note "Click to view"
