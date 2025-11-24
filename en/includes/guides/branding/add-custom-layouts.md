@@ -190,7 +190,7 @@ To add a custom layout to the login page:
 
 3. Setup the development tools.
     1. Install [JDK 11](https://openjdk.org/projects/jdk/)
-    2. Install [Maven](https://maven.apache.org/download.cgi)
+    2. Install [Maven](https://maven.apache.org/download.cgi).
 
 4. Follow the following steps to build the layouts.
 
