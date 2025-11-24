@@ -179,48 +179,99 @@ The following configurations need to be done in both the WSO2 Identity Server no
 
         ??? tip "Click to see the instructions for the AWS ECS membership scheme"
 
-            1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
-                -   Select the `EC2 instance` type.
-                -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
-                -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached.
+            AWS ECS supports two launch types: **EC2** and **Fargate**. Choose the appropriate configuration based on your deployment preference.
+
+            ??? info "EC2 Launch Type Configuration"
+
+                1. Create a working AWS ECS Cluster with EC2 launch type. Note the following when creating a cluster.
+                    -   Select the `EC2 instance` launch type.
+                    -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
+                    -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached.
+                            ```
+                            { "Version": "2012-10-17",
+                                 "Statement":
+                                 [
+                                 {
+                                     "Effect": "Allow",
+                                     "Action":
+                                         [
+                                         "ec2:DescribeAvailabilityZones",
+                                         "ec2:DescribeInstances"
+                                         ],
+                                         "Resource": [ "*" ]
+                                 }
+                                 ]
+                            }
+
+                            ```
+                    -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
+
+                2. Create a `deployment.toml` file in a preferred directory and add the following configurations.
                         ```
-                        { "Version": "2012-10-17",
-                             "Statement":
-                             [
-                             {
-                                 "Effect": "Allow",
-                                 "Action":
-                                     [
-                                     "ec2:DescribeAvailabilityZones",
-                                     "ec2:DescribeInstances"
-                                     ],
-                                     "Resource": [ "*" ]
-                             }
-                             ]
-                        }
+                        [clustering]
+                        membership_scheme = "aws-ecs"
 
+                        [clustering.properties]
+                        region = "us-east-1"
+                        clusterName = "ECS-IS-CLUSTER"
+                        hostHeader = "ec2"
+                        vpcCidrBlock = "10.0.*.*"
+                        tagValue = "a_tag_value"
                         ```
-                -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
+                Under the `clustering.properties` section, set the `region`, `clusterName`, `tagValue` and `vpcCidrBlock` based on the AWS ECS cluster you created in the previous step. The `tagValue` is derived from the auto-generated tag `aws:cloudformation:stack-name` in the AWS cluster. If the `aws:cloudformation:stack-name` tag is not available in the cluster or you prefer to use a custom tag, make sure to specify both the `tagKey` and `tagValue`.
 
-            2. Create a `deployment.toml` file in a preferred directory and add the following configurations.
-                    ```
-                    [clustering]
-                    membership_scheme = "aws-ecs"
+                !!! note
+                    As only the `host` network mode is supported for EC2 launch type, the `hostHeader` value should be set to `"ec2"` in the `clustering.properties` section.
 
-                    [clustering.properties]
-                    region = "us-east-1"
-                    clusterName = "ECS-IS-CLUSTER"
-                    hostHeader = "ec2"
-                    vpcCidrBlock = "10.0.*.*"
-                    tagValue = "a_tag_value"
-                    ```
-            Under the `clustering.properties` section, set the `region`, `clusterName`, `tagValue` and `vpcCidrBlock` based on the AWS ECS cluster you created in the previous step. The `tagValue` is derived from the auto-generated tag `aws:cloudformation:stack-name` in the AWS cluster. If the `aws:cloudformation:stack-name` tag is not available in the cluster or you prefer to use a custom tag, make sure to specify both the `tagKey` and `tagValue`.
+                !!! note
+                    Once all the configurations are complete, build a docker image including the configurations. You can use this Docker image to create a `Task Definition`, and make sure to set the network mode to `host` in the definition. Then run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
 
-            !!! note
-                As only the `host` network mode is supported, the `hostHeader` value should be set to `"ec2"` in the `clustering.properties` section.
+            ??? info "Fargate Launch Type Configuration"
 
-            !!! note
-                Once all the configurations are complete, build a docker image including the configurations. You can use this Docker image to create a `Task Definition`, and make sure to set the network mode to `host` in the definition. Then run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
+                1. Create a working AWS ECS Cluster with Fargate launch type. Note the following when creating a cluster.
+                    -   Select the `Fargate` launch type.
+                    -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
+                    -   Ensure that the `Task execution role` has the following permissions:
+                            ```
+                            { "Version": "2012-10-17",
+                                 "Statement":
+                                 [
+                                 {
+                                     "Effect": "Allow",
+                                     "Action":
+                                         [
+                                            "ecs:ListTasks",
+                                            "ecs:DescribeTasks",
+                                            "ec2:DescribeNetworkInterfaces"
+                                         ],
+                                         "Resource": [ "*" ]
+                                 }
+                                 ]
+                            }
+
+                            ```
+                    -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
+
+                2. Create a `deployment.toml` file in a preferred directory and add the following configurations.
+                        ```
+                        [clustering]
+                        membership_scheme = "aws-ecs"
+
+                        [clustering.properties]
+                        region = "us-east-1"
+                        clusterName = "ECS-IS-CLUSTER-FARGATE"
+                        hostHeader = "ecs"
+                        vpcCidrBlock = "10.0.*.*"
+                        tagKey = "a_tag_key"
+                        tagValue = "a_tag_value"
+                        ```
+                Under the `clustering.properties` section, set the `region`, `clusterName`, `tagKey`, `tagValue` and `vpcCidrBlock` based on the AWS ECS cluster you created in the previous step. Make sure to specify both the `tagKey` and `tagValue` as Fargate tasks do not have the `aws:cloudformation:stack-name` tag by default.
+
+                !!! note
+                    For Fargate launch type, the `hostHeader` value should be set to `"ecs"` in the `clustering.properties` section as Fargate uses `awsvpc` network mode.
+
+                !!! note
+                    Once all the configurations are complete, build a docker image including the configurations. You can use this Docker image to create a `Task Definition` for Fargate. The network mode will be automatically set to `awsvpc` for Fargate tasks. Then run a new `Service` on the `AWS ECS cluster` you created.
 
         ??? tip "Click to see the instructions for the AWS EC2 membership scheme"
 
