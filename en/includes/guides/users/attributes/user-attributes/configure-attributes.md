@@ -221,10 +221,6 @@ Use the following basic properties to change details and behavior of an attribut
 
 These properties control where an attribute appears in the {{product_name}} Console, and whether the attribute is required or read-only.
 
-!!! Danger "Warning"
-
-    These settings only control how the attributes behave in WSO2-managed user interfaces. They **do not** affect backend or API validation.
-
 To update these settings, open the **General** tab of your attribute and use the table in the **Attribute Configurations** section.
 
 ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-profiles.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -252,16 +248,19 @@ The table manages these settings across the following user interfaces:
     </tbody>
 </table>
 
-If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms.
+!!! Danger "Only for display purposes"
 
-!!! note
+    These settings only control how the attributes behave in WSO2-managed user interfaces. They **do not** affect backend or API validation.
 
-    Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when
-        [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) in the console.
+!!! tip "Refer these settings from your own end-user UI"
 
-## Display attributes in the user creation form
+    If you create a custom end-user profile UI, you can reference these configurations to apply the same rules (Display, Required, Read-only) in your own forms.
 
-To display an attribute in the user creation form, select the **both** **Display** and **Required** checkboxes for the **Administrator Console** entity.
+!!! tip "Display attributes in the user creation form"
+
+    You can control whether to display this attribute when [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) from the Console. To do so, select both  **Display** and **Required** for **Administrator Console**.
+
+## Advanced settings
 
 1. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
 
@@ -281,7 +280,41 @@ Optionally, you may use the **Additional Properties** tab to add additional prop
 
 ## Configure the storage location of identity attributes
 
-5. **Manage in User Store**
+Identity attributes are pieces of information that describe the state or status of a user account rather than personal or demographic details. Unlike persona information (such as name, email, or phone number), identity attributes focus on account-related properties,for example, whether the account is verified, locked, active, or disabled.
+
+In {{product_name}}, you can configure identity attributes to be stored in a designated user store, or store individual attributes in a connected user store.
+
+### Change the default identity attribute store
+
+By default, {{product_name}} stores identity attributes in the user store configured in the `<IS_HOME>/repository/conf/deployment.toml` file. To change this,
+
+1. Add the following configuration to the `deployment.toml` file. The `IdentityDataStoreService` OSGi service uses this value to determine which data store implementation to access.
+
+    ```toml
+    [identity_datastore]
+    datastore_type = "<Name of the identityDataStore class>"
+    ```
+
+2. Map the identity claims mentioned below to attributes in the underlying user store.
+
+    !!! info
+        Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).
+
+    - `http://wso2.org/claims/identity/accountLocked`: This claim is
+        used to store the status of the user's account, that is, if it's
+        locked or not.
+
+    - `http://wso2.org/claims/identity/unlockTime`: This is used to
+        store the timestamp that the user's account is unlocked.
+
+    - `http://wso2.org/claims/identity/failedLoginAttempts`: This is
+        used to track the number of consecutive failed login attempts.
+        It's based on this that the account is locked.
+{% endif %}
+
+### Store identity attributes in user stores
+
+1. **Manage in User Store**
 
     The **Manage in User Store** option determines where the attribute values are stored and managed.
 
@@ -320,24 +353,10 @@ By default, identity claim values are stored in the JDBC datasource configured i
 
         By making this configuration adjustment, you can ensure that your system aligns with your preferred data store class, whether it's the previous default or a custom class you've implemented. This helps you tailor the system to your specific needs.
 
-2. Map the identity claims mentioned below to attributes in the underlying user store.
-
-    !!! info
-        Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).
-
-    - `http://wso2.org/claims/identity/accountLocked`: This claim is
-        used to store the status of the user's account, that is, if it's
-        locked or not.
-
-    - `http://wso2.org/claims/identity/unlockTime`: This is used to
-        store the timestamp that the user's account is unlocked.
-
-    - `http://wso2.org/claims/identity/failedLoginAttempts`: This is
-        used to track the number of consecutive failed login attempts.
-        It's based on this that the account is locked.
-{% endif %}
 
 {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+
+## Configure hidden attributes
 
 WSO2 Identity Server includes hidden identity attributes that support internal functionality but don't appear in the Console UI by default. These attributes typically don't require mapping with Service Providers (SPs) or Identity Providers (IdPs).
 
