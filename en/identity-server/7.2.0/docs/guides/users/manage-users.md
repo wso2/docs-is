@@ -86,7 +86,7 @@ You can also use the **resend-code API** to resend links or codes programmatical
 
         ```curl
         curl -X 'POST' \
-        'https://localhost:9443/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        'https://localhost:9443/t/{root_organization_handle}/api/identity/user/v1.0/resend-code' \
         -H 'accept: application/json' \
         -H 'Authorization: Bearer <access_token>' \
         -H 'Content-Type: application/json' \
@@ -107,7 +107,7 @@ You can also use the **resend-code API** to resend links or codes programmatical
 
         ```curl
         curl -X 'POST' \
-        'https://localhost:9443/t/{organization_name}/api/identity/user/v1.0/resend-code' \
+        'https://localhost:9443/t/{root_organization_handle}/api/identity/user/v1.0/resend-code' \
         -H 'accept: application/json' \
         -H 'Authorization: Bearer <access_token>' \
         -H 'Content-Type: application/json' \
