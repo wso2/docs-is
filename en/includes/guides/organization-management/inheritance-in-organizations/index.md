@@ -30,6 +30,7 @@ We are rolling out a new set of changes for sub-organizations that introduce hie
 - Connection configurations of:
     - SMS OTP
     - Push Notifications
+    - Email OTP
     - Passkey connection
 - Flows
     - Self-registration flows
