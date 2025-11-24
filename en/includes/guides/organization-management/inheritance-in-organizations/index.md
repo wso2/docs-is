@@ -24,7 +24,7 @@ The following guides explain how inheritance works for each of these features:
 
 {% if product_name == "Asgardeo" %}
 
-We are preparing to roll out a new set of changes for sub organizations that introduce hierarchical inheritance for the following features on the 09th of December, 2025.
+We are rolling out a new set of changes for sub organizations that introduce hierarchical inheritance for the following features on the 09th of December, 2025.
 
 - Login and registration configurations 
 - Connection configurations of:
