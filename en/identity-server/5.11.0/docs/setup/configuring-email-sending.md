@@ -27,7 +27,7 @@ This document explains the steps to configure WSO2 Identity Server to send email
     | `               port                         `|The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25. |
    | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust the server's certificate. Defaults to true.
    | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to true.|
-   | `signature`                                   | Signature of the sender account |
+   | `signature`                                   | Specifies the display name for the "From" email address. For example, "ABC Company" results in `"ABC Company" <mail@address.tld>`). <br/><br/>If you don't set this property, the display name becomes `null` and the system falls back to your SMTP server settings. For example, some servers use the `username` as the display name.<br/><br/>To send an email with no display name and show only the email address, set this value to an empty string: `signature = ""`. |
     
     !!! Tip 
         For information about the SMTP, see
