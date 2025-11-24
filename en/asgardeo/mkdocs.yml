@@ -643,6 +643,7 @@ nav:
           - SCIM 2.0 API: apis/scim2/index.md
           - SCIM 2.0 Users API: apis/scim2/scim2-users-rest-api.md
           - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
+          - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
           - SCIM 2.0 Batch Operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
