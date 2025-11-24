@@ -192,7 +192,7 @@ To add a custom layout to the login page:
     1. Install [JDK 11](https://openjdk.org/projects/jdk/)
     2. Install [Maven](https://maven.apache.org/download.cgi).
 
-4. Follow the following steps to build the layouts.
+4. Follow the steps below to build the layouts.
 
     1. Copy the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts/custom` directory and place it into the `<IDENTITY-APPS-HOME>/identity-apps-core/components/login-portal-layouts/layouts` directory.
 
