@@ -1,6 +1,6 @@
 # SCIM2 Bulk Operations
 
-Follow the topics given below to understand how **Bulk** operations can be used when you manage resources in the [SCIM2 API]({{base_path}}/apis/scim2-bulk-rest-apis/#tag/Bulk-Endpoint).
+Follow the topics given below to understand how **Bulk** operations can be used when you manage resources in the [SCIM2 API]({{base_path}}/apis/scim2/scim2-bulk-rest-api/#tag/Bulk-Endpoint).
  
 The SCIM2 API allows you to send multiple resource operations in a single request. That is, you can add new records (POST data), replace an existing record (PUT data), update elements of an existing record (PATCH data), and delete records (DELETE data) in bulk. These bulk operations are supported for managing users and groups with the SCIM API in {{ product_name }}.
 
@@ -26,8 +26,6 @@ The SCIM2 API allows you to send multiple resource operations in a single reques
 {{ product_name }} now introduces operation-wise scopes for batch operations. This allows you to enforce more granular access control for each SCIM2 operation within a batch request.
 
 Though the `internal_bulk_resource_create` scope continues to support, it's advised to use the new operation-wise scopes.
-
-
 
 <table>
     <tr>
@@ -415,7 +413,7 @@ The parameters in the request body are explained below.
                    <li><code>replace</code></li>
                    <li><code>remove</code></li>
                </ul>
-               See <a href="/develop/scim2-patch-operations/#patch-users">SCIM2 Patch Operations</a> for details on how to define patch operations. 
+               See <a href="{{base_path}}/apis/scim2/scim2-patch-operations/">SCIM2 Patch Operations</a> for details on how to define patch operations. 
            </td>
        </tr>
        <tr>
@@ -436,7 +434,7 @@ The parameters in the request body are explained below.
            <td>
                The value of the parameter specified by the <code>path</code>.
                <p>For example, if the path is “name”, the value should be the actual name.</p>
-               See <a href="/develop/scim2-patch-operations/#patch-users">SCIM2 Patch Operations</a> for details on how to define values for the patch operations.
+               See <a href="{{base_path}}/apis/scim2/scim2-patch-operations/">SCIM2 Patch Operations</a> for details on how to define values for the patch operations.
            </td>
        </tr>
     </table>
