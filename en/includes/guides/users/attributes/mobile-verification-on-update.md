@@ -112,7 +112,12 @@ Mobile number verification ensures that when a user updates their primary mobile
           <tr>
             <td>Headers</td>
             <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
-            <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
+            <td><code>x-csrf: true, x-abc: some-value</code></td>
+          </tr>
+          <tr>
+            <td>Authentication</td>
+            <td>Authentication settings for the custom SMS provider. Select the preferred authentication type and enter the required authentication properties.</td>
+            <td>Authentication Scheme <code>Basic</code> with username and password.</td>
           </tr>
         </table>
 
@@ -129,6 +134,7 @@ Mobile number verification ensures that when a user updates their primary mobile
         !!! note
             - `connection_timeout`: Time in milliseconds to wait for establishing a connection to the SMS provider (default: 5000ms)
             - `connection_read_timeout`: Time in milliseconds to wait for reading data from the SMS provider (default: 20000ms)
+            - These timeout configurations also apply when retrieving an access token if Client Credentials authentication is configured.
         {% endif %}
 
 - If required, enable [support for multiple mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) for users.
