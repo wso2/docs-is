@@ -4,7 +4,7 @@ Mobile number verification ensures that when a user updates their primary mobile
 
 !!! note
     - This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
-    - The verification on update capability is **only** supported for the `Mobile` (`http://wso2.org/claims/mobile`) 
+    - The verification on update capability is **only** supported for the `Mobile` (`http://wso2.org/claims/mobile`)
     and `Verified Mobile Numbers` (`http://wso2.org/claims/verifiedMobileNumbers`) claims.
     - An SMS OTP verification is not triggered if the mobile number to be updated is the same as a previously verified mobile number of the user.
 
@@ -46,7 +46,7 @@ Mobile number verification ensures that when a user updates their primary mobile
         </table>
 
     ??? note "Configuring Vonage"
-    
+
         To configure Vonage as your SMS provider, follow the steps below:
 
         - Login to [Vonage](https://dashboard.nexmo.com/sign-in){:target="_blank"} and create an  account.
@@ -78,7 +78,7 @@ Mobile number verification ensures that when a user updates their primary mobile
         </table>
 
     ??? note "Configuring a Custom Provider"
-    
+
         If you are not using either Twilio or Vonage as the SMS provider, you can configure a custom SMS provider. Custom SMS provider configuration will pass the SMS data to the given URL as an HTTP request.
 
         To configure a custom SMS provider, in the  **SMS Provider** section click the **Custom** tab and fill the required fields.
@@ -112,7 +112,12 @@ Mobile number verification ensures that when a user updates their primary mobile
           <tr>
             <td>Headers</td>
             <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
-            <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
+            <td><code>x-csrf: true, x-abc: some-value</code></td>
+          </tr>
+          <tr>
+            <td>Authentication</td>
+            <td>Authentication settings for the custom SMS provider. Select the preferred authentication type and enter the required authentication properties.</td>
+            <td>Authentication Scheme <code>Basic</code> with username and password.</td>
           </tr>
         </table>
 
@@ -129,14 +134,14 @@ Mobile number verification ensures that when a user updates their primary mobile
         !!! note
             - `connection_timeout`: Time in milliseconds to wait for establishing a connection to the SMS provider (default: 5000ms)
             - `connection_read_timeout`: Time in milliseconds to wait for reading data from the SMS provider (default: 20000ms)
+            - These timeout configurations also apply when retrieving an access token if Client Credentials authentication is configured.
         {% endif %}
 
 - If required, enable [support for multiple mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) for users.
 
 - Update [mobile number verification settings]({{base_path}}/guides/users/attributes/user-attribute-change-verification/).
 
-
-## Try it out 
+## Try it out
 
 Follow the guides below to try out different mobile number update scenarios.
 
@@ -155,15 +160,15 @@ If you only support a single mobile number and wish to update the mobile number 
 Alternatively, you may update the mobile number via a PATCH operation to the [SCIM 2.0 Users endpoint]({{base_path}}/apis/scim2/scim2-users-rest-api/) as shown below.
 
 !!! abstract ""
-    
+
     === "Request format"
         ```
-        curl -X PATCH 
+        curl -X PATCH
         https://{{ host_name }}/scim2/Users/<user_ID> \
         -d '{
-            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], 
+            "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
-                "op":<operation>, 
+                "op":<operation>,
                 "value":
                     { "mobileNumbers":[{"type":"mobile", "value":<new_mobile>}]}
                 }]
@@ -174,7 +179,7 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
     === "Sample request"
 
         ```curl
-        curl -X PATCH 
+        curl -X PATCH
         https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -228,19 +233,19 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
     }
     ```
 
-Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their 
-updated mobile number. Once verified, the `Mobile` claim (`http://wso2.org/claims/mobile`) 
+Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their
+updated mobile number. Once verified, the `Mobile` claim (`http://wso2.org/claims/mobile`)
 will be updated to reflect the new mobile number.
 
 !!! note
-    If you directly update the primary `Mobile` claim directly, the change will not be reflected in the  
+    If you directly update the primary `Mobile` claim directly, the change will not be reflected in the
     `Verified Mobile Numbers` (`http://wso2.org/claims/verifiedMobileNumbers`) claim after verification.
 
 ### Update the verified mobile numbers list
 
 If you have enabled support for multiple mobile numbers, a user can have several verified mobile numbers and a single primary mobile number.
 
-To verify a mobile number, 
+To verify a mobile number,
 
 1. On the {{product_name}} My Account, go to **Personal Info** tab.
 
@@ -251,15 +256,15 @@ A verification code will be sent to your mobile number.
 ![Mobile number update]({{base_path}}/assets/img/guides/users/my-account-verify-mobile.png)
 
 An SMS OTP will be sent to the specified mobile number for verification. The user needs to provide the OTP to verify the mobile number.
- 
+
 Alternatively, you may update the mobile numbers via a PATCH operation to the [SCIM 2.0 Users endpoint]({{base_path}}/apis/scim2/scim2-users-rest-api/) as shown below.
 
 !!! abstract ""
 
     === "Request format"
-    
+
         ```curl
-        curl -X PATCH 
+        curl -X PATCH
         https://{{ host_name }}/scim2/Users/<user_ID> \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -267,14 +272,14 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
                 "op":<operation>,
                 "value":{"urn:scim:wso2:schema": {"verifiedMobileNumbers": <list_of_mobile_numbers>}}
                 }]
-            }' 
+            }'
         --header "Content-Type:application/json"
         --header "Authorization: Bearer <access_token>"
         ```
     === "Sample request"
 
         ```curl
-        curl -X PATCH 
+        curl -X PATCH
         https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -282,7 +287,7 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
                 "op":"replace",
                 "value":{"urn:scim:wso2:schema": {"verifiedMobileNumbers": "0111111111,0123456789"}}
                 }]
-            }' 
+            }'
         --header "Content-Type:application/json"
         --header "Authorization: Bearer <access_token>"
         ```
@@ -332,10 +337,10 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
     }
     ```
 
-Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their 
-updated mobile number. Once verified, the `Verified Mobile Numbers` claim (`http://wso2.org/claims/verifiedMobileNumbers`) 
-will be updated to reflect the new mobile number. {% if product_name == "Asgardeo" or 
-(product_name == "WSO2 Identity Server" and is_version >= "7.2.0")%} If a primary mobile number has not been configured, 
+Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their
+updated mobile number. Once verified, the `Verified Mobile Numbers` claim (`http://wso2.org/claims/verifiedMobileNumbers`)
+will be updated to reflect the new mobile number. {% if product_name == "Asgardeo" or
+(product_name == "WSO2 Identity Server" and is_version >= "7.2.0")%} If a primary mobile number has not been configured,
 the verified mobile number will also be set as the primary mobile number.
 {% endif %}
 
@@ -348,6 +353,7 @@ When going through the mobile number verification process, users can enter the S
 Alternatively, the validation-code API can be used to submit the SMS OTP as shown below.
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ### By a non-privileged user
 
 Users can verify the SMS OTP by executing the following API request.
@@ -358,7 +364,7 @@ Users can verify the SMS OTP by executing the following API request.
     === "Request format"
 
         ```curl
-        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/me/validate-code 
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/me/validate-code
         -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "code": "<validation_code>",
@@ -368,12 +374,12 @@ Users can verify the SMS OTP by executing the following API request.
     === "Sample request"
 
         ```curl
-        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/me/validate-code 
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/me/validate-code
         -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "code": "1234",
               "properties": []
-            }' 
+            }'
         ```
     ---
     **Response**
@@ -401,12 +407,12 @@ Privileged users can verify the SMS OTP on behalf of a user by executing the fol
     === "Sample request"
 
         ```curl
-        curl -v -k -X POST https://{{ host_name_example }}/api/identity/user/v1.0/validate-code 
+        curl -v -k -X POST https://{{ host_name_example }}/api/identity/user/v1.0/validate-code
         -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "code": "1234",
               "properties": []
-            }' 
+            }'
         ```
     ---
     **Response**
@@ -417,13 +423,14 @@ Privileged users can verify the SMS OTP on behalf of a user by executing the fol
 
 ## Resend the verification code
 
-Users can request for a new SMS OTP code by simply clicking the `Resend verification code` button in the shown prompt 
+Users can request for a new SMS OTP code by simply clicking the `Resend verification code` button in the shown prompt
 
 ![Mobile number verification code]({{base_path}}/assets/img/guides/users/my-account-mobile-verification-code.png)
 
 Alternatively, the resend-code API can be used to resend the SMS OTP as shown below.
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ### By a non-privileged user
 
 Users can request a new SMS OTP by using the following API request.
@@ -432,13 +439,13 @@ Users can request a new SMS OTP by using the following API request.
 !!! abstract ""
 
     === "Request format"
-    
+
         ```curl
-        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/me/resend-code 
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/me/resend-code
         -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "properties": [{
-                "key": "RecoveryScenario", 
+                "key": "RecoveryScenario",
                 "value": "<recovery_scenario>"
               }]
             }'
@@ -446,14 +453,14 @@ Users can request a new SMS OTP by using the following API request.
     === "Sample request"
 
         ```curl
-        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/me/resend-code 
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/me/resend-code
         -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{ "properties": [{
-                "key": "RecoveryScenario", 
+                "key": "RecoveryScenario",
                 "value": "MOBILE_VERIFICATION_ON_UPDATE"
               }]
-            }' 
+            }'
         ```
 
     The verification scenario should be specified in the `properties` parameter of the request body as follows:
@@ -477,10 +484,10 @@ Privileged users can resend an SMS OTP on behalf of a user using the following A
     === "Request format"
 
         ```curl
-        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/resend-code 
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/resend-code
         -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
-        -d '{ 
+        -d '{
               "user": {
                 "username": <USERNAME>,
                 "realm": <REALM>"
@@ -497,7 +504,7 @@ Privileged users can resend an SMS OTP on behalf of a user using the following A
         curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/resend-code
         -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
-        -d '{ 
+        -d '{
               "user": {
                 "username": "bob",
                 "realm": PRIMARY"

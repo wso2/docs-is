@@ -8,6 +8,7 @@ This method can be used as a form of passwordless authentication, allowing users
 To configure SMS OTP as a passwordless authentication mechanism in {{ product_name }}, follow the instructions given below.
 
 ## Prerequisites
+
 - To begin, you must [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You have the option to register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) available.
 
 - Ensure you have a user account in {{ product_name }}. If not, you can [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) within {{ product_name }}.
@@ -17,6 +18,7 @@ To configure SMS OTP as a passwordless authentication mechanism in {{ product_na
 {{ admin_login_note }}
 
 ## Set up SMS OTP
+
 {{ product_name }} has some default settings for SMS OTP, which are sufficient for most cases. If required, you can change the default settings, as explained below.
 
 To update the default SMS OTP settings:
@@ -162,7 +164,12 @@ Configurations related to SMS providers are located under the **{{ notification_
       <tr>
         <td>Headers</td>
         <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
-        <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
+        <td><code>x-csrf: true, x-abc: some-value</code></td>
+      </tr>
+      <tr>
+        <td>Authentication</td>
+        <td>Authentication settings for the custom SMS provider. Select the preferred authentication type and enter the required authentication properties.</td>
+        <td>Authentication Scheme <code>Basic</code> with username and password.</td>
       </tr>
     </table>
 
@@ -179,6 +186,7 @@ Configurations related to SMS providers are located under the **{{ notification_
     !!! note
         - `connection_timeout`: Time in milliseconds to wait for establishing a connection to the SMS provider (default: 5000ms)
         - `connection_read_timeout`: Time in milliseconds to wait for reading data from the SMS provider (default: 20000ms)
+        - These timeout configurations also apply when retrieving an access token if Client Credentials authentication is configured.
     {% endif %}
 
 ## Enable SMS OTP Login for Your App
