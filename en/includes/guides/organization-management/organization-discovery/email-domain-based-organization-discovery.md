@@ -33,21 +33,6 @@ For any user to be discoverable by their email domain, the following requirement
 - The domain portion of this username (for example, `company-domain.com`) must match one of the domains configured for organization discovery.
 - This is a strict requirement during user creation. Attempting to create a user with a non-email username or a username with a non-matching domain for an organization with this feature enabled will fail.
 
-### Login experience
-
-Once a user with a correctly formatted username exists, organization discovery can be triggered in two different ways:
-
-**Scenario A (Multi-Attribute Login disabled):**
-
-The user enters their full username (which is in email format, for example, `user@company-domain.com`) into the standard username field. The Identity Server detects the domain from the username, automatically discovers the organization, and then asks for the password.
-
-**Scenario B (Multi-Attribute Login enabled):**
-
-This provides a more flexible "identifier-first" login flow. If [Multi-Attribute Login]({{base_path}}/guides/authentication/multi-attribute-login/) is enabled and `email` is an allowed attribute, the user can enter their email attribute (which may be different from their username) into the login field. The Identity Server uses this email attribute's domain to discover the organization. This is recommended for flexibility, as it allows a user's contact email attribute to change without breaking their login or discovery experience.
-
-!!! note "Important: Existing users with non-email usernames"
-    Users with non-email usernames (for example, `john.smith`) who existed before this feature was configured can only use domain-based discovery if Multi-Attribute Login is enabled (Scenario B). Their username cannot be used for discovery.
-
 ## Enable email domain based organization discovery
 
 !!! note "Important"
