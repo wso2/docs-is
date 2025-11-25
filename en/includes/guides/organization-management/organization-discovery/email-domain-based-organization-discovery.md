@@ -43,7 +43,7 @@ The user enters their full username (which is in email format, for example, `use
 
 **Scenario B (Multi-Attribute Login enabled):**
 
-This provides a more flexible "identifier-first" login flow. If [Multi-Attribute Login]({{base_path}}/guides/authentication/configure-multi-attribute-login/) is enabled and `email` is an allowed attribute, the user can enter their email attribute (which may be different from their username) into the login field. The Identity Server uses this email attribute's domain to discover the organization. This is recommended for flexibility, as it allows a user's contact email attribute to change without breaking their login or discovery experience.
+This provides a more flexible "identifier-first" login flow. If [Multi-Attribute Login]({{base_path}}/guides/authentication/multi-attribute-login/) is enabled and `email` is an allowed attribute, the user can enter their email attribute (which may be different from their username) into the login field. The Identity Server uses this email attribute's domain to discover the organization. This is recommended for flexibility, as it allows a user's contact email attribute to change without breaking their login or discovery experience.
 
 !!! note "Important: Existing users with non-email usernames"
     Users with non-email usernames (for example, `john.smith`) who existed before this feature was configured can only use domain-based discovery if Multi-Attribute Login is enabled (Scenario B). Their username cannot be used for discovery.
