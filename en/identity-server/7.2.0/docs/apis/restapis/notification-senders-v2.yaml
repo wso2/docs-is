@@ -1123,9 +1123,9 @@ components:
             - key: mail.smtp.starttls.enable
               value: true
             - key: clientId
-              value: "3e172dd2-901b-43a9-a26a-728466795f01"
+              value: "dummy-client-id"
             - key: clientSecret
-              value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+              value: "dummy_client_id"
             - key: tokenEndpoint
               value: "https://login.microsoftonline.com/da76d684-740f-4d94-8717-9d5fb21dd1f9/oauth2/v2.0/token"
             - key: scopes
@@ -1157,9 +1157,9 @@ components:
             - key: mail.smtp.starttls.enable
               value: true
             - key: clientId
-              value: "3e172dd2-901b-43a9-a26a-728466795f01"
+              value: "dummy-client-id"
             - key: clientSecret
-              value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+              value: "dummy_client_id"
             - key: tokenEndpoint
               value: "https://login.microsoftonline.com/da76d684-740f-4d94-8717-9d5fb21dd1f9/oauth2/v2.0/token"
             - key: scopes
@@ -1427,9 +1427,9 @@ components:
           - key: "mail.smtp.signature"
             value: "Identity Server"
           - key: "clientId"
-            value: "3e172dd2-901b-43a9-a26a-728466795f01"
+            value: "dummy-client-id"
           - key: "clientSecret"
-            value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+            value: "dummy_client_id"
           - key: "tokenEndpoint"
             value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
           - key: "scopes"
@@ -1461,9 +1461,9 @@ components:
           - key: "mail.smtp.signature"
             value: "Identity Server"
           - key: "clientId"
-            value: "3e172dd2-901b-43a9-a26a-728466795f01"
+            value: "dummy-client-id"
           - key: "clientSecret"
-            value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+            value: "dummy_client_id"
           - key: "tokenEndpoint"
             value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
           - key: "scopes"
@@ -1495,7 +1495,7 @@ components:
           - key: "mail.smtp.signature"
             value: "Identity Server"
           - key: "clientId"
-            value: "3e172dd2-901b-43a9-a26a-728466795f01"
+            value: "dummy-client-id"
           - key: "tokenEndpoint"
             value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
           - key: "scopes"
