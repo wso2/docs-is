@@ -160,9 +160,9 @@ To configure attributes,
 
  ![Edit attributes]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## General properties
+## General settings
 
-Use the following basic properties to change details and behavior of an attribute. To configure them, go to the **General** tab of the attribute.
+Use the following settings to change details and behavior of an attribute. To configure them, go to the **General** tab of the attribute.
 
 !!! note
 
@@ -180,7 +180,7 @@ Use the following basic properties to change details and behavior of an attribut
         </tr>
         <tr>
             <td><b>Data Type</b></td>
-            <td>Refers to the kind of value it holds. Refer to <a href="{{base_path}}/guides/users/attributes/user-attributes/attribute-configurations-reference/">Data types and input formats</a> for more details.</td>
+            <td>Refers to the kind of value it holds. Refer to <a href="{{base_path}}/guides/users/attributes/user-attributes/attribute-configurations-reference/">reference</a> for more details.</td>
         </tr>
         <tr>
             <td><b>Allow multiple values for this attribute</b></td>
@@ -188,7 +188,7 @@ Use the following basic properties to change details and behavior of an attribut
         </tr>
         <tr>
             <td><b>Input Format</b></td>
-            <td>Specify the kind of input it supports. Refer to <a href="{{base_path}}/guides/users/attributes/user-attributes/attribute-configurations-reference/">Data types and input formats</a> for more details.</td>
+            <td>Specify the kind of input it supports. Refer to <a href="{{base_path}}/guides/users/attributes/user-attributes/attribute-configurations-reference/">reference</a> for more details.</td>
         </tr>
         <tr>
             <td><b>Regular expression</b></td>
@@ -217,9 +217,9 @@ Use the following basic properties to change details and behavior of an attribut
     </tbody>
 </table>
 
-## Display properties
+## Display settings
 
-These properties control where an attribute appears in the {{product_name}} Console, and whether the attribute is required or read-only.
+These settings control where an attribute appears in the {{product_name}} Console, and whether the attribute is required or read-only.
 
 To update these settings, open the **General** tab of your attribute and use the table in the **Attribute Configurations** section.
 
@@ -260,17 +260,23 @@ The table manages these settings across the following user interfaces:
 
     You can control whether to display this attribute when [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) from the Console. To do so, select both  **Display** and **Required** for **Administrator Console**.
 
-## Advanced settings
+## Additional settings
 
-1. Go to the **Attribute Mappings** tab and enter the attribute from each user store that you need to map.
+Apart from the properties in the **General** tab, you can configure the following additional settings for an attributes.
 
-    ![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+### Attribute mappings
+
+The **Attribute Mappings** tab lets you map attributes from each connected user store to the user attribute in {{product_name}}. This makes sure the attribute is stored and updated in the correct user store field.
+
+![Edit attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/edit-attribute-mappings.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% endif %}
 
 {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
 
-Optionally, you may use the **Additional Properties** tab to add additional properties that can be used when writing an extension.
+### Addition properties
+
+You can use the **Additional Properties** tab to add any extra properties you need when writing an extension.
 
 ![Edit additional properties]({{base_path}}/assets/img/guides/organization/attributes/edit-attributes-additional-properties.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -278,15 +284,17 @@ Optionally, you may use the **Additional Properties** tab to add additional prop
 
 {% if product_name == "WSO2 Identity Server" %}
 
-## Configure the storage location of identity attributes
+## Configure the storage location of attributes
 
-Identity attributes are pieces of information that describe the state or status of a user account rather than personal or demographic details. Unlike persona information (such as name, email, or phone number), identity attributes focus on account-related properties,for example, whether the account is verified, locked, active, or disabled.
+{{product_name}} gives you freedom to choose in what databases each attribute gets stored. You can divide attributes into two broad categories and {{product_name}} manages each of them differently as explained in the following sections.
 
-In {{product_name}}, you can configure identity attributes to be stored in a designated user store, or store individual attributes in a connected user store.
+- **User attributes** - Personal information that identifies a user, such as their name, email, or phone number.
+
+- **Identity attributes** - Information that describes the state or status of a user account rather than personal details. Unlike user store attributes, identity attributes focus on account-related properties, such as whether the account is verified, locked, active, or disabled.
 
 ### Change the default identity attribute store
 
-By default, {{product_name}} stores identity attributes in the user store configured in the `<IS_HOME>/repository/conf/deployment.toml` file. To change this,
+By default, {{product_name}} stores identity attributes internally in the user store configured in the `<IS_HOME>/repository/conf/deployment.toml` file. To change this,
 
 1. Add the following configuration to the `deployment.toml` file. The `IdentityDataStoreService` OSGi service uses this value to determine which data store implementation to access.
 
@@ -295,41 +303,62 @@ By default, {{product_name}} stores identity attributes in the user store config
     datastore_type = "<Name of the identityDataStore class>"
     ```
 
-2. Map the identity claims mentioned below to attributes in the underlying user store.
+    !!! Note
 
-    !!! info
-        Learn more about [adding claim mapping]({{base_path}}/guides/dialects/add-claim-mapping).
+        The class name configuration for the identity data store is now separate from the listener configurations. If you're using a custom data store class, it's crucial to update your `deployment.toml` file to reflect this choice. This update ensures that your custom class will override the default configuration.
 
-    - `http://wso2.org/claims/identity/accountLocked`: This claim is
-        used to store the status of the user's account, that is, if it's
-        locked or not.
+        To either maintain the previous behavior or use your custom data store, simply follow these steps and update your deployment.toml:
 
-    - `http://wso2.org/claims/identity/unlockTime`: This is used to
-        store the timestamp that the user's account is unlocked.
+        By making this configuration adjustment, you can ensure that your system aligns with your preferred data store class, whether it's the previous default or a custom class you've implemented. This helps you tailor the system to your specific needs.
 
-    - `http://wso2.org/claims/identity/failedLoginAttempts`: This is
-        used to track the number of consecutive failed login attempts.
-        It's based on this that the account is locked.
+2. For each attribute below, open its **Attribute Mappings** tab and map it to the corresponding attribute in the connected store.
+
+    - `http://wso2.org/claims/identity/accountLocked`: Stores the locked status of the user's account.
+
+    - `http://wso2.org/claims/identity/unlockTime`: Time at which the user’s account gets unlocked.
+
+    - `http://wso2.org/claims/identity/failedLoginAttempts`: Tracks the number of consecutive failed login attempts. Account locking happens based on this value.
 {% endif %}
 
-### Store identity attributes in user stores
+### Select storage location for selected attributes
 
-1. **Manage in User Store**
+{{product_name}}, by default, stores identity attributes internally as explained in the above section and user attributes in the connected user stores. If you want to store and manage an identity attribute in your user stores or a user attribute in the identity store, you can do so by following the steps below.
 
-    The **Manage in User Store** option determines where the attribute values are stored and managed.
+1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
+
+2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
+
+3. Click **Edit** for the attribute you want to update.
+
+4. In the **General** tab, check/uncheck the **Manage in User store** checkbox. If,
+
+    - **checked**: The attribute values for all user stores will be managed in the user store.
+
+    - **unchecked**: The attribute values for all user stores will be managed internally by the system.
+
+    !!! note
+
+        This checkbox is, by default,
+
+        - checked for user attributes.
+        - unchecked for identity attributes.
 
     ![Managed in User Store]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-managed-in-user-store.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    - **Checked**: The attribute values are managed in the user store.
-    - **Unchecked**: The attribute values are managed internally by the system.
+5. Go to the **Attribute Mappings** tab and further customize the storage behavior. To do so,
 
-    When the Manage in User Store option is selected, you can further refine this behavior in the Attribute Mappings tab. 
-    There, you can exclude specific user stores by clearing the Manage in User Store checkbox for those stores. 
-    The attribute values for the excluded user stores will then be managed internally by the system.
+    1. Against each connected user store, check/uncheck the **Manage in user store** checkbox. If,
+
+        - **checked**: The attribute values for this user store will be managed in the user store.
+
+        - **unchecked**: The attribute values for this user store will be managed internally by the system.
+
+    2. Map the attribute from each user store that corresponds to the specific attribute.
 
     ![Selective Manage in User Store]({{base_path}}/assets/img/guides/organization/attributes/configure-attribute-excluded-user-store.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! Danger "Warning"
+
         Changing the attribute storage location may cause any existing attribute values stored in the user store or 
         managed internally to become inaccessible. Ensure that you understand the impact before making this change.
 
@@ -337,22 +366,7 @@ By default, {{product_name}} stores identity attributes in the user store config
         the attribute will not be editable in the user profile. Consequently, certain internal functions that rely on 
         updating these attributes may not work as expected.
 
-By default, identity claim values are stored in the JDBC datasource configured in the `deployment.toml` file. If required, you can configure WSO2 Identity Server to store the claim values in another user store as well.
-
-1. Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration to change the `identity_datastore.datastore_type` property. The `IdentityDataStoreService` OSGi service uses this value to determine which data store implementation to access.
-
-    ```toml
-    [identity_datastore]
-    datastore_type = "<Name of the identityDataStore class>"
-    ```
-
-    !!! Note
-        The class name configuration for the identity data store is now separate from the listener configurations. If you're using a custom data store class, it's crucial to update your `deployment.toml` file to reflect this choice. This update ensures that your custom class will override the default configuration.
-
-        To either maintain the previous behavior or use your custom data store, simply follow these steps and update your deployment.toml:
-
-        By making this configuration adjustment, you can ensure that your system aligns with your preferred data store class, whether it's the previous default or a custom class you've implemented. This helps you tailor the system to your specific needs.
-
+6. Click **Update** to save the changes.
 
 {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
 
@@ -371,8 +385,8 @@ hidden_claims = [
 ]
 ```
 
-To add new attributes to the hidden list, include their URIs in the hidden_claims array.
+- To add new attributes to the hidden list, include their URIs in the hidden_claims array.
 
-To unhide default hidden attributes, override the configuration with an empty list or remove the relevant URIs.
+- To unhide default hidden attributes, override the configuration with an empty list or remove the relevant URIs.
 
 {% endif %}
