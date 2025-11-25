@@ -492,7 +492,11 @@ To set up the frontend application,
     ```env
     NEXTAUTH_URL=http://localhost:3002
     BASE_URL=https://localhost:9443
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+    BASE_ORG_URL=https://localhost:9443/t/<PRIMARY_ORG_HANDLE>
+    {% else %}
     BASE_ORG_URL=https://localhost:9443/t/<PRIMARY_ORG_NAME>
+    {% endif %}
     CHANNELLING_SERVICE_URL=http://localhost:9091
     PET_MANAGEMENT_SERVICE_URL=http://localhost:9092
     PERSONALIZATION_SERVICE_URL=http://localhost:9093
