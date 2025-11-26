@@ -158,16 +158,8 @@ If you are implementing the authorization code flow, you have enabled **code** a
     ```
 
     Be sure to replace the following values in the request:
- 
+
     <table>
-     <tr>
-         <th>
-             <code>{organization_name}</code>
-         </th>
-         <td>
-             Name of the organization that you are accessing.
-         </td>
-     </tr>
      <tr>
          <th>
              <code>{authorization_code}</code>
@@ -209,14 +201,6 @@ curl --location --request POST '{{ product_url_format }}/oauth2/token' \
 Be sure to replace the following values in the request:
 
 <table>
-    <tr>
-        <th>
-            <code>{organization_name}</code>
-        </th>
-        <td>
-            Name of the organization that you are accessing.
-        </td>
-    </tr>
     <tr>
         <th>
             <code>{jwt_assertion}</code>
