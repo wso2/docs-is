@@ -1,3 +1,3 @@
-# OAuth transaction logs
+# OAuth ransaction logs
 
 {!./includes/oauth-transaction-logs.md!}
