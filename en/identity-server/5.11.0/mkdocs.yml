@@ -848,6 +848,19 @@ markdown_extensions:
 
 plugins:
     - search
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
     - redirects:
           redirect_maps:
               'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/'
