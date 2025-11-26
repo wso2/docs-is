@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: API contract for pre-issue access token action
   description: This API defines the REST API contract for a service that implements logic to extend the access token issuance flow of WSO2 Identity Server.
-  version: v1
+  version: v1.1
   contact:
     name: WSO2
     url: 'https://wso2.com/identity-server/'
@@ -10,10 +10,10 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
 security:
-- BasicAuth: []
-- BearerAuth: []
-- ApiKeyAuth: []
-- OAuth2: []
+  - BasicAuth: []
+  - BearerAuth: []
+  - ApiKeyAuth: []
+  - OAuth2: []
 paths:
   /:
     post:
@@ -91,6 +91,8 @@ components:
           $ref: '#/components/schemas/Request'
         tenant:
           $ref: '#/components/schemas/Tenant'
+        organization:
+          $ref: "#/components/schemas/Organization"
         user:
           $ref: '#/components/schemas/User'
         userStore:
@@ -152,7 +154,28 @@ components:
           description: The domain name of the tenant.
           example: 
             bar.com
-      description: This property represents the tenant under which the token request is being processed. 
+      description: This property represents the tenant under which the token request is being processed.
+    Organization:
+      type: object
+      required:
+        - id
+        - name
+        - orgHandle
+        - depth
+      properties:
+        id:
+          type: string
+          example: eb1115f6-274f-4bb7-9b6d-d31f678e81f7
+        name:
+          type: string
+          example: Example
+        orgHandle:
+          type: string
+          example: example.com
+        depth:
+          type: integer
+          example: 0
+      description: This property represents the organization context.
     User:
       type: object
       required:
@@ -162,6 +185,8 @@ components:
           type: string
           description: Defines the unique identifier of the user.
           example: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+        organization:
+          $ref: "#/components/schemas/Organization"
       description: Contains information about the authenticated user associated with the token request.
     UserStore:
       type: object
@@ -322,7 +347,7 @@ components:
         actionStatus:
           type: string
           enum:
-          - SUCCESS
+            - SUCCESS
         operations:
           type: array
           description: Defines the set of operations that your external service is requesting to perform on the access token's claims and scopes.
@@ -342,7 +367,7 @@ components:
         actionStatus:
           type: string
           enum:
-          - FAILED
+            - FAILED
           description: Indicates the outcome of the request. For a failed operation, this should be set to FAILED.
         failureReason:
           type: string
@@ -360,7 +385,7 @@ components:
         actionStatus:
           type: string
           enum:
-          - ERROR
+            - ERROR
           description: Indicates the outcome of the request. For an error operation, this should be set to ERROR.
         errorMessage:
           type: string

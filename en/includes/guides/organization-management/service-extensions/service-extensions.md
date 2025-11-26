@@ -151,7 +151,7 @@ Content-Type: application/json
                 "uri": "http://wso2.org/claims/emailaddress",
                 "value": "emily@aol.com",
                 "updatingValue": "emily@gmail.com"
-            },
+            }
         ],
         "groups": [
             "gold-tier"
