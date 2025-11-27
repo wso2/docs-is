@@ -349,11 +349,11 @@ extra:
             source_link: https://github.com/openid/AppAuth-iOS
 
   connectors:
-    - name: Duo Security
-      icon: assets/img/logo/duo-logo.png
-      description: The Duo Security authenticator allows you to authenticate a user using Duo Security through WSO2 Identity Server.
-      source_link: https://store.wso2.com/connector/identity-outbound-auth-duo
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-duo/blob/master/docs/README.md
+    - name: Sift
+      icon: assets/img/logo/sift-logo.png
+      description: Sift helps prevent fraudulent logins to your system.
+      source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
+      documentation: sift
 
   redoc_theme: '{
     "colors": {
