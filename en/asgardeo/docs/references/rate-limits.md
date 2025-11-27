@@ -97,10 +97,6 @@ Listed below are the endpoints and the rate limits that apply to each endpoint.
         <td>200</td>
     </tr>
     <tr>
-        <td>/common/oauth2/authorize</td>
-        <td>200</td>
-    </tr>
-    <tr>
         <td>/oauth2/*</td>
         <td>200</td>
     </tr>
@@ -130,18 +126,6 @@ Listed below are the endpoints and the rate limits that apply to each endpoint.
     </tr>
     <tr>
         <td>/commonauth</td>
-        <td>200</td>
-    </tr>
-    <tr>
-        <td>/emailotpauthenticationendpoint</td>
-        <td>200</td>
-    </tr>
-    <tr>
-        <td>/smsotpauthenticationendpoint</td>
-        <td>200</td>
-    </tr>
-    <tr>
-        <td>/totpauthenticationendpoint</td>
         <td>200</td>
     </tr>
     <tr>
