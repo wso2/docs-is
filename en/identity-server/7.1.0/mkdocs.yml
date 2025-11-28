@@ -900,6 +900,7 @@ nav:
           - eIDAS: deploy/compliance/eidas.md
           - CCPA: deploy/compliance/ccpa.md
           - FIPS: deploy/compliance/fips.md
+          - FAPI: deploy/compliance/fapi.md
           - Accessibility compliance: deploy/compliance/accessibility.md
       - Analytics:
           - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
@@ -1183,7 +1184,9 @@ nav:
               - Token binding: references/token-binding/index.md
               - Client-request: references/token-binding/client-request.md
           - Token hashing: references/token-hashing.md
-          - Financial-grade API: references/financial-grade-api.md
+          - Financial-grade API:
+              -  FAPI 1.0 Advanced: references/financial-grade-api.md
+              - FAPI 2.0: references/financial-grade-api-2.0.md
           - App-native authentication: references/app-native-authentication.md
           - OIDC session management: references/concepts/oidc-session-management.md
           - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
