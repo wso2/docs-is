@@ -16,8 +16,8 @@ You do not need prior MCP experience. Just follow the steps.
 
 To enable clients to sign in and safely connect to the MCP server, an application in {{ product_name }} needs to be set up first.
 
-- Sign in to {{ product_name }} console and navigate to **Applications > New Application**.
-- Select **MCP Client** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
+- Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and navigate to **Applications > New Application**.
+- Select **MCP Client Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
 !!! Example
     Name : MCPInspectorApp
@@ -28,7 +28,7 @@ To enable clients to sign in and safely connect to the MCP server, an applicatio
     The authorized redirect URL defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server. 
     For this guide, we will use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we will use `http://localhost:6274/oauth/callback`, as the authorized redirect URL.
 
-Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Test the MCP server with auth](#test-the-mcp-server-with-authentication) section of this guide.
+Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Test the MCP server with authentication](#test-the-mcp-server-with-authentication) section of this guide.
 
 ## Create a Simple MCP server
 
@@ -110,7 +110,7 @@ Then launch the MCP Inspector against the running MCP server:
 npx @modelcontextprotocol/inspector http://localhost:8000/mcp
 ```  
 
-From the Inspector UI, list tools and resources, then try invoking the `add` tool.
+From the Inspector UI, once connected, open the **Tools** panel, select **List Tools**, and invoke the `add` tool.
 
 ## Add authentication to the MCP server
 
@@ -126,7 +126,7 @@ JWKS_URL=https://api.asgardeo.io/t/<your-tenant>/oauth2/jwks
 
 !!! Important
 
-    Replace `<your-tenant>` and `<your-client-id>` with the values obtained from the {{ product_name }} console.
+    Replace `<your-tenant>` and `<your-client-id>` with the values obtained from the {{ product_name }} console (tenant is visible in the console URL: `\t\<your-tenant>`).
 
 Create a `jwt_validator.py` file in the project directory using the implementation below. 
 
