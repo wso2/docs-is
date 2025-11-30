@@ -230,6 +230,7 @@ nav:
         - Quickstart: quick-starts/springboot.md
     - Secure MCP Servers:
         - TypeScript: quick-starts/mcp-auth-server.md
+        - Python: quick-starts/mcp-auth-server-py.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
