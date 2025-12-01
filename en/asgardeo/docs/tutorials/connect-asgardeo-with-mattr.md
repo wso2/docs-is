@@ -48,10 +48,10 @@ Later, this user will log in to Asgardeo to get verifiable credentials to the MA
 
 Follow the steps given below.
 
-1. Go to `https://mattr.global/`, create a MATTR account, and take note of your client ID, client secret, and tenant domain.
+1. Go to `https://mattr.global/`, create a MATTR account, and take note of your client ID, client secret, tenant url, auth url and  audience.
 
     !!! note
-        From now on, let's refer to the MATTR client id as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, and its tenant domain as `{tenant-subdomain}` or `<TENENT_DOMAIN>`.
+        From now on, let's refer to the MATTR client id as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, its auth url as `<MATTR_AUTH_URL>`, its audience as `<MATTR_AUDIENCE>` and its tenant url as `{tenant_url}` or `<TENENT_DOMAIN>`.
 
 2. Get an access token for the MATTR tenant by sending the following request:
 
@@ -59,12 +59,12 @@ Follow the steps given below.
         We are using a cURL command to send the request in this example.
 
     ```bash
-    curl -i -X POST "https://auth.mattr.global/oauth/token" \
+    curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
     -H "Content-Type: application/json" \
     -d '{ 
         "client_id": "<MATTR_CLIENT_ID>",
         "client_secret": "<MATTR_CLIENT_SECRET>",
-        "audience": "https://vii.mattr.global", 
+        "audience": "<MATTR_AUDIENCE>", 
         "grant_type": "client_credentials" 
     }'
     ```
@@ -75,7 +75,7 @@ Follow the steps given below.
 3. Create a MATTR  decentralized ID (DID) with a BLS key type, which supports BBS+ signatures.
 
     ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/core/v1/dids" \
+    curl -i -X POST "https://{tenant_url}.vii.mattr.global/core/v1/dids" \
     -H "Authorization: Bearer <BEARER_TOKEN>" \
     -H "Content-Type: application/json" \
     -d '{ 
@@ -92,7 +92,7 @@ Follow the steps given below.
 4. Create a MATTR credential issuer using the following cURL command:
 
     ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/ext/oidc/v1/issuers" \
+    curl -i -X POST "https://{tenant_url}.vii.mattr.global/ext/oidc/v1/issuers" \
     -H "Authorization: Bearer <BEARER_TOKEN>" \
     -H "Content-Type: application/json" \
     -d '{
@@ -163,7 +163,7 @@ Follow the steps given below.
 Get a QR code that can be scanned to get verifiable credentials from the MATTR Wallet. Given below is an example from `https://goqr.me/api/`.
 
 ```bash
-https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=openid://discovery?issuer=https://{tenant-subdomain}.vii.mattr.global/ext/oidc/v1/issuers/{issuer-id}
+https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=openid://discovery?issuer=https://{tenant_url}.vii.mattr.global/ext/oidc/v1/issuers/{issuer-id}
 ```
 
 ### Step 2.2: Get verifiable credentials with MATTR Wallet
@@ -194,7 +194,7 @@ Let's use a sample MATTR application to perform the credential verification. For
     Replace the `<TEMPLATE_NAME>` with a meaningful value and `<CREDENTIAL_TYPE>` with the same value used in the issuer-creation step.
 
     ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/core/v1/presentations/templates" \
+    curl -i -X POST "https://{tenant_url}.vii.mattr.global/core/v1/presentations/templates" \
     -H "Authorization: Bearer <BEARER_TOKEN>" \
     -H "Content-Type: application/json" \
     -d '{
