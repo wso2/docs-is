@@ -25,7 +25,7 @@ To enable clients to sign in and safely connect to the MCP server, an applicatio
     Authorized redirect URL: http://localhost:6274/oauth/callback
 
 !!! Info
-    The authorized redirect URL defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server. 
+    The authorized redirect URL defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     For this guide, we will use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we will use `http://localhost:6274/oauth/callback`, as the authorized redirect URL.
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Test the MCP server with authentication](#test-the-mcp-server-with-authentication) section of this guide.
@@ -128,9 +128,9 @@ JWKS_URL=https://api.asgardeo.io/t/<your-tenant>/oauth2/jwks
 
     Replace `<your-tenant>` and `<your-client-id>` with the values obtained from the {{ product_name }} console (tenant is visible in the console URL: `\t\<your-tenant>`).
 
-Create a `jwt_validator.py` file in the project directory using the implementation below. 
+Create a `jwt_validator.py` file in the project directory using the implementation below.
 
-* This script is responsible for fetching the JSON Web Key Set (JWKS) from {{ product_name }} and verifying incoming access tokens.
+- This script is responsible for fetching the JSON Web Key Set (JWKS) from {{ product_name }} and verifying incoming access tokens.
 
 <details>
 <summary>Expand to view the implementation</summary>
@@ -278,9 +278,9 @@ def create_jwt_validator(jwks_url: str, issuer: str, audience: str, ssl_verify: 
 
 Update `main.py` to enable authentication. This:
 
-* Creates a `JWTTokenVerifier` that validates tokens from {{ product_name }}.
-* Passes the verifier and OAuth settings into `FastMCP` so the server knows how to secure the `/mcp` endpoint.
-* Protects MCP tools, allowing only authenticated clients to call them by validating each incoming token before the tool logic is executed.
+- Creates a `JWTTokenVerifier` that validates tokens from {{ product_name }}.
+- Passes the verifier and OAuth settings into `FastMCP` so the server knows how to secure the `/mcp` endpoint.
+- Protects MCP tools, allowing only authenticated clients to call them by validating each incoming token before the tool logic is executed.
 
 ```python title="main.py"
 import os
@@ -403,18 +403,18 @@ Your MCP server is now running at `http://localhost:8000`. This uses Streamable-
 
 Use MCP Inspector to test the authenticated MCP server:
 
-```
+```bash
    npx @modelcontextprotocol/inspector http://localhost:8000/mcp
 ```
 
-   - In the MCP inspector, open the *Authentication* settings on the left panel. Under *OAuth 2.0 Flow*, provide the `client-id` obtained earlier in this guide.
-   - Click *Connect*, the inspector will prompt for authentication. Follow the OAuth flow to obtain a bearer token from {{ product_name }}.
+- In the MCP inspector, open the *Authentication* settings on the left panel. Under *OAuth 2.0 Flow*, provide the `client-id` obtained earlier in this guide.
+- Click *Connect*, the inspector will prompt for authentication. Follow the OAuth flow to obtain a bearer token from {{ product_name }}.
 
-    !!! Info
-        You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
+!!! Info
+    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
 
-   - Once the authentication is complete, you should be able to view the resources and invoke the tools exposed by the MCP server. 
-   - Unauthenticated requests to `/mcp` (e.g., via curl without Authorization header) will return **401 Unauthorized** responses with the appropriate **WWW-Authenticate** header.
+- Once the authentication is complete, you should be able to view the resources and invoke the tools exposed by the MCP server.
+- Unauthenticated requests to `/mcp` (e.g., via curl without Authorization header) will return **401 Unauthorized** responses with the appropriate **WWW-Authenticate** header.
 
 !!! Important
     With CORS enabled, browser-based clients should connect without errors. For production, customize CORS origins and explore SDK docs for advanced features like stateful sessions.
