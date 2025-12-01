@@ -19,6 +19,11 @@ INHERIT: ../is_common.yml
 # Project information
 site_url: https://is.docs.wso2.com/en/next
 
+# Repository
+repo_name: wso2/docs-is
+repo_url: https://github.com/wso2/docs-is
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/next/docs/
+
 extra:
   base_path: /en/next
   is_version: next
