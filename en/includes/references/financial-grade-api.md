@@ -1,6 +1,6 @@
 # Financial-grade API
 
-Financial-grade API (FAPI), a specification that extends the OAuth and OIDC frameworks, was introduced by the [FAPI Working Group](https://openid.net/wg/fapi/){:target="_blank"} and defines additional technical requirements to secure APIs. Eventhough FAPI was initially defined for financial serivces, it is appropriate for any critical API whose security is the highest priority.
+[Financial-grade API (FAPI)](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"}, a specification that extends the OAuth and OIDC frameworks, was introduced by the [FAPI Working Group](https://openid.net/wg/fapi/){:target="_blank"} and defines additional technical requirements to secure high-value APIs.
 
 {{product_name}} facilitates the creation of FAPI-compliant applications from the Console as well as with Dynamic Client Registration (DCR).
 

@@ -69,3 +69,4 @@ exceptions:
   - SAML
   - JWT
   - UTC
+  - FAPI
