@@ -184,6 +184,28 @@
     display: none !important;
 }
 
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters > button {
+    cursor: pointer;
+    border: 1px solid rgba(34, 36, 38, .15);
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+
+.filters > button:hover {
+    border: 1px solid #ff7300;
+}
+
+.filters > button.active {
+  background-color: #ff7300;
+  color: white;
+}
+
 @media screen and (min-width: 76.25em) {
     [dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
     [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {

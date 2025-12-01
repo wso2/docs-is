@@ -28,6 +28,10 @@
     <article class="md-content__inner md-typeset">
     <h1 class="md-typeset">Connectors</h1>
     <p class="md-typeset"> This document lists the available connectors for {{config.extra.product_name}} {{config.extra.is_version}}.</p>
+    <div class="filters">
+      <button data-filter="fraud">Fraud detection</button>
+      <button data-filter="identity-verification">Identity verification</button>
+    </div>
     <div class="integrations-list-container">
       <div class="flex-grid">
           {% for connector in config.extra.connectors %}
@@ -50,7 +54,7 @@
                   </a>
                 {% endif %}
                 {% if connector.documentation_link %}
-                  <a class="tooltip source-link md-icon md-icon--hover" href="{{ connector.documentation_link }}" target="_blank">
+                  <a class="tooltip source-link md-icon md-icon--hover" href="{{config.extra.base_path}}/connectors/{{connector.documentation_link}}/overview/">
                     {% include "/assets/images/icons/book-16.svg" %}
                     <span class="tooltip-text">Documentation</span>
                   </a>
@@ -63,4 +67,24 @@
       {{ page.content }}
     </article>
   </div>
+
+
+<script>
+
+const buttons = document.querySelectorAll(".filters > button");
+buttons.forEach((btn) => {
+btn.addEventListener("click", () => {
+
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active")
+    }
+    else {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+  
+  });
+});
+</script>
+
 {% endblock %}
