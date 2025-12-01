@@ -126,7 +126,8 @@ JWKS_URL=https://api.asgardeo.io/t/<your-tenant>/oauth2/jwks
 
 !!! Important
 
-    Replace `<your-tenant>` and `<your-client-id>` with the values obtained from the {{ product_name }} console (tenant is visible in the console URL: `\t\<your-tenant>`).
+    Replace `<your-tenant>` and `<your-client-id>` with the values obtained from the {{ product_name }} console.
+    The tenant name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<your-tenant>`), and the client ID is found in the application's **Protocol** tab.
 
 Create a `jwt_validator.py` file in the project directory using the implementation below.
 
@@ -325,6 +326,8 @@ class JWTTokenVerifier(TokenVerifier):
             aut = payload.get("aut")
             act = payload.get("act")
 
+            # This logging is for troubleshooting purposes only. 
+            # In production, adjust log levels and mask/redact sensitive claims. 
             logger.info("[JWT VALID] " + ", ".join(
                 [f"sub={subject}", f"aut={aut}", f"scopes={scopes}"] +
                 ([f"act={act}"] if act else [])
@@ -360,7 +363,7 @@ mcp = FastMCP(
     # Auth settings for RFC 9728 Protected Resource Metadata
     auth=AuthSettings(
         issuer_url=AnyHttpUrl(AUTH_ISSUER),
-        resource_server_url=AnyHttpUrl("http://localhost:8000"),  # Authorization Server URL => This server's URL
+        resource_server_url=AnyHttpUrl("http://localhost:8000"),  # This MCP server's URL
     ),
 )
 
