@@ -206,6 +206,25 @@
   color: white;
 }
 
+.flex-grid .integration-card.hidden {
+  display: none;
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid rgba(34, 36, 38, .15);
+    border-radius: 55px;
+    cursor: text;
+    padding: 10px 20px;
+    width: 40vw;
+}
+
+.search-bar {
+    flex: 1;
+    padding-left: 10px;
+}
+
 @media screen and (min-width: 76.25em) {
     [dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
     [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {

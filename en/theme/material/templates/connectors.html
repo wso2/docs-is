@@ -27,7 +27,11 @@
   <div class="md-content">
     <article class="md-content__inner md-typeset">
     <h1 class="md-typeset">Connectors</h1>
-    <p class="md-typeset"> This document lists the available connectors for {{config.extra.product_name}} {{config.extra.is_version}}.</p>
+    <p class="md-typeset">This document lists the available connectors for {{config.extra.product_name}} {{config.extra.is_version}}.</p>
+    <div class="search-container">
+      {% include "/assets/images/icons/magnifying-glass.svg" %}
+      <input class="search-bar" type="text" id="search-input" placeholder="Search by name..." onkeyup="searchConnectors()" />
+    </div>
     <div class="filters">
       <button data-filter="fraud">Fraud detection</button>
       <button data-filter="identity-verification">Identity verification</button>
@@ -35,7 +39,7 @@
     <div class="integrations-list-container">
       <div class="flex-grid">
           {% for connector in config.extra.connectors %}
-            <div class="md-card integration-card">
+            <div class="md-card integration-card" data-filter="{{ connector.category }}">
               <img class="integration-card-icon" src="{{ connector.icon | url }}#only-light" />
               {% if connector.dark_icon %}
                 <img class="integration-card-icon" src="{{ connector.dark_icon | url }}#only-dark" />
@@ -72,19 +76,51 @@
 <script>
 
 const buttons = document.querySelectorAll(".filters > button");
+const cards = document.querySelectorAll(".integration-card");
+const filteredButtons = [];
+
 buttons.forEach((btn) => {
 btn.addEventListener("click", () => {
 
     if (btn.classList.contains("active")) {
       btn.classList.remove("active")
+      const index = filteredButtons.indexOf(btn.dataset.filter);
+      if (index !== -1) {
+        filteredButtons.splice(index, 1);
+        
+      }
     }
     else {
-      buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
+      filteredButtons.push(btn.dataset.filter);
     }
+
+    console.log(filteredButtons);
+
+    searchConnectors();
+  })})
+
+function searchConnectors() {
   
+  const input = document.getElementById("search-input");
+  const filter = input.value.toLowerCase();
+
+  cards.forEach(card => {
+
+    const name = card.querySelector(".integration-card-header").textContent.toLowerCase();
+    const matchesSearch = name.includes(filter);
+
+    const cardFilter = card.dataset.filter;
+    const matchesFilter = filteredButtons.length === 0 || filteredButtons.includes(cardFilter);
+
+    if (matchesSearch && matchesFilter) {
+      card.classList.remove("hidden");
+    } else {
+      card.classList.add("hidden");
+    }
   });
-});
+}
+
 </script>
 
 {% endblock %}
