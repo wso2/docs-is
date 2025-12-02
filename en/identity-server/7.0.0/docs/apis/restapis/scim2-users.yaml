@@ -582,6 +582,8 @@ components:
             properties: {}
         urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
           type: object
+          required:
+            - askPassword
           properties:
             askPassword:
               type: boolean
