@@ -325,7 +325,7 @@ The client application can now retrieve the user's payment information from the 
 
 ### Sample authorization code grant flow
 
-The authorization code grant is a front channel grant that requires user interaction and consent. This section describes how to use rich authorization requests with the authorization code flow.
+The authorization code grant is a front channel grant that requires user interaction and consent (configurable from the Application's **Advanced** section in Console). This section describes how to use rich authorization requests with the authorization code flow.
 
 #### Step 1: Initiate authorization request
 
