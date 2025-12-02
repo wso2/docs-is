@@ -27,7 +27,7 @@ The following guides explain how inheritance works for each of these features:
     We are rolling out a new set of changes for organizations that introduce hierarchical inheritance for the following features.
 
     - Login and registration settings
-    - Configurations of the following connections::
+    - Configurations of the following connections:
         - SMS OTP
         - Push Notifications
         - Email OTP
