@@ -124,14 +124,38 @@ the users with an authorization server-based authentication.
         <td>Additional Query Parameters</td>
         <td>This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here.
         <div class="admonition note">
-        <p>If you wish to send query parameters that need to be updated dynamically with each OIDC request, the value needs to be defined within parenthesis.This value should be the key of the query parameter sent in the OIDC request URL. </br>
-        <strong>Format:</strong> <code> login_hint=${paramName}</code> </br>
-        </br>
-        Multiple parameters can be defined by separation of query parameters using the & character.</br>
-        <strong>Sample:</strong></br> <code>login_hint=${paramName}&scope=openid email profile </code></br> </br>
-        Alternatively, use the following format to send query parameters that are resolved using an adaptive authentication script. </br>
-        <strong>Format:</strong> <code>login_hint=$authparam{paramName} </code> </br>
-        </p>
+        <p class="admonition-title">Note</p>
+        <p>WSO2 Identity Server supports sending additional information to your OIDC external IdP in the form of query parameters. You can configure three types of query parameters:</p>
+        <p><strong>1. Fixed query parameters</strong></p>
+        <p>Send a fixed value to the external identity provider.</p>
+        <p><strong>Example:</strong> <code>login_hint=admin@example.com</code></p>
+        <p><strong>2. Dynamic query parameters from the initial request</strong></p>
+        <p>If you wish to send query parameters that need to be updated dynamically with each OIDC request, the value needs to be defined with the format <code>&#36;{paramName}</code>. This value should be the key of the query parameter sent in the OIDC request URL.</p>
+        <p><strong>Format:</strong> <code>login_hint=&#36;{paramName}</code> or <code>domain=&#36;{fidp}</code></p>
+        <p><strong>Sample OIDC request:</strong></p>
+        <p><code>https://localhost:9443/oauth2/authorize?scope=openid&response_type=code&redirect_uri=&lt;redirect_uri&gt;&client_id=&lt;client_id&gt;&paramName=user@example.com</code></p>
+        <p>If the application does not send the query parameter in the login request, the particular parameterized query parameter will not be sent to the external OIDC identity provider.</p>
+        <p><strong>3. Dynamic query parameters from adaptive authentication scripts</strong></p>
+        <p>Use the following format to send query parameters that are resolved using an adaptive authentication script: <code>&#36;authparam{paramName}</code></p>
+        <p><strong>Format:</strong> <code>login_hint=&#36;authparam{userIdentifier}</code></p>
+        <p><strong>Sample adaptive authentication script:</strong></p>
+        <pre><code>executeStep(1, {
+    onSuccess: function(context) {
+        var emailAddress = context.steps[1].subject.username;
+        executeStep(2, {
+            authenticatorParams: {
+                common: {
+                    'userIdentifier': emailAddress
+                }
+            },
+            authenticationOptions: [{
+                idp: 'AzureB2C'
+            }]
+        }, {});
+    }
+});</code></pre>
+        <p>Multiple parameters can be defined by separating query parameters using the ampersand (&) character.</p>
+        <p><strong>Example:</strong> <code>login_hint=&#36;{paramName}&scope=openid email profile</code></p>
         </div>
         </td>
         <td>paramName1=value1</td>

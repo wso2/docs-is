@@ -99,7 +99,10 @@ paths:
         - Users Endpoint
       summary: Create user
       description: "This API creates a user and returns the user details along with\
-        \ the user's unique ID.\n
+        \ the user's unique ID.\n\n\
+        You can create a user in two ways:\n\
+        1. **Set a password for the user**: Include the `password` parameter in the request body to set an initial password for the user.\n\
+        2. **Invite the user to set their own password**: Set the `askPassword` parameter to `true` in the `urn:scim:wso2:schema` extension. An email will be sent to the user with instructions to set their password and confirm their account.\n
         \n<b>Scope(Permission) required:</b>`internal_org_user_mgt_create`\n    \n"
       operationId: createUser
       parameters:

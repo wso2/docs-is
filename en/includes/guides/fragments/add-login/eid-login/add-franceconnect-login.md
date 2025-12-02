@@ -10,14 +10,14 @@
 
          1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
          2. Click **Add Authentication** on the step, select your FranceConnect identity provider, and click **Add**.
-            ![Add FranceConnect login in {{product_name}}]({{base_path}}/assets/img/guides/idp/franceConnect-eid/add-franceConnect-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add FranceConnect login in {{product_name}}]({{base_path}}/assets/img/guides/idp/franceconnect-eid/add-franceConnect-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add FranceConnect login using the Visual Editor:
 
         1. Switch to the **Visual Editor** tab, by default the `Username & Password` login flow will be added onto the Visual Editor's workspace.
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your FranceConnect connection.
-          ![Add FranceConnect login in {{product_name}}]({{base_path}}/assets/img/guides/idp/franceConnect-eid/add-franceconnect-federation-with-visual-editor.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+          ![Add FranceConnect login in {{product_name}}]({{base_path}}/assets/img/guides/idp/franceconnect-eid/add-franceconnect-federation-with-visual-editor.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
     {% else %}
@@ -27,7 +27,7 @@
 
     3. Click **Confirm** to add login with FranceConnect to the sign-in flow.
 
-      ![Configuring FranceConnect in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/franceConnect-eid/add-franceconnect-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+      ![Configuring FranceConnect in {{product_name}} using the Visual Editor]({{base_path}}/assets/img/guides/idp/franceconnect-eid/add-franceconnect-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     {% endif %}
 
