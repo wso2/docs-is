@@ -622,6 +622,8 @@ components:
                     - Taylor
         urn:scim:wso2:schema:
           type: object
+          required:
+            - askPassword
           properties:
             askPassword:
               type: boolean
