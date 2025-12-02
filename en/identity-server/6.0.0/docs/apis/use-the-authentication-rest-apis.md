@@ -32,29 +32,29 @@ template: templates/swagger.html
         <tbody>
             <tr>
                 <td>filter_policy</td>
-                <td>The value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlisvalue,    whereas an <b>exclude</b> indicates a denylist value.</td>
+                <td>The value is either <b>include</b> or <b>exclude</b>. An include indicates an allowlist value, whereas an <b>exclude</b> indicates a denylist value.</td>
             </tr>
             <tr>
                 <td>remove_on_consume_from_api</td>
-                <td>This decides whether to remove the parameters on a read. If set to true, parameters ardeleted     upon read and won’t be available for subsequent API requests, unless they arrepopulated in the    backend.</td>
+                <td>This decides whether to remove the parameters on a read. If set to true, parameters are deleted upon read and won't be available for subsequent API requests, unless they are repopulated in the backend.</td>
             </tr>
             <tr>
                 <td>parameters</td>
-                <td>The list of parameters to be allowed/denied. The name attribute is used to specify thparameter    name.</td>
+                <td>The list of parameters to be allowed/denied. The name attribute is used to specify the parameter name.</td>
             </tr>
             <tr>
                 <td>sessionDataKey</td>
                 <td>
-                    <p>This is an identifier used by the Identity Server to maintain state information abouthis     particular request from the service provider.</p>
+                    <p>This is an identifier used by the Identity Server to maintain state information about this particular request from the service provider.</p>
                     <p>
                         <div class="admonition note">
                         <p class="admonition-title">Note</p>
-                        <p>The <b>sessionDataKey</b> query parameter is used to coordinate the request statacross     components participating in the request flow. <br />
+                        <p>The <b>sessionDataKey</b> query parameter is used to coordinate the request state across components participating in the request flow. <br />
                         <br/>
-                        The <b>sessionDataKey</b> does not correlate with the user session and at the end othe    request flow, the request state maintained against it is cleared by eacparticipating    component.
+                        The <b>sessionDataKey</b> does not correlate with the user session and at the end of the request flow, the request state maintained against it is cleared by each participating component.
                         <br/>
                         <br/>
-                        This means that even if an external party grabs the <b>sessionDataKey</b> they will nobe    able to get into the authentication sequence.
+                        This means that even if an external party grabs the <b>sessionDataKey</b> they will not be able to get into the authentication sequence.
                         </div>
                     </p>
                 </td>
