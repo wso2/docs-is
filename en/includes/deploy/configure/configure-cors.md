@@ -2,9 +2,14 @@
 
 Cross-Origin Resource Sharing (CORS) lets web services control which external origins can access their resources. {{product_name}} allows you to enforce CORS at the tenant level, ideal for connecting Single Page Applications (SPAs).  
 
-!!! tip
+!!! tip "Before you begin: Enable tenanted URL mode"
 
-    {{product_name}} must be running in the tenant URL mode in order for CORS to work.
+    {{product_name}} must be running in tenant URL mode for CORS to work. Tenant mode is enabled by default. If it’s disabled, enable it by editing the `<IS_HOME>/repository/conf/deployment.toml` file and adding the following configuration:
+
+    ```toml
+    [tenant_context]
+    enable_tenant_qualified_urls = true
+    ```
 
 ## Configure CORS
 
@@ -38,11 +43,11 @@ tag_requests = false
 
 ### Using REST APIs
 
-The following REST APIs allow you to configure CORS.
+You can also use the following REST APIs to view and configure CORS properties.
 
 !!! note "Overriding server-level properties"
 
-    REST APIs can override all the CORS properties defined at the server-level except for **Alllowed CORS origins**.  The origins listed under this property at the server level are permanent. REST APIs can add new origins to it but can't restrict or remove the defined origins.
+    REST APIs can override all the CORS properties defined at the server-level except for **Allowed CORS origins**.  The origins listed under this property at the server level are permanent. REST APIs can add new origins to it but can't restrict or remove the defined origins.
 
 -  [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows overriding all server-level properties except for `Allowed CORS origins`.
 
