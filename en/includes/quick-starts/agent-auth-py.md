@@ -22,8 +22,8 @@ To enable authentication for your AI agent, begin by registering it in {{ produc
 - Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
 - Click **+ New Agent**.
 - Provide:
-     - Name: A descriptive name for your AI agent for human-readable display purposes
-     - Description (optional): Purpose and functionality of the agent
+  - Name: A descriptive name for your AI agent for human-readable display purposes
+  - Description (optional): Purpose and functionality of the agent
 - Click **Create** to complete the registration.
 
 After successful registration, your agent will receive a unique **Agent ID** and an **Agent Secret** which is shown only once. Make sure to store them securely, as you’ll need them later in this guide.
@@ -41,7 +41,7 @@ To allow your agent (or user acting through the agent) to authenticate and conne
     Authorized redirect URL: http://localhost:6274/oauth/callback
 
 !!! Info
-    The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server. 
+    The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     In this guide, the AI agent behaves as the client which consists of a lightweight OAuth 2.1 callback server runs at `http://localhost:6274/oauth/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Build an AI Agent](#build-an-ai-agent) section of this guide.
@@ -83,7 +83,7 @@ Install the required dependencies.
     pip install asgardeo asgardeo_ai langchain langchain-google-genai langchain-mcp-adapters python-dotenv
 ```
 
-Create `main.py`, which implements an AI agent that authenticates itself by sending a valid token in the authorization header and then securely calls an MCP tool:
+Create `main.py` that implements an AI agent which first obtains a valid access token from **{{ product_name }}** by authenticating itself. The agent then includes that token in the `Authorization` header (for example `Authorization: Bearer <token>`) when calling the MCP tool.
 
 ```python title="main.py"
 import os
@@ -117,6 +117,7 @@ agent_config = AgentConfig(
 
 async def main():
 
+    # Scenario 1: AI agent acting on its own using its own credentials to authenticate
     async with AgentAuthManager(config, agent_config) as auth_manager:
         # Get agent token
         agent_token = await auth_manager.get_agent_token(["openid"])
@@ -159,6 +160,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 
 ```
+
 !!! Important
     Replace `<mcp_server_url>` with your MCP server’s URL.
     If you followed the [MCP Auth Server quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server), you can use: `http://127.0.0.1:8000/mcp`
@@ -180,7 +182,7 @@ GOOGLE_API_KEY=<google_api_key>
 ```
 
 !!! Important
-    
+
     - Replace `<your-tenant>`, `<your-client-id>`and the redirect URL with the values obtained from the {{ product_name }} console.
       The tenant name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<your-tenant>`), and the `client ID` can be found in the application's **Protocol** tab.
 
@@ -240,17 +242,17 @@ Now, let’s look at the second scenario: **the agent authenticating on behalf o
 
 This flow uses:
 
-- PKCE (Proof Key for Code Exchange)
 - Authorization code issued after the user logs in
+- PKCE (Proof Key for Code Exchange) to ensure only your agent can securely exchange the authorization code for the OBO token
 - A final token exchange that produces an **OBO token**, representing the user
 
 Your AI agent will then call the MCP server _as the authenticated user_.
 
-During the OBO flow, {{ product_name }} needs a place to send the **authorization code** after login.
-To handle this, create a file named `oauth_callback.py` with the following implementation. This lightweight HTTP server listens for redirects and captures `authorization_code` and `state`.
+During the OBO flow, {{ product_name }} redirects back to your client application with an `authorization code` after the user logs in.
+To handle this, create a file named `oauth_callback.py` with the following implementation at the project root. This lightweight HTTP server listens for the redirect and captures `authorization_code` and `state`.
 
 <details>
-<summary>Expand to view the implementation</summary>
+<summary>Expand to view the implementation of `oauth_callback.py`</summary>
 
 ```python title="oauth_callback.py"
 import http.server
@@ -353,8 +355,7 @@ from oauth_callback import OAuthCallbackServer
 
 
 # Load environment variables from .env file
-ROOT_DIR = Path(__file__).resolve().parents[2]
-load_dotenv(ROOT_DIR / ".env")
+load_dotenv()
 
 config = AsgardeoConfig(
     base_url=os.getenv("ASGARDEO_BASE_URL"),
@@ -370,6 +371,7 @@ agent_config = AgentConfig(
 
 async def main():
 
+    # Scenario 2: Perform OBO flow (authenticating on behalf of the user)
     async with AgentAuthManager(config, agent_config) as auth_manager:
         # Get agent token
         agent_token = await auth_manager.get_agent_token(["openid", "email"])
