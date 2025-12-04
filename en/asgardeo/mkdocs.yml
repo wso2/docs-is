@@ -232,6 +232,8 @@ nav:
         - TypeScript: quick-starts/mcp-auth-server.md
         - Python: quick-starts/mcp-auth-server-py.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
+    - Secure Your AI Agents:
+        - Python: quick-starts/agent-auth-py.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
