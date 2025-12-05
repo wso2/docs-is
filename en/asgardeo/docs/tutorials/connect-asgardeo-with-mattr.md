@@ -213,86 +213,38 @@ Download the MATTR GO Hold mobile wallet application to test credential issuance
 
 ### Step 2.3: Verify credentials
 
-Let's use a sample MATTR application to perform the credential verification. For the steps below, use the previously created MATTR tenant or a new tenant. If you are using a new MATTR tenant, you need a new access token.
+Use MATTR GO Verify to perform in-person verification of digital credentials. This ready-to-use mobile application enables organizations to verify credentials securely and confidently.
 
-!!! note
-    For verification, you'll need to create a presentation template that matches your credential configuration.
+#### Download the MATTR GO Verify app
 
-1. Create a credential presentation template with MATTR.
+Download the MATTR GO Verify example app to your mobile device from:
 
-    Replace the `<TEMPLATE_NAME>` with a meaningful value and `<CREDENTIAL_TYPE>` with the same value used in the issuer-creation step.
+- **iOS devices**: [The App Store](https://apps.apple.com/us/app/mattr-go-verify/id6670461328)
+- **Android devices**: [Google Play](https://play.google.com/store/apps/details?id=global.mattr.mobile.verifier)
 
-    ```bash
-    curl -i -X POST "<TENENT_URL>/v1/credentials/web-semantic/presentations/templates" \
-    -H "Authorization: Bearer <BEARER_TOKEN>" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "domain":"<TENENT_URL>",
-        "name":"<TEMPLATE_NAME>",
-        "query": [{
-        "type":"QueryByFrame",
-        "credentialQuery":[
-            {
-            "reason": "Please provide your educational award and surname from your Certificate",
-            "frame":{
-                "@context":[
-                "https://www.w3.org/2018/credentials/v1",
-                "https://w3id.org/security/bbs/v1",
-                "https://mattr.global/contexts/vc-extensions/v1",
-                "https://schema.org",
-                "https://w3id.org/vc-revocation-list-2020/v1"
-                ],
-            "type": ["VerifiableCredential", "<CREDENTIAL_TYPE>"],
-            "credentialSubject":{
-                "@explicit":true,
-                "given_name":{}
-            }
-            },
-            "trustedIssuer":[
-            {
-                "issuer":"<DID>",
-                "required":true
-            }
-            ],
-            "required":true
-            }
-        ]
-        }]
-    }'
-    ```
+#### Verify mDocs
 
-2. Download and configure the MATTR sample application by visiting the GitHub repository below.
+Follow the steps below to verify mDocs credentials:
 
-    ```bash
-    https://github.com/mattrglobal/sample-apps/tree/master/verify-callback-express
-    ```
+1. Use a different device to download the MATTR GO Hold example app.
 
-    Update the environment variables in the `.env` file according to your setup. Specifically, for the `TEMPLATEID` variable, use the ID value you received from the response to the previous request.
+2. Use the GO Hold example app to claim an mDoc credential. (Scan the QR code generated from step 6 of the previous section.)
 
-3. Run the sample application and start an **Ngrok** tunnel to your localhost.
+3. In the GO Hold example app, select the **Share** button and then select **Share Credential**.
 
-    !!! tip
-            If everything is set up correctly, the running terminal shows you a QR code.
+4. Select the **Connection QR** tab.
 
-4. Scan the QR code with the MATTR Wallet and click **Send**.
+    This displays a QR code on the screen.
 
-    ![verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verifiable-credentials.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+5. Open the GO Verify app.
+
+6. Select the **Scan** button.
+
+7. Scan the QR code displayed in the GO Hold example app.
 
     !!! note
-        Once sent by the wallet holder, the callback endpoint defined in the presentation request receives the verification response and requested credentials. In this case, the sample MATTR application receives the response and prints it to the running terminal.
+        You may need to allow the GO Verify app to access your camera.
 
-    ```js
-    {
-    presentationType: 'QueryByFrame',
-    challengeId: 'GW8FGpP6jhFrl37yQZIM6w',
-    claims: {
-        id: 'did:key:z6MkisTmUeMWzqbwxTad2jrhoAXrLZN1BggiYUNsVBR7FUYW',
-        'http://schema.org/birthdate': '1996-09-05'
-        'http://schema.org/given_name': 'john'
-    },
-    verified: true,
-    holder: 'did:key:z6MkisTmUeMWzqbwxTad2jrhoAXrLZN1BggiYUNsVBR7FUYW'
-    }
-    ```
+8. Follow the on-screen instructions to complete the proximity verification workflow.
 
-Now you know how to issue verifiable credentials for wallet holders and how to verify them with MATTR using Asgardeo. You can continue to harness the full capabilities that Asgardeo provides by customizing the sign-in flow, enhancing application security, etc.
+You now know how to issue verifiable credentials for wallet holders and verify them with MATTR using Asgardeo. Continue to harness the full capabilities that Asgardeo provides by customizing the sign-in flow, enhancing application security, and exploring additional features.
