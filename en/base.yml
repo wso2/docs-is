@@ -253,6 +253,10 @@ extra:
       icon: fontawesome/solid/user-shield
     MCP Server:
       icon: assets/libs/custom-icons/mcp.svg
+    Sift:
+      icon: assets/images/sift-logo.svg
+    Onfido:
+      icon: assets/images/onfido-logo.svg
 
   integrations:
     - official:
