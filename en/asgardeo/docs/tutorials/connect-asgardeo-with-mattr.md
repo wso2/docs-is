@@ -284,3 +284,12 @@ Follow the steps below to verify mDocs credentials:
 8. Follow the on-screen instructions to complete the proximity verification workflow.
 
 You now know how to issue verifiable credentials for wallet holders and verify them with MATTR using Asgardeo. Continue to harness the full capabilities that Asgardeo provides by customizing the sign-in flow, enhancing application security, and exploring additional features.
+
+## Learn more
+
+Explore additional MATTR integration options and credential formats:
+
+- **Credential Issuance**: Learn about issuing credentials in different formats including CWT, JSON, and Semantic CWT. Visit the [MATTR Issuance Documentation](https://learn.mattr.global/docs/issuance).
+
+- **Credential Verification**: Discover verification workflows and supported credential formats. Visit the [MATTR Verification Documentation](https://learn.mattr.global/docs/verification).
+
