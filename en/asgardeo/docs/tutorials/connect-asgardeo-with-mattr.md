@@ -21,249 +21,271 @@ Follow the instructions below to begin.
 To register your application in Asgardeo:
 
 1. Go to your organization from the [Asgardeo Console](https://console.asgardeo.io/).
-2. To create an OIDC application, go to **Applications**, click **+New Application**, and select **Traditional Web Application**.
-    1. Give a name for the application, select the **OpenID Connect** protocol, provide an authorized redirect URL, and click **Register** to complete the registration.
 
-        !!! note
-            For now, let's give a dummy value as the **Authorized redirect URL**. You'll update this later when you configure MATTR and create a credential issuer.
+2. Create an OIDC application by navigating to **Applications**, clicking **+New Application**, and selecting **Traditional Web Application**.
 
-    2. Take note of the client ID and client secret.
+3. Provide a name for the application and select the **OpenID Connect** protocol.
 
-        !!! note
-            You will need them to configure the MATTR credential issuer later.
+4. Add a placeholder value for the **Authorized redirect URL**.
 
-3. Go to the **Info** tab and take note of the **Token URL**.
-4. Go to the **User Attributes** tab, select the mandatory user attributes that you need to offer with the verifiable credential (for example, Email, First Name, Last Name, and Date of Birth.), and click **Update** to save the changes.
+    !!! note
+        You will update this later when you configure MATTR and create a credential issuer.
+
+5. Click **Register** to complete the registration.
+
+6. Take note of the **client ID** and **client secret** from the application details.
+
+    !!! note
+        You will need these credentials to configure the MATTR credential issuer later.
+
+7. Navigate to the **Info** tab and take note of the **Token URL**.
+
+8. Navigate to the **User Attributes** tab.
+
+9. Select the mandatory user attributes you need to offer with the verifiable credential (for example, Email, First Name, Last Name, and Date of Birth).
+
+10. Click **Update** to save the changes.
 
 ### Step 1.2: Create a user account in Asgardeo
 
 If you currently do not have any users in your Asgardeo organization, follow the instructions below to create a new user account.
 
-1. On the Asgardeo Console, go to **User Management** > **Users**.
+1. On the Asgardeo Console, navigate to **User Management** > **Users**.
+
 2. Click **+ Add User** and provide the required details.
 
-Later, this user will log in to Asgardeo to get verifiable credentials to the MATTR Wallet.
+This user will log in to Asgardeo to obtain verifiable credentials for the MATTR Wallet.
 
-### Step 1.3: Configure MATTR and create a credential issuer
+### Step 1.3: Set up MATTR account
 
 Follow the steps given below.
 
-1. Go to `https://mattr.global/`, create a MATTR account, and take note of your client ID, client secret, and tenant domain.
+1. Navigate to `https://mattr.global/` and create a MATTR account.
+
+2. Take note of your **client ID**, **client secret**, **tenant URL**, **auth URL**, and **audience**.
 
     !!! note
-        From now on, let's refer to the MATTR client id as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, and its tenant domain as `{tenant-subdomain}` or `<TENENT_DOMAIN>`.
+        From now on, let's refer to the MATTR client ID as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, its auth URL as `<MATTR_AUTH_URL>`, its audience as `<MATTR_AUDIENCE>`, and its tenant URL as `<TENANT_URL>`.
 
-2. Get an access token for the MATTR tenant by sending the following request:
+### Step 1.4: Get an access token for MATTR
 
-    !!! note
-        We are using a cURL command to send the request in this example.
+Obtain an access token for the MATTR tenant by sending the following request:
 
-    ```bash
-    curl -i -X POST "https://auth.mattr.global/oauth/token" \
-    -H "Content-Type: application/json" \
-    -d '{ 
-        "client_id": "<MATTR_CLIENT_ID>",
-        "client_secret": "<MATTR_CLIENT_SECRET>",
-        "audience": "https://vii.mattr.global", 
-        "grant_type": "client_credentials" 
-    }'
-    ```
+!!! note
+    This example uses a cURL command to send the request.
 
-    !!! note
-        From now on, let's refer to the value of the `access_token` parameter in the response as `<BEARER_TOKEN>`.
+```bash
+curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
+-H "Content-Type: application/json" \
+-d '{ 
+    "client_id": "<MATTR_CLIENT_ID>",
+    "client_secret": "<MATTR_CLIENT_SECRET>",
+    "audience": "<MATTR_AUDIENCE>", 
+    "grant_type": "client_credentials" 
+}'
+```
 
-3. Create a MATTR  decentralized ID (DID) with a BLS key type, which supports BBS+ signatures.
+!!! note
+    From now on, let's refer to the value of the `access_token` parameter in the response as `<BEARER_TOKEN>`.
 
-    ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/core/v1/dids" \
-    -H "Authorization: Bearer <BEARER_TOKEN>" \
-    -H "Content-Type: application/json" \
-    -d '{ 
-        "method": "key",
-        "options": {
-        "keyType": "bls12381g2"
+### Step 1.5: Configure MATTR authentication provider
+
+Set up a MATTR VII Authentication provider to connect with Asgardeo:
+
+```bash
+curl -i -X POST "<TENANT_URL>/v1/users/authentication-providers" \
+-H "Authorization: Bearer <BEARER_TOKEN>" \
+-H "Content-Type: application/json" \
+-d '{
+    "url": "<ASGARDEO_TOKEN_URL>",
+    "scope": ["openid", "profile", "email"],
+    "clientId": "<ASGARDEO_CLIENT_ID>",
+    "clientSecret": "<ASGARDEO_CLIENT_SECRET>",
+    "tokenEndpointAuthMethod": "client_secret_post",
+    "staticRequestParameters": {
+        "prompt": "login",
+        "maxAge": 10000
+    }
+}'
+```
+
+Replace the placeholders with your actual values:
+
+- `<ASGARDEO_TOKEN_URL>`: The token endpoint from your Asgardeo application.
+- `<ASGARDEO_CLIENT_ID>`: The client ID from your Asgardeo application.
+- `<ASGARDEO_CLIENT_SECRET>`: The client secret from your Asgardeo application.
+
+### Step 1.6: Create issuer certificates
+
+Create the necessary certificates for issuing mobile credentials.
+
+#### Create an IACA (Issuer Authority Certificate Authority)
+
+```bash
+curl -i -X POST '<TENANT_URL>/v2/credentials/mobile/iacas' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-H 'Content-Type: application/json' \
+-d ''
+```
+
+!!! note
+    From now on, let's refer to the `id` parameter in the response as `<IACA_ID>`.
+
+#### Activate the IACA
+
+```bash
+curl -i -X PUT '<TENANT_URL>/v2/credentials/mobile/iacas/<IACA_ID>' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-d '{
+    "active": true
+}'
+```
+
+Replace `<IACA_ID>` with the actual IACA ID from the previous step.
+
+This activates the IACA certificate, making it ready for issuing mobile credentials.
+
+### Step 1.7: Create mDocs credential configuration
+
+Set up the credential configuration for mobile documents:
+
+```bash
+curl -i -X POST '<TENANT_URL>/v2/credentials/mobile/configurations' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-d '{
+    "type": "<CREDENTIAL_TYPE>",
+    "expiresIn": {
+        "months": 1
+    },
+    "claimMappings": {
+        "<NAMESPACE>": {
+            "name": {
+                "mapFrom": "claims.name",
+                "type": "string"
+            },
+            "email": {
+                "mapFrom": "claims.email",
+                "type": "string"
+            }
         }
-    }'
-    ```
+    },
+    "branding": {
+        "name": "<CREDENTIAL_NAME>",
+        "description": "<CREDENTIAL_DESCRIPTION>",
+        "backgroundColor": "#2d46d8"
+    },
+    "includeStatus": true
+}'
+```
 
-    !!! note
-        From now on, let's refer to the value of the DID parameter in the response body as `<DID_ID>`.
+Update the values in the above request as follows:
 
-4. Create a MATTR credential issuer using the following cURL command:
+- `<CREDENTIAL_TYPE>`: Provide a unique identifier for your credential type.
+- `<NAMESPACE>`: Define a namespace for your claims.
+- `<CREDENTIAL_NAME>`: Provide a user-friendly name for the credential.
+- `<CREDENTIAL_DESCRIPTION>`: Add a meaningful description for the credential.
+- `claimMappings`: Configure how user claims from Asgardeo map to the mobile credential fields.
 
-    ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/ext/oidc/v1/issuers" \
-    -H "Authorization: Bearer <BEARER_TOKEN>" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "credential": {
-        "issuerDid": "<DID_ID>",
-        "name": "<ISSUER_NAME>",
-        "context": [
-            "https://schema.org"
-        ],
-        "type": [
-            "VerifiableCredential",
-            "<CREDENTIAL_TYPE>"
-        ]
-        },
-        "federatedProvider": {
-        "url": "<TOKEN_ENDPOINT_URL>",
-        "scope": [
-            "openid",
-            "profile",
-            "email"
-        ],
-        "clientId": "<OIDC_APP_CLIENT_ID>",
-        "clientSecret": "<OIDC_APP_CLIENT_SECRET>"
-        },
-        "claimMappings": [
-        {
-            "oidcClaim": "email",
-            "jsonLdTerm": "email"
-        },
-        {
-            "oidcClaim": "given_name",
-            "jsonLdTerm": "given_name"
-        },
-        {
-            "oidcClaim": "birthdate",
-            "jsonLdTerm": "birthdate"
-        },
-        {
-            "oidcClaim": "family_name",
-            "jsonLdTerm": "familyName"
-        }
-        ]
-    }'
-    ```
+!!! note
+    From now on, let's refer to the `id` parameter in the response as `<MOBILE_CONFIG_ID>`.
 
-    Update the values in the above request as follows:
+### Step 1.8: Generate credential offer URI
 
-    - `<ISSUER_NAME>` and `<CREDENTIAL_TYPE>`: Provide meaningful values.
-    - `<TOKEN_ENDPOINT_URL>`: Provide the Asgardeo token endpoint URL.
-    - `<OIDC_APP_CLIENT_ID>`: Provide the OIDC application ID.
-    - `<OIDC_APP_CLIENT_SECRET>`: Provide the OIDC application secret that you created when configuring the application in Asgardeo.
-    - `claimMappings`: Configure the claims that you need to offer with the verifiable credential to the wallet holder by adding them in the `claimMappings` parameter in the request payload. See the [MATTR-supported credential claim mappings](https://learn.mattr.global/tutorials/web-credentials/issue/oidc-bridge/common-mappings).
+Create a credential offer URI that wallets can use to claim credentials:
 
-    !!! note
-        In the step that displays the QR code, we'll refer to the `id` parameter in the response as `{issuer-id}`.
+```bash
+curl -i -X POST '<TENANT_URL>/v1/openid/offers' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-d '{
+    "credentials": ["<MOBILE_CONFIG_ID>"]
+}'
+```
 
-5. On the Asgardeo Console, go to the **Protocol** tab under **Applications**, select your OIDC application, and do the following updates:
+This request generates an OpenID credential offer URI for issuing the mobile credential to users.
 
-    1. Use the `callbackUrl` parameter under `federatedProvider` in the above response body as the authorized redirect URL for the OIDC application.
-    2. Enable CORS by adding the MATTR  origin into the **Allowed origins** field, and then click **Update**.
+The API response includes a `uri` field that digital wallets use to initiate the credential issuance flow.
+
+You can convert this URI into a QR code for easy scanning by users. Here are some recommended QR code generators (select the **Plain text** option where available):
+
+- [QR Code Generator](https://www.the-qrcode-generator.com/)
+- [QR Server API](http://goqr.me/api/)
+- [QR Code Creator](https://www.qr-code-generator.com/)
+
+### Step 1.9: Update Asgardeo application configuration
+
+Complete the integration by updating your Asgardeo OIDC application settings:
+
+1. Navigate to the **Protocol** tab under **Applications** in the Asgardeo Console.
+
+2. Select your OIDC application.
+
+3. Add the MATTR callback URL as an authorized redirect URL.
+
+4. Enable CORS by adding the MATTR origin to the **Allowed origins** field.
+
+5. Click **Update** to save the changes.
 
 ## Step 2: Issue verifiable credentials to a MATTR Wallet
 
 Follow the steps given below.
 
-### Step 2.1: Display the QR code
+### Step 2.1: Download the MATTR GO Hold wallet
 
-Get a QR code that can be scanned to get verifiable credentials from the MATTR Wallet. Given below is an example from `https://goqr.me/api/`.
+Download the MATTR GO Hold mobile wallet application to test credential issuance:
 
-```bash
-https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=openid://discovery?issuer=https://{tenant-subdomain}.vii.mattr.global/ext/oidc/v1/issuers/{issuer-id}
-```
+- **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=global.mattr.wallet&hl=en)
+- **iOS**: [Apple App Store](https://apps.apple.com/cr/app/mattr-go-hold/id1518660243)
 
-### Step 2.2: Get verifiable credentials with MATTR Wallet
+### Step 2.2: Claim your mobile credential
 
-Follow the steps given below.
-
-1. Download the MATTR mobile wallet app to your mobile phone.
-
-    !!! note
-        See [this documentation](https://learn.mattr.global/tutorials/wallets/mattr-wallet) for details.
-
-2. Go to the MATTR mobile wallet app and scan the QR code.
-3. Click **Proceed** and log in to your account in Asgardeo.
-
-    ![get verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/get-verifiable-credentials.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-Now, you can view your credentials in your MATTR Wallet.
+1. Open the MATTR GO Hold application on your mobile device.
+2. Select the **Scan** option from the main menu.
+3. Scan the QR code generated from step 6 of the previous section.
+4. Review the credential offer details and select **Accept**.
+5. Follow the authentication prompts to complete the credential claim process.
 
 ### Step 2.3: Verify credentials
 
-Let's use a sample MATTR application to perform the credential verification. For the steps below, use the previously created MATTR tenant or a new tenant. If you are using a new MATTR tenant, you need a new access token.
+Use MATTR GO Verify to perform in-person verification of digital credentials. This ready-to-use mobile application enables organizations to verify credentials securely and confidently.
 
-!!! note
-    The presentation request does not support DID with a BLS key type, which we created earlier. Hence, you may need to create a new DID by removing `keyType` in the options of the credential issuer creation request body.
+#### Download the MATTR GO Verify app
 
-1. Create a credential presentation template with MATTR.
+Download the MATTR GO Verify example app to your mobile device from:
 
-    Replace the `<TEMPLATE_NAME>` with a meaningful value and `<CREDENTIAL_TYPE>` with the same value used in the issuer-creation step.
+- **iOS devices**: [The App Store](https://apps.apple.com/us/app/mattr-go-verify/id6670461328)
+- **Android devices**: [Google Play](https://play.google.com/store/apps/details?id=global.mattr.mobile.verifier)
 
-    ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/core/v1/presentations/templates" \
-    -H "Authorization: Bearer <BEARER_TOKEN>" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "domain":"<TENENT_DOMAIN>.vii.mattr.global",
-        "name":"<TEMPLATE_NAME>",
-        "query": [{
-        "type":"QueryByFrame",
-        "credentialQuery":[
-            {
-            "reason": "Please provide your educational award and surname from your Certificate",
-            "frame":{
-                "@context":[
-                "https://www.w3.org/2018/credentials/v1",
-                "https://w3id.org/security/bbs/v1",
-                "https://mattr.global/contexts/vc-extensions/v1",
-                "https://schema.org",
-                "https://w3id.org/vc-revocation-list-2020/v1"
-                ],
-            "type": ["VerifiableCredential", "<CREDENTIAL_TYPE>"],
-            "credentialSubject":{
-                "@explicit":true,
-                "given_name":{}
-            }
-            },
-            "trustedIssuer":[
-            {
-                "issuer":"<DID>",
-                "required":true
-            }
-            ],
-            "required":true
-            }
-        ]
-        }]
-    }'
-    ```
+#### Verify mDocs
 
-2. Download and configure the MATTR sample application by visiting the GitHub repository below.
+Follow the steps below to verify mDocs credentials:
 
-    ```bash
-    https://github.com/mattrglobal/sample-apps/tree/master/verify-callback-express
-    ```
+1. Use a different device to download the MATTR GO Hold example app.
 
-    Update the environment variables in the `.env` file according to your setup. Specifically, for the `TEMPLATEID` variable, use the ID value you received from the response to the previous request.
+2. Use the GO Hold example app to claim an mDoc credential. (Scan the QR code generated from step 6 of the previous section.)
 
-3. Run the sample application and start an **Ngrok** tunnel to your localhost.
+3. In the GO Hold example app, select the **Share** button and then select **Share Credential**.
 
-    !!! tip
-            If everything is set up correctly, the running terminal shows you a QR code.
+4. Select the **Connection QR** tab.
 
-4. Scan the QR code with the MATTR Wallet and click **Send**.
+    This displays a QR code on the screen.
 
-    ![verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verifiable-credentials.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+5. Open the GO Verify app.
+
+6. Select the **Scan** button.
+
+7. Scan the QR code displayed in the GO Hold example app.
 
     !!! note
-        Once sent by the wallet holder, the callback endpoint defined in the presentation request receives the verification response and requested credentials. In this case, the sample MATTR application receives the response and prints it to the running terminal.
+        You may need to allow the GO Verify app to access your camera.
 
-    ```js
-    {
-    presentationType: 'QueryByFrame',
-    challengeId: 'GW8FGpP6jhFrl37yQZIM6w',
-    claims: {
-        id: 'did:key:z6MkisTmUeMWzqbwxTad2jrhoAXrLZN1BggiYUNsVBR7FUYW',
-        'http://schema.org/birthdate': '1996-09-05'
-        'http://schema.org/given_name': 'john'
-    },
-    verified: true,
-    holder: 'did:key:z6MkisTmUeMWzqbwxTad2jrhoAXrLZN1BggiYUNsVBR7FUYW'
-    }
-    ```
+8. Follow the on-screen instructions to complete the proximity verification workflow.
 
-Now you know how to issue verifiable credentials for wallet holders and how to verify them with MATTR using Asgardeo. You can continue to harness the full capabilities that Asgardeo provides by customizing the sign-in flow, enhancing application security, etc.
+You now know how to issue verifiable credentials for wallet holders and verify them with MATTR using Asgardeo. Continue to harness the full capabilities that Asgardeo provides by customizing the sign-in flow, enhancing application security, and exploring additional features.
+
+## Learn more
+
+Explore additional MATTR integration options and credential formats: [MATTR Documentation](https://learn.mattr.global/)
+
