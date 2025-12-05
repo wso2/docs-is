@@ -126,7 +126,7 @@ plugins:
       zoomable: true
       draggable: true
       skip_classes:
-        - custom-skip-class-name
+        - skip-glightbox
       auto_caption: false
       caption_position: bottom
   - redirects:
