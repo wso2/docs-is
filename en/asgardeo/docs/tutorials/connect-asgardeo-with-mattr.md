@@ -287,9 +287,5 @@ You now know how to issue verifiable credentials for wallet holders and verify t
 
 ## Learn more
 
-Explore additional MATTR integration options and credential formats:
-
-- **Credential Issuance**: Learn about issuing credentials in different formats including CWT, JSON, and Semantic CWT. Visit the [MATTR Issuance Documentation](https://learn.mattr.global/docs/issuance).
-
-- **Credential Verification**: Discover verification workflows and supported credential formats. Visit the [MATTR Verification Documentation](https://learn.mattr.global/docs/verification).
+Explore additional MATTR integration options and credential formats: [MATTR Documentation](https://learn.mattr.global/)
 
