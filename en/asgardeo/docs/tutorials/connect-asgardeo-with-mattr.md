@@ -21,176 +21,212 @@ Follow the instructions below to begin.
 To register your application in Asgardeo:
 
 1. Go to your organization from the [Asgardeo Console](https://console.asgardeo.io/).
-2. To create an OIDC application, go to **Applications**, click **+New Application**, and select **Traditional Web Application**.
-    1. Give a name for the application, select the **OpenID Connect** protocol, provide an authorized redirect URL, and click **Register** to complete the registration.
 
-        !!! note
-            For now, let's give a dummy value as the **Authorized redirect URL**. You'll update this later when you configure MATTR and create a credential issuer.
+2. Create an OIDC application by navigating to **Applications**, clicking **+New Application**, and selecting **Traditional Web Application**.
 
-    2. Take note of the client ID and client secret.
+3. Provide a name for the application and select the **OpenID Connect** protocol.
 
-        !!! note
-            You will need them to configure the MATTR credential issuer later.
+4. Add a placeholder value for the **Authorized redirect URL**.
 
-3. Go to the **Info** tab and take note of the **Token URL**.
-4. Go to the **User Attributes** tab, select the mandatory user attributes that you need to offer with the verifiable credential (for example, Email, First Name, Last Name, and Date of Birth.), and click **Update** to save the changes.
+    !!! note
+        You will update this later when you configure MATTR and create a credential issuer.
+
+5. Click **Register** to complete the registration.
+
+6. Take note of the **client ID** and **client secret** from the application details.
+
+    !!! note
+        You will need these credentials to configure the MATTR credential issuer later.
+
+7. Navigate to the **Info** tab and take note of the **Token URL**.
+
+8. Navigate to the **User Attributes** tab.
+
+9. Select the mandatory user attributes you need to offer with the verifiable credential (for example, Email, First Name, Last Name, and Date of Birth).
+
+10. Click **Update** to save the changes.
 
 ### Step 1.2: Create a user account in Asgardeo
 
 If you currently do not have any users in your Asgardeo organization, follow the instructions below to create a new user account.
 
-1. On the Asgardeo Console, go to **User Management** > **Users**.
+1. On the Asgardeo Console, navigate to **User Management** > **Users**.
+
 2. Click **+ Add User** and provide the required details.
 
-Later, this user will log in to Asgardeo to get verifiable credentials to the MATTR Wallet.
+This user will log in to Asgardeo to obtain verifiable credentials for the MATTR Wallet.
 
-### Step 1.3: Configure MATTR and create a credential issuer
+### Step 1.3: Set up MATTR account
 
 Follow the steps given below.
 
-1. Go to `https://mattr.global/`, create a MATTR account, and take note of your client ID, client secret, tenant url, auth url and  audience.
+1. Navigate to `https://mattr.global/` and create a MATTR account.
+
+2. Take note of your **client ID**, **client secret**, **tenant URL**, **auth URL**, and **audience**.
 
     !!! note
-        From now on, let's refer to the MATTR client id as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, its auth url as `<MATTR_AUTH_URL>`, its audience as `<MATTR_AUDIENCE>` and its tenant url as `<TENANT_URL>`.
+        From now on, let's refer to the MATTR client ID as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, its auth URL as `<MATTR_AUTH_URL>`, its audience as `<MATTR_AUDIENCE>`, and its tenant URL as `<TENANT_URL>`.
 
-2. Get an access token for the MATTR tenant by sending the following request:
+### Step 1.4: Get an access token for MATTR
 
-    !!! note
-        We are using a cURL command to send the request in this example.
+Obtain an access token for the MATTR tenant by sending the following request:
 
-    ```bash
-    curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
-    -H "Content-Type: application/json" \
-    -d '{ 
-        "client_id": "<MATTR_CLIENT_ID>",
-        "client_secret": "<MATTR_CLIENT_SECRET>",
-        "audience": "<MATTR_AUDIENCE>", 
-        "grant_type": "client_credentials" 
-    }'
-    ```
+!!! note
+    This example uses a cURL command to send the request.
 
-    !!! note
-        From now on, let's refer to the value of the `access_token` parameter in the response as `<BEARER_TOKEN>`.
+```bash
+curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
+-H "Content-Type: application/json" \
+-d '{ 
+    "client_id": "<MATTR_CLIENT_ID>",
+    "client_secret": "<MATTR_CLIENT_SECRET>",
+    "audience": "<MATTR_AUDIENCE>", 
+    "grant_type": "client_credentials" 
+}'
+```
 
-3. Configure a MATTR VII Authentication provider
+!!! note
+    From now on, let's refer to the value of the `access_token` parameter in the response as `<BEARER_TOKEN>`.
 
-    ```bash
-    curl -i -X POST "<TENANT_URL>/v1/users/authentication-providers" \
-    -H "Authorization: Bearer <BEARER_TOKEN>" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "url": "<ASGARDEO-APPLICATION-TOKEN-URL>",
-        "scope": ["openid", "profile", "email"],
-        "clientId": "<ASGARDEO-APPLICATION-Client-ID>",
-        "clientSecret": "<ASGARDEO-APPLICATION-Client-Secrect>",
-        "tokenEndpointAuthMethod": "client_secret_post",
-        "staticRequestParameters": {
-            "prompt": "login",
-            "maxAge": 10000
-        }
-    }'
-    ```
+### Step 1.5: Configure MATTR authentication provider
 
-    !!! note
-        Replace `<ASGARDEO-APPLICATION-Client-ID>` and `<ASGARDEO-APPLICATION-Client-Secrect>` with your actual Asgardeo application credentials, `<TENANT_URL>` and  `<ASGARDEO-APPLICATION-TOKEN-URL>` with the Asgardeo application token endpoint.
+Set up a MATTR VII Authentication provider to connect with Asgardeo:
 
-4. Create issuer certificates
+```bash
+curl -i -X POST "<TENANT_URL>/v1/users/authentication-providers" \
+-H "Authorization: Bearer <BEARER_TOKEN>" \
+-H "Content-Type: application/json" \
+-d '{
+    "url": "<ASGARDEO_TOKEN_URL>",
+    "scope": ["openid", "profile", "email"],
+    "clientId": "<ASGARDEO_CLIENT_ID>",
+    "clientSecret": "<ASGARDEO_CLIENT_SECRET>",
+    "tokenEndpointAuthMethod": "client_secret_post",
+    "staticRequestParameters": {
+        "prompt": "login",
+        "maxAge": 10000
+    }
+}'
+```
 
-### Step 4.1: Create an IACA (Issuer Authority Certificate Authority)
+Replace the placeholders with your actual values:
 
-    ```bash
-    curl -i -X POST '<TENANT_URL>/v2/credentials/mobile/iacas' \
-    -H 'Authorization: Bearer <BEARER_TOKEN>' \
-    -H 'Content-Type: application/json' \
-    -d ''
-    ```
+- `<ASGARDEO_TOKEN_URL>`: The token endpoint from your Asgardeo application.
+- `<ASGARDEO_CLIENT_ID>`: The client ID from your Asgardeo application.
+- `<ASGARDEO_CLIENT_SECRET>`: The client secret from your Asgardeo application.
 
-    !!! note
-        From now on, let's refer to the `id` parameter in the response as `<IACA_ID>`.
+### Step 1.6: Create issuer certificates
 
-### Step 4.2: Activate the IACA
+Create the necessary certificates for issuing mobile credentials.
 
-    ```bash
-    curl -i -X PUT '<TENANT_URL>/v2/credentials/mobile/iacas/<IACA_ID>' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <BEARER_TOKEN>' \
-    -d '{
-        "active": true
-    }'
-    ```
+#### Create an IACA (Issuer Authority Certificate Authority)
 
-    !!! note
-        Replace `<IACA_ID>` with the actual IACA ID from step 4.1. This activates the IACA certificate, making it ready for issuing mobile credentials.
+```bash
+curl -i -X POST '<TENANT_URL>/v2/credentials/mobile/iacas' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-H 'Content-Type: application/json' \
+-d ''
+```
 
-5. Create a MATTR VII mDocs credential configuration
+!!! note
+    From now on, let's refer to the `id` parameter in the response as `<IACA_ID>`.
 
-    ```bash
-    curl -i -X POST '<TENANT_URL>/v2/credentials/mobile/configurations' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <BEARER_TOKEN>' \
-    -d '{
-        "type": "<CREDENTIAL_TYPE>",
-        "expiresIn": {
-            "months": 1
-        },
-        "claimMappings": {
-            "<NAMESPACE>": {
-                "name": {
-                    "mapFrom": "claims.name",
-                    "type": "string"
-                },
-                "email": {
-                    "mapFrom": "claims.email",
-                    "type": "string"
-                }
+#### Activate the IACA
+
+```bash
+curl -i -X PUT '<TENANT_URL>/v2/credentials/mobile/iacas/<IACA_ID>' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-d '{
+    "active": true
+}'
+```
+
+Replace `<IACA_ID>` with the actual IACA ID from the previous step.
+
+This activates the IACA certificate, making it ready for issuing mobile credentials.
+
+### Step 1.7: Create mDocs credential configuration
+
+Set up the credential configuration for mobile documents:
+
+```bash
+curl -i -X POST '<TENANT_URL>/v2/credentials/mobile/configurations' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-d '{
+    "type": "<CREDENTIAL_TYPE>",
+    "expiresIn": {
+        "months": 1
+    },
+    "claimMappings": {
+        "<NAMESPACE>": {
+            "name": {
+                "mapFrom": "claims.name",
+                "type": "string"
+            },
+            "email": {
+                "mapFrom": "claims.email",
+                "type": "string"
             }
-        },
-        "branding": {
-            "name": "<CREDENTIAL_NAME>",
-            "description": "<CREDENTIAL_DESCRIPTION>",
-            "backgroundColor": "#2d46d8"
-        },
-        "includeStatus": true
-    }'
-    ```
+        }
+    },
+    "branding": {
+        "name": "<CREDENTIAL_NAME>",
+        "description": "<CREDENTIAL_DESCRIPTION>",
+        "backgroundColor": "#2d46d8"
+    },
+    "includeStatus": true
+}'
+```
 
-    Update the values in the above request as follows:
+Update the values in the above request as follows:
 
-    - `<CREDENTIAL_TYPE>`: Provide a unique identifier for your credential type.
-    - `<NAMESPACE>`: Define a namespace for your claims.
-    - `<CREDENTIAL_NAME>`: Provide a user-friendly name for the credential.
-    - `<CREDENTIAL_DESCRIPTION>`: Add a meaningful description for the credential.
-    - `claimMappings`: Configure how user claims from Asgardeo map to the mobile credential fields.
+- `<CREDENTIAL_TYPE>`: Provide a unique identifier for your credential type.
+- `<NAMESPACE>`: Define a namespace for your claims.
+- `<CREDENTIAL_NAME>`: Provide a user-friendly name for the credential.
+- `<CREDENTIAL_DESCRIPTION>`: Add a meaningful description for the credential.
+- `claimMappings`: Configure how user claims from Asgardeo map to the mobile credential fields.
 
-    !!! note
-        From now on, let's refer to the `id` parameter in the response as `<MOBILE_CONFIG_ID>`.
+!!! note
+    From now on, let's refer to the `id` parameter in the response as `<MOBILE_CONFIG_ID>`.
 
-6. Get the credential offer URI
+### Step 1.8: Generate credential offer URI
 
-    ```bash
-    curl -i -X POST '<TENANT_URL>/v1/openid/offers' \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <BEARER_TOKEN>' \
-    -d '{
-        "credentials": ["<MOBILE_CONFIG_ID>"]
-    }'
-    ```
+Create a credential offer URI that wallets can use to claim credentials:
 
-    This request generates an OpenID credential offer URI that can be used to issue the mobile credential to users.
+```bash
+curl -i -X POST '<TENANT_URL>/v1/openid/offers' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-d '{
+    "credentials": ["<MOBILE_CONFIG_ID>"]
+}'
+```
 
-    The API response includes a `uri` field that digital wallets use to initiate the credential issuance flow. You can convert this URI into a QR code for easy scanning by users. Here are some recommended QR code generators (select the **Plain text** option where available):
+This request generates an OpenID credential offer URI for issuing the mobile credential to users.
 
-    - [QR Code Generator](https://www.the-qrcode-generator.com/)
-    - [QR Server API](http://goqr.me/api/)
-    - [QR Code Creator](https://www.qr-code-generator.com/)
+The API response includes a `uri` field that digital wallets use to initiate the credential issuance flow.
 
-7. Configure the Asgardeo OIDC application:
+You can convert this URI into a QR code for easy scanning by users. Here are some recommended QR code generators (select the **Plain text** option where available):
 
-    1. Navigate to the **Protocol** tab under **Applications** in the Asgardeo Console.
-    2. Select your OIDC application.
-    3. Add the MATTR callback URL as an authorized redirect URL.
-    4. Enable CORS by adding the MATTR origin to the **Allowed origins** field.
-    5. Click **Update** to save the changes.
+- [QR Code Generator](https://www.the-qrcode-generator.com/)
+- [QR Server API](http://goqr.me/api/)
+- [QR Code Creator](https://www.qr-code-generator.com/)
+
+### Step 1.9: Update Asgardeo application configuration
+
+Complete the integration by updating your Asgardeo OIDC application settings:
+
+1. Navigate to the **Protocol** tab under **Applications** in the Asgardeo Console.
+
+2. Select your OIDC application.
+
+3. Add the MATTR callback URL as an authorized redirect URL.
+
+4. Enable CORS by adding the MATTR origin to the **Allowed origins** field.
+
+5. Click **Update** to save the changes.
 
 ## Step 2: Issue verifiable credentials to a MATTR Wallet
 
