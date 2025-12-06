@@ -1,8 +1,14 @@
 openapi: 3.0.1
 info:
   title: API contract for pre-issue access token action
-  description: This API defines the REST API contract for a service that implements logic to extend the access token issuance flow of Asgardeo.
-  version: v1
+  description: This API defines the REST API contract for a service that implements logic to extend the access token issuance flow of WSO2 Identity Server.
+  version: v1.1
+  contact:
+    name: WSO2
+    url: 'https://wso2.com/identity-server/'
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
 security:
 - BasicAuth: []
 - BearerAuth: []
@@ -28,8 +34,8 @@ paths:
                   - $ref: '#/components/schemas/SuccessResponse'
                   - $ref: '#/components/schemas/FailedResponse'
               examples:
-                successExample:
-                  summary: Success response
+                successExampleForAsscessTokenClaims:
+                  summary: Success response for access token claims add
                   value:
                     actionStatus: SUCCESS
                     operations:
@@ -38,6 +44,14 @@ paths:
                         value:
                           name: customSID
                           value: "12345"
+                successExampleForRefreshTokenClaims:
+                  summary: Successful response for refresh token expiry time update
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                      - op: replace
+                        path: /refreshToken/claims/expires_in
+                        value: 42000
                 failedExample:
                   summary: Failed response
                   value:
@@ -78,13 +92,15 @@ components:
         tenant:
           $ref: '#/components/schemas/Tenant'
         organization:
-          $ref: '#/components/schemas/IssuerOrganization'
+          $ref: "#/components/schemas/Organization"
         user:
           $ref: '#/components/schemas/User'
         userStore:
           $ref: '#/components/schemas/UserStore'
         accessToken:
           $ref: '#/components/schemas/AccessToken'
+        refreshToken:
+          $ref: '#/components/schemas/RefreshToken'
       description: Defines the context data related to the pre issue access token event that needs to be shared with the custom service to process and execute.
     Request:
       type: object
@@ -138,54 +154,40 @@ components:
           description: The domain name of the tenant.
           example: 
             bar.com
-      description: This property represents the tenant under which the token request is being processed. 
-    IssuerOrganization:
+      description: This property represents the tenant under which the token request is being processed.
+    Organization:
       type: object
       required:
         - id
         - name
+        - orgHandle
+        - depth
       properties:
         id:
           type: string
-          description: The unique identifier of the organization.
-          example:
-            f14962ba-e198-4261-88dd-ea0e25121f83
+          example: eb1115f6-274f-4bb7-9b6d-d31f678e81f7
         name:
           type: string
-          description: The name of the organization.
-          example:
-            bar.com
-      description: This property represents the organization which is issuing the access token.
+          example: Example
+        orgHandle:
+          type: string
+          example: example.com
+        depth:
+          type: integer
+          example: 0
+      description: This property represents the organization context.
     User:
       type: object
       required:
         - id
-        - organization
       properties:
         id:
           type: string
           description: Defines the unique identifier of the user.
           example: e204849c-4ec2-41f1-8ff7-ec1ebff02821
         organization:
-          $ref: '#/components/schemas/UserOrganization'
+          $ref: "#/components/schemas/Organization"
       description: Contains information about the authenticated user associated with the token request.
-    UserOrganization:
-      type: object
-      required:
-        - id
-        - name
-      properties:
-        id:
-          type: string
-          description: The unique identifier of the organization.
-          example:
-            f14962ba-e198-4261-88dd-ea0e25121f83
-        name:
-          type: string
-          description: The name of the organization.
-          example:
-            bar.com
-      description: This property represents the organization in which the user has been authenticated.
     UserStore:
       type: object
       required:
@@ -209,7 +211,7 @@ components:
       properties:
         tokenType:
           type: string
-          example: HASH
+          example: JWT
           enum:
             - JWT
           description: Defines the type of token.
@@ -223,7 +225,7 @@ components:
             Standard claims:
             
             - **sub**: The subject identifier for the token, typically representing the user. In M2M apps that use client credentials this represents the application.
-            - **iss**: The issuer of the token, which is the tenant of Asgardeo that acts as the authorization server.
+            - **iss**: The issuer of the token, which is the tenant of WSO2 Identity Server that acts as the authorization server.
             - **aud**: The audience for the token.
             - **client_id**: The identifier of the client (application) that requested the token.
             - **aut**: The authorized user type associated with the token.
@@ -259,6 +261,21 @@ components:
           example:
             - read
       description: Represents the access token that is about to be issued. It contains claims and scopes, of the access token which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
+    RefreshToken:
+      type: object
+      required:
+        - claims
+      properties:
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/RefreshTokenClaims'
+          description: |
+            - **expires_in**: The duration (in seconds) for which the refresh token is valid.
+          example:
+            - name: expires_in
+              value: 86400
+      description: Represents the refresh token that is about to be issued. It contains refresh token expiry time which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
     AllowedOperations:
       type: array
       description: Defines the set of operations that your external service is permitted to perform on the access token's claims and scopes.
@@ -302,6 +319,7 @@ components:
             example: 
             - /accessToken/claims
             - /accessToken/scopes
+            - /refreshToken/claims/expires_in
       description: Defines the replace operation.
     removeOperation:
       type: object
@@ -377,7 +395,6 @@ components:
           description: A detailed description of the error.
       description: |
         When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
-
     RequestBody:
       type: object
       required:
@@ -387,11 +404,11 @@ components:
       properties:
         flowId:
           type: string
-          description: A unique identifier that associates with the token issuing flow in Asgardeo
+          description: A unique identifier that associates with the token issuing flow in WSO2 Identity Server.
           example: Ec1wMjmiG8
         requestId:
           type: string
-          description: A unique correlation identifier that associates with the token request received by Asgardeo
+          description: A unique correlation identifier that associates with the token request received by WSO2 Identity Server.
           example: 6783a180f817075313ea3fb01d79c221
         actionType:
           type: string
@@ -446,6 +463,13 @@ components:
             - type: array
               items:
                 type: string
+    RefreshTokenClaims:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: integer
     addOperationResponse:
       type: object
       required:
@@ -485,7 +509,8 @@ components:
           example: 
             - /accessToken/claims/1
             - /accessToken/scopes/-
-          description: Defines the path for the replace operation. Should be one from the allowed paths of `replace` operation in the allowedOperations. 
+            - /refreshToken/claims/expires_in
+          description: Defines the path for the replace operation. Should be one from the allowed paths of `replace` operation in the allowedOperations.
         value:
           type: string
           description: Defines the value for the replace operation.
