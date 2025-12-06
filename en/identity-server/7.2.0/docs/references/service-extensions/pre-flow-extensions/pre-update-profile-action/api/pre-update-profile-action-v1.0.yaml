@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: v1
+  version: v1.0
 security:
 - BasicAuth: []
 - BearerAuth: []
@@ -99,17 +99,11 @@ components:
       properties:
         initiatorType:
           type: string
-          enum:
-          - USER
-          - ADMIN
-          - APPLICATION
-          description: This indicates whether the profile update was initiated by an admin, a user, or an application.
+          description: This indicates whether the profile update was initiated by an admin, a user, or an application. The value must be either USER, ADMIN, or APPLICATION.
           example: USER
         action:
           type: string
-          enum:
-          - UPDATE
-          description: This indicates whether the profile update was initiated over a update flow.
+          description: This indicates whether the profile update was initiated over a update flow. The value must be UPDATE.
         request:
           $ref: '#/components/schemas/Request'
         tenant:
