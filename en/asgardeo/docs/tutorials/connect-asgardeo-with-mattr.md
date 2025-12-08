@@ -72,7 +72,7 @@ curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
 !!! note
     From now on, let's refer to the value of the `access_token` parameter in the response as `<BEARER_TOKEN>`.
 
-### Step 1.5: Configure MATTR authentication provider
+### Step 1.4: Configure MATTR authentication provider
 
 Set up a authentication provider in  MATTR VII to connect with Asgardeo: [MATTR Documentation](https://learn.mattr.global/docs/issuance/authorization-code/authentication-provider/overview)
 
@@ -99,7 +99,7 @@ Replace the placeholders with your actual values:
 - `<ASGARDEO_CLIENT_ID>`: The client ID from your Asgardeo application.
 - `<ASGARDEO_CLIENT_SECRET>`: The client secret from your Asgardeo application.
 
-### Step 1.6: Create issuer certificates
+### Step 1.5: Create issuer certificates
 
 Create the necessary certificates for issuing mobile credentials.
 
@@ -130,7 +130,7 @@ Replace `<IACA_ID>` with the actual IACA ID from the previous step.
 
 This activates the IACA certificate, making it ready for issuing mobile credentials.
 
-### Step 1.7: Create mDocs credential configuration
+### Step 1.6: Create mDocs credential configuration
 
 Set up the credential configuration for mobile documents:
 
@@ -175,7 +175,7 @@ Update the values in the above request as follows:
 !!! note
     From now on, let's refer to the `id` parameter in the response as `<MOBILE_CONFIG_ID>`.
 
-### Step 1.8: Generate credential offer URI
+### Step 1.7: Generate credential offer URI
 
 Create a credential offer URI that wallets can use to claim credentials:
 
@@ -198,7 +198,7 @@ You can convert this URI into a QR code for easy scanning by users. Here are som
 - [QR Server API](http://goqr.me/api/)
 - [QR Code Creator](https://www.qr-code-generator.com/)
 
-### Step 1.9: Update Asgardeo application configuration
+### Step 1.8: Update Asgardeo application configuration
 
 Complete the integration by updating your Asgardeo OIDC application settings:
 
