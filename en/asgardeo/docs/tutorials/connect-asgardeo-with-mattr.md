@@ -21,40 +21,28 @@ Follow the instructions below to begin.
 To register your application in Asgardeo:
 
 1. Go to your organization from the [Asgardeo Console](https://console.asgardeo.io/).
+2. To create an OIDC application, go to **Applications**, click **+New Application**, and select **Traditional Web Application**.
+    1. Give a name for the application, select the **OpenID Connect** protocol, provide an authorized redirect URL, and click **Register** to complete the registration.
 
-2. Create an OIDC application by navigating to **Applications**, clicking **+New Application**, and selecting **Traditional Web Application**.
+        !!! note
+            For now, let's give a dummy value as the **Authorized redirect URL**. You'll update this later when you configure MATTR and create a credential issuer.
 
-3. Provide a name for the application and select the **OpenID Connect** protocol.
+    2. Take note of the client ID and client secret.
 
-4. Add a placeholder value for the **Authorized redirect URL**.
+        !!! note
+            You will need them to configure the MATTR credential issuer later.
 
-    !!! note
-        You will update this later when you configure MATTR and create a credential issuer.
-
-5. Click **Register** to complete the registration.
-
-6. Take note of the **client ID** and **client secret** from the application details.
-
-    !!! note
-        You will need these credentials to configure the MATTR credential issuer later.
-
-7. Navigate to the **Info** tab and take note of the **Token URL**.
-
-8. Navigate to the **User Attributes** tab.
-
-9. Select the mandatory user attributes you need to offer with the verifiable credential (for example, Email, First Name, Last Name, and Date of Birth).
-
-10. Click **Update** to save the changes.
+3. Go to the **Info** tab and take note of the **Token URL**.
+4. Go to the **User Attributes** tab, select the mandatory user attributes that you need to offer with the verifiable credential (for example, Email, First Name, Last Name, and Date of Birth.), and click **Update** to save the changes.
 
 ### Step 1.2: Create a user account in Asgardeo
 
 If you currently do not have any users in your Asgardeo organization, follow the instructions below to create a new user account.
 
-1. On the Asgardeo Console, navigate to **User Management** > **Users**.
-
+1. On the Asgardeo Console, go to **User Management** > **Users**.
 2. Click **+ Add User** and provide the required details.
 
-This user will log in to Asgardeo to obtain verifiable credentials for the MATTR Wallet.
+Later, this user will log in to Asgardeo to get verifiable credentials to the MATTR Wallet.
 
 ### Step 1.3: Set up MATTR account
 
