@@ -44,20 +44,16 @@ If you currently do not have any users in your Asgardeo organization, follow the
 
 Later, this user will log in to Asgardeo to get verifiable credentials to the MATTR Wallet.
 
-### Step 1.3: Set up MATTR account
+### Step 1.3: Configure MATTR and create a credential issuer
 
 Follow the steps given below.
 
-1. Navigate to `https://mattr.global/` and create a MATTR account.
-
-2. Take note of your **client ID**, **client secret**, **tenant URL**, **auth URL**, and **audience**.
+1. Go to `https://mattr.global/`, create a MATTR account, and take note of your client ID, client secret, and tenant domain.
 
     !!! note
         From now on, let's refer to the MATTR client ID as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, its auth URL as `<MATTR_AUTH_URL>`, its audience as `<MATTR_AUDIENCE>`, and its tenant URL as `<TENANT_URL>`.
 
-### Step 1.4: Get an access token for MATTR
-
-Obtain an access token for the MATTR tenant by sending the following request:
+2. Get an access token for the MATTR tenant by sending the following request:
 
 !!! note
     This example uses a cURL command to send the request.
