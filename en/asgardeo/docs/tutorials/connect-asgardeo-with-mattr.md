@@ -90,7 +90,7 @@ curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
 
 ### Step 1.5: Configure MATTR authentication provider
 
-Set up a authentication provider in  MATTR VII to connect with Asgardeo:
+Set up a authentication provider in  MATTR VII to connect with Asgardeo: [MATTR Documentation](https://learn.mattr.global/docs/issuance/authorization-code/authentication-provider/overview)
 
 ```bash
 curl -i -X POST "<TENANT_URL>/v1/users/authentication-providers" \
