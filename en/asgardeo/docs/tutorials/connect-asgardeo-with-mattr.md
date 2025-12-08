@@ -51,12 +51,12 @@ Follow the steps given below.
 1. Go to `https://mattr.global/`, create a MATTR account, and take note of your client ID, client secret, and tenant domain.
 
     !!! note
-        From now on, let's refer to the MATTR client ID as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, its auth URL as `<MATTR_AUTH_URL>`, its audience as `<MATTR_AUDIENCE>`, and its tenant URL as `<TENANT_URL>`.
+        From now on, let's refer to the MATTR client id as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, its auth URL as `<MATTR_AUTH_URL>`, its audience as `<MATTR_AUDIENCE>`, and its tenant URL as `<TENANT_URL>`.
 
 2. Get an access token for the MATTR tenant by sending the following request:
 
-!!! note
-    This example uses a cURL command to send the request.
+    !!! note
+        This example uses a cURL command to send the request.
 
 ```bash
 curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
