@@ -1,275 +1,313 @@
 # Connect {{ product_name }} as an OIDC attribute provider for verifiable credentials (VC) with MATTR
 
-Verifiable credentials are a digitalized representation of paper-based credentials and can be stored in a digital wallet. These credentials can be cryptographically verified, making them more tamper-evident (i.e., it provides clear evidence if the credential has been tampered with) and more secure than their physical forms.
+Verifiable credentials are digital versions of paper-based credentials that you can securely store in a digital wallet. These credentials can be cryptographically verified, making them tamper-evident (provides clear evidence if credentials were tampered) and more secure than their physical counterparts.
 
-It allows the holder to own, control, and manage the credentials and to address several issues in traditional verification systems like paper-based verification, physical inspections, etc.
+If you or your organization already manage user accounts with an OpenID Connect (OIDC) provider (like {{ product_name }}), you can use OIDC login to share user attributes and issue verifiable credentials.
 
-If you or your organization are already managing user accounts in an OpenID Connect (OIDC) attribute provider (such as {{ product_name }}), you can use OIDC login to share user attributes to offer verifiable credentials.
+This tutorial explains how to connect {{ product_name }} as an OpenID Connect (OIDC) attribute provider to issue verifiable credentials using [MATTR](https://mattr.global/){:target="_blank"}, a platform for decentralized identity management.
 
-#### Issuing verifiable credentials
-![issue verifiable credentials diagram]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/issue-verifiable-credentials-diagram.png){: width="900" style="display: block; margin: 0;"}
-
-#### Verifying credentials
-![verify credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verify-credentials-diagram.png){: width="880" style="display: block; margin: 0;"}
-
-This tutorial explains how this is done using MATTR and {{ product_name }}, where MATTR acts as a decentralized identity management platform for issuing verifiable credentials, management, and verification, while {{ product_name }} acts as the OIDC identity provider. Given below are the high-level steps you will follow:
+The high-level steps include,
 
 1. Configuring MATTR to connect to {{ product_name }} with OpenID Connect.
 2. Issuing verifiable credentials to the MATTR Wallet.
 3. Verifying credentials presented by the Wallet holder.
 
-## Step 1: Connect MATTR to {{ product_name }} with OIDC
+## Step 1: Set up your {{ product_name }} organization
 
-Follow the instructions below to begin.
+The steps in this section configures your {{ product_name }} organization to connect with MATTR.
 
-### Step 1.1: Register an application in {{ product_name }}
+### Step 1.1: Register an OIDC application in {{ product_name }}
 
 To register your application in {{ product_name }}:
 
-1. Go to the [{{ product_name }} Console](https://localhost:9443/console).
-2. To create an OIDC application, go to **Applications**, click **+New Application**, and select **Traditional Web Application**.
-    1. Give a name for the application, select the **OpenID Connect** protocol, provide an authorized redirect URL, and click **Register** to complete the registration.
+1. On the [{{ product_name }} Console](https://localhost:9443/console){: target="_blank"}, go to **Applications** > **New Application** and select **Traditional Web Application**.
+
+2. Create an application by providing the following details:
+
+    - Provide a name for the application.
+    - Select the **OpenID Connect** protocol.
+    - Add a placeholder value for the **Authorized redirect URL**.
 
         !!! note
-            For now, let's give a dummy value as the **Authorized redirect URL**. You'll update this later when you configure MATTR and create a credential issuer.
+            You can update this later once you configure MATTR.
 
-    2. Take note of the client ID and client secret.
+3. Click **Register** to complete the registration.
 
-        !!! note
-            You will need them to configure the MATTR credential issuer later.
+4. Take note of the following from the registered application, which you will need later when configuring MATTR:
 
-3. Go to the **Info** tab and take note of the **Token URL**.
-4. Go to the **User Attributes** tab, select the mandatory user attributes that you need to offer with the verifiable credential (for example, Email, First Name, Last Name, and Date of Birth.), and click **Update** to save the changes.
+    - From the **Protocol** tab, the **client ID** and **client secret**.
+    - From the **Info** tab, the **Token** URL.
 
-### Step 1.2: Create a user account in {{ product_name }}
+    !!! note
+        The sections below refers to these values as `<PRODUCT_CLIENT_ID>`, `<PRODUCT_CLIENT_SECRET>`, and `<PRODUCT_TOKEN_URL>` respectively.
 
-If you currently do not have any users in the {{ product_name }}, follow the instructions below to create a new user account.
+### Step 1.2: Share user attributes with the application
+
+To issue verifiable credentials, your application needs access to user attributes. The following steps configure {{ product_name }} to share these attributes with your application.
+
+1. On the {{ product_name }} Console, go to **Applications** and select the created OIDC application.
+
+2. Navigate to its **User Attributes** tab, expand a specific scope and select the required user attributes (for example, `email`, `given_name`, `family_name`, and `birthdate`) as **Mandatory**.
+
+    !!! note
+        The attributes you want to receive from {{ product_name }} during OIDC authentication must belong to a scope. If you want to receive custom attributes, make sure to add them to a scope. Learn more about [OIDC scopes]({{base_path}}/guides/users/attributes/manage-scopes/#how-to-request-scope-to-request-user-attributes).
+
+3. Click **Update** to save the changes.
+
+### Step 1.3: Create a user account in {{ product_name }}
+
+You need a {{ product_name }} user account to log in to the application. If you don't have one, create it by following the steps below:
 
 1. On the {{ product_name }} Console, go to **User Management** > **Users**.
-2. Click **+ Add User** and provide the required details.
 
-Later, this user will log in to {{ product_name }} to get verifiable credentials to the MATTR Wallet.
+2. Click **Add User** > **Single User**.
 
-### Step 1.3: Configure MATTR and create a credential issuer
+3. Complete the wizard to create a new user.
 
-Follow the steps given below.
+This user will log in to {{ product_name }} to receive verifiable credentials from MATTR.
 
-1. Go to `https://mattr.global/`, create a MATTR account, and take note of your client ID, client secret, and tenant domain.
+## Step 2: Set up your MATTR environment
 
-    !!! note
-        From now on, let's refer to the MATTR client id as `<MATTR_CLIENT_ID>`, its client secret as `<MATTR_CLIENT_SECRET>`, and its tenant domain as `{tenant-subdomain}` or `<TENENT_DOMAIN>`.
+The steps in this section configures your MATTR environment to connect with {{ product_name }}.
 
-2. Get an access token for the MATTR tenant by sending the following request:
+### Step 2.1: Create a MATTR account
 
-    !!! note
-        We are using a cURL command to send the request in this example.
+To create an account,
 
-    ```bash
-    curl -i -X POST "https://auth.mattr.global/oauth/token" \
-    -H "Content-Type: application/json" \
-    -d '{ 
-        "client_id": "<MATTR_CLIENT_ID>",
-        "client_secret": "<MATTR_CLIENT_SECRET>",
-        "audience": "https://vii.mattr.global", 
-        "grant_type": "client_credentials" 
-    }'
-    ```
+1. Navigate to [MATTR](https://mattr.global/){: target="_blank"} and sign up.
+
+2. Take note of your **client ID**, **client secret**, **tenant URL**, **auth URL**, and **audience**.
 
     !!! note
-        From now on, let's refer to the value of the `access_token` parameter in the response as `<BEARER_TOKEN>`.
+        The sections below refers to these values as `<MATTR_CLIENT_ID>`, `<MATTR_CLIENT_SECRET>`, `<MATTR_TENANT_URL>`, `<MATTR_AUTH_URL>` and `<MATTR_AUDIENCE>` respectively.
 
-3. Create a MATTR  decentralized ID (DID) with a BLS key type, which supports BBS+ signatures.
+### Step 2.2: Get an access token for MATTR
 
-    ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/core/v1/dids" \
-    -H "Authorization: Bearer <BEARER_TOKEN>" \
-    -H "Content-Type: application/json" \
-    -d '{ 
-        "method": "key",
-        "options": {
-        "keyType": "bls12381g2"
-        }
-    }'
-    ```
-
-    !!! note
-        From now on, let's refer to the value of the DID parameter in the response body as `<DID_ID>`.
-
-4. Create a MATTR credential issuer using the following cURL command:
-
-    ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/ext/oidc/v1/issuers" \
-    -H "Authorization: Bearer <BEARER_TOKEN>" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "credential": {
-        "issuerDid": "<DID_ID>",
-        "name": "<ISSUER_NAME>",
-        "context": [
-            "https://schema.org"
-        ],
-        "type": [
-            "VerifiableCredential",
-            "<CREDENTIAL_TYPE>"
-        ]
-        },
-        "federatedProvider": {
-        "url": "<TOKEN_ENDPOINT_URL>",
-        "scope": [
-            "openid",
-            "profile",
-            "email"
-        ],
-        "clientId": "<OIDC_APP_CLIENT_ID>",
-        "clientSecret": "<OIDC_APP_CLIENT_SECRET>"
-        },
-        "claimMappings": [
-        {
-            "oidcClaim": "email",
-            "jsonLdTerm": "email"
-        },
-        {
-            "oidcClaim": "given_name",
-            "jsonLdTerm": "given_name"
-        },
-        {
-            "oidcClaim": "birthdate",
-            "jsonLdTerm": "birthdate"
-        },
-        {
-            "oidcClaim": "family_name",
-            "jsonLdTerm": "familyName"
-        }
-        ]
-    }'
-    ```
-
-    Update the values in the above request as follows:
-
-    - `<ISSUER_NAME>` and `<CREDENTIAL_TYPE>`: Provide meaningful values.
-    - `<TOKEN_ENDPOINT_URL>`: Provide the {{ product_name }} token endpoint URL.
-    - `<OIDC_APP_CLIENT_ID>`: Provide the OIDC application ID.
-    - `<OIDC_APP_CLIENT_SECRET>`: Provide the OIDC application secret that you created when configuring the application in {{ product_name }}.
-    - `claimMappings`: Configure the claims that you need to offer with the verifiable credential to the wallet holder by adding them in the `claimMappings` parameter in the request payload. See the [MATTR-supported credential claim mappings](https://learn.mattr.global/tutorials/web-credentials/issue/oidc-bridge/common-mappings){:target="_blank"}.
-
-    !!! note
-        In the step that displays the QR code, we'll refer to the `id` parameter in the response as `{issuer-id}`.
-
-5. On the {{ product_name }} Console, go to the **Protocol** tab under **Applications**, select your OIDC application, and do the following updates:
-
-    1. Use the `callbackUrl` parameter under `federatedProvider` in the above response body as the authorized redirect URL for the OIDC application.
-    2. Enable CORS by adding the MATTR  origin into the **Allowed origins** field, and then click **Update**.
-
-## Step 2: Issue verifiable credentials to a MATTR Wallet
-
-Follow the steps given below.
-
-### Step 2.1: Display the QR code
-
-Get a QR code that can be scanned to get verifiable credentials from the MATTR Wallet. Given below is an example from `https://goqr.me/api/`.
+Obtain an access token for the MATTR tenant by sending the following request:
 
 ```bash
-https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=openid://discovery?issuer=https://{tenant-subdomain}.vii.mattr.global/ext/oidc/v1/issuers/{issuer-id}
+curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
+-H "Content-Type: application/json" \
+-d '{ 
+    "client_id": "<MATTR_CLIENT_ID>",
+    "client_secret": "<MATTR_CLIENT_SECRET>",
+    "audience": "<MATTR_AUDIENCE>", 
+    "grant_type": "client_credentials" 
+}'
 ```
 
-### Step 2.2: Get verifiable credentials with MATTR Wallet
+!!! note
+    The sections below refers to the received access token as `<MATTR_BEARER_TOKEN>`.
 
-Follow the steps given below.
+### Step 2.3: Configure MATTR authentication provider
 
-1. Download the MATTR mobile wallet app to your mobile phone.
+Set up a authentication provider in MATTR VII to connect with {{ product_name }}. See the MATTR documentation on [authentication providers](https://learn.mattr.global/docs/issuance/authorization-code/authentication-provider/overview){: target="_blank"} for more details.
 
-    !!! note
-        See [this documentation](https://learn.mattr.global/tutorials/wallets/mattr-wallet) for details.
+```bash
+curl -i -X POST "<MATTR_TENANT_URL>/v1/users/authentication-providers" \
+-H "Authorization: Bearer <BEARER_TOKEN>" \
+-H "Content-Type: application/json" \
+-d '{
+    "url": "<PRODUCT_TOKEN_URL>",
+    "scope": ["openid", "profile", "email"],
+    "clientId": "<PRODUCT_CLIENT_ID>",
+    "clientSecret": "<PRODUCT_CLIENT_SECRET>",
+    "tokenEndpointAuthMethod": "client_secret_post",
+    "staticRequestParameters": {
+        "prompt": "login",
+        "maxAge": 10000
+    }
+}'
+```
 
-2. Go to the MATTR mobile wallet app and scan the QR code.
-3. Click **Proceed** and log in to your account in {{ product_name }}.
+Replace the placeholders with your actual values:
 
-    ![get verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/get-verifiable-credentials.png){: width="700" style="display: block; margin: 0;"}
+- `<PRODUCT_TOKEN_URL>`: The token endpoint from your {{ product_name }} application.
+- `<PRODUCT_CLIENT_ID>`: The client ID from your {{ product_name }} application.
+- `<PRODUCT_CLIENT_SECRET>`: The client secret from your {{ product_name }} application.
 
-Now, you can view your credentials in your MATTR Wallet.
+### Step 2.4: Create issuer certificates
 
-### Step 2.3: Verify credentials
+These certificates let MATTR securely sign verifiable credentials. Any credential issued using these certificates can be trusted by users' mobile wallets.
 
-Let's use a sample MATTR application to perform the credential verification. For the steps below, use the previously created MATTR tenant or a new tenant. If you are using a new MATTR tenant, you need a new access token.
+1. Create issuer certificates to securely sign verifiable credentials that users can store and use in mobile wallets
+
+#### Create an IACA (Issuer Authority Certificate Authority)
+
+The IACA acts as the root authority for your issuer. You'll use it to sign all credentials. To create an IACA, run the following command:
+
+```bash
+curl -i -X POST '<MATTR_TENANT_URL>/v2/credentials/mobile/iacas' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-H 'Content-Type: application/json' \
+-d ''
+```
 
 !!! note
-    The presentation request does not support DID with a BLS key type, which we created earlier. Hence, you may need to create a new DID by removing `keyType` in the options of the credential issuer creation request body.
+    The section below refers to the `id` parameter in the response as `<IACA_ID>`.
 
-1. Create a credential presentation template with MATTR.
+#### Activate the IACA
 
-    Replace the `<TEMPLATE_NAME>` with a meaningful value and `<CREDENTIAL_TYPE>` with the same value used in the issuer-creation step.
+To activate the IACA created in the previous step, run the following command:
 
-    ```bash
-    curl -i -X POST "https://{tenant-subdomain}.vii.mattr.global/core/v1/presentations/templates" \
-    -H "Authorization: Bearer <BEARER_TOKEN>" \
-    -H "Content-Type: application/json" \
-    -d '{
-        "domain":"<TENENT_DOMAIN>.vii.mattr.global",
-        "name":"<TEMPLATE_NAME>",
-        "query": [{
-        "type":"QueryByFrame",
-        "credentialQuery":[
-            {
-            "reason": "Please provide your educational award and surname from your Certificate",
-            "frame":{
-                "@context":[
-                "https://www.w3.org/2018/credentials/v1",
-                "https://w3id.org/security/bbs/v1",
-                "https://mattr.global/contexts/vc-extensions/v1",
-                "https://schema.org",
-                "https://w3id.org/vc-revocation-list-2020/v1"
-                ],
-            "type": ["VerifiableCredential", "<CREDENTIAL_TYPE>"],
-            "credentialSubject":{
-                "@explicit":true,
-                "given_name":{}
-            }
-            },
-            "trustedIssuer":[
-            {
-                "issuer":"<DID>",
-                "required":true
-            }
-            ],
-            "required":true
-            }
-        ]
-        }]
-    }'
-    ```
+```bash
+curl -i -X PUT '<MATTR_TENANT_URL>/v2/credentials/mobile/iacas/<IACA_ID>' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <BEARER_TOKEN>' \
+-d '{
+    "active": true
+}'
+```
 
-2. Download and configure the MATTR sample application by visiting the GitHub repository below.
+Replace `<IACA_ID>` with the actual IACA ID from the previous step.
 
-    ```bash
-    https://github.com/mattrglobal/sample-apps/tree/master/verify-callback-express
-    ```
+The IACA certificate can now issue mobile credentials.
 
-    Update the environment variables in the `.env` file according to your setup. Specifically, for the `TEMPLATEID` variable, use the ID value you received from the response to the previous request.
+### Step 2.5: Create mDoc credential configuration
 
-3. Run the sample application and start an **Ngrok** tunnel to your localhost.
+mDocs are ISO/IEC-compliant digital identity documents designed for secure storage, verification, and use on mobile wallets. The following command creates a mobile credential configuration that acts as a template for the mDoc credentials you want to issue.
 
-    !!! tip
-            If everything is set up correctly, the running terminal shows you a QR code.
+You can decide what data the credential contains, how it maps from your user attributes, and how it will appear in the mobile wallet.
 
-4. Scan the QR code with the MATTR Wallet and click **Send**.
+!!! note
+    Learn more about mDoc credential configurations in the [MATTR documentation](https://learn.mattr.global/docs/issuance/credential-configuration/api-reference/mdocs){: target="_blank"}.
 
-    ![verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-mattr/verifiable-credentials.png){: width="500" style="display: block; margin: 0;"}
-
-    !!! note
-        Once sent by the wallet holder, the callback endpoint defined in the presentation request receives the verification response and requested credentials. In this case, the sample MATTR application receives the response and prints it to the running terminal.
-
-    ```js
-    {
-    presentationType: 'QueryByFrame',
-    challengeId: 'GW8FGpP6jhFrl37yQZIM6w',
-    claims: {
-        id: 'did:key:z6MkisTmUeMWzqbwxTad2jrhoAXrLZN1BggiYUNsVBR7FUYW',
-        'http://schema.org/birthdate': '1996-09-05'
-        'http://schema.org/given_name': 'john'
+```bash
+curl -i -X POST '<MATTR_TENANT_URL>/v2/credentials/mobile/configurations' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <MATTR_BEARER_TOKEN>' \
+-d '{
+    "type": "<CREDENTIAL_TYPE>",
+    "expiresIn": {
+        "months": 1
     },
-    verified: true,
-    holder: 'did:key:z6MkisTmUeMWzqbwxTad2jrhoAXrLZN1BggiYUNsVBR7FUYW'
-    }
+    "claimMappings": {
+        "<NAMESPACE>": {
+            "name": {
+                "mapFrom": "claims.name",
+                "type": "string"
+            },
+            "email": {
+                "mapFrom": "claims.email",
+                "type": "string"
+            }
+        }
+    },
+    "branding": {
+        "name": "<CREDENTIAL_NAME>",
+        "description": "<CREDENTIAL_DESCRIPTION>",
+        "backgroundColor": "#2d46d8"
+    },
+    "includeStatus": true
+}'
+```
+
+Update the values in the above request as follows:
+
+- `<CREDENTIAL_TYPE>`: Provide a unique identifier for your credential type.
+- `<NAMESPACE>`: Define a namespace for your claims.
+- `<CREDENTIAL_NAME>`: Provide a user-friendly name for the credential.
+- `<CREDENTIAL_DESCRIPTION>`: Add a meaningful description for the credential.
+- `claimMappings`: Configure how user claims from {{ product_name }} map to the mobile credential fields.
+
+!!! note
+    The section below refers to the `id` parameter of the response as `<MOBILE_CONFIG_ID>`.
+
+### Step 2.6: Generate credential offer URI
+
+The following command generates a credential offer URI that users' mobile wallets can use to claim the credential defined in the mobile configuration.
+
+```bash
+curl -i -X POST '<MATTR_TENANT_URL>/v1/openid/offers' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <MATTR_BEARER_TOKEN>' \
+-d '{
+    "credentials": ["<MOBILE_CONFIG_ID>"]
+}'
+```
+
+The API response includes a `uri` field that digital wallets use to initiate the credential issuance flow.
+
+!!! tip "Share URI"
+    You can either share the resulting `uri` directly, or convert this URI into a QR code for users to easily scan it. Some recommended QR code generators include,
+    
+    - [QR Code Generator](https://www.the-qrcode-generator.com/){: target="_blank"}
+    - [QR Server API](http://goqr.me/api/){: target="_blank"}
+    - [QR Code Creator](https://www.qr-code-generator.com/){:target="_blank"}
+    
+    Make sure to select the plain text option when generating the QR code.
+
+## Step 3: Update your application's callback URL in {{ product_name }}
+
+Now that you have set up MATTR, you need to update the callback URL of your application registered in {{ product_name }} to complete the integration. To do so,
+
+1. On the [{{ product_name }} Console](https://localhost:9443/console){: target="_blank"}, go to **Applications** and select your application.
+
+2. In the application's **Protocol** tab, update the **Authorized redirect URL** with the MATTR callback URL that takes the form:
+
+    ```bash
+    <MATTR_TENANT_URL>/core/v1/oauth/authentication/callback
     ```
 
-Now you know how to issue verifiable credentials for wallet holders and how to verify them with MATTR using {{ product_name }}. You can continue to harness the full capabilities that {{ product_name }} provides by customizing the sign-in flow, enhancing application security, etc.
+3. Allow CORS for this URL by adding the MATTR origin to the **Allowed origins** field.
+
+4. Click **Update** to save the changes.
+
+## Step 4: Claim a credential in your mobile wallet and verify It
+
+Follow the steps given below to test the integration in action by issuing verifiable credentials to a MATTR Wallet.
+
+### Step 4.1: Download the MATTR GO Hold wallet
+
+Download the MATTR GO Hold mobile wallet application for your device.
+
+- **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=global.mattr.wallet&hl=en){: target="_blank"}
+- **iOS**: [Apple App Store](https://apps.apple.com/cr/app/mattr-go-hold/id1518660243){: target="_blank"}
+
+### Step 4.2: Claim your mobile credential
+
+To claim the created mobile credential,
+
+1. Open the MATTR GO Hold application on your mobile device.
+
+2. Select the **Scan** option from the main menu.
+
+3. Scan the QR code generated in step 2.6.
+
+4. Review the credential offer details and select **Accept**.
+
+5. Follow the authentication prompts to complete the credential claim process.
+
+### Step 4.3: Download the MATTR Go Verfiy app
+
+From a different device, download the MATTR GO Verify app. This app allows you to perform in-person verification of digital credentials stored in the MATTR GO Hold wallet.
+
+- **iOS devices**: [The App Store](https://apps.apple.com/us/app/mattr-go-verify/id6670461328){: target="_blank"}
+- **Android devices**: [Google Play](https://play.google.com/store/apps/details?id=global.mattr.mobile.verifier){: target="_blank"}
+
+### Step 4.4 Verify credentials
+
+Follow the steps below to verify the mDocs credentials:
+
+1. From the device with the GO Hold app,
+
+    1. Open the app, select the **Share** button and then select **Share Credential**.
+
+    2. Select the **Connection QR** tab. This displays a QR code on the screen.
+
+2. From the device with the GO Verify app,
+
+    1. Select the **Scan** button.
+
+    2. Scan the QR code displayed in the GO Hold app in the other device.
+
+        !!! note
+            You may need to allow the GO Verify app to access your camera.
+
+    3. Follow the on-screen instructions to complete the proximity verification workflow.
+
+You have now successfully issued verifiable credentials using {{ product_name }} as the OIDC attribute provider and verified them with MATTR.
+
+## Learn more
+
+Explore additional MATTR integration options and credential formats in the [MATTR Documentation](https://learn.mattr.global/){: target="_blank"}.
