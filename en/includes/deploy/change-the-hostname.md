@@ -17,7 +17,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     hostname = "is.dev.wso2.com"
     ```
 
-    Add both `localhost` and the hostname to the SAN of the certificate (`-ext SAN=dns:localhost,dns:<hostname>`) as the internal hostname is by default `localhost`. 
+    Add both `localhost` and the hostname to the SAN of the certificate (`-ext SAN=dns:localhost,dns:<hostname>`) as the internal hostname is by default `localhost`.
 
     Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and use the following command to create a new keystore with `CN=is.dev.wso2.com` and both `localhost` and `is.dev.wso2.com` in the SAN.
 
