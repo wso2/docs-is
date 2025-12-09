@@ -162,6 +162,14 @@ If you are implementing the authorization code flow, you have enabled **code** a
     <table>
      <tr>
          <th>
+             <code>{{ organization_path_param | default('{organization_name}') }}</code>
+         </th>
+          <td>
+              {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}Handle{% else %}Name{% endif %} of the organization that you are accessing.
+          </td>
+     </tr>
+     <tr>
+         <th>
              <code>{authorization_code}</code>
          </th>
          <td>
@@ -201,6 +209,13 @@ curl --location --request POST '{{ product_url_format }}/oauth2/token' \
 Be sure to replace the following values in the request:
 
 <table>
+        <th>
+            <code>{{ organization_path_param | default('{organization_name}') }}</code>
+        </th>
+        <td>
+            {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}Handle{% else %}Name{% endif %} of the organization that you are accessing.
+        </td>
+    </tr>
     <tr>
         <th>
             <code>{jwt_assertion}</code>
