@@ -5,7 +5,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
 1. Change the hostname - The server has two hostname configurations:
     - `hostname` - Use this to build public URLs for external-facing endpoints and APIs.
     - `internal_hostname` - Use this to build internal URLs for internal service-to-service communication. Defaults to `localhost`.
-    
+
     Configure the hostname using one of the two options below.
 
     **Option 1**
@@ -18,7 +18,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     ```
 
     Add both `localhost` and the hostname to the SAN of the certificate (`-ext SAN=dns:localhost,dns:<hostname>`) as the internal hostname is by default `localhost`. 
-    
+
     Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and use the following command to create a new keystore with `CN=is.dev.wso2.com` and both `localhost` and `is.dev.wso2.com` in the SAN.
 
     === "Format"
@@ -32,7 +32,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
         ``` java
         keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost,dns:is.dev.wso2.com
         ```
-    
+
     === "Sample command (PKCS12)"
 
         ``` java
