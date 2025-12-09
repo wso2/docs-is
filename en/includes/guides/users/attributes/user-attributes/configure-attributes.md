@@ -322,7 +322,7 @@ By default, {{product_name}} stores identity attributes internally in the user s
 
 ### Select storage location for selected attributes
 
-{{product_name}}, by default, stores identity attributes internally as explained in the above section and user attributes in the connected user stores. If you want to store and manage an identity attribute in your user stores or a user attribute in the identity store, you can do so by following the steps below.
+{{product_name}}, by default, stores identity attributes internally and user attributes in the connected user stores. If you want to store and manage an identity attribute in your user stores or a user attribute in the identity store, you can do so by following the steps below.
 
 1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
 
