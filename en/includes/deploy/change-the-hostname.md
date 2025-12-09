@@ -3,10 +3,10 @@
 This section guides you through changing the hostname of the WSO2 Identity Server.
 
 1. Change the hostname - The server has two hostname configurations:
-    - `hostname` - Builds public URLs for external-facing endpoints and APIs.
-    - `internal_hostname` - Builds internal URLs for internal service-to-service communication. Configured as `localhost` by default.
+    - `hostname` - Use this to build public URLs for external-facing endpoints and APIs.
+    - `internal_hostname` - Use this to build internal URLs for internal service-to-service communication. Defaults to `localhost`.
     
-    To configure the hostname, follow one of the two options given below according to your requirements.
+    Configure the hostname using one of the two options below.
 
     **Option 1**
 
