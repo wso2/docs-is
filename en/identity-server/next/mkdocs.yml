@@ -608,6 +608,9 @@ nav:
               - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
               - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
               - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+              - Encrypt ID tokens: 
+                - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
+                - ID token encryption reference: guides/authentication/oidc/id-token-encryption-reference.md
               - Request user information: guides/authentication/oidc/request-user-info.md
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
               - Configure token exchange: guides/authentication/configure-token-exchange.md
