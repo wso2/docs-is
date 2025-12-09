@@ -2,7 +2,11 @@
 
 This section guides you through changing the hostname of the WSO2 Identity Server.
 
-1. Change the hostname - The server hostname for internal API calls is configured as `localhost` by default. This configuration is utilized to build the internal absolute URL of a service endpoint that will be consumed whenever internal API calls are generated. To configure the hostname, follow one of the two options given below according to your requirements.
+1. Change the hostname - The server has two hostname configurations:
+    - `hostname` - Builds public URLs for external-facing endpoints and APIs.
+    - `internal_hostname` - Builds internal URLs for internal service-to-service communication. Configured as `localhost` by default.
+    
+    To configure the hostname, follow one of the two options given below according to your requirements.
 
     **Option 1**
 
@@ -18,19 +22,19 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     === "Format"
 
         ``` java
-        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name> -storetype <keystore_type> -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost
+        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name> -storetype <keystore_type> -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost,dns:<hostname>
         ```
 
     === "Sample command (JKS)"
 
         ``` java
-        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost,dns:is.dev.wso2.com
         ```
     
     === "Sample command (PKCS12)"
 
         ``` java
-        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.p12 -storetype PKCS12 -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.p12 -storetype PKCS12 -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost,dns:is.dev.wso2.com
         ```
 
     **Option 2**
