@@ -489,7 +489,7 @@ nav:
               - Complete Guide (App-Native): complete-guides/app-native/introduction.md
           - Node.js:
               - Quickstart: quick-starts/nodejs.md
-              - Complete Guide: complete-guides/nodejs/introduction.md
+              - Complete Guide: complete-guides/expressjs/introduction.md
           - .NET Guide: complete-guides/dotnet/introduction.md
           - Spring Boot Quickstart: quick-starts/springboot.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
@@ -1346,18 +1346,18 @@ nav:
           - Accessing protected API: complete-guides/javascript/accessing-protected-api.md
           - Manage tokens in JavaScript: complete-guides/javascript/manage-tokens-in-apps.md
           - Next Steps: complete-guides/javascript/next-steps.md
-      - Node.js:
-          - Introduction: complete-guides/nodejs/introduction.md
-          - Prerequisite: complete-guides/nodejs/prerequisite.md
-          - Configure an application: complete-guides/nodejs/register-an-application.md
-          - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
-          - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
-          - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
-          - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
-          - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
-          - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
-          - Accessing protected API: complete-guides/nodejs/accessing-protected-api.md
-          - Next Steps: complete-guides/nodejs/next-steps.md
+      - Express.js:
+          - Introduction: complete-guides/expressjs/introduction.md
+          - Prerequisite: complete-guides/expressjs/prerequisite.md
+          - Configure an application: complete-guides/expressjs/register-an-application.md
+          - Create a Node.js app: complete-guides/expressjs/create-an-expressjs-app.md
+          - Configure Passport Asgardeo: complete-guides/expressjs/install-passport-asgardeo.md
+          - Add login and logout: complete-guides/expressjs/add-login-and-logout.md
+          - Persist user sessions: complete-guides/expressjs/persist-user-sessions.md
+          - Display user details: complete-guides/expressjs/display-logged-in-user-details.md
+          - Securing Routes: complete-guides/expressjs/securing-routes-within-the-app.md
+          - Accessing protected API: complete-guides/expressjs/accessing-protected-api.md
+          - Next Steps: complete-guides/expressjs/next-steps.md
       - .NET:
           - Introduction: complete-guides/dotnet/introduction.md
           - Prerequisites: complete-guides/dotnet/prerequisites.md

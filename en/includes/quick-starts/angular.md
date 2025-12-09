@@ -1,6 +1,6 @@
 # Angular Quickstart
 
-Welcome to the Angular Quickstart guide! In this document, you will learn to build an Angualr app, add user login and display user profile information using {{ product_name }}.
+Welcome to the Angular Quickstart guide! In this document, you will learn to build an Angular app, add user login and display user profile information using {{ product_name }}.
 
 [//] STEPS_START
 
@@ -198,7 +198,7 @@ Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
 
 ## Display logged in user details
 
-Modified the code as below to see logged in user details.
+Modify the code as below to see logged in user details.
 
 Add the `username()` function to the `app.component.ts` file to access the username attribute.
 
@@ -214,7 +214,7 @@ Add the `username()` function to the `app.component.ts` file to access the usern
 
 ```
 
-Modify the `app.component.html` file with the following code.
+Modify the `app.component.html` file to the following code.
 
 ```html title="app.component.html" hl_lines="2"
 

@@ -135,8 +135,8 @@ extra:
     React:
       link: complete-guides/react/introduction
       level: 2
-    Node.js:
-      link: complete-guides/nodejs/introduction
+    Express.js:
+      link: complete-guides/expressjs/introduction
       level: 2
     Angular:
       link: complete-guides/angular/introduction
@@ -226,6 +226,9 @@ extra:
       level: 3
     Node.js Quickstart:
       icon: fontawesome/brands/node-js
+      level: 3
+    Express.js:
+      icon: assets/libs/custom-icons/expressjs.svg
       level: 3
     Next.js:
       icon: assets/libs/custom-icons/nextjs.svg
