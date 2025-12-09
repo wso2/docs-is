@@ -550,7 +550,10 @@ nav:
           - 'REST APIs':
             - 'Rest APIs': develop/rest-apis.md
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
-            - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
+            - Account recovery API:
+                - Best Practices for Password Recovery Portal: develop/recovery-portal-best-practices.md
+                - Account Recovery v0.9: develop/using-the-account-recovery-rest-apis.md
+                - Account Recovery v1: develop/using-the-account-recovery-v1-rest-apis.md
             - 'Application Management' : develop/application-rest-api.md
             - 'Approvals': develop/approvals-rest-api.md
             - 'Associations': develop/association-rest-api.md
@@ -821,6 +824,19 @@ markdown_extensions:
 
 plugins:
     - search
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
     - redirects:
           redirect_maps:
               'setup/migration-process.md': 'https://is.docs.wso2.com/en/5.10.0/setup/upgrade-wso2-is/'

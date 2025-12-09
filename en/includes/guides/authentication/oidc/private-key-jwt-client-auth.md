@@ -158,7 +158,7 @@ If you are implementing the authorization code flow, you have enabled **code** a
     ```
 
     Be sure to replace the following values in the request:
- 
+
     <table>
      <tr>
          <th>

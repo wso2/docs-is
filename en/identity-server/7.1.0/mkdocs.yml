@@ -25,6 +25,7 @@ extra:
   content:
     default_keystore_type: PKCS12
     default_keystore_ext: p12
+    identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.14.2
     sdkconfig:
       baseUrl: "https://localhost:9443"
 
@@ -119,6 +120,19 @@ plugins:
       ngram_length: 30
   - markdownextradata: {}
   - include-markdown
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - skip-glightbox
+      auto_caption: false
+      caption_position: bottom
   - redirects:
       redirect_maps:
         "get-started/sample-use-cases/set-up.md": "get-started/quick-set-up.md"
@@ -886,6 +900,7 @@ nav:
           - eIDAS: deploy/compliance/eidas.md
           - CCPA: deploy/compliance/ccpa.md
           - FIPS: deploy/compliance/fips.md
+          - FAPI: deploy/compliance/fapi.md
           - Accessibility compliance: deploy/compliance/accessibility.md
       - Analytics:
           - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
@@ -1169,7 +1184,9 @@ nav:
               - Token binding: references/token-binding/index.md
               - Client-request: references/token-binding/client-request.md
           - Token hashing: references/token-hashing.md
-          - Financial-grade API: references/financial-grade-api.md
+          - Financial-grade API:
+              -  FAPI 1.0 Advanced: references/financial-grade-api.md
+              - FAPI 2.0: references/financial-grade-api-2.0.md
           - App-native authentication: references/app-native-authentication.md
           - OIDC session management: references/concepts/oidc-session-management.md
           - Push Notification based authentication: references/concepts/push-notification-based-authentication.md

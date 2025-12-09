@@ -623,7 +623,11 @@ paths:
       - Users Endpoint
       summary: Create User
       description: "This API creates a user and returns the user details along with\
-        \ the user's unique ID.\n\n<b>Permission required:</b>\n* /permission/admin/manage/identity/usermgt/create\n\
+        \ the user's unique ID.\n\n\
+        You can create a user in two ways:\n\
+        1. **Set a password for the user**: Include the `password` parameter in the request body to set an initial password for the user.\n\
+        2. **Invite the user to set their own password**: Set the `askPassword` parameter to `true` in the `urn:scim:wso2:schema` extension. An email will be sent to the user with instructions to set their password and confirm their account.\n\n\
+        <b>Permission required:</b>\n* /permission/admin/manage/identity/usermgt/create\n\
         \n<b>Scope required:</b>\n    * internal_user_mgt_create\n    \n"
       operationId: createUser
       parameters:
@@ -641,7 +645,9 @@ paths:
         content:
           application/scim+json:
             schema:
-              $ref: '#/components/schemas/UserObject'
+              oneOf:
+              - $ref: '#/components/schemas/UserObject'
+              - $ref: '#/components/schemas/UserObjectPassInvite'
         required: false
       responses:
         201:
@@ -1282,6 +1288,7 @@ paths:
 components:
   schemas:
     UserObject:
+      title: Set a password for the user
       required:
       - password
       type: object
@@ -1326,6 +1333,54 @@ components:
                 value:
                   type: string
                   example: Taylor
+    UserObjectPassInvite:
+      title: Invite the user to set their own password
+      type: object
+      properties:
+        schemas:
+          type: object
+          properties: {}
+          example: []
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              description: The `givenName` you specify will be entered for the First Name attribute in the user's profile.
+              example: Kim
+            familyName:
+              type: string
+              description: The `familyName` you specify will be entered for the Last Name attribute in the user's profile.
+              example: Berry
+        userName:
+          type: string
+          description: The `username` you specify will be used by the user for log in.
+          example: kim
+        emails:
+          type: array
+          description: Currently, the first email (without a specified type) is treated as the primary email and assigning a type to this email is not supported.
+          example:
+          - value: kim@gmail.com
+            primary: true
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  example: Taylor
+        urn:scim:wso2:schema:
+          type: object
+          properties:
+            askPassword:
+              type: boolean
+              description: If this parameter is set to `true`, users will be allowed configure their own password. An email is sent to the specified email address, which will have instructions for the user to set the password and confirm the new user account.
+              example: true
     UserResponseObject:
       required:
       - meta

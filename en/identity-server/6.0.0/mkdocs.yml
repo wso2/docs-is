@@ -505,7 +505,10 @@ nav:
             - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
             - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-          - Account recovery API: apis/use-the-account-recovery-rest-apis.md
+          - Account recovery API:
+            - Best Practices for Password Recovery Portal: apis/recovery-portal-best-practices.md
+            - Account Recovery v0.9: apis/use-the-account-recovery-rest-apis.md
+            - Account Recovery v1: apis/use-the-account-recovery-v1-rest-apis.md
           - Associated accounts API: apis/association-rest-api.md
           - Challenge question API: apis/challenge-questions.md
           - Challenge answers API: apis/challenge-rest-api.md
@@ -812,6 +815,19 @@ markdown_extensions:
 plugins:
     - search
     - markdownextradata: {}
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
     - redirects:
           redirect_maps:
               'learn/tutorials.md': 'https://is.docs.wso2.com/en/6.0.0/guides/before-you-start/'
