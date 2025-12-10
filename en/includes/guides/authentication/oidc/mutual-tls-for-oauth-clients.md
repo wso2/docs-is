@@ -1,17 +1,8 @@
 # Mutual TLS for OAuth clients
 
-Mutual TLS (MTLS) is a widely used, secure authentication technique that ensures the authenticity between a client and an authorization server using an encrypted channel established with a mutual X.509 certificate. The client certificate and certificate verification messages will be sent during the TLS handshake.
+Mutual TLS (mTLS) is a secure authentication mechanism that ensures both the client and the server verify each other’s identity before exchanging sensitive information. Unlike standard TLS, where only the server is authenticated, mTLS requires the client to present a certificate, establishing a trusted, two-way connection.
 
-The TLS handshake is a set of steps to establish a secure connection between the client and server.
-
-Mutual TLS is also used in the OAuth 2.0 Authorization Framework as a secure authentication mechanism.
-
-Mutual TLS for OAuth client authentication can be implemented using either of the following mechanisms:
-
-- **PKI mutual TLS OAuth client authentication**: This approach uses a subject Distinguished Name (DN) and validated certificate chain to identify the client.
-- **A self-signed certificate**: In this approach, the client needs to register an X.509 certificate during the service provider configuration and import it to the trust store.
-
-WSO2 Identity Server currently supports the approach that uses self-signed certificates.
+{{product_name}} supports self-signed X.509 certificate-based mutual TLS for OAuth client authentication and token binding, allowing clients to register their certificates with the authorization server for secure communication. The following steps guide you through  configuring this and testing it with a sample application.
 
 ## How it works
 
@@ -21,7 +12,6 @@ The flow of mutual TLS client authentication is as follows.
 2. WSO2 IS issues a token by validating certificate information in the HTTP header with a certificate stored in the service provider.
 3. As per the specification, an MTLS certificate validates against the stored SP certificate for a `/token` request issued with the client-credential grant, authorization code grant, or refresh token grant.
 4. The response from the `/introspect` endpoint will present the bounded certificate according to the introspection response defined in the specification.
-
 
 Let's try configuring mutual TLS in WSO2 Identity Server and testing it with a sample.
 
