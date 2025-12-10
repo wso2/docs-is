@@ -1,7 +1,7 @@
 
-For this guide, you will be creating a simple Node.js app using the npx [express-generator](https://www.npmjs.com/package/express-generator) command.
+For this guide, you will be creating a simple Express.js app using the npx [express-generator](https://www.npmjs.com/package/express-generator) command.
 
-Open a terminal and run the following command to create a new Node.js app using the Express.js framework (Provide a suitable name for the app):
+Open a terminal and run the following command to create a new Express.js app (Provide a suitable name for the app):
 
 ```bash
 npx express-generator passport-{{product}}-sample --view=ejs
@@ -26,4 +26,4 @@ This allows you to see real-time updates and debug the app as you make changes.
 
 ![Navigate to localhost]({{base_path}}/assets/img/complete-guides/nodejs/image6.png){: width="800" style="display: block; margin: 0;"}
 
-At this point, you have a simple Node.js app up and running. In the next step, let’s try to integrate passport-asgardeo with the app.
+At this point, you have a simple Express.js app up and running. In the next step, let's try to integrate passport-asgardeo with the app.

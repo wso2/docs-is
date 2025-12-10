@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Create a Node.js app
+heading: Create an Express.js app
 read_time: 2 min
 ---
 

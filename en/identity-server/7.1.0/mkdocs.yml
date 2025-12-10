@@ -47,8 +47,8 @@ extra:
               url: Get started|Connect App|Javascript|Quickstart
             - title: Connect Next.js App
               url: Get started|Connect App|Next.js|Quickstart
-            - title: Connect Node.js App
-              url: Get started|Connect App|Node.js|Quickstart
+            - title: Connect Express.js App
+              url: Get started|Connect App|Express.js|Quickstart
             - title: Connect Spring Boot App
               url: Get started|Connect App|Spring Boot Quickstart
         - title: Community and Support
@@ -482,7 +482,7 @@ nav:
               - Quickstart: quick-starts/nextjs.md
               - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
               - Complete Guide (App-Native): complete-guides/app-native/introduction.md
-          - Node.js:
+          - Express.js:
               - Quickstart: quick-starts/nodejs.md
               - Complete Guide: complete-guides/nodejs/introduction.md
           - .NET Guide: complete-guides/dotnet/introduction.md
@@ -1261,11 +1261,11 @@ nav:
           - Accessing protected API: complete-guides/javascript/accessing-protected-api.md
           - Manage tokens in JavaScript: complete-guides/javascript/manage-tokens-in-apps.md
           - Next Steps: complete-guides/javascript/next-steps.md
-      - Node.js:
+      - Express.js:
           - Introduction: complete-guides/nodejs/introduction.md
           - Prerequisite: complete-guides/nodejs/prerequisite.md
           - Configure an application: complete-guides/nodejs/register-an-application.md
-          - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
+          - Create an Express.js app: complete-guides/nodejs/create-a-nodejs-app.md
           - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
           - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
           - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
