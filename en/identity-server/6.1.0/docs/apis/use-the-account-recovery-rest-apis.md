@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# Account recovery API Definition
+# Account recovery v0.9 API Definition
 
 ??? Note "Click to view"
     Follow the instructions given below to try out the REST APIs with your local instance of WSO2 Identity Server.

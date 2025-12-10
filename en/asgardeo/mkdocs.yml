@@ -19,7 +19,7 @@ INHERIT: ../base.yml
 # Project information
 site_name: &site_name Asgardeo
 site_description: Asgardeo Learning Center
-site_url: https://wso2.com/asgardeo/docs
+site_url: https://wso2.com/asgardeo/docs/
 
 # Configuration
 theme:
@@ -167,6 +167,7 @@ plugins:
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
         'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
+
 exclude_docs: |
   /get-started/hello-world.md
 
@@ -227,9 +228,9 @@ nav:
         - Complete Guide: complete-guides/dotnet/introduction.md
       - Spring Boot:
         - Quickstart: quick-starts/springboot.md
-      - MCP Server:
+    - Secure MCP Servers:
+        - TypeScript: quick-starts/mcp-auth-server.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
-        - MCP-Auth Quickstart: quick-starts/mcp-auth-server.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
@@ -287,8 +288,10 @@ nav:
             - Add decentralized login:
               - Add decentralized login: guides/authentication/decentralized-login/index.md
               - Sign-in with Ethereum: guides/authentication/decentralized-login/sign-in-with-ethereum.md
-            - Add eid login:
+            - Add eID login:
               - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
+              - Add FranceConnect login: guides/authentication/eid-login/add-france-connect-login.md
+              - Add SwissID login: guides/authentication/eid-login/add-swiss-id-login.md
             - Add standard-based login:
               - Add standard-based login: guides/authentication/standard-based-login/index.md
               - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
@@ -332,20 +335,27 @@ nav:
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
-            - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
-            - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
-            - Implement private key JWT client authentication: guides/authentication/oidc/private-key-jwt-client-auth.md
-            - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
-            - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
-            - Implement login using the OIDC Hybrid Flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
-            - Configure token exchange: guides/authentication/configure-token-exchange.md
-            - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
-            - Request user information: guides/authentication/oidc/request-user-info.md
-            - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
-            - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
-            - Implement logout:
-              - RP-initiated logout: guides/authentication/oidc/add-logout.md
-              - Back channel logout: guides/authentication/oidc/add-back-channel-logout.md
+            - Dynamic Client Registration (DCR): guides/authentication/oidc/oauth-dynamic-client-registration.md
+            - Login flows:
+              - Authorization code flow: guides/authentication/oidc/implement-auth-code.md
+              - Authorization code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
+              - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
+              - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
+              - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
+            - Client authentication methods:
+              - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Tokens and validation:
+              - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
+              - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+              - Encrypt ID tokens: 
+                - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
+                - ID token encryption reference: guides/authentication/oidc/id-token-encryption-reference.md
+              - Request user information: guides/authentication/oidc/request-user-info.md
+              - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
+              - Configure token exchange: guides/authentication/configure-token-exchange.md
+            - Logout:
+              - Front-channel logout: guides/authentication/oidc/add-logout.md
+              - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
@@ -366,7 +376,9 @@ nav:
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
-        - Manage users: guides/users/manage-users.md
+        - Users: 
+          - Onboard users: guides/users/onboard-users.md
+          - Manage users: guides/users/manage-users.md
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
@@ -393,6 +405,10 @@ nav:
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
           - Deployment best practices: guides/users/user-stores/deployment-best-practices.md
           - Advanced configuration for the agent: guides/users/user-stores/advanced-configurations-for-the-agent.md
+      - Workflows:
+        - Workflows: guides/workflows/index.md
+        - Approval workflows: guides/workflows/approval-workflows.md
+        - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
@@ -416,6 +432,7 @@ nav:
         - Get Started: guides/flows/build-a-flow.md
         - Self Registration: guides/flows/self-registration.md
         - Password Recovery: guides/flows/password-recovery.md
+        - Invited User Registration: guides/flows/invited-user-registration.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -433,6 +450,7 @@ nav:
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
+          - Manage approvals: guides/user-self-service/manage-approvals.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
@@ -513,7 +531,7 @@ nav:
         - MCP Authorization:
           - MCP Authorization: guides/agentic-ai/mcp/index.md
           - Securing MCP Servers: guides/agentic-ai/mcp/mcp-server-authorization.md
-          - Securing MCP Clients: guides/agentic-ai/mcp/register-mcp-client-app.md
+          - Setting up MCP Clients: guides/agentic-ai/mcp/register-mcp-client-app.md
         - Identity for AI Agents:
           - Identity for AI agents: guides/agentic-ai/ai-agents/index.md
           - Register and manage agents: guides/agentic-ai/ai-agents/register-and-manage-agents.md
@@ -528,11 +546,10 @@ nav:
     - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
+    - Secure Agentic AI Systems with Asgardeo: tutorials/secure-agentic-ai-systems.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
-  - Developer Tools:
-    - SDKs:
-      - Integrate Asgardeo into your application: sdks/index.md
-    - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
+  - SDKs:
+    - Integrate Asgardeo into your application: sdks/index.md
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
@@ -597,6 +614,7 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+  - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
@@ -621,22 +639,23 @@ nav:
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
       - Role management: 
-        - Role management: apis/role-management/index.md
-        - Role management (SCIM 2.0) V3 API: apis/role-management/roles-v3.md
-        - Role management (SCIM 2.0) API (deprecated): apis/role-management/roles.md
+        - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
           - SCIM 2.0 Users API: apis/scim2/scim2-users-rest-api.md
           - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
+          - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Batch Operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
           - SCIM 2.0 Service provider configs API: apis/scim2/scim2-service-provider-configs-rest-api.md
           - SCIM 2.0 Build user creation payload: apis/scim2/build-scim2-user-creation-payload.md
         - User account associations API: apis/association-management-by-admin.md
         - Account Recovery API: apis/user-account-recovery.md
         - Offline user onboard management API: apis/offline-user-onboard.md
+        - Verification Code Management API: apis/verification-code-management-rest-api.md
         - Identity verification API: apis/admin-identity-verification.md
       - User sessions:
         - Session management API: apis/session.md
@@ -665,8 +684,7 @@ nav:
       - Offline user onboard management API: apis/organization-apis/organization-discovery.md
       - Organization discovery API: apis/organization-apis/organization-discovery.md
       - Organization management API: apis/organization-apis/org-management.md
-      - Role management V3 API: apis/organization-apis/org-role-mgt-v3.md
-      - Role management API (deprecated): apis/organization-apis/org-role-mgt.md
+      - Role management API: apis/organization-apis/org-role-mgt.md
       - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
@@ -674,6 +692,7 @@ nav:
         - SCIM 2.0 Groups API: apis/organization-apis/scim2/scim2-org-group-mgt.md
         - SCIM 2.0 Bulk API: apis/organization-apis/scim2/scim2-org-bulk.md
         - User Account Association API: apis/organization-apis/org-association-rest-api.md
+        - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
@@ -687,6 +706,7 @@ nav:
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
       - Organization Me API: apis/user-organization-api.md
+      - Verification Code Management Me API: apis/verification-code-management-me-api.md
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md
@@ -712,13 +732,20 @@ nav:
         - Custom authentication:
           - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
       - Pre-flow extensions (Actions):
-        - Pre issue access token action: 
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
+        - Pre issue access token action:
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0.md
+            - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1.md
           - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
-        - Pre update password action: 
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract.md
-        - Pre update profile action: 
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract.md
+        - Pre update password action:
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.0.md
+            - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.1.md
+          - Version 2.x:
+            - API v2.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v2.0.md
+        - Pre update profile action:
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/pre-update-profile-action-v1.0.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - API resources and scopes required for MCP tools: references/mcp-tool-api-resource-access.md

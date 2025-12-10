@@ -492,7 +492,11 @@ To set up the frontend application,
     ```env
     NEXTAUTH_URL=http://localhost:3002
     BASE_URL=https://localhost:9443
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+    BASE_ORG_URL=https://localhost:9443/t/<PRIMARY_ORG_HANDLE>
+    {% else %}
     BASE_ORG_URL=https://localhost:9443/t/<PRIMARY_ORG_NAME>
+    {% endif %}
     CHANNELLING_SERVICE_URL=http://localhost:9091
     PET_MANAGEMENT_SERVICE_URL=http://localhost:9092
     PERSONALIZATION_SERVICE_URL=http://localhost:9093
@@ -541,7 +545,11 @@ Follow the steps below to see how organization login works for a user in the **H
 
 3. Click **Sign In with SSO** to specify the organization to which you are signing in.
 
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+4. Enter the **Organization Handle** of the organization and click **Submit**.
+{% else %}
 4. Enter **Happy Tails** as the organization name and click **Submit**.
+{% endif %}
 
     ![Sign in with SSO]({{base_path}}/assets/img/guides/organization/manage-organizations/sign-in-with-sso.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

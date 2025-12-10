@@ -1,0 +1,195 @@
+openapi: 3.0.0
+info:
+  version: v1
+  title: WSO2 Identity Server - Webhook Metadata Rest API
+  description: >
+    The Webhook Metadata REST API provides a standardized interface to retrieve
+    supported event profiles and the associated events within WSO2 Identity Server. This API
+    enables clients to dynamically fetch available events for webhook subscription based on the
+    selected event profile, improving flexibility and profile-awareness in integrations.
+servers:
+  - url: "https://{server-url}/t/{tenant-domain}/api/server/v1"
+    variables:
+      server-url:
+        default: "localhost:9443"
+      tenant-domain:
+        default: carbon.super
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /webhooks/metadata:
+    get:
+      summary: List Event Profiles
+      description: "This API returns the list of event profiles supported by WSO2 Identity Server.\n\n <b>Scope(Permission) required:</b> `internal_webhook_meta_view` \n\n"
+      operationId: getEventProfiles
+      tags:
+        - Webhook Metadata
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookMetadata'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v1/webhooks/metadata/event-profiles' -H 'Authorization: Bearer {bearer_token}'
+
+  /webhooks/metadata/event-profiles/{profileName}:
+    get:
+      summary: Get Event Profile Details
+      description: >
+        This API retrieves detailed information about a specific event profile including its channels and events.
+
+        <b>Scope(Permission) required:</b> `internal_webhook_meta_view`
+      operationId: getEventProfile
+      tags:
+        - Webhook Metadata
+      parameters:
+        - name: profileName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventProfile'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Profile not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes:
+            internal_webhook_view: View webhook metadata
+
+  schemas:
+    Event:
+      type: object
+      properties:
+        eventName:
+          type: string
+          example: loginSuccess
+        eventDescription:
+          type: string
+          example: Triggered when a user logs in successfully.
+        eventUri:
+          type: string
+          example: https://schemas.identity.wso2.org/events/logins/loginSuccess
+
+    Channel:
+      type: object
+      properties:
+        name:
+          type: string
+          example: analytics
+        description:
+          type: string
+          example: Events related to user behavior analytics.
+        uri:
+          type: string
+          example: https://schemas.identity.wso2.org/channels/analytics
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+
+    EventProfile:
+      type: object
+      properties:
+        profile:
+          type: string
+          example: WSO2
+        uri:
+          type: string
+          example: "https://schemas.identity.wso2.org"
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+
+    WebhookMetadata:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventProfileMetadata'
+        adapter:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "httppublisher"
+            type:
+              type: string
+              example: "Publisher"
+
+    EventProfileMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "WSO2"
+        uri:
+          type: string
+          example: "https://schemas.identity.wso2.org"
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v1/webhooks/metadata/event-profiles/WSO2
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: WEBHOOK-METADATA-00001
+        message:
+          type: string
+          example: Some error message.
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047

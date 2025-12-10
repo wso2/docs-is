@@ -52,9 +52,14 @@ jobs:
             set -euxo pipefail
             IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
             echo "Current version: MAJOR=$MAJOR, MINOR=$MINOR, PATCH=$PATCH"
-            PATCH=$((PATCH+1))
+
+            # increment version if this is not a hotfix or keep the current version
+            if [[ "${{ env.IS_HOTFIX }}" != "true" ]]; then
+              PATCH=$((PATCH+1))
+              echo "Version is auto incremented."
+            fi
+            
             NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
-            echo "Version is auto incremented."
           fi
 
           echo "New version: $NEW_VERSION"
@@ -79,8 +84,8 @@ jobs:
           hotfix_release_tag=${{ env.NEW_VERSION }}-hotfix-$next_hotfix_no
           echo "Hotfix release tag: $hotfix_release_tag"
 
-          # strip prepending 'v'
-          NEW_VERSION=$(echo $hotfix_release_tag | sed 's/^v//')
+          # set the new version to the hotfix version
+          NEW_VERSION=$(echo $hotfix_release_tag)
           
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
 

@@ -24,6 +24,7 @@ WSO2 Identity Server supports the following API authentication methods:
 - [Certificate-based authentication](#certificate-based-authentication)
 
 ### Basic authentication
+
 This authentication method uses the user's credentials to invoke the APIs. If the API you wish to invoke has `Basic authentication` as the authentication requirement, use the following request format to access the API.
 
 #### Access the API
@@ -33,6 +34,10 @@ This is a sample cURL command template for the request.
 ``` curl
 curl -X GET "https://localhost:9443/api/server/v1/applications?limit=30&offset=0" -H "accept: application/json" -H "Authorization: Basic <Base64(username:password)>"
 ```
+
+!!! warning "Avoid using super admin credentials for API authentication"
+
+    When invoking APIs using basic authentication, never use the super admin or any high-privileged user credentials. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
 
 ---
 
@@ -145,8 +150,86 @@ Add the following configuration to the `deployment.toml` file to enable this fea
     - If the user is not a super tenant and belongs to the primary user store, the incoming cert CN should be `<username@tenant_doman>`, e.g., `john@abc.com`.
     - If the user is not a super tenant and belongs to a secondary user store, the incoming cert CN should be `<userstore_domain>/<username@tenant_doman>` e.g., `SECONDARY/john@abc.com`.
 
+### Client certificate authentication mappings 
 
-## Additional configurations
+WSO2 Identity Server now supports two configuration models for mapping client certificates to users or system accounts. These mappings provide flexibility when securing System REST APIs with mTLS.
+
+---
+
+#### 1. Authentication with no user header
+
+This mode is used for **machine-to-machine (M2M)** calls where no `WSO2-Identity-User` header is present. In this scenario certificates are mapped to **system users**.
+
+| Configuration | Possible Value | Description |
+|---------------|----------------|-------------|
+| `[client_certificate_based_authentication] enable` | `true` | Enables mTLS-based authentication for System REST APIs. |
+| `trusted_issuer` | `"C=AU, ST=Northern, L=Colombo, O=WSO2, OU=IAM, CN=RootCA, emailAddress=ca@wso2.com"` | Distinguished name (DN) of the permitted certificate issuer. |
+| `cert_thumbprint` | `"78:9B:25:49:5A:A6:DA:74:9C:F7:A8:90:CE:B9:21:EA:EC:C7:22:2A:B3:77:41:1B:6D:48:22:91:98:A9:FD:47"` or `*` | Exact certificate fingerprint, or `*` to allow all issued by the trusted issuer. |
+| `allowed_system_user` | `"admin"` or `"*"` | The system user mapped to the certificate. `*` means any system user. |
+
+**Supported patterns:**
+
+| Trusted Issuer | Thumbprint | Allowed System User | Description                                                                                                                  |
+|----------------|------------|---------------------|------------------------------------------------------------------------------------------------------------------------------|
+| Specific DN    | *          | *                   | Any certificate from the trusted issuer can be used by any system user.<br/> WSO2 doesn't recommend this for production use. |
+| Specific DN    | *          | system_user         | Any certificate from the trusted issuer can be used by the specified system user.                                            |
+| Specific DN    | Specific   | system_user         | Certificates with a listed thumbprint can be used by the specified system user.<br/> **Recommended pattern**.                |
+| Specific DN    | Specific   | *                   | Certificates with a listed thumbprint can be used by any system user.                                                        |
+
+**Example:**
+
+```toml
+[client_certificate_based_authentication]
+enable = true
+
+[[client_certificate_based_authentication.system_thumbprint_mapping]]
+trusted_issuer = "C=US, ST=TX, L=Colombo, O=WSO2, OU=IAM, CN=RootCA, emailAddress=iam@wso2.com"
+cert_thumbprint = "78:9B:25:49:5A:A6:DA:74:9C:F7:A8:90:CE:B9:21:EA:EC:C7:22:2A:B3:77:41:1B:6D:48:22:91:98:A9:FD:47"
+allowed_system_user = "admin"
+```
+#### 2. Authentication with `WSO2-Identity-User` header
+
+This mode is used when the client presents both a **certificate** and a **user header**. The certificates are mapped to **application users**.
+
+---
+
+##### Configuration parameters
+
+| Configuration | Possible Value | Description |
+|---------------|----------------|-------------|
+| `[client_certificate_based_authentication] enable` | `true` | Enables mTLS-based authentication for System REST APIs. |
+| `trusted_issuer` | `"C=AU, ST=Northern, L=Colombo, O=WSO2, OU=IAM, CN=RootCA, emailAddress=ca@wso2.com"` | Distinguished name (DN) of the permitted certificate issuer. |
+| `cert_thumbprint` | `"78:9B:25:49:..."` or `*` | Exact certificate fingerprint, or `*` to allow all issued by the trusted issuer. |
+| `allowed_username` | `["admin", "user@tenant.com"]` or `["*"]` | List of usernames allowed to authenticate with this certificate. |
+
+---
+
+##### Supported patterns
+
+| Trusted Issuer | Thumbprint | Allowed Usernames | Description                                                                                                    |
+|----------------|------------|-------------------|----------------------------------------------------------------------------------------------------------------|
+| Specific DN    | *          | [*]               | Any certificate from the trusted issuer can be used by any user.<br/>️ It's not recommended for production use. |
+| Specific DN    | *          | [user1, user2]    | Any certificate from the trusted issuer can be used by specific users.                                         |
+| Specific DN    | Specific   | [user1, user2]    | Certificates with a listed thumbprint can be used by the specified users.<br/> **Recommended pattern**.        |
+| Specific DN    | Specific   | [*]               | Certificates with a listed thumbprint can be used by any user.                                                 |
+
+---
+
+##### Example
+
+```toml
+[client_certificate_based_authentication]
+enable = true
+
+[[client_certificate_based_authentication.user_thumbprint_mapping]]
+trusted_issuer = "C=AU, ST=Northern, L=Colombo, O=WSO2, OU=IAM, CN=RootCA, emailAddress=ca@wso2.com"
+cert_thumbprint = "78:9B:25:49:5A:A6:DA:74:9C:F7:A8:90:CE:B9:21:EA:EC:C7:22:2A:B3:77:41:1B:6D:48:22:91:98:A9:FD:47"
+allowed_username = ["admin", "user@tenant.com"]
+```
+
+!!! note
+WSO2 doesn't recommend using wildcards in production unless it necessitates.
+For stronger security, bind certificates to specific users or system accounts wherever possible.
 
 This section covers the additional configurations that admins can use when using APIS.
 

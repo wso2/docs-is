@@ -44,6 +44,10 @@ To update the default SMS OTP settings:
            <td><code>SMS OTP length</code></td>
            <td>Specifies the number of characters allowed in the OTP.</td>
          </tr>
+         <tr>
+           <td><code>Allowed OTP resend attempt count</code></td>
+           <td>Specifies the number of allowed OTP resend attempts.</td>
+         </tr>
    </table>
 3. Once you update the SMS OTP settings, click **Update**.
 
@@ -161,6 +165,21 @@ Configurations related to SMS providers are located under the **{{ notification_
         <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
       </tr>
     </table>
+
+    {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
+
+    By default, the custom SMS provider uses connection timeout and read timeout values of 5000ms and 20000ms respectively. If you need to change these timeout values, you can configure them by adding the following configuration to the `deployment.toml` file:
+
+    ```toml
+    [notificationChannel.sms.custom]
+    connection_timeout = 5000
+    connection_read_timeout = 20000
+    ```
+
+    !!! note
+        - `connection_timeout`: Time in milliseconds to wait for establishing a connection to the SMS provider (default: 5000ms)
+        - `connection_read_timeout`: Time in milliseconds to wait for reading data from the SMS provider (default: 20000ms)
+    {% endif %}
 
 ## Enable SMS OTP Login for Your App
 

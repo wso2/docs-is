@@ -327,3 +327,24 @@ pooling for LDAPS connections at the time of starting your server:
     ```
 
 4.  Start the server.
+
+## SCIM2 roles pagination
+
+When retrieving roles from the SCIM2/Roles endpoint, WSO2 Identity Server returns all users assigned to each role by default. For roles containing many users, this can lead to performance bottlenecks and block processing threads.
+
+To optimize performance and prevent thread blocking issues, configure the max users returned per role.
+
+```toml
+[pagination]
+max_users_list_per_role = <NUMBER_OF_USERS>
+```
+
+**Configuration details:**
+
+- **Default value**: 1000 users per role (when not configured)
+- **Lowest value**: 1000 users (values below 1000 automatically default to 1000)
+- **Scope**: Applies to all roles, including the built-in `everyone` role
+- **Database dependency**: Adjust this value based on your database performance capabilities
+
+!!! tip
+    Check database performance when roles have many users. Start with the default value and adjust based on your environment's capacity.

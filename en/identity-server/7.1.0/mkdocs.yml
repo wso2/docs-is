@@ -25,6 +25,7 @@ extra:
   content:
     default_keystore_type: PKCS12
     default_keystore_ext: p12
+    identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.14.2
     sdkconfig:
       baseUrl: "https://localhost:9443"
 
@@ -119,6 +120,19 @@ plugins:
       ngram_length: 30
   - markdownextradata: {}
   - include-markdown
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - skip-glightbox
+      auto_caption: false
+      caption_position: bottom
   - redirects:
       redirect_maps:
         "get-started/sample-use-cases/set-up.md": "get-started/quick-set-up.md"
@@ -577,28 +591,40 @@ nav:
               - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
           - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
-              - Configure OIDC flows: guides/authentication/oidc/index.md
-              - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
-              - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
-              - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
-              - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
-              - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
-              - Implement login using the Device Authorization flow: guides/authentication/oidc/implement-device-flow.md
+            - Configure OIDC flows: guides/authentication/oidc/index.md
+            - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
+            - Dynamic Client Registration (DCR): guides/authentication/oidc/oauth-dynamic-client-registration.md
+            - Login flows:
+              - Authorization code flow: guides/authentication/oidc/implement-auth-code.md
+              - Authorization code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
+              - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
+              - Device authorization flow: guides/authentication/oidc/implement-device-flow.md
+              - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
-              - Implement login using the OIDC Hybrid Flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
-              - Configure token exchange: guides/authentication/configure-token-exchange.md
+            - Grant types:
+              - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
+            - Client authentication methods:
+              - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Tokens and validation:
+              - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
+              - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
               - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+              - Encrypt ID tokens: 
+                - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
+                - ID token encryption reference: guides/authentication/oidc/id-token-encryption-reference.md
               - Request user information: guides/authentication/oidc/request-user-info.md
-              - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
-              - Implement logout: guides/authentication/oidc/add-logout.md
-              - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
-              - Implement federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
-
+              - Configure token exchange: guides/authentication/configure-token-exchange.md
+              - Logout:
+                - Front-channel logout: guides/authentication/oidc/add-logout.md
+                - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
+                - Federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
           - Configure SAML flows:
               - Configure SAML flows: guides/authentication/saml/index.md
               - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+              - SAML artifact binding: guides/authentication/saml/saml-artifact-binding.md
               - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
+              - SAML back-channel logout: guides/authentication/saml/saml-back-channel-logout.md
       - Authorization:
           - Authorization: guides/authorization/index.md
           - API authorization:
@@ -688,23 +714,25 @@ nav:
           - Account disabling: guides/account-configurations/account-disabling.md
       - User self-service:
           - User self-service: guides/user-self-service/index.md
-          - Self-service portal:
-              - Configure the self-service portal: guides/user-self-service/configure-self-service-portal.md
-              - Update profile information: guides/user-self-service/update-profile-info.md
-              - Change password: guides/user-self-service/change-password.md
-              - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
-              - Export profile information: guides/user-self-service/export-profile-information.md
-              - Manage consents: guides/user-self-service/manage-consents.md
-              - Manage login sessions: guides/user-self-service/manage-login-sessions.md
-              - Self-register: guides/user-self-service/self-register.md
-              - Account confirmation for self-register: guides/user-self-service/account-confirmation-for-self-register.md
-              - Register passkeys: guides/user-self-service/register-passkey.md
-              - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
-              - Password recovery: guides/user-self-service/user-password-recovery.md
-              - Username recovery: guides/user-self-service/user-username-recovery.md
-              - Enroll TOTP: guides/user-self-service/enable-totp.md
-              - Manage backup codes: guides/user-self-service/manage-backup-codes.md
-              - Discover applications: guides/user-self-service/discover-applications.md
+          - My Account portal:
+              - Access the My Account portal: guides/user-self-service/overview.md
+              - Configure the My Account portal: guides/user-self-service/configure-self-service-portal.md
+              - Explore self-service features:
+                - Update profile information: guides/user-self-service/update-profile-info.md
+                - Change password: guides/user-self-service/change-password.md
+                - Manage linked social accounts: guides/user-self-service/manage-linked-accounts.md
+                - Export profile information: guides/user-self-service/export-profile-information.md
+                - Manage consents: guides/user-self-service/manage-consents.md
+                - Manage login sessions: guides/user-self-service/manage-login-sessions.md
+                - Self-register: guides/user-self-service/self-register.md
+                - Account confirmation for self-register: guides/user-self-service/account-confirmation-for-self-register.md
+                - Register passkeys: guides/user-self-service/register-passkey.md
+                - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
+                - Password recovery: guides/user-self-service/user-password-recovery.md
+                - Username recovery: guides/user-self-service/user-username-recovery.md
+                - Enroll TOTP: guides/user-self-service/enable-totp.md
+                - Manage backup codes: guides/user-self-service/manage-backup-codes.md
+                - Discover applications: guides/user-self-service/discover-applications.md
           - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
@@ -729,6 +757,7 @@ nav:
           - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+          - Cleaning up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
       - Customizations:
           - Customize branding:
               - Branding: guides/branding/index.md
@@ -819,6 +848,7 @@ nav:
               - Token persistence: deploy/token-persistence.md
               - Remove unused tokens from the database: deploy/remove-unused-tokens-from-the-database.md
               - Enable assertions in access tokens: deploy/enable-assertions-in-access-tokens.md
+              - Generate JWT tokens without revoking existing tokens: deploy/generate-jwt-tokens-without-revoking-existing-tokens.md
           #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
           - Enable hostname verification: deploy/enable-hostname-verification.md
           - Transport Level Security:
@@ -878,6 +908,7 @@ nav:
           - eIDAS: deploy/compliance/eidas.md
           - CCPA: deploy/compliance/ccpa.md
           - FIPS: deploy/compliance/fips.md
+          - FAPI: deploy/compliance/fapi.md
           - Accessibility compliance: deploy/compliance/accessibility.md
       - Analytics:
           - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
@@ -900,7 +931,7 @@ nav:
           - Work with product observability: deploy/monitor/work-with-product-observability.md
       - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
   - SDKs:
-    - Integrate Asgardeo into your application: sdks/index.md
+    - Integrate WSO2 IS into your application: sdks/index.md
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
@@ -1129,6 +1160,7 @@ nav:
               - Conditional authentication:
                   - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
               - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
+              - Write a post-authentication handler: references/extend/authentication/write-a-post-authentication-handler.md
           - Identity Federation:
               - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
           - User Management:
@@ -1148,13 +1180,21 @@ nav:
           - Send notifications through an external scheduled task: references/tutorials/send-notification-external-schedular.md
           - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
           - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
+          - Use WSO2 Identity Server with identity gateways:
+            - Use WSO2 Identity Server with identity gateways: references/tutorials/protect-apps-with-identity-gateway/index.md
+            - OAuth2 Proxy: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-oauth2proxy.md
+            - Oathkeeper: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-oathkeeper.md
+            - Mod Auth OpenIDC: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-mod-auth-openidc.md
       - IAM concepts:
           - OAuth2 grant types: references/grant-types.md
           - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
           - Token binding:
               - Token binding: references/token-binding/index.md
               - Client-request: references/token-binding/client-request.md
-          - Financial-grade API: references/financial-grade-api.md
+          - Token hashing: references/token-hashing.md
+          - Financial-grade API:
+              -  FAPI 1.0 Advanced: references/financial-grade-api.md
+              - FAPI 2.0: references/financial-grade-api-2.0.md
           - App-native authentication: references/app-native-authentication.md
           - OIDC session management: references/concepts/oidc-session-management.md
           - Push Notification based authentication: references/concepts/push-notification-based-authentication.md

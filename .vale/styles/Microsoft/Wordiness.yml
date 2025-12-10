@@ -7,7 +7,7 @@ action:
   name: replace
 swap:
   "sufficient number(?: of)?": enough
-  (?:extract|take away|eliminate): remove
+  (?:take away|eliminate): remove
   (?:in order to|as a means to): to
   (?:inform|let me know): tell
   (?:previous|prior) to: before
@@ -57,8 +57,6 @@ swap:
   despite the fact that: although
   disappear from sight: disappear
   doomed to fail: doomed
-  drag and drop: drag
-  drag-and-drop: drag
   due to the fact that: because
   during the period of: during
   during the time that: while

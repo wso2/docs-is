@@ -74,11 +74,11 @@ nav:
             - OpenCart: guides/login/log-into-opencart-using-is.md
             - Workday: guides/login/log-into-workday-using-is.md
             - SimpleSAMLphp: guides/login/log-into-simplesaml-using-is.md
-            - Salesforce: 
+            - Salesforce:
               - Salesforce with IS: guides/login/log-into-salesforce-using-is.md
               - Salesforce with Facebook: guides/login/log-into-salesforce-using-fb.md
               - Salesforce with IWA: guides/login/log-into-salesforce-using-iwa.md
-            - Office365: 
+            - Office365:
               - Office365 with IS: guides/login/log-into-office365-using-is.md
               - Office365 with SAML2: guides/login/log-into-office365saml-using-is.md
               - Office365 with SAML2 for Multiple Domains: guides/login/log-into-office365saml-multiple-domains.md
@@ -91,12 +91,12 @@ nav:
             - Microsoft Dynamics CRM with WS Federation: guides/login/log-into-dynamic-crm-with-wsfederation.md
           #- Integrate Using Custom Protocols: guides/login/integrate-custom-protocol.md
           - OIDC Flows:
-            - Overview: guides/login/oidc-authentication.md 
-            - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md 
+            - Overview: guides/login/oidc-authentication.md
+            - OIDC Auth Code Flow: guides/login/oidc-basic-client-profile.md
             - OIDC Auth Code Flow with PKCE for public clients: guides/login/oidc-auth-code-pkce-public-clients.md
             - OIDC Auth Code Flow with PKCE: guides/login/oidc-auth-code-pkce.md
-            - OIDC Implicit Flow: guides/login/oidc-implicit-client-profile.md 
-            - OIDC Hybrid Flow: guides/login/oidc-hybrid-flow.md 
+            - OIDC Implicit Flow: guides/login/oidc-implicit-client-profile.md
+            - OIDC Hybrid Flow: guides/login/oidc-hybrid-flow.md
             - Pass Parameters as a Request Object: guides/login/request-object.md
             - Manage Scopes and Claims: guides/login/oidc-scopes-claims.md
             - Encrypt ID Tokens: guides/login/oidc-token-encryption.md
@@ -120,7 +120,7 @@ nav:
             - Use Certificates with Applications: guides/login/use-certificates-with-applications.md
             - Session Timeout: guides/login/session-timeout.md
             - Multi-Attribute Login: guides/login/multi-attribute-login.md
-        - Single Sign On: 
+        - Single Sign On:
           - Enable Single Sign On: guides/login/enable-single-sign-on.md
           - OIDC Applications: guides/login/sso-for-oidc.md
           - SAML Applications: guides/login/sso-for-saml.md
@@ -162,7 +162,7 @@ nav:
             - SMS OTP configs: guides/mfa/sms-otp-config-advanced.md
         - Adaptive Authentication:
           - Overview: guides/adaptive-auth/configure-adaptive-auth.md
-          - Adaptive Authentication Scenarios: 
+          - Adaptive Authentication Scenarios:
             - Overview: guides/adaptive-auth/adaptive-auth-overview.md
             - Role-Based: guides/adaptive-auth/role-based-adaptive-auth.md
             - User Age-Based: guides/adaptive-auth/age-based-adaptive-auth.md
@@ -176,7 +176,7 @@ nav:
             - TypingDNA-Based: guides/adaptive-auth/typingdna-based-adaptive-auth.md
             - Using Function Library: guides/adaptive-auth/adaptive-auth-with-function-lib-sample.md
             - Limiting Active User Sessions: guides/adaptive-auth/limiting-active-sessions-adaptive-auth.md
-          
+
       - Identity Federation:
         - Overview: guides/identity-federation/identity-federation-overview.md
         - Enterprise Identity Federation:
@@ -219,6 +219,7 @@ nav:
         - OAuth 2.0 Token Hashing: guides/access-delegation/oauth-token-hashing.md
         - Revoke OAuth Tokens: guides/access-delegation/oauth-token-revocation.md
         - Mutual TLS for OAuth clients: guides/access-delegation/mutual-tls-for-oauth-clients.md
+        - Generate JWT tokens without revoking existing tokens: guides/access-delegation/generate-jwt-tokens-without-revoking-existing-tokens.md
       - Consent Management:
         - Manage user consent: guides/consent-mgt/manage-user-consent.md
         - Manage consent puposes: guides/consent-mgt/manage-consent-purposes.md
@@ -240,7 +241,7 @@ nav:
           - Add Multiple User Profiles: guides/identity-lifecycles/customize-profiles.md
           - Manage User Attributes: guides/identity-lifecycles/manage-user-attributes.md
           - Track User Deletion: guides/identity-lifecycles/track-deletion.md
-        - Manage Roles: 
+        - Manage Roles:
           - Overview: guides/identity-lifecycles/manage-roles-overview.md
           - Add User Roles: guides/identity-lifecycles/add-user-roles.md
           - Edit/Delete Roles: guides/identity-lifecycles/edit-delete-roles.md
@@ -304,7 +305,7 @@ nav:
           - Salesforce: guides/identity-lifecycles/sync-with-salesforce.md
           - Sendgrid: guides/identity-lifecycles/sync-with-sendgrid.md
           - Zoho CRM: guides/identity-lifecycles/sync-with-zoho.md
-      - User Self-Service: 
+      - User Self-Service:
         - Overview: guides/my-account/my-account.md
         - Manage Own Profile: guides/my-account/manage-own-profile.md
         - Export User Profile: guides/my-account/export-my-user-profile.md
@@ -337,9 +338,9 @@ nav:
         #- Configure Attribute Metadata: guides/attribute-dialects/metadata.md
       - Access Control:
         - Overview: guides/authorization/overview.md
-        - Access Management: 
+        - Access Management:
           - Intro: guides/authorization/access-mgt.md
-          - Create a policy: 
+          - Create a policy:
             - Create a new policy: guides/authorization/create-a-policy.md
             - Customize an existing template: guides/authorization/customize-a-policy-template.md
           - Edit a policy: guides/authorization/edit-a-policy.md
@@ -352,10 +353,10 @@ nav:
         - Use the XACML Tryit tool:
           - Overview: guides/authorization/xacml-tryittool-overview.md
           - Evaluate a XACML Policy: guides/authorization/evaluate-a-xacml-policy.md
-        - Fine-Grained Authorization: 
+        - Fine-Grained Authorization:
           - Using XACML: guides/authorization/fine-grained-auth-xacml.md
           - Using JSON: guides/authorization/fine-grained-auth-json.md
-        - Multiple Decision Point: 
+        - Multiple Decision Point:
           - Introduction: guides/authorization/mdp-requests.md
           - MDP to authorize hierarchical resources: guides/authorization/mdp-authorize-resources.md
           - MDP with repeating attributes: guides/authorization/mdp-repeating-attr.md
@@ -375,7 +376,7 @@ nav:
           - Configure the System Administrator: deploy/configure-the-system-administrator.md
           - Configure User Stores:
             - Overview: deploy/configure-user-stores.md
-            - Configure the Primary User store: 
+            - Configure the Primary User store:
               - Overview: deploy/configure-the-primary-user-store.md
               - Configure a JDBC User store: deploy/configure-a-jdbc-user-store.md
               - Configure a Read-only LDAP User store: deploy/configure-a-read-only-ldap-user-store.md
@@ -420,13 +421,13 @@ nav:
         - reCAPTCHA: deploy/configure-recaptcha.md
       - Secure:
         - Mitigate Attacks:
-          - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md 
+          - Mitigate Cross Site Request Forgery Attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md
           - Mitigate Authorization Code Interception Attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
           - Mitigate Brute Force Attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
           - Mitigate Replay Attacks: deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
           - SameSite Attribute Support: deploy/samesite-attribute-support.md
           - Prevent Browser Caching: deploy/security/prevent-browser-caching.md
-        - Work with Tokens: 
+        - Work with Tokens:
           - Add Logs for Tokens: deploy/add-logs-for-tokens.md
           - Token Persistence: deploy/token-persistence.md
           - Remove Unused Tokens from the Database: deploy/remove-unused-tokens-from-the-database.md
@@ -435,7 +436,7 @@ nav:
         - Enable HostName Verification: deploy/enable-hostname-verification.md
         - Configure TLS Termination: deploy/configure-tls-termination.md
         - Maintain Logins and Passwords: deploy/security/maintain-logins-and-passwords.md
-        - Secure Passwords in Configuration Files: 
+        - Secure Passwords in Configuration Files:
           - Encrypt Passwords with Cipher Tool: deploy/security/encrypt-passwords-with-cipher-tool.md
           - Resolve Encrypted Passwords: deploy/security/resolve-encrypted-passwords.md
           - Customize Secure Vault: deploy/security/customize-secure-vault.md
@@ -447,7 +448,7 @@ nav:
         - Security Guidelines:
           - Overview: deploy/security/security-guidelines-for-production-deployment.md
           - Product-Level: deploy/security/product-level-security-guidelines.md
-          - OS-Level: deploy/security/os-level-security-guidelines.md 
+          - OS-Level: deploy/security/os-level-security-guidelines.md
           - Network-Level: deploy/security/network-level-security-guidelines.md
         - Encryption:
           - Asymmetric Encryption:
@@ -457,6 +458,7 @@ nav:
             - Renew a CA-Signed Certificate in a Keystore: deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md
             - Manage Keystores via UI: deploy/security/manage-keystores-with-the-ui.md
             - Add Multiple Keys to the Primary Keystore: deploy/security/add-multiple-keys-to-the-primary-keystore.md
+            - Change Tenant Keystore: deploy/security/change-tenant-keystore.md
           - Symmetric Encryption:
             - Overview: deploy/security/symmetric-overview.md
             - Configurations Related to Symmetric Key Encryption: deploy/security/use-symmetric-encryption.md
@@ -505,11 +507,14 @@ nav:
       - Entitlement management API: apis/entitlement-with-rest-apis.md
       - User management:
           - SCIM 1.1 API: apis/scim-1.1-apis.md
-          - SCIM 2.0 API: 
+          - SCIM 2.0 API:
             - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
             - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-          - Account recovery API: apis/use-the-account-recovery-rest-apis.md
+          - Account recovery API:
+            - Best Practices for Password Recovery Portal: apis/recovery-portal-best-practices.md
+            - Account Recovery v0.9: apis/use-the-account-recovery-rest-apis.md
+            - Account Recovery v1: apis/use-the-account-recovery-v1-rest-apis.md
           - Associated accounts API: apis/association-rest-api.md
           - Challenge question API: apis/challenge-questions.md
           - Challenge answers API: apis/challenge-rest-api.md
@@ -552,14 +557,14 @@ nav:
       - Admin services:
         - Call admin services: apis/call-admin-services.md
         - One way operations: apis/admin-services-for-one-way-operations.md
-          
+
   - SDKs:
       - Overview: sdks/sdk-overview.md
       - Integrate a React app: sdks/start-integrating-apps/integrate-a-react-app.md
       - Integrate an Angular app: sdks/start-integrating-apps/integrate-an-angular-app.md
       - Integrate a JS app: sdks/start-integrating-apps/integrate-a-js-app.md
       - Integrate your Spring Boot app: sdks/spring-boot.md
-      
+
   - References:
     - Overview: references/references-overview.md
     - About this Release: references/about-this-release.md
@@ -573,7 +578,7 @@ nav:
         - Overview: references/concepts/user-management/user-management.md
         - Users: references/concepts/user-management/users.md
         - Roles and Permissions: references/concepts/user-management/roles-and-permissions.md
-      - User stores: 
+      - User stores:
         - User stores: references/concepts/user-management/userstores.md
         - Realms: references/concepts/user-management/realm.md
       - Claims: references/concepts/claim-management.md
@@ -600,7 +605,7 @@ nav:
           - JIT Provisioning: guides/identity-federation/jit-workflow.md
           - Outbound Provisioning Connectors: guides/identity-federation/outbound-provisioing-idp.md
         - Manage an IdP: guides/identity-federation/manage-idp.md
-        - Resident IdP: 
+        - Resident IdP:
           - Set up a Resident IdP: guides/identity-federation/resident-idp.md
           - Inbound Authentication: guides/identity-federation/resident-inbound-auth.md
           - Inbound Provisioning: guides/identity-federation/resident-inbound-provisioning.md
@@ -625,7 +630,7 @@ nav:
         #- Write a Custom Policy Info Point: references/extend/access-control/write-a-custom-policy-info-point.md
         - XACML policy writing:
           - XACML policy language structure and syntax: references/extend/access-control/xacml-structure-and-syntax.md
-          - Write a XACML 2 policy: 
+          - Write a XACML 2 policy:
             - Introduction: references/extend/access-control/xacml2-policy-writing.md
             - XACML 2 sample policy 1: references/extend/access-control/xacml2-sample1.md
             - XACML 2 sample policy 2: references/extend/access-control/xacml2-sample2.md
@@ -633,7 +638,7 @@ nav:
             - XACML 2 sample policy 4: references/extend/access-control/xacml2-sample4.md
             - XACML 2 sample policy 5: references/extend/access-control/xacml2-sample5.md
             - XACML 2 sample policy 6: references/extend/access-control/xacml2-sample6.md
-          - Write a XACML 3 policy: 
+          - Write a XACML 3 policy:
             - Introduction: references/extend/access-control/xacml3-policy-writing.md
             - XACML 3 sample policy 1: references/extend/access-control/xacml3-sample1.md
             - XACML 3 sample policy 2: references/extend/access-control/xacml3-sample2.md
@@ -641,7 +646,7 @@ nav:
             - XACML 3 sample policy 4: references/extend/access-control/xacml3-sample4.md
             - XACML 3 sample policy 5: references/extend/access-control/xacml3-sample5.md
             - XACML 3 sample policy 6: references/extend/access-control/xacml3-sample6.md
-            - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md      
+            - XACML 3 policy using XPath: references/extend/access-control/xacml3-policy-using-xpath.md
       - User Management:
         #- Write a Custom Password Validator: references/extend/user-mgt/write-a-custom-password-validator.md
         - Write a Custom Claim Handler: references/extend/user-mgt/write-a-custom-claim-handler.md
@@ -807,6 +812,19 @@ markdown_extensions:
 plugins:
     - search
     - markdownextradata: {}
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
     - redirects:
           redirect_maps:
               'guides/access-delegation/uma.md': 'https://is.docs.wso2.com/en/latest/references/about-this-release/'
@@ -1435,7 +1453,7 @@ plugins:
               'get-started/identity-anti-patterns-and-the-identity-bus.md': 'https://is.docs.wso2.com/en/6.0.0/references/concepts/identity-anti-patterns-and-the-identity-bus/'
               'get-started/cross-protocol-single-logout.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/cross-protocol-logout/'
               'get-started/sample-use-cases/workflows.md': 'https://is.docs.wso2.com/en/6.0.0/get-started/sample-use-cases/sample-scenario/'
-           
+
 # Extra
 extra_css:
   - assets/lib/highlightjs/default.min.css

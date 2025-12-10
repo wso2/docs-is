@@ -29,6 +29,10 @@ This is a sample cURL command template for the request.
 curl -X GET "https://localhost:9443/t/carbon.super/api/server/v1/applications?limit=30&offset=0" -H "accept: application/json" -H "Authorization: Basic <Base64(username:password)>"
 ```
 
+!!! warning "Avoid using super admin credentials for API authentication"
+
+            When invoking APIs using basic authentication, never use the super admin or any high-privileged user credentials. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
+
 ---
 
 ### OAuth-based authentication

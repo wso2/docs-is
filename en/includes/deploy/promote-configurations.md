@@ -13,16 +13,95 @@ The [IAM-CTL](https://github.com/wso2-extensions/identity-tools-cli){:target="_b
 
 ### Supported Resource Types
 
-IAM-CTL currently supports the following resource types:
+IAM-CTL provides support for propagating the following resource types:
 
-- **Applications**
-- **Identity Providers**
-- **Claims**
-- **User Stores**
+<table>
+  <thead>
+    <tr>
+      <th>Organization Type</th>
+      <th>Supported Resources</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Root Organization</td>
+      <td>Applications, Identity Providers, Claims, User Stores</td>
+    </tr>
+    <tr>
+      <td>Child Organization</td>
+      <td>Applications, Identity Providers, User Stores</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Getting Started
 
-### Setting up
+Before using IAM-CTL, you need to register Machine-to-Machine (M2M) applications in your target environments. If you are propagating resources between root orgs, you need to create M2M apps in root organizations. If you are propagating resources between child organization, you need to create application in the root organization and share it with the relevant child organization. These applications will be used by IAM-CTL to authenticate and perform operations on your behalf.
+
+### Register an application for resource propagation across root organizations
+
+Follow the steps below to register an M2M application.
+
+1. [Register an M2M application]({{base_path}}/guides/applications/register-machine-to-machine-app/){:target="_blank"} with the following API authorization.
+
+<table>
+    <tr>
+        <td>Management --> Application Management API</td>
+        <td>Create Application, Update Application, Delete Application, View Application, Update authorized business APIs of an Application, Update authorized internal APIs of an Application, View application client secret, Regenerate Application Secret</td>
+    </tr>
+    <tr>
+        <td>Management --> Application Authentication Script Management API</td>
+        <td>Update Application Authentication Script</td>
+    </tr>
+    <tr>
+        <td>Management --> Claim Management API</td>
+        <td>Create Claim, Update Claim, Delete Claim, View Claim</td>
+    </tr>
+    <tr>
+        <td>Management --> Identity Provider Management API</td>
+        <td>Create Identity Provider, Update Identity Provider, Delete Identity Provider, View Identity Provider</td>
+    </tr>
+    <tr>
+        <td>Management --> Userstore Management API</td>
+        <td>Create Userstore, Update Userstore, Delete Userstore, View Userstore</td>
+    </tr>
+</table>
+
+Take note of the **Client ID** and **Client Secret** of the M2M application you created.
+
+### Register an application for resource propagation across child organizations
+
+If the target environment is a child organization, ensure that a Standard-Based Application is created within the root organization and shared with that specific child organization.
+
+1. Register a Standard-Based Application in the root organization.
+2. Share the application with the relevant child organization (e.g., wso2.com).
+3. Allow following grant types in the newly created Standard-Based Application:
+    - Client Credentials
+    - Organization Switch
+4. Grant the following API authorizations under Organization APIs.
+
+<table>
+    <tr>
+        <td>Organization --> Application Management API</td>
+        <td>Create Application, Update Application, Delete Application, View Application, Update authorized business APIs of an Application, Update authorized internal APIs of an Application, View application client secret, Regenerate Application Secret</td>
+    </tr>
+    <tr>
+        <td>Organization --> Application Authentication Script Management API</td>
+        <td>Update Application Authentication Script</td>
+    </tr>
+    <tr>
+        <td>Organization --> Identity Provider Management API</td>
+        <td>Create Identity Provider, Update Identity Provider, Delete Identity Provider, View Identity Provider</td>
+    </tr>
+    <tr>
+        <td>Organization --> Userstore Management API</td>
+        <td>Create Userstore, Update Userstore, Delete Userstore, View Userstore</td>
+    </tr>
+</table>
+
+Take note of the **Client ID** and **Client Secret** of the application you created.
+
+### Setting up IAM-CTL
 
 Follow the steps below to learn how you can configure IAM-CTL.
 
@@ -49,27 +128,6 @@ Follow the steps below to learn how you can configure IAM-CTL.
         iamctl -h
         ```
 
-5. [Register an M2M application]({{base_path}}/guides/applications/register-machine-to-machine-app/){:target="_blank"} with the following API authorization and take note of client ID and client secret.
-
-<table>
-    <tr>
-        <td>Management --> Application Management API</td>
-        <td>Create Application, Update Application, Delete Application, View Application</td>
-    </tr>
-    <tr>
-        <td>Management --> Claim Management API</td>
-        <td>Create Claim, Update Claim, Delete Claim, View Claim</td>
-    </tr>
-    <tr>
-        <td>Management --> Identity Provider Management API</td>
-        <td>Create Identity Provider, Update Identity Provider, Delete Identity Provider, View Identity Provider</td>
-    </tr>
-    <tr>
-        <td>Management --> Userstore Management API</td>
-        <td>Create Userstore, Update Userstore, Delete Userstore, View Userstore</td>
-    </tr>
-</table>
-
 ### Running the tool
 
 1. Create a new folder and navigate to it from your terminal.
@@ -85,16 +143,18 @@ Follow the steps below to learn how you can configure IAM-CTL.
     !!! note
         If you have multiple environments, get a copy of the `env` folder and rename it according to the environments you have.
 
-4. Open the **serverConfig.json** file and provide the client ID and client secret of the M2M application you created earlier.
+4. Open the **serverConfig.json** file and provide the client ID and client secret of the application you created earlier.
 
+    To propagate resources between root organizations, provide the details of the M2M application created in the root organization and the organization details.
+    
     === "serverConfig.json"
 
         ```json
         {
             "SERVER_URL" : "{server_url}",
-            "CLIENT-ID" : "{client_id}",
-            "CLIENT-SECRET" : "{client_secret}",
-            "TENANT-DOMAIN" : "{tenant_domain}"
+            "CLIENT_ID" : "{client_id}",
+            "CLIENT_SECRET" : "{client_secret}",
+            "TENANT_DOMAIN" : "{tenant_domain}"
         }
         ```
 
@@ -103,11 +163,36 @@ Follow the steps below to learn how you can configure IAM-CTL.
         ```json
         {
             "SERVER_URL" : "{{server_url}}",
-            "CLIENT-ID" : "bsjhjlb64crOL58bKV3UQmwA9QQa",
-            "CLIENT-SECRET" : "TC45TBkLaZ6kFxqZuSmhOgelSG2ZBvFYKFlUFmfhKlYa",
-            "TENANT-DOMAIN" : "{{tenant_domain}}"
+            "CLIENT_ID" : "bsjhjlb64crOL58bKV3UQmwA9QQa",
+            "CLIENT_SECRET" : "TC45TBkLaZ6kFxqZuSmhOgelSG2ZBvFYKFlUFmfhKlYa",
+            "TENANT_DOMAIN" : "{{tenant_domain}}"
         }
         ```
+
+    To propagate resources between child organizations, provide the details of the application created in the child organization and the child organization details.
+    
+    === "serverConfig.json"
+
+        ```json
+        {
+            "SERVER_URL" : "{server_url}",
+            "CLIENT_ID" : "{client_id}",
+            "CLIENT_SECRET" : "{client_secret}",
+            "TENANT_DOMAIN" : "{tenant_domain}",
+            "ORGANIZATION": "{organization_id}"
+        }
+        ```
+    === "Example"
+        
+         ```json
+         {
+            "SERVER_URL" : "{{server_url}}",
+            "CLIENT_ID" : "bsjhjlb64crOL58bKV3UQmwA9QQa",
+            "CLIENT_SECRET" : "TC45TBkLaZ6kFxqZuSmhOgelSG2ZBvFYKFlUFmfhKlYa",
+            "TENANT_DOMAIN" : "{{tenant_domain}}",
+            "ORGANIZATION": "b833d7de-264c-4c4e-8d52-61f9c57e84ca"
+         }
+         ```
 
 5. Run the following commands to export and import configurations.
 

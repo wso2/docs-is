@@ -30,7 +30,7 @@ Follow the instructions below to configure token cleanup using this method.
     - [MySQL](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/token-cleanup/){:target="_blank"}
     - [Oracle](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/token-cleanup/){:target="_blank"}
     - [PostgreSQL 9.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-9x/token-cleanup/){:target="_blank"}
-    - [PostgreSQL 11.X to 13.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/token-cleanup/){:target="_blank"}
+    - [PostgreSQL 11.X to 17.X](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/postgresql/postgre-11x/token-cleanup/){:target="_blank"}
 
 3. Once the cleanup is over, start the WSO2 Identity Server pointing to the cleaned-up database. You can also schedule a cleanup task that will be automatically run after a given period.
 

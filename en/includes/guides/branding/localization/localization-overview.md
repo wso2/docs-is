@@ -3,9 +3,9 @@
 {{ product_name }} lets you pick the language for the following interfaces exposed to business users.
 
 - User registration, sign-up, login and the account recovery flows.
-- Self-care portal, **My Account**.
+- **My Account** (self-care portal).
 
-The **default language** on these interfaces is configured as explained in the [language settings](#language-settings) section.
+The **default language** on these interfaces is configured as explained in the [language settings](#configure-language-settings) section.
 
 !!! note "Important"
 

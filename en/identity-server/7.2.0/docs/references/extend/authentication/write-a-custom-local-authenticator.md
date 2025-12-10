@@ -1,0 +1,1 @@
+{% include "../../../../../../includes/references/extend/authentication/write-a-custom-local-authenticator.md" %}

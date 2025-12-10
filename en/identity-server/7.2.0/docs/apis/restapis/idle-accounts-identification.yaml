@@ -1,0 +1,161 @@
+openapi: 3.0.0
+info:
+  description: |
+    This document specifies the **Idle Accounts Identification RESTful API** for **WSO2 Identity server**. </br>
+    
+    <div class="admonition note">
+      <p><b>Important</b>: Add the following configuration to the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file to track users' last logon times. The API uses this information to identify inactive users.</p>
+
+    <pre><code>[identity_mgt.events.schemes.identityUserMetadataMgtHandler.properties]
+     enable=true</code></pre>
+
+    </div>
+
+  version: "v1"
+  title: Idle Accounts Identification API
+
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/idle-account-identification/v1'
+    variables:
+      server-url:
+        default: "localhost:9443"
+      tenant-domain:
+        default: "carbon.super"
+
+paths:
+  /inactive-users:
+    get:
+      summary: Get inactive users
+      description: |
+        Get inactive users list for a specified period.
+        
+        <b>Scope(Permission) required:</b> `internal_idle_account_list`
+      operationId: getInactiveUsers
+      parameters:
+        - in: query
+          name: inactiveAfter
+          schema:
+            type: string
+          description: Latest active date of login.
+          example: 2023-01-31
+        - in: query
+          name: excludeBefore
+          schema:
+            type: string
+          description: Exclude users whose last active date is before this date.
+          example: 2023-01-01
+        - in: query
+          name: filter
+          schema:
+            type: string
+          description: |
+            Filter inactive users based on whether their account state is DISABLED.
+
+            **Usage**:
+            - If `isDisabled eq true`: Returns inactive users whose accounts are disabled.
+            - If `isDisabled eq false`: Returns inactive users whose accounts are not disabled.
+
+            **NOTE**:
+            - The `filter` parameter can only be used as specified above.
+          example: isDisabled eq true
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/idle-account-identification/v1/inactive-users?inactiveAfter=2023-01-31&excludeBefore=2023-01-01' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+        - lang: Curl with filter
+          source: |
+            curl --location 'https://localhost:9443/api/idle-account-identification/v1/inactive-users?inactiveAfter=2023-01-31&excludeBefore=2023-01-01&filter=isDisabled eq true' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: 80001
+        message:
+          type: string
+          example: Some error message
+        description:
+          type: string
+          example: Some error description
+    Unauthorized:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: 401
+        message:
+          type: string
+          example: Unauthorized
+        description:
+          type: string
+          example: You are unauthorized to make this request
+    InactiveUsersList:
+      type: array
+      items:
+        $ref: '#/components/schemas/InactiveUser'
+    InactiveUser:
+      type: object
+      properties:
+        userId:
+          type: string
+        username:
+          type: string
+        userStoreDomain:
+          type: string
+      required:
+        - username
+      example:
+        userId: 3c780e73-9ca6-4e49-811e-8e697df22a91
+        username: JohnDoe
+        userStoreDomain: DEFAULT
+
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Unauthorized'
+    Forbidden:
+      description: Resource Forbidden
+    ServerError:
+      description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid Input Request
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Success:
+      description: Inactive users returned successfully
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/InactiveUsersList'

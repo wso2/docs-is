@@ -69,7 +69,7 @@ Follow the steps given below to enable the email sender globally for all tenants
       </tr>
       <tr>
         <td><code>signature</code></td>
-        <td>Signature of the sender account.</td>
+        <td>Specifies the display name for the "From" email address. For example, "ABC Company" results in `"ABC Company" <mail@address.tld>`. <br/><br/>If you don't set this property, the display name becomes `null` and the system falls back to your SMTP server settings. For example, some servers use the `username` as the display name.<br/><br/>To send an email with no display name and show only the email address, set this value to an empty string: `signature = ""`</td>
       </tr>
     </table>
 
@@ -97,7 +97,7 @@ Follow the steps given below to enable the email sender per tenant.
 1. On the {{ product_name }} Console, go to **Notification Channels** > **Email Provider**.
 2. Provide the required details.
 
-   ![Configure Email Provider]({{base_path}}/assets/img/notification-channels/email-provider/configure-email-provider.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+   ![Configure Email Provider]({{base_path}}/assets/img/guides/notification-channels/email-provider/configure-email-provider.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Update**. 
 4. Since these configurations will be applicable during the tenant loading process, [configure tenant loading and unloading for your tenant]({{base_path}}/guides/multitenancy/configure-the-tenant-loading-policy/).
@@ -127,13 +127,13 @@ Follow the steps given below to enable the email sender per tenant.
     
     ### Application Configuration and Permissions
 
-      1. Register a Azure Active Directory Application resource if you currently do not have one.
-      2. Navigate to your Active Directory Application resource. 
+      1. Register a client application in Microsoft Entra ID if you currently do not have one.
+      2. Navigate to your registered Application resource. 
       3. Select Services > App registrations, and then select the application you will be using to send emails.
       4. Configure the required application permissions by navigating to Manage > API permissions.
          Please refer [Application permissions for SMTP](https://learn.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-microsoft-entra-application)
 
-         ![API Permission]({{base_path}}/assets/img/notification-channels/email-provider/api-permission.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+         ![API Permission]({{base_path}}/assets/img/guides/notification-channels/email-provider/api-permission.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ### Register service principals in Exchange
   
@@ -157,6 +157,6 @@ Follow the steps given below to enable the email sender per tenant.
     
        NOTE: The scope required for Microsoft 365 Exchange Online is `https://outlook.office365.com/.default` and the token endpoint URL should be in the format of `https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token`.
   
-       ![Configure Email Provider]({{base_path}}/assets/img/notification-channels/email-provider/email-provider-config-page.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+       ![Configure Email Provider]({{base_path}}/assets/img/guides/notification-channels/email-provider/email-provider-config-page.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     
     - Click **Update** to save the configurations.

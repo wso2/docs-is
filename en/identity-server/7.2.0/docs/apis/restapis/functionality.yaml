@@ -1,0 +1,354 @@
+openapi: 3.0.0
+info:
+  description: This is the RESTful API for handling user functionality management in WSO2 Identity Server. 
+  version: "1.0.0"
+  title: User Functionality Management API
+security:
+  - OAuth2: []
+  - BasicAuth: []
+tags:
+  - name: user functionality management
+    description: This REST API handles user functionality management. A functionality can be locked or unlocked for particular users via this API. 
+paths:
+  /me/user-functionality/{function-id}:
+    get:
+      tags:
+        - user functionality management
+      summary: |
+        Get the lock status of a functionality for an authenticated user
+      description: |
+        Get the status of a functionality for the authenticated user. <br>
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      operationId: getLockStatusOfLoggedInUser
+      parameters:
+        - name: function-id
+          in: path
+          description: FunctionalityIdentifier.
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LockStatusResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/me/user-functionality/{function-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    put:
+      tags:
+        - user functionality management
+      summary: Lock or unlock a function for authenticated user
+      operationId: changeStatusOfLoggedInUser
+      description: |
+        This API is used to lock or unlock a function for the authenticated user. <br>
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      parameters:
+        - name: function-id
+          in: path
+          description: FunctionalityIdentifier.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserStatusChangeRequest'
+            examples:
+              Lock:
+                value:
+                  action: LOCK
+              UnLock:
+                value:
+                  action: UNLOCK
+      responses:
+        200:
+          description: The function is successfully locked.
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/users/v1/me/user-functionality/{function-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "action": "LOCK"
+            }'
+
+  '/{user-id}/user-functionality/{function-id}':
+    get:
+      tags:
+        - user functionality management
+      summary: |
+        Get the lock status of a functionality for a user
+      description: |
+        Get the status of a functionality for a particular user.
+
+        <b>Scope(Permission) required:</b> `internal_user_fucntionality_view`
+      operationId: getLockStatus
+      parameters:
+        - name: function-id
+          in: path
+          description: FunctionalityIdentifier.
+          required: true
+          schema:
+            type: string
+        - name: user-id
+          in: path
+          description: UserID.
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LockStatusResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/{user-id}/user-functionality/{function-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    put:
+      tags:
+        - user functionality management
+      summary: Lock or unlock a function for a user
+      operationId: changeStatus
+      description: |
+        This API is used to lock or unlock a function for a particular user. <br>
+
+        <b>Scope(Permission) required:</b> `internal_user_fucntionality_create`
+      parameters:
+        - name: function-id
+          in: path
+          description: FunctionalityIdentifier.
+          required: true
+          schema:
+            type: string
+        - name: user-id
+          in: path
+          description: UserID.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusChangeRequest'
+            examples:
+              Lock:
+                value:
+                  action: LOCK
+                  timeToLock: 1594987178
+                  functionalityLockReason: SecurityQuestionBasedBased
+                  functionalityLockReasonCode: MaxFailedAttempts
+              UnLock:
+                value:
+                  action: UNLOCK
+      responses:
+        200:
+          description: The function is successfully locked.
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/users/v1/{user-id}/user-functionality/{function-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "action": "LOCK",
+            "timeToLock": 1594987178,
+            "functionalityLockReason": "SecurityQuestionBasedBased",
+            "functionalityLockReasonCode": "MaxFailedAttempts"
+            }'
+components:
+  schemas:
+    StatusChangeRequest:
+      type: object
+      required:
+        - action
+      properties:
+        action:
+          type: string
+          enum: [ LOCK , UNLOCK]
+          example: lock
+          description: LOCK/UNLOCK
+        timeToLock:
+          type: string
+          example: 1594987178
+          description: Time in millisecond
+        functionalityLockReason:
+          type: string
+          example: SecurityQuestionBasedBased
+        functionalityLockReasonCode:
+          type: string
+    LockStatusResponse:
+      type: object
+      properties:
+        lockStatus:
+          type: boolean
+          example: true
+          description: returns true if it is locked
+        unlockTime:
+          type: string
+          example: SecurityQuestionBasedBased
+        lockReasonCode:
+          type: string
+        lockReason:
+          type: string
+          example: SecurityQuestionBasedBased
+    UserStatusChangeRequest:
+      type: object
+      required:
+        - action
+      properties:
+        action:
+          type: string
+          enum: [ LOCK , UNLOCK]
+          example: lock
+          description: LOCK/UNLOCK
+        timeToLock:
+          type: string
+          example: 1594987178
+          description: Time in millisecond
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: "AAA-00000"
+        message:
+          type: string
+          example: "Some Error Message"
+        description:
+          type: string
+          example: "Some Error Description"
+        traceId:
+          type: string
+          example: "e0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'http://localhost:9763/oauth2/token'
+          scopes: {}
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/users/v1'
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super

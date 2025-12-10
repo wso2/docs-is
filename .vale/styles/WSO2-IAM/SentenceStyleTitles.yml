@@ -31,3 +31,8 @@ exceptions:
   - API
   - OAuth
   - TLS
+  - OpenTelemetry
+  - Datadog
+  - Java
+  - Asgardeo
+  - React Native App CLI

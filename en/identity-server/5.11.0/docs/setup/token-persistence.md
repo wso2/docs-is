@@ -670,6 +670,30 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
         ```
 
+!!! note "Custom JWT Token Issuer"
+    If you already use a custom JWT token issuer that extends
+    [`JWTTokenIssuer`](https://github.com/wso2-extensions/identity-inbound-auth-oauth/blob/master/components/org.wso2.carbon.identity.oauth/src/main/java/org/wso2/carbon/identity/oauth2/token/JWTTokenIssuer.java),
+    add the **setClaimsForNonPersistence** call **inside `createJWTClaimSet(...)` just before you return the jwt claim set**.  
+    This injects the non-persistence–related claims.
+
+    ```java
+    @Override
+    protected JWTClaimsSet createJWTClaimSet(
+            OAuthAuthzReqMessageContext authAuthzReqMessageContext,
+            OAuthTokenReqMessageContext tokenReqMessageContext,
+            String consumerKey) throws IdentityOAuth2Exception {
+
+        // ... set your standard logic here ...
+
+        // Add non-persistence claims BEFORE returning:
+        setClaimsForNonPersistence(jwtClaimsSetBuilder, authAuthzReqMessageContext,
+                tokenReqMessageContext, authenticatedUser, oAuthAppDO);
+
+        return jwtClaimsSetBuilder.build();
+    }
+
+    ```
+
 2. Add the following to the deployment.toml to enable the feature in WSO2 Identity Server. 
 
     ```toml

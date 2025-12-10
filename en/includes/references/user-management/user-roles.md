@@ -102,6 +102,12 @@ The permissions associated with each role are outlined below. Resources not expl
         <td>️</td>
       </tr>
       <tr>
+        <td>User Management</td>
+        <td>Role Assignments</td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
         <td>User Attributes & Stores</td>
         <td>Attributes</td>
         <td>️</td>
@@ -144,7 +150,6 @@ The permissions associated with each role are outlined below. Resources not expl
         <td>️✔</td>
       </tr>
     </table>
-
 
 ??? example "Viewer - Applications"
 
@@ -268,8 +273,13 @@ The permissions associated with each role are outlined below. Resources not expl
           <td>️✔</td>
           <td>️</td>
         </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Role Assignments</td>
+          <td>️✔</td>
+          <td>️</td>
+        </tr>
     </table>
-
 
 ??? example "Viewer - Users"
 
@@ -323,6 +333,159 @@ The permissions associated with each role are outlined below. Resources not expl
         </tr>
     </table>
 
+## ⚠️ Change in Role Permissions
+
+Effective **October 2, 2025 at 00:00 UTC**, permissions of the **Editor - Users** and **Editor - Applications** will change as follows:
+
+- **Editor - Users**: No longer able to edit role metadata or change permissions.  
+- **Editor - Applications**: No longer able to assign roles to users or groups.
+
+This change ensures that roles follow the principle of least privilege, granting only the permissions necessary to perform their tasks.
+
+In line with the updated permissions,
+
+- Make sure to assign tasks only to users who have the necessary permissions.
+
+- If a user affected by this change needs the lost permissions, you can assign a different role to that user. When doing so, carefully review all permissions in that role before making the assignment.
+  
+The updated permissions will be as follows.
+
+??? example "Editor - Applications"
+
+    <table>
+      <tr>
+        <th>Resources</th>
+        <th>Sub-section</th> 
+        <th>Read/Write access</th> 
+        <th>Read access only</th>
+      </tr>
+      <tr>
+        <td>Applications</td>
+        <td>️</td>
+        <td>✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>Connections</td>
+        <td>️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>API Resources</td>
+        <td>️</td>
+        <td>✔</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Branding</td>
+        <td>️</td>
+        <td>✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>User Management</td>
+        <td>Users️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>User Management</td>
+        <td>Groups️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td><b>User Management</b></td>
+        <td><b>Roles</b></td>
+        <td>️</td>
+        <td>️✔</td>
+      </tr>
+      <tr>
+        <td><b>User Management</b></td>
+        <td><b>Role Assignments</b></td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>User Attributes & Stores</td>
+        <td>Attributes</td>
+        <td>️</td>
+        <td>️✔</td>
+      </tr>
+      <tr>
+        <td>User Attributes & Stores</td>
+        <td>Attributes &gt; Scopes </td>
+        <td>️️✔</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Organizations</td>
+        <td>️</td>
+        <td>️</td>
+        <td>✔</td>
+      </tr>
+      <tr>
+        <td>Login & Registration</td>
+        <td>️</td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>Actions</td>
+        <td>️</td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>Events</td>
+        <td>️</td>
+        <td>️✔</td>
+        <td>️</td>
+      </tr>
+      <tr>
+        <td>Logs</td>
+        <td>️Diagnostic logs</td>
+        <td></td>
+        <td>️✔</td>
+      </tr>
+    </table>
+
+??? example "Editor - Users"
+
+    <table>
+      <tr>
+        <th>Resources</th>
+        <th>Sub-section</th> 
+        <th>Read/Write access</th> 
+        <th>Read access only</th>
+      </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Users️</td>
+          <td>️✔</td>
+          <td>️</td>
+        </tr>
+        <tr>
+          <td>User Management</td>
+          <td>Groups️</td>
+          <td>✔</td>
+          <td>️</td>
+        </tr>
+        <tr>
+          <td><b>User Management</b></td>
+          <td><b>Roles</b></td>
+          <td>️✔</td>
+          <td>️</td>
+        </tr>
+        <tr>
+          <td><b>User Management</b></td>
+          <td><b>Role Assignments</b></td>
+          <td>️</td>
+          <td>️✔</td>
+        </tr>
+    </table>
+
 {% else %}
 
 # {{ product_name }} user roles
@@ -344,6 +507,7 @@ The following tables list the permissions enabled for roles in the organization.
 The following list contains the permissions enabled for an {{ admin_role_name }}:
 
 ## User management
+
 - View users
 - Onboard users
 - Update user profiles
@@ -361,6 +525,7 @@ The following list contains the permissions enabled for an {{ admin_role_name }}
 - Assign groups to roles
 
 ## Application management
+
 - View apps and app settings
 - Register apps
 - Update and delete apps
@@ -368,11 +533,13 @@ The following list contains the permissions enabled for an {{ admin_role_name }}
 - Update protocol settings
 
 ## Connections management
+
 - View connections and connection settings
 - Create new connection
 - Update and delete connections
 
 ## Organization management
+
 - Create new organizations
 - View all the organizations created
 - As the organization creator, update and delete organizations that you created
@@ -380,6 +547,7 @@ The following list contains the permissions enabled for an {{ admin_role_name }}
 - Share applications from the organization (root) to its organizations
 
 ## Managing attributes and scopes
+
 - View attributes
 - Create new attributes
 - Update and delete attributes
@@ -388,6 +556,7 @@ The following list contains the permissions enabled for an {{ admin_role_name }}
 - Update and delete scopes
 
 ## Managing organization settings
+
 - View account recovery scenario and settings
 - Configure account recovery scenarios
 - View self registration related settings

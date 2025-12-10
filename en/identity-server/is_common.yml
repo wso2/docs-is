@@ -45,14 +45,18 @@ extra:
     - References
   
   versions:
-    current: 7.1.0
+    current: 7.2.0
     list:
+      - 7.2.0
       - 7.1.0
       - 7.0.0
       - 6.1.0
       - 6.0.0
     doc: https://is.docs.wso2.com/en/versions
     all:
+      - name: 7.2.0
+        doc: https://is.docs.wso2.com/en/7.2.0
+        notes: https://is.docs.wso2.com/en/7.2.0/get-started/about-this-release
       - name: 7.1.0
         doc: https://is.docs.wso2.com/en/7.1.0
         notes: https://is.docs.wso2.com/en/7.1.0/get-started/about-this-release

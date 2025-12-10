@@ -717,6 +717,59 @@ paths:
 #           application/json:
 #             schema:
 #               $ref: '#/components/schemas/Error'
+  /applications/{applicationId}/authenticationSequence/script:
+    put:
+      tags:
+        - Applications
+      operationId: updateAuthenticationScript
+      summary: Update authentication script of the application
+      description: |
+        This API provides the capability to update the authentication script of the application. <br>
+          <b>Scope(Permission) required:</b> `internal_application_script_update` </br>
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScriptUpdateModel'
+        description: This represents the authentication script to be updated.
+        required: true
+      responses:
+        '200':
+          description: Successfully Updated
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/authenticationSequence/script' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "script": "var onLoginRequest = function(context) {\n    executeStep(1);\n};\n"
+            }'
   /applications/{applicationId}/authenticators:
     get:
       tags:
@@ -4057,6 +4110,15 @@ components:
           type: boolean
           example: false
           description: Specifies whether JIT provisioning is enabled for the IdP.
+    ScriptUpdateModel:
+      type: object
+      required:
+        - script
+      properties:
+        script:
+          type: string
+          example: "var onLoginRequest = function(context) {\n    executeStep(1);\n};\n"
+          description: Authentication Script to be updated.
     ConfiguredAuthenticatorsModal:
       type: object
       properties:

@@ -93,6 +93,8 @@ markdown_extensions:
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css
   - assets/css/theme.css
+  - assets/css/admonition.css
+  - https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/build.css
 
 extra_javascript:
   - assets/js/theme.js
@@ -158,20 +160,6 @@ extra:
       link: complete-guides/fesecurity/introduction
       level: 2
 
-  nav_chip:
-    Design login flow:
-      type: ai
-      level: 1
-    Self-registration flow:
-      type: Preview
-      level: 4
-    Self Registration:
-      type: Preview
-      level: 3
-    Password Recovery:
-      type: Preview
-      level: 3
-
   nav_icons:
     Overview:
       icon: octicons/file-16
@@ -200,8 +188,8 @@ extra:
     Setup:
       icon: octicons/gear-16
       level: 1
-    Developer Tools:
-      icon: octicons/package-16
+    Asgardeo MCP Server:
+      icon: assets/libs/custom-icons/mcp.svg
       level: 1
     React SDK:
       icon: fontawesome/brands/react
@@ -209,6 +197,9 @@ extra:
     Next.js SDK:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 2
+    Connectors:
+      icon: octicons/beaker-16
+      level: 1
     APIs:
       icon: octicons/code-16
       level: [1, 2, 3]
@@ -343,6 +334,7 @@ extra:
             artifact_id: react-native-app-auth
             icon: assets/img/logo/react-logo.svg
             description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
+            documentation_link: get-started/try-your-own-app/react-native-cli-app-auth/
             source_link: https://github.com/FormidableLabs/react-native-app-auth
           - name: AppAuth Android
             artifact_id: net.openid:appauth
@@ -355,6 +347,13 @@ extra:
             dark_icon: assets/img/logo/apple-logo-dark.svg
             description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
             source_link: https://github.com/openid/AppAuth-iOS
+
+  connectors:
+    - name: Duo Security
+      icon: assets/img/logo/duo-logo.png
+      description: The Duo Security authenticator allows you to authenticate a user using Duo Security through WSO2 Identity Server.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-duo
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-duo/blob/master/docs/README.md
 
   redoc_theme: '{
     "colors": {

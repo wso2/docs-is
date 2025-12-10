@@ -1,4 +1,4 @@
-# Securing MCP Clients
+# Setting up MCP Clients
 
 The Model Context Protocol (MCP) specification defines that authorization is initiated by MCP clients. These clients handle authorization flows, manage tokens and sessions with MCP servers, and provide end-user experiences based on user permissions.
 

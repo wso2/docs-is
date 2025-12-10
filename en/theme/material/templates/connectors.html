@@ -1,0 +1,66 @@
+<!--
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/css/integrations.css' | url }}">
+{% endblock %}
+
+{% block container %}
+  <div class="md-content">
+    <article class="md-content__inner md-typeset">
+    <h1 class="md-typeset">Connectors</h1>
+    <p class="md-typeset"> This document lists the available connectors for {{config.extra.product_name}} {{config.extra.is_version}}.</p>
+    <div class="integrations-list-container">
+      <div class="flex-grid">
+          {% for connector in config.extra.connectors %}
+            <div class="md-card integration-card">
+              <img class="integration-card-icon" src="{{ connector.icon | url }}#only-light" />
+              {% if connector.dark_icon %}
+                <img class="integration-card-icon" src="{{ connector.dark_icon | url }}#only-dark" />
+              {% else %}
+                <img class="integration-card-icon" src="{{ connector.icon | url }}#only-dark" />
+              {% endif %}
+              <p class="integration-card-header">{{ connector.name }}</p>
+              {% set description = connector.description %}
+              {% set description = description.replace('{{ product_name }}', config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
+              <p class="integration-card-description">{{ description }}</p>
+              <div class="integration-card-source-links">
+                {% if connector.source_link %}
+                  <a class="source-link tooltip md-icon md-icon--hover" href="{{ connector.source_link }}" target="_blank">
+                    {% include "/assets/images/icons/link.svg" %}
+                    <span class="tooltip-text">Link to connector store</span>
+                  </a>
+                {% endif %}
+                {% if connector.documentation_link %}
+                  <a class="tooltip source-link md-icon md-icon--hover" href="{{ connector.documentation_link }}" target="_blank">
+                    {% include "/assets/images/icons/book-16.svg" %}
+                    <span class="tooltip-text">Documentation</span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {{ page.content }}
+    </article>
+  </div>
+{% endblock %}

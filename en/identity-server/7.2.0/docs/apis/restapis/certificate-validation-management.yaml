@@ -1,0 +1,574 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: 'WSO2 Identity Server - Certificate Validation Management API Definition'
+  description: 'This document specifies a **RESTful API** for **WSO2 Identity Server Certificate Validation Management**'
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: iam-dev@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /certificate-validation/revocation-validators:
+    get:
+      summary: Get all certificate validator configurations
+      description: |
+        List all certificate validator configurations.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view`
+      operationId: getCertificateRevocationValidators
+      tags:
+        - Certificate Revocation Validators
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Validators'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/certificate-validation/revocation-validators' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /certificate-validation/revocation-validators/{validatorName}:
+    get:
+      summary: Get a specific certificate validator configurations
+      description: |
+        Get certificate validator configuration specified by the name.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view`
+      operationId: getCertificateRevocationValidator
+      tags:
+        - Certificate Revocation Validators
+      parameters:
+        - name: validatorName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Validator details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Validator"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/certificate-validation/revocation-validators/{validator-name}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    put:
+      summary: Update the certificate validator configurations
+      description: |
+        Patch certificate validator specified by the name.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_update`
+      operationId: updateCertificateRevocationValidator
+      tags:
+        - Certificate Revocation Validators
+      parameters:
+        - name: validatorName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Validator"
+      responses:
+        "200":
+          description: Validator updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Validator"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/api/server/v1/certificate-validation/revocation-validators/{validator-name}' \
+              -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                  "enable": false,
+                  "priority": 2,
+                  "fullChainValidation": true,
+                  "retryCount": 2
+              }'
+        x-codegen-request-body-name: body
+  /certificate-validation/ca:
+    get:
+      summary: Get all ca certificates
+      description: |
+        List all ca certificates.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view`
+      operationId: getCACertificates
+      tags:
+        - Certificate Authority Certificates
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CACertificates'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/api/server/v1/certificate-validation/ca' \
+              -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    post:
+      summary: Add a new ca certificate
+      description: |
+        Add a new ca certificate.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_create`
+      operationId: addCACertificate
+      tags:
+        - Certificate Authority Certificates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CACertificateAddRequest"
+      responses:
+        "201":
+          description: Certificate added successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CACertificate"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/api/server/v1/certificate-validation/ca' \
+              -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                  "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMRENDQWRLZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQjlNUXN3Q1FZRFZRUUdFd0pDUlRFUE1BMEcKQTFVRUNoTUdSMjUxVkV4VE1TVXdJd1lEVlFRTEV4eEhiblZVVEZNZ1kyVnlkR2xtYVdOaGRHVWdZWFYwYUc5eQphWFI1TVE4d0RRWURWUVFJRXdaTVpYVjJaVzR4SlRBakJnTlZCQU1USEVkdWRWUk1VeUJqWlhKMGFXWnBZMkYwClpTQmhkWFJvYjNKcGRIa3dIaGNOTVRFd05USXpNakF6T0RJeFdoY05NVEl4TWpJeU1EYzBNVFV4V2pCOU1Rc3cKQ1FZRFZRUUdFd0pDUlRFUE1BMEdBMVVFQ2hNR1IyNTFWRXhUTVNVd0l3WURWUVFMRXh4SGJuVlVURk1nWTJWeQpkR2xtYVdOaGRHVWdZWFYwYUc5eWFYUjVNUTh3RFFZRFZRUUlFd1pNWlhWMlpXNHhKVEFqQmdOVkJBTVRIRWR1CmRWUk1VeUJqWlhKMGFXWnBZMkYwWlNCaGRYUm9iM0pwZEhrd1dUQVRCZ2NxaGtqT1BRSUJCZ2dxaGtqT1BRTUIKQndOQ0FBUlMySTBqaXVObjE0WTJzU0FMQ1gzSXlicWlJSlV2eFVwaitvTmZ6bmd2ai9OaXl2MjM5NEJXblc0WAp1UTRSVEVpeXdLODdXUmNXTUdnSkI1a1gvdDJubzBNd1FUQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01BOEdBMVVkCkR3RUIvd1FGQXdNSEJnQXdIUVlEVlIwT0JCWUVGUEMwZ2Y2WUVyKzFLTGxrUUFQTHpCOW1UaWdETUFvR0NDcUcKU000OUJBTUNBMGdBTUVVQ0lER3V3RDFLUHlHK2hSZjg4TWV5TVFjcU9GWkQwVGJWbGVGK1VzQUdRNGVuQWlFQQpsNHdPdUR3S1FhK3VwYzhHZnRYRTJDLy80bUtBTkJDNkl0MDFnVWFUSXBvPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t"
+              }'
+  /certificate-validation/ca/{certificate-id}:
+    get:
+      summary: Get a ca certificate by certificate id
+      description: |
+        Get ca certificate specified by the certificate id.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_view`
+      operationId: getCACertificateById
+      tags:
+        - Certificate Authority Certificates
+      parameters:
+        - name: certificate-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Certificate details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CACertificate"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/api/server/v1/certificate-validation/ca' \
+              -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                  "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMRENDQWRLZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQjlNUXN3Q1FZRFZRUUdFd0pDUlRFUE1BMEcKQTFVRUNoTUdSMjUxVkV4VE1TVXdJd1lEVlFRTEV4eEhiblZVVEZNZ1kyVnlkR2xtYVdOaGRHVWdZWFYwYUc5eQphWFI1TVE4d0RRWURWUVFJRXdaTVpYVjJaVzR4SlRBakJnTlZCQU1USEVkdWRWUk1VeUJqWlhKMGFXWnBZMkYwClpTQmhkWFJvYjNKcGRIa3dIaGNOTVRFd05USXpNakF6T0RJeFdoY05NVEl4TWpJeU1EYzBNVFV4V2pCOU1Rc3cKQ1FZRFZRUUdFd0pDUlRFUE1BMEdBMVVFQ2hNR1IyNTFWRXhUTVNVd0l3WURWUVFMRXh4SGJuVlVURk1nWTJWeQpkR2xtYVdOaGRHVWdZWFYwYUc5eWFYUjVNUTh3RFFZRFZRUUlFd1pNWlhWMlpXNHhKVEFqQmdOVkJBTVRIRWR1CmRWUk1VeUJqWlhKMGFXWnBZMkYwWlNCaGRYUm9iM0pwZEhrd1dUQVRCZ2NxaGtqT1BRSUJCZ2dxaGtqT1BRTUIKQndOQ0FBUlMySTBqaXVObjE0WTJzU0FMQ1gzSXlicWlJSlV2eFVwaitvTmZ6bmd2ai9OaXl2MjM5NEJXblc0WAp1UTRSVEVpeXdLODdXUmNXTUdnSkI1a1gvdDJubzBNd1FUQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01BOEdBMVVkCkR3RUIvd1FGQXdNSEJnQXdIUVlEVlIwT0JCWUVGUEMwZ2Y2WUVyKzFLTGxrUUFQTHpCOW1UaWdETUFvR0NDcUcKU000OUJBTUNBMGdBTUVVQ0lER3V3RDFLUHlHK2hSZjg4TWV5TVFjcU9GWkQwVGJWbGVGK1VzQUdRNGVuQWlFQQpsNHdPdUR3S1FhK3VwYzhHZnRYRTJDLy80bUtBTkJDNkl0MDFnVWFUSXBvPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t"
+              }'
+    put:
+      summary: Update a ca certificate by certificate id
+      description: |
+        Patch ca certificate specified by the certificate id.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_update`
+      operationId: updateCACertificateById
+      tags:
+        - Certificate Authority Certificates
+      parameters:
+        - name: certificate-id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CACertificateUpdateRequest"
+      responses:
+        "200":
+          description: Certificate updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CACertificate"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        x-codeSamples:
+          - lang: Curl
+            source: |
+              curl --location 'https://localhost:9443/api/server/v1/certificate-validation/ca/{certificate-id}' \
+              -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+              -H 'Content-Type: application/json' \
+              -d '{
+                  "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMRENDQWRLZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQjlNUXN3Q1FZRFZRUUdFd0pDUlRFUE1BMEcKQTFVRUNoTUdSMjUxVkV4VE1TVXdJd1lEVlFRTEV4eEhiblZVVEZNZ1kyVnlkR2xtYVdOaGRHVWdZWFYwYUc5eQphWFI1TVE4d0RRWURWUVFJRXdaTVpYVjJaVzR4SlRBakJnTlZCQU1USEVkdWRWUk1VeUJqWlhKMGFXWnBZMkYwClpTQmhkWFJvYjNKcGRIa3dIaGNOTVRFd05USXpNakF6T0RJeFdoY05NVEl4TWpJeU1EYzBNVFV4V2pCOU1Rc3cKQ1FZRFZRUUdFd0pDUlRFUE1BMEdBMVVFQ2hNR1IyNTFWRXhUTVNVd0l3WURWUVFMRXh4SGJuVlVURk1nWTJWeQpkR2xtYVdOaGRHVWdZWFYwYUc5eWFYUjVNUTh3RFFZRFZRUUlFd1pNWlhWMlpXNHhKVEFqQmdOVkJBTVRIRWR1CmRWUk1VeUJqWlhKMGFXWnBZMkYwWlNCaGRYUm9iM0pwZEhrd1dUQVRCZ2NxaGtqT1BRSUJCZ2dxaGtqT1BRTUIKQndOQ0FBUlMySTBqaXVObjE0WTJzU0FMQ1gzSXlicWlJSlV2eFVwaitvTmZ6bmd2ai9OaXl2MjM5NEJXblc0WAp1UTRSVEVpeXdLODdXUmNXTUdnSkI1a1gvdDJubzBNd1FUQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01BOEdBMVVkCkR3RUIvd1FGQXdNSEJnQXdIUVlEVlIwT0JCWUVGUEMwZ2Y2WUVyKzFLTGxrUUFQTHpCOW1UaWdETUFvR0NDcUcKU000OUJBTUNBMGdBTUVVQ0lER3V3RDFLUHlHK2hSZjg4TWV5TVFjcU9GWkQwVGJWbGVGK1VzQUdRNGVuQWlFQQpsNHdPdUR3S1FhK3VwYzhHZnRYRTJDLy80bUtBTkJDNkl0MDFnVWFUSXBvPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t"
+              }'
+        x-codegen-request-body-name: body
+    delete:
+      summary: Delete a ca certificate by id
+      description: |
+        Delete ca certificate specified by the certificate id.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_cert_validation_mgt_delete`
+      operationId: deleteCACertificateById
+      tags:
+        - Certificate Authority Certificates
+      parameters:
+        - name: certificate-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 
+            'https://localhost:9443/api/server/v1/certificate-validation/ca/{certificate-id}' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+components:
+  parameters:
+    filterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description: >
+        Condition to filter the retrieval of records.
+        Only supports filtering based on the 'tag' and 'name' attribute.
+        For local authenticators and request path authenticators, the 'displayName' is considered as the 'name' attribute during filtering.
+        The 'name' attribute only supports 'eq' and 'sw operations. Filtering with multiple 'name' attributes is not supported.
+        The 'tag' attribute only supports 'eq' operation. Filtering with multiple 'tag' attributes is supported with only 'or' as the complex query operation.
+        E.g. /configs/authenticators?filter=name+sw+fi+and+(tag+eq+2FA+or+tag+eq+MFA)
+      schema:
+        type: string
+    limitQueryParam:
+      in: query
+      name: limit
+      description: >
+        Maximum number of records to return. _<b>This option is not yet
+        supported.<b>_
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    offsetQueryParam:
+      in: query
+      name: offset
+      description: >
+        Number of records to skip for pagination. _<b>This option is not yet
+        supported.<b>_
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: AUT-00000
+          description: An error code.
+        message:
+          type: string
+          example: Some Error Message
+          description: An error message.
+        description:
+          type: string
+          example: Some Error Description
+          description: An error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+          description: An error trace identifier.
+    Validators:
+      type: object
+      properties:
+        Validators:
+          type: array
+          items:
+            type: string
+            example: 'ocspvalidator'
+            description: Certificate validator type
+    Validator:
+      type: object
+      properties:
+        enable:
+          type: boolean
+          example: true
+          description: Validator is enabled or not
+        priority:
+          type: integer
+          example: 1
+          description: Validator priority
+        fullChainValidation:
+          type: boolean
+          example: true
+          description: Full chain validation is enabled or not
+        retryCount:
+          type: integer
+          example: 3
+          description: Retry count
+    CACertificates:
+      type: object
+      properties:
+        Certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/CACertificate'
+    CACertificate:
+      type: object
+      properties:
+        issuerDN:
+          type: string
+          example: 'CN=WSO2 CA, OU=WSO2, O=WSO2, L=Colombo, ST=Western, C=LK'
+          description: Issuer DN
+        crlUrls:
+          type: array
+          items:
+            type: string
+            example: 'http://localhost:9443/crl'
+            description: CRL URL
+        ocspUrls:
+          type: array
+          items:
+            type: string
+            example: 'http://localhost:9443/ocsp'
+            description: OCSP URL
+        id:
+          type: string
+          example: '1'
+          description: Certificate ID
+        serialNumber:
+          type: string
+          example: '1'
+          description: Serial Number
+
+    CACertificateAddRequest:
+      type: object
+      properties:
+        certificate:
+          type: string
+          example: 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMRENDQWRLZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQjlNUXN3Q1FZRFZRUUdFd0pDUlRFUE1BMEcKQTFVRUNoTUdSMjUxVkV4VE1TVXdJd1lEVlFRTEV4eEhiblZVVEZNZ1kyVnlkR2xtYVdOaGRHVWdZWFYwYUc5eQphWFI1TVE4d0RRWURWUVFJRXdaTVpYVjJaVzR4SlRBakJnTlZCQU1USEVkdWRWUk1VeUJqWlhKMGFXWnBZMkYwClpTQmhkWFJvYjNKcGRIa3dIaGNOTVRFd05USXpNakF6T0RJeFdoY05NVEl4TWpJeU1EYzBNVFV4V2pCOU1Rc3cKQ1FZRFZRUUdFd0pDUlRFUE1BMEdBMVVFQ2hNR1IyNTFWRXhUTVNVd0l3WURWUVFMRXh4SGJuVlVURk1nWTJWeQpkR2xtYVdOaGRHVWdZWFYwYUc5eWFYUjVNUTh3RFFZRFZRUUlFd1pNWlhWMlpXNHhKVEFqQmdOVkJBTVRIRWR1CmRWUk1VeUJqWlhKMGFXWnBZMkYwWlNCaGRYUm9iM0pwZEhrd1dUQVRCZ2NxaGtqT1BRSUJCZ2dxaGtqT1BRTUIKQndOQ0FBUlMySTBqaXVObjE0WTJzU0FMQ1gzSXlicWlJSlV2eFVwaitvTmZ6bmd2ai9OaXl2MjM5NEJXblc0WAp1UTRSVEVpeXdLODdXUmNXTUdnSkI1a1gvdDJubzBNd1FUQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01BOEdBMVVkCkR3RUIvd1FGQXdNSEJnQXdIUVlEVlIwT0JCWUVGUEMwZ2Y2WUVyKzFLTGxrUUFQTHpCOW1UaWdETUFvR0NDcUcKU000OUJBTUNBMGdBTUVVQ0lER3V3RDFLUHlHK2hSZjg4TWV5TVFjcU9GWkQwVGJWbGVGK1VzQUdRNGVuQWlFQQpsNHdPdUR3S1FhK3VwYzhHZnRYRTJDLy80bUtBTkJDNkl0MDFnVWFUSXBvPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t'
+          description: Base64 encoded certificate
+
+    CACertificateUpdateRequest:
+      type: object
+      properties:
+        certificate:
+          type: string
+          example: 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNMRENDQWRLZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQjlNUXN3Q1FZRFZRUUdFd0pDUlRFUE1BMEcKQTFVRUNoTUdSMjUxVkV4VE1TVXdJd1lEVlFRTEV4eEhiblZVVEZNZ1kyVnlkR2xtYVdOaGRHVWdZWFYwYUc5eQphWFI1TVE4d0RRWURWUVFJRXdaTVpYVjJaVzR4SlRBakJnTlZCQU1USEVkdWRWUk1VeUJqWlhKMGFXWnBZMkYwClpTQmhkWFJvYjNKcGRIa3dIaGNOTVRFd05USXpNakF6T0RJeFdoY05NVEl4TWpJeU1EYzBNVFV4V2pCOU1Rc3cKQ1FZRFZRUUdFd0pDUlRFUE1BMEdBMVVFQ2hNR1IyNTFWRXhUTVNVd0l3WURWUVFMRXh4SGJuVlVURk1nWTJWeQpkR2xtYVdOaGRHVWdZWFYwYUc5eWFYUjVNUTh3RFFZRFZRUUlFd1pNWlhWMlpXNHhKVEFqQmdOVkJBTVRIRWR1CmRWUk1VeUJqWlhKMGFXWnBZMkYwWlNCaGRYUm9iM0pwZEhrd1dUQVRCZ2NxaGtqT1BRSUJCZ2dxaGtqT1BRTUIKQndOQ0FBUlMySTBqaXVObjE0WTJzU0FMQ1gzSXlicWlJSlV2eFVwaitvTmZ6bmd2ai9OaXl2MjM5NEJXblc0WAp1UTRSVEVpeXdLODdXUmNXTUdnSkI1a1gvdDJubzBNd1FUQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01BOEdBMVVkCkR3RUIvd1FGQXdNSEJnQXdIUVlEVlIwT0JCWUVGUEMwZ2Y2WUVyKzFLTGxrUUFQTHpCOW1UaWdETUFvR0NDcUcKU000OUJBTUNBMGdBTUVVQ0lER3V3RDFLUHlHK2hSZjg4TWV5TVFjcU9GWkQwVGJWbGVGK1VzQUdRNGVuQWlFQQpsNHdPdUR3S1FhK3VwYzhHZnRYRTJDLy80bUtBTkJDNkl0MDFnVWFUSXBvPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t'
+          description: Base64 encoded certificate
+  #-----------------------------------------------------
+  # Descriptions of Authenticators API responses.
+  #-----------------------------------------------------
+  responses:
+    BadRequest:
+      description: Invalid input in the request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Requested resource is not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication information is missing or invalid.
+    Forbidden:
+      description: Access forbidden.
+    ServerError:
+      description: Internal server error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+  #-----------------------------------------------------
+  # Applicable authentication mechanisms.
+  #-----------------------------------------------------
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}

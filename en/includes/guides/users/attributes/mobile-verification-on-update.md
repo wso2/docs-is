@@ -116,6 +116,21 @@ Mobile number verification ensures that when a user updates their primary mobile
           </tr>
         </table>
 
+        {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
+
+        By default, the custom SMS provider uses connection timeout and read timeout values of 5000ms and 20000ms respectively. If you need to change these timeout values, you can configure them by adding the following configuration to the `deployment.toml` file:
+
+        ```toml
+        [notificationChannel.sms.custom]
+        connection_timeout = 5000
+        connection_read_timeout = 20000
+        ```
+
+        !!! note
+            - `connection_timeout`: Time in milliseconds to wait for establishing a connection to the SMS provider (default: 5000ms)
+            - `connection_read_timeout`: Time in milliseconds to wait for reading data from the SMS provider (default: 20000ms)
+        {% endif %}
+
 - If required, enable [support for multiple mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) for users.
 
 - Update [mobile number verification settings]({{base_path}}/guides/users/attributes/user-attribute-change-verification/).
@@ -319,7 +334,10 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
 
 Upon receiving the response outlined above, the user will receive an SMS notification prompting them to verify their 
 updated mobile number. Once verified, the `Verified Mobile Numbers` claim (`http://wso2.org/claims/verifiedMobileNumbers`) 
-will be updated to reflect the new mobile number.
+will be updated to reflect the new mobile number. {% if product_name == "Asgardeo" or 
+(product_name == "WSO2 Identity Server" and is_version >= "7.2.0")%} If a primary mobile number has not been configured, 
+the verified mobile number will also be set as the primary mobile number.
+{% endif %}
 
 ## Validate the verification code
 

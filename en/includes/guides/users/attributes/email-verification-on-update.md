@@ -216,7 +216,12 @@ Alternatively, you may update the email addresses via a PATCH operation to the [
     }
     ```
 
-Upon receiving the response outlined above, the user will receive an email notification prompting them to verify their updated email address. Once verified, the `verifiedEmailAddresses` claim (http://wso2.org/claims/verifiedEmailAddresses) will be updated to reflect the new email address.
+Upon receiving the response outlined above, the user will receive an email notification prompting them to verify their 
+updated email address. Once verified, the `verifiedEmailAddresses` claim (http://wso2.org/claims/verifiedEmailAddresses) 
+will be updated to reflect the new email address. {% if product_name == "Asgardeo" or 
+(product_name == "WSO2 Identity Server" and is_version >= "7.2.0")%} If a primary email address has not been configured, 
+the verified email address will also be set as the primary email.
+{% endif %}
 
 ## Resend email verification
 

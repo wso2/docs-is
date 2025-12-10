@@ -36,6 +36,11 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 
 1. Add and configure the following properties as shown below in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
+    !!! warning "Introspection can reveal user information"
+        Enabling the configuration `include_validation_context_as_jwt_in_reponse` allows the introspection endpoint to return user claims in the `token_string` (JWT).
+        API gateways and resource servers that introspect tokens may therefore receive user information if they send the introspect request with `required_claims`.
+        Enable this only if required, and ensure that access to the introspection endpoint is strictly controlled.
+
     ```toml
     [oauth.token.validation]
     include_validation_context_as_jwt_in_reponse = "true"

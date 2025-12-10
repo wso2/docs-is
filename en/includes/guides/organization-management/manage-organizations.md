@@ -75,6 +75,28 @@ You can switch to a child organization on the {{ product_name }} Console by sele
 
 ![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-switch.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+
+## Manage current organization
+
+You can view and edit details of the organization you are currently logged in to:
+
+1. On the {{ product_name }} Console, click the organization name in the breadcrumb navigation.
+
+2. On the dropdown that appears, click **Edit Organization**.
+
+    ![Manage current organization]({{base_path}}/assets/img/guides/organization/manage-organizations/edit-current-organization-dropdown-option.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Update the organization name and click **Save**.
+
+    ![Manage current organization]({{base_path}}/assets/img/guides/organization/manage-organizations/edit-current-organization.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! note
+    - The **Edit/View Organization** options appear only if you have organization administrator privileges.
+    - Currently, you can edit only the organization name.
+
+{% endif %}
+
 ## Build an organizational hierarchy
 
 Organizations can be structured hierarchically in {{product_name}}. This means that if you are a parent organization, you may have multiple child organizations and each child organization can have their own child organizations and so on. This enables you to easily reflect the real-world structure of your business in {{product_name}}.
@@ -131,3 +153,8 @@ To delete an organization:
 
 !!! note
     If the organization you intend to delete has child organizations, you won't be able to proceed until you have deleted them.
+
+{% if product_name != "Asgardeo" and (product_name == "WSO2 Identity Server" and is_version >= "7.0.0") %}
+!!! note
+    Deleting an organization only removes it from the {{ product_name }} Console and blocks access to that organization's resources. The associated data remains in the database. To permanently remove this data, you need to run the cleanup scripts provided by WSO2. See [Resources Cleanup for Deleted Organizations]({{base_path}}/guides/organization-management/cleanup-organization-resources) for more information.
+{% endif %}

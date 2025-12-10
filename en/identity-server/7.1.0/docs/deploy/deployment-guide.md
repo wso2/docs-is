@@ -46,7 +46,7 @@ The above recommendations can change based on the expected concurrency and perfo
 <tbody>
 <tr class="odd">
 <th>Operating systems</th>
-<td><p>For information on tested operating systems, see <a href="{{base_path}}/deploy/environment-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a> 
+<td><p>For information on tested operating systems, see <a href="{{base_path}}/deploy/environment-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a>
 .</p></td>
 </tr>
 <tr class="even">
@@ -82,7 +82,7 @@ The above recommendations can change based on the expected concurrency and perfo
 In a clustered deployment, all WSO2 Identity Server nodes are pointed to the same databases to ensure the integrity of the data. Also, you can configure multiple logical databases if you require to keep your data logically separated in the environment. The following tutorial demonstrates deployment with an identity database (`IDENTITY_DB`) and a user database (`UM_DB`).
 
 !!! note
-    Alternatively, you can create more databases to separate the data logically for each data type.  
+    Alternatively, you can create more databases to separate the data logically for each data type.
     This will not make a difference in performance and is not mandatory. Separating databases logically may help to have a different backup and scaling strategy when the deployment is large and complex.
     If you do wish to separate the data logically into separate databases, see [Set Up Separate Databases for Clustering]({{base_path}}/deploy/set-up-separate-databases-for-clustering).
 
@@ -90,7 +90,7 @@ In a clustered deployment, all WSO2 Identity Server nodes are pointed to the sam
     If you have configured the shared database correctly, the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory should have the following configurations.
 
     Following is a sample configuration. Therefore parameter values might be different.
-    
+
     ```toml
     [database.identity_db]
     type = "mysql"
@@ -99,7 +99,7 @@ In a clustered deployment, all WSO2 Identity Server nodes are pointed to the sam
     username = "regadmin"
     password = "regadmin"
     port = "3306"
-    
+
     [database.shared_db]
     type = "mysql"
     hostname = "localhost"
@@ -121,7 +121,7 @@ The following diagram is a high-level component diagram showing how the system w
 {% include "../includes/registry-repositories.md" %}
 
 <!--!!! info
-    For more information about the registry, 
+    For more information about the registry,
     see [Work with the Registry](TO-DO:{{base_path}}/guides/working-with-the-registry).-->
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually. The governance and configuration registries should be mounted to share across all nodes. In the WSO2 Identity Server, config and governance registries are mounted by default.
@@ -162,29 +162,29 @@ The following configurations need to be done in both the WSO2 Identity Server no
     !!! info
         The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes]({{base_path}}/deploy/clustering-overview/#about-membership-schemes).-->
         Configurations for each membership scheme are listed below.
-        
-        ??? tip "Click to see the instructions for the WKA scheme"            
+
+        ??? tip "Click to see the instructions for the WKA scheme"
             Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add the following configurations.
-            Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
+            Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.
                     ```
                     [clustering]
                     membership_scheme = "wka"
                     local_member_host = "192.168.2.1"
                     local_member_port = "4000"
                     members = ["192.168.2.1:4000", "192.168.2.2:4001"]
-                    ```                    
-            Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes in our sample cluster configuration, we will configure both as WKA nodes.         
-            
-            You can also use IP address ranges for the `hostName`. For example, `192.168.1.2-10`. This should ensure that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define a range only for the last portion of the IP address. You should also keep in mind that the smaller the range, the faster it discovers members since each node has to scan fewer potential members. 
-            
-        ??? tip "Click to see the instructions for the AWS ECS membership scheme"  
-                      
+                    ```
+            Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes in our sample cluster configuration, we will configure both as WKA nodes.
+
+            You can also use IP address ranges for the `hostName`. For example, `192.168.1.2-10`. This should ensure that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define a range only for the last portion of the IP address. You should also keep in mind that the smaller the range, the faster it discovers members since each node has to scan fewer potential members.
+
+        ??? tip "Click to see the instructions for the AWS ECS membership scheme"
+
             1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
                 -   Select the `EC2 instance` type.
                 -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
-                -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached. 
+                -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached.
                         ```
-                        { "Version": "2012-10-17", 
+                        { "Version": "2012-10-17",
                              "Statement":
                              [
                              {
@@ -198,22 +198,22 @@ The following configurations need to be done in both the WSO2 Identity Server no
                              }
                              ]
                         }
-    
+
                         ```
-                -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule. 
-            
-            2. Create a `deployment.toml` file in a preferred directory and add the following configurations.                   
+                -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
+
+            2. Create a `deployment.toml` file in a preferred directory and add the following configurations.
                     ```
                     [clustering]
                     membership_scheme = "aws-ecs"
-                    
+
                     [clustering.properties]
                     region = "us-east-1"
                     clusterName = "ECS-IS-CLUSTER"
                     hostHeader = "ec2"
                     vpcCidrBlock = "10.0.*.*"
                     tagValue = "a_tag_value"
-                    ```                    
+                    ```
             Under the `clustering.properties` section, set the `region`, `clusterName`, `tagValue` and `vpcCidrBlock` based on the AWS ECS cluster you created in the previous step. The `tagValue` is derived from the auto-generated tag `aws:cloudformation:stack-name` in the AWS cluster. If you want to use a custom tag, you'll need to update both the `tagKey` and the `tagValue` accordingly.
 
             !!! note
@@ -222,7 +222,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
             !!! note
                 Once all the configurations are complete, build a docker image including the configurations. You can use this Docker image to create a `Task Definition`, and make sure to set the network mode to `host` in the definition. Then run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
 
-        ??? tip "Click to see the instructions for the AWS EC2 membership scheme"  
+        ??? tip "Click to see the instructions for the AWS EC2 membership scheme"
 
             When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode. Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and make the following changes.
 
@@ -244,12 +244,12 @@ The following configurations need to be done in both the WSO2 Identity Server no
                     securityGroup = "security_group_name"
                     region = "us-east-1"
                     tagKey = "a_tag_key"
-                    tagValue = "a_tag_value"  
+                    tagValue = "a_tag_value"
                     ```
-                It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory. 
+                It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory.
 
             3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
-                See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy. 
+                See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy.
                     Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
                     ```json
                     { "Version": "2012-10-17",
@@ -276,15 +276,13 @@ The following configurations need to be done in both the WSO2 Identity Server no
             | Parameter | Description   | Example   |
             |-----------|---------------|-----------|
             | `membershipScheme`  | This is the membership scheme that will be used to manage the membership of nodes in a cluster.   | `kubernetes`    |
-            | `local_member_host` | This is the member's hostname or IP address. Set it to the pod's local IP address.   | `172.17.0.2`    |
             | `local_member_port` | This is the TCP port used by this member and through which other members will contact this member. | `4000` |
             | `KUBERNETES_NAMESPACE`  | This is the Kubernetes Namespace in which the pods are deployed.  | `wso2-is` |
             | `KUBERNETES_SERVICES`   | These are the Kubernetes Services that belong in the cluster. | `wso2is-service` |
-            
+
             ```toml
             [clustering]
             membership_scheme = "kubernetes"
-            local_member_host = "172.17.0.2"
             local_member_port = "4000"
 
             [clustering.properties]
@@ -293,14 +291,14 @@ The following configurations need to be done in both the WSO2 Identity Server no
             ```
 
             - In order to retrieve the pod IP address information from the Kubernetes api server, the Kubernetes membership scheme uses the pod's service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the role you bind has the following permissions.
-            
+
                 ```toml
                 rules:
-                - apiGroups: [""] 
-                  verbs: ["get", "list"] 
-                  resources: ["endpoints"] 
+                - apiGroups: [""]
+                  verbs: ["get", "list"]
+                  resources: ["endpoints"]
                 ```
-            
+
             - Optionally, a Kubernetes token or basic authentication can be used to authenticate with the Kubernetes api server.
             The following properties can be set under `[clustering.properties]` accordingly.
                 - `KUBERNETES_API_SERVER`: This is the Kubernetes API endpoint,e.g., `http://172.17.8.101:8080`. Alternatively, an https endpoint can be set via `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT_HTTPS`.
@@ -342,7 +340,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
         force_local_cache = true
         ```
         Cache invalidation uses Hazelcast messaging to distribute the invalidation message over the cluster and invalidate the caches properly. This is used to minimize the coherence problem in a multi-node setup.
-        
+
         **Typical clustered deployment cache scenarios**
 
         <table>
@@ -378,7 +376,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
                     <td>Disabled</td>
                     <td>
                         <ul>
-                            <li>Invalidation clears only the caches in specific nodes. Other caches are 
+                            <li>Invalidation clears only the caches in specific nodes. Other caches are
                             cleared at cache expiration.</li>
                             <li>Hazelcast communication is not used.</li>
                             <li>As the decisions take time to propagate over nodes (default cache timeout is 15 minutes), there is a security risk in this method. To reduce the risk, reduce the default cache timeout period. To learn how to reduce the default cache timeout period, see [Configuring Cache Layers - timeout]({{base_path}}/deploy/performance/configure-cache-layers#timeout).</li>
@@ -395,7 +393,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
                         <ul>
                             <li>The data are directly acquired from the database.</li>
                             <li>Eliminates the security risks caused due to not having cache invalidation.</li>
-                            <li>This method will create a performance degradation due to the lack of 
+                            <li>This method will create a performance degradation due to the lack of
                             caching.</li>
                         </ul>
                     </td>
@@ -408,9 +406,9 @@ The following configurations need to be done in both the WSO2 Identity Server no
                     <td>Enabled</td>
                     <td>
                         <ul>
-                            <li>To reduce the security risk created in the second scenario and to 
-                            improve performance in comparison with the third scenario, disable the 
-                            security-related caches and sustain the performance-related caches as 
+                            <li>To reduce the security risk created in the second scenario and to
+                            improve performance in comparison with the third scenario, disable the
+                            security-related caches and sustain the performance-related caches as
                             local caches.</li>
                             <li>This requires identifying these caches depending on the use case.</li>
                         </ul>
@@ -455,7 +453,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
     !!! note
         The WSO2 Identity Server cluster uses this hostname and therefore it must be specified in the `/etc/hosts` file in each node so that internal calls will not be routed through the Load Balancer.
 
-        Example: 
+        Example:
         `192.168.2.1   wso2.is`
 
 ## Enable artifact synchronization

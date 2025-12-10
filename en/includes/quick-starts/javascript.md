@@ -7,18 +7,17 @@ Welcome to the JavaScript Quickstart guide! In this document, you will learn to 
 ## Configure an Application in {{ product_name }}
 
 - Sign into {{ product_name }} console and navigate to **Applications > New Application**.
-- Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. 
+- Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
 !!! Example
     **name:** {{ product }}-javascript
-    
+
     **Authorized redirect URL:** http://localhost:5173
 
 Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  Asgardeo JavaScript SDK.
 
-- **`client-id`** from the **Protocol** tab. 
+- **`client-id`** from the **Protocol** tab.
 - **The name of your {{ product_name }} organization**
-
 
 !!! Info
 
@@ -66,7 +65,7 @@ Create (a.k.a scaffold) your new JavaScript app using Vite.
 
 ## Install @asgardeo/auth-spa
 
-Asgardeo JavaScript SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo JavaScript SDK to the project. Make sure to stop the dev server started in the previous step. 
+Asgardeo JavaScript SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo JavaScript SDK to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
@@ -89,7 +88,7 @@ Asgardeo JavaScript SDK provides all the components and hooks you need to integr
 
 ## Initialize @asgardeo/auth-spa
 
-Replace the existing code of the `main.jsx` file with the following code to initialize `AuthSPAClient`. 
+Replace the existing code of the `main.jsx` file with the following code to initialize `AuthSPAClient`.
 
 !!! Important
 
@@ -98,9 +97,7 @@ Replace the existing code of the `main.jsx` file with the following code to init
     - `<your-app-client-id>`
     - `{{content.sdkconfig.baseUrl}}`
 
-
-
-```javascript title="src/main.js" 
+```javascript title="src/main.js"
 
 import { AsgardeoSPAClient } from "@asgardeo/auth-spa";
 
@@ -130,7 +127,7 @@ await auth.initialize({
   signInRedirectURL: "http://localhost:5173",
   signOutRedirectURL: "http://localhost:5173",
   clientID: "<your-app-client-id>",
-  baseUrl: "https://api.asgardeo.io/t/sagaraorg",
+  baseUrl: "{{content.sdkconfig.baseUrl}}",
   scope: ["openid", "profile"]
 });
 
@@ -193,7 +190,7 @@ await auth.initialize({
   signInRedirectURL: "http://localhost:5173",
   signOutRedirectURL: "http://localhost:5173",
   clientID: "<your-app-client-id>",
-  baseUrl: "https://api.asgardeo.io/t/sagaraorg",
+  baseUrl: "{{content.sdkconfig.baseUrl}}",
   scope: ["openid", "profile"]
 });
 

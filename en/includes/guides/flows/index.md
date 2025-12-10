@@ -1,15 +1,20 @@
 # Flows
 
-In Asgardeo, a **flow** defines the sequence of steps a user goes through during a specific interaction. This can include forms, verification steps, conditional logic, and other actions that guide the user from start to finish.
+Design and customize key user journeys in your application with Flows. A flow defines the step-by-step journey a user takes during a specific interaction, such as registering for your service or recovering a password.
 
-![Flows]({{base_path}}/assets/img/guides/flows/flow-builder-steps.gif){: width="auto" style="display: block; margin: 0;"}
+{{product_name}} lets you build fully customizable flows for the following user interactions.
 
-Supported flows include:
+- **Self registration** - Create seamless registration experiences for new users, with support for multi-step forms, data validation, and identity verification checks.
 
-- [Self Registration]({{base_path}}/guides/flows/self-registration/) <br>
-    Create registration experiences for new users, with support for multi step forms, validations, and identity verification.
+- **Password recovery** - Build secure recovery processes to help users regain access, using steps such as email verification or one-time passwords (OTP).
 
-- [Password Recovery]({{base_path}}/guides/flows/password-recovery/) <br>
-    Build secure recovery processes to help users regain access, using steps such as email verification or one time passcodes.
+- **Invited user registration** - Let new users complete creating their accounts when administrators invite them. Design secure flows to verify their identities and set their passwords.
 
-Each flow can be composed using a variety of starter templates, widgets, steps, and components, giving you full control over how users interact with your application.
+Building with starter templates, widgets, and other components provides complete control over how users interact with the application, all without writing complex code.
+
+## Start building flows
+
+- To learn the fundamentals of building a flow, refer to the [get started]({{base_path}}/guides/flows/build-a-flow/) guide.
+- For detailed examples of specific use cases, see the guides on [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/) and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
+
+![Flows]({{base_path}}/assets/img/guides/flows/flow-builder-overview.png){: width="auto" style="display: block; margin: 0;"}

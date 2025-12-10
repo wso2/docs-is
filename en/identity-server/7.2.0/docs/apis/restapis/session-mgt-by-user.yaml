@@ -1,0 +1,446 @@
+openapi: 3.0.1
+info:
+  title: User Session Management API
+  description: |
+    This document specifies a **session management RESTFull API** for
+    **WSO2 Identity Server**.
+    The APIs provide the capability to retrieve/terminate active sessions of an authenticated user
+
+    <b>Note</b><br>
+    - From WSO2 IS 6.0.0 onwards, access tokens mapped with the session via REST API can be revoked.
+    This is applicable for authorization code grant, implicit flow, refresh token grant, and hybrid flow.
+    - If a session is terminated via the API and the same access token is used by multiple sessions, the other sessions will lose their tokens. Therefore, it is recommended to use sso-session binding if you wish to retain the capability to revoke the access token when the session is terminated via the REST API.
+    - WSO2 Identity Server also sends SAML/OIDC back-channel logouts when the session is terminated via the API. To support this, you should configure the application to enable back-channel logout.
+  version: v1
+
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/api/users/v1'
+    variables:
+      serverUrl:
+        default: "localhost:9443"
+      tenantDomain:
+        default: "carbon.super"
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /me/sessions:
+    get:
+      tags:
+        - me
+      summary: Retrieve active sessions of the authenticated user
+      description: |
+        A user can have multiple active sessions. This API retrieves information of all the active sessions of the authenticated user. <br> 
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      operationId: getSessionsOfLoggedInUser
+      parameters:
+        - name: limit
+          in: query
+          description: |
+            Maximum number of records to return.
+            _This parameter is not supported yet._
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: |
+            Number of records to skip for pagination.
+            _This parameter is not supported yet._
+          schema:
+            type: integer
+            format: int32
+        - name: filter
+          in: query
+          description: |
+            Condition to filter the retrieval of records.
+            _This parameter is not supported yet._
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: |
+            Define the order in which the retrieved records should be sorted.
+            _This parameter is not supported yet._
+          schema:
+            type: string
+      responses:
+        "200":
+          description: |
+            Successfully retrieved session information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sessions'
+              example:
+                userId: 81fae417-13f6-4db6-9501-7ce128608cb5
+                idpName: partner-wso2-is
+                sessions:
+                  - applications:
+                      - id: 298c5fd8-01ac-4ada-bc10-1ce37f32140b
+                        subject: admin
+                        appName: travelocity-requestpath
+                        appId: "4"
+                      - id: 738645a4-f494-11eb-9a03-0242ac130003
+                        subject: admin
+                        appName: avis-basic
+                        appId: "5"
+                    userAgent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101
+                      Firefox/15.0.1
+                    ip: 127.0.0.1
+                    loginTime: "1565586399249"
+                    lastAccessTime: "1565586435955"
+                    id: 30e775bcc2c858ff88584b38b017d6c703a6657f38320804a071ff82fce1a0fe
+        "401":
+          description: Unauthorized
+          content: {}
+        "403":
+          description: Resource Forbidden
+          content: {}
+        "404":
+          description: Resource Not Found
+          content: {}
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/users/v1/me/sessions' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWxleDpXc28yQDEyMw=='
+    delete:
+      tags:
+        - me
+      summary: Terminate all the active sessions of the authenticated user
+      description: |
+        A user has multiple active sessions. This API terminates all the active sessions of the authenticated user. <br> 
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      operationId: terminateSessionsByLoggedInUser
+      responses:
+        "204":
+          description: No Content
+          content: {}
+        "400":
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        "403":
+          description: Resource Forbidden
+          content: {}
+        "401":
+          description: Unauthorized
+          content: {}
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://localhost:9443/api/users/v1/me/sessions' \
+            -H 'Accept: */*' \
+            -H 'Authorization: Basic YWxleDpXc28yQDEyMw=='
+  /me/sessions/{session-id}:
+    delete:
+      tags:
+        - me
+      summary: Terminate a given session of the authenticated user
+      description: |
+        A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the session-id. <br>
+        
+        <b>Scope(Permission) required:</b> `internal_login`
+      operationId: terminateSessionByLoggedInUser
+      parameters:
+        - name: session-id
+          in: path
+          description: ID of the session.
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+          content: {}
+        "400":
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+          content: {}
+        "403":
+          description: Resource Forbidden
+          content: {}
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://localhost:9443/api/users/v1/me/sessions/{session-id}' \
+            -H 'Accept: */*' \
+            -H 'Authorization: Basic YWxleDpXc28yQDEyMw=='
+components:
+  schemas:
+    Application:
+      required:
+        - appId
+        - appName
+        - id
+        - subject
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID of the application.
+          example: 298c5fd8-01ac-4ada-bc10-1ce37f32140b
+        subject:
+          type: string
+          description: Username of the logged in user for the application.
+          example: apiuser01
+        appName:
+          type: string
+          description: Name of the application.
+          example: sampleApp
+        appId:
+          type: string
+          description: ID of the application.
+          example: "012"
+    Session:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: ID of the user of the session.
+          example: "00000001"
+        idpName:
+          type: string
+          description: |
+            Identity provider name that the session authenticated. Will only be returned for federated authentication sessions.
+          example: partner-wso2-is
+        applications:
+          type: array
+          description: List of applications in the session.
+          items:
+            $ref: '#/components/schemas/Application'
+        userAgent:
+          type: string
+          description: User agent of the session.
+          example: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101
+            Firefox/15.0.1
+        ip:
+          type: string
+          description: IP address of the session.
+          example: 172.95.192.63
+        loginTime:
+          type: string
+          description: Login time of the session.
+          example: "1560412617"
+        lastAccessTime:
+          type: string
+          description: Last access time of the session.
+          example: "1560416196"
+        id:
+          type: string
+          description: ID of the session.
+          example: 8d9806d1-4efc-483e-a96a-a0fa77d4328b
+    Sessions:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: "00000001"
+        sessions:
+          type: array
+          description: List of active sessions.
+          items:
+            $ref: '#/components/schemas/Session'
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+  responses:
+    NotFound:
+      description: Resource Not Found
+      content: {}
+    Unauthorized:
+      description: Unauthorized
+      content: {}
+    ServerError:
+      description: Internal Server Error
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Invalid input request
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Resource Forbidden
+      content: {}
+    OK:
+      description: OK
+      content: {}
+    NoContent:
+      description: No Content
+      content: {}
+  parameters:
+    limitQueryParam:
+      name: limit
+      in: query
+      description: |
+        Maximum number of records to return.
+        _Default value: 20_
+      schema:
+        type: integer
+        format: int32
+    limitQueryParamNotImplemented:
+      name: limit
+      in: query
+      description: |
+        Maximum number of records to return.
+        _This parameter is not supported yet._
+      schema:
+        type: integer
+        format: int32
+    offsetQueryParam:
+      name: offset
+      in: query
+      description: |
+        Number of records to skip for pagination.
+        _This parameter is not supported yet._
+      schema:
+        type: integer
+        format: int32
+    filterQueryParam:
+      name: filter
+      in: query
+      description: |
+        Condition to filter the retrieval of records.
+        The filter parameter must contain at least one valid expression (for multiple expressions they must be combined using the 'and' logical operator).
+        Each expression must contain an attribute name followed by an attribute operator and a value (attribute names, operators and values used in filters are case insensitive).
+
+        The operators supported in the expression are listed next
+        | Operator | Description | Behavior |
+        |----------|-------------|----------|
+        | eq | equal | The attribute and operator values must be identical for a match. |
+        | sw | starts with | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. |
+        | ew | ends with | The entire operator value must be a substring of the attribute value, matching at the end of the attribute value. |
+        | co | contains | The entire operator value must be a substring of the attribute value for a match. |
+        | le | less than or equal to | If the attribute value is less than or equal to the operator value, there is a match. |
+        | ge | greater than or equal to | If the attribute value is greater than or equal to the operator value, there is a match. |
+
+        The attributes supported in the expression are listed next
+        | Name | Operators | Description |
+        |------|-----------|-------------|
+        | loginId | eq, sw, ew, co | Filter results by the login identifier of the user who owns the session. |
+        | sessionId | eq, sw, ew, co | Filter results by the ID of the session. |
+        | appName | eq, sw, ew, co | Filter results by the name of the application related to the session. |
+        | ipAddress | eq | Filter results by the IP address of the session. |
+        | userAgent | eq, sw, ew, co | Filter results by the user agent of the session. |
+        | loginTime | le, ge | Filter results by the login time of the session. |
+        | lastAccessTime | le, ge | Filter results by the last access time of the session. |
+
+        _Example, filter=loginId eq john and userAgent co Chrome_
+      schema:
+        type: string
+    filterQueryParamNotImplemented:
+      name: filter
+      in: query
+      description: |
+        Condition to filter the retrieval of records.
+        _This parameter is not supported yet._
+      schema:
+        type: string
+    sortQueryParam:
+      name: sort
+      in: query
+      description: |
+        Define the order in which the retrieved records should be sorted.
+        _This parameter is not supported yet._
+      schema:
+        type: string
+    userIdPathParam:
+      name: user-id
+      in: path
+      description: ID of the user.
+      required: true
+      schema:
+        type: string
+    sessionIdPathParam:
+      name: session-id
+      in: path
+      description: ID of the session.
+      required: true
+      schema:
+        type: string
+    sinceQueryParam:
+      name: since
+      in: query
+      description: |
+        Unix timestamp data value that points to the start of the range of data to be returned.
+        _Note: As results are ordered by more recent first this will provide previous page of results._
+      schema:
+        type: integer
+        format: int64
+    untilQueryParam:
+      name: until
+      in: query
+      description: |
+        Unix timestamp data value that points to the end of the range of data to be returned.
+        _Note: As results are ordered by more recent first this will provide next page of results._
+      schema:
+        type: integer
+        format: int64
+
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'http://localhost:9443/oauth2/token'
+          scopes: {}
