@@ -62,6 +62,24 @@ Follow the steps below to configure an action.
 
 4. Click **Create** to create the action.
 
+### Action versioning
+
+Actions use versioning to ensure your external service continues to operate without disruption as the action feature evolves. Each action has a major and minor version:
+
+- Major version – Indicates breaking changes, such as removed fields or incompatible response changes.
+- Minor version – Indicates backward-compatible improvements, such as new optional fields or minor enhancements.
+
+How versions work
+
+- When you create a new action, {{product_name}} automatically uses the latest available version.
+- If a newer version releases later, you can upgrade your action to use it.
+- {{product_name}} always uses the latest minor version within the configured major version when invoking an action. Existing service extensions continue to work without changes.
+- To take advantage of improvements in a new minor version, you must explicitly upgrade your external service accordingly.
+
+!!! warning
+    Once an action is updated to a major version, it cannot revert to an older major version.
+    Before upgrading, ensure your external service implements the request and response format of the new version.
+
 ## Invoke actions conditionally
 
 You can trigger actions conditionally by configuring rules. Currently, all three action types support rule-based invocation:

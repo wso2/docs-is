@@ -129,7 +129,7 @@ plugins:
       zoomable: true
       draggable: true
       skip_classes:
-        - custom-skip-class-name
+        - skip-glightbox
       auto_caption: false
       caption_position: bottom
   - redirects:
@@ -964,6 +964,7 @@ nav:
           - eIDAS: deploy/compliance/eidas.md
           - CCPA: deploy/compliance/ccpa.md
           - FIPS: deploy/compliance/fips.md
+          - FAPI: deploy/compliance/fapi.md
           - Accessibility compliance: deploy/compliance/accessibility.md
       - Analytics:
         - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
@@ -1215,12 +1216,19 @@ nav:
           - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
       - Pre-flow extensions (Actions):
         - Pre issue access token action:
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0.md
+            - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1.md
           - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
         - Pre update password action:
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract.md
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.0.md
+            - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.1.md
+          - Version 2.x:
+             - API v2.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v2.0.md
         - Pre update profile action:
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract.md
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/pre-update-profile-action-v1.0.md
     - Architecture: references/architecture.md
     - IS extensions:
       - references/extend/index.md

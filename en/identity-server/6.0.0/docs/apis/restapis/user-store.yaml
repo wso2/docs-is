@@ -31,6 +31,9 @@ paths:
 
           To retrieve the available user store classes/types, use the **api/server/v1/userstores/meta/types** API.
 
+          When creating a user store, it will be **disabled by default**. To enable the user store, include the `disabled` property set to `false` in the properties of the payload.
+
+
          <b>Permission required:</b>
           - /permission/admin
       responses:

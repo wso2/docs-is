@@ -2,7 +2,11 @@
 
 This section guides you through changing the hostname of the WSO2 Identity Server.
 
-1. Change the hostname - The server hostname for internal API calls is configured as `localhost` by default. This configuration is utilized to build the internal absolute URL of a service endpoint that will be consumed whenever internal API calls are generated. To configure the hostname, follow one of the two options given below according to your requirements.
+1. Change the hostname - The server has two hostname configurations:
+    - `hostname` - Use this to build public URLs for external-facing endpoints and APIs.
+    - `internal_hostname` - Use this to build internal URLs for internal service-to-service communication. Defaults to `localhost`.
+
+    Configure the hostname using one of the two options below.
 
     **Option 1**
 
@@ -13,29 +17,31 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     hostname = "is.dev.wso2.com"
     ```
 
-    Add `localhost` as SAN for the certificate (-ext SAN=dns:localhost) as the internal hostname is by default `localhost`. For that, navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and use the following command to create a new keystore with `CN=is.dev.wso2.com` and `localhost` as SAN.
+    Add both `localhost` and the hostname to the SAN of the certificate (`-ext SAN=dns:localhost,dns:<hostname>`) as the internal hostname is by default `localhost`.
+
+    Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and use the following command to create a new keystore with `CN=is.dev.wso2.com` and both `localhost` and `is.dev.wso2.com` in the SAN.
 
     === "Format"
 
         ``` java
-        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name> -storetype <keystore_type> -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost
+        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name> -storetype <keystore_type> -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:localhost,dns:<hostname>
         ```
 
     === "Sample command (JKS)"
 
         ``` java
-        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost,dns:is.dev.wso2.com
         ```
-    
+
     === "Sample command (PKCS12)"
 
         ``` java
-        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.p12 -storetype PKCS12 -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.p12 -storetype PKCS12 -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost,dns:is.dev.wso2.com
         ```
 
     **Option 2**
 
-    Instead of adding SAN, you can configure the same name for the `hostname`, and the `internal_hostname` in `<IS_HOME>/repository/conf/deployment.toml` as follows.
+    Instead of adding `localhost` to the SAN, you can configure the same name for the `hostname`, and the `internal_hostname` in `<IS_HOME>/repository/conf/deployment.toml` as follows.
 
     ``` toml
     [server]
@@ -43,24 +49,24 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     internal_hostname = "is.dev.wso2.com"
     ```
 
-    Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and use the following command to create a new keystore with `CN=is.dev.wso2.com`.
+    Navigate to the `<IS_HOME>/repository/resources/security` directory on the command prompt and use the following command to create a new keystore with `CN=is.dev.wso2.com` and `is.dev.wso2.com` in the SAN.
 
     === "Format"
 
         ``` java
-        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name> -storetype <keystore_type> -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password>
+        keytool -genkey -alias <alias_name> -keyalg RSA -keysize 2048 -keystore <keystore_name> -storetype <keystore_type> -dname "CN=<hostname>, OU=<organizational_unit>,O=<organization>,L=<Locality>,S=<State/province>,C=<country_code>" -storepass <keystore_password> -keypass <confirm_keystore_password> -ext SAN=dns:<hostname>
         ```
 
     === "Sample command (JKS)"
 
         ``` java
-        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:is.dev.wso2.com
         ```
 
     === "Sample command (PKCS12)"
 
         ``` java
-        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.p12 -storetype PKCS12 -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword
+        keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.p12 -storetype PKCS12 -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:is.dev.wso2.com
         ```
 
 2. If the keystore name and password is changed, all the references to it within the WSO2 Identity Server must also be updated. Add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
