@@ -311,7 +311,7 @@ class JWTTokenVerifier(TokenVerifier):
             jwks_url=jwks_url,
             issuer=issuer,
             audience=client_id,
-            ssl_verify=True  # Set to False for development if needed
+            ssl_verify=True  # Always verify SSL in production; only disable for local dev with self-signed certs
         )
 
     async def verify_token(self, token: str) -> Optional[AccessToken]:
