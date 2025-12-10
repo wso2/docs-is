@@ -388,11 +388,15 @@ nav:
           - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
-          - User attributes: guides/users/attributes/manage-attributes.md
+          - User attributes:
+            - Manage attributes: guides/users/attributes/user-attributes/manage-attributes.md
+            - Configure attributes: guides/users/attributes/user-attributes/configure-attributes.md
+            - Configurations reference : guides/users/attributes/user-attributes/attribute-configurations-reference.md
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
+          - Configure multi-valued contact attributes: guides/users/attributes/configure-multi-valued-contact-attributes.md
           - Verification and notification settings for attribute updates:
             - Configure settings: guides/users/attributes/user-attribute-change-verification.md
             - Try it out:
