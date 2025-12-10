@@ -186,24 +186,27 @@ Use the following settings to change details and behavior of an attribute. To co
             <td><b>Allow multiple values for this attribute</b></td>
             <td>Specify whether to support multiple values for this attribute.</td>
         </tr>
+        {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
         <tr>
             <td><b>Input Format</b></td>
             <td>Specify the kind of input it supports. Refer to <a href="{{base_path}}/guides/users/attributes/user-attributes/attribute-configurations-reference/">reference</a> for more details.</td>
         </tr>
+        {% endif %}
         <tr>
             <td><b>Regular expression</b></td>
             <td>The attribute value will be validated against the regex pattern specified here.</td>
         </tr>
+        {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
         <tr>
-                <td><b>Select Source for Attribute Value of Shared Users</b></td>
-                <td>When a user's profile is shared across multiple organizations, the value of this attribute will be taken from the selected source.</br>
-                <ul>
-                    <li><b>From Origin:</b> The attribute  value is inherited from the original organization which manages the user's profile.</li>
-                    <li><b>From Shared Profile:</b>  The attribute value is taken from the shared user profile in the respective organization.</li>
-                    <li><b>From First Found in Hierarchy:</b> The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
-                </ul>
-                You can only configure this option for custom attributes.
-            </tr>
+            <td><b>Select Source for Attribute Value of Shared Users</b></td>
+            <td>When a user's profile is shared across multiple organizations, the value of this attribute will be taken from the selected source.</br>
+            <ul>
+                <li><b>From Origin:</b> The attribute  value is inherited from the original organization which manages the user's profile.</li>
+                <li><b>From Shared Profile:</b>  The attribute value is taken from the shared user profile in the respective organization.</li>
+                <li><b>From First Found in Hierarchy:</b> The attribute value is retrieved from the first organization in the hierarchy that has assigned a non-null value to the attribute. </li>
+            </ul>
+            You can only configure this option for custom attributes.
+        </tr>
         <tr>
             <td><b>Uniqueness Validation</b></td>
             <td>Select one of the following scopes to validate attribute uniqueness:
@@ -214,6 +217,7 @@ Use the following settings to change details and behavior of an attribute. To co
                     </ul>
             </td>
         </tr>
+        {% endif %}
     </tbody>
 </table>
 
@@ -320,6 +324,8 @@ By default, {{product_name}} stores identity attributes internally in the user s
     - `http://wso2.org/claims/identity/failedLoginAttempts`: Tracks the number of consecutive failed login attempts. Account locking happens based on this value.
 {% endif %}
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" 
+and is_version !="7.2.0") %}
 ### Select storage location for selected attributes
 
 {{product_name}}, by default, stores identity attributes internally and user attributes in the connected user stores. If you want to store and manage an identity attribute in your user stores or a user attribute in the identity store, you can do so by following the steps below.
@@ -367,6 +373,7 @@ By default, {{product_name}} stores identity attributes internally in the user s
         updating these attributes may not work as expected.
 
 6. Click **Update** to save the changes.
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
 
