@@ -1,4 +1,5 @@
 # Encrypt and decrypt ID tokens
+
 {{product_name}} can encrypt ID tokens to enhance security during transmission. This ensures that only the intended recipient, who possesses the corresponding private key, can decrypt and read the token's contents. This guide explains how you can configure {{product_name}} to encrypt ID tokens and how your applications can decrypt them.
 
 ## How it works
@@ -22,15 +23,15 @@ The following steps ensures that {{product_name}} encrypts the ID token issued t
 
 2. In the **Protocol** tab of the application, make the following changes:
 
-      1. under **Certificate**, provide a way for {{product_name}} to access the public key of the application. You can do so in either of the following ways:
+      1. under **Certificate**, provide the public key of the application. You can do so in either of the following ways:
 
           - upload the public certificate of the application. If you don't have one, create a self-signed certificate by following the instructions in the [create a self-signed certificate](#optional-create-a-self-signed-certificate) section below.
 
-          - provide the JWKS URI of the application. Learn more about JWKS
+          - provide the JWKS URI of the application. Learn more about [JWKS]({{base_path}}/guides/authentication/oidc/validate-jwt-with-jwks/).
 
       2. Under **ID Token**, select the **Enable ID Token Encryption** checkbox and configure the following parameters:
 
-          - **Algorithm:**: Asymmetric encryption method used to encrypt the Content Encryption Key (CEK), using the public key of the application.
+          - **Algorithm**: Asymmetric encryption method used to encrypt the Content Encryption Key (CEK), using the public key of the application.
 
           - **Encryption method**: Symmetric encryption algorithm used to encrypt the JWT claims set using the CEK.
 
@@ -170,3 +171,7 @@ Follow the steps below to get an encrypted ID token and decrypt it.
               }
           }
           ```
+
+## Learn more
+
+To learn more about token ID encryption and supported algorithms and methods, see the [ID token encryption reference]({{base_path}}/guides/authentication/oidc/id-token-encryption-reference/).

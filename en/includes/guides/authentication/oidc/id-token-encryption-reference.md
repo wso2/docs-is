@@ -1,4 +1,4 @@
-# # ID token encryption reference
+# ID token encryption reference
 
 This reference explains the format of encrypted ID tokens in detail and the algorithms and methods used for encryption.
 
@@ -21,7 +21,7 @@ An unencrypted ID token consists of two base64-encoded parts separated by a peri
 - `<header>` : Contains metadata about the token, such as the signing algorithm used.
 - `<body>` : Contains the actual claims about the user, such as the user's identifier, issuer, and audience.
 
-On the other hand, an encrypted ID token consists of five base64-encoded parts separated by a period (`.`). It takes the following format:
+An encrypted ID token consists of five base64-encoded parts separated by a period (`.`). It takes the following format:
 
 === "Format"
 
@@ -58,6 +58,7 @@ On the other hand, an encrypted ID token consists of five base64-encoded parts s
     - RSA1_5
     - RSA-OAEP
 
+{% if product_name == "WSO2 Identity Server" %}
 You can configure the default values of the encryption methods and encryption algorithms by making changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```toml
@@ -65,3 +66,5 @@ You can configure the default values of the encryption methods and encryption al
 supported_encryption_algorithms=["RSA1_5","RSA-OAEP"]
 supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256"]
 ```
+
+{% endif %}
