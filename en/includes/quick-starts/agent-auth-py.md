@@ -1,14 +1,13 @@
-# AI Agent Authentication Quickstart
+# Agent Identity Quickstart
 
-Welcome to the AI Agent Authentication Quickstart!
+Welcome to the Agent Identity Quickstart!
 
-This guide walks you through authenticating AI agents with **{{ product_name }}** and integrating them seamlessly with secure MCP servers using Python with modern agent frameworks and cutting-edge AI models.
+This guide walks you through establishing AI agent identities with **{{ product_name }}**, authenticating agents with their credentials, and integrating them seamlessly with secure MCP servers using Python over modern agent frameworks and cutting-edge AI models.
 
 By the end of this guide, you will have:
 
-- An AI agent that authenticates using Agent Credentials (AI agent acting on its own)
-- An AI agent that performs On-Behalf-Of (OBO) authentication using PKCE + authorization code flow
-- A working AI agent that calls an MCP server with valid {{ product_name }}-issued tokens
+- An AI agent that authenticates using Agent Credentials, obtains a token to access a secure MCP Server(AI agent acting on its own)
+- An AI agent that gets authorization delegated by a user to access a secured MCP Server (Agent acting On-Behalf-Of (OBO) a user)
 - A clear understanding of both authentication scenarios described in [Agent Authentication Guide](https://wso2.com/asgardeo/docs/guides/agentic-ai/ai-agents/agent-authentication/)
 
 You do not need prior agent development experience. Everything you need is explained as you go.
@@ -17,7 +16,7 @@ You do not need prior agent development experience. Everything you need is expla
 
 ## Register an AI agent
 
-To enable authentication for your AI agent, begin by registering it in {{ product_name }}.
+To establish an identity for your AI agent, begin by registering it in {{ product_name }}.
 
 - Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
 - Click **+ New Agent**.
@@ -26,23 +25,23 @@ To enable authentication for your AI agent, begin by registering it in {{ produc
   - Description (optional): Purpose and functionality of the agent
 - Click **Create** to complete the registration.
 
-After successful registration, your agent will receive a unique **Agent ID** and an **Agent Secret** which is shown only once. Make sure to store them securely, as you’ll need them later in this guide.
+After successful registration, your agent will receive a unique **Agent ID** and an **Agent Secret**, which is shown only once. Make sure to store them securely, as you’ll need them later in this guide.
 
 ## Configure an Application in {{ product_name }}
 
-To allow your agent (or user acting through the agent) to authenticate and connect to a secure MCP server, an application in {{ product_name }} needs to be set up first.
+To allow your agent (or user acting through the agent) to authenticate and connect to a secure MCP server, a MCP Client needs to be set up in {{ product_name }}.
 
 - In [{{ product_name }}](https://console.asgardeo.io/) console, navigate to **Applications > New Application**.
-- Select **MCP Client Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
+- Select **MCP Client Application** and complete the wizard pop-up by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-    Name : AgentAuthenticatorApp
+    Name: AgentAuthenticatorApp
 
     Authorized redirect URL: http://localhost:6274/oauth/callback
 
 !!! Info
     The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
-    In this guide, the AI agent behaves as the client which consists of a lightweight OAuth 2.1 callback server runs at `http://localhost:6274/oauth/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
+    In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:6274/oauth/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Build an AI Agent](#build-an-ai-agent) section of this guide.
 
