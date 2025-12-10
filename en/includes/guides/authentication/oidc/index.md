@@ -8,7 +8,6 @@ This section covers how you can configure OIDC-based login for your single page 
 
 [Discover OIDC endpoints]({{base_path}}/guides/authentication/oidc/discover-oidc-configs/) has detailed instructions on this.
 
-
 ## Implement authorization code grant in apps
 
 The guides listed below will help you understand the OIDC login flow using the authorization code flow.
@@ -36,6 +35,12 @@ With JWT Secured Authorization Response Mode, clients can request authorization 
 This section explains how the signature and the claims are verifieed in the ID token that is sent by {{ product_name }} to an application.
 
 [Validate ID tokens]({{base_path}}/guides/authentication/oidc/validate-id-tokens/) has detailed instructions on this.
+
+## Encrypt ID tokens
+
+This section explains how to encrypt and decrypt ID tokens in {{ product_name }}.
+
+[Encrypt and decrypt ID tokens]({{base_path}}/guides/authentication/oidc/encrypt-decrypt-id-tokens/) has detailed instructions on this.
 
 ## Request user information
 

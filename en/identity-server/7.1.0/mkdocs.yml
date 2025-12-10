@@ -591,26 +591,34 @@ nav:
               - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
           - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
-              - Configure OIDC flows: guides/authentication/oidc/index.md
-              - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
-              - Dynamic Client Registration (DCR): guides/authentication/oidc/oauth-dynamic-client-registration.md
-              - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
-              - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
-              - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
-              - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
-              - Implement login using the Device Authorization flow: guides/authentication/oidc/implement-device-flow.md
+            - Configure OIDC flows: guides/authentication/oidc/index.md
+            - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
+            - Dynamic Client Registration (DCR): guides/authentication/oidc/oauth-dynamic-client-registration.md
+            - Login flows:
+              - Authorization code flow: guides/authentication/oidc/implement-auth-code.md
+              - Authorization code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
+              - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
+              - Device authorization flow: guides/authentication/oidc/implement-device-flow.md
+              - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
-              - Implement login using the OIDC Hybrid Flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
-              - Implement JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
-              - Configure token exchange: guides/authentication/configure-token-exchange.md
-              - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
-              - Request user information: guides/authentication/oidc/request-user-info.md
-              - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
+            - Grant types:
+              - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
+            - Client authentication methods:
+              - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Tokens and validation:
+              - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
               - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
+              - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+              - Encrypt ID tokens: 
+                - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
+                - ID token encryption reference: guides/authentication/oidc/id-token-encryption-reference.md
+              - Request user information: guides/authentication/oidc/request-user-info.md
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
-              - Implement logout: guides/authentication/oidc/add-logout.md
-              - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
-              - Implement federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
+              - Configure token exchange: guides/authentication/configure-token-exchange.md
+              - Logout:
+                - Front-channel logout: guides/authentication/oidc/add-logout.md
+                - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
+                - Federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
           - Configure SAML flows:
               - Configure SAML flows: guides/authentication/saml/index.md
               - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
