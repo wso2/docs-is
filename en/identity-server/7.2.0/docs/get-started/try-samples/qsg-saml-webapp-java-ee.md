@@ -171,7 +171,18 @@ Follow the steps given below to configure the sample app.
         </tr>
         <tr>
            <td><code>IdPPublicCert</code></td>
-           <td>This specifies the public certificate of the {{ product_name }}. You can obtain the public certificate from the Console. See [how to get SAML configurations from the {{ product_name }} Console]({{base_path}}/guides/authentication/saml/discover-saml-configs).</td>
+           <td>
+              This specifies the public certificate of the {{ product_name }}. Follow these steps to obtain it:
+              <ol>
+                <li>On the {{ product_name }} Console, go to <b>Applications</b>.</li>
+                <li>Select your SAML application.</li>
+                <li>Go to the <b>Info</b> tab.</li>
+                <li>Under <b>IdP certificate</b>, download the certificate.</li>
+                <li>Open the downloaded certificate file in a text editor and copy the certificate content (the text between <code>-----BEGIN CERTIFICATE-----</code> and <code>-----END CERTIFICATE-----</code>, excluding the header and footer lines).</li>
+                <li>Paste the certificate content as a single line in the <code>IdPPublicCert</code> field.</li>
+              </ol>
+              For more information, see <a href="{{base_path}}/guides/authentication/saml/discover-saml-configs">how to get SAML configurations from the {{ product_name }} Console</a>.
+           </td>
         </tr>
         <tr>
           <td><code>skipURIs</code></td>
