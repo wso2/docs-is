@@ -619,6 +619,7 @@ nav:
                 - Front-channel logout: guides/authentication/oidc/add-logout.md
                 - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
                 - Federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
+            - Advanced OpenID Connect Configurations: guides/authentication/oidc/oauth-app-config-advanced.md
           - Configure SAML flows:
               - Configure SAML flows: guides/authentication/saml/index.md
               - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
@@ -1162,6 +1163,7 @@ nav:
                   - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
               - Conditional authentication:
                   - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
+              - Customize authentication error messages: references/extend/authentication/customize-authentication-error-messages.md
               - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
               - Write a post-authentication handler: references/extend/authentication/write-a-post-authentication-handler.md
           - Identity Federation:
