@@ -1,7 +1,7 @@
 
-In this section, we will focus on how to call a secure API from your Node.js app using the other token—the access token.
+In this section, we will focus on how to call a secure API from your Express.js app using the other token—the access token.
 
-For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer— in this case, the same {{product_name}} organization. This is typical when Node.js apps are interacting with internal APIs within the same organization.
+For simplicity, let's assume that the APIs we’re calling are secured by the same Identity Provider (IdP) and use the same issuer— in this case, the same {{product_name}} organization. This is typical when Express.js apps are interacting with internal APIs within the same organization.
 
 !!! tip "Tip"
 
@@ -126,4 +126,4 @@ When you login to the application and navigate to the `/users` route, you will s
 
 ![Accessing protected API]({{base_path}}/assets/img/complete-guides/nodejs/image16.png){: width="800" style="display: block; margin: 0;"}
 
-In this step, we have successfully called a protected API from our Node.js app using the access token. This is a common requirement in many applications. Next you can look into additional features that {{product_name}} offers to make the authentication flow more diverse and secure.
+In this step, we have successfully called a protected API from our Express.js app using the access token. This is a common requirement in many applications. Next you can look into additional features that {{product_name}} offers to make the authentication flow more diverse and secure.

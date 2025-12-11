@@ -7,7 +7,7 @@
 Next, complete the wizard popup by providing a suitable name and following authorized redirect URLs. Keep OpenID Connect selected as the protocol.
 
 !!! Example
-    **name:** {{product}}-nodejs
+    **name:** {{product}}-expressjs
 
     **Authorized redirect URLs:** http://localhost:3000/oauth2/redirect,http://localhost:3000
 
@@ -24,6 +24,6 @@ You will need the following information available in the Quick Start tab of your
 
 ![Quick start guide]({{base_path}}/assets/img/complete-guides/nodejs/image9.png){: width="800" style="display: block; margin: 0;"}
 
-After creating the application, navigate to **User Management > Users** and [create a new user](https://wso2.com/asgardeo/docs/guides/users/manage-users/#onboard-users). We will use this user to log in to the Node.js app.
+After creating the application, navigate to **User Management > Users** and [create a new user](https://wso2.com/asgardeo/docs/guides/users/manage-users/#onboard-users). We will use this user to log in to the Express.js app.
 
-In this step, we have registered our Node.js app as an application in the {{product_name}} console and generated the required metadata. Next, we will create a Node.js app using the Express.js framework.
+In this step, we have registered our Express.js app as an application in the {{product_name}} console and generated the required metadata. Next, we will create a Express.js app using the Express.js framework.

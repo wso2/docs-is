@@ -5,7 +5,7 @@ template: templates/quick-start.html
 <script>
   const meta = {
     what_you_will_learn: [
-      "Create new Node.js app",
+      "Create a new Express.js app",
       "Install Passport Asgardeo strategy <a href='https://www.npmjs.com/package/@asgardeo/passport-asgardeo' target='_blank' rel='noopener noreferrer'>@asgardeo/passport-asgardeo</a>",
       "Add user login and logout",
       "Display user profile information"

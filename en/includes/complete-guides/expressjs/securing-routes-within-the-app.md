@@ -34,4 +34,4 @@ Now when you try to access the `/users` route without logging in, you will be re
 
 ![Securing routes]({{base_path}}/assets/img/complete-guides/nodejs/image15.png){: width="800" style="display: block; margin: 0;"}
 
-In this step, we looked into how to secure component routes within a Node.js app. Next, we will try to access a protected API from our Node.js app, which is a common requirement in many applications.
+In this step, we looked into how to secure component routes within a Express.js app. Next, we will try to access a protected API from our Express.js app, which is a common requirement in many applications.

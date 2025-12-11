@@ -47,8 +47,8 @@ extra:
               url: Get started|Connect App|Javascript|Quickstart
             - title: Connect Next.js App
               url: Get started|Connect App|Next.js|Quickstart
-            - title: Connect Node.js App
-              url: Get started|Connect App|Node.js|Quickstart
+            - title: Connect Express.js App
+              url: Get started|Connect App|Express.js|Quickstart
             - title: Connect Spring Boot App
               url: Get started|Connect App|Spring Boot Quickstart
         - title: Community and Support
@@ -1362,7 +1362,7 @@ nav:
           - Introduction: complete-guides/expressjs/introduction.md
           - Prerequisite: complete-guides/expressjs/prerequisite.md
           - Configure an application: complete-guides/expressjs/register-an-application.md
-          - Create a Node.js app: complete-guides/expressjs/create-an-expressjs-app.md
+          - Create an Express.js app: complete-guides/expressjs/create-an-expressjs-app.md
           - Configure Passport Asgardeo: complete-guides/expressjs/install-passport-asgardeo.md
           - Add login and logout: complete-guides/expressjs/add-login-and-logout.md
           - Persist user sessions: complete-guides/expressjs/persist-user-sessions.md

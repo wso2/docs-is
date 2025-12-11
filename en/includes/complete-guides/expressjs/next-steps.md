@@ -1,7 +1,7 @@
 
-This guide you just have completed, covered the adding user login for Node.js apps by integrating with an Identity Provider (IdP) and additional use cases such making calls to an OAuth2-protected API. 
+This guide you just have completed, covered the adding user login for Express.js apps by integrating with an Identity Provider (IdP) and additional use cases such making calls to an OAuth2-protected API. 
 
-Now that your Node.js application is secured with authentication features integrated, It is time to explore the additional features {{product_name}} offers to make the login flow more diverse and secure.
+Now that your Express.js application is secured with authentication features integrated, It is time to explore the additional features {{product_name}} offers to make the login flow more diverse and secure.
 
 - [Multi factor authentication]({{ base_path }}/guides/authentication/mfa/){:target="_blank"} 
 - [Passwordless authentication]({{ base_path }}/guides/authentication/passwordless-login/){:target="_blank"} 
