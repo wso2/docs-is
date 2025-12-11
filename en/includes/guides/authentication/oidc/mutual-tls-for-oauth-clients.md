@@ -4,18 +4,16 @@ Mutual TLS (mTLS) is a secure authentication mechanism that ensures both the cli
 
 {{product_name}} supports self-signed X.509 certificate-based mutual TLS for OAuth client authentication and token binding, allowing clients to register their certificates with the authorization server for secure communication. The following steps guide you through  configuring this and testing it with a sample application.
 
-## How it works
+<!-- ## How it works
 
 The flow of mutual TLS client authentication is as follows.
 
 1. A client makes a `/token` endpoint call.
 2. WSO2 IS issues a token by validating certificate information in the HTTP header with a certificate stored in the service provider.
 3. As per the specification, an MTLS certificate validates against the stored SP certificate for a `/token` request issued with the client-credential grant, authorization code grant, or refresh token grant.
-4. The response from the `/introspect` endpoint will present the bounded certificate according to the introspection response defined in the specification.
+4. The response from the `/introspect` endpoint will present the bounded certificate according to the introspection response defined in the specification. -->
 
-Let's try configuring mutual TLS in WSO2 Identity Server and testing it with a sample.
-
-## Configure the authenticator
+<!-- ## Configure the authenticator
 
 To configure the mutual TLS authenticator, follow the [prequisite steps](#prerequisites) and then [configure the mutual TLS client authenticator artifacts](#configure-mutual-tls-client-authenticator-artifacts).
 
@@ -44,16 +42,6 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
     trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
     ```
 
-2. To make the server-side validation optional, set the `clientAuth` attribute to `want` in the same configuration, similar to the following.
-
-    !!! info
-        Mutual TLS supports two-way TLS authentication that allows the server to validate the client and vice versa. Specific applications, e.g., mobile applications, may not require server-side validation.
-
-    ``` toml
-    [transport.https]
-    trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
-    clientAuth="want"
-    ```
 
 3. Download the Mutual TLS Client Authenticator v2.0.3 connector from [here](https://store.wso2.com/store/assets/isconnector/details/bab13ed8-5835-480f-92be-fdd5ee900970).  
 
@@ -68,9 +56,20 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
     name= "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.MutualTLSClientAuthenticator"
     order = 158
     enable = true
+    ``` -->
+
+To make the server-side validation optional, set the `clientAuth` attribute to `want` in the same configuration, similar to the following.
+
+    !!! info
+        Mutual TLS supports two-way TLS authentication that allows the server to validate the client and vice versa. Specific applications, e.g., mobile applications, may not require server-side validation.
+
+    ``` toml
+    [transport.https]
+    trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
+    clientAuth="want"
     ```
 
-6. For mutual TLS authentication to work, the public certificates of the client application and authorization server (WSO2 Identity Server) should be imported to each other's trust stores.
+1. For mutual TLS authentication to work, the public certificates of the client application and authorization server (WSO2 Identity Server) should be imported to each other's trust stores.
 
     For demonstration purposes, let's assume that both the authorization server's truststore (`WSO2_TRUSTSTORE`) and the client's truststore (`CLIENT_TRUSTSTORE`) are in WSO2 Identity Server.
 
@@ -145,9 +144,15 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
 
     6. Click **Update**.
 
+<<<<<<< Updated upstream
 7. Restart the Identity Server.
 
 ### Configure the authenticator artifacts
+=======
+2. Restart the Identity Server.
+
+<!-- ### Configure the authenticator artifacts
+>>>>>>> Stashed changes
 
 1. Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml` file to deploy and configure the mutual TLS client authenticator artifacts.
 
@@ -185,8 +190,7 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
     !!! info
         Add the relevant certificate header name as the `client_certificate_header` value as it appears in the `<IS-HOME>/repsoitory/conf/identity/identity.xml` file.
 
-2. Restart the server to save the configurations.
-
+2. Restart the server to save the configurations. -->
 
 ## Configure the service provider
 
