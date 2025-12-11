@@ -1,4 +1,3 @@
-
 This guide you just have completed, covered the adding user login for Express.js apps by integrating with an Identity Provider (IdP) and additional use cases such making calls to an OAuth2-protected API. 
 
 Now that your Express.js application is secured with authentication features integrated, It is time to explore the additional features {{product_name}} offers to make the login flow more diverse and secure.
