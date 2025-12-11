@@ -1,6 +1,6 @@
-# Node.js Quickstart
+# Express.js Quickstart
 
-Welcome to the Node.js Quickstart guide! In this document, you will learn to build a Node.js app, add user login and display user profile information using {{ product_name }}.
+Welcome to the Express.js Quickstart guide! In this document, you will learn to build an Express.js app, add user login and display user profile information using {{ product_name }}.
 
 [//] STEPS_START
 
@@ -10,7 +10,7 @@ Welcome to the Node.js Quickstart guide! In this document, you will learn to bui
 - Select **Traditional Web Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL. (*Ensure that the protocol remains set to OpenID Connect (OIDC).)*
 
 !!! Example
-    Name : {{ product }}-nodejs
+    Name : {{ product }}-expressjs
 
     Authorized redirect URL: http://localhost:3000/oauth2/redirect, http://localhost:3000/
 
@@ -23,16 +23,16 @@ Make a note of the following values from the **Protocol** tab of the registered 
 - **`client-id`** from the **Protocol** tab.
 - **`client-secret`** from the **Protocol** tab.
 
-## Create a Node.js app
+## Create an Express.js app
 
-Create your new Node.js app using npx `express-generator` command.
+Create your new Express.js app using npx `express-generator` command.
 
 === "npm"
 
     ```bash
-    npx express-generator {{ product }}-nodejs --view=ejs
+    npx express-generator {{ product }}-expressjs --view=ejs
 
-    cd {{ product }}-nodejs
+    cd {{ product }}-expressjs
 
     npm install
 
@@ -42,9 +42,9 @@ Create your new Node.js app using npx `express-generator` command.
 === "yarn"
 
     ```bash
-    yarn dlx express-generator {{ product }}-nodejs --view=ejs
+    yarn dlx express-generator {{ product }}-expressjs --view=ejs
 
-    cd {{ product }}-nodejs
+    cd {{ product }}-expressjs
 
     yarn install
 
@@ -54,9 +54,9 @@ Create your new Node.js app using npx `express-generator` command.
 === "pnpm"
 
     ```bash
-    pnpm dlx express-generator {{ product }}-nodejs --view=ejs
+    pnpm dlx express-generator {{ product }}-expressjs --view=ejs
 
-    cd {{ product }}-nodejs
+    cd {{ product }}-expressjs
 
     pnpm install
 

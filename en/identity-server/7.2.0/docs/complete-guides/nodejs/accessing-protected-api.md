@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Accessing protected API from your Node.js app
+heading: Accessing protected API from your Express.js app
 read_time: 2 min
 ---
 
