@@ -1,5 +1,3 @@
-
-
 In our app, routes define the paths within the application that users can navigate to, linking URLs to specific components. Securing routes is essential to protect sensitive data, prevent unauthorized access, and ensure that only authenticated users can access certain parts of the application. In this section, let’s look at how we can secure routes using {{product_name}} authentication.
 
 You may have noticed that we have a /users route created by default from the Express generator (`users.js` file). Let’s log out from the application and try to access this route at [http://localhost:3000/users](http://localhost:3000/users). You will see that the route is accessible even when you are not logged in.
