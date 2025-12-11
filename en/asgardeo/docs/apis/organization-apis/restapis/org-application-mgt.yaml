@@ -535,8 +535,7 @@ paths:
         This API provides the capability to update an authorized API of the application. <br>
         
         <b>Scope(Permission) required:</b> 
-          - `internal_org_application_mgt_update`
-        
+          - `internal_org_application_mgt_update`  
         
         <b>➕ Additional Scopes</b>
         
