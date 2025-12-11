@@ -14,9 +14,9 @@ In this guide, you will:
 * Install passport.js and other dependencies
 * Add login and logout to your app
 * Display logged in user detail
-* Securing routes within the app
-* Accessing protected API from your Express.js app
-* Managing tokens in your Express.js app
+* Secure routes within the app
+* Access protected APIs from your app
+* Manage tokens in your app
 
 !!! tip "Tip"
 

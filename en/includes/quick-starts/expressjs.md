@@ -344,7 +344,7 @@ Visit your app's homepage at [http://localhost:3000](http://localhost:3000){:tar
 
 ## Display logged in user details
 
-Modify the code as below to see logged in user details.
+Modify the code as below to see logged-in user details.
 
 ```html title="views/index.ejs" hl_lines="11"
 

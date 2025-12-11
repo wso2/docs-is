@@ -198,7 +198,7 @@ Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
 
 ## Display logged in user details
 
-Modify the code as below to see logged in user details.
+Modify the code as below to see logged-in user details.
 
 Add the `username()` function to the `app.component.ts` file to access the username attribute.
 
