@@ -197,6 +197,9 @@ During user onboarding, you can enforce email verification to confirm the provid
         "HTTP/1.1 201 Created"
         ```
 
+    !!! note
+        Newly created users with pending email verification will remain locked until they complete the verification.
+
 4. (Optional) The following curl command resends the verification code to the user's email if the user didn't receive it the first time or the code expired.
 
     !!! abstract ""
