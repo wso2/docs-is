@@ -268,6 +268,29 @@ WSO2 supports the following membership schemes for clustering
                 The port used for communicating cluster messages has to be any port number between 5701 and 5800. The local member host must be set to the IP address bound to the network interface used for communicating with other members in the group (private IP address of EC2 instance).
 
             2. Apply the following parameters to update the values to configure clustering properties.
+
+                **Option 1: Using IAM role (Recommended)**
+
+                If your EC2 instances are configured with an IAM role/instance profile, you can use IAM role-based authentication instead of access keys. This is the recommended approach as it provides more secure, temporary credentials that are automatically rotated by AWS.
+
+                    ```toml
+                    [clustering.properties]
+                    iamRole = "your-iam-role-name"
+                    securityGroup = "security_group_name"
+                    region = "us-east-1"
+                    tagKey = "a_tag_key"
+                    tagValue = "a_tag_value"
+                    ```
+
+                !!! note
+                    - If you don't specify the `iamRole` parameter, the default IAM role attached to the EC2 instance is automatically used.
+                    - The IAM role must have the permissions specified in step 3 below.
+                    - IAM role-based authentication is only supported when running WSO2 Identity Server on EC2 instances. If running outside AWS (such as Lambda functions or external clients), you must use access keys.
+
+                **Option 2: Using access key and secret key**
+
+                Alternatively, you can use AWS access keys for authentication.
+
                     ```toml
                     [clustering.properties]
                     accessKey = "***"
@@ -277,11 +300,17 @@ WSO2 supports the following membership schemes for clustering
                     tagKey = "a_tag_key"
                     tagValue = "a_tag_value"
                     ```
-                It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory.
 
-            3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
+                It's recommended to add all the nodes to the same security group. The `securityGroup` and `region` parameters are mandatory, while `tagKey` and `tagValue` are optional.
+
+            3. Configure the required IAM permissions for AWS clustering.
+
+                Whether you use IAM role-based authentication or access key authentication, the IAM policy below must be attached. This policy grants the necessary permissions to discover EC2 instances for clustering.
+
                 See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy.
-                    Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
+
+                - **For IAM role:** Attach this policy to the IAM role associated with your EC2 instances.
+                - **For access key:** Attach this policy to the IAM user account that generated the access key and secret key.
                     ```json
                     { "Version": "2012-10-17",
                     "Statement":
