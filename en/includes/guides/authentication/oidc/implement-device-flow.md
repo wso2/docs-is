@@ -10,6 +10,7 @@ Refer [how the device authorization flow work]({{base_path}}/references/grant-ty
 
 2. Create a [user account]({{base_path}}/guides/users/manage-users/).
 
+{% if product_name == "WSO2 Identity Server" %}
 3. (Optional) Update device flow configurations.
 
     ??? note "Device flow configurations"
@@ -17,7 +18,7 @@ Refer [how the device authorization flow work]({{base_path}}/references/grant-ty
 
         ```
         [oauth.grant_type.device_code]
-        key_length = 7
+        key_length = 6
         expiry_time = "10m"
         polling_interval = "5s"
         key_set = "BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789"
@@ -29,6 +30,8 @@ Refer [how the device authorization flow work]({{base_path}}/references/grant-ty
         | `expiry_time` | The expiry time of the user code and the device code. |
         | `polling_interval`    | The minimum delay of the client between each polling request to the token endpoint.   |
         | `key_set`   | The set of characters that is used to generate the user code.   |
+
+{% endif %}
 
 ## Get the required codes
 First, your app must initiate a login request to the authorization endpoint of {{ product_name }}. After redirecting to {{ product_name }}, the user should be prompted with a login page if the user is not authenticated.
@@ -44,7 +47,7 @@ First, your app must initiate a login request to the authorization endpoint of {
     curl -k -X POST
     -H 'Content-Type: application/x-www-form-urlencoded'
     --data-urlencode 'client_id=<CLIENT_ID>'
-    https://localhost:9443/oauth2/device_authorize
+    {{ product_url_format }}/oauth2/device_authorize
 
     ```
     ---
@@ -53,18 +56,20 @@ First, your app must initiate a login request to the authorization endpoint of {
     curl -k -X POST 
     -H 'Content-Type: application/x-www-form-urlencoded' 
     --data-urlencode 'client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga' 
-    https://localhost:9443/oauth2/device_authorize
+    {{ product_url_sample }}/oauth2/device_authorize
     ```
 
-Upon successful execution of the request, the WSO2 Identity Server returns the `user_code`, `devicce_code` and the `verification_uri` to the client device.
+Upon successful execution of the request, the {{ product_name }} returns the `user_code`, `device_code` and the `verification_uri` to the client device.
 
 **Sample response**
 
 ```
 {
-    "user_code":"s2DqSNK",
-    "device_code":"d3fe0db1-2334-48fa-b7d9-821ecfad10d5","interval":5000,"verification_uri_complete":"https://localhost:9443/authenticationendpoint/device.do?user_code=s2DqSNK",
-    "verification_uri":"https://localhost:9443/authenticationendpoint/device.do",
+    "user_code":"s2DqSN",
+    "device_code":"d3fe0db1-2334-48fa-b7d9-821ecfad10d5",
+    "interval":5000,
+    "verification_uri_complete":"{{ product_url_sample }}/authenticationendpoint/device.do?user_code=s2DqSN",
+    "verification_uri":"{{ product_url_sample }}/authenticationendpoint/device.do",
     "expires_in":3600
 }
 ```
@@ -106,7 +111,7 @@ Use the following cURL to obtain an access token
     --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code'
     --data-urlencode 'client_id=<CLIENT_ID>'
     --data-urlencode 'device_code=<DEVICE_CODE>'
-    https://localhost:9443/oauth2/token
+    {{ product_url_format }}/oauth2/token
     ```
     ---
     **Request sample**
@@ -116,7 +121,7 @@ Use the following cURL to obtain an access token
     --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code'
     --data-urlencode 'client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga'
     --data-urlencode 'device_code=7411f395-2f3a-4cb5-8562-d7059d69c66f'
-    https://localhost:9443/oauth2/token
+    {{ product_url_sample }}/oauth2/token
     ```
 
 **Sample response**
@@ -129,3 +134,32 @@ Use the following cURL to obtain an access token
     "expires_in":3042
 }
 ```
+
+{% if product_name == "Asgardeo" %}
+
+!!! note
+
+    Find the default values related to the device authorization flow in the Asgardeo.
+    
+    <table>
+    <tr>
+        <td>The length of the user code</td>
+        <td>6</td>
+
+    </tr>
+    <tr>
+        <td>The expiry time of the user code and the device code</td>
+        <td>10 min</td>
+    </tr>
+    <tr>
+        <td>The minimum delay of the client between each polling request to the token endpoint</td>
+        <td>5 seconds </td>
+    </tr>
+    <tr>
+        <td>The set of characters that is used to generate the user code</td>
+        <td>BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz23456789</td>
+    </tr>
+
+    </table>
+
+{% endif %}
