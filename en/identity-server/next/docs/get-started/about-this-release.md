@@ -404,6 +404,10 @@ WSO2 Identity Server introduces two new JavaScript functions for conditional aut
 
 Learn more about these [conditional authentication functions]({{base_path}}/references/conditional-auth/api-reference/#conditional-authentication-api-reference).
 
+- **Enabled reCAPTCHA validation for local Email/SMS OTP authenticators**
+
+    reCAPTCHA validation is now enabled for local Email/SMS OTP authenticators when they are used as first-factor authenticators.
+
 ## Deprecated features
 
 In WSO2 Identity Server 7.2.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users.
