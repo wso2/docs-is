@@ -31,7 +31,7 @@ To update the default Email OTP settings:
 2. Update the following parameters in the **Settings** tab:
 
     ![Setup email OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/emailotp/setup-email-otp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
+    {% if product_name == "WSO2 Identity Server" and (is_version == "7.0.0" or is_version == "7.1.0" or is_version == "7.2.0") %}
     <table>
       <tr>
         <th>Field</th>
@@ -52,6 +52,36 @@ To update the default Email OTP settings:
         <td>Specifies the number of characters allowed in the OTP.</td>
       </tr>
     </table>
+    {% else %}
+    <table>
+      <tr>
+        <th>Field</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Email OTP expiry time</td>
+        <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
+      </tr>
+      <tr>
+        <td>Use alphanumeric characters for OTP</td>
+        <td>
+            Specifies whether to use alphanumeric characters in the OTP. If not selected, the generated OTP contains only digits (0-9).
+        </td>
+      </tr>
+      <tr>
+        <td>Email OTP length</td>
+        <td>Specifies the number of characters allowed in the OTP.</td>
+      </tr>
+      <tr>
+        <td>Allowed OTP resend attempt count</td>
+        <td>Specifies the number of allowed OTP resend attempts.</td>
+      </tr>
+      <tr>
+        <td>Resend block duration</td>
+        <td>Specifies the time duration to block OTP resend requests after reaching the max allowed resend attempts.</td>
+      </tr>
+    </table>
+    {% endif %}
 3. Once you update the Email OTP settings, click **Update**.
 
 ## Enable Email OTP for an app
