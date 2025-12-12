@@ -1,6 +1,7 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
   title:  Asgardeo - SCIM 2.0 Roles V2 API
+  version: v2
   description: |
     This is the RESTful API for SCIM 2.0 Roles API in Asgardeo organizations. 
     This API allows listing roles and updating users and groups of the roles.
@@ -91,12 +92,24 @@ paths:
       tags:
         - Roles Endpoint
       summary: Create Role
-      description: >
+      description: |
         This API creates a role and returns the details of the created role
         including its unique ID. These roles can only be associated with the 
         applications which are created in the organization level. You cannot 
         use these roles with the shared applications from the root organization.
-        <b>Scope(Permission) required:</b> `internal_org_role_mgt_create`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_org_role_mgt_create`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To assign permissions, users, or groups to the role you create, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Assign permissions | `internal_org_role_mgt_permissions_update` |
+          | Assign users | `internal_org_role_mgt_users_update` |
+          | Assign groups | `internal_org_role_mgt_groups_update` |
       operationId: createRoleV2
       requestBody:
         content:
@@ -283,10 +296,23 @@ paths:
       tags:
         - Roles Endpoint
       summary: Update Role - PUT
-      description: "This API updates the **assigned users and groups** of the role.\
-        \ \n**Role name, role audience, role permissions and associated applications**\
-        \ cannot be updated through this API.\n\n<b>Scope(Permission) required:</b>\
-        \ `internal_org_role_mgt_update`\n"
+      description: |
+        This API updates the **assigned users and groups** of a shared and non-shared roles.<br>
+        Also, you can update role name, permissions of non-shared roles.<br>
+        **Role audience and associated applications** can't be updated through this API.
+        
+        <b>Scope(Permission) required:</b>
+          - `internal_org_role_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update permissions, users, or groups assignments of the role, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update permissions | `internal_org_role_mgt_permissions_update` |
+          | Update users | `internal_org_role_mgt_users_update` |
+          | Update groups | `internal_org_role_mgt_groups_update` |
       operationId: updateRoleV2
       parameters:
         - name: id
@@ -432,10 +458,23 @@ paths:
       tags:
         - Roles Endpoint
       summary: Update Role - PATCH
-      description: "This API updates the **assigned users and groups** of the role.\
-        \ \n**Role name, role audience, role permissions and associated applications**\
-        \ cannot be updated through this API.\n\n<b>Scope(Permission) required:</b>\
-        \ `internal_org_role_mgt_update`\n"
+      description: |
+        This API updates the **assigned users and groups** of a shared and non-shared roles.<br>
+        Also, you can update role name, permissions of non-shared roles.<br>
+        **Role audience and associated applications** can't be updated through this API.
+        
+        <b>Scope(Permission) required:</b>
+          - `internal_org_role_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update permissions, users, or groups assignments of the role, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update permissions | `internal_org_role_mgt_permissions_update` |
+          | Update users | `internal_org_role_mgt_users_update` |
+          | Update groups | `internal_org_role_mgt_groups_update` |
       operationId: patchRole
       parameters:
         - name: id
