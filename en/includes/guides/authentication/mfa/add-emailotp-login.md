@@ -78,7 +78,7 @@ To update the default Email OTP settings:
       </tr>
       <tr>
         <td>Resend block duration</td>
-        <td>Specifies the time duration to block OTP resend requests after reaching the max allowed resend attempts.</td>
+        <td>Specifies the time duration to block OTP resend requests after reaching the maximum allowed resend attempts.</td>
       </tr>
     </table>
     {% endif %}
