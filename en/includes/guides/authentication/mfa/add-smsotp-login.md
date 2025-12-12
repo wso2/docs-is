@@ -74,7 +74,7 @@ To update the default SMS OTP settings:
          </tr>
          <tr>
            <td><code>Resend OTP block time</code></td>
-           <td>Specifies the time duration to block OTP resend requests after reaching the max allowed resend attempts.</td>
+           <td>Specifies the time duration to block OTP resend requests after reaching the maximum allowed resend attempts.</td>
          </tr>
     </table>
     {% endif %}
