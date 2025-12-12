@@ -71,14 +71,25 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
 
 2. If the keystore name and password is changed, all the references to it within the WSO2 Identity Server must also be updated. Add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
+    === "Format"
+
+        ``` toml
+        [keystore.primary]
+        file_name = "<keystore_name>"
+        password = "<keystore_password>"
+        alias = "<alias_name>"
+        key_password = "<keystore_password>"
+        type = "<keystore_type>"
+        ```
+
     === "JKS"
 
         ``` toml
         [keystore.primary]
-        file_name = "new-keystore.jks"
-        password = "new-keystore-password"
-        alias = "new-private-key-alias"
-        key_password = "new-private-key-password"
+        file_name = "newkeystore.jks"
+        password = "mypassword"
+        alias = "newcert"
+        key_password = "mypassword"
         type = "JKS"
         ```
 
@@ -86,10 +97,10 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
 
         ``` toml
         [keystore.primary]
-        file_name = "new-keystore.p12"
-        password = "new-keystore-password"
-        alias = "new-private-key-alias"
-        key_password = "new-private-key-password"
+        file_name = "newkeystore.p12"
+        password = "mypassword"
+        alias = "newcert"
+        key_password = "mypassword"
         type = "PKCS12"
         ```
 
