@@ -34,3 +34,70 @@ Follow the steps given below.
     ![Email OTP email]({{base_path}}/assets/img/guides/passwordless/email-otp/email-otp-email.png){: width="400" style="border: 0.3px solid lightgrey;"}
 
 5. Enter the received passcode in the email OTP page and click on **Continue**.
+
+## Configure advanced email OTP settings
+
+The UI options for **Include uppercase characters in OTP** and **Include lowercase characters in OTP** have been removed. To configure the character composition of email OTP codes with specific uppercase/lowercase requirements, use one of the following methods:
+
+### Configure via deployment.toml
+
+Add the following configuration parameters to the `<IS_HOME>/repository/conf/deployment.toml` file under the `[authentication.authenticator.email_otp.parameters]` section.
+
+**Use numeric characters only**
+
+To generate OTP codes with only numeric characters (default behavior):
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = true
+```
+
+**Use alphanumeric characters with uppercase and lowercase**
+
+To generate OTP codes with alphanumeric characters including both uppercase and lowercase letters:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = true
+UseLowercaseCharacters = true
+```
+
+**Use alphanumeric characters with only uppercase**
+
+To generate OTP codes with numbers and uppercase letters only:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = true
+UseLowercaseCharacters = false
+```
+
+**Use alphanumeric characters with only lowercase**
+
+To generate OTP codes with numbers and lowercase letters only:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = false
+UseLowercaseCharacters = true
+```
+
+### Configure via Identity Governance REST API
+
+You can also configure these settings programmatically using the [Identity Governance REST API]({{base_path}}/apis/governance-connectors/). Use the API to retrieve and update the email OTP authenticator connector properties.
+
+**Retrieve current configuration**
+
+Send a GET request to retrieve the current email OTP configuration:
+
+```bash
+curl -X GET "https://<IS_HOST>:<PORT>/api/identity/governance/v1/connectors" \
+-H "Authorization: Bearer <access_token>"
+```
+
+**Update configuration**
+
+Send a PATCH request to update the email OTP configuration with your desired character composition settings.
