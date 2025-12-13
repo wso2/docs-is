@@ -1,5 +1,5 @@
 {% set root_org_description_path = "your-is" %}
 
-{% set root_org_url = "https://localhost:9443/t/carbon.super" %}
+{% set root_org_url = "https://localhost:9443/t/{root-organization-handle}" %}
 
 {% include "../../../../../includes/guides/organization-management/organization-applications.md" %}
