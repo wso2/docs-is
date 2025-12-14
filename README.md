@@ -1,4 +1,4 @@
-# WSO2 Identity Server and Asgardeo documentation
+# WSO2 Identity Server and Asgardeo Documentation
 
 Welcome to the WSO2 Identity Server and Asgardeo documentation repository. We welcome your contributions!
 
