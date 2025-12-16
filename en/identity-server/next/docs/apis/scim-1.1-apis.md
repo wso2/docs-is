@@ -287,6 +287,19 @@ now supports filters like:
 
 ---
 
+## Restrict federated user access
+
+You can restrict federated users from accessing SCIM 1.1 endpoints by adding the following configuration to the `deployment.toml` file:
+
+```toml
+[scim]
+restrict_federated_user_access = true
+```
+
+When this configuration is enabled, federated users will be denied access to all SCIM 1.1 API endpoints.
+
+---
+
 ## Using the SCIM API
 
 This sample scenario is to add users and groups to a super tenant and a

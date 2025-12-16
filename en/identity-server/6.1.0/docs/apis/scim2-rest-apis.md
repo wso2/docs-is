@@ -4,6 +4,22 @@ template: templates/swagger.html
 
 # SCIM 2.0 API Definition
 
+## Restrict federated user access
+
+You can restrict federated users from accessing SCIM 2.0 endpoints by adding the following configurations to the `deployment.toml` file:
+
+```toml
+[scim]
+restrict_federated_user_access = true
+
+[scim2]
+restrict_federated_user_access_to_me_endpoint = true
+```
+
+When these configurations are enabled, federated users will be denied access to SCIM 2.0 API endpoints.
+
+---
+
 ??? Note "Click for instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server.
     
