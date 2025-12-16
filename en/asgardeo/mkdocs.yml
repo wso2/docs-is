@@ -167,6 +167,7 @@ plugins:
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
         'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
+        'guides/user-self-service/self-register-flow.md': 'guides/flows/build-a-flow.md'
 
 exclude_docs: |
   /get-started/hello-world.md
