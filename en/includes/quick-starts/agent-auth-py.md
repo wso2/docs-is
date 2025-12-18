@@ -23,8 +23,8 @@ To establish an identity for your AI agent, begin by registering it in {{ produc
 - Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
 - Click **+ New Agent**.
 - Provide:
-  - Name: A descriptive name for your AI agent for human-readable display purposes
-  - Description (optional): Purpose and functionality of the agent
+    - Name: A descriptive name for your AI agent for human-readable display purposes
+    - Description (optional): Purpose and functionality of the agent
 
 !!! Example
     Name: Math Assistant Agent
@@ -350,8 +350,7 @@ To test the setup without authentication, simply remove the `Authorization` head
     ...
     return McpToolset(
             connection_params=StreamableHTTPConnectionParams(
-                url= "<mcp_server_url>",
-                headers={"Authorization": f"Bearer {agent_token.access_token}"}
+                url= "<mcp_server_url>"
             )
         )
     ...
@@ -360,7 +359,7 @@ To test the setup without authentication, simply remove the `Authorization` head
 ## Test the On-Behalf-Of (OBO) Flow
 
 In the previous step, the AI agent authenticated **itself** using its own credentials.
-Now, let’s look at the second scenario: **the agent authenticating on behalf of a user**.
+Now, let’s look at the scenario where **the agent authenticates on behalf of a user**.
 
 This flow uses:
 
@@ -560,6 +559,7 @@ Here is the updated implementation:
     # Run app
     if __name__ == "__main__":
         asyncio.run(main())
+
     ```
 
 === "Google ADK"
@@ -581,7 +581,7 @@ Here is the updated implementation:
     
     from oauth_callback import OAuthCallbackServer
     
-    
+
     # Load environment variables from .env file
     load_dotenv()
     
@@ -639,7 +639,7 @@ Here is the updated implementation:
         mcp_toolset = await build_toolset()
 
         if mcp_toolset is None:
-+           return
+            return
     
         # Define LLM Agent (Gemini)
         agent = LlmAgent(
@@ -680,6 +680,7 @@ Here is the updated implementation:
     
     if __name__ == "__main__":
         asyncio.run(main())
+
     ```
 
 ## Project Structure (OBO flow)
