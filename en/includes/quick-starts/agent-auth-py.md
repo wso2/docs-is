@@ -4,6 +4,8 @@ Welcome to the Agent Identity Quickstart!
 
 This guide walks you through establishing AI agent identities with **{{ product_name }}**, authenticating agents with their credentials, and integrating them seamlessly with secure MCP servers using Python over modern agent frameworks and cutting-edge AI models.
 
+For the demonstration, let's build a math-capable agent that will interpret conversational queries and invoke specific arithmetic tools exposed by a secured Model Context Protocol (MCP) server to deliver precise calculations.
+
 By the end of this guide, you will have:
 
 - An AI agent that authenticates using Agent Credentials, obtains a token to access a secure MCP Server(AI agent acting on its own)
@@ -23,6 +25,12 @@ To establish an identity for your AI agent, begin by registering it in {{ produc
 - Provide:
   - Name: A descriptive name for your AI agent for human-readable display purposes
   - Description (optional): Purpose and functionality of the agent
+
+!!! Example
+    Name: Math Assistant Agent
+
+    Description: An AI agent that invokes protected MCP tools to answer math-related questions.
+
 - Click **Create** to complete the registration.
 
 After successful registration, your agent will receive a unique **Agent ID** and an **Agent Secret**, which is shown only once. Make sure to store them securely, as you’ll need them later in this guide.
@@ -87,7 +95,7 @@ Pick your agent development framework and install the corresponding dependencies
 === "Google ADK"
 
     ```bash
-    pip install asgardeo asgardeo_ai python-dotenv google-adk==1.20.0 google-genai==1.53.0
+    pip install asgardeo asgardeo_ai python-dotenv google-adk==1.20.0 google-genai==1.54.0
     ```
 
 Create `main.py` that implements an AI agent which first obtains a valid access token from **{{ product_name }}** by authenticating itself. The agent then includes that token in the `Authorization` header (for example `Authorization: Bearer <token>`) when calling the MCP tool.
@@ -611,7 +619,7 @@ Here is the updated implementation:
     
             if auth_code is None:
                 print(f"Authorization failed or cancelled. Error: {error}")
-                return
+                return None
     
             print(f"Received auth_code={auth_code}")
     
@@ -629,6 +637,9 @@ Here is the updated implementation:
     async def main():
     
         mcp_toolset = await build_toolset()
+
+        if mcp_toolset is None:
++           return
     
         # Define LLM Agent (Gemini)
         agent = LlmAgent(
