@@ -1125,6 +1125,7 @@ nav:
           - Consent management API: apis/consent-management-api-definition.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
+      - User credential management API: apis/end-user-credential-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
       - User management:
         - SCIM 2.0 API:
@@ -1182,6 +1183,7 @@ nav:
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
       - Server configuration API: apis/organization-apis/configs.md
       - Validation rules API: apis/organization-apis/validation-rules.md
+      - User credential management API: apis/end-user-credential-management-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
