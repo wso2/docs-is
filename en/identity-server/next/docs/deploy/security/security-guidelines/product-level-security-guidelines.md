@@ -299,3 +299,17 @@ For the scenarios listed below, you can define a regular expression to validate 
 <!-- TODO - [Username Recovery]({{base_path}}/guides/identity-lifecycles/recover-username/#enable-username-recovery)-->
 - [Self User Registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/)
 <!-- TODO - [Lite User Registration]({{base_path}}/guides/identity-lifecycles/lite-user-registration) -->
+
+## Prevention of sensitive data from being passed as query parameters in certain API requests
+
+WSO2 Identity Server (WSO2 IS) is configured to reject certain sensitive parameters when they are passed as part of a request's URL query string, thereby preventing them from being exposed in server access logs. This is enforced for token endpoints and other relevant APIs.
+
+This restriction is managed using a configurable list. By default, `username`, `password` and `client_secret` are restricted.
+
+To override the default restricted list and specify your own set of parameters to block, use the `restricted_query_parameters` property defined under the `[oauth]` section in the `deployment.toml` file, which is located in the `<IS_HOME>/repository/conf/` directory. Any parameter added to this list will be rejected by the server if it appears in the URL query string of a relevant request.
+
+Example: Restricting only the `client_secret` parameter
+```
+[oauth]
+restricted_query_parameters=["client_secret"]
+```
