@@ -159,31 +159,31 @@ The following configurations need to be done in both the WSO2 Identity Server no
 1. Enable clustering on node one and node two by setting the membership scheme that fits your deployment by editing the
    `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    !!! info
-        The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes]({{base_path}}/deploy/clustering-overview/#about-membership-schemes).-->
-        Configurations for each membership scheme are listed below.
+    The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes]({{base_path}}/deploy/clustering-overview/#about-membership-schemes).--> Configurations for each membership scheme are listed below.
+   
+    === "WKA scheme"
 
-        ??? tip "Click to see the instructions for the WKA scheme"
-            Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add the following configurations.
-            Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.
-                    ```
-                    [clustering]
-                    membership_scheme = "wka"
-                    local_member_host = "192.168.2.1"
-                    local_member_port = "4000"
-                    members = ["192.168.2.1:4000", "192.168.2.2:4001"]
-                    ```
-            Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes in our sample cluster configuration, we will configure both as WKA nodes.
+        Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add the following configurations.
+        Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.
+        ```
+        [clustering]
+        membership_scheme = "wka"
+        local_member_host = "192.168.2.1"
+        local_member_port = "4000"
+        members = ["192.168.2.1:4000", "192.168.2.2:4001"]
+        ```
+        
+        Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes in our sample cluster configuration, we will configure both as WKA nodes.
 
-            You can also use IP address ranges for the `hostName`. For example, `192.168.1.2-10`. This should ensure that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define a range only for the last portion of the IP address. You should also keep in mind that the smaller the range, the faster it discovers members since each node has to scan fewer potential members.
+        You can also use IP address ranges for the `hostName`. For example, `192.168.1.2-10`. This should ensure that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define a range only for the last portion of the IP address. You should also keep in mind that the smaller the range, the faster it discovers members since each node has to scan fewer potential members.
+        
+    === "AWS ECS"
 
-        ??? tip "Click to see the instructions for the AWS ECS membership scheme"
+        AWS ECS supports two launch types: **EC2** and **Fargate**. Choose the appropriate configuration based on your deployment preference.
 
-            AWS ECS supports two launch types: **EC2** and **Fargate**. Choose the appropriate configuration based on your deployment preference.
+        === "EC2"
 
-            ??? info "EC2 Launch Type Configuration"
-
-                1. Create a working AWS ECS Cluster with EC2 launch type. Note the following when creating a cluster.
+            1. Create a working AWS ECS Cluster with EC2 launch type. Note the following when creating a cluster.
                     -   Select the `EC2 instance` launch type.
                     -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
                     -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached.
@@ -206,7 +206,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
                             ```
                     -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
 
-                2. Create a `deployment.toml` file in a preferred directory and add the following configurations.
+                1. Create a `deployment.toml` file in a preferred directory and add the following configurations.
                         ```
                         [clustering]
                         membership_scheme = "aws-ecs"
@@ -225,10 +225,10 @@ The following configurations need to be done in both the WSO2 Identity Server no
 
                 !!! note
                     Once all the configurations are complete, build a docker image including the configurations. You can use this Docker image to create a `Task Definition`, and make sure to set the network mode to `host` in the definition. Then run a new `Service` or a `Task` on the `AWS ECS cluster` you created.
+        
+        === "Fargate"
 
-            ??? info "Fargate Launch Type Configuration"
-
-                1. Create a working AWS ECS Cluster with Fargate launch type. Note the following when creating a cluster.
+            2. Create a working AWS ECS Cluster with Fargate launch type. Note the following when creating a cluster.
                     -   Select the `Fargate` launch type.
                     -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
                     -   Ensure that the `Task execution role` has the following permissions:
@@ -252,7 +252,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
                             ```
                     -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
 
-                2. Create a `deployment.toml` file in a preferred directory and add the following configurations.
+                1. Create a `deployment.toml` file in a preferred directory and add the following configurations.
                         ```
                         [clustering]
                         membership_scheme = "aws-ecs"
@@ -273,56 +273,61 @@ The following configurations need to be done in both the WSO2 Identity Server no
                 !!! note
                     Once all the configurations are complete, build a docker image including the configurations. You can use this Docker image to create a `Task Definition` for Fargate. The network mode will be automatically set to `awsvpc` for Fargate tasks. Then run a new `Service` on the `AWS ECS cluster` you created.
 
-        ??? tip "Click to see the instructions for the AWS EC2 membership scheme"
+    === "AWS EC2"
 
-            When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode. Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and make the following changes.
+        When WSO2 products are deployed in clustered mode on Amazon EC2 instances, it is recommended to use the AWS clustering mode. Open the `deployment.toml` file (stored in the `<IS_HOME>/repository/conf/` directory) and make the following changes.
 
-            1. Apply the following configuration parameters and update the values for the server to enable AWS clustering.
-                    ```toml
-                    [clustering]
-                    membership_scheme = "aws"
-                    domain = "wso2.carbon.domain"
-                    local_member_host = "10.0.21.80"
-                    local_member_port = "5701"
-                    ```
-                The port used for communicating cluster messages has to be any port number between 5701 and 5800. The local member host must be set to the IP address bound to the network interface used for communicating with other members in the group (private IP address of EC2 instance).
+        1. Apply the following configuration parameters and update the values for the server to enable AWS clustering.
+            
+            ```toml
+            [clustering]
+            membership_scheme = "aws"
+            domain = "wso2.carbon.domain"
+            local_member_host = "10.0.21.80"
+            local_member_port = "5701"
+            ```
+                
+            The port used for communicating cluster messages has to be any port number between 5701 and 5800. The local member host must be set to the IP address bound to the network interface used for communicating with other members in the group (private IP address of EC2 instance).
 
-            2. Apply the following parameters to update the values to configure clustering properties.
-                    ```toml
-                    [clustering.properties]
-                    accessKey = "***"
-                    secretKey = "***"
-                    securityGroup = "security_group_name"
-                    region = "us-east-1"
-                    tagKey = "a_tag_key"
-                    tagValue = "a_tag_value"
-                    ```
-                It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory.
+        2. Apply the following parameters to update the values to configure clustering properties.
+            
+            ```toml
+            [clustering.properties]
+            accessKey = "***"
+            secretKey = "***"
+            securityGroup = "security_group_name"
+            region = "us-east-1"
+            tagKey = "a_tag_key"
+            tagValue = "a_tag_value"
+            ```
+            
+            It's recommended to add all the nodes to the same security group. The AWS credentials and security group depend on your configurations in the Amazon EC2 instance. The `tagKey` and `tagValue` are optional and the rest of the above parameters are mandatory.
 
-            3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below.
-                See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy.
-                    Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
-                    ```json
-                    { "Version": "2012-10-17",
-                    "Statement":
+        3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below. See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy.
+        
+        Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
+            
+            ```json
+            { "Version": "2012-10-17", 
+            "Statement":  
+            [ 
+            { 
+                "Effect": "Allow",
+                "Action":
                     [
-                    {
-                        "Effect": "Allow",
-                        "Action":
-                            [
-                            "ec2:DescribeAvailabilityZones",
-                            "ec2:DescribeInstances"
-                            ],
-                            "Resource": [ "*" ]
-                    }
-                    ]
-                    }
-                    ```
+                    "ec2:DescribeAvailabilityZones",
+                    "ec2:DescribeInstances"
+                    ],
+             "Resource": [ "*" ]
+            }]}
+            
+            ```
 
-        ??? tip "Click to see the instructions for the Kubernetes membership scheme"
-            When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables the automatic discovery of these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
+    === "Kubernetes"
+            
+        When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables the automatic discovery of these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
 
-            - Configure the `<IS_HOME>/repository/conf/deployment.toml` file with the following configurations.
+        - Configure the `<IS_HOME>/repository/conf/deployment.toml` file with the following configurations.
 
             | Parameter | Description   | Example   |
             |-----------|---------------|-----------|
@@ -331,17 +336,17 @@ The following configurations need to be done in both the WSO2 Identity Server no
             | `KUBERNETES_NAMESPACE`  | This is the Kubernetes Namespace in which the pods are deployed.  | `wso2-is` |
             | `KUBERNETES_SERVICES`   | These are the Kubernetes Services that belong in the cluster. | `wso2is-service` |
 
-            ```toml
-            [clustering]
-            membership_scheme = "kubernetes"
-            local_member_port = "4000"
+        ```toml
+        [clustering]
+        membership_scheme = "kubernetes"
+        local_member_port = "4000"
 
-            [clustering.properties]
-            KUBERNETES_NAMESPACE = "wso2-is"
-            KUBERNETES_SERVICES = "wso2is-service"
-            ```
+        [clustering.properties]
+        KUBERNETES_NAMESPACE = "wso2-is"
+        KUBERNETES_SERVICES = "wso2is-service"
+        ```
 
-            - In order to retrieve the pod IP address information from the Kubernetes api server, the Kubernetes membership scheme uses the pod's service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the role you bind has the following permissions.
+        - In order to retrieve the pod IP address information from the Kubernetes api server, the Kubernetes membership scheme uses the pod's service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the role you bind has the following permissions.
 
                 ```toml
                 rules:
