@@ -373,3 +373,22 @@ For the scenarios listed below, you can define a regular expression to validate 
 - [Username Recovery](../../../guides/identity-lifecycles/recover-username/#enable-username-recovery)
 - [Self User Registration](../../../guides/identity-lifecycles/self-registration-workflow/)
 - [Lite User Registration](../../../guides/identity-lifecycles/lite-user-registration)
+
+## Prevention of sensitive data from being passed as query parameters in certain API requests
+
+By default, WSO2 Identity Server (WSO2 IS) accepts sensitive user credentials (such as `username`, `password`, `client_secret`) when they are passed as form parameters in the request body for token endpoints. However, an application misconfiguration can lead to these sensitive parameters being passed as part of the URL's query string, which may result in them being exposed in server access logs.
+
+To mitigate this security risk, you can configure WSO2 IS to reject requests that contain sensitive data in the query parameters for specific endpoints.
+
+To disable the acceptance of sensitive data in query parameters, add the following configuration to the `deployment.toml` file, located in the `<IS_HOME>/repository/conf/` directory of the WSO2 Identity Server:
+
+```
+[request_parameters]
+allow_sensitive_data_in_url=false
+```
+
+When set to `false`, the server will reject such requests with an HTTP 400 Bad Request error.
+
+!!! info
+
+    This feature is available from **6.1.0.183** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/). It is recommended to apply this configuration as part of your secure production deployment.
