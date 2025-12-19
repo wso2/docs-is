@@ -377,4 +377,3 @@ When set to `false`, the server will reject such requests with an HTTP 400 Bad R
 !!! info
 
     This feature is available from **5.11.0.359** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/). It is recommended to apply this configuration as part of your secure production deployment.
-    
