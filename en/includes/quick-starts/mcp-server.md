@@ -8,11 +8,11 @@ Welcome to the Asgardeo MCP Server Quickstart! In this document, you will learn 
 
 [//] STEPS_START
 
-## Configure Asgardeo access for MCP server
+## Configure {{ product_name }} access for MCP server
 
-The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perform the actions required by each MCP tool.
+The Asgardeo MCP Server communicates with the {{ product_name }} Management APIs to perform the actions required by each MCP tool.
 To enable this, it must first get an access token with the appropriate scopes. This requires configuring access to
-your Asgardeo organization by creating a Machine-to-Machine (M2M) application and authorizing API Resources and Scopes to access the
+your {{ product_name }} organization by creating a Machine-to-Machine (M2M) application and authorizing API Resources and Scopes to access the
 necessary APIs.
 
 Follow these steps to set up the M2M application:
@@ -32,7 +32,7 @@ Note down the following values from the **Protocol** tab of the registered appli
 Next, you need to authorize the API resources and corresponding scopes required for the actions performed by the MCP tools.
 The following table includes the required API resources and scopes for all currently supported tools.
 
-| **Asgardeo Management API** | **Required scopes** |
+| **{{ product_name }} Management API** | **Required scopes** |
 |--------|---------|
 | **Application Management API** (`/api/server/v1/applications`) | `internal_application_mgt_view`, `internal_application_mgt_update`, `internal_application_mgt_create` |
 | **API Resource Management API** (`/api/server/v1/api-resources`) | `internal_api_resource_update`, `internal_api_resource_create`, `internal_api_resource_view` |
@@ -42,7 +42,7 @@ The following table includes the required API resources and scopes for all curre
 | **SCIM2 Users API** (`/scim2/Users`) | `internal_user_mgt_create` |
 | **OIDC Scope Management API** (`/api/server/v1/oidc/scopes`) | `internal_oidc_scope_mgt_view` |
 
-To authorize API resources, navigate to the **API Authorization** tab within your Asgardeo application settings and
+To authorize API resources, navigate to the **API Authorization** tab within your {{ product_name }} application settings and
 click the **Authorize an API Resource** button. In the pop-up window that appears, use the dropdown to search and select
 the necessary API Resources from the Management APIs and authorize necessary scopes.
 
@@ -53,7 +53,37 @@ the necessary API Resources from the Management APIs and authorize necessary sco
 
 Once completed, your API Authorization configuration should resemble the example shown in the screenshot.
 
-![Asgardeo M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
+![{{ product_name }} M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
+
+{% if product_name == "WSO2 Identity Server" %}
+
+## Subscribe to WSO2 Identity Server AI features
+
+If you plan to use the **login flow update** functionality via MCP Server, ensure that the required AI features are enabled and configured in your {{ product_name }} deployment.
+
+For detailed instructions, refer to the [Subscribe to AI features guide](https://is.docs.wso2.com/en/latest/get-started/subscribe-to-ai-features/).
+
+## Configure certificate trust for local or internal environments
+
+If you are using a local development setup or operating within an internal network where the {{ product_name }} runs with a self-signed or untrusted TLS certificate, you must configure the MCP client to trust it.
+
+Follow these steps:
+
+1. Open a terminal in the {{ product_name }} base directory.
+
+2. Navigate to the `repository/resources/security` directory:
+   ```bash
+   cd repository/resources/security
+   ```
+
+3. Export the certificate from the default keystore:
+   ```bash
+   openssl pkcs12 -in wso2carbon.p12 -nokeys -out ./wso2is_cert.pem -legacy
+   ```
+
+4. Use the generated **`wso2is_cert.pem`** file when configuring the MCP client to establish trusted communication.
+
+{% endif %}
 
 ## Build Asgardeo MCP server
 
@@ -210,34 +240,34 @@ After running the above command, make sure to copy the absolute path to the gene
     }
     ```
 
-## Verify Asgardeo MCP server setup
+## Verify {{ product_name }} MCP server setup
 
 Use the following simple prompt to verify whether you have configured Asgardeo MCP Server successfully.
 
 ```text
-List my Asgardeo applications, names only
+List my {{ product_name }} applications, names only
 
 ```
 
-Depending on the code editor you're using, you should see a list of results. The output may vary based on the number of applications you've created in Asgardeo, but you should see at least one application name listed.
+Depending on the code editor you're using, you should see a list of results. The output may vary based on the number of applications you've created in {{ product_name }}, but you should see at least one application name listed.
 
 === " VS Code  "
-    Asgardeo application list displayed in VS Code.
+    {{ product_name }} application list displayed in VS Code.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image2.png){: width="500" style="display: block; margin: 0;"}
 
 === " Cursor  "
-    Asgardeo application list displayed in Cursor.
+    {{ product_name }} application list displayed in Cursor.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image3.png){: width="500" style="display: block; margin: 0;"}
 
 === " Windsurf  "
-    Asgardeo application list displayed in Windsurf.
+    {{ product_name }} application list displayed in Windsurf.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image4.png){: width="500" style="display: block; margin: 0;"}
 
 === " Claude Desktop "
-    Asgardeo application list displayed in Claude Desktop.
+    {{ product_name }} application list displayed in Claude Desktop.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image5.png){: width="800" style="display: block; margin: 0;"}
 
@@ -255,6 +285,6 @@ Explore these guides to put your setup into action and see how natural-language-
 
     During tool execution, you will be prompted to give **explicit consent** for the action. It’s recommended to 
     approve actions with "Approve Once" option rather than selecting "Approve Always" option so you retain full control and visibility
-    over the operations performed in your Asgardeo organization.
+    over the operations performed in your {{ product_name }} organization.
 
 [//] STEPS_END
