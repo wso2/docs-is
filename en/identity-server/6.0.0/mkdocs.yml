@@ -876,7 +876,7 @@ plugins:
               'learn/configuring-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/enable-single-sign-on/'
               'learn/configuring-recaptcha-for-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/configure-recaptcha-for-single-sign-on/'
               'learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/saml-2.0-web-sso/': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
+              'learn/saml-2.0-web-sso.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
               'learn/configuring-saml2-web-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
               'learn/querying-saml-assertions.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/query-saml-assertions/'
               'learn/configuring-saml-2.0-artifact-binding.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/use-artifact-binding/'
