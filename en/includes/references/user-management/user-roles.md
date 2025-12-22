@@ -3,7 +3,7 @@
 
 # Asgardeo user roles
 
-Roles assigned to a group or user determine their permissions for accessing resources in the organization. Asgardeo offers set of default roles that tailor the Console experience to privileged users. As the organization administrator/owner, you can assign these roles to privileged users.
+Roles assigned to a group or user determine their permissions for accessing resources in the organization. Asgardeo offers a set of default roles that tailor the Console experience to privileged users. As the organization administrator/owner, you can assign these roles to privileged users.
 
 !!! note
 
@@ -12,11 +12,11 @@ Roles assigned to a group or user determine their permissions for accessing reso
 <table>
   <tr>
     <td><b>Administrator</b></td>
-    <td>This role provides all administrative permissions in the organization. An administrator is a privileged user who has full access to the organization.</td>
+    <td>This role provides all administrative permissions in the organization. An administrator has full access to the organization as a privileged user.</td>
   </tr>
   <tr>
     <td><b>Auditor</b></td>
-    <td>This role provides list and view permissions to Asgardeo resources. With read-only access to all resources in the Asgardeo Console, it's ideal for troubleshooting issues and supporting other users within the organization.. </td>
+    <td>This role provides list and view permissions to Asgardeo resources. With read-only access to all resources in the Asgardeo Console, this role suits troubleshooting issues and supporting other users within the organization. </td>
   </tr>
   <tr>
     <td><b>Editor - Applications</b></td>
@@ -348,7 +348,7 @@ In line with the updated permissions,
 
 - If a user affected by this change needs the lost permissions, you can assign a different role to that user. When doing so, review all permissions in that role before making the assignment.
   
-The updated permissions will be as follows.
+The following tables show the updated permissions.
 
 ??? example "Editor - Applications"
 
@@ -490,16 +490,16 @@ The updated permissions will be as follows.
 
 # {{ product_name }} user roles
 
-Roles define the permissions where users need to access {{ product_name }} resources such as functions available on the {{ product_name }} Console, REST APIs, etc.
+Roles define the permissions required for the users to access the {{ product_name }} resources such as functions available on the {{ product_name }} Console, REST APIs, etc.
 
-When you assign a role to a user, you are controlling what the user can do in {{ product_name }}.
+When you assign a role to a user, you control what the user can do in {{ product_name }}.
 
 By default, {{ product_name }} has the **{{ admin_role_name }}** user role. This role includes all administrative permissions in the organization. An organization can have many users with the
-{{ admin_role_name }} role. An {{ admin_role_name }} is a privileged user who has full access to the organization.
+{{ admin_role_name }} role. An {{ admin_role_name }} represents a privileged user who has full access to the organization.
 
 <!-- 2. **Application developer**: This role includes the permissions required for registering and managing applications. The application developer is a privileged user who can integrate applications with {{ product_name }}. 
 
-3. **Administrative auditor**: This role includes list and view permissions to {{ product_name }} resources, which is useful in troubleshooting issues and providing support for other users in the organization. This role provides users read only access to the organization.
+1. **Administrative auditor**: This role includes list and view permissions to {{ product_name }} resources, which is useful in troubleshooting issues and providing support for other users in the organization. This role provides users read only access to the organization.
 
 Only [Administrators]({{base_path}}/guides/users/manage-administrators/) can be assigned to {{ product_name }} roles, and an administrator can be assigned only with one role.
 
@@ -828,9 +828,9 @@ Follow the steps below to configure a custom console role in {{ product_name }}.
 
 ### Assign users to console role
 
-You can assign users to the roles from,
+You can assign users to roles using either of the following methods:
 
-1. On the **Console Settings** > **Administrators** tab, click **Add Administrator** select the user and the role to assign.
+1. On the **Console Settings** > **Administrators** tab, click **Add Administrator**, then select the user and the role to assign.
    ![assign-role-from-administrator]({{base_path}}/assets/img/references/user-management/assign-console-role-from-administrator-tab.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 2. On the **Console Settings** > **Roles** tab, click on the role you want to assign. In the **Role Settings** page, go to the **Users** tab and click **Assign User** to assign users to the role.
    ![assign-role-from-roles]({{base_path}}/assets/img/references/user-management/assign-console-role-from-roles-tab.png){: width="650" style="display: block; margin: 0; border: 0px;"}
@@ -843,6 +843,6 @@ You can assign users to the roles from,
 ### Try it out
 
 1. Copy the console url from **Console Settings** page.
-2. Share it with the users assigned to the console role to log in to the {{ product_name }} Console with the assigned role with specific permissions.
+2. Share it with the assigned users to log in to the {{ product_name }} Console.
 
 {% endif %}
