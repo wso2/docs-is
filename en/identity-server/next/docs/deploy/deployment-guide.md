@@ -160,7 +160,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
    `<IS_HOME>/repository/conf/deployment.toml` file.
 
     The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes]({{base_path}}/deploy/clustering-overview/#about-membership-schemes).--> Configurations for each membership scheme are listed below.
-   
+
     === "WKA scheme"
 
         Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add the following configurations.
@@ -184,40 +184,44 @@ The following configurations need to be done in both the WSO2 Identity Server no
         === "EC2"
 
             1. Create a working AWS ECS Cluster with EC2 launch type. Note the following when creating a cluster.
-                    -   Select the `EC2 instance` launch type.
-                    -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
-                    -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached.
-                            ```
-                            { "Version": "2012-10-17",
-                                 "Statement":
+                
+                -   Select the `EC2 instance` launch type.
+                -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
+                -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached.
+                    
+                    ```json
+                    { "Version": "2012-10-17",
+                         "Statement":
+                         [
+                         {
+                             "Effect": "Allow",
+                             "Action":
                                  [
-                                 {
-                                     "Effect": "Allow",
-                                     "Action":
-                                         [
-                                         "ec2:DescribeAvailabilityZones",
-                                         "ec2:DescribeInstances"
-                                         ],
-                                         "Resource": [ "*" ]
-                                 }
-                                 ]
-                            }
+                                 "ec2:DescribeAvailabilityZones",
+                                 "ec2:DescribeInstances"
+                                 ],
+                                 "Resource": [ "*" ]
+                         }
+                         ]
+                    }
+                    ```
+                    
+                -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
 
-                            ```
-                    -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
+            2. Create a `deployment.toml` file in a preferred directory and add the following configurations.
+                
+                ```toml
+                [clustering]
+                membership_scheme = "aws-ecs"
 
-                1. Create a `deployment.toml` file in a preferred directory and add the following configurations.
-                        ```
-                        [clustering]
-                        membership_scheme = "aws-ecs"
+                [clustering.properties]
+                region = "us-east-1"
+                clusterName = "ECS-IS-CLUSTER"
+                hostHeader = "ec2"
+                vpcCidrBlock = "10.0.*.*"
+                tagValue = "a_tag_value"
+                ```
 
-                        [clustering.properties]
-                        region = "us-east-1"
-                        clusterName = "ECS-IS-CLUSTER"
-                        hostHeader = "ec2"
-                        vpcCidrBlock = "10.0.*.*"
-                        tagValue = "a_tag_value"
-                        ```
                 Under the `clustering.properties` section, set the `region`, `clusterName`, `tagValue` and `vpcCidrBlock` based on the AWS ECS cluster you created in the previous step. The `tagValue` is derived from the auto-generated tag `aws:cloudformation:stack-name` in the AWS cluster. If the `aws:cloudformation:stack-name` tag is not available in the cluster or you prefer to use a custom tag, make sure to specify both the `tagKey` and `tagValue`.
 
                 !!! note
@@ -228,43 +232,48 @@ The following configurations need to be done in both the WSO2 Identity Server no
         
         === "Fargate"
 
-            2. Create a working AWS ECS Cluster with Fargate launch type. Note the following when creating a cluster.
-                    -   Select the `Fargate` launch type.
-                    -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
-                    -   Ensure that the `Task execution role` has the following permissions:
-                            ```
-                            { "Version": "2012-10-17",
-                                 "Statement":
+            1. Create a working AWS ECS Cluster with Fargate launch type. Note the following when creating a cluster.
+                    
+                -   Select the `Fargate` launch type.
+                -   Note the `name` and `VPC CIDR block` of the cluster, as you will require them later for configurations.
+                -   Ensure that the `Task execution role` has the following permissions:
+                            
+                    ```json
+                    { "Version": "2012-10-17",
+                         "Statement":
+                         [
+                         {
+                             "Effect": "Allow",
+                             "Action":
                                  [
-                                 {
-                                     "Effect": "Allow",
-                                     "Action":
-                                         [
-                                            "ecs:ListTasks",
-                                            "ecs:DescribeTasks",
-                                            "ec2:DescribeNetworkInterfaces"
-                                         ],
-                                         "Resource": [ "*" ]
-                                 }
-                                 ]
-                            }
+                                    "ecs:ListTasks",
+                                    "ecs:DescribeTasks",
+                                    "ec2:DescribeNetworkInterfaces"
+                                 ],
+                                 "Resource": [ "*" ]
+                         }
+                         ]
+                    }
 
-                            ```
-                    -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
+                    ```
+                
+                -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict access to instances in the same security group for this inbound rule.
 
-                1. Create a `deployment.toml` file in a preferred directory and add the following configurations.
-                        ```
-                        [clustering]
-                        membership_scheme = "aws-ecs"
+            2. Create a `deployment.toml` file in a preferred directory and add the following configurations.
+                        
+                ```toml
+                [clustering]
+                membership_scheme = "aws-ecs"
 
-                        [clustering.properties]
-                        region = "us-east-1"
-                        clusterName = "ECS-IS-CLUSTER-FARGATE"
-                        hostHeader = "ecs"
-                        vpcCidrBlock = "10.0.*.*"
-                        tagKey = "a_tag_key"
-                        tagValue = "a_tag_value"
-                        ```
+                [clustering.properties]
+                region = "us-east-1"
+                clusterName = "ECS-IS-CLUSTER-FARGATE"
+                hostHeader = "ecs"
+                vpcCidrBlock = "10.0.*.*"
+                tagKey = "a_tag_key"
+                tagValue = "a_tag_value"
+                ```
+                
                 Under the `clustering.properties` section, set the `region`, `clusterName`, `tagKey`, `tagValue` and `vpcCidrBlock` based on the AWS ECS cluster you created in the previous step. Make sure to specify both the `tagKey` and `tagValue` as Fargate tasks do not have the `aws:cloudformation:stack-name` tag by default.
 
                 !!! note
@@ -305,7 +314,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
 
         3. To provide specific permissions for creating an access key and secret key for only this AWS clustering attempt, use the custom policy block given below. See the [AWS documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) for details on how to add the custom IAM policy.
         
-        Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
+        4. Attach this to the user account that will operate AWS clustering in your WSO2 IS. The access key and secret key can only be used to list EC2 instance details in the AWS account.
             
             ```json
             { "Version": "2012-10-17", 
@@ -324,8 +333,8 @@ The following configurations need to be done in both the WSO2 Identity Server no
             ```
 
     === "Kubernetes"
-            
-        When WSO2 IS nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables the automatic discovery of these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
+
+        When {{product_name}} nodes are deployed in clustered mode on Kubernetes, the Kubernetes Membership Scheme enables the automatic discovery of these servers. The Kubernetes Membership Scheme supports finding the pod IP addresses using the Kubernetes API.
 
         - Configure the `<IS_HOME>/repository/conf/deployment.toml` file with the following configurations.
 
@@ -336,32 +345,31 @@ The following configurations need to be done in both the WSO2 Identity Server no
             | `KUBERNETES_NAMESPACE`  | This is the Kubernetes Namespace in which the pods are deployed.  | `wso2-is` |
             | `KUBERNETES_SERVICES`   | These are the Kubernetes Services that belong in the cluster. | `wso2is-service` |
 
-        ```toml
-        [clustering]
-        membership_scheme = "kubernetes"
-        local_member_port = "4000"
+            ```toml
+            [clustering]
+            membership_scheme = "kubernetes"
+            local_member_port = "4000"
 
-        [clustering.properties]
-        KUBERNETES_NAMESPACE = "wso2-is"
-        KUBERNETES_SERVICES = "wso2is-service"
-        ```
+            [clustering.properties]
+            KUBERNETES_NAMESPACE = "wso2-is"
+            KUBERNETES_SERVICES = "wso2is-service"
+            ```
 
         - In order to retrieve the pod IP address information from the Kubernetes api server, the Kubernetes membership scheme uses the pod's service account. Hence, the pods need to be associated with a service account that has permission to read the "endpoints" resource. Make sure the role you bind has the following permissions.
 
-                ```toml
-                rules:
-                - apiGroups: [""]
-                  verbs: ["get", "list"]
-                  resources: ["endpoints"]
-                ```
+            ```toml
+            rules:
+            - apiGroups: [""]
+              verbs: ["get", "list"]
+              resources: ["endpoints"]
+            ```
 
-            - Optionally, a Kubernetes token or basic authentication can be used to authenticate with the Kubernetes api server.
-            The following properties can be set under `[clustering.properties]` accordingly.
-                - `KUBERNETES_API_SERVER`: This is the Kubernetes API endpoint,e.g., `http://172.17.8.101:8080`. Alternatively, an https endpoint can be set via `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT_HTTPS`.
-                - `KUBERNETES_SERVICE_HOST`: This is the Kubernetes API hostname or IP address, e.g., `kuberneteshostname`.
-                - `KUBERNETES_SERVICE_PORT_HTTPS`: This is the Kubernetes API https listening port. This must be an integer value.
-                - `KUBERNETES_API_SERVER_TOKEN`: This is the Kubernetes Master token for authentication (optional), e.g., `yourkubernetestoken`.
-
+        - Optionally, a Kubernetes token or basic authentication can be used to authenticate with the Kubernetes api server. The following properties can be set under `[clustering.properties]` accordingly.
+            
+            - `KUBERNETES_API_SERVER`: This is the Kubernetes API endpoint,e.g., `http://172.17.8.101:8080`. Alternatively, an https endpoint can be set via `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT_HTTPS`.
+            - `KUBERNETES_SERVICE_HOST`: This is the Kubernetes API hostname or IP address, e.g., `kuberneteshostname`.
+            - `KUBERNETES_SERVICE_PORT_HTTPS`: This is the Kubernetes API https listening port. This must be an integer value.
+            - `KUBERNETES_API_SERVER_TOKEN`: This is the Kubernetes Master token for authentication (optional), e.g., `yourkubernetestoken`.
 
 2. Configure caching.
 
