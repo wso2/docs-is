@@ -162,7 +162,13 @@ If you are implementing the authorization code flow, you have enabled **code** a
     <table>
      <tr>
          <th>
-             <code>{{ organization_path_param | default('{organization_name}') }}</code>
+            <code>
+             {%- if product_name == "WSO2 Identity Server" and is_version > "7.1.0" -%}
+                 {{ organization_path_param }}
+             {%- else -%}
+                 {{ organization_name }}
+             {%- endif -%}
+             </code>
          </th>
           <td>
               {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}Handle{% else %}Name{% endif %} of the organization that you are accessing.
@@ -210,7 +216,13 @@ Be sure to replace the following values in the request:
 
 <table>
         <th>
-            <code>{{ organization_path_param | default('{organization_name}') }}</code>
+            <code>
+             {%- if product_name == "WSO2 Identity Server" and is_version > "7.1.0" -%}
+                 {{ organization_path_param }}
+             {%- else -%}
+                 {{ organization_name }}
+             {%- endif -%}
+             </code>
         </th>
         <td>
             {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}Handle{% else %}Name{% endif %} of the organization that you are accessing.

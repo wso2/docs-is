@@ -48,7 +48,12 @@ In order to invite users from the parent organization, get to know the usernames
 
 If a user of the organization with {{ product_name }} Console access needs to invite a user from the parent organization, follow the steps below.
 
-1. Login to your organization using the link `https://{{console_host_name}}/t/{{ root_organization_path_param | default('{root_organization_name}') }}/o/{organization-id}{{console_path}}`.
+1. Login to your organization using the link 
+   {%- if product_name == "WSO2 Identity Server" and is_version > "7.1.0" -%}
+   `https://{{ console_host_name }}/t/{{ root_organization_path_param }}/o/{organization-id}{{ console_path }}`.
+   {%- else -%}
+   `https://{{ console_host_name }}/t/{{ root_organization_name }}/o/{organization-id}{{ console_path }}`.
+   {%- endif -%}
 2. Go to **User Management > Users** and click **Add user**. From there, select **Invite Parent User**.
 3. Enter the usernames of the user that you want to invite to the organization. You can enter multiple usernames by pressing enter after each username input.
 4. Select the groups that you want to assign to the invited users.
@@ -115,7 +120,12 @@ property can be set to false in Parent Organization's User Invitation API. The f
 used to obtain the confirmation code without sending email notifications.
 
    ``` bash
-   curl --location --request POST 'https://{{ host_name }}/t/{{ organization_path_param | default(organization_name) }}/o/api/server/v1/guests/invite' \
+   curl --location --request POST \
+    {%- if product_name == "WSO2 Identity Server" and is_version > "7.1.0" -%}
+    'https://{{ host_name }}/t/{{ organization_path_param }}/o/api/server/v1/guests/invite' \
+    {%- else -%}
+    'https://{{ host_name }}/t/{{ organization_name }}/o/api/server/v1/guests/invite' \
+    {%- endif -%}
    --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
    --header 'Content-Type: application/json' \
    --data '{
@@ -163,7 +173,12 @@ Sample Response will contain the confirmation code as follows.
 If you are sending the invitation email through an external service, include this confirmation code, which need to be accepted through following invitation accepting API. If your applications wants to proceed parent user invitation flow without any email sending, applications can invoke the following API call as the next step.
 
    ``` bash
-   curl --location --request POST 'https://{{ host_name }}/t/{{ organization_path_param | default(organization_name) }}/o/api/server/v1/guests/invitation/accept' \
+   curl --location --request POST \
+    {%- if product_name == "WSO2 Identity Server" and is_version > "7.1.0" -%}
+    'https://{{ host_name }}/t/{{ organization_path_param }}/o/api/server/v1/guests/invitation/accept' \
+    {%- else -%}
+    'https://{{ host_name }}/t/{{ organization_name }}/o/api/server/v1/guests/invitation/accept' \
+    {%- endif -%}
    --header 'Authorization: Bearer <access-token-obtained-for-the-organization>' \
    --header 'Content-Type: application/json' \
    --data '{
