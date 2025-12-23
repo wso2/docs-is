@@ -80,7 +80,8 @@ const cards = document.querySelectorAll(".integration-card");
 const filteredButtons = [];
 
 buttons.forEach((btn) => {
-btn.addEventListener("click", () => {
+  
+  btn.addEventListener("click", () => {
 
     if (btn.classList.contains("active")) {
       btn.classList.remove("active")
@@ -90,15 +91,15 @@ btn.addEventListener("click", () => {
         
       }
     }
+    
     else {
       btn.classList.add("active");
       filteredButtons.push(btn.dataset.filter);
     }
 
-    console.log(filteredButtons);
-
     searchConnectors();
-  })})
+  })
+})
 
 function searchConnectors() {
   
