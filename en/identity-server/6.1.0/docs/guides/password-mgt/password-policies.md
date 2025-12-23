@@ -61,6 +61,15 @@ WSO2 Identity Server (IS) allows you to define custom password policies and enfo
     </div></td>
     </tr>
     <tr class="even">
+    <td>Username check mode</td>
+    <td>This value specifies whether to check the password contains or equals the username.<div>
+    <div class="admonition info">
+    <p class="admonition-title">Info</p>
+    <p>This feature is available for WSO2 Identity Server 6.1.0 from update level 250 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).</p></div>
+    </div></td>
+    <td>equal</td>
+    </tr>
+    <tr class="odd">
     <td>Error message on pattern violation</td>
     <td>This value specifies the error message that will appear if the password policy is violated at the point of user creation.</td>
     <td>'Password pattern policy violated. Password should contain a digit[0-9], a lower case letter[a-z], an upper case letter[A-Z], one of !@#$%&amp;* characters'</td>
