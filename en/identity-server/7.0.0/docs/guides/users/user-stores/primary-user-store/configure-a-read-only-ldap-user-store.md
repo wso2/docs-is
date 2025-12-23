@@ -21,7 +21,24 @@ connection_password = "admin"
     ```
 
     !!! warning
-        If there are more immutable attributes, you need to add them to the `immutable_attributes` property.    
+        If there are more immutable attributes, you need to add them to the `immutable_attributes` property.
+
+## Configure group unique ID support
+
+To retrieve the group list from the LDAP user store, you must enable the **Group Unique ID** feature. This configuration is required for both read-write and read-only LDAP user stores starting from WSO2 Identity Server 7.0.0.
+
+Add the following configuration to the `deployment.toml` file:
+
+``` toml
+[user_store.properties]
+GroupIDEnabled = true
+GroupIdAttribute = "scimId"
+```
+
+!!! note
+    - **GroupIDEnabled**: Set this to `true` to enable support for assigning a unique, persistent ID for SCIM groups. This is required to retrieve group lists from the user store.
+    - **GroupIdAttribute**: Specify the LDAP attribute that should be used as the SCIM group ID. The default value is `scimId`.
+    - You can optionally configure `GroupCreatedDateAttribute` and `GroupLastModifiedDateAttribute` to track group creation and modification timestamps.    
 
 ### Initial configuration for new servers
 
