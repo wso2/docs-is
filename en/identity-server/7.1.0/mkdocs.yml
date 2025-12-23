@@ -989,6 +989,7 @@ nav:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
   - Connectors:
+    - Connectors: connectors/index.md
     - Sift:
       - Overview: connectors/sift/overview.md
       - Set up: connectors/sift/set-up.md
