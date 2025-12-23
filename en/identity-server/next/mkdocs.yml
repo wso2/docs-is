@@ -747,6 +747,8 @@ nav:
         - Self Registration: guides/flows/self-registration.md
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
+        - Use the Flow Execution API: guides/flows/flow-execution-api.md
+        - Understand Flow Execution components: guides/flows/flow-execution-components.md
         - Troubleshooting: guides/flows/troubleshooting.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
