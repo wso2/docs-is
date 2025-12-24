@@ -459,9 +459,9 @@ paths:
         - Roles Endpoint
       summary: Update Role - PATCH
       description: |
-        This API updates the **assigned users and groups** of a shared and non-shared roles.<br>
-        Also, you can update role name, permissions of non-shared roles.<br>
-        **Role audience and associated applications** can't be updated through this API.
+        This API updates the **assigned users and groups** of shared and non shared roles.<br>
+        You can also update the role name and the permissions of non shared roles.<br>
+        **Role audience and associated applications** cannot be updated through this API.
         
         <b>Scope(Permission) required:</b>
           - `internal_org_role_mgt_update`
