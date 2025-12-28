@@ -35,6 +35,6 @@ Are you new to **WSO2 Identity Server**? Let's get to know what we are all about
 - **Secure ever-growing APIs** - WSO2 Identity Server plays a key role as the authorization server that supports several OAuth related standards or profiles. It supports open standards such as OAuth, OpenID Connect, SAML 2.0, and XACML. It also enables high availability, failover, and performance for a smooth operation. 
 
 
-- **To safeguard user data and give them control over it** - WSO2 Identity Server enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards imposed by GDPR and similar privacy laws such as CCPA and LGDP.
+- **To safeguard user data and give them control over it** - WSO2 Identity Server enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards imposed by GDPR and similar privacy laws such as CCPA and LGPD.
 
 ---
