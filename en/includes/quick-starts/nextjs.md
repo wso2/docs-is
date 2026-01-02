@@ -91,12 +91,7 @@ ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
 
 ## Set up the middleware
 
-Create a file in the root of your Next.js project to integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.
-
 The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application and supports both the App and Pages routers.
-
-!!! Note
-    Next.js 16 and later versions recommend using `proxy.ts` instead of `middleware.ts`. If you're using Next.js 16 or later, follow the instructions in the **For Next.js 16 and later** tab. If you're using an earlier version of Next.js, follow the instructions in the **For Next.js 15 and earlier** tab.
 
 === "For Next.js 16 and later"
 
