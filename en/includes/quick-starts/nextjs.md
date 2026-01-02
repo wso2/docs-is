@@ -132,8 +132,6 @@ The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Nex
     };
     ```
 
-    !!! Warning
-        If you're using Next.js 15 or earlier with `middleware.ts`, you may see a deprecation warning when running your application. This is expected behavior and the middleware will continue to work. To eliminate the warning, consider upgrading to Next.js 16 or later and using the `proxy.ts` approach.
 
 ## Add `<AsgardeoProvider />` to your app
 
