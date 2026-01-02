@@ -89,24 +89,44 @@ ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
     If running in a local development or testing environment using self-signed SSL certificates, application may fail to connect due to Transport Layer Security(TLS) certificate validation errors. To bypass this check add `NODE_TLS_REJECT_UNAUTHORIZED=0` to the `.env` file.
 {% endif %}
 
-## Setup the middleware
-
-Create a file called `middleware.ts` in the root of your Next.js project and integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.
+## Set up the middleware
 
 The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application and supports both the App and Pages routers.
 
-```bash title="middleware.ts"
-import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+=== "For Next.js 16 and later"
 
-export default asgardeoMiddleware();
+    Create a file called `proxy.ts` in the root of your Next.js project.
 
-export const config = {
-  matcher: [
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)',
-  ],
-};
-```
+    ```typescript title="proxy.ts"
+    import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+
+    export const proxy = asgardeoMiddleware();
+
+    export const config = {
+      matcher: [
+        '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+        '/(api|trpc)(.*)',
+      ],
+    };
+    ```
+
+=== "For Next.js 15 and earlier"
+
+    Create a file called `middleware.ts` in the root of your Next.js project.
+
+    ```typescript title="middleware.ts"
+    import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+
+    export default asgardeoMiddleware();
+
+    export const config = {
+      matcher: [
+        '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+        '/(api|trpc)(.*)',
+      ],
+    };
+    ```
+
 
 ## Add `<AsgardeoProvider />` to your app
 
