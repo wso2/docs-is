@@ -89,24 +89,51 @@ ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
     If running in a local development or testing environment using self-signed SSL certificates, application may fail to connect due to Transport Layer Security(TLS) certificate validation errors. To bypass this check add `NODE_TLS_REJECT_UNAUTHORIZED=0` to the `.env` file.
 {% endif %}
 
-## Setup the middleware
+## Set up the middleware
 
-Create a file called `middleware.ts` in the root of your Next.js project and integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.
+Create a file in the root of your Next.js project to integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.
 
 The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application and supports both the App and Pages routers.
 
-```bash title="middleware.ts"
-import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+!!! Note
+    Next.js 16 and later versions recommend using `proxy.ts` instead of `middleware.ts`. If you're using Next.js 16 or later, follow the instructions in the **For Next.js 16 and later** tab. If you're using an earlier version of Next.js, follow the instructions in the **For Next.js 15 and earlier** tab.
 
-export default asgardeoMiddleware();
+=== "For Next.js 16 and later"
 
-export const config = {
-  matcher: [
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)',
-  ],
-};
-```
+    Create a file called `proxy.ts` in the root of your Next.js project.
+
+    ```typescript title="proxy.ts"
+    import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+
+    export const proxy = asgardeoMiddleware();
+
+    export const config = {
+      matcher: [
+        '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+        '/(api|trpc)(.*)',
+      ],
+    };
+    ```
+
+=== "For Next.js 15 and earlier"
+
+    Create a file called `middleware.ts` in the root of your Next.js project.
+
+    ```typescript title="middleware.ts"
+    import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+
+    export default asgardeoMiddleware();
+
+    export const config = {
+      matcher: [
+        '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+        '/(api|trpc)(.*)',
+      ],
+    };
+    ```
+
+    !!! Warning
+        If you're using Next.js 15 or earlier with `middleware.ts`, you may see a deprecation warning when running your application. This is expected behavior and the middleware will continue to work. To eliminate the warning, consider upgrading to Next.js 16 or later and using the `proxy.ts` approach.
 
 ## Add `<AsgardeoProvider />` to your app
 
