@@ -162,8 +162,15 @@ Configurations related to SMS providers are located under the **{{ notification_
       <tr>
         <td>Headers</td>
         <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
-        <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
+        <td><code>x-csrf: true, x-abc: some-value</code></td>
       </tr>
+    {% if not (product_name == "WSO2 Identity Server" and is_version <= "7.2.0") %}
+      <tr>
+        <td>Authentication</td>
+        <td>Authentication settings for the custom SMS provider. Select the preferred authentication type and enter the required authentication properties.</td>
+        <td>Authentication Scheme <code>Basic</code> with username and password.</td>
+      </tr>
+    {% endif %}
     </table>
 
     {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
