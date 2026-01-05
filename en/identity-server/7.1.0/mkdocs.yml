@@ -19,6 +19,11 @@ INHERIT: ../is_common.yml
 # Project information
 site_url: https://is.docs.wso2.com/en/7.1.0
 
+# Repository
+repo_name: wso2/docs-is
+repo_url: https://github.com/wso2/docs-is
+edit_uri: edit/master/en/identity-server/7.1.0/docs/
+
 extra:
   base_path: /en/7.1.0
   is_version: 7.1.0
@@ -47,8 +52,8 @@ extra:
               url: Get started|Connect App|Javascript|Quickstart
             - title: Connect Next.js App
               url: Get started|Connect App|Next.js|Quickstart
-            - title: Connect Node.js App
-              url: Get started|Connect App|Node.js|Quickstart
+            - title: Connect Express.js App
+              url: Get started|Connect App|Express.js|Quickstart
             - title: Connect Spring Boot App
               url: Get started|Connect App|Spring Boot Quickstart
         - title: Community and Support
@@ -130,7 +135,7 @@ plugins:
       zoomable: true
       draggable: true
       skip_classes:
-        - custom-skip-class-name
+        - skip-glightbox
       auto_caption: false
       caption_position: bottom
   - redirects:
@@ -433,6 +438,7 @@ plugins:
         "apis/organization-apis/org-user-mgt.md": "apis/organization-apis/scim2/scim2-org-user-mgt.md"
         "apis/organization-apis/org-group-mgt.md": "apis/organization-apis/scim2/scim2-org-group-mgt.md"
         "apis/use-the-dynamic-client-registration-rest-apis.md": "apis/dynamic-client-registration-rest-api.md"
+        "guides/user-self-service/self-register-flow.md": "guides/user-self-service/self-register.md"
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         "guides/api-authorization.md": "guides/authorization/api-authorization/api-authorization.md"
@@ -482,9 +488,9 @@ nav:
               - Quickstart: quick-starts/nextjs.md
               - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
               - Complete Guide (App-Native): complete-guides/app-native/introduction.md
-          - Node.js:
-              - Quickstart: quick-starts/nodejs.md
-              - Complete Guide: complete-guides/nodejs/introduction.md
+          - Express.js:
+              - Quickstart: quick-starts/expressjs.md
+              - Complete Guide: complete-guides/expressjs/introduction.md
           - .NET Guide: complete-guides/dotnet/introduction.md
           - Spring Boot Quickstart: quick-starts/springboot.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
@@ -591,26 +597,34 @@ nav:
               - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
           - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
-              - Configure OIDC flows: guides/authentication/oidc/index.md
-              - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
-              - Dynamic Client Registration (DCR): guides/authentication/oidc/oauth-dynamic-client-registration.md
-              - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
-              - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
-              - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
-              - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
-              - Implement login using the Device Authorization flow: guides/authentication/oidc/implement-device-flow.md
+            - Configure OIDC flows: guides/authentication/oidc/index.md
+            - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
+            - Dynamic Client Registration (DCR): guides/authentication/oidc/oauth-dynamic-client-registration.md
+            - Login flows:
+              - Authorization code flow: guides/authentication/oidc/implement-auth-code.md
+              - Authorization code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
+              - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
+              - Device authorization flow: guides/authentication/oidc/implement-device-flow.md
+              - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
-              - Implement login using the OIDC Hybrid Flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
-              - Implement JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
-              - Configure token exchange: guides/authentication/configure-token-exchange.md
-              - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
-              - Request user information: guides/authentication/oidc/request-user-info.md
-              - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
+            - Grant types:
+              - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
+            - Client authentication methods:
+              - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Tokens and validation:
+              - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
               - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
+              - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+              - Encrypt ID tokens: 
+                - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
+                - ID token encryption reference: guides/authentication/oidc/id-token-encryption-reference.md
+              - Request user information: guides/authentication/oidc/request-user-info.md
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
-              - Implement logout: guides/authentication/oidc/add-logout.md
-              - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
-              - Implement federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
+              - Configure token exchange: guides/authentication/configure-token-exchange.md
+              - Logout:
+                - Front-channel logout: guides/authentication/oidc/add-logout.md
+                - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
+                - Federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
           - Configure SAML flows:
               - Configure SAML flows: guides/authentication/saml/index.md
               - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
@@ -656,12 +670,15 @@ nav:
               - Zoho CRM: guides/users/sync-user-accounts/sync-with-zoho.md
           - Manage attributes and mappings:
               - Manage attributes and mappings: guides/users/attributes/index.md
-              - User attributes: guides/users/attributes/manage-attributes.md
+              - User attributes:
+                - Manage attributes: guides/users/attributes/user-attributes/manage-attributes.md
+                - Configure attributes: guides/users/attributes/user-attributes/configure-attributes.md
               - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
               - OIDC scopes: guides/users/attributes/manage-scopes.md
               - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
               - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
               - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
+              - Configure multi-valued contact attributes: guides/users/attributes/configure-multi-valued-contact-attributes.md
               - Verification and notification settings for attribute updates:
                   - Configure settings: guides/users/attributes/user-attribute-change-verification.md
                   - Try it out:
@@ -824,7 +841,9 @@ nav:
               - Data Purging: deploy/configure/databases/data-purging.md
               - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
           - Session persistence: deploy/configure/session-persistence.md
+          - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
           - Clock tolerance: deploy/configure/clock-tolerance.md
+          - Cookie consent banner: deploy/configure/cookie-consent-banner.md
           - Email sending module: deploy/configure/email-sending-module.md
 
       - Secure:
@@ -1261,18 +1280,18 @@ nav:
           - Accessing protected API: complete-guides/javascript/accessing-protected-api.md
           - Manage tokens in JavaScript: complete-guides/javascript/manage-tokens-in-apps.md
           - Next Steps: complete-guides/javascript/next-steps.md
-      - Node.js:
-          - Introduction: complete-guides/nodejs/introduction.md
-          - Prerequisite: complete-guides/nodejs/prerequisite.md
-          - Configure an application: complete-guides/nodejs/register-an-application.md
-          - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
-          - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
-          - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
-          - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
-          - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
-          - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
-          - Accessing protected API: complete-guides/nodejs/accessing-protected-api.md
-          - Next Steps: complete-guides/nodejs/next-steps.md
+      - Express.js:
+          - Introduction: complete-guides/expressjs/introduction.md
+          - Prerequisite: complete-guides/expressjs/prerequisite.md
+          - Configure an application: complete-guides/expressjs/register-an-application.md
+          - Create an Express.js app: complete-guides/expressjs/create-an-expressjs-app.md
+          - Configure Passport Asgardeo: complete-guides/expressjs/install-passport-asgardeo.md
+          - Add login and logout: complete-guides/expressjs/add-login-and-logout.md
+          - Persist user sessions: complete-guides/expressjs/persist-user-sessions.md
+          - Display user details: complete-guides/expressjs/display-logged-in-user-details.md
+          - Securing Routes: complete-guides/expressjs/securing-routes-within-the-app.md
+          - Accessing protected API: complete-guides/expressjs/accessing-protected-api.md
+          - Next Steps: complete-guides/expressjs/next-steps.md
       - .NET:
           - Introduction: complete-guides/dotnet/introduction.md
           - Prerequisites: complete-guides/dotnet/prerequisites.md

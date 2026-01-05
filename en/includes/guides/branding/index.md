@@ -26,6 +26,4 @@ By default, your organization's business applications in {{ product_name }} are 
 
 - [Customize email notifications]({{base_path}}/guides/branding/customize-email-templates/)
 
-- [Configure cookie consent banner]({{base_path}}/guides/branding/configure-cookie-consent-banner/)
-
 - [Localizations]({{base_path}}/guides/branding/localization/)
