@@ -843,6 +843,7 @@ nav:
           - Session persistence: deploy/configure/session-persistence.md
           - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
           - Clock tolerance: deploy/configure/clock-tolerance.md
+          - Cookie consent banner: deploy/configure/cookie-consent-banner.md
           - Email sending module: deploy/configure/email-sending-module.md
 
       - Secure:
