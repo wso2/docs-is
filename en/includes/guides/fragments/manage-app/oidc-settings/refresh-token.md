@@ -7,5 +7,8 @@ By default, whenever the refresh token is exchanged for a new access token, {{pr
 
 If you select the **Renew refresh token** option, each time the refresh token is exchanged for a new access token, {{product_name}} invalidates the existing refresh token and issues a new refresh token.
 
+#### Extend expiry time of renewed refresh token
+When this configuration is set to `false`, renewed refresh tokens carry the remaining validity period of the original refresh token.
+
 #### Refresh token expiry time
 This option specifies the validity period of a refresh token in seconds. The default value is 86400 seconds.
