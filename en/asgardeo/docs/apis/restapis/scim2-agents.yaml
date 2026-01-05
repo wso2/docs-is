@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: SCIM 2.0 Agents API
   description: |
-    This document specifies **SCIM 2.0 Agent Management RESTful API** for **WSO2 Identity Server**.
+    This document specifies **SCIM 2.0 Agent Management RESTful API** for **Asgardeo**.
     Agents are special users that represent automated systems, services, or AI assistants. The Agent endpoints allow you to create, retrieve, update, and delete agents using the SCIM 2.0 protocol.
   version: 1.0.0
 servers:
@@ -22,7 +22,12 @@ paths:
         - Agents Endpoint
       summary: Retrieve a list of agents
       description: |
-        This API returns agents according to the filter, sort, and pagination parameters.
+        Retrieves a paginated list of agents based on the provided query parameters.
+
+        This endpoint supports pagination, sorting, and attribute filtering to control
+        the number of results returned, their order, and the attributes included in the
+        response.
+        
         <b>Scope(Permission) required:</b> `internal_agent_mgt_list`
       operationId: getAgents
       parameters:
