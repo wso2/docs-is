@@ -754,6 +754,7 @@ nav:
           - Data Purging: deploy/configure/databases/data-purging.md
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
+        - Cookie consent banner: deploy/configure/cookie-consent-banner.md
         - Email sending module : deploy/configure/email-sending-module.md
       - Secure:
         - Mitigate attacks:
