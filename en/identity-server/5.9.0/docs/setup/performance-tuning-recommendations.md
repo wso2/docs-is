@@ -20,7 +20,7 @@ When it comes to performance, the OS that the server runs plays an
 important role.
 
 !!! info
-    If you are running on MacOS Sierra or High Sierra, and experiencing long
+    If you are running on macOS Sierra or High Sierra, and experiencing long
     start-up times for WSO2 products, try mapping your Mac hostname to
     `          127.0.0.1         ` and `          ::1         ` in the
     `          /etc/hosts         ` file.

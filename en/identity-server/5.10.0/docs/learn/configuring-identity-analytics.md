@@ -99,7 +99,7 @@ If you need to get the logs on the WSO2 Identity Server console, navigate to `<I
 
 1. Navigate to `<IS_HOME>/bin` directory via a command prompt and start the WSO2 IS server by executing one of the following commands.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 
@@ -110,7 +110,7 @@ If you need to get the logs on the WSO2 Identity Server console, navigate to `<I
 2. WSO2 IS Analytics has two nodes. Navigate to `<ISANALYTICS_HOME>/bin` directory and execute the following commands via a command prompt to start each node. 
     1. Start the worker node. The worker node listens to the authentication statistics from WSO2 Identity Server and then analyzes and monitors them. 
     
-        ``` java tab="Linux/MacOS"
+        ``` java tab="Linux/macOS"
         sh worker.sh
         ```
 
@@ -120,7 +120,7 @@ If you need to get the logs on the WSO2 Identity Server console, navigate to `<I
 
     2. Start the dashboard node. The dashboard node displays the processed information using the dashboard interface. 
 
-        ``` java tab="Linux/MacOS"
+        ``` java tab="Linux/macOS"
         sh dashboard.sh
         ```
 
