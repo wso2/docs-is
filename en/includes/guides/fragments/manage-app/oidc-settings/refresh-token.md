@@ -9,7 +9,7 @@ If you select the **Renew refresh token** option, each time the refresh token is
 
 #### Extend expiry time of renewed refresh token
 
-When this configuration is set to `false`, renewed refresh tokens carry the remaining validity period of the original refresh token.
+When you set this configuration to `false`, renewed refresh tokens carry the remaining validity period of the original refresh token.
 
 #### Refresh token expiry time
 
