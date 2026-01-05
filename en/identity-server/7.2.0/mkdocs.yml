@@ -19,6 +19,11 @@ INHERIT: ../is_common.yml
 # Project information
 site_url: https://is.docs.wso2.com/en/7.2.0
 
+# Repository
+repo_name: wso2/docs-is
+repo_url: https://github.com/wso2/docs-is
+edit_uri: edit/master/en/identity-server/7.2.0/docs/
+
 extra:
   base_path: /en/7.2.0
   is_version: 7.2.0
@@ -47,8 +52,8 @@ extra:
               url: Get started|Connect App|Javascript|Quickstart
             - title: Connect Next.js App
               url: Get started|Connect App|Next.js|Quickstart
-            - title: Connect Node.js App
-              url: Get started|Connect App|Node.js|Quickstart
+            - title: Connect Express.js App
+              url: Get started|Connect App|Express.js|Quickstart
             - title: Connect Spring Boot App
               url: Get started|Connect App|Spring Boot Quickstart
         - title: Community and Support
@@ -129,7 +134,7 @@ plugins:
       zoomable: true
       draggable: true
       skip_classes:
-        - custom-skip-class-name
+        - skip-glightbox
       auto_caption: false
       caption_position: bottom
   - redirects:
@@ -436,6 +441,7 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/use-the-dynamic-client-registration-rest-apis.md' : 'apis/dynamic-client-registration-rest-api.md'
+        'guides/user-self-service/self-register-flow.md': 'guides/flows/build-a-flow.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
@@ -487,9 +493,9 @@ nav:
               - Quickstart: quick-starts/nextjs.md
               - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
               - Complete Guide (App-Native): complete-guides/app-native/introduction.md
-          - Node.js:
-              - Quickstart: quick-starts/nodejs.md
-              - Complete Guide: complete-guides/nodejs/introduction.md
+          - Express.js:
+              - Quickstart: quick-starts/expressjs.md
+              - Complete Guide: complete-guides/expressjs/introduction.md
           - .NET Guide: complete-guides/dotnet/introduction.md
           - Spring Boot Quickstart: quick-starts/springboot.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
@@ -621,6 +627,9 @@ nav:
               - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
               - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
               - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+              - Encrypt ID tokens: 
+                - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
+                - ID token encryption reference: guides/authentication/oidc/id-token-encryption-reference.md
               - Request user information: guides/authentication/oidc/request-user-info.md
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
               - Configure token exchange: guides/authentication/configure-token-exchange.md
@@ -679,12 +688,16 @@ nav:
             - Zoho CRM: guides/users/sync-user-accounts/sync-with-zoho.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
-          - User attributes: guides/users/attributes/manage-attributes.md
+          - User attributes:
+            - Manage attributes: guides/users/attributes/user-attributes/manage-attributes.md
+            - Configure attributes: guides/users/attributes/user-attributes/configure-attributes.md
+            - Configurations reference : guides/users/attributes/user-attributes/attribute-configurations-reference.md
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure email address as the username: guides/users/attributes/enable-email-as-username.md
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
+          - Configure multi-valued contact attributes: guides/users/attributes/configure-multi-valued-contact-attributes.md
           - Verification and notification settings for attribute updates:
             - Configure settings: guides/users/attributes/user-attribute-change-verification.md
             - Try it out:
@@ -887,6 +900,7 @@ nav:
           - Data Purging: deploy/configure/databases/data-purging.md
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
+        - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
         - Clock tolerance: deploy/configure/clock-tolerance.md
         - Cookie consent banner: deploy/configure/cookie-consent-banner.md
       - Secure:
@@ -1053,6 +1067,19 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+  - Connectors:
+    - Connectors: connectors/index.md
+    - Sift:
+      - Overview: connectors/sift/overview.md
+      - Set up: connectors/sift/set-up.md
+      - Usage: connectors/sift/usage.md
+      - Reference: connectors/sift/reference.md
+    - Onfido:
+      - Overview: connectors/onfido/overview.md
+      - Set up: connectors/onfido/set-up.md
+      - Usage: connectors/onfido/usage.md
+      - Reference: connectors/onfido/reference.md
+      - Try it: connectors/onfido/try-it.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
@@ -1112,6 +1139,7 @@ nav:
           - Consent management API: apis/consent-management-api-definition.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
+      - User credential management API: apis/end-user-credential-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
       - User management:
         - SCIM 2.0 API:
@@ -1169,6 +1197,7 @@ nav:
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
       - Server configuration API: apis/organization-apis/configs.md
       - Validation rules API: apis/organization-apis/validation-rules.md
+      - User credential management API: apis/end-user-credential-management-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
@@ -1217,12 +1246,19 @@ nav:
           - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
       - Pre-flow extensions (Actions):
         - Pre issue access token action:
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0.md
+            - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1.md
           - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
         - Pre update password action:
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract.md
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.0.md
+            - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.1.md
+          - Version 2.x:
+             - API v2.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v2.0.md
         - Pre update profile action:
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract.md
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/pre-update-profile-action-v1.0.md
     - Architecture: references/architecture.md
     - IS extensions:
       - references/extend/index.md
@@ -1340,18 +1376,18 @@ nav:
           - Accessing protected API: complete-guides/javascript/accessing-protected-api.md
           - Manage tokens in JavaScript: complete-guides/javascript/manage-tokens-in-apps.md
           - Next Steps: complete-guides/javascript/next-steps.md
-      - Node.js:
-          - Introduction: complete-guides/nodejs/introduction.md
-          - Prerequisite: complete-guides/nodejs/prerequisite.md
-          - Configure an application: complete-guides/nodejs/register-an-application.md
-          - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
-          - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
-          - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
-          - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
-          - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
-          - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
-          - Accessing protected API: complete-guides/nodejs/accessing-protected-api.md
-          - Next Steps: complete-guides/nodejs/next-steps.md
+      - Express.js:
+          - Introduction: complete-guides/expressjs/introduction.md
+          - Prerequisite: complete-guides/expressjs/prerequisite.md
+          - Configure an application: complete-guides/expressjs/register-an-application.md
+          - Create an Express.js app: complete-guides/expressjs/create-an-expressjs-app.md
+          - Configure Passport Asgardeo: complete-guides/expressjs/install-passport-asgardeo.md
+          - Add login and logout: complete-guides/expressjs/add-login-and-logout.md
+          - Persist user sessions: complete-guides/expressjs/persist-user-sessions.md
+          - Display user details: complete-guides/expressjs/display-logged-in-user-details.md
+          - Securing Routes: complete-guides/expressjs/securing-routes-within-the-app.md
+          - Accessing protected API: complete-guides/expressjs/accessing-protected-api.md
+          - Next Steps: complete-guides/expressjs/next-steps.md
       - .NET:
           - Introduction: complete-guides/dotnet/introduction.md
           - Prerequisites: complete-guides/dotnet/prerequisites.md

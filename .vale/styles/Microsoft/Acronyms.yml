@@ -70,3 +70,6 @@ exceptions:
   - JWT
   - UTC
   - FAPI
+  - LDAP
+  - JWKS
+  - TLS

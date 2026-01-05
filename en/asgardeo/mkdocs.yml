@@ -60,8 +60,8 @@ extra:
             url: Get started|Connect App|Javascript|Quickstart
           - title: Connect Next.js App
             url: Get started|Connect App|Next.js|Quickstart
-          - title: Connect Node.js App
-            url: Get started|Connect App|Node.js|Complete Guide
+          - title: Connect Express.js App
+            url: Get started|Connect App|Express.js|Complete Guide
           - title: Connect .NET App
             url: Get started|Connect App|.NET|Complete Guide
           - title: Connect Spring Boot App
@@ -167,6 +167,7 @@ plugins:
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
         'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
+        'guides/user-self-service/self-register-flow.md': 'guides/flows/build-a-flow.md'
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -222,8 +223,8 @@ nav:
         - Complete Guide (Redirect): complete-guides/nextjs/introduction.md
         - Complete Guide (App-Native): complete-guides/app-native/introduction.md
         - Complete Guide (B2B): complete-guides/nextjs-b2b/introduction.md
-      - Node.js:
-        - Complete Guide: complete-guides/nodejs/introduction.md
+      - Express.js:
+        - Complete Guide: complete-guides/expressjs/introduction.md
       - .NET: 
         - Complete Guide: complete-guides/dotnet/introduction.md
       - Spring Boot:
@@ -342,11 +343,15 @@ nav:
               - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
               - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
+              - Device authorization flow: guides/authentication/oidc/implement-device-flow.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Tokens and validation:
               - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
               - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+              - Encrypt ID tokens: 
+                - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
+                - ID token encryption reference: guides/authentication/oidc/id-token-encryption-reference.md
               - Request user information: guides/authentication/oidc/request-user-info.md
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
               - Configure token exchange: guides/authentication/configure-token-exchange.md
@@ -385,11 +390,15 @@ nav:
           - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
-          - User attributes: guides/users/attributes/manage-attributes.md
+          - User attributes:
+            - Manage attributes: guides/users/attributes/user-attributes/manage-attributes.md
+            - Configure attributes: guides/users/attributes/user-attributes/configure-attributes.md
+            - Configurations reference : guides/users/attributes/user-attributes/attribute-configurations-reference.md
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
           - Configure unique attributes: guides/users/attributes/configure-unique-attributes.md
+          - Configure multi-valued contact attributes: guides/users/attributes/configure-multi-valued-contact-attributes.md
           - Verification and notification settings for attribute updates:
             - Configure settings: guides/users/attributes/user-attribute-change-verification.md
             - Try it out:
@@ -722,6 +731,7 @@ nav:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote agent properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
+    - Configure Cross Origin Resource Sharing (CORS): references/configure-cors.md
     - Email templates: references/email-templates.md
     - SMS templates: references/sms-templates.md
     - Service extensions:
@@ -729,13 +739,20 @@ nav:
         - Custom authentication:
           - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
       - Pre-flow extensions (Actions):
-        - Pre issue access token action: 
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
+        - Pre issue access token action:
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0.md
+            - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1.md
           - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
-        - Pre update password action: 
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract.md
-        - Pre update profile action: 
-          - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract.md
+        - Pre update password action:
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.0.md
+            - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.1.md
+          - Version 2.x:
+            - API v2.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v2.0.md
+        - Pre update profile action:
+          - Version 1.x:
+            - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/pre-update-profile-action-v1.0.md
     - Accessibility compliance: references/accessibility.md
     - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
     - API resources and scopes required for MCP tools: references/mcp-tool-api-resource-access.md
@@ -820,18 +837,18 @@ nav:
         - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
         - Manage tokens in app-native apps: complete-guides/app-native/manage-tokens-in-apps.md
         - Next Steps: complete-guides/app-native/next-steps.md
-    - Node.js:
-      - Introduction: complete-guides/nodejs/introduction.md
-      - Prerequisite: complete-guides/nodejs/prerequisite.md
-      - Configure an application: complete-guides/nodejs/register-an-application.md
-      - Create a Node.js app: complete-guides/nodejs/create-a-nodejs-app.md
-      - Configure Passport Asgardeo: complete-guides/nodejs/install-passport-asgardeo.md
-      - Add login and logout: complete-guides/nodejs/add-login-and-logout.md
-      - Persist user sessions: complete-guides/nodejs/persist-user-sessions.md
-      - Display user details: complete-guides/nodejs/display-logged-in-user-details.md
-      - Securing Routes: complete-guides/nodejs/securing-routes-within-the-app.md
-      - Accessing protected API : complete-guides/nodejs/accessing-protected-api.md
-      - Next Steps: complete-guides/nodejs/next-steps.md
+    - Express.js:
+      - Introduction: complete-guides/expressjs/introduction.md
+      - Prerequisite: complete-guides/expressjs/prerequisite.md
+      - Configure an application: complete-guides/expressjs/register-an-application.md
+      - Create an Express.js app: complete-guides/expressjs/create-an-expressjs-app.md
+      - Configure Passport Asgardeo: complete-guides/expressjs/install-passport-asgardeo.md
+      - Add login and logout: complete-guides/expressjs/add-login-and-logout.md
+      - Persist user sessions: complete-guides/expressjs/persist-user-sessions.md
+      - Display user details: complete-guides/expressjs/display-logged-in-user-details.md
+      - Securing Routes: complete-guides/expressjs/securing-routes-within-the-app.md
+      - Accessing protected API : complete-guides/expressjs/accessing-protected-api.md
+      - Next Steps: complete-guides/expressjs/next-steps.md
     - Angular:
       - Introduction: complete-guides/angular/introduction.md
       - Prerequisite: complete-guides/angular/prerequisite.md

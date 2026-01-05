@@ -135,8 +135,8 @@ extra:
     React:
       link: complete-guides/react/introduction
       level: 2
-    Node.js:
-      link: complete-guides/nodejs/introduction
+    Express.js:
+      link: complete-guides/expressjs/introduction
       level: 2
     Angular:
       link: complete-guides/angular/introduction
@@ -227,6 +227,9 @@ extra:
     Node.js Quickstart:
       icon: fontawesome/brands/node-js
       level: 3
+    Express.js:
+      icon: assets/libs/custom-icons/expressjs.svg
+      level: 3
     Next.js:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 3
@@ -253,6 +256,10 @@ extra:
       icon: fontawesome/solid/user-shield
     MCP Server:
       icon: assets/libs/custom-icons/mcp.svg
+    Sift:
+      icon: assets/images/sift-logo.svg
+    Onfido:
+      icon: assets/images/onfido-logo.svg
 
   integrations:
     - official:
@@ -349,11 +356,18 @@ extra:
             source_link: https://github.com/openid/AppAuth-iOS
 
   connectors:
-    - name: Duo Security
-      icon: assets/img/logo/duo-logo.png
-      description: The Duo Security authenticator allows you to authenticate a user using Duo Security through WSO2 Identity Server.
-      source_link: https://store.wso2.com/connector/identity-outbound-auth-duo
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-duo/blob/master/docs/README.md
+    - name: Sift
+      icon: assets/img/logo/sift-logo.svg
+      description: Sift helps prevent fraudulent logins to your system.
+      source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
+      category: fraud
+      documentation_link: sift
+    - name: Onfido
+      icon: assets/img/logo/onfido-logo.svg
+      description: Onfido provides identity verification so you know exactly who logs in.
+      source_link: https://store.wso2.com/connector/identity-verification-onfido
+      category: identity-verification
+      documentation_link: onfido
 
   redoc_theme: '{
     "colors": {

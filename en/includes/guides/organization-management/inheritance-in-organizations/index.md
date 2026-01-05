@@ -12,13 +12,12 @@ The following guides explain how inheritance works for each of these features:
 
 - **[User attribute inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/attribute-inheritance/)**: Learn how to manage user attribute configurations in organizations.
 - **[OIDC scope inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance/)**: Learn how organizations inherit OpenID Connect (OIDC) scopes.
+- **[Flow inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/flow-inheritance/)**: Learn how organizations inherit Flows.
 
 {% endif %}
 
 - **[UI branding]({{base_path}}/guides/organization-management/inheritance-in-organizations/ui-branding-inheritance/)**: Discover how organizations can inherit or define their own look and feel.
 - **[Email and SMS template]({{base_path}}/guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance/)**: Learn how customizations to Email and SMS templates propagate in an organization hierarchy.
-
-- **[Flow inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/flow-inheritance/)**: Learn how organizations inherit Flows.
 
 !!! info Upcoming Enhancements to Organization Management
 

@@ -19,6 +19,11 @@ INHERIT: ../is_common.yml
 # Project information
 site_url: https://is.docs.wso2.com/en/7.0.0
 
+# Repository
+repo_name: wso2/docs-is
+repo_url: https://github.com/wso2/docs-is
+edit_uri: edit/master/en/identity-server/7.0.0/docs/
+
 extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
@@ -126,7 +131,7 @@ plugins:
       zoomable: true
       draggable: true
       skip_classes:
-        - custom-skip-class-name
+        - skip-glightbox
       auto_caption: false
       caption_position: bottom
   - redirects:
@@ -564,29 +569,37 @@ nav:
             - Configure OIDC flows: guides/authentication/oidc/index.md
             - Discover OIDC endpoints: guides/authentication/oidc/discover-oidc-configs.md
             - Dynamic Client Registration (DCR): guides/authentication/oidc/oauth-dynamic-client-registration.md
-            - Implement login using the Authorization Code flow: guides/authentication/oidc/implement-auth-code.md
-            - Implement login using the Authorization Code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
-            - Implement private key JWT client authentication for OIDC: guides/authentication/oidc/private-key-jwt-client-auth.md
-            - Implement login using Pushed Authorization Requests: guides/authentication/oidc/implement-login-with-par.md
-            - Implement login using the Device Authorization flow: guides/authentication/oidc/implement-device-flow.md
-            - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
-            - Implement login using the OIDC Hybrid Flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
-            - Implement JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
-            - Configure token exchange: guides/authentication/configure-token-exchange.md
-            - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
-            - Request user information: guides/authentication/oidc/request-user-info.md
-            - Validate tokens: guides/authentication/oidc/token-validation-resource-server.md
-            - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
-            - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
-            - Implement logout: guides/authentication/oidc/add-logout.md
-            - Implement back channel logout: guides/authentication/oidc/add-back-channel-logout.md
-            - Implement federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
+            - Login flows:
+              - Authorization code flow: guides/authentication/oidc/implement-auth-code.md
+              - Authorization code flow and PKCE: guides/authentication/oidc/implement-auth-code-with-pkce.md
+              - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
+              - Device authorization flow: guides/authentication/oidc/implement-device-flow.md
+              - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
+              - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
+            - Grant types:
+              - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
+            - Client authentication methods:
+              - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
+            - Tokens and validation:
+              - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
+              - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
+              - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
+              - Encrypt ID tokens: 
+                - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
+                - ID token encryption reference: guides/authentication/oidc/id-token-encryption-reference.md
+              - Request user information: guides/authentication/oidc/request-user-info.md
+              - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
+              - Configure token exchange: guides/authentication/configure-token-exchange.md
+            - Logout:
+              - Front-channel logout: guides/authentication/oidc/add-logout.md
+              - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
+              - Federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
           - Configure SAML flows:
-            - Configure SAML flows: guides/authentication/saml/index.md
-            - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
-            - SAML artifact binding: guides/authentication/saml/saml-artifact-binding.md
-            - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
-            - SAML back-channel logout: guides/authentication/saml/saml-back-channel-logout.md
+              - Configure SAML flows: guides/authentication/saml/index.md
+              - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
+              - SAML artifact binding: guides/authentication/saml/saml-artifact-binding.md
+              - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
+              - SAML back-channel logout: guides/authentication/saml/saml-back-channel-logout.md
       - Authorization:
         - Authorization: guides/authorization/index.md
         - API authorization:
@@ -631,7 +644,9 @@ nav:
             - Zoho CRM: guides/users/sync-user-accounts/sync-with-zoho.md
         - Manage attributes and mappings:
           - Manage attributes and mappings: guides/users/attributes/index.md
-          - User attributes: guides/users/attributes/manage-attributes.md
+          - User attributes:
+            - Manage attributes: guides/users/attributes/user-attributes/manage-attributes.md
+            - Configure attributes: guides/users/attributes/user-attributes/configure-attributes.md
           - OIDC attribute mappings: guides/users/attributes/manage-oidc-attribute-mappings.md
           - OIDC scopes: guides/users/attributes/manage-scopes.md
           - SCIM2 attribute mappings: guides/users/attributes/manage-scim2-attribute-mappings.md
@@ -755,6 +770,7 @@ nav:
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
         - Cookie consent banner: deploy/configure/cookie-consent-banner.md
+        - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
         - Email sending module : deploy/configure/email-sending-module.md
       - Secure:
         - Mitigate attacks:
@@ -917,6 +933,19 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+  - Connectors:
+    - Connectors: connectors/index.md
+    - Sift:
+      - Overview: connectors/sift/overview.md
+      - Set up: connectors/sift/set-up.md
+      - Usage: connectors/sift/usage.md
+      - Reference: connectors/sift/reference.md
+    - Onfido:
+      - Overview: connectors/onfido/overview.md
+      - Set up: connectors/onfido/set-up.md
+      - Usage: connectors/onfido/usage.md
+      - Reference: connectors/onfido/reference.md
+      - Try it: connectors/onfido/try-it.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
