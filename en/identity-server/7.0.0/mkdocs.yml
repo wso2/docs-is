@@ -832,7 +832,6 @@ nav:
             - Log masking with Filebeat: deploy/monitor/elk-mask-sensitive-information-in-logs.md
             - Log masking with Log4j: deploy/monitor/log4j-mask-sensitive-information-in-logs.md
           - Log claims in audit logs: deploy/monitor/log-claims-in-audit-logs.md
-          - OAuth transaction logs: deploy/monitor/oauth-transaction-logs.md
         - Monitor server health: deploy/monitor/monitor-server-health.md
         - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
         - Work with product observability: deploy/monitor/work-with-product-observability.md
