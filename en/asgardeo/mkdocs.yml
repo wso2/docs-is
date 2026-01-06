@@ -168,6 +168,9 @@ plugins:
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
         'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
         'guides/user-self-service/self-register-flow.md': 'guides/flows/build-a-flow.md'
+        'guides/users/attributes/manage-attributes.md': 'guides/users/attributes/user-attributes/manage-attributes.md'
+
+        
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -343,7 +346,6 @@ nav:
               - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
               - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
-              - Device authorization flow: guides/authentication/oidc/implement-device-flow.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Tokens and validation:

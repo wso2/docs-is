@@ -439,6 +439,7 @@ plugins:
         "apis/organization-apis/org-group-mgt.md": "apis/organization-apis/scim2/scim2-org-group-mgt.md"
         "apis/use-the-dynamic-client-registration-rest-apis.md": "apis/dynamic-client-registration-rest-api.md"
         "guides/user-self-service/self-register-flow.md": "guides/user-self-service/self-register.md"
+        'guides/users/attributes/manage-attributes.md': 'guides/users/attributes/user-attributes/manage-attributes.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         "guides/api-authorization.md": "guides/authorization/api-authorization/api-authorization.md"
