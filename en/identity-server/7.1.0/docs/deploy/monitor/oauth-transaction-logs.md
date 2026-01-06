@@ -1,3 +1,1 @@
-# OAuth transaction logs
-
-{!./includes/oauth-transaction-logs.md!}
+{% include "../../../../../includes/deploy/monitor/oauth-transaction-logs.md" %}
