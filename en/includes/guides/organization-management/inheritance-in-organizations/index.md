@@ -10,9 +10,9 @@ The following guides explain how inheritance works for each of these features:
 
 - **[Configurations for login & registration]({{base_path}}/guides/organization-management/inheritance-in-organizations/login-registration-inheritance/)**: Learn how child organizations can inherit or override configurations related to login and registration.
 
-- **[User attribute inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/attribute-inheritance/)**: Learn how to manage user attribute configurations in organizations.
-- **[OIDC scope inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance/)**: Learn how organizations inherit OpenID Connect (OIDC) scopes.
-- **[Flow inheritance]({{base_path}}/guides/organization-management/inheritance-in-organizations/flow-inheritance/)**: Learn how organizations inherit Flows.
+- **[User attributes]({{base_path}}/guides/organization-management/inheritance-in-organizations/attribute-inheritance/)**: Learn how to manage user attribute configurations in organizations.
+- **[OIDC scopes]({{base_path}}/guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance/)**: Learn how organizations inherit OpenID Connect (OIDC) scopes.
+- **[Flows]({{base_path}}/guides/organization-management/inheritance-in-organizations/flow-inheritance/)**: Learn how organizations inherit Flows.
 
 {% endif %}
 
