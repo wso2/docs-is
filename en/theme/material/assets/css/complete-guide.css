@@ -15,3 +15,134 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+.md-sidebar--secondary {
+    display: none !important;
+}
+
+.md-nav__item {
+    display: flex;
+    flex-direction: row;
+}
+
+.md-nav__item > .guide-page-number {
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 0;
+    background: var(--md-default-fg-color--light);
+    color: var(--md-default-bg-color);
+    font-size: 12px;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    flex: 0 0 22px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.md-nav__link {
+    display: inline-block;
+    margin-top: 0 !important;
+}
+
+.md-nav__item.md-nav__item--active > .guide-page-number {
+    color: var(--colors-white);
+    background: var(--md-typeset-a-color);
+}
+
+.md-nav__go-back {
+    display: none;
+}
+
+.md-nav__item.md-nav__item--nested > .md-nav__link {
+    display: flex;
+}
+
+.md-nav__item.md-nav__item--nested > .md-nav__link {
+    display: flex;
+}
+
+.md-nav__item.md-nav--expanded-section > nav.md-nav ul.md-nav__list:not(.guide-page-list) > li.md-nav__item.md-nav__item--active  {
+    padding-left: 0;
+}
+
+@media screen and (min-width: 76.25em) {
+    .md-nav--lifted .md-nav__item {
+        position: relative;
+        padding: 0 .6rem;
+        vertical-align: top;
+        margin-bottom: 10px;
+    }
+
+    .md-nav__item:not(.md-nav__item--nested)::before {
+        content: '';
+        position: absolute;
+        top: 1rem;
+        left: 24px;
+        width: 0;
+        height: calc(100% - 18px);
+        border-left: 1px solid var(--md-default-fg-color--light);
+    }
+
+    .md-nav__item:not(.md-nav__item--nested):last-child::before {
+        border-left: none !important;
+    }
+
+    .md-nav__item > .guide-page-number {
+        margin-right: 10px;
+        margin-top: -3px;
+    }
+
+    .md-nav--lifted .md-nav__link.md-nav__item.md-nav--override-sub-nav {
+        display: none;
+    }
+
+    .md-nav--lifted .md-nav__item.md-nav--expanded-section > nav.md-nav {
+        margin: 0;
+    }
+
+    .md-nav.md-nav--primary.md-nav--lifted {
+        margin-top: 15px;
+    }
+
+    .md-nav__go-back {
+        display: block;
+        margin: 0 15px 30px;
+        font-style: italic;
+    }
+
+    .md-nav__go-back > a > .icon {
+        width: 12px;
+        margin-right: 8px;
+    }
+
+    nav.md-nav.md-nav--primary.md-nav--lifted > ul.md-nav__list > li.md-nav__item.md-nav__item--active > nav.md-nav > ul.md-nav__list > li.md-nav__item.md-nav__item--nested:not(.md-nav__item--active),
+    nav.md-nav.md-nav--primary.md-nav--lifted > ul.md-nav__list > li.md-nav__item.md-nav__item--active > nav.md-nav > ul.md-nav__list > li.md-nav__item.md-nav__item--active > nav.md-nav > ul.md-nav__list > li.md-nav__item.md-nav__item--nested:not(.md-nav__item--active) {
+        display: none;
+    }
+
+    .md-nav__item.md-nav__item--nested > .md-nav__link {
+        display: none;
+    }
+
+    .md-nav--lifted .md-nav__item.md-nav__item--nested.md-nav__item--active.md-nav--has-icon nav.md-nav > ul.md-nav__list:not(.guide-page-list) > li.md-nav__item {
+        padding-left: 0;
+    }
+
+    .md-nav__item {
+        margin-top: 0 !important;
+    }
+}
+
+@media screen and (min-width: 76.25em) and (max-width: 99.9375em) {
+    .md-nav__item:not(.md-nav__item--nested)::before {
+        top: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 76.1875em) {
+    .md-nav__item {
+        padding-left: .6rem !important;
+    }
+}
