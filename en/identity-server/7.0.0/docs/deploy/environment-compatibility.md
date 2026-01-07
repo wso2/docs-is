@@ -59,6 +59,7 @@ WSO2 Identity Server supports the following DBMSs:
 - Postgres 10.19
 - Postgres 13.7
 - Postgres 14
+- Postgres 16
 - Embedded H2
 
 ## Tested web browsers
