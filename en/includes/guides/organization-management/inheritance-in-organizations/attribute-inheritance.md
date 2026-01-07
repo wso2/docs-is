@@ -46,23 +46,23 @@ Each user store in an organization maintains mappings for user attributes. Inher
     - Child organizations can edit attribute mappings for secondary user stores (**MY USER STORE**).
 
 
-    {% else %}
+{% else %}
 
-    - Child organizations can onboard their own user stores.
+- Child organizations can onboard their own user stores.
 
-    - They have full control over attribute mappings for these user stores, including:
+- They have full control over attribute mappings for these user stores, including:
 
-        - Editing mappings for attributes inherited by the root organization.
+    - Editing mappings for attributes inherited by the root organization.
 
-        - Whether to enable multi-valued user attributes (e.g. emailAddresses) for the user stores. This option is only available for supported attributes.
+    - Whether to enable multi-valued user attributes (e.g. emailAddresses) for the user stores. This option is only available for supported attributes.
 
-    Organization administrators can access user store mappings from the {{product_name}} Console by selecting an attribute from **User Attributes & Stores** > **User Attributes** and going to its **Attribute Mappings** tab.
+Organization administrators can access user store mappings from the {{product_name}} Console by selecting an attribute from **User Attributes & Stores** > **User Attributes** and going to its **Attribute Mappings** tab.
 
-    The following diagram illustrates the attribute mapping section for the multi-valued `emailAddresses` attribute.
+The following diagram illustrates the attribute mapping section for the multi-valued `emailAddresses` attribute.
 
-    ![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/  b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
+![Attribute mappings]({{base_path}}/assets/img/guides/organization/attributes/b2b-edit-attribute-mappings.png){: width="700" style="display: block; margin: 0;"}
 
-    Child organizations can manage and disable attributes for user stores (**MY USER STORE**).
+Child organizations can manage and disable attributes for user stores (**MY USER STORE**).
 
 {% endif %}
 
@@ -88,4 +88,4 @@ Organization administrators can view user attribute dialects from the {{product_
 
 ## Configure user attributes at the root organization
 
-Root organization administrators can create user attributes, user store mappings and dialects at the root organization. Follow the [Manage attributes and mappings]({{base_path}}//users/attributes/) guide to learn more.
+Root organization administrators can create user attributes, user store mappings and dialects at the root organization. Follow the [Manage attributes and mappings]({{base_path}}/guides/users/attributes/) guide to learn more.

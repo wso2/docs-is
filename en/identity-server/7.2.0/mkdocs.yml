@@ -786,12 +786,12 @@ nav:
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Inheritance in organizations:
             - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
-            - Login & registration settings inheritance: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
-            - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
-            - Email and SMS templates inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
-            - User attributes inheritance: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
-            - OIDC scope inheritance: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
-            - Flow inheritance: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
+            - Login & registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
+            - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
+            - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+            - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
+            - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
+            - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
           - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
