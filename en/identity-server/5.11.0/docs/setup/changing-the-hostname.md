@@ -29,7 +29,10 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
     keytool -genkey -alias newcert -keyalg RSA -keysize 2048 -keystore newkeystore.jks -dname "CN=is.dev.wso2.com, OU=Is,O=Wso2,L=SL,S=WS,C=LK" -storepass mypassword -keypass mypassword -ext SAN=dns:localhost
     ```
 
-    **Option 2**
+    !!! warning
+        Option 1 is not recommended for production environments. Certificate authorities typically do not approve certificates that contain `localhost` in the Subject Alternative Name (SAN) list. For production deployments, use **Option 2** instead.
+
+    **Option 2 (Recommended for production)**
 
     Instead of adding SAN, you can configure the same name for the `hostname`, and the `internal_hostname` in `<IS_HOME>/repository/conf/deployment.toml` as follows.
 
@@ -108,11 +111,58 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
 
 5. Verify the hostname change by attempting to log in to My Account, getting a token from any grant type, etc.
 
-6. If you are trying this on your local machine, open the `etc/hosts/` file and add the following entry to map the new hostname. `is.dev.wso2.com` is an example in the sample entry below.
+6. Map the hostname to allow access to the WSO2 Identity Server.
+
+    The method you use depends on your deployment environment:
+
+    **For local machine setups**
+
+    Open the `etc/hosts/` file and add the following entry to map the new hostname. `is.dev.wso2.com` is an example in the sample entry below.
 
     ``` java
     127.0.0.1       is.dev.wso2.com
     ```
+
+    **For Docker setups**
+
+    If you configured the `internal_hostname` in Option 2, you need to add a host mapping for your Docker deployment. Use one of the following methods based on your setup:
+
+    - **Docker Compose or standalone Docker containers**: Use the `--add-host` flag when running your container to add custom host-to-IP mappings. For example:
+
+        ```bash
+        docker run --add-host=is.dev.wso2.com:127.0.0.1 <image-name>
+        ```
+
+        Or in your `docker-compose.yml` file:
+
+        ```yaml
+        services:
+          wso2is:
+            image: <image-name>
+            extra_hosts:
+              - "is.dev.wso2.com:127.0.0.1"
+        ```
+
+        For more information, see the [Docker documentation on adding host entries](https://docs.docker.com/reference/cli/docker/container/run/#add-host).
+
+    - **Kubernetes deployments**: Use `hostAliases` in your Pod specification to add custom entries to the Pod's `/etc/hosts` file. For example:
+
+        ```yaml
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: wso2is-pod
+        spec:
+          hostAliases:
+          - ip: "127.0.0.1"
+            hostnames:
+            - "is.dev.wso2.com"
+          containers:
+          - name: wso2is
+            image: <image-name>
+        ```
+
+        For more information, see the [Kubernetes documentation on customizing the hosts file](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases).
 
 When you fully recreate the keystore, a new key-pair value is created. This means that any existing encrypted data (for example, users created before recreating the keystore) are still encrypted using the original keystore (`wso2carbon.jks`). Therefore, older users will not be able to log in to My Account and need to be migrated. You can use one of the following options in this situation.
 
