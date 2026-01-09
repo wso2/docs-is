@@ -1,14 +1,13 @@
 # Product compatibility
 
-This document provides compatibility details for WSO2 Identity Server 7.1.0 across various environments.
+This document provides compatibility details for WSO2 Identity Server {{is_version}} across various environments.
 
 ## {{product_name}} runtime compatibility 
 
-Given below is the tested compatibility of the runtime of {{product_name}} 7.1.0.
-
+Given below is the tested compatibility of the runtime of {{product_name}} {{is_version}}.
 ### Tested operating systems
 
-WSO2 Identity Server, being a Java application, is compatible with most operating systems. Listed below are the operating systems that have been tested with the {{product_name}} 7.1.0 runtime.
+WSO2 Identity Server, being a Java application, is compatible with most operating systems. Listed below are the operating systems that have been tested with the {{product_name}} {{is_version}} runtime.
 
 <table>
 	<th>Operating System</th>
@@ -33,7 +32,7 @@ WSO2 Identity Server, being a Java application, is compatible with most operatin
 
 ### Tested JDKs
 
-The {{product_name}} 7.1.0 runtime has been tested with the following JDKs:
+The {{product_name}} {{is_version}} runtime has been tested with the following JDKs:
 
 <table>
 	<th>JDKs</th>
@@ -57,7 +56,7 @@ The {{product_name}} 7.1.0 runtime has been tested with the following JDKs:
 
 ## Tested DBMSs
 
-The {{product_name}} 7.1.0 runtime has been tested with the following database management systems (DBMSs):
+The {{product_name}} {{is_version}} runtime has been tested with the following database management systems (DBMSs):
 
 <table>
 	<th>DBMS</th>
@@ -94,7 +93,7 @@ The {{product_name}} 7.1.0 runtime has been tested with the following database m
 
 ## Tested web browsers
 
-The {{product_name}} 7.1.0 runtime has been tested with the following browsers:
+The {{product_name}} {{is_version}} runtime has been tested with the following browsers:
 
 <table>
 	<th>Browser</th>
@@ -119,7 +118,7 @@ The {{product_name}} 7.1.0 runtime has been tested with the following browsers:
 
 ## Tested LDAPs
 
-The {{product_name}} 7.1.0 runtime has been tested with the following LDAPs:
+The {{product_name}} {{is_version}} runtime has been tested with the following LDAPs:
 
 <table>
 	<th>LDAP</th>
