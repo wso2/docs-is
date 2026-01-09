@@ -1,4 +1,4 @@
-# Configure SMS Provider
+# Configure SMS provider
 
 Configurations related to SMS providers are located under the **Notification Channels** section.
 
