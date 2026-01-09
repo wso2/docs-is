@@ -1,5 +1,5 @@
 
-# Add SMS OTP Login
+# Add SMS OTP login
 
 SMS OTP (One-Time Password) is a security mechanism where a password, valid for a short duration, is sent to the user's registered mobile number. This password must be entered during the login process.
 
@@ -8,11 +8,14 @@ This method can be used as a form of passwordless authentication, allowing users
 To configure SMS OTP as a passwordless authentication mechanism in {{ product_name }}, follow the instructions given below.
 
 ## Prerequisites
+
 - To begin, you must [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You have the option to register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) available.
 
 - Ensure you have a user account in {{ product_name }}. If not, you can [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) within {{ product_name }}.
 
 - [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with an mobile number to which the user will receive the OTP.
+
+- Configure your preferred SMS provider in {{product_name}}. For detailed instructions, see [Configure SMS providers]({{base_path}}/guides/notification-channels/configure-sms-provider/).
 
 {{ admin_login_note }}
 
@@ -51,148 +54,11 @@ To update the default SMS OTP settings:
    </table>
 3. Once you update the SMS OTP settings, click **Update**.
 
-## Configuring SMS Providers
-
-Configurations related to SMS providers are located under the **{{ notification_tab_name }}** section On the {{ product_name }} Console.
-
-### Supported Providers
-
-{{ product_name }} supports Twilio, Vonage, or custom SMS providers by default. To learn how to configure each provider, please see the relevant section.
-
-??? note "Configuring Twilio"
-      To configure Twilio as your SMS provider, follow the steps below:
-   
-       - Go to [Twilio](https://www.twilio.com/try-twilio){:target="_blank"} and create an account.
-       - After signing up for your account, navigate to the Phone Numbers page in your console. You’ll see the phone number that has been selected for you. Note the phone number’s capabilities, such as "Voice", "SMS", and "MMS".
-       - After signing up, navigate to the Phone Numbers page in your console and note the phone number’s capabilities.
-       - Get your first Twilio phone number and use that as the “Sender” in the settings. For more information, see this tutorial in the Twilio documentation.
-       - Copy the Account SID and Auth Token from the Twilio console dashboard.
-       - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Twilio** tab and fill the required fields.
-   
-       <table>
-         <tr>
-           <th>Name</th>
-           <th>Description</th>
-           <th>Example</th>
-         </tr>
-         <tr>
-           <td><code>Twilio Account SID</code></td>
-           <td>Account SID received in the previous step.</td>
-           <td><code>YourAccountSID</code></td>
-         </tr>
-         <tr>
-           <td><code>Twilio Auth Token</code></td>
-           <td>Auth token received in the previous step.</td>
-           <td><code>YourAuthToken</code></td>
-         </tr>
-         <tr>
-           <td><code>Sender</code></td>
-           <td>Phone number that you received when creating the Twilio account.</td>
-           <td><code>+1234567890</code></td>
-         </tr>
-       </table>
-
-??? note "Configuring Vonage"
-      To configure Vonage as your SMS provider, follow the steps below:
-
-       - Login to [Vonage](https://www.vonage.com/){:target="_blank"} and create an account.
-       - Fill in the required fields and create the account.
-       - Login to the Vonage dashboard and copy the API Key and API Secret.
-       - Go to **SMS Provider** section in the {{ product_name }} Console and click the **Vonage** tab and fill the required fields.
-   
-       <table>
-         <tr>
-           <th>Name</th>
-           <th>Description</th>
-           <th>Example</th>
-         </tr>
-         <tr>
-           <td><code>Vonage API Key</code></td>
-           <td>Use the API Key from the previous step.</td>
-           <td><code>YourAPIKey</code></td>
-         </tr>
-         <tr>
-           <td><code>Vonage API Secret</code></td>
-           <td>Use the API Secret from the previous step.</td>
-           <td><code>YourAPISecret</code></td>
-         </tr>
-         <tr>
-           <td><code>Sender</code></td>
-           <td>The number that the receiver will see when you send an SMS.</td>
-           <td><code>+1234567890</code></td>
-         </tr>
-       </table>
-
-??? note "Configuring a Custom Provider"
-      If you are not using either Twilio or Vonage as the SMS provider, you can configure a custom SMS provider. Custom SMS provider configuration will pass the SMS data to the given URL as an HTTP request.
-
-      To configure a custom SMS provider, in the  **SMS Provider** section click the **Custom** tab and fill the required fields.
-      
-      <table>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Example</th>
-      </tr>
-      <tr>
-        <td>SMS Provider Name</td>
-        <td>Display name for the SMS provider.</td>
-        <td><code>MySMSProvider</code></td>
-      </tr>
-      <tr>
-        <td>SMS Provider URL</td>
-        <td>URL of the SMS gateway where the payload should be published.</td>
-        <td><code>https://api.example.com/api/v1</code></td>
-      </tr>
-      <tr>
-        <td>Content Type</td>
-        <td>Content type of the payload. Possible values are <code>JSON</code> or <code>FORM</code> (Optional).</td>
-        <td><code>JSON</code></td>
-      </tr>
-      <tr>
-        <td>HTTP Method</td>
-        <td>HTTP method that should be used when publishing the payload to the provider URL. Possible values: <code>PUT</code>, <code>POST</code> (Optional). </td>
-        <td><code>POST</code></td>
-      </tr>
-      <tr>
-        <td>Payload Template</td>
-        <td>How the payload template should be. </br>Placeholders: </br><code>\{\{body\}\}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>\{\{mobile\}\}</code> - Number that this sms should be sent to.</td>
-        <td>Example JSON payload template: </br><code>{“content”: \{\{body\}\},“to”: \{\{mobile\}\}}}</code></br></br>(<code>\{\{mobile\}\}</code> and <code>\{\{body\}\}</code> will be replaced with the corresponding values at the runtime.)</td>
-      </tr>
-      <tr>
-        <td>Headers</td>
-        <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
-        <td><code>x-csrf: true, x-abc: some-value</code></td>
-      </tr>
-    {% if not (product_name == "WSO2 Identity Server" and is_version <= "7.2.0") %}
-      <tr>
-        <td>Authentication</td>
-        <td>Authentication settings for the custom SMS provider. Select the preferred authentication type and enter the required authentication properties.</td>
-        <td>Authentication Scheme <code>Basic</code> with username and password.</td>
-      </tr>
-    {% endif %}
-    </table>
-
-    {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
-
-    By default, the custom SMS provider uses connection timeout and read timeout values of 5000ms and 20000ms respectively. If you need to change these timeout values, you can configure them by adding the following configuration to the `deployment.toml` file:
-
-    ```toml
-    [notificationChannel.sms.custom]
-    connection_timeout = 5000
-    connection_read_timeout = 20000
-    ```
-
-    !!! note
-        - `connection_timeout`: Time in milliseconds to wait for establishing a connection to the SMS provider (default: 5000ms)
-        - `connection_read_timeout`: Time in milliseconds to wait for reading data from the SMS provider (default: 20000ms)
-    {% endif %}
-
-## Enable SMS OTP Login for Your App
+## Enable SMS OTP login for your app
 
 {% include "../../../guides/fragments/add-login/passwordless-login/add-sms-otp-login.md" %}
 
-## Try It Out
+## Try it out
 
 Follow these steps to test the SMS OTP login:
 
@@ -206,6 +72,6 @@ Follow these steps to test the SMS OTP login:
 
     ![SMS OTP submit page]({{base_path}}/assets/img/guides/passwordless/sms-otp/sms-otp-submit-page.png){: width="400" style="border: 0.3px solid lightgrey;"}
 
-4. Check your phone for the SMS containing the one-time passcode.
+4. Check your phone for the SMS containing the one-time password (OTP).
 
-5. Enter the received passcode on the SMS OTP page and click **Continue**.
+5. Enter the received OTP on the SMS OTP page and click **Continue**.
