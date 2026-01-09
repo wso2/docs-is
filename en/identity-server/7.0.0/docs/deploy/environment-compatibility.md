@@ -1,10 +1,10 @@
-# Environment Compatibility
+# Environment compatibility
 
-This doc covers the compaitibility information of WSO2 Identity Server with different environments.
+This doc covers the compatibility information of WSO2 Identity Server with different environments.
 
 ## Tested operating systems and JDKs
 
-As WSO2 Identity Server is a Java application, you can generally run it on most operating systems. Following are the operating systems and JDKs that WSO2 Identity Server is tested with:
+As WSO2 Identity Server is a Java application, you can run it on most operating systems. Following are the operating systems and JDKs that WSO2 Identity Server is tested with:
 
 <table>
 	<tr>
