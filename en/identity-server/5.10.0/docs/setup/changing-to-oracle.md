@@ -196,7 +196,7 @@ However, if required, you can disable the latter mentioned default behavior by d
 **Configure the connection pool to commit pending transactions on connection return**  
         
   1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS:
+        -   On Linux/macOS:
             `                 <IS_HOME>/bin/wso2server.sh/                `
         -   On Windows:
             `                 <IS_HOME>\bin\wso2server.bat                `

@@ -20,7 +20,7 @@ Follow the steps given below.
 
 |OS     |Home Directory                                |
 |:------|:---------------------------------------------|
-|Mac OS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
+|macOS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
 |Windows| `C:\Program Files\WSO2\IdentityServer\<IS_HOME>` |
 |Ubuntu | `/usr/lib/wso2/IdentityServer/<IS_HOME>`         |
 |CentOS | `/usr/lib64/IdentityServer/<IS_HOME>`           |
@@ -49,7 +49,7 @@ tag_requests = false
 
 To start WSO2 IS, open a terminal, navigate to the `<IS_HOME>/bin` folder, and execute one of the following commands:
 
--   On Linux/MacOS
+-   On Linux/macOS
 
     ``` bash
     sh wso2server.sh

@@ -14,7 +14,7 @@ In this sample scenario, a user tries to log in to a vehicle booking web applica
 
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 

@@ -106,7 +106,7 @@ Before starting the server,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```
@@ -128,7 +128,7 @@ Before starting the server,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```
@@ -151,7 +151,7 @@ To enable hostname verification,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```

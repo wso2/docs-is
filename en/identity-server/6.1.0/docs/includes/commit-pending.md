@@ -1,6 +1,6 @@
 1.	Navigate to either one of the following locations based on your OS.
 
-    ```tab="Linux/Mac OS"
+    ```tab="Linux/macOS"
     <IS_HOME>/bin/wso2server.sh/ 
     ```
 
