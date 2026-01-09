@@ -2,7 +2,7 @@
 
 This document provides compatibility details for WSO2 Identity Server 7.1.0 across various environments.
 
-## {{product_name}} runtime compatibility 
+## {{product_name}} runtime compatibility
 
 Given below is the tested compatibility of the runtime of {{product_name}} 7.1.0.
 
