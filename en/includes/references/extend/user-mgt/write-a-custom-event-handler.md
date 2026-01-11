@@ -39,7 +39,7 @@ The following list is a list of sample events.
 
 To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`.
 
-1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priory of the event handler. The handlers will be executed based on the priority.
+1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priority of the event handler. The handlers will be executed based on the priority.
 
     ```java
     public String getName() {

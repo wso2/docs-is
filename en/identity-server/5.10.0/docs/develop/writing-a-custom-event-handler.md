@@ -54,9 +54,9 @@ The following list is a list of sample events.
 
 To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`.
 
-1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priory of the event handler. The handlers will be executed based on the priority.
+1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priority of the event handler. The handlers will be executed based on the priority.
 
-    ```
+    ```java
     public String getName() {
     return "emailSender";
     }
@@ -67,9 +67,9 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     }
     ```
 
-2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations. 
+2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations.
 
-    ```
+    ```java
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
 
@@ -83,11 +83,11 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     String[] roleList = (String[]) eventProperties.get(IdentityEventConstants.EventProperty.ROLE_LIST);
     ```
 
-## Registering the event handler 
+## Registering the event handler
 
 Register the event handler in the service component as follows.
 
-```
+```java
 protected void activate(ComponentContext context) {
     try {
         BundleContext bundleContext = context.getBundleContext();
@@ -102,10 +102,10 @@ class.getName(),new SampleEventHandler(), null);
 
 Add the event handler configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. The events that need to subscribe to the handler can be listed in subscriptions.
 
-```
+```toml
 [[event_handler]]
-name= "emailSender"
-subscriptions =["POST_ADD_USER"]
+name = "emailSender"
+subscriptions = ["POST_ADD_USER"]
 ```
 
 When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `emailSender` handler is subscribed to the `POST_ADD_USER` operation.
