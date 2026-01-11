@@ -485,7 +485,7 @@ components:
       properties:
         code:
           type: string
-          description: The error code recieved.
+          description: The error code received.
           example: AAA-00000
         message:
           type: string
@@ -493,7 +493,7 @@ components:
           example: Some Error Message
         description:
           type: string
-          description: The description of the error that occured.
+          description: The description of the error that occurred.
           example: Some Error Description
         traceId:
           type: string
