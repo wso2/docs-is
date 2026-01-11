@@ -80,4 +80,4 @@ To import the certificate, open a terminal window and run the following command.
 
 ## What's Next?
 
-Now that you have prepared WSO2 Idenity server for adaptive authentication using ELK analytics, [try an ELK-based adaptive authentication scenario]({{base_path}}/guides/authentication/conditional-auth/elk-risk-based-template).
+Now that you have prepared WSO2 Identity server for adaptive authentication using ELK analytics, [try an ELK-based adaptive authentication scenario]({{base_path}}/guides/authentication/conditional-auth/elk-risk-based-template).

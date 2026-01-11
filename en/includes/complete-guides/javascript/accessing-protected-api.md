@@ -41,13 +41,13 @@ auth.httpRequest(requestConfig).then((response) => {
 
 !!! tip "Tip"
 
-    You need to construct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the following instructions: 
 
     For Asgardeo: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
-    For WSO2 Idenity Server: 
+    For WSO2 Identity Server: 
 
     `<base-url> =https://localhost:9443` 
 
@@ -71,13 +71,13 @@ const requestConfig = {
 
 !!! tip "Tip"
 
-    You need to construct the '<base-url>' value as per the followng instructions: 
+    You need to construct the '<base-url>' value as per the following instructions: 
 
     For Asgardeo: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
-    For WSO2 Idenity Server: 
+    For WSO2 Identity Server: 
 
     `<base-url> =https://localhost:9443` 
 

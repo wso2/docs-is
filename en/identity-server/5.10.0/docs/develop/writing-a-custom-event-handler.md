@@ -9,7 +9,7 @@ An event handler is used to perform an operation based on the published events.
 For instance, an event handler can be used to send an email after a user addition. The following sequence of operations are executed while adding a user.
 
 1. Publish the `PRE_ADD_USER` event — The subscribed handlers will be executed for the pre-add user event.
-2. Execute the `AddUser` operation — The user will be persisted to the user store (LDAP or JBDC user store).
+2. Execute the `AddUser` operation — The user will be persisted to the user store (LDAP or JDBC user store).
 3. Publish the `POST_ADD_USER` event — The subscribed handlers will be executed for the post-add user event.
 
 Therefore, the email can be sent through an event handler that is subscribed to the `POST_ADD_USER` event.

@@ -11,7 +11,7 @@ An event handler is used to perform an operation based on the published events.
 For instance, an event handler can be used to send an email after a user addition. The following sequence of operations are executed while adding a user.
 
 1. Publish the `PRE_ADD_USER` event — The subscribed handlers will be executed for the pre-add user event.
-2. Execute the `AddUser` operation — The user will be persisted to the user store (LDAP or JBDC user store).
+2. Execute the `AddUser` operation — The user will be persisted to the user store (LDAP or JDBC user store).
 3. Publish the `POST_ADD_USER` event — The subscribed handlers will be executed for the post-add user event.
 
 Therefore, the email can be sent through an event handler that is subscribed to the `POST_ADD_USER` event.
@@ -100,7 +100,7 @@ subscriptions =["CUSTOM_EVENT"]
 
 1. Build the sample custom identity event handler [here](https://github.com/wso2/samples-is/tree/v4.6.0/event-handler/custom-identity-event-handler){:target="_blank"} using `mvn clean install` command.
 2. Copy the generated org.wso2.carbon.identity.customhandler-4.5.6.jar file in the target folder into `<IS_HOME>/repository/components/dropins/` folder.
-3. Add following configurations to `<IS_HOME>/repository/conf/deployement.toml` file
+3. Add following configurations to `<IS_HOME>/repository/conf/deployment.toml` file
     ```toml
     [[event_handler]]
     name="customUserRegistration"

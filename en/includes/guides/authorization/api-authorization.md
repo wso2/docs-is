@@ -159,7 +159,7 @@ To authorize an application to consume an API resource:
         </tr>
         <tr>
             <td><b>Authorization Policy</b></td>
-            <td>Management/Organization APIs of {{product_name}} or business APIs with <code>Requires autheorization</code> enabled will default to <code>Role-Based Access Control (RBAC)</code>. Other APIs can alternatively proceed with <code>No Authorization Policy</code>.</td>
+            <td>Management/Organization APIs of {{product_name}} or business APIs with <code>Requires authorization</code> enabled will default to <code>Role-Based Access Control (RBAC)</code>. Other APIs can alternatively proceed with <code>No Authorization Policy</code>.</td>
         </tr>
     </table>
 

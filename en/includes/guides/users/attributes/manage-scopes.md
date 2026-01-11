@@ -109,7 +109,7 @@ To add new scopes to your organization:
 
 ## Edit Scopes
 
-You can add attrbutes to scopes or delete them by following the steps below.
+You can add attributes to scopes or delete them by following the steps below.
 
 1. On the {{ product_name }} Console, go to {{ attribute_path }} > **Attributes** > **Manage Attribute Mappings** > **OpenID Connect**.
 

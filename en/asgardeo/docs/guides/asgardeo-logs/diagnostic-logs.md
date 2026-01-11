@@ -81,7 +81,7 @@ Conditional authentication scripts can generate two types of error logs in the l
     ```java
     .....
     var allowedGroups = ['Supplier'];
-    Log.info('Allowed groups: ' + alowedGroups.toString());
+    Log.info('Allowed groups: ' + allowedGroups.toString());
     .....
     ```
     Once a user attempts to log in, the error is logged in the logs portal as shown below.

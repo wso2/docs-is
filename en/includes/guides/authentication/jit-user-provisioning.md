@@ -42,7 +42,7 @@ To enable JIT user provisioning for an external Identity provider:
 
 !!! warning
 
-    When JIT user provisionin is disabled, the following restrictions apply:
+    When JIT user provisioning is disabled, the following restrictions apply:
 
     - Since {{product_name}} does not create local user accounts for federated users, those users' attributes will not be stored in {{product_name}}. Instead, attributes from the external IdP are passed directly to the application.
 

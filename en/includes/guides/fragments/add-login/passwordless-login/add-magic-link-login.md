@@ -14,7 +14,7 @@ Follow the steps given below to add **Magic link** login to the login flow of yo
 
         2. Select **Magic Link**.
 
-        3. Click **Confirm** to add passwordless login with Magick Link to the sign-in flow.
+        3. Click **Confirm** to add passwordless login with Magic Link to the sign-in flow.
 
             ![Configuring magic link login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

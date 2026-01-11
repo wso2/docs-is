@@ -13,7 +13,7 @@ Before you begin, ensure you have the following:
 
 ## Configure Duo Security Application
 
-1. Log in to the [Duo Securty admin panel](https://admin.duosecurity.com/login). 
+1. Log in to the [Duo Security admin panel](https://admin.duosecurity.com/login). 
 2. Click **Applications** from the left panel and then click the **Protect an Application** button.
 
     ![Create duo security app]({{base_path}}/assets/img/guides/mfa/duo/add-duo-security-app.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -28,7 +28,7 @@ Before you begin, ensure you have the following:
 
 Next, you need to register Duo as a connection in Asgardeo. To do so, follow the steps below.
 
-1. Log in to the [Asgardeo Console](https://console.asgardeo.io/) as an adminstrator.
+1. Log in to the [Asgardeo Console](https://console.asgardeo.io/) as an administrator.
 2. Navigate to **Connections** from the left-hand panel 
 3. Click **New Connection** and select **Duo** from the listed templates.
 4. Provide a Name for the Duo connection (e.g., "Duo Security").
