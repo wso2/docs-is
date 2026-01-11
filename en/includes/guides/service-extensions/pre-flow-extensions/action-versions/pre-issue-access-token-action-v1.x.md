@@ -1,7 +1,11 @@
 The following API contracts defines the request and response structures that your service must adhere to, based on the action version.
 
+{% if is_version == "7.1.0" %}
+- [pre-issue access token API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract)
+{% else %}
 - [pre-issue access token API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0)
 - [pre-issue access token API contract v1.1]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1)
+{% endif %}
 
 ### Request from {{product_name}}
 
@@ -480,7 +484,7 @@ This example illustrates a request sent to an external service configured as a p
 
 ### Expected response from external service
 
-When {{product_name}} invokes your external service as part of the pre-issue access token action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract/) here.
+When {{product_name}} invokes your external service as part of the pre-issue access token action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract) here.
 
 This response plays a crucial role in determining how {{product_name}} issues or modifies the access token. Here’s a breakdown of the expected response:
 
