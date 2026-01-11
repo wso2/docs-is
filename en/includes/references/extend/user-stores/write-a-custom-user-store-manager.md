@@ -4,17 +4,24 @@ The following sections provide information that you need to be aware of when wri
 
 ## Available methods and implementations
 
-There are a set of methods available in the `AbstractUserStoreManager` class. These methods are used when interacting with user stores. When we implement a custom user store manager, it is important to identify the methods that must be implemented or overridden.
+WSO2 Identity Server provides Unique ID-based user store manager implementations that extend the `AbstractUserStoreManager` class. When creating a custom user store manager, you should extend one of the following Unique ID user store manager classes based on your user store type:
+
+- `UniqueIDJDBCUserStoreManager` - For JDBC-based user stores
+- `UniqueIDReadOnlyLDAPUserStoreManager` - For read-only LDAP user stores
+- `UniqueIDReadWriteLDAPUserStoreManager` - For read-write LDAP user stores
+- `UniqueIDActiveDirectoryLDAPUserStoreManager` - For Active Directory user stores
+
+These Unique ID user store managers provide a set of methods for interacting with user stores. When implementing a custom user store manager, it is important to identify the methods that must be implemented or overridden based on your requirements.
 
 !!! tip "Overriding methods"
-    
-    You must select the methods to override based on your requirement. For example, if you want to change the way you encrypt the password, you only need to implement the `preparePassword` method. If you want to implement a completely new read/write user store manager, you need to implement all the methods listed in the tables given below. 
-    If the user store is read-only, you can implement only the important methods and read methods (if you extend from `AbstractUserStoreManager`, you have to keep the unrelated methods empty).
-    
+
+    You must select the methods to override based on your requirement. For example, if you want to change the way you encrypt the password, you only need to implement the `preparePassword` method. If you want to implement a completely new read/write user store manager, you need to implement all the methods listed in the tables given below.
+    If the user store is read-only, you can implement only the important methods and read methods. For methods you don't need, you can keep them empty or use the default implementation.
+
     There are a few other methods used for internal purposes. You do not need to override those methods.
 
 
-The following list briefly explains the use of the available methods in the `AbstractUserStoreManager` class. Most of the methods provide a configuration option through properties. It is recommended to use these methods with the provided customization options.
+The following list briefly explains the use of the available methods in the Unique ID user store manager classes. Most of the methods provide a configuration option through properties. It is recommended to use these methods with the provided customization options.
 
 ### Important methods
 
@@ -166,7 +173,10 @@ The following list briefly explains the use of the available methods in the `Abs
 
 ### Implementations
 
-In WSO2 Identity Server, there are four user store manager classes that implement the `AbstractUserStoreManager` class. You can select one of those classes according to the user store that you have in your environment.
+In WSO2 Identity Server, there are four Unique ID-based user store manager classes that you should extend when creating a custom user store manager. Select the appropriate class based on your user store type and requirements.
+
+!!! important
+    Always extend one of the Unique ID user store manager classes listed below instead of extending `AbstractUserStoreManager` directly. The Unique ID-based implementations provide enhanced user management capabilities with unique user identifiers.
 
 <table>
 <colgroup>
@@ -175,8 +185,8 @@ In WSO2 Identity Server, there are four user store manager classes that implemen
 </colgroup>
 <thead>
 <tr class="header">
-<th>userstore manager class</th>
-<th>When you would use it</th>
+<th>Unique ID user store manager class</th>
+<th>When to extend this class</th>
 </tr>
 </thead>
 <tbody>
@@ -203,7 +213,7 @@ In WSO2 Identity Server, there are four user store manager classes that implemen
 
 ## Implement a custom JDBC user store manager
 
-The instructions in this section are focused on implementing a sample JDBC user store manager. For this sample, the following tools are used to implement the custom user store manager.
+The instructions in this section guide you through implementing a sample custom JDBC user store manager by extending the `UniqueIDJDBCUserStoreManager` class. For this sample, the following tools are used to implement the custom user store manager.
 
 - Java 1.6.0
 - IDE (Eclipse, InteliJ IDEA, etc.)
@@ -337,7 +347,7 @@ Follow the steps given below to write a custom user store manager.
     </dependency>
     ```
 
-2. Create a new class by extending the existing `JDBCUserStoreManager` implementation. The following code is an example of how this would look.
+2. Create a new class by extending the `UniqueIDJDBCUserStoreManager` implementation. The following code is an example of how this would look.
 
     ??? example "Code sample"
         ``` java
@@ -542,7 +552,7 @@ Follow the instructions given below to deploy and configure the custom user stor
     
 
     You do not need to change anything else since you extend the
-    `JDBCUserStoreManager` class, so the configurations will remain the
+    `UniqueIDJDBCUserStoreManager` class, so the configurations will remain the
     same.
 
 You have now implemented a custom user store manager for WSO2 Identity Server.
