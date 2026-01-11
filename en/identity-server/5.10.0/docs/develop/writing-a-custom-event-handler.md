@@ -104,8 +104,8 @@ Add the event handler configuration to the `<IS_HOME>/repository/conf/deployment
 
 ```toml
 [[event_handler]]
-name = "emailSender"
-subscriptions = ["POST_ADD_USER"]
+name= "emailSender"
+subscriptions =["POST_ADD_USER"]
 ```
 
 When you want to execute an operation related to an event, publish the event. Then, the handler that is subscribed for the relevant events will be used to execute those events. In the sample configuration given above, the `emailSender` handler is subscribed to the `POST_ADD_USER` operation.

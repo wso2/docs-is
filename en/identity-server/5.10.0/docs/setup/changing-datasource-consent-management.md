@@ -1,16 +1,16 @@
 # Changing the Default Datasource for Consent Management
 
-WSO2 Identity Server is shipped with an embedded H2 database for storing data. 
-These default databases are located in the `<IS_HOME>/repository/database` directory 
+WSO2 Identity Server is shipped with an embedded H2 database for storing data.  
+These default databases are located in the `<IS_HOME>/repository/database` directory  
 of the product pack.
 
-By default Consent Management data is stored in the identity database (IDENTITY_DB) with 
-Identity and UMA data. However, you can separate consent specific data into a separate 
+By default Consent Management data is stored in the identity database (IDENTITY_DB) with  
+Identity and UMA data. However, you can separate consent specific data into a separate  
 data-source to any database type that is supported by WSO2 Identity Server.
 
 !!! note
-    For more information about databases, see 
-    [Working with Databases](../../setup/working-with-databases) and 
+    For more information about databases, see  
+    [Working with Databases](../../setup/working-with-databases) and  
     [Setting Up Separate Databases for Clustering](../../setup/setting-up-separate-databases-for-clustering).
 
 Following are the sample configuration for each database type.
