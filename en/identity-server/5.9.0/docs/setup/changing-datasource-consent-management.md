@@ -26,7 +26,7 @@ Following are the sample configuration for each database type.
         driver = "org.postgresql.Driver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
@@ -45,7 +45,7 @@ Following are the sample configuration for each database type.
         driver = "com.mysql.jdbc.Driver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
@@ -64,7 +64,7 @@ Following are the sample configuration for each database type.
         driver = "com.ibm.db2.jcc.DB2Driver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
@@ -83,7 +83,7 @@ Following are the sample configuration for each database type.
         driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
@@ -102,7 +102,7 @@ Following are the sample configuration for each database type.
         driver = "oracle.jdbc.OracleDriver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
         Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
@@ -226,7 +226,7 @@ as a single transaction.</p>
 
 
 Once when we separate out consent database from `WSO2IdentityDB`, we need to add the 
-following configuration to the `deployement.toml` to specify WSO2 Identity Server to 
+following configuration to the `deployment.toml` to specify WSO2 Identity Server to 
 use a separate data-source instead of default `IDENTITY_DB`.
 
 ```
@@ -259,4 +259,4 @@ data_source="jdbc/WSO2CONSENT_DB"
     
     [authentication.consent]
     data_source="jdbc/WSO2CONSENT_DB"
-    ``` 
+    ```

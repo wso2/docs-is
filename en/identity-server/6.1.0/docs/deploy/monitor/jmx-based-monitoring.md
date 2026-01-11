@@ -208,7 +208,7 @@ If you have [JMX enabled for a datasource connected to the WSO2 IS instance](#en
 
 ![Datasource Mbean]({{base_path}}/assets/img/deploy/monitor/datasource-mbean.png)
 
-For example, if you have JMX enabled for the default Carbon datasources in the ` deployement.toml ` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below.
+For example, if you have JMX enabled for the default Carbon datasources in the ` deployment.toml ` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below.
 See the [performance tuning guide]({{base_path}}/deploy/performance/performance-tuning-recommendations/#jdbc-pool-configuration) for instructions on how these parameters are configured for a datasource.  
 
 ![Datasource performance tuning]({{base_path}}/assets/img/deploy/monitor/tuning.png)

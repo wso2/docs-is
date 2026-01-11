@@ -278,7 +278,7 @@ To claim the created mobile credential,
 
 5. Follow the authentication prompts to complete the credential claim process.
 
-### Step 4.3: Download the MATTR Go Verfiy app
+### Step 4.3: Download the MATTR Go Verify app
 
 From a different device, download the MATTR GO Verify app. This app allows you to perform in-person verification of digital credentials stored in the MATTR GO Hold wallet.
 

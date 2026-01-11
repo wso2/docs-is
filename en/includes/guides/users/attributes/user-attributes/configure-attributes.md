@@ -212,7 +212,7 @@ Use the following settings to change details and behavior of an attribute. To co
             <td>Select one of the following scopes to validate attribute uniqueness:
                 <ul>
                     <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
-                    <li><b>Within User Store:</b> Users within the same user store can't have duplicate values for the selectedattribute. However, users in other user stores may have duplicates.</li>
+                    <li><b>Within User Store:</b> Users within the same user store can't have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
                         <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
                     </ul>
             </td>

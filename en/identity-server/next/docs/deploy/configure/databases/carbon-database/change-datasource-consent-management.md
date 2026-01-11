@@ -27,7 +27,7 @@ Following are the sample configuration for each database type.
         driver = "org.postgresql.Driver"
         jmx_enable=false
         ```
-        
+
     2.  Execute the database scripts. 
     
         Execute the scripts in the `<IS-HOME>/dbscripts/consent/postgresql.sql` file against 
@@ -46,7 +46,7 @@ Following are the sample configuration for each database type.
         driver = "com.mysql.jdbc.Driver"
         jmx_enable=false
         ```
-        
+
     2.  Execute the database scripts. 
     
         Execute the scripts in the `<IS-HOME>/dbscripts/consent/mysql.sql` file against 
@@ -63,7 +63,7 @@ Following are the sample configuration for each database type.
         driver = "com.ibm.db2.jcc.DB2Driver"
         jmx_enable=false
         ```
-        
+
     2.  Execute the database scripts. 
     
         Execute the scripts in the `<IS-HOME>/dbscripts/consent/db2.sql` file against 
@@ -81,7 +81,7 @@ Following are the sample configuration for each database type.
         driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
         jmx_enable=false
         ```
-        
+
     2.  Execute the database scripts. 
     
         Execute the scripts in the `<IS-HOME>/dbscripts/consent/mssql.sql` file against 
@@ -98,7 +98,7 @@ Following are the sample configuration for each database type.
         driver = "oracle.jdbc.OracleDriver"
         jmx_enable=false
         ```
-        
+
     2.  Execute the database scripts. 
     
         Execute the scripts in the `<IS-HOME>/dbscripts/consent/oracle.sql` file against 
@@ -203,4 +203,4 @@ data_source="jdbc/WSO2CONSENT_DB"
     
     [authentication.consent]
     data_source="jdbc/WSO2CONSENT_DB"
-    ``` 
+    ```
