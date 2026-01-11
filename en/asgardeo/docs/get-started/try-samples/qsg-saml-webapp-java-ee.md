@@ -57,7 +57,7 @@ Follow these steps given below to register the sample Java EE web application in
       </td>
     </tr>
     </table>
-5. Click **Register** to complete the registration.
+4. Click **Register** to complete the registration.
 
 !!! tip
     To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:8080/sample-app</code>).
@@ -133,8 +133,8 @@ Follow the steps given below to configure the sample app.
     IndexPage=index.html
     ErrorPage=/error.jsp
     SAML2SSOURL=samlsso
-
     ```
+
     <table>
       <thead>
         <tr>

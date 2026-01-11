@@ -37,7 +37,7 @@ To register the app:
         </tr>
     </table>
 
-5. Click **Register** to complete the registration.
+4. Click **Register** to complete the registration.
 
     ??? details "Sharing with selected organizations"
         If you have enabled **Allow sharing with organizations** while registering the application, you will see a popup window with the following options.

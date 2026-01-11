@@ -64,8 +64,8 @@ executeStep(1, {
     }
 })
 ...
-
 ```
+
 Once a user succeeds the first login step, the debug log appears in the logs portal as shown below.
 
 ![Debug logs in conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/debug-log-conditional-auth.png){: width="550" style="border: 0.3px solid lightgrey;"}
@@ -85,8 +85,8 @@ Conditional authentication scripts can generate two types of error logs in the l
     var allowedGroups = ['Supplier'];
     Log.info('Allowed groups: ' + allowedGroups.toString());
     .....
-
     ```
+
     Once a user attempts to log in, the error is logged in the logs portal as shown below.
 
     ![Error logs due to syntax in conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/error-log-syntax-error-conditional-auth.png){: width="700" style="border: 0.3px solid lightgrey;"}
@@ -109,8 +109,8 @@ Conditional authentication scripts can generate two types of error logs in the l
         } }
     })
     ...
-    
     ```
+
     Once an unauthorized user attempts to log in, the error is logged in the logs portal as shown.
 
     ![Error logs in conditional authentication]({{base_path}}/assets/img/guides/asgardeo-logs/error-log-conditional-auth.png){: width="700" style="border: 0.3px solid lightgrey;"}
