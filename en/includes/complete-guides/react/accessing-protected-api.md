@@ -80,7 +80,7 @@ export default function UserProfile() {
 
     For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`
 
 Note that you don’t need to manually specify the Authorization header under headers in `http`, as `http` function intercepts the request and attaches the access token to the network request as the Authorization header.
 
@@ -110,7 +110,7 @@ const response = await http.request({
 
     For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`
 
 In case you want to send multiple API requests in parallel, you can use the `httpRequestAll` function to simultaneously trigger parallel network requests and receive responses after all network requests are completed.
 
@@ -249,4 +249,4 @@ export default function UserProfile() {
 
     For WSO2 Idenity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`

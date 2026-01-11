@@ -45,7 +45,7 @@ export const appConfig: ApplicationConfig = {
 
     For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`
 
 ### Step 2: Make HTTP Requests
 
@@ -86,7 +86,7 @@ export class DashboardComponent {
 
     For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`
 
 In the above code, the access token is automatically attached to the `Authorization` header by the Angular OAuth2 OIDC SDK when you make requests to the specified allowed URLs.
 
@@ -131,5 +131,5 @@ export class DashboardComponent {
 
     For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`
   

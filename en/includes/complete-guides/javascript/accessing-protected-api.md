@@ -49,7 +49,7 @@ auth.httpRequest(requestConfig).then((response) => {
 
     For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443` 
+    `<base-url> = https://localhost:9443` 
 
 Note that you don’t need to manually specify the Authorization header under headers in requestConfig, as httpRequest method intercepts the request and attaches the access token to the network request as the Authorization header.
 
@@ -79,7 +79,7 @@ const requestConfig = {
 
     For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443` 
+    `<base-url> = https://localhost:9443` 
 
 In case you want to send multiple API requests in parallel, you can use the httpRequestAll method to simultaneously trigger parallel network requests and receive responses after all network requests are completed.
 
