@@ -103,7 +103,7 @@ subscriptions =["CUSTOM_EVENT"]
     - Navigate to event-handler/custom-event-handler directory (`cd event-handler/custom-event-handler`).
     - Run the `mvn clean install` command.
 2. Copy the generated org.wso2.carbon.identity.customhandler-1.0.0.jar file in the target folder into <IS_HOME>/repository/components/dropins/ folder.
-3. Add following configurations to <IS_HOME>/repository/conf/deployement.toml file
+3. Add following configurations to <IS_HOME>/repository/conf/deployment.toml file
 
     ```
     [[event_handler]]

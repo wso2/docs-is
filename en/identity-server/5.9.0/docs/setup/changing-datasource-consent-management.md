@@ -226,7 +226,7 @@ as a single transaction.</p>
 
 
 Once when we separate out consent database from `WSO2IdentityDB`, we need to add the 
-following configuration to the `deployement.toml` to specify WSO2 Identity Server to 
+following configuration to the `deployment.toml` to specify WSO2 Identity Server to 
 use a separate data-source instead of default `IDENTITY_DB`.
 
 ```
