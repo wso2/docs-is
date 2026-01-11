@@ -68,7 +68,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
 Register the event handler in the service component as follows.
 
-```
+```java
 protected void activate(ComponentContext context) {
     try {
         BundleContext bundleContext = context.getBundleContext();
@@ -83,7 +83,7 @@ class.getName(),new SampleEventHandler(), null);
 
 Add the event handler configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. The events that need to subscribe to the handler can be listed in subscriptions.
 
-```
+```toml
 [[event_handler]]
 name= "customEventHandler"
 subscriptions =["CUSTOM_EVENT"]
@@ -96,11 +96,13 @@ subscriptions =["CUSTOM_EVENT"]
     - Run the `mvn clean install` command.
 2. Copy the generated org.wso2.carbon.identity.customhandler-1.0.0.jar file in the target folder into <IS_HOME>/repository/components/dropins/ folder.
 3. Add following configurations to <IS_HOME>/repository/conf/deployement.toml file
-    ```
+
+    ```toml
     [[event_handler]]
     name="customUserRegistration"
     subscriptions=["PRE_ADD_USER","POST_ADD_USER"]
     ```
+
     `name`: The name of the event handler (Name that return from the `getName()` method).
     `subscriptions`: A list of events that the handler will be subscribed to. In this sample application, we are subscribing to the `PRE_ADD_USER` and `POST_ADD_USER` events.
 4. Restart the server.

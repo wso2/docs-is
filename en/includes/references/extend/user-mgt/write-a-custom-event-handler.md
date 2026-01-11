@@ -54,6 +54,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
 2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations. 
    The `handleEvent()` method should be called from the relevant method, which is written to execute a certain operation and the handlers will be executed once the operation is triggered.
+
     ```java
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
@@ -69,7 +70,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     ```
 
 ---
-## Register the event handler 
+## Register the event handler
 
 Register the event handler in the service component as follows.
 
@@ -101,11 +102,13 @@ subscriptions =["CUSTOM_EVENT"]
 1. Build the sample custom identity event handler [here](https://github.com/wso2/samples-is/tree/v4.6.0/event-handler/custom-identity-event-handler){:target="_blank"} using `mvn clean install` command.
 2. Copy the generated org.wso2.carbon.identity.customhandler-4.5.6.jar file in the target folder into `<IS_HOME>/repository/components/dropins/` folder.
 3. Add following configurations to `<IS_HOME>/repository/conf/deployment.toml` file
+
     ```toml
     [[event_handler]]
     name="customUserRegistration"
     subscriptions=["PRE_ADD_USER","POST_ADD_USER"]
     ```
+
     `name`: The name of the event handler (Name that return from the `getName()` method).
 
     `subscriptions`: A list of events that the handler will be subscribed to. In this sample application, we are subscribing to the `PRE_ADD_USER` and `POST_ADD_USER` events.

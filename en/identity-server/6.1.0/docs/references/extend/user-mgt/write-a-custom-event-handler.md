@@ -41,7 +41,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
 1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priority of the event handler. The handlers will be executed based on the priority.
 
-    ```
+    ```java
     public String getName() {
     return "customEventHandler";
     }
@@ -54,7 +54,8 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
 2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations. 
    The `handleEvent()` method should be called from the relevant method, which is written to execute a certain operation and the handlers will be executed once the operation is triggered.
-    ```
+
+    ```java
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
 
@@ -69,11 +70,11 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     ```
 
 ---
-## Register the event handler 
+## Register the event handler
 
 Register the event handler in the service component as follows.
 
-```
+```java
 protected void activate(ComponentContext context) {
     try {
         BundleContext bundleContext = context.getBundleContext();
