@@ -70,7 +70,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{catergory-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{category-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'          
   /identity-governance/{category-id}/connectors:
@@ -101,7 +101,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{catergory-id}/connectors' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{category-id}/connectors' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'          
     patch:
@@ -127,7 +127,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{catergory-id}/connectors' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{category-id}/connectors' \
             -H 'accept: */*' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -179,7 +179,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{category-id}/connectors/{connector-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'          
     patch:
@@ -206,7 +206,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{catergory-id}/connectors/{connector-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/identity-governance/{category-id}/connectors/{connector-id}' \
             -H 'accept: */*' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
