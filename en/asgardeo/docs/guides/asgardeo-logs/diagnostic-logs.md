@@ -64,6 +64,7 @@ executeStep(1, {
     }
 })
 ...
+
 ```
 Once a user succeeds the first login step, the debug log appears in the logs portal as shown below.
 
@@ -78,11 +79,13 @@ Conditional authentication scripts can generate two types of error logs in the l
 - Application errors that occur due to syntax errors in the conditional authentication script.
 
     For example, your conditional authentication script may have a syntax error that the editor does not flag as shown below.
+
     ```java
     .....
     var allowedGroups = ['Supplier'];
     Log.info('Allowed groups: ' + allowedGroups.toString());
     .....
+
     ```
     Once a user attempts to log in, the error is logged in the logs portal as shown below.
 
@@ -106,6 +109,7 @@ Conditional authentication scripts can generate two types of error logs in the l
         } }
     })
     ...
+    
     ```
     Once an unauthorized user attempts to log in, the error is logged in the logs portal as shown.
 

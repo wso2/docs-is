@@ -99,7 +99,7 @@ Follow the steps given below to configure the sample app.
         This will extract the contents of the **war** file. </br>
       If your Tomcat server is set to auto-deploy applications, you can skip this step.
 
-    ```bash 
+    ```bash
     sh catalina.sh start
     ```
 
@@ -112,7 +112,7 @@ Follow the steps given below to configure the sample app.
         - Update the **SAML2.IdPEntityId** parameter with the Asgardeo issuer, which is `api.asgardeo.io/t/{organization_name}`.
         - **SAML2.SPEntityId** should match the issuer name entered when registering the application in Asgardeo.
 
-    ```saml   
+    ```saml
     SAML2.AssertionConsumerURL=http://localhost:8080/sample-app/home.jsp
     SAML2.SPEntityId=sample-issuer
     SAML2.IdPEntityId=api.asgardeo.io/t/{organization_name}
@@ -133,6 +133,7 @@ Follow the steps given below to configure the sample app.
     IndexPage=index.html
     ErrorPage=/error.jsp
     SAML2SSOURL=samlsso
+
     ```
     <table>
       <thead>
@@ -287,7 +288,7 @@ Follow the steps given below to configure the sample app.
 
 5. In the `{TOMCAT_HOME}/bin` folder, run the following commands to restart the Tomcat server for the configurations to take effect:
 
-    ```bash 
+    ```bash
     sh catalina.sh stop
     sh catalina.sh start
     ```
