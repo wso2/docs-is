@@ -1,6 +1,6 @@
 # Configure the tenant loading policy
 
-In  {{ product_name }} based on Carbon 4.4.0 or later versions, you have the option of setting the required tenant loading policy by enabling either **Lazy Loading** or **Eager Loading** of tenants. Additionally, you can separately control the loading policy for web applications and axis2 services deployed in your tenants using the **GhostDeployment** setting.
+In {{ product_name }}, you have the option of setting the required tenant loading policy by enabling either **Lazy Loading** or **Eager Loading** of tenants. Additionally, you can separately control the loading policy for web applications and axis2 services deployed in your tenants using the **GhostDeployment** setting.
 
 !!! note
     By default, **Lazy Loading** is enabled for tenants in {{ product_name }}.
