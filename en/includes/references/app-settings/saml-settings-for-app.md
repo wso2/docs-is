@@ -214,6 +214,17 @@ The attribute name format specifies the type of attribute names used in the attr
 All the settings under this section are related to single-logout.
 In Single logout, if one application logs out from a browser session, {{ product_name }} will send logout requests to all the other SAML applications participating in the same browser session.
 
+!!! note "Single Logout (SLO) support in {{ product_name }}"
+    {{ product_name }} provides comprehensive Single Logout support for maintaining secure and synchronized logout across multiple applications:
+
+    - **SAML-based SLO**: Fully supported through the configurations in this section. When a user logs out from one SAML application, {{ product_name }} propagates the logout to all other SAML applications in the same session using the configured logout method (Back Channel, Front Channel HTTP Redirect, or Front Channel HTTP Post).
+
+    - **OIDC-based SLO**: Supported through RP-initiated logout and back-channel logout mechanisms. OIDC applications can participate in Single Logout when properly configured. Learn more about [OIDC logout]({{base_path}}/guides/authentication/oidc/add-logout/).
+
+    - **Cross-Protocol SLO**: {{ product_name }} supports Single Logout across different protocols. When a user logs out from a SAML application or an OIDC application, {{ product_name }} can propagate the logout to all applications in the session, regardless of whether they use SAML or OIDC protocol. This ensures a consistent logout experience across your entire application ecosystem.
+
+    - **Federated IdP-Initiated SLO**: Supports logout initiated by external identity providers for both SAML and OIDC protocols, with proper propagation to all connected applications.
+
 #### Enable SLO
 Specifies whether you want to enable single-logout to your application. By default, this is disabled for applications.
 
