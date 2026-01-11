@@ -44,14 +44,14 @@ The created Duo connection should be added as an MFA option to the login flow of
 3. Go to the **Login Flow** section. Username and Password will be added as the default login method.
 4. Click on the **+ icon** to add a new step to the login flow.
 5. Click on the **+ Add Sign In Option** button in step 2.
-6. Select the Duo connection from the authenticator list and click **Add**. 
+6. Select the Duo connection from the authenticator list and click **Add**.
 7. Save the changes by clicking the **Update** button.
 
 ## Test the Integration
 
 Finally, you need to verify that Duo has been successfully integrated and is functioning correctly as a second-factor authentication method. To do so,
 
-1. Access the sample application and click on **Login** button. 
+1. Access the sample application and click on **Login** button.
 
     ![React sample app login]({{base_path}}/assets/img/guides/mfa/duo/react-sample-app-login.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

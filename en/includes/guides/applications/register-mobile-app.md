@@ -59,7 +59,7 @@ To register the app:
             </tr>
         </table>
 
-6. [Enable the application]({{base_path}}/guides/applications/#enabledisable-an-application) when it is ready for use.
+5. [Enable the application]({{base_path}}/guides/applications/#enabledisable-an-application) when it is ready for use.
 
 ## Get the client ID
 

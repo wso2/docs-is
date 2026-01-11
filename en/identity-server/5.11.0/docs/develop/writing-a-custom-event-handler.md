@@ -1,10 +1,10 @@
 # Writing a Custom Event Handler
 
-The WSO2 Identity Server eventing framework can be used to trigger events such as user operation events like `PRE_SET_USER_CLAIMS`,`POST_ADD_USER`. A full list of the sample events can be found below. The eventing framework also supports handlers which can be used to do operations upon a triggered event. For instance, an event handler can be used to validate the changed user password against previously used entries when a `PRE_UPDATE_CREDENTIAL` event is triggered. 
+The WSO2 Identity Server eventing framework can be used to trigger events such as user operation events like `PRE_SET_USER_CLAIMS`,`POST_ADD_USER`. A full list of the sample events can be found below. The eventing framework also supports handlers which can be used to do operations upon a triggered event. For instance, an event handler can be used to validate the changed user password against previously used entries when a `PRE_UPDATE_CREDENTIAL` event is triggered.
 
 ## What is an event handler?
 
-An event handler is used to perform an operation based on the published events. 
+An event handler is used to perform an operation based on the published events.
 
 For instance, an event handler can be used to send an email after a user addition. The following sequence of operations are executed while adding a user.
 
@@ -14,7 +14,7 @@ For instance, an event handler can be used to send an email after a user additio
 
 Therefore, the email can be sent through an event handler that is subscribed to the `POST_ADD_USER` event.
 
-The following list is a list of sample events. 
+The following list is a list of sample events.
 
 - `AUTHENTICATION_STEP_SUCCESS`
 - `AUTHENTICATION_STEP_FAILURE`
@@ -33,7 +33,7 @@ The following list is a list of sample events.
 
 ## Writing an event handler
 
-To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`. 
+To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`.
 
 1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priory of the event handler. The handlers will be executed based on the priority.
 
