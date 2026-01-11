@@ -30,14 +30,13 @@ The following list is a list of sample events.
 !!! info
     The other events available with WSO2 Identity Server can be found from the `Event` class [here](https://github.com/wso2/carbon-identity-framework/blob/master/components/identity-event/org.wso2.carbon.identity.event/src/main/java/org/wso2/carbon/identity/event/IdentityEventConstants.java)
 
-
 ## Writing an event handler
 
 To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`.
 
 1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priority of the event handler. The handlers will be executed based on the priority.
 
-    ```
+    ```java
     public String getName() {
     return "customEventHandler";
     }
@@ -48,9 +47,10 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     }
     ```
 
-2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations. 
+2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations.
    The `handleEvent()` method should be called from the relevant method, which is written to execute a certain operation and the handlers will be executed once the operation is triggered.
-    ```
+
+    ```java
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
 
@@ -64,7 +64,7 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     String[] roleList = (String[]) eventProperties.get(IdentityEventConstants.EventProperty.ROLE_LIST);
     ```
 
-## Registering the event handler 
+## Registering the event handler
 
 Register the event handler in the service component as follows.
 
