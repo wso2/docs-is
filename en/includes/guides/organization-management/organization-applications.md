@@ -6,7 +6,16 @@ from the organizations.
 These applications can be created under the following conditions.
 
 - Application's protocol is OAuth2.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
+- Only authorization code, client credentials, password and refresh grant types can be used.
+- Only Standard-Based Application and M2M Application templates can be used.
+
+{% else %}
+
 - Only client credentials, password and refresh grant types can be used.
+
+{% endif %}
 
 Alongside with the Application Management, following capabilities are now available in the organizations
 
@@ -54,37 +63,141 @@ and allow access to the API Resources which belongs to the particular organizati
 created with the below conditions.
 
 - Application's protocol is OAuth2.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
+- Only authorization code, client credentials, password and refresh grant types can be used.
+- Only Standard-Based Application and M2M Application templates can be used.
+
+{% else %}
+
 - Only client credentials, password and refresh grant types can be used.
 
+{% endif %}
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
+Organization applications can be created by using the {{ product_name }} Console. You can switch to the organization from the Organization tab and in the console, go to the Applications tab and you can create OAuth2 applications.
+
+![Organization Application Create]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-create.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+You can use one template type from Standard-Based Application or M2M Application to create your application.
+
+![Organization Application Templates]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-templates.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% else %}
 Organization application can be created by using the [Organization application Add]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Applications/operation/createApplication) API request. A bearer token with the `internal_org_application_mgt_create` scope, which was issued for the corresponding organization will be needed to invoke this API.
+
+{% endif %}
 
 These created applications can be edited from the {{ product_name }} Console.
 
-![Organization Application Edit]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-edit.png)
+![Organization Application Edit]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-edit.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 The following operations are supported for organization applications.
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
+- Protocol level configurations
+- User attributes related configurations
+- Login Flow configurations
+- API Authorization for organization application
+- Role management for organization application
+- Advanced configurations
+
+{% else %}
 
 - Protocol level configurations
 - User attributes related configurations
 - API Authorization for organization application
 - Role management for organization application
 
+{% endif %}
+
 ### Token generation from organization applications
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
+- Authorization Code Grant
+
+=== "Request format"
+
+    ```bash
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/authorize
+    ?response_type=code
+    &redirect_uri=<APPLICATION_REDIRECT_URI>
+    &client_id=<APPLICATION_CLIENT_ID>
+    &scope=<REQUIRED_SCOPE/S>
+    ```
+
+=== "Sample request"
+
+    ```bash
+    {{ root_org_url }}/o/7e98b86f-63c7-41a1-8c56-c909a21a2615/oauth2/authorize
+    ?response_type=code
+    &redirect_uri=https://bestcarmart.com/login
+    &client_id=sample_application_client_id
+    &scope=openid internal_org_user_mgt_list read_stores
+    ```
+
+After executing the authorization request, {{ product_name }} login page for the corresponding organization will be prompted to the user. After user enters the credentials, an authorization code will be returned to the application's redirect URL. Application can exchange the authorization code for a token by using the token endpoint.
+
+
+=== "Request format"
+
+    ``` bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=<APPLICATION_REDIRECT_URI>" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/token
+    ```
+
+=== "Sample request"
+
+    ``` bash
+    curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k 
+    -d "grant_type=authorization_code&code=111c6b23-e395-4263-8792-87dc5db3c8a9&redirect_uri=https://bestcarmart.com/login" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/7e98b86f-63c7-41a1-8c56-c909a21a2615/oauth2/token
+    ```
+
+=== "Sample response"
+
+    ```
+    {
+        "access_token": "8120d44a-d80b-49d9-b449-a14e399cc404",
+        "refresh_token": "ee8bf449-e8ba-421c-b4d5-6a38c6432d4d",
+        "scope": "openid internal_org_user_mgt_list read_stores",
+        "token_type": "Bearer",
+        "expires_in": 3600
+    }
+    ```
+
+!!! note
+    If you need the refresh_token with the response, enable the `refresh token grant` type from the `Protocol` tab in the Application. The scope response will return only the scopes which are authorized to both application and the user who requests the authorization.
+
+{% endif %}
 
 - Password Grant
 
-!!! abstract
-    **Request format**
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/token
     ```
-    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/o/<ORG_ID>/oauth2/token
+
+=== "Sample request"
+
+    ```bash
+    curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k 
+    -d "grant_type=password&username=Charlie&password=jG9A5KrX" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/7e98b86f-63c7-41a1-8c56-c909a21a2615/oauth2/token
     ```
-    ---
-    **Sample request**
-    ```curl
-    curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k -d "grant_type=password&username=Charlie&password=jG9A5KrX" -H "Content-Type: application/x-www-form-urlencoded" {{ root_org_url }}/o/7e98b86f-63c7-41a1-8c56-c909a21a2615/oauth2/token
-    ```
-    ---
-    **Sample response**
+
+=== "Sample response"
+
     ```
     {
         "access_token": "4778085e-5802-3090-aa70-ec877663f194",
@@ -94,23 +207,31 @@ The following operations are supported for organization applications.
     }
     ```
 
-    !!! note
-        If you need the scopes with the response, the add the `scope` path parameter to the token request with the required scopes.
+!!! note
+    If you need scopes in the response, add the `scope` parameter to the token request with the required scopes.
 
 - Client Credentials Grant
 
-!!! abstract
-    **Request format**
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "grant_type=client_credentials" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/token
     ```
-    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=client_credentials" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/o/<ORG_ID>/oauth2/token
+
+=== "Sample request"
+
+    ```bash
+    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
+    -d "grant_type=client_credentials" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/token
     ```
-    ---
-    **Sample request**
-    ```curl
-    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k -d "grant_type=client_credentials" -H "Content-Type: application/x-www-form-urlencoded" {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/token
-    ```
-    ---
-    **Sample response**
+
+=== "Sample response"
+
     ```
     {
         "access_token": "bc978da1-6c56-3125-a999-a8d61c889672",
@@ -119,23 +240,31 @@ The following operations are supported for organization applications.
     }
     ```
 
-    !!! note
-        If you need the scopes with the response, the add the `scope` path parameter to the token request with the required scopes.
+!!! note
+    If you need scopes in the response, add the `scope` parameter to the token request with the required scopes.
 
 ### Token introspection from organization application
 
-!!! abstract
-    **Request format**
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "token=<SUB_ORG_APP_TOKEN>" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/introspect
     ```
-    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "token=<SUB_ORG_APP_TOKEN>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/o/<ORG_ID>/oauth2/introspect
+
+=== "Sample request"
+    
+    ```bash
+    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
+    -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/introspect
     ```
-    ---
-    **Sample request**
-    ```curl
-    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b" -H "Content-Type: application/x-www-form-urlencoded" {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/introspect
-    ```
-    ---
-    **Sample response**
+
+=== "Sample response"
+
     ```
     {
         "aut": "APPLICATION_USER",
@@ -153,18 +282,25 @@ The following operations are supported for organization applications.
 
 ### Token revocation from organization application
 
-!!! abstract
-    **Request format**
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "token=<SUB_ORG_APP_TOKEN>&token_type_hint=<TOKEN_TYPE>" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/revoke
     ```
-    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "token=<SUB_ORG_APP_TOKEN>&token_type_hint=<TOKEN_TYPE>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/o/<ORG_ID>/oauth2/revoke
+
+=== "Sample request"
+    
+    ```bash
+    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
+    -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b&token_type_hint=access_token" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/revoke
     ```
-    ---
-    **Sample request**
-    ```curl
-    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b&token_type_hint=access_token" -H "Content-Type: application/x-www-form-urlencoded" {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/revoke
-    ```
-    ---
-    **Sample response**
+
+=== "Sample response"
     ```
     Empty JSON response with HTTP status code 200 OK
     ```
