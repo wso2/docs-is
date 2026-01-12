@@ -1,7 +1,7 @@
 
 # Add SMS OTP login
 
-SMS OTP (One-Time Password) is a security mechanism where a password, valid for a short duration, is sent to the user's registered mobile number. This password must be entered during the login process.
+SMS OTP (One-Time Password) sends a password valid for a short duration to the user's registered mobile number. The user must enter the password to log in.
 
 This method can be used as a form of passwordless authentication, allowing users to log in by providing a one-time passcode received via SMS on their mobile phones, instead of using a traditional password.
 
