@@ -8,21 +8,31 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      # Step 1: Checkout the repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: tj-actions/changed-files@v46
+      # Step 2: Detect changed Markdown files
+      - name: Get changed Markdown files
+        uses: tj-actions/changed-files@v46
         id: changed-files
         with:
           files: '**/*.md'
-          separator: ","
+          separator: " "  # Space-separated list for npx markdownlint-cli
 
-      - name: Markdownlint via reviewdog
-       if: steps.changed-files.outputs.any_changed == 'true'
-       run: |
-        npx markdownlint-cli ${{ steps.changed-files.outputs.all_changed_files }} | \
-        reviewdog -f=markdownlint -name=markdownlint -reporter=github-pr-check -filter-mode=diff -fail-on-error
-       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Step 3: Install markdownlint-cli
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+
+      # Step 4: Run Markdownlint via Reviewdog
+      - name: Run Markdownlint on changed files
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          npx markdownlint-cli ${{ steps.changed-files.outputs.all_changed_files }} | \
+          reviewdog -f=markdownlint -name=markdownlint -reporter=github-pr-review -filter-mode=diff -fail-on-error
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
