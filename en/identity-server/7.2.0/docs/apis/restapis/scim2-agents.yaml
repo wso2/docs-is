@@ -1,9 +1,9 @@
 openapi: 3.1.0
 info:
-  title: SCIM 2.0 Agents API
+  title: AI Agent Management API
   description: |
-    This document specifies **SCIM 2.0 Agent Management RESTful API** for **WSO2 Identity Server**.
-    Agents are special users that represent automated systems, services, or AI assistants. The Agent endpoints allow you to create, retrieve, update, and delete agents using the SCIM 2.0 protocol.
+    This document specifies the REST API for **AI Agent Management** in **WSO2 Identity Server**.
+    The Agent Management API allows to create, retrieve, update, and delete AI agent identities, allowing agents to be managed in the same way as human users while remaining clearly distinguishable from them.
   version: 1.0.0
 servers:
   - url: https://{serverUrl}/t/{tenantDomain}/scim2
@@ -42,14 +42,6 @@ paths:
             format: int32
             minimum: 0
             default: 100
-        - name: sortOrder
-          in: query
-          description: A string indicating the order in which the 'sortBy' parameter is applied.
-          schema:
-            type: string
-            enum:
-              - ascending
-              - descending
         - name: attributes
           in: query
           description: A multi-valued list of strings indicating the names of resource attributes to include in the response.
@@ -66,7 +58,7 @@ paths:
               type: string
       responses:
         200:
-          description: Successful response with a list of agents.
+          description: Successful response with a list of AI agents.
           content:
             application/scim+json:
               schema:
@@ -105,9 +97,9 @@ paths:
     post:
       tags:
         - Agents Endpoint
-      summary: Create a new agent
+      summary: Create a new AI agent
       description: |
-        This API creates an agent and returns the agent details along with the agent's unique ID and initial password.
+        This API creates an AI agent and returns the agent details along with the agent's unique ID and initial password.
         <b>Scope(Permission) required:</b> `internal_agent_mgt_create`
       operationId: createAgent
       requestBody:
@@ -120,7 +112,7 @@ paths:
             example:
               urn:scim:wso2:agent:schema:
                 Description: "Intelligent Vet Assistant"
-                DisplayName: "Vetassist AI Lite2"
+                DisplayName: "Vetassist AI"
                 Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
       responses:
         201:
@@ -154,7 +146,7 @@ paths:
                 urn:scim:wso2:agent:schema:
                   Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
                   Description: "Intelligent Vet Assistant"
-                  DisplayName: "Vetassist AI Lite2"
+                  DisplayName: "Vetassist AI"
                 urn:scim:wso2:schema:
                   lastPasswordUpdateTime: "1765952272085"
         400:
@@ -450,7 +442,7 @@ paths:
         Common use cases include:
         - Updating agent description
         - Deactivating an agent
-        - Updating agent secret/password
+        - Updating agent secret/password</br></br>
         <b>Scope(Permission) required:</b> `internal_agent_mgt_update`
       operationId: patchAgentById
       parameters:
@@ -497,7 +489,7 @@ paths:
                       value: "NewSecretPassword123!"
       responses:
         200:
-          description: Agent partially updated successfully.
+          description: Agent updated successfully.
           content:
             application/scim+json:
               schema:
