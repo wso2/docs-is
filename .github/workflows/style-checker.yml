@@ -26,9 +26,7 @@ jobs:
 
       # Step 3: Setup Vale using the official action
       - name: Setup Vale
-        uses: errata-ai/vale-action@v2
-        with:
-          version: 2.26.3
+        uses: errata-ai/vale-action@v2.1.1
 
       # Step 4: Install Reviewdog
       - name: Install Reviewdog
