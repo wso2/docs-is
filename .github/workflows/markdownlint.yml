@@ -20,12 +20,9 @@ jobs:
           separator: ","
 
       - name: Markdownlint via reviewdog
-        if: steps.changed-files.outputs.any_changed == 'true'
-        uses: reviewdog/action-markdownlint@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-check
-          filter_mode: diff
-          fail_on_error: true
-          paths: ${{ steps.changed-files.outputs.all_changed_files }}
-
+       if: steps.changed-files.outputs.any_changed == 'true'
+       run: |
+        npx markdownlint-cli ${{ steps.changed-files.outputs.all_changed_files }} | \
+        reviewdog -f=markdownlint -name=markdownlint -reporter=github-pr-check -filter-mode=diff -fail-on-error
+       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
