@@ -45,7 +45,7 @@ Follow the steps given below to manage access to the My Account portal for users
 
 ## Configure the My Account portal login flow
 
-Just like any other appliaction registered in {{product_name}}, you can customize the login flow of the My Account portal.
+Just like any other application registered in {{product_name}}, you can customize the login flow of the My Account portal.
 
 To do so,
 

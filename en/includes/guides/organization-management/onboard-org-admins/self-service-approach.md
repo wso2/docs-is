@@ -6,7 +6,7 @@ The following guides explain how you may create a self-service portal for your b
 
 !!! note "Prerequisite"
 
-    [Create an administrator role]({{base_path}}/guides/users/manage-roles/) in the root organization that provides authorization for organization APIs. To share it with organizations, ensure that it is associated with the B2B application shared with the relavent organization.
+    [Create an administrator role]({{base_path}}/guides/users/manage-roles/) in the root organization that provides authorization for organization APIs. To share it with organizations, ensure that it is associated with the B2B application shared with the relevant organization.
 
 ## Set up the self-service portal
 
