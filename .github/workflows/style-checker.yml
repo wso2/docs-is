@@ -24,11 +24,11 @@ jobs:
           files: '**/*.md'
           separator: " "
 
-      # Step 3: Install Vale
-      - name: Install Vale
-        run: |
-          curl -L https://github.com/errata-ai/vale/releases/download/v2.26.3/Vale-2.26.3-linux-amd64.tar.gz | tar xz
-          sudo mv Vale /usr/local/bin/vale
+      # Step 3: Setup Vale using the official action
+      - name: Setup Vale
+        uses: errata-ai/vale-action@v2
+        with:
+          version: 2.26.3
 
       # Step 4: Install Reviewdog
       - name: Install Reviewdog

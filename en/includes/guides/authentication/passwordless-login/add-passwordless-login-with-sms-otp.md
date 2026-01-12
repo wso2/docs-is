@@ -18,6 +18,7 @@ Follow the instructions given below to implement passwordless login using SMS OT
 {{ admin_login_note }}
 
 ## Set up SMS OTP
+
 {{ product_name }} has some default settings for SMS OTP, which are sufficient for most cases. If required, you can change the default settings, as explained below.
 
 To update the default SMS OTP settings:

@@ -27,6 +27,11 @@ jobs:
       # Step 3: Install markdownlint-cli
       - name: Install markdownlint-cli
         run: npm install -g markdownlint-cli
+      
+      # Step 4: Install Reviewdog
+      - name: Install Reviewdog
+        run: |
+          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b /usr/local/bin
 
       # Step 4: Run Markdownlint via Reviewdog
       - name: Run Markdownlint on changed files
