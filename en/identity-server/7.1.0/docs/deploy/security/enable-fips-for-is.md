@@ -12,7 +12,7 @@ To enable FIPS 140-2 compliant mode on the Identity Server:
 1. Shut down the Identity Server instance if it's running.
 2. Open a terminal, navigate to `<IS_HOME>/bin/` folder,  and execute the following one of the following commands:
     
-    === "Linux/MacOS"
+    === "Linux/macOS"
         ```
         sh fips.sh
         ```
@@ -40,7 +40,7 @@ To enable FIPS 140-2 compliant mode on the Identity Server:
     1. Shut down the Identity Server instance if it's running.
     2. Open a terminal, navigate to `<IS_HOME>/bin/` folder,  and execute the following one of the following commands:
 
-        === "Linux/MacOS"
+        === "Linux/macOS"
             ```
             sh fips.sh DISABLE
             ```

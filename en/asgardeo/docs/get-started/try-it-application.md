@@ -10,7 +10,7 @@ The following guide explains how you can quickly test login with Asgardeo using 
 
 ## Asgardeo Try It app
 
-**Try It** is a test application that we have already set up and configured for you to quicky integrate authenticators and see how Asgardeo login works with applications.
+**Try It** is a test application that we have already set up and configured for you to quickly integrate authenticators and see how Asgardeo login works with applications.
 
 Let's try a simple login flow in the Asgardeo Try It application:
 
@@ -36,7 +36,7 @@ You can use the various authenticators Asgardeo offers to customize the login fl
     ![Try It application]({{base_path}}/assets/img/get-started/custom-login-flow.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        Follow the guides below to learn how to configure the authention flows.
+        Follow the guides below to learn how to configure the authentication flows.
 
         - [Add Social login]({{base_path}}/guides/authentication/social-login/)
         - [Add Passwordless login]({{base_path}}/guides/authentication/passwordless-login/)

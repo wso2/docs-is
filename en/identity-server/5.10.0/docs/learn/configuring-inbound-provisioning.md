@@ -16,7 +16,7 @@ Pickup can provision the users from the external application to WSO2 Identity Se
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/)
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 

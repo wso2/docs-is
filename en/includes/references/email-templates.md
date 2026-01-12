@@ -263,7 +263,7 @@ You can configure the values of these literals from the {{ product_name }} Conso
 <table>
     <thead>
         <th>Literal</th>
-        <th>Descriprion</th>
+        <th>Description</th>
     </thead>
     <tbody>
         <tr>

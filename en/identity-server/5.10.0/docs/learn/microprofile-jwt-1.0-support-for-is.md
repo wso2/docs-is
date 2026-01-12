@@ -151,7 +151,7 @@ Let's see how this can be done.
     In order to send the client credentials with the Authorization
     header, you need to encode the client credentials as follows:
 
-    ``` java tab="<Linux/Mac>"
+    ``` java tab="<Linux/macOS>"
     echo -n <CLIENT_KEY>:<CLIENT_SECRET> | base64
     ```
 

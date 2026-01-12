@@ -25,7 +25,7 @@ This section digs deep into the steps involved in app-native authentication and 
 		--header 'Content-Type: application/x-www-form-urlencoded'
 		--data-urlencode 'client_id=<client_id>'
 		--data-urlencode 'response_type=<response_type>'
-		--data-urlencode 'redirect_uri=<redircet_url>'
+		--data-urlencode 'redirect_uri=<redirect_url>'
 		--data-urlencode 'state=<state>'
 		--data-urlencode 'scope=<space separated scopes>'
 		--data-urlencode 'response_mode=direct'
@@ -134,7 +134,7 @@ This section digs deep into the steps involved in app-native authentication and 
 
 3. The application then gathers the credentials for one of the presented authentication options from the user.
 
-4. The applcation makes a POST request to the `/authn` endpoint using the **Authentication API**. The payload of this request includes the **flowId** and the **selectedAuthenticator** object which contains credentials for the user-selected authentication option.
+4. The application makes a POST request to the `/authn` endpoint using the **Authentication API**. The payload of this request includes the **flowId** and the **selectedAuthenticator** object which contains credentials for the user-selected authentication option.
 
     !!! note
         Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
@@ -619,7 +619,7 @@ If a login step has multiple login options, the application goes through the fol
 
     - **Username & Password**: As this option does not need user initiation, the response from step 1 already contains the required metadata. Hence, if the user chooses to enter the username and password, the flow continues similar to as it does in *Scenario 1*.
 
-    - **Passkey**: If a user initates passkey login, the application needs to make an additional request to the `/authn` endpoint to initiate the passkey flow and receive the related metadata.
+    - **Passkey**: If a user initiates passkey login, the application needs to make an additional request to the `/authn` endpoint to initiate the passkey flow and receive the related metadata.
   
     As the user continues with the passkey flow, the application makes a request to the `/authn` endpoint to initiate the passkey flow along with the `flowId` and the `authenticatorId` of the passkey authenticator as follows.
 

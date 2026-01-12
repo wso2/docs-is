@@ -217,7 +217,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 ### Configure the connection pool to commit pending transactions on connection return  
         
   1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS:
+        -   On Linux/macOS:
             `                 <IS_HOME>/bin/wso2server.sh/                `
         -   On Windows:
             `                 <IS_HOME>\bin\wso2server.bat                `
