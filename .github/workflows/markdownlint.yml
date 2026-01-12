@@ -9,16 +9,23 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - uses: tj-actions/changed-files@v46
-      id: changed-files
-      with:
-        files: '**/*.md'
-        separator: ","
-    - uses: DavidAnson/markdownlint-cli2-action@v20
-      if: steps.changed-files.outputs.any_changed == 'true'
-      with:
-        globs: ${{ steps.changed-files.outputs.all_changed_files }}
-        separator: ","
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: tj-actions/changed-files@v46
+        id: changed-files
+        with:
+          files: '**/*.md'
+          separator: ","
+
+      - name: Markdownlint via reviewdog
+        if: steps.changed-files.outputs.any_changed == 'true'
+        uses: reviewdog/action-markdownlint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-check
+          filter_mode: diff
+          fail_on_error: true
+          paths: ${{ steps.changed-files.outputs.all_changed_files }}
+
