@@ -1,11 +1,9 @@
 
 # Add SMS OTP login
 
-SMS OTP (One-Time Password) sends a password valid for a short duration to the user's registered mobile number. The user must enter the password to log in.
+An SMS one-time password (OTP) delivers a short-lived code to the user’s registered mobile number. This works as a passwordless authentication mechanism, allowing users to log in without a password by entering the OTP received via SMS.
 
-This method can be used as a form of passwordless authentication, allowing users to log in by providing a one-time passcode received via SMS on their mobile phones, instead of using a traditional password.
-
-To configure SMS OTP as a passwordless authentication mechanism in {{ product_name }}, follow the instructions given below.
+Follow the instructions given below to implement passwordless login using SMS OTP in {{ product_name }}.
 
 ## Prerequisites
 
