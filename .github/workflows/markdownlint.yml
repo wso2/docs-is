@@ -38,6 +38,6 @@ jobs:
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
           npx markdownlint-cli ${{ steps.changed-files.outputs.all_changed_files }} | \
-          reviewdog -f=markdownlint -name=markdownlint -reporter=github-pr-review -filter-mode=diff -fail-on-error
+          reviewdog -f=markdownlint -name=markdownlint -reporter=github-pr-review -filter-mode=added -fail-on-error
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
