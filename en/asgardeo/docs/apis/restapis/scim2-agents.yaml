@@ -86,7 +86,7 @@ paths:
         - lang: Curl
           source: |
             curl -X GET \
-            'https://api.asgardeo.io/t/{organization_name}/scim2/Agents' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Agents' \
             -H 'Accept: application/scim+json' \
             -H 'Authorization: Bearer {access_token}'
 
@@ -109,7 +109,7 @@ paths:
               urn:scim:wso2:agent:schema:
                 Description: "Intelligent Vet Assistant"
                 DisplayName: "Vetassist AI"
-                Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+                Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
       responses:
         201:
           description: Agent created successfully.
@@ -121,7 +121,7 @@ paths:
                 password: "K#B79pB%dq*v7sE!"
                 meta:
                   created: "2025-12-17T06:17:51.835814Z"
-                  location: "https://api.asgardeo.io/t/{organization_name}/scim2/Agents/688d98c0-1c8d-49c2-9316-559a76cd9240"
+                  location: "https://api.asgardeo.io/t/{organization-name}/scim2/Agents/688d98c0-1c8d-49c2-9316-559a76cd9240"
                   lastModified: "2025-12-17T06:17:52.150201Z"
                   resourceType: "Agent"
                 schemas:
@@ -250,7 +250,7 @@ paths:
                 id: "ced368ab-29f5-46c1-a192-ffb678b8f747"
                 userName: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
                 urn:scim:wso2:agent:schema:
-                  Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+                  Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
                   Description: "Intelligent Vet Assistant"
                   DisplayName: "Vetassist AI"
                 urn:scim:wso2:schema:
@@ -363,7 +363,7 @@ paths:
         - lang: Curl
           source: |
             curl -X PUT \
-            'https://api.asgardeo.io/t/ranukaorg/scim2/Agents/{agentId}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Agents/{agentId}' \
             -H 'Accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {access_token}' \
@@ -371,7 +371,7 @@ paths:
               "urn:scim:wso2:agent:schema": {
                 "Description": "Updated Description",
                 "DisplayName": "Vetassist AI",
-                "Owner": "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@ranukaorg"
+                "Owner": "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
               },
               "id": "14a11c02-d947-482c-9084-734fa1c22c2c",
               "userName": "AGENT/{agentId}"
@@ -567,7 +567,7 @@ components:
             Owner:
               type: string
               description: The ID of the owner of this agent.
-              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
       required:
         - "urn:scim:wso2:agent:schema"
     AgentUpdateObject:
@@ -596,7 +596,7 @@ components:
             Owner:
               type: string
               description: The ID of the owner of this agent.
-              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
     AgentResponseObject:
       type: object
       description: SCIM agent resource.
@@ -675,7 +675,7 @@ components:
             Owner:
               type: string
               description: The ID of the owner of this agent.
-              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
     AgentListResponseObject:
       type: object
       description: A list of SCIM agents.
