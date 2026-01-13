@@ -6,12 +6,7 @@ info:
     The Agent Management API allows to create, retrieve, update, and delete AI agent identities, allowing agents to be managed in the same way as human users while remaining clearly distinguishable from them.
   version: 1.0.0
 servers:
-  - url: https://{serverUrl}/t/{tenantDomain}/scim2
-    variables:
-      serverUrl:
-        default: localhost:9443
-      tenantDomain:
-        default: carbon.super
+  - url: https://api.asgardeo.io/t/{organization-name}/scim2
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -22,12 +17,7 @@ paths:
         - Agents Endpoint
       summary: Retrieve a list of agents
       description: |
-        Retrieves a paginated list of agents based on the provided query parameters.
-
-        This endpoint supports pagination, sorting, and attribute filtering to control
-        the number of results returned, their order, and the attributes included in the
-        response.
-        
+        This API returns agents according to the specified pagination and attribute parameters.<br>
         <b>Scope(Permission) required:</b> `internal_agent_mgt_list`
       operationId: getAgents
       parameters:
@@ -47,14 +37,6 @@ paths:
             format: int32
             minimum: 0
             default: 100
-        - name: sortOrder
-          in: query
-          description: A string indicating the order in which the 'sortBy' parameter is applied.
-          schema:
-            type: string
-            enum:
-              - ascending
-              - descending
         - name: attributes
           in: query
           description: A multi-valued list of strings indicating the names of resource attributes to include in the response.

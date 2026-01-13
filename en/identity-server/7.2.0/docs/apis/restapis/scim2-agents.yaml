@@ -22,7 +22,7 @@ paths:
         - Agents Endpoint
       summary: Retrieve a list of agents
       description: |
-        This API returns agents according to the filter, sort, and pagination parameters.
+        This API returns agents according to the specified pagination and attribute parameters.
         <b>Scope(Permission) required:</b> `internal_agent_mgt_list`
       operationId: getAgents
       parameters:
@@ -468,7 +468,7 @@ paths:
                   Operations:
                     - op: "replace"
                       path: "urn:scim:wso2:agent:schema:Description"
-                      value: "Another Description Update"
+                      value: "AI assistant specializing in veterinary diagnostics and pet care recommendations."
               deactivateAgent:
                 summary: Deactivate an agent
                 value:
