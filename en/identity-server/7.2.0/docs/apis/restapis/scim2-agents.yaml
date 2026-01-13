@@ -540,7 +540,7 @@ paths:
                 {
                   "op": "replace",
                   "path": "urn:scim:wso2:agent:schema:Description",
-                  "value": "Another Description Update"
+                  "value": "AI assistant specializing in veterinary diagnostics and pet care recommendations."
                 }
               ]
             }'
@@ -667,11 +667,11 @@ components:
             Description:
               type: string
               description: A description for the agent.
-              example: "Intelligent Vet Assistant"
+              example: "AI assistant specializing in veterinary diagnostics and pet care recommendations."
             DisplayName:
               type: string
               description: A human-readable name for the agent.
-              example: "Vetassist AI Lite2"
+              example: "Vetassist AI"
             Owner:
               type: string
               description: The ID of the owner of this agent.

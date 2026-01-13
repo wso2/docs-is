@@ -85,10 +85,11 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'GET' \
-            'https://localhost:9443/scim2/Agents' \
-            -H 'accept: application/scim+json' \
+            curl -X GET \
+            'https://api.asgardeo.io/t/{organization_name}/scim2/Agents' \
+            -H 'Accept: application/scim+json' \
             -H 'Authorization: Bearer {access_token}'
+
     post:
       tags:
         - Agents Endpoint
@@ -120,7 +121,7 @@ paths:
                 password: "K#B79pB%dq*v7sE!"
                 meta:
                   created: "2025-12-17T06:17:51.835814Z"
-                  location: "https://localhost:9443/scim2/Agents/ced368ab-29f5-46c1-a192-ffb678b8f747"
+                  location: "https://api.asgardeo.io/t/{organization_name}/scim2/Agents/688d98c0-1c8d-49c2-9316-559a76cd9240"
                   lastModified: "2025-12-17T06:17:52.150201Z"
                   resourceType: "Agent"
                 schemas:
@@ -134,8 +135,118 @@ paths:
                     display: "everyone"
                     audienceType: "organization"
                     value: "97e4626a-b16e-4735-9896-536bc4f4481e"
-                    $ref: "https://localhost:9443/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
-                    audienceDisplay: "Super"
+                    $ref: "https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
+                    audienceDisplay: "{organization-name}"
+                id: "688d98c0-1c8d-49c2-9316-559a76cd9240"
+                userName: "AGENT/688d98c0-1c8d-49c2-9316-559a76cd9240"
+                urn:scim:wso2:agent:schema:
+                  Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
+                  Description: "Intelligent Vet Assistant"
+                  DisplayName: "Vetassist AI"
+                urn:scim:wso2:schema:
+                  lastPasswordUpdateTime: "1765952272085"
+        400:
+          description: Bad Request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        404:
+          description: Not Found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+        500:
+          description: Internal Server Error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X POST \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Agents' \
+            -H 'Accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {access_token}' \
+            -d '{
+              "urn:scim:wso2:agent:schema": {
+                "Description": "Intelligent Vet Assistant",
+                "DisplayName": "Vetassist AI",
+                "Owner": "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
+              }
+            }'
+
+  /Agents/{agentId}:
+    get:
+      tags:
+        - Agents Endpoint
+      summary: Retrieve an agent by ID
+      description: |
+        This API returns the agent details for the specified agent ID.
+        <b>Scope(Permission) required:</b> `internal_agent_mgt_view`
+      operationId: getAgentById
+      parameters:
+        - name: agentId
+          in: path
+          description: ID of the agent to retrieve.
+          required: true
+          schema:
+            type: string
+        - name: attributes
+          in: query
+          description: A multi-valued list of strings indicating the names of resource attributes to include in the response.
+          schema:
+            type: array
+            items:
+              type: string
+        - name: excludedAttributes
+          in: query
+          description: A multi-valued list of strings indicating the names of resource attributes to exclude in the response.
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        200:
+          description: Successful response with agent details.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/AgentResponseObject'
+              example:
+                meta:
+                  created: "2025-12-17T06:17:51.835814Z"
+                  location: "https://api.asgardeo.io/t/{organization-name}/scim2/Agents/ced368ab-29f5-46c1-a192-ffb678b8f747"
+                  lastModified: "2025-12-17T06:17:52.150201Z"
+                  resourceType: "Agent"
+                schemas:
+                  - "urn:ietf:params:scim:schemas:core:2.0:User"
+                  - "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                  - "urn:scim:wso2:schema"
+                  - "urn:scim:schemas:extension:custom:User"
+                  - "urn:scim:wso2:agent:schema"
+                roles:
+                  - audienceValue: "10084a8d-113f-4211-a0d5-efe36b082211"
+                    display: "everyone"
+                    audienceType: "organization"
+                    value: "97e4626a-b16e-4735-9896-536bc4f4481e"
+                    $ref: "https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
+                    audienceDisplay: "{organization-name}"
                 id: "ced368ab-29f5-46c1-a192-ffb678b8f747"
                 userName: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
                 urn:scim:wso2:agent:schema:
@@ -177,119 +288,11 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'POST' \
-            'https://localhost:9443/scim2/Agents' \
-            -H 'accept: application/scim+json' \
-            -H 'Content-Type: application/scim+json' \
-            -H 'Authorization: Bearer {access_token}' \
-            -d '{
-              "urn:scim:wso2:agent:schema": {
-                "Description": "Intelligent Vet Assistant",
-                "DisplayName": "Vetassist AI Lite2",
-                "Owner": "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
-              }
-            }'
-  /Agents/{agentId}:
-    get:
-      tags:
-        - Agents Endpoint
-      summary: Retrieve an agent by ID
-      description: |
-        This API returns the agent details for the specified agent ID.
-        <b>Scope(Permission) required:</b> `internal_agent_mgt_view`
-      operationId: getAgentById
-      parameters:
-        - name: agentId
-          in: path
-          description: ID of the agent to retrieve.
-          required: true
-          schema:
-            type: string
-        - name: attributes
-          in: query
-          description: A multi-valued list of strings indicating the names of resource attributes to include in the response.
-          schema:
-            type: array
-            items:
-              type: string
-        - name: excludedAttributes
-          in: query
-          description: A multi-valued list of strings indicating the names of resource attributes to exclude in the response.
-          schema:
-            type: array
-            items:
-              type: string
-      responses:
-        200:
-          description: Successful response with agent details.
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/AgentResponseObject'
-              example:
-                meta:
-                  created: "2025-12-17T06:17:51.835814Z"
-                  location: "https://localhost:9443/scim2/Agents/ced368ab-29f5-46c1-a192-ffb678b8f747"
-                  lastModified: "2025-12-17T06:17:52.150201Z"
-                  resourceType: "Agent"
-                schemas:
-                  - "urn:ietf:params:scim:schemas:core:2.0:User"
-                  - "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-                  - "urn:scim:wso2:schema"
-                  - "urn:scim:schemas:extension:custom:User"
-                  - "urn:scim:wso2:agent:schema"
-                roles:
-                  - audienceValue: "10084a8d-113f-4211-a0d5-efe36b082211"
-                    display: "everyone"
-                    audienceType: "organization"
-                    value: "97e4626a-b16e-4735-9896-536bc4f4481e"
-                    $ref: "https://localhost:9443/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
-                    audienceDisplay: "Super"
-                id: "ced368ab-29f5-46c1-a192-ffb678b8f747"
-                userName: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
-                urn:scim:wso2:agent:schema:
-                  Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
-                  Description: "Intelligent Vet Assistant"
-                  DisplayName: "Vetassist AI Lite2"
-                urn:scim:wso2:schema:
-                  lastPasswordUpdateTime: "1765952272085"
-        400:
-          description: Bad Request
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidInput'
-        401:
-          description: Unauthorized
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorUnauthorized'
-        403:
-          description: Forbidden
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-        404:
-          description: Not Found
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-        500:
-          description: Internal Server Error
-          content:
-            application/scim+json:
-              schema:
-                $ref: '#/components/schemas/ErrorInternalServerError'
-      x-codeSamples:
-        - lang: Curl
-          source: |
-            curl -X 'GET' \
-            'https://localhost:9443/scim2/Agents/{agentId}' \
-            -H 'accept: application/scim+json' \
+            curl -X GET \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Agents/{agentId}' \
+            -H 'Accept: application/scim+json' \
             -H 'Authorization: Bearer {access_token}'
+
     put:
       tags:
         - Agents Endpoint
@@ -315,8 +318,8 @@ paths:
             example:
               urn:scim:wso2:agent:schema:
                 Description: "Updated Description"
-                DisplayName: "Vetassist AI Lite2"
-                Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+                DisplayName: "Vetassist AI"
+                Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@{organization-name}"
               id: "ced368ab-29f5-46c1-a192-ffb678b8f747"
               userName: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
       responses:
@@ -359,20 +362,21 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'PUT' \
-            'https://localhost:9443/scim2/Agents/{agentId}' \
-            -H 'accept: application/scim+json' \
+            curl -X PUT \
+            'https://api.asgardeo.io/t/ranukaorg/scim2/Agents/{agentId}' \
+            -H 'Accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {access_token}' \
             -d '{
               "urn:scim:wso2:agent:schema": {
                 "Description": "Updated Description",
-                "DisplayName": "Vetassist AI Lite2",
-                "Owner": "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+                "DisplayName": "Vetassist AI",
+                "Owner": "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@ranukaorg"
               },
-              "id": "ced368ab-29f5-46c1-a192-ffb678b8f747",
-              "userName": "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
+              "id": "14a11c02-d947-482c-9084-734fa1c22c2c",
+              "userName": "AGENT/{agentId}"
             }'
+            
     delete:
       tags:
         - Agents Endpoint
@@ -424,10 +428,11 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl -X 'DELETE' \
-            'https://localhost:9443/scim2/Agents/{agentId}' \
-            -H 'accept: application/scim+json' \
+            curl -X DELETE \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Agents/{agentId}' \
+            -H 'Accept: application/scim+json' \
             -H 'Authorization: Bearer {access_token}'
+
     patch:
       tags:
         - Agents Endpoint
@@ -463,7 +468,7 @@ paths:
                   Operations:
                     - op: "replace"
                       path: "urn:scim:wso2:agent:schema:Description"
-                      value: "Another Description Update"
+                      value: "AI assistant specializing in veterinary diagnostics and pet care recommendations."
               deactivateAgent:
                 summary: Deactivate an agent
                 value:
@@ -523,7 +528,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://localhost:9443/scim2/Agents/{agentId}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Agents/{agentId}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {access_token}' \
@@ -535,7 +540,7 @@ paths:
                 {
                   "op": "replace",
                   "path": "urn:scim:wso2:agent:schema:Description",
-                  "value": "Another Description Update"
+                  "value": "AI assistant specializing in veterinary diagnostics and pet care recommendations."
                 }
               ]
             }'
@@ -558,7 +563,7 @@ components:
             DisplayName:
               type: string
               description: A human-readable name for the agent.
-              example: "Vetassist AI Lite2"
+              example: "Vetassist AI"
             Owner:
               type: string
               description: The ID of the owner of this agent.
@@ -587,7 +592,7 @@ components:
             DisplayName:
               type: string
               description: A human-readable name for the agent.
-              example: "Vetassist AI Lite2"
+              example: "Vetassist AI"
             Owner:
               type: string
               description: The ID of the owner of this agent.
@@ -634,7 +639,7 @@ components:
             location:
               type: string
               description: The URI of the resource being returned.
-              example: "https://localhost:9443/scim2/Agents/ced368ab-29f5-46c1-a192-ffb678b8f747"
+              example: "https://api.asgardeo.io/t/{organization-name}/scim2/Agents/ced368ab-29f5-46c1-a192-ffb678b8f747"
         userName:
           type: string
           description: Unique identifier for the agent.
@@ -662,11 +667,11 @@ components:
             Description:
               type: string
               description: A description for the agent.
-              example: "Intelligent Vet Assistant"
+              example: "AI assistant specializing in veterinary diagnostics and pet care recommendations."
             DisplayName:
               type: string
               description: A human-readable name for the agent.
-              example: "Vetassist AI Lite2"
+              example: "Vetassist AI"
             Owner:
               type: string
               description: The ID of the owner of this agent.
@@ -712,7 +717,7 @@ components:
         $ref:
           type: string
           description: The URI of the role.
-          example: "https://localhost:9443/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
+          example: "https://api.asgardeo.io/t/{organization-name}/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
         display:
           type: string
           description: A human-readable name for the role.
@@ -728,7 +733,7 @@ components:
         audienceDisplay:
           type: string
           description: A human-readable display name for the role's audience.
-          example: "Super"
+          example: "organization-name"
     PatchOperation:
       type: object
       description: A single SCIM patch operation.
@@ -876,8 +881,8 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth2/authorize
-          tokenUrl: https://localhost:9443/oauth2/token
+          authorizationUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/authorize
+          tokenUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/token
           scopes:
             internal_agent_mgt_create: Create agents
             internal_agent_mgt_list: List agents
