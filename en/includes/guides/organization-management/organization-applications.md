@@ -1,98 +1,63 @@
-# Manage OAuth2 applications within organization
+# Manage applications in organizations
 
-Applications can be created directly in the organizations and these applications can be used to consume the API resources
-from the organizations. 
+The following guide explains how organization administrators can create and manage applications within their organizations in {{ product_name }}.
 
-These applications can be created under the following conditions.
+## Create an application
 
-- Application's protocol is OAuth2.
+Organization administrators can create applications directly within their organizations. These applications can access and consume the organization’s API resources. To create an application, it must meet the following conditions:
+
+- Use OAuth2.
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
-- Only authorization code, client credentials, password and refresh grant types can be used.
-- Only Standard-Based Application and M2M Application templates can be used.
+- Use only the following grant types: authorization code, client credentials, password, and refresh token.
+
+- Use a standard-based application or an M2M application template.
 
 {% else %}
 
-- Only client credentials, password and refresh grant types can be used.
-
-{% endif %}
-
-Alongside with the Application Management, following capabilities are now available in the organizations
-
-- Role management : Roles can be managed directly in the organization and can associate with the applications
-which are managed directly in the organization.
-
-- Inherited API Resources : The {{ product_name }} defined Organization API Resources and the API Resources that are created 
-in the root organization are now inherited to the organization. These API Resources can be authorized to the 
-applications which are managed directly in the organization.
-
-## Inherited API Resources
-
-The Organization API Resources and the API Resources that are created in the root organization are 
-inherited to the organizations directly. These API Resources are available in read only mode through the {{ product_name}} Console.
-
-![Inherited default API Resources]({{base_path}}/assets/img/guides/applications/organization-applications/inherited-api-resources.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-## Role Management
-
-Organizations can have their own roles and manage them independently. These roles can only be associated with the 
-applications that are managed directly in the organization. 
-
-![Role management in organization]({{base_path}}/assets/img/guides/applications/organization-applications/role-management-organization.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-Please refer [Manage roles]({{base_path}}/guides/users/manage-roles/) for more details on how you can manage the roles.
-
-### Role types in organization
-
-Organization now have two types on roles.
-
-- Shared roles : Roles defined by the root organization and used by B2B applications shared with this organization 
-are created as shared roles within the organization.
-- Roles managed directly in the organization : Roles which can be managed directly in the organization.
-
-Both these roles can be assigned to any user in the organization but in the authorization, shared applications will only 
-consider the shared roles to provide the authorization.
-
-There might be scenarios where the above two types of roles can lead to a conflict of role creation. Please refer 
-[Manage role conflicts in organization]({{base_path}}/guides/organization-management/manage-conflicts-in-organizations/#manage-role-conflicts-in-organization) for more information.
-
-## OAuth2 Application Management
-
-Organizations can have their own OAuth2 applications and manage them independently. These applications can issue tokens 
-and allow access to the API Resources which belongs to the particular organization. Organization application can be 
-created with the below conditions.
-
-- Application's protocol is OAuth2.
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
-
-- Only authorization code, client credentials, password and refresh grant types can be used.
-- Only Standard-Based Application and M2M Application templates can be used.
-
-{% else %}
-
-- Only client credentials, password and refresh grant types can be used.
+- Use only the following grant types: client credentials, password and refresh token.
 
 {% endif %}
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
-Organization applications can be created by using the {{ product_name }} Console. You can switch to the organization from the Organization tab and in the console, go to the Applications tab and you can create OAuth2 applications.
+You can use either the Console or the API to create an application in an organization.
 
-![Organization Application Create]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-create.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+=== "Using the Console"
 
-You can use one template type from Standard-Based Application or M2M Application to create your application.
+    To create an application,
 
-![Organization Application Templates]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-templates.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    1. On the {{ product_name }} Console, go to **Organizations** and switch to your desired organization.
+
+    2. In the organization, go to **Applications**.
+
+        ![Organization Application Create]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-create.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    3. Click **Add Application** and use either the **Standard-Based Application** or **M2M Application** template to create your application.
+
+    ![Organization Application Templates]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-templates.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+=== "Using the API"
+
+    To create an application,
+    
+    1. Get a bearer token with the `internal_org_application_mgt_create` scope. Learn more about [accessing organization APIs]     ({{base_path}}apis/organization-apis/authentication/)
+    
+    2. Use the [Application management REST API]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Applications/operation/createApplication) to create an application in an organization.
+
 {% else %}
-Organization application can be created by using the [Organization application Add]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Applications/operation/createApplication) API request. A bearer token with the `internal_org_application_mgt_create` scope, which was issued for the corresponding organization will be needed to invoke this API.
+
+To create an application,
+
+1. Get a bearer token with the `internal_org_application_mgt_create` scope. Learn more about [accessing organization APIs]({{base_path}}/apis/organization-apis/authentication/).
+
+2. Use the [Application management REST API]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Applications/operation/createApplication) to create an application in an organization.
 
 {% endif %}
 
-These created applications can be edited from the {{ product_name }} Console.
+## Edit an application
 
-![Organization Application Edit]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-edit.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-The following operations are supported for organization applications.
+You can find the created applications in the **Application** section of your organization's Console. You can use the Console to make the following changes to these applications.
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
@@ -112,11 +77,17 @@ The following operations are supported for organization applications.
 
 {% endif %}
 
-### Token generation from organization applications
+![Organization Application Edit]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-edit.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+## Generate tokens for applications
+
+The organization applications can use the following OAuth2 grant types to generate tokens.
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
-- Authorization Code Grant
+### Authorization code grant
+
+Use the following steps to generate an authorization code and exchange it for an access token.
 
 === "Request format"
 
@@ -138,8 +109,7 @@ The following operations are supported for organization applications.
     &scope=openid internal_org_user_mgt_list read_stores
     ```
 
-After executing the authorization request, {{ product_name }} login page for the corresponding organization will be prompted to the user. After user enters the credentials, an authorization code will be returned to the application's redirect URL. Application can exchange the authorization code for a token by using the token endpoint.
-
+After executing the authorization request, {{ product_name }} prompts the user to login to the corresponding organization. After the user successfully logs in, the redirect URL of the application receives an authorization code. The application can exchange the authorization code for a token using the token endpoint.
 
 === "Request format"
 
@@ -172,11 +142,16 @@ After executing the authorization request, {{ product_name }} login page for the
     ```
 
 !!! note
-    If you need the refresh_token with the response, enable the `refresh token grant` type from the `Protocol` tab in the Application. The scope response will return only the scopes which are authorized to both application and the user who requests the authorization.
+
+    - To obtain the `refresh_token` in the response, go to the **Protocol** tab of the application and enable the **refresh token grant** type.
+
+    - The `scope` parameter returns only the scopes authorized to both the application and the user who requests authorization.
 
 {% endif %}
 
-- Password Grant
+### Password grant
+
+Use the following steps to use the user's credentials to get an access token.
 
 === "Request format"
 
@@ -210,7 +185,9 @@ After executing the authorization request, {{ product_name }} login page for the
 !!! note
     If you need scopes in the response, add the `scope` parameter to the token request with the required scopes.
 
-- Client Credentials Grant
+### Client credentials grant
+
+Use the following steps to use the client credentials to get an access token.
 
 === "Request format"
 
@@ -243,7 +220,9 @@ After executing the authorization request, {{ product_name }} login page for the
 !!! note
     If you need scopes in the response, add the `scope` parameter to the token request with the required scopes.
 
-### Token introspection from organization application
+## Introspect tokens for applications
+
+You can use the token introspection endpoint to validate access tokens issued for organization applications. The following example demonstrates how to introspect an access token.
 
 === "Request format"
 
@@ -255,7 +234,7 @@ After executing the authorization request, {{ product_name }} login page for the
     ```
 
 === "Sample request"
-    
+
     ```bash
     curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
     -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b" 
@@ -280,7 +259,9 @@ After executing the authorization request, {{ product_name }} login page for the
     }
     ```
 
-### Token revocation from organization application
+## Revoke tokens for applications
+
+The following example demonstrates how to revoke tokens issued for organization applications.
 
 === "Request format"
 
@@ -292,7 +273,7 @@ After executing the authorization request, {{ product_name }} login page for the
     ```
 
 === "Sample request"
-    
+
     ```bash
     curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
     -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b&token_type_hint=access_token" 
@@ -301,7 +282,48 @@ After executing the authorization request, {{ product_name }} login page for the
     ```
 
 === "Sample response"
-    ```
+
+    ```json
     Empty JSON response with HTTP status code 200 OK
     ```
-    
+
+## Additional capabilities for applications
+
+Alongside application management, following capabilities are now available in the organizations
+
+- Role management : Roles can be managed directly in the organization and can associate with the applications
+which are managed directly in the organization.
+
+- Inherited API Resources : The {{ product_name }} defined Organization API Resources and the API Resources that are created 
+in the root organization are now inherited to the organization. These API Resources can be authorized to the 
+applications which are managed directly in the organization.
+
+### Inherited API resources
+
+The Organization API Resources and the API Resources that are created in the root organization are 
+inherited to the organizations directly. These API Resources are available in read only mode through the {{ product_name}} Console.
+
+![Inherited default API Resources]({{base_path}}/assets/img/guides/applications/organization-applications/inherited-api-resources.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+### Role management
+
+Organizations can have their own roles and manage them independently. These roles can only be associated with the 
+applications that are managed directly in the organization. 
+
+![Role management in organization]({{base_path}}/assets/img/guides/applications/organization-applications/role-management-organization.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+Please refer [Manage roles]({{base_path}}/guides/users/manage-roles/) for more details on how you can manage the roles.
+
+#### Role types in organization
+
+Organization now have two types on roles.
+
+- Shared roles : Roles defined by the root organization and used by B2B applications shared with this organization 
+are created as shared roles within the organization.
+- Roles managed directly in the organization : Roles which can be managed directly in the organization.
+
+Both these roles can be assigned to any user in the organization but in the authorization, shared applications will only 
+consider the shared roles to provide the authorization.
+
+There might be scenarios where the above two types of roles can lead to a conflict of role creation. Please refer 
+[Manage role conflicts in organization]({{base_path}}/guides/organization-management/manage-conflicts-in-organizations/#manage-role-conflicts-in-organization) for more information.
