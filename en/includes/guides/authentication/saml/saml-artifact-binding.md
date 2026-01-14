@@ -209,6 +209,17 @@ SAML2 POST Binding sends the SAML response via browser POST, creating a cross-or
 
         If your are using a different URL, add that as an allowed origin.
 
+    {% if is_version == "7.1.0"  or is_version == "7.2.0" %}
+    !!! Info
+
+        By default, {{product_name}} double-encodes the SAML artifact value. To disable double encoding and enforce specification-compliant behavior in {{product_name}}, add the following configuration to the `deployment.toml` file:      
+
+        ```toml
+        [saml.artifact]
+        disable_double_encoding = true
+        ```
+    {% endif %}
+
 2. Restart {{product_name}}.
 
 ### Integrate application with {{product_name}}
