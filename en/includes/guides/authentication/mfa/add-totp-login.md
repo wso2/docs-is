@@ -27,11 +27,36 @@ To use TOTP as a multi-factor authentication(MFA) option, application users need
 
 ## Disable enrolling in TOTP during first login
 
-TOTP enrollment during the first login is enabled by default for all applications.
+By default, users who have not configured TOTP are prompted to enroll immediately after completing first-factor authentication. 
 
-Administrators of an organization can configure their business applications to disable TOTP enrollment during the login flow of the users.
+{{ product_name }} provides two ways to control this enrollment behavior:
 
-To disable TOTP enrollment during login:
+- **Organization-level configuration**: Set a baseline policy for all applications in your organization.
+- **Application-level configuration**: Override the organization-level setting for specific applications using conditional authentication scripts.
+
+!!! note
+    The organization-level configuration is available for both root organizations and sub-organizations.
+
+### Configure at organization level
+
+To configure TOTP enrollment for all applications in your organization:
+
+1. On the {{ product_name }} Console, go to **Connections**.
+
+2. Click on **TOTP** and go to the **Settings** tab.
+
+3. Use the **Enable TOTP progressive enrollment** toggle to control the enrollment behavior:
+
+    - **Enabled (default)**: Users who have not configured TOTP are prompted to enroll during login for all applications.
+    - **Disabled**: Users are not prompted to enroll in TOTP during login for any application in the organization.
+
+    ![TOTP organization level configuration in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/totp-org-level-config.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+4. Click **Update** to save your changes.
+
+### Configure at application level
+
+To override the organization-level setting for a specific application:
 
 1. On the {{ product_name }} Console, [enable TOTP](#enable-totp-for-an-app)  for a selected application.
 2. Turn on **Conditional Authentication** by switching the toggle.
