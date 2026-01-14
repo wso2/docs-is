@@ -27,11 +27,11 @@ To use TOTP as a multi-factor authentication(MFA) option, application users need
 
 ## Disable enrolling in TOTP during first login
 
-By default, users who have not configured TOTP are prompted to enroll immediately after completing first-factor authentication. 
+TOTP enrollment during the first login is enabled by default for all applications. 
 
 {{ product_name }} provides two ways to control this enrollment behavior:
 
-- **Organization-level configuration**: Set a baseline policy for all applications in your organization.
+- **Organization-level configuration**: Define a default policy that applies across all applications in the organization.
 - **Application-level configuration**: Override the organization-level setting for specific applications using conditional authentication scripts.
 
 !!! note
@@ -47,7 +47,7 @@ To configure TOTP enrollment for all applications in your organization:
 
 3. Use the **Enable TOTP progressive enrollment** toggle to control the enrollment behavior:
 
-    - **Enabled (default)**: Users who have not configured TOTP are prompted to enroll during login for all applications.
+    - **Enabled (default)**: Users who have not configured TOTP are prompted to enroll during login for all applications, unless it is overridden by **Conditional Authentication**.
     - **Disabled**: Users are not prompted to enroll in TOTP during login for any application in the organization.
 
     ![TOTP organization level configuration in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/totp-org-level-config.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
