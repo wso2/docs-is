@@ -38,10 +38,10 @@ MFA, passwordless and social providers are configured in {{product_name}} as **c
 
 - {{product_name}} pre-configured with **Magic Link** and **Email OTP** as connections, so you can follow this guide without needing to modify the default settings. 
 
-- Configure **Github** as a **social login provider** by creating a connection in {{product_name}} console.  
-    1. Register a Github OAuth App or a GitHub App by following the [***Register Asgardeo on Github*** step in this guide]({{ base_path }}/guides/authentication/social-login/add-github-login/#register-asgardeo-on-github){:target="_blank"}. Once the Github app is registered you need to copy **`Client ID`** and **`Client secret`** for the next step. 
+- Configure **GitHub** as a **social login provider** by creating a connection in {{product_name}} console.  
+    1. Register a GitHub OAuth App or a GitHub App by following the [***Register Asgardeo on GitHub*** step in this guide]({{ base_path }}/guides/authentication/social-login/add-github-login/#register-asgardeo-on-github){:target="_blank"}. Once the GitHub app is registered you need to copy **`Client ID`** and **`Client secret`** for the next step. 
     
-    2. Register Github connection in  {{product_name}} console by following the [***Register the Github IdP*** step in this guide]({{ base_path }}/guides/authentication/social-login/add-github-login/#register-the-github-idp){:target="_blank"}. 
+    2. Register GitHub connection in  {{product_name}} console by following the [***Register the GitHub IdP*** step in this guide]({{ base_path }}/guides/authentication/social-login/add-github-login/#register-the-github-idp){:target="_blank"}. 
 
 ## Create and configure a sample app
 
@@ -125,19 +125,19 @@ Now you can try logging to the **Try It** application using either username & pa
     You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to the receive Magic Link login code. 
 
 
-## **Try out Login Flow AI** - Password or Github 
+## **Try out Login Flow AI** - Password or GitHub 
 
 Enter the following given natural language instruction and click the run button. 
 
 ```text 
 
-Password or Github 
+Password or GitHub 
 
 ```
 
-The following login flow with username & password and Github should be generated in the Login Flow designer. 
+The following login flow with username & password and GitHub should be generated in the Login Flow designer. 
 
-![username & password and Github]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image4.png){: width="800" style="display: block; margin: 0;"}
+![username & password and GitHub]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image4.png){: width="800" style="display: block; margin: 0;"}
 
 
 Click the **Update** button to save the above login flow configuration. 
@@ -145,9 +145,9 @@ Click the **Update** button to save the above login flow configuration.
 Next, click the **Try Login** button in the top right corner of your screen. This is open the Try-It application in a new tab. 
 
 
-Now you can try logging to the **Try It** application using either username & password or Github.   
+Now you can try logging to the **Try It** application using either username & password or GitHub.   
 
-![username & password and Github login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image5.png){: width="800" style="display: block; margin: 0;"}
+![username & password and GitHub login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image5.png){: width="800" style="display: block; margin: 0;"}
 
 !!! Important
 
@@ -157,22 +157,22 @@ Now you can try logging to the **Try It** application using either username & pa
 
 !!! Tip
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have a valid Github account to login using Github. 
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have a valid GitHub account to login using GitHub. 
 
 
-## **Try out Login Flow AI** - Password or Github with Email OTP 
+## **Try out Login Flow AI** - Password or GitHub with Email OTP 
 
 Enter the following given natural language instruction and click the run button. 
 
 ```text 
 
-Password or Github then Email OTP 
+Password or GitHub then Email OTP 
 
 ```
 
-The following login flow with username & password and Github should be generated in the Login Flow designer. 
+The following login flow with username & password and GitHub should be generated in the Login Flow designer. 
 
-![username & password and Github]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image4.png){: width="800" style="display: block; margin: 0;"}
+![username & password and GitHub]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image4.png){: width="800" style="display: block; margin: 0;"}
 
 
 Click the **Update** button to save the above login flow configuration. 
@@ -180,9 +180,9 @@ Click the **Update** button to save the above login flow configuration.
 Next, click the **Try Login** button in the top right corner of your screen. This is open the Try-It application in a new tab. 
 
 
-First the **Try It** application prompt you to login using either username & password or Github.   
+First the **Try It** application prompt you to login using either username & password or GitHub.   
 
-![username & password and Github login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image5.png){: width="800" style="display: block; margin: 0;"}
+![username & password and GitHub login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image5.png){: width="800" style="display: block; margin: 0;"}
 
 If that successful, the application will ask you to enter the Email OTP that has sent to the email address of the current user. 
 
@@ -190,17 +190,17 @@ If that successful, the application will ask you to enter the Email OTP that has
 
 !!! Tip
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Magic Link login code.  TODO - Github
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Magic Link login code.  TODO - GitHub
 
 
 <!-- This step is commented due to a product issue -->
-<!-- ## **Try out Login Flow AI** - Password or Github with conditional Email OTP 
+<!-- ## **Try out Login Flow AI** - Password or GitHub with conditional Email OTP 
 
 Enter the following given natural language instruction and click the run button. 
 
 ```text 
 
-Password or Github then Email OTP if the user has manager role
+Password or GitHub then Email OTP if the user has manager role
 
 ```
 
@@ -215,7 +215,7 @@ Click the **Update** button to save the above login flow configuration.
 Next, click the **Try Login** button in the top right corner of your screen. This is open the Try-It application in a new tab. 
 
 
-First the **Try It** application prompt you to login using either username & password or Github.   
+First the **Try It** application prompt you to login using either username & password or GitHub.   
 
 
 If successful, the application won’t prompt you for the Email OTP. Instead, you can simply log in using either your username & password or GitHub.
@@ -233,6 +233,6 @@ Next, Let's add our test user to the **manager role**.
 
 !!! Tip
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Magic Link login code.  TODO - Github -->
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Magic Link login code.  TODO - GitHub -->
 
 [//] STEPS_END

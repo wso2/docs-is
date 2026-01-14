@@ -43,7 +43,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
   </div>
 
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="Github" width=50><br>
+    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="GitHub" width=50><br>
     <a href="https://github.com/wso2/samples-is/tree/v4.6.2/etc/notification-sender-ext-schedular" target="_blank">View source</a>
   </div>
 </div>
