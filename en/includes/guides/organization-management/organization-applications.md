@@ -1,10 +1,6 @@
-# Manage applications in organizations
+# Create an application in an organization
 
-The following guide explains how organization administrators can create and manage applications within their organizations in {{ product_name }}.
-
-## Create an application
-
-Organization administrators can create applications directly within their organizations. These applications can access and consume the organization’s API resources. To create an application, it must meet the following conditions:
+Organization administrators can create and mange applications directly within their organizations. These applications can access and consume the organization’s API resources. To create an application, it must meet the following conditions:
 
 - Use OAuth2.
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
@@ -79,7 +75,45 @@ You can find the created applications in the **Application** section of your org
 
 ![Organization Application Edit]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-edit.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+## Authorize applications to API resources
+
+Organizations inherit the following API resources from the root oraganization:
+
+- Default organization API resources defined by {{ product_name }}.
+
+- API resources created in the root organization.
+
+For your applications to access these API resources, you need to authorize the applications to the required API resources. To do so,
+
+1. On the {{ product_name }} Console, go to **Organizations** and switch to your desired organization.
+
+2. In the organization, go to **Applications** and select your desired application.
+
+3. Go to the **API Authorization** tab and click **Authorize API Resources**.
+
+4. Authorize the required API resources to the application.
+
+## Authorize users to consume API resources
+
+The previous section explained how you can authorize an application to access API resources. Now that your application has the permissions ready, you need to authorize users to access the API resources and its resources. You can do this by assigning them to the correct roles.
+
+Organizations have access to two types of roles:
+
+- Roles associated with applications shared with the organization - The root organization manage these roles and the organizations can seem them as shared roles. <b>Shared applications only consider these roles for authorization</b>.
+
+- Organization managed roles - Organization administrators can create and manage roles directly in the organization. These roles govern access to <b>applications managed directly in the organization</b>.
+
+![Role management in organization]({{base_path}}/assets/img/guides/applications/organization-applications/role-management-organization.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! note
+
+    - To learn more about roles, refer to [Manage roles]({{base_path}}/guides/users/manage-roles/).
+
+    -  To learn about managing conflicts that can arise due to these two types of roles, refer to [manage role conflicts in organization]({{base_path}}/guides/organization-management/manage-conflicts-in-organizations/#manage-role-conflicts-in-organization).
+
 ## Generate tokens for applications
+
+When applications have access to the required API resources and the users authorized to access application resources, you can use the following grant types to generate tokens and issue scopes.
 
 The organization applications can use the following OAuth2 grant types to generate tokens.
 
@@ -286,44 +320,3 @@ The following example demonstrates how to revoke tokens issued for organization 
     ```json
     Empty JSON response with HTTP status code 200 OK
     ```
-
-## Additional capabilities for applications
-
-Alongside application management, following capabilities are now available in the organizations
-
-- Role management : Roles can be managed directly in the organization and can associate with the applications
-which are managed directly in the organization.
-
-- Inherited API Resources : The {{ product_name }} defined Organization API Resources and the API Resources that are created 
-in the root organization are now inherited to the organization. These API Resources can be authorized to the 
-applications which are managed directly in the organization.
-
-### Inherited API resources
-
-The Organization API Resources and the API Resources that are created in the root organization are 
-inherited to the organizations directly. These API Resources are available in read only mode through the {{ product_name}} Console.
-
-![Inherited default API Resources]({{base_path}}/assets/img/guides/applications/organization-applications/inherited-api-resources.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-### Role management
-
-Organizations can have their own roles and manage them independently. These roles can only be associated with the 
-applications that are managed directly in the organization. 
-
-![Role management in organization]({{base_path}}/assets/img/guides/applications/organization-applications/role-management-organization.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-Please refer [Manage roles]({{base_path}}/guides/users/manage-roles/) for more details on how you can manage the roles.
-
-#### Role types in organization
-
-Organization now have two types on roles.
-
-- Shared roles : Roles defined by the root organization and used by B2B applications shared with this organization 
-are created as shared roles within the organization.
-- Roles managed directly in the organization : Roles which can be managed directly in the organization.
-
-Both these roles can be assigned to any user in the organization but in the authorization, shared applications will only 
-consider the shared roles to provide the authorization.
-
-There might be scenarios where the above two types of roles can lead to a conflict of role creation. Please refer 
-[Manage role conflicts in organization]({{base_path}}/guides/organization-management/manage-conflicts-in-organizations/#manage-role-conflicts-in-organization) for more information.
