@@ -945,7 +945,7 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
+            - Data encryption key rotation: deploy/security/symmetric-encryption/data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
           - Keystores:
