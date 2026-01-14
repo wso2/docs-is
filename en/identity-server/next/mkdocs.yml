@@ -771,8 +771,8 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Application Management:
-            - Share applications: guides/organization-management/share-applications.md
+          - Manage applications:
+            - Shared applications: guides/organization-management/share-applications.md
             - Organization applications: guides/organization-management/organization-applications.md
           - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
           - Onboard admins:
