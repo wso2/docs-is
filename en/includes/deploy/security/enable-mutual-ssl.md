@@ -8,11 +8,11 @@ Let's take a look at how mutual SSL works with clients and {{product_name}}. The
 
 -   {{product_name}} server certificates are stored in,</br>
 
-    `<IS-HOME>/repository/resources/security/wso2carbon.{{content.default_keystore_ext}}`
+    `<IS_HOME>/repository/resources/security/wso2carbon.{{content.default_keystore_ext}}`
 
 
 -   The trusted client certificates are stored in,</br>
-    `<IS-HOME>/repository/resources/security/clienttruststore.{{content.default_keystore_ext}}`
+    `<IS_HOME>/repository/resources/security/clienttruststore.{{content.default_keystore_ext}}`
 
 !!! note
 

@@ -110,7 +110,7 @@ below:
             [updating your product](https://updates.docs.wso2.com/en/latest/updates/overview/).
 
         To associate the JIT provisioned user with the local user having the same username, 
-        add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
+        add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`.
         
         ``` toml
         [authentication]

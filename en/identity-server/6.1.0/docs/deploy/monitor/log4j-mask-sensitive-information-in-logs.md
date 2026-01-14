@@ -21,8 +21,8 @@ To configure this feature, follow the instructions given below.
 
 1.  Log masking is enabled by default. However, you need to configure required masking patterns.
 
-2.  These patterns are configured in the `<IS-HOME>/repository/conf/wso2-log-masking.properties`. You can change 
-    its default configurations in `<IS-HOME>/repository/conf/deployment.toml`.
+2.  These patterns are configured in the `<IS_HOME>/repository/conf/wso2-log-masking.properties`. You can change 
+    its default configurations in `<IS_HOME>/repository/conf/deployment.toml`.
 
 ---
 
@@ -32,7 +32,7 @@ The masking pattern file is a property file that can contain one or more
 masking patterns. The following is a sample configuration that showcases
 how to mask the credit card numbers from the logs.
 
-Navigate to `<IS-HOME>/repository/conf/deployment.toml`. Add the following configuration.
+Navigate to `<IS_HOME>/repository/conf/deployment.toml`. Add the following configuration.
 
 ```toml
 [masking_pattern.properties]

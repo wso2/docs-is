@@ -254,7 +254,7 @@ data section of a resource). Apart from that, versioning can be done per
 each change made for a resource which can be an extremely expensive
 operation at runtime (especially if there are many resources that
 change). By setting the `\<versionResourcesOnChange\>` parameter in
-`<IS_HOME\>/repository/conf/registry.xml` to `true/false`, you can
+`<IS_HOME>/repository/conf/registry.xml` to `true/false`, you can
 enable/disable versioning resources on change. If it is enabled, upon
 modification to a resource, a new version will be created from the
 resource and also a new record is added to this table. Following are the

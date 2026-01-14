@@ -106,7 +106,7 @@ By default, the WSO2 Identity Server passes `WSO2 WSO2 IS server` as the server 
 
 ## Enable/disable http/https transport
 
-By default, both the `http` and `https` connectors are enabled. To disable either the `http` or `https` connector, add the corresponding configuration to `<IS-HOME>/repository/conf/deployment.toml` as shown below. 
+By default, both the `http` and `https` connectors are enabled. To disable either the `http` or `https` connector, add the corresponding configuration to `<IS_HOME>/repository/conf/deployment.toml` as shown below. 
 
 ```toml
 [transport]

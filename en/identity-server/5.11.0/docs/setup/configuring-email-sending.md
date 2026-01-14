@@ -4,7 +4,7 @@ This document explains the steps to configure WSO2 Identity Server to send email
 
 ## Configure email sending
 1.  Shut down the server if it is running.
-2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
+2.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to configure the email server.
 
     ```toml
     [output_adapter.email]
