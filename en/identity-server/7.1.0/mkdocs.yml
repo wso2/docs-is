@@ -20,9 +20,7 @@ INHERIT: ../is_common.yml
 site_url: https://is.docs.wso2.com/en/7.1.0
 
 # Repository
-repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is
-edit_uri: edit/master/en/identity-server/7.1.0/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/7.1.0/docs/
 
 extra:
   base_path: /en/7.1.0
