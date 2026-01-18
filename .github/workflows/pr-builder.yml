@@ -1,9 +1,11 @@
-name: PR Builder - Asgardeo Docs
+name: PR Builder
 
 on:
   pull_request:
     paths:
       - 'en/asgardeo/**'
+      - 'en/identity-server/next/**'
+      - 'en/identity-server/7.1.0/**'
       - 'en/includes/**'
 
 # Avoid running multiple builds for the same PR.
@@ -14,6 +16,15 @@ concurrency:
 jobs:
   broken-link-checker:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - doc_path: en/asgardeo
+            port: 8000
+          - doc_path: en/identity-server/next
+            port: 8001
+          - doc_path: en/identity-server/7.1.0
+            port: 8002
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -29,21 +40,21 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          cd en/asgardeo
+          cd ${{ matrix.doc_path }}
           pip install -r requirements.txt
 
       - name: Build
         run: |
-          cd en/asgardeo
+          cd ${{ matrix.doc_path }}
           mkdocs build --strict
 
       - name: Broken link checker
         run: |
-          cd en/asgardeo
-          nohup mkdocs serve > mkdocs.log 2>&1 &
+          cd ${{ matrix.doc_path }}
+          nohup mkdocs serve -a 127.0.0.1:${{ matrix.port }}> mkdocs.log 2>&1 &
           # Wait for server to start
-          while ! nc -z localhost 8000; do
+          while ! nc -z localhost ${{ matrix.port }}; do
             sleep 1
           done
           pip3 install linkchecker
-          linkchecker -F html http://127.0.0.1:8000 --threads=100 --no-warnings
+          linkchecker -F html http://127.0.0.1:${{ matrix.port }} --threads=100 --no-warnings

@@ -17,6 +17,7 @@
 INHERIT: ../is_common.yml
 
 # Project information
+site_name: WSO2 Identity Server
 site_url: https://is.docs.wso2.com/en/next
 
 # Repository
@@ -115,11 +116,8 @@ hooks:
 
 plugins:
   - search:
-      indexing: "full"
       separator: "[^\\w._]+"
       lang: ['en']
-      prebuild_index: true
-      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - glightbox:
@@ -149,8 +147,8 @@ plugins:
         'guides/login/webapp-oidc.md': 'guides/authentication/add-login-to-web-app.md'
         'guides/login/webapp-saml.md': 'guides/authentication/add-login-to-web-app.md'
         'guides/login/webapp-ws-federation.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
-        'guides/login/sso-for-oidc.md': 'guides/authentication/enterprise-login/add-oidc-idp-login.md'
-        'guides/login/sso-for-saml.md': 'guides/authentication/enterprise-login/add-saml-idp-login.md'
+        'guides/login/sso-for-oidc.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
+        'guides/login/sso-for-saml.md': 'guides/authentication/standard-based-login/add-saml-idp-login.md'
         'guides/login/oidc-backchannel-logout.md': 'guides/authentication/oidc/add-back-channel-logout.md'
         'guides/authentication/enterprise-login/index.md': 'guides/authentication/standard-based-login/index.md'
         'guides/authentication/enterprise-login/add-oidc-idp-login.md': 'guides/authentication/standard-based-login/add-oidc-idp-login.md'
@@ -158,7 +156,7 @@ plugins:
         'guides/request-path-auth/request-paths-overview.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
         'guides/request-path-auth/oauth-request-path.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
         'guides/authentication/add-application-native-login.md': 'guides/authentication/app-native-authentication/add-app-native-authentication.md'
-        'guides/passwordless/overview.md': 'guides/authentication/passwordless-login.md'
+        'guides/passwordless/overview.md': 'guides/authentication/passwordless-login/index.md'
         'guides/passwordless/magic-link.md': 'guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md'
         'guides/passwordless/fido.md': 'guides/authentication/passwordless-login/add-passwordless-login-with-passkey.md'
         'guides/passwordless/fido-attestation.md': 'guides/authentication/passwordless-login/fido-attestation.md'
@@ -211,7 +209,7 @@ plugins:
         'guides/access-delegation/configure-kerberos-grant.md': 'guides/authentication/enterprise-login/add-iwa-login.md'
         'guides/access-delegation/configure-jwt-grant.md': 'references/grant-types.md'
         'guides/access-delegation/invoke-oauth-introspection-endpoint.md': 'guides/authentication/oidc/token-validation-resource-server.md'
-        'guides/access-delegation/oauth-dynamic-client-registration.md': 'apis/use-the-openid-connect-dynamic-client-registration-rest-apis.md'
+        'guides/access-delegation/oauth-dynamic-client-registration.md': 'apis/dynamic-client-registration-rest-api.md'
         'guides/access-delegation/private-key-jwt-client-authentication-for-oidc.md': 'guides/authentication/oidc/private-key-jwt-client-auth.md'
         'guides/access-delegation/oauth-token-revocation.md': 'guides/authentication/oidc/revoke-tokens.md'
 
@@ -267,7 +265,7 @@ plugins:
 
         'guides/my-account/my-account.md': 'guides/user-self-service/configure-self-service-portal.md'
         'guides/user-self-service/customer-self-service-portal.md': 'guides/user-self-service/configure-self-service-portal.md'
-        'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/ai-loginflow.md'
+        'guides/authentication/conditional-auth/ai-loginflow.md': 'guides/authentication/login-flow-ai.md'
         'guides/my-account/manage-own-profile.md': 'guides/user-self-service/update-profile-info.md'
         'guides/my-account/export-my-user-profile.md': 'guides/user-self-service/export-profile-information.md'
         'guides/my-account/link-own-accounts.md': 'guides/user-self-service/manage-linked-accounts.md'
@@ -276,11 +274,11 @@ plugins:
         'guides/my-account/enable-mfa-my-account.md': 'guides/user-self-service/enable-totp.md'
         'guides/my-account/manage-active-sessions.md': 'guides/user-self-service/manage-login-sessions.md'
         'guides/my-account/manage-consent-my-account.md': 'guides/user-self-service/manage-consents.md'
-        'guides/elk-analytics/elk-analytics.md': 'guides/analytics/index.md'
-        'guides/elk-analytics/elk-accessing-the-analytics-dashboard.md': 'guides/analytics/accessing-the-analytics-dashboard.md'
-        'guides/elk-analytics/elk-analyzing-login-attempts.md': 'guides/analytics/analyzing-login-attempts.md'
-        'guides/elk-analytics/elk-analyzing-session-statistics.md': 'guides/analytics/analyzing-active-sessions.md'
-        'guides/elk-analytics/elk-alert-types.md': 'guides/analytics/elk-alert-types.md'
+        'guides/elk-analytics/elk-analytics.md': 'guides/analytics/elk-analytics/index.md'
+        'guides/elk-analytics/elk-accessing-the-analytics-dashboard.md': 'guides/analytics/elk-analytics/accessing-the-analytics-dashboard.md'
+        'guides/elk-analytics/elk-analyzing-login-attempts.md': 'guides/analytics/elk-analytics/analyzing-login-attempts.md'
+        'guides/elk-analytics/elk-analyzing-session-statistics.md': 'guides/analytics/elk-analytics/analyzing-active-sessions.md'
+        'guides/elk-analytics/elk-alert-types.md': 'guides/analytics/elk-analytics/elk-alert-types.md'
         'guides/analytics/index.md': 'guides/analytics/elk-analytics/index.md'
         'guides/analytics/accessing-the-analytics-dashboard.md': 'guides/analytics/elk-analytics/accessing-the-analytics-dashboard.md'
         'guides/analytics/analyzing-login-attempts.md': 'guides/analytics/elk-analytics/analyzing-login-attempts.md'
@@ -353,9 +351,8 @@ plugins:
         'deploy/security/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md'
         'deploy/security/asymmetric-encryption/renew-a-ca-signed-certificate-in-a-keystore.md': 'deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md'
         'deploy/security/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md'
-        'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md.md'
+        'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md'
         'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
-        'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
         'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
         'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
 
@@ -398,7 +395,6 @@ plugins:
         'references/concepts/introduction-to-multitenancy.md': 'guides/multitenancy/index.md'
         'references/extend/oauth2/write-a-custom-oauth-2.0-grant-type.md': 'references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md'
         'references/extend/write-custom-functions-for-adaptive-authentication.md': 'references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md'
-        'references/extend/provisioning/extend-scim2-user-schemas.md': 'references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md'
         'references/extend/write-a-custom-user-store-manager.md': 'references/extend/user-stores/write-a-custom-user-store-manager.md'
 
         'references/extend/myaccount/customize-my-account-ui.md': 'guides/branding/configure-ui-branding.md'
@@ -425,7 +421,7 @@ plugins:
         'references/extend/errors/customize-authentication-error-messages.md': 'guides/account-configurations/login-security/login-attempts.md'
         'references/extend/errors/error-codes-and-descriptions.md': 'references/troubleshoot/error-codes.md'
         'references/error-catalog.md': 'references/troubleshoot/api-error-codes.md'
-        'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins.md'
+        'guides/organization-management/onboard-sub-org-admins.md': 'guides/organization-management/onboard-org-admins/index.md'
         'guides/authentication/app-native-authentication/configure-advanced-app-native-settings.md': 'guides/authentication/app-native-authentication/index.md'
         'apis/roles-v2-rest-api.md': 'apis/role-management/roles-v2-rest-api.md'
         'apis/roles-v1-rest-api.md': 'apis/role-management/roles-v1-rest-api.md'
@@ -435,7 +431,7 @@ plugins:
         'apis/scim2-bulk-rest-apis.md': 'apis/scim2/scim2-bulk-rest-api.md'
         'apis/scim2-batch-operations.md': 'apis/scim2/scim2-batch-operations.md'
         'apis/scim2-sp-config-rest-apis.md': 'apis/scim2/scim2-sp-config-rest-api.md'
-        'apis/organization-apis/org-scim2-bulk-mgt.md': 'apis/organization-apis/scim2/scim2-org-bulk.md'
+        'apis/organization-apis/org-scim2-bulk-mgt.md': 'apis/organization-apis/scim2/scim2-org-bulk-mgt.md'
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/use-the-dynamic-client-registration-rest-apis.md' : 'apis/dynamic-client-registration-rest-api.md'
@@ -943,6 +939,7 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
+            - Configure symmetric encryption: deploy/security/symmetric-encryption/use-symmetric-encryption.md
             - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md

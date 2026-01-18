@@ -176,15 +176,6 @@ plugins:
 exclude_docs: |
   /get-started/hello-world.md
 
-not_in_nav: |
-  /page-not-found.md
-  /get-started/explore-asgardeo.md
-  /get-started/start-integrating-apps.md
-  /get-started/try-samples/index.md
-  /get-started/try-your-own-app/index.md
-  /get-started/try-your-own-app/angular.md
-  /get-started/hello-world.md
-
 # Navigation
 nav:
   - Home:
