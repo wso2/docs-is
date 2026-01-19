@@ -10,7 +10,7 @@ The ID token is a JWT (JSON Web Token) consisting of a header, payload, and sign
 ```json
 
 {
-  "x5t": "C2wu7Amo4wsyJgLt5Td1l7dpztc",
+  "x5t#S256": "C2wu7Amo4wsyJgLt5Td1l7dpztc",
   "kid": "OTMyNmUwMjAxNWE0ODFiZTI5NzIxYTJhOTgxYTI4NjA4ZmUzNWUyZDhlNWI4MzQ3ZWU5OTUxYTU3YTczNjcxMA_RS256",
   "alg": "RS256"
 }
