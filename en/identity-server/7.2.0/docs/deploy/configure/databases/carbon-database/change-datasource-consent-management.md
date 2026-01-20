@@ -16,7 +16,7 @@ Following are the sample configuration for each database type.
 
 ??? Example "PostgreSQL"
     
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [[datasource]]
@@ -30,12 +30,12 @@ Following are the sample configuration for each database type.
 
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/consent/postgresql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/consent/postgresql.sql` file against 
         the created database.    
           
 ??? Example "MySQL"
 
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [[datasource]]
@@ -49,11 +49,11 @@ Following are the sample configuration for each database type.
 
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/consent/mysql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/consent/mysql.sql` file against 
         the created database.    
             
 ??? Example "DB2"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [[datasource]]
         id="WSO2CONSENT_DB"
@@ -66,12 +66,12 @@ Following are the sample configuration for each database type.
 
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/consent/db2.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/consent/db2.sql` file against 
         the created database.    
 
 
 ??? Example "MSSQL"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [[datasource]]
         id="WSO2CONSENT_DB"
@@ -84,11 +84,11 @@ Following are the sample configuration for each database type.
 
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/consent/mssql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/consent/mssql.sql` file against 
         the created database.    
 
 ??? Example "Oracle"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [[datasource]]
         id="WSO2CONSENT_DB"
@@ -101,7 +101,7 @@ Following are the sample configuration for each database type.
 
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/consent/oracle.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/consent/oracle.sql` file against 
         the created database.    
 
 ---

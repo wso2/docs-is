@@ -60,7 +60,7 @@ There are two ways to enable account recovery in WSO2 Identity Server.
 
 ### Enable username recovery globally
 
-1. Open the `deployment.toml` file in the `IS_HOME/repository/conf` folder and add the following configuration:
+1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder and add the following configuration:
 
     !!! tip
         To avoid any configuration issues, do this before starting the WSO2 Identity Server product instance.

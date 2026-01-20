@@ -28,7 +28,7 @@ connection_password = "admin"
 
 In addition to the above, please make sure that you import the Active Directory user store public certificate to the 
 WSO2 Identity Server’s client trust store. To perform this, you need to navigate to the 
-`<IS_HOME>repository/resources/security` directory and execute the following command to import the certificate to 
+`<IS_HOME>/repository/resources/security` directory and execute the following command to import the certificate to 
 client-truststore of WSO2 Identity Server.
 
 ```

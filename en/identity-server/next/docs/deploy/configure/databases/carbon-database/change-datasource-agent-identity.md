@@ -12,7 +12,7 @@ Following are the sample configuration for each database type.
 
 ??? Example "PostgreSQL"
     
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [datasource.AgentIdentity]
@@ -26,12 +26,12 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/identity/agent/postgresql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/identity/agent/postgresql.sql` file against 
         the created database.    
           
 ??? Example "MySQL"
 
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [datasource.AgentIdentity]
@@ -45,11 +45,11 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/identity/agent/mysql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/identity/agent/mysql.sql` file against 
         the created database.    
             
 ??? Example "DB2"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.AgentIdentity]
         id = "AgentIdentity"
@@ -62,12 +62,12 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/identity/agent/db2.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/identity/agent/db2.sql` file against 
         the created database.    
 
 
 ??? Example "MSSQL"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.AgentIdentity]
         id = "AgentIdentity"
@@ -80,11 +80,11 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
 
-        Execute the scripts in the `<IS-HOME>/dbscripts/identity/agent/mssql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/identity/agent/mssql.sql` file against 
         the created database.
 
 ??? Example "Oracle"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.AgentIdentity]
         id = "AgentIdentity"
@@ -97,7 +97,7 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/identity/agent/oracle.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/identity/agent/oracle.sql` file against 
         the created database.    
 
 ---

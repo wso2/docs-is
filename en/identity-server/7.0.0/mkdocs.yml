@@ -20,9 +20,7 @@ INHERIT: ../is_common.yml
 site_url: https://is.docs.wso2.com/en/7.0.0
 
 # Repository
-repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is
-edit_uri: edit/master/en/identity-server/7.0.0/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/7.0.0/docs/
 
 extra:
   base_path: /en/7.0.0
@@ -354,7 +352,6 @@ plugins:
         'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md.md'
         'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
         'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
-        'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
         'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
 
         'references/concepts/compliance/compliance.md': 'deploy/compliance/index.md'

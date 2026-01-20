@@ -18,7 +18,7 @@ Termination](https://www.nginx.com/resources/admin-guide/nginx-ssl-termination/)
 ### Step 2: Enabling RemoteIpValve for Carbon servers
 
 You can enable Tomcat's RemoteIpValve for your Carbon server by simply
-adding the configuration to `<IS-HOME>/repository/conf/deployment.toml` See the [Tomcat
+adding the configuration to `<IS_HOME>/repository/conf/deployment.toml` See the [Tomcat
 documentation](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html)
 for more information about `         RemoteIpValve        ` .
 

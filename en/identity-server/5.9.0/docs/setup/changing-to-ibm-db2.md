@@ -26,7 +26,7 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
 
 1.  **Minimum Configurations for changing default datasource to DB2.**
  
- Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Configurations can be done by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
       <table>
       <thead>
@@ -76,7 +76,7 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
        
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
           
 		  !!! info 
 		  	  While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimeter "/" since the default delimiter script for DB2 is ";". 
@@ -84,9 +84,9 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
 			  ```xml
 			  db2 -td/ -f db2.sql
 			  ```		
-           - `<IS-HOME>/dbscripts/identity/db2.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/db2.sql`
-           - `<IS-HOME>/dbscripts/consent/db2.sql`
+           - `<IS_HOME>/dbscripts/identity/db2.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/db2.sql`
+           - `<IS_HOME>/dbscripts/consent/db2.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -104,9 +104,9 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
            
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/db2.sql`
+           - `<IS_HOME>/dbscripts/db2.sql`
            
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)

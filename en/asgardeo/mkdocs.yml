@@ -20,6 +20,7 @@ INHERIT: ../base.yml
 site_name: &site_name Asgardeo
 site_description: Asgardeo Learning Center
 site_url: https://wso2.com/asgardeo/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/asgardeo/docs/
 
 # Configuration
 theme:
@@ -631,6 +632,7 @@ nav:
     - APIs - Overview: apis/index.md
     - Management APIs:
       - Action Management API: apis/action-management-rest-api.md
+      - Agent Management API: apis/scim2-agents-rest-apis.md
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
       - App-native authentication API: apis/app-native-authentication-api.md

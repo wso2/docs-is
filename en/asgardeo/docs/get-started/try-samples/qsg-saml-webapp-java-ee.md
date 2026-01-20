@@ -91,9 +91,9 @@ Click the button below to download the sample. You can also choose to view the s
 
 Follow the steps given below to configure the sample app.
 
-1. Move the  **war** file that you downloaded to the `{TOMCAT_HOME}/webapps` folder where `{TOMCAT_HOME}` is the root of your Tomcat server.
+1. Move the  **war** file that you downloaded to the `<TOMCAT_HOME>/webapps` folder where `<TOMCAT_HOME>` is the root of your Tomcat server.
   
-2. Open a terminal, navigate to the `{TOMCAT_HOME}/bin` folder, and start the Tomcat server using the following command:
+2. Open a terminal, navigate to the `<TOMCAT_HOME>/bin` folder, and start the Tomcat server using the following command:
 
     !!! note
         This will extract the contents of the **war** file. </br>
@@ -103,7 +103,7 @@ Follow the steps given below to configure the sample app.
     sh catalina.sh start
     ```
 
-3. Go to the `{TOMCAT_HOME}/webapps/sample-app/WEB-INF/classes` folder and open the `sample-app.properties` file in a text editor.
+3. Go to the `<TOMCAT_HOME>/webapps/sample-app/WEB-INF/classes` folder and open the `sample-app.properties` file in a text editor.
 
 4. Update the following in the `sample-app.properties` file:
 
@@ -286,7 +286,7 @@ Follow the steps given below to configure the sample app.
           </tbody>
         </table>
 
-5. In the `{TOMCAT_HOME}/bin` folder, run the following commands to restart the Tomcat server for the configurations to take effect:
+5. In the `<TOMCAT_HOME>/bin` folder, run the following commands to restart the Tomcat server for the configurations to take effect:
 
     ```bash
     sh catalina.sh stop

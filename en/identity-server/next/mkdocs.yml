@@ -20,9 +20,7 @@ INHERIT: ../is_common.yml
 site_url: https://is.docs.wso2.com/en/next
 
 # Repository
-repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is
-edit_uri: edit/master/en/identity-server/next/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/next/docs/
 
 extra:
   base_path: /en/next
@@ -358,7 +356,6 @@ plugins:
         'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md.md'
         'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
         'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
-        'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
         'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
 
         'references/concepts/compliance/compliance.md': 'deploy/compliance/index.md'
@@ -774,8 +771,8 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Application Management:
-            - Share applications: guides/organization-management/share-applications.md
+          - Manage applications:
+            - Shared applications: guides/organization-management/share-applications.md
             - Organization applications: guides/organization-management/organization-applications.md
           - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
           - Onboard admins:
@@ -945,7 +942,6 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
           - Keystores:
@@ -1090,6 +1086,7 @@ nav:
       - Tenant management API: apis/tenant-management-rest-api.md
     - Management APIs:
       - Action Management API: apis/action-management-rest-api.md
+      - Agent Management API: apis/scim2-agents-rest-apis.md
       - API resource management: apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API: apis/application-rest-api.md
