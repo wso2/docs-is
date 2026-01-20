@@ -19,6 +19,7 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | Minimum number of characters  | passwordPolicy.min.length   | This denotes the minimum number of characters in the password. |
     | Maximum number of characters  | passwordPolicy.max.length   | This denotes the maximum number of characters in the password. |
     | Password pattern regex   | passwordPolicy.pattern   | The regular expression pattern to validate the password. |
+    | Username check mode   | passwordPolicy.username.check.mode   | Check if password contains or equals to username. |
     | Error message on pattern violation   | passwordPolicy.errorMsg   | The error message that will be displayed when a pattern violation is detected in the password. |
 
 ??? "User Onboarding"
