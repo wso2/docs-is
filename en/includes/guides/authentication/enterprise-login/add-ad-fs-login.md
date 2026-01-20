@@ -98,7 +98,7 @@ This step extracts the public key from the {{product_name}} keystore which will 
 
 - If the application is in the `carbon.super` super tenant, the public certificate of {{product_name}} needs to be uploaded. It can be exported as follows.
 
-    1. Navigate to `<IS-HOME>/repository/resources/security`.
+    1. Navigate to `<IS_HOME>/repository/resources/security`.
     2. Run the following command to export the `wso2carbon` public certificate of the super tenant.
 
         ```keytool -exportcert -keystore wso2carbon.{{content.default_keystore_ext}} -storetype {{content.default_keystore_type}} -alias wso2carbon -file exported_certificate.cer```

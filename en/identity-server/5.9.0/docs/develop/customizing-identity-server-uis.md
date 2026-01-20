@@ -2,18 +2,18 @@
 
 From [WSO2 Identity Server 5.9.0](https://wso2.com/identity-and-access-management/) onwards, a new UI extension has been introduced to  easily customize the basic user interfaces like login page, username and password recovery pages, and single sign-on pages.
 
-All these UIs are available in the **`authenticationendpoint`** and **`accountrecoveryendpoint`** web apps that are located in the `<IS-Home>/repository/deployment/server/webapps` folder. To customize these pages, follow the steps below. 
+All these UIs are available in the **`authenticationendpoint`** and **`accountrecoveryendpoint`** web apps that are located in the `<IS_HOME>/repository/deployment/server/webapps` folder. To customize these pages, follow the steps below. 
 
 
 ## Step 1: Create the extensions folder
 
-1. Navigate to the `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**.
+1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint` folder and create a new folder called **`extensions`**.
 
     !!! info
     
         You will be adding the customized JSP files along with the custom CSS files into this new `extensions` folder.
            
-2. Similarly, navigate to the `<IS-Home>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create an `extensions` folder.
+2. Similarly, navigate to the `<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint` folder and create an `extensions` folder.
 
 
 ## Step 2: Copy the existing header and footer content
@@ -22,9 +22,9 @@ In order to customize the header and footer content of the web applications, fir
 
 1. To copy the header and footer content of the authenticationendpoint web application:
 
-    1. Navigate to the `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint/includes` folder.
+    1. Navigate to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/includes` folder.
 
-    2. Copy the `header.jsp` and `footer.jsp` files into the `<IS-Home>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+    2. Copy the `header.jsp` and `footer.jsp` files into the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
        
         !!! note 
         
@@ -81,7 +81,7 @@ To add footer.jsp and header.jsp in extensions folder as follows:
 
 1.  To edit the header content of the **authenticationendpoint** web application:
 
-    1. Open the `header.jsp` file in the <IS-Home>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+    1. Open the `header.jsp` file in the <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
 
     2. Add the following includes:
 
@@ -94,7 +94,7 @@ To add footer.jsp and header.jsp in extensions folder as follows:
 
 2.  To edit the footer content of the **authenticationendpoint** web application: 
 
-    1. Open the `footer.jsp` file in the <IS-Home>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
+    1. Open the `footer.jsp` file in the <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions` folder.
 
     2. Add the company name as shown in the [sample file](https://github.com/wso2/samples-is/blob/master/sample-ui-extensions/accountrecoveryendpoint/extensions/footer.jsp).
 

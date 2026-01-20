@@ -26,7 +26,7 @@ Consider a scenario where you want to prompt an additional authentication step i
 
 Follow the steps given below to set up typingDNA in the WSO2 IS server.
 
-1. Open the **deployment.toml** file found in the `<IS-Home>/repository/conf/` directory and add the following configuration:
+1. Open the **deployment.toml** file found in the `<IS_HOME>/repository/conf/` directory and add the following configuration:
 	```
 	[myaccount.security]
     enabled_features=["security.loginVerifyData.typingDNA"]
@@ -34,9 +34,9 @@ Follow the steps given below to set up typingDNA in the WSO2 IS server.
 
 2. Go to the [WSO2 store](https://store.wso2.com/store/assets/isconnector/list) and download both the authenticator and the artifacts from the **TypingDNA Connector**.
 
-3. Copy the Authenticator file (`org.wso2.carbon.identity.conditional.auth.typingdna.functions-x.x.x.jar`) to the `<IS-Home>/repository/components/dropins` directory.
+3. Copy the Authenticator file (`org.wso2.carbon.identity.conditional.auth.typingdna.functions-x.x.x.jar`) to the `<IS_HOME>/repository/components/dropins` directory.
 
-4. Unzip the Artifacts archive, copy the `api#identity#typingdna#v_.war` file to the `<IS-Home>/repository/deployment/server/webapps` directory.
+4. Unzip the Artifacts archive, copy the `api#identity#typingdna#v_.war` file to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 5. Restart the WSO2 IS.
 

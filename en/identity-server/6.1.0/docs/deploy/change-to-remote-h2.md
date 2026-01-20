@@ -37,7 +37,7 @@ After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or
 
 ### Minimum configurations for changing default datasource to H2
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -87,10 +87,10 @@ A sample configuration is given below.
     
     1. Execute database scripts.
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files against the database created.
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files against the database created.
         
-        - `<IS-HOME>/dbscripts/identity/h2.sql`
-        - `<IS-HOME>/dbscripts/consent/h2.sql`
+        - `<IS_HOME>/dbscripts/identity/h2.sql`
+        - `<IS_HOME>/dbscripts/consent/h2.sql`
         
 2. `WSO2_SHARED_DB`
     
@@ -114,7 +114,7 @@ A sample configuration is given below.
         
     1.  Execute the database scripts.
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/h2.sql` file against the database created.
+        Execute the scripts in the `<IS_HOME>/dbscripts/h2.sql` file against the database created.
     
 3.  Download the H2 JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 

@@ -23,7 +23,7 @@ In order to consume the request, follow the steps given below.
     token request and the service provider. This validation needs to be skipped.
     
     For achieving both above requirements add the following configuration to the 
-    `<IS-HOME>/repository/conf/deployment.toml`
+    `<IS_HOME>/repository/conf/deployment.toml`
     
     ``` toml
      [[event_listener]]

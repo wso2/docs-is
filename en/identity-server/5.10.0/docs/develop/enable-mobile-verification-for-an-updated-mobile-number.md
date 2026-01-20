@@ -18,7 +18,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
 
 ## Step 01 - Configuring mobile claim verification on update
 
-1. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to subscribe the `userMobileVerification` handler to `PRE_SET_USER_CLAIMS` and `POST_SET_USER_CLAIMS` events.
+1. Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to subscribe the `userMobileVerification` handler to `PRE_SET_USER_CLAIMS` and `POST_SET_USER_CLAIMS` events.
 
     ```toml 
     [[event_handler]]
@@ -26,7 +26,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     subscriptions =["PRE_SET_USER_CLAIMS","POST_SET_USER_CLAIMS"]
     ```
 
-2. Define an attribute for a new claim `pendingMobileNumber` using **Enterprise User Extension** for SCIM2 by adding the following configuration to the `IS_HOME/repository/conf/scim2-schema-extension.config` file.
+2. Define an attribute for a new claim `pendingMobileNumber` using **Enterprise User Extension** for SCIM2 by adding the following configuration to the `<IS_HOME>/repository/conf/scim2-schema-extension.config` file.
 (Add this before the last element of the JSON array.)
 
     ```
@@ -67,7 +67,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
        }
        ```
 
-3. Add a new SMS template for mobile number verification OTP by adding the below configuration to `sms-templates-admin-config.xml` file in `IS_HOME/repository/conf/sms` directory.
+3. Add a new SMS template for mobile number verification OTP by adding the below configuration to `sms-templates-admin-config.xml` file in `<IS_HOME>/repository/conf/sms` directory.
     
     ```
     <configuration type="verifyMobileOnUpdate" display="verifyMobileOnUpdate" locale="en_US">
@@ -75,7 +75,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
     </configuration>
     ```
 
-4. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
+4. Add an event publisher to `<IS_HOME>/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
 
     ??? info "Sample Event Publisher"
         ```
@@ -138,7 +138,7 @@ Add the external claim configurations as shown below and click **Add**.
     To enable this feature server-wide, follow the instructions given below. 
     
     1.  Shut down the server if it is running.
-    2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature and to configure the verification OTP expiry time.
+    2.  Add the following properties to the `deployment.toml` file in `<IS_HOME>/repository/conf` to enable the feature and to configure the verification OTP expiry time.
 
         ```toml 
         [identity_mgt.user_claim_update.mobile]

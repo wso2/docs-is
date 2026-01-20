@@ -79,7 +79,7 @@ Passkey progressive enrollment enables users to register their FIDO devices on-t
         This feature is available for WSO2 IS 5.11.0 from update level 399 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
     
     1.  Shut down the server if it is running.
-    2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature.
+    2.  Add the following properties to the `deployment.toml` file in `<IS_HOME>/repository/conf` to enable the feature.
 
         ```toml 
         [fido]

@@ -51,7 +51,7 @@ self-registration via SMS and Email Channels.
 Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        `.
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to 
+1.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to 
 configure the the identity server to send confirmation emails.
     
     !!! Note

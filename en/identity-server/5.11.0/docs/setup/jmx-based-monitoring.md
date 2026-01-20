@@ -296,7 +296,7 @@ Follow the steps below to use Jolokia to monitor WSO2 IS.
     1.3.6 by downloading the `          jolokia-osgi-1.3.6.jar         `
     file.)
 2.  Add it to the
-    `           <IS-HOME>/repository/components/dropins/          `
+    `           <IS_HOME>/repository/components/dropins/          `
     directory.
 
 3.  Start WSO2 Identity Server.

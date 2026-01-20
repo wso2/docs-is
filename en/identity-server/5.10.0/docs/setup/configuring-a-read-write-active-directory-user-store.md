@@ -100,7 +100,7 @@ The following table lists the properties used in Read-write Active
 Directory and their descriptions:
 
 Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to 
-`<IS-HOME>/repository/conf/deployment.toml`.
+`<IS_HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]
