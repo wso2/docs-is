@@ -49,7 +49,19 @@ Follow the steps given below to enable the email sender globally for all tenants
       </tr>
       <tr>
         <td><code>client_id</code></td>
-        <td>Provide the password of the SMTP account. <br/> Password of the mail you have provided in <strong>from_address</strong>.</td>
+        <td>The application (client) ID obtained from your email service provider (for example, Microsoft Entra ID) when using <code>CLIENT_CREDENTIAL</code> authentication. This is required when <code>auth_type</code> is set to <code>CLIENT_CREDENTIAL</code>.</td>
+      </tr>
+      <tr>
+        <td><code>client_secret</code></td>
+        <td>The application secret (client secret) obtained from your email service provider when using <code>CLIENT_CREDENTIAL</code> authentication. This is required when <code>auth_type</code> is set to <code>CLIENT_CREDENTIAL</code>.</td>
+      </tr>
+      <tr>
+        <td><code>token_endpoint</code></td>
+        <td>The OAuth 2.0 token endpoint URL used to obtain access tokens when using <code>CLIENT_CREDENTIAL</code> authentication. For example, for Microsoft 365, this would be in the format <code>https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token</code>. This is required when <code>auth_type</code> is set to <code>CLIENT_CREDENTIAL</code>.</td>
+      </tr>
+      <tr>
+        <td><code>scopes</code></td>
+        <td>The OAuth 2.0 scopes required for email sending permissions when using <code>CLIENT_CREDENTIAL</code> authentication. Multiple scopes should be separated by spaces (for example, <code>scope1 scope2</code>). For Microsoft 365 Exchange Online, use <code>https://outlook.office365.com/.default</code>. This is required when <code>auth_type</code> is set to <code>CLIENT_CREDENTIAL</code>.</td>
       </tr>
       <tr>
         <td><code>host</code></td>
@@ -73,8 +85,49 @@ Follow the steps given below to enable the email sender globally for all tenants
       </tr>
     </table>
 
+    ### Configuration examples
+
+    ??? note "Example 1: Using BASIC authentication"
+        This example shows how to configure the email provider with BASIC authentication (username and password).
+
+        ```toml
+        [output_adapter.email]
+        from_address= "wso2iamtest@gmail.com"
+        auth_type= "BASIC"
+        username= "wso2iamtest"
+        password= "Wso2@iam70"
+        hostname= "smtp.gmail.com"
+        port= 587
+        enable_start_tls= true
+        enable_authentication= true
+        signature = "ABC.com"
+        ```
+
+    ??? note "Example 2: Using CLIENT_CREDENTIAL authentication"
+        This example shows how to configure the email provider with CLIENT_CREDENTIAL authentication for Microsoft 365 Exchange Online.
+
+        ```toml
+        [output_adapter.email]
+        from_address= "notifications@example.com"
+        auth_type= "CLIENT_CREDENTIAL"
+        client_id= "12345678-1234-1234-1234-123456789abc"
+        client_secret= "your_client_secret_value"
+        token_endpoint= "https://login.microsoftonline.com/your-tenant-id/oauth2/v2.0/token"
+        scopes= "https://outlook.office365.com/.default"
+        hostname= "smtp.office365.com"
+        port= 587
+        enable_start_tls= true
+        enable_authentication= true
+        signature = "ABC.com"
+        ```
+
+        !!! note
+            - Replace `your-tenant-id` with your actual Microsoft 365 tenant ID.
+            - The scope value `https://outlook.office365.com/.default` is required for Microsoft 365 Exchange Online.
+            - Multiple scopes should be separated by spaces if your email provider requires multiple scopes.
+
     !!! Tip
-        For information about the SMTP, see 
+        For information about the SMTP, see
         [here](https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html){:target="_blank"}.
 
     !!! info
