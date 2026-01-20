@@ -142,7 +142,7 @@ The following login flow with username & password and Github should be generated
 
 Click the **Update** button to save the above login flow configuration. 
 
-Next, click the **Try Login** button in the top right corner of your screen. This is open the Try-It application in a new tab. 
+Next, click the **Try Login** button in the top right corner of your screen. This will open the Try-It application in a new tab. 
 
 
 Now you can try logging to the **Try It** application using either username & password or Github.   
@@ -177,20 +177,20 @@ The following login flow with username & password and Github should be generated
 
 Click the **Update** button to save the above login flow configuration. 
 
-Next, click the **Try Login** button in the top right corner of your screen. This is open the Try-It application in a new tab. 
+Next, click the **Try Login** button in the top right corner of your screen. This will open the Try-It application in a new tab. 
 
 
 First the **Try It** application prompt you to login using either username & password or Github.   
 
 ![username & password and Github login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image5.png){: width="800" style="display: block; margin: 0;"}
 
-If that successful, the application will ask you to enter the Email OTP that has sent to the email address of the current user. 
+If it succeeds, the application will ask you to enter the Email OTP that was sent to the email address of the current user. 
 
 ![Email OTP]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image6.png){: width="800" style="display: block; margin: 0;"}
 
 !!! Tip
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Magic Link login code.  TODO - Github
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Email OTP code.
 
 
 <!-- This step is commented due to a product issue -->

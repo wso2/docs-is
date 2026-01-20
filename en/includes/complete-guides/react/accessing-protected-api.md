@@ -40,7 +40,7 @@ export default function UserProfile() {
     (async () => {
       try {
         const response = await http.request({
-          url: '<base-url>`/scim2/Me',
+          url: '<base-url>/scim2/Me',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/scim+json',
@@ -89,7 +89,7 @@ In the above example, the final request config sent by the `http` function would
 ```javascript
 
 const response = await http.request({
-    url: '<base-url>`/scim2/Me',
+    url: '<base-url>/scim2/Me',
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/scim+json',
@@ -241,12 +241,12 @@ export default function UserProfile() {
 
 !!! tip "Tip"
 
-    You need to construct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the following instructions: 
 
     For Asgardeo: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
-    For WSO2 Idenity Server: 
+    For WSO2 Identity Server: 
 
     `<base-url> = https://localhost:9443`
