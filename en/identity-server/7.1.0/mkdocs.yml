@@ -840,6 +840,7 @@ nav:
               - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
           - Session persistence: deploy/configure/session-persistence.md
           - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
+          - Custom Header Filter: deploy/configure/custom-header-filter.md
           - Clock tolerance: deploy/configure/clock-tolerance.md
           - Cookie consent banner: deploy/configure/cookie-consent-banner.md
           - Email sending module: deploy/configure/email-sending-module.md

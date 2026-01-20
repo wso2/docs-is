@@ -740,6 +740,7 @@ nav:
     - Remote agent properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Configure Cross Origin Resource Sharing (CORS): references/configure-cors.md
+    - Custom Header Filter: references/custom-header-filter.md
     - Email templates: references/email-templates.md
     - SMS templates: references/sms-templates.md
     - Service extensions:
