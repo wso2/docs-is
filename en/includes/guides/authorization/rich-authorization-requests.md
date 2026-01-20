@@ -323,6 +323,75 @@ access token with the requested authorization details.
 
 The client application can now retrieve the user's payment information from the resource server by including the obtained access token in the request.
 
+### Sample authorization code grant flow
+
+The authorization code grant is a front channel grant that requires user interaction and consent (configurable from the Application's **Advanced** section in Console). This section describes how to use rich authorization requests with the authorization code flow.
+
+#### Step 1: Initiate authorization request
+
+The client initiates an authorization request to the authorization endpoint with the `authorization_details` parameter. The request includes the url-encoded `payment_initiation` authorization details type.
+
+=== "Sample request (/authorize)"
+
+    ```bash
+    https://localhost:9443/oauth2/authorize?response_type=code&client_id=<clientID>&redirect_uri=<redirectURI>&scope=openid&authorization_details=%5B%7B%22type%22%3A%22payment_initiation%22%2C%22actions%22%3A%5B%22initiate%22%5D%2C%22locations%22%3A%5B%22https%3A%2F%2Fexample.com%2Fpayments1%22%5D%2C%22instructedAmount%22%3A%7B%22currency%22%3A%22USD%22%2C%22amount%22%3A%223000.00%22%7D%2C%22creditorName%22%3A%22Merchant%20A%22%2C%22creditorAccount%22%3A%7B%22iban%22%3A%22%22%7D%7D%5D
+    ```
+
+The user authenticates and provides consent for the requested authorization details. After consent, the authorization server redirects to the specified redirect URI with an authorization code.
+
+=== "Sample response (/authorize)"
+
+    ```bash
+    <redirectURI>?code=<authorizationCode>&session_state=<sessionState>
+    ```
+
+#### Step 2: Exchange authorization code for access token
+
+The client exchanges the authorization code for an access token by sending a request to the token endpoint.
+
+=== "Sample request (/token)"
+
+    ```bash
+    curl --location 'https://localhost:9443/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic <base64EncodedClientCredentials>' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'code=<authorizationCode>' \
+    --data-urlencode 'redirect_uri=<redirectURI>'
+    ```
+
+=== "Sample response (/token)"
+
+    ```json
+    {
+      "access_token": "a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+      "refresh_token": "z9y8x7w6-v5u4-t3s2-r1q0-p9o8n7m6l5k4",
+      "authorization_details": [
+        {
+          "locations": [
+            "https://example.com/payments1"
+          ],
+          "instructedAmount": {
+            "currency": "USD",
+            "amount": "3000.00"
+          },
+          "type": "payment_initiation",
+          "creditorName": "Merchant A",
+          "actions": [
+            "initiate"
+          ],
+          "creditorAccount": {
+            "iban": "c6142dc9-588c-49ec-8341-1b157c441d02"
+          }
+        }
+      ],
+      "token_type": "Bearer",
+      "expires_in": 3600
+    }
+    ```
+
+The client application can now retrieve the user's payment information from the resource server by including the obtained access token in the request.
+
 ### Validate the access token
 
 To verify if an access token is valid and check its associated authorization details, invoke the token introspection endpoint.
