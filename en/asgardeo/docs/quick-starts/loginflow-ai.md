@@ -184,7 +184,7 @@ First the **Try It** application prompt you to login using either username & pas
 
 ![username & password and Github login]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image5.png){: width="800" style="display: block; margin: 0;"}
 
-If that is successful, the application will ask you to enter the Email OTP that was sent to the email address of the current user. 
+If it succeeds, the application will ask you to enter the Email OTP that was sent to the email address of the current user. 
 
 ![Email OTP]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image6.png){: width="800" style="display: block; margin: 0;"}
 
