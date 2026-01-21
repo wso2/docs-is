@@ -357,7 +357,6 @@ plugins:
         'references/concepts/compliance/compliance.md': 'deploy/compliance/index.md'
         'references/concepts/compliance/accessibility-compliance-wso2-is.md': 'deploy/compliance/index.md'
         'references/concepts/compliance/gdpr.md': 'deploy/compliance/gdpr.md'
-        'references/concepts/compliance/eidas.md': 'deploy/compliance/eidas.md'
         'references/concepts/compliance/ccpa.md': 'deploy/compliance/ccpa.md'
 
         'references/references-overview.md': 'references/index.md'
@@ -839,7 +838,6 @@ nav:
       - Compliance:
           - Compliance: deploy/compliance/index.md
           - GDPR: deploy/compliance/gdpr.md
-          - eIDAS: deploy/compliance/eidas.md
           - CCPA: deploy/compliance/ccpa.md
           - FIPS: deploy/compliance/fips.md
           - FAPI: deploy/compliance/fapi.md
