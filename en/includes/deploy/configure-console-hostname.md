@@ -151,7 +151,7 @@ server {
 
 !!! note
 
-    Some load balancers dosen't support URL rewrite rules similar to `sub_filter` on NGINX. In such cases, you can implement approach 1 described above.
+    Some load balancers doesn't support URL rewrite rules similar to `sub_filter` on NGINX. In such cases, you can implement approach 1 described above.
 
 ### Step 2: Configure WSO2 Identity Server
 
