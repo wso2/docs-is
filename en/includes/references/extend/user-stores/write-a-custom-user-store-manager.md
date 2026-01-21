@@ -3,7 +3,7 @@
 This guide explains how to implement a custom user store manager for WSO2 Identity Server.
 
 !!! info "UniqueID user store managers"
-    
+
     This guide documents the **UniqueID user store managers**, which became the default in WSO2 Identity Server from version **5.10.0 onwards**.
     
     If you need to implement a custom user store manager for older versions or for compatibility with legacy systems, see [Non-UniqueID user store managers](#advanced-non-uniqueid-user-store-managers).
@@ -15,7 +15,7 @@ WSO2 Identity Server provides built-in user store manager implementations. Exten
 | User store manager class | When to use |
 |--------------------------|-------------|
 | `org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager` | Use this when your user details are stored in a **database**. This implementation handles most JDBC-based scenarios without writing a custom user store manager. |
-| `org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager` | Use this when you have a **read-only LDAP user store**. This implementation allows reading users but does not support insert or update operations. |
+| `org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager` | Use this when you have a **read-only LDAP user store**. This implementation allows reading users but doesn't support insert or update operations. |
 | `org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager` | Use this when you need WSO2 Identity Server to **manipulate LDAP user store data** (create, update, delete users). |
 | `org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager` | Use this when your user store is **Active Directory**. |
 
@@ -411,7 +411,7 @@ Create a new class that extends `UniqueIDJDBCUserStoreManager` and override the 
     ```
 
 !!! important
-    
+
     Always implement the constructor with the following signature:
     
     ```java
@@ -425,6 +425,7 @@ Create a new class that extends `UniqueIDJDBCUserStoreManager` and override the 
 ## Deploy and configure the custom user store manager
 
 1. Build your project using Maven:
+
     ```bash
     mvn clean install
     ```
@@ -443,7 +444,7 @@ Create a new class that extends `UniqueIDJDBCUserStoreManager` and override the 
 5. Restart WSO2 Identity Server.
 
 !!! tip
-    
+
     You can configure this as a primary user store or a secondary user store. For more information, see [Manage user stores]({{base_path}}/guides/users/user-stores).
 
 ---
@@ -453,6 +454,7 @@ Create a new class that extends `UniqueIDJDBCUserStoreManager` and override the 
 1. Clone the sample from [GitHub](https://github.com/wso2/samples-is/tree/master/user-mgt/custom-jdbc-user-store-manager){:target="_blank"}.
 
 2. Build the sample:
+
     ```bash
     mvn clean install
     ```
@@ -460,6 +462,7 @@ Create a new class that extends `UniqueIDJDBCUserStoreManager` and override the 
 3. Copy the generated `org.wso2.custom.user.store-1.0.0.jar` to the `<IS_HOME>/repository/components/dropins` directory.
 
 4. Add the following to `<IS_HOME>/repository/conf/deployment.toml`:
+
     ```toml
     [user_store_mgt]
     custom_user_stores=["org.wso2.custom.user.store.CustomUserStoreManager"]
@@ -478,12 +481,12 @@ The UniqueID user store managers became the default in WSO2 Identity Server from
 | User store manager class | When to use |
 |--------------------------|-------------|
 | `org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager` | Use this when your user details are stored in a **database**. This implementation handles most JDBC-based scenarios without writing a custom user store manager. |
-| `org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager` | Use this when you have a **read-only LDAP user store**. This implementation does not allow you to insert or update users from WSO2 Identity Server. You can only read and use them in the product. |
+| `org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager` | Use this when you have a **read-only LDAP user store**. This implementation doesn't allow you to insert or update users from WSO2 Identity Server. You can only read and use them in the product. |
 | `org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager` | Use this when you need WSO2 Identity Server to **manipulate LDAP user store data**. |
 | `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager` | Use this when your user store is **Active Directory**. |
 
 !!! note
-    
+
     For new implementations, use the UniqueID user store managers documented in the sections above. Use non-UniqueID user store managers only for compatibility with legacy systems.
 
 ---
@@ -493,7 +496,7 @@ The UniqueID user store managers became the default in WSO2 Identity Server from
 For advanced use cases that require implementing user store methods from scratch, you can extend `org.wso2.carbon.user.core.common.AbstractUserStoreManager` directly.
 
 !!! warning "When to use AbstractUserStoreManager"
-    
+
     Extend `org.wso2.carbon.user.core.common.AbstractUserStoreManager` only when:
     
     - None of the built-in user store managers (JDBC, LDAP, Active Directory) fit your use case.
