@@ -1,6 +1,6 @@
 # Restrict Public Access to Management Operations
 
-When deploying WSO2 Identity Server, you have the capability to isolate management operations from runtime traffic. By segregating administrative operations, you reduce the attack surface and ensure that high-privilege operations aren't exposed to the public.
+When deploying WSO2 Identity Server, you have the capability to isolate management operations from runtime traffic. By segregating administrative operations, you reduce the attack surface and prevent exposing high-privilege operations to the public.
 
 This guide outlines two strategies to achieve this in WSO2 Identity Server:
 
@@ -28,7 +28,7 @@ The control plane manages administrative tasks (e.g., user management, IdP confi
 The data plane handles high-volume runtime traffic from end-users and applications.
 
 - **Access:** Exposed publicly via a public load balancer.
-- **Components:** Nodes in this plane are for serving authentication requests and other runtime operations of end-users.
+- **Components:** Identity Server nodes serve authentication requests and other runtime operations of end-users.
 - **Endpoint Visibility:** The public load balancer **blocks** access to sensitive paths.
   - **Blocked Paths:** `/console`, `/carbon`, `/api/server/v1/*` (Management APIs).
   - **Allowed Paths:** `/oauth2`, `/samlsso`, `/scim2/Me`, `/api/identity/user/v1.0/me` (Self-service).
@@ -37,7 +37,7 @@ The data plane handles high-volume runtime traffic from end-users and applicatio
 
 ## Approach 2: Separate hostname via reverse proxy
 
-If full network separation isn't possible, you can achieve logical isolation by exposing the Console application on a different hostname. This allows you to apply different firewall rules or access policies to the Console domain (e.g., `is.dev.wso2.com`) compared to the public runtime domain (e.g., `carbon.dev.wso2.com`).
+With this approach, you can achieve logical isolation by exposing the Console application on a different hostname instead of a full network seperation. This allows you to apply different firewall rules or access policies to the Console domain (e.g., `is.dev.wso2.com`) compared to the public runtime domain (e.g., `carbon.dev.wso2.com`).
 
 This guide uses a Reverse Proxy (NGINX) to rewrite traffic dynamically:
 
@@ -143,10 +143,10 @@ server {
 |-------------------------------------------------- |---------------------------------------------------------------------------------- |
 | `upstream is_backend` | This block defines a group of servers that NGINX can proxy requests to. Here, it points to the WSO2 Identity Server running on `127.0.0.1:9443`. |
 | `server { server_name carbon.dev.wso2.com; ... }` | This server block handles all requests for the main Identity Server hostname. It proxies all requests under this domain to the `is_backend`. |
-| `server { server_name is.dev.wso2.com; ... }` | This is the server block dedicated to the Console's hostname. It contains two location blocks to handle different paths. |
+| `server { server_name is.dev.wso2.com; ... }` | The server block dedicated to the Console's hostname. It contains two location blocks to handle different paths. |
 | `location ~ ^(/t/[^/]+)?(/o(/[^/]+)?)?/(api\|scim2\|logincontext)(.*)$ {` | Proxy API and SCIM requests to the Identity Server. |
 | `location ~ ^(/t/[^/]+)?(/o/[^/]+)?/(console\|oauth2\|oidc\|authenticationendpoint\|accountrecoveryendpoint\|commonauth)(.*)$ {` | Handle Console, OAuth/OIDC, and other authentication-related endpoints. |
-| `sub_filter 'carbon.dev.wso2.com' 'is.dev.wso2.com';` | Replace any occurrences of the main Identity Server hostname with the Console's hostname in the response body. This is crucial for rewriting URLs in the HTML content. |
+| `sub_filter 'carbon.dev.wso2.com' 'is.dev.wso2.com';` | Replace any occurrences of the main Identity Server hostname with the Console's hostname in the response body. Crucial for rewriting URLs in the HTML content. |
 | `proxy_redirect https://carbon.dev.wso2.com/ https://is.dev.wso2.com/;` | Rewrite the `Location` header in HTTP redirects, ensuring that the user stays on the Console's domain. |
 
 !!! note
