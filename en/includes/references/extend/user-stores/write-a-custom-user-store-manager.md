@@ -44,6 +44,7 @@ The following tables list methods available in the user store manager classes. O
 | `AuthenticationResult doAuthenticateWithID(String preferredUserNameProperty, String preferredUserNameValue, Object credential)` | Authenticates a user based on a preferred property (e.g., email, username) and credential. |
 | `AuthenticationResult doAuthenticateWithID(String userID, Object credential)` | Authenticates a user using their unique user ID and credential. |
 | `AuthenticationResult doAuthenticateWithID(List<LoginIdentifier> loginIdentifiers, Object credential)` | Authenticates a user using multiple login identifiers and credential. |
+| `AuthenticationResult doAuthenticateWithUserName(String userName, Object credential)` | Authenticates a user using their username and credential. Called internally from `doAuthenticateWithID` when authenticating by username. Available in `UniqueIDJDBCUserStoreManager`. |
 | `boolean doAuthenticate(String userName, Object credential)` | Authenticates a user using their username and credential. |
 | `String preparePassword(Object password, String saltValue)` | Returns the encrypted or plain-text password based on configurations. Override this method to change the password encryption algorithm or hashing mechanism. |
 
