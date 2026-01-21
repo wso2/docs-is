@@ -73,3 +73,7 @@ exceptions:
   - LDAP
   - JWKS
   - TLS
+  - PEM
+  - CRT
+  - CER
+  - DER
