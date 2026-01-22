@@ -300,20 +300,20 @@ For the scenarios listed below, you can define a regular expression to validate 
 - [Self User Registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/)
 <!-- TODO - [Lite User Registration]({{base_path}}/guides/identity-lifecycles/lite-user-registration) -->
 
-## Prevention of sensitive data from being passed as query parameters in certain API requests
+## Prevent accepting sensitive data as query parameters in API requests
 
-By default, WSO2 Identity Server (WSO2 IS) accepts sensitive user credentials (such as `username`, `password`, `client_secret`) when they are passed as form parameters in the request body for token endpoints. However, an application misconfiguration can lead to these sensitive parameters being passed as part of the URL's query string, which may result in them being exposed in server access logs.
+By default, WSO2 Identity Server accepts sensitive user credentials (such as `username`, `password`, `client_secret`) as form parameters in the request body when calling token endpoints. However, a misconfigured application can send these sensitive parameters as part of the URL's query string and expose this data in server access logs.
 
-To mitigate this security risk, you can configure WSO2 IS to reject requests that contain sensitive data in the query parameters for specific endpoints.
+To mitigate this security risk, you can configure WSO2 Identity Server to reject requests that contain sensitive data in query parameters of specific endpoints.
 
-To disable the acceptance of sensitive data in query parameters, add the following configuration to the `deployment.toml` file, located in the `<IS_HOME>/repository/conf/` directory of the WSO2 Identity Server:
+To prevent accepting sensitive data in query parameters, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
 ```
 [request_parameters]
 allow_sensitive_data_in_url=false
 ```
 
-When set to `false`, the server will reject such requests with an HTTP 400 Bad Request error.
+When set to `false`, the server will reject requests with sensitive data with an HTTP 400 Bad Request error.
 
 !!! info
 
