@@ -304,7 +304,6 @@ For the scenarios listed below, you can define a regular expression to validate 
 
 {{product_name}} rejects `username`, `password`, and `client_secret` parameters passed in the request URL query string. This enforcement applies to token endpoints and other relevant APIs, preventing this sensitive data from appearing in server access logs.
 
-This restriction is managed using a configurable list. By default, `username`, `password` and `client_secret` are restricted.
 
 You can override this default behavior and configure a custom list of parameters that {{product_name}} rejects when clients send them as query parameters.  To do so, open the `<IS_HOME>/repository/conf/deployment.toml` file and under `[oauth]`, configure the `restricted_query_parameters` property.
 
