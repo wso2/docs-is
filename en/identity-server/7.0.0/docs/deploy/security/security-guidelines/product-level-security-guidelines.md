@@ -304,9 +304,7 @@ For the scenarios listed below, you can define a regular expression to validate 
 
 By default, WSO2 Identity Server accepts sensitive user credentials (such as `username`, `password`, `client_secret`) as form parameters in the request body when calling token endpoints. However, a misconfigured application can send these sensitive parameters as part of the URL's query string and expose this data in server access logs.
 
-To mitigate this security risk, you can configure WSO2 Identity Server to reject requests that contain sensitive data in query parameters of specific endpoints.
-
-To prevent accepting sensitive data in query parameters, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+To mitigate this security risk, you can configure WSO2 Identity Server to reject requests that contain sensitive data in query parameters of specific endpoints. To do so, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
 ```
 [request_parameters]

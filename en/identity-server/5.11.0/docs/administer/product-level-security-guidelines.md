@@ -365,8 +365,6 @@ By default, WSO2 Identity Server accepts sensitive user credentials (such as `us
 
 To mitigate this security risk, you can configure WSO2 Identity Server to reject requests that contain sensitive data in query parameters of specific endpoints. To do so, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
-To prevent accepting sensitive data in query parameters, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
-
 ```
 [request_parameters]
 allow_sensitive_data_in_url=false
