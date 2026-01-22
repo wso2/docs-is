@@ -307,7 +307,7 @@ For the scenarios listed below, you can define a regular expression to validate 
 
 You can override this default behavior and configure a custom list of parameters that {{product_name}} rejects when clients send them as query parameters.  To do so, open the `<IS_HOME>/repository/conf/deployment.toml` file and under `[oauth]`, configure the `restricted_query_parameters` property.
 
-For example, the following configuration prevents requests that include `client_secret` as a query parameter and allow all other parameters.
+For example, the following configuration prevents requests that include `client_secret` as a query parameter and allows all other parameters.
 ```
 [oauth]
 restricted_query_parameters=["client_secret"]
