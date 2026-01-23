@@ -5,16 +5,21 @@ The ID token is a security token that is sent by {{ product_name }} to the appli
 **Sample ID token**
 
 {% if product_name == "Asgardeo" %}
+
 ```bash
 eyJ4NXQiOiIyYmNmNTN0MGd6RDY0WWpreFdGMkpxQWVxSmsiLCJraWQiOiJNREpqWm1JMFptWTNZbVZqT0dSalkyVXlaRE16WldZM05URTJNVFZtWVRGaE9HUmhPRGxpTlRjME5HUmhNakZpT1Rnek1EUTROMkV3T0Raa1pERTJaQV9SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJpc2siOiI0NTY2ZDJlYmY1YjdmYzgwZDFmZGZhMTBjNDUzNTcyMGY0NTk1M2YyOWVjZGZhNzg3YzllMjY5ZTJhMThiYWMwIiwiYXRfaGFzaCI6IjAwWVdLNmw0amQ2bmlGNGlHa2t3SHciLCJzdWIiOiI0YjBiYjQyNS1jMWExLTRiMmQtYTM1Mi1kMGNiYjJmMjhiNjlAaWFtZGVtbyIsImFtciI6WyJPcGVuSURDb25uZWN0QXV0aGVudGljYXRvciJdLCJwcm9maWxlIjoiaHR0cHM6XC9cL3d3dy5ncmF2YXRhci5jb21cL2F2YXRhclwvMDM1ZTM5ZTZjOTc1NTNlYTBmZDU5NTJkM2IxMzI3ZTI_cz04MCZkPW1vbnN0ZXJpZCZmPXkiLCJpc3MiOiJodHRwczpcL1wvYXBpLmFzZ2FyZGVvLmlvXC90XC9pYW1kZW1vXC9vYXV0aDJcL3Rva2VuIiwic2lkIjoiNjkzZjdhMTEtOWI2MS00NzVlLWE4MTUtODYzZjM1OTM0NTBiIiwiY19oYXNoIjoiVlJld3JfaHlkYUxWUUNrZjB6dkFnQSIsImF1ZCI6IkNPTlNPTEUiLCJuYmYiOjE3NjkxNDk1MjYsImF6cCI6IkNPTlNPTEUiLCJvcmdfaWQiOiIxM2E5NTI2YS02M2ZiLTQ3MTAtYmVlYS1mY2VlYmZiMzgzM2IiLCJvcmdfbmFtZSI6ImlhbWRlbW8iLCJleHAiOjE3NjkxNTMxMjYsImlhdCI6MTc2OTE0OTUyNiwianRpIjoiMDhjM2FjZmYtODMwYy00MTA2LWFjNjQtMDk4MWVkOGI4MzRkIiwiZW1haWwiOiJzYWRpbEB3c28yLmNvbSIsIm9yZ19oYW5kbGUiOiJpYW1kZW1vIiwidXNlcm5hbWUiOiJzYWRpbEB3c28yLmNvbSJ9.UOdxKQVprshSdaG4pcOE4cvZGdBLcl7LmEzrZV7WgEMPkOejB2iA0ax-rMtWUx4BRk4dDdQ9xp3CMVifVoXvnKLt9nOcZUeax1WmuTuDaECSRj0Rwe3p01yxecu8GIMtHbl-4Epfxu22YUsG7TjJKagnaFtf9L69LTna4V5mj3Ie5Kh51TZq_R7feFTLHsVV1RigUIJdvwaYutq7dSNDYNp75LwiUvpMUVaUH9RUvkGMrLSzxm6Z2IUtwcMrlsTkxegP6IzET09NUrh5tReNz7hTeecJfq9HCtjwH5lcYfsMw1esVo-M7Xd1QavbQ6qo6C4dySzXcWisyFqpFg-yKw
 ```
+
 {% else %}
+
 ```bash
 eyJ4NXQjUzI1NiI6IjVCTmdUS2tubHQyT3lTOU9ZckN2b1FpZWdKQUhxU1JldTRjejEyblVXb28iLCJraWQiOiJaVFF4TXpZd05HTmhPVEkzT1Raa1pEaGxZemt5WmpSbE5qSmlNR0ZtWVRFd09EbGxPREE1TURBM1lUa3lORFZsWW1JNE56TXpaRGMyT1dRME5XRTRZUV9SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJpc2siOiJkMmFiZGIwMDFmNzkzOTBkMjc1NDlhYmI0ZTliMWYzZWQ4Y2Q1YWQwNzFkMjRlMzM0NDdlZjEyZWQ4NTc3ZWQyIiwiYXRfaGFzaCI6ImJiN3puS0UtcFJQcEV5VGN6VWlZdmciLCJzdWIiOiI4ZDEzMDE0OC0zYTY4LTQ5M2MtOTM5OC0zNmJhMjM4MGUzMGYiLCJhbXIiOlsiQmFzaWNBdXRoZW50aWNhdG9yIl0sImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0Ojk0NDMvb2F1dGgyL3Rva2VuIiwic2lkIjoiMWFmZWY1MGUtYTJjOC00NWU5LWI3YWYtMmQ2ZGMyOTNlMTk2IiwiY19oYXNoIjoiTEVCVGQ3cXMta1RQMHkxZTUtZ040QSIsImF1ZCI6Ijd3RUhxdkZxaW5XQ01SQmdaX0NfZHZhakVYb2EiLCJuYmYiOjE3NjkxNDEzMTYsImF6cCI6Ijd3RUhxdkZxaW5XQ01SQmdaX0NfZHZhakVYb2EiLCJvcmdfaWQiOiIxMDA4NGE4ZC0xMTNmLTQyMTEtYTBkNS1lZmUzNmIwODIyMTEiLCJvcmdfbmFtZSI6IlN1cGVyIiwiZXhwIjoxNzY5MTQ0OTE2LCJpYXQiOjE3NjkxNDEzMTYsImp0aSI6ImI1ZjI2NjMyLTVhZmItNDYxYi1iNDcxLTk3MzEwNzY3MzA5ZCIsIm9yZ19oYW5kbGUiOiJjYXJib24uc3VwZXIifQ.dLMYPnEVefva7-JieoS8q331hkaAD9jPn4KGdrSSHjvZTmLa7apUfDlJmL0YUtY0_khTjWgvyg9BC24Ei0VF4uvqj403V-Ie5zyMXBuIYzTOFmLK44Z430_-g-XlrsK-wKVg4uwYnUAtia7KURcBJLRyP1E8zFIM2GEBOCu7VWUwCTZHJHTs0Dlu6YR6-kGr10w_nrPATpezQzJvmE3j3D1TepgomwTk4jElEiIU08u3m6unez04rjFm-gids2SVPjWvSbGi0Kb8FJOnra6njFGup4paTjIyvZMizKq20BcQLdb4-8o3Cvw8j7pZUceTrX9MqrCL8kvA7W9OeCWMpg
 ```
+
 {% endif %}
 
 **Decoded sample ID token**
+
 ```json
 {
   "isk": "d2abdb001f79390d27549abb4e9b1f3ed8cd5ad071d24e33447ef12ed8577ed2",
@@ -49,18 +54,20 @@ By using a signature validation library, you can validate the signature of the I
 
 **JWKS endpoint**
 
-``` 
+```
 {{ product_url_format }}/oauth2/jwks
 ```
 
 **Sample request**
 
 === "cURL"
+
     ```bash
     curl --location --request GET '{{ product_url_sample }}/oauth2/jwks'
     ```
 
 === "JavaScript - jQuery"
+
     ```js
     var settings = {
         "url": "{{ product_url_sample }}/oauth2/jwks",
@@ -74,6 +81,7 @@ By using a signature validation library, you can validate the signature of the I
     ```
 
 === "Nodejs - Axios"
+
     ```js
     var axios = require('axios');
 
@@ -94,7 +102,7 @@ By using a signature validation library, you can validate the signature of the I
 
 **Sample response**
 
-```json 
+```json
 {
   "keys": [
     {
