@@ -2,7 +2,7 @@
 
 The ID token is a security token that is sent by {{ product_name }} to the application when a token is requested with OpenID scopes. This ID token contains information about the authenticated user.
 
-**Sample ID token**
+### Sample ID token
 
 {% if product_name == "Asgardeo" %}
 
@@ -18,7 +18,7 @@ eyJ4NXQjUzI1NiI6IjVCTmdUS2tubHQyT3lTOU9ZckN2b1FpZWdKQUhxU1JldTRjejEyblVXb28iLCJr
 
 {% endif %}
 
-**Decoded sample ID token**
+### Decoded sample ID token
 
 ```json
 {
@@ -52,13 +52,13 @@ To validate the signature on the ID token, you need the public key of {{ product
 
 By using a signature validation library, you can validate the signature of the ID token using the JWKS endpoint.
 
-**JWKS endpoint**
+### JWKS endpoint
 
 ```
 {{ product_url_format }}/oauth2/jwks
 ```
 
-**Sample request**
+### Sample request
 
 === "cURL"
 
@@ -100,7 +100,7 @@ By using a signature validation library, you can validate the signature of the I
         });
     ```
 
-**Sample response**
+### Sample response
 
 ```json
 {
@@ -122,7 +122,6 @@ By using a signature validation library, you can validate the signature of the I
 ```
 
 <br>
-
 
 ## Verify claims in the ID token
 
