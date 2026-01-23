@@ -184,9 +184,9 @@ We recommend using `x5t#S256`. If your system requires the previous `x5t` suppor
         <td colspan="2">Hexifying thumbprints</td>
         <td>
             <code>[oauth]</code><br/>
-            <code>jwt_x5t_hexify_required=true</code>
+            <code>jwt_x5t_hexify_required=true</code><br/><br/>
             <code>[oauth.jwks_endpoint]</code><br/>
-            <code>is_thumbprint_hexify_required=true</code><br/><br/>
+            <code>is_thumbprint_hexify_required=true</code>
         </td>
         <td>When you need to hexify thumbprints, use this configuration.</td>
     </tr>
