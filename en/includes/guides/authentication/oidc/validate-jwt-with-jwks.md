@@ -151,7 +151,7 @@ You can see JWT validation in action by following the guide and implementing the
 
 ### Additional configurations
 
-The recommendation is to use `x5t#S256`. If your system requires the previous `x5t` support or hexifying the values, use the configuration combinations in the table below.
+We recommend using `x5t#S256`. If your system requires the previous `x5t` support or hexifying the values, use the configuration combinations in the table below.
 
 <table>
     <tr>
@@ -163,7 +163,7 @@ The recommendation is to use `x5t#S256`. If your system requires the previous `x
     <tr>
         <td><code>x5t#S256</code></td>
         <td><code>x5t#S256</code></td>
-        <td>No additional configuration needed</td>
+        <td>This is the default configuration</td>
         <td><strong>Recommended.</strong> Default behavior.</td>
     </tr>
     <tr>
@@ -179,13 +179,14 @@ The recommendation is to use `x5t#S256`. If your system requires the previous `x
         <td>Use this to support legacy systems that require <code>x5t</code>.</td>
     </tr>
     <tr>
-        <td colspan="2"><strong>Hexifying thumbprints</strong></td>
+        <td><code>x5t with hexifying</code></td>
+        <td><code>x5t#S256 with hexifying</code></td>
         <td>
             <code>[oauth.jwks_endpoint]</code><br/>
-            <code>is_thumbprint_hexify_required=false</code><br/><br/>
+            <code>is_thumbprint_hexify_required=true</code><br/><br/>
             <code>[oauth]</code><br/>
-            <code>jwt_x5t_hexify_required=false</code>
+            <code>jwt_x5t_hexify_required=true</code>
         </td>
-        <td>Use this if hexifying thumbprints is required.</td>
+        <td>When you need to hexify thumbprints, use this configuration.</td>
     </tr>
 </table>
