@@ -79,7 +79,11 @@ You can use the following REST APIs to view and configure CORS properties.
 
 - [Application Management API]({{base_path}}/apis/application-rest-api/) - You can define the allowed CORS origins for your applications. Any origin allowed for a single application will be allowed for other applications under the same tenant.
 
+{% if product_name == "WSO2 Identity Server" %}
+
 - [CORS API]({{base_path}}/apis/cors-rest-api/) allows you to view all the CORS origins configured per tenant and applications associated with a single origin.
+
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}
 

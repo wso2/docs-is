@@ -381,6 +381,7 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
             - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
+            - SAML back-channel logout: guides/authentication/saml/saml-back-channel-logout.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
       - Authorization:
         - Authorization: guides/authorization/index.md
@@ -755,7 +756,6 @@ nav:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote agent properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - Configure Cross Origin Resource Sharing (CORS): references/configure-cors.md
     - Email templates: references/email-templates.md
     - SMS templates: references/sms-templates.md
     - Service extensions:
