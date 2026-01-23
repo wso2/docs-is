@@ -149,6 +149,8 @@ size_limit_bytes= 51200
 
 You can see JWT validation in action by following the guide and implementing the [JWT Bearer Grant type]({{base_path}}/guides/authentication/configure-jwt-bearer-grant/) for your application.
 
+{% if product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
+
 ### Additional configurations
 
 We recommend using `x5t#S256`. If your system requires the previous `x5t` support or hexifying the values, use the configuration combinations in the table below.
@@ -190,3 +192,5 @@ We recommend using `x5t#S256`. If your system requires the previous `x5t` suppor
         <td>When you need to hexify thumbprints, use this configuration.</td>
     </tr>
 </table>
+
+{% endif %}
