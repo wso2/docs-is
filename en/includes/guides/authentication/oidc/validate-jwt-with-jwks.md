@@ -166,7 +166,7 @@ We recommend using `x5t#S256`. If your system requires the previous `x5t` suppor
         <td><code>x5t#S256</code></td>
         <td><code>x5t#S256</code></td>
         <td>This is the default configuration</td>
-        <td><strong>Recommended.</strong> Default behavior.</td>
+        <td><strong>Recommended.</strong></td>
     </tr>
     <tr>
         <td><code>x5t</code></td>
@@ -181,8 +181,7 @@ We recommend using `x5t#S256`. If your system requires the previous `x5t` suppor
         <td>Use this to support legacy systems that require <code>x5t</code>.</td>
     </tr>
     <tr>
-        <td><code>x5t with hexifying</code></td>
-        <td><code>x5t#S256 with hexifying</code></td>
+        <td colspan="2">Hexifying thumbprints</td>
         <td>
             <code>[oauth.jwks_endpoint]</code><br/>
             <code>is_thumbprint_hexify_required=true</code><br/><br/>
