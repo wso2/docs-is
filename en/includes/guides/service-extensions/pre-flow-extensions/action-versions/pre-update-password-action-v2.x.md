@@ -9,11 +9,12 @@ The {{product_name}} triggers the pre-update password action version v2.x during
 - User Self-Registration: The user creates their own account and sets a password through the self-registration portal.
 
 !!! note
-Currently, only the root organization can apply this action, and the {{product_name}} triggers it during any of the flows listed earlier.
+
+    Currently, only the root organization can apply this action, and the {{product_name}} triggers it during any of the flows listed earlier.
 
 The following API contracts defines the request and response structures that your service must adhere to, based on the action version.
 
-- [pre-update password API contract v2.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract#pre-update-password-v2.0)
+- [pre-update password API contract v2.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v2.0/)
 
 ### Request from {{product_name}}
 
