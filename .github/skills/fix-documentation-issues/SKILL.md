@@ -26,8 +26,13 @@ description: Guidelines to follow for sending fixes for documentation related Gi
 - MOST IMPORTANT: When editing existing documentation, apply Microsoft Style Guide standards ONLY to the newly created/added content. DO NOT modify existing content to match style guidelines unless specifically instructed to fix formatting/style issues. Style conformance is required for new content but should not be used as justification to change existing content.
 - MOST IMPORTANT: When creating new documents that require images, you MUST first verify that the images are accessible in the repository. Only use images that are confirmed to exist and are accessible. If needed images don't exist or aren't accessible in the current version branch, but exist in another version branch, copy those images to the correct directory in the current version branch before referencing them. NEVER add broken image links.
 
-3. Version detection:
-   - If the issue in product-is explicitly mentions a version (in title/body/labels):
+===============================
+FIXING DOCUMENTATION ISSUES
+===============================
+Follow this process to handle the documentation issues:
+
+1. Version detection:
+   - If the related Github issue explicitly mentions a version (in title/body/labels):
      * FIRST: Fix that specific version mentioned in the issue(from "en/identity-server/" can find the all version availables)
      * THEN: Check ALL other versions to see if they have the same issue
      * If other versions have the same issue, fix them ALL in the same PR
@@ -41,137 +46,29 @@ description: Guidelines to follow for sending fixes for documentation related Gi
    - For files outside version directories, make a single change that applies to all versions
    - NEVER skip version checks - always be thorough and comprehensive
 
-4. Transition to docs-is repository:
-   - After fully understanding the issue from product-is, switch to working in the docs-is repository
-   - VERY IMPORTANT: Ensure ALL operations on   docs-is files use the docs-is working directory ($DOCS_IS_PATH)
-   - MOST IMPORTANT: ALWAYS execute `cd $DOCS_IS_PATH` before ANY operation on docs-is content
-
-  =========================================
-  GIT CONFIGURATION — CRITICAL WORKFLOW STEP
-  =========================================
-  - Always change to the docs-is working directory (`cd $DOCS_IS_PATH`) before running any git configuration commands.
-  - Configure git user name and email only in docs-is:
-      cd $DOCS_IS_PATH
-      git config user.name "${GIT_USER_NAME}"
-      git config user.email "${GIT_USER_EMAIL}"
-  - Never run git config or any git operation outside the docs-is repo. This prevents errors like "fatal: not in a git directory."
-  - Confirm your location with `pwd` before any git configuration or operation.  
-
-5. Branching (work directly in docs-is repo):
-   ```
-   # Always use timestamp in branch name for uniqueness
-   TIMESTAMP=$(date +%s)
-   BRANCH_NAME="fixing-product-is-issue-${ISSUE_NUMBER}-${TIMESTAMP}"
-   
-   # MOST IMPORTANT: Make sure to be in the docs-is directory
-   cd $DOCS_IS_PATH
-   
-   git checkout -b ${BRANCH_NAME} origin/master
-   ```
-
-6. Apply the fix described in the product-is issue to the appropriate file locations:
+2. Apply the fix required for the related Github issue to the appropriate file locations:
    - For version-specific issues, update files in ALL relevant version directories (en/identity-server/VERSION/)
    - For common issues, update files in the common location
    - Make all changes in the SAME branch
    - IMPORTANT: Ensure you're working in the docs-is directory by executing `cd $DOCS_IS_PATH` before any file operations
    - NEVER modify product-is files when creating a docs-is PR
 
-7. Verify with: 
-   ```
-   cd $DOCS_IS_PATH
-   mkdocs build --strict
-   ```
-   - Find how to run the repository from the README file of the docs-is repository
-
-8. Commit & push (push directly to docs-is repo):
-   ```
-   cd $DOCS_IS_PATH
-   git add .
-   git commit -m "Fix: [short description] for all affected versions (product-is#${ISSUE_NUMBER})"
-   git push -u origin ${BRANCH_NAME}
-   ```
-   - IMPORTANT: Only add and commit files from the docs-is repository
-- NEVER add or push product-is content to the docs-is repository
-
-9. Create a SINGLE PR containing all version changes in the docs-is repository:
-- Source: wso2/docs-is:${BRANCH_NAME}
-- Target: wso2/docs-is:master
+3. Create a SINGLE PR containing all version changes in the docs-is repository:
 - Clearly document in PR which versions were updated and why
-- IMPORTANT: Ensure you're in the docs-is directory when creating the PR: `cd $DOCS_IS_PATH`
+- Find ALL version directories under en/identity-server/ that need updating
+- Update files in ALL affected version directories in the same branch
+- PR title: `Fix: [short description] for all affected versions (product-is#${ISSUE_NUMBER})`
+- Commit msg: `Fix: [short description] for all affected versions (product-is#${ISSUE_NUMBER})` 
+- PR body template:
+  
+- Fixes https://github.com/wso2/product-is/issues/${ISSUE_NUMBER} 
+- Type: [Broken Links / Spelling / Grammar / Documentation / Suggestions]  
+- Summary: [1–2 line description of changes]
+- Affected Versions: [List all versions that were updated in this PR] 
+- Style Scope Verification: [Include ONLY when adding to existing documents] Verify Microsoft Style Guidelines have been applied ONLY to newly added content without modifying existing content style unless specifically requested.
+- Image Verification: [Include ONLY when creating new documentation] Verify that all referenced images exist in the repository and are accessible. No broken image links have been added.
 
-10. Add comment to original product-is issue with link to the created PR.
-
-11. Remove workflow label (AI-Agent/In-Progress) from product-is issue.
-
-12. Add 'AI-Agent/Fixed' label to product-is issue.
-
-=========================================
-LABEL-BASED PROCESSING
-=========================================
-Label: AI-Agent/In-Progress
-First need to understand what the issue is related to by reading the issue very carefully.Then accroding to the issue type,apply the solution as below.
-
-1. Broken Links → fix ONLY broken-links, confirm correctness. 
-- If you cannot find the correct working link from the current working branch then go to other branches and check how they handle this.
-2. Spelling → correct spelling errors only.  
-3. Grammar → correct grammar issues only.  
-4. Documentation → improve structure, formatting, clarity. 
-5. Suggestions → **COMPREHENSIVE VERIFICATION REQUIRED**:
-
-**Step 1: Reference Analysis**
-- If suggestion includes specific references (URLs, documentation links, examples), fetch and analyze those references first
-- Verify the reference is valid, current, and from official/authoritative sources
-- Cross-check reference content against current repository documentation
-- IMPORTANT for external links verification:
-  - Do not rely solely on automated HTTP status checks which may falsely report 403/forbidden/timeout errors
-  - Use multiple verification methods for all external resources (direct browser-like access, content inspection)
-  - If a link appears to have access restrictions but contains relevant WSO2 API Manager content, consider it valid
-  - External sites (Medium, blogs, forums, documentation portals) may return different responses based on:
-    * Geographic region, network conditions, or request headers
-    * Authentication state or cookie requirements
-    * Rate limiting or temporary access restrictions
-  - For important technical resources, extract and include key information in the PR to demonstrate content validity
-  - When in doubt, include the link with appropriate context rather than removing potentially valuable references
-  - Check for alternative official documentation before discarding external references
-
-**Step 2: Solution Verification**
-- Compare suggested solution with existing documentation standards and style
-- Verify technical accuracy against the project/product features and capabilities
-- Check if suggestion aligns with current version requirements (${LATEST_VERSION} and other versions including master branch)
-- Ensure solution doesn't contradict existing documentation or best practices
-
-**Step 3: Implementation Decision**
-- If suggestion + reference is verified as accurate and beneficial → implement with high precision
-- If reference is invalid or suggestion contradicts existing docs → comment + add AI-Agent/Cannot-Fix label
-- If partial verification → comment explaining what can/cannot be verified + add AI-Agent/Cannot-Fix label
-
-**Step 4: High-Accuracy Implementation**
-- Follow the verified reference exactly
-- Maintain consistency with repository documentation style and format
-- Include proper cross-references and links where applicable
-- Test documentation builds successfully
-
-**Step 5: Image Handling **
-- If adding or modifying image references:
-  - First verify the image exists in the repository
-  - Check if the image is accessible and properly displays in the documentation
-  - If needed images don't exist in the current version branch but exist in another version branch:
-    1. Identify which branch contains the image (check branches in this order: 5.9.0, 5.10.0, 5.11.0, 6.0.0, 6.1.0, 7.0.0, 7.1.0, 7.2.0 and next version)
-    2. Remember your current branch: `CURRENT_BRANCH=$(git branch --show-current)`
-    3. Fetch the branch with the image: `git fetch origin {BRANCH_WITH_IMAGE}`
-    4. Save the target directory path for the image (same relative path in your branch)
-    5. Checkout the branch with the image: `git checkout origin/{BRANCH_WITH_IMAGE} -- {IMAGE_PATH}`
-    6. This will stage the image file; verify with `git status`
-    7. Create any necessary directories: `mkdir -p $(dirname {TARGET_IMAGE_PATH})`
-    8. If the directories already exist, you can continue
-    9. Commit the image along with your documentation changes
-  - Only add references to images that are confirmed to exist
-  - If needed images don't exist in any branch, note this in PR comments but don't add broken image links
-  - Use relative paths to reference images following repository conventions
-
-If that issue is related to multiple issue cases then use the below priority list to solve them.
-Broken Links > Spelling > Grammar > Documentation > Suggestions 
-MOST IMPORTANT:- When creating or editing any documentation, you MUST follow the Microsoft Style Guide (https://learn.microsoft.com/en-us/style-guide/welcome/). All changes must align with these guidelines.
+- After creating the PR, add a comment to the original product-is issue with the link to the PR. The comment must list all versions that were updated in the PR
 
 =========================================
 DOCUMENTATION STYLE GUIDELINES
@@ -213,27 +110,6 @@ SCOPE LIMITATION FOR EXISTING DOCUMENTS:
 - Do NOT modify existing content to match style guidelines unless the issue specifically requests formatting/style fixes
 - When adding new sections to existing documents, maintain stylistic consistency with the surrounding content while ensuring new content follows Microsoft guidelines
 - Focus style compliance efforts only on the portions you're creating or explicitly instructed to modify
-
-=========================================
-PR CREATION
-=========================================
-- Find ALL version directories under en/identity-server/ that need updating
-- Update files in ALL affected version directories in the same branch
-- PR title: `Fix: [short description] for all affected versions (product-is#${ISSUE_NUMBER})`
-- Commit msg: `Fix: [short description] for all affected versions (product-is#${ISSUE_NUMBER})` 
-- PR body template:
-  
-- Fixes https://github.com/wso2/product-is/issues/${ISSUE_NUMBER} 
-- Type: [Broken Links / Spelling / Grammar / Documentation / Suggestions]  
-- Summary: [1–2 line description of changes]
-- Affected Versions: [List all versions that were updated in this PR] 
-- Style Scope Verification: [Include ONLY when adding to existing documents] Verify Microsoft Style Guidelines have been applied ONLY to newly added content without modifying existing content style unless specifically requested.
-- Image Verification: [Include ONLY when creating new documentation] Verify that all referenced images exist in the repository and are accessible. No broken image links have been added.
-- Verification: mkdocs build --strict passed  
-
-- The PR should be from the new branch in docs-is repo → master branch in docs-is repo
-- After creating the PR, add a comment to the original product-is issue with the link to the PR
-- The comment must list all versions that were updated in the PR
 
 =========================================
 ERROR HANDLING
@@ -299,7 +175,6 @@ SUCCESS CRITERIA
 - MOST IMPORTANT: The PR is comprehensive, includes changes to ALL affected version directories, and targets the master branch of docs-is.
 - MOST IMPORTANT: For all operations on the docs-is repository, you MUST be in the docs-is working directory ($DOCS_IS_PATH).
 - MOST IMPORTANT: Only docs-is content is ever pushed to the docs-is repository. NEVER push product-is content to docs-is.
-- MOST IMPORTANT: Before every git operation in docs-is, explicitly navigate to docs-is directory with: cd $DOCS_IS_PATH
-- For issues that cannot be resolved, add the label AI-Agent/Cannot-Fix and provide the reason in a comment on the original product-is issue.
-- Add 'AI-Agent/Fixed' label to the product-is issue after creating the PR.
-- Always add a comment to the original product-is issue with the link to the created PR, clearly indicating which versions were updated.
+- For issues that cannot be resolved, add the label `AI-Agent/Cannot-Fix` and provide the reason in a comment on the related Github issue.
+- Add `AI-Agent/Fixed` label to the related Github issue after creating the PR.
+- Always add a comment to the related Github issue with the link to the created PR, clearly indicating which versions were updated.
