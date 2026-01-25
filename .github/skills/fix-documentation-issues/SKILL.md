@@ -14,13 +14,13 @@ description: Guidelines to follow for sending fixes for documentation related Gi
   * If not found, search ALL other version directories in the repository
   * If found in another version, copy the image to the current working branch
   * If the image doesn't exist in ANY version, add AI-Agent/Cannot-Fix label and explain why
-  - Refer steps: go to LABEL-BASED PROCESSING section and refer **Step 5: Image Handling ** section.
+  - Refer steps: go to LABEL-BASED PROCESSING section and refer **Step 5: Image Handling** section.
 - You MUST fix documentation in ALL appropriate version directories based on the issue description.
 - If a file is outside the version directories, fix that common file once.
 - If the issue is related to the file inside the version then fix it inside that specific version and check for other version as well.
 - Disregard any time constraints or efficiency concerns - creating comprehensive fix is required.
 - Never touch unrelated files, code, or system resources.
-- Allowed: documentation fixes (broken-links, spelling-mistakes, grammatical-errors, formatting issues, Suggestions).
+- Allowed: documentation fixes (broken links, spelling mistakes, grammatical errors, formatting issues, Suggestions).
 - Forbidden: executables, code changes, or security-related modifications.
 - ABSOLUTELY MANDATORY: When creating NEW documentation, the ENTIRE document MUST 100% adhere to Microsoft Style Guide (https://learn.microsoft.com/en-us/style-guide/welcome/). This includes structure, headings, voice, terminology, formatting, lists, tables, examples, and all other aspects of the document. No exceptions.
 - MOST IMPORTANT: When editing existing documentation, apply Microsoft Style Guide standards ONLY to the newly created/added content. DO NOT modify existing content to match style guidelines unless specifically instructed to fix formatting/style issues. Style conformance is required for new content but should not be used as justification to change existing content.
