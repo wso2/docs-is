@@ -73,6 +73,71 @@ paths:
             curl -X 'GET' \
             'https://localhost:9443/scim2/ServiceProviderConfig' \
             -H 'accept: application/scim+json'
+
+  /Schemas:
+    get:
+      tags:
+        - Schemas Endpoint
+      summary: Get all SCIM schemas
+      description: |
+        Returns a list of SCIM schema definitions supported by the server.
+
+        <b>No Scope(Permission) required.</b>
+      operationId: listSchemas
+      responses:
+        200:
+          description: List of schemas
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/SchemaListResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/scim2/Schemas' \
+            -H 'accept: application/scim+json'
+
+  /Schemas/{schemaId}:
+    get:
+      tags:
+        - Schemas Endpoint
+      summary: Get a SCIM schema by id
+      description: |
+        Returns the SCIM schema definition for the given schema identifier.
+      operationId: getSchemaById
+      parameters:
+        - name: schemaId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The schema identifier (for example, urn:ietf:params:scim:schemas:core:2.0:User)
+      responses:
+        200:
+          description: Schema found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/SchemaResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/scim2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User' \
+            -H 'accept: application/scim+json'
 components:
   schemas:
     ResourceTypeResponse:
@@ -166,6 +231,58 @@ components:
             supported: true
           changePassword:
             supported: false
+    Schema:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              multiValued:
+                type: boolean
+              required:
+                type: boolean
+              description:
+                type: string
+    SchemaResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        attributes:
+          $ref: '#/components/schemas/Schema/properties/attributes'
+    SchemaListResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+        startIndex:
+          type: integer
+        itemsPerPage:
+          type: integer
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schema'
+        schemas:
+          type: array
+          items:
+            type: string
     ErrorUnauthorized:
       required:
         - status
