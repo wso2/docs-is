@@ -20,6 +20,7 @@ INHERIT: ../base.yml
 site_name: &site_name Asgardeo
 site_description: Asgardeo Learning Center
 site_url: https://wso2.com/asgardeo/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/asgardeo/docs/
 
 # Configuration
 theme:
@@ -234,7 +235,10 @@ nav:
         - Quickstart: quick-starts/springboot.md
     - Secure MCP Servers:
         - TypeScript: quick-starts/mcp-auth-server.md
+        - Python: quick-starts/mcp-auth-server-py.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
+    - Secure Your AI Agents:
+        - Python: quick-starts/agent-auth-py.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
@@ -284,7 +288,7 @@ nav:
             - Add social login:
               - Add social login: guides/authentication/social-login/index.md
               - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
-              - Add Github login: guides/authentication/social-login/add-github-login.md
+              - Add GitHub login: guides/authentication/social-login/add-github-login.md
               - Add Google login: guides/authentication/social-login/add-google-login.md
               - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
               - Add Apple login: guides/authentication/social-login/add-apple-login.md
@@ -631,6 +635,7 @@ nav:
     - APIs - Overview: apis/index.md
     - Management APIs:
       - Action Management API: apis/action-management-rest-api.md
+      - Agent Management API: apis/scim2-agents-rest-apis.md
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
       - App-native authentication API: apis/app-native-authentication-api.md

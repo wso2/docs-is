@@ -29,10 +29,10 @@ Following are the sample configuration for each database type.
 
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/postgresql.sql`
+          - `<IS_HOME>/dbscripts/consent/postgresql.sql`
           
 ??? Example "MySQL"
     1. deployment.toml Configurations.
@@ -48,10 +48,10 @@ Following are the sample configuration for each database type.
 
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/mysql.sql`
+          - `<IS_HOME>/dbscripts/consent/mysql.sql`
 
 ??? Example "DB2"
     1. deployment.toml Configurations.
@@ -67,10 +67,10 @@ Following are the sample configuration for each database type.
 
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/db2.sql`
+          - `<IS_HOME>/dbscripts/consent/db2.sql`
 
 ??? Example "MSSQL"
     1. deployment.toml Configurations.
@@ -86,10 +86,10 @@ Following are the sample configuration for each database type.
 
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/mssql.sql`
+          - `<IS_HOME>/dbscripts/consent/mssql.sql`
 
 ??? Example "Oracle"
     1. deployment.toml Configurations.
@@ -105,10 +105,10 @@ Following are the sample configuration for each database type.
 
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/oracle.sql`
+          - `<IS_HOME>/dbscripts/consent/oracle.sql`
 
 
 **Advanced Database Configurations**

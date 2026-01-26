@@ -70,7 +70,7 @@ Configure the following to enable this feature.
     clientAuth="want"
     ```
 
-2. Open the `<IS-HOME>/repository/conf/deployment.toml` file and add the following parameter to enable the Mutual SSL Authenticator.
+2. Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following parameter to enable the Mutual SSL Authenticator.
 
     ```toml
     [admin_console.authenticator.mutual_ssl_authenticator]
@@ -87,7 +87,7 @@ Configure the following to enable this feature.
     ```
 
 4. Add the following configuration into the
-    `<IS-HOME>/repository/conf/deployment.toml` file.
+    `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ```toml
     [tenant]

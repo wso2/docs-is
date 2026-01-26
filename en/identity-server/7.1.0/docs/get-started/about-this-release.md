@@ -334,7 +334,7 @@ In WSO2 Identity Server 7.1.0, we have deprecated several features to enhance se
 
 ??? note "Deprecated connectors"
 
-    - Github
+    - GitHub
 
 
 ??? note "Retired connectors"
