@@ -2,7 +2,7 @@
 
 When deploying WSO2 Identity Server, you have the capability to isolate management operations from runtime traffic. By segregating administrative operations, you reduce the attack surface and prevent exposing high-privilege operations to the public.
 
-This guide outlines two strategies to achieve this in WSO2 Identity Server:
+This guide outlines two strategies to achieve this in {{product_name}}:
 
 1. **Network-Level Isolation (Recommended)**: Using physical or logical network separation (Control Plane vs. Data Plane).
 2. **Proxy-Level Isolation**: Using a reverse proxy to expose the console on a dedicated, non-public hostname.
