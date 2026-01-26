@@ -65,15 +65,17 @@ You can use the following REST APIs to view and configure CORS properties.
 
 !!! note "Overriding server-level properties"
 
-    REST APIs can override all the CORS properties defined at the server-level except for **Allowed CORS origins**.  The origins listed under this property at the server level are permanent. REST APIs can add new origins to it but can't restrict or remove server-lvel defined origins.
+    REST APIs can override all the CORS properties defined at the server-level except for **Allowed CORS origins**.  The origins listed under this property at the server level are permanent. REST APIs can add new origins to it but can't restrict or remove server-level defined origins.
 
 {% endif %}
 
-{% if product_name == "WSO2 Identity Servr" %}
--  [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows overriding all server-level properties except for `Allowed CORS origins`.
+{% if product_name == "WSO2 Identity Server" %}
+
+- [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows overriding all server-level properties except for `Allowed CORS origins`.
 
 {% else %}
--  [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows configuring all CORS properties.
+
+- [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows configuring all CORS properties.
 
 {% endif %}
 
