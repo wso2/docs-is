@@ -148,3 +148,48 @@ size_limit_bytes= 51200
 ### Exchange signed JWT to a {{product_name}} token
 
 You can see JWT validation in action by following the guide and implementing the [JWT Bearer Grant type]({{base_path}}/guides/authentication/configure-jwt-bearer-grant/) for your application.
+
+{% if product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
+
+### Additional configurations
+
+We recommend using `x5t#S256`. If your system requires the previous `x5t` support or hexifying the values, use the configuration combinations in the table below.
+
+<table>
+    <tr>
+        <th>JWT Header</th>
+        <th>JWKS Response</th>
+        <th>Configuration</th>
+        <th>Notes</th>
+    </tr>
+    <tr>
+        <td><code>x5t#S256</code></td>
+        <td><code>x5t#S256</code></td>
+        <td>This is the default configuration</td>
+        <td><strong>Recommended.</strong></td>
+    </tr>
+    <tr>
+        <td><code>x5t</code></td>
+        <td><code>x5t</code></td>
+        <td>
+            <code>[oauth]</code><br/>
+            <code>jwt_x5t_s256_enabled=false</code><br/>
+            <code>jwt_x5t_enabled=true</code><br/><br/>
+            <code>[oauth.jwks_endpoint]</code><br/>
+            <code>is_x5t_required=true</code>
+        </td>
+        <td>Use this to support legacy systems that require <code>x5t</code>.</td>
+    </tr>
+    <tr>
+        <td colspan="2">Hexifying thumbprints</td>
+        <td>
+            <code>[oauth]</code><br/>
+            <code>jwt_x5t_hexify_required=true</code><br/><br/>
+            <code>[oauth.jwks_endpoint]</code><br/>
+            <code>is_thumbprint_hexify_required=true</code>
+        </td>
+        <td>When you need to hexify thumbprints, use this configuration.</td>
+    </tr>
+</table>
+
+{% endif %}

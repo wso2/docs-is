@@ -26,7 +26,7 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
 
 1.  **Minimum Configurations for changing default datasource to PostgreSQL.**
  
- Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Configurations can be done by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
       <table>
       <thead>
@@ -76,11 +76,11 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
        
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/postgresql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/postgresql.sql`
-           - `<IS-HOME>/dbscripts/consent/postgresql.sql`
+           - `<IS_HOME>/dbscripts/identity/postgresql.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/postgresql.sql`
+           - `<IS_HOME>/dbscripts/consent/postgresql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -98,9 +98,9 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
            
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/postgresql.sql`
+           - `<IS_HOME>/dbscripts/postgresql.sql`
            
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)

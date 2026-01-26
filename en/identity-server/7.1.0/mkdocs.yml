@@ -360,7 +360,6 @@ plugins:
         "references/concepts/compliance/compliance.md": "deploy/compliance/index.md"
         "references/concepts/compliance/accessibility-compliance-wso2-is.md": "deploy/compliance/index.md"
         "references/concepts/compliance/gdpr.md": "deploy/compliance/gdpr.md"
-        "references/concepts/compliance/eidas.md": "deploy/compliance/eidas.md"
         "references/concepts/compliance/ccpa.md": "deploy/compliance/ccpa.md"
 
         "references/references-overview.md": "references/index.md"
@@ -543,7 +542,7 @@ nav:
                   - Add social login: guides/authentication/social-login/index.md
                   - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
                   - Add Google login: guides/authentication/social-login/add-google-login.md
-                  - Add Github login: guides/authentication/social-login/add-github-login.md
+                  - Add GitHub login: guides/authentication/social-login/add-github-login.md
                   - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
                   - Add Apple login: guides/authentication/social-login/add-apple-login.md
                   - Add X login: guides/authentication/social-login/add-x-login.md
@@ -891,31 +890,33 @@ nav:
                   - Manage keystores: deploy/security/keystores/configure-keystores.md
                   - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
       - Deploy:
-          - Deployment patterns: deploy/deployment-guide.md
-          - Deployment checklist: deploy/deployment-checklist.md
-          - Deploy as a contanarized application:
-              - Kuberenetes: deploy/deploy-is-on-kubernetes.md
-              - Openshift: deploy/deploy-is-on-openshift.md
-          - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
-          - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
-          - Change the hostname: deploy/change-the-hostname.md
-          - Restrict public access to management operations: deploy/configure-console-hostname.md
-          - Configure Hazelcast: deploy/configure-hazelcast.md
-          - Backup and recovery recommendations: deploy/backup-and-recovery-recommendations.md
-          - Troubleshoot in production environments: deploy/monitor/troubleshoot-in-production-environments.md
-          - Performance:
-              - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
-              - Configure cache layers: deploy/performance/configure-cache-layers.md
-          - Product compatibility: deploy/product-compatibility.md
-          - Promote configurations across environments: deploy/promote-configurations.md
-          - Disaster recovery:
-              - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
-              - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
-              - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+          - Deployment overview:
+            - Deployment Patterns: deploy/deployment-guide.md
+            - Deployment Checklist: deploy/deployment-checklist.md
+            - Product Compatibility: deploy/product-compatibility.md
+            - Change the Hostname: deploy/change-the-hostname.md
+            - Restrict public access to management operations: deploy/configure-console-hostname.md
+            - Promote Configurations Across Environments: deploy/promote-configurations.md
+          - High Availability (HA) and clustering:
+            - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
+            - Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
+            - Configure Hazelcast: deploy/configure-hazelcast.md
+          - Containerized deployments:
+            - Kubernetes: deploy/deploy-is-on-kubernetes.md
+            - OpenShift: deploy/deploy-is-on-openshift.md
+          - Performance and scaling:
+            - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
+            - Configure Cache Layers: deploy/performance/configure-cache-layers.md
+          - Multi-data center deployments (Disaster Recovery):
+            - Understanding Disaster Recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
+            - Deployment Patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
+            - Additional Reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+          - Maintenance and troubleshooting in Production:
+            - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
+            - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
       - Compliance:
           - Compliance: deploy/compliance/index.md
           - GDPR: deploy/compliance/gdpr.md
-          - eIDAS: deploy/compliance/eidas.md
           - CCPA: deploy/compliance/ccpa.md
           - FIPS: deploy/compliance/fips.md
           - FAPI: deploy/compliance/fapi.md

@@ -11,7 +11,7 @@ Try integrating one of the sample applications.
 - [Integrate a sample JavaScript application]({{base_path}}/sdks/start-integrating-apps/integrate-a-js-app)
 
 
-Apart from the above guides provided, you can use the following Github repository links to view the source code, download samples, and test out how the SDKs work with WSO2 IS.
+Apart from the above guides provided, you can use the following GitHub repository links to view the source code, download samples, and test out how the SDKs work with WSO2 IS.
 
 - [Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent)
 

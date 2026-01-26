@@ -29,7 +29,7 @@ template: templates/quick-start.html
 
     Excute the below commands before running `npm start`
 
-    Naviate to the {IS_HOME}/repository/resources/security directory and execute the following
+    Naviate to the <IS_HOME>/repository/resources/security directory and execute the following
 
     ```bash
     keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.p12 -storetype PKCS12 -storepass wso2carbon

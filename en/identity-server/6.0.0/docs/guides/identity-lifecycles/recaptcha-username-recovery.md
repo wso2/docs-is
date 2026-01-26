@@ -32,7 +32,7 @@ You have now successfully configured reCAPTCHA for the account recovery flow.
 
 Follow the instructions given below to configure reCAPTCHA globally for account recovery.  
 
-1. Open the `deployment.toml` file in the `IS_HOME/repository/conf` folder and add the following configuration:
+1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder and add the following configuration:
 
     !!! tip
         To avoid any configuration issues, perform **Step-1** before starting the WSO2 Identity Server product instance.

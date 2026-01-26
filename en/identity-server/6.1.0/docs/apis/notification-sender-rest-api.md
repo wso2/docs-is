@@ -13,7 +13,7 @@ The following section provides the instructions to contruct requests for each no
     * This API is not supported for notification sender configuration for carbon.super tenant.
 
         If you want to configure event publishers in carbon.super tenant, add or modify event publishers in 
-        `IS_HOME/repository/deployment/server/eventpublishers`.
+        `<IS_HOME>/repository/deployment/server/eventpublishers`.
         For more information on writing an event publisher, see [Event Publisher Types](https://docs.wso2.com/display/DAS300/Event+Publisher+Types).
 
     * The following properties are used for internal operations. Therefore, avoid using these properties when configuring notification senders.
@@ -32,7 +32,7 @@ The following section provides the instructions to contruct requests for each no
 ??? "SMS Sender Configuration"
 
     1. Some SMS providers’ SMS sending API payloads are templated in the 
-    `IS_HOME/repository/conf/sms/sms-providers-api-body-templates.xml` file.
+    `<IS_HOME>/repository/conf/sms/sms-providers-api-body-templates.xml` file.
     2. You can add new SMS providers’ payloads, or modify the existing SMS provider payloads by adding new attributes.
     3. Attribute values that need to be replaced by the **POST /notification-senders/sms** API’s input should be templated with 
     a prefix, **“$”**. For example,

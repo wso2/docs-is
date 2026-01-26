@@ -66,7 +66,7 @@ There are two steps involved in setting up the primary user store:
     In the `deployment.toml` file, you can configure the user store manager by adding the relevant properties of the seleted user store manager type.
 
     Refer [properties used in user store managers]({{base_path}}/guides/users/user-stores/user-store-properties) for the complete list of user store configurations and properties.
-    You can configure them as follows by adding to `<IS-HOME>/repository/conf/deployment.toml`.
+    You can configure them as follows by adding to `<IS_HOME>/repository/conf/deployment.toml`.
     ``` toml
     [user_store]
     <Property-Name> = <Property-Value>

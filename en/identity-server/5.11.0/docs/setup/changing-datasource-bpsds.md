@@ -28,9 +28,9 @@ Following are the sample configuration for each database type.
         
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the created database.    
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the created database.    
             
-          - `<IS-HOME>/dbscripts/bps/bpel/create/postgresql.sql`
+          - `<IS_HOME>/dbscripts/bps/bpel/create/postgresql.sql`
 
 ??? example "MySQL"
 
@@ -45,9 +45,9 @@ Following are the sample configuration for each database type.
     
     2. Executing database scripts. 
 
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the created database.    
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the created database.    
          
-          - `<IS-HOME>/dbscripts/bps/bpel/create/mysql.sql`
+          - `<IS_HOME>/dbscripts/bps/bpel/create/mysql.sql`
 
 ??? example "DB2"
 
@@ -61,9 +61,9 @@ Following are the sample configuration for each database type.
         ```    
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the created database.    
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the created database.    
          
-          - `<IS-HOME>/dbscripts/bps/bpel/create/db2.sql`
+          - `<IS_HOME>/dbscripts/bps/bpel/create/db2.sql`
 
 ??? example "MSSQL"
 
@@ -77,9 +77,9 @@ Following are the sample configuration for each database type.
         ```
     2. Executing database scripts. 
     
-        Navigate to <IS-HOME>/dbscripts. Execute the scripts in the following file, against the created database.    
+        Navigate to <IS_HOME>/dbscripts. Execute the scripts in the following file, against the created database.    
          
-          - `<IS-HOME>/dbscripts/bps/bpel/create/mssql.sql`
+          - `<IS_HOME>/dbscripts/bps/bpel/create/mssql.sql`
     
 
 ??? example "Oracle"
@@ -94,9 +94,9 @@ Following are the sample configuration for each database type.
         ```
     2. Executing database scripts. 
     
-        Navigate to <IS-HOME>/dbscripts. Execute the scripts in the following file, against the created database.    
+        Navigate to <IS_HOME>/dbscripts. Execute the scripts in the following file, against the created database.    
          
-          - `<IS-HOME>/dbscripts/bps/bpel/create/oracle.sql`
+          - `<IS_HOME>/dbscripts/bps/bpel/create/oracle.sql`
 
 **Advanced BPS Database Configurations**
 

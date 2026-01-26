@@ -9,13 +9,13 @@ to support extra attributes for the SCIM user object.
 
 However, the reality in the industry is that organizations have their own attributes defined for the users. These attributes are already there in their LDAP schemas. Therefore SCIM should be extensible enough to cope with these custom attributes of the users.
 
-WSO2 Identity Server allows users to define their own user schema in a configuration file (`<IS-HOME>/repository/conf/scim-schema-extension.config`). Then these configured schema are used while creating, validating user objects. With this the users can pass their custom attributes of users over SCIM for Identity Management requirements. The implementation is adhering to the [Schema Extension Model](http://tools.ietf.org/html draft-ietf-scim-core-schema-01#section-4). Given below is a sample extended user object with the default schema configuration.
+WSO2 Identity Server allows users to define their own user schema in a configuration file (`<IS_HOME>/repository/conf/scim-schema-extension.config`). Then these configured schema are used while creating, validating user objects. With this the users can pass their custom attributes of users over SCIM for Identity Management requirements. The implementation is adhering to the [Schema Extension Model](http://tools.ietf.org/html draft-ietf-scim-core-schema-01#section-4). Given below is a sample extended user object with the default schema configuration.
 
 ---
 
 ## Enable the extension
 
-1.  Locate the `provisioning-config.xml` file in the path `<IS-HOME>/repository/conf/identity/provisioning-config.xml`.
+1.  Locate the `provisioning-config.xml` file in the path `<IS_HOME>/repository/conf/identity/provisioning-config.xml`.
 2.  Open the file and locate the `user-schema-extension-enabled` property and set it to true.
 3.  Save the file and restart the server.
 

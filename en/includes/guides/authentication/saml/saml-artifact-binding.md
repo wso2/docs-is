@@ -86,7 +86,7 @@ The [SAML 2.0 Binding specification](https://docs.oasis-open.org/security/saml/v
 
 The default time limit is set for 4 minutes. To change it, set a custom time (in minutes) for the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-```
+```toml
 [saml.artifact] 
 validity= 4
 ```
@@ -95,7 +95,7 @@ validity= 4
 
 Your application can resolve artifacts issued by {{product_name}} by sending a back-channel SOAP request to the following endpoint.
 
-```
+```bash
 https://<IS_HOST>:<IS_PORT>/samlartresolve
 ```
 
@@ -181,7 +181,7 @@ The following guide walks you through setting up a sample application to see SAM
 
 SAML2 POST Binding sends the SAML response via browser POST, creating a cross-origin request when the SP and {{product_name}} use different domains. To Configure {{product_name}} to allow requests from the SP’s domain,
 
-1. Open the `IS_HOME/repository/conf/deployment.toml` file and add the following configurations.
+1. Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configurations.
 
     ```toml
     [cors]
@@ -208,6 +208,17 @@ SAML2 POST Binding sends the SAML response via browser POST, creating a cross-or
     !!! note
 
         If your are using a different URL, add that as an allowed origin.
+
+    {% if is_version == "7.1.0"  or is_version == "7.2.0" %}
+    !!! info
+
+        By default, {{product_name}} double-encodes the SAML artifact value. {% if is_version == "7.1.0" %}From update level **7.1.0.43** onwards,{% elif is_version == "7.2.0" %}From update level **7.2.0.8** onwards, {% endif %}this behavior can be disabled to enforce specification-compliant SAML artifact handling by adding the following configuration to the `deployment.toml` file:
+
+        ```toml
+        [saml.artifact]
+        disable_double_encoding = true
+        ```
+    {% endif %}
 
 2. Restart {{product_name}}.
 
