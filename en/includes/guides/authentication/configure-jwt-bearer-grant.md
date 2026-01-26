@@ -1,6 +1,6 @@
 # Configure JWT bearer grant
 
-You can add a trusted token issuer to a exchange JWT assertion with an OAuth 2.0 access token to access protected resources on behalf of the resource owner.
+You can add a trusted token issuer to exchange JWT assertion with an OAuth 2.0 access token to access protected resources on behalf of the resource owner.
 
 Learn how to configure the OAuth 2.0 JWT bearer grant flow in {{product_name}}. Refer [JWT Bearer grant]({{base_path}}/references/grant-types/#jwt-bearer-grant) for more information on how the flow works.
 
@@ -42,7 +42,7 @@ To register a trusted token issuer:
 
     - **JWKS endpoint**: The JWKS endpoint of the trusted token issuer.
 
-      {% if product_name == "{{product_name}}" %}
+      {% if product_name == "WSO2 Identity Server" %}
 
         !!! note
             For JWKS endpoints, the default read timeout equals 1000 milliseconds. To update this value, add the following parameter to the `deployment.toml` file in the `<PRODUCT_HOME>/conf/repository` directory.
