@@ -2,13 +2,13 @@
 
 You can add a trusted token issuer to exchange JWT assertion with an OAuth 2.0 access token to access protected resources on behalf of the resource owner.
 
-Learn how to configure the OAuth 2.0 JWT bearer grant flow in {{product_name}}. Refer [JWT Bearer grant]({{base_path}}/references/grant-types/#jwt-bearer-grant) for more information on how the flow works.
+Learn how to configure the OAuth 2.0 JWT bearer grant flow in {{product_name}}. Refer [JWT bearer grant]({{base_path}}/references/grant-types/#jwt-bearer-grant) for more information on how the flow works.
 
 Follow this guide for instructions.
 
 ## Register a trusted token issuer
 
-To exchange a third-party token for an {{ product_name }} token, you need to register the third-party token issuer as a trusted token issuer in your {{ product_name }}  organization.
+To exchange a third-party token for an {{ product_name }} token, you need to register the third-party token issuer as a trusted token issuer in your {{ product_name }} organization.
 
 To register a trusted token issuer:
 
