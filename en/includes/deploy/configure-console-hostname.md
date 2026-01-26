@@ -1,4 +1,4 @@
-# Restrict Public Access to Management Operations
+# Restrict public access to management operations
 
 When deploying WSO2 Identity Server, you have the capability to isolate management operations from runtime traffic. By segregating administrative operations, you reduce the attack surface and prevent exposing high-privilege operations to the public.
 
@@ -37,7 +37,7 @@ The data plane handles high-volume runtime traffic from end-users and applicatio
 
 ## Approach 2: Separate hostname via reverse proxy
 
-With this approach, you can achieve logical isolation by exposing the Console application on a different hostname instead of a full network seperation. This allows you to apply different firewall rules or access policies to the Console domain (e.g., `is.dev.wso2.com`) compared to the public runtime domain (e.g., `carbon.dev.wso2.com`).
+With this approach, you can achieve logical isolation by exposing the Console application on a different hostname instead of a full network separation. This allows you to apply different firewall rules or access policies to the Console domain (e.g., `is.dev.wso2.com`) compared to the public runtime domain (e.g., `carbon.dev.wso2.com`).
 
 This guide uses a Reverse Proxy (NGINX) to rewrite traffic dynamically:
 

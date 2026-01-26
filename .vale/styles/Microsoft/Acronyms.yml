@@ -73,3 +73,5 @@ exceptions:
   - LDAP
   - JWKS
   - TLS
+  - VPN
+  - SCIM
