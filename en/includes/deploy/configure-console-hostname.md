@@ -1,6 +1,6 @@
 # Restrict public access to management operations
 
-When deploying WSO2 Identity Server, you have the capability to isolate management operations from runtime traffic. By segregating administrative operations, you reduce the attack surface and prevent exposing high-privilege operations to the public.
+When deploying {{product_name}}, you have the capability to isolate management operations from runtime traffic. By segregating administrative operations, you reduce the attack surface and prevent exposing high-privilege operations to the public.
 
 This guide outlines two strategies to achieve this in {{product_name}}:
 
