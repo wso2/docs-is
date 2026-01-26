@@ -895,6 +895,7 @@ nav:
             - Deployment Checklist: deploy/deployment-checklist.md
             - Product Compatibility: deploy/product-compatibility.md
             - Change the Hostname: deploy/change-the-hostname.md
+            - Restrict public access to management operations: deploy/configure-console-hostname.md
             - Promote Configurations Across Environments: deploy/promote-configurations.md
           - High Availability (HA) and clustering:
             - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
