@@ -5,8 +5,6 @@ This guide explains how to implement a custom user store manager for WSO2 Identi
 !!! info "UniqueID user store managers"
 
     This guide documents the **UniqueID user store managers**, which became the default in WSO2 Identity Server from version **5.10.0 onwards**.
-    
-    If you need to implement a custom user store manager for older versions or for compatibility with legacy systems, see [Non-UniqueID user store managers](#advanced-non-uniqueid-user-store-managers).
 
 ## Before you begin
 
