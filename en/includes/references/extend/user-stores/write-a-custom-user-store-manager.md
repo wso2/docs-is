@@ -171,21 +171,24 @@ This section demonstrates how to create a custom JDBC user store manager using a
                     </releases>
                 </repository>
             </repositories>
+            <properties>
+                <carbon.kernel.version>4.10.42</carbon.kernel.version>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.wso2.carbon</groupId>
                     <artifactId>org.wso2.carbon.user.core</artifactId>
-                    <version>4.10.42</version>
+                    <version>${carbon.kernel.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.wso2.carbon</groupId>
                     <artifactId>org.wso2.carbon.utils</artifactId>
-                    <version>4.10.42</version>
+                    <version>${carbon.kernel.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.wso2.carbon</groupId>
                     <artifactId>org.wso2.carbon.user.api</artifactId>
-                    <version>4.10.42</version>
+                    <version>${carbon.kernel.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.jasypt</groupId>
@@ -248,8 +251,14 @@ This section demonstrates how to create a custom JDBC user store manager using a
         </project>
         ```
 
-    !!! note
-        Update the version number of the carbon dependencies to match your WSO2 Identity Server version.
+    !!! note "Carbon Kernel version"
+        Update the `carbon.kernel.version` property to match your WSO2 Identity Server version:
+
+        | WSO2 Identity Server version | Carbon Kernel version |
+        |------------------------------|----------------------|
+        | 7.0.0 | 4.10.9 |
+        | 7.1.0 | 4.10.42 |
+        | 7.2.0 | 4.10.101 |
 
 ### Create the custom user store manager class
 
@@ -458,7 +467,7 @@ Create a new class that extends `UniqueIDJDBCUserStoreManager` and override the 
     mvn clean install
     ```
 
-3. Copy the generated `org.wso2.custom.user.store-1.0.0.jar` to the `<IS_HOME>/repository/components/dropins` directory.
+3. Copy the generated JAR file to the `<IS_HOME>/repository/components/dropins` directory.
 
 4. Add the following to `<IS_HOME>/repository/conf/deployment.toml`:
 
