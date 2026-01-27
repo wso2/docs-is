@@ -115,11 +115,8 @@ hooks:
 
 plugins:
   - search:
-      indexing: "full"
       separator: "[^\\w._]+"
       lang: ['en']
-      prebuild_index: true
-      ngram_length: 30
   - markdownextradata: {}
   - include-markdown
   - glightbox:

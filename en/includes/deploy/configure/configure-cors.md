@@ -65,21 +65,27 @@ You can use the following REST APIs to view and configure CORS properties.
 
 !!! note "Overriding server-level properties"
 
-    REST APIs can override all the CORS properties defined at the server-level except for **Allowed CORS origins**.  The origins listed under this property at the server level are permanent. REST APIs can add new origins to it but can't restrict or remove server-lvel defined origins.
+    REST APIs can override all the CORS properties defined at the server-level except for **Allowed CORS origins**.  The origins listed under this property at the server level are permanent. REST APIs can add new origins to it but can't restrict or remove server-level defined origins.
 
 {% endif %}
 
-{% if product_name == "WSO2 Identity Servr" %}
--  [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows overriding all server-level properties except for `Allowed CORS origins`.
+{% if product_name == "WSO2 Identity Server" %}
+
+- [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows overriding all server-level properties except for `Allowed CORS origins`.
 
 {% else %}
--  [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows configuring all CORS properties.
+
+- [Server Configuration API]({{base_path}}/apis/configs-rest-api/) - Allows configuring all CORS properties.
 
 {% endif %}
 
 - [Application Management API]({{base_path}}/apis/application-rest-api/) - You can define the allowed CORS origins for your applications. Any origin allowed for a single application will be allowed for other applications under the same tenant.
 
+{% if product_name == "WSO2 Identity Server" %}
+
 - [CORS API]({{base_path}}/apis/cors-rest-api/) allows you to view all the CORS origins configured per tenant and applications associated with a single origin.
+
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}
 

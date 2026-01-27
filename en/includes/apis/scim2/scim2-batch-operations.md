@@ -997,7 +997,7 @@ The parameters in the request body are explained below.
                    <li><code>replace</code></li>
                    <li><code>remove</code></li>
                </ul> 
-               See <a href="/develop/scim2-patch-operations/#patch-user-groups">SCIM2 Patch Operations</a> for details on how to define patch operations.
+               See <a href="{{base_path}}/apis/scim2/scim2-patch-operations/#patch-user-groups">SCIM2 Patch Operations</a> for details on how to define patch operations.
            </td>
        </tr>
        <tr>

@@ -30,6 +30,8 @@ In this instance, {{product_name}} works as the JWT issuer. The following diagra
 
 {{product_name}} exposes its public keys from the following URL:
 
+{% if product_name == "WSO2 Identity Server" %}
+
 === "Format"
 
     ```bash
@@ -41,6 +43,21 @@ In this instance, {{product_name}} works as the JWT issuer. The following diagra
     ```bash
     https://localhost:9443/oauth2/jwks
     ```
+
+{% else %}
+
+=== "Format"
+
+    ```bash
+    https://api.asgardeo.io/t/<organization_name>/oauth2/jwks
+    ```
+
+=== "Example"
+
+    ```bash
+    https://api.asgardeo.io/t/bifrost/oauth2/jwks
+    ```
+{% endif %}
 
 The contents of the {{product_name}} JWKS endpoint take the following form:
 
@@ -131,6 +148,8 @@ In this instance, {{product_name}} works as the JWT validator. The following dia
 
 - After successfully validating the JWT, {{product_name}} issues an access token to the user.
 
+{% if product_name == "WSO2 Identity Server" %}
+
 Follow the steps below to implement this use case.
 
 ### Configure external JWKS endpoint properties
@@ -146,6 +165,8 @@ size_limit_bytes= 51200
 ```
 
 ### Exchange signed JWT to a {{product_name}} token
+
+{% endif %}
 
 You can see JWT validation in action by following the guide and implementing the [JWT Bearer Grant type]({{base_path}}/guides/authentication/configure-jwt-bearer-grant/) for your application.
 

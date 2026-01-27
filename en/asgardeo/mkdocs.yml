@@ -124,6 +124,19 @@ plugins:
       lang: ['en']
   - markdownextradata: {}
   - include-markdown
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - skip-glightbox
+      auto_caption: false
+      caption_position: bottom
   - redirects:
       redirect_maps:
         'references/grant-types-in-asgardeo.md': 'references/grant-types.md'
@@ -350,10 +363,13 @@ nav:
               - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
               - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
+            - Grant types:
+              - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Tokens and validation:
               - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
+              - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
               - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
               - Encrypt ID tokens: 
                 - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
@@ -368,6 +384,7 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
             - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
+            - SAML back-channel logout: guides/authentication/saml/saml-back-channel-logout.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
       - Authorization:
         - Authorization: guides/authorization/index.md
@@ -742,7 +759,6 @@ nav:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote agent properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - Configure Cross Origin Resource Sharing (CORS): references/configure-cors.md
     - Email templates: references/email-templates.md
     - SMS templates: references/sms-templates.md
     - Service extensions:

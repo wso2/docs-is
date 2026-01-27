@@ -10,7 +10,7 @@
 
          1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
          2. Click **Add Authentication** on the step, select your FranceConnect identity provider, and click **Add**.
-            ![Add FranceConnect login in {{product_name}}]({{base_path}}/assets/img/guides/idp/franceconnect-eid/add-franceConnect-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add FranceConnect login in {{product_name}}]({{base_path}}/assets/img/guides/idp/franceconnect-eid/add-franceconnect-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add FranceConnect login using the Visual Editor:
