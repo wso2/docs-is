@@ -73,7 +73,8 @@ paths:
           source: |
             curl -X 'GET' \
             'https://localhost:9443/scim2/Schemas' \
-            -H 'accept: application/scim+json'
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
 
   /Schemas/{schemaId}:
     get:
@@ -108,7 +109,8 @@ paths:
           source: |
             curl -X 'GET' \
             'https://localhost:9443/scim2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User' \
-            -H 'accept: application/scim+json'
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
 components:
   schemas:
     SPConfigResponse:
