@@ -1196,8 +1196,7 @@ nav:
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
       - Server configuration API: apis/organization-apis/configs.md
-      - Validation rules API: apis/organization-apis/validation-rules.md
-      - User credential management API: apis/end-user-credential-management-rest-api.md
+      - User credential management API: apis/organization-apis/end-user-credential-management-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
@@ -1207,6 +1206,7 @@ nav:
         - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/user-store.md
+      - Validation rules API: apis/organization-apis/validation-rules.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Organization Me API: apis/user-organization-api.md
