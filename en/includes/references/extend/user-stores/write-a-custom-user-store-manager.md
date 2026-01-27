@@ -1,6 +1,6 @@
 # Write a custom user store manager
 
-This guide explains how to implement a custom user store manager for WSO2 Identity Server.
+This guide explains how to implement a custom user store manager for {{product_name}}.
 
 !!! info "UniqueID user store managers"
 
@@ -8,14 +8,14 @@ This guide explains how to implement a custom user store manager for WSO2 Identi
 
 ## Before you begin
 
-WSO2 Identity Server provides built-in user store manager implementations. Extend one of these classes based on your user store type:
+{{product_name}} provides built-in user store manager implementations. Extend one of these classes based on your user store type:
 
 | User store manager class | When to use |
 |--------------------------|-------------|
-| `org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager` | Use this when your user details are stored in a **database**. This implementation handles most JDBC-based scenarios without writing a custom user store manager. |
+| `org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager` | Use this when you store user details in a **database**. This implementation handles most JDBC-based scenarios without writing a custom user store manager. |
 | `org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager` | Use this when you have a **read-only LDAP user store**. This implementation allows reading users but doesn't support insert or update operations. |
 | `org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager` | Use this when you need WSO2 Identity Server to **manipulate LDAP user store data** (create, update, delete users). |
-| `org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager` | Use this when your user store is **Active Directory**. |
+| `org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager` | Use this when you use an **Active Directory** user store. |
 
 !!! tip "Choosing the right base class"
 
@@ -41,7 +41,7 @@ The following tables list methods available in the user store manager classes. O
 |--------|-------------|
 | `AuthenticationResult doAuthenticateWithID(String preferredUserNameProperty, String preferredUserNameValue, Object credential)` | Authenticates a user based on a preferred property (e.g., email, username) and credential. |
 | `AuthenticationResult doAuthenticateWithID(String userID, Object credential)` | Authenticates a user using their unique user ID and credential. |
-| `AuthenticationResult doAuthenticateWithID(List<LoginIdentifier> loginIdentifiers, Object credential)` | Authenticates a user using multiple login identifiers and credential. |
+| `AuthenticationResult doAuthenticateWithID(List<LoginIdentifier> loginIdentifiers, Object credential)` | Authenticates a user using multiple login identifiers and credentials. |
 | `AuthenticationResult doAuthenticateWithUserName(String userName, Object credential)` | Authenticates a user using their username and credential. Called internally from `doAuthenticateWithID` when authenticating by username. Available in `UniqueIDJDBCUserStoreManager`. |
 | `boolean doAuthenticate(String userName, Object credential)` | Authenticates a user using their username and credential. |
 | `String preparePassword(Object password, String saltValue)` | Returns the encrypted or plain-text password based on configurations. Override this method to change the password encryption algorithm or hashing mechanism. |
@@ -433,7 +433,7 @@ Create a new class that extends `UniqueIDJDBCUserStoreManager` and override the 
 
 3. Copy any dependency JAR files to the `<IS_HOME>/repository/components/lib` directory.
 
-4. Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`:
+4. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ```toml
     [user_store_mgt]
@@ -493,3 +493,4 @@ When extending `AbstractUserStoreManager`, you must implement all required metho
 - Claim management
 
 For most use cases, extending one of the built-in user store managers (as described in the sections above) is recommended. This approach requires less code and inherits tested, production-ready implementations.
+
