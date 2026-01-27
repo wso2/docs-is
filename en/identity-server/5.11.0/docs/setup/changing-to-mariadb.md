@@ -19,7 +19,7 @@ After setting up the MariaDB database, you can point the `WSO2_IDENTITY_DB` or
 
 ## Changing the default datasource
 
-Add the configurations to change to MariaDB in the `<IS-HOME>/repository/conf/deployment.toml` file. A sample configuration is given below.
+Add the configurations to change to MariaDB in the `<IS_HOME>/repository/conf/deployment.toml` file. A sample configuration is given below.
 
 ```toml 
 [user_store]

@@ -97,7 +97,7 @@ The following guide walks you through setting up sample applications to see SAML
 
 SAML2 POST Binding sends the SAML response via browser POST, creating a cross-origin request when the SP and {{product_name}} use different domains. To Configure {{product_name}} to allow requests from the SP’s domain,
 
-1. Open the `IS_HOME/repository/conf/deployment.toml` file and add the following configurations.
+1. Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configurations.
 
     ```toml
     [cors]

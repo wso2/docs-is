@@ -10,7 +10,7 @@ read_time: 10 min
 
     In WSO2 Identity Server, the default certificate is a self signed certificate. This certificate needs to be added to your OS System Trust to allow the .NET application to connect to the Identity Server
 
-    To obtain the certificate naviate to the {IS_HOME}/repository/resources/security directory and execute the following
+    To obtain the certificate naviate to the <IS_HOME>/repository/resources/security directory and execute the following
 
     ```bash
     keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.p12 -storetype PKCS12 -storepass wso2carbon

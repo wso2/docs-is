@@ -23,7 +23,7 @@ This document provides step-by-step instructions to configure a custom keystore 
 
 ## Configure custom keystore for OAuth, WS-Trust or WS-Federation
 
-1. Locate your custom key store file in `<IS-HOME>/repository/resources/security/` directory.  
+1. Locate your custom key store file in `<IS_HOME>/repository/resources/security/` directory.  
 2. Add the following configuration to `deployment.toml` file.
 
     ``` toml
@@ -82,7 +82,7 @@ This document provides step-by-step instructions to configure a custom keystore 
 
 ## Configure custom keystore for SAML
 
-1. Locate your custom key store file in `<IS-HOME>/repository/resources/security/` directory.
+1. Locate your custom key store file in `<IS_HOME>/repository/resources/security/` directory.
 2. Add the following configuration to `deployment.toml` file.
 
     ``` toml

@@ -248,7 +248,10 @@ nav:
         - Quickstart: quick-starts/springboot.md
     - Secure MCP Servers:
         - TypeScript: quick-starts/mcp-auth-server.md
+        - Python: quick-starts/mcp-auth-server-py.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
+    - Secure Your AI Agents:
+        - Python: quick-starts/agent-auth-py.md
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
@@ -298,7 +301,7 @@ nav:
             - Add social login:
               - Add social login: guides/authentication/social-login/index.md
               - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
-              - Add Github login: guides/authentication/social-login/add-github-login.md
+              - Add GitHub login: guides/authentication/social-login/add-github-login.md
               - Add Google login: guides/authentication/social-login/add-google-login.md
               - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
               - Add Apple login: guides/authentication/social-login/add-apple-login.md

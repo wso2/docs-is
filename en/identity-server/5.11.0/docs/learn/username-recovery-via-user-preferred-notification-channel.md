@@ -45,7 +45,7 @@ Channels.
 
 Follow the steps given below to recover a user in the super tenant (i.e., carbon.super).
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to 
+1.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to 
 configure the configure WSO2 Identity Server to send confirmation emails.
     
     !!! Note

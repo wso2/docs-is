@@ -26,7 +26,7 @@ After setting up the Oracle RAC database. You can point the `WSO2_IDENTITY_DB` o
 
 1.  **Minimum Configurations for changing default datasource to Oracle RAC.**
  
- Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Configurations can be done by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
       <table>
       <thead>
@@ -77,11 +77,11 @@ After setting up the Oracle RAC database. You can point the `WSO2_IDENTITY_DB` o
        
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/oracle_rac.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/oracle_rac.sql`
-           - `<IS-HOME>/dbscripts/consent/oracle_rac.sql`
+           - `<IS_HOME>/dbscripts/identity/oracle_rac.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/oracle_rac.sql`
+           - `<IS_HOME>/dbscripts/consent/oracle_rac.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -108,9 +108,9 @@ After setting up the Oracle RAC database. You can point the `WSO2_IDENTITY_DB` o
            
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/oracle_rac.sql`
+           - `<IS_HOME>/dbscripts/oracle_rac.sql`
            
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)

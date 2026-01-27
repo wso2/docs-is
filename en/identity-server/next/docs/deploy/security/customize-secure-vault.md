@@ -44,7 +44,7 @@ Let's see how we can write a new Secret Callback Handler class to secure the use
     }
     ```
 
-3. Create a JAR or an OSGI bundle and copy it to the `IS_HOME/repository/component/lib/` directory or the OSGI bundle to the `<IS_HOME>/repository/component/dropins/directory` respectively.
+3. Create a JAR or an OSGI bundle and copy it to the `<IS_HOME>/repository/component/lib/` directory or the OSGI bundle to the `<IS_HOME>/repository/component/dropins/directory` respectively.
 
 4. Configure the `<IS_HOME>/repository/conf/deployment.toml` file with an alias name and your Secret Callback handler class name. For example,  
 
@@ -92,4 +92,4 @@ To create a custom secret repository, you need to implement the `SecretRepositor
 
 3. Create a JAR or an OSGI bundle.
 
-4. Copy the JAR file to the `IS_HOME/repository/component/lib/` directory or the OSGI bundle to the `IS_HOME/repository/component/dropins/` directory.
+4. Copy the JAR file to the `<IS_HOME>/repository/component/lib/` directory or the OSGI bundle to the `<IS_HOME>/repository/component/dropins/` directory.
