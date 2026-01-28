@@ -8,36 +8,17 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Checkout the repo
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      # Step 2: Detect changed Markdown files
-      - name: Get changed Markdown files
-        uses: tj-actions/changed-files@v46
-        id: changed-files
-        with:
-          files: '**/*.md'
-          separator: " "  # Space-separated list for npx markdownlint-cli
-
-      # Step 3: Install markdownlint-cli
-      - name: Install markdownlint-cli
-        run: npm install -g markdownlint-cli
-      
-      # Step 4: Install Reviewdog
-      - name: Install Reviewdog
-        run: |
-          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b /usr/local/bin
-
-      # Step 4: Run Markdownlint via Reviewdog
-      - name: Run Markdownlint on changed files
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          npx markdownlint-cli ${{ steps.changed-files.outputs.all_changed_files }} | \
-          reviewdog -f=markdownlint -name=markdownlint -reporter=github-pr-review -filter-mode=added -fail-on-error
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - uses: tj-actions/changed-files@v46
+      id: changed-files
+      with:
+        files: '**/*.md'
+        separator: ","
+    - uses: DavidAnson/markdownlint-cli2-action@v20
+      if: steps.changed-files.outputs.any_changed == 'true'
+      with:
+        globs: ${{ steps.changed-files.outputs.all_changed_files }}
+        separator: ","
