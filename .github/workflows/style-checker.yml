@@ -1,4 +1,4 @@
-name: Vale Lint
+name: Vale Lint (Changed Markdown Only)
 
 on:
   pull_request:
@@ -6,38 +6,23 @@ on:
       - '**/*.md'
 
 jobs:
-  lint:
+  vale:
+    name: Vale style check
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write  # Needed to post PR comments
+      contents: read
 
     steps:
-      # Step 1: Checkout the code
-      - name: Checkout repository
+      - name: Check out code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Step 2: Detect changed Markdown files
-      - name: Get changed Markdown files
-        uses: tj-actions/changed-files@v46
-        id: changed-files
+      - name: Run Vale
+        uses: errata-ai/vale-action@reviewdog
         with:
-          files: '**/*.md'
-          separator: " "
-
-      # Step 3: Setup Vale using the official action
-      - name: Setup Vale
-        uses: errata-ai/vale-action@v2.1.1
-
-      # Step 4: Install Reviewdog
-      - name: Install Reviewdog
-        run: |
-          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b /usr/local/bin
-
-      # Step 5: Run Vale on changed files only
-      - name: Run Vale on changed files
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          vale ${{ steps.changed-files.outputs.all_changed_files }} | \
-          reviewdog -f=vale -name=vale -reporter=github-pr-review -filter-mode=added -fail-on-error
+            filter_mode: added
+            reporter: github-pr-check
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
