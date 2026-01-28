@@ -34,10 +34,9 @@ TOTP enrollment during the first login is enabled by default for all application
 - **Organization-level configuration**: Define a default policy that applies across all applications in the organization.
 - **Application-level configuration**: Override the organization-level setting for specific applications using conditional authentication scripts.
 
-!!! note
-    Use the organization-level configuration for both root organizations and sub-organizations.
-
 ### Configure at organization level
+
+This configuration allows you to define a default policy for TOTP enrollment that applies to all applications in your organization. It applies to both root organizations and child organizations.
 
 To configure TOTP enrollment for all applications in your organization:
 
@@ -47,8 +46,8 @@ To configure TOTP enrollment for all applications in your organization:
 
 3. Use the **Enable TOTP progressive enrollment** toggle to control the enrollment behavior:
 
-    - **Enabled (default)**: Prompt users who haven't configured TOTP to enroll during login for all applications, unless it's overridden by **Conditional Authentication**.
-    - **Disabled**: Users aren't prompted to enroll in TOTP during login for any application in the organization.
+    - **Enabled (default)**: Prompt users who haven't configured TOTP to enroll during login for all applications, unless overridden by [**Conditional Authentication**](#configure-at-application-level).
+    - **Disabled**: {{product_name}} won't prompt users to enroll in TOTP during login for any application in the organization.
 
     ![TOTP organization level configuration in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/totp-org-level-config.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
