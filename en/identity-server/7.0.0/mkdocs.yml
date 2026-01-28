@@ -82,7 +82,7 @@ extra:
           - title: Secure
             url:
           - title: Deploy
-            url: Setup|Deploy|Deployment patterns
+            url: Setup|Deploy|Deployment overview|Deployment Patterns
           - title: Monitor
             url: Setup|Monitor|Monitor
           - title: Upgrade WSO2 Identity Server
