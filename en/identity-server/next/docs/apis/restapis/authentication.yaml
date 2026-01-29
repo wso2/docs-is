@@ -5,7 +5,7 @@ info:
     This document specifies a RESTful API for the WSO2 Identity Server.
 
     <b>Instructions for the `/data` endpoint</b> <br>
-    To configure the Authentication Data API add the following configuration to the `deployment.toml` file found in the `IS_HOME/repository/conf` directory and restart the IS server.
+    To configure the Authentication Data API add the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory and restart the IS server.
     
     ```toml
     [authentication.endpoint.redirect_params]

@@ -186,7 +186,7 @@ To add a custom layout to the login page:
     !!! note
         To update the header and the footer, use the [Branding UI]({{base_path}}/guides/branding/configure-ui-branding/#update-branding).
 
-2. Download the relevant [identity-apps source code]({{content.identity_apps_core_release_url}}){target="_blank"} from GitHub and extract it. This directory will be referred to as `IDENTITY-APPS-HOME` in the next step.
+2. Download the relevant [identity-apps source code]({{content.identity_apps_core_release_url}}){target="_blank"} from GitHub and extract it. This directory will be referred to as `IDENTITY_APPS_HOME` in the next step.
 
 3. Setup the development tools.
     1. Install [JDK 11](https://openjdk.org/projects/jdk/)
@@ -194,11 +194,11 @@ To add a custom layout to the login page:
 
 4. Follow the steps below to build the layouts.
 
-    1. Copy the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts/custom` directory and place it into the `<IDENTITY-APPS-HOME>/identity-apps-core/components/login-portal-layouts/layouts` directory.
+    1. Copy the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts/custom` directory and place it into the `<IDENTITY_APPS_HOME>/identity-apps-core/components/login-portal-layouts/layouts` directory.
 
-    2. Navigate to `<IDENTITY-APPS-HOME>/identity-apps-core/components/login-portal-layouts` directory and build the source code using `mvn clean install` command (Build should be succeeded for further steps).
+    2. Navigate to `<IDENTITY_APPS_HOME>/identity-apps-core/components/login-portal-layouts` directory and build the source code using `mvn clean install` command (Build should be succeeded for further steps).
 
-    3. Copy the `<IDENTITY-APPS-HOME>/identity-apps-core/apps/authentication-portal/src/main/webapp/extensions/layouts/custom` folder (Compiled version of the layout source code) and paste it into the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts` directory. If a `custom` folder already exists in the target location, replace it with the newly copied folder.
+    3. Copy the `<IDENTITY_APPS_HOME>/identity-apps-core/apps/authentication-portal/src/main/webapp/extensions/layouts/custom` folder (Compiled version of the layout source code) and paste it into the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/extensions/layouts` directory. If a `custom` folder already exists in the target location, replace it with the newly copied folder.
 
 5. To enable custom branding, go to **Branding** > **Styles & Text** > **Design** in the WSO2 Identity Server Console.
 Select **Custom** layout as the **Login Layout** and click **Save & Publish** to apply the branding configurations.

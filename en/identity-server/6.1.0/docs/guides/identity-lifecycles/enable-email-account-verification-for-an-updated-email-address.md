@@ -31,7 +31,7 @@ When users update their email addresses in the user profile, an email verificati
     To enable this feature server-wide, follow the instructions given below. 
     
     1.  Shut down the server if it is running.
-    2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature and to configure the verification email link expiry time.
+    2.  Add the following properties to the `deployment.toml` file in `<IS_HOME>/repository/conf` to enable the feature and to configure the verification email link expiry time.
 
         ```toml 
         [identity_mgt.user_claim_update.email]

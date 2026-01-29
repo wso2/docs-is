@@ -7,7 +7,7 @@ This document explains the steps to configure {{ product_name }} to send emails 
 Follow the steps given below to enable the email sender globally for all tenants in {{ product_name }}.
 
 1. Shut down the server if it is running.
-2. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email provider.
+2. Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to configure the email provider.
 
     ```toml
     [output_adapter.email]

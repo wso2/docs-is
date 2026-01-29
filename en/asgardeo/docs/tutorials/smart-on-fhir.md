@@ -200,7 +200,7 @@ Now that you have registered and configured an application in Asgardeo, you are 
 
 Follow the steps below to download and run the Postman collection:
 
-1. Download the Postman collection from [Github](https://github.com/wso2-enterprise/open-healthcare/blob/main/scripts/postman-collections/smartonfhir-asgardeo.postman_collection.json){target="_blank"} and import it to Postman.
+1. Download the Postman collection from [GitHub](https://github.com/wso2-enterprise/open-healthcare/blob/main/scripts/postman-collections/smartonfhir-asgardeo.postman_collection.json){target="_blank"} and import it to Postman.
 
 2. In the Postman collection named **Asgardeo**, go to the **Authorization** tab and do the following:
 

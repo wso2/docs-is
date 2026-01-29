@@ -15,7 +15,7 @@ Following are the sample configuration for each database type.
 
 ??? Example "PostgreSQL"
     
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [[datasource]]
@@ -29,14 +29,14 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/postgresql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/postgresql.sql` file against 
         the created database.    
 
     3. Download the [PostgreSQL JDBC driver](https://mvnrepository.com/artifact/org.postgresql/postgresql) and copy the JAR (postgresql-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder.
           
 ??? Example "MySQL"
 
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [[datasource]]
@@ -50,13 +50,13 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/mysql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/mysql.sql` file against 
         the created database.   
 
     3.  Download the [MySQL JDBC driver](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j) and copy the JAR (mysql-connector-j-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder.
             
 ??? Example "DB2"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [[datasource]]
         id="WSO2CONFIG_DB"
@@ -69,13 +69,13 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/db2.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/db2.sql` file against 
         the created database.    
 
     3. Download the [DB2 JDBC driver](https://mvnrepository.com/artifact/com.ibm.db2/jcc) and copy the JAR (jcc-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder.
 
 ??? Example "MSSQL"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [[datasource]]
         id="WSO2CONFIG_DB"
@@ -88,13 +88,13 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/mssql.sql` file against 
         the created database.   
 
     3. Download the [MSSQL JDBC driver](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) and copy the JAR (mssql-jdbc-x.x.x.jre11.jar) to the `<IS_HOME>/repository/components/lib` folder.
 
 ??? Example "Oracle"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [[datasource]]
         id="WSO2CONFIG_DB"
@@ -107,7 +107,7 @@ Following are the sample configuration for each database type.
         
     2.  Execute the database scripts. 
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/oracle.sql` file against 
+        Execute the scripts in the `<IS_HOME>/dbscripts/oracle.sql` file against 
         the created database.    
 
     3. Download the Oracle JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
@@ -181,7 +181,7 @@ deployment.toml` file under the corresponding `[[datasource]]` tag.
 
 ## Configure the Registry Databases
 
-The following configurations can be added under the `[registry]` section in the `<IS-HOME>/repository/conf/deployment.toml` file.
+The following configurations can be added under the `[registry]` section in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```
 [registry]

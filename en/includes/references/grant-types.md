@@ -411,7 +411,7 @@ The following diagram shows how the token exchange grant flow works.
         --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:access_token" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -424,16 +424,13 @@ The following diagram shows how the token exchange grant flow works.
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
         ```
 
-    
 5. The authorization server responds to the client with the new access token.
 6. The client application can now request resources from the resource server by providing the access token.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
 Token exchange can be used for delegation and impersonation use cases. See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details about delegation usecase. See  [user impersonation]({{base_path}}/guides/authorization/user-impersonation/via-business-application) for more details on user impersonation with token exchange grant.
 
-{% if product_name == "WSO2 Identity Server" %}
-
-## JWT Bearer grant
+## JWT bearer grant
 
 OAuth 2.0 JWT bearer is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another with a different set of permissions or attributes. This grant type is defined in the [RFC7523](https://datatracker.ietf.org/doc/html/rfc7523).
 
@@ -455,7 +452,7 @@ The following diagram shows how the JWT Bearer grant flow works.
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
         --data-urlencode "assertion=<jwt_token>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -471,6 +468,8 @@ The following diagram shows how the JWT Bearer grant flow works.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
 See [configure the JWT Bearer Grant flow]({{base_path}}/guides/authentication/configure-jwt-bearer-grant) for more details.
+
+{% if product_name == "WSO2 Identity Server" %}
 
 ## SAML 2.0 bearer grant
 

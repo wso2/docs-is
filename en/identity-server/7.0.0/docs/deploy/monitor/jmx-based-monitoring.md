@@ -224,9 +224,9 @@ Follow the steps below to use Jolokia to monitor WSO2 IS.
 
 1. Download the [Jolokia OSGi Agent](https://mvnrepository.com/artifact/org.jolokia/jolokia-osgi/1.7.2). (These instructions are tested with the Jolokia OSGI Agent version 1.7.2 by downloading the `jolokia-osgi-1.7.2.jar` file.)
 
-2. Add it to the `<IS-HOME>/repository/components/dropins/` directory.
+2. Add it to the `<IS_HOME>/repository/components/dropins/` directory.
 
-3. Add the following configurations to the `deployment.toml` file in the `<IS-HOME>/repository/conf/` directory.
+3. Add the following configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
 
     ``` toml
     [[resource.access_control]]

@@ -26,7 +26,7 @@ You can test DPoP support in {{product_name}} using either the [Client Credentia
 
 ### Generate a DPoP proof
 
-Before making a token request, the client must generate a DPoP proof that proves possession of the private key. The client should include this proof in the DPoP header of the request. You can refer to the sample DPoP proof generator on [Github](https://github.com/wso2/samples-is/tree/master/oauth2/org.wso2.dpop.proof.generator#dpop-client-application){:target="_blank"}.
+Before making a token request, the client must generate a DPoP proof that proves possession of the private key. The client should include this proof in the DPoP header of the request. You can refer to the sample DPoP proof generator on [GitHub](https://github.com/wso2/samples-is/tree/master/oauth2/org.wso2.dpop.proof.generator#dpop-client-application){:target="_blank"}.
 
 ### Try with the client credentials grant
 
