@@ -80,7 +80,7 @@ The {{product_name}} {{is_version}} runtime has been tested with the following d
 	</tr>
 	<tr>
 		<td>Postgres</td>
-		<td>17.2, 16.6, 15.10</td>
+		<td>17.4, 16.6, 15.10</td>
 	</tr>
 	<tr>
 		<td>Maria DB</td>
