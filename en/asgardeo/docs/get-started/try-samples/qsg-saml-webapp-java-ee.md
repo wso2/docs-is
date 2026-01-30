@@ -82,7 +82,8 @@ Click the button below to download the sample. You can also choose to view the s
   </div>
 
   <div class="border-text">
-    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg" alt="GitHub" width=50><br>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="GitHub" width=50>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="GitHub" width=50><br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-saml-agent/tree/master/io.asgardeo.tomcat.saml.agent.sample" target="_blank">View source</a>
   </div>
 </div>
