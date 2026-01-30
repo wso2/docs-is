@@ -501,7 +501,6 @@ nav:
           - WS-Federation: get-started/try-samples/ws-federation-webapp.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
       - About this release: get-started/about-this-release.md
-  - Try for a sample app: get-started/try-samples/index.md
   - Guides:
       - Guides: guides/index.md
       - Applications:

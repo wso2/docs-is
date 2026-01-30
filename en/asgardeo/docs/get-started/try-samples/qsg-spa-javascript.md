@@ -65,12 +65,12 @@ Click the button below to download the sample. You can also choose to view the s
 
 <div class="centered-container">
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/javascript-logo.svg" alt="JavaScript" width=50><br>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/javascript-logo.svg" alt="JavaScript" width=50><br>
     <a href="https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip" target="_blank">Download sample</a>
   </div>
 
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="GitHub" width=50><br>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg" alt="GitHub" width=50><br>
     <a href="https://github.com/asgardeo/asgardeo-auth-spa-sdk/tree/main/samples/asgardeo-html-js-app" target="_blank">View source</a>
   </div>
 </div>
