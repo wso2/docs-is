@@ -8,23 +8,23 @@ By following this guide, you will be able to deploy a Java EE web application lo
 
     If you don't have it, install [Apache tomcat](https://tomcat.apache.org/tomcat-9.0-doc/setup.html){target="_blank"}.
 
-- **A user account in Asgardeo**
+- **A user account in the {{ product_name }}**
 
-    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in Asgardeo.
+    If you don't already have one, create a user account in the {{ product_name }}.
 
 ## Register the app
 
-Follow these steps given below to register the sample Java EE web application in Asgardeo.
+Follow these steps given below to register the sample Java EE web application in the {{ product_name }}.
 
-1. On the [Asgardeo Console](https://console.asgardeo.io/login), go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Click **New Application** and select **Traditional Web Application**.
 
-    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Select app type in {{ product_name }}]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}</br>
 
 3. Enter the following details:
 
-    ![Create a new SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Create a new SAML app]({{base_path}}/assets/img/guides/applications/create-new-saml-web-app.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}</br>
 
     <table>
       <tr>
@@ -39,7 +39,7 @@ Follow these steps given below to register the sample Java EE web application in
           <td>Select <b>SAML</b>.</td>
       </tr>
       <tr>
-          <td>Configuration type</td>
+          <td>Configruation type</td>
           <td>Select <b>Manual</b> (Learn more about [SAML configuration types]({{base_path}}/guides/applications/register-saml-web-app/))</td>
       </tr>
     <tr>
@@ -57,7 +57,7 @@ Follow these steps given below to register the sample Java EE web application in
       </td>
     </tr>
     </table>
-4. Click **Register** to complete the registration.
+5. Click **Create** to complete the registration.
 
 !!! tip
     To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:8080/sample-app</code>).
@@ -77,13 +77,13 @@ Click the button below to download the sample. You can also choose to view the s
 
 <div class="centered-container">
   <div class="border-text">
-    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50><br>
+    <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50><br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war" target="_blank">Download sample</a>
   </div>
-
   <div class="border-text">
-    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="GitHub" width=50>
-    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="GitHub" width=50><br>
+    <img src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="GitHub" width=50>
+    <img src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="GitHub" width=50>
+    </br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-saml-agent/tree/master/io.asgardeo.tomcat.saml.agent.sample" target="_blank">View source</a>
   </div>
 </div>
@@ -100,7 +100,7 @@ Follow the steps given below to configure the sample app.
         This will extract the contents of the **war** file. </br>
       If your Tomcat server is set to auto-deploy applications, you can skip this step.
 
-    ```bash
+    ```bash 
     sh catalina.sh start
     ```
 
@@ -110,32 +110,32 @@ Follow the steps given below to configure the sample app.
 
     !!! note
 
-        - Update the **SAML2.IdPEntityId** parameter with the Asgardeo issuer, which is `api.asgardeo.io/t/{organization_name}`.
-        - **SAML2.SPEntityId** should match the issuer name entered when registering the application in Asgardeo.
+        - Update the **SAML2.IdPEntityId** parameter with the {{ product_name }} issuer, which is `localhost`.
+        - **SAML2.SPEntityId** should match the issuer name entered when registering the application in the {{ product_name }}.
 
     ```saml
     SAML2.AssertionConsumerURL=http://localhost:8080/sample-app/home.jsp
     SAML2.SPEntityId=sample-issuer
-    SAML2.IdPEntityId=api.asgardeo.io/t/{organization_name}
-    SAML2.IdPURL=https://api.asgardeo.io/t/{orgaization_name}/samlsso 
-    IdPPublicCert={public_cert_of_asgardeo_organization}
-    SkipURIs=/sample-app/index.html
-
-    #Other properties
-    IdPPublicCertAlias=wso2carbon
+    SAML2.IdPEntityId=localhost
+    SAML2.IdPURL=https://localhost:9443/samlsso
+    SAML2SSOURL=samlsso
     EnableSAML2SSOLogin=true
     SAML2.EnableSLO=true
+    SAML2.SLOURL=logout
+    SkipURIs=/sample-app/index.html
+    IndexPage=index.html
+    ErrorPage=/error.jsp
     SAML2.EnableResponseSigning=false
     SAML2.EnableAssertionSigning=false
     SAML2.EnableAssertionEncryption=false
-    SAML2.EnableRequestSigning=false
-    SAML2.IsPassiveAuthn=false      
-    SAML2.SLOURL=logout
-    IndexPage=index.html
-    ErrorPage=/error.jsp
-    SAML2SSOURL=samlsso
+    SAML2.EnableRequestSigning=true
+    SAML2.IsPassiveAuthn=false
+    IdPPublicCert={public_cert_of_identity-server}
+    KeyStorePassword=wso2carbon
+    PrivateKeyAlias=wso2carbon
+    IdPPublicCertAlias=wso2carbon
+    PrivateKeyPassword=wso2carbon
     ```
-
     <table>
       <thead>
         <tr>
@@ -153,37 +153,37 @@ Follow the steps given below to configure the sample app.
         <tr>
          <td><code>SAML2.SPEntityId</code></td>
          <td>
-            The SAML issuer that is used when registering your application with Asgardeo.
+            The SAML issuer that is used when registering your application with the {{ product_name }}.
           </td>
         </tr>
         <tr>
          <td><code>SAML2.IdPEntityId</code></td>
          <td>
-            The issuer name of Asgardeo.
-            <p><code>api.asgardeo.io/t/{organization_name}</code></p>
+            The issuer name of the {{ product_name }}.
+            <p><code>localhost</code></p>
          </td>
         </tr>
         <tr>
           <td><code>SAML2.IdPURL</code></td>
           <td>
-            The endpoint of Asgardeo to which login and logout requests should be sent:
-            <p><code>https://api.asgardeo.io/t/{organization_name}/samlsso</code></p>
+            The endpoint of the {{ product_name }} to which login and logout requests should be sent:
+            <p><code>https://localhost:9443/samlsso</code></p>
           </td>
         </tr>
         <tr>
-          <td><code>IdPPublicCert</code></td>
-          <td>
-            This specifies the public certificate of the {{ product_name }}. Follow these steps to obtain it:
-            <ol>
-              <li>On the {{ product_name }} Console, go to <b>Applications</b>.</li>
-              <li>Select your SAML application.</li>
-              <li>Go to the <b>Info</b> tab.</li>
-              <li>Under <b>IdP certificate</b>, download the certificate.</li>
-              <li>Open the downloaded certificate file in a text editor and copy the certificate content (the text between <code>-----BEGIN CERTIFICATE-----</code> and <code>-----END CERTIFICATE-----</code>, excluding the header and footer lines).</li>
-              <li>Paste the certificate content as a single line in the <code>IdPPublicCert</code> field.</li>
-            </ol>
-            For more information, see <a href="{{base_path}}/guides/authentication/saml/discover-saml-configs">how to get SAML configurations from the {{ product_name }} Console</a>.
-          </td>
+           <td><code>IdPPublicCert</code></td>
+           <td>
+              This specifies the public certificate of the {{ product_name }}. Follow these steps to obtain it:
+              <ol>
+                <li>On the {{ product_name }} Console, go to <b>Applications</b>.</li>
+                <li>Select your SAML application.</li>
+                <li>Go to the <b>Info</b> tab.</li>
+                <li>Under <b>IdP certificate</b>, download the certificate.</li>
+                <li>Open the downloaded certificate file in a text editor and copy the certificate content (the text between <code>-----BEGIN CERTIFICATE-----</code> and <code>-----END CERTIFICATE-----</code>, excluding the header and footer lines).</li>
+                <li>Paste the certificate content as a single line in the <code>IdPPublicCert</code> field.</li>
+              </ol>
+              For more information, see <a href="{{base_path}}/guides/authentication/saml/discover-saml-configs">how to get SAML configurations from the {{ product_name }} Console</a>.
+           </td>
         </tr>
         <tr>
           <td><code>skipURIs</code></td>
@@ -223,8 +223,8 @@ Follow the steps given below to configure the sample app.
                 <code>SAML2.EnableResponseSigning</code>
               </td>
               <td>
-                If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. You also need to [enable response signing from Asgardeo]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
-                If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.
+                If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. You also need to [enable response signing from {{ product_name }}]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
+                If this configuration is set to <code>false</code>, the application does not mandate response signing from {{ product_name }}.
               </td>
           </tr>
           <tr>
@@ -232,8 +232,8 @@ Follow the steps given below to configure the sample app.
             <code>SAML2.EnableAssertionSigning</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. You also need to [enable response signing from Asgardeo]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
-              If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.
+              If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. You also need to [enable response signing from {{ product_name }}]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
+              If this configuration is set to <code>false</code>, the application does not mandate response signing from {{ product_name }}.
             </td>
           </tr>
           <tr>
@@ -241,7 +241,7 @@ Follow the steps given below to configure the sample app.
               <code>SAML2.EnableAssertionEncryption</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, the application expects an encrypted SAML assertion. You also need to [enable encryption for SAML assertions]({{base_path}}/references/app-settings/saml-settings-for-app/) from Asgardeo.
+              If this configuration is set to <code>true</code>, the application expects an encrypted SAML assertion. You also need to [enable encryption for SAML assertions]({{base_path}}/references/app-settings/saml-settings-for-app/) from {{ product_name }}.
             </td>
           </tr>
           <tr>
@@ -249,7 +249,7 @@ Follow the steps given below to configure the sample app.
               <code>SAML2.EnableRequestSigning</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, Asgardeo validates the SAML authentication request and logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from Asgardeo.
+              If this configuration is set to <code>true</code>, {{ product_name }} validates the SAML authentication request and logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from {{ product_name }}.
             </td>
           </tr>
           <tr>
@@ -289,7 +289,7 @@ Follow the steps given below to configure the sample app.
 
 5. In the `<TOMCAT_HOME>/bin` folder, run the following commands to restart the Tomcat server for the configurations to take effect:
 
-    ```bash
+    ```bash 
     sh catalina.sh stop
     sh catalina.sh start
     ```
@@ -300,9 +300,9 @@ Follow the steps given below to run the sample.
 
 1. Access the application using the following URL: `http://localhost:8080/sample-app/index.html`.
 
-2. Click **Login**. You will be redirected to the Asgardeo login page.
+2. Click **Login**. You will be redirected to the {{ product_name }} login page.
 
-    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![{{ product_name }} sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter credentials of your user account and click **Sign In**.
 

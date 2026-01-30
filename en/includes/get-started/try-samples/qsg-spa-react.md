@@ -1,6 +1,6 @@
-# Sample JavaScript SPA
+# Sample React SPA
 
-By following this guide, you will be able to deploy a Javascript single-page application locally and secure it with OpenID Connect.
+By following this guide, you will be able to deploy a React single-page application (SPA) locally and secure it with OpenID Connect.
 
 ## Prerequisites
 
@@ -8,17 +8,17 @@ By following this guide, you will be able to deploy a Javascript single-page app
 
     If you don't have it, [install npm and node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){target="_blank"} in your local environment.
 
-- **A user account in Asgardeo**
+- **A user account in the {{ product_name }}**
 
-    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in Asgardeo.
+    If you don't already have one, create a user account in the {{ product_name }}.
 
 ## Register the app
 
-Follow the steps given below to register the sample Javascript SPA in Asgardeo.
+Follow the steps given below to register the sample React SPA in the {{ product_name }}.
 
-1. On the [Asgardeo Console](https://console.asgardeo.io/login), go to **Applications**.
+1. On the {{ product_name }} Console, go to **Applications**.
 
-2. Click **New Application** and select **Single-Page Application**.
+2. Click **New Application** and select **Single-Page Application**
 
 3. Enter the following details:
 
@@ -32,7 +32,7 @@ Follow the steps given below to register the sample Javascript SPA in Asgardeo.
         <tr>
             <td>Authorized redirect URLs</td>
             <td>
-                <p>The URL to which the user is redirected after a successful login. Use the following URL for this sample app:</p>
+                <p>The URL to which the user is redirect to after a successful login. Use the following URL for this sample app:</p>
                 <code>https://localhost:3000</code>
             </td>
         </tr>
@@ -45,7 +45,7 @@ Follow the steps given below to register the sample Javascript SPA in Asgardeo.
 4. Click **Register** to complete the registration.
 5. Go to the **Protocol** tab and take note of the **Client ID**. You will need it to configure the application later.
 
-    ![Client ID]({{base_path}}/assets/img/guides/applications/spa-client-id.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Client ID](../../assets/img/guides/applications/spa-client-id.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! tip
     To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:3000</code>).
@@ -65,33 +65,37 @@ Click the button below to download the sample. You can also choose to view the s
 
 <div class="centered-container">
   <div class="border-text">
-    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/javascript-logo.svg" alt="JavaScript" width=50><br>
-    <a href="https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip" target="_blank">Download sample</a>
+    <img src="{{base_path}}/assets/img/logo/react-logo.svg" alt="React" width=50></br>
+    <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/download/v5.2.3/asgardeo-react-app.zip" target="_blank">Download sample</a>
   </div>
-
   <div class="border-text">
-   <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="GitHub" width=50>
-    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="GitHub" width=50><br>
-    <a href="https://github.com/asgardeo/asgardeo-auth-spa-sdk/tree/main/samples/asgardeo-html-js-app" target="_blank">View source</a>
+    <img src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="GitHub" width=50>
+    <img src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="GitHub" width=50>
+    </br>
+    <a href="https://github.com/asgardeo/asgardeo-auth-react-sdk/tree/main/samples/asgardeo-react-app" target="_blank">View source</a>
   </div>
 </div>
-
 
 ## Configure the sample
 
 Follow the steps given below to configure the sample app.
 
-1. Unzip the application folder and open the `index.html` file located at the root of the project in a text editor.
-2. Scroll down towards the end of the body and find the `<script>` tag with the `authConfig` object.
-3. Update the following in the `authConfig` object:
+1. Unzip the application folder.
 
-    ``` 
-    const authConfig = {
-        clientID: "{client ID}",
-        signInRedirectURL: "https://localhost:3000",
-        baseUrl: "https://api.asgardeo.io/t/{organization_name}",
-        scope: [ "profile" ]
-    };
+2. Go to the `asgardeo-react-app/src/` folder and open the `config.json` file in a text editor.
+
+3. Update the following in the `config.json` file:
+
+    ```json
+
+    {
+    "clientID": "{client ID}",
+    "baseUrl": "https://localhost:9443",
+    "signInRedirectURL": "https://localhost:3000",
+    "signOutRedirectURL": "https://localhost:3000",
+    "scope": [ "profile" ]
+    }
+
     ```
 
     <table>
@@ -107,7 +111,7 @@ Follow the steps given below to configure the sample app.
             <code>clientID</code>
         </td>
         <td>
-            The client id that you received when you registered the application in Asgardeo.
+            The client id that you received when you registered the application in the {{ product_name }}.
         </td>
       </tr>
       <tr>
@@ -115,8 +119,8 @@ Follow the steps given below to configure the sample app.
             <code>baseUrl</code>
         </td>
         <td>
-            <p>All authentication requests that the client application makes to Asgardeo will be appended to this base URL.:</p>
-            <code>https://api.asgardeo.io/t/{organization_name}</code>
+            <p>All authentication requests that the client application makes to the {{ product_name }} will be appended to this base URL.:</p>
+            <code>https://localhost:9443</code>
         </td>
       </tr>
       <tr>
@@ -126,7 +130,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <p>The list of OIDC scopes that are used for requesting user information. You can add OIDC scopes such as <code>profile</code> and <code>email</code> in a comma-separated list as follows: </p>
             <code>"scope": ["profile", "email"]</code>
-            <p>Learn more about [OIDC scopes in Asgardeo]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
+            <p>Learn more about [OIDC scopes in the {{ product_name }}]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
         </td>
       </tr>
     </tbody>
@@ -138,15 +142,15 @@ Follow the steps given below to run the sample.
 
 1. On your terminal, navigate to the **root** of the project and run the command given below to start the sample application:
 
-    ```bash 
+    ```bash
     npm install && npm start
     ```
 
 2. Once the app is successfully compiled, it is accessible at `https://localhost:3000`.
 
-3. Click **Login**. You will be redirected to the Asgardeo login page.
+3. Click **Login**. You will be redirected to the {{ product_name }} login page.
 
-    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Identity Server Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-is.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter the credentials of your user account and click **Sign In**.
 
