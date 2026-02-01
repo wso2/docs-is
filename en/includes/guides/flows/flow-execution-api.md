@@ -1,22 +1,15 @@
 # Use the Flow Execution API
 
-Use the Flow Execution API to run user journeys that you design in the Flow Builder of {{product_name}} directly from your client application. The API returns every step in the flow so that you can render the right experience without embedding the hosted Flow Runner UI.
+Use the Flow Execution API to run user journeys that you design in the Flow Builder of {{product_name}} directly from your client application. The API returns every step in the flow so that you can render the right experience instead of using the default portal.
 
 !!! info
-    The Flow Execution API is exposed at `{{base_path}}/api/server/v1/flow/execute`. This endpoint is open and does not require an authorization header. Always call it over HTTPS to safeguard the flow data exchanged.
-
-The API drives the flow in a loop:
-
-1. Start the flow by creating a new execution instance.
-2. Interpret the `type` in each response and guide the user through the required step.
-3. Post the user input or action result back to the same endpoint until the server returns `flowStatus: COMPLETE`.
+    The Flow Execution API is exposed at `{{api_base_path}}/api/server/v1/flow/execute`. This endpoint is open and does not require an authorization header. Always call it over HTTPS to safeguard the flow data exchanged.
 
 ## Before you begin
 
-- [Build and enable the flow]({{base_path}}/guides/flows/build-a-flow/) that you want to expose through your app.
-- Decide how your client persists the `flowId` between requests. Treat it as sensitive data because anyone with the `flowId` can continue the flow.
+- [Enable and build the flow]({{base_path}}/guides/flows/build-a-flow/) that you want to use in your app.
 
-## Start a flow execution
+## Start flow execution
 
 Call `POST /flow/execute` with the `flowType` of the flow that should be executed.
 
@@ -26,7 +19,7 @@ Call `POST /flow/execute` with the `flowType` of the flow that should be execute
     curl --location '{{api_base_path}}/flow/execute' \
     --header 'Content-Type: application/json' \
     --data '{
-      "flowType": "<Flow Type>"
+      "flowType": "<Flow_Type>"
     }'
     ```
 
@@ -40,7 +33,7 @@ Call `POST /flow/execute` with the `flowType` of the flow that should be execute
     }'
     ```
 
-The value for `flowType` must match a flow that is enabled in your tenant.
+The value for `flowType` must match a flow that is enabled in your organization.
 
 | `flowType` value | Description |
 |------------------|-------------|
@@ -103,120 +96,123 @@ The value for `flowType` must match a flow that is enabled in your tenant.
     ```
 
 - `flowId` uniquely identifies the execution instance. Persist it securely and include it in every subsequent call to the API.
-- `flowStatus` indicates the current status of the flow. Valid values are `INCOMPLETE` and `COMPLETE`.
-- `type` determines how your client should proceed. The `data` object contains the payload that is specific to the `type`.
-- `components` describe the UI blueprint for the step. See [Understand Flow Execution components]({{base_path}}/guides/flows/flow-execution-components/) for details.
+- `flowType` identifies the executing flow.
+- `flowStatus` indicates the current status of the flow, `INCOMPLETE` and `COMPLETE`.
+- `type` determines how your client should proceed.
+- `data` object contains the payload that is specific to the `type`.
 
 ### Response types
 
-| `type` | When you receive it | Expected client action | Typical data fields |
-|--------|---------------------|------------------------|---------------------|
-| `VIEW` | The server needs the user to interact with a UI form, list, or confirmation step. | Render the view described in `data.components`, capture user input, and send it back with the provided action identifier. | `components`, `requiredParams` |
-| `REDIRECTION` | A third-party system must complete part of the flow (for example, identity verification or payment). | Redirect the browser or web view to `data.url` and resume the flow from your callback endpoint. | `url` |
-| `WEBAUTHN` | The user must complete a WebAuthn ceremony. | Call `navigator.credentials.{create|get}` with the information in `data.publicKeyCredentialCreation` or `data.publicKeyCredentialRequest`, then submit the encoded response. | `publicKeyCredentialCreation` |
-| `INTERNAL_PROMPT` | The client app, not the end user, must respond. | Call the API with the requested parameters. | `requiredParams` |
+| `type` | Expected client action | Typical data fields |
+|--------|------------------------|---------------------|
+| `VIEW` | Render the view described in `data.components`, capture user input if any, and send it back with the provided action identifier. | `components`, `requiredParams` |
+| `REDIRECTION` | Redirect the browser or web view to `data.url` and resume the flow from your callback endpoint. | `url` |
+| `WEBAUTHN` | Initiate webAuthn ceremony with the information in `data.webAuthn`, then submit the encoded response. | `webAuthn` |
+| `INTERNAL_PROMPT` | Submit the requested parameters to server. | `requiredParams` |
 
 ## Continue a flow execution
 
-After executing the user action, call the same endpoint with the `flowId` and the data that corresponds to the step you just completed.
+After the client action, call the previous `execute` endpoint with the `flowId` and the data that corresponds to the step you just completed.
 
-### Submit a view
+### Handle View
 
 When the response `type` is `VIEW`, locate the component that exposes an `actionId` (for example, the primary button) and use that identifier when you submit the user's input.
 
-```bash
-curl --location '{{api_base_path}}/flow/execute' \
---header 'Content-Type: application/json' \
---data '{
+```json
+{
   "flowId": "c8e06de8-7123-44ac-8209-02be5b55387e",
-  "actionId": "submit-registration",
-  "params": {
+  "actionId": "button-a2f1",
+  "inputs": {
     "email": "sasha@example.com",
     "password": "MyP@ssw0rd!"
   }
-}'
+}
 ```
 
-- If the API returns validation `messages`, render them in your UI and prompt the user to correct the input before resubmitting.
+- If the API returns validations, render them in your UI and prompt the user to correct the input before resubmitting.
 
-### Resume after a redirect
+### Handle Redirection
 
-When you receive `type: "REDIRECTION"`:
+When you receive `type: "REDIRECTION"`, redirect the user agent to `data.url`.
 
-1. Redirect the user agent to `data.url`.
-2. Handle the callback at the `returnUrl` that you registered in Flow Builder. The callback contains the `flowId` (and any provider-specific data such as `code` or `state`).
-3. Call `/flow/execute` with the same `flowId`, the proper `actionId`, and the callback parameters in the `params` payload.
+If there's any callback, handle the callback and any provider-specific data such as `code` or `state`.
+
+Call `/flow/execute` with the same `flowId`, the proper `actionId`, and the callback parameters in the `inputs` payload.
 
 ```json
 {
   "flowId": "5f31ce20-872d-4334-8f9f-3572710dbc57",
-  "actionId": "federation-complete",
-  "params": {
+  "inputs": {
     "code": "4/0AfJohX...",
     "state": "g5kZMl"
   }
 }
 ```
 
-### Complete a WebAuthn ceremony
+### Handle WebAuthn
 
 For `type: "WEBAUTHN"`:
 
-1. Extract `data.publicKeyCredentialCreation`.
-2. Call the WebAuthn browser APIs.
-3. Base64url-encode the resulting credential and post it back in the `params` object under the key listed in `requiredParams`.
+1. Extract `data.webAuthn` which contains the challenge and other parameters. 
+2. Call the WebAuthn APIs.
+3. Base64url-encode the resulting credential and post it back in the `inputs` object under the key listed in `requiredParams`.
 
 ```json
 {
   "flowId": "5f31ce20-872d-4334-8f9f-3572710dbc57",
-  "actionId": "passkey-finish",
-  "params": {
+  "inputs": {
     "tokenResponse": "eyJpZCI6IjR..."
   }
 }
 ```
 
-### Handle internal prompts
+### Handle Internal Prompt
 
-For `type: "INTERNAL_PROMPT"`, inspect `data.requiredParams` to determine the values you must provide. This type is typically used for steps such as sending a magic link or triggering an action.
+For `type: "INTERNAL_PROMPT"`, inspect `data.requiredParams` to determine the parameters you must provide.
 
 ```json
 {
   "flowId": "5f31ce20-872d-4334-8f9f-3572710dbc57",
-  "actionId": "send-notification",
-  "params": {
-    "origin": "mobile-app",
-    "deviceId": "3e83f937-4ad0-4a67-a920-7e5af338c9ed"
+  "inputs": {
+    "origin": "example.com"
   }
 }
 ```
 
 ## Complete a flow
 
-The API signals the outcome in `flowStatus`.
-
-- `COMPLETE`: The flow finished successfully. The `data` object contains the outcome of the flow (for example, a `userId` or `resetTicket`). Use it to move the application forward.
-- `INCOMPLETE`: More steps remain. Continue looping.
+`COMPLETE` status indicates that the flow finished successfully.
 
 ```json
 {
   "flowId": "5f31ce20-872d-4334-8f9f-3572710dbc57",
   "flowStatus": "COMPLETE",
   "flowType": "REGISTRATION",
+  "data": {}
+}
+```
+
+### Auto login on flow completion
+
+If the auto login on flow completion is enabled, the completion response contains a `userAssertion` JWT in the `data` object. This can either be a `VIEW` type response or `REDIRECTION` type response based on the configuration.
+
+```json
+{
+  "flowId": "5f31ce20-872d-4334-8f9f-3572710dbc57",
+  "flowStatus": "COMPLETE",
+  "flowType": "VIEW",
   "data": {
-    "userId": "00d9b675-9da3-4fa6-9ef4-1a61ac6e9788"
+    "userAssertion": "<JWT_Token>"
   }
 }
 ```
 
-## Error handling and resilience
+This JWT user assertion along with a session data key can be used to authenticate the user.
 
-- Always guard the `flowId` and never log it in plain text.
-- Use exponential backoff for transient network errors. Do not retry requests that returned validation errors.
-- Capture the `messages` array and present it to the user for troubleshooting.
+!!! info
+    Authentication is successful only when the authentication methods configured in the flow meet the authentication requirements of the application.
+
 
 ## Next steps
 
-- Review the flow-specific guides for additional design examples: [Self-registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/), and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
-- Dive deeper into the response schema in [Understand Flow Execution components]({{base_path}}/guides/flows/flow-execution-components/).
-- If you need to embed the hosted UI instead of building your own components, see [Build a flow]({{base_path}}/guides/flows/build-a-flow/).
+- Dive deeper into the response schema in [Understand Flow Execution components]({{base_path}}/guides/flows/flow-execution-components/)
