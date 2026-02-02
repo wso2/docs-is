@@ -668,11 +668,13 @@ Content-Type: application/json
 !!! note
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
 
-## Custom authentication in App-native authentication flow
+{% if (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+## Custom authentication with app-native authentication
 
-You can configure custom authentication services in App-native authentication flows, which use an API-based mechanism for authentication instead of redirecting the user to a web browser.
+You can configure custom authentication services in app-native authentication flows, which authenticate users through API-based mechanisms instead of redirecting them to a web browser.
 
 !!! note
-    If you are not familiar with App-native authentication, please [refer here]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) to learn more.
+    Learn more about [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/)
 
-Refer to the [example scenario]({{base_path}}/references/app-native-authentication/#scenario-9-user-logs-in-with-service-based-custom-authentication) for detailed guidance on authenticating with custom authentication in app-native flow, including illustrative requests and responses. The scenario illustrates the behavior of custom authentication in a native flow as an `INTERNAL_PROMPT` type authenticator, including how the application handles data from the external service and proceeds through the authentication steps to ultimately obtain the authorization code.
+Refer to the [custom authentication-based app-native authentication flow]({{base_path}}/references/app-native-authentication/#scenario-9-user-logs-in-with-service-based-custom-authentication) for a detailed guidance on how to implement this.
+{% endif %}

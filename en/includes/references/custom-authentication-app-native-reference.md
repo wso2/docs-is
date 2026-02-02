@@ -1,5 +1,8 @@
 ### Scenario 9: User logs in with service based custom authentication
 
+!!! note
+    Learn more about [custom authentication]({{base_path}}/guides/service-extensions/in-flow-extensions/custom-authentication/)
+
 The application goes through the following steps to complete app-native authentication for a user logging in with service based custom authentication.
 
 - **Step 1**: Initiate the request with the `/authorize` endpoint.
@@ -53,7 +56,7 @@ The application goes through the following steps to complete app-native authenti
           ]
         }
         ```
-- **Step 2**: The application should interact with external service, and authenticate the user.  After it's complete, proceed with the next /authn request as outlined in the subsequent step.
+- **Step 2**: The application should interact with the external service, and authenticate the user.  After it's complete, proceed with the next /authn request as outlined in the subsequent step.
 
     !!! important
         Service-based custom authentication is categorized under the `INTERNAL_PROMPT` prompt type authenticator, which requires the application to explicitly trigger the authentication option for the user. The application is responsible for handling and processing the data received and invoking the external authenticator accordingly.
@@ -71,7 +74,7 @@ The application goes through the following steps to complete app-native authenti
         --data '{
           "flowId": "162b7547-e057-4c84-9237-1c7e69bdc122",
           "selectedAuthenticator": {
-            "authenticatorId": "Y3VzdG9tLWFiY19hdXRoZW50aWNhdG9y",
+            "authenticatorId": "Y3VzdG9tLWFiY19hdXRoZW50aWNhdG9y"
           }
         }'
         ```
