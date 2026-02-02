@@ -1,7 +1,7 @@
 mkdocs==1.5.3
 mkdocs-material==4.2.0
 markdown-include>=0.5.1
-pymdown-extensions==5.0.0
+pymdown-extensions==10.16.1
 mkdocs-redirects==1.0.0
 mkdocs-markdownextradata-plugin==0.2.5
 mkdocs-glightbox==0.3.4
