@@ -1,1 +1,1 @@
-{% include "../../../../../includes/guides/flows/flow-ai.md" %}
+{% include "../../../../includes/guides/flows/flow-ai.md" %}
