@@ -61,6 +61,36 @@ The `UserDropdown` component accepts all props from `BaseUserDropdown`, except `
 | `renderDropdown` | `function`                    | ❌       | Custom dropdown content renderer |
 | `onSignOut`      | `function`                    | ❌       | Callback after sign-out is triggered |
 
+### BaseUserDropdown props
+
+The `UserDropdown` component internally uses the `BaseUserDropdown` component and accepts all its props except `user` and `onManageProfile`, which are handled automatically. The following table lists all available props from `BaseUserDropdown`:
+
+| Prop                  | Type                      | Required | Description |
+|-----------------------|---------------------------|----------|-------------|
+| `attributeMapping`    | `object`                  | ❌       | Mapping of component attribute names to identity provider field names. Supports `firstName`, `lastName`, `picture`, and `username` fields |
+| `avatarSize`          | `number`                  | ❌       | Size of the avatar in pixels |
+| `className`           | `string`                  | ❌       | CSS class name for the dropdown container |
+| `fallback`            | `ReactElement`            | ❌       | Element to render when no user is signed in |
+| `isLoading`           | `boolean`                 | ❌       | Whether the user data is currently loading. Automatically managed by `UserDropdown` |
+| `menuItems`           | `MenuItem[]`              | ❌       | Menu items to display in the dropdown |
+| `onManageProfile`     | `function`                | ❌       | Callback function for manage profile action. Automatically managed by `UserDropdown` |
+| `onSignOut`           | `function`                | ❌       | Callback function for sign out action |
+| `portalId`            | `string`                  | ❌       | The HTML element ID where the portal should be mounted |
+| `showDropdownHeader`  | `boolean`                 | ❌       | Show dropdown header with user information |
+| `showTriggerLabel`    | `boolean`                 | ❌       | Show user's display name next to avatar in the trigger button |
+| `user`                | `object`                  | ✅       | The user object containing profile information. Automatically provided by `UserDropdown` |
+
+#### MenuItem interface
+
+Each menu item in the `menuItems` array can have the following properties:
+
+| Property  | Type          | Required | Description |
+|-----------|---------------|----------|-------------|
+| `label`   | `ReactNode`   | ✅       | The label to display for the menu item |
+| `onClick` | `function`    | ❌       | Callback function when the menu item is clicked |
+| `href`    | `string`      | ❌       | URL to navigate to when the menu item is clicked |
+| `icon`    | `ReactNode`   | ❌       | Icon to display next to the label |
+
 ## Customization
 
 The `UserDropdown` component is designed for easy customization to fit your application's design system.
