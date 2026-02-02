@@ -623,6 +623,7 @@ nav:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
         - Manage users: guides/users/manage-users.md
+        - Manage federated user associations: guides/users/manage-federated-user-associations.md
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
