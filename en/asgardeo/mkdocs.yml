@@ -686,6 +686,7 @@ nav:
       - Role management: 
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
+      - User credential management API: apis/end-user-credential-management-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -731,6 +732,7 @@ nav:
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
       - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
+      - User credential management API: apis/organization-apis/end-user-credential-management-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
