@@ -318,14 +318,16 @@ The diagram below illustrates the device flow.
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/device_authorize \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "client_id=<CLIENT_ID>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
         curl -v -k -X POST {{base_url_example}}/oauth2/device_authorize \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga"
         ```
@@ -356,16 +358,18 @@ The diagram below illustrates the device flow.
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=<CLIENT_ID>" \
         --data-urlencode "device_code=<DEVICE_CODE>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
