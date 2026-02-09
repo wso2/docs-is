@@ -246,12 +246,22 @@ nav:
         - Complete Guide: complete-guides/dotnet/introduction.md
       - Spring Boot:
         - Quickstart: quick-starts/springboot.md
+    - Try for a sample app:
+      - Try for a sample app: get-started/try-samples/index.md
+      - Single Page apps:
+        - React: get-started/try-samples/qsg-spa-react.md
+        - JavaScript: get-started/try-samples/qsg-spa-javascript.md
+      - Web apps:
+        - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+        - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+        - WS-Federation: get-started/try-samples/ws-federation-webapp.md
     - Secure MCP Servers:
         - TypeScript: quick-starts/mcp-auth-server.md
         - Python: quick-starts/mcp-auth-server-py.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
     - Secure Your AI Agents:
         - Python: quick-starts/agent-auth-py.md
+    
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
@@ -462,6 +472,7 @@ nav:
         - Self Registration: guides/flows/self-registration.md
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
+        - Flow AI: guides/flows/flow-ai.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -675,6 +686,7 @@ nav:
       - Role management: 
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
+      - User credential management API: apis/end-user-credential-management-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -720,6 +732,7 @@ nav:
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
       - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
+      - User credential management API: apis/organization-apis/end-user-credential-management-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md

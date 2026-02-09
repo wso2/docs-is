@@ -25,4 +25,3 @@ template: templates/no-right-sidebar.html
     </a>
   </div>
 </div>
-
