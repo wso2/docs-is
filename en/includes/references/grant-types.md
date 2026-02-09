@@ -2,7 +2,7 @@
 
 Grant types in OAuth 2.0 are defined as the methods used by a client to obtain an access token from the identity provider. {{product_name}} supports the following grant types. Each grant type is designed for a specific use case and supports different parameters.
 
-#### OAuth 2.0 grants
+**OAuth 2.0 grants**
 
 - [Authorization code grant](#authorization-code-grant)
 - [Refresh token grant](#refresh-token-grant)
@@ -63,6 +63,7 @@ The following diagram shows how the authorization code flow works.
     ``` bash
     https://localhost:3000?code=9142d4cad58c66d0a5edfad8952192
     ```
+
 6. The client application uses this authorization code to request an access token from {{ product_name }} (back channel).
 
     === "Request format (/token)"
@@ -128,7 +129,7 @@ The following diagram shows how the refresh token flow works.
         --data-urlencode "grant_type=refresh_token" \
         --data-urlencode "refresh_token=<REFRESH_TOKEN>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -171,7 +172,7 @@ The following diagram shows how the client credentials grant flow works.
         --data-urlencode "grant_type=client_credentials" \
         --data-urlencode "scope=<scopes>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -272,7 +273,7 @@ The following diagram shows how the password grant flow works.
         --data-urlencode "scope=<scopes>"
 
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -305,7 +306,7 @@ The following diagram shows how the password grant flow works.
 
 ## Device authorization grant
 
-[Device authorization grant](https://datatracker.ietf.org/doc/html/rfc8628) (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser. 
+[Device authorization grant](https://datatracker.ietf.org/doc/html/rfc8628) (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser.
 Such devices include smart TVs, printers, and gaming consoles. The device flow does not require two-way communication between the OAuth client and the device. Instead, it guides the end user to another device, such as a smartphone, to complete the sign-in process.
 
 The diagram below illustrates the device flow.
@@ -498,7 +499,7 @@ The following diagram shows how the token exchange grant flow works.
         --data-urlencode "assertion=<base64-URL_encoded_assertion>" \
         --data-urlencode "scope=<scopes>" \
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
