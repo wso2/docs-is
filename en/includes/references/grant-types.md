@@ -193,7 +193,7 @@ The following diagram shows how the client credentials grant flow works.
     "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
-    
+
 3. The client application can now request for resources by providing the access token.
 
 4. The resource server returns the requested resources to the client application.
