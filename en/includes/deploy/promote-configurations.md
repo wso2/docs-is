@@ -111,7 +111,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
 
 3. Open a terminal and create an alias (depending on your platform):
 
-    === "Linux/Mac"
+    === "Linux/macOS"
         ```bash
         alias iamctl="<IAM-CTL-PATH>/bin/iamctl"
         ```

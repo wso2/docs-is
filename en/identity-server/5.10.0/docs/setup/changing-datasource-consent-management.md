@@ -1,16 +1,16 @@
 # Changing the Default Datasource for Consent Management
 
-WSO2 Identity Server is shipped with an embedded H2 database for storing data. 
-These default databases are located in the `<IS_HOME>/repository/database` directory 
+WSO2 Identity Server is shipped with an embedded H2 database for storing data.  
+These default databases are located in the `<IS_HOME>/repository/database` directory  
 of the product pack.
 
-By default Consent Management data is stored in the identity database (IDENTITY_DB) with 
-Identity and UMA data. However, you can separate consent specific data into a separate 
+By default Consent Management data is stored in the identity database (IDENTITY_DB) with  
+Identity and UMA data. However, you can separate consent specific data into a separate  
 data-source to any database type that is supported by WSO2 Identity Server.
 
 !!! note
-    For more information about databases, see 
-    [Working with Databases](../../setup/working-with-databases) and 
+    For more information about databases, see  
+    [Working with Databases](../../setup/working-with-databases) and  
     [Setting Up Separate Databases for Clustering](../../setup/setting-up-separate-databases-for-clustering).
 
 Following are the sample configuration for each database type.
@@ -26,13 +26,13 @@ Following are the sample configuration for each database type.
         driver = "org.postgresql.Driver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/postgresql.sql`
+          - `<IS_HOME>/dbscripts/consent/postgresql.sql`
           
 ??? Example "MySQL"
     1. deployment.toml Configurations.
@@ -45,13 +45,13 @@ Following are the sample configuration for each database type.
         driver = "com.mysql.jdbc.Driver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/mysql.sql`
+          - `<IS_HOME>/dbscripts/consent/mysql.sql`
 
 ??? Example "DB2"
     1. deployment.toml Configurations.
@@ -64,13 +64,13 @@ Following are the sample configuration for each database type.
         driver = "com.ibm.db2.jcc.DB2Driver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/db2.sql`
+          - `<IS_HOME>/dbscripts/consent/db2.sql`
 
 ??? Example "MSSQL"
     1. deployment.toml Configurations.
@@ -83,13 +83,13 @@ Following are the sample configuration for each database type.
         driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/mssql.sql`
+          - `<IS_HOME>/dbscripts/consent/mssql.sql`
 
 ??? Example "Oracle"
     1. deployment.toml Configurations.
@@ -102,13 +102,13 @@ Following are the sample configuration for each database type.
         driver = "oracle.jdbc.OracleDriver"
         jmx_enable=false
         ```
-        
+
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against 
         the created database.    
             
-          - `<IS-HOME>/dbscripts/consent/oracle.sql`
+          - `<IS_HOME>/dbscripts/consent/oracle.sql`
 
 
 **Advanced Database Configurations**
@@ -226,7 +226,7 @@ as a single transaction.</p>
 
 
 Once when we separate out consent database from `WSO2IdentityDB`, we need to add the 
-following configuration to the `deployement.toml` to specify WSO2 Identity Server to 
+following configuration to the `deployment.toml` to specify WSO2 Identity Server to 
 use a separate data-source instead of default `IDENTITY_DB`.
 
 ```
@@ -259,4 +259,4 @@ data_source="jdbc/WSO2CONSENT_DB"
     
     [authentication.consent]
     data_source="jdbc/WSO2CONSENT_DB"
-    ``` 
+    ```

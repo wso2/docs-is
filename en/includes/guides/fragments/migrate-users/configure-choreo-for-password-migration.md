@@ -32,7 +32,7 @@ In this section, we will develop an authentication service that will communicate
 
         We highly recommend adding sufficient logging when developing the REST service. However, ensure no sensitive information or Personally Identifiable Information (PII) are included in the logs.
 
-3. Commit your changes and push the code to your remote Github repository.
+3. Commit your changes and push the code to your remote GitHub repository.
 
 ### Step 2: Create and deploy the RESTful service in Choreo
 
@@ -66,9 +66,9 @@ We will now deploy the developed authentication service in [Choreo](https://wso2
 
 5. Enter a name and description for your service.
 
-6. Click **Authorize with Github** and connect the relevant organization, repository and the branch for the developed authentication service in step 1.
+6. Click **Authorize with GitHub** and connect the relevant organization, repository and the branch for the developed authentication service in step 1.
 
-7. Select **Ballerina** to be the buildpack and select the Ballerina project directory from your Github repository.
+7. Select **Ballerina** to be the buildpack and select the Ballerina project directory from your GitHub repository.
 
     ![Enter details of the service component]({{base_path}}/assets/img/guides/users/migrate-users/service-details.png)
 

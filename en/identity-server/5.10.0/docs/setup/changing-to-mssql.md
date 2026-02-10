@@ -23,7 +23,7 @@ After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or
 
 **Minimum Configurations for changing default datasource to MS SQL.**
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -75,11 +75,11 @@ Following are the basic configurations and their descriptions.
        
        2. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/mssql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/mssql.sql`
-           - `<IS-HOME>/dbscripts/consent/mssql.sql`
+           - `<IS_HOME>/dbscripts/identity/mssql.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/mssql.sql`
+           - `<IS_HOME>/dbscripts/consent/mssql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -97,9 +97,9 @@ Following are the basic configurations and their descriptions.
            
        2. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/mssql.sql`
+           - `<IS_HOME>/dbscripts/mssql.sql`
            
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
@@ -198,7 +198,7 @@ However, if required, you can disable the latter mentioned default behavior by d
 **Configure the connection pool to commit pending transactions on connection return** 
         
   1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS:
+        -   On Linux/macOS:
             `                 <IS_HOME>/bin/wso2server.sh/                `
         -   On Windows:
             `                 <IS_HOME>\bin\wso2server.bat                `

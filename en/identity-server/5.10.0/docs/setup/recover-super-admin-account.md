@@ -22,7 +22,7 @@ create_admin_account = true
 
 For your new configurations to apply, restart WSO2 Identity Server using the appropriate command.
 
-    -   On Linux/Mac OS:`sh wso2server.sh`
+    -   On Linux/macOS:`sh wso2server.sh`
     -   On Windows:`wso2server.bat`
 
 ## Step 3: Manage the old super admin user account

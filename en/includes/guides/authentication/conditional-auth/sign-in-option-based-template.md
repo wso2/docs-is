@@ -66,7 +66,7 @@ Follow the steps given below.
                 <td>Parameter to define the sign-in option to which the second authentication step should apply. It can be configured as follows:
                     <ul>
                     <li>For basic authentication using username and password use <code>LOCAL</code> as the parameter value.</li>
-                    <li>For federated IdPs use the name of the IdP as the parameter value (Ex: <code>Facebook</code>, <code>Google</code>, <code>Github</code>).</li>
+                    <li>For federated IdPs use the name of the IdP as the parameter value (Ex: <code>Facebook</code>, <code>Google</code>, <code>GitHub</code>).</li>
                     </ul>
                 </td>
             </tr>

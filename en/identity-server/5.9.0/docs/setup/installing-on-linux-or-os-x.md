@@ -1,4 +1,4 @@
-# Installing on Linux or OS X
+# Installing on Linux or macOS
 
 !!! tip "Before you begin"
     See the [environment compatibility](../../setup/environment-compatibility)
@@ -6,11 +6,11 @@
     
 
 Follow the instructions below to install WSO2 Identity Server on Linux
-or Mac OS X.
+or macOS.
 
 ### Installing the required applications
 
-1.  Log in to the command line (Terminal on Mac).
+1.  Log in to the command line (Terminal on macOS).
 
 2.  Ensure that your system meets the [Installation Prerequisites](../../setup/installation-prerequisites).  Java Development Kit
     (JDK) is essential to run the product.
@@ -25,7 +25,7 @@ or Mac OS X.
 
     !!! warning
     
-        If you are using Mac OS with High Sierra, you may encounter the
+        If you are using macOS High Sierra, you may encounter the
         following warning message when logging in to the management console
         due to a compression issue that exists in the High Sierra SDK.
     
@@ -59,7 +59,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     Environment variables are global system variables accessible by all the processes running under the operating system.
 
 1.  In your home directory, open the BASHRC file (.bash\_profile file 
-    on Mac) using editors such as vi, emacs, pico, or mcedit.
+    on macOS) using editors such as vi, emacs, pico, or mcedit.
 2.  Assuming you have JDK 1.8.0\_141 in your system, add the following
     two lines at the bottom of the file, replacing
     `           /usr/java/jdk1.8.0_141          ` with the actual
@@ -70,7 +70,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     export JAVA_HOME=/usr/java/jdk1.8.0_141
     export PATH=${JAVA_HOME}/bin:${PATH}
      
-    On OS X:
+    On macOS:
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141/Contents/Home
     ```
 
@@ -86,7 +86,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java based program
     On Linux:
     echo $JAVA_HOME
          
-    On OS X:
+    On macOS:
     which java
 
     If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:

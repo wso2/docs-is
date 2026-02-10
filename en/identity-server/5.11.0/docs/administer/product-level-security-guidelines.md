@@ -118,7 +118,7 @@ Before starting the server:
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    ``` bash tab="Linux/Mac OS"
+    ``` bash tab="Linux/macOS"
     wso2server.sh
     ```
 
@@ -138,7 +138,7 @@ Before starting the server:
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    ``` bash tab="Linux/Mac OS"
+    ``` bash tab="Linux/macOS"
     wso2server.sh
     ```
 
@@ -167,7 +167,7 @@ To enable hostname verification:
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    ``` bash tab="Linux/Mac OS"
+    ``` bash tab="Linux/macOS"
     wso2server.sh
     ```
 
@@ -358,4 +358,20 @@ When configuring intermediate certificate validation for REST APIs, it is recomm
 !!! info
 
     For more information, see the instructions on [configuring intermediate certificate validation](../../develop/authenticating-and-authorizing-rest-apis/#configure-intermediate-certificate-validation). 
-    
+
+## Prevent accepting sensitive data as query parameters in API requests
+
+By default, WSO2 Identity Server accepts sensitive user credentials (such as `username`, `password`, `client_secret`) as form parameters in the request body when calling token endpoints. However, a misconfigured application can send these sensitive parameters as part of the URL's query string and expose this data in server access logs.
+
+To mitigate this security risk, you can configure WSO2 Identity Server to reject requests that contain sensitive data in query parameters of specific endpoints. To do so, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+```
+[request_parameters]
+allow_sensitive_data_in_url=false
+```
+
+When set to `false`, the server will reject requests with sensitive data with an HTTP 400 Bad Request error.
+
+!!! info
+
+    This feature is available from **5.11.0.359** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/). It is recommended to apply this configuration as part of your secure production deployment.

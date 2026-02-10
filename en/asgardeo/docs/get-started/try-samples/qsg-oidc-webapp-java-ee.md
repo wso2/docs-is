@@ -68,12 +68,13 @@ Click the button below to download the sample. You can also choose to view the s
 
 <div class="centered-container">
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50><br>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50><br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war" target="_blank">Download sample</a>
   </div>
 
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="Github" width=50><br>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="GitHub" width=50>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="GitHub" width=50><br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/tree/master/io.asgardeo.tomcat.oidc.sample" target="_blank">View source</a>
   </div>
 </div>
@@ -82,9 +83,9 @@ Click the button below to download the sample. You can also choose to view the s
 
 Follow the steps given below to configure the sample app.
 
-1. Move the  **war** file that you downloaded to the `{TOMCAT_HOME}/webapps` folder where `{TOMCAT_HOME}` is the home directory of your Tomcat server.
+1. Move the  **war** file that you downloaded to the `<TOMCAT_HOME>/webapps` folder where `<TOMCAT_HOME>` is the home directory of your Tomcat server.
   
-2. Open a terminal, navigate to the `{TOMCAT_HOME}/bin` folder, and start the Tomcat server using the following command:
+2. Open a terminal, navigate to the `<TOMCAT_HOME>/bin` folder, and start the Tomcat server using the following command:
 
     ```bash 
     sh catalina.sh start
@@ -94,7 +95,7 @@ Follow the steps given below to configure the sample app.
         This will extract the contents of the **war** file. </br>
         If your Tomcat server is set to auto-deploy applications, you can skip this step.
 
-3. Go to the `{TOMCAT_HOME}/webapps/oidc-sample-app/WEB-INF/classes` folder and open the `oidc-sample-app.properties` file in a text editor.
+3. Go to the `<TOMCAT_HOME>/webapps/oidc-sample-app/WEB-INF/classes` folder and open the `oidc-sample-app.properties` file in a text editor.
 4. Update the following in the `oidc-sample-app.properties` file:
 
     ``` json
@@ -188,7 +189,7 @@ Follow the steps given below to configure the sample app.
     </tr>
     </table>
 
-5. On your terminal, navigate to the `{TOMCAT_HOME}/bin` folder and run the following commands to restart the Tomcat server for the configurations to take effect:
+5. On your terminal, navigate to the `<TOMCAT_HOME>/bin` folder and run the following commands to restart the Tomcat server for the configurations to take effect:
 
     ```bash 
     sh catalina.sh stop

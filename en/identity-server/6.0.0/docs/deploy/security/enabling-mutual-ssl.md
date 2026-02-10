@@ -15,9 +15,9 @@ they are `jks` files. Let's take a look at where the
 JKS files are saved:
 
 -   WSO2 Identity Server certificates are stored in the
-    `<IS-HOME>/repository/resources/security/wso2carbon.jks` file.
+    `<IS_HOME>/repository/resources/security/wso2carbon.jks` file.
 -   Server side certificates are stored in the
-    `<IS-HOME>/repository/resources/security/clienttruststore.jks` file.
+    `<IS_HOME>/repository/resources/security/clienttruststore.jks` file.
 
 These certificates are signed and issued by a certificate authority that
 allows both the client and server to communicate freely. Now let's look

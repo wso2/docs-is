@@ -20,9 +20,7 @@ INHERIT: ../is_common.yml
 site_url: https://is.docs.wso2.com/en/7.0.0
 
 # Repository
-repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is
-edit_uri: edit/master/en/identity-server/7.0.0/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/7.0.0/docs/
 
 extra:
   base_path: /en/7.0.0
@@ -84,7 +82,7 @@ extra:
           - title: Secure
             url:
           - title: Deploy
-            url: Setup|Deploy|Deployment patterns
+            url: Setup|Deploy|Deployment overview|Deployment Patterns
           - title: Monitor
             url: Setup|Monitor|Monitor
           - title: Upgrade WSO2 Identity Server
@@ -354,13 +352,11 @@ plugins:
         'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md.md'
         'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
         'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
-        'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
         'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
 
         'references/concepts/compliance/compliance.md': 'deploy/compliance/index.md'
         'references/concepts/compliance/accessibility-compliance-wso2-is.md': 'deploy/compliance/index.md'
         'references/concepts/compliance/gdpr.md': 'deploy/compliance/gdpr.md'
-        'references/concepts/compliance/eidas.md': 'deploy/compliance/eidas.md'
         'references/concepts/compliance/ccpa.md': 'deploy/compliance/ccpa.md'
 
         'references/references-overview.md': 'references/index.md'
@@ -436,6 +432,7 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/use-the-dynamic-client-registration-rest-apis.md' : 'apis/dynamic-client-registration-rest-api.md'
+        'guides/users/attributes/manage-attributes.md': 'guides/users/attributes/user-attributes/manage-attributes.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
@@ -475,8 +472,16 @@ nav:
       - Angular Quickstart: quick-starts/angular.md
       - Next.js Quickstart: quick-starts/nextjs.md
       - Spring Boot Quickstart: quick-starts/springboot.md
+    - Try for a sample app:
+      - Try for a sample app: get-started/try-samples/index.md
+      - Single Page apps:
+        - React: get-started/try-samples/qsg-spa-react.md
+        - JavaScript: get-started/try-samples/qsg-spa-javascript.md
+      - Web apps:
+        - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+        - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+        - WS-Federation: get-started/try-samples/ws-federation-webapp.md
     - About this release: get-started/about-this-release.md
-  - Try for a sample app: get-started/try-samples/index.md
   - Guides:
       - Guides: guides/index.md
       - Applications:
@@ -517,7 +522,7 @@ nav:
               - Add social login: guides/authentication/social-login/index.md
               - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
               - Add Google login: guides/authentication/social-login/add-google-login.md
-              - Add Github login: guides/authentication/social-login/add-github-login.md
+              - Add GitHub login: guides/authentication/social-login/add-github-login.md
               - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
               - Add Apple login: guides/authentication/social-login/add-apple-login.md
               - Add X login: guides/authentication/social-login/add-x-login.md
@@ -769,6 +774,7 @@ nav:
           - Data Purging: deploy/configure/databases/data-purging.md
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
+        - Cookie consent banner: deploy/configure/cookie-consent-banner.md
         - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
         - Email sending module : deploy/configure/email-sending-module.md
       - Secure:
@@ -818,29 +824,31 @@ nav:
             - Manage keystores: deploy/security/keystores/configure-keystores.md
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
       - Deploy:
-        - Deployment patterns: deploy/deployment-guide.md
-        - Deployment checklist: deploy/deployment-checklist.md
-        - Deploy in Kuberenetes: deploy/deploy-is-on-kubernetes.md
-        - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
-        - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
-        - Change the hostname: deploy/change-the-hostname.md
-        - Enable adaptive authentication: deploy/enable-adaptive-authentication.md
-        - Configure Hazelcast: deploy/configure-hazelcast.md
-        - Backup and recovery recommendations: deploy/backup-and-recovery-recommendations.md
-        - Troubleshoot in production environments: deploy/monitor/troubleshoot-in-production-environments.md
-        - Performance:
-          - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
-          - Configure cache layers: deploy/performance/configure-cache-layers.md
-        - Environment compatibility: deploy/environment-compatibility.md
-        - Promote configurations across environments: deploy/promote-configurations.md
-        - Disaster recovery:
-          - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
-          - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
-          - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+        - Deployment overview:
+          - Deployment Patterns: deploy/deployment-guide.md
+          - Deployment Checklist: deploy/deployment-checklist.md
+          - Product Compatibility: deploy/product-compatibility.md
+          - Change the Hostname: deploy/change-the-hostname.md
+          - Promote Configurations Across Environments: deploy/promote-configurations.md
+        - High Availability (HA) and clustering:
+          - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
+          - Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
+          - Configure Hazelcast: deploy/configure-hazelcast.md
+        - Containerized deployments:
+          - Kubernetes: deploy/deploy-is-on-kubernetes.md
+        - Performance and scaling:
+          - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
+          - Configure Cache Layers: deploy/performance/configure-cache-layers.md
+        - Multi-data center deployments (Disaster Recovery):
+          - Understanding Disaster Recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
+          - Deployment Patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
+          - Additional Reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+        - Maintenance and troubleshooting in Production:
+          - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
+          - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
       - Compliance:
           - Compliance: deploy/compliance/index.md
           - GDPR: deploy/compliance/gdpr.md
-          - eIDAS: deploy/compliance/eidas.md
           - CCPA: deploy/compliance/ccpa.md
           - FIPS: deploy/compliance/fips.md
           - FAPI: deploy/compliance/fapi.md
@@ -855,6 +863,7 @@ nav:
         - Monitor logs:
           - Overview: deploy/monitor/monitor-logs.md
           - HTTP access logs: deploy/monitor/http-access-logging.md
+          - OAuth transaction logs: deploy/monitor/oauth-transaction-logs.md
           - Remote log publishing: deploy/monitor/remote-log-publishing.md
           - Mask sensitive info:
             - Overview: deploy/monitor/mask-sensitive-information-in-logs.md
@@ -932,6 +941,19 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+  - Connectors:
+    - Connectors: connectors/index.md
+    - Sift:
+      - Overview: connectors/sift/overview.md
+      - Set up: connectors/sift/set-up.md
+      - Usage: connectors/sift/usage.md
+      - Reference: connectors/sift/reference.md
+    - Onfido:
+      - Overview: connectors/onfido/overview.md
+      - Set up: connectors/onfido/set-up.md
+      - Usage: connectors/onfido/usage.md
+      - Reference: connectors/onfido/reference.md
+      - Try it: connectors/onfido/try-it.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:

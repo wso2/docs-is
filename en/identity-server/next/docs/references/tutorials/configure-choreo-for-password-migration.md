@@ -10,7 +10,7 @@
 Before you begin, ensure the following are fulfilled.
 
 - Ensure your legacy IdP provides means to perform basic user authentication (i.e. username and password authentication). For example, a SCIM2/Me REST API endpoint that could be authenticated with username and password.
-- You need to have a Github repository to host the authentication service.
+- You need to have a GitHub repository to host the authentication service.
 - Download [Ballerina](https://ballerina.io/downloads/){target="_blank"}, the programming language used to define the external authentication service.
 
 {% include "../../../../../includes/guides/fragments/migrate-users/configure-choreo-for-password-migration.md" %}

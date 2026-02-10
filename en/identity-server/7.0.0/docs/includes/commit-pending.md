@@ -1,6 +1,6 @@
 1.	Navigate to either one of the following locations based on your OS.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
 		``` json 
 		<IS_HOME>/bin/wso2server.sh/
 		```

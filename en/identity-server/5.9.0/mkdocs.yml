@@ -567,7 +567,7 @@ nav:
       - 'Installing the Product': 
         - 'Installing the Product': setup/installing-the-product.md
         - 'Installation Prerequisites': setup/installation-prerequisites.md
-        - 'Installing on Linux or OS X': setup/installing-on-linux-or-os-x.md
+        - 'Installing on Linux or macOS': setup/installing-on-linux-or-os-x.md
         - 'Installing on Solaris': setup/installing-on-solaris.md
         - 'Installing on Windows': setup/installing-on-windows.md
         - 'Installing as a Linux Service': setup/installing-as-a-linux-service.md

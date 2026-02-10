@@ -20,6 +20,7 @@ INHERIT: ../base.yml
 site_name: &site_name Asgardeo
 site_description: Asgardeo Learning Center
 site_url: https://wso2.com/asgardeo/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/asgardeo/docs/
 
 # Configuration
 theme:
@@ -123,6 +124,19 @@ plugins:
       lang: ['en']
   - markdownextradata: {}
   - include-markdown
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - skip-glightbox
+      auto_caption: false
+      caption_position: bottom
   - redirects:
       redirect_maps:
         'references/grant-types-in-asgardeo.md': 'references/grant-types.md'
@@ -167,6 +181,10 @@ plugins:
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
         'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
+        'guides/user-self-service/self-register-flow.md': 'guides/flows/build-a-flow.md'
+        'guides/users/attributes/manage-attributes.md': 'guides/users/attributes/user-attributes/manage-attributes.md'
+
+        
 
 exclude_docs: |
   /get-started/hello-world.md
@@ -228,9 +246,22 @@ nav:
         - Complete Guide: complete-guides/dotnet/introduction.md
       - Spring Boot:
         - Quickstart: quick-starts/springboot.md
+    - Try for a sample app:
+      - Try for a sample app: get-started/try-samples/index.md
+      - Single Page apps:
+        - React: get-started/try-samples/qsg-spa-react.md
+        - JavaScript: get-started/try-samples/qsg-spa-javascript.md
+      - Web apps:
+        - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+        - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+        - WS-Federation: get-started/try-samples/ws-federation-webapp.md
     - Secure MCP Servers:
         - TypeScript: quick-starts/mcp-auth-server.md
+        - Python: quick-starts/mcp-auth-server-py.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
+    - Secure Your AI Agents:
+        - Python: quick-starts/agent-auth-py.md
+    
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
   #   - Style login flow: guides/branding/branding-ai.md
@@ -280,7 +311,7 @@ nav:
             - Add social login:
               - Add social login: guides/authentication/social-login/index.md
               - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
-              - Add Github login: guides/authentication/social-login/add-github-login.md
+              - Add GitHub login: guides/authentication/social-login/add-github-login.md
               - Add Google login: guides/authentication/social-login/add-google-login.md
               - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
               - Add Apple login: guides/authentication/social-login/add-apple-login.md
@@ -342,11 +373,13 @@ nav:
               - Hybrid flow: guides/authentication/oidc/implement-oidc-hybrid-flow.md
               - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
-              - Device authorization flow: guides/authentication/oidc/implement-device-flow.md
+            - Grant types:
+              - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Tokens and validation:
               - Validate tokens at a resource server: guides/authentication/oidc/token-validation-resource-server.md
+              - Validate JWT with JWKS: guides/authentication/oidc/validate-jwt-with-jwks.md
               - Validate ID tokens: guides/authentication/oidc/validate-id-tokens.md
               - Encrypt ID tokens: 
                 - Encrypt and decrypt ID tokens: guides/authentication/oidc/encrypt-decrypt-id-tokens.md
@@ -361,6 +394,7 @@ nav:
             - Configure SAML flows: guides/authentication/saml/index.md
             - Discover SAML endpoints and settings: guides/authentication/saml/discover-saml-configs.md
             - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
+            - SAML back-channel logout: guides/authentication/saml/saml-back-channel-logout.md
           - Configure Just-in-Time user provisioning: guides/authentication/jit-user-provisioning.md
       - Authorization:
         - Authorization: guides/authorization/index.md
@@ -438,6 +472,7 @@ nav:
         - Self Registration: guides/flows/self-registration.md
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
+        - Flow AI: guides/flows/flow-ai.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
         - Self-service portal:
@@ -475,8 +510,12 @@ nav:
         - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
         - Inheritance in organizations:
             - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
-            - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
-            - Email and SMS templates inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+            - Login & registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
+            - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
+            - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+            - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
+            - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
+            - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
         - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
@@ -624,6 +663,7 @@ nav:
     - APIs - Overview: apis/index.md
     - Management APIs:
       - Action Management API: apis/action-management-rest-api.md
+      - Agent Management API: apis/scim2-agents-rest-apis.md
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
       - App-native authentication API: apis/app-native-authentication-api.md
@@ -646,6 +686,7 @@ nav:
       - Role management: 
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
+      - User credential management API: apis/end-user-credential-management-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -691,6 +732,7 @@ nav:
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
       - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
+      - User credential management API: apis/organization-apis/end-user-credential-management-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
@@ -730,7 +772,6 @@ nav:
       - Conditional auth - API: references/conditional-auth/api-reference.md
     - Remote agent properties: references/remote-user-store/remote-user-store-properties.md
     - Authorization policies for apps: references/authorization-policies-for-apps.md
-    - Configure Cross Origin Resource Sharing (CORS): references/configure-cors.md
     - Email templates: references/email-templates.md
     - SMS templates: references/sms-templates.md
     - Service extensions:

@@ -80,7 +80,7 @@ Follow the steps below to enable product observability.
     to `           true          `, execute the following command.
 
     ``` java
-        For Mac/Linux   --> sh wso2server.sh -DenableCorrelationLogs=true start
+        For macOS/Linux   --> sh wso2server.sh -DenableCorrelationLogs=true start
         For Windows     --> wso2server.bat -DenableCorrelationLogs=true start
     ```
 
@@ -210,7 +210,7 @@ Follow the steps below to configure thread denylisting.
 
 1.  Open either of the following files in the
     `          <IS_HOME>/bin         ` directory on a command prompt.
-    1.  For Mac/Linux: `            wso2server.sh           ` file
+    1.  For macOS/Linux: `            wso2server.sh           ` file
     2.  For Windows: `            wso2server.bat           ` file
 2.  Add the following configuration as a system property.
 

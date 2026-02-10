@@ -3,7 +3,7 @@ info:
   title: Extension Management API
   description: |
     This document specifies an the **extension resource management service RESTful API** for **WSO2 Identity Server**.
-    This API is capable to retrieve the application templates stored in `<PRODUCT-HOME>/repository/resources/identity/extensions/applications` and connection templates stored in `<PRODUCT-HOME>/repository/resources/identity/extensions/identity-providers`.
+    This API is capable to retrieve the application templates stored in `<PRODUCT_HOME>/repository/resources/identity/extensions/applications` and connection templates stored in `<PRODUCT_HOME>/repository/resources/identity/extensions/identity-providers`.
   version: v1
 
 servers:

@@ -259,8 +259,7 @@ This example illustrates a request sent to an external service configured as a p
 
 ### Expected response from external service
 
-When {{product_name}} invokes your external service as part of the pre-update profile action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-profile-action/api-contract/) here.
-
+When {{product_name}} invokes your external service as part of the pre-update profile action, it expects a response that adheres to the defined API contract.
 This response lets {{product_name}} decide whether to allow the profile update.
 Here's a breakdown of the expected response:
 

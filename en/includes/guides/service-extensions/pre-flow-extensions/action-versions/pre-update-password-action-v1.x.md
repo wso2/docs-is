@@ -368,7 +368,7 @@ This example illustrates a request sent to an external service configured as a p
 
 ### Expected response from external service
 
-When {{product_name}} invokes your external service as part of the pre-password update action, it expects a response that adheres to the defined [API contract]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract/) here.
+When {{product_name}} invokes your external service as part of the pre-password update action, it expects a response that adheres to the defined API contract.
 
 This response plays a crucial role in determining whether to permit the password update.
 Here’s a breakdown of the expected response:

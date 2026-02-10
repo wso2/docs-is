@@ -130,7 +130,7 @@ Listed below are general branding preferences you can apply to the interfaces.
 
 {% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
 !!! warning "Deprecated feature"
-    The branding **Organization Display Name** feature has been deperecated. Use the root organization name instead to ensure consistency and better customization.
+    The branding **Organization Display Name** feature has been deprecated. Use the root organization name instead to ensure consistency and better customization.
 
     See [Manage current organization]({{base_path}}/guides/organization-management/manage-organizations/#manage-current-organization) for more information.
 {% endif %}

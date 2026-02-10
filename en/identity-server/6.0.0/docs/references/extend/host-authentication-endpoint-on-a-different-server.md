@@ -158,7 +158,7 @@ Now, let's configure the Tomcat server.
 
 ## Integrate the portal with WSO2 Identity Server
 
-To integrate the portal to the WSO2 Identity Server, add the following configs to the `IS_HOME/repository/conf/deployment.toml` file.
+To integrate the portal to the WSO2 Identity Server, add the following configs to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 - Add authentication endpoint configurations
     ```toml

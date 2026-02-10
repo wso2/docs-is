@@ -15,7 +15,7 @@ on the process ID (pid).
 2.  `           ps -C java -L -o pcpu,cpu,nice,state,cputime,pid,tid > thread-usage.txt                     `
 
     !!! tip
-    OS X users can alternatively use the command
+    macOS users can alternatively use the command
         `           ps M <PID>          ` instead.
     
 

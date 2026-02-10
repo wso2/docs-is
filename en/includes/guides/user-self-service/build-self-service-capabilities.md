@@ -55,7 +55,7 @@ Learn more about registering OIDC applications on {{ product_name }}.
 
 - [SPA]({{base_path}}/guides/applications/register-single-page-app/)
 - [Traditional Web application]({{base_path}}/guides/applications/register-oidc-web-app/)
-- [Mobile appliction]({{base_path}}/guides/applications/register-mobile-app/)
+- [Mobile application]({{base_path}}/guides/applications/register-mobile-app/)
 
 
 ## Invoke the self-service APIs

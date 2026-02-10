@@ -25,7 +25,7 @@ Follow the following steps below to download and install {{product_name}}. Refer
 
 3. Start the server:
 
-    === "Linux/MacOS"
+    === "Linux/macOS"
 
         ```sh
         cd path/to/wso2is-<version>/bin

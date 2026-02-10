@@ -322,7 +322,7 @@ If {{product_name}} is already started, use the [Certificate Validation Manageme
 If storing the certificate as a user claim is enabled, the X509 certificate will be stored as a user claim and verified with the
 retrieved certificate from the request.
 
-To add the custom attribute, follow the [Add custom attributes](../../../guides/users/attributes/manage-attributes.md/#add-custom-attributes) steps 
+To add the custom attribute, follow the [Add custom attributes](../../../guides/users/attributes/user-attributes/manage-attributes/#add-custom-attributes) steps
 and use the following details for the claim addition.
 
 ``` text

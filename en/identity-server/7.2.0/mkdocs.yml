@@ -20,9 +20,7 @@ INHERIT: ../is_common.yml
 site_url: https://is.docs.wso2.com/en/7.2.0
 
 # Repository
-repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is
-edit_uri: edit/master/en/identity-server/7.2.0/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/7.2.0/docs/
 
 extra:
   base_path: /en/7.2.0
@@ -88,7 +86,7 @@ extra:
             - title: Secure
               url:
             - title: Deploy
-              url: Setup|Deploy|Deployment patterns
+              url: Setup|Deploy|Deployment overview|Deployment Patterns
             - title: Monitor
               url: Setup|Monitor|Monitor
             - title: Upgrade WSO2 Identity Server
@@ -358,13 +356,11 @@ plugins:
         'deploy/security/asymmetric-encryption/add-multiple-keys-to-the-primary-keystore.md': 'deploy/security/keystores/configure-keystores.md.md'
         'deploy/security/symmetric-overview.md': 'deploy/security/symmetric-encryption/index.md'
         'deploy/security/use-symmetric-encryption.md': 'deploy/security/symmetric-encryption/use-symmetric-encryption.md'
-        'deploy/security/blue-green-data-encryption-keyrotation.md': 'deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md'
         'deploy/monitor/monitor-the-identity-server.md': 'deploy/monitor/index.md'
 
         'references/concepts/compliance/compliance.md': 'deploy/compliance/index.md'
         'references/concepts/compliance/accessibility-compliance-wso2-is.md': 'deploy/compliance/index.md'
         'references/concepts/compliance/gdpr.md': 'deploy/compliance/gdpr.md'
-        'references/concepts/compliance/eidas.md': 'deploy/compliance/eidas.md'
         'references/concepts/compliance/ccpa.md': 'deploy/compliance/ccpa.md'
 
         'references/references-overview.md': 'references/index.md'
@@ -441,6 +437,8 @@ plugins:
         'apis/organization-apis/org-user-mgt.md': 'apis/organization-apis/scim2/scim2-org-user-mgt.md'
         'apis/organization-apis/org-group-mgt.md': 'apis/organization-apis/scim2/scim2-org-group-mgt.md'
         'apis/use-the-dynamic-client-registration-rest-apis.md' : 'apis/dynamic-client-registration-rest-api.md'
+        'guides/user-self-service/self-register-flow.md': 'guides/flows/build-a-flow.md'
+        'guides/users/attributes/manage-attributes.md': 'guides/users/attributes/user-attributes/manage-attributes.md'
 
         # To address the broken links in the API Authorization guides due to the directory structure mismatch is Asgardeo and IS
         'guides/api-authorization.md': 'guides/authorization/api-authorization/api-authorization.md'
@@ -497,9 +495,17 @@ nav:
               - Complete Guide: complete-guides/expressjs/introduction.md
           - .NET Guide: complete-guides/dotnet/introduction.md
           - Spring Boot Quickstart: quick-starts/springboot.md
+      - Try for a sample app:
+        - Try for a sample app: get-started/try-samples/index.md
+        - Single Page apps:
+          - React: get-started/try-samples/qsg-spa-react.md
+          - JavaScript: get-started/try-samples/qsg-spa-javascript.md
+        - Web apps:
+          - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+          - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+          - WS-Federation: get-started/try-samples/ws-federation-webapp.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
       - About this release: get-started/about-this-release.md
-  - Try for a sample app: get-started/try-samples/index.md
   - Guides:
       - Guides: guides/index.md
       - Applications:
@@ -552,7 +558,7 @@ nav:
               - Add social login: guides/authentication/social-login/index.md
               - Add Facebook login: guides/authentication/social-login/add-facebook-login.md
               - Add Google login: guides/authentication/social-login/add-google-login.md
-              - Add Github login: guides/authentication/social-login/add-github-login.md
+              - Add GitHub login: guides/authentication/social-login/add-github-login.md
               - Add Microsoft login: guides/authentication/social-login/add-microsoft-login.md
               - Add Apple login: guides/authentication/social-login/add-apple-login.md
               - Add X login: guides/authentication/social-login/add-x-login.md
@@ -745,6 +751,7 @@ nav:
         - Self Registration: guides/flows/self-registration.md
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
+        - Flow AI: guides/flows/flow-ai.md
         - Troubleshooting: guides/flows/troubleshooting.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
@@ -771,8 +778,8 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Application Management:
-            - Share applications: guides/organization-management/share-applications.md
+          - Manage applications:
+            - Shared applications: guides/organization-management/share-applications.md
             - Organization applications: guides/organization-management/organization-applications.md
           - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
           - Onboard admins:
@@ -784,12 +791,12 @@ nav:
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
           - Inheritance in organizations:
             - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
-            - Login & registration settings inheritance: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
-            - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
-            - Email and SMS templates inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
-            - User attributes inheritance: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
-            - OIDC scope inheritance: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
-            - Flow inheritance: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
+            - Login & registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
+            - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
+            - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+            - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
+            - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
+            - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
           - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
@@ -901,6 +908,7 @@ nav:
         - Session persistence: deploy/configure/session-persistence.md
         - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
         - Clock tolerance: deploy/configure/clock-tolerance.md
+        - Cookie consent banner: deploy/configure/cookie-consent-banner.md
       - Secure:
         - Mitigate attacks:
           - Mitigate attacks: deploy/mitigate-attacks/index.md
@@ -941,7 +949,6 @@ nav:
         - Encryption:
           - Symmetric encryption:
             - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-            - Symmetric data encryption key rotation: deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation.md
           - Asymmetric encryption:
             - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
           - Keystores:
@@ -951,30 +958,33 @@ nav:
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
             - Configure custom keystores for authentication protocols: deploy/security/keystores/configure-custom-keystores.md
       - Deploy:
-        - Deployment patterns: deploy/deployment-guide.md
-        - Deployment checklist: deploy/deployment-checklist.md
-        - Deploy as a contanarized application:
-          - Kuberenetes: deploy/deploy-is-on-kubernetes.md
-          - Openshift: deploy/deploy-is-on-openshift.md
-        - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
-        - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
-        - Change the hostname: deploy/change-the-hostname.md
-        - Configure Hazelcast: deploy/configure-hazelcast.md
-        - Backup and recovery recommendations: deploy/backup-and-recovery-recommendations.md
-        - Troubleshoot in production environments: deploy/monitor/troubleshoot-in-production-environments.md
-        - Performance:
-          - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
-          - Configure cache layers: deploy/performance/configure-cache-layers.md
-        - Product compatibility: deploy/product-compatibility.md
-        - Promote configurations across environments: deploy/promote-configurations.md
-        - Disaster recovery:
-          - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
-          - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
-          - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+        - Deployment overview:
+          - Deployment Patterns: deploy/deployment-guide.md
+          - Deployment Checklist: deploy/deployment-checklist.md
+          - Product Compatibility: deploy/product-compatibility.md
+          - Change the Hostname: deploy/change-the-hostname.md
+          - Restrict public access to management operations: deploy/configure-console-hostname.md
+          - Promote Configurations Across Environments: deploy/promote-configurations.md
+        - High Availability (HA) and clustering:
+          - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
+          - Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
+          - Configure Hazelcast: deploy/configure-hazelcast.md
+        - Containerized deployments:
+          - Kubernetes: deploy/deploy-is-on-kubernetes.md
+          - OpenShift: deploy/deploy-is-on-openshift.md
+        - Performance and scaling:
+          - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
+          - Configure Cache Layers: deploy/performance/configure-cache-layers.md
+        - Multi-data center deployments (Disaster Recovery):
+          - Understanding Disaster Recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
+          - Deployment Patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
+          - Additional Reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+        - Maintenance and troubleshooting in Production:
+          - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
+          - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
       - Compliance:
           - Compliance: deploy/compliance/index.md
           - GDPR: deploy/compliance/gdpr.md
-          - eIDAS: deploy/compliance/eidas.md
           - CCPA: deploy/compliance/ccpa.md
           - FIPS: deploy/compliance/fips.md
           - FAPI: deploy/compliance/fapi.md
@@ -989,6 +999,7 @@ nav:
         - Monitor logs:
           - Overview: deploy/monitor/monitor-logs.md
           - HTTP access logs: deploy/monitor/http-access-logging.md
+          - OAuth transaction logs: deploy/monitor/oauth-transaction-logs.md
           - Remote log publishing: deploy/monitor/remote-log-publishing.md
           - Mask sensitive info:
             - Overview: deploy/monitor/mask-sensitive-information-in-logs.md
@@ -1065,6 +1076,19 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+  - Connectors:
+    - Connectors: connectors/index.md
+    - Sift:
+      - Overview: connectors/sift/overview.md
+      - Set up: connectors/sift/set-up.md
+      - Usage: connectors/sift/usage.md
+      - Reference: connectors/sift/reference.md
+    - Onfido:
+      - Overview: connectors/onfido/overview.md
+      - Set up: connectors/onfido/set-up.md
+      - Usage: connectors/onfido/usage.md
+      - Reference: connectors/onfido/reference.md
+      - Try it: connectors/onfido/try-it.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
@@ -1072,6 +1096,7 @@ nav:
       - Tenant management API: apis/tenant-management-rest-api.md
     - Management APIs:
       - Action Management API: apis/action-management-rest-api.md
+      - Agent Management API: apis/scim2-agents-rest-apis.md
       - API resource management: apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API: apis/application-rest-api.md
@@ -1124,6 +1149,7 @@ nav:
           - Consent management API: apis/consent-management-api-definition.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
+      - User credential management API: apis/end-user-credential-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
       - User management:
         - SCIM 2.0 API:
@@ -1180,7 +1206,7 @@ nav:
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
       - Server configuration API: apis/organization-apis/configs.md
-      - Validation rules API: apis/organization-apis/validation-rules.md
+      - User credential management API: apis/organization-apis/end-user-credential-management-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
@@ -1190,6 +1216,7 @@ nav:
         - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/user-store.md
+      - Validation rules API: apis/organization-apis/validation-rules.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Organization Me API: apis/user-organization-api.md

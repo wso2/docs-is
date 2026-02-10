@@ -35,7 +35,7 @@ Follow the [create an organization]({{base_path}}/guides/organization-management
 
 !!! note
     
-    Learn more about [API authentization]({{base_path}}/guides/authorization/api-authorization/api-authorization/).
+    Learn more about [API authentication]({{base_path}}/guides/authorization/api-authorization/api-authorization/).
 
 To do so,
 

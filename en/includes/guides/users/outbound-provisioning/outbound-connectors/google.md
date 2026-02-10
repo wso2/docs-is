@@ -50,7 +50,7 @@ Follow the steps below to learn how you can configure Google Workspace for provi
     2. Navigate to **Security** > **Access and data control** > **API Controls** > **Domain-wide Delegation**.
 
     3. Do the following:
-        1. Clck **Add new** and paste the client ID of the service account.
+        1. Click **Add new** and paste the client ID of the service account.
 
         2. Enter the following as the value for scopes.
             `https://www.googleapis.com/auth/admin.directory.user,https://www.googleapis.com/auth/admin.directory.orgunit,https://www.googleapis.com/auth/admin.directory.group`
@@ -111,7 +111,7 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Google Outbound Provisioning Pattern</td>
-        <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn moreabout <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.</br>
+        <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.</br>
         e.g. <code>{UD,UN,TD,IDP}</code></td>
     </tr>
     <tr>

@@ -212,7 +212,7 @@ Use the following settings to change details and behavior of an attribute. To co
             <td>Select one of the following scopes to validate attribute uniqueness:
                 <ul>
                     <li><b>None:</b> No validation is applied. Users can have duplicate values for the selected attribute.</li>
-                    <li><b>Within User Store:</b> Users within the same user store can't have duplicate values for the selectedattribute. However, users in other user stores may have duplicates.</li>
+                    <li><b>Within User Store:</b> Users within the same user store can't have duplicate values for the selected attribute. However, users in other user stores may have duplicates.</li>
                         <li><b>Across User Stores:</b> Attribute values are unique across all user stores preventing duplicates throughout the organization.</li>
                     </ul>
             </td>
@@ -324,9 +324,17 @@ By default, {{product_name}} stores identity attributes internally in the user s
     - `http://wso2.org/claims/identity/failedLoginAttempts`: Tracks the number of consecutive failed login attempts. Account locking happens based on this value.
 {% endif %}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" 
-and is_version !="7.2.0") %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.1.0") %}
 ### Select storage location for selected attributes
+
+{% if product_name == "WSO2 Identity Server" and is_version in ["7.1.0", "7.2.0"] %}
+!!! note
+    {% if is_version == "7.1.0" %}
+    The selective configuration of storage location for attributes is available in WSO2 IS 7.1.0 from update level 42 onwards.
+    {% else %}
+    The selective configuration of storage location for attributes is available in WSO2 IS 7.2.0 from update level 5 onwards.
+    {% endif %} See how to [Upgrade the WSO2 Identity Server]({{base_path}}/deploy/upgrade/upgrade-wso2-is).
+{% endif %}
 
 {{product_name}}, by default, stores identity attributes internally and user attributes in the connected user stores. If you want to store and manage an identity attribute in your user stores or a user attribute in the identity store, you can do so by following the steps below.
 

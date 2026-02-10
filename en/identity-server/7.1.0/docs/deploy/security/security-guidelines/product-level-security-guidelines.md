@@ -106,7 +106,7 @@ Before starting the server,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```
@@ -128,7 +128,7 @@ Before starting the server,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```
@@ -151,7 +151,7 @@ To enable hostname verification,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```
@@ -299,3 +299,15 @@ For the scenarios listed below, you can define a regular expression to validate 
 <!-- TODO - [Username Recovery]({{base_path}}/guides/identity-lifecycles/recover-username/#enable-username-recovery)-->
 - [Self User Registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/)
 <!-- TODO - [Lite User Registration]({{base_path}}/guides/identity-lifecycles/lite-user-registration) -->
+
+## Prevent accepting sensitive data as query parameters in API requests
+
+{{product_name}} rejects `username`, `password`, and `client_secret` parameters passed in the request URL query string. This enforcement applies to token endpoints and other relevant APIs, preventing this sensitive data from appearing in server access logs.
+
+You can override this default behavior and configure a custom list of parameters that {{product_name}} rejects when clients send them as query parameters.  To do so, open the `<IS_HOME>/repository/conf/deployment.toml` file and under `[oauth]`, configure the `restricted_query_parameters` property.
+
+For example, the following configuration prevents requests that include `client_secret` as a query parameter and allows all other parameters.
+```
+[oauth]
+restricted_query_parameters=["client_secret"]
+```
