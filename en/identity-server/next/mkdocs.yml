@@ -31,6 +31,81 @@ extra:
     identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.14.2
     sdkconfig:
       baseUrl: "https://localhost:9443"
+  connectors:
+    - name: Sift
+      icon: assets/img/logo/sift-logo.svg
+      description: Helps prevent fraudulent logins to your system.
+      source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
+      category: fraud-detection
+      documentation_link: sift
+    - name: Onfido
+      icon: assets/img/logo/onfido-logo.svg
+      description: Provides identity verification so you know exactly who logs in.
+      source_link: https://store.wso2.com/connector/identity-verification-onfido
+      category: identity-verification
+      documentation_link: onfido
+    - name: iProov Authenticator
+      icon: assets/img/logo/iproov-logo.png
+      description: Allow users to use biometrics for authentication.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-iproov
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md
+    - name: Duo Security
+      icon: assets/img/logo/duo-logo.png
+      description: Provides two-factor authentication to secure your system.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-duo
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-duo/blob/master/docs/README.md
+    - name: HYPR Authenticator
+      icon: assets/img/logo/hypr-logo.png
+      description: Provides passwordless authentication with biometrics and device-based authentication.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-hypr
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-hypr/blob/main/docs/config.md
+    - name: UAEPass Authenticator
+      icon: assets/img/logo/uaepass-logo.png
+      description: An outbound OIDC federated authentication connector designed to integrate with the UAEPass Identity Provider.
+      source_link: https://store.wso2.com/connector/identity-verification-uaepass
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-uaepass/tree/main/docs
+    - name: TypingDNA Connector
+      icon: assets/img/logo/typingdna-logo.png
+      description: Provides risk-based adaptive authentication by analyzing the user's typing patterns to detect anomalies and potential fraud.
+      source_link: https://store.wso2.com/connector/identity-conditional-auth-typingdna
+      category: fraud-detection
+      documentation_link: https://github.com/wso2-extensions/identity-conditional-auth-typingdna/blob/main/docs/README.md
+    - name: Cognito
+      icon: assets/img/logo/cognito-logo.png
+      description: Allows users to log in to WSO2 Identiy Server using AWS Cognito.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-cognito
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-cognito/tree/master/docs
+    - name: Amazon
+      icon: assets/img/logo/amazon-logo.png
+      description: Allows users to log in to WSO2 Identity Server using Amazon.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-amazon
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-amazon/blob/master/docs/README.md
+    - name: LinkedIn
+      icon: assets/img/logo/linkedin-logo.png
+      description: Allows users to log in to WSO2 Identity Server using LinkedIn.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-linkedIn
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-linkedIn/blob/master/docs/README.md
+    - name: Kakao Authenticator
+      icon: assets/img/logo/kakao-logo.png
+      description: Allows users to log in to WSO2 Identity Server using Kakao.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-kakao
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-kakao/blob/master/docs/README_LATEST.md
+    - name: Naver Authenticator
+      icon: assets/img/logo/naver-logo.png
+      description: Allows users to log in to WSO2 Identity Server using Naver.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-naver
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-naver/blob/master/docs/README_LATEST.md
+      
+
 
   home_page_cards:
     - section:
