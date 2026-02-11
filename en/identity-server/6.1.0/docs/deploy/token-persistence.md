@@ -661,6 +661,8 @@ method.
 
       - [MySQL Stored Procedure Script](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/non-persistence-access-token-cleanup/)
 
+      - [Oracle Stored Procedure Script](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/non-persistence-access-token-cleanup/)
+
    This script:
 
    - Backs up token-related tables (if enabled)
