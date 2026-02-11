@@ -107,7 +107,7 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
 
 ![image-2]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-2.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-5. Make sure you configure Backend Settings and Deploy the both proxies to development and Production Environments.
+5. Make sure you configure Backend Settings and Deploy both proxies to development and Production Environments.
 
 ### Step 2: Add Asgardeo as an external IdP in Bijira
 
