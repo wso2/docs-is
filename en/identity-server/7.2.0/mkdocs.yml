@@ -38,12 +38,6 @@ extra:
       source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
       category: fraud-detection
       documentation_link: sift
-    - name: Onfido
-      icon: assets/img/logo/onfido-logo.svg
-      description: Provides identity verification so you know exactly who logs in.
-      source_link: https://store.wso2.com/connector/identity-verification-onfido
-      category: identity-verification
-      documentation_link: onfido
     - name: iProov Authenticator
       icon: assets/img/logo/iproov-logo.png
       description: Allow users to use biometrics for authentication.
