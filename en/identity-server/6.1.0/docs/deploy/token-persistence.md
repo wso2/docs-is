@@ -409,7 +409,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
         ```
 
-        ??? Example "Oracle"
+    ??? Example "Oracle"
     
         ```sql
         DROP TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE CASCADE CONSTRAINTS;
@@ -492,7 +492,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
         ```
 
-        ??? Example "Oracle RAC"
+    ??? Example "Oracle RAC"
     
         ```sql
         DROP TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE CASCADE CONSTRAINTS;
