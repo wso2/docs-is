@@ -76,7 +76,7 @@ extra:
       documentation_link: https://github.com/wso2-extensions/identity-conditional-auth-typingdna/blob/main/docs/README.md
     - name: Cognito
       icon: assets/img/logo/cognito-logo.png
-      description: Allows users to log in to WSO2 Identiy Server using AWS Cognito.
+      description: Allows users to log in to WSO2 Identity Server using AWS Cognito.
       source_link: https://store.wso2.com/connector/identity-outbound-auth-cognito
       category: authentication
       documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-cognito/tree/master/docs
