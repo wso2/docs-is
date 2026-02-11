@@ -62,11 +62,8 @@
                   </a>
                 {% endif %}
                 {% if connector.documentation_link %}
-                  <a class="tooltip source-link md-icon md-icon--hover" href="{% if connector.documentation_link.startswith('http') %}
-             {{ connector.documentation_link }}
-           {% else %}
-             {{ config.extra.base_path }}/connectors/{{ connector.documentation_link }}/overview/
-           {% endif %}" {% if connector.documentation_link.startswith("https://") %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                  {% set doc_url = connector.documentation_link if connector.documentation_link.startswith('http') else config.extra.base_path ~ '/connectors/' ~ connector.documentation_link ~ '/overview/' %}
+                  <a class="tooltip source-link md-icon md-icon--hover" href="{{ doc_url }}" {% if connector.documentation_link.startswith('http') %}target="_blank" rel="noopener noreferrer"{% endif %}>
                     {% include "/assets/images/icons/book-16.svg" %}
                     <span class="tooltip-text">Documentation</span>
                   </a>
