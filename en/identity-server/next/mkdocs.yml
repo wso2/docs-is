@@ -49,7 +49,7 @@ extra:
       description: Allow users to use biometrics for authentication.
       source_link: https://store.wso2.com/connector/identity-outbound-auth-iproov
       category: authentication
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/README.md
     - name: Duo Security
       icon: assets/img/logo/duo-logo.png
       description: Provides two-factor authentication to secure your system.
@@ -61,11 +61,11 @@ extra:
       description: Provides passwordless authentication with biometrics and device-based authentication.
       source_link: https://store.wso2.com/connector/identity-outbound-auth-hypr
       category: authentication
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-hypr/blob/main/docs/config.md
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-hypr/blob/main/README.md
     - name: UAEPass Authenticator
       icon: assets/img/logo/uaepass-logo.png
       description: An outbound OIDC federated authentication connector designed to integrate with the UAEPass Identity Provider.
-      source_link: https://store.wso2.com/connector/identity-verification-uaepass
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-uaepass
       category: authentication
       documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-uaepass/tree/main/docs
     - name: TypingDNA Connector
@@ -79,7 +79,7 @@ extra:
       description: Allows users to log in to WSO2 Identity Server using AWS Cognito.
       source_link: https://store.wso2.com/connector/identity-outbound-auth-cognito
       category: authentication
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-cognito/tree/master/docs
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-cognito/blob/master/docs/README.md
     - name: Amazon
       icon: assets/img/logo/amazon-logo.png
       description: Allows users to log in to WSO2 Identity Server using Amazon.
