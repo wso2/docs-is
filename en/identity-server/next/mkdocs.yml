@@ -65,7 +65,7 @@ extra:
     - name: UAEPass Authenticator
       icon: assets/img/logo/uaepass-logo.png
       description: An outbound OIDC federated authentication connector designed to integrate with the UAEPass Identity Provider.
-      source_link: https://store.wso2.com/connector/identity-verification-uaepass
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-uaepass
       category: authentication
       documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-uaepass/tree/main/docs
     - name: TypingDNA Connector
