@@ -71,7 +71,21 @@ paths:
       summary: |
         Add application
       operationId: createApplication
-      description: "This API provides the capability to store application information provided by users.\n\n <b>Scope(Permission) required:</b> `internal_application_mgt_create`"
+      description: |
+        This API provides the capability to store application information provided by users.
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_create`
+        
+         <b>➕ Additional Scopes</b>
+        
+          To create an application with an authentication script, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Create an application with an authentication script | `internal_application_script_update` |
+        
+          **Recommendation:** For authentication script updates, we recommend using the [/applications/{applicationId}/authenticationSequence/script](#tag/Applications/operation/updateAuthenticationScript) endpoint.
       parameters:
         - in: query
           name: template
@@ -271,7 +285,7 @@ paths:
               "returnAuthenticatedIdpList": false,
               "enableAuthorization": true
             }
-            }'                 
+            }'
   /applications/import:
     post:
       tags:
@@ -279,7 +293,22 @@ paths:
       summary: |
         Create application from an exported XML file
       operationId: importApplication
-      description: "This API provides the ability to store the application information as a file. \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_create`"
+      description: |
+        This API provides the ability to store the application information as a file.
+
+        <b>Scope(Permission) required:</b> 
+        
+          - `internal_application_mgt_create`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To create an application with an authentication script via file import, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Create an application with an authentication script via file import | `internal_application_script_update` |
+
+        **Recommendation:** For authentication script updates, we recommend using the [/applications/{applicationId}/authenticationSequence/script](#tag/Applications/operation/updateAuthenticationScript) endpoint.
       requestBody:
         content:
           multipart/form-data:
@@ -324,14 +353,28 @@ paths:
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -H 'Authorization: Bearer {bearer_token}' \
-            -F 'file=@file-name.xml;type=text/xml'                  
+            -F 'file=@file-name.xml;type=text/xml'
     put:
       tags:
         - Applications
       summary: |
         Update application from an exported XML file
       operationId: importApplicationForUpdate
-      description: "This API provides the capability to update an application from information that has been exported as an XML file.<br> \n\n <b>Scope(Permission) required:</b> `internal_application_mgt_update`"
+      description: |
+        This API provides the capability to update an application from information that has been exported as an XML file.
+
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update the authentication script of an application via file import, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update the authentication script via file import | `internal_application_script_update` |
+        
+          **Recommendation:** For authentication script updates, we recommend using the [/applications/{applicationId}/authenticationSequence/script](#tag/Applications/operation/updateAuthenticationScript) endpoint.
       requestBody:
         content:
           multipart/form-data:
@@ -382,7 +425,7 @@ paths:
             -H 'accept: */*' \
             -H 'Content-Type: multipart/form-data' \
             -H 'Authorization: Bearer {bearer_token>}' \
-            -F 'file=@file-name.xml;type=text/xml'                   
+            -F 'file=@file-name.xml;type=text/xml'
   /applications/{applicationId}:
     get:
       tags:
@@ -442,14 +485,28 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'   
+            -H 'Authorization: Bearer {bearer_token}'
     patch:
       tags:
         - Applications
       summary: |
         Partially update application by ID
       operationId: patchApplication
-      description: "This API provides the capability to partially update an application by ID.\n\n<b>Scope(Permission) required:</b> ``internal_application_mgt_update``"
+      description: |
+        This API provides the capability to partially update an application by ID.
+
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update the authentication script of an application, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update the authentication script | `internal_application_script_update` |
+        
+        **Recommendation:** For authentication script updates, we recommend using the [/applications/{applicationId}/authenticationSequence/script](#tag/Applications/operation/updateAuthenticationScript) endpoint.
       parameters:
         - name: applicationId
           in: path
@@ -573,7 +630,7 @@ paths:
               "returnAuthenticatedIdpList": false,
               "enableAuthorization": true
             }
-            }'                   
+            }'
     delete:
       tags:
         - Applications
@@ -619,7 +676,7 @@ paths:
             curl -X 'DELETE' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}' \
             -H 'accept: */*' \
-            -H 'Authorization: Bearer {bearer_token}'                   
+            -H 'Authorization: Bearer {bearer_token}'
   /applications/{applicationId}/export:
     get:
       tags:
@@ -627,7 +684,19 @@ paths:
       operationId: exportApplication
       summary: |
         Export application as an XML file
-      description: "This API provides the capability to retrieve the application as an XML file. \n\n <b>Scope(Permission) required:</b> ``internal_application_mgt_view``"
+      description: |
+        This API provides the capability to retrieve the application as an XML file.
+
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_view`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To export the application with the client secret, you also need the following additional scope:
+
+          | Action | Scope |
+          |---------|--------|
+          | Export the client secret | `internal_application_mgt_client_secret_view` |
       parameters:
         - name: applicationId
           in: path
@@ -671,52 +740,52 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/export?exportSecrets=false' \
             -H 'accept: application/octet-stream' \
-            -H 'Authorization: Bearer {bearer_token}'                  
-#  /applications/{applicationId}/owner:
-#   put:
-#     tags:
-#       - Applications
-#     operationId: changeApplicationOwner
-#     summary: |
-#       Change application owner
-#     description: "This API provides the capability to change the application owner. \n\n <b>Scope required:</b> ``SYSTEM``"
-#     parameters:
-#       - name: applicationId
-#         in: path
-#         description: ID of the application.
-#         required: true
-#         schema:
-#           type: string
-#     requestBody:
-#       content:
-#         application/json:
-#           schema:
-#             $ref: '#/components/schemas/ApplicationOwner'
-#     responses:
-#       '200':
-#         description: Successfully Updated
-#       '400':
-#         description: Bad Request
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '401':
-#         description: Unauthorized
-#       '403':
-#         description: Forbidden
-#       '404':
-#         description: Not Found
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '500':
-#         description: Server Error
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
+            -H 'Authorization: Bearer {bearer_token}'
+  #  /applications/{applicationId}/owner:
+  #   put:
+  #     tags:
+  #       - Applications
+  #     operationId: changeApplicationOwner
+  #     summary: |
+  #       Change application owner
+  #     description: "This API provides the capability to change the application owner. \n\n <b>Scope required:</b> ``SYSTEM``"
+  #     parameters:
+  #       - name: applicationId
+  #         in: path
+  #         description: ID of the application.
+  #         required: true
+  #         schema:
+  #           type: string
+  #     requestBody:
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: '#/components/schemas/ApplicationOwner'
+  #     responses:
+  #       '200':
+  #         description: Successfully Updated
+  #       '400':
+  #         description: Bad Request
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '401':
+  #         description: Unauthorized
+  #       '403':
+  #         description: Forbidden
+  #       '404':
+  #         description: Not Found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '500':
+  #         description: Server Error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
   /applications/{applicationId}/authenticationSequence/script:
     put:
       tags:
@@ -876,7 +945,17 @@ paths:
       description: |
         This API provides the capability to authorized an API to the application.<br>
 
-          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To authorize management/organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Authorize management/organization API | `internal_application_internal_api_update` |
+          | Authorize  business APIs | `internal_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -935,7 +1014,17 @@ paths:
       description: |
         This API provides the capability to update an authorized API of the application.<br>
 
-          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update authorized management/organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update authorized management/organization API | `internal_application_internal_api_update` |
+          | Update authorized business APIs | `internal_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -999,7 +1088,17 @@ paths:
       description: |
         This API provides the capability to delete an authorized API of the application.<br>
 
-          <b>Scope(Permission) required:</b> `internal_application_mgt_update`
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To remove authorized management/organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Remove authorized management/organization API | `internal_application_internal_api_update` |
+          | Remove authorized business APIs | `internal_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -1074,7 +1173,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/resident' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                  
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Resident application
@@ -1144,7 +1243,7 @@ paths:
                 "jit": false
               }
             ]
-            }'                 
+            }'
       requestBody:
         content:
           application/json:
@@ -1204,7 +1303,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                  
+            -H 'Authorization: Bearer {bearer_token}'
   /applications/{applicationId}/inbound-protocols/saml:
     get:
       tags:
@@ -1255,7 +1354,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'  
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Inbound Protocols - SAML
@@ -1388,7 +1487,7 @@ paths:
               },
               "enableAssertionQueryProfile": false
             }
-            }'                  
+            }'
       requestBody:
         content:
           application/json:
@@ -1442,14 +1541,26 @@ paths:
             curl -X 'DELETE' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/saml' \
             -H 'accept: */*' \
-            -H 'Authorization: Bearer {bearer_token}'  
+            -H 'Authorization: Bearer {bearer_token}'
   /applications/{applicationId}/inbound-protocols/oidc:
     get:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Retrieve OIDC authentication parameters of app
-      description: "This API provides the capability to retrieve OIDC authentication protocol parameters of an application. \n\n >Scope(Permission) required:</b> `internal_application_mgt_view`"
+      description: |
+        This API provides the capability to retrieve OIDC authentication protocol parameters of an application.
+
+        <b>Scope(Permission) required:</b> 
+          - `internal_application_mgt_view`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To view the client secret, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | View client secret | `internal_application_mgt_client_secret_view` |
       operationId: getInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -1493,7 +1604,7 @@ paths:
             curl -X 'GET' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
             -H 'accept: application/json' \
-            -H 'Authorization: Bearer {bearer_token}'                  
+            -H 'Authorization: Bearer {bearer_token}'
     put:
       tags:
         - Inbound Protocols - OAuth / OIDC
@@ -1604,7 +1715,7 @@ paths:
             "scopeValidators": [
               "Role based scope validator"
             ]
-            }'                  
+            }'
       requestBody:
         content:
           application/json:
@@ -1661,14 +1772,17 @@ paths:
             curl -X 'DELETE' \
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/oidc' \
             -H 'accept: */*' \
-            -H 'Authorization: Bearer {bearer_token}'  
+            -H 'Authorization: Bearer {bearer_token}'
   /applications/{applicationId}/inbound-protocols/oidc/regenerate-secret:
     post:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Regenerate the OAuth2/OIDC client secret of application
-      description: "This API regenerates the OAuth2/OIDC client secret. \n\n <b>Scope(Permission) required:</b> `nternal_application_mgt_create`"
+      description: |
+        This API regenerates the OAuth2/OIDC client secret.
+        
+        <b>Scope(Permission) required:</b> `internal_application_mgt_client_secret_create`
       operationId: regenerateOAuthClientSecret
       parameters:
         - name: applicationId
@@ -1937,158 +2051,158 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/{application-id}/inbound-protocols/passive-sts' \
             -H 'accept: */*' \
             -H 'Authorization: Bearer {bearer_token}'  
-# '/applications/{applicationId}/inbound-protocols/ws-trust':
-#   get:
-#     tags:
-#       - Inbound Protocols - WS Trust
-#     summary: |
-#       Retrieve WS Trust authentication parameters of app
-#     description: "This API provides the capability to retrieve Passive STS authentication
-#       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
-#     operationId: getWSTrustConfiguration
-#     parameters:
-#       - name: applicationId
-#         in: path
-#         description: ID of the application
-#         required: true
-#         schema:
-#           type: string
-#     responses:
-#       '200':
-#         description: OK
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/WSTrustConfiguration'
-#       '400':
-#         description: Bad Request
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '401':
-#         description: Unauthorized
-#       '403':
-#         description: Forbidden
-#       '404':
-#         description: Not Found
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '500':
-#         description: Server Error
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#
-#   put:
-#     tags:
-#       - Inbound Protocols - WS Trust
-#     summary: |
-#       Update WS Trust authentication parameters of app
-#     description: "This API provides the capability to store WS Trust authentication
-#       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
-#     operationId: updateWSTrustConfiguration
-#     parameters:
-#       - name: applicationId
-#         in: path
-#         description: ID of the application.
-#         required: true
-#         schema:
-#           type: string
-#     responses:
-#       '200':
-#         description: Successful
-#       '201':
-#         description: Successful response.
-#         headers:
-#           Location:
-#             description: >-
-#               Location of the newly created WS Trust Authentication
-#               Configuration.
-#             schema:
-#               type: string
-#       '400':
-#         description: Bad Request
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '401':
-#         description: Unauthorized
-#       '403':
-#         description: Forbidden
-#       '404':
-#         description: Not Found
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '409':
-#         description: Conflict
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '500':
-#         description: Server Error
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#
-#     requestBody:
-#       content:
-#         application/json:
-#           schema:
-#             $ref: '#/components/schemas/WSTrustConfiguration'
-#       description: >-
-#         This represents the Passive STS authentication protocol parameters of
-#         an application.
-#       required: true
-#   delete:
-#     tags:
-#       - Inbound Protocols - WS Trust
-#     summary: |
-#       Delete WS Trust authentication parameters of app
-#     description: "This API provides the capability to delete WS Trust authentication
-#       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
-#     operationId: deleteWSTrustConfiguration
-#     parameters:
-#       - name: applicationId
-#         in: path
-#         description: ID of the application.
-#         required: true
-#         schema:
-#           type: string
-#     responses:
-#       '204':
-#         description: Delete Success
-#       '400':
-#         description: Bad Request
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '401':
-#         description: Unauthorized
-#       '403':
-#         description: Forbidden
-#       '404':
-#         description: Not Found
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '500':
-#         description: Server Error
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#
+  # '/applications/{applicationId}/inbound-protocols/ws-trust':
+  #   get:
+  #     tags:
+  #       - Inbound Protocols - WS Trust
+  #     summary: |
+  #       Retrieve WS Trust authentication parameters of app
+  #     description: "This API provides the capability to retrieve Passive STS authentication
+  #       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+  #     operationId: getWSTrustConfiguration
+  #     parameters:
+  #       - name: applicationId
+  #         in: path
+  #         description: ID of the application
+  #         required: true
+  #         schema:
+  #           type: string
+  #     responses:
+  #       '200':
+  #         description: OK
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/WSTrustConfiguration'
+  #       '400':
+  #         description: Bad Request
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '401':
+  #         description: Unauthorized
+  #       '403':
+  #         description: Forbidden
+  #       '404':
+  #         description: Not Found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '500':
+  #         description: Server Error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #
+  #   put:
+  #     tags:
+  #       - Inbound Protocols - WS Trust
+  #     summary: |
+  #       Update WS Trust authentication parameters of app
+  #     description: "This API provides the capability to store WS Trust authentication
+  #       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_update`"
+  #     operationId: updateWSTrustConfiguration
+  #     parameters:
+  #       - name: applicationId
+  #         in: path
+  #         description: ID of the application.
+  #         required: true
+  #         schema:
+  #           type: string
+  #     responses:
+  #       '200':
+  #         description: Successful
+  #       '201':
+  #         description: Successful response.
+  #         headers:
+  #           Location:
+  #             description: >-
+  #               Location of the newly created WS Trust Authentication
+  #               Configuration.
+  #             schema:
+  #               type: string
+  #       '400':
+  #         description: Bad Request
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '401':
+  #         description: Unauthorized
+  #       '403':
+  #         description: Forbidden
+  #       '404':
+  #         description: Not Found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '409':
+  #         description: Conflict
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '500':
+  #         description: Server Error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #
+  #     requestBody:
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: '#/components/schemas/WSTrustConfiguration'
+  #       description: >-
+  #         This represents the Passive STS authentication protocol parameters of
+  #         an application.
+  #       required: true
+  #   delete:
+  #     tags:
+  #       - Inbound Protocols - WS Trust
+  #     summary: |
+  #       Delete WS Trust authentication parameters of app
+  #     description: "This API provides the capability to delete WS Trust authentication
+  #       protocol parameters of an application. \n\n <b>Scope required:</b> `internal_application_mgt_delete`"
+  #     operationId: deleteWSTrustConfiguration
+  #     parameters:
+  #       - name: applicationId
+  #         in: path
+  #         description: ID of the application.
+  #         required: true
+  #         schema:
+  #           type: string
+  #     responses:
+  #       '204':
+  #         description: Delete Success
+  #       '400':
+  #         description: Bad Request
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '401':
+  #         description: Unauthorized
+  #       '403':
+  #         description: Forbidden
+  #       '404':
+  #         description: Not Found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '500':
+  #         description: Server Error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #
   '/applications/{applicationId}/inbound-protocols/{inboundProtocolId}':
     get:
       tags:
@@ -2418,38 +2532,38 @@ paths:
             'https://api.asgardeo.io/t/{organization-name}/api/server/v1/applications/meta/inbound-protocols/oidc' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'  
-# '/applications/meta/inbound-protocols/ws-trust':
-#   get:
-#     tags:
-#       - Application Metadata
-#     summary: |
-#       Retrieve all the metadata related to the auth protocol WS Trust
-#     description: "This API provides the capability to retrieve all the metadata related to the auth protocol `WS_Trust`. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
-#     operationId: getWSTrustMetadata
-#     responses:
-#       '200':
-#         description: OK
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/WSTrustMetaData'
-#       '401':
-#         description: Unauthorized
-#       '403':
-#         description: Forbidden
-#       '404':
-#         description: Not Found
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#       '500':
-#         description: Server Error
-#         content:
-#           application/json:
-#             schema:
-#               $ref: '#/components/schemas/Error'
-#
+  # '/applications/meta/inbound-protocols/ws-trust':
+  #   get:
+  #     tags:
+  #       - Application Metadata
+  #     summary: |
+  #       Retrieve all the metadata related to the auth protocol WS Trust
+  #     description: "This API provides the capability to retrieve all the metadata related to the auth protocol `WS_Trust`. \n\n <b>Scope required:</b> `internal_application_mgt_view`"
+  #     operationId: getWSTrustMetadata
+  #     responses:
+  #       '200':
+  #         description: OK
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/WSTrustMetaData'
+  #       '401':
+  #         description: Unauthorized
+  #       '403':
+  #         description: Forbidden
+  #       '404':
+  #         description: Not Found
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       '500':
+  #         description: Server Error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #
   '/applications/meta/inbound-protocols/{inboundProtocolId}':
     get:
       tags:
@@ -3393,7 +3507,7 @@ components:
     applicationShareExcludedQueryParam:
       in: query
       name: excludedAttributes
-      description: | 
+      description: |
         excludedAttribute parameter.<br>
         Supported values: `roles`
       required: false
@@ -3573,7 +3687,7 @@ components:
         self:
           type: string
           example: "/t/<org_name>/api/server/v1/applications/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
-          description: The URL of the current application. 
+          description: The URL of the current application.
         advancedConfigurations:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
         templateId:
@@ -3727,8 +3841,8 @@ components:
           $ref: '#/components/schemas/AuthenticationSequence'
         advancedConfigurations:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
-#       provisioningConfigurations:
-#         $ref: '#/components/schemas/ProvisioningConfiguration'
+    #       provisioningConfigurations:
+    #         $ref: '#/components/schemas/ProvisioningConfiguration'
 
     ApplicationModelSAML:
       type: object
@@ -3801,8 +3915,8 @@ components:
           $ref: '#/components/schemas/AuthenticationSequence'
         advancedConfigurations:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
-#       provisioningConfigurations:
-#         $ref: '#/components/schemas/ProvisioningConfiguration'
+    #       provisioningConfigurations:
+    #         $ref: '#/components/schemas/ProvisioningConfiguration'
 
     ApplicationModelPassiveSTS:
       type: object
@@ -3872,8 +3986,8 @@ components:
           $ref: '#/components/schemas/AuthenticationSequence'
         advancedConfigurations:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
-#       provisioningConfigurations:
-#         $ref: '#/components/schemas/ProvisioningConfiguration'
+    #       provisioningConfigurations:
+    #         $ref: '#/components/schemas/ProvisioningConfiguration'
     ApplicationModelCustom:
       type: object
       title: Add custom inbound protocol application
@@ -3947,8 +4061,8 @@ components:
           $ref: '#/components/schemas/AuthenticationSequence'
         advancedConfigurations:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
-#       provisioningConfigurations:
-#         $ref: '#/components/schemas/ProvisioningConfiguration'
+    #       provisioningConfigurations:
+    #         $ref: '#/components/schemas/ProvisioningConfiguration'
 
     ApplicationResponseModel:
       type: object
@@ -4011,8 +4125,8 @@ components:
           $ref: '#/components/schemas/AuthenticationSequence'
         advancedConfigurations:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
-#       provisioningConfigurations:
-#         $ref: '#/components/schemas/ProvisioningConfiguration'
+        #       provisioningConfigurations:
+        #         $ref: '#/components/schemas/ProvisioningConfiguration'
         access:
           type: string
           enum:
@@ -4061,8 +4175,8 @@ components:
           $ref: '#/components/schemas/AuthenticationSequence'
         advancedConfigurations:
           $ref: '#/components/schemas/AdvancedApplicationConfiguration'
-#       provisioningConfigurations:
-#         $ref: '#/components/schemas/ProvisioningConfiguration'
+    #       provisioningConfigurations:
+    #         $ref: '#/components/schemas/ProvisioningConfiguration'
 
     ResidentApplication:
       type: object
@@ -4220,16 +4334,16 @@ components:
       properties:
         oidc:
           $ref: '#/components/schemas/OpenIDConnectConfiguration'
-#       saml:
-#         $ref: '#/components/schemas/SAML2Configuration'
-#       passiveSts:
-#         $ref: '#/components/schemas/PassiveStsConfiguration'
-#       wsTrust:
-#         $ref: '#/components/schemas/WSTrustConfiguration'
-#       custom:
-#         type: array
-#         items:
-#           $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
+    #       saml:
+    #         $ref: '#/components/schemas/SAML2Configuration'
+    #       passiveSts:
+    #         $ref: '#/components/schemas/PassiveStsConfiguration'
+    #       wsTrust:
+    #         $ref: '#/components/schemas/WSTrustConfiguration'
+    #       custom:
+    #         type: array
+    #         items:
+    #           $ref: '#/components/schemas/CustomInboundProtocolConfiguration'
 
     InboundProtocolsListResponse:
       type: array
@@ -4253,7 +4367,7 @@ components:
         self:
           type: string
           example: "/t/<org-name>/api/server/v1/applications/29048810-1447-4ea0-a348-30d15ab65fa3/inbound-protocols/saml"
-          description: The URL of the current application. 
+          description: The URL of the current application.
     ClaimConfiguration:
       type: object
       properties:
@@ -4318,7 +4432,7 @@ components:
         localRole:
           type: string
           example: admin
-          description: The claim URI for local role. 
+          description: The claim URI for local role.
         applicationRole:
           type: string
           example: Administrator
@@ -4373,12 +4487,12 @@ components:
     SAML2Configuration:
       type: object
       properties:
-#       metadataFile:
-#         type: string
-#         example: 'Base64 encoded metadata file content'
-#       metadataURL:
-#         type: string
-#         example: 'https://example.com/samlsso/meta'
+        #       metadataFile:
+        #         type: string
+        #         example: 'Base64 encoded metadata file content'
+        #       metadataURL:
+        #         type: string
+        #         example: 'https://example.com/samlsso/meta'
         manualConfiguration:
           $ref: '#/components/schemas/SAML2ServiceProvider'
 
@@ -4424,7 +4538,7 @@ components:
         nameFormat:
           type: string
           default: urn:oasis:names:tc:SAML:2.0:attrname-format:basic
-          enum: 
+          enum:
             - urn:oasis:names:tc:SAML:2.0:attrname-format:basic
             - urn:oasis:names:tc:SAML:2.0:attrname-format:uri
           description: Specifies the type of attribute names used in the attribute statement of SAML assertions.
@@ -4435,7 +4549,7 @@ components:
         enabled:
           type: boolean
           default: true
-          description: Specifies whether you want to enable single-logout to your application. 
+          description: Specifies whether you want to enable single-logout to your application.
         logoutRequestUrl:
           type: string
           description: Single logout request accepting endpoint
@@ -4503,7 +4617,7 @@ components:
           type: string
           default: "http://www.w3.org/2000/09/xmldsig#sha1"
           example: "http://www.w3.org/2000/09/xmldsig#sha1"
-          description: The digest algorithm used in authentication response and logout response. 
+          description: The digest algorithm used in authentication response and logout response.
         encryption:
           $ref: '#/components/schemas/AssertionEncryptionConfiguration'
 
@@ -4684,7 +4798,7 @@ components:
           description: Specifies whether `pkce` is mandatory for the application. It is recommended to use pkce for public applications.
         supportPlainTransformAlgorithm:
           type: boolean
-          example: true 
+          example: true
           description: Specifies whether to support the use of plain (unencrypted) algorithms for transforming subject identities between different identity domains.
     AccessTokenConfiguration:
       type: object
@@ -5085,7 +5199,7 @@ components:
         self:
           type: string
           example: "/t/<org_name>/api/server/v1/applications/templates/85e3f4b8-0d22-4181-b1e3-1651f71b88bd"
-          description: The URL of the current application. 
+          description: The URL of the current application.
 
     ApplicationTemplateModel:
       type: object
@@ -5319,7 +5433,7 @@ components:
           type: string
           example: '08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c'
           description: |
-              The parent organization ID.
+            The parent organization ID.
         status:
           type: string
           enum: [ ACTIVE, DISABLED ]
@@ -5338,7 +5452,7 @@ components:
         roles:
           type: array
           items:
-              $ref: '#/components/schemas/RoleShareConfig'
+            $ref: '#/components/schemas/RoleShareConfig'
           description: "List of roles that are shared with the application in this organization."
     ApplicationShareSelectedRequestBody:
       type: object

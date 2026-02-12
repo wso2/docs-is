@@ -464,8 +464,19 @@ paths:
         Authorized an API to the application.
       operationId: addAuthorizedAPI
       description: |
-        This API provides the capability to authorized an API to the application. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_update`
+        This API provides the capability to authorized an API to the application.
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_org_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To authorize organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Authorize organization API | `internal_org_application_internal_api_update` |
+          | Authorize business APIs | `internal_org_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -522,7 +533,18 @@ paths:
       operationId: patchAuthorizedAPI
       description: |
         This API provides the capability to update an authorized API of the application. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_update`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_org_application_mgt_update`  
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update authorized organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update authorized organization API | `internal_org_application_internal_api_update` |
+          | Update authorized business APIs | `internal_org_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -585,7 +607,18 @@ paths:
       operationId: deleteAuthorizedAPI
       description: |
         This API provides the capability to delete an authorized API of the application. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_update`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_org_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To remove authorized organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Remove authorized organization API | `internal_org_application_internal_api_update` |
+          | Remove authorized business APIs | `internal_org_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -676,9 +709,19 @@ paths:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Retrieve OIDC authentication protocol parameters.
-      description: >
+      description: |
         This API provides the capability to retrieve OIDC authentication protocol parameters of an application. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_view`
+        
+                <b>Scope(Permission) required:</b> 
+          - `internal_org_application_mgt_view`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To view the client secret, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | View client secret | `internal_org_application_mgt_client_secret_view` |
       operationId: getInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -887,7 +930,8 @@ paths:
         Regenerate the OAuth2/OIDC client secret.
       description: |
         This API regenerates the OAuth2/OIDC client secret. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_create`
+        
+        <b>Scope(Permission) required:</b> `internal_org_application_mgt_client_secret_create`
       operationId: regenerateOAuthClientSecret
       parameters:
         - name: applicationId
@@ -1911,18 +1955,15 @@ components:
           example: 3600
         bindingType:
           type: string
-          description: "OAuth2 access token and refresh token can be bound to an external attribute during the token
-          generation so that it can be optionally validated during the API invocation."
+          description: "OAuth2 access token and refresh token can be bound to an external attribute during the token generation so that it can be optionally validated during the API invocation."
           default: "None"
           example: cookie
         revokeTokensWhenIDPSessionTerminated:
           type: boolean
-          description: "If enabled, when the IDP session is terminated, all the access tokens bound to the session
-          will get revoked."
+          description: "If enabled, when the IDP session is terminated, all the access tokens bound to the session will get revoked."
         validateTokenBinding:
           type: boolean
-          description: "If enabled, both access token and the token binding needs to be present for a successful API
-          invocation."
+          description: "If enabled, both access token and the token binding needs to be present for a successful API invocation."
         accessTokenAttributes:
           type: array
           items:
@@ -2041,8 +2082,10 @@ components:
         type:
           type: string
           description: "
-          - DEFAULT type indicates that the application will use the default authentication sequence specified at the tenant level. When the DEFAULT type is used, the information given in the other fields of the AuthenticationSequence will be ignored and overriden with values defined at the tenant level.
-           - USER_DEFINED type indicates that the application will use a user-defined authentication sequence."
+            <ul>
+              <li> <b>DEFAULT</b> type indicates that the application will use the default authentication sequence specified at the organization level. When the DEFAULT type is used, the information given in the other fields of the `AuthenticationSequence` will be ignored and overriden with values defined at the organization level.</li>
+              <li> <b>USER_DEFINED</b> type indicates that the application will use a user-defined authentication sequence.</li>
+            </ul>"
           enum:
             - DEFAULT
             - USER_DEFINED
