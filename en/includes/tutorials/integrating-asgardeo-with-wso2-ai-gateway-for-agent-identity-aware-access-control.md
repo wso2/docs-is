@@ -118,8 +118,9 @@ Go to the **Organization level** and in the left navigation menu, click **Admin 
 2. To add an identity provider, click **+ Identity Provider**.
 3. Select **Asgardeo**.
 4. In the dialog that opens, specify:
- - **Name** and **Description** for the IdP.
- - **Well-Known URL**: Paste the well-known URL from your Asgardeo instance.
+
+- **Name** and **Description** for the IdP.
+- **Well-Known URL**: Paste the well-known URL from your Asgardeo instance.
    
 ![Asgardeo_instance_Well-Known_URL]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Asgardeo_instance_Well-Known_URL.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
