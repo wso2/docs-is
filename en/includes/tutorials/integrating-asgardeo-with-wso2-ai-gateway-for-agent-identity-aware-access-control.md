@@ -94,7 +94,7 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
 1. Log in to **WSO2 Bijira**.
 2. Create a project and then create a new AI API by selecting:
    - **API Proxy → Third Party APIs (Egress) → AI APIs**.
-3. After creation, configure **back-end Settings** and deploy it to **Development** and **Production Environments**.
+3. After creation, configure it and deploy it to **Development** and **Production Environments**.
    - For a detailed guide, refer to the [Docs-ai-apis](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/ai-apis/).
 
 ![Create_an_AI_API_Proxy]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Create_an_AI_API_Proxy.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -106,7 +106,7 @@ For this tutorial, we create two API proxies using **Azure OpenAI Service API** 
 
 ![AI_API_Proxy_Overview]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\AI_API_Proxy_Overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Make sure you configure back-end Settings and Deploy both proxies to development and Production Environments.
+Make sure you configure them and Deploy both proxies to development and Production Environments.
 
 ### Step 2: Add Asgardeo as an external IdP in Bijira
 
@@ -148,7 +148,7 @@ Make sure you select the permissions and save the changes in the policy tab and 
 
 ### Step 4: Configure token-based rate limiting policy
 
-In this step, you will implement Token-Based Rate Limiting. Unlike standard APIs that limit by request count, AI Gateways allow you to control usage based on actual token consumption (input and output), which is essential for managing LLM costs and preventing backend overload.
+In this step, you will implement Token-Based Rate Limiting. Unlike standard APIs that limit by request count, AI Gateways allow you to control usage based on actual token consumption (input and output), which is essential for managing LLM costs and preventing overload.
 
 In the **Policy** tab, select **Add API-level Policies**.
 
