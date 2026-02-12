@@ -100,8 +100,9 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
 ![Create_an_AI_API_Proxy]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Create_an_AI_API_Proxy.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 For this tutorial, we create two API proxies using **Azure OpenAI Service API** and deploy them.
-   - `gpt-4o mini`
-   - `gpt-5`
+
+- `gpt-4o mini`
+- `gpt-5`
 
 ![AI_API_Proxy_Overview]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\AI_API_Proxy_Overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -117,8 +118,8 @@ Go to the **Organization level** and in the left navigation menu, click **Admin 
 2. To add an identity provider, click **+ Identity Provider**.
 3. Select **Asgardeo**.
 4. In the dialog that opens, specify:
-   - **Name** and **Description** for the IdP.
-   - **Well-Known URL**: Paste the well-known URL from your Asgardeo instance.
+ - **Name** and **Description** for the IdP.
+ - **Well-Known URL**: Paste the well-known URL from your Asgardeo instance.
    
 ![Asgardeo_instance_Well-Known_URL]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Asgardeo_instance_Well-Known_URL.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -127,6 +128,7 @@ Leave the **Apply to all environments** checkbox selected. This allows you to us
 ### Step 3: Configure permissions (scopes) policy
 
 Following your deployment in Step 1, we need to restrict access to the specific AI API proxies.
+
 1. Select one API proxy you created.
 2. In the left navigation menu, click **Develop > Policy**.
 3. In the **API Proxy Contract** view, locate your available resources.
@@ -135,9 +137,9 @@ Following your deployment in Step 1, we need to restrict access to the specific 
 
 ![Configure_Permissions]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Configure_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-   - Select **Attach Policy** in the **Request Flow** and go to **Permissions (Scopes)**.
-   - For **OpenAI gpt-4o Proxy**, add the `Support-Coordinator` permission.
-   - For **OpenAI gpt-5 Proxy**, add the `Technical-Specialist` permission.
+- Select **Attach Policy** in the **Request Flow** and go to **Permissions (Scopes)**.
+- For **OpenAI gpt-4o Proxy**, add the `Support-Coordinator` permission.
+- For **OpenAI gpt-5 Proxy**, add the `Technical-Specialist` permission.
 
 ![Add_Permissions]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -160,8 +162,7 @@ Save the changes and redeploy to apply them.
 
 After configuring your security and rate-limiting policies, verify that your AI gateway is functioning correctly using the built-in testing tools in the **Bijira Console**.
 
-For a comprehensive list of additional AI Guardrails and to customize your own, refer to the documentation [here](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/guardrails/).
-
+For a comprehensive list of additional AI Guardrails and to customize your own, refer to the [AI Guardrails documentation](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/guardrails/).
 
 ## Part 3: Trying out the AI Gateway
 
