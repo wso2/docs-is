@@ -2,7 +2,7 @@
 
 In this tutorial, we explore how enterprises can securely scale multi-agent AI systems using **Asgardeo** and the **KONG AI Gateway**. As AI adoption grows, organizations often rely on multiple AI agents, some optimized for speed and cost, others designed for deep reasoning and critical decision-making. Without proper governance, this can quickly lead to security risks, runaway costs, and uncontrolled model access. By combining **Asgardeo’s identity and access management** for non-human agents with the KONG AI Gateway’s intelligent routing, scope-based authorization, and token-aware rate limiting, teams gain precise control over who can access which AI models and at what cost. Let’s dive in and see how this architecture brings security, efficiency, and confidence to enterprise-grade AI deployments.
 
-## The use case: enterprise support system
+## The use case: Enterprise support system
 
 Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single general-purpose agent, they use multiple specialized agents:
 
@@ -158,11 +158,10 @@ Here, we define which "Brain" powers each route.
 We must strip the Asgardeo authentication token before the request leaves Kong. If we don't, Google will receive a confusing Bearer token and reject the request.
 
 - **In Both Routes**:
-  1. Add the **Request Transformer plugin**.
+
+Add the **Request Transformer plugin**, and in **Remove.Headers**, add **Authorization**.
 
 ![Request_Transformer__Plugin]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\Request_Transformer__Plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-  2. In **RemoveHeaders**, add **Authorization**.
 
 ### Step 6: Enable rate limiting advanced
 
