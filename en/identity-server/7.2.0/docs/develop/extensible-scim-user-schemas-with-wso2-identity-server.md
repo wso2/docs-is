@@ -12,7 +12,11 @@ To map an external claim to a local claim in WSO2 IS:
 
 1\. Log into the Identity Server.
 
+
+
 2\. Navigate to \*\*Main Menu → Claims → Add → Add External Claim\*\*.
+
+
 
 3\. Fill the form:
 
@@ -27,8 +31,4 @@ To map an external claim to a local claim in WSO2 IS:
 
 
 4\. Save the mapping.
-
-
-
-
 
