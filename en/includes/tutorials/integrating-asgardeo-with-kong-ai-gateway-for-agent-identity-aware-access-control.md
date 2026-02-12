@@ -159,7 +159,7 @@ We must strip the Asgardeo authentication token before the request leaves Kong. 
 
 - **In Both Routes**:
 
-Add the **Request Transformer plugin**, and in **Remove.Headers**, add **Authorization**.
+Add the **Request Transformer plugin**, and in **RemoveHeaders**, add **Authorization**.
 
 ![Request_Transformer__Plugin]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\Request_Transformer__Plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
