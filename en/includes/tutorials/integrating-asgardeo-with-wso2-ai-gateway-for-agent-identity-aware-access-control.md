@@ -99,13 +99,13 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
 3. After creation, configure **Backend Settings** and deploy it to **Development** and **Production Environments**.
    - For a detailed guide, refer to the [Docs-ai-apis](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/ai-apis/).
 
-![image-1]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-1.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Create_an_AI_API_Proxy]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Create_an_AI_API_Proxy.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. For this tutorial, we create two API proxies using **Azure OpenAI Service API** and deploy them.
    - `gpt-4o mini`
    - `gpt-5`
 
-![image-2]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-2.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![AI_API_Proxy_Overview]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\AI_API_Proxy_Overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Make sure you configure Backend Settings and Deploy both proxies to development and Production Environments.
 
@@ -113,7 +113,7 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
 
 1. Go to the **Organization level** and in the left navigation menu, click **Admin > Settings**.
 
-![image-3]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-3.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_Asgardeo_as_an_external_IdP]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Asgardeo_as_an_external_IdP.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Click the **Application Security** tab and then the **Identity Providers** tab.
 3. To add an identity provider, click **+ Identity Provider**.
@@ -122,7 +122,7 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
    - **Name** and **Description** for the IdP.
    - **Well-Known URL**: Paste the well-known URL from your Asgardeo instance.
    
-![image-4]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-4.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Asgardeo_instance_Well-Known_URL]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Asgardeo_instance_Well-Known_URL.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 6. Leave the **Apply to all environments** checkbox selected. This allows you to use the tokens generated via this IdP to invoke APIs across all environments.
 7. Click **Next** and **Add**.
@@ -136,13 +136,13 @@ Following your deployment in Step 1, we need to restrict access to the specific 
 4. For each specific AI resource (e.g., `/chat/completions`):
    - Click the **Edit Resource-Level Policies** icon.
 
-![image-5]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-5.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Configure_Permissions]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Configure_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
    - Select **Attach Policy** in the **Request Flow** and go to **Permissions (Scopes)**.
    - For **OpenAI gpt-4o Proxy**, add the `Support-Coordinator` permission.
    - For **OpenAI gpt-5 Proxy**, add the `Technical-Specialist` permission.
 
-![image-6]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-6.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_Permissions]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Make sure you select the permissions and save the changes in the policy tab and **redeploy** to apply them.
 
@@ -152,12 +152,12 @@ In this step, you will implement Token-Based Rate Limiting. Unlike standard APIs
 
 1. In the **Policy** tab, select **Add API-level Policies**.
 
-![image-7]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-7.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Configure_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Configure_Token-Based_Rate_Limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Select **Attach Policy** in the **Request Flow** and go to **Token-Based Rate Limiting**.
 3. Configure the fields based on your requirements.
 
-![image-8]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\image-8.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Token-Based_Rate_Limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Save the changes and redeploy to apply them.
 
