@@ -7,7 +7,7 @@ Let’s dive in and see how this architecture brings security, efficiency, and c
 
 ## The use case: Enterprise support system
 
-Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single model, they use specialized agents:
+Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single general-purpose agent, they use multiple specialized agents:
 
 - **The Coordinator Agent**: A fast, cost-effective agent that classifies incoming tickets.
 - **The Expert Agent**: A "deep thinking" agent reserved for critical, complex infrastructure outages.
@@ -38,7 +38,7 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
 2. Go to **Applications > New Application**.
 3. Select **Standard-Based Application**.
 4. Configure the application:
-   - **Name**: `Enterprise_Support_System`
+   - **Name**: `Enterprise Support System`
    - **Protocol**: OpenID Connect.
    - Tick **Allow AI agents to sign into this application**.
 5. In the **Protocol** tab:
@@ -57,7 +57,7 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
    - `Technical-Specialist`
    - `Support-Coordinator`
 5. Click **Next** and **Create**.
-6. Go to the `Enterprise_Support_System` application you created and navigate to the **API Authorization** tab.
+6. Go to the `Enterprise Support System` application you created and navigate to the **API Authorization** tab.
 7. Click **Authorize API resource**, search for the `agenttype` resource you created, and select all scopes.
 8. Click **Finish**.
 
@@ -67,7 +67,7 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
 2. Click **+ New Role**.
 3. Configure the role:
    - **Role Name**: `Support-Coordinator`
-   - Assign application: `Enterprise_Support_System`.
+   - Assign application: `Enterprise Support System`.
    - In **Permission Selection**, select the `agenttype` resource and the `Support-Coordinator` scope.
 4. Click **Finish**.
 5. Repeat the process for the `Technical-Specialist` role.
