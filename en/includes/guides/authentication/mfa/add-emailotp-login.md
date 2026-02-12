@@ -45,6 +45,8 @@ To update the default Email OTP settings:
         <td>Use alphanumeric characters for OTP</td>
         <td>
             Specifies whether to use alphanumeric characters in the OTP. If not selected, the generated OTP contains only digits (0-9).
+            <br><br>
+            <b>Note:</b> The UI options for <b>Include uppercase characters in OTP</b> and <b>Include lowercase characters in OTP</b> have been removed. To configure specific character types (uppercase/lowercase), use the <code>deployment.toml</code> file or the <a href="{{base_path}}/apis/governance-connectors/">Identity Governance REST API</a>. See the <a href="#configure-advanced-email-otp-settings">Configure advanced email OTP settings</a> section below for details.
         </td>
       </tr>
       <tr>
@@ -100,3 +102,70 @@ When Email OTP is enabled in the login flow of your application, the application
 3. If required, the user can request {{ product_name }} to resend the OTP. The new OTP invalidates the previously sent OTP.
 4. The user enters the OTP and clicks **Continue**.
 5. If the authentication is successful, the user can access the application.
+
+## Configure advanced email OTP settings
+
+The UI options for **Include uppercase characters in OTP** and **Include lowercase characters in OTP** have been removed. To configure the character composition of email OTP codes with specific uppercase/lowercase requirements, use one of the following methods:
+
+### Configure via deployment.toml
+
+Add the following configuration parameters to the `<IS_HOME>/repository/conf/deployment.toml` file under the `[authentication.authenticator.email_otp.parameters]` section.
+
+**Use numeric characters only**
+
+To generate OTP codes with only numeric characters (default behavior):
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = true
+```
+
+**Use alphanumeric characters with uppercase and lowercase**
+
+To generate OTP codes with alphanumeric characters including both uppercase and lowercase letters:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = true
+UseLowercaseCharacters = true
+```
+
+**Use alphanumeric characters with only uppercase**
+
+To generate OTP codes with numbers and uppercase letters only:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = true
+UseLowercaseCharacters = false
+```
+
+**Use alphanumeric characters with only lowercase**
+
+To generate OTP codes with numbers and lowercase letters only:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = false
+UseLowercaseCharacters = true
+```
+
+### Configure via Identity Governance REST API
+
+You can also configure these settings programmatically using the [Identity Governance REST API]({{base_path}}/apis/governance-connectors/). Use the API to retrieve and update the email OTP authenticator connector properties.
+
+**Retrieve current configuration**
+
+Send a GET request to retrieve the current email OTP configuration:
+
+```bash
+curl -X GET "https://<IS_HOST>:<PORT>/api/identity/governance/v1/connectors" \
+-H "Authorization: Bearer <access_token>"
+```
+
+**Update configuration**
+
+Send a PATCH request to update the email OTP configuration with your desired character composition settings.
