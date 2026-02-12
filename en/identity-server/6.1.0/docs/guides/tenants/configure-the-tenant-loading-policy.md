@@ -1,6 +1,6 @@
 # Configure the Tenant Loading Policy
 
-In WSO2 Identity Server (WSO2 IS) based on Carbon 4.4.0 or later versions, you have the
+In WSO2 Identity Server (WSO2 IS), you have the
 option of setting the required tenant loading policy by enabling either
 **Lazy Loading** or **Eager Loading** of tenants. Additionally, you can
 separately control the loading policy for web applications and axis2
