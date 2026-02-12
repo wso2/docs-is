@@ -4,7 +4,7 @@ In this tutorial, we explore how enterprises can securely scale multi-agent AI s
 
 ## The use case: enterprise support system
 
-Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single model, they use specialized agents:
+Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single general-purpose agent, they use multiple specialized agents:
 
 - **The Coordinator Agent**: A fast, cost-effective agent that classifies incoming tickets.
 - **The Expert Agent**: A "deep thinking" agent reserved for critical, complex infrastructure outages.
@@ -35,7 +35,7 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
 2. Go to **Applications > New Application**.
 3. Select **Standard-Based Application**.
 4. Configure the following:
-   - **Name**: Enterprise_Support_System.
+   - **Name**: Enterprise Support System.
    - **Protocol**: OpenID Connect.
    - Tick **Allow AI agents to sign into this application**.
 
@@ -51,11 +51,11 @@ We need to define the roles that Kong will look for.
 1. Navigate to **User Management > Roles**.
 2. Click **+ New Role**.
    - **Role Name**: Support-Coordinator.
-   - Assign application **Enterprise_Support_System**.
+   - Assign application **Enterprise Support System**.
    - Click **Finish**.
 3. Click **+ New Role** again.
    - **Role Name**: Technical-Specialist.
-   - Assign application **Enterprise_Support_System**.
+   - Assign application **Enterprise Support System**.
    - Click **Finish**.
 
 ### Step 3: Register AI agents
