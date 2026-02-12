@@ -90,7 +90,7 @@ We create a service to act as a placeholder. The AI Proxy plugin will intercept 
 4. Click **Save**.
    - **Note**: Copy the **Proxy URL** displayed; this is the endpoint your application will call.
 
-![image-1]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\image-1.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Create_a_Dummy_Service]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\Create_a_Dummy_Service.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Step 2: Create two routes (header-based routing)
 
@@ -108,13 +108,13 @@ We use a single service but split traffic into two lanes based on the agent's in
      - **Methods**: POST.
      - **Headers**: x-agent-type = Technical-Specialist.
 
-![image-2]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\image-2.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Create_Two_Routes]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\Create_Two_Routes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Step 3: Enable the OpenID Connect plugin
 
 This plugin acts as the security guard, ensuring only the right agent enters the right route.
 
-![image-3]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\image-3.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![OpenID_Connect_Plugin]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\OpenID_Connect_Plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 - **For Route 1 (coordinator-route)**:
   1. Add the **OpenID Connect plugin**.
@@ -160,7 +160,7 @@ We must strip the Asgardeo authentication token before the request leaves Kong. 
 - **In Both Routes**:
   1. Add the **Request Transformer plugin**.
 
-![image-4]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\image-4.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Request_Transformer__Plugin]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\Request_Transformer__Plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
   2. In **RemoveHeaders**, add **Authorization**.
 
