@@ -1181,6 +1181,7 @@ nav:
         - OIDC Dynamic Client Registration API: apis/dynamic-client-registration-rest-api.md
         - Script Library management API: apis/script-library-rest-api.md
       - App-native authentication API: apis/app-native-authentication-api.md
+      - Asynchronous Status management API: apis/async-status-management-rest-api.md
       - Authentication Data API: apis/use-the-authentication-rest-apis.md
       - Authenticators API: apis/authenticators-rest-api.md
       - Certificate Validation Management API: apis/certificate-validation-management-rest-api.md
@@ -1255,6 +1256,7 @@ nav:
       - Application management:
         - Application management API (Shared Applications): apis/organization-apis/shared-application-mgt.md
         - Application management API: apis/organization-apis/organization-application-mgt.md
+      - Asynchronous Status management API: apis/organization-apis/async-status-management-rest-api.md
       - Authenticators API: apis/organization-apis/org-authenticators.md
       - Certificate Validation Management API: apis/organization-apis/certificate-validation-management-rest-api.md
       - Branding management API: apis/organization-apis/org-branding-mgt.md
