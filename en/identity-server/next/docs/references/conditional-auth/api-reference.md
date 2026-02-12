@@ -47,6 +47,201 @@
 
 ---
 
+## Script structure and syntax
+
+Conditional authentication scripts in {{ product_name }} are JavaScript-based and follow standard JavaScript syntax conventions. Understanding the structure and scripting engine helps you write effective authentication logic.
+
+### Scripting engine
+
+{{ product_name }} uses **GraalVM JavaScript (GraalJS)** as its scripting engine for conditional authentication. GraalJS provides:
+
+- ECMAScript 2022 (ES13) compatibility
+- High performance JavaScript execution
+- Seamless integration with Java-based authentication components
+
+!!! note "Script compatibility"
+    Older versions of {{ product_name }} used the Nashorn JavaScript engine. GraalJS provides better performance and standards compliance while maintaining compatibility with most existing scripts.
+
+### Script structure
+
+Every conditional authentication script follows this basic structure:
+
+```javascript
+// Define the main authentication flow
+var onLoginRequest = function(context) {
+    // Authentication logic goes here
+    // Execute steps, check conditions, apply rules
+    executeStep(1);
+};
+```
+
+The `onLoginRequest` function is the entry point for your authentication logic and is automatically invoked when a user initiates login.
+
+### Basic syntax patterns
+
+#### Simple step execution
+
+Execute authentication steps sequentially:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1);
+    executeStep(2);
+};
+```
+
+#### Conditional logic
+
+Make authentication decisions based on user attributes:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            var user = context.currentKnownSubject;
+            if (isMemberOfAnyOfGroups(user, ['admin'])) {
+                executeStep(2);
+            }
+        }
+    });
+};
+```
+
+#### Event callbacks
+
+Handle success and failure scenarios:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            // Handle successful authentication
+            Log.info('Step 1 succeeded');
+        },
+        onFail: function(context) {
+            // Handle authentication failure
+            fail({'errorCode': 'auth_failed'});
+        }
+    });
+};
+```
+
+### Variable declarations and scoping
+
+Use standard JavaScript variable declarations:
+
+```javascript
+var onLoginRequest = function(context) {
+    // Declare variables with var, let, or const
+    var allowedGroups = ['admin', 'manager'];
+    var user = context.currentKnownSubject;
+
+    // Variables declared inside callbacks have function scope
+    executeStep(1, {
+        onSuccess: function(context) {
+            var authenticated = true;
+            // authenticated is accessible here
+        }
+    });
+};
+```
+
+### Working with authentication context
+
+Access request information, user details, and authentication steps through the context object:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            // Access authenticated user
+            var user = context.currentKnownSubject;
+
+            // Access user attributes
+            var email = user.localClaims['http://wso2.org/claims/emailaddress'];
+            var username = user.username;
+
+            // Access request details
+            var userAgent = context.request.headers['user-agent'];
+            var ipAddress = context.request.ip;
+
+            // Access application information
+            var appName = context.serviceProviderName;
+        }
+    });
+};
+```
+
+### Common scripting patterns
+
+#### Pattern 1: Role-based step execution
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            var hasAdminRole = hasAnyOfTheRolesV2(context, ['admin']);
+            if (hasAdminRole) {
+                executeStep(2); // Additional security step for admins
+            }
+        }
+    });
+};
+```
+
+#### Pattern 2: Risk-based authentication
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            var riskScore = callRiskEngine(context);
+            if (riskScore > 70) {
+                executeStep(2); // Require MFA for high-risk logins
+            }
+        }
+    });
+};
+
+function callRiskEngine(context) {
+    // Custom risk calculation logic
+    var ipAddress = context.request.ip;
+    // Return risk score based on your criteria
+    return 50;
+}
+```
+
+#### Pattern 3: Attribute-based access control
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            var user = context.currentKnownSubject;
+            var department = user.localClaims['http://wso2.org/claims/department'];
+
+            if (department === 'finance') {
+                // Allow access
+                Log.info('Finance user granted access');
+            } else {
+                // Deny access
+                fail({'errorCode': 'access_denied',
+                      'errorMessage': 'Access restricted to finance department'});
+            }
+        }
+    });
+};
+```
+
+!!! tip "Best practices"
+    - Keep your scripts modular by using helper functions for complex logic.
+    - Use meaningful variable names to improve script readability.
+    - Handle both `onSuccess` and `onFail` callbacks for robust error handling.
+    - Test your scripts thoroughly with different user scenarios.
+    - Use the `Log` object for debugging during development.
+
+---
+
 ## Core functions
 
 These are the basic functions that are required for defining the application login flow using an authentication script.
@@ -202,14 +397,14 @@ This section describes the **options** you can use to configure the `executeStep
 Shown below are ways to define a login flow using the core functions.
 
 - <b>Example 1: Use <code>stepId</code></b>
-  
+
     This example uses only the `stepId`.
-    ``` js 
+    ``` js
     executeStep(1)
     ```
 
 - <b>Example 2: Use <code>stepId</code> and <code>eventCallbacks</code></b>
-  
+
     This example uses only the `stepId` and `eventCallbacks`.
     ``` js
     executeStep(1, {
@@ -221,8 +416,8 @@ Shown below are ways to define a login flow using the core functions.
 
 - <b>Example 3: Use all parameters</b>
 
-    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be 
-    defined by the `options` object, such as `authenticationOptions`, `authenticatorParams` and `stepOptions`. However, you cannot write a script with only the `stepId` and `options`. 
+    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be
+    defined by the `options` object, such as `authenticationOptions`, `authenticatorParams` and `stepOptions`. However, you cannot write a script with only the `stepId` and `options`.
 
     See the following examples:
 
@@ -237,23 +432,23 @@ Shown below are ways to define a login flow using the core functions.
     executeStep(1, {
         authenticatorParams: {
             local: {
-               email-otp-authenticator: {
+               'email-otp-authenticator': {
                     enableRetryFromAuthenticator: 'true'
                }
             }
-        }, {}
+        }}, {}
     );
     ```
     ``` js
      executeStep(1, {
          stepOptions: {
              forceAuth: 'true'
-         }, {}
+         }}, {}
      );
     ```
-  
+
 - <b>Example 4: Filter connections in a step</b>
-  
+
     The `authenticationOptions` array filters out connections (local authenticators and federated identity providers) of a step based on a condition.
 
     This can be achieved by specifying an array named `authenticationOptions` to the `options` map.  You can have `idp` as an array item for federated connections and `authenticator` as an array item for local connections, as shown below.
@@ -264,21 +459,173 @@ Shown below are ways to define a login flow using the core functions.
         },{
             onSuccess: function (context) {
                 // Do something on success
-      };
+            }
+      });
     ```
-  
+
 - <b>Example 5: Force authentication with <code>stepOptions</code></b>
-   
-     The `stepOptions` is an optional property that can be defined in the `executeStep`. This allows the addition of 
-     the `forceAuth` authentication option, which can prompt the authenticator in the steps to re-authenticate, even 
+
+     The `stepOptions` is an optional property that can be defined in the `executeStep`. This allows the addition of
+     the `forceAuth` authentication option, which can prompt the authenticator in the steps to re-authenticate, even
      if it was already authenticated.
 
     ``` js
       executeStep(1,{
          stepOptions: {
             forceAuth: 'true'
-        }, {}
-      };
+        }}, {}
+      );
+    ```
+
+- <b>Example 6: Use <code>authenticatorParams</code> with multiple authenticators</b>
+
+    Configure multiple authenticators with different parameters in a single step:
+
+    ``` js
+    executeStep(1, {
+        authenticatorParams: {
+            common: {
+                // Common parameters for all authenticators
+                showAuthFailureReason: 'true'
+            },
+            local: {
+                'BasicAuthenticator': {
+                    enableAccountLock: 'true',
+                    maxFailedAttempts: '3'
+                },
+                'totp': {
+                    useEventHandlerBasedLogic: 'true'
+                }
+            },
+            federated: {
+                'google': {
+                    customParam: 'value'
+                }
+            }
+        }}, {
+        onSuccess: function(context) {
+            Log.info('Step 1 completed successfully');
+        },
+        onFail: function(context) {
+            Log.error('Step 1 failed');
+        }
+    });
+    ```
+
+- <b>Example 7: Dynamic authenticator selection</b>
+
+    Select authenticators dynamically based on user attributes or request parameters:
+
+    ``` js
+    var onLoginRequest = function(context) {
+        executeStep(1, {
+            onSuccess: function(context) {
+                var user = context.currentKnownSubject;
+                var userRoles = user.localClaims['http://wso2.org/claims/role'];
+
+                // Choose second factor based on user role
+                if (userRoles && userRoles.indexOf('admin') !== -1) {
+                    // Admins must use TOTP
+                    executeStep(2, {
+                        authenticationOptions: [{
+                            authenticator: 'totp'
+                        }]
+                    }, {});
+                } else {
+                    // Regular users can choose between Email OTP or SMS OTP
+                    executeStep(2, {
+                        authenticationOptions: [{
+                            authenticator: 'email-otp-authenticator'
+                        }, {
+                            authenticator: 'sms-otp-authenticator'
+                        }]
+                    }, {});
+                }
+            }
+        });
+    };
+    ```
+
+- <b>Example 8: Combine <code>authenticationOptions</code>, <code>authenticatorParams</code>, and <code>stepOptions</code></b>
+
+    Use multiple configuration options together for fine-grained control:
+
+    ``` js
+    executeStep(2, {
+        authenticationOptions: [{
+            authenticator: 'totp'
+        }, {
+            authenticator: 'email-otp-authenticator'
+        }],
+        authenticatorParams: {
+            local: {
+                'email-otp-authenticator': {
+                    enableRetryFromAuthenticator: 'true',
+                    emailOTPExpiryTime: '300',
+                    tokenLength: '6'
+                },
+                'totp': {
+                    useEventHandlerBasedLogic: 'true',
+                    encodingMethod: 'Base32'
+                }
+            }
+        },
+        stepOptions: {
+            forceAuth: 'false'
+        }
+    }, {
+        onSuccess: function(context) {
+            Log.info('Multi-factor authentication completed');
+        },
+        onFail: function(context) {
+            fail({'errorCode': 'mfa_failed',
+                  'errorMessage': 'Multi-factor authentication failed'});
+        }
+    });
+    ```
+
+- <b>Example 9: Conditional step execution with nested callbacks</b>
+
+    Execute additional steps within callback functions based on conditions:
+
+    ``` js
+    var onLoginRequest = function(context) {
+        executeStep(1, {
+            onSuccess: function(context) {
+                var user = context.currentKnownSubject;
+                var ipAddress = context.request.ip;
+
+                // Check if login is from a new location
+                if (isNewLocation(user, ipAddress)) {
+                    // Require additional verification
+                    executeStep(2, {
+                        authenticationOptions: [{
+                            authenticator: 'email-otp-authenticator'
+                        }]
+                    }, {
+                        onSuccess: function(context) {
+                            Log.info('New location verified');
+                        },
+                        onFail: function(context) {
+                            fail({'errorCode': 'location_verification_failed'});
+                        }
+                    });
+                } else {
+                    Log.info('Login from known location');
+                }
+            },
+            onFail: function(context) {
+                Log.error('Primary authentication failed');
+                fail({'errorCode': 'auth_failed'});
+            }
+        });
+    };
+
+    function isNewLocation(user, ipAddress) {
+        // Custom logic to check if IP is from a new location
+        // This is a simplified example
+        return false;
+    }
     ```
 
 ### Fail the login flow
