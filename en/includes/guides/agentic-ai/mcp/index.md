@@ -90,7 +90,7 @@ This new flow outlines the steps for an Agent (MCP Host) to register its identit
    * Log which Agent executed the action for comprehensive auditing purposes.
 
 !!! note   
-    While the MCP Authorization specification doesn't currently mandate identifying the MCP Host (agent) with its own credentials and permissions, this is a crucial {{product_name}} implementation. It enables secure, auditable agentic systems for autonomous agents by providing clear attribution, better permission management, clear auditability, and enhanced security.
+    While the MCP Authorization specification doesn't currently mandate identifying the MCP Host (agent) with its own credentials and permissions, this is a crucial {{ product_name}} implementation. It enables secure, auditable agentic systems for autonomous agents by providing clear attribution, better permission management, clear auditability, and enhanced security.
 
 ## Supported Specifications
 
@@ -99,7 +99,7 @@ This new flow outlines the steps for an Agent (MCP Host) to register its identit
 | Specification | Use Case in MCP |
 | :--- | :--- |
 | **OAuth 2.1 (Draft)** | The foundation for the MCP Authorization specification, ensuring security best practices. |
-| **OpenID Connect Core 1.0** | Verifies the identity of users and agents interactions. |
+| **OpenID Connect Core 1.0** | Verifies the identity of user and/or agent interactions. |
 | **OpenID Connect Discovery 1.0** | Allows MCP Clients to automatically discover authorization endpoints and configurations. |
 | **OpenID Connect Dynamic Client Registration 1.0** | Enables dynamic onboarding of MCP Clients. |
 | **OAuth 2.0 Pushed Authorization Requests (PAR)** | Enhances security by preventing authorization parameters from being exposed in the URL. |
@@ -108,5 +108,5 @@ This new flow outlines the steps for an Agent (MCP Host) to register its identit
 
 Get hands-on with MCP server authorization, 
 
-- 📖 [**MCP Server Quick Start - Typescript**]({{base_path}}/quick-starts/mcp-auth-server/)  
+- 📖 [**MCP Server Quick Start - TypeScript**]({{base_path}}/quick-starts/mcp-auth-server/)  
 - 📖 [**MCP Server Quick Start - Python**]({{base_path}}/quick-starts/mcp-auth-server-py/)
