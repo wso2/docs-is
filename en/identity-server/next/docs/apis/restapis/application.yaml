@@ -5635,6 +5635,12 @@ components:
           type: array
           items:
             type: string
+        enableJwtScopeAsArray:
+          type: boolean
+          description: >
+            If enabled, the scope claim in JWT access tokens will be formatted as a JSON array
+            instead of a space-separated string.
+          example: false
     RefreshTokenConfiguration:
       type: object
       properties:

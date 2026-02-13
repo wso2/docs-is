@@ -25,7 +25,32 @@
     "expires_in": 3600
     }
     ```
-    <br>
+
+    !!! note
+        By default, the `scope` claim in JWT access tokens is formatted as a space-separated string (e.g., `"scope": "openid profile email"`). This format is compliant with the **JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens ([RFC 9068](https://www.rfc-editor.org/rfc/rfc9068.html))**.
+
+        You can change this to a JSON array format (e.g., `"scope": ["openid", "profile", "email"]`), but this is **not recommended** as it deviates from the standard specification.
+
+        If you still require this configuration, it can be applied at two levels:
+
+        - **Application level**: Set the `enableJwtScopeAsArray` property in the application's `accessToken` configuration via the [Application Management API]({{base_path}}/apis/{% if product_name == "Asgardeo" %}application-management{% else %}application-rest-api{% endif %}/). This overrides the tenant-level setting for the specific application.
+        {% if product_name == "WSO2 Identity Server" %}
+        - **Tenant level**: Use the [Server Configuration API]({{base_path}}/apis/configs-rest-api/) to set the `enableJwtScopeAsArray` property in the OAuth2 inbound authentication configuration (`/configs/authentication/inbound/oauth2`). This applies to all applications in the tenant unless overridden at the application level.
+        {% endif %}
+        {% if product_name == "Asgardeo" %}
+        - **Organization level**: Set the `enableJwtScopeAsArray` property via the following API. This applies to all applications in the organization unless overridden at the application level.
+
+            Get an access token with the `internal_config_update` scope and use it to execute the following cURL:
+
+            ``` curl
+            curl --location --request PATCH 'https://api.asgardeo.io/t/<organization_name>/api/server/v1/configs/authentication/inbound/oauth2' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer <access_token>' \
+            --data '{
+                "enableJwtScopeAsArray": true
+            }'
+            ```
+        {% endif %}
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 #### Access Token Attributes

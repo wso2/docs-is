@@ -1169,7 +1169,131 @@ paths:
             curl -X 'DELETE' \
             'https://localhost:9443/api/server/v1/configs/authentication/inbound/passivests' \
             -H 'accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='   
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /configs/authentication/inbound/oauth2:
+    get:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Retrieve OAuth2 inbound authentication configurations
+      description: |
+        Retrieve server OAuth2 inbound authentication configurations.
+
+        <b>Scope(Permission) required:</b> `internal_config_view`
+      operationId: getOAuth2InboundAuthConfig
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InboundAuthOAuth2Config'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/oauth2' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    patch:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Update OAuth2 inbound authentication configurations
+      description: |
+        Patch server OAuth2 inbound authentication configurations.
+
+        <b>Scope(Permission) required:</b> `internal_config_update`
+      operationId: updateOAuth2InboundAuthConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundAuthOAuth2Config'
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/oauth2' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "enableJwtScopeAsArray": true
+            }'
+    delete:
+      tags:
+        - Inbound Authentication Configurations
+      summary: Delete OAuth2 inbound authentication configurations.
+      description: |
+        Delete all OAuth2 inbound authentication configurations.<br><br>
+        <b>Scope (Permission) required:</b> internal_config_update
+      operationId: deleteOAuth2InboundAuthConfig
+      responses:
+        '204':
+          description: Successful deletion
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/configs/authentication/inbound/oauth2' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
@@ -1692,3 +1816,10 @@ components:
           description: "Passive STS URL"
           readOnly: true
           example: "https://localhost:9443/passivests"
+    InboundAuthOAuth2Config:
+      type: object
+      properties:
+        enableJwtScopeAsArray:
+          type: boolean
+          description: "Enable formatting scope claim in JWT access tokens as a JSON array instead of a space-separated string."
+          example: false
