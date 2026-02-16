@@ -18,21 +18,20 @@ In {{ product_name }}'s IAM model, MCP components map directly to standard MCP c
 | **Permission** | **OAuth Scope** | Granular permission (e.g., `filesystem:read`, `stripe:charge`) |
 | **Connection** | **Authorized Session** | A session backed by a valid Access Token |
 
-!!! note  
-    - A user can connect to the MCP Server using an MCP Client  
-    - An agent (MCP Host) can connect to the MCP Server using an MCP Client  
-    - An agent (MCP Host) is capable of connecting to multiple MCP Servers, utilizing multiple MCP Clients for each connection.  
-    - A user can access and grant permission to access the MCP Server using an MCP Client  
+!!! note
+    - A user can connect to the MCP Server using an MCP Client.
+    - An agent (MCP Host) can connect to the MCP Server using an MCP Client.
+    - An agent (MCP Host) is capable of connecting to multiple MCP Servers, utilizing multiple MCP Clients for each connection.
+    - A user can access and grant permission to access the MCP Server using an MCP Client.
     - The MCP Server can validate the access token and grant access to the user, agent, or both, based on the context.
-
 
 ## [Registering MCP servers and configuring permissions]({{base_path}}/guides/agentic-ai/mcp/mcp-server-authorization/)
 
 MCP servers can be registered as protected resources in {{ product_name }}. This setup allows administrators to define precise access controls for each server and their tools and resources, specifying which clients or users are authorized to interact with it. By securely exposing remote MCP servers, organizations can maintain consistent authorization rules and minimize the risk of unauthorized access to MCP servers and their tools, and protect underlying business resources.
 
-!!! info 
+!!! info
     Refer to the [MCP Server Authorization guide]({{base_path}}/guides/agentic-ai/mcp/mcp-server-authorization/) for detailed steps on registering MCP servers and configuring scopes for fine-grained access control.
-    
+
 ## [Setting up MCP clients]({{base_path}}/guides/agentic-ai/mcp/register-mcp-client-app/)
 
 An MCP client is a connection component that host applications use to interface with MCP servers through dedicated, stateful sessions. When connecting to an MCP server, you can register the client in {{ product_name }}, which also creates an OAuth 2.1 client meeting the necessary standards. Clients can be authorized with specific scopes that define their permitted access to MCP servers, ensuring they operate only within authorized boundaries and maintain a secure ecosystem for model interactions.
@@ -48,21 +47,21 @@ How does an agent actually get a token to talk to the MCP Server? There are a fe
 
 Use this when an MCP client acts on a user's behalf (e.g., a Desktop Copilot).
 
-1. **Connect Request**: User clicks "Connect Finance Tools" in the client UI.  
-2. **Redirect**: The user gets redirected to the {{ product_name }} authorization endpoint.  
+1. **Connect Request**: User clicks "Connect Finance Tools" in the client UI.
+2. **Redirect**: The user gets redirected to the {{ product_name }} authorization endpoint.
 3. **Consent**: User sees: *"Research Assistant wants to access Finance Tools"*.  
-   - **Scopes**: `finance:read_reports`  
-4. **Grant**: User approves. {{ product_name }} issues an **Authorization Code**.  
-5. **Token Exchange**: MCP client exchanges code for an **Access Token**.  
+   - **Scopes**: `finance:read_reports`
+4. **Grant**: User approves. {{ product_name }} issues an **Authorization Code**.
+5. **Token Exchange**: MCP client exchanges code for an **Access Token**.
 6. **Invocation**: MCP client sends MCP Initialize request with `Authorization: Bearer <token>`.
 
 ### Pattern B: MCP Client authenticating on its own (M2M)
 
 Use this for backend MCP clients running without a user interface.
 
-1. **Token Request**: MCP client calls {{ product_name }}'s `/token` endpoint directly using **Client Credentials** (Client ID + Secret).  
-2. **Validation**: {{ product_name }} checks if this MCP client is authorized for the requested MCP Server resource.  
-3. **Issuance**: {{ product_name }} returns an **Access Token** (`sub`= MCP client's ID).  
+1. **Token Request**: MCP client calls {{ product_name }}'s `/token` endpoint directly using **Client Credentials** (Client ID + Secret).
+2. **Validation**: {{ product_name }} checks if this MCP client is authorized for the requested MCP Server resource.
+3. **Issuance**: {{ product_name }} returns an **Access Token** (`sub`= MCP client's ID).
 4. **Invocation**: The MCP client connects to the MCP Server with the token.
 
 ### Pattern C: Delegated Agent (OBO + Agent Identity)
@@ -73,21 +72,21 @@ This new flow outlines the steps for an Agent (MCP Host) to register its identit
 
 **Setup and Registration**
 
-1. **Agent Identity Registration:** The Agent/MCP Host is registered as an **Agent Identity** within {{ product_name }}.  
+1. **Agent Identity Registration:** The Agent/MCP Host is registered as an **Agent Identity** within {{ product_name }}.
 2. **Client Registration:** An MCP Client is registered and authorized to establish a connection with the MCP Server.
 
 **Agent-Only Authentication**
 
-1. **Agent Authentication:** The Agent authenticates itself using its own credentials to acquire a **Token**.  
+1. **Agent Authentication:** The Agent authenticates itself using its own credentials to acquire a **Token**.
 2. **Agent Connection (Without User):** The Agent can utilize this Actor Token to connect to the MCP Server, provided it possesses the necessary permissions, even when a user is not present.
 
 **User-Delegated Authentication (On-Behalf-Of Flow)**
 
-1. **Initiating User Authentication:** When a user is available, the Agent starts an On-Behalf-Of (OBO) flow, specifying the MCP client as the OAuth client and itself as the desired actor (`requested_actor`).  
-2. **User Delegation:** The user logs in and explicitly grants access delegation to the Agent.  
-3. **Code Exchange:** The Agent receives the authorization code and exchanges it for a new token. This new token includes both the user's identity (`sub`) and the agent's identity (`act`) claims, along with the permissions delegated by the user.  
-4. **Invocation:** The Agent now invokes the MCP Server using the token, which identifies both the user and the Agent as the actor. This dual-identity token enables enhanced auditing and fine-grained authorization on the MCP Server. The MCP Server can:  
-   - Make authorization decisions based on both the user's delegated permissions to the Agent for a specific action and the Agent's own identity and permissions.  
+1. **Initiating User Authentication:** When a user is available, the Agent starts an On-Behalf-Of (OBO) flow, specifying the MCP client as the OAuth client and itself as the desired actor (`requested_actor`).
+2. **User Delegation:** The user logs in and explicitly grants access delegation to the Agent.
+3. **Code Exchange:** The Agent receives the authorization code and exchanges it for a new token. This new token includes both the user's identity (`sub`) and the agent's identity (`act`) claims, along with the permissions delegated by the user.
+4. **Invocation:** The Agent now invokes the MCP Server using the token, which identifies both the user and the Agent as the actor. This dual-identity token enables enhanced auditing and fine-grained authorization on the MCP Server. The MCP Server can:
+   - Make authorization decisions based on both the user's delegated permissions to the Agent for a specific action and the Agent's own identity and permissions.
    - Log which Agent executed the action for comprehensive auditing purposes.
 
 !!! note 
@@ -107,7 +106,7 @@ This new flow outlines the steps for an Agent (MCP Host) to register its identit
 
 ## What's Next?
 
-Get hands-on with MCP server authorization, 
+Get hands-on with MCP server authorization,
 
-- 📖 [**MCP Server Quick Start - TypeScript**]({{base_path}}/quick-starts/mcp-auth-server/)  
+- 📖 [**MCP Server Quick Start - TypeScript**]({{base_path}}/quick-starts/mcp-auth-server/)
 - 📖 [**MCP Server Quick Start - Python**]({{base_path}}/quick-starts/mcp-auth-server-py/)
