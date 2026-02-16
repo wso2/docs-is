@@ -70,17 +70,17 @@ Neither of the above patterns identifies the agent (MCP Host) as a principal ide
 
 This new flow outlines the steps for an Agent (MCP Host) to register its identity, obtain authorization, and interact with the MCP Server on behalf of a user.
 
-**Setup and Registration**
+#### Setup and Registration
 
 1. **Agent Identity Registration:** The Agent/MCP Host is registered as an **Agent Identity** within {{ product_name }}.
 2. **Client Registration:** An MCP Client is registered and authorized to establish a connection with the MCP Server.
 
-**Agent-Only Authentication**
+#### Agent-Only Authentication
 
 1. **Agent Authentication:** The Agent authenticates itself using its own credentials to acquire a **Token**.
 2. **Agent Connection (Without User):** The Agent can utilize this Actor Token to connect to the MCP Server, provided it possesses the necessary permissions, even when a user is not present.
 
-**User-Delegated Authentication (On-Behalf-Of Flow)**
+#### User-Delegated Authentication (On-Behalf-Of Flow)
 
 1. **Initiating User Authentication:** When a user is available, the Agent starts an On-Behalf-Of (OBO) flow, specifying the MCP client as the OAuth client and itself as the desired actor (`requested_actor`).
 2. **User Delegation:** The user logs in and explicitly grants access delegation to the Agent.
@@ -89,7 +89,7 @@ This new flow outlines the steps for an Agent (MCP Host) to register its identit
    - Make authorization decisions based on both the user's delegated permissions to the Agent for a specific action and the Agent's own identity and permissions.
    - Log which Agent executed the action for comprehensive auditing purposes.
 
-!!! note 
+!!! note
     While the MCP Authorization specification doesn't currently mandate identifying the MCP Host (agent) with its own credentials and permissions, this is a crucial {{ product_name}} implementation. It enables secure, auditable agentic systems for autonomous agents by providing clear attribution, better permission management, clear auditability, and enhanced security.
 
 ## Supported Specifications
