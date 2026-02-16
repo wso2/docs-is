@@ -18,18 +18,19 @@ In {{ product_name }}'s IAM model, MCP components map directly to standard MCP c
 | **Permission** | **OAuth Scope** | Granular permission (e.g., `filesystem:read`, `stripe:charge`) |
 | **Connection** | **Authorized Session** | A session backed by a valid Access Token |
 
-- A user can connect to the MCP Server using an MCP Client  
-- An agent (MCP Host)   
-  - can connect to the MCP Server using an MCP Client  
-  - is capable of connecting to multiple MCP Servers, utilizing multiple MCP Clients for each connection.  
-- A user can access and grant permission to access the MCP Server using an MCP Client  
-- The MCP Server can validate the access token and grant access to the user, agent, or both, based on the context.
+!!! note  
+    - A user can connect to the MCP Server using an MCP Client  
+    - An agent (MCP Host) can connect to the MCP Server using an MCP Client  
+    - An agent (MCP Host) is capable of connecting to multiple MCP Servers, utilizing multiple MCP Clients for each connection.  
+    - A user can access and grant permission to access the MCP Server using an MCP Client  
+    - The MCP Server can validate the access token and grant access to the user, agent, or both, based on the context.
+
 
 ## [Registering MCP servers and configuring permissions]({{base_path}}/guides/agentic-ai/mcp/mcp-server-authorization/)
 
 MCP servers can be registered as protected resources in {{ product_name }}. This setup allows administrators to define precise access controls for each server and their tools and resources, specifying which clients or users are authorized to interact with it. By securely exposing remote MCP servers, organizations can maintain consistent authorization rules and minimize the risk of unauthorized access to MCP servers and their tools, and protect underlying business resources.
 
-!!! info
+!!! info 
     Refer to the [MCP Server Authorization guide]({{base_path}}/guides/agentic-ai/mcp/mcp-server-authorization/) for detailed steps on registering MCP servers and configuring scopes for fine-grained access control.
     
 ## [Setting up MCP clients]({{base_path}}/guides/agentic-ai/mcp/register-mcp-client-app/)
@@ -86,10 +87,10 @@ This new flow outlines the steps for an Agent (MCP Host) to register its identit
 2. **User Delegation:** The user logs in and explicitly grants access delegation to the Agent.  
 3. **Code Exchange:** The Agent receives the authorization code and exchanges it for a new token. This new token includes both the user's identity (`sub`) and the agent's identity (`act`) claims, along with the permissions delegated by the user.  
 4. **Invocation:** The Agent now invokes the MCP Server using the token, which identifies both the user and the Agent as the actor. This dual-identity token enables enhanced auditing and fine-grained authorization on the MCP Server. The MCP Server can:  
-   * Make authorization decisions based on both the user's delegated permissions to the Agent for a specific action and the Agent's own identity and permissions.  
-   * Log which Agent executed the action for comprehensive auditing purposes.
+   - Make authorization decisions based on both the user's delegated permissions to the Agent for a specific action and the Agent's own identity and permissions.  
+   - Log which Agent executed the action for comprehensive auditing purposes.
 
-!!! note   
+!!! note 
     While the MCP Authorization specification doesn't currently mandate identifying the MCP Host (agent) with its own credentials and permissions, this is a crucial {{ product_name}} implementation. It enables secure, auditable agentic systems for autonomous agents by providing clear attribution, better permission management, clear auditability, and enhanced security.
 
 ## Supported Specifications
