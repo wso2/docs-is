@@ -1,94 +1,75 @@
-
-{% if product_name == "WSO2 Identity Server" %}
 # Implement back-channel logout
 
-Back-channel logout allows users to be logged out from a client application through direct communication of logout requests between the client application and the authorization server.
+{% if product_name == "WSO2 Identity Server" %}
+
+Back-channel logout is a mechanism defined in the OpenID Connect (OIDC) specification that allows users to be securely logged out of client applications without any user interaction. Unlike front-channel logout, which relies on browser-based redirects and requires the user’s browser to visit each client application, back-channel logout happens entirely through server-to-server communication between the authorization server and the client applications.
+
+For protocol details see the OpenID specification: [OpenID Connect Back-Channel Logout 1.0](https://openid.net/specs/openid-connect-backchannel-1_0.html).
 
 ## How it works
 
-The underlying message flow of OpenID Connect (OIDC) back-channel logout is as follows:
+![oidc-backchannel-logout-scenario]({{base_path}}/assets/img/guides/oidc-logout/oidc-backchannel-logout-scenario.png)
 
-1. A user logout is initiated by either the client application or the authorization server.
-2. The authorization server identifies all client applications associated with the user's session.
-3. The authorization server generates a logout token, a special JWT containing specific claims, and sends it with a logout request to the logout endpoints of the identified client applications.
-4. Upon receiving the logout token, each client application validates it and then invalidates the corresponding user session.
+The underlying message flow of OpenID Connect (OIDC) back-channel logout happens as follows:
 
-## Prerequisites
-To get started, you need to:
-  
-- [Register two OIDC application with {{ product_name }}]({{base_path}}/guides/applications/register-oidc-web-app/). Application names used in this guide are `Playground_app1` and `Playground_app2`
-
-- [Download two instances of the playground application](https://github.com/wso2/samples-is/releases/download/v4.5.2/playground2.war) as this guide uses the playground sample app. Rename the second file as `playground3.war`.
-
-- Configure the sample applications;
-
-    1. Copy the downloaded playground.war file into `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` folder.
-    2. Start the Tomcat server.
-    3. If required, update the `<param-value>` parameters for the `serverUrl`, `username` and `password` in the `WEB-INF/web.xml` file.
-    4. Restart the Tomcat server, if you have done any changes to the `WEB-INF/web.xml` file.
+1. The client application initiates a user logout.
+2. {{ product_name }} identifies all the client applications associated with the user's session.
+3. {{ product_name }} generates a logout token, a special (JSON Web Token) JWT containing specific claims and sends it with a logout request to the logout endpoints of all the client applications.
+4. Upon receiving the logout token, each client application validates the token and proceeds to invalidate the corresponding user session.
 
 ## Configure back-channel logout
 
-- To configure back-channel logout for `Playground_app1`:
+Follow the steps below to register the back-channel endpoint of your application with {{product_name}}.
 
-    1. On the WSO2 Identity Server Console, go to **Applications** and select your OIDC application.
-    2. Go to the **Protocol** tab and enter the following details:
+!!! note "Before you begin"
 
-        | Field Name    | Value |
-        |---------------|-------|
-        | Grant type    | Implicit  |
-        | Back channel logout URL   | http://localhost:8080/playground3/bclogout    |
+    [Register your OIDC application]({{base_path}}/guides/applications/) in {{product_name}}.
 
-    3. Click **Update** to save your configurations.
+1. On the Asgardeo Console, go to **Applications** and select your OIDC application.
 
-- To configure back-channel logout for `Playground_app2`:
+2. Go to the **Protocol** tab, and under **Logout URLs**, enter the **Back channel logout URL**.
 
-    1. On the WSO2 Identity Server Console, go to **Applications** and select your OIDC application.
-    2. Go to the **Protocol** tab and enter the following details:
+    ![Configure backchannel logout URL]({{base_path}}/assets/img/guides/oidc-logout/oidc-backchannel-logout-configuration.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-        | Field Name    | Value |
-        |---------------|-------|
-        | Grant type    | Implicit  |
-        | Back channel logout URL   | http://localhost:8080/playground2/bclogout    |
+3. Click **Update** to save your configurations.
 
-    3. Click **Update** to save your configurations.
+## Set up your client application
 
-## Try it out
+To complete the back-channel logout flow, you must set up the client application so that it can perform the following required actions.
 
-1. Access the **Playgrpund_app1** application using the following URL: http://localhost:8080/playground2/.
+1. **Receive back-channel logout requests** - The client application must expose an endpoint that accepts POST requests from the authorization server to handle logout requests. You need to [register this endpoint with {{product_name}}](#configure-back-channel-logout).
 
-2. Click **Import Photos**.
+2. **Validate the logout token** - The following is an example of the logout token sent by the {{ product_name }} to a client application:
 
-3. Enter the following details:
+    ``` json
+    {
+    "iss": "{{product_url_sample}}oauth2/token",
+    "sub": "aa21e449-****-****-****-****a6a3961f",
+    "aud": "w_Hwp05dF****_****9SNwpflAa",
+    "iat": 1609911868,
+    "exp": 1609911988,
+    "jti": "16159e3e-****-****-****-b0782ab33d58",
+    "sid": "15043ffc-****-****-****-9b107f7da38c",
+    "events": {
+       "http://schemas.openid.net/event/backchannel-logout": {}
+       }
+    }
+    ```
 
-    | Field name  | Value |
-    |-------------|-------|
-    | **Authorization Grant Type**  | `Implicit`  |
-    | **Client ID**     | The OAuth Client ID received when registering the Playground_app1 in WSO2 Identity Server.  |
-    | **Callback URL**  | `http://localhost:8080/playground2/oauth2client`  |
-    | **Authorize Endpoint**  | `https://localhost:9443/oauth2/authorize` |
+    Your client application must perform JWT token validation as defined in the [OIDC back-channel logout specification](https://openid.net/specs/openid-connect-backchannel-1_0.html#Validation). A summary of the validations is below.
 
-4. Click **Authorize**. You will be redirected to the WSO2 Identity Server login page.
+    - `iss`: Must match your trusted issuer.
 
-5. Enter the credentials of your user account and click Sign In. You will now receive an ID Token.
+    - `aud`: Must match your application's client ID.
 
-6. Access the **Playground_app2** application using the follwoing URL: http://localhost:8080/playground3/
+    - `iat` and `exp`: Must be within a valid timeframe.
 
-7. Repeat steps 2-5 for **Playground_app2** application with the following values:
+    - `events`: Must contain the http://schemas.openid.net/event/backchannel-logout claim.
 
-    | Field name  | Value |
-    |-------------|-------|
-    | **Authorization Grant Type**  | `Implicit`  |
-    | **Client ID**     | The OAuth Client ID received when registering the Playground_app2 in WSO2 Identity Server.  |
-    | **Callback URL**  | `http://localhost:8080/playground3/oauth2client`  |
-    | **Authorize Endpoint**  | `https://localhost:9443/oauth2/authorize` |
+    - `sid`: Must be present to identify the session.
 
-8. Click **Logout** on one of the applications. You will be prompted to consent to the logout.
 
-9. Provide consent. You will receive confirmation of sucessful logout.
+3. **Terminate the user session** - Once the client validates the token and determines it to be valid, the client should use the `sid` claim to locate and terminate the user's session.
 
-10. Now, go to the other application and reload the page. Note that you are redirected to the login page of the playground application and you will see that the **Logged in user** has changed to `null`.
-
-You have successfully configured and tried out OIDC back-channel logout. You can check out the Tomcat logs on the terminal window to see the back-channel logout flow.
 
 {% endif %}
