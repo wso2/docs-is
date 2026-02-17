@@ -33,9 +33,9 @@
 
         If you still require this configuration, it can be applied at two levels:
 
-        - **Application level**: Set the `enableJwtScopeAsArray` property in the application's `accessToken` configuration via the [Application Management API]({{base_path}}/apis/{% if product_name == "Asgardeo" %}application-management{% else %}application-rest-api{% endif %}/). This overrides the tenant-level setting for the specific application.
+        - **Application level**: Set the `enableJwtScopeAsArray` property in the application's `accessToken` configuration via the [Application Management API]({{base_path}}/apis/{% if product_name == "Asgardeo" %}application-management{% else %}application-rest-api{% endif %}/). This overrides the organization-level setting for the specific application.
         {% if product_name == "WSO2 Identity Server" %}
-        - **Tenant level**: Use the [Server Configuration API]({{base_path}}/apis/configs-rest-api/#tag/Inbound-Authentication-Configurations/operation/updateOAuth2InboundAuthConfig) to set the `enableJwtScopeAsArray` property. This applies to all applications in the tenant unless overridden at the application level.
+        - **Organization level**: Use the [Server Configuration API]({{base_path}}/apis/configs-rest-api/#tag/Inbound-Authentication-Configurations/operation/updateOAuth2InboundAuthConfig) to set the `enableJwtScopeAsArray` property. This applies to all applications in the organization unless overridden at the application level.
         {% endif %}
         {% if product_name == "Asgardeo" %}
         - **Organization level**: Set the `enableJwtScopeAsArray` property via the following API. This applies to all applications in the organization unless overridden at the application level.
