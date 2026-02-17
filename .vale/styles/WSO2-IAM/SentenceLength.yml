@@ -2,6 +2,5 @@ extends: occurrence
 message: "Try to keep sentences short (< 30 words)."
 scope: sentence
 level: suggestion
-max: 30
+max: 29
 token: \b(\w+)\b
-
