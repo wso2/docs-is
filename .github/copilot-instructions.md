@@ -1,4 +1,3 @@
-<!-- vale off -->
 # WSO2 Identity Server documentation creation and reviewing instructions
 
 Follow these instructions when creating new documentation content for WSO2 Identity Server. Adhere to all guidelines to ensure consistency, clarity, and quality.
@@ -268,7 +267,7 @@ Avoid:
 
 Before finalizing output, ensure:
 
-- Headings are title case.
+- Headings are sentence case.
 - Procedures use numbered lists.
 - UI labels are **bold**.
 - Code elements and paths are in backticks.
@@ -278,7 +277,7 @@ Before finalizing output, ensure:
 - No secrets or sensitive data appear in examples.
 - After creating content, run Vale locally and resolve all warnings.
 - If Vale flags a word as a spelling error, check whether it is a legitimate product term, technical term, or widely accepted term. If yes, add it to `.vale/styles/config/vocabularies/vocab/accept.txt`. If not, fix the spelling instead.
-- When reviewing a pull request on Github, check the output for adherence to all guidelines. Comment on any issues and request changes if necessary.
+- When reviewing a pull request on GitHub, check the output for adherence to all guidelines. Comment on any issues and request changes if necessary.
 
 ## Output requirements
 

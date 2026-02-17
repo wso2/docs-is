@@ -1,16 +1,16 @@
 ---
-name: fix-documentation-related-issues
-description: Guidelines to follow for sending fixes for documentation related Github issues
+name: fix-documentation-issues
+description: Guidelines to follow for sending fixes for documentation related GitHub issues
 ---
 
 <!-- vale off -->
 =========================================
  CORE RULES
 =========================================
-- MOST IMPORTANT: For all version control related operations, rely on the git command line tool and Github CLI. **NO THIRD PARTY TOOLS OR MCP SERVERS ARE ALLOWED.**
+- MOST IMPORTANT: For all version control related operations, rely on the git command line tool and GitHub CLI. **NO THIRD PARTY TOOLS OR MCP SERVERS ARE ALLOWED.**
 - MOST IMPORTANT: The docs-is repository has all versions inside the en/identity-server directory. You need to fix ALL appropriate version directories that are affected.
 - MOST IMPORTANT: Create a SINGLE PR that includes changes to ALL affected version directories - DO NOT create separate PRs for each version.
-- MOST IMPORTANT: You CANNOT create, modify, or replace screenshots or images. If the issue requires changing screenshots or images, add the `AI-Agent/Cannot-Fix` label to the related Github issue and explain in a comment.
+- MOST IMPORTANT: You CANNOT create, modify, or replace screenshots or images. If the issue requires changing screenshots or images, add the `AI-Agent/Cannot-Fix` label to the related GitHub issue and explain in a comment.
 - MOST IMPORTANT: For broken image issues (not accessible/not found): 
   * First check the current version for the image
   * If not found, search ALL other version directories in the repository
