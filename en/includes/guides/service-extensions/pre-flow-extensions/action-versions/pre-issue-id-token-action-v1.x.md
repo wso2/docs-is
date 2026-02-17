@@ -1,6 +1,6 @@
 The following API contract defines the request and response structures that your service must adhere to.
 
-- [pre-issue ID token API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/pre-issue-id-token-action-v1.0)
+- [pre-issue id token API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/pre-issue-id-token-action-v1.0)
 
 ### Request from {{product_name}}
 
@@ -55,19 +55,19 @@ The following API contract defines the request and response structures that your
 <tbody>
 <tr>
 <td>grantType</td>
-<td>The type of OAuth2 grant used for the token request, such as authorization code, client credentials, password, or refresh token.</td>
+<td>The OAuth2 grant type used for the token request, such as `authorization_code`, `password`, `refresh_token`, `organization_switch` or `urn:ietf:params:oauth:grant-type:device_code`.</td>
 </tr>
 <tr>
 <td>responseType</td>
-<td>The type of response requested by the client in the OIDC hybrid flow, such as code, code id_token token, or code id_token.</td>
+<td>The OIDC response type requested by the client in the hybrid flow, such as `code id_token token`, or `code id_token`.</td>
 </tr>
 <tr>
 <td>clientId</td>
-<td>The unique identifier of the client (application) that is requesting the ID token.</td>
+<td>The unique identifier of the client (application) requesting the ID token.</td>
 </tr>
 <tr>
 <td>scopes</td>
-<td>The scopes present in the incoming token request (OAuth2/OIDC hybrid flow). The <code>openid</code> scope must be present to obtain an ID token. Some scopes control what is included in the ID token (for example, <code>profile</code> for profile-related claims and <code>address</code> for address-related claims). Other scopes appear here because they are associated with permissions on the access token issued together with the ID token.</td>
+<td>The scopes present in the incoming token request (OAuth2/OIDC hybrid flow). The <code>openid</code> scope must present to get an ID token. OIDC scopes control the user attributes requested in the ID token (for example, <code>profile</code> for profile-related claims and <code>address</code> for address-related claims). Other OAuth2 scopes appear here because they associate with permissions on the access token issued with the ID token.</td>
 </tr>
 <tr>
 <td>additionalHeaders</td>
@@ -75,7 +75,7 @@ The following API contract defines the request and response structures that your
 </tr>
 <tr>
 <td>additionalParams</td>
-<td>Any additional parameters included in the ID token request. These may be custom parameters defined by the client or necessary for specific flows.</td>
+<td>Any additional parameters included in the ID token request. These may contain custom parameters defined by the client or necessary for specific flows.</td>
 </tr>
 </tbody>
 </table>
@@ -83,7 +83,7 @@ The following API contract defines the request and response structures that your
 </tr>
 <tr class="even">
 <td>event.tenant</td>
-<td><p>This property represents the tenant under which the token request is being processed.</p></td>
+<td><p>This property represents the tenant that processes the token request.</p></td>
 </tr>
 <tr class="odd">
 <td>event.user</td>
@@ -100,15 +100,15 @@ The following API contract defines the request and response structures that your
 </tr>
 <tr>
 <td>userType</td>
-<td>The type of user. <code>LOCAL</code> indicates a user that exists in {{product_name}}; <code>FEDERATED</code> indicates a federated user authenticated via a federated identity provider.</td>
+<td><code>LOCAL</code> indicates a user in {{product_name}} organization. <code>FEDERATED</code> indicates a user authenticated via a federated identity provider.</td>
 </tr>
 <tr>
 <td>federatedIdP</td>
-<td>The name of the federated identity provider used to authenticate the user. This is only applicable for FEDERATED users.</td>
+<td>The name of the federated identity provider used to authenticate the user. This applies only for the `FEDERATED` users.</td>
 </tr>
 <tr>
 <td>accessingOrganization</td>
-<td>The organization to which the user is accessing. This is only applicable for organization_switch grant type.</td>
+<td>The organization that the user intends to access. This applies only for the `organization_switch` grant type.</td>
 </tr>
 </tbody>
 </table>
@@ -116,11 +116,11 @@ The following API contract defines the request and response structures that your
 </tr>
 <tr class="even">
 <td>event.organization</td>
-<td><p>This property refers to the organization context under which the token is being issued.</p></td>
+<td><p>This property refers to the organization context which issues the id token.</p></td>
 </tr>
 <tr class="odd">
 <td>event.userStore</td>
-<td><p>This property indicates the user store in which the user's data is being managed.</p></td>
+<td><p>This property indicates the user store that manages the user's data.</p></td>
 </tr>
 <tr class="even">
 <td>event.idToken</td>
@@ -129,25 +129,25 @@ The following API contract defines the request and response structures that your
 <tbody>
 <tr>
 <td>claims</td>
-<td><p>This property is an array that contains both standard ID token claims and any OpenID Connect (OIDC) claims configured to be included in the ID token.</p>
+<td><p>This property contains both standard ID token claims and any OpenID Connect (OIDC) claims that you request to include in the ID token.</p>
 <p>Standard claims:</p>
 <table>
 <tbody>
 <tr>
 <td>iss</td>
-<td>The issuer of the token, which is the tenant of {{product_name}} that acts as the authorization server.</td>
+<td>The issuer of the token, which denotes the tenant of {{product_name}} that acts as the authorization server.</td>
 </tr>
 <tr>
 <td>at_hash</td>
-<td>The hash of the access token value. Used when the ID token is issued together with an access token.</td>
+<td>The hash of the access token value. Used when {{product_name}} issues the ID token together with an access token.</td>
 </tr>
 <tr>
 <td>c_hash</td>
-<td>The hash of the authorization code value. Used when the ID token is issued in the authorization code flow.</td>
+<td>The hash of the authorization code value. Used when {{product_name}} issues the ID token in the authorization code flow.</td>
 </tr>
 <tr>
 <td>s_hash</td>
-<td>The hash of the state value. Used when the state parameter is present in the authentication request.</td>
+<td>The hash of the state value. Used when the state parameter present in the authentication request.</td>
 </tr>
 <tr>
 <td>sid</td>
@@ -155,7 +155,7 @@ The following API contract defines the request and response structures that your
 </tr>
 <tr>
 <td>expires_in</td>
-<td>The duration (in seconds) for which the token is valid.</td>
+<td>The validity period (in seconds) of the ID token.</td>
 </tr>
 <tr>
 <td>realm</td>
@@ -183,11 +183,11 @@ The following API contract defines the request and response structures that your
 </tr>
 <tr>
 <td>exp</td>
-<td>The expiration time of the token (Unix timestamp).</td>
+<td>The token's expiry time (Unix timestamp).</td>
 </tr>
 <tr>
 <td>iat</td>
-<td>The time at which the token was issued (Unix timestamp).</td>
+<td>The time when {{product_name}} issues the token (Unix timestamp).</td>
 </tr>
 <tr>
 <td>auth_time</td>
@@ -211,7 +211,8 @@ The following API contract defines the request and response structures that your
 </tr>
 </tbody>
 </table>
-<p>OIDC claims are any additional claims configured in the application to be included in the ID token. These claims are based on the OIDC standard and may include user profile information such as email, given_name, or custom claims specific to the application.</p>
+<p>OIDC claims:</p>
+OIDC claims include any additional user claims that the application configures for the ID token. These claims follow the OIDC standard and include user profile information such as email, given_name, or custom claims specific to the application.
 </td>
 </tr>
 </tbody>
@@ -225,22 +226,25 @@ The following API contract defines the request and response structures that your
 
 <a name="allowed-operations"></a>
 
-The <code>allowedOperations</code> property in the context of the pre-issue ID token action defines the set of operations that your external service can perform on the ID token's claims. This property specifically relates to the <code>event.idToken</code> property and outlines which attributes let your external service add extra properties, replace values, or remove attributes. The <code>allowedOperations</code> use JSON Patch modification semantics.
+The <code>allowedOperations</code> property in the context of the pre-issue id token action defines the set of operations that your external service can perform on the ID token's claims. This property specifically relates to the <code>event.idToken</code> property and outlines which attributes let your external service add extra properties, replace values, or remove attributes. The <code>allowedOperations</code> use JSON Patch modification semantics.
 
-In the context of the pre-issue ID token action, your external service can change certain claims related to the ID token, such as audience (aud), ID token validity (expires_in), and other claims that influence what is included in the token.
+Your external service can change claims related to authorization decisions, such as audience (aud), ID token validity (expires_in). These claims typically associate with the resource server and influence how access gets granted.
 
-But other standard ID token claims, such as the issuer (iss), represent the authorization server and play a critical role in token validation. These properties aren't allowed for modification through the action. Use application and organization-level configurations to change these properties and their behaviors.
+But other standard ID token claims, such as the issuer (iss), represent the authorization server and play a critical role in token validation. The action doesn't allow modification of these properties. Use application and organization-level configurations to change these properties and their behaviors.
 
 Additionally, your external service can change any OIDC claims incorporated into the ID token.
 
-Here is the example of an allowedOperations object in a request formatted as a JSON payload:
+The following example shows an allowedOperations object in a request formatted as a JSON payload:
 
 ```json
 {
   "allowedOperations": [
     {
       "op": "add",
-      "paths": ["/idToken/claims/", "/idToken/claims/aud/"]
+      "paths": [
+        "/idToken/claims/",
+        "/idToken/claims/aud/"
+      ]
     },
     {
       "op": "replace",
@@ -269,7 +273,7 @@ Here is the example of an allowedOperations object in a request formatted as a J
 
 #### Example request from {{product_name}}
 
-The following is a sample request payload for a pre-issue ID token action. Personal and sensitive data have been replaced with placeholder values.
+The following shows a sample request payload for a pre-issue ID token action. This example uses placeholder values instead of personal and sensitive data.
 
 ```http
 POST / HTTP/1.1
@@ -397,7 +401,7 @@ The response can have three possible states: <code>SUCCESS</code>, <code>FAILED<
 
 - **SUCCESS**: Your external service processed the request successfully and requested modifications to the ID token. {{product_name}} applies the operations and continues the flow.
 - **FAILED**: Your service intentionally prevents ID token issuance (e.g., validation or business rules). {{product_name}} returns a <code>400 (Bad Request)</code> to the client with the failure details you provide.
-- **ERROR**: A processing or server error in your service. {{product_name}} can return <code>400</code>, <code>401</code>, or <code>500</code> to the client.
+- **ERROR**: A processing or server error in your service. {{product_name}} returns a <code>500 (Server Error)</code> response to the client.
 
 #### Response for SUCCESS state
 
@@ -413,11 +417,11 @@ HTTP status code: <code>200</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Set to <code>SUCCESS</code>.</p></td>
+<td><p>Indicates the outcome of the request. Set this value to <code>SUCCESS</code> for a successful operation.</p></td>
 </tr>
 <tr class="even">
 <td>operations</td>
-<td><p>Array of operations to apply to the ID token claims. These operations must follow the <a href="https://datatracker.ietf.org/doc/html/rfc6902">JSON Patch</a> modification format. Each operation must use <code>op</code> (add, replace, remove), <code>path</code> (from allowedOperations), and for add/replace, <code>value</code>. For add, value is an object with <code>name</code> and <code>value</code> (claim name and value).</p></td>
+<td><p>Array of operations to apply to the ID token claims. These operations must follow the <a href="https://datatracker.ietf.org/doc/html/rfc6902">JSON Patch</a> modification format. Each operation must use <code>op</code> (add, replace, remove), <code>path</code> (from allowedOperations), and for add/replace, <code>value</code>.
 </tr>
 </tbody>
 </table>
@@ -441,7 +445,7 @@ Example success response with an added custom claim:
 ```
 
 !!! tip
-    See [sample success responses for pre-issue ID token action]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/sample-success-responses/) for more examples, including adding or replacing audience, replacing expires_in, and removing claims.
+    See [sample success responses for pre-issue id token action]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/sample-success-responses/) for more examples, including adding or replacing audience, replacing expires_in, and removing claims.
 
 #### Response for FAILED state
 
@@ -457,15 +461,15 @@ HTTP status code: <code>200</code>
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Set to <code>FAILED</code>.</p></td>
+<td>Indicates the outcome of the request. For a failed operation, set this value to <code>FAILED</code>.</td>
 </tr>
 <tr class="even">
 <td>failureReason</td>
-<td><p>Reason for failing to issue the ID token (e.g., OAuth2 error code).</p></td>
+<td><p>Reason for failing to issue the ID token (e.g., OAuth2 error code). {{product_name}} maps this value to the <code>error</code> field in the response from the <code>/oauth2/token</code> endpoint.</p></td>
 </tr>
 <tr class="odd">
 <td>failureDescription</td>
-<td><p>Human-readable description of the failure.</p></td>
+<td>Offers a detailed explanation of the failure. {{product_name}} maps this value to the <code>error_description</code> field in the <code>/oauth2/token</code> endpoint response.</td>
 </tr>
 </tbody>
 </table>
@@ -513,7 +517,7 @@ HTTP status code from external service: <code>400</code>, <code>401</code>, or <
 <tbody>
 <tr class="odd">
 <td>actionStatus</td>
-<td><p>Set to <code>ERROR</code>.</p></td>
+<td>Indicates the outcome of the request. Set this value to <code>ERROR</code> for an error operation.</td>
 </tr>
 <tr class="even">
 <td>errorMessage</td>
@@ -552,14 +556,14 @@ Content-Type: application/json
 ```
 
 !!! note
-    The <code>errorMessage</code> and <code>errorDescription</code> from the external service's <code>ERROR</code> response are not directly included in the error response sent back to the application.
+    The <code>errorMessage</code> and <code>errorDescription</code> from the external service's <code>ERROR</code> response doesn't directly include in the error response sent back to the application.
 
 !!! note
-    In the OIDC hybrid flow, both <code>FAILED</code> and <code>ERROR</code> responses from your external service are treated as server errors.
+    In the OIDC hybrid flow, both <code>FAILED</code> and <code>ERROR</code> responses from your external service treated as server errors.
 
 ### Authentication
 
-Configure the authentication scheme when registering the action in {{product_name}}. The following screenshot shows the Authentication configuration panel where you can select the authentication scheme and provide credentials (for example, username and password for Basic authentication).
+Configure the authentication scheme when registering the action in {{product_name}}. The following screenshot shows the Authentication configuration panel where you can select the authentication scheme and provide credentials (for example, `username` and `password` for Basic authentication).
 
 ![pre-issue-id-token-action-authentication]({{base_path}}/assets/img/guides/actions/pre-issue-id-token-action-authentication-in-ui.png)
 
@@ -567,9 +571,9 @@ Configure the authentication scheme when registering the action in {{product_nam
 - **Bearer**: OAuth 2.0 Bearer token in the <code>Authorization</code> header.
 - **API Key**: API key in a header; you can define the header name (for example, <code>X-API-Key</code>).
 
-## Conditional invocation of pre-issue ID token action
+## Conditional invocation of pre-issue id token action
 
-Pre-issue ID token actions can be conditionally triggered based on configurable execution rules. You define when the action should run by building conditions in the **Execution Rule** configuration.
+Pre-issue ID token actions can trigger conditionally based on configurable execution rules. You can define when the action should run by building conditions in the **Execution Rule** configuration.
 
 The rule configuration supports the following fields:
 
@@ -581,11 +585,8 @@ Each rule field supports the following operators:
 - equals
 - not equals
 
-You can combine conditions using logical **AND** and **OR** operators. Conditions in the same group are combined with AND; separate groups are combined with OR. This gives you precise control over when to invoke the pre-issue ID token action.
+You can combine conditions using logical **AND** and **OR** operators. The system uses `AND` to combine conditions in the same group and uses `OR` to combine separate groups. This approach gives you precise control over when to invoke the pre-issue id token action.
 
 ![pre-issue-id-token-action-execution-rule]({{base_path}}/assets/img/guides/actions/pre-issue-id-token-action-execution-rule-in-ui.png)
 
-The example above shows an execution rule with two groups: one where the application equals **TestApp**, and another where the grant type equals **authorization code**. The action runs when either condition is met. You can add more conditions within a group using **+ And**, or add another group using **+ Or**.
-
-
-
+The example above shows an execution rule with two groups: one where the application equals **TestApp**, and another where the grant type equals **authorization code**. The action runs when the runtime meets either condition. You can add more conditions within a group using **+ And**, or add another group using **+ Or**.

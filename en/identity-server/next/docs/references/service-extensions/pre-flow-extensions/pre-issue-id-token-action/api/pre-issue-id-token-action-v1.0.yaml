@@ -41,8 +41,8 @@ paths:
                   summary: Failed response
                   value:
                     actionStatus: FAILED
-                    failureReason: invalid_claim
-                    failureDescription: "The requested claim is invalid, unknown, or malformed."
+                    failureReason: locked_user
+                    failureDescription: "The user is pending verification."
         "400":
           description: Bad Request
           content:
@@ -90,11 +90,11 @@ components:
       properties:
         grantType:
           type: string
-          description: The type of OAuth2 grant used for the token request, such as authorization code, client credentials, password, or refresh token.
+          description: The type of OAuth2 grant used for the token request, such as `authorization_code`, `password`, `refresh_token`, `organization_switch` or `urn:ietf:params:oauth:grant-type:device_code`.
           example: authorization_code
         responseType:
           type: string
-          description: The type of response requested by the client in the OIDC hybrid flow, such as code, code id_token token, or code id_token.
+          description: The type of response requested by the client in the OIDC hybrid flow, such as `code id_token token`, or `code id_token`.
           example: code token
         clientId:
           type: string
@@ -118,6 +118,20 @@ components:
           items:
             $ref: '#/components/schemas/RequestParams'
       description: Any additional parameters included in the ID token request. These may be custom parameters defined by the client or necessary for specific flows.
+      example:
+        grantType: authorization_code
+        clientId: 1u31N7of6gCNR9FqkG1neSlsF_Qa
+        scopes:
+          - openid
+          - profile
+        additionalHeaders:
+          - name: X-Custom-Header
+            value:
+              - customValue
+        additionalParams:
+          - name: custom_param
+            value:
+              - customValue
     Tenant:
       type: object
       required:
@@ -145,16 +159,24 @@ components:
           description: Refers to the organization to which the user belongs.
         userType:
           type: string
-          description: Defines the type of user. LOCAL indicates a user that exists in WSO2 Identity Server; FEDERATED indicates a federated user authenticated via a federated identity provider.
+          description: Defines the type of user. `LOCAL` indicates a user that exists in WSO2 Identity Server organization; `FEDERATED` indicates a federated user authenticated via a federated identity provider.
           example: LOCAL
         federatedIdP:
           type: string
-          description: The name of the federated identity provider used to authenticate the user. This is only applicable for FEDERATED users.
+          description: The name of the federated identity provider used to authenticate the user. This is only applicable for `FEDERATED` users.
           example: google
         accessingOrganization:
           $ref: '#/components/schemas/Organization'
-          description: Refers to the organization to which the user is accessing. This is only applicable for organization_switch grant type.
+          description: Refers to the organization to which the user is accessing. This is only applicable for `organization_switch` grant type.
       description: Contains information about the authenticated user associated with the token request.
+      example:
+        id: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+        organization:
+          id: 5c7930f2-c97d-4b38-89a6-7be5fb138a35
+          name: foo.com
+          orgHandle: foo.com
+          depth: 0
+        userType: LOCAL
     Organization:
       type: object
       required:
@@ -255,6 +277,26 @@ components:
           - $ref: '#/components/schemas/addOperation'
           - $ref: '#/components/schemas/replaceOperation'
           - $ref: '#/components/schemas/removeOperation'
+      example:
+        - op: add
+          paths:
+            - /idToken/claims/-
+            - /idToken/claims/aud/
+        - op: replace
+          paths:
+            - /idToken/claims/updated_at
+            - /idToken/claims/given_name
+            - /idToken/claims/family_name
+            - /idToken/claims/username
+            - /idToken/claims/aud/
+            - /idToken/claims/expires_in
+        - op: remove
+          paths:
+            - /idToken/claims/updated_at
+            - /idToken/claims/given_name
+            - /idToken/claims/family_name
+            - /idToken/claims/username
+            - /idToken/claims/aud/
     addOperation:
       type: object
       required:
@@ -325,6 +367,7 @@ components:
           type: string
           enum:
             - SUCCESS
+          description: Indicates the outcome of the request. For a successful operation, this should be set to `SUCCESS`.
         operations:
           type: array
           description: Defines the set of operations that your external service is requesting to perform on the ID token's claims.
@@ -345,7 +388,7 @@ components:
           type: string
           enum:
             - FAILED
-          description: Indicates the outcome of the request. For a failed operation, this should be set to FAILED.
+          description: Indicates the outcome of the request. For a failed operation, this should be set to `FAILED`.
         failureReason:
           type: string
           description: Provides the reason for failing to issue an ID token.
@@ -363,7 +406,7 @@ components:
           type: string
           enum:
             - ERROR
-          description: Indicates the outcome of the request. For an error operation, this should be set to ERROR.
+          description: Indicates the outcome of the request. For an error operation, this should be set to `ERROR`.
         errorMessage:
           type: string
           description: The cause of the error.
