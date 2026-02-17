@@ -36,6 +36,9 @@ To register a trusted token issuer:
       </tr>
     </table>
 
+    !!! note "Using {{ product_name }} tokens as issuer"
+        In scenarios where a token issued by the {{ product_name }} is used as a subject token, signature validation will fail if the issuer's public certificate has expired. To fix this, ensure that the public certificate of the issuing {{ product_name }} is proactively renewed in both the Key Store and the Trust Store of {{ product_name }}.
+
 4. Click **Next** and provide the mode of certificate configuration.
 
     - **JWKS endpoint**: The JWKS endpoint of the trusted token issuer.
