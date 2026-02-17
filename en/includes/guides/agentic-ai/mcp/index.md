@@ -59,7 +59,7 @@ Use this when an MCP client acts on a user's behalf (e.g., a Desktop Copilot).
 
 Use this for backend MCP clients running without a user interface.
 
-1. **Token Request**: MCP client invokes {{ product_name }}'s `/token` endpoint directly using **Client Credentials** (client ID and client secret).
+1. **Token Request**: MCP client invokes {{ product_name }}'s `/token` endpoint directly using **Client Credentials** (client ID and Secret).
 2. **Validation**: {{ product_name }} checks if this MCP client is authorized for the requested MCP Server resource.
 3. **Issuance**: {{ product_name }} returns an **Access Token** (`sub`= MCP client's ID).
 4. **Invocation**: The MCP client connects to the MCP Server with the token.
