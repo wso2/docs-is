@@ -17,7 +17,7 @@ The underlying message flow of OpenID Connect (OIDC) back-channel logout happens
 3. {{ product_name }} generates a logout token, a special (JSON Web Token) JWT containing specific claims and sends it with a logout request to the logout endpoints of all the client applications.
 4. Upon receiving the logout token, each client application validates the token and proceeds to invalidate the corresponding user session.
 
-## Configure back-channel logout
+## Configure back-channel logout URL
 
 Follow the steps below to register the back-channel endpoint of your application with {{product_name}}.
 
@@ -25,7 +25,7 @@ Follow the steps below to register the back-channel endpoint of your application
 
     [Register your OIDC application]({{base_path}}/guides/applications/) in {{product_name}}.
 
-1. On the Asgardeo Console, go to **Applications** and select your OIDC application.
+1. On the {{ product_name }} Console, go to **Applications** and select your OIDC application.
 
 2. Go to the **Protocol** tab, and under **Logout URLs**, enter the **Back channel logout URL**.
 
@@ -43,7 +43,7 @@ To complete the back-channel logout flow, you must set up the client application
 
     ``` json
     {
-    "iss": "{{product_url_sample}}oauth2/token",
+    "iss": "{{product_url_sample}}/oauth2/token",
     "sub": "aa21e449-****-****-****-****a6a3961f",
     "aud": "w_Hwp05dF****_****9SNwpflAa",
     "iat": 1609911868,

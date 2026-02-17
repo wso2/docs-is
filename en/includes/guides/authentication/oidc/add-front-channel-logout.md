@@ -18,7 +18,7 @@ The front-channel logout flow works as follows:
 2. {{ product_name }} terminates the user's session.
 3. {{ product_name }} identifies all the client applications associated with the user's session.
 4. {{ product_name }} responds with an HTML page that embeds an iframe for each application that has a front-channel logout URI configured.
-5. Upon receniving the logout request, each client application validates the requests and proceeds to invalidate the corresponding user session.
+5. Upon receiving the logout request, each client application validates the requests and proceeds to invalidate the corresponding user session.
 
 ## Configure front-channel logout URL
 If your application supports OIDC front-channel logout, you can configure the logout URL of the application in the Console. That endpoint can listen to OIDC front-channel logout requests from {{ product_name }}, and terminate the application's sessions.
@@ -46,13 +46,13 @@ Follow the steps below to register the front-channel endpoint of your applicatio
 **Logout request from {{ product_name }}**
 
 ``` 
-http://myapp.com?iss=product_url_format/oauth2/token&sid={sid_value}
+http://myapp.com?iss={{product_url_format}}/oauth2/token&sid={sid_value}
 ```
 
 **Sample Logout request from {{ product_name }}**
 
 ``` 
-http://myapp.com?iss=product_url_sample/oauth2/token&sid=15043ffc-****-****-****-9b107f7da38c
+http://myapp.com?iss={{product_url_sample}}/oauth2/token&sid=15043ffc-****-****-****-9b107f7da38c
 ```
 
 
