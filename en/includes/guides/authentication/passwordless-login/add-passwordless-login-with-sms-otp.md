@@ -31,7 +31,7 @@ To update the default SMS OTP settings:
          </tr>
          <tr>
            <td><code>SMS OTP expiry time</code></td>
-           <td>Specifies the expiry time of the OTP. The generated OTP won't be valid after this expiry time.</td>
+           <td>Specifies the OTP expiry time. The generated OTP won't be valid after this time.</td>
          </tr>
          <tr>
            <td><code>Use only numeric characters for OTP</code></td>
