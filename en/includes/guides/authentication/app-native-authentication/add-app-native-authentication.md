@@ -4,7 +4,6 @@ In traditional applications, login is usually fulfilled by a web browser. This m
 
 App-Native Authentication takes an API-based approach to let developers implement a secure login experience directly within the application along with features such as Multi-Factor Authentication (MFA), adaptive authentication, and support for federated logins. This means users will have a seamless login experience from right within the application without the need for redirection.
 
-
 !!! warning "Limitations of App-Native Authentication"
 
     - At the time of login, app-native authentication,
@@ -15,8 +14,7 @@ App-Native Authentication takes an API-based approach to let developers implemen
         - does not facilitate enrolling authenticators (e.g. TOTP authenticator).
         - only supports silent JIT provisioning.
 
-	- App-native authentication does not support all authentication methods. If you have an unsupported option configured, the login flow will not be initiated.
-	
+    - App-native authentication does not support all authentication methods. If you configure an unsupported authentication option, the login flow proceeds up to that step and fails when the unsupported authenticator is executed.
 
 ## How it works
 
@@ -74,6 +72,7 @@ The following diagram illustrates the high-level steps involved with app-native 
 
 
 ## Try it out
+
 Follow the steps below to try out App-Native Authentication with {{product_name}}.
 
 !!! warning "Attention"
