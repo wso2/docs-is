@@ -2,7 +2,7 @@
 name: fix-documentation-issues
 description: Guidelines to follow for sending fixes for documentation related GitHub issues
 ---
-
+s
 =========================================
  CORE RULES
 =========================================
