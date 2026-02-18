@@ -85,7 +85,7 @@ Use this table to see resource behavior across the hierarchy.
 | | Share from parent | Organization can create | Organization inherits |
 |---|---|---|---|
 | **Definition** | Resources a parent explicitly shares with child organizations. | Resources an organization creates and manages on its own. | Resources automatically available from the immediate parent. |
-| **Resources** | Applications, Roles (with shared apps), Users | Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts | API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes |
+| **Resources** | {{content.org_resources_shared}} | {{content.org_resources_created}} | {{content.org_resources_inherited}} |
 
 **Example:** You share your project management app with the retail company (shared from parent). They configure their own Azure AD connection and add custom branding (organization creates). Their child organizations automatically inherit your login settings and API resources (organization inherits).
 
