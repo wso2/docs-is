@@ -2,7 +2,7 @@
 
 {% if product_name == "WSO2 Identity Server" %}
 
-Back-channel logout, defined in the OpenID Connect (OIDC) specification, allows logging out of client applications without user interaction. Unlike front-channel logout that needs the user to visit each client application, back-channel logout happens entirely through server-to-server communication between the authorization server and the client applications.
+Back-channel logout, defined in the OpenID Connect (OIDC) specification, allows logging out of client applications without user interaction. Unlike front-channel logout that relies on the user's browser to notify each client application, back-channel logout happens entirely through server-to-server communication between the authorization server and the client applications.
 
 For protocol details see the OpenID specification: [OpenID Connect Back-Channel Logout 1.0](https://openid.net/specs/openid-connect-backchannel-1_0.html).
 
