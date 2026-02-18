@@ -2,7 +2,7 @@
 
 {% if product_name == "WSO2 Identity Server" %}
 
-Back-channel logout is a mechanism defined in the OpenID Connect (OIDC) specification that allows users to be securely logged out of client applications without any user interaction. Unlike front-channel logout, which relies on browser-based redirects and requires the user’s browser to visit each client application, back-channel logout happens entirely through server-to-server communication between the authorization server and the client applications.
+Back-channel logout, defined in the OpenID Connect (OIDC) specification, allows logging out of client applications without user interaction. Unlike front-channel logout that needs the user to visit each client application, back-channel logout happens entirely through server-to-server communication between the authorization server and the client applications.
 
 For protocol details see the OpenID specification: [OpenID Connect Back-Channel Logout 1.0](https://openid.net/specs/openid-connect-backchannel-1_0.html).
 
@@ -14,7 +14,7 @@ The underlying message flow of OpenID Connect (OIDC) back-channel logout happens
 
 1. The client application initiates a user logout.
 2. {{ product_name }} identifies all the client applications associated with the user's session.
-3. {{ product_name }} generates a logout token, a special (JSON Web Token) JWT containing specific claims and sends it with a logout request to the logout endpoints of all the client applications.
+3. {{ product_name }} generates a logout token, a special  JWT (JSON Web Token) containing specific claims and sends it with a logout request to the logout endpoints of all the client applications.
 4. Upon receiving the logout token, each client application validates the token and proceeds to invalidate the corresponding user session.
 
 ## Configure back-channel logout URL

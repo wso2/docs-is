@@ -26,8 +26,6 @@ If your application supports OIDC front-channel logout, you can configure the lo
 To get started, you need to have an application registered in {{ product_name }}. If you don't already have one, [register a web app with OIDC]({{base_path}}/guides/applications/register-oidc-web-app/).
 
 
-To configure front-channel logout URL:
-
 Follow the steps below to register the front-channel endpoint of your application with {{product_name}}.
 
 !!! note "Before you begin"
