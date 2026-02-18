@@ -55,16 +55,14 @@ http://myapp.com?iss={{product_url_sample}}/oauth2/token&sid=15043ffc-****-****-
 
 
 !!! note
-        **Cross-site cookie considerations**
+    
+    **Cross-site cookie considerations**
 
-        Front-channel logout uses GET requests delivered via iframes to notify client domains. While GET requests in iframes have good browser support, modern browsers restrict third-party cookies and cross-site tracking, which can cause logout to fail.
+    Front-channel logout uses GET requests delivered via iframes to notify client domains. While GET requests in iframes have good browser support, modern browsers restrict third-party cookies and cross-site tracking, which can cause logout to fail.
 
-        *Recommendations:*
+    *Recommendations:*
 
-        - Prefer [back-channel logout]({{base_path}}/guides/authentication/oidc/add-back-channel-logout/) for reliable server-to-server session termination, as it does not depend on browser cookie policies.
-        - Consider hosting applications on subdomains of a shared parent domain (for example, `app1.example.com` and `app2.example.com`) so cookies can use `Domain=.example.com` and become first-party.
-
-
-<br>
+    - Prefer [back-channel logout]({{base_path}}/guides/authentication/oidc/add-back-channel-logout/) for reliable server-to-server session termination, as it does not depend on browser cookie policies.
+    - Consider hosting applications on subdomains of a shared parent domain (for example, `app1.example.com` and `app2.example.com`) so cookies can use `Domain=.example.com` and become first-party.
 
 {% endif %}
