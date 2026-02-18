@@ -1,6 +1,6 @@
 The following API contract defines the request and response structures that your service must adhere to.
 
-- [pre-issue id token API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/pre-issue-id-token-action-v1.0)
+- [pre-issue id token API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/pre-issue-id-token-action-v1.0/)
 
 ### Request from {{product_name}}
 
