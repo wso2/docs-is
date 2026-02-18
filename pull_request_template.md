@@ -4,12 +4,13 @@
 ## Related PRs
 <!-- List any other related PRs -->
 
-## Test environment
-<!-- List all JDK versions, operating systems, databases, and browser/versions on which this feature/fix was tested -->
+## ✅ Author checklist
 
-## Security checks
-- [ ] Followed secure coding standards in http://wso2.com/technical-reports/wso2-secure-engineering-guidelines?
-- [ ] Ran FindSecurityBugs plugin and verified report?
-- [ ] Confirmed that this PR doesn't commit any keys, passwords, tokens, usernames, or other secrets?
+- [ ] Content verified against the product
+- [ ] Vale passes locally
+- [ ] Markdownlint passes locally
 
+## 🔍 Copilot review instruction
 
+- Copilot: Review this PR according to the rules defined in .github/copilot-instructions.md
+- Leave comments wherever the PR violates those rules.

@@ -17,3 +17,8 @@ By default, the {{product_name}} Console keeps the account disabling feature tur
     ![Account Disable Settings]({{base_path}}/assets/img/guides/users/account-disable-setting.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Once enabled, every user profile displays an option to disable the user. Learn more about user profiles in [manage users]({{base_path}}/guides/users/manage-users/).
+
+## Enable accounts
+
+<!-- copilot please only review the following section for style -->
+Whether it could be enabled or not depends on the account status. You can only enable accounts that are in a disabled state. To enable a disabled account, go to the user profile and click **Enable Account**. It is not a feature that is enabled by default. If it is, you can disable it by toggling **Enable account disabling** off in the **Account Disable** settings.
