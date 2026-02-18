@@ -22,13 +22,12 @@ The following diagram illustrates the high-level steps involved with app-native 
 
 ![app-native-authentication-sequence]({{base_path}}/assets/img/guides/app-native-authentication/app-native-authentication-sequence.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
-
 1. User initiates a login request at the application's login page.
 2. The application initiates an app-native authentication request with the server. The initial request made by the application is similar to an [OAuth 2.0 authorization code request]({{base_path}}/guides/authentication/oidc/implement-auth-code/) but with the `response_mode` set to `direct` as shown below.
 
     === "Sample request"
-    
-        ```bash
+
+    ```bash
         curl --location '{{api_base_path}}'
         --header 'Accept: application/json'
         --header 'Content-Type: application/x-www-form-urlencoded'
@@ -38,8 +37,8 @@ The following diagram illustrates the high-level steps involved with app-native 
         --data-urlencode 'state=<state>'
         --data-urlencode 'scope=<space separated scopes>'
         --data-urlencode 'response_mode=direct'
-        ```
-    
+    ```
+
     === "Example"
         ```bash
         curl --location '{{api_example_base_path}}'
@@ -63,13 +62,12 @@ The following diagram illustrates the high-level steps involved with app-native 
 
     !!! tip "What is the Authentication API?"
         - The Authentication API is an interactive, stateful API that facilitates a multi-step authentication flow. See its [OpenAPI definition]({{base_path}}/apis/app-native-authentication-api/) for more details.
-        - While app-native authentication is initiated at the `/authorize` endpoint, the authentication API fulfills the actual authentication for each step by interacting with the `/authn` endpoint. 
+        - While app-native authentication is initiated at the `/authorize` endpoint, the authentication API fulfills the actual authentication for each step by interacting with the `/authn` endpoint.
 
 7. After the authentication is complete, the application receives an OAuth2 authorization code in the response.
 
 !!! note "Learn more"
     While this section provides a brief overview, it is highly recommended to read through [app-native authentication]({{base_path}}/references/app-native-authentication) to understand the concept in detail.
-
 
 ## Try it out
 
@@ -128,7 +126,7 @@ You have successfully enabled app-native authentication for your application. Yo
 
 #### Android
 
-If you are developing an Android application, you can use the <a href="https://central.sonatype.com/artifact/io.asgardeo/asgardeo-android" target="_blank">Android Mobile UI SDK</a> to integrate app-native authentication to your Android application. 
+If you are developing an Android application, you can use the <a href="https://central.sonatype.com/artifact/io.asgardeo/asgardeo-android" target="_blank">Android Mobile UI SDK</a> to integrate app-native authentication to your Android application.
 
 To get started, refer to the Android Mobile UI SDK <a href="https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html" target="_blank">documentation</a>.
 
