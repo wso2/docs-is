@@ -140,10 +140,8 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
 
     import { AsgardeoAgentAuth } from "./util/auth";
 
-    const port = '3001';
-
     const asgardeoConfig = {
-        afterSignInUrl: "http://localhost:${port}/callback",
+        afterSignInUrl: "http://localhost:3001/callback",
         clientId: "<client-id>",
         baseUrl: "https://api.asgardeo.io/t/<your-organization-name>",
     };
@@ -230,10 +228,8 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
 
     import { AsgardeoAgentAuth } from "./util/auth";
 
-    const port = '3001';
-
     const asgardeoConfig = {
-        afterSignInUrl: "http://localhost:${port}/callback",
+        afterSignInUrl: "http://localhost:3001/callback",
         clientId: "<client-id>",
         baseUrl: "https://api.asgardeo.io/t/<organization-name>",
     };
@@ -670,7 +666,7 @@ Here is the updated implementation:
     const port = '3001';
 
     const asgardeoConfig = {
-        afterSignInUrl: "http://localhost:${port}/callback",
+        afterSignInUrl: "http://localhost:3001/callback",
         clientId: "<client-id>",
         baseUrl: "https://api.asgardeo.io/t/<your-organization-name>",
     };
@@ -821,7 +817,7 @@ Here is the updated implementation:
     const port = '3001';
 
     const asgardeoConfig = {
-        afterSignInUrl: "http://localhost:${port}/callback",
+        afterSignInUrl: "http://localhost:3001/callback",
         clientId: "<client-id>",
         baseUrl: "https://api.asgardeo.io/t/<organization-name>",
     };
