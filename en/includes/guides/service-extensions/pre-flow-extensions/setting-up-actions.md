@@ -82,9 +82,10 @@ How versions work
 
 ## Invoke actions conditionally
 
-You can trigger actions conditionally by configuring rules. Currently, all three action types support rule-based invocation:
+You can trigger actions conditionally by configuring rules. The following action types support rule-based invocation:
 
 - [Pre-Issue Access Token]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action/#conditional-invocation-of-pre-issue-access-token-action)
+- [Pre-Issue ID Token]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-id-token-action/#conditional-invocation-of-pre-issue-id-token-action)
 - [Pre-Update Password]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-update-password-action/#conditional-invocation-of-pre-update-password-action)
 {% if not is_version == "7.1.0" %}
 - [Pre-Update Profile]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-update-profile-action/#conditional-invocation-of-pre-update-profile-action)
