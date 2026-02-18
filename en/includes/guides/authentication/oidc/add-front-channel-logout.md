@@ -41,17 +41,17 @@ Follow the steps below to register the front-channel endpoint of your applicatio
 
 3. Click **Update** to save your configurations.
 
-**Logout request from {{ product_name }}**
+=== "Logout request format"
 
-``` 
-http://myapp.com?iss={{product_url_format}}/oauth2/token&sid={sid_value}
-```
+    ```url
+    http://myapp.com?iss={{product_url_format}}/oauth2/token&sid={sid_value}
+    ```
 
-**Sample Logout request from {{ product_name }}**
+=== "Example request"
 
-```url
-http://myapp.com?iss={{product_url_sample}}/oauth2/token&sid=15043ffc-****-****-****-9b107f7da38c
-```
+    ```url
+    http://myapp.com?iss={{product_url_sample}}/oauth2/token&sid=15043ffc-****-****-****-9b107f7da38c
+    ```
 
 !!! note
 
