@@ -71,5 +71,4 @@ To complete the back-channel logout flow, you must set up the client application
 
 3. **Terminate the user session** - Once the client validates the token and determines it to be valid, the client should use the `sid` claim to locate and terminate the user's session.
 
-
 {% endif %}
