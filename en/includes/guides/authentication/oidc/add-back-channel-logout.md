@@ -10,7 +10,7 @@ For protocol details, see the OpenID specification: [OpenID Connect Back-Channel
 
 ![oidc-backchannel-logout-scenario]({{base_path}}/assets/img/guides/oidc-logout/oidc-backchannel-logout-scenario.png)
 
-The underlying message flow of OpenID Connect (OIDC) back-channel logout happens as follows:
+The underlying message flow of OIDC back-channel logout happens as follows:
 
 1. The client application initiates a user logout.
 2. {{ product_name }} identifies all the client applications associated with the user's session.
