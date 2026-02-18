@@ -32,3 +32,10 @@ watchlists
 watchlist
 onboarding
 Onfido
+[Vv]ite
+[Pp]asswordless
+[Uu]sernameless
+backchannel
+frontchannel
+URL
+timeframe
