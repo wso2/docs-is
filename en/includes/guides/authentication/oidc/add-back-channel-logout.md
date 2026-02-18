@@ -37,7 +37,7 @@ Follow the steps below to register the back-channel endpoint of your application
 
 To complete the back-channel logout flow, you must set up the client application so that it can perform the following required actions.
 
-1. **Receive back-channel logout requests** - The client application must expose an endpoint that accepts POST requests from the authorization server to handle logout requests. You need to [register this endpoint with {{product_name}}](#configure-back-channel-logout).
+1. **Receive back-channel logout requests** - The client application must expose an endpoint that accepts POST requests from the authorization server to handle logout requests. You need to [register this endpoint with {{product_name}}](#configure-back-channel-logout-url).
 
 2. **Validate the logout token** - The following is an example of the logout token sent by the {{ product_name }} to a client application:
 
