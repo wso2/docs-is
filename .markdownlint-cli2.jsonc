@@ -10,6 +10,11 @@
     "MD055": false
   },
 
+  "ignores": [
+    "**/SKILL.md",
+    "**/copilot-instructions.md"
+  ],
+
   "customRules": [
     "./lint-config/no-consecutive-headings.js"   // no consecutive headings
   ]
