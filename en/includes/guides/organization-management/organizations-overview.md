@@ -1,5 +1,7 @@
 # Organizations overview
 
+Organizations help you serve multiple businesses from a single platform. Each business gets isolated user management, custom branding, and can even connect their own enterprise identity providers, all while you maintain one application.
+
 Learn the core concepts for managing organizations with {{product_name}}. This guide walks you through organizations, hierarchy, and resource management.
 
 !!! tip "What you'll learn"
@@ -16,11 +18,13 @@ Learn the core concepts for managing organizations with {{product_name}}. This g
 
 ## ① What's an organization?
 
-An **organization** represents one entity in your system.
+An **organization** represents one business entity in your system.
 
-Each organization has its own applications, roles, APIs, and users. Organizations can customize login pages, branding, and have dedicated administrators with isolated data and configurations.
+Each organization has its own applications, roles, and users. Organizations can customize login pages, branding, and have dedicated administrators with isolated data and configurations.
 
 ![Organization Components]({{base_path}}/assets/img/guides/organization/organizations-overview/organization-components.png){: width="600" style="display: block; margin: 0;"}
+
+**Example:** When a manufacturing company signs up for your platform, they become an organization. They get their own admin console, add their 500 employees, customize the login page with their logo, and maintain complete control over their data.
 
 ---
 
@@ -42,6 +46,8 @@ What it does:
 - Builds and shares applications.
 - Sets hierarchy-vise policies.
 
+**Example:** You own a SaaS platform. Your root organization is where you build your main application, define platform-wide policies, and create organizations for each business that signs up.
+
 ### Parent organization
 
 **Organizations that create child organizations** - Any organization within the hierarchy that has children below it.
@@ -51,6 +57,8 @@ What it does:
 - Creates and manages child organizations.
 - Shares resources down the hierarchy.
 - Controls access policies for children.
+
+**Example:** A retail company uses your platform. They create child organizations for their regional offices (North America, Europe, Asia). Each regional office manages their own employees but uses the main application you shared.
 
 !!! note
     The root organization acts as the top-level parent. Child organizations can also become parents by creating their own children, forming multi-level hierarchies.
@@ -66,6 +74,8 @@ What it does:
 - Assigns roles to users.
 - Can create its own child organizations.
 
+**Example:** The North America regional office adds their employees, customizes the login page with their regional branding, connects their Azure AD for authentication, and assigns manager roles to team leads.
+
 ---
 
 ## ③ Resource behavior across the hierarchy
@@ -76,6 +86,8 @@ Use this table to see resource behavior across the hierarchy.
 |---|---|---|---|
 | **Definition** | Resources a parent explicitly shares with child organizations. | Resources an organization creates and manages on its own. | Resources automatically available from the immediate parent. |
 | **Resources** | Applications, Roles (with shared apps), Users | Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts | API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes |
+
+**Example:** You share your project management app with the retail company (shared from parent). They configure their own Azure AD connection and add custom branding (organization creates). Their child organizations automatically inherit your login settings and API resources (organization inherits).
 
 ---
 
@@ -95,7 +107,7 @@ Two API types serve different purposes.
 - Share apps with organizations
 - Configure hierarchy-wide resources
 
-**Example:**
+**Example:** As the platform owner, you use Management APIs to create a new organization when a business signs up, share your application with them, and set platform-wide security policies.
 
 ```http
 POST https://api.example.com/management/v1/organizations
@@ -111,7 +123,7 @@ POST https://api.example.com/management/v1/organizations
 - Assign roles within the organization
 - Configure organization settings
 
-**Example:**
+**Example:** The retail company's IT admin uses Organization APIs to add new employees, assign manager roles, and configure their Azure AD connection—all without contacting you.
 
 ```http
 POST https://api.example.com/o/{org-id}/users
@@ -139,6 +151,8 @@ Here's how everything connects with organizations:
 3. **Organizations:** Add their users
 4. **Organizations:** Assign roles to control access
 5. **End users:** Log in through their organization
+
+**Complete example:** You build a project management app. A consulting firm signs up—you create their organization and share your app. They create child organizations for their Engineering and Sales departments. Engineering connects their GitHub for authentication, adds 50 developers, and assigns project lead roles. Sales does the same with their Google Workspace and 30 sales reps. Each employee logs in through their department, sees their company branding, uses their existing credentials, and accesses features based on their role.
 
 ## Next steps
 
