@@ -712,8 +712,9 @@ nav:
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
               - Configure token exchange: guides/authentication/configure-token-exchange.md
             - Logout:
-              - Front-channel logout: guides/authentication/oidc/add-logout.md
+              - RP-initiated logout: guides/authentication/oidc/add-logout.md
               - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
+              - Front-channel logout: guides/authentication/oidc/add-front-channel-logout.md
               - Federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
