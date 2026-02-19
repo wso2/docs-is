@@ -167,4 +167,4 @@ For a comprehensive list of additional AI Guardrails and to customize your own, 
 
 ## Part 3: Trying out the AI Gateway
 
-Once you have successfully completed the configuration steps outlined above, you can try out your AI gateway interactions by cloning this [sample repository](https://github.com/AkinduH/asgardeo-agent-identity-with-ai-gateway).
+Once you have successfully completed the configuration steps outlined above, you can try out your AI gateway interactions by cloning this [sample repository](https://github.com/wso2/iam-ai-samples/tree/main/asgardeo-agent-identity-with-ai-gateway).
