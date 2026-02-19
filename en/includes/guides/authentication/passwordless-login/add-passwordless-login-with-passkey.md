@@ -155,7 +155,7 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 ## Restrict passkey generation and prompting to subdomains
 
 By default, {{ product_name }} generates and prompts passkeys for the top-level domain. For example, if the application is running on `app.example.com`,
-the passkey will be generated for `example.com` and the user will be prompted to use the passkey for all applications running on `example.com` and its subdomains. 
+the passkey will be generated for `example.com` and prompts the user to use the passkey for all applications running on `example.com` and its subdomains. 
 
 If required, you can restrict passkey generation and prompting to subdomains instead.
 
@@ -164,17 +164,15 @@ In this case, users will be prompted to use their passkeys only when accessing a
 To enable this restriction, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
   ```toml
-
    [fido.webauthn.relying_party]
    enforce_subdomain_restriction = true
-
   ```
 
 !!! warning
-    Enabling this configuration limits passkey usage to the specific subdomain where it was registered.
-    Users will not be prompted to use their passkeys for applications hosted on other subdomains. 
+    Enabling this configuration limits passkey usage to the specific subdomain where the user registered it.
+    Users will not be prompted to use their passkeys for applications hosted on other subdomains.
     Additionally, if you later change the subdomain (e.g., from `app.example.com` to `newapp.example.com`) or introduce a deeper subdomain,
-    previously registered passkeys will become invalid and users will need to register new ones.
+    passkeys the user previously registered become invalid and users will need to register new ones.
 
 {% endif %}
 
