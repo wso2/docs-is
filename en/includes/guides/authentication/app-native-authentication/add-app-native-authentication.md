@@ -14,7 +14,11 @@ App-Native Authentication takes an API-based approach to let developers implemen
         - does not facilitate enrolling authenticators (e.g. TOTP authenticator).
         - only supports silent JIT provisioning.
 
+{% if product_name == 'Asgardeo' or is_version >= "7.3.0" %}
     - App-native authentication does not support all authentication methods. If you configure an unsupported authentication option, the login flow proceeds up to that step and fails when the unsupported authenticator is executed.
+{% else %}
+    - App-native authentication does not support all authentication methods. If you have an unsupported option configured, the login flow will not be initiated.
+{% endif %}
 
 ## How it works
 
