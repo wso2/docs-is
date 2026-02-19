@@ -8,9 +8,9 @@ For the demonstration, let's build a math-capable agent that will interpret conv
 
 By the end of this guide, you will have:
 
-- An AI agent that authenticates using Agent Credentials, obtains a token to access a secure MCP Server(AI agent acting on its own)
+- An AI agent that authenticates using Agent Credentials, obtains a token to access a secure MCP Server (AI agent acting on its own)
 - An AI agent that gets authorization delegated by a user to access a secured MCP Server (Agent acting On-Behalf-Of (OBO) a user)
-- A clear understanding of both authentication scenarios described in [Agent Authentication Guide](https://wso2.com/asgardeo/docs/guides/agentic-ai/ai-agents/agent-authentication/)
+- A clear understanding of both authentication scenarios described in [Agent Authentication Guide]({{ base_path }}/guides/agentic-ai/ai-agents/agent-authentication/)
 
 You do not need prior agent development experience. Everything you need is explained as you go.
 
@@ -20,9 +20,9 @@ You do not need prior agent development experience. Everything you need is expla
 
 To establish an identity for your AI agent, begin by registering it in {{ product_name }}.
 
-- Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
-- Click **+ New Agent**.
-- Provide:
+1. Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
+2. Click **+ New Agent**.
+3. Provide:
     - Name: A descriptive name for your AI agent for human-readable display purposes
     - Description (optional): Purpose and functionality of the agent
 
@@ -31,16 +31,16 @@ To establish an identity for your AI agent, begin by registering it in {{ produc
 
     Description: An AI agent that invokes protected MCP tools to answer math-related questions.
 
-- Click **Create** to complete the registration.
+4. Click **Create** to complete the registration.
 
-After successful registration, your agent will receive a unique **Agent ID** and an **Agent Secret**, which is shown only once. Make sure to store them securely, as you’ll need them later in this guide.
+After successful registration, your agent will receive a unique **Agent ID** and an **Agent Secret**. Store the Agent Secret securely as it is displayed only once and is required later in this guide.
 
 ## Configure an Application in {{ product_name }}
 
-To allow your agent (or user acting through the agent) to authenticate and connect to a secure MCP server, a MCP Client needs to be set up in {{ product_name }}.
+To allow your agent (or user acting through the agent) to authenticate and connect to a secure MCP server, an MCP Client needs to be set up in {{ product_name }}.
 
-- In [{{ product_name }}](https://console.asgardeo.io/) console, navigate to **Applications > New Application**.
-- Select **MCP Client Application** and complete the wizard pop-up by providing a suitable name and an authorized redirect URL.
+1. In [{{ product_name }}](https://console.asgardeo.io/) console, navigate to **Applications > New Application**.
+2. Select **MCP Client Application** and complete the wizard pop-up by providing a suitable name and an authorized redirect URL.
 
 !!! Example
     Name: AgentAuthenticatorApp
@@ -51,13 +51,13 @@ To allow your agent (or user acting through the agent) to authenticate and conne
     The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:3001/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
 
-Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Build an AI Agent](#build-an-ai-agent) section of this guide.
+Make a note of the **Client ID** from the **Protocol** tab of the registered application. You will need it during the [Build an AI Agent](#build-an-ai-agent) section of this guide.
 
 ## Run the MCP Server
 
 Your AI agent will call an MCP tool hosted on a secure MCP server. You can:
 
-- Follow the [MCP Auth Server Quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server) to set one up quickly (Recommended), or
+- Follow the [MCP Auth Server Quickstart]({{ base_path }}/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server) to set one up quickly (Recommended), or
 - Use your own MCP server secured with {{ product_name }}
 
 ## Build an AI Agent
@@ -148,7 +148,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
 
     const agentConfig = {
         agentID: "<agent-id>",
-        agentSecret: "<agent-id>",
+        agentSecret: "<agent-secret>",
     };
 
     const model = new ChatGoogleGenerativeAI({
@@ -330,7 +330,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
 
     - Add the `<agent-id>` and `<agent-secret>` from the [Agent Registration](#register-an-ai-agent) step.
 
-    - This code assumes you are running the MCP server on `http://localhost:3000/mcp` as we set up in [MCP Auth Server quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server). If you have configured a separate MCP, change the URL accordingly.
+    - This code assumes you are running the MCP server on `http://localhost:3000/mcp` as we set up in [MCP Auth Server quickstart]({{ base_path }}/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server). If you have configured a separate MCP, change the URL accordingly.
 
 ## Setup Gemini API Key
 
@@ -350,7 +350,7 @@ Then make the appropriate changes depending on your development framework.
 
 ## Add Asgardeo Auth Utils
 
-The following util file provides methods for agents to authenticate with Asgardeo. Create a new directly called `util` and inside, add the following `auth.ts` file.
+The following util file provides methods for agents to authenticate with Asgardeo. Create a new directory called `util` and inside, add the following `auth.ts` file.
 
 <details>
 <summary>Expand to view the implementation of `auth.ts`</summary>
@@ -628,15 +628,15 @@ This flow uses:
 
 Your AI agent will then call the MCP server _as the authenticated user_.
 
-During the OBO flow, {{ product_name }} redirects back to your client application with an `authorization code` after the user logs in. Our agent will then catch the `authorization code` from {{ product_name }} and exchange it to a OBO Token.
+During the OBO flow, {{ product_name }} redirects back to your client application with an `authorization code` after the user logs in. Our agent will then catch the `authorization code` from {{ product_name }} and exchange it for an OBO token.
 
-To handle this, we need to setup a simple `express` server within `agent.ts`. This lightweight HTTP server listens for the redirect and captures `authorization_code` and `state`.
+To handle this, we need to set up a simple `express` server within `agent.ts`. This lightweight HTTP server listens for the redirect and captures `authorization_code` and `state`.
 
 To get started, first install the following dependencies,
 
 ```bash
 npm install express
-npm install --save-dev@types/express
+npm install --save-dev @types/express
 ```
 
 Then, update the `agent.ts` to perform the OBO Flow. This will:
@@ -673,7 +673,7 @@ Here is the updated implementation:
 
     const agentConfig = {
         agentID: "<agent-id>",
-        agentSecret: "<agent-id>",
+        agentSecret: "<agent-secret>",
     };
 
     const model = new ChatGoogleGenerativeAI({
@@ -704,6 +704,7 @@ Here is the updated implementation:
                     if (!code) {
                         res.status(400).send("No authorization code found.");
                         Promise.reject(new Error("No authorization code found."));
+                        return;
                     }
 
                     console.log("Authorization Code received. Code: " + code);
@@ -850,6 +851,7 @@ Here is the updated implementation:
                     if (!code) {
                         res.status(400).send("No authorization code found.");
                         Promise.reject(new Error("No authorization code found."));
+                        return;
                     }
 
                     console.log("Authorization Code received. Code: " + code);
@@ -891,7 +893,7 @@ Here is the updated implementation:
         // 5. Exchange the auth code for a token using OBO flow
         const oboToken = await asgardeoAgentAuth.getOBOToken(agentConfig, authCodeResponse);
 
-        // 2. Define LLM Agent
+        // 5. Define LLM Agent
         const rootAgent = new LlmAgent({
             name: "example_agent",
             model: "gemini-2.5-flash",
@@ -907,13 +909,13 @@ Here is the updated implementation:
             ],
         });
 
-        // 3. Initiate Runner with the Agent
+        // 6. Initiate Runner with the Agent
         const runner = new InMemoryRunner({
             agent: rootAgent,
             appName: "my-custom-app",
         });
 
-        // 4. Create a session for the user
+        // 7. Create a session for the user
         const userId = "user-123";
         const session = await runner.sessionService.createSession({
             appName: "my-custom-app",
@@ -922,7 +924,7 @@ Here is the updated implementation:
 
         console.log(`Session created: ${session.id}`);
 
-        // 5. Capture user input
+        // 8. Capture user input
         const rl = readline.createInterface({ input, output });
         console.log("--- AI Agent Started (Type 'exit' to quit) ---");
 
@@ -934,13 +936,13 @@ Here is the updated implementation:
                 break;
             }
 
-            // 6. Define the User Message from input
+            // 9. Define the User Message from input
             const userMessage = {
                 role: "user",
                 parts: [{ text: userInput }],
             };
 
-            // 7. Run the agent loop
+            // 10. Run the agent loop
             // runAsync returns an async generator that yields events (thoughts, tool calls, responses)
             const eventStream = runner.runAsync({
                 userId: userId,
@@ -948,7 +950,7 @@ Here is the updated implementation:
                 newMessage: userMessage,
             });
 
-            // 8. Consume events
+            // 11. Consume events
             try {
                 for await (const event of eventStream) {
                     // Check if the event has text content to display
@@ -982,7 +984,7 @@ You will see an output similar to:
 
 ```
 Open this URL in your browser to authenticate: https://api.asgardeo.io/...<full authorize URL>...
-Waiting on port 3001...`
+Waiting on port 3001...
 ```
 
 Open the URL in your browser and log in as a test user.
