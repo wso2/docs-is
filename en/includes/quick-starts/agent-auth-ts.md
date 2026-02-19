@@ -107,9 +107,9 @@ Pick your agent development framework and install the corresponding dependencies
 
 Initialize the TypeScript configuration by running the following command.
 
-```bash 
+```bash
 npx tsc --init
-``` 
+```
 
 Update the `tsconfig.json` file with the following settings.
 
@@ -562,6 +562,7 @@ export class AsgardeoAgentAuth<T> {
     }
 }
 ```
+
 </details>
 
 ## Project Structure
@@ -607,7 +608,7 @@ npm start
 
 If authentication succeeds, your agent will prompt you for a question and securely invoke the MCP tool.
 
-```
+```markdown
 --- AI Agent Started (Type 'exit' to quit) ---
 You: Can you add twenty two and twelve?
 Agent: The sum of twenty two and twelve is 34.
@@ -982,7 +983,7 @@ npm start
 
 You will see an output similar to:
 
-```
+```markdown
 Open this URL in your browser to authenticate: https://api.asgardeo.io/...<full authorize URL>...
 Waiting on port 3001...
 ```
@@ -994,7 +995,7 @@ Open the URL in your browser and log in as a test user.
 
 After successful login, return to the terminal. Your agent will automatically resume once it receives the authorization code and call the MCP tool on behalf of the authenticated user.
 
-```
+```markdown
 Authorization Code received. Code: ...
 Local server closed.
 --- AI Agent Started (Type 'exit' to quit) ---
