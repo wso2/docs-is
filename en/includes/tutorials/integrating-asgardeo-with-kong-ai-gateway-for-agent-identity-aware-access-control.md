@@ -1,6 +1,6 @@
-# Integrating Asgardeo with KONG AI Gateway for Agent Identity Management
+# Integrating {{ product_name }} with KONG AI Gateway for Agent Identity Management
 
-In this tutorial, we explore how enterprises can securely scale multi-agent AI systems using **Asgardeo** and the **KONG AI Gateway**. As AI adoption grows, organizations often rely on multiple AI agents, some optimized for speed and cost, others designed for deep reasoning and critical decision-making. Without proper governance, this can quickly lead to security risks, runaway costs, and uncontrolled model access. By combining **Asgardeo’s identity and access management** for non-human agents with the KONG AI Gateway’s intelligent routing, scope-based authorization, and token-aware rate limiting, teams gain precise control over who can access which AI models and at what cost. Let’s dive in and see how this architecture brings security, efficiency, and confidence to enterprise-grade AI deployments.
+In this tutorial, we explore how enterprises can securely scale multi-agent AI systems using **{{ product_name }}** and the **KONG AI Gateway**. As AI adoption grows, organizations often rely on multiple AI agents, some optimized for speed and cost, others designed for deep reasoning and critical decision-making. Without proper governance, this can quickly lead to security risks, runaway costs, and uncontrolled model access. By combining **{{ product_name }}’s identity and access management** for non-human agents with the KONG AI Gateway’s intelligent routing, scope-based authorization, and token-aware rate limiting, teams gain precise control over who can access which AI models and at what cost. Let’s dive in and see how this architecture brings security, efficiency, and confidence to enterprise-grade AI deployments.
 
 ## The use case: Enterprise support system
 
@@ -18,20 +18,20 @@ Imagine a global software provider facing a **40% year-over-year increase in sup
 
 #### Example scenario
 
-1. **Intake & Triage**: A customer reports "Server down, error 503." The application invokes the **Coordinator Agent**. The agent authenticates via **Asgardeo**, receiving a token with the `Support-Coordinator` role. **KONG AI Gateway** validates this role and the specific rate limit before routing the request to the cheaper mini model.
+1. **Intake & Triage**: A customer reports "Server down, error 503." The application invokes the **Coordinator Agent**. The agent authenticates via **{{ product_name }}**, receiving a token with the `Support-Coordinator` role. **KONG AI Gateway** validates this role and the specific rate limit before routing the request to the cheaper mini model.
 2. **Escalation & Reasoning**: Identifying a "Critical" flag, the system wakes up the **Expert Agent**. This agent authenticates as a `Technical-Specialist`. **KONG AI Gateway** verifies the role and applies a strict rate limit to prevent recursive loops from draining the cloud budget on the expensive reasoning model.
 
 Below is a high-level conceptual overview of the architecture we plan to explore.
 
 ![Architecture]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control\flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Part 1: Asgardeo configuration
+## Part 1: {{ product_name }} configuration
 
-We begin by establishing the **"Digital Identities"** for our non-human agents. WSO2 Asgardeo handles the authentication, issuing secure tokens that define exactly what each agent is allowed to do.
+We begin by establishing the **"Digital Identities"** for our non-human agents. WSO2 {{ product_name }} handles the authentication, issuing secure tokens that define exactly what each agent is allowed to do.
 
 ### Step 1: Register an application
 
-1. Log in to the **Asgardeo Console**.
+1. Log in to the **{{ product_name }} Console**.
 2. Go to **Applications > New Application**.
 3. Select **Standard-Based Application**.
 4. Configure the following:
@@ -60,7 +60,7 @@ We need to define the roles that Kong will look for.
 
 ### Step 3: Register AI agents
 
-Since these are autonomous agents, we create **"Service Accounts"** for them. Asgardeo Agent Identity is a great way to do this.
+Since these are autonomous agents, we create **"Service Accounts"** for them. WSO2 Agent Identity is a great way to do this.
 
 1. Go to **Agents**.
 2. Create the **Coordinator Agent**:
@@ -76,7 +76,7 @@ Since these are autonomous agents, we create **"Service Accounts"** for them. As
 
 ## Part 2: Kong AI Gateway configuration
 
-Now we configure the AI Gateway. Kong will sit in front of the AI models, checking the ID cards (tokens) issued by Asgardeo and routing traffic to the correct model.
+Now we configure the AI Gateway. Kong will sit in front of the AI models, checking the ID cards (tokens) issued by {{ product_name }} and routing traffic to the correct model.
 
 ### Step 1: Create a dummy service
 
@@ -120,7 +120,7 @@ This plugin acts as the security guard, ensuring only the right agent enters the
   1. Add the **OpenID Connect plugin**.
   2. Configure the following:
      - **Name**: coordinator-OpenID.
-     - **Client ID**: (From your Asgardeo application).
+     - **Client ID**: (From your {{ product_name }} application).
      - **Issuer**: https://api.asgardeo.io/t/<your_org>/oauth2/token.
      - **Auth Methods**: Bearer Access Token.
      - **Authorization Tab**: Set **Roles Required** to Support-Coordinator.
@@ -155,7 +155,7 @@ Here, we define which "Brain" powers each route.
 
 ### Step 5: Enable request transformer plugins
 
-We must strip the Asgardeo authentication token before the request leaves Kong. If we don't, Google will receive a confusing Bearer token and reject the request.
+We must strip the {{ product_name }} authentication token before the request leaves Kong. If we don't, Google will receive a confusing Bearer token and reject the request.
 
 - **In Both Routes**:
 

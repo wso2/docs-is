@@ -1,6 +1,6 @@
-# Integrating Asgardeo with WSO2 AI Gateway for Agent Identity Management
+# Integrating {{ product_name }} with WSO2 AI Gateway for Agent Identity Management
 
-In this tutorial, we explore how enterprises can securely scale multi-agent AI systems using **Asgardeo** and the **WSO2 AI Gateway**. As AI adoption grows, organizations often rely on multiple AI agents, some optimized for speed and cost, others designed for deep reasoning and critical decision-making. Without proper governance, this can quickly lead to security risks, runaway costs, and uncontrolled model access. By combining **Asgardeo’s identity and access management** for non-human agents with the **WSO2 AI Gateway’s intelligent routing**, scope-based authorization, and token-aware rate limiting, teams gain precise control over who can access which AI models and at what cost.
+In this tutorial, we explore how enterprises can securely scale multi-agent AI systems using **{{ product_name }}** and the **WSO2 AI Gateway**. As AI adoption grows, organizations often rely on multiple AI agents, some optimized for speed and cost, others designed for deep reasoning and critical decision-making. Without proper governance, this can quickly lead to security risks, runaway costs, and uncontrolled model access. By combining **{{ product_name }}’s identity and access management** for non-human agents with the **WSO2 AI Gateway’s intelligent routing**, scope-based authorization, and token-aware rate limiting, teams gain precise control over who can access which AI models and at what cost.
 
 Let’s dive in and see how this architecture brings security, efficiency, and confidence to enterprise-grade AI deployments.
 
@@ -20,20 +20,20 @@ Imagine a global software provider facing a **40% year-over-year increase in sup
 
 #### Example scenario
 
-1. **Intake & Triage**: A customer reports "Server down, error 503." The application invokes the **Coordinator Agent**. The agent authenticates via **Asgardeo**, receiving a token with the `Support-Coordinator` role. **WSO2 AI Gateway** validates this role and the specific rate limit before routing the request to the cheaper mini model.
+1. **Intake & Triage**: A customer reports "Server down, error 503." The application invokes the **Coordinator Agent**. The agent authenticates via **{{ product_name }}**, receiving a token with the `Support-Coordinator` role. **WSO2 AI Gateway** validates this role and the specific rate limit before routing the request to the cheaper mini model.
 2. **Escalation & Reasoning**: Identifying a "Critical" flag, the system wakes up the **Expert Agent**. This agent authenticates as a `Technical-Specialist`. **WSO2 AI Gateway** verifies the role and applies a strict rate limit to prevent recursive loops from draining the cloud budget on the expensive reasoning model.
 
 Below is a high-level conceptual overview of the architecture we plan to explore.
 
 ![Architecture]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Part 1: Asgardeo configuration
+## Part 1: {{ product_name }} configuration
 
-We begin by establishing the **"Digital Identities"** for our non-human agents. **WSO2 Asgardeo** handles the authentication, issuing secure tokens that define exactly what each agent is allowed to do.
+We begin by establishing the **"Digital Identities"** for our non-human agents. **WSO2 {{ product_name }}** handles the authentication, issuing secure tokens that define exactly what each agent is allowed to do.
 
 ### Step 1: Register an application
 
-1. Log in to the **Asgardeo Console**.
+1. Log in to the **{{ product_name }} Console**.
 2. Go to **Applications > New Application**.
 3. Select **Standard-Based Application**.
 4. Configure the application:
@@ -73,7 +73,7 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
 
 ### Step 4: Register AI agents
 
-Since these are autonomous agents, we create **"Service Accounts"** for them. **Asgardeo Agent Identity** is a great way to do this.
+Since these are autonomous agents, we create **"Service Accounts"** for them. **WSO2 Agent Identity** is a great way to do this.
 
 1. Go to **Agents**.
 2. Create the **Coordinator Agent**:
@@ -87,7 +87,7 @@ Since these are autonomous agents, we create **"Service Accounts"** for them. **
 
 ## Part 2: WSO2 AI Gateway configuration
 
-Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of the AI models, checking the ID cards (tokens) issued by Asgardeo and routing traffic to the correct model.
+Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of the AI models, checking the ID cards (tokens) issued by {{ product_name }} and routing traffic to the correct model.
 
 ### Step 1: Create an AI API Proxy in Bijira
 
@@ -108,21 +108,21 @@ For this tutorial, we create two API proxies using **Azure OpenAI Service API** 
 
 Make sure you configure them and Deploy both proxies to development and Production Environments.
 
-### Step 2: Add Asgardeo as an external IdP in Bijira
+### Step 2: Add {{ product_name }} as an external IdP in Bijira
 
 Go to the **Organization level** and in the left navigation menu, click **Admin > Settings**.
 
-![Add_Asgardeo_as_an_external_IdP]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Asgardeo_as_an_external_IdP.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_{{ product_name }}_as_an_external_IdP]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Asgardeo_as_an_external_IdP.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 1. Click the **Application Security** tab and then the **Identity Providers** tab.
 2. To add an identity provider, click **+ Identity Provider**.
-3. Select **Asgardeo**.
+3. Select **{{ product_name }}**.
 4. In the dialog that opens, specify:
 
 - **Name** and **Description** for the IdP.
-- **Well-Known URL**: Paste the well-known URL from your Asgardeo instance.
+- **Well-Known URL**: Paste the well-known URL from your {{ product_name }} instance.
 
-![Asgardeo_instance_Well-Known_URL]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Asgardeo_instance_Well-Known_URL.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![{{ product_name }}_instance_Well-Known_URL]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Asgardeo_instance_Well-Known_URL.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Leave the **Apply to all environments** checkbox selected. This allows you to use the tokens generated via this IdP to invoke APIs across all environments. Then click **Next** and **Add**.
 
