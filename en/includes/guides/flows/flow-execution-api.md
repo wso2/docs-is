@@ -166,7 +166,7 @@ For `WEBAUTHN`,
 
 For `INTERNAL_PROMPT`, inspect `data.requiredParams` to determine the parameters needed to continue the flow.
 This type is typically used to collect contextual information from the client, such as origin or device details.
-Collect these values from the your client context and send them back in the `inputs` object.
+Collect these values from your client context and send them back in the `inputs` object.
 
 ```json
 {
@@ -179,7 +179,7 @@ Collect these values from the your client context and send them back in the `inp
 
 ## Complete a flow
 
-`COMPLETE` status indicates that the flow finished successfully.
+The `COMPLETE` status indicates that the flow finished successfully.
 
 ```json
 {
