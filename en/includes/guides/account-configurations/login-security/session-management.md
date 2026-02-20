@@ -61,6 +61,7 @@ To adjust session management settings, follow these steps:
 {% endif %}
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
 ## Maximum session timeout
 
 The maximum session timeout enforces an absolute upper bound on how long a user session can remain active. Unlike the idle session timeout, which resets on user activity, the maximum session timeout counts from the moment the session is created.
