@@ -5,7 +5,7 @@ The following profile update flows trigger the pre-update profile action version
 
 The following API contracts defines the request and response structures that your service must adhere to, based on the action version.
 
-- [pre-update profile API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-profile-action/pre-update-profile-action-v1.0)
+- [pre-update profile API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-update-profile-action/pre-update-profile-action-v1.0/)
 
 ### Request from {{product_name}}
 
