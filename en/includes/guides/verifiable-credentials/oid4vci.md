@@ -135,14 +135,6 @@ The flow works as follows:
 4. The wallet includes this proof in the credential request.
 5. {{ product_name }} verifies the proof signature and nonce before issuing the credential.
 
-The following signing algorithms are supported for JWT proofs:
-
-| Algorithm family | Supported algorithms |
-| :--------------- | :------------------- |
-| RSA PKCS#1 v1.5  | RS256, RS384, RS512  |
-| RSA PSS          | PS256, PS384, PS512  |
-| Elliptic Curve   | ES256, ES384, ES512  |
-
 ## Cryptographic binding
 
 {{ product_name }} uses **JWK-based cryptographic binding** to tie the issued credential to the wallet's key pair. The wallet's public key (in JWK format) is embedded in the credential's `cnf` (confirmation) claim. This ensures that only the holder of the corresponding private key can present the credential to a verifier.
