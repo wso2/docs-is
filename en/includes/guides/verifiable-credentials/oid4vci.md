@@ -149,7 +149,7 @@ The following signing algorithms are supported for JWT proofs:
 
 ## See also
 
-- [Issue verifiable credentials to a digital wallet]({{base_path}}/guides/verifiable-credentials/issue-vc/) — Step-by-step guide to configure and issue credentials.
+- [Issue verifiable credentials to a Digital Wallet]({{base_path}}/guides/verifiable-credentials/issue-vc/) — Step-by-step guide to configure and issue credentials.
 - [OAuth 2.0 grant types]({{base_path}}/references/grant-types/) — Learn about the authorization code grant and other OAuth 2.0 flows that OID4VCI builds on.
 - [Register an application]({{base_path}}/guides/applications/) — Understand how to register and configure applications in {{ product_name }}.
 - [Manage user attributes]({{base_path}}/guides/users/attributes/) — Configure the user attributes that are included as claims in your verifiable credentials.

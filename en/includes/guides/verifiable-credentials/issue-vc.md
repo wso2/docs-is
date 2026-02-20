@@ -1,4 +1,4 @@
-# Issue Verifiable Credentials to a Digital Wallet
+# Issue verifiable credentials to a Digital Wallet
 
 This guide walks you through configuring {{ product_name }} to issue a verifiable credential (VC) to an OID4VCI-compatible digital wallet. Any wallet that supports the [OID4VCI specification](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html){:target="_blank"} can receive credentials from {{ product_name }}.
 
@@ -129,6 +129,45 @@ To retrieve the offer URI:
     | :-------- | :---- |
     | **Client ID** | `9c481dc3-2ad0-4fe0-881d-c32ad02fe0fc` |
     | **Redirect URI** | `https://oob.lissi.io/vci-cb` |
+
+    ??? note "Prerequisite: Register the `openid_credential` authorization type"
+        The Lissi wallet sends an `authorization_details` parameter using the [Rich Authorization Requests (RAR)]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) mechanism when it initiates the PAR request. For this to succeed, the `openid_credential` authorization type must be registered in {{ product_name }} and authorized for your VC client application.
+
+        Register the following schema as a new authorization type, then authorize it for the VC client application you created in [Step 3](#step-3-register-a-vc-client-application). See [Configuring your application for RAR]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) for instructions.
+
+        ```json
+        {
+            "type": "openid_credential",
+            "name": "openid_credential",
+            "description": "openid_credential",
+            "schema": {
+                "type": "object",
+                "required": [
+                    "type",
+                    "credential_configuration_id",
+                    "locations"
+                ],
+                "properties": {
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "openid_credential"
+                        ]
+                    },
+                    "credential_configuration_id": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+        ```
 
     **Claiming the credential:**
 
