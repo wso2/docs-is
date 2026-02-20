@@ -121,7 +121,7 @@ This plugin acts as the security guard, ensuring only the right agent enters the
   2. Configure the following:
      - **Name**: coordinator-OpenID.
      - **Client ID**: (From your {{ product_name }} application).
-     - **Issuer**: https://api.asgardeo.io/t/<your_org>/oauth2/token.
+     - {% if product_name == "Asgardeo" %}**Issuer**: https://api.asgardeo.io/t/<your_org>/oauth2/token.{% else %}**Issuer**: https://<your_domain>>/oauth2/token.{% endif %}
      - **Auth Methods**: Bearer Access Token.
      - **Authorization Tab**: Set **Roles Required** to Support-Coordinator.
 

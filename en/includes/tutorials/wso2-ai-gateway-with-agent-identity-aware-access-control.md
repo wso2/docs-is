@@ -29,7 +29,7 @@ Below is a high-level conceptual overview of the architecture we plan to explore
 
 ## Part 1: {{ product_name }} configuration
 
-We begin by establishing the **"Digital Identities"** for our non-human agents. **WSO2 {{ product_name }}** handles the authentication, issuing secure tokens that define exactly what each agent is allowed to do.
+We begin by establishing the **"Digital Identities"** for our non-human agents. **{{ product_name }}** handles the authentication, issuing secure tokens that define exactly what each agent is allowed to do.
 
 ### Step 1: Register an application
 
@@ -114,9 +114,9 @@ Go to the **Organization level** and in the left navigation menu, click **Admin 
 
 ![Add_{{ product_name }}_as_an_external_IdP]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Add_Asgardeo_as_an_external_IdP.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-1. Click the **Application Security** tab and then the **Identity Providers** tab.
-2. To add an identity provider, click **+ Identity Provider**.
-3. Select **{{ product_name }}**.
+1. Click the **Key Managers** tab.
+2. To add an identity provider, click **+ Key Manager**.
+3. {% if product_name == "Asgardeo" %}Select Asgardeo.{% else %}Select Custom.{% endif %}
 4. In the dialog that opens, specify:
 
 - **Name** and **Description** for the IdP.
