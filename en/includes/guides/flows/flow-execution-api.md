@@ -1,6 +1,6 @@
 # Use the Flow Execution API
 
-Use the Flow Execution API to run user journeys that you design in the Flow Builder of {{product_name}} directly from your client application. 
+Use the Flow Execution API to run user journeys that you design in the Flow Builder of {{product_name}} directly from your client application.
 
 The Flow Execution API is exposed at `{{api_base_path}}/api/server/v1/flow/execute`. This endpoint is open and does not require an authorization header.
 
@@ -113,7 +113,6 @@ After the client action, call the previous `execute` endpoint with the `flowId` 
 When the response `type` is `VIEW`, locate the component that exposes an `actionId` (for example, a primary button) and include it in the `actionId` field of your request.
 Include the user input in the `inputs` object, using the `identifier` of the input component as the key.
 
-
 ```json
 {
   "flowId": "c8e06de8-7123-44ac-8209-02be5b55387e",
@@ -149,7 +148,7 @@ Call `/flow/execute` with the `flowId`, the `actionId` (if any), and the callbac
 
 For `WEBAUTHN`,
 
-1. Extract `data.webAuthn` which contains the challenge and other parameters. 
+1. Extract `data.webAuthn` which contains the challenge and other parameters.
 2. Call the WebAuthn APIs.
 3. Base64url-encode the resulting credential and post it back in the `inputs` object under the key listed in `requiredParams`.
 
@@ -192,10 +191,10 @@ The `COMPLETE` status indicates that the flow finished successfully.
 
 ### Auto login on flow completion
 
-If the auto login on flow completion is enabled, the completion response contains a `userAssertion` JWT in the `data` object. 
+If the auto login on flow completion is enabled, the completion response contains a `userAssertion` JWT in the `data` object.
 This can either be a `VIEW` type response or `REDIRECTION` type response based on the configuration.
 
-The `userAssertion` JWT user assertion along with a session data key can be used to authenticate the user. 
+The `userAssertion` JWT user assertion along with a session data key can be used to authenticate the user.
 This JWT has a significantly short expiry (~2 seconds) and contains claims about the user who completed the flow.
 
 ```json

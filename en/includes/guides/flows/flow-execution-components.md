@@ -1,6 +1,6 @@
 # Understand Flow Execution components
 
-When the Flow Execution API returns `type: "VIEW"`, the response includes a `data.components` array. 
+When the Flow Execution API returns `type: "VIEW"`, the response includes a `data.components` array.
 Each entry describes how the client should render the current step in the flow.
 
 ## Component structure
@@ -17,8 +17,8 @@ Every component shares the following core properties:
 
 ## Inputs and identifiers
 
-Input components expose an `identifier` in `config`. Use this value as the key when you send user data back to `/flow/execute`. 
-If `config.required` is `true` for an input, you must provide a value for that field to continue the flow. 
+Input components expose an `identifier` in `config`. Use this value as the key when you send user data back to `/flow/execute`.
+If `config.required` is `true` for an input, you must provide a value for that field to continue the flow.
 Send only the expected fields to the server to prevent validation errors.
 
 ```json
@@ -50,7 +50,7 @@ Interactive components, such as primary buttons, provide an `actionId`. Use this
 }
 ```
 
-If a step includes multiple actions, the response contains multiple components with `actionId`. 
+If a step includes multiple actions, the response contains multiple components with `actionId`.
 Render these components and pass the corresponding `actionId` based on the user's selection.
 
 ## Validation rules
