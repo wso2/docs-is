@@ -209,6 +209,7 @@ plugins:
       caption_position: bottom
   - redirects:
       redirect_maps:
+        'guides/verifiable-credentials/issue-vc-with-lissi.md': 'guides/verifiable-credentials/issue-vc.md'
         'get-started/sample-use-cases/set-up.md': 'get-started/quick-set-up.md'
         'get-started/sample-use-cases/sample-scenario.md': 'get-started/start-integrating-apps/index.md'
         'get-started/sample-use-cases/single-sign-on.md': 'get-started/start-integrating-apps/index.md'
@@ -930,6 +931,9 @@ nav:
           - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
           - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
           - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
+      - Verifiable Credentials:
+        - Overview: guides/verifiable-credentials/index.md
+        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
@@ -1395,6 +1399,7 @@ nav:
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
+      - OpenID for verifiable credential issuance (OID4VCI): references/concepts/oid4vci.md
   - Technology Guides:
       - Actions:
           - Introduction: complete-guides/actions/introduction.md
