@@ -25,7 +25,7 @@ Imagine a global software provider facing a **40% year-over-year increase in sup
 
 Below is a high-level conceptual overview of the architecture we plan to explore.
 
-![Architecture]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Architecture]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Part 1: {{ product_name }} configuration
 
@@ -97,14 +97,14 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
 3. After creation, configure it and deploy it to **Development** and **Production Environments**.
    - For a detailed guide, refer to the [Docs-ai-apis](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/ai-apis/).
 
-![Create_an_AI_API_Proxy]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Create_an_AI_API_Proxy.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Create_an_AI_API_Proxy]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Create_an_AI_API_Proxy.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 For this tutorial, we create two API proxies using **Azure OpenAI Service API** and deploy them.
 
 - `gpt-4o mini`
 - `gpt-5`
 
-![AI_API_Proxy_Overview]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\AI_API_Proxy_Overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![AI_API_Proxy_Overview]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\AI_API_Proxy_Overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Make sure you configure them and Deploy both proxies to development and Production Environments.
 
@@ -112,7 +112,7 @@ Make sure you configure them and Deploy both proxies to development and Producti
 
 Go to the **Organization level** and in the left navigation menu, click **Admin > Settings**.
 
-![Add_{{ product_name }}_as_an_external_IdP]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Asgardeo_as_an_external_IdP.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_{{ product_name }}_as_an_external_IdP]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Add_Asgardeo_as_an_external_IdP.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 1. Click the **Application Security** tab and then the **Identity Providers** tab.
 2. To add an identity provider, click **+ Identity Provider**.
@@ -122,7 +122,7 @@ Go to the **Organization level** and in the left navigation menu, click **Admin 
 - **Name** and **Description** for the IdP.
 - **Well-Known URL**: Paste the well-known URL from your {{ product_name }} instance.
 
-![{{ product_name }}_instance_Well-Known_URL]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Asgardeo_instance_Well-Known_URL.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![{{ product_name }}_instance_Well-Known_URL]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Asgardeo_instance_Well-Known_URL.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Leave the **Apply to all environments** checkbox selected. This allows you to use the tokens generated via this IdP to invoke APIs across all environments. Then click **Next** and **Add**.
 
@@ -136,13 +136,13 @@ Following your deployment in Step 1, we need to restrict access to the specific 
 4. For each specific AI resource (e.g., `/chat/completions`):
    - Click the **Edit Resource-Level Policies** icon.
 
-![Configure_Permissions]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Configure_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Configure_Permissions]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Configure_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 - Select **Attach Policy** in the **Request Flow** and go to **Permissions (Scopes)**.
 - For **OpenAI gpt-4o Proxy**, add the `Support-Coordinator` permission.
 - For **OpenAI gpt-5 Proxy**, add the `Technical-Specialist` permission.
 
-![Add_Permissions]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_Permissions]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Add_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Make sure you select the permissions and save the changes in the policy tab and **redeploy** to apply them.
 
@@ -152,12 +152,12 @@ In this step, you will implement Token-Based Rate Limiting. Unlike standard APIs
 
 In the **Policy** tab, select **Add API-level Policies**.
 
-![Configure_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Configure_Token-Based_Rate_Limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Configure_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Configure_Token-Based_Rate_Limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 1. Select **Attach Policy** in the **Request Flow** and go to **Token-Based Rate Limiting**.
 2. Configure the fields based on your requirements.
 
-![Add_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control\Add_Token-Based_Rate_Limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Add_Token-Based_Rate_Limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Save the changes and redeploy to apply them.
 
