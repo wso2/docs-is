@@ -64,7 +64,7 @@ The {{product_name}} {{is_version}} runtime has been tested with the following d
 	<th>Versions</th>
 	<tr>
 		<td>MySQL</td>
-		<td>8.0.4, 5.7</td>
+		<td>8.4, 8.0, 5.7</td>
 	</tr>
 	<tr>
 		<td>Oracle RAC</td>
@@ -80,7 +80,7 @@ The {{product_name}} {{is_version}} runtime has been tested with the following d
 	</tr>
 	<tr>
 		<td>Postgres</td>
-		<td>17.2, 16.6, 15.10</td>
+		<td>17.4, 16.6, 15.10</td>
 	</tr>
 	<tr>
 		<td>Maria DB</td>

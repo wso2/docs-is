@@ -33,8 +33,12 @@
       <input class="search-bar" type="text" id="search-input" placeholder="Search by name..." onkeyup="searchConnectors()" />
     </div>
     <div class="filters">
-      <button data-filter="fraud">Fraud detection</button>
-      <button data-filter="identity-verification">Identity verification</button>
+    {% for group in config.extra.connectors | groupby("category") %}
+    {% set connector = group.list[0] %}
+      <button data-filter="{{ connector.category }}">
+        {{ connector.category | replace("-", " ") | title }}
+    </button>
+    {% endfor %}
     </div>
     <div class="integrations-list-container">
       <div class="flex-grid">
@@ -58,7 +62,8 @@
                   </a>
                 {% endif %}
                 {% if connector.documentation_link %}
-                  <a class="tooltip source-link md-icon md-icon--hover" href="{{config.extra.base_path}}/connectors/{{connector.documentation_link}}/overview/">
+                  {% set doc_url = connector.documentation_link if connector.documentation_link.startswith('http') else config.extra.base_path ~ '/connectors/' ~ connector.documentation_link ~ '/overview/' %}
+                  <a class="tooltip source-link md-icon md-icon--hover" href="{{ doc_url }}" {% if connector.documentation_link.startswith('http') %}target="_blank" rel="noopener noreferrer"{% endif %}>
                     {% include "/assets/images/icons/book-16.svg" %}
                     <span class="tooltip-text">Documentation</span>
                   </a>

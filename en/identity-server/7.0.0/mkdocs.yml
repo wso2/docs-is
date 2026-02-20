@@ -71,7 +71,7 @@ extra:
           - title: APIs
             url: APIs|APIs
           - title: Sample Apps
-            url: Try for a sample app|Try for a sample app
+            url: Get started|Try for a sample app|Try for a sample app
           - title: SDKs and Integrations
             url: SDKs|Integrate WSO2 IS into your application
       - title: Setup
@@ -85,7 +85,7 @@ extra:
           - title: Secure
             url:
           - title: Deploy
-            url: Setup|Deploy|Deployment patterns
+            url: Setup|Deploy|Deployment overview|Deployment Patterns
           - title: Monitor
             url: Setup|Monitor|Monitor
           - title: Upgrade WSO2 Identity Server
@@ -475,8 +475,16 @@ nav:
       - Angular Quickstart: quick-starts/angular.md
       - Next.js Quickstart: quick-starts/nextjs.md
       - Spring Boot Quickstart: quick-starts/springboot.md
+    - Try for a sample app:
+      - Try for a sample app: get-started/try-samples/index.md
+      - Single Page apps:
+        - React: get-started/try-samples/qsg-spa-react.md
+        - JavaScript: get-started/try-samples/qsg-spa-javascript.md
+      - Web apps:
+        - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+        - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+        - WS-Federation: get-started/try-samples/ws-federation-webapp.md
     - About this release: get-started/about-this-release.md
-  - Try for a sample app: get-started/try-samples/index.md
   - Guides:
       - Guides: guides/index.md
       - Applications:
@@ -820,25 +828,28 @@ nav:
             - Manage keystores: deploy/security/keystores/configure-keystores.md
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
       - Deploy:
-        - Deployment patterns: deploy/deployment-guide.md
-        - Deployment checklist: deploy/deployment-checklist.md
-        - Deploy in Kuberenetes: deploy/deploy-is-on-kubernetes.md
-        - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
-        - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
-        - Change the hostname: deploy/change-the-hostname.md
-        - Enable adaptive authentication: deploy/enable-adaptive-authentication.md
-        - Configure Hazelcast: deploy/configure-hazelcast.md
-        - Backup and recovery recommendations: deploy/backup-and-recovery-recommendations.md
-        - Troubleshoot in production environments: deploy/monitor/troubleshoot-in-production-environments.md
-        - Performance:
-          - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
-          - Configure cache layers: deploy/performance/configure-cache-layers.md
-        - Environment compatibility: deploy/environment-compatibility.md
-        - Promote configurations across environments: deploy/promote-configurations.md
-        - Disaster recovery:
-          - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
-          - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
-          - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+        - Deployment overview:
+          - Deployment Patterns: deploy/deployment-guide.md
+          - Deployment Checklist: deploy/deployment-checklist.md
+          - Product Compatibility: deploy/product-compatibility.md
+          - Change the Hostname: deploy/change-the-hostname.md
+          - Promote Configurations Across Environments: deploy/promote-configurations.md
+        - High Availability (HA) and clustering:
+          - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
+          - Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
+          - Configure Hazelcast: deploy/configure-hazelcast.md
+        - Containerized deployments:
+          - Kubernetes: deploy/deploy-is-on-kubernetes.md
+        - Performance and scaling:
+          - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
+          - Configure Cache Layers: deploy/performance/configure-cache-layers.md
+        - Multi-data center deployments (Disaster Recovery):
+          - Understanding Disaster Recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
+          - Deployment Patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
+          - Additional Reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+        - Maintenance and troubleshooting in Production:
+          - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
+          - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
       - Compliance:
           - Compliance: deploy/compliance/index.md
           - GDPR: deploy/compliance/gdpr.md
@@ -1077,6 +1088,7 @@ nav:
       - Authentication:
         - OAuth2:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
+          - Configure a custom token issuer: references/extend/authentication/oauth2/configure-custom-token-issuer.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
         - Customize the authentication endpoint: references/extend/authentication/customize-the-authentication-endpoint.md

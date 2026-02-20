@@ -34,6 +34,73 @@ extra:
     org_resources_shared: "Applications, Roles (with shared apps), Users"
     org_resources_created: "Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts"
     org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes"
+  connectors:
+    - name: Sift
+      icon: assets/img/logo/sift-logo.svg
+      description: Helps prevent fraudulent logins to your system.
+      source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
+      category: fraud-detection
+      documentation_link: sift
+    - name: iProov Authenticator
+      icon: assets/img/logo/iproov-logo.png
+      description: Allow users to use biometrics for authentication.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-iproov
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/README.md
+    - name: Duo Security
+      icon: assets/img/logo/duo-logo.png
+      description: Provides two-factor authentication to secure your system.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-duo
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-duo/blob/master/docs/README.md
+    - name: HYPR Authenticator
+      icon: assets/img/logo/hypr-logo.png
+      description: Provides passwordless authentication with biometrics and device-based authentication.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-hypr
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-hypr/blob/main/README.md
+    - name: UAEPass Authenticator
+      icon: assets/img/logo/uaepass-logo.png
+      description: An outbound OIDC federated authentication connector designed to integrate with the UAEPass Identity Provider.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-uaepass
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-uaepass/tree/main/docs
+    - name: TypingDNA Connector
+      icon: assets/img/logo/typingdna-logo.png
+      description: Provides risk-based adaptive authentication by analyzing the user's typing patterns to detect anomalies and potential fraud.
+      source_link: https://store.wso2.com/connector/identity-conditional-auth-typingdna
+      category: fraud-detection
+      documentation_link: https://github.com/wso2-extensions/identity-conditional-auth-typingdna/blob/main/docs/README.md
+    - name: Cognito
+      icon: assets/img/logo/cognito-logo.png
+      description: Allows users to log in to WSO2 Identity Server using AWS Cognito.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-cognito
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-cognito/blob/master/docs/README.md
+    - name: Amazon
+      icon: assets/img/logo/amazon-logo.png
+      description: Allows users to log in to WSO2 Identity Server using Amazon.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-amazon
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-amazon/blob/master/docs/README.md
+    - name: LinkedIn
+      icon: assets/img/logo/linkedin-logo.png
+      description: Allows users to log in to WSO2 Identity Server using LinkedIn.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-linkedIn
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-linkedIn/blob/master/docs/README.md
+    - name: Kakao Authenticator
+      icon: assets/img/logo/kakao-logo.png
+      description: Allows users to log in to WSO2 Identity Server using Kakao.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-kakao
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-kakao/blob/master/docs/README_LATEST.md
+    - name: Naver Authenticator
+      icon: assets/img/logo/naver-logo.png
+      description: Allows users to log in to WSO2 Identity Server using Naver.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-naver
+      category: authentication
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-naver/blob/master/docs/README_LATEST.md
 
   home_page_cards:
     - section:
@@ -75,7 +142,7 @@ extra:
             - title: APIs
               url: APIs|APIs
             - title: Sample Apps
-              url: Try for a sample app|Try for a sample app
+              url: Get started|Try for a sample app|Try for a sample app
             - title: SDKs and Integrations
               url: SDKs|Integrate WSO2 IS into your application
         - title: Setup
@@ -89,7 +156,7 @@ extra:
             - title: Secure
               url:
             - title: Deploy
-              url: Setup|Deploy|Deployment patterns
+              url: Setup|Deploy|Deployment overview|Deployment Patterns
             - title: Monitor
               url: Setup|Monitor|Monitor
             - title: Upgrade WSO2 Identity Server
@@ -498,9 +565,17 @@ nav:
               - Complete Guide: complete-guides/expressjs/introduction.md
           - .NET Guide: complete-guides/dotnet/introduction.md
           - Spring Boot Quickstart: quick-starts/springboot.md
+      - Try for a sample app:
+        - Try for a sample app: get-started/try-samples/index.md
+        - Single Page apps:
+          - React: get-started/try-samples/qsg-spa-react.md
+          - JavaScript: get-started/try-samples/qsg-spa-javascript.md
+        - Web apps:
+          - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
+          - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
+          - WS-Federation: get-started/try-samples/ws-federation-webapp.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
       - About this release: get-started/about-this-release.md
-  - Try for a sample app: get-started/try-samples/index.md
   - Guides:
       - Guides: guides/index.md
       - Applications:
@@ -746,6 +821,7 @@ nav:
         - Self Registration: guides/flows/self-registration.md
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
+        - Flow AI: guides/flows/flow-ai.md
         - Troubleshooting: guides/flows/troubleshooting.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
@@ -953,26 +1029,30 @@ nav:
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
             - Configure custom keystores for authentication protocols: deploy/security/keystores/configure-custom-keystores.md
       - Deploy:
-        - Deployment patterns: deploy/deployment-guide.md
-        - Deployment checklist: deploy/deployment-checklist.md
-        - Deploy as a contanarized application:
-          - Kuberenetes: deploy/deploy-is-on-kubernetes.md
-          - Openshift: deploy/deploy-is-on-openshift.md
-        - WSO2 clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
-        - Databases for clustering: deploy/set-up-separate-databases-for-clustering.md
-        - Change the hostname: deploy/change-the-hostname.md
-        - Configure Hazelcast: deploy/configure-hazelcast.md
-        - Backup and recovery recommendations: deploy/backup-and-recovery-recommendations.md
-        - Troubleshoot in production environments: deploy/monitor/troubleshoot-in-production-environments.md
-        - Performance:
-          - Performance tuning recommendations: deploy/performance/performance-tuning-recommendations.md
-          - Configure cache layers: deploy/performance/configure-cache-layers.md
-        - Product compatibility: deploy/product-compatibility.md
-        - Promote configurations across environments: deploy/promote-configurations.md
-        - Disaster recovery:
-          - Understanding disaster recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
-          - Deployment patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
-          - Additional reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+        - Deployment overview:
+          - Deployment Patterns: deploy/deployment-guide.md
+          - Deployment Checklist: deploy/deployment-checklist.md
+          - Product Compatibility: deploy/product-compatibility.md
+          - Change the Hostname: deploy/change-the-hostname.md
+          - Restrict public access to management operations: deploy/configure-console-hostname.md
+          - Promote Configurations Across Environments: deploy/promote-configurations.md
+        - High Availability (HA) and clustering:
+          - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
+          - Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
+          - Configure Hazelcast: deploy/configure-hazelcast.md
+        - Containerized deployments:
+          - Kubernetes: deploy/deploy-is-on-kubernetes.md
+          - OpenShift: deploy/deploy-is-on-openshift.md
+        - Performance and scaling:
+          - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
+          - Configure Cache Layers: deploy/performance/configure-cache-layers.md
+        - Multi-data center deployments (Disaster Recovery):
+          - Understanding Disaster Recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
+          - Deployment Patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
+          - Additional Reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+        - Maintenance and troubleshooting in Production:
+          - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
+          - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
       - Compliance:
           - Compliance: deploy/compliance/index.md
           - GDPR: deploy/compliance/gdpr.md
@@ -1197,8 +1277,7 @@ nav:
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
       - Server configuration API: apis/organization-apis/configs.md
-      - Validation rules API: apis/organization-apis/validation-rules.md
-      - User credential management API: apis/end-user-credential-management-rest-api.md
+      - User credential management API: apis/organization-apis/end-user-credential-management-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
@@ -1208,6 +1287,7 @@ nav:
         - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
       - User store management API: apis/organization-apis/user-store.md
+      - Validation rules API: apis/organization-apis/validation-rules.md
     - End User APIs:
         - FIDO API: apis/fido-rest-api.md
         - Organization Me API: apis/user-organization-api.md
@@ -1266,6 +1346,7 @@ nav:
       - Authentication:
         - OAuth2:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
+          - Configure a custom token issuer: references/extend/authentication/oauth2/configure-custom-token-issuer.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
