@@ -14,7 +14,7 @@ Building with starter templates, widgets, and other components provides complete
 
 ## Start building flows
 For specific examples of building flows, refer to [Self-registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/), and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/). 
-To execute the flows from a custom client application, see [Use the Flow Execution API]({{base_path}}/guides/flows/flow-execution-api/) and explore the view schema in [Understand Flow Execution components]({{base_path}}/guides/flows/flow-execution-components/).
+To execute the flows from a custom client application, see [Use the Flow Execution API]({{base_path}}/guides/flows/flow-execution-api/) and explore the view schema in [Understand Flow Execution Components]({{base_path}}/guides/flows/flow-execution-components/).
 
 - To learn the fundamentals of building a flow, refer to the [get started]({{base_path}}/guides/flows/build-a-flow/) guide.
 - For detailed examples of specific use cases, see the guides on [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/) and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
