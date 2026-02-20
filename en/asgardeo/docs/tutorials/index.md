@@ -13,3 +13,5 @@ See the topics listed below for end-to-end tutorials on how to use Asgardeo with
 - [Secure Spring Boot API with Asgardeo]({{base_path}}/tutorials/secure-spring-boot-api/)
 - [Integrate Asgardeo with SMART on FHIR healthcare apps]({{base_path}}/tutorials/smart-on-fhir/)
 - [Secure Agentic AI Systems with Asgardeo]({{base_path}}/tutorials/secure-agentic-ai-systems/)
+- [Integrating Asgardeo With WSO2 AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/integrating-asgardeo-with-wso2-ai-gateway-for-agent-identity-aware-access-control/)
+- [Integrating Asgardeo With Kong AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/integrating-asgardeo-with-kong-ai-gateway-for-agent-identity-aware-access-control/)
