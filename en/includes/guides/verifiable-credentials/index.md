@@ -8,7 +8,7 @@ Traditional identity verification often requires real-time communication with th
 
 - **Decentralized trust** — Verifiers can check credential authenticity using cryptographic proofs without contacting the issuer.
 - **User control** — Holders store credentials in their own digital wallets and choose when and with whom to share them.
-- **Selective disclosure** — With formats like SD-JWT, holders can reveal only specific claims (e.g., prove their age without disclosing their full date of birth).
+- **Selective disclosure** — With formats like Selective Disclosure JSON Web Token, holders can reveal only specific claims (e.g., prove their age without disclosing their full date of birth).
 - **Standards-based** — Built on open standards (OID4VCI, W3C Verifiable Credentials), ensuring interoperability across different systems and wallets.
 
 ## How it works

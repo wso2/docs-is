@@ -28,7 +28,7 @@ This three-party trust model — **issuer, holder, verifier** — is the foundat
 ![OID4VCI authorization code flow sequence diagram]({{base_path}}/assets/img/guides/verifiable-credentials/oid4vci-flow.png){: width="750" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 1. **Credential offer** — {{ product_name }} generates a credential offer delivered as a QR code or deep link. The wallet scans or follows it to begin the issuance flow.
-2. **Fetch issuer metadata** — The wallet sends `GET /.well-known/openid-credential-issuer` to discover what credentials the issuer supports, their formats, and the relevant endpoint URLs.
+2. **Fetch issuer metadata** — The wallet sends `GET /oid4vci/.well-known/openid-credential-issuer` to discover what credentials the issuer supports, their formats, and the relevant endpoint URLs.
 3. **Credential issuer metadata response** — {{ product_name }} returns the issuer metadata, including supported credential configurations and endpoint locations.
 4. **Fetch authorization server metadata** — The wallet sends `GET /.well-known/oauth-authorization-server` or `GET /.well-known/openid-configuration` to discover the authorization and token endpoints.
 5. **Authorization server metadata response** — {{ product_name }} returns the authorization server metadata.
@@ -37,7 +37,7 @@ This three-party trust model — **issuer, holder, verifier** — is the foundat
     !!! note
         Some wallets use the **Pushed Authorization Request (PAR)** endpoint (`POST /oauth2/par`) to send the authorization request directly to the server before redirecting the user. This improves security by keeping request parameters out of the browser URL. If the wallet supports PAR, it will use the `request_uri` returned by the PAR endpoint in the authorization redirect.
 
-7. **Authenticate and consent** — {{ product_name }} prompts the user to log in and grant consent to share the requested attributes with the wallet.
+7. **Authenticate and consent** — {{ product_name }} prompts the user to sign in and grant consent to share the requested attributes with the wallet.
 8. **Login and grant consent** — The user authenticates and approves the consent screen.
 9. **Authorization code** — {{ product_name }} issues an authorization code and redirects back to the wallet's callback URL.
 10. **Token request** — The wallet exchanges the authorization code for an access token via `POST` to the token endpoint.
@@ -62,14 +62,14 @@ This three-party trust model — **issuer, holder, verifier** — is the foundat
 
 | Endpoint | Path | Purpose |
 | :------- | :--- | :------ |
-| Credential issuer metadata | `/.well-known/openid-credential-issuer` | Advertises the issuer's capabilities, supported credential configurations, and endpoint URLs. |
+| Credential issuer metadata | `/oid4vci/.well-known/openid-credential-issuer` | Advertises the issuer's capabilities, supported credential configurations, and endpoint URLs. |
 | Credential offer | `/oid4vci/credential-offer?credential_offer_uri=...` | Delivers a credential offer to the wallet via a URI reference. |
 | Nonce | `/oid4vci/nonce` | Issues a fresh nonce used to bind the wallet's proof of possession. |
 | Credential | `/oid4vci/credential` | Issues the signed verifiable credential after validating the access token and proof. |
 
 ### Sample credential issuer metadata response
 
-The following is an example response from the `/.well-known/openid-credential-issuer` endpoint. Wallets use this to discover what credentials the issuer supports and how to request them.
+The following is an example response from the `/oid4vci/.well-known/openid-credential-issuer` endpoint. Wallets use this to discover what credentials the issuer supports and how to request them.
 
 ```json
 {
