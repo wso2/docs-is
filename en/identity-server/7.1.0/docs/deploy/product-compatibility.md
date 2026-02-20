@@ -63,7 +63,7 @@ The {{product_name}} {{is_version}} runtime has been tested with the following d
 	<th>Versions</th>
 	<tr>
 		<td>MySQL</td>
-		<td>8.0.4, 5.7</td>
+		<td>8.4, 8.0, 5.7</td>
 	</tr>
 	<tr>
 		<td>Oracle RAC</td>

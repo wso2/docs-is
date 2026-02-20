@@ -322,14 +322,14 @@ If {{product_name}} is already started, use the [Certificate Validation Manageme
 If storing the certificate as a user claim is enabled, the X509 certificate will be stored as a user claim and verified with the
 retrieved certificate from the request.
 
-To add the custom attribute, follow the [Add custom attributes](../../../guides/users/attributes/user-attributes/manage-attributes/#add-custom-attributes) steps
+To add the custom attribute, follow the [Add custom attributes]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/#add-custom-attributes) steps
 and use the following details for the claim addition.
 
 ``` text
 - Attribute name : userCertificate
 - Attribute Display Name : User Certificate
 ```
-![add-user-certificate-attribute](../../../assets/img/guides/authentication/mfa/add-user-certificate-attribute.png){: width="600" style="display: block; border: 0.3px solid lightgrey;"}
+![add-user-certificate-attribute]({{base_path}}/assets/img/guides/authentication/mfa/add-user-certificate-attribute.png){: width="600" style="display: block; border: 0.3px solid lightgrey;"}
 
 This will create the **OpenID Connect** and **SCIM 2.0** protocol mappings as well. When storing the certificate in a user attribute, you will 
 need to update the column size of the `VALUE` column of the `UM_USER_ATTRIBUTES` table to a suitable value.
@@ -339,13 +339,13 @@ need to update the column size of the `VALUE` column of the `UM_USER_ATTRIBUTES`
 -   **Chrome**
     1.  In your browser, go to **Settings** > **Privacy and security** > **Manage certificates** > **Your certificates**.
     
-        ![manage-cert-chrome](../../../assets/img/guides/authentication/mfa/manage-certificates-chrome.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![manage-cert-chrome]({{base_path}}/assets/img/guides/authentication/mfa/manage-certificates-chrome.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     2.  Click on **Import,** select the **localhost.p12** file, and then
     click **Open**. Note that you may have to enter the password that
     you used to generate the p12 file, (browserpwd) to open it.
     
-        ![import-cert-chrome](../../../assets/img/guides/authentication/mfa/import-certificate-chrome.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![import-cert-chrome]({{base_path}}/assets/img/guides/authentication/mfa/import-certificate-chrome.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 -   **Firefox**
     1.  Click on the menu option on the right of the screen and select

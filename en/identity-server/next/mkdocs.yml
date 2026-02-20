@@ -49,7 +49,7 @@ extra:
       description: Allow users to use biometrics for authentication.
       source_link: https://store.wso2.com/connector/identity-outbound-auth-iproov
       category: authentication
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/docs/config.md
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-iproov/blob/main/README.md
     - name: Duo Security
       icon: assets/img/logo/duo-logo.png
       description: Provides two-factor authentication to secure your system.
@@ -61,11 +61,11 @@ extra:
       description: Provides passwordless authentication with biometrics and device-based authentication.
       source_link: https://store.wso2.com/connector/identity-outbound-auth-hypr
       category: authentication
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-hypr/blob/main/docs/config.md
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-hypr/blob/main/README.md
     - name: UAEPass Authenticator
       icon: assets/img/logo/uaepass-logo.png
       description: An outbound OIDC federated authentication connector designed to integrate with the UAEPass Identity Provider.
-      source_link: https://store.wso2.com/connector/identity-verification-uaepass
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-uaepass
       category: authentication
       documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-uaepass/tree/main/docs
     - name: TypingDNA Connector
@@ -79,7 +79,7 @@ extra:
       description: Allows users to log in to WSO2 Identity Server using AWS Cognito.
       source_link: https://store.wso2.com/connector/identity-outbound-auth-cognito
       category: authentication
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-cognito/tree/master/docs
+      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-cognito/blob/master/docs/README.md
     - name: Amazon
       icon: assets/img/logo/amazon-logo.png
       description: Allows users to log in to WSO2 Identity Server using Amazon.
@@ -147,7 +147,7 @@ extra:
             - title: APIs
               url: APIs|APIs
             - title: Sample Apps
-              url: Try for a sample app|Try for a sample app
+              url: Get started|Try for a sample app|Try for a sample app
             - title: SDKs and Integrations
               url: SDKs|Integrate WSO2 IS into your application
         - title: Setup
@@ -712,8 +712,9 @@ nav:
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
               - Configure token exchange: guides/authentication/configure-token-exchange.md
             - Logout:
-              - Front-channel logout: guides/authentication/oidc/add-logout.md
+              - RP-initiated logout: guides/authentication/oidc/add-logout.md
               - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
+              - Front-channel logout: guides/authentication/oidc/add-front-channel-logout.md
               - Federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
@@ -898,6 +899,7 @@ nav:
             - Pre-flow extensions (Actions):
               - Setting up an action: guides/service-extensions/pre-flow-extensions/setting-up-actions.md
               - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
+              - Pre issue ID token action: guides/service-extensions/pre-flow-extensions/pre-issue-id-token-action.md
               - Pre update password action: guides/service-extensions/pre-flow-extensions/pre-update-password-action.md
               - Pre update profile action: guides/service-extensions/pre-flow-extensions/pre-update-profile-action.md
           - Integrate with webhooks:
@@ -1333,6 +1335,10 @@ nav:
                     - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0.md
                     - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1.md
                 - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
+            - Pre issue ID token action:
+                - Version 1.x:
+                    - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/pre-issue-id-token-action-v1.0.md
+                - Sample success responses: references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/sample-success-responses.md
             - Pre update password action:
                 - Version 1.x:
                     - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.0.md
@@ -1348,6 +1354,7 @@ nav:
       - Authentication:
         - OAuth2:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
+          - Configure a custom token issuer: references/extend/authentication/oauth2/configure-custom-token-issuer.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md

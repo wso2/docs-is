@@ -409,7 +409,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
         ```
 
-        ??? Example "Oracle"
+    ??? Example "Oracle"
     
         ```sql
         DROP TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE CASCADE CONSTRAINTS;
@@ -492,7 +492,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
         ```
 
-        ??? Example "Oracle RAC"
+    ??? Example "Oracle RAC"
     
         ```sql
         DROP TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE CASCADE CONSTRAINTS;
@@ -660,6 +660,8 @@ method.
    Select the appropriate SQL script based on your database type and execute it.
 
       - [MySQL Stored Procedure Script](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/non-persistence-access-token-cleanup/)
+
+      - [Oracle Stored Procedure Script](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/non-persistence-access-token-cleanup/)
 
    This script:
 
