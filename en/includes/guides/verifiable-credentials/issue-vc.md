@@ -1,4 +1,4 @@
-# Issue verifiable credentials to a digital wallet
+# Issue Verifiable Credentials to a Digital Wallet
 
 This guide walks you through configuring {{ product_name }} to issue a verifiable credential (VC) to an OID4VCI-compatible digital wallet. Any wallet that supports the [OID4VCI specification](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html){:target="_blank"} can receive credentials from {{ product_name }}.
 
@@ -106,7 +106,7 @@ To retrieve the offer URI:
 
 2. Locate the **Credential Offer** section and copy the URI. It appears in the format:
 
-    ```
+    ```text
     openid-credential-offer://?credential_offer_uri=https://localhost:9443/oauth2/credential-offer/<offer-id>
     ```
 
@@ -120,19 +120,21 @@ To retrieve the offer URI:
 !!! note
     The wallets listed below have been verified for compatibility with {{ product_name }}. Any digital wallet that implements the [OID4VCI specification](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html){:target="_blank"} should be able to receive credentials — you are not limited to these wallets.
 
+!!! note
+    These wallets require a **specific client ID** to be set when registering the VC client application. The {{ product_name }} Console does not support defining a custom client ID at application creation time. Use the [Application Management API]({{base_path}}/apis/application-rest-api/) to create these clients with the required client ID and redirect URI.
+
 === "Lissi"
 
-    **Redirect URL:** `https://oob.lissi.io/vci-cb`
-
-    Use this URL in [Step 3](#step-3-register-a-vc-client-application) when registering the VC client application.
+    | Parameter | Value |
+    | :-------- | :---- |
+    | **Client ID** | `9c481dc3-2ad0-4fe0-881d-c32ad02fe0fc` |
+    | **Redirect URI** | `https://oob.lissi.io/vci-cb` |
 
     **Claiming the credential:**
 
     1. Open the **Lissi wallet** on your mobile device.
 
-    2. Tap **Scan QR code** or use the **Receive Credential** option, then scan the QR code displayed in the {{ product_name }} Console or paste the credential offer URI.
-
-        ![Lissi wallet showing credential offer received]({{base_path}}/assets/img/guides/verifiable-credentials/lissi-offer-received.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    2. Use the wallet's credential receive or QR scan feature, then scan the QR.
 
     3. The Lissi wallet redirects you to the {{ product_name }} login page. Authenticate with the user account whose attributes you want in the credential.
 
@@ -140,17 +142,20 @@ To retrieve the offer URI:
 
     5. The Lissi wallet exchanges the authorization code for an access token and calls the credential endpoint. The signed credential appears in your Lissi wallet.
 
-        ![Lissi wallet displaying the issued credential]({{base_path}}/assets/img/guides/verifiable-credentials/lissi-credential-issued.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![Lissi wallet displaying the issued credential]({{base_path}}/assets/img/guides/verifiable-credentials/lissi-wallet.png){: width="700px" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 === "Heidi"
 
-    **Redirect URL:** Refer to the [Heidi wallet documentation](https://www.heidi-wallet.com/){:target="_blank"} for the OID4VCI callback URL, and use it in [Step 3](#step-3-register-a-vc-client-application).
+    | Parameter | Value |
+    | :-------- | :---- |
+    | **Client ID** | `c3ce7a6c-2bbb-4abe-909c-41bc9463d3c5` |
+    | **Redirect URI** | `ch.ubique.funke://issuance` |
 
     **Claiming the credential:**
 
     1. Open the **Heidi wallet** on your mobile device.
 
-    2. Use the wallet's credential receive or QR scan feature, then scan the QR code or paste the credential offer URI from the {{ product_name }} Console.
+    2. Use the wallet's credential receive or QR scan feature, then scan the QR.
 
     3. Authenticate with your {{ product_name }} credentials when prompted.
 
@@ -158,13 +163,16 @@ To retrieve the offer URI:
 
 === "Inji"
 
-    **Redirect URL:** Refer to the [Inji wallet documentation](https://docs.mosip.io/inji/){:target="_blank"} for the OID4VCI callback URL, and use it in [Step 3](#step-3-register-a-vc-client-application).
+    | Parameter | Value |
+    | :-------- | :---- |
+    | **Client ID** | `wallet` |
+    | **Redirect URI** | `io.mosip.residentapp.inji://oauthredirect` |
 
     **Claiming the credential:**
 
     1. Open the **Inji wallet** on your mobile device.
 
-    2. Use the wallet's **Download via URI** or QR scan feature, then scan the QR code or paste the credential offer URI from the {{ product_name }} Console.
+    2. Use the wallet's credential receive or QR scan feature, then scan the QR.
 
     3. Authenticate with your {{ product_name }} credentials when prompted.
 

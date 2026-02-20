@@ -27,6 +27,6 @@ The verifiable credentials model involves three parties:
 
 Use the guides in this section to issue verifiable credentials from {{ product_name }} to standards-compliant digital wallets.
 
-- [OpenID for verifiable credential issuance (OID4VCI)]({{base_path}}/references/concepts/oid4vci/) — Understand how OID4VCI works, the supported credential formats, key endpoints, and cryptographic binding.
+- [Issue Verifiable Credentials to a Digital Wallet]({{base_path}}/guides/verifiable-credentials/issue-vc/) — Step-by-step guide to configure {{ product_name }} and issue a verifiable credential to any OID4VCI-compatible digital wallet.
 
-- [Issue verifiable credentials to a digital wallet]({{base_path}}/guides/verifiable-credentials/issue-vc/) — Step-by-step guide to configure {{ product_name }} and issue a verifiable credential to any OID4VCI-compatible digital wallet.
+- [OpenID for verifiable credential issuance (OID4VCI)]({{base_path}}/references/concepts/oid4vci/) — Understand how OID4VCI works, the supported credential formats, key endpoints, and cryptographic binding.
