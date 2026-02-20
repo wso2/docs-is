@@ -709,6 +709,7 @@ nav:
         - Session management API: apis/session.md
         - Session extension API: apis/extend-sessions.md
       - User sharing management API: apis/organization-user-share-rest-api.md
+      - User sharing management API V2: apis/organization-user-share-v2-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
       - Webhook Management API: apis/webhook-management-rest-api.md
@@ -743,6 +744,7 @@ nav:
         - User Account Association API: apis/organization-apis/org-association-rest-api.md
         - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
+      - User sharing management API V2: apis/organization-apis/organization-user-share-v2.md
       - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
       - SCIM 2.0 Me API: apis/scim2-me.md

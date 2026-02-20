@@ -1246,6 +1246,7 @@ nav:
         - Verification Code Management API: apis/verification-code-management-rest-api.md
         - Identity verification API: apis/admin-identity-verification.md
       - User sharing management API: apis/organization-user-share-rest-api.md
+      - User sharing management API V2: apis/organization-user-share-v2-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
       - Webhook Management API: apis/webhook-management-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
@@ -1290,6 +1291,7 @@ nav:
         - User Account Association API: apis/organization-apis/org-association-rest-api.md
         - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
+      - User sharing management API V2: apis/organization-apis/organization-user-share-v2.md
       - User store management API: apis/organization-apis/user-store.md
       - Validation rules API: apis/organization-apis/validation-rules.md
     - End User APIs:
