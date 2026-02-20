@@ -4,7 +4,7 @@ Use the Flow Execution API to run user journeys that you design in the Flow Buil
 
 The Flow Execution API is exposed at `{{api_base_path}}/api/server/v1/flow/execute`. This endpoint is open and does not require an authorization header.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Server" %}
 !!! info
     Ensure the proper rate limits and security measures are in place when using this API.
 {% endif %}
