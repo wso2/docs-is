@@ -59,7 +59,7 @@ paths:
         - Server Configs
       summary: Patch server configs
       description: |
-        Patch Server Configs. Patch operation is supported only for primary attributes (`homeRealmIdentifier`, `idleSessionTimeoutPeriod`, and `rememberMePeriod`)
+        Patch Server Configs. Patch operation is supported only for primary attributes (`homeRealmIdentifier`, `idleSessionTimeoutPeriod`, `rememberMePeriod`, `enableMaximumSessionTimeoutPeriod`, and `maximumSessionTimeoutPeriod`)
         
         <b>Scope(Permission) required:</b> `internal_config_update`
       operationId: patchConfigs
@@ -1357,6 +1357,16 @@ components:
           description: "The remember me period in minutes"
           example: "20160"
           default: "20160"
+        enableMaximumSessionTimeoutPeriod:
+          type: boolean
+          description: "Whether to enable the maximum session timeout. When enabled, users must re-authenticate after the maximum session lifetime expires regardless of activity."
+          example: false
+          default: false
+        maximumSessionTimeoutPeriod:
+          type: string
+          description: "The maximum session lifetime in minutes. Applies only when enableMaximumSessionTimeoutPeriod is set to true."
+          example: "43200"
+          default: "43200"
         provisioning:
           $ref: '#/components/schemas/ProvisioningConfig'
         authenticators:
