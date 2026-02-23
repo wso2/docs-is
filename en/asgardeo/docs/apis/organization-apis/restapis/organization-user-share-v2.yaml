@@ -572,7 +572,7 @@ paths:
                         orgHandle: "child-org-1"
                         parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
                         orgStatus: "ACTIVE"
-                        orgRef: "/t/wso2.com/api/server/v1/organizations/b028ca17-8f89-449c-ae27-fa955e66465d"
+                        orgRef: "/t/wso2.com/o/api/server/v1/organizations/b028ca17-8f89-449c-ae27-fa955e66465d"
                         hasChildren: true
                         depthFromRoot: 1
                         sharedUserId: "550e8400-e29b-41d4-a716-446655440000"
@@ -594,7 +594,7 @@ paths:
                         orgHandle: "child-org-1"
                         parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
                         orgStatus: "ACTIVE"
-                        orgRef: "/t/wso2.com/api/server/v1/organizations/b028ca17-8f89-449c-ae27-fa955e66465d"
+                        orgRef: "/t/wso2.com/o/api/server/v1/organizations/b028ca17-8f89-449c-ae27-fa955e66465d"
                         hasChildren: true
                         depthFromRoot: 1
                         sharedUserId: "550e8400-e29b-41d4-a716-446655440000"
@@ -618,7 +618,7 @@ paths:
                         orgHandle: "child-org-2"
                         parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
                         orgStatus: "ACTIVE"
-                        orgRef: "/t/wso2.com/api/server/v1/organizations/a17b28ca-9f89-449c-ae27-fa955e66465f"
+                        orgRef: "/t/wso2.com/o/api/server/v1/organizations/a17b28ca-9f89-449c-ae27-fa955e66465f"
                         hasChildren: false
                         depthFromRoot: 1
                         sharedUserId: "3f2504e0-4f89-41d3-9a0c-0305e82c3301"
@@ -944,7 +944,7 @@ components:
         orgRef:
           type: string
           description: API reference of the organization resource.
-          example: "/t/wso2.com/api/server/v1/organizations/b4526d91-a8bf-43d2-8b14-c548cf73065b"
+          example: "/t/wso2.com/o/api/server/v1/organizations/b4526d91-a8bf-43d2-8b14-c548cf73065b"
         hasChildren:
           type: boolean
           description: Indicates whether the organization has child organizations.
