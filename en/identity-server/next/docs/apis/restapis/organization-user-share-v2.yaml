@@ -4,11 +4,14 @@ info:
   title: "User Sharing API Definition (v2)"
   description: |-
     This document defines the **User Sharing REST API (v2)** for organizations in **WSO2 Identity Server**.
-    It follows the same pattern as **Application Sharing** and enables organization administrators to:
+    It enables organization administrators to:
     - Share users across child organizations.
     - Configure per-organization user role assignments.
     - Manage and revoke shared access.
     - Retrieve a user's shared organizations and effective roles.
+
+    **Shared scopes with User Sharing API v1:** The OAuth2 scopes `internal_user_share`, `internal_user_unshare`, and `internal_user_shared_access_view` are shared between this API (User Sharing v2) and the User Sharing v1 API. Authorizing either API automatically grants access to the equivalent endpoints in the other that use the same scopes.
+  
   contact:
     name: WSO2
     url: 'http://wso2.com/products/identity-server/'
