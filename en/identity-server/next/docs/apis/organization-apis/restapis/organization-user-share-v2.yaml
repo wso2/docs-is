@@ -98,7 +98,7 @@ paths:
             curl --location 'https://localhost:9443/o/api/server/v2/users/share' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -214,7 +214,7 @@ paths:
             curl --location --request PATCH 'https://localhost:9443/o/api/server/v2/users/share' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -315,7 +315,7 @@ paths:
             curl --location 'https://localhost:9443/o/api/server/v2/users/share-with-all' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -395,7 +395,7 @@ paths:
             curl --location 'https://localhost:9443/o/api/server/v2/users/unshare' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -458,7 +458,7 @@ paths:
             curl --location 'https://localhost:9443/o/api/server/v2/users/unshare-with-all' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -649,19 +649,19 @@ paths:
           source: |
             curl --location 'https://localhost:9443/o/api/server/v2/users/{userId}/share' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
         - lang: Curl
           label: With pagination and attributes
           source: |
             curl --location 'https://localhost:9443/o/api/server/v2/users/{userId}/share?limit=10&after=Ng==&attributes=roles,sharingMode&recursive=true' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
         - lang: Curl
           label: With filter
           source: |
             curl --location 'https://localhost:9443/o/api/server/v2/users/{userId}/share?filter=orgId+eq+b028ca17-8f89-449c-ae27-fa955e66465d' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
 
 components:
   securitySchemes:

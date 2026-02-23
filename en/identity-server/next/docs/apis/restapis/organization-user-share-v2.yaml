@@ -97,7 +97,7 @@ paths:
             curl --location 'https://localhost:9443/t/carbon.super/api/server/v2/users/share' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -213,7 +213,7 @@ paths:
             curl --location --request PATCH 'https://localhost:9443/t/carbon.super/api/server/v2/users/share' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -314,7 +314,7 @@ paths:
             curl --location 'https://localhost:9443/t/carbon.super/api/server/v2/users/share-with-all' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -394,7 +394,7 @@ paths:
             curl --location 'https://localhost:9443/t/carbon.super/api/server/v2/users/unshare' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -457,7 +457,7 @@ paths:
             curl --location 'https://localhost:9443/t/carbon.super/api/server/v2/users/unshare-with-all' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "userCriteria": {
                 "userIds": [
@@ -557,7 +557,7 @@ paths:
                   summary: User shared with all organizations
                   value:
                     links:
-                      - href: "/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
+                      - href: "/t/{tenant-domain}/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
                         rel: "next"
                     sharingMode:
                       policy: "ALL_EXISTING_AND_FUTURE_ORGS"
@@ -588,7 +588,7 @@ paths:
                   summary: User shared with selected organizations
                   value:
                     links:
-                      - href: "/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
+                      - href: "/t/{tenant-domain}/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
                         rel: "next"
                     organizations:
                       - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
@@ -648,19 +648,19 @@ paths:
           source: |
             curl --location 'https://localhost:9443/t/carbon.super/api/server/v2/users/{userId}/share' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
         - lang: Curl
           label: With pagination and attributes
           source: |
             curl --location 'https://localhost:9443/t/carbon.super/api/server/v2/users/{userId}/share?limit=10&after=Ng==&attributes=roles,sharingMode&recursive=true' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
         - lang: Curl
           label: With filter
           source: |
             curl --location 'https://localhost:9443/t/carbon.super/api/server/v2/users/{userId}/share?filter=orgId+eq+b028ca17-8f89-449c-ae27-fa955e66465d' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+            -H 'Authorization: Bearer {bearer_token}'
 
 components:
   securitySchemes:
@@ -1039,7 +1039,7 @@ components:
       properties:
         href:
           type: string
-          example: "/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
+          example: "/t/{tenant-domain}/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
         rel:
           type: string
           example: "next"
