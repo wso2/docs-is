@@ -20,7 +20,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v2'
+  - url: 'https://{server-url}/t/{tenant-domain}/o/api/server/v2'
     variables:
       tenant-domain:
         default: "carbon.super"
@@ -44,7 +44,7 @@ paths:
         This endpoint is treated as a **processing function**:
         it triggers a sharing process and responds with `202 Accepted`.
 
-        **Scope required:** `internal_user_share`
+        **Scope required:** `internal_org_user_share`
       operationId: shareUsersWithSelected
       requestBody:
         required: true
@@ -146,7 +146,7 @@ paths:
         > is handled via `/users/share`, `/users/share-with-all`, `/users/unshare`,
         > and `/users/unshare-with-all`.
 
-        **Scope required:** `internal_user_shared_access_update`
+        **Scope required:** `internal_org_user_shared_access_update`
       operationId: patchUserSharing
       requestBody:
         required: true
@@ -270,7 +270,7 @@ paths:
 
         This endpoint is treated as a **processing function** and responds with `202 Accepted`.
 
-        **Scope required:** `internal_user_share`
+        **Scope required:** `internal_org_user_share`
       operationId: shareUsersWithAll
       requestBody:
         required: true
@@ -352,7 +352,7 @@ paths:
 
         This endpoint is treated as a **processing function** and responds with `202 Accepted`.
 
-        **Scope required:** `internal_user_unshare`
+        **Scope required:** `internal_org_user_unshare`
       operationId: unshareUsersFromSelected
       requestBody:
         required: true
@@ -418,7 +418,7 @@ paths:
 
         This endpoint is treated as a **processing function** and responds with `202 Accepted`.
 
-        **Scope required:** `internal_user_unshare`
+        **Scope required:** `internal_org_user_unshare`
       operationId: unshareUsersFromAll
       requestBody:
         required: true
@@ -485,7 +485,7 @@ paths:
 
         This follows the same pattern as **`GET /applications/{applicationId}/share`**.
 
-        **Scope required:** `internal_user_shared_access_view`
+        **Scope required:** `internal_org_user_shared_access_view`
       operationId: getUserSharedOrganizations
       parameters:
         - in: path
@@ -675,10 +675,10 @@ components:
           authorizationUrl: "https://localhost:9443/oauth2/authorize"
           tokenUrl: "https://localhost:9443/oauth2/token"
           scopes:
-            internal_user_share: "Share users across organizations."
-            internal_user_unshare: "Unshare users from organizations."
-            internal_user_shared_access_view: "View shared organizations and roles for a user."
-            internal_user_shared_access_update: "Update shared attributes (e.g., roles) for shared users."
+            internal_org_user_share: "Share users across organizations."
+            internal_org_user_unshare: "Unshare users from organizations."
+            internal_org_user_shared_access_view: "View shared organizations and roles for a user."
+            internal_org_user_shared_access_update: "Update shared attributes (e.g., roles) for shared users."
 
   schemas:
 

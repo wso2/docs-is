@@ -20,10 +20,10 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-  - url: 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2'
+  - url: 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2'
     variables:
-      organization-name:
-        default: "{organization-name}"
+      root-organization-name:
+        default: "{root-organization-name}"
 
 security:
   - OAuth2: []
@@ -41,7 +41,7 @@ paths:
         This endpoint is treated as a **processing function**:
         it triggers a sharing process and responds with `202 Accepted`.
 
-        **Scope required:** `internal_user_share`
+        **Scope required:** `internal_org_user_share`
       operationId: shareUsersWithSelected
       requestBody:
         required: true
@@ -92,7 +92,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2/users/share' \
+            curl --location 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2/users/share' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -143,7 +143,7 @@ paths:
         > is handled via `/users/share`, `/users/share-with-all`, `/users/unshare`,
         > and `/users/unshare-with-all`.
 
-        **Scope required:** `internal_user_shared_access_update`
+        **Scope required:** `internal_org_user_shared_access_update`
       operationId: patchUserSharing
       requestBody:
         required: true
@@ -208,7 +208,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location --request PATCH 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2/users/share' \
+            curl --location --request PATCH 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2/users/share' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -267,7 +267,7 @@ paths:
 
         This endpoint is treated as a **processing function** and responds with `202 Accepted`.
 
-        **Scope required:** `internal_user_share`
+        **Scope required:** `internal_org_user_share`
       operationId: shareUsersWithAll
       requestBody:
         required: true
@@ -309,7 +309,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2/users/share-with-all' \
+            curl --location 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2/users/share-with-all' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -349,7 +349,7 @@ paths:
 
         This endpoint is treated as a **processing function** and responds with `202 Accepted`.
 
-        **Scope required:** `internal_user_unshare`
+        **Scope required:** `internal_org_user_unshare`
       operationId: unshareUsersFromSelected
       requestBody:
         required: true
@@ -389,7 +389,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2/users/unshare' \
+            curl --location 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2/users/unshare' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -415,7 +415,7 @@ paths:
 
         This endpoint is treated as a **processing function** and responds with `202 Accepted`.
 
-        **Scope required:** `internal_user_unshare`
+        **Scope required:** `internal_org_user_unshare`
       operationId: unshareUsersFromAll
       requestBody:
         required: true
@@ -452,7 +452,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2/users/unshare-with-all' \
+            curl --location 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2/users/unshare-with-all' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -482,7 +482,7 @@ paths:
 
         This follows the same pattern as **`GET /applications/{applicationId}/share`**.
 
-        **Scope required:** `internal_user_shared_access_view`
+        **Scope required:** `internal_org_user_shared_access_view`
       operationId: getUserSharedOrganizations
       parameters:
         - in: path
@@ -555,7 +555,7 @@ paths:
                   summary: User shared with all organizations
                   value:
                     links:
-                      - href: "/t/{organization-name}/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
+                      - href: "/t/{root-organization-name}/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
                         rel: "next"
                     sharingMode:
                       policy: "ALL_EXISTING_AND_FUTURE_ORGS"
@@ -586,7 +586,7 @@ paths:
                   summary: User shared with selected organizations
                   value:
                     links:
-                      - href: "/t/{organization-name}/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
+                      - href: "/t/{root-organization-name}/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
                         rel: "next"
                     organizations:
                       - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
@@ -644,19 +644,19 @@ paths:
         - lang: Curl
           label: Basic
           source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2/users/{userId}/share' \
+            curl --location 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2/users/{userId}/share' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
         - lang: Curl
           label: With pagination and attributes
           source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2/users/{userId}/share?limit=10&after=Ng==&attributes=roles,sharingMode&recursive=true' \
+            curl --location 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2/users/{userId}/share?limit=10&after=Ng==&attributes=roles,sharingMode&recursive=true' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
         - lang: Curl
           label: With filter
           source: |
-            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v2/users/{userId}/share?filter=orgId+eq+b028ca17-8f89-449c-ae27-fa955e66465d' \
+            curl --location 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v2/users/{userId}/share?filter=orgId+eq+b028ca17-8f89-449c-ae27-fa955e66465d' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
 
@@ -666,13 +666,13 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: "https://api.asgardeo.io/t/{organization-name}/oauth2/authorize"
-          tokenUrl: "https://api.asgardeo.io/t/{organization-name}/oauth2/token"
+          authorizationUrl: "https://api.asgardeo.io/t/{root-organization-name}/oauth2/authorize"
+          tokenUrl: "https://api.asgardeo.io/t/{root-organization-name}/oauth2/token"
           scopes:
-            internal_user_share: "Share users across organizations."
-            internal_user_unshare: "Unshare users from organizations."
-            internal_user_shared_access_view: "View shared organizations and roles for a user."
-            internal_user_shared_access_update: "Update shared attributes (e.g., roles) for shared users."
+            internal_org_user_share: "Share users across organizations."
+            internal_org_user_unshare: "Unshare users from organizations."
+            internal_org_user_shared_access_view: "View shared organizations and roles for a user."
+            internal_org_user_shared_access_update: "Update shared attributes (e.g., roles) for shared users."
 
   schemas:
 
@@ -1034,7 +1034,7 @@ components:
       properties:
         href:
           type: string
-          example: "/t/{organization-name}/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
+          example: "/t/{root-organization-name}/o/api/server/v2/users/7a1b7d63-8cfc-4dc9-9332-3f84641b72d8/share?limit=10&after=MTA="
         rel:
           type: string
           example: "next"
