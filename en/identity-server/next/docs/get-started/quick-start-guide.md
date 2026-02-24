@@ -1,8 +1,8 @@
 # What is {{ product_name }}?
 
-Are you new to **{{ product_name }}**? Let's learn more about what we offer!
+Are you new to **{{ product_name }}**? Learn how you can get started.
 
-**{{ product_name }} (WSO2 IS)** simplifies the Customer Identity and Access Management (CIAM) needs of your organization. The product ensures easy integration with a variety of applications to facilitate single sign-on (SSO), social login, identity federation, API Security, strong authentication, account management, privacy compliance, and so much more.
+**{{ product_name }} (WSO2 IS)** simplifies the Customer Identity and Access Management (CIAM) needs of your organization. It helps you integrate with many applications and supports single sign-on (SSO), social login, identity federation, API Security, strong authentication, account management, and privacy compliance.
 
 <div style="width: 100%; min-width: 300px; max-width: 700px;">
 <div style="position: relative; width: 100%; overflow: hidden; padding-top: 56.25%;">
@@ -26,7 +26,7 @@ Are you new to **{{ product_name }}**? Let's learn more about what we offer!
 
 ![IAM functionality]({{base_path}}/assets/img/get-started/iam-functionality.png)
 
-- **Unify sign-ins** - WSO2 IS facilitates single sign-on (SSO) that eliminates the need to maintain multiple credentials for each application making life easier for your users.
+- **Unify sign-ins** - WSO2 IS provides single sign-on (SSO) so you do not maintain separate credentials for each application.
 
 - **Give the right access to the right people** - Control access to applications based on permission levels of users or groups.
 
