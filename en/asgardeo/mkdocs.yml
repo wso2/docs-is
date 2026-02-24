@@ -455,6 +455,7 @@ nav:
           - Password validation: guides/account-configurations/login-security/password-validation.md
           - Bot detection: guides/account-configurations/login-security/bot-detection.md
           - Fraud detection: guides/account-configurations/login-security/sift-fraud-detection.md
+          - Session management: guides/account-configurations/login-security/session-management.md
         - Account recovery:
           - Password recovery: guides/account-configurations/account-recovery/password-recovery.md
           - Admin Initiated Password Reset: guides/account-configurations/account-recovery/admin-initiated-password-reset.md
