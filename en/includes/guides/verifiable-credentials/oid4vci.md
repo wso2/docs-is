@@ -28,24 +28,22 @@ This three-party trust model — **issuer, holder, verifier** — is the foundat
 ![OID4VCI authorization code flow sequence diagram]({{base_path}}/assets/img/guides/verifiable-credentials/oid4vci-flow.png){: width="750" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 1. **Credential offer** — {{ product_name }} generates a credential offer delivered as a QR code or deep link. The wallet scans or follows it to begin the issuance flow.
-2. **Fetch issuer metadata** — The wallet sends `GET /oid4vci/.well-known/openid-credential-issuer` to discover what credentials the issuer supports, their formats, and the relevant endpoint URLs.
-3. **Credential issuer metadata response** — {{ product_name }} returns the issuer metadata, including supported credential configurations and endpoint locations.
-4. **Fetch authorization server metadata** — The wallet sends `GET /.well-known/oauth-authorization-server` or `GET /.well-known/openid-configuration` to discover the authorization and token endpoints.
-5. **Authorization server metadata response** — {{ product_name }} returns the authorization server metadata.
+2. **GET /.well-known/openid-credential-issuer** — The wallet fetches credential issuer metadata (typically from `/oid4vci/.well-known/openid-credential-issuer`) to discover supported credentials and endpoint URLs.
+3. **Credential issuer metadata** — {{ product_name }} returns the issuer metadata, including supported credential configurations and endpoint locations.
+4. **GET /.well-known/oauth-authorization-server** — The wallet fetches authorization server metadata to discover OAuth 2.0 endpoints such as authorization and token endpoints.
+5. **Authorization server metadata** — {{ product_name }} returns the authorization server metadata.
 6. **Authorization request** — The wallet sends an authorization request to {{ product_name }} including `scope` specifying the verifiable credential being requested.
 
     !!! note
         Some wallets use the **Pushed Authorization Request (PAR)** endpoint (`POST /oauth2/par`) to send the authorization request directly to the server before redirecting the user. This improves security by keeping request parameters out of the browser URL. If the wallet supports PAR, it will use the `request_uri` returned by the PAR endpoint in the authorization redirect.
 
-7. **Authenticate and consent** — {{ product_name }} prompts the user to sign in and grant consent to share the requested attributes with the wallet.
-8. **Login and grant consent** — The user authenticates and approves the consent screen.
-9. **Authorization code** — {{ product_name }} issues an authorization code and redirects back to the wallet's callback URL.
-10. **Token request** — The wallet exchanges the authorization code for an access token via `POST` to the token endpoint.
-11. **Access token** — {{ product_name }} returns an access token bound to the authorized credential request.
-12. **Nonce request** — The wallet sends `POST /nonce` to get a fresh server-generated nonce (`c_nonce`) used to prevent replay attacks.
-13. **c_nonce response** — {{ product_name }} returns the `c_nonce` value.
-14. **Credential request** — The wallet sends a credential request to the credential endpoint, including the Bearer access token and a JWT proof signed with `c_nonce` to prove possession of the private key.
-15. **Credential response** — {{ product_name }} validates the access token and proof, then returns the signed verifiable credential (e.g., an SD-JWT VC) to the wallet.
+7. **User authentication and consent** — {{ product_name }} prompts the user to sign in and grant consent to share the requested attributes with the wallet.
+8. **Authorization code** — {{ product_name }} issues an authorization code and redirects back to the wallet's callback URL.
+9. **Access token** — The wallet exchanges the authorization code at the token endpoint, and {{ product_name }} returns an access token bound to the authorized credential request.
+10. **POST /nonce** — The wallet sends `POST /oid4vci/nonce` to get a fresh server-generated nonce (`c_nonce`) used to prevent replay attacks.
+11. **c_nonce** — {{ product_name }} returns the `c_nonce` value.
+12. **Credential request (AT + proof)** — The wallet sends a credential request to the credential endpoint, including the Bearer access token and a JWT proof signed with `c_nonce` to prove possession of the private key.
+13. **Verifiable Credential** — {{ product_name }} validates the access token and proof, then returns the signed verifiable credential (for example, an SD-JWT VC) to the wallet.
 
 ## Supported credential formats
 
