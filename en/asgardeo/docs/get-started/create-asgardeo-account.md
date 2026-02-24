@@ -14,11 +14,11 @@ An organization in Asgardeo is your own unique space that contains your users an
 3. Click **Confirm** in the email and fill in your information to create your Asgardeo account.
 
    !!! note
-       You can also sign in using a social sign-in method to create your account.
+   You can also sign in using a social sign-in method to create your account.
 
 !!! tip "Access the Asgardeo Console"
-    As an organization owner or administrator, you can manage all organizations, applications, and users you create using the **Asgardeo Console**. Access the console using the following link:
-    
+As an organization owner or administrator, you can manage all organizations, applications, and users you create using the **Asgardeo Console**. Access the console using the following link:
+
     `https://console.asgardeo.io/`
 
 ## Create a user
@@ -31,13 +31,13 @@ You can sign in to applications you register in Asgardeo. Create a user by follo
 
    ![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. Select **Set a password for the user** and enter a temporary password. The user can change the password later.
+4. 4. Select **Set a password for the user** and enter a temporary password. You can change the password later.
 5. Click **Next** and **Finish**.
 
 You can now manage this user account from the **Asgardeo Console**.
 
 !!! note
-    You can also manage your account from the **Asgardeo self-service portal**. Learn more about [user self-service]({{base_path}}/guides/user-self-service/).
+You can also manage your account from the **Asgardeo self-service portal**. Learn more about [user self-service]({{base_path}}/guides/user-self-service/).
 
 ## What's next?
 
