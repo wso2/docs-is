@@ -194,7 +194,7 @@ The `COMPLETE` status indicates that the flow finished successfully.
 If the auto login on flow completion is enabled, the completion response contains a `userAssertion` JWT in the `data` object.
 This can either be a `VIEW` type response or `REDIRECTION` type response based on the configuration.
 
-The `userAssertion` JWT user assertion along with a session data key can be used to authenticate the user.
+The `userAssertion` JWT along with a session data key can be used to authenticate the user.
 This JWT has a significantly short expiry (~2 seconds) and contains claims about the user who completed the flow.
 
 ```json
