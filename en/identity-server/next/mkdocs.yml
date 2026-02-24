@@ -1251,6 +1251,7 @@ nav:
         - Identity verification API: apis/admin-identity-verification.md
       - User sharing management API: apis/organization-user-share-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
+      - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md      
       - Webhook Management API: apis/webhook-management-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
     - Organization APIs:

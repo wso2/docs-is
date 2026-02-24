@@ -1,0 +1,478 @@
+openapi: 3.0.0
+info:
+  title: "WSO2 IS Verifiable Credential Template Management API"
+  version: "v1"
+  description: "Admin API for managing verifiable credential templates in WSO2 Identity Server."
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: "carbon.super"
+      server-url:
+        default: "localhost:9443"
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /vc-templates:
+    get:
+      tags: ["VC Templates"]
+      summary: "List templates"
+      operationId: "listVCTemplates"
+      parameters:
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/attributes'
+      responses:
+        "200":
+          description: "Array of templates"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VCTemplateList"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags: ["VC Templates"]
+      summary: "Add new template"
+      operationId: "addVCTemplate"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/VCTemplateCreationModel" }
+            examples:
+              createEmployeeBadge:
+                value:
+                  identifier: "EmployeeBadge"
+                  displayName: "EmployeeBadge"
+                  format: "jwt_vc_json"
+                  claims: ["given_name", "email"]
+                  expiresIn: 31536000
+      responses:
+        '201':
+          description: "Created"
+          headers:
+            Location:
+              schema: { type: string }
+              example: "/api/server/v1/vc-templates/7e5f9d2a-6b5e-4df6-9b87-8a3d1a4a0c31"
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/VCTemplate" }
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /vc-templates/{template-id}:
+    parameters:
+      - in: path
+        name: template-id
+        required: true
+        schema: { type: string}
+        description: "Server-generated UUID of the template."
+    get:
+      tags: ["VC Templates"]
+      summary: "Get template"
+      operationId: "getVCTemplate"
+      responses:
+        "200":
+          description: "Template"
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/VCTemplate" }
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags: ["VC Templates"]
+      summary: "Update template"
+      operationId: "updateVCTemplate"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/VCTemplateUpdateModel" }
+      responses:
+        "200":
+          description: "Updated"
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/VCTemplate" }
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags: ["VC Templates"]
+      summary: "Delete template"
+      operationId: "deleteVCTemplate"
+      responses:
+        '204':
+          description: Template Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /vc-templates/{template-id}/offer:
+    parameters:
+      - in: path
+        name: template-id
+        required: true
+        schema: { type: string }
+        description: "Server-generated UUID of the template."
+    post:
+      tags: ["VC Templates"]
+      summary: "Generate or regenerate credential offer"
+      description: "Creates a new credential offer."
+      operationId: "generateVCCredentialOffer"
+      responses:
+        '200':
+          description: "Offer generated or regenerated successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VCTemplate'
+        '404':
+          description: "Template not found"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags: ["VC Templates"]
+      summary: "Revoke credential offer"
+      description: "Revokes and deletes the existing credential offer."
+      operationId: "revokeVCCredentialOffer"
+      responses:
+        '200':
+          description: "Offer revoked successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VCTemplate'
+        '404':
+          description: "Template or offer not found"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'http://localhost:9443/oauth2/token'
+          scopes: {}
+
+  schemas:
+    VCTemplate:
+      type: object
+      required:
+        - id
+        - identifier
+        - displayName
+        - format
+        - claims
+        - expiresIn
+      properties:
+        id:
+          type: string
+          example: "7e5f9d2a-6b5e-4df6-9b87-8a3d1a4a0c31"
+        identifier:
+          type: string
+          description: "Stable key; human/machine readable."
+          example: "EmployeeBadge"
+        displayName:
+          type: string
+          description: "Display name of the template"
+          example: "EmployeeBadge"
+        description:
+          type: string
+          description: "Description name of the template"
+          example: "EmployeeBadge"
+        format:
+          type: string
+          example: jwt_vc_json
+        claims:
+          type: array
+          items:
+            type: string
+          example: ["given_name", "email"]
+        expiresIn:
+          type: integer
+          example: 31536000
+        offerId:
+          type: string
+          nullable: true
+          description: "Backend-generated UUID for the credential offer. Null if no offer has been generated."
+          example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+    VCTemplateCreationModel:
+      type: object
+      required:
+        - identifier
+        - format
+        - claims
+        - expiresIn
+      properties:
+        identifier:
+          type: string
+        displayName:
+          type: string
+          description: "Display name of the template"
+        description:
+          type: string
+          description: "Description name of the template"
+          example: "EmployeeBadge"
+        format:
+          type: string
+        claims:
+          type: array
+          items:
+            type: string
+          example: ["given_name", "email"]
+        expiresIn:
+          type: integer
+          minimum: 60
+    VCTemplateList:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          example: 1
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaginationLink'
+        VCTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/VCTemplateListItem'
+    VCTemplateListItem:
+      type: object
+      required:
+        - id
+        - identifier
+        - displayName
+      properties:
+        id:
+          type: string
+          example: "7e5f9d2a-6b5e-4df6-9b87-8a3d1a4a0c31"
+        identifier:
+          type: string
+          description: "Stable key; human/machine readable."
+          example: "EmployeeBadge"
+        displayName:
+          type: string
+          description: "Published as `credential_template_id` in issuer metadata. Defaults to `identifier` if omitted."
+          example: "EmployeeBadge"
+    VCTemplateUpdateModel:
+      type: object
+      description: "Fields allowed to change after creation."
+      properties:
+        displayName:
+          type: string
+          description: "If not provided, server sets to `identifier`."
+        format:
+          type: string
+        claims:
+          type: array
+          items:
+            type: string
+          example: ["givenname", "surname", "email"]
+        expiresIn:
+          type: integer
+          minimum: 60
+    PaginationLink:
+      type: object
+      properties:
+        rel:
+          type: string
+          example: before
+        href:
+          type: string
+          example: /api/server/v1/api-resources?after=NDoy
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: Some error code.
+        message:
+          type: string
+          example: Some error message.
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+
+  parameters:
+    before:
+      name: before
+      in: query
+      required: false
+      description: |
+        Base64 encoded cursor value for backward pagination.
+      schema:
+        type: string
+      example: Ng==
+
+    after:
+      name: after
+      in: query
+      required: false
+      description: |
+        Base64 encoded cursor value for forward pagination.
+      schema:
+        type: string
+      example: Ng==
+
+    filter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew' and 'eq' operations.
+      schema:
+        type: string
+      example: identifier+eq+greetings
+
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
+        type: integer
+      example: 10
+
+    attributes:
+      name: attributes
+      in: query
+      required: false
+      description: Specifies the required attributes in the response. Only 'properties' attribute is currently supported.
+      schema:
+        type: string
