@@ -69,6 +69,15 @@ To deploy the custom local authenticator:
     name = "SampleLocalAuthenticator"
     enable = true
     ```
+
+{% if is_version == "7.1.0" or is_version == "next" %}
+4. To ensure the custom local authenticator is properly recognized as a first-factor option in the {{ product_name }} Console's application login flow UI, add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder.
+
+    ``` toml
+    [console.ui]
+    login_flow_custom_first_factor_authenticators = [ "SampleLocalAuthenticator" ]
+    ```
+{% endif %}
      
 ---
 
