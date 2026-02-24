@@ -14,7 +14,7 @@ An organization in Asgardeo is your own unique space that contains your users an
 3. Click **Confirm** in the email and fill in your information to create your Asgardeo account.
 
    !!! note
-   You can also use a social login method to create your account.
+   You can also sign in using a social sign-in method to create your account.
 
 !!! tip "Access the Asgardeo Console"
 As an organization owner or administrator, you can manage all organizations, applications, and users you create using the **Asgardeo Console**. Access the console using the following link:
@@ -23,7 +23,7 @@ As an organization owner or administrator, you can manage all organizations, app
 
 ## Create a user
 
-Users can log in to applications you register in Asgardeo. Create a user by following the steps below:
+You can sign in to applications you register in Asgardeo. Create a user by following the steps below:
 
 1. On the **Asgardeo Console**, go to **User Management** > **Users**.
 2. Click **Add User** > **Single User**.
@@ -37,11 +37,11 @@ Users can log in to applications you register in Asgardeo. Create a user by foll
 You can now manage this user account from the **Asgardeo Console**.
 
 !!! note
-Users can also manage their own accounts from the **Asgardeo self-service portal**. Learn more about [user self-service]({{base_path}}/guides/user-self-service/).
+You can also manage your account from the **Asgardeo self-service portal**. Learn more about [user self-service]({{base_path}}/guides/user-self-service/).
 
 ## What's next?
 
 Now that you have set up your organization and created your first user, you can:
 
-1. Use a test application to quickly try out Asgardeo. See [Try login with Asgardeo]({{base_path}}/get-started/try-it-application/).
+1. Use a test application to quickly try out Asgardeo. See [Try sign-in with Asgardeo]({{base_path}}/get-started/try-it-application/).
 2. Set up Asgardeo in your application or a sample application. See [Start integrating Asgardeo into applications]({{base_path}}/get-started/start-integrating-apps/).
