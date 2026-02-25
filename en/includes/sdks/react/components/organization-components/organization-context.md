@@ -21,7 +21,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { AsgardeoProvider, OrganizationContext, SignedIn } from '@asgardeo/react'
+import { AsgardeoProvider, OrganizationContext, OrganizationProfile, SignedIn } from '@asgardeo/react'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
