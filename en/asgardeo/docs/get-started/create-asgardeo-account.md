@@ -31,10 +31,11 @@ You can sign in to applications you register in Asgardeo. Create a user by follo
 
    ![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-4. 4. Select **Set a password for the user** and enter a temporary password. You can change the password later.
+4. Select **Set a password for the user** and enter a temporary password. You can change the password later.
 5. Click **Next** and **Finish**.
 
 You can now manage this user account from the **Asgardeo Console**.
+
 
 !!! note
     You can also manage your account from the **Asgardeo self-service portal**. Learn more about [user self-service]({{base_path}}/guides/user-self-service/).
