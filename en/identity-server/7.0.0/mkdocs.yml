@@ -714,17 +714,21 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
-          - Overview: guides/organization-management/organizations-overview.md
+          - Concepts:
+            - Overview: guides/organization-management/organizations-overview.md
+          - Try it out: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
-          - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-          - Share applications: guides/organization-management/share-applications.md
-          - Onboard admins:
-            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
-            - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
-            - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-          - Onboard users: guides/organization-management/onboard-users.md
-          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
-          - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+          - Administration:
+            - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
+            - Onboard admins:
+              - Onboard admins: guides/organization-management/onboard-org-admins/index.md
+              - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
+              - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
+          - Applications:
+            - Shared applications: guides/organization-management/share-applications.md
+            - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+          - Users:
+            - Onboard users: guides/organization-management/onboard-users.md
           - Organization discovery:
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md

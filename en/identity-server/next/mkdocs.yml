@@ -852,23 +852,26 @@ nav:
         - Build your own self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
-          - Overview: guides/organization-management/organizations-overview.md
-          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+          - Concepts:
+            - Overview: guides/organization-management/organizations-overview.md
+          - Try it out: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
-          - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Manage applications:
+          - Administration:
+            - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
+            - Onboard admins:
+              - Onboard admins: guides/organization-management/onboard-org-admins/index.md
+              - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
+              - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
+          - Applications:
             - Shared applications: guides/organization-management/share-applications.md
             - Organization applications: guides/organization-management/organization-applications.md
-          - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
-          - Onboard admins:
-            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
-            - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
-            - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-          - Onboard users: guides/organization-management/onboard-users.md
-          - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
-          - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-          - Inheritance in organizations:
-            - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
+            - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
+          - Users:
+            - Onboard users: guides/organization-management/onboard-users.md
+            - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
+            - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
+          - Organization settings:
+            - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
             - Login & registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
             - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
             - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
