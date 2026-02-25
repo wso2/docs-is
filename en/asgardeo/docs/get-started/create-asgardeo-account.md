@@ -7,7 +7,7 @@ Follow these steps to set up your Asgardeo account.
 An organization in Asgardeo is your own unique space that contains your users and application configurations. Sign up to create your first organization.
 
 1. Go to the [**Asgardeo webpage**](https://wso2.com/asgardeo/) and click **Sign up for free**.
-2. Enter your email address and click **Register**. You will receive an email with instructions to complete your account creation.
+2. Enter your email address and click **Register**. Asgardeo sends you an email with instructions to complete your account creation.
 
    ![Sign up to Asgardeo]({{base_path}}/assets/img/get-started/sign-up-to-asgardeo.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
