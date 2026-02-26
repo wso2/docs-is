@@ -39,6 +39,11 @@ paths:
                   description: This action invokes before updating a user password.
                   count: 1
                   self: "/api/server/v1/actions/preUpdatePassword"
+                - type: PRE_UPDATE_PROFILE
+                  displayName: Pre Update Profile
+                  description: This action invokes before updating a user profile.
+                  count: 1
+                  self: "/api/server/v1/actions/preUpdateProfile"
         '401':
           description: Unauthorized
         '403':
@@ -83,7 +88,7 @@ paths:
               preIssueAccessToken:
                 summary: Sample payload for pre issue access token action
                 value:
-                  name: Access Token Pre Issue
+                  name: Pre Issue Access Token
                   description: This action invokes before issuing an access token.
                   endpoint:
                     uri: https://myextension.com/token
@@ -92,6 +97,11 @@ paths:
                         username: auth_username
                         password: auth_password
                       type: BASIC
+                    allowedHeaders:
+                      - x-geo-location
+                      - host
+                    allowedParameters:
+                      - device-id
                   rule:
                     condition: OR
                     rules:
@@ -123,6 +133,9 @@ paths:
                   passwordSharing:
                     format: SHA256_HASHED
                     certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                  attributes:
+                    - http://wso2.org/claims/givenname
+                    - http://wso2.org/claims/dob
                   rule:
                     condition: OR
                     rules:
@@ -139,6 +152,37 @@ paths:
                       - field: flow
                         operator: equals
                         value: userInitiatedPasswordReset
+              preUpdateProfile:
+                summary: Sample payload for pre update profile action
+                value:
+                  name: Profile Update Action
+                  description: This action invokes before updating a user profile.
+                  endpoint:
+                    uri: https://myextension.com/pre-update-profile
+                    authentication:
+                      properties:
+                        header: x-api-key
+                        value: e12595c1-1435-4bf2-94e8-445135ab505a
+                      type: API_KEY
+                  attributes:
+                    - http://wso2.org/claims/givenname
+                    - http://wso2.org/claims/dob
+                  rule:
+                    condition: OR
+                    rules:
+                      - condition: AND
+                        expressions:
+                          - field: flow
+                            operator: equals
+                            value: adminInitiatedProfileUpdate
+                          - field: claim
+                            operator: notEquals
+                            value: http://wso2.org/claims/country
+                      - condition: AND
+                        expressions:
+                          - field: flow
+                            operator: equals
+                            value: userInitiatedProfileUpdate
         description: This represents the information of the action to be created.
         required: true
       responses:
@@ -153,13 +197,20 @@ paths:
                   summary: Sample response for pre issue access token action
                   value:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
-                    status: ACTIVE
+                    status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/token
                       authentication:
                         type: BASIC
+                      allowedHeaders:
+                        - x-geo-location
+                        - host
+                      allowedParameters:
+                        - device-id
                     rule:
                       condition: OR
                       rules:
@@ -182,7 +233,9 @@ paths:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
                     name: Password Update Action
                     description: This action invokes before updating a user password.
-                    status: ACTIVE
+                    status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/pre-update-password
                       authentication:
@@ -190,6 +243,9 @@ paths:
                     passwordSharing:
                       format: SHA256_HASHED
                       certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    attributes:
+                      - http://wso2.org/claims/givenname
+                      - http://wso2.org/claims/dob
                     rule:
                       condition: OR
                       rules:
@@ -206,6 +262,38 @@ paths:
                         - field: flow
                           operator: equals
                           value: userInitiatedPasswordReset
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
+                    endpoint:
+                      uri: https://myextension.com/pre-update-profile
+                      authentication:
+                        type: API_KEY
+                    attributes:
+                      - http://wso2.org/claims/givenname
+                      - http://wso2.org/claims/dob
+                    rule:
+                      condition: OR
+                      rules:
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: adminInitiatedProfileUpdate
+                            - field: claim
+                              operator: notEquals
+                              value: http://wso2.org/claims/country
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: userInitiatedProfileUpdate
         '400':
           description: Bad Request
           content:
@@ -235,7 +323,7 @@ paths:
             -H 'Authorization: Bearer {bearer_token}' \
             -H 'Content-Type: application/json' \
             -d '{
-                "name": "Access Token Pre Issue",
+                "name": "Pre Issue Access Token",
                 "description": "This action invokes before issuing an access token.",
                 "endpoint": {
                     "uri": "https://myextension.com/token",
@@ -245,7 +333,9 @@ paths:
                             "password": "auth_password"
                         },
                         "type": "BASIC"
-                    }
+                    },
+                    "allowedHeaders": [ "x-geo-location", "host" ],
+                    "allowedParameters": [ "device-id" ]
                 }
             }'
         - lang: Curl - preUpdatePassword
@@ -268,7 +358,28 @@ paths:
                 },
                 "passwordSharing": {
                     "format": "SHA256_HASHED"
-                }
+                },
+                "attributes": ["http://wso2.org/claims/givenname", "http://wso2.org/claims/dob"]
+            }'
+        - lang: Curl - preUpdateProfile
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/preUpdateProfile' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "name": "Profile Update Action",
+                "description": "This action invokes before updating a user profile.",
+                "endpoint": {
+                    "uri": "https://myextension.com/pre-update-profile",
+                    "authentication": {
+                        "properties": {
+                            "header": "x-api-key",
+                            "value": "e12595c1-1435-4bf2-94e8-445135ab505a"
+                        },
+                        "type": "API_KEY"
+                    }
+                },
+                "attributes": ["http://wso2.org/claims/givenname", "http://wso2.org/claims/dob"]
             }'
       x-codegen-request-body-name: body
 
@@ -303,9 +414,11 @@ paths:
                   value:
                   - id: 24f64d17-9824-4e28-8413-de45728d8e84
                     type: PRE_ISSUE_ACCESS_TOKEN
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -318,10 +431,26 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
                       rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: ACTIVE
+                      createdAt: 2025-08-01T12:00:00Z
+                      updatedAt: 2025-09-01T13:00:00Z
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
@@ -394,13 +523,20 @@ paths:
                   value:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
                     type: PRE_ISSUE_ACCESS_TOKEN
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/token
                       authentication:
                         type: BASIC
+                      allowedHeaders:
+                        - x-geo-location
+                        - host
+                      allowedParameters:
+                        - device-id
                     rule:
                       condition: OR
                       rules:
@@ -425,6 +561,8 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/pre-update-password
                       authentication:
@@ -432,6 +570,9 @@ paths:
                     passwordSharing:
                       format: SHA256_HASHED
                       certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    attributes:
+                      - http://wso2.org/claims/givenname
+                      - http://wso2.org/claims/dob
                     rule:
                       condition: OR
                       rules:
@@ -448,6 +589,39 @@ paths:
                         - field: flow
                           operator: equals
                           value: userInitiatedPasswordReset
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    type: PRE_UPDATE_PROFILE
+                    name: Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
+                    endpoint:
+                      uri: https://myextension.com/pre-update-profile
+                      authentication:
+                        type: API_KEY
+                    attributes:
+                      - http://wso2.org/claims/givenname
+                      - http://wso2.org/claims/dob
+                    rule:
+                      condition: OR
+                      rules:
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: adminInitiatedProfileUpdate
+                            - field: claim
+                              operator: notEquals
+                              value: http://wso2.org/claims/country
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: userInitiatedProfileUpdate
         '400':
           description: Bad Request
           content:
@@ -514,7 +688,7 @@ paths:
               preIssueAccessToken:
                 summary: Sample payload for pre issue access token action update
                 value:
-                  name: Updated Access Token Pre Issue
+                  name: Updated Pre Issue Access Token
                   description: This action invokes before issuing an access token.
                   endpoint:
                     uri: https://myextension.com/external/token
@@ -522,6 +696,11 @@ paths:
                       properties:
                         token: 346dfbb5-6a8c-447a-9aaa-88fa2dd95962
                       type: BEARER
+                    allowedHeaders:
+                      - x-geo-location
+                      - host
+                    allowedParameters:
+                      - device-id
                   rule:
                     condition: OR
                     rules:
@@ -546,6 +725,8 @@ paths:
                   passwordSharing:
                     format: PLAIN_TEXT
                     certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                  attributes:
+                    - http://wso2.org/claims/dob
                   rule:
                     condition: OR
                     rules:
@@ -557,6 +738,29 @@ paths:
                       - field: flow
                         operator: notEquals
                         value: adminInitiatedPasswordUpdate
+              preUpdateProfile:
+                summary: Sample payload for pre update profile action update
+                value:
+                  name: Updated Profile Update Action
+                  description: This action invokes before updating a user profile.
+                  endpoint:
+                    uri: https://myextension.com/external/pre-update-profile
+                    authentication:
+                      properties: {}
+                      type: NONE
+                  attributes:
+                    - http://wso2.org/claims/dob
+                  rule:
+                    condition: OR
+                    rules:
+                      - condition: AND
+                        expressions:
+                          - field: flow
+                            operator: equals
+                            value: userInitiatedProfileUpdate
+                          - field: claim
+                            operator: notEquals
+                            value: http://wso2.org/claims/postalcode
         description: This represents the action to be updated.
         required: true
       responses:
@@ -571,13 +775,20 @@ paths:
                   summary: Sample response for pre issue access token action
                   value:
                     id: 24f64d17-9824-4e28-8413-de45728d8e84
-                    name: Updated Access Token Pre Issue
+                    name: Updated Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/external/token
                       authentication:
                         type: BEARER
+                      allowedHeaders:
+                        - x-geo-location
+                        - host
+                      allowedParameters:
+                        - device-id
                     rule:
                       condition: OR
                       rules:
@@ -596,6 +807,8 @@ paths:
                     name: Updated Password Update Action
                     description: This action invokes before updating a user password.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     endpoint:
                       uri: https://myextension.com/external/pre-update-password
                       authentication:
@@ -603,6 +816,8 @@ paths:
                     passwordSharing:
                       format: PLAIN_TEXT
                       certificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lFWlhCR0NUQU5CZ2txaGtpRzl3MEJBUXNGQURCaU1Rc3dDUVlEVlFRR0V3SlYNClV6RUxNQWtHQTFVRUNBd0NRMEV4RkRBU0JnTlZCQWNNQzFOaGJuUmhJRU5zWVhKaE1RMHdDd1lEVlFRS0RBUlgNClUwOHlNUTB3Q3dZRFZRUUxEQVJYVTA4eU1SSXdFQVlEVlFRRERBbHNiMk5oYkdodmMzUXdIaGNOTWpNeE1qQTINCk1EazFPVE0zV2hjTk1qVXdNVEEzTURrMU9UTTNXakJpTVFzd0NRWURWUVFHRXdKVlV6RUxNQWtHQTFVRUNBd0MNClEwRXhGREFTQmdOVkJBY01DMU5oYm5SaElFTnNZWEpoTVEwd0N3WURWUVFLREFSWFUwOHlNUTB3Q3dZRFZRUUwNCkRBUlhVMDh5TVJJd0VBWURWUVFEREFsc2IyTmhiR2h2YzNRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUINCkR3QXdnZ0VLQW9JQkFRQ2E0amx3OEtyWHMzOTZTdktmVFEwMkllUm9hWnF1ZWtvSlNpdzBsOWU5QkkyRWF2blQNCkc4SnlvcDh6MnJPcjZDNmpqZGdVeXR6NWpCaG9wYmdmeHJQMmkwTkd1akpGTE5uU1U4cmNoRDJUSjlRbzh0V3YNCmZqQUtDL1VsUnhTb0VyT1RkejdYUzFDY1BmNm9RZk56TVo2QnkyOXpmSVN1QytyV25qTHFUM002ejBGMGIzK20NCm9paVpmUTA1RjAwaHd6U0U5V0JsTCtHUnh3cHlRUVl3c2JHZlordmlJM0VHdjdzUnYreHFwTFBoVzVTTHpoR3oNCnNaaTlDME0wRzFqYnZWMWQrUFkwTVRoRTYwcmthdmpNKytSUkJlc29pNUprblprc0F0OWhPcXhZM0ExSU1kREENCk5wZEtxaGRGMWFBeURYK3ZUWkZySGZMc3VFQmVjNVBwM3RJWEFnTUJBQUdqWmpCa01BNEdBMVVkRHdFQi93UUUNCkF3SUU4REFVQmdOVkhSRUVEVEFMZ2dsc2IyTmhiR2h2YzNRd0hRWURWUjBPQkJZRUZIWFhWMm5sb2ZoaThXd2oNCncwRW9hRlNZbldiU01CMEdBMVVkSlFRV01CUUdDQ3NHQVFVRkJ3TUJCZ2dyQmdFRkJRY0RBakFOQmdrcWhraUcNCjl3MEJBUXNGQUFPQ0FRRUFSZThESThuNzJlVWxReTlHU3BpeXh2OFFVSEZkaVFhMW5CVzluVlRaZHlKb1NYMHENCmg2TjN4Vk5KWFIzL3pMdkw4TUJWTXZqa3QwT1FxdkVpeWp3bkVXTzZEYnhUUnIzdmRmK3J2NVZ3ZGtZbjRNY00NCkt4NHhGOFphZzh4aHlhWXFVUXpRWG5nNTFyVjErYzR1elh1Z0VoRTVTemRESFlFWHpYNmpvWklnMXlOK2hFUGMNCjc3UlpKSkhtd0lRclRkM2JuWnB5dEI2UmRCam5qU3loMEJlSGxKUUdtUHhvbXhZQVMxaFZzelJkZld0cnhEQUINCmZsSUppbUppSGgzZHlrY3lObHJ3QnU5MDNwTWRVR1FHcXNVeUVqaEZkN3M0QXp1cVlISnI1cll5OTUwZGY5SWINCllTaHUyWWZsVkVzV1pxSlI2MkNpYldCY0pLeUhQWW10QzBjU1JRPT0NCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+                    attributes:
+                      - http://wso2.org/claims/dob
                     rule:
                       condition: OR
                       rules:
@@ -614,6 +829,32 @@ paths:
                         - field: flow
                           operator: notEquals
                           value: adminInitiatedPasswordUpdate
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    id: 24f64d17-9824-4e28-8413-de45728d8e84
+                    name: Updated Profile Update Action
+                    description: This action invokes before updating a user profile.
+                    status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
+                    endpoint:
+                      uri: https://myextension.com/external/pre-update-profile
+                      authentication:
+                        type: NONE
+                    attributes:
+                      - http://wso2.org/claims/dob
+                    rule:
+                      condition: OR
+                      rules:
+                        - condition: AND
+                          expressions:
+                            - field: flow
+                              operator: equals
+                              value: userInitiatedProfileUpdate
+                            - field: claim
+                              operator: notEquals
+                              value: http://wso2.org/claims/postalcode
         '400':
           description: Bad Request
           content:
@@ -650,7 +891,7 @@ paths:
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}' \
             -d '{
-                "name": "Access Token Pre Issue action",
+                "name": "Pre Issue Access Token action",
                 "description": "This is the configuration of pre-action for issuing access token from myextensions.com.",
                 "endpoint": {
                     "uri": "http://myextensions.com/access-token",
@@ -660,7 +901,9 @@ paths:
                             "header": "sample_header",
                             "value": "sample_value"
                         }
-                    }
+                    },
+                    "allowedHeaders": [ "x-geo-location", "host" ],
+                    "allowedParameters": [ "device-id" ]
                 }
             }'
         - lang: Curl - preUpdatePassword
@@ -681,7 +924,26 @@ paths:
                 },
                 "passwordSharing": {
                     "format": "PLAIN_TEXT"
-                }
+                },
+                "attributes": ["http://wso2.org/claims/dob"]
+            }'
+        - lang: Curl - preUpdateProfile
+          source: |
+            curl --location --request PATCH 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/actions/preUpdateProfile/{actionId}' \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+                "name": "Updated Profile Update Action",
+                "description": "This is the configuration of pre-action for updating profile",
+                "endpoint": {
+                    "uri": "http://myextensions.com/external/pre-update-profile",
+                    "authentication": {
+                        "type": "NONE",
+                        "properties": {}
+                    }
+                },
+                "attributes": ["http://wso2.org/claims/dob"]
             }'
       x-codegen-request-body-name: body
 
@@ -778,9 +1040,11 @@ paths:
                   value:
                   - id: 24f64d17-9824-4e28-8413-de45728d8e84
                     type: PRE_ISSUE_ACCESS_TOKEN
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -793,10 +1057,26 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: ACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
                       rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: ACTIVE
+                      createdAt: 2025-08-01T12:00:00Z
+                      updatedAt: 2025-09-01T13:00:00Z
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
@@ -869,9 +1149,11 @@ paths:
                   value:
                   - id: 24f64d17-9824-4e28-8413-de45728d8e84
                     type: PRE_ISSUE_ACCESS_TOKEN
-                    name: Access Token Pre Issue
+                    name: Pre Issue Access Token
                     description: This action invokes before issuing an access token.
                     status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preIssueAccessToken/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
@@ -884,10 +1166,26 @@ paths:
                     name: Password Update Action
                     description: This action invokes before updating a user password.
                     status: INACTIVE
+                    createdAt: 2025-08-01T12:00:00Z
+                    updatedAt: 2025-09-01T13:00:00Z
                     links:
                     - href: "/api/server/v1/actions/preUpdatePassword/24f64d17-9824-4e28-8413-de45728d8e84"
                       method: GET
                       rel: self
+                preUpdateProfile:
+                  summary: Sample response for pre update profile action
+                  value:
+                    - id: 24f64d17-9824-4e28-8413-de45728d8e84
+                      type: PRE_UPDATE_PROFILE
+                      name: Profile Update Action
+                      description: This action invokes before updating a user profile.
+                      status: INACTIVE
+                      createdAt: 2025-08-01T12:00:00Z
+                      updatedAt: 2025-09-01T13:00:00Z
+                      links:
+                        - href: "/api/server/v1/actions/preUpdateProfile/24f64d17-9824-4e28-8413-de45728d8e84"
+                          method: GET
+                          rel: self
         '400':
           description: Bad Request
           content:
@@ -942,7 +1240,7 @@ components:
   schemas:
     ActionType:
       type: string
-      description: Action types supported. As of now only 'PRE_ISSUE_ACCESS_TOKEN' is implemented.
+      description: Action types supported.
       enum:
         - PRE_ISSUE_ACCESS_TOKEN
         - PRE_UPDATE_PASSWORD
@@ -984,6 +1282,18 @@ components:
           example: https://myextension.com/token
         authentication:
           $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host"]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id"]
 
     EndpointResponse:
       type: object
@@ -999,6 +1309,18 @@ components:
           example: https://myextension.com/token
         authentication:
           $ref: '#/components/schemas/AuthenticationTypeResponse'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host" ]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id" ]
 
     ActionResponse:
       type: object
@@ -1014,7 +1336,7 @@ components:
           minLength: 1
           maxLength: 255
           description: Name of the action.
-          example: Access Token Pre Issue
+          example: Pre Issue Access Token
         description:
           type: string
           maxLength: 255
@@ -1027,6 +1349,14 @@ components:
             - INACTIVE
           description: Status of the action.
           example: ACTIVE
+        createdAt:
+          type: string
+          description: Created time of the action.
+          example: "2025-08-01T12:00:00Z"
+        updatedAt:
+          type: string
+          description: Last updated time of the action.
+          example: "2025-09-01T13:00:00Z"
         endpoint:
           $ref: '#/components/schemas/EndpointResponse'
         rule:
@@ -1058,6 +1388,14 @@ components:
             - ACTIVE
             - INACTIVE
           description: Status of the action.
+        createdAt:
+          type: string
+          description: Created time of the action.
+          example: "2025-08-01T12:00:00Z"
+        updatedAt:
+          type: string
+          description: Last updated time of the action.
+          example: "2025-09-01T13:00:00Z"
         links:
           type: array
           items:
@@ -1213,10 +1551,21 @@ components:
           type: string
           pattern: '^https?://.+'
           description: Updating HTTPS URI of the endpoint.
-          example: https://myextension.com/token
-          
+          example: https://myextension.com/token 
         authentication:
           $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          description: List of HTTP headers to forward to the extension.
+          items:
+            type: string
+          example: [ "x-geo-location", "host" ]
+        allowedParameters:
+          type: array
+          description: List of parameters to forward to the extension.
+          items:
+            type: string
+          example: [ "device-id" ]
 
     ORRule:
       type: object
@@ -1331,5 +1680,4 @@ components:
         traceId:
           type: string
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
-        
           

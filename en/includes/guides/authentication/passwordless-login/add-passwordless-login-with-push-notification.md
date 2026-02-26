@@ -13,7 +13,7 @@ To configure push notifications as a passwordless authentication mechanism in {{
 
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
-- You need to configure a Push Provider in {{ product_name }}. If you haven't configured a Push Notification Provider yet, follow the instructions in the [Push Provider Configuration](#configuring-push-providers) guide.
+- You need to configure a Push Provider in {{ product_name }}. If you haven't configured a Push Notification Provider yet, follow the instructions in the [Push Provider Configuration]({{base_path}}/guides/notification-channels/configure-push-provider/) guide.
 
 - You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
 
@@ -59,28 +59,6 @@ To update the default Push Notification settings:
     </table>
 
 3. Once you update the Push Notification settings, click **Update**.
-
-## Configuring Push Providers
-
-To send push notifications from {{ product_name }}, you need to configure a Push Provider. {{ product_name }} supports **Firebase Cloud Messaging (FCM)** to send push notifications. With FCM, you can send push notifications to multiple platforms, including Android, iOS, and the web.
-
-!!! note
-    Firebase cloud messaging has the capability to send push notification to iOS devices through Apple Push Notification Service (APNs). However, you need to configure APNs separately to send push notifications to iOS devices.
-    For more information, [click here](https://firebase.google.com/docs/cloud-messaging/ios/client).
-
-Follow the below steps to configure FCM as your Push Provider:
-
-1. On the {{ product_name }} Console, go to **Notification Channels** and select **Push Providers**.
-
-    ![Notification channels page]({{base_path}}/assets/img/guides/mfa/push/push-providers-page.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-2. Upload the service-account.json file that you downloaded from Firebase when you created your Firebase project.
-
-    ![Configure Firebase]({{base_path}}/assets/img/guides/mfa/push/push-provider-configure-fcm.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-3. Click **Update** to save your changes.
-
-    ![Update Push Provider]({{base_path}}/assets/img/guides/mfa/push/push-provider-configured-fcm.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Enable push notifications login for an app
 

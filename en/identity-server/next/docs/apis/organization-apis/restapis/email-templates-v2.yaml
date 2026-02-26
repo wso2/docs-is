@@ -774,9 +774,6 @@ components:
     Updated:
       description: Item Updated.
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:

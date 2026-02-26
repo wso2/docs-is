@@ -52,7 +52,7 @@ paths:
             curl --location 'https://localhost:9443/o/api/server/v1/organizations/check-discovery' \
             -H 'Content-Type: application/json' \
             -H 'Accept: application/json' \
-            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Authorization: Bearer {bearer_token}' \
             -d '{
               "type": "emailDomain",
               "value": "abc.com"

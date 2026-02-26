@@ -11,7 +11,7 @@ This section describes some recommended performance tuning configurations to opt
 When it comes to performance, the OS that the server runs plays an important role.
 
 !!! info
-    If you are running on MacOS Sierra or High Sierra, and experiencing long start-up times for WSO2 Identity Server, try mapping your Mac hostname to `127.0.0.1` and `::1` in the `/etc/hosts` file.
+    If you are running on macOS Sierra or High Sierra, and experiencing long start-up times for WSO2 Identity Server, try mapping your Mac hostname to `127.0.0.1` and `::1` in the `/etc/hosts` file.
 
     ``` java
     127.0.0.1   localhost <my_computer_hostname>
@@ -236,3 +236,24 @@ Connection pooling does not apply to LDAPS connections (SSL-enabled LDAP connect
     ```
 
 4. Start the server.
+
+## SCIM2 roles pagination
+
+When retrieving roles from the SCIM2/Roles endpoint, WSO2 Identity Server returns all users assigned to each role by default. For roles containing many users, this can lead to performance bottlenecks and block processing threads.
+
+To optimize performance and prevent thread blocking issues, configure the max users returned per role.
+
+```toml
+[pagination]
+max_users_list_per_role = <NUMBER_OF_USERS>
+```
+
+**Configuration details:**
+
+- **Default value**: 1000 users per role (when not configured)
+- **Lowest value**: 1000 users (values below 1000 automatically default to 1000)
+- **Scope**: Applies to all roles, including the built-in `everyone` role
+- **Database dependency**: Adjust this value based on your database performance capabilities
+
+!!! tip
+    Check database performance when roles have many users. Start with the default value and adjust based on your environment's capacity.

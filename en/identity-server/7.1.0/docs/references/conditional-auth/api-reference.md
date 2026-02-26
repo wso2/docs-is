@@ -89,7 +89,8 @@ This method accepts an object as a parameter and should include the details list
   <tr>
     <td><code>&lteventCallbacks&gt</code></td>
     <td>(optional) The object that contains the callback functions, which are to be called based on the result of the step execution.<br />
-    Supported results are <code>onSuccess</code> and <code>onFail</code> which can have their own optional callbacks as anonymous functions. For these callbacks, the [context](#context) and [data](#data) parameters are passed.
+    Supported results are <code>onSuccess</code> and <code>onFail</code> which can have their own optional callbacks as anonymous functions. For these callbacks, the [context](#context) and [data](#data) parameters are passed.<br />
+    If the flow reaches the eventCallback stage and additional steps need to be executed, those steps should be included within the callback itself.
     </td>
   </tr>
 </table>

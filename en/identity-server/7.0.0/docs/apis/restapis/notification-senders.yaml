@@ -71,7 +71,7 @@ paths:
         - Email Senders
       summary: Create an email sender
       description: |
-        This API provides the capability to create an email sender.\n\nIf the 'name' is not not defined, 'EmailPublisher' is taken as the default name. <br>
+        This API provides the capability to create an email sender.\n\nIf the 'name' is not defined, 'EmailPublisher' is taken as the default name. <br>
         
         <b>Scope(Permission) required:</b> `internal_notification_senders_create`
       operationId: createEmailSender
@@ -410,7 +410,7 @@ paths:
       summary: Create a SMS sender
       description: |
         This API provides the capability to create a SMS sender.
-        If the 'name' is not not defined, 'SMSPublisher' is taken as the default name.<br>
+        If the 'name' is not defined, 'SMSPublisher' is taken as the default name.<br>
         
         <b>Scope(Permission) required:</b> `internal_notification_senders_create`
       operationId: createSMSSender

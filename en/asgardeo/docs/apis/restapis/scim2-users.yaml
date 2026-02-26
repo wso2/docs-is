@@ -29,7 +29,7 @@ paths:
           type: string
       - name: filter
         in: query
-        description: The expression used for filtering. Supported filters are ‘Ew’, ‘Eq’, ‘Co’, ‘Sw’, and ‘and’.
+        description: The expression used for filtering. Supported filters are ‘Ew’, ‘Eq’, ‘Co’, ‘Sw’, ‘Ne’ and ‘and’.
         schema:
           type: string
       - name: startIndex
@@ -72,16 +72,19 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Users' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Users' \
             -H 'accept: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}'                 
     post:
       tags:
       - Users Endpoint
       summary: Create User
-      description: "This API creates a user and returns the user details along with the user's unique ID.\n\n
-      - <b>Scope(Permission) required:</b> ``internal_user_mgt_create``\n\n
-      - <b>Flow type:</b> Client Credentials OAuth Flow"
+      description: "This API creates a user and returns the user details along with\
+        \ the user's unique ID.\n\n\
+        You can create a user in two ways:\n\
+        1. **Set a password for the user**: Include the `password` parameter in the request body to set an initial password for the user.\n\
+        2. **Invite the user to set their own password**: Set the `askPassword` parameter to `true` in the `urn:scim:wso2:schema` extension. An email will be sent to the user with instructions to set their password and confirm their account.\n\n
+        \n<b>Scope(Permission) required:</b>`internal_user_mgt_create`\n    \n"
       operationId: createUser
       parameters:
       - name: attributes
@@ -137,7 +140,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Users' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Users' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -203,7 +206,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'POST' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/.search' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Users/.search' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -276,7 +279,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/{user-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Users/{user-id}' \
             -H 'accept: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}'                   
     put:
@@ -339,7 +342,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PUT' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/{user-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Users/{user-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -404,7 +407,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/{user-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Users/{user-id}' \
             -H 'accept: */*' \
             -H 'Authorization: Bearer {bearer_token}'                 
     patch:
@@ -468,7 +471,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'PATCH' \
-            'https://api.asgardeo.io/o/{organization-name}/scim2/Users/{user-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Users/{user-id}' \
             -H 'accept: application/scim+json' \
             -H 'Content-Type: application/scim+json' \
             -H 'Authorization: Bearer {bearer_token}' \
@@ -585,6 +588,8 @@ components:
                   example: Taylor
         urn:scim:wso2:schema:
           type: object
+          required:
+            - askPassword
           properties:
             askPassword:
               type: boolean
@@ -678,19 +683,15 @@ components:
       type: object
       properties:
         schemas:
-          type: object
-          items:
-            type: string
-            example:
+          type: array
+          example:
             - urn:ietf:params:scim:api:messages:2.0:SearchRequest
         attributes:
           type: array
           description: SCIM defined attributes parameter.
-          items:
-            type: string
-            example:
-              - name.familyName
-              - userName
+          example:
+            - name.familyName
+            - userName
         filter:
           type: string
           description: The expression used for filtering. Supported filters are <code>ew</code>, <code>eq</code>, <code>co</code>, <code>sw</code>, and <code>and</code>.

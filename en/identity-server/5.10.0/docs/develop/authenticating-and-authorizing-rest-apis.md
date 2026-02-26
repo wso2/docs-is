@@ -10,6 +10,11 @@ service based on its own handlers.
 
 -   WSO2 Identity Server supports three ways of API authentication. 
     -   Basic authentication: Uses the user’s credentials in the API invocation
+
+        !!! warning "Avoid using super admin credentials for API authentication"
+
+            When invoking APIs using basic authentication, never use the super admin or any high-privileged user credentials. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
+
     -   OAuth 2 common flows: Obtains a token using an oauth2 flow and uses it to invoke the API
     -   Client certificate-based: Uses Mutual SSL to authenticate in order to consume the APIs
 

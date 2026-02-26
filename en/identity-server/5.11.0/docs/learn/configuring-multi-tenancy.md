@@ -14,7 +14,7 @@ In order to do this, Pickup can set up two tenants that share access to the same
 
 2. Navigate to `<IS_HOME>/bin` directory via a command prompt and start the server by executing one of the following commands.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 

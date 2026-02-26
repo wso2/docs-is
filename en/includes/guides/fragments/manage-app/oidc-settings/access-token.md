@@ -18,14 +18,41 @@
 
     ```json
     {
-    "access_token": "eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJBbGljYUBiaWZyb3N0LmNvbSIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwibmJmIjoxNjIzOTA0ODA1LCJhenAiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwic2NvcGUiOiJvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuYXNnYXJkZW8uaW9cL3RcL2JpZnJvc3RcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MjM5MDg0MDUsImlhdCI6MTYyMzkwNDgwNSwianRpIjoiOWZhYzc3NDctYmIyZC00NmJlLWJlZjItYTk1YjJmNjlmOGIyIn0.ETimDfsoXiV2wqkCy7ZWZ-cO3mK8VaGKXvbBeFd8hh5TceGppRvrOs_0Kxez6p8gVRTrCbv-iBIrJFikl_I_euqTk30-JfPxvh0ox5RxY_4nsXs8GGycJwL40XfssE5BLlFSff2YIsbvy6Mbih8_Jerb-RA6j7cAZSII_T-4ATD7mk9DeXmK_-jwqBoyH0UNtAxJKLgfIs8G2yIiioaS4rSnX8tEGGvPvcaDzeTdNx2RNKod_EYlWDNJVtJHUf61lstu4WSA0pdHyP5_Fpbhe4pu_FaXeSMyAwsHYIENWVarB8kknvyUnL51lkoOrIJaSHRjqIbSNteIJ3QyEQ-a8Q",
+    "access_token": "eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJhdCtqd3QifQ.eyJzdWIiOiJBbGljYUBiaWZyb3N0LmNvbSIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwibmJmIjoxNjIzOTA0ODA1LCJhenAiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwic2NvcGUiOiJvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuYXNnYXJkZW8uaW9cL3RcL2JpZnJvc3RcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MjM5MDg0MDUsImlhdCI6MTYyMzkwNDgwNSwianRpIjoiOWZhYzc3NDctYmIyZC00NmJlLWJlZjItYTk1YjJmNjlmOGIyIn0.ETimDfsoXiV2wqkCy7ZWZ-cO3mK8VaGKXvbBeFd8hh5TceGppRvrOs_0Kxez6p8gVRTrCbv-iBIrJFikl_I_euqTk30-JfPxvh0ox5RxY_4nsXs8GGycJwL40XfssE5BLlFSff2YIsbvy6Mbih8_Jerb-RA6j7cAZSII_T-4ATD7mk9DeXmK_-jwqBoyH0UNtAxJKLgfIs8G2yIiioaS4rSnX8tEGGvPvcaDzeTdNx2RNKod_EYlWDNJVtJHUf61lstu4WSA0pdHyP5_Fpbhe4pu_FaXeSMyAwsHYIENWVarB8kknvyUnL51lkoOrIJaSHRjqIbSNteIJ3QyEQ-a8Q",
     "scope": "openid",
     "id_token": "eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiJhYjdlMDNlMGQ3MzlkNmVlNmQxYTJkMGYwMTk0NDJiZDJiMDE5MDQyNjhiYzY5ZTkyYTg3OTViMjViYmU1NTdkIiwiYXRfaGFzaCI6IjZSWkQ4a2lZYkFpZkh4OENldWJUcXciLCJhdWQiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwiY19oYXNoIjoiWjVPXzk5cmZFSkFabjJSUl9yTEhxZyIsInN1YiI6IkFsaWNhQGJpZnJvc3QuY29tIiwibmJmIjoxNjIzOTA0ODA1LCJhenAiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuYXNnYXJkZW8uaW9cL3RcL2JpZnJvc3RcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MjM5MDg0MDUsImlhdCI6MTYyMzkwNDgwNSwic2lkIjoiOTE3MzQzOGQtNDFlNy00MmFhLWFmZTctNjlkNDM3Njk1NTRlIn0.f9rTgJtDD6VAUQ1fXZCbiUtg66B0Q5nNSgGTIbrCI6aBC8sn2QmhI4YFqXntj72b2T7-TTYXiY4k6iQH665Oc_KfhxJIwrCW4X96h6dMMHcDMQYuP5blZNMuP8fi42sFAVgAUcs4B5Lfq-nIiPrqO90XGJVyrzJEdSoGsgbX9fg6HWbx016Shla2oKeVzsvZra6uflk4S1bsEVnk5gmRjZ25Vueqtb5qJW291i38-dKhO6FDEkAJyw_QWG6nK_ZpOMx4GW6qj0GTEKrC_TuUTp5hUX1xUnpLRFHcN8WAQoe7_g6JyLOUQzQSFTr-CniwwftwnK0DcGq916bRPvTEjw",
     "token_type": "Bearer",
     "expires_in": 3600
     }
     ```
-    <br>
+
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+    !!! note
+        By default, the `scope` claim in JWT access tokens uses a space-separated string format (e.g., `"scope": "openid profile email"`). This format complies with the **JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens ([RFC 9068](https://www.rfc-editor.org/rfc/rfc9068.html))**.
+
+        You can change this to a JSON array format (e.g., `"scope": ["openid", "profile", "email"]`), but this is **not recommended** as it deviates from the standard specification.
+
+        If you still require this configuration, it can be applied at two levels:
+
+        - **Application level**: Set the `enableJwtScopeAsArray` property in the application's `accessToken` configuration via the [Application Management API]({{base_path}}/apis/{% if product_name == "Asgardeo" %}application-management{% else %}application-rest-api{% endif %}/). This overrides the organization-level setting for the specific application.
+        {% if product_name == "WSO2 Identity Server" %}
+        - **Organization level**: Use the [Server Configuration API]({{base_path}}/apis/configs-rest-api/#tag/Inbound-Authentication-Configurations/operation/updateOAuth2InboundAuthConfig) to set the `enableJwtScopeAsArray` property. This applies to all applications in the organization unless overridden at the application level.
+        {% endif %}
+        {% if product_name == "Asgardeo" %}
+        - **Organization level**: Set the `enableJwtScopeAsArray` property via the following API. This applies to all applications in the organization unless overridden at the application level.
+
+            Get an access token with the `internal_config_update` scope and use it to execute the following cURL:
+
+            ``` curl
+            curl --location --request PATCH 'https://api.asgardeo.io/t/<organization_name>/api/server/v1/configs/authentication/inbound/oauth2' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer <access_token>' \
+            --data '{
+                "enableJwtScopeAsArray": true
+            }'
+            ```
+        {% endif %}
+    {% endif %}
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 #### Access Token Attributes

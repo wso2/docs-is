@@ -1,3 +1,4 @@
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
 # Try a B2B use case
 
 The following guide is a complete end-to-end use case on how to manage B2B (Business-to-Business) applications in {{ product_name }}.
@@ -508,3 +509,9 @@ To do so, follow the [sales-led approach]({{base_path}}/guides/organization-mana
     {{ user_details }}
 
 2. Assign the created user to the **Guardio Administrator** role of the shared **Guardio-Admin-App** application.
+
+{% else %}
+
+{% include "./try-a-b2b-use-case-pet-care.md" %}
+
+{% endif %}

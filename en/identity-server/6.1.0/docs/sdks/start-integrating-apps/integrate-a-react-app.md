@@ -8,7 +8,7 @@ Only customer users can log in to applications. [Create a user account]({{base_p
 
 To add CORS configurations:
 
-1. Open the `deployment.toml` file found in the `<IS-Home>/repository/conf/` directory, and add the following configuration.
+1. Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory, and add the following configuration.
 
     ``` toml
     [cors]
@@ -67,7 +67,7 @@ Follow this step, only if you are running the WSO2 Identity Server on a custom d
 4. Click **Update** to complete the configuration.
 
 ## Download the sample
-Download the latest release of the [sample react application](https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/latest/download/asgardeo-react-app.zip).
+Download the latest release of the [sample react application](https://github.com/asgardeo/asgardeo-auth-react-sdk/releases/download/v5.2.3/asgardeo-react-app.zip).
 
 ## Configure the sample
 Change the `config.json` file found in the `asgardeo-react-app/src` sample folder with the relevant values.

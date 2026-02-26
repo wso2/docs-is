@@ -45,7 +45,7 @@ the attestation services provided by these platforms to verify the legitimacy of
 6. Click **Update** to save the changes.
 
 !!! tip "Using client attestation in the request"
-    The client application should obtain the attestation object from the platform and pass it to {{product_name}} via the `x-client-attestation` header in the initial authentication request.
+    The client application should retrieve the attestation object (for iOS) or the integrity token (for Android) from the respective platform and pass it to {{product_name}} via the x-client-attestation header in the initial authentication request.
 
     === "Sample request"
 

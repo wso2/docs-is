@@ -134,7 +134,7 @@ The application goes through the following steps to complete app-native authenti
     !!! important
         Push notification based authentication does not require any user input like other authenticators do. If the user
         has a device registered to receive push notifications, the notification will be sent during the execution of the
-        authenticator. Hence, If you are getting the above response for the first step, it means that the push authenitcator
+        authenticator. Hence, If you are getting the above response for the first step, it means that the push authenticator
         has been executed and the notification has been already sent.
 
 - **Step 3**: Ping to the status endpoint to check the status of the ongoing push authentication request.
@@ -147,7 +147,7 @@ The application goes through the following steps to complete app-native authenti
       2. **COMPLETED**: The push authentication request has been received and successfully processed by {{product_name}}.
 
     !!! note
-        This step is only applicable for the push notificaion based authenticator and not part of the default app native authentication flow.
+        This step is only applicable for the push notification based authenticator and not part of the default app native authentication flow.
 
     Once the status changes to **COMPLETED**, proceed with the next /authn request as outlined in the subsequent step.
 

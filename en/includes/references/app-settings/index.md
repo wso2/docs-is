@@ -11,5 +11,9 @@
       <img src="../../assets/img/logo/saml-logo.svg" alt="SAML" />
       <span>SAML</span>
     </a>
+    <a href="../../references/app-settings/ws-federation-settings-for-app" class="card square">
+      <img src="../../assets/img/logo/ws-fed.svg" alt="WS-Federation" />
+      <span>WS-Federation</span>
+    </a>
   </div>
 </div>

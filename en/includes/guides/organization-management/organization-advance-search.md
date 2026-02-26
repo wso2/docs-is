@@ -8,6 +8,17 @@ There are two ways to search for an organization:
 
     ![organizations]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-advance-search-dropdown.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+   {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+      By checking the **Search in nested levels** checkbox in the Advanced Search Dropdown, you can search for an organization in the nested levels instead of just the immediate level organizations.
+
+      ![nested-level-organization-search]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-nested-level-search.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+      Click the **View details** icon of the search result to view the exact path where the organization exists.
+
+      ![organization-path-details]({{base_path}}/assets/img/guides/organization/manage-organizations/organization-path-details.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+   {% endif %}
+
 2. Using the **Search Bar**.
 
     You can type the search query directly into the search bar.

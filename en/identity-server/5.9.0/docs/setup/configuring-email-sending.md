@@ -7,7 +7,7 @@ notifications](../../learn/enabling-notifications-for-user-operations),
 [account recovery](../../learn/password-recovery).
 
 1.  Shut down the server if it is running.
-2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
+2.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to configure the email server.
 
     ```toml
     [output_adapter.email]
@@ -27,8 +27,8 @@ notifications](../../learn/enabling-notifications-for-user-operations),
     | `               password                        ` | Provide the password of the SMTP account. <br/> Password of the mail you have provided in **from_address**     |
     | `               host                        ` | The SMTP server to connect to. |
     | `               port                         `|The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25. |
-   | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust theserver's certificate. Defaults to false.
-   | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to false.
+   | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust the server's certificate. Defaults to true.
+   | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to true.
     
     !!! Tip 
         For information about the SMTP, see

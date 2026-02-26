@@ -100,7 +100,7 @@ To configure a remote user store for your organization:
 
     ![Register remote user store to Asgardeo]({{base_path}}/assets/img/guides/user-stores/register-user-store-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. If the [optimized connection](#optimized-user-store-connection) supports your use case, this is the recommended choice. If not, click **Classic User Store Connection** instead.
+3. If the [optimized connection](#optimized-user-store-connection-recommended) supports your use case, this is the recommended choice. If not, click **Classic User Store Connection** instead.
 
 4. Enter the following details about the user store.
     <table>
@@ -170,6 +170,12 @@ To configure a remote user store for your organization:
         {% endif %}
 
 6. Click **Finish** to complete the registration.
+
+!!! note
+
+    You can register only one remote user store per organization without an enterprise tier account. If you want to connect a different user store, [delete the existing user store]({{base_path}}/guides/users/user-stores/update-user-stores/#delete-a-remote-user-store) and register a new one.
+
+    If you're on the enterprise tier and need to connect more than one user store, please contact our support team through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"} or email us at `asgardeo-help@wso2.com`. We'll guide you through the process.
 
 ### Set up the remote user store
 

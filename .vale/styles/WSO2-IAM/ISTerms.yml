@@ -1,0 +1,7 @@
+extends: existence
+message: "'%s' is not allowed. Use 'WSO2 Identity Server' instead."
+level: error
+ignorecase: false
+tokens:
+  - '\bWSO2 IS\b'
+  - '\bIS\b'

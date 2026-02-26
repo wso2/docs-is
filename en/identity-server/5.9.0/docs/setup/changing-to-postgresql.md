@@ -26,7 +26,7 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
 
 1.  **Minimum Configurations for changing default datasource to PostgreSQL.**
  
- Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Configurations can be done by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
       <table>
       <thead>
@@ -76,11 +76,11 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
        
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/postgresql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/postgresql.sql`
-           - `<IS-HOME>/dbscripts/consent/postgresql.sql`
+           - `<IS_HOME>/dbscripts/identity/postgresql.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/postgresql.sql`
+           - `<IS_HOME>/dbscripts/consent/postgresql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -98,15 +98,14 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
            
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/postgresql.sql`
+           - `<IS_HOME>/dbscripts/postgresql.sql`
            
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
-   4.  Download the Postgres JDBC driver for the version you are using and
-            copy it to the `<IS_HOME>/repository/components/lib` folder  
+   4.  Download the PostgreSQL JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
     
     !!! note     
         In earlier versions WSO2 Identity Server had the option to create databases automatically using the 
@@ -205,7 +204,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
 - **Configure the connection pool to commit pending transactions on connection return**  
         
       1.  Navigate to either one of the following locations based on your OS.
-            -   On Linux/Mac OS:
+            -   On Linux/macOS:
                 `                 <IS_HOME>/bin/wso2server.sh/                `
             -   On Windows:
                 `                 <IS_HOME>\bin\wso2server.bat                `

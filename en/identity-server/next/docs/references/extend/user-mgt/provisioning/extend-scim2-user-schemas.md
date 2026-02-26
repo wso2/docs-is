@@ -1,1 +1,0 @@
-{% include "../../../../../../../includes/references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md" %}

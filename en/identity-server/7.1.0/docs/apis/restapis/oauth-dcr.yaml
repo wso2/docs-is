@@ -21,6 +21,7 @@ paths:
         Get OAuth2 application information
       description: |
         This API is used to get/retrieve an OAuth2 application by client_name.
+        <b>Scope(Permission) required:</b> `internal_dcr_view`
       operationId: getApplicationByName
       parameters:
       - name: client_name
@@ -75,7 +76,7 @@ paths:
         grant types, you need to provide the redirect_uris field in your request.\
         \ If you are using any other grant type, \nsuch as password, you don't need\
         \ to send the redirect_uri field in the request. Check the sample request\
-        \ given below.\n"
+        \ given below.\n\n<b>Scope(Permission) required:</b> `internal_dcr_create`"
       operationId: registerApplication
       requestBody:
         description: Application information to register.
@@ -168,6 +169,7 @@ paths:
         Get OAuth2 application information
       description: |
         This API is used to get/retrieve an OAuth2 application by client_id.
+        <b>Scope(Permission) required:</b> `internal_dcr_view`
       operationId: getApplication
       parameters:
       - name: client_id
@@ -219,6 +221,7 @@ paths:
         Updates an OAuth2 application
       description: |
         This API is used to update an OAuth2 application.
+        <b>Scope(Permission) required:</b> `internal_dcr_update`
       operationId: updateApplication
       parameters:
       - name: client_id
@@ -303,6 +306,7 @@ paths:
         Delete OAuth2 application
       description: |
         This API is used to delete an OAuth2 application by client_id.
+        <b>Scope(Permission) required:</b> `internal_dcr_delete`
       operationId: deleteApplication
       parameters:
       - name: client_id

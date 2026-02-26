@@ -60,7 +60,7 @@ Be sure that the following prerequisites are fulfilled.
 
 ## Step 1: Set up the application
 
-Clone [this repository](https://github.com/LakshiAthapaththu/asgardeo-flutter-integration-demo/tree/custom-application) to get the sample application. At this initial stage, the application contains sign-in, view profile, and sign-out options that let you navigate the pages. User authentication is not implemented yet. Furthermore, all profile information is hard coded at the application level.
+Clone [this repository](https://github.com/asgardeo-samples/asgardeo-flutter-samples/tree/main/asgardeo-flutter-integration-demo) to get the sample application. At this initial stage, the application contains sign-in, view profile, and sign-out options that let you navigate the pages. User authentication is not implemented yet. Furthermore, all profile information is hard coded at the application level.
 
 In this tutorial, we will walk you through the process of adding authentication capabilities to the application using Asgardeo as the CIAM provider. You will also learn how to retrieve and display the profile information of an authenticated user.
 
@@ -397,4 +397,4 @@ In this tutorial, we demonstrated how to add authentication to a Flutter applica
 
 We also provided a detailed guide on how to configure the application on Asgardeo. Starting with a sample Flutter application without user authentication implemented, we modified the sign-in, sign-out, and user info retrieval methods to successfully integrate authentication and profile info retrieval capabilities using Asgardeo.
 
-The [completed source code](https://github.com/LakshiAthapaththu/asgardeo-flutter-integration-demo/tree/custom-application-asgardeo-integration) of the application.
+The [completed source code](https://github.com/asgardeo-samples/asgardeo-flutter-samples/tree/main/asgardeo-flutter-integration-demo) of the application.

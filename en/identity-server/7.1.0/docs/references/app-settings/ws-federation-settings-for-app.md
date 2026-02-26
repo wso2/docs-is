@@ -1,48 +1,61 @@
 # WS-Federation settings for apps
 
-You can find the WS-Federation protocol related settings under **protocol** section of the selected WS-Federation application.
+You can find the WS-Federation protocol related settings under **Protocol** section of the selected WS-Federation application.
   
 ![WS-Federation settings]({{base_path}}/assets/img/guides/applications/ws-federation/ws-federation-settings.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Basic settings
 
+To enable WS-Federation-based single sign-on (SSO), you need to configure the following key identifiers and endpoints.
+
 ### Realm
-WS-Federation realm is a unique identifier for the web app.
+
+The Realm is a unique identifier for your application. It tells {{product_name}} which application is requesting authentication. This must match the `wtrealm` parameter in the WS-Federation request.
 
 ### Reply URL
-This should be the Relying Party (RP) endpoint URL that handles the response.
+
+The Reply URL is the endpoint in your application where {{product_name}} sends the authentication response after a successful login. This should match the `wreply` parameter in the WS-Federation request and must be configured to handle the security token.
 
 ### Reply Logout URL
-This should be the Relying Party (RP) endpoint URL that handles the response at logout.
 
-<br>
+The Reply Logout URL is the endpoint in your application that receives the logout response from {{product_name}}.
 
 ## Advanced settings
 
+Use the following advanced settings to enhance the security and behavior of your WS-Federation integration.
+
 ### Certificate
-The certificate is used to validate signatures when authentication requests or logout requests from the application are signed.
-<br><br>
-You can either <b>Provide Certificate</b> or <b>Use JWKS endpoint</b> to add a certificate.
-<br>
-Follow the steps given below to Provide Certificate.
+
+If your application signs authentication or logout requests, {{product_name}} uses this certificate to verify their authenticity.
+
+You can either upload a certificate or use a JWKS endpoint to add a certificate.
+
+To upload a certificate:
 
 1. Select <b>Provide Certificate</b> and click <b>New Certificate</b>.
 
     ![Upload app certificate]({{base_path}}/assets/img/guides/applications/ws-federation/upload-certificate-of-app.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-2. Upload the certificate file or copy the certificate contents
-<br>
+    ??? note "Convert `.crt`, `.cer` or `.der` certificates to `.pen` using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
 
-??? note "If you have certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to convert your certs to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
-    **Convert CRT to PEM**
-    ```
-    openssl x509 -in cert.crt -out cert.pem
-    ```
-    **Convert CER to PEM:**
-    ```
-    openssl x509 -in cert.cer -out cert.pem
-    ```
-    **Convert DER to PEM:**
-    ```
-    openssl x509 -in cert.der -out cert.pem
-    ```
+        {{product_name}} only accepts certificates in the `.pem` format. To convert other certificates to `pem`, use one of the following commands.
+
+        - Convert CRT to PEM
+        
+            ```
+            openssl x509 -in cert.crt -out cert.pem
+            ```
+        
+        - Convert CER to PEM:
+        
+            ```
+            openssl x509 -in cert.cer -out cert.pem
+            ```
+        
+        - Convert DER to PEM:
+        
+            ```
+            openssl x509 -in cert.der -out cert.pem
+            ```
+
+2. Upload the certificate file or copy the certificate contents.

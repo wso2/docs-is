@@ -13,7 +13,7 @@ security realm.
 
 The responsibility of the identity provider configuration is to
 represent external identity providers. These external identity providers
-can be Facebook, Yahoo, Google, Salesforce, Microsoft Windows Live, etc.
+can be Facebook, Yahoo, Google, Salesforce, Microsoft login, etc.
 If you want to authenticate users against these identity providers, then
 you must associate one or more federated authenticators with the WSO2
 Identity Server. These identity providers support for different

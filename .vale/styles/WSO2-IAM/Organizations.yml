@@ -1,0 +1,6 @@
+extends: existence
+message: "Avoid using '%s'. Use 'organization' instead."
+ignorecase: true
+level: warning
+tokens:
+  - '\bsub[- ]organization\b'

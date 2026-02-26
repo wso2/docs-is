@@ -58,7 +58,7 @@ Follow the steps below to encrypt passwords:
     keystore_password = "xxxxxxx"
     key_password = "xxxxxxx"
     truststrore_password = "xxxxxxx"
-    "log4j2_password" = "xxxxxxx"
+    log4j2_password = "xxxxxxx"
     ```
 
 {% else %}
@@ -89,7 +89,7 @@ To encrypt passwords on the WSO2 Identity Server:
     keystore_password = "xxxxxxx"
     key_password = "xxxxxxx"
     truststrore_password = "xxxxxxx"
-    "log4j2_password" = "xxxxxxx"
+    log4j2_password = "xxxxxxx"
     ```
 
 {% endif %}
@@ -124,7 +124,7 @@ password = "$secret{keystore_password}"
 You may include encrypted passwords in the `log4j2.properties` file found in the `<IS_HOME>/repository/conf` directory. For example, you may set `log4j.appender.LOGEVENT.password` as shown below:
 
 ```
-log4j.appender.LOGEVENT.password=secretAlias:log4j2_password
+log4j.appender.LOGEVENT.password=$secret{log4j2_password}
 ```
 
 ## Change encrypted passwords
@@ -141,15 +141,15 @@ You may follow the steps below to change passwords that are already encrypted.
 
     === "Symmetric encryption"
 
-        - **For Linux**: `./ciphertool.sh -Dconfigure -Dsymmetric`
+        - **For Linux**: `./ciphertool.sh -Dchange -Dsymmetric`
 
-        - **For Windows**: `ciphertool.bat -Dconfigure -Dsymmetric`
+        - **For Windows**: `ciphertool.bat -Dchange -Dsymmetric`
 
     === "Asymmetric encryption"
 
-        - **For Linux**: `./ciphertool.sh -Dconfigure`
+        - **For Linux**: `./ciphertool.sh -Dchange`
 
-        - **For Windows**: `ciphertool.bat -Dconfigure`
+        - **For Windows**: `ciphertool.bat -Dchange`
 
 {% else %}
 
@@ -166,7 +166,7 @@ You may follow the steps below to change passwords that are already encrypted.
 
 6. The system will then prompt you (twice) to enter the new password. Enter your new password.
 
-{% if product_name == "WSO2 Identity Server" and is_version != "7.0..0" %}
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 ## Rotating Encryption Secrets
 
 !!! note

@@ -19,6 +19,14 @@
 .integrations-list-container {
     margin: auto;
     max-width: 1240px;
+
+    .sdk-type-heading  {
+        margin-bottom: 0;        
+    }
+
+    .sdk-type-description {
+        margin-top: 5px;
+    }
 }
 
 [data-md-color-scheme=slate] .integrations-list-item {
@@ -174,6 +182,49 @@
 
 .md-sidebar--secondary {
     display: none !important;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters > button {
+    cursor: pointer;
+    border: 1px solid var(--md-divider-color);
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: var(--md-default-fg-color)
+}
+
+.filters > button:hover {
+    border: 1px solid #ff7300;
+}
+
+.filters > button.active {
+  background-color: #ff7300;
+  color: var(--md-default-fg-color);
+}
+
+.flex-grid .integration-card.hidden {
+  display: none;
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid var(--md-divider-color);
+    border-radius: 55px;
+    cursor: text;
+    padding: 10px 20px;
+    width: 40vw;
+}
+
+.search-bar {
+    flex: 1;
+    padding-left: 10px;
+    background-color: var(--md-default-bg-color);
 }
 
 @media screen and (min-width: 76.25em) {

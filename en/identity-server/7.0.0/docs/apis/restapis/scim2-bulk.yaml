@@ -1,24 +1,24 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: SCIM 2.0 Bulk API
   description: |
     This document specifies **SCIM 2.0 Bulk Resource Management RESTful API** for **WSO2 Identity Server**.
   version: 1.0.0
 servers:
-- url: https://{serverUrl}/t/{tenantDomain}/scim2
-  variables:
-    serverUrl:
-      default: localhost:9443
-    tenantDomain:
-      default: carbon.super
+  - url: https://{serverUrl}/t/{tenantDomain}/scim2
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
 security:
-- OAuth2: []
-- BasicAuth: []
+  - OAuth2: []
+  - BasicAuth: []
 paths:
   /Bulk:
     post:
       tags:
-      - Bulk Endpoint
+        - Bulk Endpoint
       summary: Create/ Update/ Delete SCIM Resources (Users/ Groups/ Roles) in Bulk
       description: |
         This API is used to create/update/replace/delete SCIM resources in bulk. You need to specify different operations in the request payload corresponding to the type of bulk update: </br>
@@ -28,7 +28,7 @@ paths:
           - **DELETE** operation: Removes an existing resource.
         Learn more about [defining batch operations](../scim2-batch-operations).
 
-         <b>Scope(Permission) required:</b> `internal_bulk_mgt_create`
+         <b>Scope(Permission) required:</b> `internal_bulk_resource_create`
       operationId: createBulkUsers
       requestBody:
         content:
@@ -94,12 +94,14 @@ components:
       properties:
         failOnErrors:
           type: integer
-          example: 1
+          examples:
+            - 1
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:BulkRequest
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:BulkRequest
         Operations:
           type: array
           items:
@@ -109,13 +111,16 @@ components:
       properties:
         method:
           type: string
-          example: POST
+          examples:
+            - POST
         path:
           type: string
-          example: /Users
+          examples:
+            - /Users
         bulkId:
           type: string
-          example: ytrewq
+          examples:
+            - ytrewq
         data:
           type: object
           properties:
@@ -123,13 +128,16 @@ components:
               type: array
               items:
                 type: string
-                example: urn:ietf:params:scim:schemas:core:2.0:User
+                examples:
+                  - urn:ietf:params:scim:schemas:core:2.0:User
             username:
               type: string
-              example: jesse
+              examples:
+                - jesse
             password:
               type: string
-              example: jesspass
+              examples:
+                - jesspass
     BulkUserResponseObject:
       type: object
       properties:
@@ -137,7 +145,8 @@ components:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:BulkResponse
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:BulkResponse
         Operations:
           $ref: '#/components/schemas/OperationObBulk'
     OperationObBulk:
@@ -145,47 +154,57 @@ components:
       properties:
         bulkId:
           type: string
-          example: qwerty
+          examples:
+            - qwerty
         method:
           type: string
-          example: POST
+          examples:
+            - POST
         location:
           type: string
-          example: https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1
+          examples:
+            - https://localhost:9443/scim2/Users/81cbba1b-c259-485d-8ba4-79afb03e5bd1
         status:
           type: object
           properties:
             code:
               type: string
-              example: "201"
+              examples:
+                - "201"
     ErrorUnauthorized:
       required:
-      - status
+        - status
       type: object
       properties:
         status:
           type: string
-          example: "401"
+          examples:
+            - "401"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Unauthorized
+          examples:
+            - Unauthorized
     ErrorForbidden:
       required:
-      - status
+        - status
       type: object
       properties:
         status:
           type: string
-          example: "403"
+          examples:
+            - "403"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Forbidden
+          examples:
+            - Forbidden
   securitySchemes:
     BasicAuth:
       type: http

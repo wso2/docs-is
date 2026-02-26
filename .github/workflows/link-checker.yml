@@ -82,7 +82,7 @@ jobs:
           echo "broken_links_count=$BROKEN_LINKS_COUNT" >> $GITHUB_ENV
 
       - name: Upload HTML as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: broken_links_report_IS
           path: broken_links_report_IS.html

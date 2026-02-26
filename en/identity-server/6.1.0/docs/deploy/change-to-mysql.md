@@ -27,7 +27,7 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
 
 ### Minimum configurations for changing default datasource to MySQL
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -51,10 +51,10 @@ A sample configuration is given below.
     
     1. Execute database scripts.
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
         
-        - `<IS-HOME>/dbscripts/identity/mysql.sql`
-        - `<IS-HOME>/dbscripts/consent/mysql.sql`
+        - `<IS_HOME>/dbscripts/identity/mysql.sql`
+        - `<IS_HOME>/dbscripts/consent/mysql.sql`
         
 2. `WSO2_SHARED_DB`
     
@@ -72,7 +72,7 @@ A sample configuration is given below.
         
     1.  Execute database scripts.
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/mysql.sql` file against the database created.
+        Execute the scripts in the `<IS_HOME>/dbscripts/mysql.sql` file against the database created.
                          
 !!! note     
     Instead of defining `hostname`, `port`, and `name` separately, you can define the `url`
@@ -89,7 +89,7 @@ A sample configuration is given below.
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds)
     
-4.  Download the MySQL JDBC driver for the version you are using and copy it to the `<IS_HOME>/repository/components/lib` folder  
+4.  Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
     
            
@@ -114,5 +114,18 @@ A sample configuration is given below.
 
 {!./includes/rollback-pending.md !}
 
+## Driver-Level Timeouts (Recommended for Production)
 
-    
+{!./includes/driver-level-timeouts.md !}
+
+### Example: MySQL database
+
+```toml
+[database.identity_db]
+url = "jdbc:mysql://DB_HOST:3306/WSO2_IDENTITY_DB?connectTimeout=10000&socketTimeout=60000&tcpKeepAlive=true"
+username = "..."
+password = "..."
+driver = "com.mysql.cj.jdbc.Driver"
+```
+
+Learn more in [MySQL Connector/J properties](https://docs.oracle.com/cd/E19509-01/820-3497/agqju/index.html){: target="_blank"}.

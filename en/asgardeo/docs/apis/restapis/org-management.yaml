@@ -254,6 +254,7 @@ paths:
                     "id": "10084a8d-113f-4211-a0d5-efe36b082211",
                     "ref": "/api/server/v1/organizations/10084a8d-113f-4211-a0d5-efe36b082211"
                   },
+                  "hasChildren": false,
                   "attributes": [
                     {
                       "key": "Country",
@@ -328,6 +329,7 @@ paths:
                     "id": "10084a8d-113f-4211-a0d5-efe36b082211",
                     "ref": "/api/server/v1/organizations/10084a8d-113f-4211-a0d5-efe36b082211"
                   },
+                  "hasChildren": false,
                   "attributes": [
                     {
                       "key": "Country",
@@ -402,6 +404,81 @@ paths:
             curl --location --request DELETE 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/{organization-id}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'
+  /organizations/self:
+    get:
+      tags:
+        - Organization
+      description: |
+        This API retrieves the organization information associated with the currently accessing organization.
+        
+        <b>Scopes (Permissions) required:</b> `internal_organization_view`
+      summary: Get organization details of the currently accessing organization.
+      operationId: getSelfOrganization
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request GET 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/self' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    patch:
+      tags:
+        - Organization
+      description: |
+        This API updates the editable fields of the organization associated with the currently accessing organization.
+        Currently only the organization name and version can be updated using this API.
+        
+        <b>Scopes (Permissions) required:</b> `internal_organization_update`
+      summary: Update organization details of the currently accessing organization.
+      operationId: patchSelfOrganization
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationPatchRequest'
+        description: Partial update payload for the organization.
+        required: true
+      responses:
+        '200':
+          description: Successfully updated organization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/organizations/self' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '[
+              {
+                "operation": "REPLACE",
+                "path": "/name",
+                "value": "ABCD Builders"
+              }
+            ]'
   /organizations/metadata:
     get:
       tags:
@@ -583,15 +660,12 @@ components:
         name:
           type: string
           example: "ABC Builders"
+        orgHandle:
+          type: string
+          example: "abcbuilders"
         description:
           type: string
           example: "Building constructions"
-        type:
-          type: string
-          enum:
-            - TENANT
-            - STRUCTURAL
-          default: TENANT
         parentId:
           type: string
           description: "The parent organization id should be the organization where the request is invoked. If a value is not specified it will be resolved internally."
@@ -619,6 +693,9 @@ components:
         name:
           type: string
           example: "ABCD Builders"
+        orgHandle:
+          type: string
+          example: "abcbuilders"
         description:
           type: string
           example: "Building constructions company"
@@ -626,6 +703,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         attributes:
           type: array
           items:
@@ -691,7 +771,9 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
+        - version
         - ref
       properties:
         id:
@@ -700,10 +782,19 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         status:
           type: string
           enum: [ ACTIVE, DISABLED ]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
+        hasChildren:
+          type: boolean
+          example: false
         ref:
           type: string
           example: '/api/server/v1/organizations/06c1f4e2-3339-44e4-a825-96585e3653b1'
@@ -716,7 +807,9 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -727,6 +820,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -734,6 +830,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'
@@ -745,9 +844,11 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
+        hasChildren:
+          type: boolean
+          example: false
         attributes:
           type: array
           items:
@@ -757,7 +858,9 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -768,6 +871,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -775,6 +881,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'
@@ -786,9 +895,11 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
+        hasChildren:
+          type: boolean
+          example: false
         attributes:
           type: array
           items:
@@ -797,6 +908,26 @@ components:
           type: array
           items:
             type: string
+        ancestorPath:
+          type: array
+          description: 'Ancestors up to the request initiated organization'
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              depth:
+                type: integer
+          example:
+            [
+              {
+                "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+                "name": "Global Holding Corp",
+                "depth": 0
+              }
+            ]
     MetaAttributesResponse:
       type: object
       properties:
@@ -885,7 +1016,9 @@ components:
       required:
         - id
         - name
+        - orgHandle
         - status
+        - version
         - created
         - lastModified
         - type
@@ -896,6 +1029,9 @@ components:
         name:
           type: string
           example: 'ABC Builders'
+        orgHandle:
+          type: string
+          example: 'abcbuilders'
         description:
           type: string
           example: 'Building constructions'
@@ -903,6 +1039,9 @@ components:
           type: string
           enum: [ACTIVE, DISABLED]
           example: ACTIVE
+        version:
+          type: string
+          example: 'v1.0.0'
         created:
           type: string
           example: '2021-10-25T12:31:53.406Z'
@@ -914,7 +1053,6 @@ components:
           example: "TENANT"
           enum:
             - TENANT
-            - STRUCTURAL
         parent:
           $ref: '#/components/schemas/ParentOrganization'
         attributes:

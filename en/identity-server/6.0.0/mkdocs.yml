@@ -23,7 +23,7 @@ site_url: https://is.docs.wso2.com/en/6.0.0/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/6.0.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/6.0.0/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -195,7 +195,7 @@ nav:
           - Log in with Facebook: guides/identity-federation/facebook.md
           - Log in with Google: guides/identity-federation/google.md
           - Log in with Twitter: guides/identity-federation/twitter.md
-          - Log in with Microsoft Live: guides/identity-federation/microsoft-live.md
+          - Log in with Microsoft login: guides/identity-federation/microsoft-login.md
           - Log in with IWA: guides/identity-federation/iwa-kerberos.md
           - Log in with Apple: guides/identity-federation/apple.md
       - Access Delegation:
@@ -252,6 +252,7 @@ nav:
           - Lock Accounts by Failed Login Attempts: guides/identity-lifecycles/lock-accounts-by-failed-login-attempts.md
           - Lock Accounts by Failed OTP Attempts: guides/identity-lifecycles/lock-accounts-by-failed-otp-attempts.md
           - Lock Accounts per User: guides/tenants/account-locking-per-user.md
+          - Recover Super Admin Account: guides/identity-lifecycles/recover-super-admin-account.md
           - Associate Accounts: guides/identity-lifecycles/associate-accounts.md
           - Suspend Accounts: guides/identity-lifecycles/suspend-accounts.md
           - Disable Accounts: guides/identity-lifecycles/enable-account.md
@@ -442,6 +443,7 @@ nav:
         - Enable HTTP Strict Transport Security (HSTS) Headers: deploy/security/enable-hsts.md
         - Configure Transport Level Security: deploy/security/configure-transport-level-security.md
         - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
+        - Enable Mutual SSL: deploy/security/enabling-mutual-ssl.md
         - Security Guidelines:
           - Overview: deploy/security/security-guidelines-for-production-deployment.md
           - Product-Level: deploy/security/product-level-security-guidelines.md
@@ -503,7 +505,10 @@ nav:
             - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
             - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-          - Account recovery API: apis/use-the-account-recovery-rest-apis.md
+          - Account recovery API:
+            - Best Practices for Password Recovery Portal: apis/recovery-portal-best-practices.md
+            - Account Recovery v0.9: apis/use-the-account-recovery-rest-apis.md
+            - Account Recovery v1: apis/use-the-account-recovery-v1-rest-apis.md
           - Associated accounts API: apis/association-rest-api.md
           - Challenge question API: apis/challenge-questions.md
           - Challenge answers API: apis/challenge-rest-api.md
@@ -810,6 +815,19 @@ markdown_extensions:
 plugins:
     - search
     - markdownextradata: {}
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
     - redirects:
           redirect_maps:
               'learn/tutorials.md': 'https://is.docs.wso2.com/en/6.0.0/guides/before-you-start/'
@@ -858,7 +876,7 @@ plugins:
               'learn/configuring-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/enable-single-sign-on/'
               'learn/configuring-recaptcha-for-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/configure-recaptcha-for-single-sign-on/'
               'learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md': 'https://is.docs.wso2.com/en/6.0.0/'
-              'learn/saml-2.0-web-sso/': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
+              'learn/saml-2.0-web-sso.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
               'learn/configuring-saml2-web-single-sign-on.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-saml-2.0-web-sso/'
               'learn/querying-saml-assertions.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/query-saml-assertions/'
               'learn/configuring-saml-2.0-artifact-binding.md': 'https://is.docs.wso2.com/en/6.0.0/guides/login/use-artifact-binding/'
@@ -939,7 +957,7 @@ plugins:
               'learn/configuring-facebook.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/facebook/'
               'learn/configuring-yahoo.md': 'https://is.docs.wso2.com/en/6.0.0/'
               'learn/configuring-google.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/google/'
-              'learn/configuring-microsoft-windows-live.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/microsoft-live/'
+              'learn/configuring-microsoft-windows-live.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/microsoft-login/'
               'learn/configuring-iwa-on-linux.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/iwa-kerberos/'
               'learn/configuring-ad-fs-as-a-federated-authenticator.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/configure-ad-fs-as-a-federated-authenticator/'
               'learn/configuring-twitter.md': 'https://is.docs.wso2.com/en/6.0.0/guides/identity-federation/twitter/'

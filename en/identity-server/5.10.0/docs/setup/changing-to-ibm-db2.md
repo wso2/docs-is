@@ -23,7 +23,7 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
 
 **Minimum Configurations for changing default datasource to DB2.**
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -75,7 +75,7 @@ Following are the basic configurations and their descriptions.
        
        1. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
           
 		  !!! info 
 		  	  While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimeter "/" since the default delimiter script for DB2 is ";". 
@@ -83,9 +83,9 @@ Following are the basic configurations and their descriptions.
 			  ```xml
 			  db2 -td/ -f db2.sql
 			  ```		
-           - `<IS-HOME>/dbscripts/identity/db2.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/db2.sql`
-           - `<IS-HOME>/dbscripts/consent/db2.sql`
+           - `<IS_HOME>/dbscripts/identity/db2.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/db2.sql`
+           - `<IS_HOME>/dbscripts/consent/db2.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -103,15 +103,14 @@ Following are the basic configurations and their descriptions.
            
        1. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/db2.sql`
+           - `<IS_HOME>/dbscripts/db2.sql`
            
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
-   4.  Download the DB2 JDBC driver for the version, you are using and
-            copy it to the `<IS_HOME>/repository/components/lib` folder  
+   4.  Download the DB2 JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
     
     !!! note     
         In earlier versions WSO2 Identity Server had the option to create databases automatically using the 
@@ -127,31 +126,33 @@ Following are the basic configurations and their descriptions.
 
 Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
 
-- `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
-    
-   ``` toml
-   [database.identity_db.pool_options]
-    maxActive = "80"
-    maxWait = "360000"
-    minIdle ="5"
-    testOnBorrow = true
-    validationQuery="SELECT 1"
-    validationInterval="30000"
-    defaultAutoCommit=false
-   ```
-   
-- `WSO2_SHARED_DB` `deployment.toml` Configurations.
-        
-   ``` toml
-   [database.shared_db.pool_options]
-    maxActive = "80"
-    maxWait = "360000"
-    minIdle ="5"
-    testOnBorrow = true
-    validationQuery="SELECT 1"
-    validationInterval="30000"
-    defaultAutoCommit=false
-   ```
+-	`WSO2_IDENTITY_DB` related configurations that should be added to the `deployment.toml` file.
+
+	``` toml
+	[database.identity_db.pool_options]
+	maxActive = "80"
+	maxWait = "360000"
+	minIdle ="5"
+	testOnBorrow = true
+	validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+	validationInterval="30000"
+	defaultAutoCommit=false
+	commitOnReturn=true
+	```
+
+-	`WSO2_SHARED_DB` `deployment.toml` related configurations that should be added to the `deployment.toml` file.
+
+	```toml
+	[database.shared_db.pool_options]
+	maxActive = "80"
+	maxWait = "360000"
+	minIdle ="5"
+	testOnBorrow = true
+	validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+	validationInterval="30000"
+	defaultAutoCommit=false
+	commitOnReturn=true
+	```
 
 The elements in the above configuration are described below:   
 
@@ -206,7 +207,7 @@ However, if required, you can disable the latter mentioned default behavior by d
 **Configure the connection pool to commit pending transactions on connection return**
         
   1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS:
+        -   On Linux/macOS:
             `                 <IS_HOME>/bin/wso2server.sh/                `
         -   On Windows:
             `                 <IS_HOME>\bin\wso2server.bat                `
@@ -280,4 +281,31 @@ The elements in the above configuration are described below:
  | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
 
-    
+## Driver-Level Timeouts (Recommended for Production)
+
+If the database becomes unresponsive, WSO2 Identity Server threads can get stuck waiting for a JDBC connection. This happens because the Tomcat JDBC Pool can't abort connection creation by itself ([source](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L693-L702){: target="_blank"}).
+
+To prevent this, configure **driver-level timeouts** in the JDBC URL:
+
+- **`connectTimeout`** → Maximum time to wait while establishing a database connection.  
+- **`socketTimeout`** (or driver-specific equivalent) → Maximum time to wait for responses on an active connection.  
+- **`tcpKeepAlive=true`** (if supported) → Helps detect unresponsive database servers.
+
+Also note the distinction:
+
+- **`maxWait`** (Tomcat pool) controls how long to wait for a free connection from the pool.  
+- **`connectTimeout` / `socketTimeout`** (driver) → how long to connect/read at the DB level.
+
+> **Note:** The `PoolExhaustedException` warning log is logged only when `maxWait` expires ([source](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741){: target="_blank"}). It does **not** cover delays inside the driver’s connection or read operations. Driver-level timeouts are required to handle those cases.
+
+### Example: IBM DB2 database
+
+```toml
+[database.identity_db]
+url = "jdbc:db2://DB_HOST:50000/WSO2_IDENTITY_DB:loginTimeout=10;queryTimeout=60;"
+username = "..."
+password = "..."
+driver = "com.ibm.db2.jcc.DB2Driver"
+```
+
+Learn more in [IBM DB2 connection settings](https://www.ibm.com/docs/en/db2/11.5?topic=client-jdbc-properties){: target="_blank"}.
