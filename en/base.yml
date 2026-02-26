@@ -260,6 +260,20 @@ extra:
       icon: assets/images/sift-logo.svg
     Onfido:
       icon: assets/images/onfido-logo.svg
+  
+  connectors:
+    - name: Sift
+      icon: assets/img/logo/sift-logo.svg
+      description: Helps prevent fraudulent logins to your system.
+      source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
+      category: fraud-detection
+      documentation_link: sift
+    - name: Onfido
+      icon: assets/img/logo/onfido-logo.svg
+      description: Provides identity verification so you know exactly who logs in.
+      source_link: https://store.wso2.com/connector/identity-verification-onfido
+      category: identity-verification
+      documentation_link: onfido
 
   integrations:
     - official:
@@ -354,20 +368,6 @@ extra:
             dark_icon: assets/img/logo/apple-logo-dark.svg
             description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
             source_link: https://github.com/openid/AppAuth-iOS
-
-  connectors:
-    - name: Sift
-      icon: assets/img/logo/sift-logo.svg
-      description: Sift helps prevent fraudulent logins to your system.
-      source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
-      category: fraud
-      documentation_link: sift
-    - name: Onfido
-      icon: assets/img/logo/onfido-logo.svg
-      description: Onfido provides identity verification so you know exactly who logs in.
-      source_link: https://store.wso2.com/connector/identity-verification-onfido
-      category: identity-verification
-      documentation_link: onfido
 
   redoc_theme: '{
     "colors": {

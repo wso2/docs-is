@@ -19,7 +19,7 @@ After setting up the Oracle database, you can point the `WSO2_IDENTITY_DB` or
 
 ### Minimum configurations for changing default datasource to Oracle
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -43,10 +43,10 @@ A sample configuration is given below.
     
     1. Execute database scripts.
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
         
-        - `<IS-HOME>/dbscripts/identity/oracle.sql`
-        - `<IS-HOME>/dbscripts/consent/oracle.sql`
+        - `<IS_HOME>/dbscripts/identity/oracle.sql`
+        - `<IS_HOME>/dbscripts/consent/oracle.sql`
         
 2. `WSO2_SHARED_DB`
     
@@ -66,7 +66,7 @@ A sample configuration is given below.
     
         Execute the scripts in the following file, against the database created.
                     
-        - `<IS-HOME>/dbscripts/oracle.sql`
+        - `<IS_HOME>/dbscripts/oracle.sql`
     
 3.  Download the Oracle JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 

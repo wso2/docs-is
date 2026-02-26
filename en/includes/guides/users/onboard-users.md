@@ -21,7 +21,7 @@ Let's look at how administrators can onboard users from the {{ product_name }} C
     ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        {% if product_name == "WSO2 Identiy Server" %}-{% endif %} The user's username is always unique to the organization and you can't change the username once it is created.
+        {% if product_name == "WSO2 Identity Server" %}-{% endif %} The user's username is always unique to the organization and you can't change the username once it is created.
         {% if product_name == "WSO2 Identity Server "%}
         - Optionally, you can [configure email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/). Then, the user must enter the email address when logging in.
         {% endif %}

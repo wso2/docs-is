@@ -43,7 +43,7 @@ The elements in the above configuration are described below:
 
     Usernames in {{product_name}} are case-insensitive by default. If you wish to enable case-sensitive usernames, configure the following properties.
     
-    To enable the case-sensitivity for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configurations to the primary user store.
+    To enable the case-sensitivity for the primary user store, open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and add the following configurations to the primary user store.
 
     ``` toml
     [user_store.properties]

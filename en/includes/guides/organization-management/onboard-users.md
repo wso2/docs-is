@@ -96,7 +96,7 @@ If a user, who is a member of both the organization and parent organization, wis
 
 ### Manage invitations
 
-Inorder to view or delete the invitations via {{ product_name }} Console:
+In order to view or delete the invitations via {{ product_name }} Console:
 
 1. Login to the relevant organization space of the {{ product_name }} Console.
 2. Go to **User Management > Users** and click **Invitations** tab.

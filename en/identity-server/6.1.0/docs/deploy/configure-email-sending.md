@@ -7,7 +7,7 @@ This document explains the steps to configure WSO2 Identity Server to send email
 Follow the steps given below to enable the email sender globally for all tenants in your WSO2 IS.
 
 1. Shut down the server if it is running.
-2. Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
+2. Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to configure the email server.
 
     ```toml
     [output_adapter.email]

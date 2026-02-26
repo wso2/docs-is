@@ -23,7 +23,7 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
 
 **Minimum configurations for changing the default datasource to PostgreSQL**
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. Following are the basic configurations and their descriptions. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. Following are the basic configurations and their descriptions. 
 
 <table>
 <thead>
@@ -73,11 +73,11 @@ You can configure the datasource by editing the default configurations in `<IS-H
        
        2. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/postgresql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/postgresql.sql`
-           - `<IS-HOME>/dbscripts/consent/postgresql.sql`
+           - `<IS_HOME>/dbscripts/identity/postgresql.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/postgresql.sql`
+           - `<IS_HOME>/dbscripts/consent/postgresql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -95,9 +95,9 @@ You can configure the datasource by editing the default configurations in `<IS-H
            
        2. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/postgresql.sql`
+           - `<IS_HOME>/dbscripts/postgresql.sql`
            
    3. If you have a requirement to use the workflow feature, see [Changing the default database of BPS database](../../setup/changing-datasource-bpsds).
        

@@ -5,7 +5,7 @@ Back-channel grant types such as **token exchange** or **password**, cannot asso
 Let's look into it in detail.
 
 !!! note
-    Learn mroe about token binding and other token binding types supported by {{product_name}} in the [Token Binding]({{base_path}}/references/token-binding) documentation.
+    Learn more about token binding and other token binding types supported by {{product_name}} in the [Token Binding]({{base_path}}/references/token-binding) documentation.
 
 In client-request token binding, the `tokenBindingId` parameter reflects the user session in a particular device or instance. The behavior of the client-request binding type depends on the type of [access token]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token) (JWT or Opaque) and the [grant type]({{base_path}}/references/grant-types) that you configure for the application.
 
@@ -51,4 +51,4 @@ You can test the client-request token binding type in {{product_name}} by follow
 
 5. Repeat the steps for different `tokenBindingId` values and different token types and verify that the client-request behavior conforms to the patterns mentioned above.
 
-Eventhough the client-request token binding type is tailored towards back-channel grant types, its versatility extends to support any other grants in {{product_name}}. This flexibility allows developers to incorporate this feature into various use-cases, providing a more robust and secure solution for identity and access management.
+Even though the client-request token binding type is tailored towards back-channel grant types, its versatility extends to support any other grants in {{product_name}}. This flexibility allows developers to incorporate this feature into various use-cases, providing a more robust and secure solution for identity and access management.

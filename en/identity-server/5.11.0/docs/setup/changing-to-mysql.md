@@ -29,7 +29,7 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
 
 **Minimum Configurations for changing default datasource to MySQL**
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -81,11 +81,11 @@ Following are the basic configurations and their descriptions.
        
        1. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/mysql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/mysql.sql`
-           - `<IS-HOME>/dbscripts/consent/mysql.sql`
+           - `<IS_HOME>/dbscripts/identity/mysql.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/mysql.sql`
+           - `<IS_HOME>/dbscripts/consent/mysql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -103,9 +103,9 @@ Following are the basic configurations and their descriptions.
            
        1. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/mysql.sql`
+           - `<IS_HOME>/dbscripts/mysql.sql`
            
     !!! note     
             Instead of defining `hostname`, `port`, and `name` separately, you can define `url`

@@ -77,7 +77,7 @@ recovery.
 Follow the instructions given below to configure username recovery with
 reCaptcha globally.  
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to enable 
+1.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to enable 
 username recovery with reCaptcha.
     
     !!! tip

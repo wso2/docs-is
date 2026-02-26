@@ -1,6 +1,6 @@
 # Back-channel logout
 
-This guide explains SAML back-channel logout and how to implement it with WSO2 Identity Server.
+This guide explains SAML back-channel logout and how to implement it with {{product_name}}.
 
 ## Overview
 
@@ -49,7 +49,7 @@ SAML logout enables a user to log out of an application and automatically log ou
 
 To enable back-channel logout for your applicaions, follow the steps below:
 
-1. On the WSO2 Identity Server Console, go to **Applications** and select your registered SAML application.
+1. On the {{product_name}} Console, go to **Applications** and select your registered SAML application.
 
 2. In the Protocol tab of your application, under **Single Logout Profile**,
 
@@ -91,11 +91,13 @@ The following guide walks you through setting up sample applications to see SAML
 
     Learn more about the /webapps directory location and Tomcat commands in the [Tomcat documentation](https://tomcat.apache.org/tomcat-8.0-doc/deployer-howto.html){: target="_blank"}.
 
+{% if product_name == "WSO2 Identity Server" %}
+
 ### Configure Cross Origin Cross-Origin Resource Sharing (CORS)
 
 SAML2 POST Binding sends the SAML response via browser POST, creating a cross-origin request when the SP and {{product_name}} use different domains. To Configure {{product_name}} to allow requests from the SP’s domain,
 
-1. Open the `IS_HOME/repository/conf/deployment.toml` file and add the following configurations.
+1. Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configurations.
 
     ```toml
     [cors]
@@ -124,6 +126,8 @@ SAML2 POST Binding sends the SAML response via browser POST, creating a cross-or
         If your are using a different URL, add that as an allowed origin.
 
 2. Restart {{product_name}}.
+
+{% endif %}
 
 ### Integrate application with {{product_name}}
 

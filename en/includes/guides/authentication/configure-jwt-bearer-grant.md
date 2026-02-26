@@ -1,14 +1,14 @@
-# Configure JWT Bearer Grant
+# Configure JWT bearer grant
 
-You can add a trusted token issuer to a exchange JWT assertion with an OAuth 2.0 access token in order to access protected resources on behalf of the resource owner. 
+You can add a trusted token issuer to exchange JWT assertion with an OAuth 2.0 access token to access protected resources on behalf of the resource owner.
 
-Learn how to configure the OAuth 2.0 JWT Bearer Grant flow in WSO2 Identity Server. Refer [JWT Bearer grant]({{base_path}}/references/grant-types/#jwt-bearer-grant) for more information on how the flow works.
+Learn how to configure the OAuth 2.0 JWT bearer grant flow in {{product_name}}. Refer [JWT bearer grant]({{base_path}}/references/grant-types/#jwt-bearer-grant) for more information on how the flow works.
 
 Follow this guide for instructions.
 
 ## Register a trusted token issuer
 
-To exchange a third-party token for an {{ product_name }}  token, you need to register the third-party token issuer as a trusted token issuer in your {{ product_name }}  organization.
+To exchange a third-party token for an {{ product_name }} token, you need to register the third-party token issuer as a trusted token issuer in your {{ product_name }} organization.
 
 To register a trusted token issuer:
 
@@ -33,7 +33,7 @@ To register a trusted token issuer:
       <tr>
         <td>Alias</td>
         <td>The name by which the trusted token issuer knows {{ product_name }}. The <code>aud</code> claim of the token should include the {{ product_name }} organization's issuer value. If the <code>aud</code> claim doesn't include the organization's issuer value, the system validates the alias value you assign here against the <code>aud</code> claim. <br>
-       Example: <code>https://third-party-token-issuers.io/oauth2/token</code></td> 
+       Example: <code>https://third-party-token-issuers.io/oauth2/token</code></td>
        </td>
       </tr>
     </table>
@@ -45,7 +45,7 @@ To register a trusted token issuer:
       {% if product_name == "WSO2 Identity Server" %}
 
         !!! note
-            For JWKS endpoints, the default read timeout equals 1000 milliseconds. To modify this value, add the following parameter to the `deployment.toml` file in the `<PRODUCT_HOME>/conf/repository` directory.
+            For JWKS endpoints, the default read timeout equals 1000 milliseconds. To update this value, add the following parameter to the `deployment.toml` file in the `<PRODUCT_HOME>/conf/repository` directory.
 
             ```toml
             [oauth.jwks_endpoint]
@@ -53,9 +53,9 @@ To register a trusted token issuer:
             ```
       {% endif %}
 
-    - **Use PEM certificate**: Upload or paste the public certificate of the trusted token issuer. The certificate should be in PEM format.
+    - **Use PEM certificate**: Upload or paste the public certificate of the trusted token issuer in the PEM format.
 
-        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
+        ??? note "Convert `.crt`, `.cer` or `.der` to the `.pem` format using [OpenSSL](https://www.openssl.org/){:target="_blank"}"
             **Convert CRT to PEM**
             ```bash
             openssl x509 -in cert.crt -out cert.pem
@@ -71,11 +71,11 @@ To register a trusted token issuer:
 
 5. Click **Finish** to add the new trusted token issuer.
 
-## Enable JWT Bearer Grant in your app
+## Enable JWT bearer grant in your app
 
 !!! note "Before you begin"
-    You need to register  [Standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/) application types with WSO2 Identity Server.
 
+    You need to register  [Standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/) application types with {{product_name}}.
 
 To enable JWT bearer grant in your application:
 
@@ -91,30 +91,40 @@ To enable JWT bearer grant in your application:
 
 Follow the steps given below.
 
-1. Obtain the JWT token received from the third-party token issuer.
-2. The application sends the access request to the token endpoint in WSO2 Identity Server with the following:
+1. Get the JWT token received from the third-party token issuer.
+
+2. The application sends the access request to the token endpoint in {{product_name}} with the following:
+
     - JWT bearer grant type.
-    - `JWT assertion` that is created by the third-party token issuer.
+
+    - `JWT assertion` created by the third-party token issuer.
+
     - Service provider's `client ID` and `client secret`.
+
 3. Execute the following cURL command to exchange the third-party token for an {{ product_name }} token.
 
-   ```bash
-   curl -v -k -X POST {{base_url}}/oauth2/token \
-   --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
-   --header "Content-Type:application/x-www-form-urlencoded" \
-   --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
-   --data-urlencode "assertion=<jwt_token>"
-   ```
+    ```bash
+    curl -v -k -X POST {{base_url}}/oauth2/token \
+    --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+    --header "Content-Type:application/x-www-form-urlencoded" \
+    --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
+    --data-urlencode "assertion=<jwt_token>"
+    ```
 
-Upon successful execution, you will receive the exchanged token issued by {{ product_name }}.
-
+    Upon successful execution, you will receive the exchanged token issued by {{ product_name }}.
+  
+{% if product_name == "WSO2 Identity Server" %}
 
 !!! note
+
     While configuring the JWT bearer grant type, the iat validating time period can also be configured in the `deployment.toml` file in the `<IS_HOME>/repository/conf` as shown below. The default value is 30 minutes.
+
    ```toml
     [oauth.grant_type.jwt]
     enable_iat_validation="true"
     iat_validity_period=30
-   ``` 
+   ```
 
-Refer [JWT Bearer grant]({{base_path}}/references/grant-types/#jwt-bearer-grant) for more information on how the flow works.
+{% endif %}
+
+Refer to [JWT Bearer grant]({{base_path}}/references/grant-types/#jwt-bearer-grant) for more information on how the flow works.

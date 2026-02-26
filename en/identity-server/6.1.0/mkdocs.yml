@@ -418,6 +418,7 @@ nav:
           - Customize Email Templates: guides/tenants/customize-automated-mails.md
         - Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
         - CORS : deploy/configure-cors.md
+        - Custom Header Filter: deploy/custom-header-filter.md
         - reCAPTCHA: deploy/configure-recaptcha.md
       - Secure:
         - Mitigate Attacks:

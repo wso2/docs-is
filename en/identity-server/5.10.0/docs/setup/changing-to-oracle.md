@@ -23,7 +23,7 @@ After setting up the Oracle database. You can point the `WSO2_IDENTITY_DB` or
 
 1.  **Minimum Configurations for changing default datasource to Oracle.**
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -75,11 +75,11 @@ Following are the basic configurations and their descriptions.
        
        1. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/oracle.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/oracle.sql`
-           - `<IS-HOME>/dbscripts/consent/oracle.sql`
+           - `<IS_HOME>/dbscripts/identity/oracle.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/oracle.sql`
+           - `<IS_HOME>/dbscripts/consent/oracle.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -97,9 +97,9 @@ Following are the basic configurations and their descriptions.
            
        1. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/oracle.sql`
+           - `<IS_HOME>/dbscripts/oracle.sql`
            
    3. If you have a requirement to use the workflow feature, see 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)

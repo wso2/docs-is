@@ -15,7 +15,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
 
 ## Step 01 - Add an event publisher to send SMS
 
-1. Add an event publisher to `IS_HOME/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
+1. Add an event publisher to `<IS_HOME>/repository/deployment/server/eventpublishers`. For this sample, `HTTPOutputEventAdapter.xml` is used. The following sample publisher calls a REST Service to send confirmation codes.
 
     ??? info "Sample Event Publisher"
         ```
@@ -60,7 +60,7 @@ When a user updates their mobile number in the user profile, an SMS OTP is sent 
         Mobile number verification by a privileged user is available as an update in WSO2 IS 5.11.0 from update level 150 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/updates/overview/).
     
     1.  Shut down the server if it is running.
-    2.  Add the following properties to the `deployment.toml` file in `IS_HOME/repository/conf` to enable the feature and to configure the verification OTP expiry time.
+    2.  Add the following properties to the `deployment.toml` file in `<IS_HOME>/repository/conf` to enable the feature and to configure the verification OTP expiry time.
 
         ```toml 
         [identity_mgt.user_claim_update.mobile]

@@ -233,7 +233,7 @@ This section guides you on how to configure the identity server to use the custo
 
 ### Configure federated authenticator
 
-To configure the custom fedrated authenticator:
+To configure the custom federated authenticator:
 
 1. On the WSO2 Identity Server console, go to **Connections**.
 2. Click **Create Connection** and select **Custom Connector**.

@@ -9,7 +9,7 @@
 %}
 
 {% set root_org_owner_characteristic =
-"- The admin user configured under realm configuration in `<IS-HOME>/repository/conf/user-mgt.xml` is the owner of the organization (root)."
+"- The admin user configured under realm configuration in `<IS_HOME>/repository/conf/user-mgt.xml` is the owner of the organization (root)."
 %}
 
 {% include "../../../../../includes/guides/admin-portal/index.md" %}

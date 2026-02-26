@@ -96,7 +96,7 @@ Please refer to the following topic.
 ## Properties used in Read-write LDAP user store manager
 
 Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to 
-`<IS-HOME>/repository/conf/deployment.toml`.
+`<IS_HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]

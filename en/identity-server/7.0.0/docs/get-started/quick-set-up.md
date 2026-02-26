@@ -14,7 +14,7 @@ Follow the steps given below.
 3. Install {{ product_name }} by downloading the **LATEST RELEASE**.
 
     !!! info
-        The installation location of {{ product_name }} is referred to as `{IS_HOME}`.
+        The installation location of {{ product_name }} is referred to as `<IS_HOME>`.
 
 <!-- The {{ product_name }} installation location can vary depending on the operating system as given below:
 

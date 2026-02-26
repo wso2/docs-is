@@ -19,7 +19,7 @@
 
 The following steps ensures that {{product_name}} encrypts the ID token issued to your application.
 
-1. On the WSO2 Identity Server Console, go to **Applications** and select your application.
+1. On the {{product_name}} Console, go to **Applications** and select your application.
 
 2. In the **Protocol** tab of the application, make the following changes:
 
