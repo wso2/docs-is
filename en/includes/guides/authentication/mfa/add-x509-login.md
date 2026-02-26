@@ -5,7 +5,7 @@ This guide walks you through configuring the X.509 certificate authenticator in 
 X.509 is a widely recognized standard within Public Key Infrastructure (PKI) that defines the format for public key certificates. These certificates are typically issued by trusted Certificate Authorities (CAs) and serve as a means of securely identifying users or systems. During the authentication process, the user (or client) presents their X.509 certificate to the authentication server, which then validates the certificate by checking the digital signature of the CA.
 
 !!! note "Before you begin"
-    You need to create the necessary certificates and truststores before you start configuring the x509 
+    You need to create the necessary certificates and truststores before you start configuring the x.509
     authenticator on {{ product_name }}. Refer to [Keystores and Truststores]({{base_path}}/deploy/security/keystores/) for more information.
 
 ## Step 1: Create a self-signed Certificate Authority (CA)
@@ -261,7 +261,7 @@ Follow the steps below to disable certificate validation if your {{ product_name
     
     !!! note
         - CRL is a list of digital certificates that have been revoked by the issuing CA.
-        - OCSP is an internet protocol that is used for obtaining the revocation status of an X509 digital certificate using the certificate serial number.
+        - OCSP is an internet protocol that is used for obtaining the revocation status of an X.509 digital certificate using the certificate serial number.
 
 ### Disable certificate validation in an already-started {{ product_name }} pack
 
@@ -341,7 +341,7 @@ The following are additional settings that you may configure for X.509 certifica
 
     !!! note
 
-        When X.509 authentication is used as the second authentication step, the system validates whether the certificate is linked to the user authenticated in the first step. This is done by comparing the `username` parameter with the corresponding attribute in the certificate.  When X509 authentication is configured as the first step, this certificate attribute will be treated as the authenticated user
+        When X.509 authentication is used as the second authentication step, the system validates whether the certificate is linked to the user authenticated in the first step. This is done by comparing the `username` parameter with the corresponding attribute in the certificate.  When X.509 authentication is configured as the first step, this certificate attribute will be treated as the authenticated user
         subject identifier.
     
 2.  If you want to store X.509 certificates as user attributes, add the following property:
@@ -402,7 +402,7 @@ To enable the x.509 authenticator for your application,
 
 2. In the **Login Flow** tab of your application, click **Add Sign In Option** and select **X509 Certificate**.
 
-    ![add-x509-authenticator](../../../assets/img/guides/authentication/mfa/add-x509-authenticator.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![add-x.509-authenticator](../../../assets/img/guides/authentication/mfa/add-x509-authenticator.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save the changes.
 
