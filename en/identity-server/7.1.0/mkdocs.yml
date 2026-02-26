@@ -763,7 +763,8 @@ nav:
             - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
             - UI branding inheritance: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
             - Email and SMS templates inheritance: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
-          - Organization discovery:
+          - Organization login:
+            - Overview: guides/organization-management/b2b-organization-login.md
             - Organization discovery: guides/organization-management/organization-discovery/index.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
           - Cleaning up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
