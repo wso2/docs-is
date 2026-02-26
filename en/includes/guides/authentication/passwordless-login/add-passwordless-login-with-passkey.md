@@ -164,15 +164,24 @@ In this case, users will be prompted to use their passkeys only when accessing a
 To enable this restriction, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
   ```toml
-   [fido.webauthn.relying_party]
-   enforce_subdomain_restriction = true
+    [fido.webauthn.relying_party]
+    use_full_effective_domain = true
   ```
+{% if is_version == "7.1.0" %}
+!!! note
+    This configuration is available starting from update level 7.1.0.54.
+
+{% elif is_version == "7.2.0" %}
+!!! note
+    This configuration is available starting from update level 7.2.0.13.
+{% endif %}
 
 !!! warning
-    Enabling this configuration limits passkey usage to the specific subdomain where the user registered it.
-    Users will not be prompted to use their passkeys for applications hosted on other subdomains.
-    Additionally, if you later change the subdomain (e.g., from `app.example.com` to `newapp.example.com`) or introduce a deeper subdomain,
-    passkeys the user previously registered become invalid and users will need to register new ones.
+    Enabling this configuration restricts passkeys to the exact subdomain where they were registered, 
+    preventing cross-subdomain usage within the same parent domain. For example, 
+    a passkey registered on `app.example.com` cannot be used to authenticate to applications on other subdomains such as `admin.example.com` or `login.example.com`.
+    If the application's subdomain changes (e.g., from `app.example.com` to `newapp.example.com`) or a different subdomain is introduced, 
+    previously registered passkeys become invalid and users must register new passkeys for the new subdomain.
 
 {% endif %}
 
