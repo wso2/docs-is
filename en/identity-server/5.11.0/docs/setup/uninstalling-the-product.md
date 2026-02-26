@@ -11,7 +11,7 @@ To remove an already installed product, follow the instructions below:
 </thead>
 <tbody>
 <tr class="odd">
-<td>Mac OS</td>
+<td>macOS</td>
 <td><div class="content-wrapper">
 <p>Open a terminal and run the following command as the root user:</p>
 <div class="code panel pdl" style="border-width: 1px;">

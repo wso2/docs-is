@@ -81,6 +81,10 @@ In this step, we will generate a client certificate that will be used to authent
     - Creating a keystore that holds the client’s private key and certificate.
     - Generating a Certificate Signing Request (CSR) to obtain a signed certificate from the CA.
     - Importing the signed certificate and CA certificate into the keystore.
+        
+        !!! note
+            
+            The **CN** value has to be the same as the **user name** of the user that will try to log in in the future.
 
 1. Generate a keystore that contains the private key and public certificate. The following command creates a new keystore (localcrt.jks) and generates a new RSA key pair with a validity of 10 years (3650 days).
 
@@ -367,15 +371,27 @@ The following are additional settings that you may configure for X.509 certifica
     This step is only required if you enabled storing X.509 certificates as a user attribute in step 5 above.
 
 If you have enabled storing X.509 certificates as a user attribute, {{product_name}} will save the certificate as a user attribute and validate it against the certificate presented in the authentication request.
+To add the custom attribute, follow the [Add custom attributes]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/#add-custom-attributes) steps
+and use the following details for the claim addition.
 
-To add the custom attribute, follow the steps in [add custom attributes]({{base_path}}/guides/users/attributes/manage-attributes.md/#add-custom-attributes) and use the following details.
-
+``` text
 - Attribute name : userCertificate
 - Attribute Display Name : User Certificate
-
+```
 ![add-user-certificate-attribute]({{base_path}}/assets/img/guides/authentication/mfa/add-user-certificate-attribute.png){: width="600" style="display: block; border: 0.3px solid lightgrey;"}
 
 This will also generate the **OpenID Connect** and **SCIM 2.0** protocol mappings. If you store the certificate as a user attribute, you must adjust the column size of the `VALUE` column in the `UM_USER_ATTRIBUTES` table to accommodate the certificate data.
+
+-   **Chrome**
+    1.  In your browser, go to **Settings** > **Privacy and security** > **Manage certificates** > **Your certificates**.
+    
+        ![manage-cert-chrome]({{base_path}}/assets/img/guides/authentication/mfa/manage-certificates-chrome.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    2.  Click on **Import,** select the **localhost.p12** file, and then
+    click **Open**. You may have to enter the password that
+    you used to generate the p12 file, (browserpwd) to open it.
+    
+        ![import-cert-chrome]({{base_path}}/assets/img/guides/authentication/mfa/import-certificate-chrome.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Step 7: Import certificate to browser
 

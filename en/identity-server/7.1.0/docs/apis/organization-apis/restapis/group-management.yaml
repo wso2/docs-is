@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: SCIM 2.0 Group Management Endpoint API
   description: |
@@ -456,43 +456,53 @@ components:
           properties:
             created:
               type: string
-              example: 2018-08-17T10:34:29Z
+              examples:
+                - 2018-08-17T10:34:29Z
             location:
               type: string
-              example: https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
+              examples:
+                - https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
             lastModified:
               type: string
-              example: 2018-08-17T10:34:29Z
+              examples:
+                - 2018-08-17T10:34:29Z
             resourceType:
               type: string
-              example: User
+              examples:
+                - User
         schemas:
           type: object
           properties: {}
-          example:
-            - urn:ietf:params:scim:schemas:core:2.0:User
-            - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+          examples:
+            -
+              - urn:ietf:params:scim:schemas:core:2.0:User
+              - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
         username:
           type: string
-          example: PRIMARY/kim
+          examples:
+            - PRIMARY/kim
         id:
           type: string
-          example: 008bba85-451d-414b-87de-c03b5a1f4217
+          examples:
+            - 008bba85-451d-414b-87de-c03b5a1f4217
         name:
           type: object
           properties:
             givenName:
               type: string
-              example: Kim
+              examples:
+                - Kim
             familyName:
               type: string
-              example: Berry
+              examples:
+                - Berry
         emails:
           type: array
-          example:
-            - value: kim@gmail.com
-            - type: work
-              value: kim@wso2.com
+          examples:
+            -
+              - value: kim@gmail.com
+              - type: work
+                value: kim@wso2.com
           items:
             type: object
             properties: {}
@@ -501,19 +511,22 @@ components:
           properties:
             employeeNumber:
               type: string
-              example: 1234A
+              examples:
+                - 1234A
             manager:
               type: object
               properties:
                 value:
                   type: string
-                  example: Taylor
+                  examples:
+                    - Taylor
         roles:
           type: object
           properties: {}
-          example:
-            - type: default
-              value: Internal/everyone
+          examples:
+            -
+              - type: default
+                value: Internal/everyone
     GroupRequestObject:
       required:
         - displayName
@@ -524,47 +537,57 @@ components:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:schemas:core:2.0:Group
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
         displayName:
           type: string
-          example: manager
+          examples:
+            - manager
         members:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              value: 008bba85-451d-414b-87de-c03b5a1f4217
-              display: kim
+            examples:
+              -
+                value: 008bba85-451d-414b-87de-c03b5a1f4217
+                display: kim
     GroupResponseObject:
       type: object
       properties:
         displayName:
           type: string
-          example: PRIMARY/manager
+          examples:
+            - PRIMARY/manager
         meta:
           type: object
           properties:
             created:
               type: string
-              example: 2019-08-26T14:27:36
+              examples:
+                - 2019-08-26T14:27:36
             location:
               type: string
-              example: https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+              examples:
+                - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
             lastModified:
               type: string
-              example: 2019-08-26T14:27:36
+              examples:
+                - 2019-08-26T14:27:36
             resourceType:
               type: string
-              example: Group
+              examples:
+                - Group
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:schemas:core:2.0:Group
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
         id:
           type: string
-          example: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+          examples:
+            - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
         members:
           type: array
           items:
@@ -572,13 +595,16 @@ components:
             properties:
               $ref:
                 type: string
-                example: https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
+                examples:
+                  - https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
               display:
                 type: string
-                example: kim
+                examples:
+                  - kim
               value:
                 type: string
-                example: 008bba85-451d-414b-87de-c03b5a1f4217
+                examples:
+                  - 008bba85-451d-414b-87de-c03b5a1f4217
         roles:
           type: array
           items:
@@ -586,30 +612,37 @@ components:
             properties:
               $ref:
                 type: string
-                example: https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+                examples:
+                  - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
               display:
                 type: string
-                example: loginRole
+                examples:
+                  - loginRole
               value:
                 type: string
-                example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+                examples:
+                  - 4645709c-ea8c-4495-8590-e1fa0efe3de0
     GroupsListResponseObject:
       type: object
       properties:
         totalResults:
           type: integer
-          example: 3
+          examples:
+            - 3
         startIndex:
           type: integer
-          example: 1
+          examples:
+            - 1
         itemsPerPage:
           type: integer
-          example: 3
+          examples:
+            - 3
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:ListResponse
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
         Resources:
           type: array
           items:
@@ -620,31 +653,38 @@ components:
         schemas:
           type: object
           properties: {}
-          example:
-            - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+          examples:
+            -
+              - urn:ietf:params:scim:api:messages:2.0:SearchRequest
         startIndex:
           type: integer
-          example: 1
+          examples:
+            - 1
         filter:
           type: string
-          example: displayName eq manager
+          examples:
+            - displayName eq manager
     GroupSearchResponseObject:
       type: object
       properties:
         totalResults:
           type: integer
-          example: 1
+          examples:
+            - 1
         startIndex:
           type: integer
-          example: 1
+          examples:
+            - 1
         itemsPerPage:
           type: integer
-          example: 3
+          examples:
+            - 3
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:ListResponse
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
         Resources:
           type: array
           items:
@@ -654,19 +694,23 @@ components:
       properties:
         displayName:
           type: string
-          example: PRIMARY/manager
+          examples:
+            - PRIMARY/manager
         meta:
           type: object
           properties:
             created:
               type: string
-              example: 2019-08-26T14:27:36
+              examples:
+                - 2019-08-26T14:27:36
             location:
               type: string
-              example: https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+              examples:
+                - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
             lastModified:
               type: string
-              example: 2019-08-26T14:27:36
+              examples:
+                - 2019-08-26T14:27:36
         members:
           type: array
           items:
@@ -674,13 +718,16 @@ components:
             properties:
               $ref:
                 type: string
-                example: https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
+                examples:
+                  - https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
               display:
                 type: string
-                example: kim
+                examples:
+                  - kim
               value:
                 type: string
-                example: 008bba85-451d-414b-87de-c03b5a1f4217
+                examples:
+                  - 008bba85-451d-414b-87de-c03b5a1f4217
         roles:
           type: array
           items:
@@ -688,67 +735,81 @@ components:
             properties:
               $ref:
                 type: string
-                example: https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+                examples:
+                  - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
               display:
                 type: string
-                example: loginRole
+                examples:
+                  - loginRole
               value:
                 type: string
-                example: 4645709c-ea8c-4495-8590-e1fa0efe3de0
+                examples:
+                  - 4645709c-ea8c-4495-8590-e1fa0efe3de0
         id:
           type: string
-          example: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+          examples:
+            - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
     GroupPutRequestObject:
       type: object
       properties:
         displayName:
           type: string
-          example: manager
+          examples:
+            - manager
         members:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
-              display: kris
+            examples:
+              -
+                value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+                display: kris
     GroupPutResponseObject:
       type: object
       properties:
         displayName:
           type: string
-          example: PRIMARY/manager
+          examples:
+            - PRIMARY/manager
         meta:
           type: object
           properties:
             created:
               type: string
-              example: 2019-08-26T14:27:36
+              examples:
+                - 2019-08-26T14:27:36
             location:
               type: string
-              example: https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+              examples:
+                - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
             lastModified:
               type: string
-              example: 2019-08-26T14:27:36
+              examples:
+                - 2019-08-26T14:27:36
             resourceType:
               type: string
-              example: Group
+              examples:
+                - Group
         schemas:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:schemas:core:2.0:Group
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
         id:
           type: string
-          example: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+          examples:
+            - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
         members:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              display: kris
-              value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+            examples:
+              -
+                display: kris
+                value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
     PatchGroupOperationRequestObject:
       type: object
       properties:
@@ -756,7 +817,8 @@ components:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:api:messages:2.0:PatchOp
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:PatchOp
         Operations:
           type: array
           items:
@@ -778,48 +840,57 @@ components:
               items:
                 type: object
                 properties: {}
-                example:
-                  display: kris
-                  value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+                examples:
+                  -
+                    display: kris
+                    value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
     PatchGroupOperationResponseObject:
       type: object
       properties:
         displayName:
           type: string
-          example: PRIMARY/manager
+          examples:
+            - PRIMARY/manager
         meta:
           type: object
           properties:
             created:
               type: string
-              example: 2019-08-26T14:27:36
+              examples:
+                - 2019-08-26T14:27:36
             location:
               type: string
-              example: https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+              examples:
+                - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
             lastModified:
               type: string
-              example: 2019-08-26T14:27:36
+              examples:
+                - 2019-08-26T14:27:36
             resourceType:
               type: string
-              example: Group
+              examples:
+                - Group
         schemas:
           type: object
           properties: {}
-          example:
-            - urn:ietf:params:scim:schemas:core:2.0:Group
+          examples:
+            -
+              - urn:ietf:params:scim:schemas:core:2.0:Group
         id:
           type: string
-          example: 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+          examples:
+            - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
         members:
           type: array
           items:
             type: object
             properties: {}
-            example:
-              - display: kris
-                value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
-              - display: kim
-                value: 007bfc66-e4f0-4d53-9dfd-0c4a77b33257
+            examples:
+              -
+                - display: kris
+                  value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+                - display: kim
+                  value: 007bfc66-e4f0-4d53-9dfd-0c4a77b33257
     ErrorInvalidInput:
       required:
         - detail
@@ -828,16 +899,20 @@ components:
       properties:
         status:
           type: string
-          example: "400"
+          examples:
+            - "400"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: invalidSyntax
+          examples:
+            - invalidSyntax
         detail:
           type: string
-          example: Request is unparsable, syntactically incorrect, or violates schema.
+          examples:
+            - Request is unparsable, syntactically incorrect, or violates schema.
     ErrorUnauthorized:
       required:
         - status
@@ -845,13 +920,16 @@ components:
       properties:
         status:
           type: string
-          example: "401"
+          examples:
+            - "401"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Unauthorized
+          examples:
+            - Unauthorized
     ErrorForbidden:
       required:
         - status
@@ -859,13 +937,16 @@ components:
       properties:
         status:
           type: string
-          example: "403"
+          examples:
+            - "403"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Forbidden
+          examples:
+            - Forbidden
     ErrorGroupAlreadyAvailable:
       required:
         - detail
@@ -874,13 +955,16 @@ components:
       properties:
         status:
           type: string
-          example: "409"
+          examples:
+            - "409"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         detail:
           type: string
-          example: 'Group with name: PRIMARY/manager already exists in the system.'
+          examples:
+            - 'Group with name: PRIMARY/manager already exists in the system.'
   securitySchemes:
     OAuth2:
       type: oauth2

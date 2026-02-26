@@ -19,7 +19,7 @@ After setting up the Oracle RAC database, you can point the `WSO2_IDENTITY_DB` o
 
 ### Minimum configurations for changing default datasource to Oracle RAC
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -52,10 +52,10 @@ A sample configuration is given below.
     
     2. Execute database scripts.
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files against the database created.
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files against the database created.
         
-        - `<IS-HOME>/dbscripts/identity/oracle_rac.sql`
-        - `<IS-HOME>/dbscripts/consent/oracle_rac.sql`
+        - `<IS_HOME>/dbscripts/identity/oracle_rac.sql`
+        - `<IS_HOME>/dbscripts/consent/oracle_rac.sql`
         
 2. `WSO2_SHARED_DB`
     
@@ -82,7 +82,7 @@ A sample configuration is given below.
         
     2.  Execute database scripts.
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/oracle_rac.sql` file against the database created.
+        Execute the scripts in the `<IS_HOME>/dbscripts/oracle_rac.sql` file against the database created.
         
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds)
@@ -94,8 +94,50 @@ A sample configuration is given below.
 
 ### Advanced database configurations
 
-{!./includes/db-advanced-config.md !}
+Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
+
+-	`WSO2_IDENTITY_DB` related configurations that should be added to the `deployment.toml` file.
+
+	``` toml
+	[database.identity_db.pool_options]
+	maxActive = "80"
+	maxWait = "360000"
+	minIdle ="5"
+	testOnBorrow = true
+	validationQuery = "SELECT 1 FROM dual"
+	validationInterval="30000"
+	defaultAutoCommit=false
+	commitOnReturn=true
+	```
+
+-	`WSO2_SHARED_DB` `deployment.toml` related configurations that should be added to the `deployment.toml` file.
+
+	```toml
+	[database.shared_db.pool_options]
+	maxActive = "80"
+	maxWait = "360000"
+	minIdle ="5"
+	testOnBorrow = true
+	validationQuery = "SELECT 1 FROM dual"
+	validationInterval="30000"
+	defaultAutoCommit=false
+	commitOnReturn=true
+	```
 
 {!./includes/db-config-table.md !}
     
-    
+## Driver-Level Timeouts (Recommended for Production)
+
+{!./includes/driver-level-timeouts.md !}
+
+### Example: Oracle RAC database
+
+```toml
+[database.identity_db]
+url = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST2)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=WSO2_IDENTITY_DB)))?oracle.net.CONNECT_TIMEOUT=10000&oracle.jdbc.ReadTimeout=60000"
+username = "..."
+password = "..."
+driver = "oracle.jdbc.OracleDriver"
+```
+
+Learn more in [Oracle JDBC RAC URLs](https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/data-sources-and-URLs.html){: target="_blank"}.

@@ -4,3 +4,8 @@
 {% set check_status_endpoint = "https://api.asgardeo.io/t/{organization_name}/" %}
 {% include "../../../includes/references/app-native-authentication.md" %}
 {% include "../../../includes/references/push-notification-app-native-reference.md" %}
+{% set session_control_scenario_id = "7" %}
+{% include "../../../includes/references/concurrent-session-based-access-control-app-native-reference.md" %}
+{% set api_oauth2_path = "https://api.asgardeo.io/t/{organization_name}/oauth2" %}
+{% include "../../../includes/references/device-flow-app-native-reference.md" %}
+{% include "../../../includes/references/custom-authentication-app-native-reference.md" %}

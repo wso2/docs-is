@@ -46,11 +46,11 @@ Follow the steps below to create a separate organization (root) to represent eac
 
 The applications and other artifacts you develop should be migrated between environments after each phase of the development lifecycle until they are live in the business environment.
 
-![Manage environments](../../assets/img/guides/organization/manage-organizations/manage-environments.png)
+![Manage environments](../../../assets/img/guides/organization/manage-organizations/manage-environments.png)
 
 For example, once applications and artifacts are developed and tested in the **BifrostDev** environment, they need to be migrated to the **BifrostPreprod** environment for further testing and then moved to the live business environment.
 
-You can do this manually by recreating the artifacts in the higher environments.
+To streamline this workflow, we recommend using the [IAM-CTL tool]({{base_path}}/guides/your-asgardeo/manage-environments/promote-configurations).
 
 !!! note "Important"
-    Some configurations, such as client IDs, secrets, URLs, and connection configurations, will be specific to the business environment, while other functional attributes, such as adaptive authentication scripts, remain the same in all environments.
+    Some configurations, such as client IDs, secrets, URLs, and connection configurations, will be specific to the business environment, while other functional attributes, such as adaptive authentication scripts, remain the same in all environments. The IAM-CTL tool accommodates this by providing environment-specific keyword mapping.

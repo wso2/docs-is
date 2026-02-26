@@ -40,6 +40,16 @@ The following is a list of all SMS templates available in {{ product_name }}.
             <td>This SMS message is sent when a user requests a username recovery. The username can be displayed using the {{"{{user-name}}"}} literal.</td>
         </tr>
         {% endif %}
+        {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+        <tr>
+            <td>adminForcedPasswordReset</td>
+            <td>This SMS is sent to provide a one-time password when admin initiates a password reset for a user. The OTP can be displayed using the {{"{{confirmation-code}}"}} literal.</td>
+        </tr>
+        <tr>
+            <td>resendAdminForcedPasswordReset</td>
+            <td>This SMS is sent to provide a one-time password when admin resends a password reset request. The OTP can be displayed using the {{"{{confirmation-code}}"}} literal.</td>
+        </tr>
+        {% endif %}
     </tbody>
 </table>
 
@@ -72,6 +82,10 @@ The following user-related literals are accessible for all SMS templates.
         <tr>
             <td>{{"{{tenant-domain}}"}}</td>
             <td>Domain name specific to the organization. For root organizations, this is the human-readable domain name. For other organizations, it is the UUID.</td>
+        </tr>
+        <tr>
+            <td>{{"{{current-year}}"}}</td>
+            <td>Current calendar year.</td>
         </tr>
     </tbody>
 </table>

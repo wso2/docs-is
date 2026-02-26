@@ -3,6 +3,14 @@
 Follow the topics given below to understand how **Bulk** operations can be used when you manage resources in the [SCIM2 API]({{base_path}}/apis/scim2-bulk-rest-apis/#tag/Bulk-Endpoint).
  
 The SCIM2 API allows you to send multiple resource operations in a single request. That is, you can add new records (POST data), replace an existing record (PUT data), update elements of an existing record (PATCH data), and delete records (DELETE data) in bulk. These bulk operations are supported for managing users and groups with the SCIM API in WSO2 Identity Server.
+
+!!! Info
+    The default limit for bulk operations is set to 1,000 operations per request. To modify this limit, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+    ```
+    [scim2]
+    max_bulk_operations = 500
+    ```
  
 ## Manage users in bulk
  

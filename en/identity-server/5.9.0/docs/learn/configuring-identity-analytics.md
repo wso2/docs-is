@@ -44,7 +44,7 @@ If you do not need to change the default values, proceed to start the servers.
 
 1. Navigate to `<IS_HOME>/bin` directory via a command prompt and start the WSO2 IS server by executing one of the following commands.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 
@@ -55,7 +55,7 @@ If you do not need to change the default values, proceed to start the servers.
 2. WSO2 IS Analytics has two nodes. Navigate to `<ISANALYTICS_HOME>/bin` directory and execute the following commands via a command prompt to start each node. 
     1. Start the worker node. The worker node listens to the authentication statistics from WSO2 Identity Server and then analyzes and monitors them. 
     
-        ``` java tab="Linux/MacOS"
+        ``` java tab="Linux/macOS"
         sh worker.sh
         ```
 
@@ -65,7 +65,7 @@ If you do not need to change the default values, proceed to start the servers.
 
     2. Start the dashboard node. The dashboard node displays the processed information using the dashboard interface. 
 
-        ``` java tab="Linux/MacOS"
+        ``` java tab="Linux/macOS"
         sh dashboard.sh
         ```
 

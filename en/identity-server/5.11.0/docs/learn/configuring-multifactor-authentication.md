@@ -31,7 +31,7 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 1. Navigate to `<IS_HOME>/bin` directory via a command prompt and start the server by executing one of the following commands.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 

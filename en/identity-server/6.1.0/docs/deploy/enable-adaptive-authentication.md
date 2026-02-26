@@ -11,7 +11,7 @@ Follow the steps below to enable adaptive authentication for a standard deployme
 
 1. Stop the WSO2 Identity Server if it is already running.
 
-2. Run the **adaptive.sh** (or **adaptive.bat** for Windows) found in the `<IS-HOME>/bin` directory.
+2. Run the **adaptive.sh** (or **adaptive.bat** for Windows) found in the `<IS_HOME>/bin` directory.
 
 3. Restart the server.
 

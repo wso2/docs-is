@@ -95,15 +95,12 @@ To view the details of the root organization, follow the steps given below.
 
     - **Edit**: Click on the **Edit** button to navigate to the details page of the respective root organization.
     - **More**: Click on the elipsis icon to view more actions.
-        - **Go to Console**: Navigate to the Console of the respective root organization.
         - **Disable** / **Enable**: Depending on the current status of the root organization, you can disable or enable it.
-        - **Delete**: Delete the root organization.
 
 3. If you want to view details of a specific root organization, click on the **Edit** button of the respective root organization. Inside the root organization details page, you can perform the following actions:
 
     - **Edit Admin Details**: You can update the first name, last name, email, and password of the root organization admin.
     - **Disable** / **Enable**: Depending on the current status of the root organization, you can disable or enable it.
-    - **Delete**: Delete the root organization.
 
       ![Root Organization Details]({{base_path}}/assets/img/guides/multitenancy/root-organization-details.png)
 

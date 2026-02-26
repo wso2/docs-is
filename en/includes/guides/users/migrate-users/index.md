@@ -8,4 +8,4 @@ Organization owners sometimes require to migrate users from an existing Identity
 - Move or separate identity data due to geopolitical, data protection, compliance, and regulatory requirements.
 - Improve identity management by providing increased security, scalability, and reduced maintenance costs.
 
-{{product_name}} provides convenience means to migrate users from an external IdP. Learn how to [migrate user accounts]({{base_path}}/guides/users/migrate-users/migrate-users/) and [migrate user passwords]({{base_path}}/guides/users/migrate-users/migrate-passwords/).
+{{product_name}} provides convenient means to migrate users from an external IdP. Learn how to [migrate user accounts]({{base_path}}/guides/users/migrate-users/migrate-users/) and [migrate user passwords]({{base_path}}/guides/users/migrate-users/migrate-passwords/).

@@ -1,0 +1,259 @@
+/**
+ * Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+.integrations-list-container {
+    margin: auto;
+    max-width: 1240px;
+
+    .sdk-type-heading  {
+        margin-bottom: 0;        
+    }
+
+    .sdk-type-description {
+        margin-top: 5px;
+        margin-bottom: 32px;
+    }
+}
+
+[data-md-color-scheme=slate] .integrations-list-item {
+    background-color: rgb(30 30 30);
+    box-shadow: inset 0px 0px 0px 1px #4e4e4e;
+}
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.integration-card-icon {
+    height: 50px !important;
+}
+
+.flex-grid .integration-card-header {
+    font-weight: 500;
+}
+
+.flex-grid .integration-card-description {
+    font-size: 0.6rem;
+    margin: 0px;
+}
+
+.integration-card-source-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .flex-grid .integration-card {
+        flex: 0 1 calc(50% - 20px); /* On smaller screens, adjust so 2 cards fit per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .flex-grid .integration-card {
+        flex: 0 1 100%; /* On very small screens, adjust so 1 card fits per row */
+    }
+}
+
+.integrations-list-item {
+    background-color: rgb(248, 248, 248);
+    margin: 0.7em 0;
+    border-radius: 6px;
+    transition: 0.3s;
+    box-shadow: inset 0px 0px 0px 1px #eeeeee;
+    padding: 10px;
+}
+
+.integrations-list-item-icon {
+    flex: 0 0 50px !important;
+}
+
+.integrations-list-item-icon img {
+    max-width: 50px !important;
+}
+
+.flex-row {
+    display: flex;
+}
+
+.flex-column {
+    flex: 1;
+}
+
+.tooltip {
+    position: relative;
+    display: inline;
+    line-height: 2;
+}
+
+.tooltip-text {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    /* Start with zero opacity */
+    background-color: rgba(70, 70, 70, 255);
+    color: #f1f1f1;
+    padding: 0px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 1;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.5s ease;
+}
+
+.tooltip-text:before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    /* Create a triangle shape */
+    border-style: solid;
+    border-color: rgba(70, 70, 70, 255) transparent transparent transparent;
+    z-index: -1;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sdk-name {
+    flex: 0 0 100px !important;
+}
+
+.sdk-name p {
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 18em;
+    line-height: 1.5;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.sdk-description {
+    text-align: left;
+    margin: 15px 30px;
+    white-space: pre-line;
+}
+
+.source-links {
+    flex: 0 0 134px !important;
+    align-items: baseline;
+    margin-top: 15px;
+    text-align: right;
+}
+
+.source-link {
+    flex: 1;
+    margin: 0 10px 0 0;
+    color: var(--md-typeset-color) !important;
+    width: 35px;
+}
+
+.md-sidebar--secondary {
+    display: none !important;
+}
+
+@media screen and (min-width: 76.25em) {
+    [dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
+    [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
+        max-width: 1200px !important;
+    }
+}
+
+.sdk-card {
+    flex: 0 1 calc(33.33% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.sdk-card:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgba(30, 216, 164, 0.15), 0 0 4px 0 rgba(0, 255, 162, 0.12), 0 0 8px -2px rgba(30, 216, 164, 0.10), 0 0 16px -4px rgba(0, 0, 0, 0.08);
+}
+
+.sdk-card .sdk-card-header {
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.sdk-card .sdk-card-header .sdk-card-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sdk-card .sdk-card-header .sdk-card-description {
+    font-size: 14px;
+    color: var(--md-default-fg-color--light);
+    margin-top: 15px;
+}
+
+.sdk-card .sdk-card-header .sdk-card-info .sdk-card-icon-container {
+    display: flex;
+}
+
+.sdk-card .sdk-card-header .sdk-card-info .sdk-card-icon-container .sdk-card-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.sdk-card .sdk-card-header .sdk-card-info .sdk-card-package-info .sdk-card-heading {
+    margin: 0;
+}
+
+.sdk-card .sdk-card-header .sdk-card-info .sdk-card-package-info .sdk-card-artifact-id {
+    line-height: 18px;
+}
+
+.sdk-card .sdk-card-header .sdk-card-info .sdk-card-package-info .sdk-card-artifact-id code {
+    background: transparent;
+    font-size: 13px;
+    padding: 0;
+}
+
+.sdk-card .sdk-card-header .sdk-version {
+    display: flex;
+    flex-direction: column;
+}
+
+.sdk-card .sdk-card-header .sdk-card-version .sdk-card-version-number {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1ed8a4;
+    background-color: #00ffa21e;
+    border-radius: 12px;
+    padding: 0 9px;
+}

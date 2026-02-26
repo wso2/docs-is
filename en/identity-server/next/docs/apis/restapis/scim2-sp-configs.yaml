@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: SCIM 2.0 Service Provider Configuration Retrieval API
   description: |
@@ -82,7 +82,8 @@ components:
           type: array
           items:
             type: string
-            example: urn:ietf:params:scim:schemas:core:2.0:ResourceType
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:ResourceType
         resourceType:
           type: array
           items:
@@ -92,69 +93,79 @@ components:
       properties:
         schema:
           type: string
-          example: urn:ietf:params:scim:schemas:core:2.0:User
+          examples:
+            - urn:ietf:params:scim:schemas:core:2.0:User
         endpoint:
           type: string
-          example: /Users
+          examples:
+            - /Users
         meta:
           type: object
           properties:
             location:
               type: string
-              example: https://localhost:9443/scim2/ResourceType/User
+              examples:
+                - https://localhost:9443/scim2/ResourceType/User
             resourceType:
               type: string
-              example: ResourceType
+              examples:
+                - ResourceType
         name:
           type: string
-          example: User
+          examples:
+            - User
         description:
           type: string
-          example: User Account
+          examples:
+            - User Account
         schemaExtensions:
           type: object
           properties:
             schema:
               type: string
-              example: urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+              examples:
+                - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
             required:
               type: boolean
-              example: false
+              examples:
+                - false
         id:
           type: string
-          example: User
+          examples:
+            - User
     SPConfigResponse:
       type: object
-      example:
-        patch:
-          supported: true
-        filter:
-          maxResults: 200
-          supported: true
-        documentationUri: http://example.com/help/scim.html
-        authenticationSchemes:
-          - name: OAuth Bearer Token
-            description: Authentication scheme using the OAuth Bearer Token Standard
-            specUri: http://www.rfc-editor.org/info/rfc6750
-            type: oauthbearertoken
-            primary: true
-          - name: HTTP Basic
-            description: Authentication scheme using the HTTP Basic Standard
-            specUri: http://www.rfc-editor.org/info/rfc2617
-            type: httpbasic
-            primary: false
-        schemas:
-          - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
-        etag:
-          supported: false
-        sort:
-          supported: false
-        bulk:
-          maxPayloadSize: 1048576
-          maxOperations: 1000
-          supported: true
-        changePassword:
-          supported: false
+      examples:
+        -
+          patch:
+            supported: true
+          filter:
+            maxResults: 200
+            supported: true
+          documentationUri: http://example.com/help/scim.html
+          authenticationSchemes:
+            - name: OAuth Bearer Token
+              description: Authentication scheme using the OAuth Bearer Token Standard
+              specUri: http://www.rfc-editor.org/info/rfc6750
+              type: oauthbearertoken
+              primary: true
+            - name: HTTP Basic
+              description: Authentication scheme using the HTTP Basic Standard
+              specUri: http://www.rfc-editor.org/info/rfc2617
+              type: httpbasic
+              primary: false
+          schemas:
+            - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+          etag:
+            supported: false
+          sort:
+            supported: false
+          bulk:
+            maxPayloadSize: 1048576
+            maxOperations: 1000
+            supported: true
+          changePassword:
+            supported: false
     ErrorUnauthorized:
       required:
         - status
@@ -162,13 +173,16 @@ components:
       properties:
         status:
           type: string
-          example: "401"
+          examples:
+            - "401"
         schemas:
           type: string
-          example: urn:ietf:params:scim:api:messages:2.0:Error
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
         scimType:
           type: string
-          example: Unauthorized
+          examples:
+            - Unauthorized
   securitySchemes:
     BasicAuth:
       type: http

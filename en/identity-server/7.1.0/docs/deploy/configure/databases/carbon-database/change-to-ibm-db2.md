@@ -19,7 +19,7 @@ After setting up the DB2 database, you can point the `WSO2_IDENTITY_DB` or
 
 ### Minimum configurations for changing default datasource to DB2
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -43,10 +43,10 @@ A sample configuration is given below.
 	
 	1. Execute database scripts.
 	
-		Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+		Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
 		
-		- `<IS-HOME>/dbscripts/identity/db2.sql`
-		- `<IS-HOME>/dbscripts/consent/db2.sql`
+		- `<IS_HOME>/dbscripts/identity/db2.sql`
+		- `<IS_HOME>/dbscripts/consent/db2.sql`
 
 		!!! info 
 			While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimeter "/" since the default delimiter script for DB2 is ";". 
@@ -70,15 +70,43 @@ A sample configuration is given below.
 		
 	1.	Execute database scripts.
 	
-		Execute the scripts in the `<IS-HOME>/dbscripts/db2.sql` file, against the database created.
+		Execute the scripts in the `<IS_HOME>/dbscripts/db2.sql` file, against the database created.
 	
-3.	Download the DB2 JDBC driver for the version, you are using and copy it to the `<IS_HOME>/repository/components/lib` folder.  
+3.	Download the [DB2 JDBC driver](https://mvnrepository.com/artifact/com.ibm.db2/jcc) and copy the JAR (jcc-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder.
 
 ---
 
 ### Advanced database configurations
 
-{% include "../../../../includes/db-advanced-config.md" %}
+Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
+
+-	`WSO2_IDENTITY_DB` related configurations that should be added to the `deployment.toml` file.
+
+	``` toml
+	[database.identity_db.pool_options]
+	maxActive = "80"
+	maxWait = "360000"
+	minIdle ="5"
+	testOnBorrow = true
+	validationQuery = "SELECT 1 FROM sysibm.sysdummy1"
+	validationInterval="30000"
+	defaultAutoCommit=false
+	commitOnReturn=true
+	```
+
+-	`WSO2_SHARED_DB` `deployment.toml` related configurations that should be added to the `deployment.toml` file.
+
+	```toml
+	[database.shared_db.pool_options]
+	maxActive = "80"
+	maxWait = "360000"
+	minIdle ="5"
+	testOnBorrow = true
+	validationQuery = "SELECT 1 FROM sysibm.sysdummy1"
+	validationInterval="30000"
+	defaultAutoCommit=false
+	commitOnReturn=true
+	```
 
 {% include "../../../../includes/db-config-table.md" %}
 
@@ -95,3 +123,19 @@ A sample configuration is given below.
 ### Configure the connection pool to rollback pending transactions on connection return
 
 {% include "../../../../includes/rollback-pending.md" %}
+
+## Driver-Level Timeouts (Recommended for Production)
+
+{% include "../../../../includes/driver-level-timeouts.md" %}
+
+### Example: IBM DB2 database
+
+```toml
+[database.identity_db]
+url = "jdbc:db2://DB_HOST:50000/WSO2_IDENTITY_DB:loginTimeout=10;queryTimeout=60;"
+username = "..."
+password = "..."
+driver = "com.ibm.db2.jcc.DB2Driver"
+```
+
+Learn more in [IBM DB2 connection settings](https://www.ibm.com/docs/en/db2/11.5?topic=client-jdbc-properties){: target="_blank"}.

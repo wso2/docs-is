@@ -1,2 +1,2 @@
-{% set api_path = "notification-templates-rest-api" %}
+{% set api_path = "notification-templates" %}
 {% include "../../../../includes/references/sms-templates.md" %}

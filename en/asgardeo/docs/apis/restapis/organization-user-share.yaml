@@ -3,14 +3,14 @@ info:
   version: "v1"
   title: 'User Sharing API Definition'
   description: |-
-    This document specifies the **User Sharing RESTful API** for **WSO2 Identity Server**. This API enables organization administrators to share user access across child organizations, manage shared access, revoke access, and retrieve shared organizations and roles.
+    This document defines the **User Sharing REST API for organizations** in **Asgardeo**. This enables organization administrators to share users across child organizations, manage and revoke shared access, and retrieve users' shared organizations and roles.
 
 security:
   - OAuth2: []
   - BasicAuth: []
 
 servers:
-  - url: 'https://api.asgardeo.io/t/{tenant-domain}/api/server/v1'
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
     variables:
       tenant-domain:
         default: "{tenant-domain}"
@@ -74,7 +74,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/share' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/share' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token} \
@@ -165,7 +165,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/share-all' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/share-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token} \
@@ -249,7 +249,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/unshare' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/unshare' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token} \
@@ -311,7 +311,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/unshare-all' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/unshare-with-all' \
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -H 'Authorization: Bearer {bearer_token} \
@@ -329,7 +329,7 @@ paths:
     get:
       tags:
         - User Accessible Organizations
-      summary: Get organizations a user has access to
+      summary: Get the list of organizations accessible by the user
       description: |
         This API retrieves the list of organizations where the specified user has shared access.
 
@@ -340,12 +340,12 @@ paths:
           required: true
           schema:
             type: string
-          description: The ID of the user whose accessible organizations are being retrieved.
+          description: The ID of the user.
         - in: query
           name: after
           schema:
             type: string
-          description: The cursor pointing to the item after which the next page of results should be returned.
+          description: The cursor indicating the item after which the next page of results will begin.
         - in: query
           name: before
           schema:
@@ -389,7 +389,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/{userId}/shared-organizations' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/{userId}/shared-organizations' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}
 
@@ -421,7 +421,7 @@ paths:
           name: after
           schema:
             type: string
-          description: The cursor pointing to the item after which the next page of results should be returned.
+          description: The cursor indicating the item after which the next page of results will begin.
         - in: query
           name: before
           schema:
@@ -464,7 +464,7 @@ paths:
       x-codeSamples:
         - lang: Curl
           source: |
-            curl --location 'https://api.asgardeo.io/api/server/v1/users/{userId}/shared-roles?orgId={orgId}' \
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/api/server/v1/users/{userId}/shared-roles?orgId={orgId}' \
             -H 'Accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}
 
@@ -479,8 +479,8 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://api.asgardeo.io/t/{root-organization-name}/oauth2/authorize'
-          tokenUrl: 'https://api.asgardeo.io/t/{root-organization-name}/oauth2/token'
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
           scopes:
             share: internal_user_share
             unshare: internal_user_unshare

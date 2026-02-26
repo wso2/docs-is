@@ -12,6 +12,24 @@ configured under these two types.
 
 ![user-store-types]({{base_path}}/assets/img/deploy/user-store-types.png) 
 
+!!! info
+
+    Starting from update level 6.1.0.195, WSO2 Identity Server ignores inaccessible user stores by default. This ensures that authentication for users in reachable user stores continues without failure, even if another user store is unreachable. To control this behavior, you can configure the following properties in the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+    ```toml
+    [user_store_commons]
+    maxConnectionRetryCount=2
+    minConnectionRetryDelayInMilliSeconds=60000
+    ```
+
+    During authentication, WSO2 Identity Server will attempt to connect to the user store up to `maxConnectionRetryCount` times, with a delay of `minConnectionRetryDelayInMilliSeconds` between each attempt. If the connection is still unavailable, the user store will be skipped.
+
+    If required, you can disable this behavior. However, note that disabling it may disrupt the authentication flow when a user store is unreachable, leading to a degraded user experience. To disable this behavior, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+    ```toml
+    [user_store_commons]
+    enable_circuit_breaker_for_user_stores=false
+    ```
 ---
 
 ## Primary userstore (Mandatory)

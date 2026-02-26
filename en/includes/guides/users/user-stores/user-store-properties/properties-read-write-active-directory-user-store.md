@@ -44,7 +44,7 @@ Following are the minimum user store properties that need to be provided to conf
 <a href="ldaps://10.100.1.102:639">ldaps://10.100.1.102:639</a><br />
 <br />
 If you are connecting over ldaps (secured LDAP),<br />
-you need to import the certificate of user store to <code><&ZeroWidthSpace;IS_HOME>/repository/resources/security/client-truststore.{{default_keystore_ext}}</code>. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see<br />
+you need to import the certificate of user store to <code><&ZeroWidthSpace;IS_HOME>/repository/resources/security/client-truststore.{{content.default_keystore_ext}}</code>. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see<br />
 <a href="{{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption">Use asymmetric encryption.</a><br />
 <br />
 If LDAP connection pooling is used, see <br />
@@ -408,6 +408,30 @@ conversion when reading from/writing to a user store.
 <td>Enables bulk import support for the user store.<br/>
 <p>Default : true </p>
 </td>
+</tr>
+<tr class="even">
+<td>GroupIDEnabled</td>
+<td>group_id_enabled</td>
+<td>Enable Group Unique Id</td>
+<td>Enables support for assigning a unique, persistent ID for SCIM groups.</td>
+</tr>
+<tr class="odd">
+<td>GroupIdAttribute</td>
+<td>group_id_attribute</td>
+<td>Group Id Attribute</td>
+<td>Defines which LDAP attribute should be used as the SCIM group ID</td>
+</tr>
+<tr class="even">
+<td>GroupCreated<br>DateAttribute</td>
+<td>group_created_timestamp_attribute</td>
+<td>Group Created Date Attribute</td>
+<td>Specifies the LDAP attribute that represents the group's creation time.</td>
+</tr>
+<tr class="odd">
+<td>GroupLastModified<br>DateAttribute</td>
+<td>group_modified_timestamp_attribute</td>
+<td>Group Last Modified Date Attribute</td>
+<td>Specifies the LDAP attribute that indicates the last modification time of a group.</td>
 </tr>
 </tbody>
 </table>

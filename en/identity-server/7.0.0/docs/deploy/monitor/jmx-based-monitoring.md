@@ -211,7 +211,7 @@ If you have [JMX enabled for a datasource connected to the WSO2 IS instance](#en
 
 ![Datasource Mbean]({{base_path}}/assets/img/setup/monitor/datasource-mbean.png)
 
-For example, if you have JMX enabled for the default Carbon datasources in the ` deployement.toml ` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below.
+For example, if you have JMX enabled for the default Carbon datasources in the ` deployment.toml ` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below.
 See the [performance tuning guide]({{base_path}}/deploy/performance/performance-tuning-recommendations/#jdbc-pool-configuration) for instructions on how these parameters are configured for a datasource.  
 
 ![Datasource performance tuning]({{base_path}}/assets/img/setup/monitor/tuning.png)
@@ -224,9 +224,9 @@ Follow the steps below to use Jolokia to monitor WSO2 IS.
 
 1. Download the [Jolokia OSGi Agent](https://mvnrepository.com/artifact/org.jolokia/jolokia-osgi/1.7.2). (These instructions are tested with the Jolokia OSGI Agent version 1.7.2 by downloading the `jolokia-osgi-1.7.2.jar` file.)
 
-2. Add it to the `<IS-HOME>/repository/components/dropins/` directory.
+2. Add it to the `<IS_HOME>/repository/components/dropins/` directory.
 
-3. Add the following configurations to the `deployment.toml` file in the `<IS-HOME>/repository/conf/` directory.
+3. Add the following configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
 
     ``` toml
     [[resource.access_control]]

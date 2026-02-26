@@ -67,7 +67,7 @@ Follow the recommendations given below when you set up your keystores.
 
 - The primary keystore used for admin passwords and other data encryption requirements can be a self-signed one. There is no value added by using a CA-signed keystore for this purpose as it is not used for any external communication.
 
-- The primary keystore's public key certificate must have the **Data Encipherment** key usage to allow direct encipherment of raw data using its public key. This key usage is already included in the self-signed certificate that is included in the default `wso2carbon.{{default_keystore_ext}}` keystore. If the **Data Encipherment** key usage is not included in your public key certificate, the following error can occur when you attempt data encryption.
+- The primary keystore's public key certificate must have the **Data Encipherment** key usage to allow direct encipherment of raw data using its public key. This key usage is already included in the self-signed certificate that is included in the default `wso2carbon.{{content.default_keystore_ext}}` keystore. If the **Data Encipherment** key usage is not included in your public key certificate, the following error can occur when you attempt data encryption.
 
     !!! error
         ``` java
@@ -76,7 +76,7 @@ Follow the recommendations given below when you set up your keystores.
 
 - Optionally, you can set up separate keystores for message-level data encryption in WS-Security.
 
-- If you already have the required keystores, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Add CA-signed certificates]({{base_path}}/deploy/security/asymmetric-encryption/manage-ca-signed-certificates-in-a-keystore#add-ca-signed-certificates-to-keystores) to keystores for instructions.
+- If you already have the required keystores, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Add CA-signed certificates]({{base_path}}/deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore/#add-ca-signed-certificates-to-keystores) to keystores for instructions.
 
 !!! info "Related topics"
     -   [Deploy: Create New Keystores]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores)

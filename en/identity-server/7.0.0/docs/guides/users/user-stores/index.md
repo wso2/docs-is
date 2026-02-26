@@ -6,13 +6,33 @@ Identity Server supports JDBC, LDAP, and Active Directory user stores with the
 capability of configuring custom user stores. There are different user store adapters called *User store managers*, which are used to connect
 with these user store types.
 
-There are two types of user stores - Primary User store (Mandatory) and
-Secondary user stores (Optional). All the supported user stores can be
-configured under these two types.
+There are two types of user stores:
+
+- Primary User store (Mandatory)
+- Secondary user stores (Optional).
+
+All the supported user stores can be configured under these two types.
 
 ![user-store-types]({{base_path}}/assets/img/guides/user-stores/user-store-types.png){: width="600" style="display: block; margin: 0;"}
 
----
+!!! info "Configure how {{product_name}} handles unreachable user stores"
+    
+    Starting from update level 7.0.0.81, {{product_name}} ignores inaccessible user stores by default. This ensures that authentication for users in reachable user stores continues without failure, even if another user store is unreachable. To control this behavior, you can configure the following properties in the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+    ```toml
+    [user_store_commons]
+    maxConnectionRetryCount=2
+    minConnectionRetryDelayInMilliSeconds=60000
+    ```
+
+    During authentication, {{product_name}} will attempt to connect to the user store up to `maxConnectionRetryCount` times, with a delay of `minConnectionRetryDelayInMilliSeconds` between each attempt. If the connection is still unavailable, the user store will be skipped.
+
+    If required, you can disable this behavior. However, note that disabling it may disrupt the authentication flow when a user store is unreachable, leading to a degraded user experience. To disable this behavior, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+    ```toml
+    [user_store_commons]
+    enable_circuit_breaker_for_user_stores=false
+    ```
 
 ## Primary user store (Mandatory)
 

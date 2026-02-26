@@ -28,15 +28,15 @@ connection_password = "admin"
 
 In addition to the above, please make sure that you import the Active Directory user store public certificate to the 
 WSO2 Identity Server’s client trust store. To perform this, you need to navigate to the 
-`<IS_HOME>repository/resources/security` directory and execute the following command to import the certificate to 
+`<IS_HOME>/repository/resources/security` directory and execute the following command to import the certificate to 
 client-truststore of WSO2 Identity Server.
 
 ```
-keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.{{default_keystore_ext}} -storetype {{default_keystore_type}} -storepass wso2carbon
+keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.{{content.default_keystore_ext}} -storetype {{content.default_keystore_type}} -storepass wso2carbon
 ```
 
 !!! note
-    `wso2carbon` is the keystore password of the default client-truststore.{{default_keystore_ext}} file of WSO2 Identity Server.
+    `wso2carbon` is the keystore password of the default client-truststore.{{content.default_keystore_ext}} file of WSO2 Identity Server.
 
 Furthermore, please make sure to follow the steps mentioned in [Configure Active Directory User stores for SCIM 2.0 based Inbound Provisioning]({{base_path}}/guides/users/user-stores/configure-active-directory-user-stores-for-scim2) 
 since SCIM is enabled by default from the WSO2 Identity Server 5.10.0 onwards.

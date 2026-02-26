@@ -44,7 +44,11 @@ You may facilitate this using the [application management API]({{base_path}}/api
 {{ product_name }} Console can also function as an administration portal for your B2B application which is accessible through the following URL:
 
 ```
-https://{{ console_hostname }}/t/<root organization name>/o/<organization id>/{{ console_app_path }}
+{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+https://{{ console_hostname }}/t/{{ root_organization_path_param }}/o/<organization id>/{{ console_app_path }}
+{% else %}
+https://{{ console_hostname }}/t/{{ root_organization_name }}/o/<organization id>/{{ console_app_path }}
+{% endif %}
 ```
 
 However, the following limitations apply.

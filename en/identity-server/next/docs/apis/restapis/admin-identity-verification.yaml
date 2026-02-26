@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Identity Verification API
   description: |-
-    This is the RESTful API for admins to manage users' identity verification information stored in Asgardeo.
+    This is the RESTful API for admins to manage users' identity verification information stored in WSO2 Identity Server.
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/users/v1'
 security:

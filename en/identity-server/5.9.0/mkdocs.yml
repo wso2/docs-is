@@ -23,7 +23,7 @@ site_url: https://is.docs.wso2.com/en/5.9.0/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.9.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/5.9.0/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -191,7 +191,7 @@ nav:
           - 'Configuring Facebook': learn/configuring-facebook.md
           - 'Configuring Yahoo': learn/configuring-yahoo.md
           - 'Configuring Google': learn/configuring-google.md
-          - 'Configuring Microsoft Windows Live': learn/configuring-microsoft-windows-live.md
+          - 'Configuring Microsoft login': learn/configuring-microsoft-login.md
           - 'Configuring IWA on Linux': learn/configuring-iwa-on-linux.md
           - 'Configuring AD FS as a Federated Authenticator': learn/configuring-ad-fs-as-a-federated-authenticator.md
           - 'Configuring Twitter': learn/configuring-twitter.md
@@ -567,7 +567,7 @@ nav:
       - 'Installing the Product': 
         - 'Installing the Product': setup/installing-the-product.md
         - 'Installation Prerequisites': setup/installation-prerequisites.md
-        - 'Installing on Linux or OS X': setup/installing-on-linux-or-os-x.md
+        - 'Installing on Linux or macOS': setup/installing-on-linux-or-os-x.md
         - 'Installing on Solaris': setup/installing-on-solaris.md
         - 'Installing on Windows': setup/installing-on-windows.md
         - 'Installing as a Linux Service': setup/installing-as-a-linux-service.md
@@ -650,6 +650,7 @@ nav:
       - 'Configuring Cache Layers': setup/configuring-cache-layers.md
     - 'Security':
         - 'Maintaining Logins and Passwords': setup/maintaining-logins-and-passwords.md
+        - 'Recover Super Admin Account': setup/recover-super-admin-account.md
         - 'Securing Passwords in Configuration Files':
             - 'Encrypting Passwords with Cipher Tool': setup/encrypting-passwords-with-cipher-tool.md
             - 'Resolving Encrypted Passwords': setup/resolving-encrypted-passwords.md
@@ -767,6 +768,19 @@ markdown_extensions:
 
 plugins:
     - search
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
     - redirects:
           redirect_maps:
               'setup/migration-process.md': 'https://is.docs.wso2.com/en/5.9.0/setup/upgrade-wso2-is/'

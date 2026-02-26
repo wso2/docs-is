@@ -11,7 +11,7 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
     !!! note
         For detailed information, see [Install WSO2 Identity Server]({{base_path}}/deploy/get-started/install/).
 
-2. Open the `deployment.toml` file found in the `{IS_HOME}/repository/conf/` directory and add the following configuration.
+2. Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and add the following configuration.
 
     ```
     [analytics.elk]
@@ -53,13 +53,13 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
     - Add `org.wso2.carbon.event.output.adapter.logger.LoggerEventAdapter` to the list of all loggers as follows:
         ```
-        loggers = {other loggers}, org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter
+        loggers = {other loggers}, org-wso2-carbon-event-output-adapter-logger-LoggerEventAdapter
         ```
     - Add the following logger configurations.
         ```
-        logger.org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter.name=org.wso2.carbon.event.output.adapter.logger.LoggerEventAdapter
-        logger.org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter.level=INFO
-        logger.org-wso2-carbon-event.output-adapter-logger-LoggerEventAdapter.appenderRef.CUSTOM_LOGFILE.ref=ANALYTICS_EVENT_LOGFILE
+        logger.org-wso2-carbon-event-output-adapter-logger-LoggerEventAdapter.name = org.wso2.carbon.event.output.adapter.logger.LoggerEventAdapter
+        logger.org-wso2-carbon-event-output-adapter-logger-LoggerEventAdapter.level = INFO
+        logger.org-wso2-carbon-event-output-adapter-logger-LoggerEventAdapter.appenderRef.CUSTOM_LOGFILE.ref = ANALYTICS_EVENT_LOGFILE
         ```
 
         !!! note
@@ -136,7 +136,7 @@ Follow the guides mentioned below to install the ELK components.
      - wso2-iam-session-raw*
      - wso2-iam-session-time-series*
 
-5. Download the artifact file [here]({{base_path}}/assets/img/elk-analytics/kibana-8-x-auth-and-session.ndjson).
+5. Download the artifact file [here](https://github.com/wso2-extensions/identity-elk-integration/blob/main/kibana/saved-objects/kibana-8-x-auth-and-session.ndjson){: target="_blank"}.
 
 6. Under **Stack Management** > **Kibana**, click **Saved Objects**.
 
