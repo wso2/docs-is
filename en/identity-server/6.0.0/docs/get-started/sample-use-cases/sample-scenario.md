@@ -100,7 +100,7 @@ Follow the steps given below.
 
     1.  Execute one of the following commands to start the sample application:
 
-        -   On Linux/MacOS
+        -   On Linux/macOS
 
             ``` bash
             sh app-server.sh
@@ -114,7 +114,7 @@ Follow the steps given below.
 
     2.  Execute the following command to start the quickstart samples accordingly.
 
-        -   On Linux/MacOS
+        -   On Linux/macOS
 
             ``` bash
             sh qsg.sh

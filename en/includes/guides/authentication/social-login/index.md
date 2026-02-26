@@ -8,9 +8,9 @@
       <span>Facebook</span>
     </a>
     <a href="{{base_path}}/guides/authentication/social-login/add-github-login" class="card square">
-      <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="Github" />
-      <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="Github" />
-      <span>Github</span>
+      <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="GitHub" />
+      <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="GitHub" />
+      <span>GitHub</span>
     </a>
     <a href="{{base_path}}/guides/authentication/social-login/add-google-login" class="card square">
       <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/google-logo.svg" alt="Google" />

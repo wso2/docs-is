@@ -256,6 +256,24 @@ extra:
       icon: fontawesome/solid/user-shield
     MCP Server:
       icon: assets/libs/custom-icons/mcp.svg
+    Sift:
+      icon: assets/images/sift-logo.svg
+    Onfido:
+      icon: assets/images/onfido-logo.svg
+  
+  connectors:
+    - name: Sift
+      icon: assets/img/logo/sift-logo.svg
+      description: Helps prevent fraudulent logins to your system.
+      source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
+      category: fraud-detection
+      documentation_link: sift
+    - name: Onfido
+      icon: assets/img/logo/onfido-logo.svg
+      description: Provides identity verification so you know exactly who logs in.
+      source_link: https://store.wso2.com/connector/identity-verification-onfido
+      category: identity-verification
+      documentation_link: onfido
 
   integrations:
     - official:
@@ -350,13 +368,6 @@ extra:
             dark_icon: assets/img/logo/apple-logo-dark.svg
             description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
             source_link: https://github.com/openid/AppAuth-iOS
-
-  connectors:
-    - name: Duo Security
-      icon: assets/img/logo/duo-logo.png
-      description: The Duo Security authenticator allows you to authenticate a user using Duo Security through WSO2 Identity Server.
-      source_link: https://store.wso2.com/connector/identity-outbound-auth-duo
-      documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-duo/blob/master/docs/README.md
 
   redoc_theme: '{
     "colors": {

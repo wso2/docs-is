@@ -406,6 +406,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SMSProviderList'
+              examples:
+                ListOfSMSProviderResponseExample:
+                  $ref: '#/components/examples/SMSProvidersListResponseExample'
         "400":
           description: Bad Request
           content:
@@ -456,18 +459,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SMSSenderAdd'
-            example:
-              provider: NEXMO
-              providerURL: https://rest.nexmo.com/sms/json
-              key: 123**45
-              secret: 5tg**ssd
-              sender: +94 775563324
-              type : json
-              properties:
-                - key: body.scope
-                  value: "internal"
-                - key: http.headers
-                  value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+            examples:
+              TwilioSMSProviderRequestExample:
+                $ref: '#/components/examples/TwilioSMSProviderRequestExample'
+              VonageSMSProviderRequestExample:
+                $ref: '#/components/examples/VonageSMSProviderRequestExample'
+              CustomSMSProviderRequestExample:
+                $ref: '#/components/examples/CustomSMSProviderRequestExample'
       responses:
         "201":
           description: Successful Response
@@ -475,6 +473,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SMSSender'
+              examples:
+                TwilioSMSProviderResponseExample:
+                  $ref: '#/components/examples/TwilioSMSProviderResponseExample'
+                VonageSMSProviderResponseExample:
+                  $ref: '#/components/examples/VonageSMSProviderResponseExample'
+                CustomSMSProviderResponseExample:
+                  $ref: '#/components/examples/CustomSMSProviderResponseExample'
         "400":
           description: Bad Request
           content:
@@ -562,6 +567,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SMSSender'
+              examples:
+                TwilioSMSProviderResponseExample:
+                  $ref: '#/components/examples/TwilioSMSProviderResponseExample'
+                VonageSMSProviderResponseExample:
+                  $ref: '#/components/examples/VonageSMSProviderResponseExample'
+                CustomSMSProviderResponseExample:
+                  $ref: '#/components/examples/CustomSMSProviderResponseExample'
         "400":
           description: Bad Request
           content:
@@ -622,18 +634,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SMSSenderUpdateRequest'
-            example:
-              provider: NEXMO
-              providerURL: https://rest.nexmo.com/sms/json
-              key: 123**45
-              secret: 5tg**ssd
-              sender: +94 775563324
-              type : json
-              properties:
-                - key: body.scope
-                  value: "internal"
-                - key: http.headers
-                  value: "X-Version: 1, Authorization: bearer ,Accept: application/json ,Content-Type: application/json"
+            examples:
+              TwilioSMSProviderRequestExample:
+                $ref: '#/components/examples/TwilioSMSProviderRequestExample'
+              VonageSMSProviderRequestExample:
+                $ref: '#/components/examples/VonageSMSProviderRequestExample'
+              CustomSMSProviderRequestExample:
+                $ref: '#/components/examples/CustomSMSProviderRequestExample'
         required: true
       responses:
         "200":
@@ -642,6 +649,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SMSSender'
+              examples:
+                TwilioSMSProviderResponseExample:
+                  $ref: '#/components/examples/TwilioSMSProviderResponseExample'
+                VonageSMSProviderResponseExample:
+                  $ref: '#/components/examples/VonageSMSProviderResponseExample'
+                CustomSMSProviderResponseExample:
+                  $ref: '#/components/examples/CustomSMSProviderResponseExample'
         "400":
           description: Bad Request
           content:
@@ -1191,6 +1205,8 @@ components:
         secret:
           type: string
           example: 5tg**ssd
+        authentication:
+          $ref: '#/components/schemas/Authentication'
         sender:
           type: string
           example: +94 775563324
@@ -1281,6 +1297,8 @@ components:
         sender:
           type: string
           example: +94 775563324
+        authentication:
+          $ref: '#/components/schemas/Authentication'
         contentType:
           type: string
           enum:
@@ -1315,6 +1333,36 @@ components:
               value: "sampleKeyId"
           items:
             $ref: '#/components/schemas/Properties'
+    EmailSenderUpdateRequest:
+      required:
+        - fromAddress
+      type: object
+      properties:
+        smtpServerHost:
+          type: string
+          example: smtp.gmail.com
+        smtpPort:
+          type: integer
+          example: 587
+        fromAddress:
+          type: string
+          example: iam@gmail.com
+        authType:
+          type: string
+          example: BASIC
+        properties:
+          type: array
+          example:
+            - key: body.scope
+              value: "true"
+            - key: mail.smtp.starttls.enable
+              value: true
+            - key: userName
+              value: iam
+            - key: password
+              value: iam123
+          items:
+            $ref: '#/components/schemas/Properties'
     SMSSenderUpdateRequest:
       required:
         - provider
@@ -1333,6 +1381,8 @@ components:
         secret:
           type: string
           example: 5tg**ssd
+        authentication:
+          $ref: '#/components/schemas/Authentication'
         sender:
           type: string
           example: +94 775563324
@@ -1396,6 +1446,68 @@ components:
         id:
           type: integer
           format: int64
+    Authentication:
+      type: object
+      description: >
+        The type of authentication required by the action's endpoint. The following options are supported:  
+        
+        - CLIENT_CREDENTIAL: Client credential authentication.<br>
+          ``{
+            "type": "CLIENT_CREDENTIAL",
+            "properties": {
+              "clientId": "3e172dd2-901b-43a9-a26a-728466795f01",
+              "clientSecret": "83cdc120-ccf6-4163-a4a8-c1ba3e872daa",
+              "tokenEndpoint": "https://custom.sms.provider/auth/token",
+              "scopes": "send_scope"
+            }
+          }``
+        
+        - BASIC: Username and password based authentication.<br>
+          ``{
+            "type": "BASIC",
+            "properties": {
+              "username": "admin",
+              "password": "admin123"
+            }
+          }``
+        - BEARER: Token based based authentication.<br>
+          ``{
+            "type": "BEARER",
+            "properties": {
+              "token": "dummy-token"
+            }
+          }``
+        - API_KEY: API key secret based authentication.<br>
+          ``{
+            "type": "API_KEY",
+            "properties": {
+              "header": "auth",
+              "value": "123ert45"
+            }
+          }``
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum:
+            - CLIENT_CREDENTIAL
+            - BASIC
+            - BEARER
+            - API_KEY
+            - NONE
+          example: CLIENT_CREDENTIAL
+        properties:
+          type: object
+          description: Authentication properties specific to the selected type.
+          additionalProperties: true
+      example:
+        type: CLIENT_CREDENTIAL
+        properties:
+          clientId: 3e172dd2-901b-43a9-a26a-728466795f01
+          clientSecret: 83cdc120-ccf6-4163-a4a8-c1ba3e872daa
+          tokenEndpoint: https://custom.sms.provider/auth/token
+          scopes: send_scope
   parameters:
     typeQueryParam:
       name: type
@@ -1517,3 +1629,134 @@ components:
             value: "Identity Server"
           - key: "userName"
             value: "iam"
+    TwilioSMSProviderRequestExample:
+      summary: Post and PUT request for Twilio SMS Provider
+      value:
+        provider: Twilio
+        sender: +94 775563324
+        type : json
+        properties:
+          - key: body.scope
+            value: "internal"
+          - key: http.headers
+            value: "X-Version: 1, Accept: application/json, Content-Type: application/json"
+        authentication:
+          type: BASIC
+          properties:
+            username: "123ert45"
+            password: "5tg-rts-ssd"
+    VonageSMSProviderRequestExample:
+      summary: Post and PUT request for Vonage SMS Provider
+      value:
+        provider: Vonage
+        sender: +94 775563324
+        type : json
+        properties:
+          - key: body.scope
+            value: "internal"
+          - key: http.headers
+            value: "X-Version: 1, Accept: application/json, Content-Type: application/json"
+        authentication:
+          type: BASIC
+          properties:
+            username: "123ert45"
+            password: "5tg-rts-ssd"
+    CustomSMSProviderRequestExample:
+      summary: Post and PUT request for Custom SMS Provider
+      value:
+        provider: Custom
+        sender: +94 775563324
+        type : json
+        properties:
+          - key: body.scope
+            value: "internal"
+          - key: http.headers
+            value: "X-Version: 1, Accept: application/json, Content-Type: application/json"
+        authentication:
+          type: CLIENT_CREDENTIAL
+          properties:
+            clientId: 3e172dd2-901b-43a9-a26a-728466795f01
+            clientSecret: 83cdc120-ccf6-4163-a4a8-c1ba3e872daa
+            tokenEndpoint: https://custom.sms.provider/auth/token
+            scopes: send_scope
+    TwilioSMSProviderResponseExample:
+      summary: Response for Twilio SMS Provider
+      value:
+        name:  SMSPublisher
+        provider: Twilio
+        key: 123ert45
+        secret: 5tg-rts-ssd
+        sender: +94 775563324
+        type : json
+        properties:
+          - key: body.scope
+            value: "internal"
+          - key: http.headers
+            value: "X-Version: 1, Accept: application/json, Content-Type: application/json"
+        authentication:
+          type: BASIC
+          properties:
+            username: "123ert45"
+            password: "5tg-rts-ssd"
+    VonageSMSProviderResponseExample:
+      summary: Response for Vonage SMS Provider
+      value:
+        name:  SMSPublisher
+        provider: Vonage
+        key: 123ert45
+        secret: 5tg-rts-ssd
+        sender: +94 775563324
+        type : json
+        properties:
+          - key: body.scope
+            value: "internal"
+          - key: http.headers
+            value: "X-Version: 1, Accept: application/json, Content-Type: application/json"
+        authentication:
+          type: BASIC
+          properties:
+            username: "123ert45"
+            password: "5tg-rts-ssd"
+    CustomSMSProviderResponseExample:
+      summary: Response for Custom SMS Provider
+      description: This document specifies a **RESTful API** for **WSO2 Identity Server Notification Senders**
+      value:
+        name:  SMSPublisher
+        provider: Custom
+        key: ""
+        secret: ""
+        sender: +94 775563324
+        type : json
+        properties:
+          - key: body.scope
+            value: "internal"
+          - key: http.headers
+            value: "X-Version: 1, Accept: application/json, Content-Type: application/json"
+        authentication:
+          type: CLIENT_CREDENTIAL
+          properties:
+            clientId: 3e172dd2-901b-43a9-a26a-728466795f01
+            clientSecret: 83cdc120-ccf6-4163-a4a8-c1ba3e872daa
+            tokenEndpoint: https://custom.sms.provider/auth/token
+            scopes: send_scope
+    SMSProvidersListResponseExample:
+      summary: Response for list of SMS Provider
+      value:
+        - name:  SMSPublisher
+          provider: Custom
+          key: ""
+          secret: ""
+          sender: +94 775563324
+          type : json
+          properties:
+            - key: body.scope
+              value: "internal"
+            - key: http.headers
+              value: "X-Version: 1, Accept: application/json, Content-Type: application/json"
+          authentication:
+            type: CLIENT_CREDENTIAL
+            properties:
+              clientId: 3e172dd2-901b-43a9-a26a-728466795f01
+              clientSecret: 83cdc120-ccf6-4163-a4a8-c1ba3e872daa
+              tokenEndpoint: https://custom.sms.provider/auth/token
+              scopes: send_scope

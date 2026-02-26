@@ -1,6 +1,6 @@
 # Configure a custom connector
 
-You can add login to your applications using a custom connector in {{ product_name }} and enable users to log in with the configured connector. This custom connector can be any identity provider such as Facebook, Twitter, Google, Yahoo or a [custom federared authenticator]({{base_path}}/references/extend/federation/write-a-custom-federated-authenticator).
+You can add login to your applications using a custom connector in {{ product_name }} and enable users to log in with the configured connector. This custom connector can be any identity provider such as Facebook, Twitter, Google, Yahoo or a [custom federated authenticator]({{base_path}}/references/extend/federation/write-a-custom-federated-authenticator).
 
 Follow this guide for instructions.
 
@@ -18,7 +18,7 @@ Follow this guide for instructions.
 6. Enter the requested details depending on the selected authenticator and click **Finish**.
 
 !!! tip
-    You can add multiple authenticators to the custom connetor and select one authenticator as the default.
+    You can add multiple authenticators to the custom connector and select one authenticator as the default.
 
 ## Enable login using the custom connector
 

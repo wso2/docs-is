@@ -271,7 +271,7 @@ The decoded access token looks as follows:
 
 - Apart from the generic claims, the impersonated access token has the `act` property which clients can use to detect impersonation. In the given example, the `sub` property holds the value of `32bc4697-ed0f-4546-8387-dcd6403e7caa`, the user ID of the impersonated user.
 
-- The `act.sub` property holds the user ID of the impersonator. In the given exmaple, the `act.sub` property holds the value of `2d931c9d-876e-46c0-9aba-f34501879dfc`, the user ID of the impersonator.
+- The `act.sub` property holds the user ID of the impersonator. In the given example, the `act.sub` property holds the value of `2d931c9d-876e-46c0-9aba-f34501879dfc`, the user ID of the impersonator.
 
 ## Configure more impersonation options
 

@@ -11,7 +11,7 @@ Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
     !!! note
         For detailed information, see [Install WSO2 Identity Server]({{base_path}}/deploy/get-started/install/).
 
-2. Open the `deployment.toml` file found in the `{IS_HOME}/repository/conf/` directory and add the following configuration.
+2. Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and add the following configuration.
 
     ```
     [analytics.elk]

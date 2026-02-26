@@ -16,7 +16,7 @@ To achieve this, Pickup's administrator can create user roles for each designati
 
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 

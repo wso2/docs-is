@@ -40,7 +40,7 @@ using WSO2 Identity Server.
 
     |OS     |Home Directory                                |
     |:------|:---------------------------------------------|
-    |Mac OS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
+    |macOS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
     |Windows| `C:\Program Files\WSO2\IdentityServer\<IS_HOME>` |
     |Ubuntu | `/usr/lib/wso2/IdentityServer/<IS_HOME>`         |
     |CentOS | `/usr/lib64/IdentityServer/<IS_HOME>`           |

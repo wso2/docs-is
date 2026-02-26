@@ -39,7 +39,7 @@ Follow these steps given below to register the sample Java EE web application in
           <td>Select <b>SAML</b>.</td>
       </tr>
       <tr>
-          <td>Configruation type</td>
+          <td>Configuration type</td>
           <td>Select <b>Manual</b> (Learn more about [SAML configuration types]({{base_path}}/guides/applications/register-saml-web-app/))</td>
       </tr>
     <tr>
@@ -57,7 +57,7 @@ Follow these steps given below to register the sample Java EE web application in
       </td>
     </tr>
     </table>
-5. Click **Register** to complete the registration.
+4. Click **Register** to complete the registration.
 
 !!! tip
     To provide a better experience for the user, it is recommended to configure an access URL for the application. You can set an access URL from the **General** tab of the application. (For this sample application, the access URL is <code>https://localhost:8080/sample-app</code>).
@@ -77,12 +77,13 @@ Click the button below to download the sample. You can also choose to view the s
 
 <div class="centered-container">
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50><br>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/java-logo.svg" alt="OIDC" width=50><br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war" target="_blank">Download sample</a>
   </div>
 
   <div class="border-text">
-    <img src="{{base_path}}/assets/img/logo/github-logo.svg" alt="Github" width=50><br>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo.svg#only-light" alt="GitHub" width=50>
+    <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/github-logo-dark.svg#only-dark" alt="GitHub" width=50><br>
     <a href="https://github.com/asgardeo/asgardeo-tomcat-saml-agent/tree/master/io.asgardeo.tomcat.saml.agent.sample" target="_blank">View source</a>
   </div>
 </div>
@@ -91,19 +92,19 @@ Click the button below to download the sample. You can also choose to view the s
 
 Follow the steps given below to configure the sample app.
 
-1. Move the  **war** file that you downloaded to the `{TOMCAT_HOME}/webapps` folder where `{TOMCAT_HOME}` is the root of your Tomcat server.
+1. Move the  **war** file that you downloaded to the `<TOMCAT_HOME>/webapps` folder where `<TOMCAT_HOME>` is the root of your Tomcat server.
   
-2. Open a terminal, navigate to the `{TOMCAT_HOME}/bin` folder, and start the Tomcat server using the following command:
+2. Open a terminal, navigate to the `<TOMCAT_HOME>/bin` folder, and start the Tomcat server using the following command:
 
     !!! note
         This will extract the contents of the **war** file. </br>
       If your Tomcat server is set to auto-deploy applications, you can skip this step.
 
-    ```bash 
+    ```bash
     sh catalina.sh start
     ```
 
-3. Go to the `{TOMCAT_HOME}/webapps/sample-app/WEB-INF/classes` folder and open the `sample-app.properties` file in a text editor.
+3. Go to the `<TOMCAT_HOME>/webapps/sample-app/WEB-INF/classes` folder and open the `sample-app.properties` file in a text editor.
 
 4. Update the following in the `sample-app.properties` file:
 
@@ -112,7 +113,7 @@ Follow the steps given below to configure the sample app.
         - Update the **SAML2.IdPEntityId** parameter with the Asgardeo issuer, which is `api.asgardeo.io/t/{organization_name}`.
         - **SAML2.SPEntityId** should match the issuer name entered when registering the application in Asgardeo.
 
-    ```saml   
+    ```saml
     SAML2.AssertionConsumerURL=http://localhost:8080/sample-app/home.jsp
     SAML2.SPEntityId=sample-issuer
     SAML2.IdPEntityId=api.asgardeo.io/t/{organization_name}
@@ -134,6 +135,7 @@ Follow the steps given below to configure the sample app.
     ErrorPage=/error.jsp
     SAML2SSOURL=samlsso
     ```
+
     <table>
       <thead>
         <tr>
@@ -285,9 +287,9 @@ Follow the steps given below to configure the sample app.
           </tbody>
         </table>
 
-5. In the `{TOMCAT_HOME}/bin` folder, run the following commands to restart the Tomcat server for the configurations to take effect:
+5. In the `<TOMCAT_HOME>/bin` folder, run the following commands to restart the Tomcat server for the configurations to take effect:
 
-    ```bash 
+    ```bash
     sh catalina.sh stop
     sh catalina.sh start
     ```

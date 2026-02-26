@@ -22,7 +22,7 @@ create_admin_account = true
 
 For your new configurations to apply, restart {{ product_name }} using the appropriate command. 
 
-=== "Linux/MacOS"
+=== "Linux/macOS"
     
     ```bash
     sh wso2server.sh

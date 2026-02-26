@@ -19,7 +19,7 @@ For more information, refer to [Configure log masking with Filebeat]({{base_path
 
 ## Disabling Default Log Masking
 
-By default, log masking is enabled. To disable log masking, navigate to `<IS-HOME>/repository/conf/deployment.toml` and add the following configuration.
+By default, log masking is enabled. To disable log masking, navigate to `<IS_HOME>/repository/conf/deployment.toml` and add the following configuration.
 
 ```toml
 [masking_logs]

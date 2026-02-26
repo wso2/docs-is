@@ -289,7 +289,7 @@ WSO2 Identity Server allows you to configure the following identity claim metada
 
 ## Add a new CacheManager
 
-To add a new cache manager, add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
+To add a new cache manager, add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`.
 
 ```toml
 [[cache_config.cache_manager]]
