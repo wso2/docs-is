@@ -67,18 +67,18 @@ The `UserDropdown` component internally uses the `BaseUserDropdown` component an
 
 | Prop                  | Type                      | Required | Description |
 |-----------------------|---------------------------|----------|-------------|
-| `attributeMapping`    | `object`                  | ❌       | Mapping of component attribute names to identity provider field names. Supports `firstName`, `lastName`, `picture`, and `username` fields |
-| `avatarSize`          | `number`                  | ❌       | Size of the avatar in pixels |
-| `className`           | `string`                  | ❌       | CSS class name for the dropdown container |
-| `fallback`            | `ReactElement`            | ❌       | Element to render when no user is signed in |
-| `isLoading`           | `boolean`                 | ❌       | Whether the user data is currently loading. Automatically managed by `UserDropdown` |
-| `menuItems`           | `MenuItem[]`              | ❌       | Menu items to display in the dropdown |
-| `onManageProfile`     | `function`                | ❌       | Callback function for manage profile action. Automatically managed by `UserDropdown` |
-| `onSignOut`           | `function`                | ❌       | Callback function for sign out action |
-| `portalId`            | `string`                  | ❌       | The HTML element ID where the portal should be mounted |
-| `showDropdownHeader`  | `boolean`                 | ❌       | Show dropdown header with user information |
-| `showTriggerLabel`    | `boolean`                 | ❌       | Show user's display name next to avatar in the trigger button |
-| `user`                | `object`                  | ✅       | The user object containing profile information. Automatically provided by `UserDropdown` |
+| `attributeMapping`    | `object`                  | No       | Mapping of component attribute names to identity provider field names. Supports `firstName`, `lastName`, `picture`, and `username` fields |
+| `avatarSize`          | `number`                  | No       | Size of the avatar in pixels |
+| `className`           | `string`                  | No       | CSS class name for the dropdown container |
+| `fallback`            | `ReactElement`            | No       | Element to render when no user is signed in |
+| `isLoading`           | `boolean`                 | No       | Whether the user data is currently loading. Automatically managed by `UserDropdown` |
+| `menuItems`           | `MenuItem[]`              | No       | Menu items to display in the dropdown |
+| `onManageProfile`     | `function`                | No       | Callback function for manage profile action. Automatically managed by `UserDropdown` |
+| `onSignOut`           | `function`                | No       | Callback function for sign out action |
+| `portalId`            | `string`                  | No       | The HTML element ID where the portal should be mounted |
+| `showDropdownHeader`  | `boolean`                 | No       | Show dropdown header with user information |
+| `showTriggerLabel`    | `boolean`                 | No       | Show user's display name next to avatar in the trigger button |
+| `user`                | `object`                  | Yes       | The user object containing profile information. Automatically provided by `UserDropdown` |
 
 #### MenuItem interface
 
