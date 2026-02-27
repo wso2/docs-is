@@ -59,7 +59,7 @@ For other types of encryption, [asymmetric encryption]({{base_path}}/deploy/secu
 For enhanced security, it is recommended to generate your own secret key for symmetric key encryption in {{product_name}}.
 
 !!! warning
-    All configuration changes should be applied before starting {{product_name}} for the first time. Otherwise, a [key rotation]({{base_path}}/deploy/security/symmetric-encryption/blue-green-data-encryption-keyrotation) will be required.
+    All configuration changes should be applied before starting {{product_name}} for the first time.
 
 To do so,
 
