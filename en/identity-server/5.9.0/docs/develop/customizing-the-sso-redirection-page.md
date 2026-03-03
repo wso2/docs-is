@@ -1,7 +1,7 @@
 # Customizing the SSO Redirection Page
 
 The redirection page for Single Sign-On is available at
-`         <IS-HOME>/repository/resources/identity/pages/samlsso_response.html        `
+`         <IS_HOME>/repository/resources/identity/pages/samlsso_response.html        `
 . You need to edit this HTML file in order to customize the SSO
 redirection page.
 

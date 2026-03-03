@@ -11,9 +11,9 @@ The following guide shows you how to prepare the WSO2 Identity server for adapti
 Follow the steps below to configure the analytics engine in WSO2 Identity Server that establishes the connection between WSO2 Identity Server and ELK.
 
 1. Access the WSO2 Identity Server Management Console and sign in as an admin user.
-2. Under **Identity Providers** click **Resident**. 
+2. Under **Identity Providers** click **Resident**.
 3. Expand **Other Settings** > **Analytics Engine Configuration** > **ELK Analytics**.
-3. Configure the following properties.
+4. Configure the following properties.
    ![elk-analytics-engine-properties]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png)
    <table>
    <thead>
@@ -58,21 +58,21 @@ Follow the steps below to configure the analytics engine in WSO2 Identity Server
    </tr>
    </tbody>
    </table>
-4. Click **Update**
+5. Click **Update**
 
 ## Add Elasticsearch certificate to WSO2 Identity Server
 
  An HTTP connection is used to communicate between WSO2 IS and Elasticsearch. Therefore the Elasticsearch certificate needs to be imported to the WSO2 IS.
-   
+
 To import the certificate, open a terminal window and run the following command.
 
- ```
-   keytool -trustcacerts -keystore {IS_HOME}/repository/resources/security/client-truststore.jks -storepass wso2carbon -importcert -alias elk -file {ELASTICSEARCH_HOME}/config/certs/http_ca.crt
+ ```bash
+   keytool -trustcacerts -keystore <IS_HOME>/repository/resources/security/client-truststore.jks -storepass wso2carbon -importcert -alias elk -file <ELASTICSEARCH_HOME>/config/certs/http_ca.crt
  ```
 
 !!! info
-      This example uses the default keystores and certificates. Replace {IS_HOME} and {ELASTICSEARCH_HOME} accordingly. The default keystore password is `wso2carbon`.
+      This example uses the default keystores and certificates. Replace <IS_HOME> and <ELASTICSEARCH_HOME> accordingly. The default keystore password is `wso2carbon`.
 
 ## What's Next?
 
-Now that you have prepared WSO2 Idenity server for adaptive authentication using ELK analytics, [try a scenario]({{base_path}}/guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication).
+Now that you have prepared WSO2 Identity server for adaptive authentication using ELK analytics, [try a scenario]({{base_path}}/guides/elk-analytics/elk-configuring-risk-based-adaptive-authentication).

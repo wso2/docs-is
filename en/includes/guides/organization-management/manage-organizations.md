@@ -48,7 +48,7 @@ Follow the steps given below to create an organization.
     - Create identity providers.
     - Update the login options and general information of the applications shared from the organization (root). Learn more about [shared applications]({{base_path}}/guides/organization-management/share-applications/).
     - Configure the branding of the organization. Learn more about [branding]({{base_path}}/guides/branding/configure-ui-branding/).
-    - Build an oragnziation hierarchy by creating organizations.
+    - Build an organization hierarchy by creating organizations.
 
 ## Add organization attributes
 

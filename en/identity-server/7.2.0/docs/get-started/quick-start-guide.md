@@ -18,7 +18,7 @@ Are you new to **{{ product_name }}**? Let's get to know what we are all about!
 
 - **Data Protection Officers** who need to implement and monitor a system that adheres to privacy protection regulations across the organization
 
-- **Insight managers** who need precise data on logins, registrations, and user activities to derive business insights.
+- **Insight managers** who need precise data on logins, registrations, and user activities to gain business insights.
 
 ---
 

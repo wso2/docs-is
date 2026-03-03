@@ -285,7 +285,7 @@ WSO2 Identity Server now supports the X25519MLKEM768 hybrid key exchange out-of-
 
 Support for inbound communication using a separate script has been available since version 7.0. With version 7.2, the same level of security is now extended to outbound connections. It can be enabled through a configuration, without requiring any external scripts or additional setup tools.
 
-Learn more about [encryption for outbound communications]({{base_path}}/deploy/security/configure-post-quantum-tls/post-quantum-outbound/).
+Learn more about [encryption for outbound communications]({{base_path}}/deploy/security/configure-post-quantum-tls/).
 
 ### Unicode character support for user attributes
 

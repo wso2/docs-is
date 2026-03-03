@@ -610,7 +610,18 @@ paths:
       operationId: addAuthorizedAPI
       description: |
         This API provides the capability to authorized an API to the application. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_update`
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_org_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To authorize organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Authorize organization API | `internal_org_application_internal_api_update` |
+          | Authorize business APIs | `internal_org_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -667,7 +678,18 @@ paths:
       operationId: patchAuthorizedAPI
       description: |
         This API provides the capability to update an authorized API of the application. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_update`
+        <b>Scope(Permission) required:</b> 
+          - `internal_org_application_mgt_update`
+        
+        
+        <b>➕ Additional Scopes</b>
+        
+          To update authorized organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Update authorized organization API | `internal_org_application_internal_api_update` |
+          | Update authorized business APIs | `internal_org_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -730,7 +752,17 @@ paths:
       operationId: deleteAuthorizedAPI
       description: |
         This API provides the capability to delete an authorized API of the application. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_update`
+        <b>Scope(Permission) required:</b> 
+          - `internal_org_application_mgt_update`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To remove authorized organization APIs and business APIs, you also need the following additional scopes:
+        
+          | Action | Scope |
+          |---------|--------|
+          | Remove authorized organization API | `internal_org_application_internal_api_update` |
+          | Remove authorized business APIs | `internal_org_application_business_api_update` |
       parameters:
         - name: applicationId
           in: path
@@ -824,9 +856,19 @@ paths:
         - Inbound Protocols - OAuth / OIDC
       summary: |
         Retrieve OIDC authentication protocol parameters.
-      description: >
-        This API provides the capability to retrieve OIDC authentication protocol parameters of an application. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_view`
+      description: |
+        This API provides the capability to retrieve OIDC authentication protocol parameters of an application.
+        
+        <b>Scope(Permission) required:</b> 
+          - `internal_org_application_mgt_view`
+        
+        <b>➕ Additional Scopes</b>
+        
+          To view the client secret, you also need the following additional scope:
+        
+          | Action | Scope |
+          |---------|--------|
+          | View client secret | `internal_org_application_mgt_client_secret_view` |
       operationId: getInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -1129,7 +1171,7 @@ paths:
         Regenerate the OAuth2/OIDC client secret.
       description: |
         This API regenerates the OAuth2/OIDC client secret. <br>
-          <b>Scope(Permission) required:</b> `internal_org_application_mgt_create`
+          <b>Scope(Permission) required:</b> `internal_org_application_mgt_client_secret_create`
       operationId: regenerateOAuthClientSecret
       parameters:
         - name: applicationId

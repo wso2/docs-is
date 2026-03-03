@@ -1,90 +1,212 @@
-# Manage OAuth2 applications within organization
+# Create an application in an organization
 
-Applications can be created directly in the organizations and these applications can be used to consume the API resources
-from the organizations. 
+Organization administrators can create and mange applications directly within their organizations. These applications can access and consume the organization’s API resources. To create an application, it must meet the following conditions:
 
-These applications can be created under the following conditions.
+- Use OAuth2.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
-- Application's protocol is OAuth2.
-- Only client credentials, password and refresh grant types can be used.
+- Use only the following grant types: authorization code, client credentials, password, and refresh token.
 
-Alongside with the Application Management, following capabilities are now available in the organizations
+- Use a standard-based application or an M2M application template.
 
-- Role management : Roles can be managed directly in the organization and can associate with the applications
-which are managed directly in the organization.
+{% else %}
 
-- Inherited API Resources : The {{ product_name }} defined Organization API Resources and the API Resources that are created 
-in the root organization are now inherited to the organization. These API Resources can be authorized to the 
-applications which are managed directly in the organization.
+- Use only the following grant types: client credentials, password and refresh token.
 
-## Inherited API Resources
+{% endif %}
 
-The Organization API Resources and the API Resources that are created in the root organization are 
-inherited to the organizations directly. These API Resources are available in read only mode through the {{ product_name}} Console.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
-![Inherited default API Resources]({{base_path}}/assets/img/guides/applications/organization-applications/inherited-api-resources.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+You can use either the Console or the API to create an application in an organization.
 
-## Role Management
+=== "Using the Console"
 
-Organizations can have their own roles and manage them independently. These roles can only be associated with the 
-applications that are managed directly in the organization. 
+    To create an application,
 
-![Role management in organization]({{base_path}}/assets/img/guides/applications/organization-applications/role-management-organization.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    1. On the {{ product_name }} Console, go to **Organizations** and switch to your desired organization.
 
-Please refer [Manage roles]({{base_path}}/guides/users/manage-roles/) for more details on how you can manage the roles.
+    2. In the organization, go to **Applications**.
 
-### Role types in organization
+        ![Organization Application Create]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-create.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Organization now have two types on roles.
+    3. Click **Add Application** and use either the **Standard-Based Application** or **M2M Application** template to create your application.
 
-- Shared roles : Roles defined by the root organization and used by B2B applications shared with this organization 
-are created as shared roles within the organization.
-- Roles managed directly in the organization : Roles which can be managed directly in the organization.
+    ![Organization Application Templates]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-templates.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Both these roles can be assigned to any user in the organization but in the authorization, shared applications will only 
-consider the shared roles to provide the authorization.
+=== "Using the API"
 
-There might be scenarios where the above two types of roles can lead to a conflict of role creation. Please refer 
-[Manage role conflicts in organization]({{base_path}}/guides/organization-management/manage-conflicts-in-organizations/#manage-role-conflicts-in-organization) for more information.
+    To create an application,
+    
+    1. Get a bearer token with the `internal_org_application_mgt_create` scope. Learn more about [accessing organization APIs]     ({{base_path}}apis/organization-apis/authentication/)
+    
+    2. Use the [Application management REST API]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Applications/operation/createApplication) to create an application in an organization.
 
-## OAuth2 Application Management
+{% else %}
 
-Organizations can have their own OAuth2 applications and manage them independently. These applications can issue tokens 
-and allow access to the API Resources which belongs to the particular organization. Organization application can be 
-created with the below conditions.
+To create an application,
 
-- Application's protocol is OAuth2.
-- Only client credentials, password and refresh grant types can be used.
+1. Get a bearer token with the `internal_org_application_mgt_create` scope. Learn more about [accessing organization APIs]({{base_path}}/apis/organization-apis/authentication/).
 
-Organization application can be created by using the [Organization application Add]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Applications/operation/createApplication) API request. A bearer token with the `internal_org_application_mgt_create` scope, which was issued for the corresponding organization will be needed to invoke this API.
+2. Use the [Application management REST API]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Applications/operation/createApplication) to create an application in an organization.
 
-These created applications can be edited from the {{ product_name }} Console.
+{% endif %}
 
-![Organization Application Edit]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-edit.png)
+## Edit an application
 
-The following operations are supported for organization applications.
+You can find the created applications in the **Application** section of your organization's Console. You can use the Console to make the following changes to these applications.
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
+- Protocol level configurations
+- User attributes related configurations
+- Login Flow configurations
+- API Authorization for organization application
+- Role management for organization application
+- Advanced configurations
+
+{% else %}
 
 - Protocol level configurations
 - User attributes related configurations
 - API Authorization for organization application
 - Role management for organization application
 
-### Token generation from organization applications
+{% endif %}
 
-- Password Grant
+![Organization Application Edit]({{base_path}}/assets/img/guides/applications/organization-applications/organization-application-edit.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-!!! abstract
-    **Request format**
+## Authorize applications to API resources
+
+Organizations inherit the following API resources from the root oraganization:
+
+- Default organization API resources defined by {{ product_name }}.
+
+- API resources created in the root organization.
+
+For your applications to access these API resources, you need to authorize the applications to the required API resources. To do so,
+
+1. On the {{ product_name }} Console, go to **Organizations** and switch to your desired organization.
+
+2. In the organization, go to **Applications** and select your desired application.
+
+3. Go to the **API Authorization** tab and click **Authorize API Resources**.
+
+4. Authorize the required API resources to the application.
+
+## Authorize users to consume API resources
+
+The previous section explained how you can authorize an application to access API resources. Now that your application has the permissions ready, you need to authorize users to access the API resources and its resources. You can do this by assigning them to the correct roles.
+
+Organizations have access to two types of roles:
+
+- Roles associated with applications shared with the organization - The root organization manage these roles and the organizations can seem them as shared roles. <b>Shared applications only consider these roles for authorization</b>.
+
+- Organization managed roles - Organization administrators can create and manage roles directly in the organization. These roles govern access to <b>applications managed directly in the organization</b>.
+
+![Role management in organization]({{base_path}}/assets/img/guides/applications/organization-applications/role-management-organization.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! note
+
+    - To learn more about roles, refer to [Manage roles]({{base_path}}/guides/users/manage-roles/).
+
+    -  To learn about managing conflicts that can arise due to these two types of roles, refer to [manage role conflicts in organization]({{base_path}}/guides/organization-management/manage-conflicts-in-organizations/#manage-role-conflicts-in-organization).
+
+## Generate tokens for applications
+
+When applications have access to the required API resources and the users authorized to access application resources, you can use the following grant types to generate tokens and issue scopes.
+
+The organization applications can use the following OAuth2 grant types to generate tokens.
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
+### Authorization code grant
+
+Use the following steps to generate an authorization code and exchange it for an access token.
+
+=== "Request format"
+
+    ```bash
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/authorize
+    ?response_type=code
+    &redirect_uri=<APPLICATION_REDIRECT_URI>
+    &client_id=<APPLICATION_CLIENT_ID>
+    &scope=<REQUIRED_SCOPE/S>
     ```
-    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/o/<ORG_ID>/oauth2/token
+
+=== "Sample request"
+
+    ```bash
+    {{ root_org_url }}/o/7e98b86f-63c7-41a1-8c56-c909a21a2615/oauth2/authorize
+    ?response_type=code
+    &redirect_uri=https://bestcarmart.com/login
+    &client_id=sample_application_client_id
+    &scope=openid internal_org_user_mgt_list read_stores
     ```
-    ---
-    **Sample request**
-    ```curl
-    curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k -d "grant_type=password&username=Charlie&password=jG9A5KrX" -H "Content-Type: application/x-www-form-urlencoded" {{ root_org_url }}/o/7e98b86f-63c7-41a1-8c56-c909a21a2615/oauth2/token
+
+After executing the authorization request, {{ product_name }} prompts the user to login to the corresponding organization. After the user successfully logs in, the redirect URL of the application receives an authorization code. The application can exchange the authorization code for a token using the token endpoint.
+
+=== "Request format"
+
+    ``` bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "grant_type=authorization_code&code=<AUTHORIZATION_CODE>&redirect_uri=<APPLICATION_REDIRECT_URI>" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/token
     ```
-    ---
-    **Sample response**
+
+=== "Sample request"
+
+    ``` bash
+    curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k 
+    -d "grant_type=authorization_code&code=111c6b23-e395-4263-8792-87dc5db3c8a9&redirect_uri=https://bestcarmart.com/login" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/7e98b86f-63c7-41a1-8c56-c909a21a2615/oauth2/token
+    ```
+
+=== "Sample response"
+
+    ```
+    {
+        "access_token": "8120d44a-d80b-49d9-b449-a14e399cc404",
+        "refresh_token": "ee8bf449-e8ba-421c-b4d5-6a38c6432d4d",
+        "scope": "openid internal_org_user_mgt_list read_stores",
+        "token_type": "Bearer",
+        "expires_in": 3600
+    }
+    ```
+
+!!! note
+
+    - To obtain the `refresh_token` in the response, go to the **Protocol** tab of the application and enable the **refresh token grant** type.
+
+    - The `scope` parameter returns only the scopes authorized to both the application and the user who requests authorization.
+
+{% endif %}
+
+### Password grant
+
+Use the following steps to use the user's credentials to get an access token.
+
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "grant_type=password&username=<USERNAME>&password=<PASSWORD>" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/token
+    ```
+
+=== "Sample request"
+
+    ```bash
+    curl --user 7wYeybBGCVfLxPmS0z66WNMffyMa:WYfwHUsbsEvwtqmDLuaxF_VCQJwa -k 
+    -d "grant_type=password&username=Charlie&password=jG9A5KrX" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/7e98b86f-63c7-41a1-8c56-c909a21a2615/oauth2/token
+    ```
+
+=== "Sample response"
+
     ```
     {
         "access_token": "4778085e-5802-3090-aa70-ec877663f194",
@@ -94,23 +216,33 @@ The following operations are supported for organization applications.
     }
     ```
 
-    !!! note
-        If you need the scopes with the response, the add the `scope` path parameter to the token request with the required scopes.
+!!! note
+    If you need scopes in the response, add the `scope` parameter to the token request with the required scopes.
 
-- Client Credentials Grant
+### Client credentials grant
 
-!!! abstract
-    **Request format**
+Use the following steps to use the client credentials to get an access token.
+
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "grant_type=client_credentials" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/token
     ```
-    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "grant_type=client_credentials" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/o/<ORG_ID>/oauth2/token
+
+=== "Sample request"
+
+    ```bash
+    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
+    -d "grant_type=client_credentials" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/token
     ```
-    ---
-    **Sample request**
-    ```curl
-    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k -d "grant_type=client_credentials" -H "Content-Type: application/x-www-form-urlencoded" {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/token
-    ```
-    ---
-    **Sample response**
+
+=== "Sample response"
+
     ```
     {
         "access_token": "bc978da1-6c56-3125-a999-a8d61c889672",
@@ -119,23 +251,33 @@ The following operations are supported for organization applications.
     }
     ```
 
-    !!! note
-        If you need the scopes with the response, the add the `scope` path parameter to the token request with the required scopes.
+!!! note
+    If you need scopes in the response, add the `scope` parameter to the token request with the required scopes.
 
-### Token introspection from organization application
+## Introspect tokens for applications
 
-!!! abstract
-    **Request format**
+You can use the token introspection endpoint to validate access tokens issued for organization applications. The following example demonstrates how to introspect an access token.
+
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "token=<SUB_ORG_APP_TOKEN>" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/introspect
     ```
-    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "token=<SUB_ORG_APP_TOKEN>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/o/<ORG_ID>/oauth2/introspect
+
+=== "Sample request"
+
+    ```bash
+    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
+    -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/introspect
     ```
-    ---
-    **Sample request**
-    ```curl
-    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b" -H "Content-Type: application/x-www-form-urlencoded" {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/introspect
-    ```
-    ---
-    **Sample response**
+
+=== "Sample response"
+
     ```
     {
         "aut": "APPLICATION_USER",
@@ -151,21 +293,30 @@ The following operations are supported for organization applications.
     }
     ```
 
-### Token revocation from organization application
+## Revoke tokens for applications
 
-!!! abstract
-    **Request format**
+The following example demonstrates how to revoke tokens issued for organization applications.
+
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "token=<SUB_ORG_APP_TOKEN>&token_type_hint=<TOKEN_TYPE>" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/revoke
     ```
-    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k -d "token=<SUB_ORG_APP_TOKEN>&token_type_hint=<TOKEN_TYPE>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS_HOST>:<IS_PORT>/t/<TENANT_DOMAIN>/o/<ORG_ID>/oauth2/revoke
+
+=== "Sample request"
+
+    ```bash
+    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
+    -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b&token_type_hint=access_token" 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/revoke
     ```
-    ---
-    **Sample request**
-    ```curl
-    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k -d "token=ef757efc-6ec3-3e12-83f6-cb2849d67f7b&token_type_hint=access_token" -H "Content-Type: application/x-www-form-urlencoded" {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/revoke
-    ```
-    ---
-    **Sample response**
-    ```
+
+=== "Sample response"
+
+    ```json
     Empty JSON response with HTTP status code 200 OK
     ```
-    

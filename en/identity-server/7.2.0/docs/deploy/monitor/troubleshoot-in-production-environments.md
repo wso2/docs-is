@@ -10,7 +10,7 @@ When your Java process starts to spin your CPU, you must immediately analyze the
 2. `ps -C java -L -o pcpu,cpu,nice,state,cputime,pid,tid > thread-usage.txt`
 
     !!! tip
-        OS X users can alternatively use the command, `ps M <PID>` instead.
+        macOS users can alternatively use the command, `ps M <PID>` instead.
 
 These commands provide you with the `thread-dump.txt` file and the `thread-usage.txt` file. After obtaining these two files, follow the instructions given below.
 

@@ -17,7 +17,7 @@ JDBC user store.
 
 ##Configuring the internal database as JDBC user store. 
 
-Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
+Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]
@@ -56,11 +56,11 @@ type = "database"
         
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts of 
         [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
         against the database created.    
             
-          - `<IS-HOME>/dbscripts/postgresql.sql`
+          - `<IS_HOME>/dbscripts/postgresql.sql`
           
     3. Download the PostgreSQL JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
@@ -80,11 +80,11 @@ type = "database"
     
     2. Executing database scripts. 
 
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts of 
         [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
         against the database created.        
             
-          - `<IS-HOME>/dbscripts/mysql.sql`
+          - `<IS_HOME>/dbscripts/mysql.sql`
 
     3. Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
@@ -103,11 +103,11 @@ type = "database"
         ```    
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts of 
         [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
         against the database created.       
             
-          - `<IS-HOME>/dbscripts/db2.sql`
+          - `<IS_HOME>/dbscripts/db2.sql`
    
     3. Download the DB2 JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
@@ -126,11 +126,11 @@ type = "database"
         ```
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts of 
         [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
         against the database created.        
             
-          - `<IS-HOME>/dbscripts/mssql.sql`
+          - `<IS_HOME>/dbscripts/mssql.sql`
           
     3. Download the MSSQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
     
@@ -150,11 +150,11 @@ type = "database"
         ```
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts of 
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts of 
         [User Management Related Tables](../../administer/user-management-related-tables) in the following file, 
         against the database created.      
             
-          - `<IS-HOME>/dbscripts/oracle.sql`
+          - `<IS_HOME>/dbscripts/oracle.sql`
           
     3. Download the Oracle JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
@@ -163,7 +163,7 @@ type = "database"
 Following are the properties used in JDBC user store manager. You can configure any of
 those properties as follows. 
 
-Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
+Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]

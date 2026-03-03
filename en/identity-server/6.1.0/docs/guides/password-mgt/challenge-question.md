@@ -42,6 +42,9 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 ### Enable password reset via challenge questions globally
 
+!!! note
+    `<IS_HOME>` refers to the root directory where your WSO2 Identity Server is installed or extracted. For example, `/home/user/wso2is-6.1.0`.
+
 1.  Navigate to the `<IS_HOME>/repository/conf/deployment.toml`file and add the following configurations.
 
     !!! tip

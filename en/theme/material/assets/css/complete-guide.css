@@ -84,7 +84,7 @@
         height: calc(100% - 18px);
         border-left: 1px solid var(--md-default-fg-color--light);
     }
-    
+
     .md-nav__item:not(.md-nav__item--nested):last-child::before {
         border-left: none !important;
     }
@@ -111,7 +111,7 @@
         margin: 0 15px 30px;
         font-style: italic;
     }
- 
+
     .md-nav__go-back > a > .icon {
         width: 12px;
         margin-right: 8px;

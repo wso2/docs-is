@@ -23,7 +23,7 @@ site_url: https://is.docs.wso2.com/en/6.1.0/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/6.1.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/6.1.0/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -418,6 +418,7 @@ nav:
           - Customize Email Templates: guides/tenants/customize-automated-mails.md
         - Tenant Loading Policy: guides/tenants/configure-the-tenant-loading-policy.md
         - CORS : deploy/configure-cors.md
+        - Custom Header Filter: deploy/custom-header-filter.md
         - reCAPTCHA: deploy/configure-recaptcha.md
       - Secure:
         - Mitigate Attacks:
@@ -511,7 +512,10 @@ nav:
             - SCIM 2.0 API Definition: apis/scim2-rest-apis.md
             - SCIM 2.0 Patch Operations: apis/scim2-patch-operations.md
             - SCIM 2.0 Batch Operations: apis/scim2-batch-operations.md
-          - Account recovery API: apis/use-the-account-recovery-rest-apis.md
+          - Account recovery API:
+            - Best Practices for Password Recovery Portal: apis/recovery-portal-best-practices.md
+            - Account Recovery v0.9: apis/use-the-account-recovery-rest-apis.md
+            - Account Recovery v1: apis/use-the-account-recovery-v1-rest-apis.md
           - Associated accounts API: apis/association-rest-api.md
           - Challenge question API: apis/challenge-questions.md
           - Challenge answers API: apis/challenge-rest-api.md
@@ -809,6 +813,19 @@ markdown_extensions:
 plugins:
     - search
     - markdownextradata: {}
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
     - redirects:
           redirect_maps:
               'guides/access-delegation/uma.md': 'https://is.docs.wso2.com/en/latest/references/about-this-release/'

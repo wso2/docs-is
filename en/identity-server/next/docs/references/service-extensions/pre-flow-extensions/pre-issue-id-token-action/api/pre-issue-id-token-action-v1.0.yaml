@@ -1,0 +1,572 @@
+openapi: 3.0.1
+info:
+  title: API contract for pre-issue ID token action
+  description: This API defines the REST API contract for a service that implements logic to extend the ID token issuance flow of WSO2 Identity Server.
+  version: v1
+security:
+- BasicAuth: []
+- BearerAuth: []
+- ApiKeyAuth: []
+paths:
+  /:
+    post:
+      summary: handle pre-issue ID token events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBody'
+        required: true
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - $ref: '#/components/schemas/FailedResponse'
+              examples:
+                successExample:
+                  summary: Success response
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                      - op: add
+                        path: /idToken/claims/-
+                        value:
+                          name: customSID
+                          value: "12345"
+                failedExample:
+                  summary: Failed response
+                  value:
+                    actionStatus: FAILED
+                    failureReason: locked_user
+                    failureDescription: "The user is pending verification."
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                actionStatus: ERROR
+                errorMessage: invalid_request
+                errorDescription: SID claim is missing
+        "500":
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                actionStatus: ERROR
+                errorMessage: server_error
+                errorDescription: Failed to process the response
+components:
+  schemas:
+    Event:
+      type: object
+      required:
+        - request
+        - tenant
+        - idToken
+      properties:
+        request:
+          $ref: '#/components/schemas/Request'
+        tenant:
+          $ref: '#/components/schemas/Tenant'
+        user:
+          $ref: '#/components/schemas/User'
+        organization:
+          $ref: '#/components/schemas/Organization'
+        userStore:
+          $ref: '#/components/schemas/UserStore'
+        idToken:
+          $ref: '#/components/schemas/IdToken'
+      description: Defines the context data related to the pre issue ID token event that needs to be shared with the custom service to process and execute.
+    Request:
+      type: object
+      properties:
+        grantType:
+          type: string
+          description: The type of OAuth2 grant used for the token request, such as `authorization_code`, `password`, `refresh_token`, `organization_switch` or `urn:ietf:params:oauth:grant-type:device_code`.
+          example: authorization_code
+        responseType:
+          type: string
+          description: The type of response requested by the client in the OIDC hybrid flow, such as `code id_token token`, or `code id_token`.
+          example: code token
+        clientId:
+          type: string
+          description: The unique identifier of the client (application) that is requesting the ID token.
+          example: 1u31N7of6gCNR9FqkG1neSlsF_Qa
+        scopes:
+          type: array
+          items:
+            type: string
+          description: The scopes present in the incoming token request (OAuth2/OIDC hybrid flow). The openid scope must be present to obtain an ID token. Some scopes control what is included in the ID token (for example, profile for profile-related claims and address for address-related claims). Other scopes appear here because they are associated with permissions on the access token issued together with the ID token.
+          example:
+            - openid
+            - profile
+        additionalHeaders:
+          type: array
+          description: Any additional HTTP headers included in the ID token request. These may contain custom information or metadata sent by the client.
+          items:
+            $ref: '#/components/schemas/RequestHeaders'
+        additionalParams:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestParams'
+      description: Any additional parameters included in the ID token request. These may be custom parameters defined by the client or necessary for specific flows.
+      example:
+        grantType: authorization_code
+        clientId: 1u31N7of6gCNR9FqkG1neSlsF_Qa
+        scopes:
+          - openid
+          - profile
+        additionalHeaders:
+          - name: X-Custom-Header
+            value:
+              - customValue
+        additionalParams:
+          - name: custom_param
+            value:
+              - customValue
+    Tenant:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          description: The unique numeric identifier of the tenant.
+          example: "2"
+        name:
+          type: string
+          description: The domain name of the tenant.
+          example: bar.com
+      description: This property represents the tenant under which the token request is being processed.
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Defines the unique identifier of the user.
+          example: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+        organization:
+          $ref: '#/components/schemas/Organization'
+          description: Refers to the organization to which the user belongs.
+        userType:
+          type: string
+          description: Defines the type of user. `LOCAL` indicates a user that exists in WSO2 Identity Server organization; `FEDERATED` indicates a federated user authenticated via a federated identity provider.
+          example: LOCAL
+        federatedIdP:
+          type: string
+          description: The name of the federated identity provider used to authenticate the user. This is only applicable for `FEDERATED` users.
+          example: google
+        accessingOrganization:
+          $ref: '#/components/schemas/Organization'
+          description: Refers to the organization to which the user is accessing. This is only applicable for `organization_switch` grant type.
+      description: Contains information about the authenticated user associated with the token request.
+      example:
+        id: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+        organization:
+          id: 5c7930f2-c97d-4b38-89a6-7be5fb138a35
+          name: foo.com
+          orgHandle: foo.com
+          depth: 0
+        userType: LOCAL
+    Organization:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the organization.
+          example: 5c7930f2-c97d-4b38-89a6-7be5fb138a35
+        name:
+          type: string
+          description: Name of the organization used to identify the organization in configurations, user interfaces, etc.
+          example: foo.com
+        orgHandle:
+          type: string
+          description: The organization handle.
+          example: foo.com
+        depth:
+          type: integer
+          description: The depth of the organization in the hierarchy.
+          example: 0
+      description: This property represents the organization context.
+    UserStore:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the user store.
+          example: UFJJTUFSWQ==
+        name:
+          type: string
+          description: User store name used to identify the user store in configuration settings, user interfaces, and administrative tasks.
+          example: PRIMARY
+      description: Indicates the user store in which the user's data is being managed.
+    IdToken:
+      type: object
+      required:
+        - claims
+      properties:
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdTokenClaims'
+          description: |
+            An array that contains both standard ID token claims and any OpenID Connect (OIDC) claims configured to be included in the ID token.
+
+            Standard claims:
+
+            - **iss**: The issuer of the token.
+            - **at_hash**: The hash of the access token value.
+            - **c_hash**: The hash of the authorization code value.
+            - **s_hash**: The hash of the state value.
+            - **sid**: The session ID claim.
+            - **expires_in**: The duration (in seconds) for which the token is valid.
+            - **realm**: The realm (tenant or organization context).
+            - **tenant**: The tenant identifier.
+            - **userstore**: The user store identifier.
+            - **isk**: The identity provider session key.
+            - **sub**: The subject identifier for the token.
+            - **aud**: The audience for the token.
+            - **exp**: The expiration time (Unix timestamp).
+            - **iat**: The time at which the token was issued (Unix timestamp).
+            - **auth_time**: The time at which the user authenticated (Unix timestamp).
+            - **nonce**: The nonce value.
+            - **acr**: The authentication context class reference.
+            - **amr**: The authentication methods references.
+            - **azp**: The authorized party for the token.
+
+            OIDC claims are any additional claims configured in the application to be included in the ID token. These claims are based on the OIDC standard and may include user profile information such as email, given_name, or custom claims specific to the application.
+          example:
+            - name: jti
+              value: d0a23053-0b64-48a2-8dba-4604e8cee6d7
+            - name: sub
+              value: e204849c-4ec2-41f1-8ff7-ec1ebff02821
+            - name: iss
+              value: https://localhost:9443/t/foo.com/oauth2/token
+            - name: azp
+              value: 1u31N7of6gCNR9FqkG1neSlsF_Qa
+            - name: auth_time
+              value: 1769344213
+            - name: amr
+              value: ["BasicAuthenticator"]
+            - name: user_org
+            - name: aud
+              value: ["1u31N7of6gCNR9FqkG1neSlsF_Qa", "TestAud"]
+            - name: expires_in
+              value: 3600
+      description: Represents the ID token that is about to be issued. It contains claims of the ID token which can then be modified by your external service based on the logic implemented in the pre-issue ID token action.
+    AllowedOperations:
+      type: array
+      description: Defines the set of operations that your external service is permitted to perform on the ID token's claims.
+      items:
+        anyOf:
+          - $ref: '#/components/schemas/addOperation'
+          - $ref: '#/components/schemas/replaceOperation'
+          - $ref: '#/components/schemas/removeOperation'
+      example:
+        - op: add
+          paths:
+            - /idToken/claims/-
+            - /idToken/claims/aud/
+        - op: replace
+          paths:
+            - /idToken/claims/updated_at
+            - /idToken/claims/given_name
+            - /idToken/claims/family_name
+            - /idToken/claims/username
+            - /idToken/claims/aud/
+            - /idToken/claims/expires_in
+        - op: remove
+          paths:
+            - /idToken/claims/updated_at
+            - /idToken/claims/given_name
+            - /idToken/claims/family_name
+            - /idToken/claims/username
+            - /idToken/claims/aud/
+    addOperation:
+      type: object
+      required:
+        - op
+        - paths
+      properties:
+        op:
+          type: string
+          enum:
+            - add
+        paths:
+          type: array
+          items:
+            type: string
+          example:
+            - /idToken/claims/
+            - /idToken/claims/aud/
+      description: Defines the add operation.
+    replaceOperation:
+      type: object
+      required:
+        - op
+        - paths
+      properties:
+        op:
+          type: string
+          enum:
+            - replace
+        paths:
+          type: array
+          items:
+            type: string
+          example:
+            - /idToken/claims/updated_at
+            - /idToken/claims/given_name
+            - /idToken/claims/family_name
+            - /idToken/claims/username
+            - /idToken/claims/aud/
+            - /idToken/claims/expires_in
+      description: Defines the replace operation.
+    removeOperation:
+      type: object
+      required:
+        - op
+        - paths
+      properties:
+        op:
+          type: string
+          enum:
+            - remove
+        paths:
+          type: array
+          items:
+            type: string
+          example:
+            - /idToken/claims/updated_at
+            - /idToken/claims/given_name
+            - /idToken/claims/family_name
+            - /idToken/claims/username
+            - /idToken/claims/aud/
+      description: Defines the remove operation.
+    SuccessResponse:
+      type: object
+      required:
+        - actionStatus
+      properties:
+        actionStatus:
+          type: string
+          enum:
+            - SUCCESS
+          description: Indicates the outcome of the request. For a successful operation, this should be set to `SUCCESS`.
+        operations:
+          type: array
+          description: Defines the set of operations that your external service is requesting to perform on the ID token's claims.
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/addOperationResponse'
+              - $ref: '#/components/schemas/replaceOperationResponse'
+              - $ref: '#/components/schemas/removeOperationResponse'
+      description: Defines the success response.
+    FailedResponse:
+      type: object
+      required:
+        - actionStatus
+        - failureReason
+        - failureDescription
+      properties:
+        actionStatus:
+          type: string
+          enum:
+            - FAILED
+          description: Indicates the outcome of the request. For a failed operation, this should be set to `FAILED`.
+        failureReason:
+          type: string
+          description: Provides the reason for failing to issue an ID token.
+        failureDescription:
+          type: string
+          description: Offers a detailed explanation of the failure.
+    ErrorResponse:
+      type: object
+      required:
+        - actionStatus
+        - errorMessage
+        - errorDescription
+      properties:
+        actionStatus:
+          type: string
+          enum:
+            - ERROR
+          description: Indicates the outcome of the request. For an error operation, this should be set to `ERROR`.
+        errorMessage:
+          type: string
+          description: The cause of the error.
+        errorDescription:
+          type: string
+          description: A detailed description of the error.
+      description: |
+        When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request.
+    RequestBody:
+      type: object
+      required:
+        - actionType
+        - event
+        - allowedOperations
+      properties:
+        flowId:
+          type: string
+          description: A unique identifier that associates with the token issuing flow in WSO2 Identity Server
+          example: Ec1wMjmiG8
+        requestId:
+          type: string
+          description: A unique correlation identifier that associates with the token request received by WSO2 Identity Server
+          example: 6783a180f817075313ea3fb01d79c221
+        actionType:
+          type: string
+          enum:
+            - PRE_ISSUE_ID_TOKEN
+          description: Specifies the action being triggered, which in this case is PRE_ISSUE_ID_TOKEN.
+        event:
+          $ref: '#/components/schemas/Event'
+        allowedOperations:
+          $ref: '#/components/schemas/AllowedOperations'
+    RequestHeaders:
+      type: object
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          example: Host
+        value:
+          type: array
+          items:
+            type: string
+          example:
+            - example.com
+    RequestParams:
+      type: object
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          example: device
+        value:
+          type: array
+          items:
+            type: string
+          example:
+            - 003ef4a768182ba1ece32cb
+    IdTokenClaims:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        value:
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string
+            - type: object
+    addOperationResponse:
+      type: object
+      required:
+        - op
+        - path
+        - value
+      properties:
+        op:
+          type: string
+          enum:
+            - add
+        path:
+          type: string
+          example: /idToken/claims/-
+          description: Defines the path for the add operation. Should be one from the allowed paths of add operation in the allowedOperations.
+        value:
+          oneOf:
+            - type: string
+            - $ref: '#/components/schemas/CustomValue'
+          description: Defines the value for the add operation.
+      description: Defines the add operation response.
+    replaceOperationResponse:
+      type: object
+      required:
+        - op
+        - path
+        - value
+      properties:
+        op:
+          type: string
+          enum:
+            - replace
+        path:
+          type: string
+          example: /idToken/claims/1
+          description: Defines the path for the replace operation. Should be one from the allowed paths of replace operation in the allowedOperations.
+        value:
+          oneOf:
+            - type: string
+            - type: object
+          description: Defines the value for the replace operation.
+      description: Defines the replace operation response.
+    removeOperationResponse:
+      type: object
+      required:
+        - op
+        - path
+      properties:
+        op:
+          type: string
+          enum:
+            - remove
+        path:
+          type: string
+          example: /idToken/claims/0
+          description: Defines the path for the remove operation. Should be one from the allowed paths of remove operation in the allowedOperations.
+      description: Defines the remove operation response.
+    CustomValue:
+      type: object
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+        value:
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string
+            - type: object
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-Key
+      in: header

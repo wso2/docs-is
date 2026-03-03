@@ -115,7 +115,7 @@ Before starting the server:
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    ``` bash tab="Linux/Mac OS"
+    ``` bash tab="Linux/macOS"
     wso2server.sh
     ```
 
@@ -135,7 +135,7 @@ Before starting the server:
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    ``` bash tab="Linux/Mac OS"
+    ``` bash tab="Linux/macOS"
     wso2server.sh
     ```
 
@@ -164,7 +164,7 @@ To enable hostname verification:
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    ``` bash tab="Linux/Mac OS"
+    ``` bash tab="Linux/macOS"
     wso2server.sh
     ```
 
@@ -225,6 +225,10 @@ To change the administrator credentials:
 Majority of the users only need to sign in to the connected service providers via WSO2 Identity Server. Such users should not have permissions to sign in to the Management Console.
 
 Make sure that the permission for signing in to the Canagement Console is granted only to the users that need to use the Management Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. For instructions, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a>.
+
+## Invoke APIs
+
+Do not use the super admin or any high-privileged user credentials when invoking WSO2 Identity Server APIs. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
 
 ## Log rotation and monitoring
 

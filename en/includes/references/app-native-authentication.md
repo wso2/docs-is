@@ -25,7 +25,7 @@ This section digs deep into the steps involved in app-native authentication and 
 		--header 'Content-Type: application/x-www-form-urlencoded'
 		--data-urlencode 'client_id=<client_id>'
 		--data-urlencode 'response_type=<response_type>'
-		--data-urlencode 'redirect_uri=<redircet_url>'
+		--data-urlencode 'redirect_uri=<redirect_url>'
 		--data-urlencode 'state=<state>'
 		--data-urlencode 'scope=<space separated scopes>'
 		--data-urlencode 'response_mode=direct'
@@ -134,7 +134,7 @@ This section digs deep into the steps involved in app-native authentication and 
 
 3. The application then gathers the credentials for one of the presented authentication options from the user.
 
-4. The applcation makes a POST request to the `/authn` endpoint using the **Authentication API**. The payload of this request includes the **flowId** and the **selectedAuthenticator** object which contains credentials for the user-selected authentication option.
+4. The application makes a POST request to the `/authn` endpoint using the **Authentication API**. The payload of this request includes the **flowId** and the **selectedAuthenticator** object which contains credentials for the user-selected authentication option.
 
     !!! note
         Explore the OpenAPI definition of the [authentication API]({{base_path}}/apis/app-native-authentication-api/).
@@ -185,6 +185,57 @@ This section digs deep into the steps involved in app-native authentication and 
 	   "session_state": "43b1ffc92c8d349942e99bd0270fca05f934ad6f612b27f40a5fa60b96bd0iD4RK8Etr4XruxnYMEvcKQ"
 	}
 	```
+
+8. After receiving the authorization code, the application exchanges it for an access token by making a POST request to the token endpoint.
+
+    === "Sample request (`/token`)"
+
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/token'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'grant_type=authorization_code'
+        --data-urlencode 'code=<authorization_code>'
+        --data-urlencode 'redirect_uri=<redirect_uri>'
+        --data-urlencode 'client_id=<client_id>'
+        --data-urlencode 'client_secret=<client_secret>'
+        ```
+
+    === "Example (`/token`)"
+
+        ```bash
+        curl --location 'https://localhost:9443/oauth2/token'
+        --header 'Content-Type: application/x-www-form-urlencoded'
+        --data-urlencode 'grant_type=authorization_code'
+        --data-urlencode 'code=6ff8b7e1-01fc-39b9-b56d-a1f5826e6d2a'
+        --data-urlencode 'redirect_uri=https://example-app.com/redirect'
+        --data-urlencode 'client_id=VTs12Ie26wb8HebnWercWZiAhMMa'
+        --data-urlencode 'client_secret=your_client_secret'
+        ```
+
+    !!! note
+        The `redirect_uri` must match the value used in the initial authorization request.
+
+    The token endpoint responds with an access token and other OAuth 2.0 artifacts:
+
+    ```json
+    {
+        "access_token": "54bd024f-5080-3db5-9422-785f5d610605",
+        "refresh_token": "a6c7fc96-2fd0-3905-ae8f-d5419d0dd6a5",
+        "scope": "openid internal_login",
+        "id_token": "eyJ4NXQiOiJZemM1T1Rnd1pXSTNNR1F6TXpNd1pqUXpaVEU1TmpVMk1EWXpZemd3TldNMll...",
+        "token_type": "Bearer",
+        "expires_in": 3600
+    }
+    ```
+
+    ??? note "Learn about the parameters"
+
+        - **access_token**: The token that can be used to access protected resources.
+        - **refresh_token**: The token that can be used to obtain new access tokens when the current one expires.
+        - **scope**: The scopes granted by the authorization server.
+        - **id_token**: A JSON Web Token (JWT) that contains user identity information.
+        - **token_type**: The type of token issued (typically "Bearer").
+        - **expires_in**: The lifetime of the access token in seconds.
 
 ## Sample scenarios
 
@@ -568,7 +619,7 @@ If a login step has multiple login options, the application goes through the fol
 
     - **Username & Password**: As this option does not need user initiation, the response from step 1 already contains the required metadata. Hence, if the user chooses to enter the username and password, the flow continues similar to as it does in *Scenario 1*.
 
-    - **Passkey**: If a user initates passkey login, the application needs to make an additional request to the `/authn` endpoint to initiate the passkey flow and receive the related metadata.
+    - **Passkey**: If a user initiates passkey login, the application needs to make an additional request to the `/authn` endpoint to initiate the passkey flow and receive the related metadata.
   
     As the user continues with the passkey flow, the application makes a request to the `/authn` endpoint to initiate the passkey flow along with the `flowId` and the `authenticatorId` of the passkey authenticator as follows.
 

@@ -158,7 +158,7 @@ Navigate to the `         <TOOL_HOME>/bin        ` directory, and
 execute one of the following commands depending on your operating
 system:
 
--   On Linux/Mac OS: `          ./forgetme.sh -U <username>         `
+-   On Linux/macOS: `          ./forgetme.sh -U <username>         `
 -   On Windows: `          forgetme.bat -U <username>         `  
       
 
@@ -187,7 +187,7 @@ use when you run the tool:
 <td>U</td>
 <td>The user name of the user whose identity references you want to remove.</td>
 <td>Yes</td>
-<td><p>On Linux/Mac OS: <code>               ./forgetme.sh -U Sam              </code><br />
+<td><p>On Linux/macOS: <code>               ./forgetme.sh -U Sam              </code><br />
 <br />
 On Windows: <code>               forgetme.bat -U Sam              </code></p></td>
 </tr>
@@ -196,7 +196,7 @@ On Windows: <code>               forgetme.bat -U Sam              </code></p></t
 <td>The configuration directory to use when the tool is run.<br />
 If you do not specify a value for this option, the default configuration directory of the tool will be used.</td>
 <td>No</td>
-<td><p>On Linux/Mac OS: <code>               ./forgetme.sh -U Sam -d &lt;TOOL_HOME&gt;/conf              </code></p>
+<td><p>On Linux/macOS: <code>               ./forgetme.sh -U Sam -d &lt;TOOL_HOME&gt;/conf              </code></p>
 <p>On Windows: <code>               forgetme.bat -U Sam               -d &lt;TOOL_HOME&gt;/conf              </code></p></td>
 </tr>
 <tr class="odd">
@@ -213,7 +213,7 @@ If you do not specify a value for this option, the default configuration directo
     <p>If you specify the tenant domain as a command line option, it is mandatory to specify the tenant ID of the particular user.</p>
 </div></td>
 <td>No</td>
-<td><p>On Linux/Mac OS: <code>               ./forgetme.sh -U Sam               -T sam.com -TID 1              </code></p>
+<td><p>On Linux/macOS: <code>               ./forgetme.sh -U Sam               -T sam.com -TID 1              </code></p>
 <p><br />
 On Windows: <code>               forgetme.bat -U Sam               -T sam.com -TID 1              </code></p></td>
 </tr>
@@ -226,7 +226,7 @@ On Windows: <code>               forgetme.bat -U Sam               -T sam.com -T
     <p>If you specify the tenant domain as a command line option, it is mandatory to specify the tenant ID of the particular user.</p>
 </div></td>
 <td>No</td>
-<td><p>On Linux/Mac OS: <code>               ./forgetme.sh -U Sam -T sam.com -TID 1              </code></p>
+<td><p>On Linux/macOS: <code>               ./forgetme.sh -U Sam -T sam.com -TID 1              </code></p>
 <p><br />
 On Windows: <code>               forgetme.bat -U Sam -T sam.com -TID 1              </code></p></td>
 </tr>
@@ -234,7 +234,7 @@ On Windows: <code>               forgetme.bat -U Sam -T sam.com -TID 1          
 <td>D</td>
 <td>The user store domain name of the user whose identity references you want to remove . The default value is <code>              PRIMARY             </code> .</td>
 <td>No</td>
-<td><p>On Linux/Mac OS: <code>               ./forgetme.sh -U Sam -D Finance-Domain              </code></p>
+<td><p>On Linux/macOS: <code>               ./forgetme.sh -U Sam -D Finance-Domain              </code></p>
 <p><br />
 On Windows: <code>               forgetme.bat -U Sam               -D Finance-Domain              </code></p>
 <p><br />
@@ -257,7 +257,7 @@ Let's say you run the tool to replace all references to a particular deleted use
 </p>
 </div></td>
 <td>No</td>
-<td><p>On Linux/Mac OS: <code>               ./forgetme.sh -U Sam -pu 123-343-435-545-dfd-4              </code></p>
+<td><p>On Linux/macOS: <code>               ./forgetme.sh -U Sam -pu 123-343-435-545-dfd-4              </code></p>
 <p><br />
 On Windows: <code>               forgetme.bat -U Sam               -pu 123-343-435-545-dfd-4              </code></p></td>
 </tr>
@@ -265,7 +265,7 @@ On Windows: <code>               forgetme.bat -U Sam               -pu 123-343-4
 <td>carbon</td>
 <td><p>The CARBON HOME directory path on which you want to run the tool. You should replace this with the variable <code>               $CARBON_HOME              </code> used in directories you have configured in the master configuration file.</p></td>
 <td>No</td>
-<td><p>On Linux/Mac OS: <code>               ./forgetme.sh -U Sam -carbon /usr/bin/wso2is/wso2is5.5.0              </code></p>
+<td><p>On Linux/macOS: <code>               ./forgetme.sh -U Sam -carbon /usr/bin/wso2is/wso2is5.5.0              </code></p>
 <p><br />
 On Windows: <code>               forgetme.bat -U Sam               -carbon /usr/bin/wso2is/wso2is5.5.0              </code></p></td>
 </tr>
