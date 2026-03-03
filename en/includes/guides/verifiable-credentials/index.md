@@ -1,6 +1,6 @@
 # Verifiable Credentials
 
-Verifiable Credentials (VCs) are tamper-evident digital credentials that allow anyone to verify information about a subject (such as a user) without contacting the credential issuer directly. {{ product_name }} supports issuing verifiable credentials to digital wallets using the **OpenID for Verifiable Credential Issuance (OID4VCI)** standard.
+Verifiable Credentials (VCs) are tamper-evident digital credentials that allow anyone to verify information about a subject (such as a user) without contacting the credential issuer directly. {{ product_name }} supports issuing verifiable credentials to digital wallets using the [**OpenID for Verifiable Credential Issuance (OID4VCI)**](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html) standard.
 
 ## Why verifiable credentials?
 
@@ -10,6 +10,16 @@ Traditional identity verification often requires real-time communication with th
 - **User control** — Holders store credentials in their own digital wallets and choose when and with whom to share them.
 - **Selective disclosure** — With formats like Selective Disclosure JSON Web Token, holders can reveal only specific claims (e.g., prove their age without disclosing their full date of birth).
 - **Standards-based** — Built on open standards (OID4VCI, W3C Verifiable Credentials), ensuring interoperability across different systems and wallets.
+
+## Common use cases
+
+Verifiable credentials enable a wide range of real-world identity and trust scenarios:
+
+- **Authentication** — Users can authenticate to applications by presenting a verifiable credential from their wallet instead of using passwords or traditional identity providers. The verifier validates the cryptographic proof without contacting the issuer.
+
+- **Identity verification** — Organizations can issue credentials representing verified identity attributes (e.g., government ID, employee status, age verification) that users can present on demand—eliminating repeated identity checks across different services.
+
+- **Digital signatures** — Credentials can carry cryptographically signed claims that act as tamper-proof attestations, enabling use cases such as signing documents, authorizing transactions, or attesting to qualifications.
 
 ## How it works
 

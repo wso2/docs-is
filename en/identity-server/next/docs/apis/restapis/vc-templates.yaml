@@ -79,7 +79,13 @@ paths:
                   identifier: "EmployeeBadge"
                   displayName: "EmployeeBadge"
                   format: "jwt_vc_json"
-                  claims: ["given_name", "email"]
+                  claims:
+                    - name: "given_name"
+                      type: "LOCAL"
+                      claimUri: "http://wso2.org/claims/givenname"
+                    - name: "email"
+                      type: "LOCAL"
+                      claimUri: "http://wso2.org/claims/emailaddress"
                   expiresIn: 31536000
       responses:
         '201':
@@ -317,8 +323,7 @@ components:
         claims:
           type: array
           items:
-            type: string
-          example: ["given_name", "email"]
+            $ref: '#/components/schemas/Claim'
         expiresIn:
           type: integer
           example: 31536000
@@ -349,8 +354,7 @@ components:
         claims:
           type: array
           items:
-            type: string
-          example: ["given_name", "email"]
+            $ref: '#/components/schemas/Claim'
         expiresIn:
           type: integer
           minimum: 60
@@ -398,11 +402,30 @@ components:
         claims:
           type: array
           items:
-            type: string
-          example: ["givenname", "surname", "email"]
+            $ref: '#/components/schemas/Claim'
         expiresIn:
           type: integer
           minimum: 60
+    Claim:
+      type: object
+      required:
+        - name
+        - type
+        - claimUri
+      properties:
+        name:
+          type: string
+          description: "The claim name as it appears in the issued VC."
+          example: "given_name"
+        type:
+          type: string
+          example: "LOCAL"
+        claimUri:
+          type: string
+          description: >
+            The claim reference used for resolution. For LOCAL, this is the WSO2 IS
+            claim URI.
+          example: "http://wso2.org/claims/givenname"
     PaginationLink:
       type: object
       properties:
@@ -411,7 +434,7 @@ components:
           example: before
         href:
           type: string
-          example: /api/server/v1/api-resources?after=NDoy
+          example: /api/server/v1/vc-templates?after=NDoy
     Error:
       type: object
       properties:

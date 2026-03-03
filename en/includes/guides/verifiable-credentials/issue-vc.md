@@ -6,30 +6,12 @@ This guide walks you through configuring {{ product_name }} to issue a verifiabl
 
 Before you begin, ensure the following:
 
-- {{ product_name }} is running and accessible.
 - An OID4VCI-compatible digital wallet is installed on your device.
-- A user account exists in {{ product_name }} whose attributes you want to include in the credential.
+- A user exists in {{ product_name }} whose attributes you want to include in the credential.
 
-## Step 1: Configure VC attribute mappings
+## Step 1: Create a credential template
 
-{{ product_name }} maps user profile attributes to verifiable credential claims using the **Verifiable Credentials** attribute dialect. Default mappings are pre-loaded for common claims such as `given_name`, `family_name`, and `email`.
-
-To view or update the attribute mappings:
-
-1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
-
-2. Under **Manage Attribute Dialects**, click **View** on the **Verifiable Credentials** dialect.
-
-    ![VC attribute dialect page]({{base_path}}/assets/img/guides/verifiable-credentials/vc-attribute-dialect.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-3. Review the available claim mappings. Each mapped claim corresponds to a local claim URI (e.g., `http://wso2.org/claims/givenname`) that is resolved from the user's profile at issuance time.
-
-!!! note
-    You can add custom claim mappings if you need to include additional user attributes in your credentials.
-
-## Step 2: Create a credential template
-
-A **credential template** defines the structure, format, and included attributes of a verifiable credential. Each template is identified by a unique scope name that wallets use to request the credential.
+A **credential template** defines the name, format, and included attributes of a verifiable credential.
 
 To create a credential template:
 
@@ -45,23 +27,23 @@ To create a credential template:
     | :---- | :---------- | :------ |
     | **Identifier** | A unique name that becomes the credential scope. Use lowercase with underscores. | `work_id` |
     | **Display Name** | A human-readable name shown in the wallet. | `Work ID` |
-    | **User Attributes** | The attributes from the VC dialect to include in the credential. | `given_name`, `family_name`, `email` |
+    | **User Attributes** | The user attributes include in the credential. | `given_name`, `family_name`, `email` |
 
 4. Click **Create** to save the template.
 
     ![Work ID credential template detail page]({{base_path}}/assets/img/guides/verifiable-credentials/credential-template-detail.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Step 3: Register a VC client application
+## Step 2: Register a Digital wallet application
 
-A **VC Client Application** represents the digital wallet in {{ product_name }}. It holds the OAuth 2.0 client configuration that the wallet uses to exchange authorization codes for access tokens.
+A **Digital wallet application** represents the digital wallet in {{ product_name }}. It holds the OAuth 2.0 client configuration that the wallet uses to exchange authorization codes for access tokens.
 
-To register a VC client application:
+To register a Digital wallet application:
 
 1. On the {{ product_name }} Console, go to **Applications** and click **+ New Application**.
 
-2. Select **VC Client Application** from the application type list.
+2. Select **Digital Wallet Application** from the application type list.
 
-    ![Application type selection highlighting VC Client Application]({{base_path}}/assets/img/guides/verifiable-credentials/vc-client-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Application type selection highlighting Digital Wallet Application]({{base_path}}/assets/img/guides/verifiable-credentials/vc-client-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Fill in the application details:
 
@@ -72,16 +54,16 @@ To register a VC client application:
 
 4. Click **Create**.
 
-    ![VC Client Application creation dialog]({{base_path}}/assets/img/guides/verifiable-credentials/vc-client-app-create.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Digital Wallet Application creation dialog]({{base_path}}/assets/img/guides/verifiable-credentials/vc-client-app-create.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! tip
     Refer to the [tested wallets](#tested-wallets) section below for the redirect URLs of Lissi, Heidi, and Inji wallets.
 
-## Step 4: Authorize the credential to the application
+## Step 3: Allow the wallet to request the credential
 
-Once the VC client application is created, you must authorize it to issue a specific credential template.
+Once the Digital Wallet application is created, you must allow it to request the credential.
 
-1. In the newly created application, click **Authorize Verifiable Credential**.
+1. In the newly created application, go to **Authorize** tab and  click **Authorize Verifiable Credential**.
 
     ![Authorize Verifiable Credential dialog]({{base_path}}/assets/img/guides/verifiable-credentials/authorize-vc-dialog.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -94,9 +76,9 @@ Once the VC client application is created, you must authorize it to issue a spec
 
 3. Click **Finish**.
 
-The application is now authorized to request and receive the `work_id` credential scope on behalf of an authenticated user.
+The application is now allowed to request the `work_id` credential scope on behalf of an authenticated user.
 
-## Step 5: Retrieve the credential offer URI
+## Step 4: Retrieve the credential offer URI
 
 The **credential offer URI** is a link the wallet follows to begin the issuance flow.
 
@@ -121,7 +103,7 @@ To retrieve the offer URI:
     The wallets listed below have been verified for compatibility with {{ product_name }}. Any digital wallet that implements the [OID4VCI specification](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html){:target="_blank"} should be able to receive credentials — you are not limited to these wallets.
 
 !!! note
-    These wallets require a **specific client ID** to be set when registering the VC client application. The {{ product_name }} Console does not support defining a custom client ID at application creation time. Use the [Application Management API]({{base_path}}/apis/application-rest-api/) to create these clients with the required client ID and redirect URI.
+    These wallets require a **specific client ID** to be set when registering the Digital wallet application. The {{ product_name }} Console does not support defining a custom client ID at application creation time. Use the [Application Management API]({{base_path}}/apis/application-rest-api/) to create these clients with the required client ID and redirect URI.
 
 === "Lissi"
 
@@ -131,9 +113,9 @@ To retrieve the offer URI:
     | **Redirect URI** | `https://oob.lissi.io/vci-cb` |
 
     ??? note "Prerequisite: Register the `openid_credential` authorization type"
-        The Lissi wallet sends an `authorization_details` parameter using the [Rich Authorization Requests (RAR)]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) mechanism when it initiates the PAR request. For this to succeed, the `openid_credential` authorization type must be registered in {{ product_name }} and authorized for your VC client application.
+        The Lissi wallet sends an `authorization_details` parameter using the [Rich Authorization Requests (RAR)]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) mechanism when it initiates the PAR request. For this to succeed, the `openid_credential` authorization type must be registered in {{ product_name }} and authorized for your Digital wallet application.
 
-        Register the following schema as a new authorization type, then authorize it for the VC client application you created in [Step 3](#step-3-register-a-vc-client-application). See [Configuring your application for RAR]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) for instructions.
+        Register the following schema as a new authorization type, then authorize it for the Digital wallet application you created in [Step 2](#step-2-register-a-vc-client-application). See [Configuring your application for RAR]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) for instructions.
 
         ```json
         {
@@ -221,3 +203,20 @@ To retrieve the offer URI:
 
 - **Understand the protocol**: Learn the technical details of the issuance flow in the [OID4VCI concept page]({{base_path}}/references/concepts/oid4vci/).
 - **Manage VC attributes**: Customize the claims included in your credentials via [VC attribute mappings]({{base_path}}/guides/users/attributes/).
+
+## Configure VC attribute mappings
+
+{{ product_name }} maps user profile attributes to verifiable credential claims using the **Verifiable Credentials** attribute dialect. Default mappings are pre-loaded for common claims such as `given_name`, `family_name`, and `email`.
+
+To view or update the attribute mappings:
+
+1. On the {{ product_name }} Console, go to **User Attributes & Stores** > **Attributes**.
+
+2. Under **Manage Attribute Dialects**, click **View** on the **Verifiable Credentials** dialect.
+
+    ![VC attribute dialect page]({{base_path}}/assets/img/guides/verifiable-credentials/vc-attribute-dialect.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Review the available claim mappings. Each mapped claim corresponds to a local claim URI (e.g., `http://wso2.org/claims/givenname`) that is resolved from the user's profile at issuance time.
+
+!!! note
+    You can add custom claim mappings if you need to include additional user attributes in your credentials.
