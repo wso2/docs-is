@@ -66,7 +66,7 @@ Since these are autonomous agents, we create **"Service Accounts"** for them. WS
 2. Create the **Coordinator Agent**:
    - **Name**: coordinator-agent.
    - Make a note of the **Agent ID** and **Agent Secret**.
-   - Go to **Roles** and assign this agent to the **Support-Coordinator Role**.
+   - Go to **Roles** and assign this agent to the **Support-Coordinator** role.
 3. Create the **Expert Agent**:
    - **Name**: expert-agent.
    - Make a note of the **Agent ID** and **Agent Secret**.
