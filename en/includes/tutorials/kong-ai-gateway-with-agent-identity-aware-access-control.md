@@ -25,11 +25,11 @@ Below is a high-level conceptual overview of the architecture we plan to explore
 
 ![Architecture]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Part 1: {{ product_name }} configuration
+## {{ product_name }} configuration
 
 We begin by establishing the **"Digital Identities"** for our non-human agents. WSO2 {{ product_name }} handles the authentication, issuing secure tokens that define exactly what each agent is allowed to do.
 
-### Step 1: Register an application
+### Register an application
 
 1. Log in to the **{{ product_name }} Console**.
 2. Go to **Applications > New Application**.
@@ -44,7 +44,7 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
    - Enable the **public client** in Client Authentication.
    - Set the **Access Token type** to JWT and add roles to Access Token Attributes.
 
-### Step 2: Create the roles
+### Create the roles
 
 We need to define the roles that Kong will look for.
 
@@ -58,9 +58,9 @@ We need to define the roles that Kong will look for.
    - Assign application **Enterprise Support System**.
    - Click **Finish**.
 
-### Step 3: Register AI agents
+### Register AI agents
 
-Since these are autonomous agents, we create **"Service Accounts"** for them. WSO2 Agent Identity is a great way to do this.
+Since these are autonomous agents, we create **"Auth Identities"** for them. WSO2 Agent Identity is a great way to do this.
 
 1. On {{ product_name }} Console, go to **Agents**.
 2. Create the **Coordinator Agent**:
@@ -74,11 +74,11 @@ Since these are autonomous agents, we create **"Service Accounts"** for them. WS
 
 ---
 
-## Part 2: Kong AI Gateway configuration
+## Kong AI Gateway configuration
 
 Now we configure the AI Gateway. Kong will sit in front of the AI models, checking the ID cards (tokens) issued by {{ product_name }} and routing traffic to the correct model.
 
-### Step 1: Create a dummy service
+### Create a dummy service
 
 We create a service to act as a placeholder. The AI Proxy plugin will intercept requests and reroute them to Google, so the actual URL here acts as a dummy target.
 
@@ -90,9 +90,9 @@ We create a service to act as a placeholder. The AI Proxy plugin will intercept 
 4. Click **Save**.
    - **Note**: Copy the **Proxy URL** displayed; this is the endpoint your application will call.
 
-![Create_a_Dummy_Service]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\Create_a_Dummy_Service.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Create_a_Dummy_Service]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\create-a-dummy-service.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### Step 2: Create two routes (header-based routing)
+### Create two routes (header-based routing)
 
 We use a single service but split traffic into two lanes based on the agent's intent.
 
@@ -108,13 +108,13 @@ We use a single service but split traffic into two lanes based on the agent's in
      - **Methods**: POST.
      - **Headers**: x-agent-type = Technical-Specialist.
 
-![Create_Two_Routes]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\Create_Two_Routes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Create_Two_Routes]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\create-two-routes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### Step 3: Enable the OpenID Connect plugin
+### Enable the OpenID Connect plugin
 
 This plugin acts as the security guard, ensuring only the right agent enters the right route.
 
-![OpenID_Connect_Plugin]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\OpenID_Connect_Plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![OpenID_Connect_Plugin]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\openid-connect-plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 - **For Route 1 (coordinator-route)**:
   1. Add the **OpenID Connect plugin**.
@@ -129,7 +129,7 @@ This plugin acts as the security guard, ensuring only the right agent enters the
   1. Repeat the steps above but name it **expert-OpenID**.
   2. **Authorization Tab**: Set **Roles Required** to Technical-Specialist.
 
-### Step 4: Enable the AI Proxy plugins
+### Enable the AI Proxy plugins
 
 Here, we define which "Brain" powers each route.
 
@@ -153,7 +153,7 @@ Here, we define which "Brain" powers each route.
        - **Target 1**: gemini-2.5-pro.
        - **Target 2**: gemini-3-pro-preview.
 
-### Step 5: Enable request transformer plugins
+### Enable request transformer plugins
 
 We must strip the {{ product_name }} authentication token before the request leaves Kong. If we don't, Google will receive a confusing Bearer token and reject the request.
 
@@ -161,9 +161,9 @@ We must strip the {{ product_name }} authentication token before the request lea
 
 Add the **Request Transformer plugin**, and in **RemoveHeaders**, add **Authorization**.
 
-![Request_Transformer__Plugin]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\Request_Transformer__Plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Request_Transformer__Plugin]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\request-transformer-plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### Step 6: Enable rate limiting advanced
+### Enable rate limiting advanced
 
 Finally, we apply the budget protection.
 
@@ -175,6 +175,6 @@ Finally, we apply the budget protection.
 
 ---
 
-## Part 3: Trying out the AI Gateway
+## Trying out the AI Gateway
 
 Once you have successfully completed the configuration steps outlined above, you can try out your AI gateway interactions by cloning this [sample repository](https://github.com/wso2/iam-ai-samples/tree/main/asgardeo-agent-identity-with-ai-gateway).

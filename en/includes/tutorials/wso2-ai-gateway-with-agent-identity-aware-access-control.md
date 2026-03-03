@@ -27,11 +27,11 @@ Below is a high-level conceptual overview of the architecture we plan to explore
 
 ![Architecture]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Part 1: {{ product_name }} configuration
+## {{ product_name }} configuration
 
 We begin by establishing the **"Digital Identities"** for our non-human agents. **{{ product_name }}** handles the authentication, issuing secure tokens that define exactly what each agent is allowed to do.
 
-### Step 1: Register an application
+### Register an application
 
 1. Log in to the **{{ product_name }} Console**.
 2. Go to **Applications > New Application**.
@@ -45,35 +45,35 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
    - Enable the **public client** in Client Authentication.
    - Set the **Access Token type** to JWT and add roles to Access Token Attributes.
 
-### Step 2: Create the scopes
+### Create the scopes
 
 1. Navigate to **Resources > API Resources**.
 2. Click **+ New API Resources**.
 3. Configure the resource:
-   - **Identifier**: `https://agenttype` (Doesn't need to be publicly accessible, just an identifier).
-   - **Display Name**: `agenttype`.
+   - **Identifier**: `https://agent-identifier` (Doesn't need to be publicly accessible, just an identifier).
+   - **Display Name**: `agent-identifier`.
 4. In the **Scopes**, add:
    - `Technical-Specialist`
    - `Support-Coordinator`
 5. Click **Next** and **Create**.
 6. Go to the `Enterprise Support System` application you created and navigate to the **API Authorization** tab.
-7. Click **Authorize API resource**, search for the `agenttype` resource you created, and select all scopes.
+7. Click **Authorize API resource**, search for the `agent-identifier` resource you created, and select all scopes.
 8. Click **Finish**.
 
-### Step 3: Create the roles
+### Create the roles
 
 1. Navigate to **User Management > Roles**.
 2. Click **+ New Role**.
 3. Configure the role:
    - **Role Name**: `Support-Coordinator`
    - Assign application: `Enterprise Support System`.
-   - In **Permission Selection**, select the `agenttype` resource and the `Support-Coordinator` scope.
+   - In **Permission Selection**, select the `agent-identifier` resource and the `Support-Coordinator` scope.
 4. Click **Finish**.
 5. Repeat the process for the `Technical-Specialist` role.
 
-### Step 4: Register AI agents
+### Register AI agents
 
-Since these are autonomous agents, we create **"Service Accounts"** for them. **WSO2 Agent Identity** is a great way to do this.
+Since these are autonomous agents, we create **"Auth Identities"** for them. **WSO2 Agent Identity** is a great way to do this.
 
 1. Go to **Agents**.
 2. Create the **Coordinator Agent**:
@@ -85,11 +85,11 @@ Since these are autonomous agents, we create **"Service Accounts"** for them. **
    - Make a note of the **Agent ID** and **Agent Secret**.
    - Go to **User Management > Roles** and assign this agent to the `Technical-Specialist` role.
 
-## Part 2: WSO2 AI Gateway configuration
+## WSO2 AI Gateway configuration
 
 Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of the AI models, checking the ID cards (tokens) issued by {{ product_name }} and routing traffic to the correct model.
 
-### Step 1: Create an AI API Proxy in Bijira
+### Create an AI API Proxy in Bijira
 
 1. Log in to **WSO2 Bijira**.
 2. Create a project and then create a new AI API by selecting:
@@ -97,22 +97,22 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
 3. After creation, configure it and deploy it to **Development** and **Production Environments**.
    - For a detailed guide, refer to the [Docs-ai-apis](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/ai-apis/).
 
-![Create_an_AI_API_Proxy]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Create_an_AI_API_Proxy.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Create_an_AI_API_Proxy]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\create-an-ai-api-proxy.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 For this tutorial, we create two API proxies using **Azure OpenAI Service API** and deploy them.
 
 - `gpt-4o mini`
 - `gpt-5`
 
-![AI_API_Proxy_Overview]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\AI_API_Proxy_Overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![AI_API_Proxy_Overview]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\ai-api-proxy-overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Make sure you configure them and Deploy both proxies to development and Production Environments.
 
-### Step 2: Add {{ product_name }} as an external IdP in Bijira
+### Add {{ product_name }} as an external IdP in Bijira
 
 Go to the **Organization level** and in the left navigation menu, click **Admin > Settings**.
 
-![Add_{{ product_name }}_as_an_external_IdP]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Add_Asgardeo_as_an_external_IdP.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_{{ product_name }}_as_an_external_IdP]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\add-an-external-idp.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 1. Click the **Key Managers** tab.
 2. To add an identity provider, click **+ Key Manager**.
@@ -122,13 +122,17 @@ Go to the **Organization level** and in the left navigation menu, click **Admin 
 - **Name** and **Description** for the IdP.
 - **Well-Known URL**: Paste the well-known URL from your {{ product_name }} instance.
 
-![{{ product_name }}_instance_Well-Known_URL]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Asgardeo_instance_Well-Known_URL.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% if product_name == "Asgardeo" %}
+![{{ product_name }}_instance_Well-Known_URL]({{base_path}}/assets/img/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/asgardeo-instance-well-known-url.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% else %}
+![{{ product_name }}_instance_Well-Known_URL]({{base_path}}/assets/img/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/identity-server-instance-well-known-url.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% endif %}
 
 Leave the **Apply to all environments** checkbox selected. This allows you to use the tokens generated via this IdP to invoke APIs across all environments. Then click **Next** and **Add**.
 
-### Step 3: Configure permissions (scopes) policy
+### Configure permissions (scopes) policy
 
-Following your deployment in Step 1, we need to restrict access to the specific AI API proxies.
+Following your deployment, we need to restrict access to the specific AI API proxies.
 
 1. Select one API proxy you created.
 2. In the left navigation menu, click **Develop > Policy**.
@@ -136,28 +140,28 @@ Following your deployment in Step 1, we need to restrict access to the specific 
 4. For each specific AI resource (e.g., `/chat/completions`):
    - Click the **Edit Resource-Level Policies** icon.
 
-![Configure_Permissions]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Configure_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Configure_Permissions]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\configure-permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 - Select **Attach Policy** in the **Request Flow** and go to **Permissions (Scopes)**.
 - For **OpenAI gpt-4o Proxy**, add the `Support-Coordinator` permission.
 - For **OpenAI gpt-5 Proxy**, add the `Technical-Specialist` permission.
 
-![Add_Permissions]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Add_Permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_Permissions]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\add-permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Make sure you select the permissions and save the changes in the policy tab and **redeploy** to apply them.
 
-### Step 4: Configure token-based rate limiting policy
+### Configure token-based rate limiting policy
 
 In this step, you will implement Token-Based Rate Limiting. Unlike standard APIs that limit by request count, AI Gateways allow you to control usage based on actual token consumption (input and output), which is essential for managing LLM costs and preventing overload.
 
 In the **Policy** tab, select **Add API-level Policies**.
 
-![Configure_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Configure_Token-Based_Rate_Limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Configure_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\configure-token-based-rate-limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 1. Select **Attach Policy** in the **Request Flow** and go to **Token-Based Rate Limiting**.
 2. Configure the fields based on your requirements.
 
-![Add_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\Add_Token-Based_Rate_Limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![Add_Token-Based_Rate_Limiting]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\add-token-based-rate-limiting.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Save the changes and redeploy to apply them.
 
@@ -165,6 +169,6 @@ After configuring your security and rate-limiting policies, verify that your AI 
 
 For a comprehensive list of additional AI Guardrails and to customize your own, refer to the [AI Guardrails documentation](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/guardrails/).
 
-## Part 3: Trying out the AI Gateway
+## Trying out the AI Gateway
 
 Once you have successfully completed the configuration steps outlined above, you can try out your AI gateway interactions by cloning this [sample repository](https://github.com/wso2/iam-ai-samples/tree/main/asgardeo-agent-identity-with-ai-gateway).
