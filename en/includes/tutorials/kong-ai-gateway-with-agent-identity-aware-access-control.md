@@ -4,7 +4,7 @@ In this tutorial, we explore how enterprises can securely scale multi-agent AI s
 
 ## The use case: Enterprise support system
 
-Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single general-purpose agent, they use multiple specialized agents:
+Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single general-purpose agent, they use multiple agents:
 
 - **The Coordinator Agent**: A fast, cost-effective agent that classifies incoming tickets.
 - **The Expert Agent**: A "deep thinking" agent reserved for critical, complex infrastructure outages.
