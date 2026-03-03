@@ -54,7 +54,7 @@ The value for `flowType` depends on the flow you want to execute. Refer to the t
                 "type": "INPUT",
                 "variant": "EMAIL",
                 "config": {
-                  "identifier": "email",
+                  "identifier": "http://wso2.com/claims/emailaddress",
                   "label": "Email",
                   "required": true
                 }
@@ -118,7 +118,7 @@ Include the user input in the `inputs` object, using the `identifier` of the inp
   "flowId": "c8e06de8-7123-44ac-8209-02be5b55387e",
   "actionId": "button-a2f1",
   "inputs": {
-    "email": "sasha@example.com",
+    "http://wso2.com/claims/emailaddress": "sasha@example.com",
     "password": "MyP@ssw0rd!"
   }
 }
