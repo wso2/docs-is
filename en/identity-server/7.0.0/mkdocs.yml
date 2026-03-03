@@ -31,6 +31,9 @@ extra:
     identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.1.31
     sdkconfig:
       baseUrl: "https://localhost:9443"
+    org_resources_shared: "Applications, Roles (with shared apps), Users"
+    org_resources_created: "Connections (IdPs), Users, Groups, Roles, Branding, Templates, Userstores, User attributes, Login and registration customizations, Adaptive scripts"
+    org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding)"
 
   home_page_cards:
     - section:
@@ -711,6 +714,7 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
+          - Overview: guides/organization-management/organizations-overview.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Administration of organizations: guides/organization-management/manage-b2b-administration.md
           - Share applications: guides/organization-management/share-applications.md
