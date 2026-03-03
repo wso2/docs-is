@@ -78,7 +78,6 @@ To deploy the custom local authenticator:
     login_flow_custom_first_factor_authenticators = [ "SampleLocalAuthenticator" ]
     ```
 {% endif %}
-     
 ---
 
 ## Configure the Identity Server
