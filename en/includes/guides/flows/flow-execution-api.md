@@ -15,7 +15,7 @@ The Flow Execution API is exposed at `{{base_path}}/api/server/v1/flow/execute`.
 
 ## Start flow execution
 
-Call `POST /flow/execute` with the `flowType` of the flow that should be executed.
+Call `POST /api/server/v1/flow/execute` with the `flowType` of the flow that should be executed.
 
 === "Sample request"
 
@@ -82,7 +82,7 @@ The value for `flowType` depends on the flow you want to execute. Refer to the t
           }
         ],
         "requiredParams": [
-          "email",
+          "http://wso2.com/claims/emailaddress",
           "password"
         ]
       }
@@ -132,7 +132,7 @@ When you receive `REDIRECTION`, redirect the client to `data.url`.
 
 If there's any callback, handle the callback and any provider-specific data such as `code` or `state`.
 
-Call `/flow/execute` with the `flowId`, the `actionId` (if any), and the callback data to continue the flow.
+Call `/api/server/v1/flow/execute` with the `flowId`, the `actionId` (if any), and the callback data to continue the flow.
 
 ```json
 {
