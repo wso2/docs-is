@@ -62,7 +62,7 @@ We need to define the roles that Kong will look for.
 
 Since these are autonomous agents, we create **"Service Accounts"** for them. WSO2 Agent Identity is a great way to do this.
 
-1. Go to **Agents**.
+1. On {{ product_name }} Console, go to **Agents**.
 2. Create the **Coordinator Agent**:
    - **Name**: coordinator-agent.
    - Make a note of the **Agent ID** and **Agent Secret**.
