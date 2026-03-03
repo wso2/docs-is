@@ -70,7 +70,7 @@ Since these are autonomous agents, we create **"Service Accounts"** for them. WS
 3. Create the **Expert Agent**:
    - **Name**: expert-agent.
    - Make a note of the **Agent ID** and **Agent Secret**.
-   - Go to **Roles** and assign this agent to the **Technical-Specialist Role**.
+   - Go to **Roles** and assign this agent to the **Technical-Specialist** role.
 
 ---
 
