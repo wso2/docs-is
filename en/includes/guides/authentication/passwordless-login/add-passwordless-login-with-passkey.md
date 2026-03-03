@@ -150,4 +150,40 @@ Follow the steps below to use an enrolled passkey to sign in to an application.
 !!! note
     During passkey progressive enrollment, if a user wishes to use a federated authenticator, they should have their external accounts already provisioned within {{product_name}}. If, for example, a user logs in with Google using an account not provisioned in {{product_name}}, passkey enrolment results in an error and the login flow fails.
 
+{% if is_version is defined and is_version >= "7.1.0" %}
+
+## Restrict passkey generation and prompting to subdomains
+
+By default, {{ product_name }} generates and prompts passkeys for the top-level domain. For example, if the application is running on `app.example.com`,
+the passkey will be generated for `example.com` and prompts the user to use the passkey for all applications running on `example.com` and its subdomains.
+
+If required, you can restrict passkey generation and prompting to subdomains instead.
+
+For example, you can configure the system so that passkeys are generated and used only for `app.example.com`.
+In this case, users will be prompted to use their passkeys only when accessing applications hosted on `app.example.com`.
+To enable this restriction, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+  ```toml
+    [fido.webauthn.relying_party]
+    use_full_effective_domain = true
+  ```
+
+{% if is_version is defined and is_version == "7.1.0" %}
+!!! note
+    This configuration is available starting from update level 7.1.0.54.
+
+{% elif is_version is defined and is_version == "7.2.0" %}
+!!! note
+    This configuration is available starting from update level 7.2.0.13.
+{% endif %}
+
+!!! warning
+    Enabling this configuration restricts passkeys to the exact subdomain where they were registered,
+    preventing cross-subdomain usage within the same parent domain. For example,
+    a passkey registered on `app.example.com` cannot be used to authenticate to applications on other subdomains such as `admin.example.com` or `login.example.com`.
+    If the application's subdomain changes (e.g., from `app.example.com` to `newapp.example.com`) or a different subdomain is introduced,
+    previously registered passkeys become invalid and users must register new passkeys for the new subdomain.
+
+{% endif %}
+
 {% include "./fido-trusted-applications.md" %}
