@@ -19,7 +19,7 @@ After setting up the DB2 database, you can point the `WSO2_IDENTITY_DB` or
 
 ### Minimum configurations for changing default datasource to DB2
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -43,11 +43,11 @@ A sample configuration is given below.
 	
 	1. Execute database scripts.
 	
-		Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+		Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
 		
-		- `<IS-HOME>/dbscripts/identity/db2.sql`
-		- `<IS-HOME>/dbscripts/identity/uma/db2.sql`
-		- `<IS-HOME>/dbscripts/consent/db2.sql`
+		- `<IS_HOME>/dbscripts/identity/db2.sql`
+		- `<IS_HOME>/dbscripts/identity/uma/db2.sql`
+		- `<IS_HOME>/dbscripts/consent/db2.sql`
 
 		!!! info 
 			While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimeter "/" since the default delimiter script for DB2 is ";". 
@@ -71,7 +71,7 @@ A sample configuration is given below.
 		
 	1.	Execute database scripts.
 	
-		Execute the scripts in the `<IS-HOME>/dbscripts/db2.sql` file, against the database created.
+		Execute the scripts in the `<IS_HOME>/dbscripts/db2.sql` file, against the database created.
 		
 3.	If you have a requirement in using workflow feature, follow [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds).
 	

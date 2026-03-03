@@ -10,7 +10,7 @@ The identifier-first login enables identifying the individuals prior to authenti
 !!! warning
     This handler can be configured at any step in the authentication flow. However, it is not an authenticator by itself and needs to be configured along with another authenticator in order for the authentication process to be successful.
 
-1.  Make sure that the `validate_username parameter` in the `IS_HOME/repository/conf/deployment.toml` file is set to true if you want your user name validated first.
+1.  Make sure that the `validate_username parameter` in the `<IS_HOME>/repository/conf/deployment.toml` file is set to true if you want your user name validated first.
 
     ```toml
     [authentication.authenticator.user_identifier] 

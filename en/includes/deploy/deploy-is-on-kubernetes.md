@@ -76,8 +76,7 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
     --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false" \
-    --set deployment.externalJKS.enabled="true"
+    --set deployment.apparmor.enabled="false"
     ```
     {% else %}
     ```shell
@@ -86,8 +85,7 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
     --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false" \
-    --set deployment.externalJKS.enabled="true"
+    --set deployment.apparmor.enabled="false"
     ```
 {% endif %}
 

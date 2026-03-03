@@ -3,7 +3,7 @@ By following this guide, you will enable **post-quantum TLS** in {{ product_name
 !!! note "Post-quantum TLS requirements"
 
     - Post-quantum TLS is only supported over TLS 1.3.
-    - {{product_name}} currently supports post-quantum security only on Linux and MacOS operating systems.
+    - {{product_name}} currently supports post-quantum security only on Linux and macOS operating systems.
 
 {% if is_version == "7.0.0" %}
 !!! note "important"
@@ -53,7 +53,7 @@ To install these dependencies, follow the instructions below based on the operat
         yum install make cmake autoconf wget tar gcc apr-devel openssl-devel perl
         ```
 
-=== "MacOS"
+=== "macOS"
 
     1. Use Homebrew to install all the required build dependencies.
 
@@ -123,7 +123,7 @@ To install these dependencies, follow the instructions below based on the operat
     yum install make cmake autoconf wget tar gcc perl git python3 autoconf libtool
     ```
 
-=== "MacOS"
+=== "macOS"
 
     Use Homebrew to install dependencies.
 

@@ -2,16 +2,14 @@
 
 Grant types in OAuth 2.0 are defined as the methods used by a client to obtain an access token from the identity provider. {{product_name}} supports the following grant types. Each grant type is designed for a specific use case and supports different parameters.
 
-#### OAuth 2.0 grants
+**OAuth 2.0 grants**
 
 - [Authorization code grant](#authorization-code-grant)
 - [Refresh token grant](#refresh-token-grant)
 - [Client credentials grant](#client-credentials-grant)
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
-{% if product_name == "WSO2 Identity Server" %}
 - [Device authorization grant](#device-authorization-grant)
-{% endif %}
 - [Token exchange grant](#token-exchange-grant)
 {% if product_name == "WSO2 Identity Server" %}
 - [JWT Bearer Grant](#jwt-bearer-grant)
@@ -65,6 +63,7 @@ The following diagram shows how the authorization code flow works.
     ``` bash
     https://localhost:3000?code=9142d4cad58c66d0a5edfad8952192
     ```
+
 6. The client application uses this authorization code to request an access token from {{ product_name }} (back channel).
 
     === "Request format (/token)"
@@ -130,7 +129,7 @@ The following diagram shows how the refresh token flow works.
         --data-urlencode "grant_type=refresh_token" \
         --data-urlencode "refresh_token=<REFRESH_TOKEN>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -173,7 +172,7 @@ The following diagram shows how the client credentials grant flow works.
         --data-urlencode "grant_type=client_credentials" \
         --data-urlencode "scope=<scopes>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -194,7 +193,7 @@ The following diagram shows how the client credentials grant flow works.
     "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
-    
+
 3. The client application can now request for resources by providing the access token.
 
 4. The resource server returns the requested resources to the client application.
@@ -274,7 +273,7 @@ The following diagram shows how the password grant flow works.
         --data-urlencode "scope=<scopes>"
 
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -301,12 +300,13 @@ The following diagram shows how the password grant flow works.
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
-{{password_grant_show_auth_failure_reason_note}}
-
 {% if product_name == "WSO2 Identity Server" %}
+{{password_grant_show_auth_failure_reason_note}}
+{% endif %}
+
 ## Device authorization grant
 
-Device authorization grant (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser. 
+[Device authorization grant](https://datatracker.ietf.org/doc/html/rfc8628) (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser.
 Such devices include smart TVs, printers, and gaming consoles. The device flow does not require two-way communication between the OAuth client and the device. Instead, it guides the end user to another device, such as a smartphone, to complete the sign-in process.
 
 The diagram below illustrates the device flow.
@@ -319,14 +319,16 @@ The diagram below illustrates the device flow.
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/device_authorize \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "client_id=<CLIENT_ID>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
         curl -v -k -X POST {{base_url_example}}/oauth2/device_authorize \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga"
         ```
@@ -347,9 +349,9 @@ The diagram below illustrates the device flow.
 
 3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
 
-4. WSO2 Identity server prompts the user to enter the end-user code and the user enters the user code.
+4. {{ product_name }} prompts the user to enter the end-user code and the user enters the user code.
 
-5. WSO2 Identity server validates the code and asks the end user to accept or decline the authorization request.
+5. {{ product_name }} validates the code and asks the end user to accept or decline the authorization request.
 
 6. While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
 
@@ -357,16 +359,18 @@ The diagram below illustrates the device flow.
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=<CLIENT_ID>" \
         --data-urlencode "device_code=<DEVICE_CODE>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
@@ -387,8 +391,6 @@ The diagram below illustrates the device flow.
 8. The client application can now request resources from the resource server by providing the access token.
 
 9. The resource server returns the requested user information to the client application.
-
-{% endif %}
 
 ## Token exchange grant
 
@@ -414,7 +416,7 @@ The following diagram shows how the token exchange grant flow works.
         --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:access_token" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -427,16 +429,13 @@ The following diagram shows how the token exchange grant flow works.
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
         ```
 
-    
 5. The authorization server responds to the client with the new access token.
 6. The client application can now request resources from the resource server by providing the access token.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
 Token exchange can be used for delegation and impersonation use cases. See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details about delegation usecase. See  [user impersonation]({{base_path}}/guides/authorization/user-impersonation/via-business-application) for more details on user impersonation with token exchange grant.
 
-{% if product_name == "WSO2 Identity Server" %}
-
-## JWT Bearer grant
+## JWT bearer grant
 
 OAuth 2.0 JWT bearer is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another with a different set of permissions or attributes. This grant type is defined in the [RFC7523](https://datatracker.ietf.org/doc/html/rfc7523).
 
@@ -458,7 +457,7 @@ The following diagram shows how the JWT Bearer grant flow works.
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
         --data-urlencode "assertion=<jwt_token>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -474,6 +473,8 @@ The following diagram shows how the JWT Bearer grant flow works.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
 See [configure the JWT Bearer Grant flow]({{base_path}}/guides/authentication/configure-jwt-bearer-grant) for more details.
+
+{% if product_name == "WSO2 Identity Server" %}
 
 ## SAML 2.0 bearer grant
 
@@ -498,7 +499,7 @@ The following diagram shows how the token exchange grant flow works.
         --data-urlencode "assertion=<base64-URL_encoded_assertion>" \
         --data-urlencode "scope=<scopes>" \
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash

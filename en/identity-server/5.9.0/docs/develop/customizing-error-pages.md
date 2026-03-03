@@ -13,7 +13,7 @@ messages in Apache Tomcat.
 The pages that should be displayed on a
 certain throwable exception, error or an HTTP status code are specified
 in the
-`          <IS_HOME>repository/conf/tomcat/carbon/WEB-INF/web.xml ` file. You can customize those error pages as preferred. For example,
+`          <IS_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml ` file. You can customize those error pages as preferred. For example,
 if you try to access a resource that is not available in the Carbon
 server (e.g., https://localhost:9443/abc), you will see the "Error 404 - Not Found"
 page.

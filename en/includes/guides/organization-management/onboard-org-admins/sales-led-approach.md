@@ -22,7 +22,7 @@ Perform the following steps to create admin roles authorized for [organization A
 
 To create a new organization user:
 
-1. [Switch to the organizatio Console]({{base_path}}/guides/organization-management/manage-organizations/#switch-to-an-organization).
+1. [Switch to the organization Console]({{base_path}}/guides/organization-management/manage-organizations/#switch-to-an-organization).
 
 2. On the organization Console, go to **User Management** > **Users** and click **Add User**.
 

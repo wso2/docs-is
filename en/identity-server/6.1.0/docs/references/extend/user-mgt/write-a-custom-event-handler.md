@@ -1,22 +1,22 @@
 # Write a Custom Event Handler
 
-The WSO2 Identity Server eventing framework can be used to trigger events such as user operation events like `PRE_SET_USER_CLAIMS`,`POST_ADD_USER`. A full list of the sample events can be found below. The eventing framework also supports handlers which can be used to do operations upon a triggered event. For instance, an event handler can be used to validate the changed user password against previously used entries when a `PRE_UPDATE_CREDENTIAL` event is triggered. 
+The WSO2 Identity Server eventing framework can be used to trigger events such as user operation events like `PRE_SET_USER_CLAIMS`,`POST_ADD_USER`. A full list of the sample events can be found below. The eventing framework also supports handlers which can be used to do operations upon a triggered event. For instance, an event handler can be used to validate the changed user password against previously used entries when a `PRE_UPDATE_CREDENTIAL` event is triggered.
 
 ---
 
 ## What is an event handler?
 
-An event handler is used to perform an operation based on the published events. 
+An event handler is used to perform an operation based on the published events.
 
 For instance, an event handler can be used to send an email after a user addition. The following sequence of operations are executed while adding a user.
 
 1. Publish the `PRE_ADD_USER` event — The subscribed handlers will be executed for the pre-add user event.
-2. Execute the `AddUser` operation — The user will be persisted to the user store (LDAP or JBDC user store).
+2. Execute the `AddUser` operation — The user will be persisted to the user store (LDAP or JDBC user store).
 3. Publish the `POST_ADD_USER` event — The subscribed handlers will be executed for the post-add user event.
 
 Therefore, the email can be sent through an event handler that is subscribed to the `POST_ADD_USER` event.
 
-The following list is a list of sample events. 
+The following list is a list of sample events.
 
 - `AUTHENTICATION_STEP_SUCCESS`
 - `AUTHENTICATION_STEP_FAILURE`
@@ -37,11 +37,11 @@ The following list is a list of sample events.
 
 ## Write an event handler
 
-To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`. 
+To write a new event handler, you must extend the `org.wso2.carbon.identity.event.handler.AbstractEventHandler`.
 
-1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priory of the event handler. The handlers will be executed based on the priority.
+1. Override the `getName()` method to set the name for the event handler and the `getPriority()` method can be used to set the priority of the event handler. The handlers will be executed based on the priority.
 
-    ```
+    ```java
     public String getName() {
     return "customEventHandler";
     }
@@ -54,7 +54,8 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
 
 2. To execute the expected operation, override the `handleEvent()` method. The `event.getEventProperties()` method can be used to get the parameters related to the user operations. 
    The `handleEvent()` method should be called from the relevant method, which is written to execute a certain operation and the handlers will be executed once the operation is triggered.
-    ```
+
+    ```java
     @Override
     public void handleEvent(Event event) throws IdentityEventException {
 
@@ -69,11 +70,11 @@ To write a new event handler, you must extend the `org.wso2.carbon.identity.even
     ```
 
 ---
-## Register the event handler 
+## Register the event handler
 
 Register the event handler in the service component as follows.
 
-```
+```java
 protected void activate(ComponentContext context) {
     try {
         BundleContext bundleContext = context.getBundleContext();
@@ -102,7 +103,7 @@ subscriptions =["CUSTOM_EVENT"]
     - Navigate to event-handler/custom-event-handler directory (`cd event-handler/custom-event-handler`).
     - Run the `mvn clean install` command.
 2. Copy the generated org.wso2.carbon.identity.customhandler-1.0.0.jar file in the target folder into <IS_HOME>/repository/components/dropins/ folder.
-3. Add following configurations to <IS_HOME>/repository/conf/deployement.toml file
+3. Add following configurations to <IS_HOME>/repository/conf/deployment.toml file
     ```
     [[event_handler]]
     name="customUserRegistration"

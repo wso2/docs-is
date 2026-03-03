@@ -141,15 +141,15 @@ You may follow the steps below to change passwords that are already encrypted.
 
     === "Symmetric encryption"
 
-        - **For Linux**: `./ciphertool.sh -Dconfigure -Dsymmetric`
+        - **For Linux**: `./ciphertool.sh -Dchange -Dsymmetric`
 
-        - **For Windows**: `ciphertool.bat -Dconfigure -Dsymmetric`
+        - **For Windows**: `ciphertool.bat -Dchange -Dsymmetric`
 
     === "Asymmetric encryption"
 
-        - **For Linux**: `./ciphertool.sh -Dconfigure`
+        - **For Linux**: `./ciphertool.sh -Dchange`
 
-        - **For Windows**: `ciphertool.bat -Dconfigure`
+        - **For Windows**: `ciphertool.bat -Dchange`
 
 {% else %}
 
@@ -166,7 +166,7 @@ You may follow the steps below to change passwords that are already encrypted.
 
 6. The system will then prompt you (twice) to enter the new password. Enter your new password.
 
-{% if product_name == "WSO2 Identity Server" and is_version != "7.0..0" %}
+{% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 ## Rotating Encryption Secrets
 
 !!! note

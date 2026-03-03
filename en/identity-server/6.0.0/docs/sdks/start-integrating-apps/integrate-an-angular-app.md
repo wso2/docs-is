@@ -8,7 +8,7 @@ Only customer users can log in to applications. [Create a user account]({{base_p
 
 To add CORS configurations:
 
-1. Open the `deployment.toml` file found in the `<IS-Home>/repository/conf/` directory, and add the following configuration.
+1. Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory, and add the following configuration.
 
     ``` toml
     [cors]

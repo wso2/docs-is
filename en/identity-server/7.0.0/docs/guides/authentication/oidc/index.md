@@ -31,6 +31,18 @@ With JWT Secured Authorization Response Mode, clients can request authorization 
 
 - [JWT Secured Authorization Response Mode (JARM) for OAuth 2.0]({{base_path}}/guides/authentication/oidc/jarm/) has detailed instructions on this.
 
+## Encrypt ID tokens
+
+WSO2 Identity Server supports ID token encryption to enhance security in production environments.
+
+[Encrypt ID tokens]({{base_path}}/guides/authentication/oidc/oidc-token-encryption/) has detailed instructions on how to configure ID token encryption for your applications.
+
+## Decrypt encrypted ID tokens
+
+If you have enabled ID token encryption, you can decrypt the encrypted ID tokens to view the JSON values.
+
+[Decrypt encrypted ID tokens]({{base_path}}/guides/authentication/oidc/oidc-token-decryption/) has detailed instructions on how to decrypt ID tokens using a Java program.
+
 ## Validate ID tokens
 
 This section explains how the signature and the claims are verifieed in the ID token that is sent by WSO2 Identity Server to an application.

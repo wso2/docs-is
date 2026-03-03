@@ -96,7 +96,7 @@ Before you begin, ensure the following are fulfilled.
 
 {% if product_name == "Asgardeo" %}
 
-- You need to have a Github repository to host the authentication service.
+- You need to have a GitHub repository to host the authentication service.
 - Download [Ballerina](https://ballerina.io/downloads/){target="_blank"}, the programming language used to define the external authentication service.
 
 {% endif %}

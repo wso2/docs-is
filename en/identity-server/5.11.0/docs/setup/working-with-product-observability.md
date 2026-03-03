@@ -79,7 +79,7 @@ Follow the steps below to enable product observability.
     to `           true          `, execute the following command.
 
     ``` java
-        For Mac/Linux   --> sh wso2server.sh -DenableCorrelationLogs=true start
+        For macOS/Linux   --> sh wso2server.sh -DenableCorrelationLogs=true start
         For Windows     --> wso2server.bat -DenableCorrelationLogs=true start
     ```
 
@@ -225,7 +225,7 @@ Follow the steps below to configure denylists for threads.
 
 1.  Open either of the following files in the
     `          <IS_HOME>/bin         ` directory on a command prompt.
-    1.  For Mac/Linux: `            wso2server.sh           ` file
+    1.  For macOS/Linux: `            wso2server.sh           ` file
     2.  For Windows: `            wso2server.bat           ` file
 2.  Add the following configuration as a system property.
 
@@ -303,7 +303,7 @@ To configure the Datadog Java Agent with WSO2 Identity Server, follow these step
     - Open the corresponding to your operating system.
 
         ```shell
-        Mac/Linux:
+        macOS/Linux:
         <IS_HOME>/bin/wso2server.sh
         
         Windows:

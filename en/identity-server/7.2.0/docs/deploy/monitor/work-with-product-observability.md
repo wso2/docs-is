@@ -46,7 +46,7 @@ Follow the steps below to enable product observability.
 
 2. To set the `-DenableCorrelationLogs` property to `true`, execute the following command.
 
-    === "Mac OS/Linux"
+    === "macOS/Linux"
         ```
         sh wso2server.sh -DenableCorrelationLogs=true start
         ```
@@ -183,7 +183,7 @@ Follow the steps below to configure denylists for threads.
 
 1. Open either of the following files in the `<IS_HOME>/bin` directory on a command prompt.
 
-    - For Mac/Linux: `wso2server.sh` file
+    - For macOS/Linux: `wso2server.sh` file
     - For Windows: `wso2server.bat` file
 
 2. Add the following configuration as a system property.
@@ -237,7 +237,7 @@ The following table lists the fields that can be included:
 
 To customize the JDBC log pattern, execute a command similar to the following example when starting the server:
 
-=== "Mac OS/Linux"
+=== "macOS/Linux"
     ```
     sh wso2server.sh -DenableCorrelationLogs=true -Dorg.wso2.CorrelationLogInterceptor.JdbcLogFields=CONNECTION_URL,DATABASE_NAME start
     ```
@@ -274,7 +274,7 @@ To configure the Datadog Java Agent with WSO2 Identity Server, follow these step
 
     - Open the corresponding to your operating system.
 
-        === "Mac/Linux"
+        === "macOS/Linux"
 
             `<IS_HOME>/bin/wso2server.sh`
 

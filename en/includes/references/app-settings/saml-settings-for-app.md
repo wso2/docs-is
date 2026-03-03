@@ -59,16 +59,21 @@ Used as the signing algorithm to sign the authentication response and logout res
 Specifies the mechanisms to transport SAML messages in communication protocols. Bindings define how SAML request-response protocol messages can be exchanged between identity provider and SAML application via HTTP transport.
 
 {{ product_name }} by default supports the following bindings:
-- HTTP Post
-- HTTP Redirect
-<!--  Artifact -->
 
-<!-- {{ product_name }} by default supports HTTP Post and HTTP Redirect bindings. To enable support for Artifact binding, select **Artifact**.
+- HTTP Post
+
+- HTTP Redirect
+
+{% if product_name == "WSO2 Identity Server" %}
+Optionally, select **Artifact Binding** to enable SAML artifact binding for SSO. Learn more about [Artifact Binding]({{base_path}}/guides/authentication/saml/artifact-binding).
 
 #### Enable signature validation for artifact binding
-Specifies whether the artifact resolve request signature should be validated against the application certificate. If you enable this option, make sure to provide the application certificate below. -->
+
+Specifies whether the artifact resolve request signature should be validated against the application certificate. If you enable this option, make sure to provide  application [certificate](#certificate).
+{% endif %}
 
 #### Enable IdP initiated SSO
+
 Specifies whether to initiate Single Sign-On (SSO) from the IdP instead of the application. If this is selected, a service provider is not required to send the SAML2 request. The Request URL is used by the IDP to forward the users directly to the service provider.
 <br>
 
@@ -215,7 +220,7 @@ Specifies whether you want to enable single-logout to your application. By defau
 #### Logout method
 Specifies the logout method that is supported by the application. {{ product_name }} supports below logout methods:
 
-- Back Channel logout
+- [Back Channel logout]({{base_path}}/guides/authentication/saml/saml-back-channel-logout/)
 - Front Channel HTTP Redirect
 - Front Channel HTTP Post
 
@@ -276,6 +281,7 @@ _Sample request_
 Note that, you need to encode the URLs before calling the single logout service.
 
 ### Certificate
+
 The certificate is used to validate signatures when authentication requests or logout requests from the application are signed. Note that request signature validation should be [enabled](#enable-request-signature-validation).
 <br>
 You can either upload your certificate file or copy the contents. Follow the steps given below.

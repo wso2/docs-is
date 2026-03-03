@@ -61,7 +61,7 @@ the file to configure the HubSpot API key as follows.
 2. Navigate to `<IS_HOME>\bin` and start the server by executing one of the following commands.
 
     ```
-    Linux/MacOS: sh wso2server.sh
+    Linux/macOS: sh wso2server.sh
     Windows: wso2server.bat run
     ```
 
