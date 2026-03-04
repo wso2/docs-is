@@ -27,7 +27,7 @@ To establish an identity for your AI agent, begin by registering it in {{ produc
     - Description (optional): Purpose and functionality of the agent
 
 !!! Example
-Name: Math Assistant Agent
+    Name: Math Assistant Agent
 
     Description: An AI agent that invokes protected MCP tools to answer math-related questions.
 
@@ -43,13 +43,13 @@ To allow your agent (or user acting through the agent) to authenticate and conne
 - Select **MCP Client Application** and complete the wizard pop-up by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-Name: AgentAuthenticatorApp
+    Name: AgentAuthenticatorApp
 
     Authorized redirect URL: http://localhost:6274/oauth/callback
 
 !!! Info
-The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
-In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:6274/oauth/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
+    The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
+    In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:6274/oauth/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Build an AI Agent](#build-an-ai-agent) section of this guide.
 
@@ -451,8 +451,6 @@ To test the setup without authentication, simply remove the `Authorization` head
             )
     ...
     ```
-
-When you run the agent without the `Authorization` header, the MCP server will reject the request with a `401 Unauthorized` error, confirming that authentication is required to access the protected tools.
 
 ## Test the On-Behalf-Of (OBO) Flow
 
@@ -926,7 +924,7 @@ You will see an output similar to this and your default browser will open, promp
 ```
 
 !!! Info
-You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
+    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
 
 After successful login, return to the terminal. Your agent will automatically resume once it receives the authorization code and call the MCP tool on behalf of the authenticated user.
 
