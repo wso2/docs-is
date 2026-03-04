@@ -2,7 +2,7 @@
 
 Use the Flow Execution API to run user journeys that you design in the Flow Builder of {{product_name}} directly from your client application.
 
-The Flow Execution API is exposed at `{{api_base_path}}/api/server/v1/flow/execute`. This endpoint is open and does not require an authorization header.
+The Flow Execution API is exposed at `{{base_path}}/api/server/v1/flow/execute`. This endpoint is open and does not require an authorization header.
 
 {% if product_name == "WSO2 Identity Server" %}
 !!! info
@@ -15,12 +15,12 @@ The Flow Execution API is exposed at `{{api_base_path}}/api/server/v1/flow/execu
 
 ## Start flow execution
 
-Call `POST /flow/execute` with the `flowType` of the flow that should be executed.
+Call `POST /api/server/v1/flow/execute` with the `flowType` of the flow that should be executed.
 
 === "Sample request"
 
     ```bash
-    curl --location '{{api_base_path}}/flow/execute' \
+    curl --location '{{base_path}}/api/server/v1/flow/execute' \
     --header 'Content-Type: application/json' \
     --data '{
       "flowType": "<Flow_Type>"
@@ -54,7 +54,7 @@ The value for `flowType` depends on the flow you want to execute. Refer to the t
                 "type": "INPUT",
                 "variant": "EMAIL",
                 "config": {
-                  "identifier": "email",
+                  "identifier": "http://wso2.com/claims/emailaddress",
                   "label": "Email",
                   "required": true
                 }
@@ -82,7 +82,7 @@ The value for `flowType` depends on the flow you want to execute. Refer to the t
           }
         ],
         "requiredParams": [
-          "email",
+          "http://wso2.com/claims/emailaddress",
           "password"
         ]
       }
@@ -118,7 +118,7 @@ Include the user input in the `inputs` object, using the `identifier` of the inp
   "flowId": "c8e06de8-7123-44ac-8209-02be5b55387e",
   "actionId": "button-a2f1",
   "inputs": {
-    "email": "sasha@example.com",
+    "http://wso2.com/claims/emailaddress": "sasha@example.com",
     "password": "MyP@ssw0rd!"
   }
 }
@@ -132,7 +132,7 @@ When you receive `REDIRECTION`, redirect the client to `data.url`.
 
 If there's any callback, handle the callback and any provider-specific data such as `code` or `state`.
 
-Call `/flow/execute` with the `flowId`, the `actionId` (if any), and the callback data to continue the flow.
+Call `/api/server/v1/flow/execute` with the `flowId`, the `actionId` (if any), and the callback data to continue the flow.
 
 ```json
 {
