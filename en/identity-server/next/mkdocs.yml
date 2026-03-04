@@ -31,6 +31,9 @@ extra:
     identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.14.2
     sdkconfig:
       baseUrl: "https://localhost:9443"
+    org_resources_shared: "Applications, Roles (with shared apps), Users"
+    org_resources_created: "Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts"
+    org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes"
   connectors:
     - name: Sift
       icon: assets/img/logo/sift-logo.svg
@@ -209,6 +212,7 @@ plugins:
       caption_position: bottom
   - redirects:
       redirect_maps:
+        'guides/verifiable-credentials/issue-vc-with-lissi.md': 'guides/verifiable-credentials/issue-vc.md'
         'get-started/sample-use-cases/set-up.md': 'get-started/quick-set-up.md'
         'get-started/sample-use-cases/sample-scenario.md': 'get-started/start-integrating-apps/index.md'
         'get-started/sample-use-cases/single-sign-on.md': 'get-started/start-integrating-apps/index.md'
@@ -712,8 +716,9 @@ nav:
               - Revoke tokens: guides/authentication/oidc/revoke-tokens.md
               - Configure token exchange: guides/authentication/configure-token-exchange.md
             - Logout:
-              - Front-channel logout: guides/authentication/oidc/add-logout.md
+              - RP-initiated logout: guides/authentication/oidc/add-logout.md
               - Back-channel logout: guides/authentication/oidc/add-back-channel-logout.md
+              - Front-channel logout: guides/authentication/oidc/add-front-channel-logout.md
               - Federated IdP-initiated logout: guides/authentication/oidc/oidc-federated-idp-initiated-logout.md
           - Configure SAML flows:
             - Configure SAML flows: guides/authentication/saml/index.md
@@ -825,6 +830,8 @@ nav:
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
         - Flow AI: guides/flows/flow-ai.md
+        - Use the Flow Execution API: guides/flows/flow-execution-api.md
+        - Understand Flow Execution Components: guides/flows/flow-execution-components.md
         - Troubleshooting: guides/flows/troubleshooting.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
@@ -848,6 +855,7 @@ nav:
         - Build your own self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
+          - Overview: guides/organization-management/organizations-overview.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
@@ -898,6 +906,7 @@ nav:
             - Pre-flow extensions (Actions):
               - Setting up an action: guides/service-extensions/pre-flow-extensions/setting-up-actions.md
               - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
+              - Pre issue ID token action: guides/service-extensions/pre-flow-extensions/pre-issue-id-token-action.md
               - Pre update password action: guides/service-extensions/pre-flow-extensions/pre-update-password-action.md
               - Pre update profile action: guides/service-extensions/pre-flow-extensions/pre-update-profile-action.md
           - Integrate with webhooks:
@@ -928,6 +937,9 @@ nav:
           - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
           - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
           - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
+      - Verifiable Credentials:
+        - Overview: guides/verifiable-credentials/index.md
+        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
@@ -1245,6 +1257,7 @@ nav:
         - Identity verification API: apis/admin-identity-verification.md
       - User sharing management API: apis/organization-user-share-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
+      - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md      
       - Webhook Management API: apis/webhook-management-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
     - Organization APIs:
@@ -1333,6 +1346,10 @@ nav:
                     - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0.md
                     - API v1.1 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1.md
                 - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
+            - Pre issue ID token action:
+                - Version 1.x:
+                    - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/pre-issue-id-token-action-v1.0.md
+                - Sample success responses: references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/sample-success-responses.md
             - Pre update password action:
                 - Version 1.x:
                     - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/pre-update-password-action-v1.0.md
@@ -1348,6 +1365,7 @@ nav:
       - Authentication:
         - OAuth2:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
+          - Configure a custom token issuer: references/extend/authentication/oauth2/configure-custom-token-issuer.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
@@ -1388,6 +1406,7 @@ nav:
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
+      - OpenID for verifiable credential issuance (OID4VCI): references/concepts/oid4vci.md
   - Technology Guides:
       - Actions:
           - Introduction: complete-guides/actions/introduction.md

@@ -31,6 +31,9 @@ extra:
     identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-3.3.22
     sdkconfig:
       baseUrl: "https://localhost:9443"
+    org_resources_shared: "Applications, Roles (with shared apps), Users"
+    org_resources_created: "Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts"
+    org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes"
   connectors:
     - name: Sift
       icon: assets/img/logo/sift-logo.svg
@@ -819,6 +822,8 @@ nav:
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
         - Flow AI: guides/flows/flow-ai.md
+        - Use the Flow Execution API: guides/flows/flow-execution-api.md
+        - Understand Flow Execution Components: guides/flows/flow-execution-components.md
         - Troubleshooting: guides/flows/troubleshooting.md
       - User self-service:
         - User self-service: guides/user-self-service/index.md
@@ -842,6 +847,7 @@ nav:
         - Build your own self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
+          - Overview: guides/organization-management/organizations-overview.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - Set up organizations: guides/organization-management/manage-organizations.md
           - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
@@ -1342,6 +1348,7 @@ nav:
       - Authentication:
         - OAuth2:
           - Write a custom OAuth2 grant type: references/extend/authentication/oauth2/write-a-custom-oauth-2.0-grant-type.md
+          - Configure a custom token issuer: references/extend/authentication/oauth2/configure-custom-token-issuer.md
         - Conditional authentication:
           - Write custom functions for conditional authentication: references/extend/authentication/conditional-auth/write-custom-functions-for-conditional-authentication.md
         - Write a custom local authenticator: references/extend/authentication/write-a-custom-local-authenticator.md
