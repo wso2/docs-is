@@ -23,8 +23,8 @@ To establish an identity for your AI agent, begin by registering it in {{ produc
 - Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
 - Click **+ New Agent**.
 - Provide:
-    - Name: A descriptive name for your AI agent for human-readable display purposes
-    - Description (optional): Purpose and functionality of the agent
+  - Name: A descriptive name for your AI agent for human-readable display purposes
+  - Description (optional): Purpose and functionality of the agent
 
 !!! Example
     Name: Math Assistant Agent
@@ -102,6 +102,12 @@ Pick your agent development framework and install the corresponding dependencies
 
     ```bash
     pip install asgardeo asgardeo_ai crewai google-genai==1.54.0 python-dotenv
+    ```
+
+=== "Vercel AI"
+
+    ```bash
+    pip install asgardeo asgardeo_ai python-dotenv vercel-ai-sdk==0.0.1.dev4
     ```
 
 Create `main.py` that implements an AI agent which first obtains a valid access token from **{{ product_name }}** by authenticating itself. The agent then includes that token in the `Authorization` header (for example `Authorization: Bearer <token>`) when calling the MCP tool.
@@ -351,6 +357,80 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     ```
 
+=== "Vercel AI"
+
+    ```python title="main.py"
+    import os
+    import asyncio
+    
+    from dotenv import load_dotenv
+    from pathlib import Path
+    
+    from asgardeo import AsgardeoConfig
+    from asgardeo_ai import AgentConfig, AgentAuthManager
+    
+    import vercel_ai_sdk as ai
+    
+    # Load environment variables from .env file
+    load_dotenv()
+    
+    ASGARDEO_CONFIG = AsgardeoConfig(
+    base_url=os.getenv("ASGARDEO_BASE_URL"),
+    client_id=os.getenv("CLIENT_ID"),
+    redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    
+    AGENT_CONFIG = AgentConfig(
+    agent_id=os.getenv("AGENT_ID"),
+    agent_secret=os.getenv("AGENT_SECRET")
+    )
+    
+    async def my_agent(llm, messages, auth_token):
+    
+        tools = await ai.mcp.get_http_tools(
+            os.getenv("MCP_SERVER_URL"),
+            headers={
+                "Authorization": f"Bearer {auth_token}"
+            }
+        )
+    
+        return await ai.stream_loop(llm, messages, tools=tools)
+    
+    
+    async def main():
+    async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+    agent_token = await auth_manager.get_agent_token(["openid"])
+    
+        google_key = os.getenv("GOOGLE_API_KEY", "")
+        os.environ["OPENAI_API_KEY"] = google_key
+        os.environ["OPENAI_BASE_URL"] = "https://generativelanguage.googleapis.com/v1beta/openai/"
+    
+        llm = ai.openai.OpenAIModel(
+            model=os.getenv("MODEL_NAME")
+        )
+    
+        while True:
+            user_input = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
+            messages = ai.make_messages(user=user_input)
+    
+            # Exit the loop if the user types "exit"
+            if user_input.lower() == "exit":
+                print("Exiting the program. Goodbye!")
+                break
+            result = ai.run(my_agent, llm, messages, agent_token.access_token)
+    
+            print("\nAgent Response: ", end="")
+    
+            async for msg in result:
+                if getattr(msg, "text_delta", None):
+                    print(msg.text_delta, end="", flush=True)
+    
+            print()
+    
+    if __name__ == "__main__":
+    asyncio.run(main())
+    ```
+
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
 ```properties title=".env"
@@ -449,6 +529,16 @@ To test the setup without authentication, simply remove the `Authorization` head
                 url=os.getenv("MCP_SERVER_URL"),
                 streamable=True
             )
+    ...
+    ```
+
+=== "Vercel AI"
+
+    ```python
+    ...
+    tools = await ai.mcp.get_http_tools(
+    os.getenv("MCP_SERVER_URL"),
+        )
     ...
     ```
 
@@ -899,6 +989,107 @@ Here is the updated implementation:
         asyncio.run(main())
     ```
 
+=== "Vercel AI"
+
+    ```python title="main.py"
+    import os
+    import asyncio
+    import sys
+    import webbrowser
+    
+    import vercel_ai_sdk as ai
+    
+    from dotenv import load_dotenv
+    from pathlib import Path
+    
+    from asgardeo import AsgardeoConfig
+    from asgardeo_ai import AgentConfig, AgentAuthManager
+    
+    from oauth_callback import OAuthCallbackServer
+    
+    # Load environment variables from .env file
+    load_dotenv()
+    
+    ASGARDEO_CONFIG = AsgardeoConfig(
+    base_url=os.getenv("ASGARDEO_BASE_URL"),
+    client_id=os.getenv("CLIENT_ID"),
+    redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    
+    AGENT_CONFIG = AgentConfig(
+    agent_id=os.getenv("AGENT_ID"),
+    agent_secret=os.getenv("AGENT_SECRET")
+    )
+    
+    # 1. Define the agent logic (no decorators needed)
+    async def my_agent(llm, messages, auth_token):
+    
+        # Connect to MCP Server using the user's OBO token
+        tools = await ai.mcp.get_http_tools(
+            os.getenv("MCP_SERVER_URL"),
+            headers={
+                "Authorization": f"Bearer {auth_token}"
+            }
+        )
+    
+        # Execute the agent tool loop
+        return await ai.stream_loop(llm, messages, tools=tools)
+    
+    
+    async def main():
+    async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+    agent_token = await auth_manager.get_agent_token(["openid", "email"])
+    
+            auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
+    
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
+    
+            callback = OAuthCallbackServer(port=6274)
+            callback.start()
+    
+            print("Waiting for authorization code from redirect...")
+    
+            auth_code, returned_state, error = await callback.wait_for_code()
+            callback.stop()
+    
+            if auth_code is None:
+                print(f"Authorization failed or cancelled. Error: {error}")
+                return
+    
+            obo_token = await auth_manager.get_obo_token(auth_code, agent_token=agent_token, code_verifier=code_verifier)
+    
+            google_key = os.getenv("GOOGLE_API_KEY", "")
+            os.environ["OPENAI_API_KEY"] = google_key
+            os.environ["OPENAI_BASE_URL"] = "https://generativelanguage.googleapis.com/v1beta/openai/"
+    
+            llm = ai.openai.OpenAIModel(
+                model=os.getenv("MODEL_NAME")
+            )
+    
+            while True:
+                user_input = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
+    
+                # Exit the loop if the user types "exit"
+                if user_input.lower() == "exit":
+                    print("Exiting the program. Goodbye!")
+                    break
+    
+                messages = ai.make_messages(user=user_input)
+                result = ai.run(my_agent, llm, messages, obo_token.access_token)
+    
+                print("\nAgent Response: ", end="")
+    
+                # Stream the output token-by-token
+                async for msg in result:
+                    if getattr(msg, "text_delta", None):
+                        print(msg.text_delta, end="", flush=True)
+                print()
+    
+    if __name__ == "__main__":
+    asyncio.run(main())
+
+    ```
 ## Project Structure (OBO flow)
 
 After adding OBO support, your project should look like this:
