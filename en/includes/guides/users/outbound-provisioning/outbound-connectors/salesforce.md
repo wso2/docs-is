@@ -1,6 +1,6 @@
 # Configure outbound provisioning with Salesforce
 
-This guide explains how you can configure Salesforce as an outbound connector in {{product_name}}.
+This guide explains how you can configure Salesforce for outbound provisioning in {{product_name}}.
 
 ## Configure Salesforce for provisioning
 
@@ -117,7 +117,7 @@ Follow the steps below to learn how you can configure Salesforce for provisionin
 
 ## Configure the Salesforce outbound connector
 
-Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [IdP-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/idp-level) outbound provisioning and enter the following details to configure the Salesforce outbound connector.
+Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [application-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level) outbound provisioning connection and enter the following details to configure the Salesforce outbound connector.
 
 <table>
     <tr>
@@ -179,11 +179,10 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
         <td>Provisioning Separator </td>
         <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
         e.g. <code>-</code>(hyphen).</td>
-        </td>
     </tr>
     <tr>
         <td>Provisioning Domain</td>
-        <td>The domain in which user provisioning operations occur. 
+        <td>The domain to which user provisioning operations occur. 
             This will be appended to the username during outbound provisioning.</br>
             e.g. <code>primary.com</code>
         </td>

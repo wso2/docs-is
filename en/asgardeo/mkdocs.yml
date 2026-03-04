@@ -417,6 +417,18 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
+        - Outbound provisioning:
+          - Outbound provisioning: guides/users/outbound-provisioning/index.md
+          - Enable outbound provisioning:
+            - Organization-level provisioning: guides/users/outbound-provisioning/provisioning-levels/org-level.md
+            - Application-level provisioning: guides/users/outbound-provisioning/provisioning-levels/application-level.md
+          - Group-based provisioning: guides/users/outbound-provisioning/group-based-provisioning.md
+          - Configure an outbound connector:
+            - Google: guides/users/outbound-provisioning/outbound-connectors/google.md
+            - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
+            - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
+            - Custom Outbound Connector: guides/users/outbound-provisioning/outbound-connectors/custom-outbound-connectors.md
+          - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
         - Migrate users to Asgardeo:
           - Migrate users to Asgardeo: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md

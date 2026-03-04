@@ -1,10 +1,10 @@
 # Configure outbound provisioning with SCIM2
 
-This guide explains how you can configure a SCIM2 Identity Provider (IdP) as an outbound connector in {{product_name}}.
+This guide explains how you can configure a SCIM2 outbound connector for provisioning users from {{product_name}} to an external system that supports the SCIM2 protocol.
 
 ## Configure the SCIM2 outbound connector
 
-Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [IdP-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/idp-level) outbound provisioning and enter the following details to configure a SCIM2 outbound connector.
+Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [application-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level) outbound provisioning connection and enter the following details to configure the SCIM2 outbound connector.
 
 <table>
     <tr>

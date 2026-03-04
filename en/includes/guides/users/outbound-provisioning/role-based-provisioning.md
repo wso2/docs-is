@@ -1,12 +1,18 @@
 # Configure role-based outbound provisioning
 
-This guide explains how you can automatically provision users in an outbound connector based on the role assigned to a user.
+This guide explains how you can automatically provision users to an external system based on the role assigned to the user. When role-based outbound provisioning is enabled, users assigned to the specified roles will be provisioned to the external system. When a user is removed from the role, the user is deprovisioned from the external system.
 
 Follow the steps given below to configure role-based provisioning in {{product_name}}.
 
-1. Enable [organization-level outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level).
+## Prerequisites
 
-2. Select the connection in which you configured the outbound connector and go to its **Outbound Provisioning** tab.
+Before you begin, ensure you have enabled [organization-level outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level).
+
+## Enable role-based provisioning
+
+1. On the {{product_name}} Console, go to **Connections**.
+
+2. Select the connection in which you configured the outbound connector and navigate to its **Outbound Provisioning** tab.
 
 3. Under **Outbound Provisioning Roles**, select a role from the dropdown and click the **add** icon. You can add multiple roles by repeating this step.
 
@@ -17,7 +23,5 @@ Follow the steps given below to configure role-based provisioning in {{product_n
 ## Try it out
 
 1. On the {{product_name}} Console, [create a user]({{base_path}}/guides/users/manage-users/#onboard-single-user).
-
-2. [Assign the created user to a role]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role) that you specified for outbound provisioning. The user will be provisioned to the outbound connector.
-
-3. Remove the user from the role. The user will be removed from the outbound connector.
+2. [Assign the created user to a role]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role) that you specified for outbound provisioning. The user will be provisioned to the external system automatically.
+3. Remove the user from the role. The user will be deprovisioned from the external system automatically.

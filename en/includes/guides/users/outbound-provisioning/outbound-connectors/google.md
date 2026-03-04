@@ -1,6 +1,6 @@
 # Configure outbound provisioning with Google
 
-This guide explains how you can configure Google as an outbound connector in {{product_name}}.
+This guide explains how you can configure Google for outbound provisioning in {{product_name}}.
 
 ## Configure Google Workspace for provisioning
 
@@ -43,7 +43,7 @@ Follow the steps below to learn how you can configure Google Workspace for provi
         !!! note
             Learn how to do so in the [Google documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority){: target="#"}.
 
-5. Delegate domain-wide authority to the service account:
+2. Delegate domain-wide authority to the service account:
 
     1. Go to your domain's [admin console](https://admin.google.com){:target="_blank"}.
 
@@ -57,7 +57,7 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
         3. Click **Authorize**.
 
-7. Enable the Admin SDK.
+3. Enable the Admin SDK.
 
     1. Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager){:target="_blank"}.
 
@@ -69,12 +69,12 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
 ## Configure the Google outbound connector
 
-Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [IdP-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/idp-level) outbound provisioning and enter the following details to configure the Google outbound connector.
+Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [application-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level) outbound provisioning connection and enter the following details to configure the Google outbound connector.
 
 <table>
     <tr>
         <td>Google Domain</td>
-        <td>The name of the Google domain used to provision users.</br>
+        <td>The name of the Google domain to which users will be provisioned.</br>
             e.g.<code> mygoogledomain.com</code></td>
     </tr>
     <tr>
@@ -90,7 +90,7 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     <tr>
         <td>Family Name Claim</td>
         <td>Claim URI which will be used to retrieve the family name attribute of the user. This must be an attribute that is available locally in {{product_name}}.</br>
-            e.g. <code>http://wso2.org/claims/lastnname</code></td>
+            e.g. <code>http://wso2.org/claims/lastname</code></td>
     </tr>
     <tr>
         <td>Service Account Email</td>
@@ -118,6 +118,5 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
         <td>Google Provisioning Separator </td>
         <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
         e.g. <code>-</code>(hyphen).</td>
-        </td>
     </tr>
 </table>
