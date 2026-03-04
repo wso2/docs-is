@@ -322,6 +322,7 @@ The diagram below illustrates the device flow.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "client_id=<CLIENT_ID>"
+        --data-urlencode "scope=<SCOPES>"
         ```
 
     === "Sample request (/token)"
@@ -331,6 +332,7 @@ The diagram below illustrates the device flow.
         --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga"
+        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
 2. {{product_name}} issues a device code, a user code, and a verification URI.
@@ -364,6 +366,7 @@ The diagram below illustrates the device flow.
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=<CLIENT_ID>" \
         --data-urlencode "device_code=<DEVICE_CODE>"
+        --data-urlencode "scope=<SCOPE>"
         ```
 
     === "Sample request (/token)"
@@ -375,6 +378,7 @@ The diagram below illustrates the device flow.
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
         --data-urlencode "device_code=d3fe0db1-2334-48fa-b7d9-821ecfad10d5"
+        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
 7. If the user grants access, the authorization server validates the verification code and responds with the access token.
@@ -384,7 +388,8 @@ The diagram below illustrates the device flow.
     "access_token":"74d610ab-7f4a-3b11-90e8-279d76644fc7",
     "refresh_token":"fdb58069-ecc7-3803-9b8b-6f2ed85eff19",
     "token_type":"Bearer",
-    "expires_in":3600
+    "expires_in":3600,
+    "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
 
