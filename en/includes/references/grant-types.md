@@ -43,7 +43,7 @@ The following diagram shows how the authorization code flow works.
         ?response_type=code
         &client_id=<CLIENT_ID>
         &redirect_uri=<REDIRECT_URI>
-        &scope=<scopes>
+        &scope=<SCOPES>
         ```
 
     === "Sample request (/authorize)"
@@ -170,7 +170,7 @@ The following diagram shows how the client credentials grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=client_credentials" \
-        --data-urlencode "scope=<scopes>"
+        --data-urlencode "scope=<SCOPES>"
         ```
 
     === "Sample request (/token)"
@@ -269,8 +269,8 @@ The following diagram shows how the password grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" \
         --data-urlencode "grant_type=password" \
-        --data-urlencode "username=<username>&password=<password>" \
-        --data-urlencode "scope=<scopes>"
+        --data-urlencode "username=<USERNAME>&password=<PASSWORD>" \
+        --data-urlencode "scope=<SCOPES>"
 
         ```
 
@@ -366,7 +366,7 @@ The diagram below illustrates the device flow.
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=<CLIENT_ID>" \
         --data-urlencode "device_code=<DEVICE_CODE>"
-        --data-urlencode "scope=<SCOPE>"
+        --data-urlencode "scope=<SCOPES>"
         ```
 
     === "Sample request (/token)"
@@ -417,7 +417,7 @@ The following diagram shows how the token exchange grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:jwt" \
-        --data-urlencode "subject_token=<token>" \
+        --data-urlencode "subject_token=<TOKEN>" \
         --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:access_token" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
         ```
@@ -460,7 +460,7 @@ The following diagram shows how the JWT Bearer grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
-        --data-urlencode "assertion=<jwt_token>"
+        --data-urlencode "assertion=<JWT_TOKEN>"
         ```
 
     === "Sample request (/token)"
@@ -501,8 +501,8 @@ The following diagram shows how the token exchange grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer" \
-        --data-urlencode "assertion=<base64-URL_encoded_assertion>" \
-        --data-urlencode "scope=<scopes>" \
+        --data-urlencode "assertion=<BASE64_URL_ENCODED_ASSERTION>" \
+        --data-urlencode "scope=<SCOPES>" \
         ```
 
     === "Sample request (/token)"
@@ -537,12 +537,12 @@ The following diagram illustrates the process of obtaining an access token using
 
         ``` bash
         curl -v -X POST {{base_url}}/oauth2/token \
-        --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
+        --header 'Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=organization_switch' \
-        --data-urlencode 'token={access token from an organization}' \
-        --data-urlencode 'scope={required scopes}' \
-        --data-urlencode 'switching_organization={organization id}'
+        --data-urlencode 'token=<ACCESS_TOKEN_FROM_ORGANIZATION>' \
+        --data-urlencode 'scope=<SCOPES>' \
+        --data-urlencode 'switching_organization=<ORGANIZATION_ID>'
         ```
     
     === "Sample request (/token)"
