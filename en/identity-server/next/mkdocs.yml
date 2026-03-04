@@ -751,8 +751,9 @@ nav:
         - Provisioning:
           - Inbound provisioning: guides/users/inbound-provisioning/inbound-provisioning.md
           - Outbound provisioning:
-            - Outbound provisioning: guides/users/outbound-provisioning/index.md
-            - Enable outbound provisioning:
+            - Overview: guides/users/outbound-provisioning/outbound-provisioning-overview.md
+            - Set up outbound provisioning:
+              - Create a provisioning connection: guides/users/outbound-provisioning/create-provisioning-connection.md
               - Organization-level provisioning: guides/users/outbound-provisioning/provisioning-levels/org-level.md
               - Application-level provisioning: guides/users/outbound-provisioning/provisioning-levels/application-level.md
             - Group-based provisioning: guides/users/outbound-provisioning/group-based-provisioning.md

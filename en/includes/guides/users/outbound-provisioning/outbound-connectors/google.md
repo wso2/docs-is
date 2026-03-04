@@ -69,7 +69,11 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
 ## Configure the Google outbound connector
 
-Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [application-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level) outbound provisioning connection and enter the following details to configure the Google outbound connector.
+{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+[Create a provisioning connection]({{base_path}}/guides/users/outbound-provisioning/create-provisioning-connection) and enter the following details to configure the Google outbound connector.
+{% else %}
+Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) outbound provisioning connection and enter the following details to configure the Google outbound connector.
+{% endif %}
 
 <table>
     <tr>

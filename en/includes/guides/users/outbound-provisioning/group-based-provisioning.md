@@ -8,9 +8,11 @@ Follow the steps given below to configure group-based provisioning in {{product_
 
 ## Prerequisites
 
-Before you begin, ensure you have enabled one of the following:
-- [Organization-level outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level)
-- [Application-level outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level)
+{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+Before you begin, ensure you have set up outbound provisioning at the [organization level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [application level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level).
+{% else %}
+Before you begin, ensure you have enabled [organization-level outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level).
+{% endif %}
 
 ## Enable group-based provisioning
 

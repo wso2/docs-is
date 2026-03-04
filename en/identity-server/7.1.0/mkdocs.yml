@@ -660,8 +660,8 @@ nav:
               - Outbound provisioning:
                   - Outbound provisioning: guides/users/outbound-provisioning/index.md
                   - Enable outbound provisioning:
+                      - Create a provisioning connection: guides/users/outbound-provisioning/create-provisioning-connection.md
                       - Organization-level provisioning: guides/users/outbound-provisioning/provisioning-levels/org-level.md
-                      - IdP-level provisioning: guides/users/outbound-provisioning/provisioning-levels/idp-level.md
                   - Role-based provisioning: guides/users/outbound-provisioning/role-based-provisioning.md
                   - Configure an outbound connector:
                       - Google: guides/users/outbound-provisioning/outbound-connectors/google.md

@@ -117,7 +117,11 @@ Follow the steps below to learn how you can configure Salesforce for provisionin
 
 ## Configure the Salesforce outbound connector
 
-Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [application-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level) outbound provisioning connection and enter the following details to configure the Salesforce outbound connector.
+{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+[Create a provisioning connection]({{base_path}}/guides/users/outbound-provisioning/create-provisioning-connection) and enter the following details to configure the Salesforce outbound connector.
+{% else %}
+Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) outbound provisioning connection and enter the following details to configure the Salesforce outbound connector.
+{% endif %}
 
 <table>
     <tr>
@@ -182,7 +186,7 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Provisioning Domain</td>
-        <td>The domain to which user provisioning operations occur. 
+        <td>The domain to which user provisioning operations occur.
             This will be appended to the username during outbound provisioning.</br>
             e.g. <code>primary.com</code>
         </td>
