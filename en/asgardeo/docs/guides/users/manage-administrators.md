@@ -51,8 +51,6 @@ Existing administrators can onboard other administrators by sending them email i
 
     {% endif %}
 
-
-<td>The <b>Administrator</b> role is assigned by default. <br>For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
 3. Click **Invite** to send the invitation.
 
 The external administrator can join the organization by accepting the invitation and setting a password for the new administrator account.
