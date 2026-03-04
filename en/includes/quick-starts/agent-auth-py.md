@@ -689,12 +689,12 @@ Here is the updated implementation:
             # Generate user authorization URL
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid"])
     
-            print(f"\nOpening browser for authentication...")
-            webbrowser.open(auth_url)
-    
             callback = OAuthCallbackServer(port=6274)
             callback.start()
      
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
+
             # Wait for redirect
             auth_code, returned_state, error = await callback.wait_for_code()
             callback.stop()
@@ -789,12 +789,12 @@ Here is the updated implementation:
     
             # Generate user authorization URL
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid"])
-    
-            print(f"\nOpening browser for authentication...")
-            webbrowser.open(auth_url)
-    
+
             callback = OAuthCallbackServer(port=6274)
             callback.start()
+            
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
      
             # Wait for redirect
             auth_code, returned_state, error = await callback.wait_for_code()
@@ -912,12 +912,12 @@ Here is the updated implementation:
             agent_token = await auth_manager.get_agent_token(["openid", "email"])
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
     
-            print(f"\nOpening browser for authentication...")
-            webbrowser.open(auth_url)
-    
             callback = OAuthCallbackServer(port=6274)
             callback.start()
-    
+            
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
+
             auth_code, _, error = await callback.wait_for_code()
             callback.stop()
     
@@ -1042,14 +1042,12 @@ Here is the updated implementation:
     
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
     
-            print(f"\nOpening browser for authentication...")
-            webbrowser.open(auth_url)
-    
             callback = OAuthCallbackServer(port=6274)
             callback.start()
-    
-            print("Waiting for authorization code from redirect...")
-    
+
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
+ 
             auth_code, returned_state, error = await callback.wait_for_code()
             callback.stop()
     
@@ -1088,8 +1086,8 @@ Here is the updated implementation:
     
     if __name__ == "__main__":
     asyncio.run(main())
-
     ```
+
 ## Project Structure (OBO flow)
 
 After adding OBO support, your project should look like this:
