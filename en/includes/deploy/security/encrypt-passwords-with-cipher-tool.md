@@ -112,7 +112,7 @@ password="$secret{admin_password}"
 
 [keystore.tls]
 password = "$secret{keystore_password}" 
-alias = "$secret{keystore_password}" 
+alias = "alias" 
 key_password = "$secret{key_password}"  
 
 [truststore]                  
