@@ -2,7 +2,7 @@ The `OrganizationContext` component establishes a nested authentication context 
 
 ## Overview
 
-In Business-to-Business (B2B) applications, users signed in to a parent organization often need to access resources belonging to a child organization. `OrganizationContext` creates an isolated authentication context for the target organization. Each `OrganizationContext` in your application must receive a unique `instanceId` to keep the authentication contexts separate. 
+In Business-to-Business (B2B) applications, users signed in to a parent organization often need to access resources belonging to a child organization. `OrganizationContext` creates an isolated authentication context for the target organization. Each `OrganizationContext` in your application must receive a unique `instanceId` to keep the authentication contexts separate.
 
 For a complete overview of how organizations work in Asgardeo and how to set them up, see the [organization management guide]({{base_path}}/guides/organization-management).
 
