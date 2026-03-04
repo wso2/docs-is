@@ -41,9 +41,9 @@ The following diagram shows how the authorization code flow works.
         ``` bash
         {{base_url}}/oauth2/authorize
         ?response_type=code
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
-        &scope=<SCOPES>
+        &client_id=<client_id>
+        &redirect_uri=<redirect_uri>
+        &scope=<scopes>
         ```
 
     === "Sample request (/authorize)"
@@ -70,11 +70,11 @@ The following diagram shows how the authorization code flow works.
 
         ``` bash
         curl -v -X POST {{base_url}}/oauth2/token \ 
-        --basic -u <CLIENT_ID>:<CLIENT_SECRET> \
+        --basic -u <client_id>:<client_secret> \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
         --data-urlencode "grant_type=authorization_code" \
-        --data-urlencode "code=<AUTHORIZATION_CODE>" \
-        --data-urlencode "redirect_uri=<REDIRECT_URI>"
+        --data-urlencode "code=<authorization_code>" \
+        --data-urlencode "redirect_uri=<redirect_uri>"
         ```
 
     === "Sample request (/token)"
@@ -170,7 +170,7 @@ The following diagram shows how the client credentials grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=client_credentials" \
-        --data-urlencode "scope=<SCOPES>"
+        --data-urlencode "scope=<scopes>"
         ```
 
     === "Sample request (/token)"
@@ -219,8 +219,8 @@ The following diagram shows how the implicit grant flow works.
         ```bash
         {{base_url}}/oauth2/authorize
         ?response_type=token
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
+        &client_id=<client_id>
+        &redirect_uri=<redirect_uri>
         ```
 
     === "Sample request (/authorize)"
@@ -269,8 +269,8 @@ The following diagram shows how the password grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" \
         --data-urlencode "grant_type=password" \
-        --data-urlencode "username=<USERNAME>&password=<PASSWORD>" \
-        --data-urlencode "scope=<SCOPES>"
+        --data-urlencode "username=<username>&password=<password>" \
+        --data-urlencode "scope=<scopes>"
 
         ```
 
@@ -321,8 +321,8 @@ The diagram below illustrates the device flow.
         curl -v -k -X POST {{base_url}}/oauth2/device_authorize \
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=<CLIENT_ID>"
-        --data-urlencode "scope=<SCOPES>"
+        --data-urlencode "client_id=<client_id>"
+        --data-urlencode "scope=<scopes>"
         ```
 
     === "Sample request (/token)"
@@ -364,9 +364,9 @@ The diagram below illustrates the device flow.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
-        --data-urlencode "client_id=<CLIENT_ID>" \
-        --data-urlencode "device_code=<DEVICE_CODE>"
-        --data-urlencode "scope=<SCOPES>"
+        --data-urlencode "client_id=<client_id>" \
+        --data-urlencode "device_code=<device_code>"
+        --data-urlencode "scope=<scopes>"
         ```
 
     === "Sample request (/token)"
@@ -417,7 +417,7 @@ The following diagram shows how the token exchange grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:jwt" \
-        --data-urlencode "subject_token=<TOKEN>" \
+        --data-urlencode "subject_token=<token>" \
         --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:access_token" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
         ```
@@ -460,7 +460,7 @@ The following diagram shows how the JWT Bearer grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
-        --data-urlencode "assertion=<JWT_TOKEN>"
+        --data-urlencode "assertion=<jwt_token>"
         ```
 
     === "Sample request (/token)"
@@ -501,8 +501,8 @@ The following diagram shows how the token exchange grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer" \
-        --data-urlencode "assertion=<BASE64_URL_ENCODED_ASSERTION>" \
-        --data-urlencode "scope=<SCOPES>" \
+        --data-urlencode "assertion=<base64_url_encoded_assertion>" \
+        --data-urlencode "scope=<scopes>" \
         ```
 
     === "Sample request (/token)"
@@ -540,9 +540,9 @@ The following diagram illustrates the process of obtaining an access token using
         --header 'Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=organization_switch' \
-        --data-urlencode 'token=<ACCESS_TOKEN_FROM_ORGANIZATION>' \
-        --data-urlencode 'scope=<SCOPES>' \
-        --data-urlencode 'switching_organization=<ORGANIZATION_ID>'
+        --data-urlencode 'token=<access_token_from_organization>' \
+        --data-urlencode 'scope=<scopes>' \
+        --data-urlencode 'switching_organization=<organization_id>'
         ```
     
     === "Sample request (/token)"
