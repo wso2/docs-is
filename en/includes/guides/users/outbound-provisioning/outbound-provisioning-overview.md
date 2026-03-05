@@ -51,6 +51,3 @@ Learn more about [role-based provisioning]({{base_path}}/guides/users/outbound-p
 - [Google]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google)
 - [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce)
 - [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2)
-
-
-

@@ -78,27 +78,27 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
 <table>
     <tr>
         <td>Google Domain</td>
-        <td>The name of the Google domain to which users will be provisioned.</br>
+        <td>The name of the Google domain to which users will be provisioned.<br/>
             e.g.<code> mygoogledomain.com</code></td>
     </tr>
     <tr>
         <td>Primary Email Claim</td>
-        <td>Claim URI that will be used to retrieve the primary email address of the created account. This must be an attribute that is available locally in {{product_name}}.</br>
+        <td>Claim URI that will be used to retrieve the primary email address of the created account. This must be an attribute that is available locally in {{product_name}}.<br/>
             e.g. <code>http://wso2.org/claims/emailaddress</code></td>
     </tr>
     <tr>
         <td>Given Name Claim</td>
-        <td>Claim URI which will be used to retrieve the given name attribute of the user. This must be an attribute that is available locally in {{product_name}}.</br>
+        <td>Claim URI which will be used to retrieve the given name attribute of the user. This must be an attribute that is available locally in {{product_name}}.<br/>
             e.g. <code>http://wso2.org/claims/givenname</code></td>
     </tr>
     <tr>
         <td>Family Name Claim</td>
-        <td>Claim URI which will be used to retrieve the family name attribute of the user. This must be an attribute that is available locally in {{product_name}}.</br>
+        <td>Claim URI which will be used to retrieve the family name attribute of the user. This must be an attribute that is available locally in {{product_name}}.<br/>
             e.g. <code>http://wso2.org/claims/lastname</code></td>
     </tr>
     <tr>
         <td>Service Account Email</td>
-        <td>Email used for authentication.</br>
+        <td>Email used for authentication.<br/>
         e.g. <code>d343s86gf@developer.gserviceaccount.com</code></td>
     </tr>
     <tr>
@@ -115,12 +115,12 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Google Outbound Provisioning Pattern</td>
-        <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.</br>
+        <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.<br/>
         e.g. <code>{UD,UN,TD,IDP}</code></td>
     </tr>
     <tr>
         <td>Google Provisioning Separator </td>
-        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
+        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a><br/>
         e.g. <code>-</code>(hyphen).</td>
     </tr>
 </table>

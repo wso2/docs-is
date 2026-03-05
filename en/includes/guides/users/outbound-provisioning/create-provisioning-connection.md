@@ -24,7 +24,7 @@ To start provisioning users, you must first create a provisioning connection and
         </ul>
 
 {% else %}
-Follow the steps below to create a custom connection and configure an outbound connector in it.
+Follow the steps below to create a custom connection and configure an outbound connector in the connection.
 
 1. On the {{ product_name }} Console, click **Connections** and click **New Connection**.
 

@@ -2,7 +2,7 @@
 
 {{product_name}} uses provisioning patterns to build the username of the user account when provisioning users to [Google]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google) and [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce).
 
-Take the example of two users having the same username being onboarded to two different user stores in {{product_name}}. During provisioning, the outbound connector may not allow two users to have the same username. Provisioning patterns overcome this limitation by using the following four attributes to create the user ID.
+Consider two users with the same username onboarded to different user stores in {{product_name}}. During provisioning, an outbound connector may not allow duplicate usernames. Provisioning patterns resolve this limitation by using the following four attributes to create the user ID.
 
 - Username - UN
 - User Domain - UD
@@ -18,7 +18,7 @@ You have the option to configure the **provisioning pattern** and the **provisio
     - Provisioning pattern = `{UD, UN, TD, IDP}`
     - Provisioning separator = `-` (hyphen)
 
-    a user created with the username `user@provisioning.com`, in the `primary` userstore of the `super` tenant, will be provisioned to the external system with the username:
+    a user created with the username `user@provisioning.com`, in the `primary` user store of the `super` tenant, is provisioned to the external system with the username:
 
     ```bash
     primary-user@provisioning.com-carbon.super-salesforce

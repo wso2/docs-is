@@ -4,8 +4,8 @@ Organization-level outbound provisioning allows you to provision users to an ext
 
 - a user is provisioned in {{product_name}} over an API.
 - an administrator onboards a user from the {{product_name}} Console.
-- a user self-signs up from a {{product_name}} login page.
-- a user is JIT provisioned in {{product_name}}.
+- a user self-signs up from a {{product_name}} sign-in page.
+- a user is JIT (Just-In-Time) provisioned in {{product_name}}.
 
 {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
 !!! note
@@ -16,7 +16,7 @@ Organization-level outbound provisioning allows you to provision users to an ext
 
 Once you complete the creation of the outbound provisioning connection, you must enable it for the entire organization.
 
-To enable organization-wide outbound provisioning in {{product_name}}:
+To enable organization-level outbound provisioning in {{product_name}}:
 
 1. On the {{product_name}} Console, go to **Login & Registration**.
 
@@ -30,7 +30,7 @@ To enable organization-wide outbound provisioning in {{product_name}}:
     ![Configure the resident identity outbound provisioner]({{base_path}}/assets/img/guides/outbound-provisioning/configure-resident-idp.png){: width="700" style="border: 0.3px solid lightgrey;"}
     {% endif %}
 
-4. Optionally, enable any of the following options.
+4. Enable any of the following.
     {% if product_name == "WSO2 Identity Server" %}
     | Option | Description |
     |---|---|
@@ -52,7 +52,7 @@ To enable organization-wide outbound provisioning in {{product_name}}:
     <li>Use a <a href="{{base_path}}/apis/organization-apis/org-user-mgt/#tag/Users-Endpoint/operation/createUser">SCIM API</a> to create a user.</li>
     <li><a href="{{base_path}}/guides/users/manage-users/#onboard-single-user">Create a user from the Console</a></li>
     <li><a href="{{base_path}}/guides/account-configurations/user-onboarding/self-registration/">Enable self-registration</a> and let a user self-register to {{product_name}}.</li>
-    <li><a href="{{base_path}}/guides/authentication/jit-user-provisioning/">Enable JIT-provisioning</a> and let a user login with an external identity provider.</li>
+    <li><a href="{{base_path}}/guides/authentication/jit-user-provisioning/">Enable JIT-provisioning</a> and let a user sign in with an external identity provider.</li>
     </ul>
 
     !!! note

@@ -41,6 +41,6 @@ To configure an application in {{product_name}}:
 
 Application-level outbound provisioning is triggered when a user is provisioned through the application. This can happen in the following ways:
 
-- **JIT provisioning**: Configure [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) for the application. When a user logs in through a federated identity provider, the user is JIT provisioned in {{product_name}}, which triggers outbound provisioning to the external system.
+- **JIT provisioning**: Configure [JIT user provisioning]({{base_path}}/guides/authentication/jit-user-provisioning/) for the application. When a user signs in through a federated identity provider, the user is JIT provisioned in {{product_name}}, which triggers outbound provisioning to the external system.
 
 - **User creation via API**: Use a [SCIM API]({{base_path}}/apis/organization-apis/org-user-mgt/#tag/Users-Endpoint/operation/createUser) with an access token obtained for the application to create a user. This triggers outbound provisioning to the external system.

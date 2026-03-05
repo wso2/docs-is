@@ -186,7 +186,7 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Provisioning Domain</td>
-        <td>The domain to which user provisioning operations occur.
+        <td>The domain where user provisioning operations occur.
             This will be appended to the username during outbound provisioning.</br>
             e.g. <code>primary.com</code>
         </td>

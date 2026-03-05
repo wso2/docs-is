@@ -429,6 +429,7 @@ nav:
             - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
             - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
             - Custom Outbound Connector: guides/users/outbound-provisioning/outbound-connectors/custom-outbound-connectors.md
+          - Provisioning patterns: guides/users/outbound-provisioning/provisioning-patterns.md
         - Migrate users to Asgardeo:
           - Migrate users to Asgardeo: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
@@ -636,6 +637,7 @@ nav:
             - "&lt;OrganizationSwitcher /&gt;": sdks/react/components/organization-components/organization-switcher.md
             - "&lt;OrganizationList /&gt;": sdks/react/components/organization-components/organization-list.md
             - "&lt;Organization /&gt;": sdks/react/components/organization-components/organization.md
+            - "&lt;OrganizationContext /&gt;": sdks/react/components/organization-components/organization-context.md
         - hooks:
           - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
       - Guides:
