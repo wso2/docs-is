@@ -15,10 +15,14 @@ To start provisioning users, you must first create a provisioning connection and
 
 4. Provide the required properties for the selected connector and click **Finish**.
 
-    ![Provide required properties]({{base_path}}/assets/img/guides/outbound-provisioning/required-properties.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    !!! note
+        Learn about the required properties for each connector:
+        <ul>
+        <li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google">Google</a></li>
+        <li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce">Salesforce</a></li>
+        <li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2">SCIM2</a></li>
+        </ul>
 
-!!! note "Group-based outbound provisioning"
-    You can also configure outbound provisioning based on assigned groups. For more information, see [Group-based outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/group-based-provisioning).
 {% else %}
 Follow the steps below to create a custom connection and configure an outbound connector in it.
 

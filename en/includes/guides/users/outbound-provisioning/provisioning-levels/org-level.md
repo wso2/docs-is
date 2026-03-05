@@ -12,24 +12,20 @@ Organization-level outbound provisioning allows you to provision users to an ext
     Organization-level provisioning serves as the default configuration for all applications. If [application-level outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level) is configured for a specific application, it takes priority over this configuration for that application.
 {% endif %}
 
-## Configure the resident application
+## Enable outbound provisioning for the organization
 
-Once you complete the creation of the outbound provisioning connection, you must enable it for the entire organization via the resident application.
+Once you complete the creation of the outbound provisioning connection, you must enable it for the entire organization.
 
-To configure the resident application in {{product_name}}:
+To enable organization-wide outbound provisioning in {{product_name}}:
 
 1. On the {{product_name}} Console, go to **Login & Registration**.
 
 2. Under **Provisioning Settings**, click **Outbound Provisioning Configuration** and click **New Provisioner**.
 
-    {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
-    ![Configure the resident identity outbound provisioner]({{base_path}}/assets/img/guides/outbound-provisioning/set-provisioning-connection-org-wise.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-    {% endif %}
-
 3. Select the connection in which you have configured outbound provisioning as the **Connection** and the relevant outbound connector as the **Provisioning Connector**.
 
     {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
-    ![View configured provisioner]({{base_path}}/assets/img/guides/outbound-provisioning/configured-one.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Configure the org-wide outbound provisioner]({{base_path}}/assets/img/guides/outbound-provisioning/set-provisioning-connection-org-wise.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     {% else %}
     ![Configure the resident identity outbound provisioner]({{base_path}}/assets/img/guides/outbound-provisioning/configure-resident-idp.png){: width="700" style="border: 0.3px solid lightgrey;"}
     {% endif %}

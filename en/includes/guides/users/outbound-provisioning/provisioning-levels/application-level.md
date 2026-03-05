@@ -15,7 +15,7 @@ To configure an application in {{product_name}}:
 3. Under **Outbound Provisioning Configuration**, click **New Provisioner**.
 
     {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
-    ![Configure application-level outbound provisioning]({{base_path}}/assets/img/guides/outbound-provisioning/application-wise.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Configure application-level outbound provisioning]({{base_path}}/assets/img/guides/outbound-provisioning/set-provisioning-connection-application-wise.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     {% else %}
     ![Configure application-level outbound provisioning]({{base_path}}/assets/img/guides/outbound-provisioning/configure-idp-level-provisioning.png){: width="700" style="border: 0.3px solid lightgrey;"}
     {% endif %}
