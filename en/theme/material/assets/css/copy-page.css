@@ -1,14 +1,12 @@
-/* Container positioned below the H1 */
 .copy-page-container {
     display: flex;
     position: relative;
-    margin-top: 12px;    /* Space between H1 and button */
-    margin-bottom: 20px; /* Space between button and following content */
-    width: fit-content;  /* Prevents the container from stretching full width */
+    margin-top: 12px;
+    margin-bottom: 20px; 
+    width: fit-content;  
     z-index: 10;
 }
 
-/* Button Style */
 .copy-page-button.header-group-btn {
     display: flex;
     align-items: center;
@@ -32,14 +30,13 @@
     background-color: var(--md-accent-fg-color--transparent);
 }
 
-/* Success state color */
 .copy-page-button.copied-success {
     color: #2e7d32; 
     border-color: #2e7d32;
     background-color: rgba(46, 125, 50, 0.1);
 }
 
-/* Dropdown Menu */
+
 .copy-page-menu {
     position: absolute;
     top: calc(100% + 4px);
@@ -58,9 +55,18 @@
 .copy-page-menu.active { display: block; }
 
 .copy-page-item {
-    display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 12px;
-    font-size: 0.75rem; color: var(--md-default-fg-color); background: none;
-    border: none; border-radius: 4px; cursor: pointer; text-align: left;
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    width: 100%; 
+    padding: 8px 12px;
+    font-size: 0.75rem; 
+    color: var(--md-default-fg-color); 
+    background: none;
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    text-align: left;
 }
 
 .copy-page-item:hover { background-color: var(--md-typeset-table-color); }
@@ -69,11 +75,11 @@
 .copy-page-item-desc { font-size: 0.65rem; color: var(--md-default-fg-color--light); }
 .copy-page-divider { height: 1px; background-color: var(--md-default-fg-color--lighter); margin: 6px 0; opacity: 0.5; }
 
-/* Chevron rotation */
+
 .copy-page-chevron-icon { transition: transform 0.2s; }
 .copy-page-button[aria-expanded="true"] .copy-page-chevron-icon { transform: rotate(180deg); }
 
-/* Backdrop for closing menu */
+
 .copy-page-backdrop { 
     display: none; 
     position: fixed; 
@@ -82,9 +88,8 @@
 }
 .copy-page-backdrop.active { display: block; }
 
-/* Mobile logic - Ensure it stays visible */
 @media (max-width: 600px) {
     .copy-page-button .btn-text, .copy-page-chevron-icon { display: none; }
     .copy-page-button { width: 100px; padding: 0; justify-content: center; }
-    .copy-page-container {width: 50px;}
+    .copy-page-container { width: 50px; }
 }

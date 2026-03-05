@@ -18,16 +18,29 @@
    * Helper to map HTML URL to Flattened Markdown URL.
    */
   function getFlattenedMarkdownUrlFromHtmlUrl(htmlUrl) {
-    const u = new URL(htmlUrl); u.hash = ''; u.search = '';
-    const path = u.pathname.endsWith('/') ? u.pathname : `${u.pathname}/`;
-    const segments = path.split('/').filter(Boolean);
+    const u = new URL(htmlUrl);
+    u.hash = ''; u.search = '';
+
+    // Strip index.html AND .html extension
+    let cleanPath = u.pathname
+      .replace(/\/index\.html$/, '/')
+      .replace(/\.html$/, '')
+      .replace(/\/$/, '');
+
+    const segments = cleanPath.split('/').filter(Boolean);
+
     if (segments.length === 0) { u.pathname = '/index.md'; return u.href; }
+
     const folderName = segments[segments.length - 1];
     const parentSegments = segments.slice(0, -1);
     const parentPath = parentSegments.join('/');
-    const isLangOrVersion = /^\d+\.\d+\.\d+$/.test(folderName) || ['en', 'next', 'latest'].includes(folderName);
-    if (isLangOrVersion) u.pathname = `/${segments.join('/')}/index.md`;
-    else u.pathname = parentPath ? `/${parentPath}/${folderName}.md` : `/${folderName}.md`;
+
+    const isVersion = /^\d+\.\d+\.\d+$/.test(folderName);
+    const isLangOrVersion = isVersion || ['en', 'next', 'latest'].includes(folderName);
+    
+    if (isLangOrVersion) { u.pathname = `/${segments.join('/')}/index.md`; } 
+    else { u.pathname = parentPath ? `/${parentPath}/${folderName}.md` : `/${folderName}.md`; }
+    
     return u.href;
   }
 
@@ -70,6 +83,7 @@
       else { menu.classList.remove('active'); menu.style.display = 'none'; backdrop.classList.remove('active'); }
     };
 
+
     button.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); setOpen(!isOpen); });
     backdrop.addEventListener('click', () => setOpen(false));
 
@@ -82,7 +96,7 @@
         btnText.innerText = 'Copied!';
         button.classList.add('copied-success');
       } catch (err) { btnText.innerText = 'ERROR'; } 
-      finally { setOpen(false); setTimeout(() => { btnText.innerText = 'Copy Page'; button.classList.remove('copied-success'); }, 2000); }
+      finally { setOpen(false); setTimeout(() => { btnText.innerText = 'Copy page'; button.classList.remove('copied-success'); }, 2000); }
     });
 
     menu.querySelector('.cp-view').addEventListener('click', () => { window.open(getFlattenedMarkdownUrlFromHtmlUrl(window.location.href), '_blank'); setOpen(false); });
@@ -99,28 +113,42 @@
   }
 
   function init() {
-    // If it's already there, don't add it again
     if (document.querySelector('.copy-page-container')) return;
     
-    // Look for the main heading. 
-    // MkDocs themes often wrap content in <article> or .md-content
-    const title = document.querySelector('article h1') || document.querySelector('.md-content h1');
+    const u = new URL(window.location.href);
+    let cleanPath = u.pathname
+      .replace(/\/index\.html$/, '')
+      .replace(/\.html$/, '')
+      .replace(/\/$/, '');
     
+    const segments = cleanPath.split('/').filter(Boolean);
+    
+    /**
+     * Logic: Only exclude if it is the version root homepage.
+     * Homepage = /en/<version> (Exactly 2 segments)
+     * Sub-index = /en/<version>/guides (3 or more segments)
+     */
+    if (segments.length === 2 && segments[0] === 'en') {
+      const isVersion = /^\d+\.\d+\.\d+$/.test(segments[1]);
+      if (isVersion) return; 
+    }
+
+    const title = document.querySelector('article h1') || document.querySelector('.md-content h1');
     if (title) {
+      observer.disconnect();
       const btnGroup = createCopyPageButton();
-      // Insert right after the <h1>
       title.insertAdjacentElement('afterend', btnGroup);
+      observer.observe(document.body, { childList: true, subtree: true });
     }
   }
 
-  // Initial load
-  init();
-
-  // Watch for changes (essential for MkDocs SPAs like Material theme)
   const observer = new MutationObserver((mutations) => {
-    init();
+    if (!document.querySelector('.copy-page-container')) {
+      init();
+    }
   });
-  
+
+  init();
   observer.observe(document.body, { childList: true, subtree: true });
 
 })();

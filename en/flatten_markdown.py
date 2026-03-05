@@ -5,6 +5,21 @@ import re
 GENERATED_GUIDES = []
 ALL_PAGES = []
 
+def promote_headings_outside_fences(content):
+    """Safely promotes headings only when they are outside of code blocks."""
+    in_fence = False
+    out = []
+    for line in content.splitlines():
+        if line.strip().startswith("```"):
+            in_fence = not in_fence
+            out.append(line)
+            continue
+        if not in_fence:
+            # Safely promote headings by adding an extra '#'
+            line = re.sub(r'^(#{1,6})(\s+)', r'#\1\2', line)
+        out.append(line)
+    return "\n".join(out)
+
 def on_nav(nav, config, files):
     GUIDE_FOLDERS = {
         "react": "React",
@@ -69,6 +84,27 @@ def inject_api_spec(content, page_src_path, docs_dir):
             
     return content
 
+def resolve_includes(content, current_dir, docs_dir, visited=None):
+    if visited is None:
+        visited = set()
+    
+    include_pattern = re.compile(r'\{%\s*include\s*[\'"](.+?)[\'"]\s*%\}')
+
+    def replace_match(match):
+        rel_path = match.group(1)
+        target = os.path.join(docs_dir, rel_path.lstrip('/')) if rel_path.startswith('/') else os.path.normpath(os.path.join(current_dir, rel_path))
+        
+        if target in visited:
+            return ""
+            
+        if os.path.exists(target):
+            visited.add(target)
+            with open(target, 'r', encoding='utf-8') as f:
+                return resolve_includes(f.read(), os.path.dirname(target), docs_dir, visited)
+        return ""
+        
+    return include_pattern.sub(replace_match, content)
+
 def create_merged_guide(section_item, folder_name, title, config):
     combined_md = f"# {title} Complete Guide\n\n"
     docs_dir = config['docs_dir']
@@ -84,14 +120,12 @@ def create_merged_guide(section_item, folder_name, title, config):
                         content = f.read()
                     content = resolve_includes(content, os.path.dirname(item.file.abs_src_path), docs_dir)
                     content = inject_api_spec(content, item.file.abs_src_path, docs_dir)
-def promote_headings_outside_fences(content):
-    in_fence = False
-    out = []
-    for line in content.splitlines():
-        if line.strip().startswith("
+                    content = promote_headings_outside_fences(content)
                     md_text += f"\n\n---\n## Section: {item.title}\n\n{content}\n"
-                except Exception as e: print(f"Error: {e}")
-            elif item.is_section: md_text += collect_md(item.children)
+                except Exception as e: 
+                    print(f"Error merging {item.title}: {e}")
+            elif item.is_section: 
+                md_text += collect_md(item.children)
         return md_text
 
     combined_md += collect_md(section_item.children)
@@ -105,7 +139,6 @@ def promote_headings_outside_fences(content):
 
     dest_path = os.path.join(dest_dir, f"{folder_name}.md")
     
-    # TRACK FOR llms.txt and llms-full.txt
     rel_url = os.path.relpath(dest_path, config['site_dir'])
     GENERATED_GUIDES.append({"title": title, "url": rel_url})
 
@@ -123,6 +156,7 @@ def on_post_page(output, page, config):
     current_file_dir = os.path.dirname(page.file.abs_src_path)
     content = resolve_includes(page.markdown, current_file_dir, docs_dir)
     content = inject_api_spec(content, page.file.abs_src_path, docs_dir)
+    content = promote_headings_outside_fences(content)
     
     abs_dest_path = page.file.abs_dest_path
     if config.get('use_directory_urls'):
@@ -141,13 +175,11 @@ def on_post_page(output, page, config):
     with open(dest_path, 'w', encoding='utf-8') as f:
         f.write(content)
     
-    # TRACK FOR llms-full.txt
     rel_url = os.path.relpath(dest_path, config['site_dir'])
     if not any(p["url"] == rel_url for p in ALL_PAGES):
         ALL_PAGES.append({"title": page.title, "url": rel_url})
 
 def on_post_build(config):
-    # 1. Generate your original llms.txt (Curated)
     llms_path = os.path.join(config['site_dir'], "llms.txt")
     lines = [
         "# WSO2 Identity Server Documentation",
@@ -158,102 +190,19 @@ def on_post_build(config):
         "End-to-end framework-specific implementation guides with all details:",
     ]
     
-    # Dynamics loop for guides
     for guide in GENERATED_GUIDES:
         lines.append(f"- [{guide['title']} Complete Guide](./{guide['url']}) - Comprehensive {guide['title'].lower()} integration")
     
-    # Original manual sections preserved exactly
     lines.extend([
         "",
         "## Quick Start Guides", 
         "Condensed framework tutorials for fast implementation:",
-        "- [React Quick Start](./quick-starts/react.md) - React SPA authentication setup",
-        "- [Angular Quick Start](./quick-starts/angular.md) - Angular application integration", 
-        "- [Next.js Quick Start](./quick-starts/nextjs.md) - Next.js SSR authentication",
-        "- [Express.js Quick Start](./quick-starts/expressjs.md) - Node.js API protection",
-        "- [JavaScript Quick Start](./quick-starts/javascript.md) - Vanilla JS integration",
-        "- [Spring Boot Quick Start](./quick-starts/springboot.md) - Java Spring Boot setup",
-        "",
-        "## Core Documentation",
-        "",
-        "### API Reference",
-        "Complete REST API documentation for all WSO2 IS capabilities:",
-        "- [APIs Overview](./apis.md) - Authentication methods and API categories (System, Management, Organization, End User)",
-        "",
-        "### Implementation Guides", 
-        "Step-by-step configuration and setup instructions:",
-        "- [Applications Guide](./guides.md) - Register and configure applications for different types (SPA, Web, Mobile, M2M)",
-        "",
-        "### Reference Documentation",
-        "Technical references and specifications:",
-        "- [References Overview](./references.md) - Technical reference materials and specifications",
-        "",
-        "### Tutorials and Learning",
-        "Learning resources and tutorials:", 
-        "- [Tutorials Overview](./tutorials.md) - Step-by-step learning tutorials",
-        "",
-        "### SDKs and Integration",
-        "Software Development Kits and integration tools:",
-        "- [SDKs Overview](./sdks.md) - Available SDKs for different platforms and languages", 
-        "",
-        "### Connectors and Extensions", 
-        "Third-party integrations and extensions:",
-        "- [Connectors Overview](./connectors.md) - Identity verification and other service connectors",
-        "",
-        "### Additional Integrations",
-        "Platform and service integrations:",
-        "- [Integrations Overview](./integrations.md) - Platform integrations and partnerships",
-        "",
-        "## Key Features and Capabilities",
-        "",
-        "### Authentication",
-        "- OAuth 2.0, OpenID Connect (OIDC), and SAML-based authentication",
-        "- Multi-factor authentication (MFA) and passwordless authentication", 
-        "- Risk-based and adaptive authentication",
-        "- Social login integrations",
-        "",
-        "### Authorization",  
-        "- Fine-grained access control and policy management",
-        "- Role-based access control (RBAC)",
-        "- Attribute-based access control (ABAC)",
-        "- API security and scopes management",
-        "",
-        "### User Management",
-        "- SCIM 2.0 compliant user provisioning",
-        "- Self-service user account management", 
-        "- Organization and tenant management for B2B",
-        "- Identity verification and KYC workflows",
-        "",
-        "### Enterprise Features", 
-        "- Multi-tenancy and organization isolation",
-        "- Workflow engine and approval processes",
-        "- Analytics and monitoring capabilities",
-        "- Custom branding and UI customization",
-        "",
-        "## Standards Compliance",
-        "- **OAuth 2.0** (RFC 6749) - Authorization framework",
-        "- **OpenID Connect 1.0** - Identity layer on OAuth 2.0",
-        "- **SAML 2.0** - XML-based authentication protocol", 
-        "- **SCIM 2.0** (RFC 7643, 7644) - User provisioning standard",
-        "- **FIDO2/WebAuthn** - Passwordless authentication",
-        "- **JWT** (RFC 7519) - JSON Web Tokens",
-        "- **PKCE** (RFC 7636) - OAuth security extension",
-        "- **FAPI** - Financial-grade API security profile",
-        "",
-        "## Usage Guidelines for AI Agents",
-        "",
-        "### Recommended Flow",
-        "1. **Choose appropriate guide** - Use Complete Guides for comprehensive integration, Quick Starts for rapid implementation",
-        "2. **Check APIs documentation** - Most functionality is exposed via REST APIs",
-        "3. **Review standards** - Understand OAuth 2.0, OIDC, and SAML concepts",
-        "4. **Select integration pattern** - SPA, Web App, Mobile, or M2M authentication flows",
-        "",
-        "### Common Integration Patterns",
-        "- **Single Page Apps (SPA)**: Authorization Code + PKCE flow",
-        "- **Web Applications**: Authorization Code flow with server-side handling",  
-        "- **Mobile Apps**: Authorization Code + PKCE with native app redirects",
-        "- **APIs/Microservices**: Client Credentials flow for service-to-service",
-        "- **B2B SaaS**: Organization management with SCIM provisioning",
+        "- [React Quick Start](./quick-starts/react.md)",
+        "- [Angular Quick Start](./quick-starts/angular.md)", 
+        "- [Next.js Quick Start](./quick-starts/nextjs.md)",
+        "- [Express.js Quick Start](./quick-starts/expressjs.md)",
+        "- [JavaScript Quick Start](./quick-starts/javascript.md)",
+        "- [Spring Boot Quick Start](./quick-starts/springboot.md)",
         "",
         "---",
         "## Site Map",
@@ -263,20 +212,9 @@ def on_post_build(config):
     with open(llms_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
 
-    # 2. Generate llms-full.txt (Comprehensive)
     full_path = os.path.join(config['site_dir'], "llms-full.txt")
-    full_lines = [
-        "# WSO2 Identity Server - Full Document Index",
-        "> Comprehensive list of all flattened Markdown files.",
-        "",
-        "## Complete Guides",
-    ]
+    full_lines = ["# WSO2 Identity Server - Full Document Index", ""]
     
-    for guide in GENERATED_GUIDES:
-        full_lines.append(f"- [{guide['title']}](./{guide['url']})")
-        
-    full_lines.append("\n## All Pages")
-    # Sorting to make it clean for the agent
     for page in sorted(ALL_PAGES, key=lambda x: x['url']):
         full_lines.append(f"- [{page['title']}](./{page['url']})")
 
@@ -284,14 +222,3 @@ def on_post_build(config):
         f.write("\n".join(full_lines))
     
     print(f"SUCCESS - llms.txt and llms-full.txt generated.")
-
-def resolve_includes(content, current_dir, docs_dir):
-    include_pattern = re.compile(r'\{%\s*include\s*[\'"](.+?)[\'"]\s*%\}')
-    def replace_match(match):
-        rel_path = match.group(1)
-        target = os.path.join(docs_dir, rel_path.lstrip('/')) if rel_path.startswith('/') else os.path.normpath(os.path.join(current_dir, rel_path))
-        if os.path.exists(target):
-            with open(target, 'r', encoding='utf-8') as f:
-                return resolve_includes(f.read(), os.path.dirname(target), docs_dir)
-        return ""
-    return include_pattern.sub(replace_match, content)
