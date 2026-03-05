@@ -107,9 +107,9 @@ Pick your agent development framework and install the corresponding dependencies
 
 === "Vercel AI"
 
-    The Vercel AI SDK does not yet have built-in support for MCP tool invocation. However, you can still use the Vercel AI SDK for agent development and implement custom logic to call the MCP server using the agent's access token obtained from {{ product_name }}.
-
-     ```bash
+    The Vercel AI SDK does not currently provide built-in support for MCP tool invocation. However, it can still be used for agent development by implementing custom logic that calls the MCP server using the agent’s access token obtained from Asgardeo.
+     
+    ```
     npm install @ai-sdk/google @asgardeo/javascript @modelcontextprotocol/sdk ai base64url dotenv fast-sha256 jose secure-random-bytes typescript
     npm install --save-dev @types/node
     ```
@@ -256,7 +256,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
         const rootAgent = new LlmAgent({
             name: "example_agent",
             model: process.env.MODEL_NAME || "gemini-2.5-flash",
-            instruction: `You are a helpful AI assistant.`,
+            instruction: "You are a helpful AI assistant.",
             apiKey: process.env.GOOGLE_API_KEY,
             tools: [
                 new MCPToolset({
@@ -342,7 +342,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
 
 === "Vercel AI"
 
-     ```typescript title="agent.ts"
+    ```typescript title="agent.ts"
     import { stdin as input, stdout as output } from "node:process";
     import * as readline from "node:readline/promises";
     
@@ -360,9 +360,9 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     dotenv.config();
     
     const asgardeoConfig = {
-    afterSignInUrl: process.env.REDIRECT_URI || "",
-    clientId: process.env.CLIENT_ID || "",
-    baseUrl: process.env.ASGARDEO_BASE_URL || "",
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
     
     const agentConfig = {
@@ -371,17 +371,17 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     };
     
     async function getMCPTools(url: string, authToken: string) {
-    const transport = new StreamableHTTPClientTransport(
-    new URL(url),
-    {
-    requestInit: {
-    headers: {
-    Authorization: `Bearer ${authToken}`,
-    },
-    },
-    }
-    );
-    
+        const transport = new StreamableHTTPClientTransport(
+            new URL(url),
+            {
+                requestInit: {
+                    headers: {
+                        Authorization: `Bearer ${authToken}`,
+                    },
+                },
+            }
+        );
+        
         const client = new Client({
             name: "vercel-ai-agent",
             version: "1.0.0",
@@ -414,13 +414,13 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
                 },
             });
         }
-    
+
         return { tools, client };
     }
     
     async function runAgent() {
-    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
-    const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
+        const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
+        const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
     
         process.env.GOOGLE_GENERATIVE_AI_API_KEY = process.env.GOOGLE_API_KEY || "";
     
@@ -826,7 +826,7 @@ Here is the updated implementation:
         const rootAgent = new LlmAgent({
             name: "example_agent",
             model: process.env.MODEL_NAME || "gemini-2.5-flash",
-            instruction: `You are a helpful AI assistant.`,
+            instruction: "You are a helpful AI assistant.",
             apiKey: process.env.GOOGLE_API_KEY,
             tools: [
                 new MCPToolset({
@@ -903,12 +903,11 @@ Here is the updated implementation:
     }
     
     runAgent().catch(console.error);
-
     ```
 
 === "Vercel AI"
 
-     ```typescript title="agent.ts"
+    ```typescript title="agent.ts"
     import { stdin as input, stdout as output } from "node:process";
     import * as readline from "node:readline/promises";
     import { Server } from "http";
@@ -931,36 +930,36 @@ Here is the updated implementation:
     const redirectUri = process.env.REDIRECT_URI || "";
     
     if (!redirectUri) {
-    throw new Error("Missing required env var: REDIRECT_URI");
+        throw new Error("Missing required env var: REDIRECT_URI");
     }
     const redirectURL = new URL(redirectUri);
     const callbackPath = redirectURL.pathname;
     const callbackPort = Number(
-    redirectURL.port || (redirectURL.protocol === "https:" ? 443 : 80)
+        redirectURL.port || (redirectURL.protocol === "https:" ? 443 : 80)
     );
     
     const asgardeoConfig = {
-    afterSignInUrl: process.env.REDIRECT_URI || "",
-    clientId: process.env.CLIENT_ID || "",
-    baseUrl: process.env.ASGARDEO_BASE_URL || "",
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
     
     const agentConfig = {
-    agentID: process.env.AGENT_ID || "",
-    agentSecret: process.env.AGENT_SECRET || "",
+        agentID: process.env.AGENT_ID || "",
+        agentSecret: process.env.AGENT_SECRET || "",
     };
     
     async function getMCPTools(url: string, authToken: string) {
-    const transport = new StreamableHTTPClientTransport(
-    new URL(url),
-    {
-    requestInit: {
-    headers: {
-    Authorization: `Bearer ${authToken}`,
-    },
-    },
-    }
-    );
+        const transport = new StreamableHTTPClientTransport(
+            new URL(url),
+            {
+                requestInit: {
+                    headers: {
+                        Authorization: `Bearer ${authToken}`,
+                    },
+                },
+            }
+        );
     
         const client = new Client({
             name: "vercel-ai-agent",
