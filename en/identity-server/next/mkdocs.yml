@@ -190,6 +190,7 @@ extra:
               url: Guides|Organizations|Organizations
 hooks:
   - hooks.py
+  - ../../flatten_markdown.py
 
 plugins:
   - search:

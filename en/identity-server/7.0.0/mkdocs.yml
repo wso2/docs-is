@@ -112,6 +112,7 @@ extra:
 
 hooks:
   - hooks.py
+  - ../../flatten_markdown.py
 
 plugins:
   - search:
