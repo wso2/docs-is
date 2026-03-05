@@ -84,7 +84,11 @@ def create_merged_guide(section_item, folder_name, title, config):
                         content = f.read()
                     content = resolve_includes(content, os.path.dirname(item.file.abs_src_path), docs_dir)
                     content = inject_api_spec(content, item.file.abs_src_path, docs_dir)
-                    content = re.sub(r'^(#+)', r'#\1', content, flags=re.MULTILINE)
+def promote_headings_outside_fences(content):
+    in_fence = False
+    out = []
+    for line in content.splitlines():
+        if line.strip().startswith("
                     md_text += f"\n\n---\n## Section: {item.title}\n\n{content}\n"
                 except Exception as e: print(f"Error: {e}")
             elif item.is_section: md_text += collect_md(item.children)
