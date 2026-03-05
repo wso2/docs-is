@@ -2,7 +2,7 @@
 
 Grant types in OAuth 2.0 are defined as the methods used by a client to obtain an access token from the identity provider. {{product_name}} supports the following grant types. Each grant type is designed for a specific use case and supports different parameters.
 
-**OAuth 2.0 grants**
+## OAuth 2.0 grants
 
 - [Authorization code grant](#authorization-code-grant)
 - [Refresh token grant](#refresh-token-grant)
@@ -16,7 +16,7 @@ Grant types in OAuth 2.0 are defined as the methods used by a client to obtain a
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 {% endif %}
 
-#### {{product_name}}'s custom grants
+### {{product_name}}'s custom grants
 
 - [Organization switch grant](#organization-switch-grant)
 
@@ -34,7 +34,6 @@ The following diagram shows how the authorization code flow works.
 
 1. The user visits the client application and requests for login through {{ product_name }}.
 2. The client application redirects the authorization code request to {{ product_name }} (front channel).
-
 
     === "Request format (/authorize)"
 
@@ -348,7 +347,6 @@ The diagram below illustrates the device flow.
     }
     ```
 
-
 3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
 
 4. {{ product_name }} prompts the user to enter the end-user code and the user enters the user code.
@@ -544,7 +542,7 @@ The following diagram illustrates the process of obtaining an access token using
         --data-urlencode 'scope=<scopes>' \
         --data-urlencode 'switching_organization=<organization_id>'
         ```
-    
+
     === "Sample request (/token)"
 
         ``` bash
