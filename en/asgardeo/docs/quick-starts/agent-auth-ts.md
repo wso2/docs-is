@@ -18,7 +18,7 @@ template: templates/quick-start.html
       "A favorite text editor or IDE",
       "An MCP server secured with {{ product_name }} (you may use your own or follow the <a href='https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server'>MCP Auth Server quickstart</a>)"
     ],
-    source_code: "<a href='https://github.com/wso2/iam-ai-samples/tree/main/agent-identity' target='_blank' class='github-icon'>Agent-Auth TypeScript Sample</a>"
+    source_code: "<a href='https://github.com/wso2/iam-ai-samples/tree/main/agent-identity/typescript' target='_blank' class='github-icon'>Agent-Auth TypeScript Sample</a>"
   };
 </script>
 

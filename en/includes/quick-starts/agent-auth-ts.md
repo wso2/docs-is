@@ -2,15 +2,15 @@
 
 Welcome to the Agent Identity Quickstart!
 
-This guide walks you through establishing AI agent identities with **{{ product_name }}**, authenticating agents with their credentials, and integrating them seamlessly with secure MCP servers using Python over modern agent frameworks and cutting-edge AI models.
+This guide walks you through establishing AI agent identities with **{{ product_name }}**, authenticating agents with their credentials, and integrating them seamlessly with secure MCP servers using TypeScript over modern agent frameworks and cutting-edge AI models.
 
 For the demonstration, let's build a math-capable agent that will interpret conversational queries and invoke specific arithmetic tools exposed by a secured Model Context Protocol (MCP) server to deliver precise calculations.
 
 By the end of this guide, you will have:
 
-- An AI agent that authenticates using Agent Credentials, obtains a token to access a secure MCP Server(AI agent acting on its own)
+- An AI agent that authenticates using Agent Credentials, obtains a token to access a secure MCP Server (AI agent acting on its own)
 - An AI agent that gets authorization delegated by a user to access a secured MCP Server (Agent acting On-Behalf-Of (OBO) a user)
-- A clear understanding of both authentication scenarios described in [Agent Authentication Guide](https://wso2.com/asgardeo/docs/guides/agentic-ai/ai-agents/agent-authentication/)
+- A clear understanding of both authentication scenarios described in [Agent Authentication Guide]({{ base_path }}/guides/agentic-ai/ai-agents/agent-authentication/)
 
 You do not need prior agent development experience. Everything you need is explained as you go.
 
@@ -20,44 +20,44 @@ You do not need prior agent development experience. Everything you need is expla
 
 To establish an identity for your AI agent, begin by registering it in {{ product_name }}.
 
-- Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
-- Click **+ New Agent**.
-- Provide:
+1. Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
+2. Click **+ New Agent**.
+3. Provide:
   - Name: A descriptive name for your AI agent for human-readable display purposes
   - Description (optional): Purpose and functionality of the agent
 
 !!! Example
-Name: Math Assistant Agent
+    Name: Math Assistant Agent
 
     Description: An AI agent that invokes protected MCP tools to answer math-related questions.
 
-- Click **Create** to complete the registration.
+4. Click **Create** to complete the registration.
 
-After successful registration, your agent will receive a unique **Agent ID** and an **Agent Secret**, which is shown only once. Make sure to store them securely, as you’ll need them later in this guide.
+After successful registration, your agent will receive a unique **Agent ID** and an **Agent Secret**. Store the Agent Secret securely as it is displayed only once and is required later in this guide.
 
 ## Configure an Application in {{ product_name }}
 
-To allow your agent (or user acting through the agent) to authenticate and connect to a secure MCP server, a MCP Client needs to be set up in {{ product_name }}.
+To allow your agent (or user acting through the agent) to authenticate and connect to a secure MCP server, an MCP Client needs to be set up in {{ product_name }}.
 
-- In [{{ product_name }}](https://console.asgardeo.io/) console, navigate to **Applications > New Application**.
-- Select **MCP Client Application** and complete the wizard pop-up by providing a suitable name and an authorized redirect URL.
+1. In [{{ product_name }}](https://console.asgardeo.io/) console, navigate to **Applications > New Application**.
+2. Select **MCP Client Application** and complete the wizard pop-up by providing a suitable name and an authorized redirect URL.
 
 !!! Example
-Name: AgentAuthenticatorApp
+    Name: AgentAuthenticatorApp
 
-    Authorized redirect URL: http://localhost:6274/oauth/callback
+    Authorized redirect URL: http://localhost:3001/callback
 
 !!! Info
-The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
-In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:6274/oauth/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
+    The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
+    In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:3001/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
 
-Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Build an AI Agent](#build-an-ai-agent) section of this guide.
+Make a note of the **Client ID** from the **Protocol** tab of the registered application. You will need it during the [Build an AI Agent](#build-an-ai-agent) section of this guide.
 
 ## Run the MCP Server
 
 Your AI agent will call an MCP tool hosted on a secure MCP server. You can:
 
-- Follow the [MCP Auth Server Quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server) to set one up quickly (Recommended), or
+- Follow the [MCP Auth Server Quickstart]({{ base_path }}/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server) to set one up quickly (Recommended), or
 - Use your own MCP server secured with {{ product_name }}
 
 ## Build an AI Agent
@@ -65,294 +65,272 @@ Your AI agent will call an MCP tool hosted on a secure MCP server. You can:
 Create a directory called `agent-auth-quickstart` by running the following commands.
 
 ```bash
-  mkdir agent-auth-quickstart
-  cd agent-auth-quickstart
+mkdir agent-auth-quickstart
+cd agent-auth-quickstart
 ```
 
-Then set up and activate a Python virtual environment using the following commands.
+Then initialize a Node.js project using the following command.
 
-=== "macOS/Linux"
+``` bash
+npm init -y
+```
 
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
-    ```
-=== "Windows"
+Now open the `package.json` file and replace the existing content with the following given content.
 
-    ```bash
-    python -m venv .venv
-    .venv\Scripts\activate
-    ```
+```json title="package.json"
+{
+  "name": "agent-auth-quickstart",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "agent.ts",
+  "scripts": {
+    "start": "npx tsx agent.ts"
+  }
+}
+```
 
 Pick your agent development framework and install the corresponding dependencies.
 
 === "LangChain"
 
     ```bash
-    pip install asgardeo asgardeo_ai langchain langchain-google-genai langchain-mcp-adapters python-dotenv
+    npm install @asgardeo/javascript @langchain/google-genai @langchain/langgraph @langchain/mcp-adapters base64url fast-sha256 jose secure-random-bytes tsx typescript
+    npm install --save-dev @types/node
     ```
 
 === "Google ADK"
 
     ```bash
-    pip install asgardeo asgardeo_ai python-dotenv google-adk==1.20.0 google-genai==1.54.0
+    npm install @asgardeo/javascript @google/adk base64url dotenv fast-sha256 jose secure-random-bytes tsx typescript
+    npm install --save-dev @types/node
     ```
 
-=== "Crew AI"
+Initialize the TypeScript configuration by running the following command.
 
-    ```bash
-    pip install asgardeo asgardeo_ai crewai google-genai==1.54.0 python-dotenv
-    ```
+```bash
+npx tsc --init
+```
 
-Create `main.py` that implements an AI agent which first obtains a valid access token from **{{ product_name }}** by authenticating itself. The agent then includes that token in the `Authorization` header (for example `Authorization: Bearer <token>`) when calling the MCP tool.
+Update the `tsconfig.json` file with the following settings.
+
+```json title="tsconfig.json"
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
+```
+
+Create `agent.ts` that implements an AI agent which first obtains a valid access token from **{{ product_name }}** by authenticating itself. The agent then includes that token in the `Authorization` header (for example `Authorization: Bearer <token>`) when calling the MCP tool.
 
 === "LangChain"
 
-    ```python title="main.py"
-    import os
-    import asyncio
+    ```typescript title="agent.ts"
+    import { stdin as input, stdout as output } from "node:process";
+    import * as readline from "node:readline/promises";
     
-    from dotenv import load_dotenv
-    from pathlib import Path
+    import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
+    import { createReactAgent } from "@langchain/langgraph/prebuilt";
+    import { MultiServerMCPClient } from "@langchain/mcp-adapters";
     
-    from asgardeo import AsgardeoConfig, AsgardeoNativeAuthClient
-    from asgardeo_ai import AgentConfig, AgentAuthManager
+    import { AsgardeoJavaScriptClient } from "@asgardeo/javascript";
     
-    from langchain_mcp_adapters.client import MultiServerMCPClient
-    from langchain.agents import create_agent
-    from langchain_google_genai import ChatGoogleGenerativeAI
+    import dotenv from "dotenv";
     
+    // Load environment variables from .env file
+    dotenv.config();
     
-    # Load environment variables from .env file
-    load_dotenv()
+    const asgardeoConfig = {
+    afterSignInUrl: process.env.REDIRECT_URI || "",
+    clientId: process.env.CLIENT_ID || "",
+    baseUrl: process.env.ASGARDEO_BASE_URL || "",
+    };
     
-    ASGARDEO_CONFIG = AsgardeoConfig(
-        base_url=os.getenv("ASGARDEO_BASE_URL"),
-        client_id=os.getenv("CLIENT_ID"),
-        redirect_uri=os.getenv("REDIRECT_URI")
-    )
+    const agentConfig = {
+    agentID: process.env.AGENT_ID || "",
+    agentSecret: process.env.AGENT_SECRET || "",
+    };
     
-    AGENT_CONFIG = AgentConfig(
-        agent_id=os.getenv("AGENT_ID"),
-        agent_secret=os.getenv("AGENT_SECRET")
-    )
+    const model = new ChatGoogleGenerativeAI({
+    apiKey: process.env.GOOGLE_API_KEY || "",
+    model: process.env.MODEL_NAME || "gemini-2.5-flash",
+    });
     
+    async function runAgent() {
+    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
+    const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
     
-    async def main():
+        const client = new MultiServerMCPClient({
+            math: {
+                transport: "http",
+                url: process.env.MCP_SERVER_URL || "http://localhost:8000/mcp",
+                headers: {
+                    Authorization: "Bearer " + agentToken.accessToken,
+                },
+            },
+        });
     
-        # Scenario 1: AI agent acting on its own using its own credentials to authenticate
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-            # Get agent token
-            agent_token = await auth_manager.get_agent_token(["openid"])
+        const tools = await client.getTools();
     
+        const agent = createReactAgent({
+            llm: model,
+            tools: tools,
+        });
     
-        # Connect to MCP Server with Authorization Header
-        client = MultiServerMCPClient(
-            {
-                "mcp_server": {
-                    "transport": "streamable_http",
-                    "url": os.getenv("MCP_SERVER_URL"),
-                    "headers": {
-                        "Authorization": f"Bearer {agent_token.access_token}"
-                    }
+        const rl = readline.createInterface({ input, output });
+    
+        while (true) {
+            try {
+                const userInput = await rl.question("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ");
+    
+                if (userInput.toLowerCase() === "exit") {
+                    console.log("Goodbye!");
+                    break;
                 }
+    
+                const result = await agent.invoke({
+                    messages: [{ role: "user", content: userInput }],
+                });
+    
+                const finalResponse = result.messages[result.messages.length - 1];
+                console.log("Agent: " + finalResponse.content);
+            } catch (error) {
+                console.error("Error running agent:", error);
+                break;
             }
-        )
+        }
     
-        # LLM (Gemini) + LangChain Agent
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash",
-            temperature=0.9
-        )
+        await client.close();
+        rl.close();
+    }
     
-        tools = await client.get_tools()
-        agent = create_agent(llm, tools)
-    
-        user_input = input("Enter your question: ")
-    
-        # Invoke the agent
-        response = await agent.ainvoke(
-            {"messages": [{"role": "user", "content": user_input}]}
-        )
-    
-        print("Agent Response:", response["messages"][-1].content)
-    
-    
-    # Run app
-    if __name__ == "__main__":
-        asyncio.run(main())
-    
+    runAgent().catch(console.error);
     ```
 
 === "Google ADK"
 
-    ```python title="main.py"
-    import os
-    import asyncio
-    from pathlib import Path
-    from dotenv import load_dotenv
+    ```typescript title="agent.ts"
+    import { stdin as input, stdout as output } from "node:process";
+    import * as readline from "node:readline/promises";
     
-    from asgardeo import AsgardeoConfig
-    from asgardeo_ai import AgentConfig, AgentAuthManager
+    import dotenv from "dotenv";
     
-    from google.adk.agents.llm_agent import LlmAgent
-    from google.adk.runners import InMemoryRunner
-    from google.adk.tools.mcp_tool import McpToolset
-    from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
-    from google.genai import types
+    import { LlmAgent, MCPToolset, InMemoryRunner } from "@google/adk";
     
-    # Load environment variables from .env file
-    load_dotenv()
+    import { AsgardeoJavaScriptClient } from "@asgardeo/javascript";
     
-    ASGARDEO_CONFIG = AsgardeoConfig(
-        base_url=os.getenv("ASGARDEO_BASE_URL"),
-        client_id=os.getenv("CLIENT_ID"),
-        redirect_uri=os.getenv("REDIRECT_URI")
-    )
+    // Load environment variables from .env file
+    dotenv.config();
     
-    AGENT_CONFIG = AgentConfig(
-        agent_id=os.getenv("AGENT_ID"),
-        agent_secret=os.getenv("AGENT_SECRET")
-    )
+    const asgardeoConfig = {
+    afterSignInUrl: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    baseUrl: process.env.ASGARDEO_BASE_URL,
+    };
     
-    async def build_toolset():
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-            # Get agent token
-            agent_token = await auth_manager.get_agent_token(["openid"])
+    const agentConfig = {
+    agentID: process.env.AGENT_ID,
+    agentSecret: process.env.AGENT_SECRET,
+    };
     
-        # Connect to MCP Server with Auth Header
-        return McpToolset(
-            connection_params=StreamableHTTPConnectionParams(
-                url= os.getenv("MCP_SERVER_URL"),
-                headers={"Authorization": f"Bearer {agent_token.access_token}"}
-            )
-        )
+    process.env.GOOGLE_GENAI_API_KEY = process.env.GOOGLE_API_KEY;
     
-    async def main():
+    async function runAgent() {
+    silenceADK();
+    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
+    const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
     
-        mcp_toolset = await build_toolset()
+        const rootAgent = new LlmAgent({
+            name: "example_agent",
+            model: process.env.MODEL_NAME || "gemini-2.5-flash",
+            instruction: `You are a helpful AI assistant.`,
+            apiKey: process.env.GOOGLE_API_KEY,
+            tools: [
+                new MCPToolset({
+                    type: "StreamableHTTPConnectionParams",
+                    url: process.env.MCP_SERVER_URL,
+                    header: {
+                        Authorization: `Bearer ${agentToken.accessToken}`,
+                    },
+                }),
+            ],
+        });
     
-        # Define LLM Agent (Gemini)
-        agent = LlmAgent(
-            model="gemini-2.0-flash",
-            name="add_agent",
-            description="Adds two numbers using an MCP server.",
-            instruction="When the user asks to add numbers, call the MCP tool `add(a, b)`.",
-            tools=[mcp_toolset],
-        )
+        const runner = new InMemoryRunner({
+            agent: rootAgent,
+            appName: "my-custom-app",
+        });
     
-        # Setup runner + session
-        runner = InMemoryRunner(agent, app_name="add_numbers_app")
+        const userId = "user-123";
+        const session = await runner.sessionService.createSession({
+            appName: "my-custom-app",
+            userId: userId,
+        });
     
-        session = await runner.session_service.create_session(
-            app_name="add_numbers_app",
-            user_id="user"
-        )
+        const rl = readline.createInterface({ input, output });
     
-        question = input("Enter your question: ")
+        try {
+            while (true) {
+                const userInput = await rl.question("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ");
     
-        try:
-            async for event in runner.run_async(
-                    user_id="user",
-                    session_id=session.id,
-                    new_message=types.Content(
-                        role="user",
-                        parts=[types.Part(text=question)]
-                    ),
-            ):
-                if event.content and event.content.parts:
-                    text = event.content.parts[0].text
-                    if text:
-                        print(text)
+                if (userInput.toLowerCase() === "exit") {
+                    await runner.sessionService.deleteSession({
+                        appName: "my-custom-app",
+                        sessionId: session.id,
+                    });
+                    console.log("Goodbye!");
+                    break;
+                }
     
-        finally:
-            await mcp_toolset.close()
-            await runner.close()
+                const userMessage = {
+                    role: "user",
+                    parts: [{ text: userInput }],
+                };
     
-    if __name__ == "__main__":
-        asyncio.run(main())
-
+                const eventStream = runner.runAsync({
+                    userId: userId,
+                    sessionId: session.id,
+                    newMessage: userMessage,
+                });
+    
+                try {
+                    for await (const event of eventStream) {
+                        // Check if the event has text content to display
+                        if (event.content && event.content.parts) {
+                            const text = event.content.parts.map((p) => p.text).join("");
+                            if (text) {
+                                console.log(`Agent : ${text}`);
+                            }
+                        }
+                    }
+                } catch (error) {
+                    console.error("Error running agent:", error);
+                }
+            }
+        } finally {
+            rl.close();
+            process.exit(0);
+        }
+    }
+    
+    function silenceADK() {
+    const originalWrite = process.stdout.write;
+    // @ts-ignore
+    process.stdout.write = function (chunk, encoding, callback) {
+    if (typeof chunk === 'string' && chunk.includes('[ADK INFO]')) {
+    return true; // Skip this log
+    }
+    return originalWrite.apply(process.stdout, [chunk, encoding, callback]);
+    };
+    }
+    
+    runAgent().catch(console.error);
     ```
-
-=== "Crew AI"
-
-    ```python title="main.py"
-    import os
-    import asyncio
-    from pathlib import Path
-    from dotenv import load_dotenv
-    
-    from asgardeo import AsgardeoConfig
-    from asgardeo_ai import AgentConfig, AgentAuthManager
-    
-    from crewai import Agent, Task, Crew
-    from crewai.mcp import MCPServerHTTP
-    
-    # Load environment variables from .env file
-    load_dotenv()
-    
-    ASGARDEO_CONFIG = AsgardeoConfig(
-        base_url=os.getenv("ASGARDEO_BASE_URL"),
-        client_id=os.getenv("CLIENT_ID"),
-        redirect_uri=os.getenv("REDIRECT_URI")
-    )
-    
-    AGENT_CONFIG = AgentConfig(
-        agent_id=os.getenv("AGENT_ID"),
-        agent_secret=os.getenv("AGENT_SECRET")
-    )
-    
-    async def get_agent_token():
-        # Asynchronously fetches the agent token from Asgardeo.
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-            return await auth_manager.get_agent_token(["openid"])
-    
-    def main():
-        agent_token = asyncio.run(get_agent_token())
-    
-        while True:
-            question = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
-    
-            if question.lower() == "exit":
-                print("Exiting the program. Goodbye!")
-                break
-            mcp_server = MCPServerHTTP(
-                url=os.getenv("MCP_SERVER_URL"),
-                headers={"Authorization": f"Bearer {agent_token.access_token}"},
-                streamable=True
-            )
-    
-            agent = Agent(
-                role="Calculation Specialist",
-                goal="Add two numbers accurately using an MCP server.",
-                backstory="You are an intelligent agent that strictly uses the provided MCP tool 'add(a, b)' to compute the addition of numbers when requested by a user.",
-                mcps=[mcp_server],
-                llm=os.getenv("MODEL_NAME"), # Use 'gemini/gemini-1.5-flash' or similar
-                verbose=False
-            )
-    
-            task = Task(
-                description=f"Address the user's request: '{question}'",
-                expected_output="The exact calculated sum of the numbers based on the MCP tool execution.",
-                agent=agent
-            )
-    
-            crew = Crew(
-                agents=[agent],
-                tasks=[task]
-            )
-    
-            result = crew.kickoff()
-    
-            print("\nAgent Response:", result.raw)
-    
-    if __name__ == "__main__":
-        main()
-    
-    ```
-!!! Important
-Replace `<mcp_server_url>` with your MCP server’s URL.
-If you followed the [MCP Auth Server quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server), you can use: `http://127.0.0.1:8000/mcp`
 
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
@@ -360,7 +338,7 @@ Add environment configuration by creating a `.env` file at the project root to h
 # Asgardeo OAuth2 Configuration
 ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-tenant>
 CLIENT_ID=<your-client-id>
-REDIRECT_URI=http://localhost:6274/oauth/callback
+REDIRECT_URI=http://localhost:3001/callback
 
 # Asgardeo Agent Credentials
 AGENT_ID=<agent_id>
@@ -375,87 +353,61 @@ MCP_SERVER_URL=<mcp_server_url>
 
 !!! Important
 
-    - Replace `<your-tenant>`, `<your-client-id>`and the redirect URL with the values obtained from the {{ product_name }} console.
-      The tenant name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<your-tenant>`), and the `client ID` can be found in the application's **Protocol** tab.
+    - Replace `<organization-name>` and `<client-id>` with the values obtained from the {{ product_name }} console.
+      The organization name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<your-tenant>`), and the `client ID` can be found in the application's **Protocol** tab.
 
-    - Add the `Agent ID` and `Agent Secret` from the [Agent Registration](#register-an-ai-agent) step.
+    - Add the `<agent-id>` and `<agent-secret>` from the [Agent Registration](#register-an-ai-agent) step.
 
     - You’ll need a Google API key to use Gemini as your model. You can generate one from [Google AI Studio](https://aistudio.google.com/app/api-keys)
 
     - Replace `<mcp_server_url>` with your MCP server’s URL.
-    If you followed the [MCP Auth Server quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server), you can use: `http://127.0.0.1:8000/mcp`
+      If you followed the [MCP Auth Server quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server), you can use: `http://127.0.0.1:8000/mcp`
 
 ## Project Structure
 
 Your project folder should now look like this:
 
-``` bash
-├── main.py              # Your AI Agent
-└── .env                 # Your Asgardeo configs
-```
+=== "LangChain"
+
+    ``` bash
+    .
+    ├── .env                # Environment file containing all the configuration variables
+    ├── agent.ts            # Your AI Agent
+    ├── node_modules
+    │   └── ...
+    ├── package-lock.json
+    ├── package.json
+    └── tsconfig.json
+    ```
+
+=== "Google ADK"
+
+    ``` bash
+    .
+    ├── .env                # Environment file containing all the configuration variables
+    ├── agent.ts            # Your AI Agent
+    ├── node_modules
+    │   └── ...
+    ├── package-lock.json
+    ├── package.json
+    └── tsconfig.json
+    ```
 
 ## Run and Test with Authentication
 
 Start your AI Agent by running the following command.
 
 ``` bash
-  python main.py
+npm start
 ```
 
 If authentication succeeds, your agent will prompt you for a question and securely invoke the MCP tool.
 
-``` bash
-Enter your question: Can you add twenty two and twelve?
-Agent Response: The sum of twenty two and twelve is 34.
+```markdown
+--- AI Agent Started (Type 'exit' to quit) ---
+Enter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: add 3455 and 235
+Agent : The sum of 3455 and 235 is 3690.
 ```
-
-If authentication fails, the MCP server will return:
-
-``` bash
-httpx.HTTPStatusError: Client error '401 Unauthorized'
-```
-
-To test the setup without authentication, simply remove the `Authorization` header from your client configuration, as shown below:
-
-=== "LangChain"
-
-    ```python
-    ...
-    client = MultiServerMCPClient(
-        {
-            "mcp_server": {
-                "transport": "streamable_http",
-                "url": os.getenv("MCP_SERVER_URL")
-            }
-        }
-    )
-    ...
-    ```
-
-=== "Google ADK"
-
-    ```python
-    ...
-    return McpToolset(
-            connection_params=StreamableHTTPConnectionParams(
-                url= os.getenv("MCP_SERVER_URL")
-            )
-        )
-    ...
-    ```
-
-=== "Crew AI"
-
-    ```python
-    ...
-    mcp_server = MCPServerHTTP(
-                url=os.getenv("MCP_SERVER_URL"),
-                streamable=True
-            )
-    ...
-    ```
-
-When you run the agent without the `Authorization` header, the MCP server will reject the request with a `401 Unauthorized` error, confirming that authentication is required to access the protected tools.
 
 ## Test the On-Behalf-Of (OBO) Flow
 
@@ -470,86 +422,18 @@ This flow uses:
 
 Your AI agent will then call the MCP server _as the authenticated user_.
 
-During the OBO flow, {{ product_name }} redirects back to your client application with an `authorization code` after the user logs in.
-To handle this, create a file named `oauth_callback.py` with the following implementation at the project root. This lightweight HTTP server listens for the redirect and captures `authorization_code` and `state`.
+During the OBO flow, {{ product_name }} redirects back to your client application with an `authorization code` after the user logs in. Our agent will then catch the `authorization code` from {{ product_name }} and exchange it for an OBO token.
 
-<details>
-<summary>Expand to view the implementation of `oauth_callback.py`</summary>
+To handle this, we need to set up a simple `express` server within `agent.ts`. This lightweight HTTP server listens for the redirect and captures `authorization_code` and `state`.
 
-```python title="oauth_callback.py"
-import http.server
-import socketserver
-import threading
-import asyncio
-from urllib.parse import urlparse, parse_qs
+To get started, first install the following dependencies,
 
-class OAuthCallbackServer:
-    def __init__(self, port: int = 6274, timeout: int = 120):
-        self.port = port
-        self.timeout = timeout
-        self.auth_code = None
-        self.state = None
-        self._error = None
-        self._httpd = None
-
-    class _Handler(http.server.SimpleHTTPRequestHandler):
-        parent = None
-
-        def do_GET(self):
-            url = urlparse(self.path)
-            params = parse_qs(url.query)
-
-            # OAuth error case
-            if "error" in params:
-                self.parent._error = params["error"][0]
-                self.send_response(200)
-                self.end_headers()
-                self.wfile.write(b"Authorization cancelled or failed. You can close this window.")
-                return
-
-            # Success case
-            if "code" in params:
-                self.parent.auth_code = params["code"][0]
-                self.parent.state = params.get("state", [None])[0]
-                self.send_response(200)
-                self.end_headers()
-                self.wfile.write(b"Authentication successful. You can close this window.")
-                return
-
-            # Invalid callback
-            if url.path != "/oauth/callback":
-                self.parent._error = "Invalid Callback URL"
-                self.send_response(200)
-                self.end_headers()
-                self.wfile.write(b"Invalid redirect. You can close this window.")
-                return
-
-    def start(self):
-        handler = self._Handler
-        handler.parent = self
-
-        self._httpd = socketserver.TCPServer(("localhost", self.port), handler)
-        thread = threading.Thread(target=self._httpd.serve_forever)
-        thread.daemon = True
-        thread.start()
-
-    def stop(self):
-        if self._httpd:
-            self._httpd.shutdown()
-
-    async def wait_for_code(self):
-        """Returns (auth_code, state). auth_code==None means canceled, error, or timed out."""
-        elapsed = 0
-        while self.auth_code is None and self._error is None and elapsed < self.timeout:
-            await asyncio.sleep(0.1)
-            elapsed += 0.1
-
-        return (self.auth_code, self.state, self._error)
+```bash
+npm install express
+npm install --save-dev @types/express
 ```
 
-</details>
-
-Then, update the `main.py` to perform the OBO Flow. This will:
+Then, update the `agent.ts` to perform the OBO Flow. This will:
 
 - Authenticate the agent
 - Generate an authorization URL for the user
@@ -561,237 +445,342 @@ Here is the updated implementation:
 
 === "LangChain"
 
-    ```python title="main.py"
-    import os
-    import asyncio
+    ```typescript title="agent.ts"
+    import { stdin as input, stdout as output } from "node:process";
+    import * as readline from "node:readline/promises";
+    import { Server } from "http";
     
-    from dotenv import load_dotenv
-    from pathlib import Path
+    import express from "express";
+    import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
+    import { createReactAgent } from "@langchain/langgraph/prebuilt";
+    import { MultiServerMCPClient } from "@langchain/mcp-adapters";
     
-    from asgardeo import AsgardeoConfig, AsgardeoNativeAuthClient
-    from asgardeo_ai import AgentConfig, AgentAuthManager
+    import { AsgardeoJavaScriptClient, AuthCodeResponse } from "@asgardeo/javascript";
     
-    from langchain_mcp_adapters.client import MultiServerMCPClient
-    from langchain.agents import create_agent
-    from langchain_google_genai import ChatGoogleGenerativeAI
+    import dotenv from "dotenv";
+    import open from "open";
     
-    from oauth_callback import OAuthCallbackServer
+    const port = '3001';
     
+    // Load environment variables from .env file
+    dotenv.config();
     
-    # Load environment variables from .env file
-    load_dotenv()
+    const asgardeoConfig = {
+    afterSignInUrl: process.env.REDIRECT_URI || "",
+    clientId: process.env.CLIENT_ID || "",
+    baseUrl: process.env.ASGARDEO_BASE_URL || "",
+    };
     
-    ASGARDEO_CONFIG = AsgardeoConfig(
-        base_url=os.getenv("ASGARDEO_BASE_URL"),
-        client_id=os.getenv("CLIENT_ID"),
-        redirect_uri=os.getenv("REDIRECT_URI")
-    )
+    const agentConfig = {
+    agentID: process.env.AGENT_ID || "",
+    agentSecret: process.env.AGENT_SECRET || "",
+    };
     
-    AGENT_CONFIG = AgentConfig(
-        agent_id=os.getenv("AGENT_ID"),
-        agent_secret=os.getenv("AGENT_SECRET")
-    )
+    const model = new ChatGoogleGenerativeAI({
+    apiKey: process.env.GOOGLE_API_KEY || "",
+    model: process.env.MODEL_NAME || "gemini-2.5-flash",
+    });
     
+    async function runAgent() {
+    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
     
-    async def main():
+        const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
+        console.log("Opening authentication URL in your browser...");
+        await open(authURL);
     
-        # Perform OBO flow (authenticating on behalf of the user)
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-            # Get agent token
-            agent_token = await auth_manager.get_agent_token(["openid"])
+        const app = express();
+        let server: Server;
     
-            # Generate user authorization URL
-            auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid"])
+        let authCodeResponse: AuthCodeResponse | undefined;
     
-            print("Open this URL in your browser to authenticate:")
-            print(auth_url)
+        const authCodePromise = new Promise<AuthCodeResponse>((resolve) => {
+            app.get("/callback", async (req, res) => {
+                try {
+                    const code = req.query.code as string;
+                    const session_state = req.query.session_state as string;
+                    const state = req.query.state as string;
     
-            callback = OAuthCallbackServer(port=6274)
-            callback.start()
+                    if (!code) {
+                        res.status(400).send("No authorization code found.");
+                        return;
+                    }
     
-            print("Waiting for authorization code from redirect...")
+                    authCodeResponse = {
+                        code: code,
+                        state: state,
+                        session_state: session_state,
+                    };
     
-            # Wait for redirect
-            auth_code, returned_state, error = await callback.wait_for_code()
-            callback.stop()
+                    resolve(authCodeResponse);
     
-            if auth_code is None:
-                print(f"Authorization failed or cancelled. Error: {error}")
-                return
-    
-            print(f"Received auth_code={auth_code}")
-    
-            # Exchange auth code for user token (OBO flow)
-            obo_token = await auth_manager.get_obo_token(auth_code, agent_token=agent_token, code_verifier=code_verifier)
-    
-    
-        # Connect to MCP Server with Authorization Header
-        client = MultiServerMCPClient(
-            {
-                "mcp_server": {
-                    "transport": "streamable_http",
-                    "url": "<mcp_server_url>",
-                    "headers": {
-                        "Authorization": f"Bearer {obo_token.access_token}",
+                    res.send("<h1>Login Successful!</h1><p>You can close this window.</p>");
+                } catch (err) {
+                    res.status(500).send("Internal Server Error");
+                } finally {
+                    if (server) {
+                        server.close();
                     }
                 }
+            });
+        });
+    
+        server = app
+            .listen(port, () => {
+            })
+            .on("error", (error) => {
+                console.error("Server error:", error);
+                process.exit(1);
+            });
+    
+        authCodeResponse = await authCodePromise;
+    
+        const oboToken = await asgardeoJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
+    
+        const client = new MultiServerMCPClient({
+            math: {
+                transport: "http",
+                url: process.env.MCP_SERVER_URL || "http://localhost:8000/mcp",
+                headers: {
+                    Authorization: "Bearer " + oboToken.accessToken,
+                },
+            },
+        });
+    
+        const tools = await client.getTools();
+    
+        const agent = createReactAgent({
+            llm: model,
+            tools: tools,
+        });
+    
+        const rl = readline.createInterface({ input, output });
+    
+        try {
+            while (true) {
+                try {
+                    const userInput = await rl.question("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ");
+    
+                    if (userInput.toLowerCase() === "exit") {
+                        console.log("Goodbye!");
+                        break;
+                    }
+    
+                    const result = await agent.invoke({
+                        messages: [{ role: "user", content: userInput }],
+                    });
+    
+                    const finalResponse = result.messages[result.messages.length - 1];
+                    console.log("Agent: " + finalResponse.content);
+                } catch (error) {
+                    console.error("Error running agent:", error);
+                    break;
+                }
             }
-        )
+        } finally {
+            await client.close();
+            rl.close();
+            process.exit(0);
+        }
+    }
     
-        # LLM (Gemini) + LangChain Agent
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash",
-            temperature=0.9
-        )
-    
-        tools = await client.get_tools()
-        agent = create_agent(llm, tools)
-    
-        user_input = input("Enter your question: ")
-    
-        # Invoke the agent
-        response = await agent.ainvoke(
-            {"messages": [{"role": "user", "content": user_input}]}
-        )
-    
-        print("Agent Response:", response["messages"][-1].content)
-    
-    
-    # Run app
-    if __name__ == "__main__":
-        asyncio.run(main())
-
+    runAgent().catch(console.error);
     ```
 
 === "Google ADK"
 
-    ```python title="main.py"
-    import os
-    import asyncio
-    from pathlib import Path
-    from dotenv import load_dotenv
+    ```typescript title="agent.ts"
+    import { stdin as input, stdout as output } from "node:process";
+    import * as readline from "node:readline/promises";
+    import { Server } from "http";
     
-    from asgardeo import AsgardeoConfig
-    from asgardeo_ai import AgentConfig, AgentAuthManager
+    import "dotenv/config";
+    import express from "express";
+    import { LlmAgent, MCPToolset, InMemoryRunner } from "@google/adk";
     
-    from google.adk.agents.llm_agent import LlmAgent
-    from google.adk.runners import InMemoryRunner
-    from google.adk.tools.mcp_tool import McpToolset
-    from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
-    from google.genai import types
+    import { AsgardeoJavaScriptClient } from "@asgardeo/javascript";
     
-    from oauth_callback import OAuthCallbackServer
+    import dotenv from "dotenv";
+    import open from "open";
     
-
-    # Load environment variables from .env file
-    load_dotenv()
+    import { dirname, resolve } from "node:path";
+    import { fileURLToPath } from "node:url";
     
-    ASGARDEO_CONFIG = AsgardeoConfig(
-        base_url=os.getenv("ASGARDEO_BASE_URL"),
-        client_id=os.getenv("CLIENT_ID"),
-        redirect_uri=os.getenv("REDIRECT_URI")
-    )
+    const __dirname = dirname(fileURLToPath(import.meta.url));
     
-    AGENT_CONFIG = AgentConfig(
-        agent_id=os.getenv("AGENT_ID"),
-        agent_secret=os.getenv("AGENT_SECRET")
-    )
+    const port = '3001';
     
-    # Perform OBO flow (authenticating on behalf of the user)
-    async def build_toolset():
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-            # Get agent token
-            agent_token = await auth_manager.get_agent_token(["openid"])
+    // Load environment variables from .env file
+    dotenv.config();
     
-            # Generate user authorization URL
-            auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid"])
+    const asgardeoConfig = {
+    afterSignInUrl: process.env.REDIRECT_URI || "",
+    clientId: process.env.CLIENT_ID || "",
+    baseUrl: process.env.ASGARDEO_BASE_URL || "",
+    };
     
-            print("Open this URL in your browser to authenticate:")
-            print(auth_url)
+    const agentConfig = {
+    agentID: process.env.AGENT_ID || "",
+    agentSecret: process.env.AGENT_SECRET || "",
+    };
     
-            callback = OAuthCallbackServer(port=6274)
-            callback.start()
+    process.env.GOOGLE_GENAI_API_KEY = process.env.GOOGLE_API_KEY;
     
-            print("Waiting for authorization code from redirect...")
+    async function runAgent() {
+    silenceADK();
+    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
     
-            # Wait for redirect
-            auth_code, returned_state, error = await callback.wait_for_code()
-            callback.stop()
+        const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
+        console.log("Opening authentication URL in your browser...");
+        await open(authURL);
     
-            if auth_code is None:
-                print(f"Authorization failed or cancelled. Error: {error}")
-                return None
+        const app = express();
+        let server: Server;
     
-            print(f"Received auth_code={auth_code}")
+        let authCodeResponse: AuthCodeResponse | undefined;
     
-            # Exchange auth code for user token (OBO flow)
-            obo_token = await auth_manager.get_obo_token(auth_code, agent_token=agent_token, code_verifier=code_verifier)
+        const authCodePromise = new Promise<AuthCodeResponse>((resolve) => {
+            app.get("/callback", async (req, res) => {
+                try {
+                    const code = req.query.code as string;
+                    const session_state = req.query.session_state as string;
+                    const state = req.query.state as string;
     
-        # Connect to MCP Server with Auth Header
-        return McpToolset(
-            connection_params=StreamableHTTPConnectionParams(
-                url= "<mcp_server_url>",
-                headers={"Authorization": f"Bearer {obo_token.access_token}"}
-            )
-        )
+                    if (!code) {
+                        res.status(400).send("No authorization code found.");
+                        Promise.reject(new Error("No authorization code found."));
+                    }
     
-    async def main():
+                    authCodeResponse = {
+                        code: code,
+                        state: state,
+                        session_state: session_state,
+                    };
     
-        mcp_toolset = await build_toolset()
-
-        if mcp_toolset is None:
-            return
+                    resolve(authCodeResponse);
     
-        # Define LLM Agent (Gemini)
-        agent = LlmAgent(
-            model="gemini-2.0-flash",
-            name="add_agent",
-            description="Adds two numbers using an MCP server.",
-            instruction="When the user asks to add numbers, call the MCP tool `add(a, b)`.",
-            tools=[mcp_toolset],
-        )
+                    res.send("<h1>Login Successful!</h1><p>You can close this window.</p>");
+                } catch (err) {
+                    res.status(500).send("Internal Server Error");
+                } finally {
+                    if (server) {
+                        server.close();
+                    }
+                }
+            });
+        });
     
-        # Setup runner + session
-        runner = InMemoryRunner(agent, app_name="add_numbers_app")
+        server = app
+            .listen(port, () => {
+            })
+            .on("error", (error) => {
+                console.error("Server error:", error);
+                process.exit(1);
+            });
     
-        session = await runner.session_service.create_session(
-            app_name="add_numbers_app",
-            user_id="user"
-        )
+        authCodeResponse = await authCodePromise;
     
-        question = input("Enter your question: ")
+        const oboToken = await asgardeoJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
     
-        try:
-            async for event in runner.run_async(
-                    user_id="user",
-                    session_id=session.id,
-                    new_message=types.Content(
-                        role="user",
-                        parts=[types.Part(text=question)]
-                    ),
-            ):
-                if event.content and event.content.parts:
-                    text = event.content.parts[0].text
-                    if text:
-                        print(text)
+        const rootAgent = new LlmAgent({
+            name: "example_agent",
+            model: process.env.MODEL_NAME || "gemini-2.5-flash",
+            instruction: `You are a helpful AI assistant.`,
+            apiKey: process.env.GOOGLE_API_KEY,
+            tools: [
+                new MCPToolset({
+                    type: "StreamableHTTPConnectionParams",
+                    url: process.env.MCP_SERVER_URL,
+                    header: {
+                        Authorization: `Bearer ${oboToken.accessToken}`,
+                    },
+                }),
+            ],
+        });
     
-        finally:
-            await mcp_toolset.close()
-            await runner.close()
+        const runner = new InMemoryRunner({
+            agent: rootAgent,
+            appName: "my-custom-app",
+        });
     
-    if __name__ == "__main__":
-        asyncio.run(main())
+        const userId = "user-123";
+        const session = await runner.sessionService.createSession({
+            appName: "my-custom-app",
+            userId: userId,
+        });
+    
+        const rl = readline.createInterface({ input, output });
+    
+        try {
+            while (true) {
+                const userInput = await rl.question("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ");
+    
+                if (userInput.toLowerCase() === "exit") {
+                    console.log("Goodbye!");
+                    break;
+                }
+    
+                const userMessage = {
+                    role: "user",
+                    parts: [{ text: userInput }],
+                };
+    
+                const eventStream = runner.runAsync({
+                    userId: userId,
+                    sessionId: session.id,
+                    newMessage: userMessage,
+                });
+    
+                try {
+                    for await (const event of eventStream) {
+                        if (event.content && event.content.parts) {
+                            const text = event.content.parts.map((p) => p.text).join("");
+                            if (text) {
+                                console.log(`Agent : ${text}`);
+                            }
+                        }
+                    }
+                } catch (error) {
+                    console.error("Error running agent:", error);
+                }
+            }
+        } finally {
+            rl.close();
+            process.exit(0);
+        }
+    }
+    
+    function silenceADK() {
+    const originalWrite = process.stdout.write;
+    // @ts-ignore
+    process.stdout.write = function (chunk, encoding, callback) {
+    if (typeof chunk === 'string' && chunk.includes('[ADK INFO]')) {
+    return true;
+    }
+    return originalWrite.apply(process.stdout, [chunk, encoding, callback]);
+    };
+    }
+    
+    runAgent().catch(console.error);
 
     ```
 
-## Project Structure (OBO flow)
+Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
-After adding OBO support, your project should look like this:
+```properties title=".env"
+# Asgardeo OAuth2 Configuration
+ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-tenant>
+CLIENT_ID=<your-client-id>
+REDIRECT_URI=http://localhost:3001/callback
 
-``` bash
-├── main.py              # AI agent with OBO authentication flow
-├── oauth_callback.py    # Captures OAuth redirect from Asgardeo
-└── .env                 # Environment configuration
+# Asgardeo Agent Credentials
+AGENT_ID=<agent_id>
+AGENT_SECRET=<agent_secret>
+
+# Google Gemini API Key
+GOOGLE_API_KEY=<google_api_key>
+
+# MCP Server URL
+MCP_SERVER_URL=<mcp_server_url>
 ```
 
 ## Run and Test the OBO flow
@@ -799,19 +788,14 @@ After adding OBO support, your project should look like this:
 Start your agent:
 
 ``` bash
-  python main.py
+npm start
 ```
 
-You will see an output similar to:
+You will see an output similar to this and your default browser will open, prompting you to log in:
 
 ``` bash
-    Open this URL in your browser to authenticate:
-    https://api.asgardeo.io/...<full authorize URL>...
-
-    Waiting for the authorization code...
+    Opening browser for authentication...
 ```
-
-Open the URL in your browser and log in as a test user.
 
 !!! Info
 You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
@@ -819,9 +803,7 @@ You need to create a test user in {{ product_name }} by following the instructio
 After successful login, return to the terminal. Your agent will automatically resume once it receives the authorization code and call the MCP tool on behalf of the authenticated user.
 
 ``` bash
-    Authorization code received: <code>
-    Enter your question: Can you add seventy six and eight?
-    Agent Response: The sum of seventy six and eight is 84.
+    Enter your question (e.g., 'Add 45 and 99') or type 'exit' to quit:
 ```
 
 Your AI agent has now successfully performed an authenticated, user-authorized, On-Behalf-Of request to your MCP server.

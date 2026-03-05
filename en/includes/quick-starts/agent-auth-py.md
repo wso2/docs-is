@@ -398,35 +398,35 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     
     async def main():
-    async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-    agent_token = await auth_manager.get_agent_token(["openid"])
-    
-        google_key = os.getenv("GOOGLE_API_KEY", "")
-        os.environ["OPENAI_API_KEY"] = google_key
-        os.environ["OPENAI_BASE_URL"] = "https://generativelanguage.googleapis.com/v1beta/openai/"
-    
-        llm = ai.openai.OpenAIModel(
-            model=os.getenv("MODEL_NAME")
-        )
-    
-        while True:
-            user_input = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
-            messages = ai.make_messages(user=user_input)
-    
-            # Exit the loop if the user types "exit"
-            if user_input.lower() == "exit":
-                print("Exiting the program. Goodbye!")
-                break
-            result = ai.run(my_agent, llm, messages, agent_token.access_token)
-    
-            print("\nAgent Response: ", end="")
-    
-            async for msg in result:
-                if getattr(msg, "text_delta", None):
-                    print(msg.text_delta, end="", flush=True)
-    
-            print()
-    
+        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+            agent_token = await auth_manager.get_agent_token(["openid"])
+        
+            google_key = os.getenv("GOOGLE_API_KEY", "")
+            os.environ["OPENAI_API_KEY"] = google_key
+            os.environ["OPENAI_BASE_URL"] = "https://generativelanguage.googleapis.com/v1beta/openai/"
+        
+            llm = ai.openai.OpenAIModel(
+                model=os.getenv("MODEL_NAME")
+            )
+        
+            while True:
+                user_input = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
+                messages = ai.make_messages(user=user_input)
+        
+                # Exit the loop if the user types "exit"
+                if user_input.lower() == "exit":
+                    print("Exiting the program. Goodbye!")
+                    break
+                result = ai.run(my_agent, llm, messages, agent_token.access_token)
+        
+                print("\nAgent Response: ", end="")
+        
+                async for msg in result:
+                    if getattr(msg, "text_delta", None):
+                        print(msg.text_delta, end="", flush=True)
+        
+                print()
+        
     if __name__ == "__main__":
     asyncio.run(main())
     ```
@@ -1106,7 +1106,7 @@ Start your agent:
   python main.py
 ```
 
-You will see an output similar to this and your default browser will open, prompting you to log in.:
+You will see an output similar to this and your default browser will open, prompting you to log in:
 
 ``` bash
     Opening browser for authentication...
