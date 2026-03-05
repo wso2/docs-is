@@ -772,6 +772,7 @@ nav:
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
       - Organization Me API: apis/user-organization-api.md
+      - Self password update API: apis/self-password-update-rest-api.md
       - Verification Code Management Me API: apis/verification-code-management-me-api.md
   - References:
     - References - Overview: references/index.md
