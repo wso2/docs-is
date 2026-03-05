@@ -23,8 +23,9 @@ To establish an identity for your AI agent, begin by registering it in {{ produc
 1. Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
 2. Click **+ New Agent**.
 3. Provide:
-  - Name: A descriptive name for your AI agent for human-readable display purposes
-  - Description (optional): Purpose and functionality of the agent
+
+   - Name: A descriptive name for your AI agent for human-readable display purposes
+   - Description (optional): Purpose and functionality of the agent
 
 !!! Example
     Name: Math Assistant Agent
