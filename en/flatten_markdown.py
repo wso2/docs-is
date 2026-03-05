@@ -137,13 +137,13 @@ def on_post_page(output, page, config):
     else:
         dest_path = os.path.splitext(abs_dest_path)[0] + ".md"
 
-    if not os.path.exists(dest_path):
-        os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-        with open(dest_path, 'w', encoding='utf-8') as f:
-            f.write(content)
-        
-        # TRACK FOR llms-full.txt
-        rel_url = os.path.relpath(dest_path, config['site_dir'])
+    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+    with open(dest_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    # TRACK FOR llms-full.txt
+    rel_url = os.path.relpath(dest_path, config['site_dir'])
+    if not any(p["url"] == rel_url for p in ALL_PAGES):
         ALL_PAGES.append({"title": page.title, "url": rel_url})
 
 def on_post_build(config):
