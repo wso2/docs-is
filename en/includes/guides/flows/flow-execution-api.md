@@ -2,7 +2,7 @@
 
 Use the Flow Execution API to run user journeys that you design in the Flow Builder of {{product_name}} directly from your client application.
 
-The Flow Execution API is exposed at `{{base_path}}/api/server/v1/flow/execute`. This endpoint is open and does not require an authorization header.
+The Flow Execution API is exposed at `{{api_base_path}}/api/server/v1/flow/execute`. This endpoint is open and does not require an authorization header.
 
 {% if product_name == "WSO2 Identity Server" %}
 !!! info
@@ -15,12 +15,12 @@ The Flow Execution API is exposed at `{{base_path}}/api/server/v1/flow/execute`.
 
 ## Start flow execution
 
-Call `POST /api/server/v1/flow/execute` with the `flowType` of the flow that should be executed.
+Call `POST {{api_base_path}}/api/server/v1/flow/execute` with the `flowType` of the flow that should be executed.
 
 === "Sample request"
 
     ```bash
-    curl --location '{{base_path}}/api/server/v1/flow/execute' \
+    curl --location '{{api_base_path}}/api/server/v1/flow/execute' \
     --header 'Content-Type: application/json' \
     --data '{
       "flowType": "<Flow_Type>"
@@ -80,10 +80,6 @@ The value for `flowType` depends on the flow you want to execute. Refer to the t
               }
             ]
           }
-        ],
-        "requiredParams": [
-          "http://wso2.com/claims/emailaddress",
-          "password"
         ]
       }
     }
