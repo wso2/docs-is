@@ -320,7 +320,7 @@ The diagram below illustrates the device flow.
         curl -v -k -X POST {{base_url}}/oauth2/device_authorize \
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=<client_id>"
+        --data-urlencode "client_id=<client_id>" \
         --data-urlencode "scope=<scopes>"
         ```
 
@@ -330,7 +330,7 @@ The diagram below illustrates the device flow.
         curl -v -k -X POST {{base_url_example}}/oauth2/device_authorize \
         --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga"
+        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
         --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
@@ -363,7 +363,7 @@ The diagram below illustrates the device flow.
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=<client_id>" \
-        --data-urlencode "device_code=<device_code>"
+        --data-urlencode "device_code=<device_code>" \
         --data-urlencode "scope=<scopes>"
         ```
 
@@ -375,7 +375,7 @@ The diagram below illustrates the device flow.
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
-        --data-urlencode "device_code=d3fe0db1-2334-48fa-b7d9-821ecfad10d5"
+        --data-urlencode "device_code=d3fe0db1-2334-48fa-b7d9-821ecfad10d5" \
         --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
