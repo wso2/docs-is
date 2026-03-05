@@ -363,8 +363,7 @@ The diagram below illustrates the device flow.
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=<client_id>" \
-        --data-urlencode "device_code=<device_code>" \
-        --data-urlencode "scope=<scopes>"
+        --data-urlencode "device_code=<device_code>" 
         ```
 
     === "Sample request (/token)"
@@ -375,8 +374,7 @@ The diagram below illustrates the device flow.
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
-        --data-urlencode "device_code=d3fe0db1-2334-48fa-b7d9-821ecfad10d5" \
-        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
+        --data-urlencode "device_code=d3fe0db1-2334-48fa-b7d9-821ecfad10d5"
         ```
 
 7. If the user grants access, the authorization server validates the verification code and responds with the access token.
