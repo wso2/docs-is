@@ -478,7 +478,7 @@ Add environment configuration by creating a `.env` file at the project root to h
 
 ```properties title=".env"
 # Asgardeo OAuth2 Configuration
-ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-tenant>
+ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<organization-name>
 CLIENT_ID=<your-client-id>
 REDIRECT_URI=http://localhost:3001/callback
 
@@ -491,6 +491,9 @@ GOOGLE_API_KEY=<google_api_key>
 
 # MCP Server URL
 MCP_SERVER_URL=<mcp_server_url>
+
+# LLM model used by the agent (any supported model can be used).
+MODEL_NAME="gemini-2.5-flash"
 ```
 
 !!! Important

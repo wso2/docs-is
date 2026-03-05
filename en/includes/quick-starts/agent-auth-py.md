@@ -448,6 +448,9 @@ GOOGLE_API_KEY=<google_api_key>
 
 # MCP Server URL
 MCP_SERVER_URL=<mcp_server_url>
+
+# LLM model used by the agent (any supported model can be used).
+MODEL_NAME="gemini-2.5-flash"
 ```
 
 !!! Important
