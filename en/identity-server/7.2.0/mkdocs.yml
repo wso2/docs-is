@@ -870,8 +870,9 @@ nav:
             - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
             - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
             - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
-          - Organization discovery:
-            - Organization discovery: guides/organization-management/organization-discovery/index.md
+          - Organization login:
+            - Overview: guides/organization-management/organization-login.md
+            - Organization discovery: guides/organization-management/organization-discovery/organization-discovery.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
           - Customizations:
             - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md

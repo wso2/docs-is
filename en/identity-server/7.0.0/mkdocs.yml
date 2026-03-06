@@ -725,8 +725,9 @@ nav:
           - Onboard users: guides/organization-management/onboard-users.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
           - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-          - Organization discovery:
-            - Organization discovery: guides/organization-management/organization-discovery/index.md
+          - Organization login:
+            - Overview: guides/organization-management/organization-login.md
+            - Organization discovery: guides/organization-management/organization-discovery/organization-discovery.md
             - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
           - Cleaning up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
       - Analytics:
