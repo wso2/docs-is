@@ -714,21 +714,31 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
-          - Overview: guides/organization-management/organizations-overview.md
+          - Getting started:
+            - Overview: guides/organization-management/organizations-overview.md
           - Set up organizations: guides/organization-management/manage-organizations.md
-          - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-          - Share applications: guides/organization-management/share-applications.md
-          - Onboard admins:
-            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
-            - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
-            - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-          - Onboard users: guides/organization-management/onboard-users.md
+          - Delegate administration:
+            - Set up administration portal: guides/organization-management/manage-b2b-administration.md
+            - Onboard administrators:
+              - Onboard administrators: guides/organization-management/onboard-org-admins/index.md
+              - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
+              - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
+          - Configure organization applications:
+            - Share applications: guides/organization-management/share-applications.md
+          - Authorize API resources:
+            - Overview: guides/organization-management/api-authorization-overview.md
+            - Authorize applications to API resources: guides/organization-management/api-authorization-for-b2b.md
+            - Configure roles to consume authorized APIs: guides/organization-management/organization-roles.md
+            - Generate tokens for organization applications: guides/organization-management/generate-tokens-for-organization-apps.md
+          - Manage organization users:
+            - Onboard users: guides/organization-management/onboard-users.md
+          - Enable organization-based login:
+            - Organization discovery: guides/organization-management/organization-discovery/organization-discovery.md
+            - Email domain-based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+          - Offboard organizations:
+            - Disable or delete an organization: guides/organization-management/disable-delete-organizations.md
+            - Clean up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
-          - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-          - Organization discovery:
-            - Organization discovery: guides/organization-management/organization-discovery/index.md
-            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
-          - Cleaning up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
       - Analytics:
         - ELK Analytics:
           - Elk analytics: guides/analytics/elk-analytics/index.md
