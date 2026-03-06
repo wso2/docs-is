@@ -120,21 +120,6 @@ Initialize the TypeScript configuration by running the following command.
 npx tsc --init
 ```
 
-Update the `tsconfig.json` file with the following settings.
-
-```json title="tsconfig.json"
-{
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
-}
-```
-
 Create `agent.ts` that implements an AI agent which first obtains a valid access token from **{{ product_name }}** by authenticating itself. The agent then includes that token in the `Authorization` header (for example `Authorization: Bearer <token>`) when calling the MCP tool.
 
 === "LangChain"
