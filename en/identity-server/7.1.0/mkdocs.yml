@@ -786,6 +786,10 @@ nav:
             - Disable or delete an organization: guides/organization-management/disable-delete-organizations.md
             - Clean up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+      - Notification Channels:
+          - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
+          - Configure Email Provider: deploy/configure/email-sending-module.md
+          - Configure Push Provider: guides/notification-channels/configure-push-provider.md
       - Customizations:
           - Customize branding:
               - Branding: guides/branding/index.md
