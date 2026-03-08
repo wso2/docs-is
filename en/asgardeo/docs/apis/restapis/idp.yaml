@@ -451,7 +451,7 @@ paths:
         - Identity Providers
       summary: |
         Retrieve IdP by ID
-      description: "This API provides the capability to retrieve the identity provider details using its ID. Furthermore, specifying the ``Accept : application/xml`` header provides the ability to export identity provider (IdP) data as XML. \n\n <b>Scope(Permission) required:</b> ``internal_idp_view``"
+      description: "This API provides the capability to retrieve the identity provider details using its ID. \n\n <b>Scope(Permission) required:</b> ``internal_idp_view``"
       operationId: getIDP
       parameters:
         - name: identity-provider-id
