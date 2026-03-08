@@ -103,14 +103,18 @@ Configurations related to SMS providers are located under the **Notification Cha
       </tr>
       <tr>
         <td>Headers</td>
-        <td>Custom static headers to be passed with the HTTP request. Use this field to configure authorization details for your SMS provider. If multiple headers are needed, separate them with commas. (Optional)</td>
+        <td>Custom static headers to be passed with the HTTP request.{% if product_name == "WSO2 Identity Server" and is_version <= "7.2.0" %} Use this field to configure authorization details for your SMS provider.{% endif %} If multiple headers are needed, separate them with commas. (Optional)</td>
         <td>
+          {% if product_name == "WSO2 Identity Server" and is_version <= "7.2.0" %}
           <strong>Basic authentication:</strong><br/>
           <code>Authorization: Basic &lt;base64_encoded_username:password&gt;</code><br/><br/>
           <strong>Bearer token authentication:</strong><br/>
           <code>Authorization: Bearer &lt;token&gt;</code><br/><br/>
           <strong>Multiple headers:</strong><br/>
           <code>Authorization: Bearer &lt;token&gt;, x-custom-header: value</code>
+          {% else %}
+          <code>x-api-key: your_api_key</code>
+          {% endif %}
         </td>
       </tr>
     {% if not (product_name == "WSO2 Identity Server" and is_version <= "7.2.0") %}
