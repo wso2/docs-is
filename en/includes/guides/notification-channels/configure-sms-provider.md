@@ -1,6 +1,10 @@
 # Configure SMS provider
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
+Configurations related to SMS providers are located under the **Email & SMS** section.
+{% else %}
 Configurations related to SMS providers are located under the **Notification Channels** section.
+{% endif %}
 
 ## Supported Providers
 

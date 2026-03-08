@@ -94,7 +94,7 @@ Follow the steps given below to enable the email sender globally for all tenants
 
 Follow the steps given below to enable the email sender per tenant.
 
-1. On the {{ product_name }} Console, go to **Notification Channels** > **Email Provider**.
+1. On the {{ product_name }} Console, go to {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}**Email & SMS**{% else %}**Notification Channels**{% endif %} > **Email Provider**.
 2. Provide the required details.
 
    ![Configure Email Provider]({{base_path}}/assets/img/guides/notification-channels/email-provider/configure-email-provider.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -151,7 +151,7 @@ Follow the steps given below to enable the email sender per tenant.
 
     ### Configure SMTP settings in {{ product_name }}
 
-    - Go to **Notification Channels** > **Email Provider**.
+    - Go to {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}**Email & SMS**{% else %}**Notification Channels**{% endif %} > **Email Provider**.
     - Provide the From email address and other relevant details. Click on **Client Credentials** from the Authentication type dropdown.
     - Provide the required details retrieved from the previous step.
     

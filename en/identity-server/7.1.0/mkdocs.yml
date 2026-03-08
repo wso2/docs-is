@@ -788,7 +788,7 @@ nav:
           - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
       - Notification Channels:
           - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
-          - Configure Email Provider: deploy/configure/email-sending-module.md
+          - Configure Email Provider: guides/notification-channels/configure-email-provider.md
           - Configure Push Provider: guides/notification-channels/configure-push-provider.md
       - Customizations:
           - Customize branding:
