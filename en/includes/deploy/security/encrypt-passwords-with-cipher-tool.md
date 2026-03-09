@@ -13,7 +13,7 @@ While you are able to encrypt passwords using symmetric or asymmetric encryption
 Asymmetric encryption methods like RSA are not recommended due to their vulnerability to quantum computing capabilities.
 
 !!! important
-    [Configure a separate keystore]({{base_path}}/deploy/security/keystores/configure-keystores/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
+    [Configure the internal keystore]({{base_path}}/deploy/security/keystores/configure-keystores/#configure-the-internal-keystore) to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
 
 Follow the steps below to encrypt passwords:
 

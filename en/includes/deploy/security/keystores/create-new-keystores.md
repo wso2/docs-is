@@ -48,28 +48,55 @@ There are two ways to create keystores for WSO2 Identity Server:
         - If you did not specify values for the `-keypass` and the `-storepass`, , you will be prompted to enter the keystore password (`-storepass`). It’s advisable to use a password generator to create a strong password. When prompted for `-keypass`, press Enter to use the same password for both the keystore and the key.
         - If you did not specify values for `-dname`, you will be asked to provide those details individually.
 
-## Create a keystore for internal data encryption
+## Create the internal keystore
 
-The internal keystore is used by the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool) to encrypt passwords in configuration files. Unlike the primary and TLS keystores which use RSA key pairs, the internal keystore uses a **symmetric AES key** (recommended for IS 7.2 due to post-quantum resilience).
+The internal keystore is used for encrypting sensitive internal data such as passwords in configuration files via the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool). You can create the internal keystore with either a symmetric AES key or an asymmetric RSA key pair, depending on your [Cipher Tool configuration]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
-Navigate to `<IS_HOME>/repository/resources/security/` and run:
+!!! tip
+    **Symmetric AES (Recommended)** — Recommended for IS 7.2 due to post-quantum resilience and better performance. Use this unless you have a specific reason to use asymmetric encryption.
 
-```bash
-keytool -genseckey \
-  -alias <internal-key-alias> \
-  -keyalg AES \
-  -keysize 256 \
-  -keystore <internal-keystore-name>.p12 \
-  -storetype PKCS12 \
-  -storepass <internal-keystore-password> \
-  -keypass <internal-keystore-password>
-```
+Navigate to `<IS_HOME>/repository/resources/security/` and run one of the following commands:
 
-This command will create a keystore with the following details:
+=== "Symmetric (AES) - Recommended"
 
-- **Keystore name**: `<internal-keystore-name>.p12`
-- **Alias of the secret key**: `<internal-key-alias>`
-- **Keystore password**: `<internal-keystore-password>`
+    ``` bash
+    keytool -genseckey \
+      -alias <internal-key-alias> \
+      -keyalg AES \
+      -keysize 256 \
+      -keystore <internal-keystore-name>.p12 \
+      -storetype PKCS12 \
+      -storepass <internal-keystore-password> \
+      -keypass <internal-keystore-password>
+    ```
+
+    This command will create a keystore with the following details:
+
+    - **Keystore name**: `<internal-keystore-name>.p12`
+    - **Alias of the secret key**: `<internal-key-alias>`
+    - **Keystore password**: `<internal-keystore-password>`
+
+=== "Asymmetric (RSA)"
+
+    ``` bash
+    keytool -genkeypair \
+      -alias <internal-key-alias> \
+      -keyalg RSA \
+      -keysize 2048 \
+      -keystore <internal-keystore-name>.p12 \
+      -storetype PKCS12 \
+      -storepass <internal-keystore-password> \
+      -keypass <internal-keystore-password>
+    ```
+
+    This command will create a keystore with the following details:
+
+    - **Keystore name**: `<internal-keystore-name>.p12`
+    - **Alias of the key pair**: `<internal-key-alias>`
+    - **Keystore password**: `<internal-keystore-password>`
+
+    !!! note
+        The public key certificate must have the **Data Encipherment** key usage to allow encryption of raw data. If using an asymmetric key for internal encryption, ensure your certificate includes this usage.
 
 !!! warning
     Adding an internal keystore to an existing deployment will make already encrypted data unusable. This should be done during initial setup only.

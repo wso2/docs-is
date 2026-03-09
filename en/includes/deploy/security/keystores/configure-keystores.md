@@ -119,7 +119,7 @@ In production environments, it is recommended to use distinct keystores for diff
     If [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) is used, adding a new keystore for internal data encryption for an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
 
 !!! tip
-    Before configuring the internal keystore, you must first [create it]({{base_path}}/deploy/security/keystores/create-new-keystores/#create-a-keystore-for-internal-data-encryption).
+    Before configuring the internal keystore, you must first [create it]({{base_path}}/deploy/security/keystores/create-new-keystores/#create-the-internal-keystore).
 
 To configure the internal keystore, add the following configuration block to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
