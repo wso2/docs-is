@@ -1,6 +1,11 @@
 # Create New Keystores
 
-There are two ways to create keystores for WSO2 Identity Server. You can either generate a keystore using an already existing public key certificate (CA-signed), or you can create the public key certificate at the time of generating the keystore.
+This page explains how to create keystores using keytool commands. After creating keystores, you will need to configure them in the `deployment.toml` file — see [Configure Keystores]({{base_path}}/deploy/security/keystores/configure-keystores) for the next steps.
+
+There are two ways to create keystores for WSO2 Identity Server:
+
+1. Generate a keystore with a new self-signed certificate
+2. Generate a keystore using an existing CA-signed certificate
 
 !!! note
     If you are creating a new keystore for [data encryption]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption), make sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained [here]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption/#recommendations-for-setting-up-keystores).
@@ -42,6 +47,80 @@ There are two ways to create keystores for WSO2 Identity Server. You can either 
     !!! tip
         - If you did not specify values for the `-keypass` and the `-storepass`, , you will be prompted to enter the keystore password (`-storepass`). It’s advisable to use a password generator to create a strong password. When prompted for `-keypass`, press Enter to use the same password for both the keystore and the key.
         - If you did not specify values for `-dname`, you will be asked to provide those details individually.
+
+## Create a keystore for internal data encryption
+
+The internal keystore is used by the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool) to encrypt passwords in configuration files. Unlike the primary and TLS keystores which use RSA key pairs, the internal keystore uses a **symmetric AES key** (recommended for IS 7.2 due to post-quantum resilience).
+
+Navigate to `<IS_HOME>/repository/resources/security/` and run:
+
+```bash
+keytool -genseckey \
+  -alias <internal-key-alias> \
+  -keyalg AES \
+  -keysize 256 \
+  -keystore <internal-keystore-name>.p12 \
+  -storetype PKCS12 \
+  -storepass <internal-keystore-password> \
+  -keypass <internal-keystore-password>
+```
+
+This command will create a keystore with the following details:
+
+- **Keystore name**: `<internal-keystore-name>.p12`
+- **Alias of the secret key**: `<internal-key-alias>`
+- **Keystore password**: `<internal-keystore-password>`
+
+!!! warning
+    Adding an internal keystore to an existing deployment will make already encrypted data unusable. This should be done during initial setup only.
+
+## Import a certificate into the truststore
+
+After creating a new keystore (for example, a TLS keystore), export its certificate and import it into the truststore so that {{product_name}} trusts it.
+
+1. Export the certificate from the keystore:
+
+    ```bash
+    keytool -exportcert \
+      -alias <key-alias> \
+      -keystore <keystore-name>.p12 \
+      -storetype PKCS12 \
+      -storepass <keystore-password> \
+      -file <certificate-name>.crt
+    ```
+
+2. Import the exported certificate into the truststore:
+
+    ```bash
+    keytool -importcert \
+      -alias <key-alias> \
+      -file <certificate-name>.crt \
+      -keystore client-truststore.p12 \
+      -storetype PKCS12 \
+      -storepass <truststore-password> \
+      -noprompt
+    ```
+
+## Remove the default WSO2 certificate from the truststore
+
+The default WSO2 self-signed certificate is pre-imported into the truststore with the alias `wso2carbon`. In production, remove it after importing your own certificates:
+
+```bash
+keytool -delete \
+  -alias wso2carbon \
+  -keystore client-truststore.p12 \
+  -storetype PKCS12 \
+  -storepass <truststore-password>
+```
+
+!!! tip
+    To list all certificates currently in the truststore and verify which aliases exist, run:
+    ```bash
+    keytool -list \
+      -keystore client-truststore.p12 \
+      -storetype PKCS12 \
+      -storepass <truststore-password>
+    ```
 
 ## Create a keystore using an existing certificate
 
