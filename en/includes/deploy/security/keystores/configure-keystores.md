@@ -115,7 +115,7 @@ To configure a custom TLS keystore for SSL/TLS connections, update the following
     type = "JKS"
     password = "<tls-keystore-password>"
     alias = "<tls-key-alias>"
-    key_password = "<tls-key-password>"
+    key_password = "<tls-keystore-password>"
     ```
 
 === "PKCS12"
@@ -126,7 +126,7 @@ To configure a custom TLS keystore for SSL/TLS connections, update the following
     type = "PKCS12"
     password = "<tls-keystore-password>"
     alias = "<tls-key-alias>"
-    key_password = "<tls-key-password>"
+    key_password = "<tls-keystore-password>"
     ```
   
 The internally used trust-store configurations given below can be changed to define a custom truststore for SSL validations.
