@@ -106,7 +106,7 @@ Before starting the server,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```
@@ -128,7 +128,7 @@ Before starting the server,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```
@@ -151,7 +151,7 @@ To enable hostname verification,
 
 1. Open the product startup script in the `<IS_HOME>/bin` directory.
 
-    === "Linux/Mac OS"
+    === "Linux/macOS"
         ``` bash
         wso2server.sh
         ```
@@ -196,11 +196,15 @@ If required, increase the session ID length by changing the `sessionIDLength` at
 <!-- TODO !!! info
     For more information, see <a href="{{base_path}}/guides/password-mgt/forced-password-reset/">Forced Password Reset</a>. -->
 
-## Access to the Console
+## Access the Console
 
 The majority of the users only need to sign in to the connected service providers via the WSO2 Identity Server. Such users should not have permission to sign in to the WSO2 Identity Server Console.
 
 Make sure that the permission for signing in to the WSO2 Identity Server Console is granted only to the users that need to use the Console. Instead of granting all permission to one administrator, distribute the responsibilities among multiple administrators by assigning different permissions. <!-- TODO For instructions, see <a href="{{base_path}}/guides/identity-lifecycles/manage-roles-overview/">Manage User Roles</a>.-->
+
+## Invoke APIs
+
+Do not use the super admin or any high-privileged user credentials when invoking WSO2 Identity Server REST APIs. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
 
 ## Log rotation and monitoring
 
@@ -295,3 +299,20 @@ For the scenarios listed below, you can define a regular expression to validate 
 <!-- TODO - [Username Recovery]({{base_path}}/guides/identity-lifecycles/recover-username/#enable-username-recovery)-->
 - [Self User Registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/)
 <!-- TODO - [Lite User Registration]({{base_path}}/guides/identity-lifecycles/lite-user-registration) -->
+
+## Prevent accepting sensitive data as query parameters in API requests
+
+By default, WSO2 Identity Server accepts sensitive user credentials (such as `username`, `password`, `client_secret`) as form parameters in the request body when calling token endpoints. However, a misconfigured application can send these sensitive parameters as part of the URL's query string and expose this data in server access logs.
+
+To mitigate this security risk, you can configure WSO2 Identity Server to reject requests that contain sensitive data in query parameters of specific endpoints. To do so, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+```
+[request_parameters]
+allow_sensitive_data_in_url=false
+```
+
+When set to `false`, the server will reject requests with sensitive data with an HTTP 400 Bad Request error.
+
+!!! info
+
+    This feature is available from **7.0.0.50** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/). It is recommended to apply this configuration as part of your secure production deployment.

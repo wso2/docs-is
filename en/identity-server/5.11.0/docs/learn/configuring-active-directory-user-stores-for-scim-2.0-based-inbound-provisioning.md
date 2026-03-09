@@ -179,7 +179,7 @@ You need to configure the secondary user store. This can be done in the followin
 
 ## Step 2: Import the user store certificate
 
-To import the user store certificate to the WSO2 Identity Server trust store, navigate to `<IS_HOME>repository/resources/security` folder and execute the following command:
+To import the user store certificate to the WSO2 Identity Server trust store, navigate to `<IS_HOME>/repository/resources/security` folder and execute the following command:
 
 ``` shell
 keytool -import -alias certalias -file <certificate>.pem -keystore client-truststore.jks -storepass wso2carbon

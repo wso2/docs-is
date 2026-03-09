@@ -76,6 +76,11 @@ public class ValidateRSASignature {
 
 Configuration to switch between signed and unsigned ID tokens. With default configurations, the ID token is always signed. If you want to switch off ID token signing, add the following configuration changes in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
+!!! warning "Introspection can reveal user information"
+    Enabling the configuration `include_validation_context_as_jwt_in_reponse` allows the introspection endpoint to return user claims in the `token_string` (JWT).
+    API gateways and resource servers that introspect tokens may therefore receive user information if they send the introspect request with `required_claims`.
+    Enable this only if required, and ensure that access to the introspection endpoint is strictly controlled.
+
 ```xml
 [oauth.token.validation]
 include_validation_context_as_jwt_in_reponse= true

@@ -1,6 +1,6 @@
 # Angular Quickstart
 
-Welcome to the Angular Quickstart guide! In this document, you will learn to build an Angualr app, add user login and display user profile information using {{ product_name }}.
+Welcome to the Angular Quickstart guide! In this document, you will learn to build an Angular app, add user login and display user profile information using {{ product_name }}.
 
 [//] STEPS_START
 
@@ -31,8 +31,8 @@ Create an Angular app using Angular CLI.
 ng new {{ product }}-angular
 ```
 
-!!! tip "Tip"
-    To run the command above, you need to have Angular CLI installed. You can install it using the following command.
+!!! Important
+    - Before running the command above, make sure you have ***Angular CLI version 17*** installed. This guide is compatible only with Angular CLI 17. You can install it using the following command.
 
     === "npm"
 
@@ -50,6 +50,8 @@ ng new {{ product }}-angular
         ``` bash
         pnpm add -g @angular/cli@17 
         ```
+    
+    - When creating a new Angular project using the above command, if prompted to set up Server-Side Rendering (SSR), choose **No**.
 
 ## Install angular-oauth2-oidc
 
@@ -196,7 +198,7 @@ Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
 
 ## Display logged in user details
 
-Modified the code as below to see logged in user details.
+Modify the code as below to see logged-in user details.
 
 Add the `username()` function to the `app.component.ts` file to access the username attribute.
 
@@ -212,7 +214,7 @@ Add the `username()` function to the `app.component.ts` file to access the usern
 
 ```
 
-Modify the `app.component.html` file with the following code.
+Modify the `app.component.html` file to the following code.
 
 ```html title="app.component.html" hl_lines="2"
 

@@ -34,7 +34,7 @@ After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or
 
 1.  **Minimum Configurations for changing default datasource to H2.**
  
- Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Configurations can be done by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
       <table>
       <thead>
@@ -82,11 +82,11 @@ After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or
        
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/h2.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/h2.sql`
-           - `<IS-HOME>/dbscripts/consent/h2.sql`
+           - `<IS_HOME>/dbscripts/identity/h2.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/h2.sql`
+           - `<IS_HOME>/dbscripts/consent/h2.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -110,9 +110,9 @@ After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or
            
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/h2.sql`
+           - `<IS_HOME>/dbscripts/h2.sql`
        
    3.  Download the H2 JDBC driver for the version, you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
@@ -217,7 +217,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 ### Configure the connection pool to commit pending transactions on connection return  
         
   1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS:
+        -   On Linux/macOS:
             `                 <IS_HOME>/bin/wso2server.sh/                `
         -   On Windows:
             `                 <IS_HOME>\bin\wso2server.bat                `

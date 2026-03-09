@@ -93,9 +93,13 @@ markdown_extensions:
 extra_css:
   - assets/libs/fontawesome-free-6.4.2-web/css/all.min.css
   - assets/css/theme.css
+  - assets/css/admonition.css
+  - https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/build.css
+  - assets/css/copy-page.css
 
 extra_javascript:
   - assets/js/theme.js
+  - assets/js/copy-page.js
 
 extra:
   material:
@@ -137,8 +141,8 @@ extra:
     React:
       link: complete-guides/react/introduction
       level: 2
-    Node.js:
-      link: complete-guides/nodejs/introduction
+    Express.js:
+      link: complete-guides/expressjs/introduction
       level: 2
     Angular:
       link: complete-guides/angular/introduction
@@ -164,20 +168,6 @@ extra:
     AWS:
       link: complete-guides/aws/introduction
       level: 2
-
-  nav_chip:
-    Design login flow:
-      type: ai
-      level: 1
-    Self-registration flow:
-      type: Preview
-      level: 4
-    Self Registration:
-      type: Preview
-      level: 3
-    Password Recovery:
-      type: Preview
-      level: 3
 
   nav_icons:
     Overview:
@@ -207,8 +197,8 @@ extra:
     Setup:
       icon: octicons/gear-16
       level: 1
-    Developer Tools:
-      icon: octicons/package-16
+    Asgardeo MCP Server:
+      icon: assets/libs/custom-icons/mcp.svg
       level: 1
     React SDK:
       icon: fontawesome/brands/react
@@ -216,6 +206,9 @@ extra:
     Next.js SDK:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 2
+    Connectors:
+      icon: octicons/beaker-16
+      level: 1
     APIs:
       icon: octicons/code-16
       level: [1, 2, 3]
@@ -243,6 +236,9 @@ extra:
     Node.js Quickstart:
       icon: fontawesome/brands/node-js
       level: 3
+    Express.js:
+      icon: assets/libs/custom-icons/expressjs.svg
+      level: 3
     Next.js:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 3
@@ -269,6 +265,24 @@ extra:
       icon: fontawesome/solid/user-shield
     MCP Server:
       icon: assets/libs/custom-icons/mcp.svg
+    Sift:
+      icon: assets/images/sift-logo.svg
+    Onfido:
+      icon: assets/images/onfido-logo.svg
+  
+  connectors:
+    - name: Sift
+      icon: assets/img/logo/sift-logo.svg
+      description: Helps prevent fraudulent logins to your system.
+      source_link: https://store.wso2.com/connector/identity-fraud-detection-sift
+      category: fraud-detection
+      documentation_link: sift
+    - name: Onfido
+      icon: assets/img/logo/onfido-logo.svg
+      description: Provides identity verification so you know exactly who logs in.
+      source_link: https://store.wso2.com/connector/identity-verification-onfido
+      category: identity-verification
+      documentation_link: onfido
 
   integrations:
     - official:
@@ -350,6 +364,7 @@ extra:
             artifact_id: react-native-app-auth
             icon: assets/img/logo/react-logo.svg
             description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
+            documentation_link: get-started/try-your-own-app/react-native-cli-app-auth/
             source_link: https://github.com/FormidableLabs/react-native-app-auth
           - name: AppAuth Android
             artifact_id: net.openid:appauth

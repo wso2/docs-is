@@ -16,7 +16,7 @@ Follow the relevant instructions based on the operating system you use.
 !!! tip
     If you are running multiple WSO2 products on the same server, see [Default Ports of WSO2 Products]({{base_path}}/references/default-ports) for instructions on setting a port offset.
 
-### Start on Windows/Linux/Mac OS
+### Start on Windows/Linux/macOS
 
 To start the server, go to the `<IS_HOME>/bin` folder and run either depending on your OS:
 
@@ -25,7 +25,7 @@ To start the server, go to the `<IS_HOME>/bin` folder and run either depending o
     wso2server.bat
     ```
 
-=== "Linux / Mac OS"
+=== "Linux / macOS"
     ```
     wso2server.sh
     ```
@@ -47,7 +47,7 @@ Alternatively, you can install and run the server [as a Windows service]({{base_
     - Windows: **Start -\> Run**, enter
         `cmd` at the prompt, and click **Enter**.
 
-    - Linux/Mac OS: establish an SSH connection to the server or log
+    - Linux/macOS: establish an SSH connection to the server or log
         in to the text Linux console.
 
 2. Execute one of the following commands to start the server.
@@ -55,7 +55,7 @@ Alternatively, you can install and run the server [as a Windows service]({{base_
     - On Windows:
         `<IS_HOME>/bin/wso2server.bat --run`
 
-    - On Linux/Mac OS:
+    - On Linux/macOS:
         `sh <IS_HOME>/bin/wso2server.sh`
 
     !!! info
@@ -64,7 +64,7 @@ Alternatively, you can install and run the server [as a Windows service]({{base_
         -   On Windows:
             `<IS_HOME>\bin\wso2server.bat --run -DworkerNode`
 
-        -   On Linux/Mac OS:
+        -   On Linux/macOS:
             `sh <IS_HOME>/bin/wso2server.sh -DworkerNode`
 
         To know the additional actions you can perform, enter `-help` after the command. For example, `sh <IS_HOME>/bin/wso2server.sh -help`.

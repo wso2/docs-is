@@ -34,6 +34,10 @@ paths:
         <b>Scope required:</b><br>
         */internal_userstore_create
 
+        **NOTE:**
+        
+          When creating a user store, it will be **disabled by default**. To enable the user store, include the `disabled` property set to `false` in the properties of the payload.
+
       responses:
         '201':
           description: Successful response

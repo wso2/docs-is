@@ -1,0 +1,1 @@
+{% include "../../../../../../includes/references/extend/federation/write-a-custom-federated-authenticator.md" %}

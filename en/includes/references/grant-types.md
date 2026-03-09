@@ -2,22 +2,21 @@
 
 Grant types in OAuth 2.0 are defined as the methods used by a client to obtain an access token from the identity provider. {{product_name}} supports the following grant types. Each grant type is designed for a specific use case and supports different parameters.
 
-#### OAuth 2.0 grants
+## OAuth 2.0 grants
 
 - [Authorization code grant](#authorization-code-grant)
 - [Refresh token grant](#refresh-token-grant)
 - [Client credentials grant](#client-credentials-grant)
 - [Implicit grant](#implicit-grant)
 - [Password grant](#password-grant)
-{% if product_name == "WSO2 Identity Server" %}
 - [Device authorization grant](#device-authorization-grant)
-{% endif %}
 - [Token exchange grant](#token-exchange-grant)
 {% if product_name == "WSO2 Identity Server" %}
+- [JWT Bearer Grant](#jwt-bearer-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 {% endif %}
 
-#### {{product_name}}'s custom grants
+### {{product_name}}'s custom grants
 
 - [Organization switch grant](#organization-switch-grant)
 
@@ -36,14 +35,13 @@ The following diagram shows how the authorization code flow works.
 1. The user visits the client application and requests for login through {{ product_name }}.
 2. The client application redirects the authorization code request to {{ product_name }} (front channel).
 
-
     === "Request format (/authorize)"
 
         ``` bash
         {{base_url}}/oauth2/authorize
         ?response_type=code
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
+        &client_id=<client_id>
+        &redirect_uri=<redirect_uri>
         &scope=<scopes>
         ```
 
@@ -64,17 +62,18 @@ The following diagram shows how the authorization code flow works.
     ``` bash
     https://localhost:3000?code=9142d4cad58c66d0a5edfad8952192
     ```
+
 6. The client application uses this authorization code to request an access token from {{ product_name }} (back channel).
 
     === "Request format (/token)"
 
         ``` bash
         curl -v -X POST {{base_url}}/oauth2/token \ 
-        --basic -u <CLIENT_ID>:<CLIENT_SECRET> \
+        --basic -u <client_id>:<client_secret> \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
         --data-urlencode "grant_type=authorization_code" \
-        --data-urlencode "code=<AUTHORIZATION_CODE>" \
-        --data-urlencode "redirect_uri=<REDIRECT_URI>"
+        --data-urlencode "code=<authorization_code>" \
+        --data-urlencode "redirect_uri=<redirect_uri>"
         ```
 
     === "Sample request (/token)"
@@ -129,7 +128,7 @@ The following diagram shows how the refresh token flow works.
         --data-urlencode "grant_type=refresh_token" \
         --data-urlencode "refresh_token=<REFRESH_TOKEN>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -172,7 +171,7 @@ The following diagram shows how the client credentials grant flow works.
         --data-urlencode "grant_type=client_credentials" \
         --data-urlencode "scope=<scopes>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -193,7 +192,7 @@ The following diagram shows how the client credentials grant flow works.
     "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
-    
+
 3. The client application can now request for resources by providing the access token.
 
 4. The resource server returns the requested resources to the client application.
@@ -219,8 +218,8 @@ The following diagram shows how the implicit grant flow works.
         ```bash
         {{base_url}}/oauth2/authorize
         ?response_type=token
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
+        &client_id=<client_id>
+        &redirect_uri=<redirect_uri>
         ```
 
     === "Sample request (/authorize)"
@@ -273,7 +272,7 @@ The following diagram shows how the password grant flow works.
         --data-urlencode "scope=<scopes>"
 
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -300,12 +299,13 @@ The following diagram shows how the password grant flow works.
 6. The client application can now request user information from the resource server by providing the access token.
 7. The resource server returns the requested user information to the client application.
 
-{{password_grant_show_auth_failure_reason_note}}
-
 {% if product_name == "WSO2 Identity Server" %}
+{{password_grant_show_auth_failure_reason_note}}
+{% endif %}
+
 ## Device authorization grant
 
-Device authorization grant (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser. 
+[Device authorization grant](https://datatracker.ietf.org/doc/html/rfc8628) (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser.
 Such devices include smart TVs, printers, and gaming consoles. The device flow does not require two-way communication between the OAuth client and the device. Instead, it guides the end user to another device, such as a smartphone, to complete the sign-in process.
 
 The diagram below illustrates the device flow.
@@ -318,16 +318,20 @@ The diagram below illustrates the device flow.
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/device_authorize \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=<CLIENT_ID>"
+        --data-urlencode "client_id=<client_id>" \
+        --data-urlencode "scope=<scopes>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
         curl -v -k -X POST {{base_url_example}}/oauth2/device_authorize \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga"
+        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
+        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
 2. {{product_name}} issues a device code, a user code, and a verification URI.
@@ -343,12 +347,11 @@ The diagram below illustrates the device flow.
     }
     ```
 
-
 3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
 
-4. WSO2 Identity server prompts the user to enter the end-user code and the user enters the user code.
+4. {{ product_name }} prompts the user to enter the end-user code and the user enters the user code.
 
-5. WSO2 Identity server validates the code and asks the end user to accept or decline the authorization request.
+5. {{ product_name }} validates the code and asks the end user to accept or decline the authorization request.
 
 6. While the end user reviews the authorization request, the client polls the authorization server with the device code and client identifier to check if the user has completed the authorization step.
 
@@ -356,16 +359,18 @@ The diagram below illustrates the device flow.
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
-        --data-urlencode "client_id=<CLIENT_ID>" \
-        --data-urlencode "device_code=<DEVICE_CODE>"
+        --data-urlencode "client_id=<client_id>" \
+        --data-urlencode "device_code=<device_code>" 
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
@@ -379,15 +384,14 @@ The diagram below illustrates the device flow.
     "access_token":"74d610ab-7f4a-3b11-90e8-279d76644fc7",
     "refresh_token":"fdb58069-ecc7-3803-9b8b-6f2ed85eff19",
     "token_type":"Bearer",
-    "expires_in":3600
+    "expires_in":3600,
+    "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
 
 8. The client application can now request resources from the resource server by providing the access token.
 
 9. The resource server returns the requested user information to the client application.
-
-{% endif %}
 
 ## Token exchange grant
 
@@ -413,7 +417,7 @@ The following diagram shows how the token exchange grant flow works.
         --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:access_token" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -426,14 +430,53 @@ The following diagram shows how the token exchange grant flow works.
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
         ```
 
-    
 5. The authorization server responds to the client with the new access token.
 6. The client application can now request resources from the resource server by providing the access token.
 7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
 
-See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details.
+Token exchange can be used for delegation and impersonation use cases. See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange) for more details about delegation usecase. See  [user impersonation]({{base_path}}/guides/authorization/user-impersonation/via-business-application) for more details on user impersonation with token exchange grant.
+
+## JWT bearer grant
+
+OAuth 2.0 JWT bearer is a grant type in the OAuth 2.0 framework that enables the exchange of one type of token for another with a different set of permissions or attributes. This grant type is defined in the [RFC7523](https://datatracker.ietf.org/doc/html/rfc7523).
+
+The following diagram shows how the JWT Bearer grant flow works.
+
+![How the JWT bearer grant works]({{base_path}}/assets/img/references/grants/token-exchange-grant.png)
+
+1. The user sends a login request to the client application.
+2. The client application sends an authorization request to the third-party IdP.
+3. The third-party IdP returns the JWT access token for the user to the client application.
+4. The client application makes a token exchange request to the authorization server:
+
+    === "Request format (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
+        --data-urlencode "assertion=<jwt_token>"
+        ```
+
+    === "Sample request (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url_example}}/oauth2/token \
+        --header "Authorization: Basic RWkwV2Y5YnpmTXE0UTBsZndTdlRQamU4a2NFYTpIRvvyUzJIUjlrZE9YMjBXTG9JNmY1eE1wdUlBamdKeG5aUVVUMV9lNTJnYQ==" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
+        --data-urlencode "assertion=eyJ4NXQiOiJJSm5VOF9rbkpQOC1jMEJHWTdOT2N1eWEtSlEiLCJraWQiOiJPRE0wWkRBMk5qQTFOREl4TkdFd05ERmlOakl5TWpRd05qQTJNMlppWVRKak1UbGxObVkzTm1FMVpXWmhPVEV3T1RZd01EQXdOREZpWVROaVpUQTFOQV9SUzI1NiIsInR5cCI6ImF0K2p3dCIsImFsZyI6IlJTMjU2In0.ewogICJzdWIiOiAiNDUzZDBjYTMtN2ZkNi00ZWJhLWJiYWUtNjEwNjI5OSIsCiAgImF1dCI6ICJBUFBMSUNBVElPTl9VU0VSIiwKICAiaXNzIjogImh0dHBzOi8vYXBpLmFzZ2FyZGVvLmlvL3Qvb3JnbmFtZS9vYXV0aDIvdG9rZW4iLAogICJjbGllbnRfaWQiOiAiS2tXclNQMzM0VkVKazNFbnV4NXE3YlFhIiwKICAiYXVkIjogWwogICAgIktrV3JTUDMzNFZFSmszRW51eDVxN2JRYSIsCiAgICAiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0My9vYXV0aDIvdG9rZW4iCiAgXSwKICAibmJmIjogMTc2MDA3NDEzOSwKICAiYXpwIjogIktrV0puclNQMzM0VkVKazNFblFBdXg1cTdiUWEiLAogICJvcmdfaWQiOiAiMWY5ZTk4MWIiLAogICJzY29wZSI6ICJvcGVuaWQiLAogICJleHAiOiAxNzYwMDc3NzM5LAogICJvcmdfbmFtZSI6ICJvcmduYW1lIiwKICAiaWF0IjogMTc2MDA3NDEzOSwKICAianRpIjogImRmZTMzZDRiIiwKICAib3JnX2hhbmRsZSI6ICJvcmduYW1lIgp9.GXwYyOkaMNgFWyksSgSaAKmj6FqSRJX_3e1CxlLZwtoLtndrM2VfzRdx2J-uTdJLNSLF4fyDvdLzM0OC1TAfGaJNxJ2l_CYNvDnNcncMa1nfnmKeydmDbGksLasZah384jt8i49zD1DboMsglv2vFq9v7Ce6BHfPvHiL_nqOW8q34uXt8QmZLugalPA-2qchsi1C0NDu1niXz3DEO7VPMy7S2SZGHBmeoydoifWtKeqzKr5ArU0xJ9w5pW-VmQT8XWctE4UfRaYzpubl6DvAijT4uTAQYAgpk1IJC6Su_OTEEgnGf7L-iQxTf-KdvpNPvL6i-CFkBf9IktMm0o5kXw"
+        ```
+
+5. The authorization server responds to the client with the new access token.
+6. The client application can now request resources from the resource server by providing the access token.
+7. As the resource server trusts {{ product_name }} issued tokens, it returns the requested resources to the client application.
+
+See [configure the JWT Bearer Grant flow]({{base_path}}/guides/authentication/configure-jwt-bearer-grant) for more details.
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ## SAML 2.0 bearer grant
 
 SAML 2.0 bearer grant is a grant type in the OAuth 2.0 framework that enables the exchange of a SAML 2.0 assertion for an OAuth 2.0 access token. This grant type is defined in the [SAML 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants specification (RFC 7522)](https://datatracker.ietf.org/doc/html/rfc7522){:target="_blank"}.
@@ -454,10 +497,10 @@ The following diagram shows how the token exchange grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer" \
-        --data-urlencode "assertion=<base64-URL_encoded_assertion>" \
+        --data-urlencode "assertion=<base64_url_encoded_assertion>" \
         --data-urlencode "scope=<scopes>" \
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -490,14 +533,14 @@ The following diagram illustrates the process of obtaining an access token using
 
         ``` bash
         curl -v -X POST {{base_url}}/oauth2/token \
-        --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
+        --header 'Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=organization_switch' \
-        --data-urlencode 'token={access token from an organization}' \
-        --data-urlencode 'scope={required scopes}' \
-        --data-urlencode 'switching_organization={organization id}'
+        --data-urlencode 'token=<access_token_from_organization>' \
+        --data-urlencode 'scope=<scopes>' \
+        --data-urlencode 'switching_organization=<organization_id>'
         ```
-    
+
     === "Sample request (/token)"
 
         ``` bash

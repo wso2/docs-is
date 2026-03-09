@@ -7,7 +7,7 @@ Git repositories, and if required, you can do modifications and build a
 customized product on your own.
 
 -   To identify the list of repositories that you require, see [WSO2
-    Github
+    GitHub
     Repositories](https://wso2.github.io/github-repositories.html).
 
     !!! tip     

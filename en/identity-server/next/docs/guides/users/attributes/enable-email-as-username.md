@@ -111,4 +111,23 @@
     </tbody>
     </table>
 
-7.  Restart the server.
+7.  Update the username claim mapping in the `<IS_HOME>/repository/conf/claim-config.xml` file.
+
+    !!! warning "Important"
+        By default, the claim `http://wso2.org/claims/username` is mapped to the `uid` attribute in the userstore. When enabling email as username, this mapping must be changed to `mail` to ensure the username is correctly stored and retrieved from the userstore. 
+        
+        Without this change, the super admin's username will remain stored under the `uid` attribute instead of `mail`, which can cause issues.
+
+    In the `<Dialect dialectURI="http://wso2.org/claims">` dialect, locate the `<Claim>` element with `ClaimURI` as `http://wso2.org/claims/username` and update the `AttributeID` from `uid` to `mail`:
+
+    ``` xml
+    <Claim>
+        <ClaimURI>http://wso2.org/claims/username</ClaimURI>
+        <DisplayName>Username</DisplayName>
+        <AttributeID>mail</AttributeID>
+        <Description>Username</Description>
+        <SharedProfileValueResolvingMethod>FromOrigin</SharedProfileValueResolvingMethod>
+    </Claim>
+    ```
+
+8.  Restart the server.

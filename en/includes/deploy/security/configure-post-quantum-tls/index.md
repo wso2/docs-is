@@ -18,5 +18,21 @@ A hybrid key agreement algorithm combines a classical algorithm with a post-quan
 
 {{ product_name }} supports post-quantum security for both:
 
-- [Inbound connections]({{base_path}}/deploy/security/configure-post-quantum-tls/post-quantum-inbound): Between clients (like browsers or apps) and the server.
-- [Outbound connections]({{base_path}}/deploy/security/configure-post-quantum-tls/post-quantum-outbound): Between the server and other external services.
+- Inbound connections: Between clients (like browsers or apps) and the server.
+- Outbound connections: Between the server and other external services.
+
+## Enabling post-quantum TLS
+
+1. Shut down the {{product_name}} instance if running.
+
+2. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+    ```toml
+    [transport.https.client]
+    provider_name = "BC"
+
+    [transport.https.sslHostConfig.properties]
+    protocols="TLSv1.2+TLSv1.3"
+    ```
+
+3. Restart the Server.

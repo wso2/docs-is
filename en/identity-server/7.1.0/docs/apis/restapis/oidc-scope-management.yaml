@@ -25,7 +25,9 @@ paths:
         - OIDC Scope Endpoint
       summary: Retrieve the list of scopes
       operationId: getScopes
-      description: This REST API can be used to get details of the available scopes.
+      description: |
+        This REST API can be used to get details of the available scopes.
+        <b>Scope(Permission) required:</b> `internal_oidc_scope_mgt_view`
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -59,6 +61,9 @@ paths:
         - OIDC Scope Endpoint
       summary: Add a new OIDC scope
       operationId: addScope
+      description: |
+        This REST API can be used to create OIDC scope.
+        <b>Scope(Permission) required:</b> `internal_oidc_scope_mgt_create`
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -102,7 +107,9 @@ paths:
         - OIDC Scope Endpoint
       summary: Get a scope
       operationId: getScope
-      description: This REST API can be used to get the scope.
+      description: |
+        This REST API can be used to get the scope.
+        <b>Scope(Permission) required:</b> `internal_oidc_scope_mgt_view`
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -140,6 +147,9 @@ paths:
         - OIDC Scope Endpoint
       summary: Update an OIDC scope
       operationId: updateScope
+      description: |
+        This REST API can be used to update OIDC scope.
+        <b>Scope(Permission) required:</b> `internal_oidc_scope_mgt_update`
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -190,6 +200,9 @@ paths:
         - OIDC Scope Endpoint
       summary: Delete an OIDC scope
       operationId: deleteScope
+      description: |
+        This REST API can be used to delete OIDC scope.
+        <b>Scope(Permission) required:</b> `internal_oidc_scope_mgt_delete`
       security:
         - BasicAuth: []
         - OAuth2: []

@@ -50,7 +50,7 @@ Follow the steps below to configure event publishing for Asgardeo.
 Follow the steps below to define a business logic that will trigger when an Asgardeo event occurs.
 
 ### Prerequisite
-- You need to have a Github repository to host the business logic.
+- You need to have a GitHub repository to host the business logic.
 
 - Download [Ballerina](https://ballerina.io/downloads/){:target="_blank"}, the programming language used to define business logic for Asgardeo events.
 
@@ -107,7 +107,7 @@ Follow the steps below to programmatically define the business logic.
     
     ```
 
-4. Commit your changes and push the code to your remote Github repository.
+4. Commit your changes and push the code to your remote GitHub repository.
 
 
 ### Create a webhook in Choreo
@@ -130,13 +130,13 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 4. Enter a name and a description for your webhook.
 
-5. Click **Authorize with Github** and connect the relevant organization, repository and the branch of the Github repository you created in the above section.
+5. Click **Authorize with GitHub** and connect the relevant organization, repository and the branch of the GitHub repository you created in the above section.
 
-6. Select **Ballerina** to be the Buildpack and select the **Ballerina Project Directory** from your Github repository.
+6. Select **Ballerina** to be the Buildpack and select the **Ballerina Project Directory** from your GitHub repository.
 
 7. Select the **Access Mode** as External and click **Create**.
 
-    ![Connect Github repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Connect GitHub repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 8. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
 

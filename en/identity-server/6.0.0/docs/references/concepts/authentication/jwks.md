@@ -101,11 +101,12 @@ The default JWKS of WSO2 Identity Server is as follows.
 }
 ``` 
 
-| Property Value                 | Description         | 
-| --------------------- | ------------- | 
-| kty | The public key type.|                            
-| e           | The exponent value of the public key.|                              
-| use         | Implies how the key is being used. The value sig represents signature.| 
-| kid         | The thumbprint of the certificate. This value is used to identify the key that needs to be used to verify the signature.  | 
-| alg         | The algorithm used to secure the JSON Web Signature.  | 
-| n           | The modulus value of the public key.  | 
+| Property Value                 | Description         |
+| --------------------- | ------------- |
+| kty | The public key type.|
+| e           | The exponent value of the public key.|
+| use         | Implies how the key is being used. The value sig represents signature.|
+| kid         | The thumbprint of the certificate. This value is used to identify the key that needs to be used to verify the signature.  |
+| alg         | The algorithm used to secure the JSON Web Signature.  |
+| n           | The modulus value of the public key.  |
+| x5c         | The X.509 certificate chain. Contains a chain of one or more PKIX certificates in base64-encoded DER format. For more information, see the [RFC 7517 specification](https://datatracker.ietf.org/doc/html/rfc7517#section-4.7).  | 

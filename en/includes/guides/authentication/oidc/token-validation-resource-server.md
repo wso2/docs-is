@@ -30,6 +30,8 @@ Unlike JWT tokens, opaque tokens are non-transparent. This means that the author
 ``` 
 {{product_url_format}}/oauth2/introspect
 ```
+
+{% if product_name == 'Asgardeo' %}
 === "Request format"
 
     ```bash
@@ -48,6 +50,68 @@ Unlike JWT tokens, opaque tokens are non-transparent. This means that the author
     --header 'Authorization: Basic V3NvcTh0NG5IVzgwZ1NuUGZ5RHZSYmlDX19FYTp6MEM3OXpsb3B4OGk3QnlPdzhLMTVBOWRwbFlh' \
     --data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
     ```
+
+{% endif %}
+
+{% if product_name == "WSO2 Identity Server" %}
+=== "Request format"
+
+    ```bash
+    curl --location --request POST {{product_url_format}}/oauth2/introspect \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic <Base64Encoded(Username:Password)>' \
+    --data-urlencode 'token={access_token}'
+    ```
+
+=== "Request sample"
+
+    ```bash
+    curl --location --request POST '{{ product_url_sample }}/oauth2/introspect' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+    --data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
+    ```
+
+{% endif %}
+
+!!! warning "Avoid using super admin credentials for API authentication"
+
+    When invoking APIs using basic authentication, never use the super admin or any high-privileged user credentials. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
+
+{% if product_name == "WSO2 Identity Server" %}
+
+!!! note
+    Enable the following in `<IS_HOME>/repository/conf/deployment.toml` to use client ID- client secret based authentication for this endpoint.
+    By default, the endpoint uses username-password authentication.
+
+    ``` toml
+    [[resource.access_control]]
+    context="(.*)/oauth2/introspect(.*)"
+    http_method = "all"
+    secure = true
+    allowed_auth_handlers="BasicClientAuthentication"
+    ```
+
+    === "Request format"
+
+        ```bash
+        curl --location --request POST {{product_url_format}}/oauth2/introspect \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --header 'Authorization: Basic <Base64Encoded(ClientID:ClientSecret)>' \
+        --data-urlencode 'token={access_token}'
+        ```
+
+    === "Request sample"
+
+        ```bash
+        curl --location --request POST '{{ product_url_sample }}/oauth2/introspect' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --header 'Cookie: atbv=646b0ed2-c501-4b17-9251-94112013a718' \
+        --header 'Authorization: Basic V3NvcTh0NG5IVzgwZ1NuUGZ5RHZSYmlDX19FYTp6MEM3OXpsb3B4OGk3QnlPdzhLMTVBOWRwbFlh' \
+        --data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
+        ```
+
+{% endif %}
 
 ### User access token response
 

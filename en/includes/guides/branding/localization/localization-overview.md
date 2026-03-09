@@ -5,7 +5,7 @@
 - User registration, sign-up, login and the account recovery flows.
 - **My Account** (self-care portal).
 
-The **default language** on these interfaces is configured as explained in the [configure language settings](#configure-language-settings) section.
+The **default language** on these interfaces is configured as explained in the [language settings](#configure-language-settings) section.
 
 !!! note "Important"
 

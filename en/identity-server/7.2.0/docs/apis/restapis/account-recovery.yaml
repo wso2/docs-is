@@ -1,0 +1,761 @@
+openapi: 3.0.1
+info:
+  title: Recovery API
+  description: |
+    This document specifies a **Recovery related RESTful API** for **WSO2 Identity Server**.
+  version: 0.9.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/api/identity/recovery/v0.9
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /recover-password:
+    post:
+      tags:
+        - Password Recovery
+        - Notification
+      summary: |
+        Send recovery notification
+      description: |
+        This API is used to send password recovery confirmation over defined channels like email/SMS.
+        
+         <b>Scope(Permission) required:</b> `internal_recovery_create`
+      parameters:
+        - name: type
+          in: query
+          description: Notification Type
+          schema:
+            type: string
+        - name: notify
+          in: query
+          description: If notify=true, notifications will be internally managed.
+          schema:
+            type: boolean
+      requestBody:
+        description: Optional property parameters can be sent via email based on the
+          email template.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecoveryInitiatingRequest'
+        required: true
+      responses:
+        202:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: key
+                type: string
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/recover-password?type=email&notify=true' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "user": {
+                    "username": "john",
+                    "realm": "ENGINEERING",
+                    "tenant-domain": "carbon.super"
+                },
+                "properties": []
+            }'
+  /set-password:
+    post:
+      tags:
+        - Password Recovery
+        - Notification
+      summary: |
+        Update password
+      description: |
+        This API is used to reset the user password using the confirmation key received through the recovery process. You need to input the `key` and the new `password`.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
+      requestBody:
+        description: Key, password, and optional metadata properties.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        202:
+          description: Successful response
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        412:
+          description: Precondition Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetryError'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/set-password' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+                "key": "5c765a47-6764-4048-b5cf-55864cb654c0",
+                "password": "P@ssW0rd",
+                "properties": []
+            }'
+  /validate-code:
+    post:
+      tags:
+        - Password Recovery
+      summary: |
+        Validate confirmation code
+      description: |
+        This API is used to validate confirmation codes sent in account recovery scenarios and self-signup. You need to input the confirmation `code` and recovery `step` as parameters.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
+      requestBody:
+        description: Code, recovery step, and optional parameters. <br/> For recovery **step**,
+          you can use one of the following according to the recovery scenario that you want to validate the code.
+          <ul>
+          <li>**UPDATE_PASSWORD**</li>
+          <li>**CONFIRM_SIGN_UP**</li>
+          <li>**VALIDATE_CHALLENGE_QUESTION**</li>
+          <li>**VALIDATE_ALL_CHALLENGE_QUESTION**</li>
+          </ul>
+
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CodeValidationRequest'
+        required: true
+      responses:
+        202:
+          description: Accepted
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/validate-code' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "code": "84325529-8aa7-4851-8751-5980a7f2d9f7",
+                "step": "UPDATE_PASSWORD",
+                "properties": []
+            }'
+  /security-question:
+    get:
+      tags:
+        - Password Recovery
+        - Security Question
+      summary: |
+        Get challenge question of user
+      description: |
+        This API is used to initiate password recovery using user challenge questions. The response will be a random challenge question with a confirmation key.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_view`
+      parameters:
+        - name: username
+          in: query
+          description: username of the user
+          required: true
+          schema:
+            type: string
+        - name: realm
+          in: query
+          description: |
+            `User Store Domain` that the user belongs to. If not specified, it will be `PRIMARY` domain.
+          schema:
+            type: string
+        - name: tenant-domain
+          in: query
+          description: |
+            `Tenant Domain` that the user belongs to. If not specified, it will be `carbon.super` domain.
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitiateQuestionResponse'
+        204:
+          description: No content
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/security-question?username=john' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json'
+  /security-questions:
+    get:
+      tags:
+        - Password Recovery
+        - Security Question
+      summary: |
+        Get challenge questions of user
+      description: |
+        This API is used to initiate password recovery using user challenge questions at once. The response will be a random challenge question with a confirmation key.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_view`
+      parameters:
+        - name: username
+          in: query
+          description: username of the user
+          required: true
+          schema:
+            type: string
+        - name: realm
+          in: query
+          description: |
+            `User Store Domain` that the user belongs to. If not specified, it will be `PRIMARY` domain.
+          schema:
+            type: string
+        - name: tenant-domain
+          in: query
+          description: |
+            `Tenant Domain` that the user belongs to. If not specified, it will be `carbon.super` domain.
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitiateAllQuestionResponse'
+        204:
+          description: No content
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/security-question?username=john' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json'
+  /validate-answer:
+    post:
+      tags:
+        - Password Recovery
+        - Security Question
+      summary: |
+        Validate user challenge answer/answers
+      description: |
+        This is used to validate the user challenge answer. If the user challenge answer is valid, it sends another challenge question to answer until the status becomes `COMPLETE`. If the answer is wrong, the user can retry the answer.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
+      requestBody:
+        description: User answers verification with the key returned in the previous step.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnswerVerificationRequest'
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitiateQuestionResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetryError'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/validate-answer' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "key": "0b20bd4d-cd82-4e8f-8ca4-4d265360b56b",
+                "answers": [
+                    {
+                        "question-set-id": "http://wso2.org/claims/challengeQuestion1",
+                        "answer": "born"
+                    },
+                    {
+                        "question-set-id": "http://wso2.org/claims/challengeQuestion2",
+                        "answer": "car"
+                    }
+                ],
+                "properties": []
+            }'
+  /recover-username:
+    post:
+      tags:
+        - Username Recovery
+        - Notification
+      summary: |
+        Recover username
+      description: |
+        This API can be used to recover a forgotten username.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
+      parameters:
+        - name: tenant-domain
+          in: query
+          description: Tenant Domain that the user belongs to. Default `carbon.super`
+          schema:
+            type: string
+        - name: notify
+          in: query
+          description: If notify=true, notifications will be internally managed.
+          schema:
+            type: boolean
+      requestBody:
+        description: User answers for recovery claims.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserClaim'
+        required: true
+      responses:
+        202:
+          description: Successful response
+          content: {}
+        204:
+          description: No valid user found for given data.
+          content: {}
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/recover-username/' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '[
+                {
+                    "uri": "http://wso2.org/claims/givenname",
+                    "value": "john"
+                },
+                {
+                    "uri": "http://wso2.org/claims/emailaddress",
+                    "value": "johndoe@email.com"
+                },
+                {
+                    "uri": "http://wso2.org/claims/lastname",
+                    "value": "doe"
+                }
+            ]'
+  /claims:
+    get:
+      tags:
+        - Username Recovery
+      summary: |
+        Get supported claims
+      description: |
+        Return the recovery-supported claims in the given tenant.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_view`
+      parameters:
+        - name: tenant-domain
+          in: query
+          description: tenant domain. Default `carbon.super`
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Claim'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/claims?tenant-domain=carbon.super' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json'
+  /captcha:
+    get:
+      tags:
+        - Password Recovery
+        - Username Recovery
+      summary: |
+        Get CAPTCHA
+      description: |
+        Return the reCaptcha information if it's supported for the given tenant.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_view`
+      operationId: getCaptcha
+      parameters:
+        - name: tenant-domain
+          in: query
+          description: tenant domain. Default `carbon.super`
+          schema:
+            type: string
+        - name: captcha-type
+          in: query
+          description: type of captcha
+          required: true
+          schema:
+            type: string
+        - name: recovery-type
+          in: query
+          description: username recovery or password recovery
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReCaptchaProperties'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/captcha?tenant-domain=carbon.super&captcha-type=ReCaptcha&recovery-type=username-recovery' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json'
+    post:
+      tags:
+        - Password Recovery
+        - Username Recovery
+      summary: |
+        Verify CAPTCHA
+      description: |
+        Return true or false after verifying the captcha response.
+        
+        <b>Scope(Permission) required:</b> `internal_recovery_create`
+      operationId: verifyCaptcha
+      parameters:
+        - name: tenant-domain
+          in: query
+          description: Tenant domain. Default `carbon.super`
+          schema:
+            type: string
+        - name: captcha-type
+          in: query
+          description: Type of captcha
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Recaptcha response from Google.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReCaptchaResponseToken'
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReCaptchaVerificationResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/identity/recovery/v0.9/captcha?tenant-domain=carbon.super&captcha-type=ReCaptcha' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{"token": "xsfwewfcavfrwafrawva"}'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        realm:
+          type: string
+    ResetPasswordRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        password:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+    Question:
+      type: object
+      properties:
+        question:
+          type: string
+        question-set-id:
+          type: string
+    AnswerVerificationRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityAnswer'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    RetryError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        description:
+          type: string
+        key:
+          type: string
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    RecoveryInitiatingRequest:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    InitiateAllQuestionResponse:
+      type: object
+      properties:
+        key:
+          type: string
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+        link:
+          $ref: '#/components/schemas/Link'
+    InitiateQuestionResponse:
+      type: object
+      properties:
+        key:
+          type: string
+        question:
+          $ref: '#/components/schemas/Question'
+        link:
+          $ref: '#/components/schemas/Link'
+    SecurityAnswer:
+      type: object
+      properties:
+        question-set-id:
+          type: string
+        answer:
+          type: string
+    Claim:
+      type: object
+      properties:
+        uri:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+        display-name:
+          type: string
+        dialect:
+          type: string
+        validation-regex:
+          type: string
+        required:
+          type: boolean
+        read-only:
+          type: boolean
+    Link:
+      type: object
+      properties:
+        rel:
+          type: string
+        uri:
+          type: string
+    UserClaim:
+      type: object
+      properties:
+        uri:
+          type: string
+        value:
+          type: string
+    CodeValidationRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        step:
+          type: string
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    ReCaptchaResponseToken:
+      type: object
+      properties:
+        token:
+          type: string
+    ReCaptchaVerificationResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+    ReCaptchaProperties:
+      type: object
+      properties:
+        reCaptchaEnabled:
+          type: boolean
+        reCaptchaKey:
+          type: string
+        reCaptchaAPI:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information

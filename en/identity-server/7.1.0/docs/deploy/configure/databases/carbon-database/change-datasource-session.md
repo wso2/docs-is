@@ -7,7 +7,7 @@ These default databases are located in the `<IS_HOME>/repository/database` direc
 of the pack.
 
 By default, session data is stored in the identity database (IDENTITY_DB) with 
-Identity and UMA data. However, you can separate session specific data into a separate 
+Identity data. However, you can separate session specific data into a separate 
 datasource to any database type that is supported by WSO2 Identity Server.
 
 !!! note
@@ -18,7 +18,7 @@ Following are the sample configuration for each database type.
 
 ??? Example "PostgreSQL"
     
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [datasource.WSO2SessionDB]
@@ -132,7 +132,7 @@ Following are the sample configuration for each database type.
           
 ??? Example "MySQL"
 
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [datasource.WSO2SessionDB]
@@ -233,7 +233,7 @@ Following are the sample configuration for each database type.
         ```
             
 ??? Example "DB2"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.WSO2SessionDB]
         id = "WSO2SessionDB"
@@ -361,7 +361,7 @@ Following are the sample configuration for each database type.
 
 
 ??? Example "MSSQL"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.WSO2SessionDB]
         id = "WSO2SessionDB"
@@ -469,7 +469,7 @@ Following are the sample configuration for each database type.
         ```   
 
 ??? Example "Oracle"
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.WSO2SessionDB]
         id = "WSO2SessionDB"

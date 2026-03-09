@@ -29,3 +29,9 @@ exceptions:
   - WSO2 Identity Server
   - Python
   - API
+  - OpenTelemetry
+  - Datadog
+  - Java
+  - Asgardeo
+  - React Native App CLI
+  - JWT
