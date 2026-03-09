@@ -1,9 +1,6 @@
 (function () {
   'use strict';
 
-  /**
-   * Icon SVG definitions.
-   */
   const Icons = {
     Copy: `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" /><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" /></svg>`,
     Markdown: `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14.85 3c.63 0 1.15.52 1.14 1.15v7.7c0 .63-.51 1.15-1.15 1.15H1.15C.52 13 0 12.48 0 11.84V4.15C0 3.52.52 3 1.15 3h13.7zM9 11V5H7l-1.5 2.25L4 5H2v6h2V8l1.5 2L7 8v3h2zm2.99.5L14.5 8H13V5h-2v3H9.5l2.49 3.5z" /></svg>`,
@@ -14,9 +11,6 @@
     Perplexity: `<svg width="16" height="16" viewBox="0 0 34 38" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.12114 0.0400391L15.919 9.98864V9.98636V0.062995H18.0209V10.0332L28.8671 0.0400391V11.3829H33.3202V27.744H28.8808V37.8442L18.0209 28.303V37.9538H15.919V28.4604L5.13338 37.96V27.744H0.680176V11.3829H5.12114V0.0400391ZM14.3344 13.4592H2.78208V25.6677H5.13074V21.8167L14.3344 13.4592ZM7.23518 22.7379V33.3271L15.919 25.6786V14.8506L7.23518 22.7379ZM18.0814 25.5775V14.8404L26.7677 22.7282V27.744H26.7789V33.219L18.0814 25.5775ZM28.8808 25.6677H31.2183V13.4592H19.752L28.8808 21.7302V25.6677ZM26.7652 11.3829V4.81584L19.6374 11.3829H26.7652ZM14.3507 11.3829H7.22306V4.81584L14.3507 11.3829Z" /></svg>`
   };
 
-  /**
-   * Helper to map HTML URL to Flattened Markdown URL.
-   */
   function getFlattenedMarkdownUrlFromHtmlUrl(htmlUrl) {
     const u = new URL(htmlUrl);
     u.hash = ''; u.search = '';
@@ -119,11 +113,8 @@
     const segments = u.pathname.split('/').filter(Boolean);
     const cgIndex = segments.indexOf('complete-guides');
     
-    // If we are inside /complete-guides/react/some-page
     if (cgIndex !== -1 && segments.length > cgIndex + 1) {
       const framework = segments[cgIndex + 1];
-      // Your Python script saves it as: site_dir/complete-guides/framework.md
-      // We reconstruct that relative to the root
       const root = segments.slice(0, cgIndex).join('/');
       return `${u.origin}${root ? '/' + root : ''}/complete-guides/${framework}.md`;
     }
@@ -162,17 +153,22 @@
     // 1. Prevent multiple injections
     if (document.querySelector('.copy-page-container')) return;
     
-    // 2. Homepage Detection Logic
+    // Checks if the main title contains "404" to avoid showing buttons on error pages
+    const pageTitle = document.title || "";
+    const h1Text = document.querySelector('h1')?.innerText || "";
+    if (pageTitle.includes("404") || h1Text.includes("404")) {
+      return;
+    }
+
+    // 3. Homepage Detection Logic
     const u = new URL(window.location.href);
     const segments = u.pathname.split('/').filter(Boolean);
     
-   
     if (segments.length <= 2) {
       // This is likely /en/, /en/latest/, or /en/7.2.0/
       return; 
     }
 
-    // 3. Normal injection logic
     const title = document.querySelector('article h1') || document.querySelector('.md-content h1');
     if (title) {
       observer.disconnect();
