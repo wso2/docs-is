@@ -42,6 +42,7 @@ Following are the events that can be published to Sift for fraud detection.
 6. **User Verifications** - Enable this option to publish notification based user verification events to Sift.
 
 #### Diagnostic Logging
+
 Enable the `Log event payloads locally` option to log the event payloads sent to the Sift as diagnostic logs in Asgardeo.
 
 ## Fraud Detection invoking mechanisms
@@ -59,7 +60,7 @@ Asgardeo allows you to publish various user events to **Sift** for fraud detecti
 
 Sift requires specific user information to perform fraud analysis. The following user attributes are included in the event payload. These fields can be selectively enabled or disabled through the Fraud Detection configuration.
 
-**User Information**
+##### User Information
 
 | User Information | Description                                                                                          |
 |------------------|------------------------------------------------------------------------------------------------------|
@@ -70,11 +71,11 @@ Sift requires specific user information to perform fraud analysis. The following
 !!! Important
     The value published for the `$user_id` property is not the actual user UUID stored in the system.
     By default, the event payload includes a hashed value of the username as the `$user_id`.
-    To uniquely identify users, the actual user UUID is published separately in the event payload under the 
-    `user_uuid` field. Therefore, you should use the `user_uuid` field in Sift to reliably and uniquely identify users 
+    To uniquely identify users, the actual user UUID is published separately in the event payload under the
+    `user_uuid` field. Therefore, you should use the `user_uuid` field in Sift to reliably and uniquely identify users
     in your system.
 
-**User Browser and Device Metadata**
+##### User Browser and Device Metadata
 
 | Metadata       | Description                                                                 |
 |----------------|-----------------------------------------------------------------------------|
@@ -90,7 +91,7 @@ To enable Sift fraud detection:
 
 1. On the Asgardeo Console, go to **Applciations**.
 2. Go to the **Login Flow** tab of the application and enable **Conditional Authentication**.
-3. Add a conditional authentication script. Refer to the sample conditional authentication scripts [here](#sample-conditional-authentication-scripts).
+3. Add a conditional authentication script. Refer to the [sample conditional authentication scripts](#sample-conditional-authentication-scripts).
 
     !!! note
 
@@ -99,7 +100,7 @@ To enable Sift fraud detection:
 
 4. Click **update** to save the changes.
 
-## Conditional Authentication Functions 
+## Conditional Authentication Functions
 
 {{product_name}} offers the following Sift-related functions that can be utilized in your conditional authentication scripts, enabling seamless integration with user login flows.
 
@@ -108,18 +109,18 @@ To enable Sift fraud detection:
 - This function returns the Sift risk score for a given login event, which is a value between 0 and 1. Higher the score, greater the risk.
 - If an error occurs due to an invalid API key, network issue or a Sift server issue, this function returns a value of -1.
 - The function takes the following arguments.
-    - `AuthenticationContext` - current authentication context.
-    - `LoginStatus` - Whether the user authentication was successful or not. Accepted values `LOGIN_SUCCESS`, `LOGIN_FAILED`.
-    - `AdditionalParameters` - Any additional parameters in the form of key-value pairs that need to be sent to Sift.
+  - `AuthenticationContext` - current authentication context.
+  - `LoginStatus` - Whether the user authentication was successful or not. Accepted values `LOGIN_SUCCESS`, `LOGIN_FAILED`.
+  - `AdditionalParameters` - Any additional parameters in the form of key-value pairs that need to be sent to Sift.
 
 **`getSiftWorkflowDecision()`**
 
 - This function returns the Sift decision ID for a given login event. The decision ID is a unique identifier for the decision selected for the login event during the workflow execution. Workflows and decisions can be configured through the Sift console.
 - If an error occurs due to an invalid API key, network issue or a Sift server issue, this function returns a null value.
 - The function takes the following arguments.
-    - AuthenticationContext - current authentication context.
-    - LoginStatus - Whether the user authentication was successful or not. Accepted values LOGIN_SUCCESS, LOGIN_FAILED.
-    - AdditionalParameters - Any additional parameters can be sent to Sift.
+  - AuthenticationContext - current authentication context.
+  - LoginStatus - Whether the user authentication was successful or not. Accepted values LOGIN_SUCCESS, LOGIN_FAILED.
+  - AdditionalParameters - Any additional parameters can be sent to Sift.
 
 **`publishLoginEventInfoToSift`**
 
@@ -156,12 +157,15 @@ var additionalParams = {
 
 ### Sample Conditional Authentication Scripts
 
+The following are sample conditional authentication scripts for common Sift fraud detection scenarios.
+
 #### Workflow Based
 
 Workflows can be configured in the Sift console to define the decisions to be made based on various parameters, including the risk score.
 The getSiftWorkflowDecision function returns the decision ID configured in the Sift console.
 
 The following example conditional authentication script is for a scenario where,
+
 - The authentication fails if the decision id is "session_looks_bad_account_takeover".
 - Prompts for additional authentication if the decision id is "mfa_account_takeover".
 - Publishes a login fail event to Sift, if authentication fails.
@@ -200,6 +204,7 @@ var onLoginRequest = function (context) {
 #### Risk Score Based
 
 The following example conditional authentication script is for a scenario where,
+
 - The authentication fails if the risk score exceeds 0.7.
 - Prompts for additional authentication if the risk score is between 0.5 and 0.7.
 - Publishes a login fail event to Sift, if authentication fails.
