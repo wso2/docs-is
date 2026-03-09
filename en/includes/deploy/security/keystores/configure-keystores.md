@@ -204,7 +204,7 @@ To create a PKCS12 keystore with an AES key or add an existing key to the keysto
 
     1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-    2. Update the `alias` parameter under the `[keystore.tls]` element with the new keystore `alias`.       
+    2. Update the `alias` parameter under the `[keystore.internal]` element with the new keystore `alias`.       
 
         ```toml
         [keystore.internal]
