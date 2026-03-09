@@ -57,26 +57,75 @@ It is recommended to use a **symmetric AES key** due to its resilience against p
 
 Navigate to `<IS_HOME>/repository/resources/security/` and run one of the following commands:
 
-=== "Symmetric (AES) - Recommended"
+=== "PKCS12"
+
+    === "Symmetric (AES) - Recommended"
+
+        ``` bash
+        keytool -genseckey \
+          -alias <internal-key-alias> \
+          -keyalg AES \
+          -keysize 256 \
+          -keystore <internal-keystore-name>.p12 \
+          -storetype PKCS12 \
+          -storepass <internal-keystore-password> \
+          -keypass <internal-keystore-password>
+        ```
+
+        This command will create a keystore with the following details:
+
+        - **Keystore name**: `<internal-keystore-name>.p12`
+        - **Alias of the secret key**: `<internal-key-alias>`
+        - **Keystore password**: `<internal-keystore-password>`
+
+    === "Asymmetric (RSA)"
+
+        ``` bash
+        keytool -genkeypair \
+          -alias <internal-key-alias> \
+          -keyalg RSA \
+          -keysize 2048 \
+          -keystore <internal-keystore-name>.p12 \
+          -storetype PKCS12 \
+          -storepass <internal-keystore-password> \
+          -keypass <internal-keystore-password>
+        ```
+
+        This command will create a keystore with the following details:
+
+        - **Keystore name**: `<internal-keystore-name>.p12`
+        - **Alias of the key pair**: `<internal-key-alias>`
+        - **Keystore password**: `<internal-keystore-password>`
+
+        !!! note
+            The public key certificate must have the **Data Encipherment** key usage to allow encryption of raw data. If using an asymmetric key for internal encryption, ensure your certificate includes this usage.
+
+=== "JKS"
+
+    JKS keystores do not support symmetric (AES) keys. You can only use an RSA key pair.
 
     ``` bash
-    keytool -genseckey \
+    keytool -genkeypair \
       -alias <internal-key-alias> \
-      -keyalg AES \
-      -keysize 256 \
-      -keystore <internal-keystore-name>.p12 \
-      -storetype PKCS12 \
+      -keyalg RSA \
+      -keysize 2048 \
+      -keystore <internal-keystore-name>.jks \
       -storepass <internal-keystore-password> \
       -keypass <internal-keystore-password>
     ```
 
     This command will create a keystore with the following details:
 
-    - **Keystore name**: `<internal-keystore-name>.p12`
-    - **Alias of the secret key**: `<internal-key-alias>`
+    - **Keystore name**: `<internal-keystore-name>.jks`
+    - **Alias of the key pair**: `<internal-key-alias>`
     - **Keystore password**: `<internal-keystore-password>`
 
-=== "Asymmetric (RSA)"
+    !!! note
+        The public key certificate must have the **Data Encipherment** key usage to allow encryption of raw data. Ensure your certificate includes this usage.
+
+{% else %}
+
+=== "PKCS12"
 
     ``` bash
     keytool -genkeypair \
@@ -95,25 +144,21 @@ Navigate to `<IS_HOME>/repository/resources/security/` and run one of the follow
     - **Alias of the key pair**: `<internal-key-alias>`
     - **Keystore password**: `<internal-keystore-password>`
 
-    !!! note
-        The public key certificate must have the **Data Encipherment** key usage to allow encryption of raw data. If using an asymmetric key for internal encryption, ensure your certificate includes this usage.
-
-{% else %}
+=== "JKS"
 
     ``` bash
     keytool -genkeypair \
       -alias <internal-key-alias> \
       -keyalg RSA \
       -keysize 2048 \
-      -keystore <internal-keystore-name>.p12 \
-      -storetype PKCS12 \
+      -keystore <internal-keystore-name>.jks \
       -storepass <internal-keystore-password> \
       -keypass <internal-keystore-password>
     ```
 
     This command will create a keystore with the following details:
 
-    - **Keystore name**: `<internal-keystore-name>.p12`
+    - **Keystore name**: `<internal-keystore-name>.jks`
     - **Alias of the key pair**: `<internal-key-alias>`
     - **Keystore password**: `<internal-keystore-password>`
 
@@ -128,26 +173,51 @@ After creating a new keystore (for example, a TLS keystore), export its certific
 
 1. Export the certificate from the keystore:
 
-    ```bash
-    keytool -exportcert \
-      -alias <key-alias> \
-      -keystore <keystore-name>.p12 \
-      -storetype PKCS12 \
-      -storepass <keystore-password> \
-      -file <certificate-name>.crt
-    ```
+    === "PKCS12"
+
+        ```bash
+        keytool -exportcert \
+          -alias <key-alias> \
+          -keystore <keystore-name>.p12 \
+          -storetype PKCS12 \
+          -storepass <keystore-password> \
+          -file <certificate-name>.crt
+        ```
+
+    === "JKS"
+
+        ```bash
+        keytool -exportcert \
+          -alias <key-alias> \
+          -keystore <keystore-name>.jks \
+          -storepass <keystore-password> \
+          -file <certificate-name>.crt
+        ```
 
 2. Import the exported certificate into the truststore:
 
-    ```bash
-    keytool -importcert \
-      -alias <key-alias> \
-      -file <certificate-name>.crt \
-      -keystore client-truststore.p12 \
-      -storetype PKCS12 \
-      -storepass <truststore-password> \
-      -noprompt
-    ```
+    === "PKCS12"
+
+        ```bash
+        keytool -importcert \
+          -alias <key-alias> \
+          -file <certificate-name>.crt \
+          -keystore client-truststore.p12 \
+          -storetype PKCS12 \
+          -storepass <truststore-password> \
+          -noprompt
+        ```
+
+    === "JKS"
+
+        ```bash
+        keytool -importcert \
+          -alias <key-alias> \
+          -file <certificate-name>.crt \
+          -keystore client-truststore.jks \
+          -storepass <truststore-password> \
+          -noprompt
+        ```
 
 ## Create a keystore using an existing certificate
 
