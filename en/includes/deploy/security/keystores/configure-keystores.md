@@ -8,8 +8,6 @@ This page explains how to configure keystores in the `deployment.toml` file. Bef
 
     2. If you have not already created keystores, see [Create New Keystores]({{base_path}}/deploy/security/keystores/create-new-keystores).
 
-    3. [Change the truststore password]({{base_path}}/deploy/security/keystores/configure-keystores/#change-truststore-password) from the default before configuring keystores.
-
 
 ## Configure default keystore and truststore
 
@@ -153,7 +151,7 @@ The following is a complete `deployment.toml` example for a production setup wit
     type = "JKS"
     password = "<primary-keystore-password>"
     alias = "<primary-key-alias>"
-    key_password = "<primary-key-password>"
+    key_password = "<primary-keystore-password>"
 
     # Internal keystore — used for encrypting internal data and config passwords (Cipher Tool)
     [keystore.internal]
@@ -161,7 +159,7 @@ The following is a complete `deployment.toml` example for a production setup wit
     type = "JKS"
     password = "<internal-keystore-password>"
     alias = "<internal-key-alias>"
-    key_password = "<internal-key-password>"
+    key_password = "<internal-keystore-password>"
 
     # TLS keystore — used for HTTPS/SSL connections
     [keystore.tls]
@@ -169,7 +167,7 @@ The following is a complete `deployment.toml` example for a production setup wit
     type = "JKS"
     password = "<tls-keystore-password>"
     alias = "<tls-key-alias>"
-    key_password = "<tls-key-password>"
+    key_password = "<tls-keystore-password>"
 
     # Truststore
     [truststore]
@@ -187,7 +185,7 @@ The following is a complete `deployment.toml` example for a production setup wit
     type = "PKCS12"
     password = "<primary-keystore-password>"
     alias = "<primary-key-alias>"
-    key_password = "<primary-key-password>"
+    key_password = "<primary-keystore-password>"
 
     # Internal keystore — used for encrypting internal data and config passwords (Cipher Tool)
     [keystore.internal]
@@ -195,7 +193,7 @@ The following is a complete `deployment.toml` example for a production setup wit
     type = "PKCS12"
     password = "<internal-keystore-password>"
     alias = "<internal-key-alias>"
-    key_password = "<internal-key-password>"
+    key_password = "<internal-keystore-password>"
 
     # TLS keystore — used for HTTPS/SSL connections
     [keystore.tls]
@@ -203,7 +201,7 @@ The following is a complete `deployment.toml` example for a production setup wit
     type = "PKCS12"
     password = "<tls-keystore-password>"
     alias = "<tls-key-alias>"
-    key_password = "<tls-key-password>"
+    key_password = "<tls-keystore-password>"
 
     # Truststore
     [truststore]
