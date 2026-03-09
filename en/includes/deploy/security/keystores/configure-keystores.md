@@ -11,46 +11,6 @@ This page explains how to configure keystores in the `deployment.toml` file. Bef
     3. [Change the truststore password]({{base_path}}/deploy/security/keystores/configure-keystores/#change-truststore-password) from the default before configuring keystores.
 
 
-## Manage the truststore
-
-### Change truststore password
-
-The default truststore (`client-truststore.p12`) ships with the password `wso2carbon`, which is publicly known. Before creating new keystores or configuring production deployments, change the default truststore password.
-
-Navigate to `<IS_HOME>/repository/resources/security/` and run:
-
-```bash
-keytool -storepasswd \
-  -keystore client-truststore.p12 \
-  -storetype PKCS12 \
-  -storepass wso2carbon \
-  -new <new-truststore-password>
-```
-
-!!! warning
-    Keep the new truststore password safe. You will need it when configuring the `[truststore]` section in `deployment.toml` and when importing certificates into the truststore.
-
-### Remove the default WSO2 certificate from the truststore
-
-The default WSO2 self-signed certificate is pre-imported into the truststore with the alias `wso2carbon`. In production, remove it after importing your own certificates:
-
-```bash
-keytool -delete \
-  -alias wso2carbon \
-  -keystore client-truststore.p12 \
-  -storetype PKCS12 \
-  -storepass <truststore-password>
-```
-
-!!! tip
-    To list all certificates currently in the truststore and verify which aliases exist, run:
-    ```bash
-    keytool -list \
-      -keystore client-truststore.p12 \
-      -storetype PKCS12 \
-      -storepass <truststore-password>
-    ```
-
 ## Configure default keystore and truststore
 
 WSO2 Identity Server provides default keystore and truststore files:
@@ -118,7 +78,7 @@ In production environments, it is recommended to use distinct keystores for diff
 !!! warning
     If [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) is used, adding a new keystore for internal data encryption for an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
 
-!!! tip
+!!! note
     Before configuring the internal keystore, you must first [create it]({{base_path}}/deploy/security/keystores/create-new-keystores/#create-the-internal-keystore).
 
 To configure the internal keystore, add the following configuration block to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
@@ -196,13 +156,6 @@ password = "<truststore-password>"
 ## Add new keys to an existing keystore
 
 The following guides explain how you can add new keys to existing keystores.
-{% if not is_version == "7.0.0" %}
-
-### Add an asymmetric key pair to an existing keystore
-
-{% endif %}
-
-To add a key,
 
 1. Navigate to the [default keystore](#configure-default-keystore-and-truststore) or other existing keystore on a terminal.
 
@@ -230,49 +183,6 @@ To add a key,
         If you are planning to delete the newly added keys in the future, it is recommended to maintain separate keystores for internal and external encryption purposes.
 
 This newly added key can be used for different purposes.
-
-{% if not is_version == "7.0.0" %}
-
-### Add a symmetric secret to a PKCS12 keystore
-
-To create a PKCS12 keystore with an AES key or add an existing key to the keystore, use the following command. If the keystore is not available, new PKCS12 keystore will be created.
-
-=== "Format"
-
-    ``` bash
-
-    keytool -genseckey -alias <SECRET_ALIAS> -keyalg AES -keysize 256 -keystore <KEYSTORE_NAME> -storetype PKCS12 -storepass <KEYSTORE_PASSWORD> -keypass <KEYSTORE_PASSWORD>
-
-    ```
-
-
-=== "Sample keytool command"
-
-    ``` bash
-
-    keytool -genseckey -alias secretkey -keyalg AES -keysize 256 -keystore keystore.p12 -storetype PKCS12 -storepass password -keypass password
-
-    ```
-
-!!! abstract ""
-
-    **Example**
-
-    Follow the instructions given below to set the newly added key for symmetric encryption using cipher tool:
-
-    1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
-
-    2. Update the `alias` parameter under the `[keystore.internal]` element with the new keystore `alias`.       
-
-        ```toml
-        [keystore.internal]
-        file_name = "keystore.p12"
-        password = "password"
-        key_password = "password"
-        type = "PKCS12"
-        alias= "secretkey"
-        ```
-{% endif %}
 
 ## View public keys via JWKS
 

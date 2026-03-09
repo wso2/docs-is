@@ -50,10 +50,10 @@ There are two ways to create keystores for WSO2 Identity Server:
 
 ## Create the internal keystore
 
-The internal keystore is used for encrypting sensitive internal data such as passwords in configuration files via the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool). You can create the internal keystore with either a symmetric AES key or an asymmetric RSA key pair, depending on your [Cipher Tool configuration]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
+The internal keystore is used for encrypting sensitive internal data such as admin passwords and other sensitive information in configuration files via the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
-!!! tip
-    **Symmetric AES (Recommended)** — Recommended for IS 7.2 due to post-quantum resilience and better performance. Use this unless you have a specific reason to use asymmetric encryption.
+{% if not is_version == "7.0.0" %}
+It is recommended to use a **symmetric AES key** due to its resilience against post-quantum threats and better performance. However, if your [Cipher Tool configuration]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool) requires asymmetric encryption, you can create the internal keystore with an RSA key pair instead.
 
 Navigate to `<IS_HOME>/repository/resources/security/` and run one of the following commands:
 
@@ -97,6 +97,27 @@ Navigate to `<IS_HOME>/repository/resources/security/` and run one of the follow
 
     !!! note
         The public key certificate must have the **Data Encipherment** key usage to allow encryption of raw data. If using an asymmetric key for internal encryption, ensure your certificate includes this usage.
+
+{% else %}
+
+    ``` bash
+    keytool -genkeypair \
+      -alias <internal-key-alias> \
+      -keyalg RSA \
+      -keysize 2048 \
+      -keystore <internal-keystore-name>.p12 \
+      -storetype PKCS12 \
+      -storepass <internal-keystore-password> \
+      -keypass <internal-keystore-password>
+    ```
+
+    This command will create a keystore with the following details:
+
+    - **Keystore name**: `<internal-keystore-name>.p12`
+    - **Alias of the key pair**: `<internal-key-alias>`
+    - **Keystore password**: `<internal-keystore-password>`
+
+{% endif %}
 
 !!! warning
     Adding an internal keystore to an existing deployment will make already encrypted data unusable. This should be done during initial setup only.

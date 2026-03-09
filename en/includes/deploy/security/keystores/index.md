@@ -63,6 +63,10 @@ Additional recommendations:
 
 - The TLS keystore must use the same password for the keystore and private key due to a Tomcat limitation.
 
+- Change the default truststore password from `wso2carbon` (which is publicly known) before configuring production deployments.
+
+- Remove the default WSO2 self-signed certificate (alias: `wso2carbon`) from the truststore after importing your own certificates in production environments.
+
 - If you already have existing keystores, generate CA-signed certificates and import them into those keystores rather than creating new ones. See [Add CA-signed certificates]({{base_path}}/deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore/#add-ca-signed-certificates-to-keystores) for instructions.
 
 - Optionally, you can set up separate keystores for message-level data encryption in WS-Security.

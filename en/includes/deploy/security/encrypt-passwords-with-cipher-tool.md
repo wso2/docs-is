@@ -34,7 +34,7 @@ Follow the steps below to encrypt passwords:
 
         !!! note "Prerequisite"
 
-            To support symmetric encryption, you should have a symmetric secret in an internal keystore of type PKCS12. Follow the instructions [here]({{base_path}}/deploy/security/keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore) to add one.
+            To support symmetric encryption, you should have a symmetric secret in an internal keystore of type PKCS12. Follow the instructions for [creating the internal keystore]({{base_path}}/deploy/security/keystores/create-new-keystores/#create-the-internal-keystore) with a symmetric AES key.
 
         - **For Linux**: `./ciphertool.sh -Dconfigure -Dsymmetric`
 
