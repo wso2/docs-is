@@ -101,27 +101,6 @@ After creating a new keystore (for example, a TLS keystore), export its certific
       -noprompt
     ```
 
-## Remove the default WSO2 certificate from the truststore
-
-The default WSO2 self-signed certificate is pre-imported into the truststore with the alias `wso2carbon`. In production, remove it after importing your own certificates:
-
-```bash
-keytool -delete \
-  -alias wso2carbon \
-  -keystore client-truststore.p12 \
-  -storetype PKCS12 \
-  -storepass <truststore-password>
-```
-
-!!! tip
-    To list all certificates currently in the truststore and verify which aliases exist, run:
-    ```bash
-    keytool -list \
-      -keystore client-truststore.p12 \
-      -storetype PKCS12 \
-      -storepass <truststore-password>
-    ```
-
 ## Create a keystore using an existing certificate
 
 As SSL/TLS is widely used in many systems, certificates may already exist that can be reused. In such situations, you can use an already existing CA-signed certificate to generate your keystore for SSL by using OpenSSL and Java.

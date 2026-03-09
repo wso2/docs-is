@@ -11,7 +11,9 @@ This page explains how to configure keystores in the `deployment.toml` file. Bef
     3. [Change the truststore password]({{base_path}}/deploy/security/keystores/configure-keystores/#change-truststore-password) from the default before configuring keystores.
 
 
-## Change truststore password
+## Manage the truststore
+
+### Change truststore password
 
 The default truststore (`client-truststore.p12`) ships with the password `wso2carbon`, which is publicly known. Before creating new keystores or configuring production deployments, change the default truststore password.
 
@@ -27,6 +29,27 @@ keytool -storepasswd \
 
 !!! warning
     Keep the new truststore password safe. You will need it when configuring the `[truststore]` section in `deployment.toml` and when importing certificates into the truststore.
+
+### Remove the default WSO2 certificate from the truststore
+
+The default WSO2 self-signed certificate is pre-imported into the truststore with the alias `wso2carbon`. In production, remove it after importing your own certificates:
+
+```bash
+keytool -delete \
+  -alias wso2carbon \
+  -keystore client-truststore.p12 \
+  -storetype PKCS12 \
+  -storepass <truststore-password>
+```
+
+!!! tip
+    To list all certificates currently in the truststore and verify which aliases exist, run:
+    ```bash
+    keytool -list \
+      -keystore client-truststore.p12 \
+      -storetype PKCS12 \
+      -storepass <truststore-password>
+    ```
 
 ## Configure default keystore and truststore
 
