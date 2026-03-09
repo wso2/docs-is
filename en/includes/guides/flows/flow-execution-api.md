@@ -80,10 +80,6 @@ The value for `flowType` depends on the flow you want to execute. Refer to the t
               }
             ]
           }
-        ],
-        "requiredParams": [
-          "http://wso2.com/claims/emailaddress",
-          "password"
         ]
       }
     }
