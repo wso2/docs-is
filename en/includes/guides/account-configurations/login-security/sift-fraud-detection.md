@@ -41,6 +41,10 @@ Following are the events that can be published to Sift for fraud detection.
 5. **Logouts** - Enable this option to publish user logout events to Sift.
 6. **User Verifications** - Enable this option to publish notification based user verification events to Sift.
 
+!!! note
+    User Self Registration and Password Reset related Sift events are only publishing with legacy self registration and
+    password recovery flows.
+
 #### Diagnostic Logging
 
 Enable the `Log event payloads locally` option to log the event payloads sent to the Sift as diagnostic logs in Asgardeo.
