@@ -97,12 +97,12 @@ alias = "<internal-key-alias>"
 To configure a custom TLS keystore for SSL/TLS connections, update the following configuration:
 
 ```toml 
-[transport.https.sslHostConfig.certificate.properties]
-certificateKeystoreFile = "${carbon.home}/repository/resources/security/$ref{keystore.tls.file_name}"
-certificateKeystorePassword = "$ref{keystore.tls.password}"
-certificateKeystoreType = "$ref{keystore.tls.type}"
-certificateKeyAlias = "$ref{keystore.tls.alias}"
-certificateKeyPassword = "$ref{keystore.tls.key_password}"
+[keystore.tls]
+file_name = "tls.p12"
+type = "PKCS12"
+password = "<tls-keystore-password>"
+alias = "<tls-key-alias>"
+key_password = "<tls-key-password>"
 ```
   
 The internally used trust-store configurations given below can be changed to define a custom truststore for SSL validations.
