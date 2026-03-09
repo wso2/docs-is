@@ -21,25 +21,31 @@ def promote_headings_outside_fences(content):
     return "\n".join(out)
 
 def on_nav(nav, config, files):
-    GUIDE_FOLDERS = {
-        "react": "React",
-        "angular": "Angular",
-        "javascript": "JavaScript",
-        "nextjs": "Next.js",
-        "dotnet": ".NET",
-        "expressjs": "Express.js"
-    }
+    # We no longer need a strict mapping for filenames, 
+    # but we can keep it to know which sections to "Merge"
+    TARGET_PARENT_DIR = "complete-guides/"
 
     def walk_nav(items):
         for item in items:
             if item.is_section:
                 first_page = find_first_page(item)
-                if first_page and "complete-guides/" in first_page.file.src_path:
+                # Check if this section is inside the complete-guides directory
+                if first_page and TARGET_PARENT_DIR in first_page.file.src_path:
                     parts = first_page.file.src_path.split('/')
-                    folder_name = parts[1] if len(parts) > 1 else ""
-                    
-                    if folder_name in GUIDE_FOLDERS:
-                        create_merged_guide(item, folder_name, GUIDE_FOLDERS[folder_name], config)
+                    # find the index of 'complete-guides' and take the folder immediately after it
+                    try:
+                        cg_idx = parts.index('complete-guides')
+                        if len(parts) > cg_idx + 1:
+                            # This is the specific guide folder (e.g., 'nextjs-b2b')
+                            folder_name = parts[cg_idx + 1]
+                            
+                            # Use the section title (e.g., "Next.js B2B") for the header
+                            # but the actual folder name for the filename
+                            create_merged_guide(item, folder_name, item.title, config)
+                    except ValueError:
+                        pass
+                
+                # Continue walking the tree
                 walk_nav(item.children)
 
     walk_nav(nav)

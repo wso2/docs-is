@@ -58,7 +58,7 @@
     const button = document.createElement('button');
     button.className = 'copy-page-button header-group-btn'; 
     button.setAttribute('aria-expanded', 'false');
-    button.innerHTML = `${Icons.Copy} <span class="btn-text">Copy Page</span> ${Icons.Chevron}`;
+    button.innerHTML = `${Icons.Copy} <span class="btn-text">Use page in AI</span> ${Icons.Chevron}`;
 
     const backdrop = document.createElement('div');
     backdrop.className = 'copy-page-backdrop';
@@ -96,7 +96,7 @@
         btnText.innerText = 'Copied!';
         button.classList.add('copied-success');
       } catch (err) { btnText.innerText = 'ERROR'; } 
-      finally { setOpen(false); setTimeout(() => { btnText.innerText = 'Copy page'; button.classList.remove('copied-success'); }, 2000); }
+      finally { setOpen(false); setTimeout(() => { btnText.innerText = 'Use in AI'; button.classList.remove('copied-success'); }, 2000); }
     });
 
     menu.querySelector('.cp-view').addEventListener('click', () => { window.open(getFlattenedMarkdownUrlFromHtmlUrl(window.location.href), '_blank'); setOpen(false); });
@@ -112,32 +112,79 @@
     return container;
   }
 
+  Icons.FullGuide = `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l3.414 3.414c.329.328.513.773.513 1.237v8.086A1.75 1.75 0 0113.75 15h-10A1.75 1.75 0 012 13.25V1.75zm1.75-.25a.25.25 0 00-.25.25v11.5c0 .138.112.25.25.25h10a.25.25 0 00.25-.25V5.5h-2.75A1.75 1.75 0 019.5 3.75V1.5h-5.75zM11 1.5v2.25a.25.25 0 00.25.25H13.5L11 1.5z"/></svg>`;
+
+  function getFullGuideUrl(htmlUrl) {
+    const u = new URL(htmlUrl);
+    const segments = u.pathname.split('/').filter(Boolean);
+    const cgIndex = segments.indexOf('complete-guides');
+    
+    // If we are inside /complete-guides/react/some-page
+    if (cgIndex !== -1 && segments.length > cgIndex + 1) {
+      const framework = segments[cgIndex + 1];
+      // Your Python script saves it as: site_dir/complete-guides/framework.md
+      // We reconstruct that relative to the root
+      const root = segments.slice(0, cgIndex).join('/');
+      return `${u.origin}${root ? '/' + root : ''}/complete-guides/${framework}.md`;
+    }
+    return null;
+  }
+
+  function createFullGuideButton(guideUrl) {
+    const btn = document.createElement('button');
+    btn.className = 'copy-page-button header-group-btn full-guide-btn';
+    btn.style.marginLeft = '8px'; // Space from the standard "Copy Page"
+    btn.innerHTML = `${Icons.FullGuide} <span class="btn-text">Copy Complete Guide for AI</span>`;
+
+    btn.addEventListener('click', async () => {
+      const btnText = btn.querySelector('.btn-text');
+      try {
+        btnText.innerText = 'Fetching Guide...';
+        const res = await fetch(guideUrl, { cache: 'no-cache' });
+        if (!res.ok) throw new Error();
+        const text = await res.text();
+        await navigator.clipboard.writeText(text);
+        btnText.innerText = 'Complete Guide Copied!';
+        btn.classList.add('copied-success');
+      } catch (err) {
+        btnText.innerText = 'Error Fetching';
+      } finally {
+        setTimeout(() => {
+          btnText.innerText = 'Copy Complete Guide for AI';
+          btn.classList.remove('copied-success');
+        }, 2000);
+      }
+    });
+    return btn;
+  }
+
   function init() {
+    // 1. Prevent multiple injections
     if (document.querySelector('.copy-page-container')) return;
     
+    // 2. Homepage Detection Logic
     const u = new URL(window.location.href);
-    let cleanPath = u.pathname
-      .replace(/\/index\.html$/, '')
-      .replace(/\.html$/, '')
-      .replace(/\/$/, '');
+    const segments = u.pathname.split('/').filter(Boolean);
     
-    const segments = cleanPath.split('/').filter(Boolean);
-    
-    /**
-     * Logic: Only exclude if it is the version root homepage.
-     * Homepage = /en/<version> (Exactly 2 segments)
-     * Sub-index = /en/<version>/guides (3 or more segments)
-     */
-    if (segments.length === 2 && segments[0] === 'en') {
-      const isVersion = /^\d+\.\d+\.\d+$/.test(segments[1]);
-      if (isVersion) return; 
+   
+    if (segments.length <= 2) {
+      // This is likely /en/, /en/latest/, or /en/7.2.0/
+      return; 
     }
 
+    // 3. Normal injection logic
     const title = document.querySelector('article h1') || document.querySelector('.md-content h1');
     if (title) {
       observer.disconnect();
-      const btnGroup = createCopyPageButton();
-      title.insertAdjacentElement('afterend', btnGroup);
+      const container = createCopyPageButton();
+      
+      const fullGuideUrl = getFullGuideUrl(window.location.href);
+      if (fullGuideUrl) {
+        const fullGuideBtn = createFullGuideButton(fullGuideUrl);
+        container.appendChild(fullGuideBtn);
+      }
+
+      title.insertAdjacentElement('afterend', container);
       observer.observe(document.body, { childList: true, subtree: true });
     }
   }
