@@ -31,6 +31,12 @@ def prettify_tech_name(name):
     }
     return overrides.get(name.lower(), name.capitalize())
 
+def on_pre_build(config):
+    """Reset global trackers at the start of every build to prevent accumulation across repeated runs."""
+    global GENERATED_GUIDES, ALL_PAGES
+    GENERATED_GUIDES = []
+    ALL_PAGES = []
+
 def on_nav(nav, config, files):
     """
     Scans navigation to identify unique sections within 'complete-guides/'.
@@ -79,20 +85,32 @@ def find_first_page(section):
     return None
 
 def inject_api_spec(content, page_src_path, docs_dir):
+    docs_root = os.path.abspath(os.path.normpath(docs_dir))
+
+    def _within_docs_dir(path):
+        abs_path = os.path.abspath(os.path.normpath(path))
+        return os.path.commonpath([docs_root]) == os.path.commonpath([docs_root, abs_path])
+
     redoc_pattern = re.compile(r'<redoc[^>]*\sspec-url=["\']([^"\']+)["\']', re.IGNORECASE | re.DOTALL)
     match = redoc_pattern.search(content)
     if match:
         spec_relative_path = match.group(1)
         page_dir = os.path.dirname(page_src_path)
         if spec_relative_path.startswith('/'):
-            spec_path = os.path.normpath(os.path.join(docs_dir, spec_relative_path.lstrip('/')))
+            spec_path = os.path.abspath(os.path.normpath(os.path.join(docs_dir, spec_relative_path.lstrip('/'))))
         elif spec_relative_path.startswith('../'):
-            spec_path = os.path.normpath(os.path.join(page_dir, spec_relative_path))
+            spec_path = os.path.abspath(os.path.normpath(os.path.join(page_dir, spec_relative_path)))
         else:
-            spec_path = os.path.join(page_dir, spec_relative_path)
+            spec_path = os.path.abspath(os.path.normpath(os.path.join(page_dir, spec_relative_path)))
+        if not _within_docs_dir(spec_path):
+            print(f"ERROR: spec-url resolves outside docs_dir, skipping: {spec_path}")
+            return content
         if not os.path.exists(spec_path):
             filename = os.path.basename(spec_relative_path)
-            fallback_path = os.path.join(docs_dir, "apis", "restapis", filename)
+            fallback_path = os.path.abspath(os.path.normpath(os.path.join(docs_dir, "apis", "restapis", filename)))
+            if not _within_docs_dir(fallback_path):
+                print(f"ERROR: fallback path resolves outside docs_dir, skipping: {fallback_path}")
+                return content
             if os.path.exists(fallback_path):
                 spec_path = fallback_path
         if os.path.exists(spec_path):
@@ -107,10 +125,14 @@ def inject_api_spec(content, page_src_path, docs_dir):
 def resolve_includes(content, current_dir, docs_dir, visited=None):
     if visited is None:
         visited = set()
+    docs_root = os.path.abspath(docs_dir)
     include_pattern = re.compile(r'\{%\s*include\s*[\'"](.+?)[\'"]\s*%\}')
     def replace_match(match):
         rel_path = match.group(1)
-        target = os.path.join(docs_dir, rel_path.lstrip('/')) if rel_path.startswith('/') else os.path.normpath(os.path.join(current_dir, rel_path))
+        raw = os.path.join(docs_dir, rel_path.lstrip('/')) if rel_path.startswith('/') else os.path.join(current_dir, rel_path)
+        target = os.path.abspath(raw)
+        if os.path.commonpath([docs_root]) != os.path.commonpath([docs_root, target]):
+            return ""
         if target in visited: return ""
         if os.path.exists(target):
             visited.add(target)

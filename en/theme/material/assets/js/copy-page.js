@@ -52,7 +52,7 @@
     const button = document.createElement('button');
     button.className = 'copy-page-button header-group-btn'; 
     button.setAttribute('aria-expanded', 'false');
-    button.innerHTML = `${Icons.Copy} <span class="btn-text">Use page in AI</span> ${Icons.Chevron}`;
+    button.innerHTML = `${Icons.Copy} <span class="btn-text">Use Page in AI</span> ${Icons.Chevron}`;
 
     const backdrop = document.createElement('div');
     backdrop.className = 'copy-page-backdrop';
@@ -90,7 +90,7 @@
         btnText.innerText = 'Copied!';
         button.classList.add('copied-success');
       } catch (err) { btnText.innerText = 'ERROR'; } 
-      finally { setOpen(false); setTimeout(() => { btnText.innerText = 'Use in AI'; button.classList.remove('copied-success'); }, 2000); }
+      finally { setOpen(false); setTimeout(() => { btnText.innerText = 'Use Page in AI'; button.classList.remove('copied-success'); }, 2000); }
     });
 
     menu.querySelector('.cp-view').addEventListener('click', () => { window.open(getFlattenedMarkdownUrlFromHtmlUrl(window.location.href), '_blank'); setOpen(false); });
