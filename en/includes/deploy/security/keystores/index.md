@@ -53,7 +53,10 @@ In production environments, it is recommended to use three distinct keystores wi
 
 - **Primary keystore** (`[keystore.primary]`): Used for signing messages when communicating with external parties (SAML assertions, OIDC ID token signing). This keystore contains an RSA key pair. It serves as the fallback for both signing and encryption unless a specific keystore is explicitly defined.
 
-- **Internal keystore** (`[keystore.internal]`): Used for encrypting sensitive internal data such as admin passwords and other sensitive information in configuration files (via the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool)). It is recommended to use a **symmetric AES key** (PKCS12 format) for the internal keystore due to its resilience against post-quantum threats. This keystore does not need to be CA-signed as it is not used for external communication.
+- **Internal keystore** (`[keystore.internal]`): Used for encrypting sensitive internal data such as admin passwords and other sensitive information in configuration files (via the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool)). 
+{% if not is_version == "7.0.0" %}
+    It is recommended to use a **symmetric AES key** (PKCS12 format) for the internal keystore due to its resilience against post-quantum threats. This keystore does not need to be CA-signed as it is not used for external communication.
+{% endif %}
 
 - **TLS keystore** (`[keystore.tls]`): Contains the server’s key pair and certificate for authenticating communication over SSL/TLS (HTTPS). It is recommended to use a CA-signed certificate for the TLS keystore.
 
