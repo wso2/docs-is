@@ -570,11 +570,12 @@ paths:
                       - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
                         orgName: "Child Org 1"
                         orgHandle: "child-org-1"
-                        parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
                         orgStatus: "ACTIVE"
                         orgRef: "/t/wso2.com/o/api/server/v1/organizations/b028ca17-8f89-449c-ae27-fa955e66465d"
                         hasChildren: true
                         depthFromRoot: 1
+                        parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
+                        parentUserId: "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
                         sharedUserId: "550e8400-e29b-41d4-a716-446655440000"
                         sharedType: "SHARED"
                         roles:
@@ -592,11 +593,12 @@ paths:
                       - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
                         orgName: "Child Org 1"
                         orgHandle: "child-org-1"
-                        parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
                         orgStatus: "ACTIVE"
                         orgRef: "/t/wso2.com/o/api/server/v1/organizations/b028ca17-8f89-449c-ae27-fa955e66465d"
                         hasChildren: true
                         depthFromRoot: 1
+                        parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
+                        parentUserId: "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
                         sharedUserId: "550e8400-e29b-41d4-a716-446655440000"
                         sharedType: "SHARED"
                         sharingMode:
@@ -616,11 +618,12 @@ paths:
                       - orgId: "a17b28ca-9f89-449c-ae27-fa955e66465f"
                         orgName: "Child Org 2"
                         orgHandle: "child-org-2"
-                        parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
                         orgStatus: "ACTIVE"
                         orgRef: "/t/wso2.com/o/api/server/v1/organizations/a17b28ca-9f89-449c-ae27-fa955e66465f"
                         hasChildren: false
                         depthFromRoot: 1
+                        parentOrgId: "08f8c1d2-4b3e-4c5a-9f6b-7d8e9f0a1b2c"
+                        parentUserId: "7a1b7d63-8cfc-4dc9-9332-3f84641b72d8"
                         sharedUserId: "3f2504e0-4f89-41d3-9a0c-0305e82c3301"
                         sharedType: "SHARED"
                         sharingMode:
@@ -933,10 +936,6 @@ components:
           type: string
           description: Unique, human-readable handle of the organization.
           example: "sampleOrg"
-        parentOrgId:
-          type: string
-          nullable: true
-          description: ID of the parent organization (if applicable).
         orgStatus:
           type: string
           description: Current status of the organization.
@@ -952,6 +951,14 @@ components:
           type: integer
           description: Depth of the organization in the hierarchy, where root is 0.
           example: 1
+        parentOrgId:
+          type: string
+          nullable: true
+          description: ID of the parent (sharing initiated) organization.
+        parentUserId:
+          type: string
+          nullable: true
+          description: ID of the user in the parent (sharing initiated) organization.
         sharedUserId:
           type: string
           description: ID of the shared user object in the target organization.
