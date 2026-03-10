@@ -48,6 +48,10 @@ Learn more about [role-based provisioning]({{base_path}}/guides/users/outbound-p
 
 {{product_name}} supports provisioning users via the following outbound connectors:
 
+{% if product_name == "Asgardeo" %}
+- [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2)
+{% else %}
 - [Google]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google)
 - [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce)
 - [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2)
+{% endif %}

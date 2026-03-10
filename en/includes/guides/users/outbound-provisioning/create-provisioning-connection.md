@@ -9,7 +9,7 @@ To start provisioning users, you must first create a provisioning connection and
 
     ![Create an outbound provisioning connection]({{base_path}}/assets/img/guides/outbound-provisioning/create-connection.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Select a provisioning connector (e.g., Salesforce, Google, or SCIM2).
+3. Select a provisioning connector (e.g., {% if product_name == "Asgardeo" %}SCIM2{% else %}Salesforce, Google, or SCIM2{% endif %}).
 
     ![Select a provisioning connector]({{base_path}}/assets/img/guides/outbound-provisioning/select-connector-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -18,9 +18,9 @@ To start provisioning users, you must first create a provisioning connection and
     !!! note
         Learn about the required properties for each connector:
         <ul>
-        <li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google">Google</a></li>
+        {% if product_name != "Asgardeo" %}<li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google">Google</a></li>
         <li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce">Salesforce</a></li>
-        <li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2">SCIM2</a></li>
+        {% endif %}<li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2">SCIM2</a></li>
         </ul>
 
 {% else %}
