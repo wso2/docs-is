@@ -1,63 +1,46 @@
-# Token validation by resource servers
+# Validate tokens at a resource server
 
-Access tokens provide limited authorization to resources within a resource server. The resource server is responsible for validating these tokens before granting access. Token validation differs based on the [type of the access tokens]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token) that the resource server receives.
+While resource servers can validate JSON Web Tokens (JWT) locally, opaque access tokens don't carry authorization information that a resource server can decode. The resource server must validate the token by querying the authorization server.
 
-## Validate JWT tokens
+{{product_name}} supports token validation through the **OAuth 2.0 Token Introspection endpoint** defined in [RFC 7662](https://datatracker.ietf.org/doc/html/rfc7662){: target="_blank"}.
 
-A JSON Web Token (JWT) is a self-contained token. This means that the resource server does not need to interact with the identity provider to validate tokens. The payload of a sample decoded JWT token is as shown below.
+`https://<IS_HOST>:<IS_PORT>/oauth2/introspect`
 
-```json
-{
-  "sub": "Alica@bifrost.com",
-  "aut": "APPLICATION_USER",
-  "aud": "Wsoq8t4nHW80gSnPfyDvRbiC__Ea",
-  "nbf": 1623904805,
-  "azp": "Wsoq8t4nHW80gSnPfyDvRbiC__Ea",
-  "scope": "openid",
-  "iss": "{{product_url_sample}}/oauth2/token",
-  "exp": 1623908405,
-  "iat": 1623904805,
-  "jti": "9fac7747-bb2d-46be-bef2-a95b2f69f8b2"
-}
-```
+The resource server sends the access token to this endpoint, and the authorization server responds with metadata about the token, such as its validity, scopes, and expiry time.
 
-## Validate opaque tokens
+## Prerequisites
 
-Unlike JWT tokens, opaque tokens are non-transparent. This means that the authorization information is not readily available to resource servers and they should interact with the identity provider to validate and extract the relevant information. OAuth2.0 supports [token introspection](https://datatracker.ietf.org/doc/html/rfc7662){:target="_blank"} to inspect access tokens and refresh tokens.
+By default, to invoke the introspection endpoint, the caller must have the `internal_oauth2_introspect` scope.
 
-{{ product_name }} provides the following endpoint to perform token validation. 
+- To customize the scopes callers must present, add the following to `<IS_HOME>/repository/conf/deployment.toml`.
 
-``` 
-{{product_url_format}}/oauth2/introspect
-```
+    ```toml
+    [resource_access_control.introspect]
+    scopes = ["internal_oauth2_introspect"]
+    ```
 
-{% if product_name == 'Asgardeo' %}
+- To **remove all scope requirements** and allow any authenticated caller to introspect tokens, set `scopes` to an empty list.
+
+    ```toml
+    [resource_access_control.introspect]
+    scopes = []
+    ```
+
+    !!! warning "Not recommended for production"
+        Removing all scope requirements allows any authenticated user or application to call the introspection endpoint.
+
+## Invoke the introspection endpoint
+
+The resource server can authenticate to the introspection endpoint using one of the following methods.
+
+### With user credentials
+
+By default, the introspection endpoint supports basic authentication with user credentials.
+
 === "Request format"
 
     ```bash
-    curl --location --request POST {{product_url_format}}/oauth2/introspect \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --header 'Authorization: Basic <Base64Encoded(ClientID:ClientSecret)>' \
-    --data-urlencode 'token={access_token}'
-    ```
-
-=== "Request sample"
-  
-    ```bash
-    curl --location --request POST '{{ product_url_sample }}/oauth2/introspect' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --header 'Cookie: atbv=646b0ed2-c501-4b17-9251-94112013a718' \
-    --header 'Authorization: Basic V3NvcTh0NG5IVzgwZ1NuUGZ5RHZSYmlDX19FYTp6MEM3OXpsb3B4OGk3QnlPdzhLMTVBOWRwbFlh' \
-    --data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
-    ```
-
-{% endif %}
-
-{% if product_name == "WSO2 Identity Server" %}
-=== "Request format"
-
-    ```bash
-    curl --location --request POST {{product_url_format}}/oauth2/introspect \
+    curl --location --request POST https://localhost:9443/oauth2/introspect \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic <Base64Encoded(Username:Password)>' \
     --data-urlencode 'token={access_token}'
@@ -66,112 +49,106 @@ Unlike JWT tokens, opaque tokens are non-transparent. This means that the author
 === "Request sample"
 
     ```bash
-    curl --location --request POST '{{ product_url_sample }}/oauth2/introspect' \
+    curl --location --request POST https://localhost:9443/oauth2/introspect \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
     --data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
     ```
 
-{% endif %}
+!!! warning "Avoid using high-privileged credentials"
+    Don't use super administrator or highly privileged user credentials when invoking the introspection endpoint.  
+    Instead, create a user with the least privileges required to call the API.
 
-!!! warning "Avoid using super admin credentials for API authentication"
+### With client credentials
 
-    When invoking APIs using basic authentication, never use the super admin or any high-privileged user credentials. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
+By default, {{product_name}} only supports basic authentication with user credentials. You can enable client authentication and allow applications to call the introspection endpoint using their client ID and client secret.
 
-{% if product_name == "WSO2 Identity Server" %}
+1. To enable authentication with client credentials, add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`.
 
-!!! note
-    Enable the following in `<IS_HOME>/repository/conf/deployment.toml` to use client ID- client secret based authentication for this endpoint.
-    By default, the endpoint uses username-password authentication.
-
-    ``` toml
+    ```toml
     [[resource.access_control]]
     context="(.*)/oauth2/introspect(.*)"
-    http_method = "all"
-    secure = true
+    http_method="all"
+    secure=true
     allowed_auth_handlers="BasicClientAuthentication"
     ```
 
-!!! note
-    To control which users and applications can access the introspection endpoint using scopes, add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`:
+2. Invoke the endpoint using the client ID and client secret.
 
-    ``` toml
-    [resource_access_control.introspect]
-    scopes = []
-    ```
+    !!! info
 
-    By default, users with the `internal_oauth2_introspect` scope can access the introspection endpoint. You can modify the `scopes` array to include additional scopes as needed. When multiple scopes are configured, users need to have at least one of the specified scopes to access the endpoint.
+        Ensure that the application can request this scope. Learn more about [authorizing applications to consume API resources]({{base_path}}/guides/authorization/api-authorization/api-authorization/#authorize-apps-to-consume-api-resources/).
 
     === "Request format"
 
         ```bash
-        curl --location --request POST {{product_url_format}}/oauth2/introspect \
+        curl --location --request POST https://localhost:9443/oauth2/introspect \
         --header 'Content-Type: application/x-www-form-urlencoded' \
-        --header 'Authorization: Basic <Base64Encoded(ClientID:ClientSecret)>' \
+        --user '<client_id>:<client_secret>' \
         --data-urlencode 'token={access_token}'
         ```
 
     === "Request sample"
 
         ```bash
-        curl --location --request POST '{{ product_url_sample }}/oauth2/introspect' \
+        curl --location --request POST https://localhost:9443/oauth2/introspect \
         --header 'Content-Type: application/x-www-form-urlencoded' \
-        --header 'Cookie: atbv=646b0ed2-c501-4b17-9251-94112013a718' \
-        --header 'Authorization: Basic V3NvcTh0NG5IVzgwZ1NuUGZ5RHZSYmlDX19FYTp6MEM3OXpsb3B4OGk3QnlPdzhLMTVBOWRwbFlh' \
+        --user 'iieV1ARKSmFCImV0XvKS4sPfWfEa:oMw72n4Gr3gSp8RGCw6dM1EjSqYa' \
         --data-urlencode 'token=94e325b7-77c8-32c2-a6ff-d7be430bf785'
         ```
 
-{% endif %}
+## Introspection responses
 
-### User access token response
+The authorization server responds to the introspection request with a JSON object containing metadata about the token. The responses change slightly based on the token type.
 
-User access tokens are tokens generated through user interactions, such as logging in by entering credentials. The access token represents the user and the user's permissions.
+### User tokens
 
-The following response will be returned for the provided user access token:
+User access tokens generate through user interactions, such as logging in by entering credentials. The access token represents the user and the user's permissions.
 
-```json
-{
-  "aut": "APPLICATION_USER",
-  "nbf": 1629961093,
-  "scope": "openid profile",
-  "active": true,
-  "token_type": "Bearer",
-  "exp": 1629968693,
-  "iat": 1629961093,
-  "client_id": "Wsoq8t4nHW80gSnPfyDvRbiC__Eb",
-  "username": "{{ username }}"
-}
-```
+For a provided user token, the response looks like the following:
 
-The following response will be returned for the provided refresh token:
+=== "Access token"
 
-```json
-{
-  "nbf": 1629961093,
-  "scope": "openid profile",
-  "active": true,
-  "token_type": "Refresh",
-  "exp": 1630047493,
-  "iat": 1629961093,
-  "client_id": "Wsoq8t4nHW80gSnPfyDvRbiC__Ea",
-  "username": "{{ username }}"
-}
-```
+    ```json
+    {
+    "aut": "APPLICATION_USER",
+    "nbf": 1629961093,
+    "scope": "openid profile",
+    "active": true,
+    "token_type": "Bearer",
+    "exp": 1629968693,
+    "iat": 1629961093,
+    "client_id": "Wsoq8t4nHW80gSnPfyDvRbiC__Eb",
+    "username": "admin@carbon.super"
+    }
+    ```
 
-If the token you used is invalid, you will get the following response:
+=== "Refresh token"
 
-```json
-{'active':false}
-```
+    ```json
+    {
+    "nbf": 1629961093,
+    "scope": "openid profile",
+    "active": true,
+    "token_type": "Refresh",
+    "exp": 1630047493,
+    "iat": 1629961093,
+    "client_id": "Wsoq8t4nHW80gSnPfyDvRbiC__Ea",
+    "username": "admin@carbon.super"
+    }
+    ```
 
-!!! note
-    See the [OAuth2.0 introspection request](https://datatracker.ietf.org/doc/html/rfc7662#section-2.1){:target="_blank"} for details.
+=== "Invalid token"
 
-### Application access token response
+    ```json
+    {'active':false}
+    ```
 
-Application access tokens are tokens obtained through grant types like the [client_credentials]({{base_path}}/references/grant-types/#client-credentials-grant) grant, without any user involvement. Unlike user-bound tokens, application access tokens represent the application itself rather than an individual user.
+### Application tokens
 
-The introspection response for Application access Ttkens follows the format shown below:
+Applications receive application tokens through grant types like the client credentials grant, which don't involve any user interaction. These tokens represent the application itself rather than an individual user.
+
+For a provided application token, the response looks like the following:
 
 ```json
 {
@@ -187,8 +164,8 @@ The introspection response for Application access Ttkens follows the format show
 
 !!! warning "Deprecated behavior"
 
-    Previously, the introspection response for application access tokens included the `username` attribute, which contained the application owner's username. This attribute will no longer be included in the introspection response.
-    
-    If your application's access tokens still return the response, it is likely that your application is out-of-date. If so, update your application through the {{product_name}} Console by navigating to the relevant application under the **Applications** section.
+    Previously, the introspection response for application access tokens included the   `username` attribute, which contained the username of the application owner. This attribute will no longer be included in the introspection response.
 
-    Once updated, the `username` attribute will no longer be included in the introspection response. Therefore, before updating, ensure that your application does not rely on the `username` attribute and remove any such dependencies.
+    If your application's access tokens still return the response, it is likely that your application is out-of-date. If so, update your application through the WSO2 Identity Server Console by navigating to the relevant application under the Applications section.
+
+    Once updated, the username attribute will no longer be included in the introspection response. Therefore, before updating, ensure that your application does not rely on the username attribute and remove any such dependencies.
