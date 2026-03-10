@@ -103,7 +103,7 @@ The authorization server responds to the introspection request with a JSON objec
 
 ### User tokens
 
-User access tokens generate through user interactions, such as logging in by entering credentials. The access token represents the user and the user's permissions.
+WSO2 Identity Server issues user access tokens during user interactions, such as when users sign in. An access token represents the user and their permissions.
 
 For a provided user token, the response looks like the following:
 
@@ -141,7 +141,7 @@ For a provided user token, the response looks like the following:
 === "Invalid token"
 
     ```json
-    {'active':false}
+    {"active":false}
     ```
 
 ### Application tokens
