@@ -9,7 +9,7 @@ The following section provides the instructions to contruct requests for each no
     * The email notification sender configuration is not supported for carbon.super tenant via this API.
 
         Refer [email sending module configuration]({{base_path}}/guides/notification-channels/configure-email-provider) to setup email notification sender for carbon.super tenant.
-        Underlying, the event publishers in `IS_HOME/repository/deployment/server/eventpublishers` will send the notifications.
+        Underlying, the event publishers in `<IS_HOME>/repository/deployment/server/eventpublishers` will send the notifications.
         For more information on writing an event publisher, see [Event Publisher Types](https://wso2docs.atlassian.net/wiki/spaces/DAS300/pages/52462033/Event+Publisher+Types){:target="_blank"}.
 
     * The following properties are used for internal operations. Therefore, avoid using these properties when configuring notification senders.
@@ -28,7 +28,7 @@ The following section provides the instructions to contruct requests for each no
 ??? "SMS Sender Configuration"
 
     1. Some SMS providers’ SMS sending API payloads are templated in the 
-    `IS_HOME/repository/conf/sms/sms-providers-api-body-templates.xml` file.
+    `<IS_HOME>/repository/conf/sms/sms-providers-api-body-templates.xml` file.
     2. You can add new SMS providers’ payloads, or modify the existing SMS provider payloads by adding new attributes.
     3. Attribute values that need to be replaced by the **POST /notification-senders/sms** API’s input should be templated with 
     a prefix, **“$”**. For example,

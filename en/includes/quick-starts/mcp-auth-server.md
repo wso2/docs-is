@@ -226,12 +226,12 @@ First run the dev server by running the following command.
 npm start
 ```
 
-User **MCP Inspector** as the client application to test the MCP server.
+Use **MCP Inspector** as the client application to test the MCP server.
 
- In a new terminal window, run the following command to launch MCP Inspector against the running MCP server.
+ In a new terminal window, run the following command to launch MCP Inspector against the running MCP server, ensuring you specify the transport and the URL explicitly.
 
 ```bash
-npx @modelcontextprotocol/inspector http://localhost:3000/mcp
+npx @modelcontextprotocol/inspector --url http://localhost:3000/mcp --transport streamable-http
 ```  
 
 Use it to list tools/resources, invoke the "add" tool, or query the "greeting" resource using the inspector UI.
@@ -391,7 +391,7 @@ First run the dev server by running the following command.
 
 Use MCP Inspector to test (now requires auth):
    ```
-   npx @modelcontextprotocol/inspector http://localhost:3000/mcp
+   npx @modelcontextprotocol/inspector --url http://localhost:3000/mcp --transport streamable-http
    ```
 
    - In the MCP inspector, open the *Authentication* settings in the left side. Under *OAuth 2.0 Flow* provide the `client-id` obtained earlier in this guide.

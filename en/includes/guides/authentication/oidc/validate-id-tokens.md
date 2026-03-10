@@ -2,32 +2,44 @@
 
 The ID token is a security token that is sent by {{ product_name }} to the application when a token is requested with OpenID scopes. This ID token contains information about the authenticated user.
 
-**Sample ID token**
+### Sample ID token
 
-```bash 
-eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiIzYzdlNDIyZGFkNTk1MDc3ZTAyYTYzNjRjYzViN2M5YTE2NzFkNzhmYWQ1MmZmZTVlNmE0MzcwOTRiNGNhOWZmIiwiYXRfaGFzaCI6IklVdEVuNHRLQWlzVWVXRDhIWGZwRXciLCJhdWQiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwiY19oYXNoIjoic3ZicjU1SEVIUGo3emt3Z2VuSkgxUSIsInN1YiI6IkFsaWNhQGJpZnJvc3QuY29tIiwibmJmIjoxNjI5OTY4MzQ0LCJhenAiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvYXBpLmFzZ2FyZGVvLmlvXC90XC9iaWZyb3N0XC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNjI5OTcxOTQ0LCJpYXQiOjE2Mjk5NjgzNDQsInNpZCI6ImY3OGY1ZjRjLTE4NjItNDIwOS04NWEzLWUyMmMyYTljMDY4ZCJ9.D9-lJ8vtC8Hj5mJvUm1ld9w0rifPzjHc6UyCbENtWbno0zTYB_ki3_z-x7zI_-72ixiDpsjzwLbmKKWw8tFtqWM36WvdwBH6mBDVB_K7cy8NqrACLOjFgBrRa3HXwHkwAgwHp6Vpgbs35aAbwf0OTBxeohnbEA4y84D0pFILHm-u_iFG1-tS-QKKh6s8SBR0MNA6dJqj95R3NVF-tk4aztHI5GB63aaw2E883Xd6r2k4MIi3vQoB35-T_zFSebypaheyW3IXCPNsXjsyy4toMRfE4KEeI-j20vixxtIB22OlOWBMie7ce9Atzu6op0R0eJz3f3Ch6OrPxcvT3ghSJQ
+{% if product_name == "Asgardeo" %}
+
+```bash
+eyJ4NXQiOiIyYmNmNTN0MGd6RDY0WWpreFdGMkpxQWVxSmsiLCJraWQiOiJNREpqWm1JMFptWTNZbVZqT0dSalkyVXlaRE16WldZM05URTJNVFZtWVRGaE9HUmhPRGxpTlRjME5HUmhNakZpT1Rnek1EUTROMkV3T0Raa1pERTJaQV9SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJpc2siOiI0NTY2ZDJlYmY1YjdmYzgwZDFmZGZhMTBjNDUzNTcyMGY0NTk1M2YyOWVjZGZhNzg3YzllMjY5ZTJhMThiYWMwIiwiYXRfaGFzaCI6IjAwWVdLNmw0amQ2bmlGNGlHa2t3SHciLCJzdWIiOiI0YjBiYjQyNS1jMWExLTRiMmQtYTM1Mi1kMGNiYjJmMjhiNjlAaWFtZGVtbyIsImFtciI6WyJPcGVuSURDb25uZWN0QXV0aGVudGljYXRvciJdLCJwcm9maWxlIjoiaHR0cHM6XC9cL3d3dy5ncmF2YXRhci5jb21cL2F2YXRhclwvMDM1ZTM5ZTZjOTc1NTNlYTBmZDU5NTJkM2IxMzI3ZTI_cz04MCZkPW1vbnN0ZXJpZCZmPXkiLCJpc3MiOiJodHRwczpcL1wvYXBpLmFzZ2FyZGVvLmlvXC90XC9pYW1kZW1vXC9vYXV0aDJcL3Rva2VuIiwic2lkIjoiNjkzZjdhMTEtOWI2MS00NzVlLWE4MTUtODYzZjM1OTM0NTBiIiwiY19oYXNoIjoiVlJld3JfaHlkYUxWUUNrZjB6dkFnQSIsImF1ZCI6IkNPTlNPTEUiLCJuYmYiOjE3NjkxNDk1MjYsImF6cCI6IkNPTlNPTEUiLCJvcmdfaWQiOiIxM2E5NTI2YS02M2ZiLTQ3MTAtYmVlYS1mY2VlYmZiMzgzM2IiLCJvcmdfbmFtZSI6ImlhbWRlbW8iLCJleHAiOjE3NjkxNTMxMjYsImlhdCI6MTc2OTE0OTUyNiwianRpIjoiMDhjM2FjZmYtODMwYy00MTA2LWFjNjQtMDk4MWVkOGI4MzRkIiwiZW1haWwiOiJzYWRpbEB3c28yLmNvbSIsIm9yZ19oYW5kbGUiOiJpYW1kZW1vIiwidXNlcm5hbWUiOiJzYWRpbEB3c28yLmNvbSJ9.UOdxKQVprshSdaG4pcOE4cvZGdBLcl7LmEzrZV7WgEMPkOejB2iA0ax-rMtWUx4BRk4dDdQ9xp3CMVifVoXvnKLt9nOcZUeax1WmuTuDaECSRj0Rwe3p01yxecu8GIMtHbl-4Epfxu22YUsG7TjJKagnaFtf9L69LTna4V5mj3Ie5Kh51TZq_R7feFTLHsVV1RigUIJdvwaYutq7dSNDYNp75LwiUvpMUVaUH9RUvkGMrLSzxm6Z2IUtwcMrlsTkxegP6IzET09NUrh5tReNz7hTeecJfq9HCtjwH5lcYfsMw1esVo-M7Xd1QavbQ6qo6C4dySzXcWisyFqpFg-yKw
 ```
 
-**Decoded sample ID token**
-```json 
+{% else %}
+
+```bash
+eyJ4NXQjUzI1NiI6IjVCTmdUS2tubHQyT3lTOU9ZckN2b1FpZWdKQUhxU1JldTRjejEyblVXb28iLCJraWQiOiJaVFF4TXpZd05HTmhPVEkzT1Raa1pEaGxZemt5WmpSbE5qSmlNR0ZtWVRFd09EbGxPREE1TURBM1lUa3lORFZsWW1JNE56TXpaRGMyT1dRME5XRTRZUV9SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJpc2siOiJkMmFiZGIwMDFmNzkzOTBkMjc1NDlhYmI0ZTliMWYzZWQ4Y2Q1YWQwNzFkMjRlMzM0NDdlZjEyZWQ4NTc3ZWQyIiwiYXRfaGFzaCI6ImJiN3puS0UtcFJQcEV5VGN6VWlZdmciLCJzdWIiOiI4ZDEzMDE0OC0zYTY4LTQ5M2MtOTM5OC0zNmJhMjM4MGUzMGYiLCJhbXIiOlsiQmFzaWNBdXRoZW50aWNhdG9yIl0sImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0Ojk0NDMvb2F1dGgyL3Rva2VuIiwic2lkIjoiMWFmZWY1MGUtYTJjOC00NWU5LWI3YWYtMmQ2ZGMyOTNlMTk2IiwiY19oYXNoIjoiTEVCVGQ3cXMta1RQMHkxZTUtZ040QSIsImF1ZCI6Ijd3RUhxdkZxaW5XQ01SQmdaX0NfZHZhakVYb2EiLCJuYmYiOjE3NjkxNDEzMTYsImF6cCI6Ijd3RUhxdkZxaW5XQ01SQmdaX0NfZHZhakVYb2EiLCJvcmdfaWQiOiIxMDA4NGE4ZC0xMTNmLTQyMTEtYTBkNS1lZmUzNmIwODIyMTEiLCJvcmdfbmFtZSI6IlN1cGVyIiwiZXhwIjoxNzY5MTQ0OTE2LCJpYXQiOjE3NjkxNDEzMTYsImp0aSI6ImI1ZjI2NjMyLTVhZmItNDYxYi1iNDcxLTk3MzEwNzY3MzA5ZCIsIm9yZ19oYW5kbGUiOiJjYXJib24uc3VwZXIifQ.dLMYPnEVefva7-JieoS8q331hkaAD9jPn4KGdrSSHjvZTmLa7apUfDlJmL0YUtY0_khTjWgvyg9BC24Ei0VF4uvqj403V-Ie5zyMXBuIYzTOFmLK44Z430_-g-XlrsK-wKVg4uwYnUAtia7KURcBJLRyP1E8zFIM2GEBOCu7VWUwCTZHJHTs0Dlu6YR6-kGr10w_nrPATpezQzJvmE3j3D1TepgomwTk4jElEiIU08u3m6unez04rjFm-gids2SVPjWvSbGi0Kb8FJOnra6njFGup4paTjIyvZMizKq20BcQLdb4-8o3Cvw8j7pZUceTrX9MqrCL8kvA7W9OeCWMpg
+```
+
+{% endif %}
+
+### Decoded sample ID token
+
+```json
 {
-  "isk": "7b8bfe9f4ed1396eb777b0c6d8e111af6e0c18b416074c6ee8ca3f424fcc6c66",
-  "at_hash": "znkxxOhMFPQ6P9W74IJJMA",
-  "sub": "3b7cbde5-bfc7-474a-b79e-4d9e03c4c55f",
+  "isk": "d2abdb001f79390d27549abb4e9b1f3ed8cd5ad071d24e33447ef12ed8577ed2",
+  "at_hash": "bb7znKE-pRPpEyTczUiYvg",
+  "sub": "8d130148-3a68-493c-9398-36ba2380e30f",
   "amr": [
     "BasicAuthenticator"
   ],
   "iss": "{{ product_url_sample }}/oauth2/token",
-  "sid": "de96a883-9baf-409e-9711-eaa7ca841f51",
-  "aud": "hyfI0ShhPybRU7zP2nnm3jEtJ4sa",
-  "c_hash": "Jsg6vv4Q4lzpPmTtAoxImA",
-  "nbf": 1697445072,
-  "azp": "hyfI0ShhPybRU7zP2nnm3jEtJ4sa",
-  "org_id": "332080fd-338e-4269-88e4-a565c98d74cb",
-  "exp": 1697448672,
+  "sid": "1afef50e-a2c8-45e9-b7af-2d6dc293e196",
+  "c_hash": "LEBTd7qs-kTP0y1e5-gN4A",
+  "aud": "7wEHqvFqinWCMRBgZ_C_dvajEXoa",
+  "nbf": 1769141316,
+  "azp": "7wEHqvFqinWCMRBgZ_C_dvajEXoa",
+  "org_id": "10084a8d-113f-4211-a0d5-efe36b082211",
   "org_name": "{{ org_name }}",
-  "iat": 1697445072,
-  "jti": "3807f58a-70e3-41a8-96d5-1c394fc8cf55"
+  "exp": 1769144916,
+  "iat": 1769141316,
+  "jti": "b5f26632-5afb-461b-b471-97310767309d",
+  "org_handle": "{{ org_name }}"
 }
 ```
 
@@ -40,20 +52,22 @@ To validate the signature on the ID token, you need the public key of {{ product
 
 By using a signature validation library, you can validate the signature of the ID token using the JWKS endpoint.
 
-**JWKS endpoint**
+### JWKS endpoint
 
-``` 
+```
 {{ product_url_format }}/oauth2/jwks
 ```
 
-**Sample request**
+### Sample request
 
 === "cURL"
+
     ```bash
     curl --location --request GET '{{ product_url_sample }}/oauth2/jwks'
     ```
 
 === "JavaScript - jQuery"
+
     ```js
     var settings = {
         "url": "{{ product_url_sample }}/oauth2/jwks",
@@ -67,6 +81,7 @@ By using a signature validation library, you can validate the signature of the I
     ```
 
 === "Nodejs - Axios"
+
     ```js
     var axios = require('axios');
 
@@ -85,25 +100,28 @@ By using a signature validation library, you can validate the signature of the I
         });
     ```
 
-**Sample response**
+### Sample response
 
-```json 
+```json
 {
   "keys": [
     {
       "kty": "RSA",
+      "x5t#S256": "5BNgTKknlt2OyS9OYrCvoQiegJAHqSReu4cz12nUWoo",
       "e": "AQAB",
       "use": "sig",
-      "kid": "Yzc5OTgwZTE3MWQzMWEzNDFmNzVhM2NiOTBlNjcwNTI5OGM0MmQ1YjkwYjg2MTIwZWMwNzM4Mzg1ZGIyZDg3ZA_RS256",
+      "kid": "ZTQxMzYwNGNhOTI3OTZkZDhlYzkyZjRlNjJiMGFmYTEwODllODA5MDA3YTkyNDVlYmI4NzMzZDc2OWQ0NWE4YQ_RS256",
+      "x5c": [
+        "MIIDpTCCAo2gAwIBAgIEcEz57jANBgkqhkiG9w0BAQsFADBiMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExFDASBgNVBAcMC1NhbnRhIENsYXJhMQ0wCwYDVQQKDARXU08yMQ0wCwYDVQQLDARXU08yMRIwEAYDVQQDDAlsb2NhbGhvc3QwHhcNMjYwMTEyMTEwNjMzWhcNMjcwMTEyMTEwNjMzWjBiMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExFDASBgNVBAcMC1NhbnRhIENsYXJhMQ0wCwYDVQQKDARXU08yMQ0wCwYDVQQLDARXU08yMRIwEAYDVQQDDAlsb2NhbGhvc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCkqtxeegBTza1/uV+srudeXLQ1ca6igrn3vpwCmiz14oV3cjaWfs8RkSR5blT5uzH99JgGdKV/isIPfEYjv0fzp18mbrF7Ax5iQZb6Cr+rIElZH6oHgxJuHQtFyLezClUx9XgL7iM4nRCZKOmvTi2hfP7JE7VhAh9mc7wRKVJvLaDGdqKYCSCN2/ilkm/hIrZgRCI6xSRiSVFyQzFU7eD+XhEg/zfIFEslpTkiJj/RjIp5HdcgzVAO/7RnMjXcxI+FvZNjMd6/CBn1w+cAMwFP9G1GD3LmOxwD4D8V0Nxn9AuytYxg2qn0CU0G8qyyuplDo+t8D5ieBi72tcgbcG5TAgMBAAGjYzBhMB0GA1UdDgQWBBQbtJ8mhGKs0P8eqdZy6kce2SAgBjALBgNVHQ8EBAMCBPAwFAYDVR0RBA0wC4IJbG9jYWxob3N0MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjANBgkqhkiG9w0BAQsFAAOCAQEAIJapDMhdJItuZ3H0fF9s+CF6k3VBHUdp/bU2qBFbfMudDJa+mKdmWul+p2JQY7Ll9DYIKOAwOTM8VuVtMREapG8HP5XCXFT+fEyl8/mTcGt2CJjxT4oq8ggz3vBhiH4LvlZY2uLYXIiveECiYeX6qp+5T/Xwr0hZEBDcFTOy1sE8zgQXYO6ArPQTVCVobTtvkiv33UhkGl5RU9nc/PwDcVsDfGS4JcbMyXMQRctcrYDffg4WVHhcTZ0kTmpQIQmnULUszk8gqfPgaX6kngKt+JXFVGAgnkRlFrqespIGbNINGw7RjhwoVNTp0eAgfLauzNSMQK1xZhgubpCKwjcyKA=="
+      ],
       "alg": "RS256",
-      "n": "i_i34CgF8IZd8e27sY3lJkX6MyW7e2oIH0f_OlnwftTdS-SAmmIMm06QdyhDr0fycTuNR9hjsEhSm9ecS5kZh9qsuffLb1N041Ml37VE6qeOKP4AocvYmr0rtpH0TUgqXndDeFAAF3oLVhUTokw9Ik-T23cEPDA8gMCmQf7Nje7fNsQ6aCuzzvfUekXvRnDl_7ZAHgbw_0gyujIJ11NlKiNbmCdKMATn68TwQ4U5RJD9-IT0zizWm1ciV-ZOc12L8AsUI-QFjLnUlM4S42X1oj0Tao1oL9V8QGASHHIGKqJ9YxvvnuxaHd42NFFHJcwB4oLlirjOyI5HfKZRFE4FzQ"
+      "n": "pKrcXnoAU82tf7lfrK7nXly0NXGuooK5976cApos9eKFd3I2ln7PEZEkeW5U-bsx_fSYBnSlf4rCD3xGI79H86dfJm6xewMeYkGW-gq_qyBJWR-qB4MSbh0LRci3swpVMfV4C-4jOJ0QmSjpr04toXz-yRO1YQIfZnO8ESlSby2gxnaimAkgjdv4pZJv4SK2YEQiOsUkYklRckMxVO3g_l4RIP83yBRLJaU5IiY_0YyKeR3XIM1QDv-0ZzI13MSPhb2TYzHevwgZ9cPnADMBT_RtRg9y5jscA-A_FdDcZ_QLsrWMYNqp9AlNBvKssrqZQ6PrfA-YngYu9rXIG3BuUw"
     }
   ]
 }
 ```
 
 <br>
-
 
 ## Verify claims in the ID token
 

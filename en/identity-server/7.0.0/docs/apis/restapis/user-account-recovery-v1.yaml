@@ -103,7 +103,7 @@ paths:
                     description: No user found
                     traceId: 23456fghj678vb78
         '409':
-          description: Mutiple users found for the given claims.
+          description: Multiple users found for the given claims.
           content:
             application/json:
               schema:
@@ -341,7 +341,7 @@ paths:
                             preferred: true
                       links:
                         - rel: next
-                          href: /api/users/v1/recovery/password/recovery
+                          href: /api/users/v1/recovery/password/recover
                           type: POST
                     - mode: recoverWithChallengeQuestions
                       links:
@@ -378,7 +378,7 @@ paths:
                     description: No user found
                     traceId: 23456fghj678vb78
         '409':
-          description: Mutiple users found for the given claims.
+          description: Multiple users found for the given claims.
           content:
             application/json:
               schema:
@@ -476,10 +476,10 @@ paths:
                     resendCode: 12345-45678-6789098-8765
                     links:
                       - rel: next
-                        href: api/users/v1/recovery/password/confirm
+                        href: /api/users/v1/recovery/password/confirm
                         type: POST
                       - rel: resend
-                        href: api/users/v1/recovery/password/resend
+                        href: /api/users/v1/recovery/password/resend
                         type: POST
         '202':
           description: >
@@ -501,10 +501,10 @@ paths:
                     resendCode: 12345-45678-6789098-8765
                     links:
                       - rel: next
-                        href: api/users/v1/recovery/password/confirm
+                        href: /api/users/v1/recovery/password/confirm
                         type: POST
                       - rel: resend
-                        href: api/users/v1/recovery/password/resend
+                        href: /api/users/v1/recovery/password/resend
                         type: POST
         '400':
           description: Bad Request. Request cannot be processed by the server.
@@ -639,10 +639,10 @@ paths:
                     resendCode: 1234-12345-234-123456
                     links:
                       - rel: next
-                        href: api/users/v1/recovery/password/recover
+                        href: /api/users/v1/recovery/password/recover
                         type: POST
                       - rel: resend
-                        href: api/users/v1/recovery/password/resend
+                        href: /api/users/v1/recovery/password/resend
                         type: POST
         '202':
           description: >
@@ -664,10 +664,10 @@ paths:
                     resendCode: 1234-12345-234-123456
                     links:
                       - rel: next
-                        href: api/user/v1/recovery/password/recover
+                        href: /api/users/v1/recovery/password/recover
                         type: POST
                       - rel: resend
-                        href: api/users/v1/recovery/password/resend
+                        href: /api/users/v1/recovery/password/resend
                         type: POST
         '400':
           description: Bad Request. Request cannot be processed by the server.
@@ -1093,7 +1093,7 @@ components:
         resendCode:
           type: string
           description: >-
-            Code to resend the confirmation code to the user via user user
+            Code to resend the confirmation code to the user via user
             selected channel
           example: 1234-123456-12345-12345
         links:

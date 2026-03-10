@@ -25,7 +25,7 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
 
 1.  **Minimum Configurations for changing default datasource to MySQL.**
  
- Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Configurations can be done by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
       <table>
       <thead>
@@ -75,11 +75,11 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
        
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/mysql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/mysql.sql`
-           - `<IS-HOME>/dbscripts/consent/mysql.sql`
+           - `<IS_HOME>/dbscripts/identity/mysql.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/mysql.sql`
+           - `<IS_HOME>/dbscripts/consent/mysql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -97,9 +97,9 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
            
        1. Executing database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/mysql.sql`
+           - `<IS_HOME>/dbscripts/mysql.sql`
            
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
@@ -204,7 +204,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
 ### Configure the connection pool to commit pending transactions on connection return  
         
   1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS:
+        -   On Linux/macOS:
             `                 <IS_HOME>/bin/wso2server.sh/                `
         -   On Windows:
             `                 <IS_HOME>\bin\wso2server.bat                `

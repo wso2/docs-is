@@ -144,10 +144,24 @@
     color: var(--md-default-fg-color--light) !important;
 }
 
+.api-content > div ol li {
+    color: var(--md-default-fg-color) !important;
+}
+
+.api-content code .token.punctuation {
+    color: #d9d9de !important;
+}
+
+.api-content div > ul div {
+    color: #d9d9de !important;
+}
+
 [data-md-color-scheme=slate] .api-content code {
     color: var(--md-code-fg-color) !important;
     background-color: var(--md-code-bg-color) !important;
 }
+
+
 
 /* Media query breakpoints
 

@@ -33,7 +33,7 @@ This section briefs you on what each of the above-mentioned features are. It wil
         that Display Name can be displayed in the user portal. To maintain the backward compatibility, this was introduced with a 
         configuration that can be used to enable this feature. 
         To enable the feature, add the following configuration to the `runtime-config.js` file located in 
-        `<IS-HOME>/repository/deployment/server/webapps/user-portal/` directory.
+        `<IS_HOME>/repository/deployment/server/webapps/user-portal/` directory.
         `useUserProfileDisplayName : true`
         The final view of the `runtime-config.js` file after applying the configuration is as followed.
         

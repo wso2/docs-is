@@ -168,13 +168,13 @@ These applications are required for [building the product from the source distri
 
 This section of the guide helps you to install WSO2 Identity Server on different operating systems.
 
-### Install on Linux or OS X
+### Install on Linux or macOS
 
-Follow the instructions below to install WSO2 Identity Server on Linux or Mac OS X.
+Follow the instructions below to install WSO2 Identity Server on Linux or macOS.
 
 #### Install the required applications
 
-1. Log in to the command line (Terminal on Mac).
+1. Log in to the command line (Terminal on macOS).
 
 2. Ensure that your system meets the [Installation Prerequisites](#prerequisites).  Java Development Kit (JDK) is essential to run the product.
 
@@ -192,7 +192,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java-based program
 !!! info
     Environment variables are global system variables accessible by all the processes running in the operating system.
 
-1. In your home directory, open the BASHRC file (.bash_profile file on Mac) using a text editor such as vi, emacs, pico, or mcedit.
+1. In your home directory, open the BASHRC file (.bash_profile file on macOS) using a text editor such as vi, emacs, pico, or mcedit.
 2. Assuming you have JDK 11.0.14 in your system, add the following two lines at the bottom of the file (Replace `/usr/java/jdk-11.0.14` with the path of your JDK installation). directory where the JDK is installed.
 
     === "Linux"
@@ -201,7 +201,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java-based program
         export PATH=${JAVA_HOME}/bin:${PATH}
         ```
 
-    === "OSx"
+    === "macOS"
         ```java
         export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.14/Contents/Home
         ```
@@ -218,7 +218,7 @@ Setting `JAVA_HOME` is a standard practice when you are using Java-based program
         echo $JAVA_HOME
         ```
 
-    === "OSx"
+    === "macOS"
         ```
         which java
         ```
@@ -646,7 +646,7 @@ To remove an installed product, follow the instructions below:
 </thead>
 <tbody>
 <tr class="odd">
-<td>Mac OS</td>
+<td>macOS</td>
 <td><div class="content-wrapper">
 <p>Open a terminal and run the following command as the root user:</p>
 <div class="code panel pdl" style="border-width: 1px;">

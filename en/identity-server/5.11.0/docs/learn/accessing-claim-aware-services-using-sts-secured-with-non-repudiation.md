@@ -47,7 +47,7 @@ at
     ```
 
 3.  Import the new certificate to
-    `           {IS_HOME}/repository/resources/security/wso2carbon.jks          `
+    `           <IS_HOME>/repository/resources/security/wso2carbon.jks          `
     .
 
     ``` java
@@ -66,12 +66,12 @@ port 9443 and ESB on 9444.
 
 Start both servers by executing the following:
 
-`           {IS_HOME}/bin/wso2server.sh          ` and
+`           <IS_HOME>/bin/wso2server.sh          ` and
 `           {ESB_HOME}/bin/wso2server.sh          ` on **Linux**.
 
 or
 
-`           {IS_HOME}/bin/wso2server.bat          ` and
+`           <IS_HOME>/bin/wso2server.bat          ` and
 `           {ESB_HOME}/bin/wso2server.bat          ` on **Windows**.
 
 ### Securing an Echo Service (the Relying Party) in ESB

@@ -111,7 +111,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
 
 3. Open a terminal and create an alias (depending on your platform):
 
-    === "Linux/Mac"
+    === "Linux/macOS"
         ```bash
         alias iamctl="<IAM-CTL-PATH>/bin/iamctl"
         ```
@@ -152,9 +152,9 @@ Follow the steps below to learn how you can configure IAM-CTL.
         ```json
         {
             "SERVER_URL" : "{server_url}",
-            "CLIENT-ID" : "{client_id}",
-            "CLIENT-SECRET" : "{client_secret}",
-            "TENANT-DOMAIN" : "{tenant_domain}"
+            "CLIENT_ID" : "{client_id}",
+            "CLIENT_SECRET" : "{client_secret}",
+            "TENANT_DOMAIN" : "{tenant_domain}"
         }
         ```
 
@@ -163,9 +163,9 @@ Follow the steps below to learn how you can configure IAM-CTL.
         ```json
         {
             "SERVER_URL" : "{{server_url}}",
-            "CLIENT-ID" : "bsjhjlb64crOL58bKV3UQmwA9QQa",
-            "CLIENT-SECRET" : "TC45TBkLaZ6kFxqZuSmhOgelSG2ZBvFYKFlUFmfhKlYa",
-            "TENANT-DOMAIN" : "{{tenant_domain}}"
+            "CLIENT_ID" : "bsjhjlb64crOL58bKV3UQmwA9QQa",
+            "CLIENT_SECRET" : "TC45TBkLaZ6kFxqZuSmhOgelSG2ZBvFYKFlUFmfhKlYa",
+            "TENANT_DOMAIN" : "{{tenant_domain}}"
         }
         ```
 
@@ -176,9 +176,9 @@ Follow the steps below to learn how you can configure IAM-CTL.
         ```json
         {
             "SERVER_URL" : "{server_url}",
-            "CLIENT-ID" : "{client_id}",
-            "CLIENT-SECRET" : "{client_secret}",
-            "TENANT-DOMAIN" : "{tenant_domain}",
+            "CLIENT_ID" : "{client_id}",
+            "CLIENT_SECRET" : "{client_secret}",
+            "TENANT_DOMAIN" : "{tenant_domain}",
             "ORGANIZATION": "{organization_id}"
         }
         ```
@@ -187,9 +187,9 @@ Follow the steps below to learn how you can configure IAM-CTL.
          ```json
          {
             "SERVER_URL" : "{{server_url}}",
-            "CLIENT-ID" : "bsjhjlb64crOL58bKV3UQmwA9QQa",
-            "CLIENT-SECRET" : "TC45TBkLaZ6kFxqZuSmhOgelSG2ZBvFYKFlUFmfhKlYa",
-            "TENANT-DOMAIN" : "{{tenant_domain}}",
+            "CLIENT_ID" : "bsjhjlb64crOL58bKV3UQmwA9QQa",
+            "CLIENT_SECRET" : "TC45TBkLaZ6kFxqZuSmhOgelSG2ZBvFYKFlUFmfhKlYa",
+            "TENANT_DOMAIN" : "{{tenant_domain}}",
             "ORGANIZATION": "b833d7de-264c-4c4e-8d52-61f9c57e84ca"
          }
          ```

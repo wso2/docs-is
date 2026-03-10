@@ -15,7 +15,7 @@ Organization administrators open the Flow Builder in the {{product_name}} Consol
 
 ## Customize a flow
 
-To learn more about how to customise the flows, see the [Flow]({{base_path}}/guides/flows/) guides.
+To learn more about how to customize the flows, see the [Flow]({{base_path}}/guides/flows/) guides.
 
 ## Revert customizations
 

@@ -30,7 +30,7 @@ As WSO2 Identity Server is a Java application, you can generally run them on mos
 				<li>CentOS 7</li>
 				<li>Windows Server 2016</li>
 				<li>Windows Server 2012 R2</li>
-				<li>Mac OS 10.13.6</li>
+				<li>macOS 10.13.6</li>
 			</ul>
 		</td>
 	</tr>

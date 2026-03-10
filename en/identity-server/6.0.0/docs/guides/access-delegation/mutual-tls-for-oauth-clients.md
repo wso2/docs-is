@@ -189,7 +189,7 @@ To configure the mutual TLS authenticator, follow the [prequisite steps](#prereq
     ```
 
     !!! info
-        Add the relevant certificate header name as the `client_certificate_header` value as it appears in the `<IS-HOME>/repsoitory/conf/identity/identity.xml` file.
+        Add the relevant certificate header name as the `client_certificate_header` value as it appears in the `<IS_HOME>/repsoitory/conf/identity/identity.xml` file.
 
 2. Restart the server to save the configurations.
 

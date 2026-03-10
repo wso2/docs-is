@@ -99,7 +99,7 @@ Once completed, your API Authorization configuration should look as follows.
     1. Open **Windsurf**.
     2. Click on **Windsurf > Windsurf Settings > Cursor Cascade**.
     3. Switch to **MCP** tab.
-    4. Click on **Add erver** button next to **Model Context Protocol (MCP) Servers**. Then click the **Add custom Server** button will open `mcp_config.json` file in the editor itself.
+    4. Click on **Add Server** button next to **Model Context Protocol (MCP) Servers**. Then click the **Add custom Server** button will open `mcp_config.json` file in the editor itself.
 
     Append the following configuration to `mcp_config.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     

@@ -1,0 +1,894 @@
+openapi: 3.1.0
+info:
+  title: AI Agent Management API
+  description: |
+    This document specifies the REST API for **AI Agent Management** in **WSO2 Identity Server**.
+    The Agent Management API allows to create, retrieve, update, and delete AI agent identities, allowing agents to be managed in the same way as human users while remaining clearly distinguishable from them.
+  version: 1.0.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/scim2
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /Agents:
+    get:
+      tags:
+        - Agents Endpoint
+      summary: Retrieve a list of agents
+      description: |
+        This API returns agents according to the specified pagination and attribute parameters.
+        <b>Scope(Permission) required:</b> `internal_agent_mgt_list`
+      operationId: getAgents
+      parameters:
+        - name: startIndex
+          in: query
+          description: The 1-based index of the first query result.
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            default: 1
+        - name: count
+          in: query
+          description: Specifies the desired maximum number of query results per page.
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            default: 100
+        - name: attributes
+          in: query
+          description: A multi-valued list of strings indicating the names of resource attributes to include in the response.
+          schema:
+            type: array
+            items:
+              type: string
+        - name: excludedAttributes
+          in: query
+          description: A multi-valued list of strings indicating the names of resource attributes to exclude in the response.
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        200:
+          description: Successful response with a list of AI agents.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/AgentListResponseObject'
+        400:
+          description: Bad Request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        500:
+          description: Internal Server Error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/scim2/Agents' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {access_token}'
+    post:
+      tags:
+        - Agents Endpoint
+      summary: Create a new AI agent
+      description: |
+        This API creates an AI agent and returns the agent details along with the agent's unique ID and initial password.
+        <b>Scope(Permission) required:</b> `internal_agent_mgt_create`
+      operationId: createAgent
+      requestBody:
+        description: Agent object that needs to be created.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/AgentCreateObject'
+            example:
+              urn:scim:wso2:agent:schema:
+                Description: "Intelligent Vet Assistant"
+                DisplayName: "Vetassist AI"
+                Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+      responses:
+        201:
+          description: Agent created successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/AgentResponseObject'
+              example:
+                password: "K#B79pB%dq*v7sE!"
+                meta:
+                  created: "2025-12-17T06:17:51.835814Z"
+                  location: "https://localhost:9443/scim2/Agents/ced368ab-29f5-46c1-a192-ffb678b8f747"
+                  lastModified: "2025-12-17T06:17:52.150201Z"
+                  resourceType: "Agent"
+                schemas:
+                  - "urn:ietf:params:scim:schemas:core:2.0:User"
+                  - "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                  - "urn:scim:wso2:schema"
+                  - "urn:scim:schemas:extension:custom:User"
+                  - "urn:scim:wso2:agent:schema"
+                roles:
+                  - audienceValue: "10084a8d-113f-4211-a0d5-efe36b082211"
+                    display: "everyone"
+                    audienceType: "organization"
+                    value: "97e4626a-b16e-4735-9896-536bc4f4481e"
+                    $ref: "https://localhost:9443/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
+                    audienceDisplay: "Super"
+                id: "ced368ab-29f5-46c1-a192-ffb678b8f747"
+                userName: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
+                urn:scim:wso2:agent:schema:
+                  Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+                  Description: "Intelligent Vet Assistant"
+                  DisplayName: "Vetassist AI"
+                urn:scim:wso2:schema:
+                  lastPasswordUpdateTime: "1765952272085"
+        400:
+          description: Bad Request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        404:
+          description: Not Found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+        500:
+          description: Internal Server Error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/scim2/Agents' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {access_token}' \
+            -d '{
+              "urn:scim:wso2:agent:schema": {
+                "Description": "Intelligent Vet Assistant",
+                "DisplayName": "Vetassist AI Lite2",
+                "Owner": "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+              }
+            }'
+  /Agents/{agentId}:
+    get:
+      tags:
+        - Agents Endpoint
+      summary: Retrieve an agent by ID
+      description: |
+        This API returns the agent details for the specified agent ID.
+        <b>Scope(Permission) required:</b> `internal_agent_mgt_view`
+      operationId: getAgentById
+      parameters:
+        - name: agentId
+          in: path
+          description: ID of the agent to retrieve.
+          required: true
+          schema:
+            type: string
+        - name: attributes
+          in: query
+          description: A multi-valued list of strings indicating the names of resource attributes to include in the response.
+          schema:
+            type: array
+            items:
+              type: string
+        - name: excludedAttributes
+          in: query
+          description: A multi-valued list of strings indicating the names of resource attributes to exclude in the response.
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        200:
+          description: Successful response with agent details.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/AgentResponseObject'
+              example:
+                meta:
+                  created: "2025-12-17T06:17:51.835814Z"
+                  location: "https://localhost:9443/scim2/Agents/ced368ab-29f5-46c1-a192-ffb678b8f747"
+                  lastModified: "2025-12-17T06:17:52.150201Z"
+                  resourceType: "Agent"
+                schemas:
+                  - "urn:ietf:params:scim:schemas:core:2.0:User"
+                  - "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                  - "urn:scim:wso2:schema"
+                  - "urn:scim:schemas:extension:custom:User"
+                  - "urn:scim:wso2:agent:schema"
+                roles:
+                  - audienceValue: "10084a8d-113f-4211-a0d5-efe36b082211"
+                    display: "everyone"
+                    audienceType: "organization"
+                    value: "97e4626a-b16e-4735-9896-536bc4f4481e"
+                    $ref: "https://localhost:9443/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
+                    audienceDisplay: "Super"
+                id: "ced368ab-29f5-46c1-a192-ffb678b8f747"
+                userName: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
+                urn:scim:wso2:agent:schema:
+                  Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+                  Description: "Intelligent Vet Assistant"
+                  DisplayName: "Vetassist AI Lite2"
+                urn:scim:wso2:schema:
+                  lastPasswordUpdateTime: "1765952272085"
+        400:
+          description: Bad Request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        404:
+          description: Not Found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+        500:
+          description: Internal Server Error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/scim2/Agents/{agentId}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {access_token}'
+    put:
+      tags:
+        - Agents Endpoint
+      summary: Update an existing agent by ID (replace)
+      description: |
+        This API replaces the existing agent details with the provided agent object.
+        <b>Scope(Permission) required:</b> `internal_agent_mgt_update`
+      operationId: updateAgentById
+      parameters:
+        - name: agentId
+          in: path
+          description: ID of the agent to update.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Agent object that needs to be updated.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/AgentUpdateObject'
+            example:
+              urn:scim:wso2:agent:schema:
+                Description: "Updated Description"
+                DisplayName: "Vetassist AI Lite2"
+                Owner: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+              id: "ced368ab-29f5-46c1-a192-ffb678b8f747"
+              userName: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
+      responses:
+        200:
+          description: Agent updated successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/AgentResponseObject'
+        400:
+          description: Bad Request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        404:
+          description: Not Found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+        500:
+          description: Internal Server Error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/scim2/Agents/{agentId}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {access_token}' \
+            -d '{
+              "urn:scim:wso2:agent:schema": {
+                "Description": "Updated Description",
+                "DisplayName": "Vetassist AI Lite2",
+                "Owner": "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+              },
+              "id": "ced368ab-29f5-46c1-a192-ffb678b8f747",
+              "userName": "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
+            }'
+    delete:
+      tags:
+        - Agents Endpoint
+      summary: Delete an agent by ID
+      description: |
+        This API deletes the specified agent.
+        <b>Scope(Permission) required:</b> `internal_agent_mgt_delete`
+      operationId: deleteAgentById
+      parameters:
+        - name: agentId
+          in: path
+          description: ID of the agent to delete.
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: Agent deleted successfully.
+        400:
+          description: Bad Request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        404:
+          description: Not Found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+        500:
+          description: Internal Server Error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/scim2/Agents/{agentId}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {access_token}'
+    patch:
+      tags:
+        - Agents Endpoint
+      summary: Partially update an agent by ID
+      description: |
+        This API applies partial modifications to the specified agent using SCIM PATCH operations.
+        Common use cases include:
+        - Updating agent description
+        - Deactivating an agent
+        - Updating agent secret/password</br></br>
+        <b>Scope(Permission) required:</b> `internal_agent_mgt_update`
+      operationId: patchAgentById
+      parameters:
+        - name: agentId
+          in: path
+          description: ID of the agent to partially update.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Patch operations to apply to the agent.
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/PatchOperation'
+            examples:
+              updateDescription:
+                summary: Update agent description
+                value:
+                  schemas:
+                    - "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+                  Operations:
+                    - op: "replace"
+                      path: "urn:scim:wso2:agent:schema:Description"
+                      value: "AI assistant specializing in veterinary diagnostics and pet care recommendations."
+              deactivateAgent:
+                summary: Deactivate an agent
+                value:
+                  schemas:
+                    - "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+                  Operations:
+                    - op: "replace"
+                      path: "active"
+                      value: false
+              updateSecret:
+                summary: Update agent secret
+                value:
+                  schemas:
+                    - "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+                  Operations:
+                    - op: "replace"
+                      path: "password"
+                      value: "NewSecretPassword123!"
+      responses:
+        200:
+          description: Agent updated successfully.
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/AgentResponseObject'
+        400:
+          description: Bad Request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        404:
+          description: Not Found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+        500:
+          description: Internal Server Error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInternalServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/scim2/Agents/{agentId}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {access_token}' \
+            -d '{
+              "schemas": [
+                "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+              ],
+              "Operations": [
+                {
+                  "op": "replace",
+                  "path": "urn:scim:wso2:agent:schema:Description",
+                  "value": "AI assistant specializing in veterinary diagnostics and pet care recommendations."
+                }
+              ]
+            }'
+components:
+  schemas:
+    AgentCreateObject:
+      type: object
+      description: SCIM agent resource for creation.
+      properties:
+        "urn:scim:wso2:agent:schema":
+          type: object
+          required:
+            - DisplayName
+            - Owner
+          properties:
+            Description:
+              type: string
+              description: A description for the agent.
+              example: "Intelligent Vet Assistant"
+            DisplayName:
+              type: string
+              description: A human-readable name for the agent.
+              example: "Vetassist AI Lite2"
+            Owner:
+              type: string
+              description: The ID of the owner of this agent.
+              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+      required:
+        - "urn:scim:wso2:agent:schema"
+    AgentUpdateObject:
+      type: object
+      description: SCIM agent resource for update.
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the SCIM resource.
+          example: "ced368ab-29f5-46c1-a192-ffb678b8f747"
+        userName:
+          type: string
+          description: Unique identifier for the agent.
+          example: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
+        "urn:scim:wso2:agent:schema":
+          type: object
+          properties:
+            Description:
+              type: string
+              description: A description for the agent.
+              example: "Updated Description"
+            DisplayName:
+              type: string
+              description: A human-readable name for the agent.
+              example: "Vetassist AI Lite2"
+            Owner:
+              type: string
+              description: The ID of the owner of this agent.
+              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+    AgentResponseObject:
+      type: object
+      description: SCIM agent resource.
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          description: A complex attribute that contains one or more URIs that indicate the namespaces of the SCIM schemas that define the attributes present in the resource.
+          example:
+            - "urn:ietf:params:scim:schemas:core:2.0:User"
+            - "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+            - "urn:scim:wso2:schema"
+            - "urn:scim:schemas:extension:custom:User"
+            - "urn:scim:wso2:agent:schema"
+        id:
+          type: string
+          description: A unique identifier for the SCIM resource as defined by the service provider.
+          readOnly: true
+          example: "ced368ab-29f5-46c1-a192-ffb678b8f747"
+        meta:
+          type: object
+          description: A complex attribute containing resource metadata.
+          readOnly: true
+          properties:
+            resourceType:
+              type: string
+              description: The name of the resource type.
+              example: "Agent"
+            created:
+              type: string
+              format: date-time
+              description: The date and time at which the resource was added to the service provider.
+              example: "2025-12-17T06:17:51.835814Z"
+            lastModified:
+              type: string
+              format: date-time
+              description: The date and time at which the resource was last modified in the service provider.
+              example: "2025-12-17T06:17:52.150201Z"
+            location:
+              type: string
+              description: The URI of the resource being returned.
+              example: "https://localhost:9443/scim2/Agents/ced368ab-29f5-46c1-a192-ffb678b8f747"
+        userName:
+          type: string
+          description: Unique identifier for the agent.
+          example: "AGENT/ced368ab-29f5-46c1-a192-ffb678b8f747"
+        password:
+          type: string
+          writeOnly: true
+          description: The agent's clear text password (only returned on creation).
+          example: "K#B79pB%dq*v7sE!"
+        roles:
+          type: array
+          description: A list of roles for the agent.
+          items:
+            $ref: '#/components/schemas/Role'
+        "urn:scim:wso2:schema":
+          type: object
+          properties:
+            lastPasswordUpdateTime:
+              type: string
+              description: The epoch timestamp when the password was last updated.
+              example: "1765952272085"
+        "urn:scim:wso2:agent:schema":
+          type: object
+          properties:
+            Description:
+              type: string
+              description: A description for the agent.
+              example: "AI assistant specializing in veterinary diagnostics and pet care recommendations."
+            DisplayName:
+              type: string
+              description: A human-readable name for the agent.
+              example: "Vetassist AI"
+            Owner:
+              type: string
+              description: The ID of the owner of this agent.
+              example: "7a6f7b26-f9ea-48ea-9012-87d6b54f4055@carbon.super"
+    AgentListResponseObject:
+      type: object
+      description: A list of SCIM agents.
+      properties:
+        totalResults:
+          type: integer
+          format: int32
+          description: The total number of results returned by the list operation.
+          example: 1
+        startIndex:
+          type: integer
+          format: int32
+          description: The 1-based index of the first result in the current page.
+          example: 1
+        itemsPerPage:
+          type: integer
+          format: int32
+          description: The number of results in the current page.
+          example: 1
+        schemas:
+          type: array
+          items:
+            type: string
+          description: A complex attribute that contains one or more URIs that indicate the namespaces of the SCIM schemas that define the attributes present in the resource.
+          example:
+            - "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentResponseObject'
+    Role:
+      type: object
+      description: A complex attribute that specifies the agent's roles.
+      properties:
+        value:
+          type: string
+          description: The identifier of the role.
+          example: "97e4626a-b16e-4735-9896-536bc4f4481e"
+        $ref:
+          type: string
+          description: The URI of the role.
+          example: "https://localhost:9443/scim2/v2/Roles/97e4626a-b16e-4735-9896-536bc4f4481e"
+        display:
+          type: string
+          description: A human-readable name for the role.
+          example: "everyone"
+        audienceValue:
+          type: string
+          description: The audience value of the role.
+          example: "10084a8d-113f-4211-a0d5-efe36b082211"
+        audienceType:
+          type: string
+          description: The audience type of the role.
+          example: "organization"
+        audienceDisplay:
+          type: string
+          description: A human-readable display name for the role's audience.
+          example: "Super"
+    PatchOperation:
+      type: object
+      description: A single SCIM patch operation.
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+        Operations:
+          type: array
+          items:
+            type: object
+            properties:
+              op:
+                type: string
+                description: The type of operation. Valid values are 'add', 'remove', or 'replace'.
+                enum:
+                  - add
+                  - remove
+                  - replace
+              path:
+                type: string
+                description: The attribute path to be modified.
+                example: "urn:scim:wso2:agent:schema:Description"
+              value:
+                oneOf:
+                  - type: string
+                  - type: object
+                  - type: array
+                description: The value to be added, removed, or replaced. This can be a simple value, an object, or an array.
+                example: "Updated Description from Patch"
+      required:
+        - schemas
+        - Operations
+    ErrorInvalidInput:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - "urn:ietf:params:scim:api:messages:2.0:Error"
+        scimType:
+          type: string
+          description: A SCIM detail error keyword.
+          example: "invalidValue"
+        detail:
+          type: string
+          description: A more specific error message.
+          example: "Invalid input provided"
+        status:
+          type: string
+          description: The HTTP status code.
+          example: "400"
+    ErrorUnauthorized:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - "urn:ietf:params:scim:api:messages:2.0:Error"
+        detail:
+          type: string
+          description: A more specific error message.
+          example: "Authentication required"
+        status:
+          type: string
+          description: The HTTP status code.
+          example: "401"
+    ErrorForbidden:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - "urn:ietf:params:scim:api:messages:2.0:Error"
+        detail:
+          type: string
+          description: A more specific error message.
+          example: "You don't have enough permissions to perform this operation"
+        status:
+          type: string
+          description: The HTTP status code.
+          example: "403"
+    ErrorNotFound:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - "urn:ietf:params:scim:api:messages:2.0:Error"
+        detail:
+          type: string
+          description: A more specific error message.
+          example: "The specified resource does not exist"
+        status:
+          type: string
+          description: The HTTP status code.
+          example: "404"
+    ErrorConflict:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - "urn:ietf:params:scim:api:messages:2.0:Error"
+        detail:
+          type: string
+          description: A more specific error message.
+          example: "The requested operation would create a duplicate resource"
+        status:
+          type: string
+          description: The HTTP status code.
+          example: "409"
+    ErrorInternalServerError:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+            - "urn:ietf:params:scim:api:messages:2.0:Error"
+        detail:
+          type: string
+          description: A more specific error message.
+          example: "Unexpected error occurred during processing the request"
+        status:
+          type: string
+          description: The HTTP status code.
+          example: "500"
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes:
+            internal_agent_mgt_create: Create agents
+            internal_agent_mgt_list: List agents
+            internal_agent_mgt_view: View agent details
+            internal_agent_mgt_update: Update agents
+            internal_agent_mgt_delete: Delete agents
+    BasicAuth:
+      type: http
+      scheme: basic
