@@ -73,20 +73,15 @@ def on_nav(nav, config, files):
                 first_page = find_first_page(item)
                 if first_page and TARGET_PARENT_DIR in first_page.file.src_path:
                     guide_dir = os.path.dirname(first_page.file.src_path)
-                    
                     if guide_dir != TARGET_PARENT_DIR.rstrip('/') and guide_dir not in processed_paths:
                         processed_paths.add(guide_dir)
                         path_parts = guide_dir.split('/')
                         cg_idx = path_parts.index('complete-guides')
                         guide_slug = "-".join(path_parts[cg_idx+1:])
-                        
-                        tech_raw = path_parts[cg_idx+1]
-                        tech_prefix = prettify_tech_name(tech_raw.split('-')[0])
+                        tech_prefix = prettify_tech_name(path_parts[cg_idx+1].split('-')[0])
                         display_title = item.title if tech_prefix.lower() in item.title.lower() else f"{tech_prefix} {item.title}"
-                        
                         create_merged_guide(item, guide_slug, display_title, config)
-                walk_nav(item.children) # Recurse into sub-sections
-
+                walk_nav(item.children)
     walk_nav(nav)
     return nav
 
@@ -121,34 +116,49 @@ def create_merged_guide(section_item, guide_slug, title, config):
         return md_text
 
     combined_md += collect_md(section_item.children)
+    
+    # Place it in a folder structure that mimics directory URLs if needed
     dest_path = os.path.join(config['site_dir'], "complete-guides", f"{guide_slug}.md")
     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+    with open(dest_path, 'w', encoding='utf-8') as f: f.write(combined_md)
     
-    with open(dest_path, 'w', encoding='utf-8') as f:
-        f.write(combined_md)
-    
-    rel_url = f"complete-guides/{guide_slug}.md"
     GENERATED_GUIDES.append({
         "title": title, 
-        "url": rel_url, 
+        "url": f"complete-guides/{guide_slug}.md", 
         "desc": f"Comprehensive {title.lower()} integration"
     })
 
 def on_post_page(output, page, config):
-    if "complete-guides/" in page.file.src_path and "index" in page.file.src_path: return
-    dest_path = os.path.splitext(page.file.abs_dest_path)[0] + ".md"
+    # Skip actual index files that aren't content
+    if "complete-guides/" in page.file.src_path and page.file.src_path.split('/')[-1] == "index.md":
+        return
+
+    docs_dir = config['docs_dir']
+    
+    # Handle the destination path logic to prevent 404s
+    # If use_directory_urls is True, abs_dest_path ends in /index.html
+    abs_dest = page.file.abs_dest_path
+    if abs_dest.endswith("index.html"):
+        # Convert .../react/introduction/index.html to .../react/introduction.md
+        dest_path = os.path.join(os.path.dirname(os.path.dirname(abs_dest)), os.path.basename(os.path.dirname(abs_dest)) + ".md")
+    else:
+        dest_path = os.path.splitext(abs_dest)[0] + ".md"
+
     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-    content = resolve_includes(page.markdown, os.path.dirname(page.file.abs_src_path), config['docs_dir'])
-    content = inject_api_spec(content, page.file.abs_src_path, config['docs_dir'])
+    
+    content = resolve_includes(page.markdown, os.path.dirname(page.file.abs_src_path), docs_dir)
+    content = inject_api_spec(content, page.file.abs_src_path, docs_dir)
     content = promote_headings_outside_fences(content)
+    
     with open(dest_path, 'w', encoding='utf-8') as f:
         f.write(content)
+        
     rel_url = os.path.relpath(dest_path, config['site_dir'])
     if not any(p["url"] == rel_url for p in ALL_PAGES):
         ALL_PAGES.append({"title": page.title, "url": rel_url})
 
 def on_post_build(config):
-    # Restored Exact llms.txt Formatting
+    # Standard llms.txt and llms-full.txt generation logic
     llms_path = os.path.join(config['site_dir'], "llms.txt")
     lines = [
         "# WSO2 Identity Server Documentation",
@@ -158,24 +168,15 @@ def on_post_build(config):
         "## Complete Integration Guides (Flattened)",
         "End-to-end framework-specific implementation guides with all details:",
     ]
-    
     for g in sorted(GENERATED_GUIDES, key=lambda x: x['title']):
         lines.append(f"- [{g['title']} Complete Guide](./{g['url']}) - {g['desc']}")
     
-    lines.extend([
-        "",
-        "---",
-        "## Site Map",
-        "- [Comprehensive file index for advanced discovery](./llms-full.txt)"
-    ])
-    
+    lines.extend(["", "---", "## Site Map", "- [Comprehensive file index for advanced discovery](./llms-full.txt)"])
     with open(llms_path, "w", encoding="utf-8") as f: f.write("\n".join(lines))
     
-    # Restored Exact llms-full.txt Formatting
     full_path = os.path.join(config['site_dir'], "llms-full.txt")
     full_lines = ["# WSO2 Identity Server - Full Document Index", ""]
     for p in sorted(ALL_PAGES, key=lambda x: x['url']):
         full_lines.append(f"- [{p['title']}](./{p['url']})")
     with open(full_path, "w", encoding="utf-8") as f: f.write("\n".join(full_lines))
     print(f"SUCCESS - llms.txt and llms-full.txt generated.")
-    
