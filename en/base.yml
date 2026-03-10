@@ -95,9 +95,11 @@ extra_css:
   - assets/css/theme.css
   - assets/css/admonition.css
   - https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/build.css
+  - assets/css/copy-page.css
 
 extra_javascript:
   - assets/js/theme.js
+  - assets/js/copy-page.js
 
 extra:
   material:
