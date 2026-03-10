@@ -1,6 +1,6 @@
 # Configure group-based outbound provisioning
 
-This guide explains how you can automatically provision users to an external system based on the group assigned to the user. By utilizing group-based provisioning, you can efficiently manage user access to external applications simply by assigning them to specific groups within your organization.
+This guide explains how to automatically provision users to an external system based on their group membership. With group-based provisioning, you control user access to external applications by assigning users to specific groups in your organization.
 
 When group-based outbound provisioning is enabled, users in the specified group will be provisioned to the external system. When a user is added to the group, the user is automatically provisioned to the provisioning target. Conversely, when a user is removed from the group, the user is deprovisioned from the external system.
 

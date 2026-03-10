@@ -13,12 +13,12 @@ You have the option to configure the **provisioning pattern** and the **provisio
 
 !!! tip "Example"
 
-    If for an outbound connector,
+    For an outbound connector, if you set:
 
     - Provisioning pattern = `{UD, UN, TD, IDP}`
     - Provisioning separator = `-` (hyphen)
 
-    a user created with the username `user@provisioning.com`, in the `primary` user store of the `super` tenant, is provisioned to the external system with the username:
+    {{product_name}} provisions a user created with the username `user@provisioning.com` in the `primary` user store of the `super` tenant to the external system with this username:
 
     ```bash
     primary-user@provisioning.com-carbon.super-salesforce

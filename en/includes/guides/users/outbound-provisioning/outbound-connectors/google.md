@@ -36,20 +36,18 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
     8. From **IAM & Admin** > **Service accounts**, take note of the client ID of your service account.
 
-    9. Select the service account and in the **DETAILS** tab, expand **Advanced settings**.
-
-    10. Delegate domain-wide authority to the service account.
-
-        !!! note
-            Learn how to do so in the [Google documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority){: target="#"}.
-
 2. Delegate domain-wide authority to the service account:
 
-    1. Go to your domain's [admin console](https://admin.google.com){:target="_blank"}.
+    1. Select your service account and in the **DETAILS** tab, expand **Advanced settings**. Enable domain-wide delegation for the service account.
 
-    2. Navigate to **Security** > **Access and data control** > **API Controls** > **Domain-wide Delegation**.
+        !!! note
+            Learn how to enable domain-wide delegation in the [Google documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority){: target="#"}.
 
-    3. Do the following:
+    2. Go to your domain's [admin console](https://admin.google.com){:target="_blank"}.
+
+    3. Navigate to **Security** > **Access and data control** > **API Controls** > **Domain-wide Delegation**.
+
+    4. Do the following:
         1. Click **Add new** and paste the client ID of the service account.
 
         2. Enter the following as the value for scopes.
@@ -88,12 +86,12 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Given Name Claim</td>
-        <td>Claim URI which will be used to retrieve the given name attribute of the user. This must be an attribute that is available locally in {{product_name}}.<br/>
+        <td>Claim URI which will be used to retrieve the given name attribute of the user. This must be an attribute that is available locally in {{product_name}}.<br/>
             e.g. <code>http://wso2.org/claims/givenname</code></td>
     </tr>
     <tr>
         <td>Family Name Claim</td>
-        <td>Claim URI which will be used to retrieve the family name attribute of the user. This must be an attribute that is available locally in {{product_name}}.<br/>
+        <td>Claim URI which will be used to retrieve the family name attribute of the user. This must be an attribute that is available locally in {{product_name}}.<br/>
             e.g. <code>http://wso2.org/claims/lastname</code></td>
     </tr>
     <tr>
@@ -120,7 +118,7 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Google Provisioning Separator </td>
-        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a><br/>
+        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.<br/>
         e.g. <code>-</code>(hyphen).</td>
     </tr>
 </table>

@@ -190,6 +190,7 @@ extra:
               url: Guides|Organizations|Organizations
 hooks:
   - hooks.py
+  - ../../flatten_markdown.py
 
 plugins:
   - search:
@@ -856,35 +857,44 @@ nav:
         - Build your own self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
-          - Overview: guides/organization-management/organizations-overview.md
-          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+          - Getting started:
+            - Overview: guides/organization-management/organizations-overview.md
           - Set up organizations: guides/organization-management/manage-organizations.md
-          - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Manage applications:
-            - Shared applications: guides/organization-management/share-applications.md
-            - Organization applications: guides/organization-management/organization-applications.md
-          - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
-          - Onboard admins:
-            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
-            - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
-            - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-          - Onboard users: guides/organization-management/onboard-users.md
-          - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
-          - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-          - Inheritance in organizations:
-            - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
-            - Login & registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
-            - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
-            - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
-            - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
-            - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
-            - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
-          - Organization discovery:
-            - Organization discovery: guides/organization-management/organization-discovery/index.md
-            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
-          - Customizations:
+          - Delegate administration:
+            - Set up administration portal: guides/organization-management/manage-b2b-administration.md
+            - Onboard administrators:
+              - Onboard administrators: guides/organization-management/onboard-org-admins/index.md
+              - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
+              - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
+          - Configure organization applications:
+            - Share applications: guides/organization-management/share-applications.md
+            - Create organization applications: guides/organization-management/organization-applications.md
+            - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
+          - Authorize API resources:
+            - Overview: guides/organization-management/api-authorization-overview.md
+            - Authorize applications to API resources: guides/organization-management/api-authorization-for-b2b.md
+            - Configure roles to consume authorized APIs: guides/organization-management/organization-roles.md
+            - Generate tokens for organization applications: guides/organization-management/generate-tokens-for-organization-apps.md
+          - Manage organization users:
+            - Onboard users: guides/organization-management/onboard-users.md
+            - Share users: guides/organization-management/share-user-profiles.md
+          - Customize organizations:
+            - Organization settings:
+              - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
+              - Login and registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
+              - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
+              - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+              - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
+              - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
+              - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
             - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
-          - Cleaning up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
+          - Enable organization-based login:
+            - Organization discovery: guides/organization-management/organization-discovery/organization-discovery.md
+            - Email domain-based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+          - Offboard organizations:
+            - Disable or delete an organization: guides/organization-management/disable-delete-organizations.md
+            - Clean up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
+          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
       - Notification Channels:
           - Configure Email Provider: guides/notification-channels/configure-email-provider.md
           - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
