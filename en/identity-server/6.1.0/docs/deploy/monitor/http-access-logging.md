@@ -96,7 +96,7 @@ After enabling this, update `<IS_HOME>/repository/conf/log4j2.properties` to add
 
 #### Route to a dedicated rolling log file
 
-If you want to keep HTTP access logs in their own file, separate from other server logs, you can write them to a dedicated rolling log file that rotates daily and caps at 10 MB.
+If you want to keep HTTP access logs in their own file, separate from other server logs. To do so,
 
 Add `HTTP_ACCESS` to the `appenders` list:
 
