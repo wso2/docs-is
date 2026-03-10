@@ -48,15 +48,48 @@ def resolve_includes(content, current_dir, docs_dir, visited=None):
     return include_pattern.sub(replace_match, content)
 
 def inject_api_spec(content, page_src_path, docs_dir):
-    redoc_pattern = re.compile(r'<redoc[^>]*\sspec-url=["\']([^"\']+)["\']', re.IGNORECASE | re.DOTALL)
-    match = redoc_pattern.search(content)
-    if match:
-        spec_url = match.group(1)
-        spec_path = os.path.abspath(os.path.join(docs_dir if spec_url.startswith('/') else os.path.dirname(page_src_path), spec_url.lstrip('/')))
-        if os.path.exists(spec_path):
-            with open(spec_path, 'r', encoding='utf-8') as f:
-                return content + f"\n\n## API Specification (OpenAPI)\n\n```yaml\n{f.read()}\n```\n"
-    return content
+    redoc_pattern = re.compile(r'<redoc[^>]*\sspec-url=["\']([^"\']+)["\'][^>]*>.*?</redoc>|<redoc[^>]*\sspec-url=["\']([^"\']+)["\'][^>]*/>', re.IGNORECASE | re.DOTALL)
+
+    def replace_with_yaml(match):
+        spec_url = match.group(1) or match.group(2)
+        if not spec_url: return match.group(0)
+
+        spec_url = re.sub(r'\{\{\s*base_path\s*\}\}', '', spec_url)
+        filename = os.path.basename(spec_url)
+        
+        # 1. Try standard relative/absolute paths first
+        page_dir = os.path.dirname(page_src_path)
+        paths_to_check = [
+            os.path.abspath(os.path.join(page_dir, spec_url)),
+            os.path.abspath(os.path.join(docs_dir, spec_url.lstrip('/'))),
+            os.path.abspath(os.path.join(docs_dir, "apis", "restapis", filename))
+        ]
+
+        target_path = next((p for p in paths_to_check if os.path.exists(p)), None)
+
+        # 2. THE NUCLEAR OPTION: If still not found, search the whole project for the filename
+        if not target_path:
+            # Search upwards from docs_dir to find the project root if necessary
+            search_root = os.path.dirname(docs_dir) 
+            for root, dirs, files in os.walk(search_root):
+                if filename in files:
+                    target_path = os.path.join(root, filename)
+                    break
+
+        if target_path:
+            try:
+                with open(target_path, 'r', encoding='utf-8') as f:
+                    yaml_content = f.read()
+                # Success! Log where we actually found it to help debug
+                print(f"FOUND: {filename} at {target_path}")
+                return f"\n\n## API Specification (OpenAPI)\n\n```yaml\n{yaml_content}\n```\n"
+            except Exception as e:
+                return f"\n\n"
+        
+        print(f"CRITICAL FAILURE: Cannot find {filename} anywhere in {search_root}")
+        return f"\n\n"
+
+    return redoc_pattern.sub(replace_with_yaml, content)
 
 def on_pre_build(config):
     global GENERATED_GUIDES, ALL_PAGES
@@ -110,37 +143,29 @@ def create_merged_guide(section_item, guide_slug, title, config):
                     res = promote_headings_outside_fences(res)
                     if res.strip():
                         md_text += f"\n\n---\n## Section: {item.title}\n\n{res}\n"
-                except Exception as e: print(f"Error: {e}")
+                except Exception as e: print(f"Error merging {item.title}: {e}")
             elif item.is_section:
                 md_text += collect_md(item.children)
         return md_text
 
     combined_md += collect_md(section_item.children)
-    
-    # Place it in a folder structure that mimics directory URLs if needed
     dest_path = os.path.join(config['site_dir'], "complete-guides", f"{guide_slug}.md")
     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
     with open(dest_path, 'w', encoding='utf-8') as f: f.write(combined_md)
     
-    GENERATED_GUIDES.append({
-        "title": title, 
-        "url": f"complete-guides/{guide_slug}.md", 
-        "desc": f"Comprehensive {title.lower()} integration"
-    })
+    GENERATED_GUIDES.append({"title": title, "url": f"complete-guides/{guide_slug}.md", "desc": f"Comprehensive {title.lower()} integration"})
 
 def on_post_page(output, page, config):
-    # Skip actual index files that aren't content
-    if "complete-guides/" in page.file.src_path and page.file.src_path.split('/')[-1] == "index.md":
-        return
+    if "complete-guides/" in page.file.src_path and page.file.src_path.endswith("index.md"): return
 
     docs_dir = config['docs_dir']
-    
-    # Handle the destination path logic to prevent 404s
-    # If use_directory_urls is True, abs_dest_path ends in /index.html
     abs_dest = page.file.abs_dest_path
+    
+    # Handle Directory URLs vs Direct File URLs to fix 404s
     if abs_dest.endswith("index.html"):
-        # Convert .../react/introduction/index.html to .../react/introduction.md
-        dest_path = os.path.join(os.path.dirname(os.path.dirname(abs_dest)), os.path.basename(os.path.dirname(abs_dest)) + ".md")
+        parent_dir = os.path.dirname(os.path.dirname(abs_dest))
+        folder_name = os.path.basename(os.path.dirname(abs_dest))
+        dest_path = os.path.join(parent_dir, f"{folder_name}.md")
     else:
         dest_path = os.path.splitext(abs_dest)[0] + ".md"
 
@@ -150,15 +175,14 @@ def on_post_page(output, page, config):
     content = inject_api_spec(content, page.file.abs_src_path, docs_dir)
     content = promote_headings_outside_fences(content)
     
-    with open(dest_path, 'w', encoding='utf-8') as f:
-        f.write(content)
+    with open(dest_path, 'w', encoding='utf-8') as f: f.write(content)
         
     rel_url = os.path.relpath(dest_path, config['site_dir'])
     if not any(p["url"] == rel_url for p in ALL_PAGES):
         ALL_PAGES.append({"title": page.title, "url": rel_url})
 
 def on_post_build(config):
-    # Standard llms.txt and llms-full.txt generation logic
+    # llms.txt and llms-full.txt generation
     llms_path = os.path.join(config['site_dir'], "llms.txt")
     lines = [
         "# WSO2 Identity Server Documentation",

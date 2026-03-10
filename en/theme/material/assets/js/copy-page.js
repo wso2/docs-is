@@ -93,7 +93,27 @@
       finally { setOpen(false); setTimeout(() => { btnText.innerText = 'Use Page in AI'; button.classList.remove('copied-success'); }, 2000); }
     });
 
-    menu.querySelector('.cp-view').addEventListener('click', () => { window.open(getFlattenedMarkdownUrlFromHtmlUrl(window.location.href), '_blank'); setOpen(false); });
+    menu.querySelector('.cp-view').addEventListener('click', async () => {
+    const mdUrl = getFlattenedMarkdownUrlFromHtmlUrl(window.location.href);
+    try {
+      const res = await fetch(mdUrl);
+      if (!res.ok) throw new Error();
+      const markdown = await res.text();
+      
+      // Create a new blob with the plain text type
+      const blob = new Blob([markdown], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      
+      // Open this temporary URL in a new tab
+      window.open(url, '_blank');
+      
+      // Clean up memory after a short delay
+      setTimeout(() => URL.revokeObjectURL(url), 100);
+    } catch (err) {
+    alert("Could not open Markdown view. Please try 'Copy page' instead.");
+    }
+    setOpen(false);
+    });
     
     const aiLinks = { '.cp-chatgpt': 'https://chat.openai.com/?q=', '.cp-claude': 'https://claude.ai/new?q=', '.cp-perplexity': 'https://www.perplexity.ai/?q=' };
     Object.entries(aiLinks).forEach(([selector, url]) => {
