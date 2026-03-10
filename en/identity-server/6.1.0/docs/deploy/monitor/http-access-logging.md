@@ -136,7 +136,7 @@ If you want to keep HTTP access logs in their own file, separate from other serv
     appender.HTTP_ACCESS.filter.threshold.level = INFO
     ```
 
-### Route to console only
+### Route to standard output
 
 In Kubernetes environments, logs are typically collected from standard output rather than files. To make HTTP access logs part of that flow, route them to the console alongside all other server logs. To do so,
 
