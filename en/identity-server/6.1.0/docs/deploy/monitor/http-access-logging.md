@@ -81,7 +81,7 @@ In the Identity Server 5.9.0 only the access log pattern is configurable.
     created by default inside the `<IS_HOME>/repository/logs` directory. The
     log is rotated on a daily basis.
 
-### Routing access logs to the Log4j2 logger
+## Routing access logs to the Log4j2 logger
 
 By default, HTTP access logs write to a separate `http_access.log` file using the Tomcat Access Log Valve. WSO2 Identity Server also supports routing HTTP access logs through the Log4j2 logger, which gives you full control over where those logs go.
 
@@ -94,7 +94,7 @@ useLogger = true
 
 After enabling this, update `<IS_HOME>/repository/conf/log4j2.properties` to add the HTTP access log appender and logger.
 
-#### Route to a dedicated rolling log file
+### Route to a dedicated rolling log file
 
 If you want to keep HTTP access logs in their own file, separate from other server logs. To do so,
 
@@ -136,7 +136,7 @@ If you want to keep HTTP access logs in their own file, separate from other serv
     appender.HTTP_ACCESS.filter.threshold.level = INFO
     ```
 
-#### Route to console only
+### Route to console only
 
 In Kubernetes environments, logs are typically collected from standard output rather than files. To make HTTP access logs part of that flow, route them to the console alongside all other server logs. To do so,
 
