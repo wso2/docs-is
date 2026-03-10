@@ -13,7 +13,7 @@ Fluent Bit is a lightweight and efficient log processor and forwarder that enabl
 
 - If you are a Linux user, follow this [guide](https://docs.fluentbit.io/manual/installation/linux/ubuntu){: target="_blank"}
 
-- If you are a MacOS user, follow this [guide](https://docs.fluentbit.io/manual/installation/macos){: target="_blank"}.
+- If you are a macOS user, follow this [guide](https://docs.fluentbit.io/manual/installation/macos){: target="_blank"}.
 
 Once you have finished installing Fluent Bit, follow the next section for instructions on installing OpenSearch.
 

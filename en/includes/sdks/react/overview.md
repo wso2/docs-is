@@ -2,6 +2,32 @@
 
 The Asgardeo React SDK (`@asgardeo/react`) is a component-first library, offering a highly customizable set of components for authentication, user self-care, and organization management in React applications.
 
+## Installation
+
+Use one of the following options to install the Asgardeo React SDK.
+
+=== "npm"
+
+    ```bash
+    npm install @asgardeo/react
+    ```
+
+=== "yarn"
+
+    ```bash
+    yarn add @asgardeo/react
+    ```
+
+=== "pnpm"
+
+    ```bash
+    pnpm add @asgardeo/react
+    ```
+
+## Getting started
+
+ Try out the [{{product_name}} React quickstart guide.]({{base_path}}/quick-starts/react/)
+
 ## Contexts
 
 The SDK provides a context-based architecture, allowing you to easily manage authentication state and user data across your application. The main context is provided by the `AsgardeoProvider`, which wraps your application and provides access to authentication methods and user information.
@@ -61,4 +87,5 @@ Control components manage the conditional rendering of content based on authenti
 ## Next Steps
 
 - [Quick Start Guide]({{base_path}}/quick-starts/react) – Get started with the Asgardeo React SDK.
+- [Complete Guide]({{base_path}}/complete-guides/react/introduction/) – Build a complete application using the Asgardeo React SDK.
 - [AsgardeoProvider]({{base_path}}/sdks/react/contexts/asgardeo-provider/) – Learn how to configure the root provider component.

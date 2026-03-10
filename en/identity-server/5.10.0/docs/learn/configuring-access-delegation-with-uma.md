@@ -14,7 +14,7 @@ Larry, Alex, and Sam are three users in WSO2 IS. Larry has a photo album in the 
 
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands on a terminal window.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 

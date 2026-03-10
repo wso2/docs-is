@@ -1,238 +1,125 @@
 
+Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
-## Implement log in
+First of all before moving into the implementation of the Login and Logout let's make sure you have given the user that is logging into the application the necessary permissions to manage teams via the 'TEAM_ADMIN' role we created using the adaptive scripts feature in {{product_name}}.
 
-Now, let's implement log in functionality to the app. We'll use Auth.js's `signIn` method to initiate the authentication flow with Asgardeo and the `useSession` hook to manage the user's session state in the client-side. The `useSession` hook provides access to the logged-in user's session data and allows us to check the authentication status.
+- In the {{product_name}} console, navigate to the TeamSpace Application we created with the path Applications > TeamSpace > Edit > Login Flow
+- Scroll to the bottom of the page and you will notice a section called Conditional Authentication.
 
-Create or update your home component (or the component where you want to add the sign-in button) at `app/home.tsx` to handle user authentication:
+![ConditionalAuthentication]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image21.png){: width="800" style="display: block; margin: 0;"}
 
-```javascript title="components/Home.tsx"
-"use client"
+- Scroll to the bottom of the page and you will notice a section called Conditional Authentication.
+- Enable this toggle and add the following JavaScript code to the section as follows. With this you can assign the Role we created which is 'TEAM_ADMIN' to the user that is logging in.
 
-import { signIn, useSession } from "next-auth/react";
+```javascript
+var roleClaim = 'http://wso2.org/claims/roles';
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function (context) {
+            var user = context.currentKnownSubject;
+            assignUserRoles(user,["Internal/TEAM_ADMIN"]);                 
+            }
+    });
+}
+```
+
+It should appear as shown below.
+
+![AdaptiveCode]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image22.png){: width="800" style="display: block; margin: 0;"}
+
+- Save the changes by clicking 'Update'
+
+Let's move on the application implementation of the Login and Logout flow.
+
+The Next SDK has components can be used to display user information as well. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
+
+- `User`: The `User` component provides a render prop pattern to access user profile information:
+- `UserProfile`: The `UserProfile` component provides a declarative way to display and update user profile information.
+- `UserDropdown`: The `UserDropdown` component provides a dropdown menu with built-in user information and sign-out functionality.
+
+Replace the existing content of the `app/page.tsx` file with following content.
+
+```javascript title="app/page.tsx"
+'use client'
+
+import {  SignedIn, SignedOut, SignInButton, SignOutButton, User, UserDropdown, UserProfile, SignUpButton } from '@asgardeo/nextjs';
 
 export default function Home() {
- //Get session data
- const { data: session } = useSession();
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Left - Branding or Nav (can add logo here) */}
+            <div className="flex items-center space-x-4">
+              <SignedIn>
+                {/* Add logo or navigation for signed-in users if needed */}
+                <span className="text-sm text-gray-600">Welcome to Team Space</span>
+              </SignedIn>
+              <SignedOut>
+                <span className="text-sm text-gray-600">Team Space</span>
+              </SignedOut>
+            </div>
 
- // Render sign-in button if no active session
- return (
-    { !session ? (
-      <Box mt={3} textAlign="center">
-         <Button
-            variant="contained"
-            color="primary"
-            onClick={() => signIn("asgardeo")}
-         >
-            Sign in
-         </Button>
-         <Box mt={2}>
-            <SignUp />
-         </Box>
-      </Box>
-    )}
- )
+            {/* Right - User Actions */}
+            <div className="flex items-center space-x-3">
+              <SignedIn>
+                <UserDropdown />
+                <SignOutButton />
+              </SignedIn>
+              <SignedOut>
+                <SignInButton />
+                <SignUpButton />
+              </SignedOut>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-grow flex flex-col items-center justify-center text-center px-4 py-12 gap-6 bg-gray-50">
+        <SignedIn>
+          <User>
+            {(user) => (
+              <div className="text-lg font-medium text-gray-800">
+                Welcome back, {user.userName || user.username || user.sub}
+              </div>
+            )}
+          </User>
+          <div className="mt-4">
+            <UserProfile />
+          </div>
+        </SignedIn>
+        <SignedOut>
+          <p className="text-gray-700">You are not signed in. Please Sign In or Sign Up</p>
+        </SignedOut>
+      </main>
+    </div>
+  );
 }
 ```
 
-## Access logged user's information
+This code snippet adds a Sign In button in the application that triggers the signIn function from @asgardeo/nextjs when the user clicks it. The button uses an asynchronous action to securely initiate the login process with {{product_name}}. When the user clicks the button, the app redirects them to the {{product_name}} login page, and once logged in, they are returned to the app with their session established.
 
-To access and display logged-in user details in the app using auth.js, use the JWT callback function. This function is triggered whenever a JWT is created or updated (e.g. at sign-in), allowing you to retrieve and manipulate user information from the ID token provided by Asgardeo.
-
-Update the `auth.ts` file as below.
-
-```javascript title="auth.ts" hl_lines="8-23"
-import NextAuth from "next-auth"
-import Asgardeo from "next-auth/providers/asgardeo"
-
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Asgardeo({
-     issuer: process.env.AUTH_ASGARDEO_ISSUER
-  })],
-  callbacks: {
-     async jwt({ token, profile }) {
-        if (profile) {
-          token.email = profile.username;
-        }
-
-        return token;
-     },
-     async session({ session, token }) {            
-        if (token) {
-          session.user.email = token.email as string;
-        }
-
-        return session;
-     }
-  }
-})
-```
-
-Then, update your Home component as follows to display the username of logged in user.
-
-```javascript hl_lines="3" title="components/Home.tsx"
-<>
-  <p> You are now signed in!</p>
-  <p> hello {session.user?.email}</p>
-</>
-```
-
-!!! Info
-     Read more on [getting user attributes in your app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/).
-
-## Access logged user's permissions
-
-User permissions (scopes) are retrieved using OAuth2 token introspection for opaque tokens and stored in the session. If a JWT is used instead, the scopes can be extracted by decoding the token directly.
-
-!!! Note
-     To check the access token type Teamspace is using, go to the Asgardeo Console > Select your Teamspace application > Go to the “Protocol” tab and scroll down to check the Access Token type.
-
-     ![Token type]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image12.png){: width="700" style="display: block; margin: 0;"}
-
-In Teamspace, during session creation, introspectToken function is called to verify the token and fetch its associated scopes.
-
-The retrieved scopes are stored in `session.scopes`.
-
-```javascript title="auth.ts" hl_lines="9-16"
-async session({ session, token }) {
-    if (token?.access_token) {
-         session.user.email = token.email;
-         session.user.access_token = token.access_token as string;
-         session.id_token = token.id_token as string;
-         session.user.firstName = parseJwt(session.id_token)["given_name"];
-         session.user.lastName = parseJwt(session.id_token)["family_name"];
-
-         // Call OAuth2 introspection to get scopes
-         try {
-                const introspectionResponse = await introspectToken(token?.access_token as string);
-                session.scopes = introspectionResponse.scope || null;
-         } catch (error) {
-                console.error("Error in token introspection:", error);
-         }
-    }
-
-    return session;
-}
-```
-
-Introspect token sample method:
-
-
-```javascript title="app/auth-utils"
-// Helper function to introspect the token
-export async function introspectToken(accessToken: string) {
-    const clientId = process.env.AUTH_ASGARDEO_ID;
-    const clientSecret = process.env.AUTH_ASGARDEO_SECRET;
-
-    if (!clientId || !clientSecret) {
-         throw new Error("Missing required environment variables for introspection");
-    }
-
-    const authHeader = Buffer.from(`${clientId}:${clientSecret}`).toString(
-         "base64"
-    );
-
-    const response = await fetch(
-         `${process.env.ASGARDEO_BASE_URL}/oauth2/introspect`,
-         {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    Authorization: `Basic ${authHeader}`,
-                },
-                body: new URLSearchParams({ token: accessToken }),
-         }
-    );
-
-    if (!response.ok) {
-         throw new Error(`Failed to introspect token: ${response.statusText}`);
-    }
-
-    return await response.json();
-}
-```
-
-!!! Note
-     Read more on [token introspection.]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens){:target="\_blank"}
-
-## Implement log out
-
-In this step, we implement secure log out functionality using Asgardeo's logout endpoint. This ensures proper termination of both the local session and the Asgardeo session.
-
-### Create API route
-
-Create a new API route at `app/api/auth/sign-out/route.ts` to handle the sign-out process:
-
-```javascript title="app/api/auth/sign-out/route.ts"
-import { auth } from "@app/auth";
-import { NextResponse } from "next/server";
-
-export async function POST() {
-    // Implementation
-}
-```
-
-Asgardeo’s logout endpoint is used to terminate the user session at Asgardeo and to log the user out. When a user is successfully logged out, the user is redirected to the `post_logout_redirect_uri` sent in the logout request.
-
-Logout endpoint with sample request:
+Save the changes and re-run the application in development mode if it is not running already.
 
 ```bash
-curl -X POST "https://api.asgardeo.io/t/{ORG_NAME}/oidc/logout" \
---data-urlencode "client_id=<CLIENT_ID>" \
---data-urlencode "post_logout_redirect_uri=<REDIRECT_URI>" \
---data-urlencode "state=<STATE>"
+npm run dev
 ```
 
-### Implementation
+Once the application is started, you will see the homepage of the application with the changes we made.
 
-In Next.js API routes, the logout process can be handled as follows:
+![Login screen]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image19.png){: width="800" style="display: block; margin: 0;"}
 
-```javascript title="app/api/auth/sign-out/route.ts"
-  try {
-    // Get the current session using Auth.js
-     const session = await auth();
+## Initiate Sign In
 
-     if (session) {
-        // Construct the Asgardeo logout URL with required parameters:
-        // - id_token_hint: Required for OIDC back-channel logout
-        // - post_logout_redirect_uri: Where to redirect after logout
-        const logoutUrl = `${process.env.ASGARDEO_LOGOUT_URL}?id_token_hint=${session.id_token}&post_logout_redirect_uri=${process.env.HOSTED_URL}`;
+Clicking on the login button will initiate an OIDC request. You will be able to observe the authorize request in the browser devtools as follows. To see this, right click on the application and click inspect and switch to the network tab. In the filter input, type “authorize”, and click on the sign in button.
 
-        // Return the logout URL to be used by the client
-        return NextResponse.json({ logoutUrl });
-     } else {
-        return new NextResponse("No active session found", { status: 400 });
-     }
-  } catch (error) {
-     console.error(error);
-     return new NextResponse("Error logging out", { status: 500 });
-  }
-```
+![OIDC request]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image20.png){: width="800" style="display: block; margin: 0;"}
 
-We can create a logout trigger in the client-side component (e.g., Navbar.tsx) as follows:
+!!! tip "Tip"
 
-```javascript title="components/Navbar.tsx"
-const handleSignOut = async () => {
-  try {
-     const res = await fetch("/api/auth/sign-out", {
-        method: "POST",
-     });
-     const data = await res.json();
-
-     if (data.logoutUrl) {
-        await signOut({ redirect: false });
-        window.location.href = data.logoutUrl;
-     } else {
-        console.error("Logout URL not found.");
-     }
-  } catch (error) {
-     console.error("Error during sign out:", error);
-  }
-};
-```
-
-!!! Info
-     Read more on [adding logout to an application.]({{base_path}}/guides/authentication/oidc/add-logout/){:target="\_blank"}
-
-!!! Note
-     Refer to Step 2 of the Github [sample app repository](https://github.com/savindi7/asgardeo-next-b2b-sample-app){:target="\_blank"} for the complete implementation.
+    The OpenID Connect specification offers several functions, known as grant types, to obtain an access token in exchange for user credentials. This example uses the authorization code grant type. In this process, the app first requests a unique code from the authentication server, which can later be used to obtain an access token. 
+    
+{{product_name}} will receive this authorization request and respond by redirecting the user to a login page to enter their credentials.

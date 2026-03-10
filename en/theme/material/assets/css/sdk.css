@@ -29,7 +29,10 @@
         display: none !important;
     }
     
-    .md-nav[data-md-level="2"] > .md-nav__list > .md-nav__item, .md-nav[data-md-level="3"] > .md-nav__list > .md-nav__item  {
+    .md-nav[data-md-level="2"] > .md-nav__list > .md-nav__item,
+    .md-nav[data-md-level="3"] > .md-nav__list > .md-nav__item,
+    .md-nav[data-md-level="4"] > .md-nav__list > .md-nav__item,
+    .md-nav[data-md-level="5"] > .md-nav__list > .md-nav__item  {
         display: flex;
         flex-direction: column;
     }

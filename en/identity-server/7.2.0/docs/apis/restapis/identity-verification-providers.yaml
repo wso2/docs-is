@@ -1,0 +1,515 @@
+openapi: 3.0.3
+info:
+  title: Identity Verification Provider Management API
+  description: |-
+    This document specifies an **Identity Verification Provider Management RESTful API** for **WSO2 Identity Server**. The APIs provide the capability to add/update/delete/update identity verification providers.
+  version: "v1"
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: "carbon.super"
+      server-url:
+        default: "localhost:9443"
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /idv-providers:
+    get:
+      tags:
+        - Identity Verification Providers
+      summary: |
+        List identity verification providers
+      description: >
+        This API provides the capability to retrieve the list of identity
+        verification providers.<br>
+        <b>Scope(Permission) required:</b> `internal_idvp_view`
+      operationId: getIdVProviders
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdVProviderListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Identity Verification Providers
+      summary: |
+        Add a new identity verification provider.
+      description: >
+        This API provides the capability to add an identity verification provider.<br>
+        <b>Scope(Permission) required:</b> `internal_idvp_add`
+      operationId: addIdVProvider
+      responses:
+        '201':
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the newly created identity provider.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdVProviderResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdVProviderRequest'
+        description: This represents the identity provider to be created.
+        required: true
+  /idv-providers/{idv-provider-id}:
+    get:
+      tags:
+        - Identity Verification Providers
+      summary: |
+        Retrieve identity verification provider by identity verification provider's ID
+      description: >
+        This API provides the capability to retrieve the identity verification provider
+        details by using its ID. 
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idvp/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idvp_view
+      operationId: getIdVProvider
+      parameters:
+        - name: idv-provider-id
+          in: path
+          description: ID of the identity verification provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdVProviderResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Identity Verification Providers
+      summary: >
+        Update an identity verification provider.
+      description: >
+        This API provides the capability to update an identity verification provider <br>
+        <b>Scope(Permission) required:</b> `internal_idvp_update`
+      operationId: updateIdVProviders
+      parameters:
+        - name: idv-provider-id
+          in: path
+          description: ID of the identity verification provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the updated identity provider.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdVProviderResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdVProviderRequest'
+        required: true
+    delete:
+      tags:
+        - Identity Verification Providers
+      summary: |
+        Delete an identity verification provider by using the identity provider's ID.
+      description: >
+        This API provides the capability to delete an identity verification provider by
+        giving its ID. <br>
+        <b>Scope(Permission) required:</b> `internal_idvp_delete`
+      operationId: deleteIdVProvider
+      parameters:
+        - name: idv-provider-id
+          in: path
+          description: ID of the identity verification provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /extensions/identity-verification-providers:
+    get:
+      tags:
+        - Identity Verification Provider Templates
+      operationId: getAllIdVPTemplates
+      summary: |
+        List application templates
+      description: >
+        This API provides the capability to retrieve the list of templates available. <br>
+        <b>Scope(Permission) required:</b> `internal_extensions_view`
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdVPTemplateListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  parameters:
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
+        type: integer
+        format: int32
+    offsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: |
+        Number of records to skip for pagination.
+      schema:
+        type: integer
+        format: int32
+    filterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description: >
+        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew'
+        and 'eq' operations and also complex queries with 'and' operations. E.g.
+        /idv-providers?filter=name+sw+"Onfido"+and+isEnabled+eq+"true"
+      schema:
+        type: string
+    idVPQueryParam:
+      in: query
+      name: idvProviderid
+      required: false
+      description: |
+        Id of the identity verification provider.
+      schema:
+        type: string
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+    IdVProviderListResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          example: 10
+        startIndex:
+          type: integer
+          example: 1
+        count:
+          type: integer
+          example: 10
+        identityVerificationProviders:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdVProviderResponse'
+    IdVProviderResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 123e4567-e89b-12d3-a456-556642440000
+        type:
+          type: string
+          example: ONFIDO
+        name:
+          type: string
+          example: ONFIDO
+        description:
+          type: string
+          example: identity verification provider
+        image:
+          type: string
+          example: "onfido-logo-url"
+        isEnabled:
+          type: boolean
+          example: true
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/VerificationClaim'
+        configProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigProperty'
+    IdVProviderRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          example: ONFIDO
+        name:
+          type: string
+          example: ONFIDO
+        description:
+          type: string
+          example: identity verification provider
+        image:
+          type: string
+          example: "onfido-logo-url"
+        isEnabled:
+          type: boolean
+          example: true
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/VerificationClaim'
+        configProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigProperty'
+      required:
+        - type
+        - name
+        - isEnabled
+    ConfigProperty:
+      type: object
+      properties:
+        key:
+          type: string
+          example: token
+        value:
+          type: string
+          example: somePropertyValue
+    VerificationClaim:
+      type: object
+      properties:
+        localClaim:
+          type: string
+          example: 'http://wso2.org/claims/dob'
+        idvpClaim:
+          type: string
+          example: birthday
+    IdVPTemplateListResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/IdVPTemplateResponse'
+    IdVPTemplateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: TEMPLATE_ID
+        version:
+          type: string
+          example: v1.0.0
+        name:
+          type: string
+          example: Template Name
+        description:
+          type: string
+          example: Template Description.
+        image:
+          type: string
+          example: "onfido-logo-url"
+        displayOrder:
+          type: integer
+          example: 1
+        tags:
+          type: array
+          items:
+            type: string
+          example: 
+            - Identity-Verification
+        category:
+          type: string
+          example: DEFAULT
+        type:
+          type: string
+          example: identity-verification-providers
+        self:
+          type: string
+          example: /api/server/v1/extensions/identity-verification-providers/ONFIDO
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}

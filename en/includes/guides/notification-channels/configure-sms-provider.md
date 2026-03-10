@@ -1,4 +1,4 @@
-# Configure SMS Provider
+# Configure SMS provider
 
 Configurations related to SMS providers are located under the **Notification Channels** section.
 
@@ -99,11 +99,33 @@ Configurations related to SMS providers are located under the **Notification Cha
       <tr>
         <td>Payload Template</td>
         <td>How the payload template should be. </br>Placeholders: </br><code>\{\{body\}\}</code> - Generated body of the SMS. (Example - This can be the OTP). </br><code>\{\{mobile\}\}</code> - Number that this sms should be sent to.</td>
-        <td>Example JSON payload template: </br><code>{“content”: \{\{body\}\},“to”: \{\{mobile\}\}}}</code></br></br>(<code>\{\{mobile\}\}</code> and <code>\{\{body\}\}</code> will be replaced with the corresponding values at the runtime.)</td>
+        <td>Example JSON payload template: </br><code>{“content”: \{\{body\}\},“to”: \{\{mobile\}\}}</code></br></br>(<code>\{\{mobile\}\}</code> and <code>\{\{body\}\}</code> will be replaced with the corresponding values at the runtime.)</td>
       </tr>
       <tr>
         <td>Headers</td>
         <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
-        <td><code>authorisation: qwer1234asdfzxcv, x-csrf: true, x-abc: some-value</code></td>
+        <td><code>x-csrf: true, x-abc: some-value</code></td>
       </tr>
+    {% if not (product_name == "WSO2 Identity Server" and is_version <= "7.2.0") %}
+      <tr>
+        <td>Authentication</td>
+        <td>Authentication settings for the custom SMS provider. Select the preferred authentication scheme and enter the required authentication properties.</td>
+        <td>Authentication Scheme <code>Basic</code> with username and password.</td>
+      </tr>
+    {% endif %}
     </table>
+
+    {% if product_name == "WSO2 Identity Server" and is_version >= "7.2.0" %}
+
+    By default, the custom SMS provider uses connection timeout and read timeout values of 5000ms and 20000ms respectively. If you need to change these timeout values, you can configure them by adding the following configuration to the `deployment.toml` file:
+
+    ```toml
+    [notificationChannel.sms.custom]
+    connection_timeout = 5000
+    connection_read_timeout = 20000
+    ```
+
+    !!! note
+        - `connection_timeout`: Time in milliseconds to wait for establishing a connection to the SMS provider (default: 5000ms)
+        - `connection_read_timeout`: Time in milliseconds to wait for reading data from the SMS provider (default: 20000ms)
+    {% endif %}

@@ -389,5 +389,29 @@ will be terminated.
 <p>Default : true </p>
 </td>
 </tr>
+<tr class="even">
+<td>GroupIDEnabled</td>
+<td>group_id_enabled</td>
+<td>Enable Group Unique Id</td>
+<td>Enables support for assigning a unique, persistent ID for SCIM groups.</td>
+</tr>
+<tr class="odd">
+<td>GroupIdAttribute</td>
+<td>group_id_attribute</td>
+<td>Group Id Attribute</td>
+<td>LDAP attribute that should be used as the SCIM group ID</td>
+</tr>
+<tr class="even">
+<td>GroupCreated<br>DateAttribute</td>
+<td>group_created_timestamp_attribute</td>
+<td>Group Created Date Attribute</td>
+<td>LDAP attribute that specifies the timestamp when a group was created.</td>
+</tr>
+<tr class="odd">
+<td>GroupLastModified<br>DateAttribute</td>
+<td>group_modified_timestamp_attribute</td>
+<td>Group Last Modified Date Attribute</td>
+<td>LDAP attribute that specifies the timestamp when a group was last modified. </td>
+</tr>
 </tbody>
 </table>

@@ -3,97 +3,10 @@
 This guide walks you through the process of managing a user account. An owner or an administrator can manage user accounts.
 
 ## Onboard users
-There are three ways to onboard a user:
 
-- The user can self-register via the My Account portal or the login page of an application if self-registration is enabled in the organization. Learn how to [configure self-registration]({{base_path}}/guides/user-accounts/configure-self-registration/).
-- An administrator can onboard users from an on-premise user store by [connecting a remote user store to {{ product_name }}]({{base_path}}/guides/users/user-stores/configure-a-user-store/).
+{{product_name}} provides multiple ways to onboard users to your organization. You can add users individually or in bulk using a CSV file. You can also allow users to self-register.
 
-    !!! note
-        If the remote user store access type is read-only, you cannot update the user profiles of users onboarded from this read-only user store.
-
-- An administrator can onboard users from the {{ product_name }} Console.
-
-Let's look at how administrators can onboard users from the {{ product_name }} Console.
-
-### Onboard a single user
-
-1. On the {{ product_name }} Console, go to **User Management** > **Users**.
-2. Click  **Add User** > **Single User** and provide the following details:
-
-    ![Add user]({{base_path}}/assets/img/guides/users/add-user-form.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    - **Email (Username):** A unique email address to identify the user.
-    - **First Name:** First name of the user. You can add/change this later.
-    - **Last Name:** Last name of the user. You can add/change this later.
-
-    !!! note
-        You can include additional user details such as phone number, address, and other custom attributes when onboarding a user. This is done via
-        [attribute configurations]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
-
-    !!! note
-
-        - A username is always unique to the organization and you can't change the username once it is created.
-        - Instead of using the email as the username, you can [configure the username]({{base_path}}/guides/user-accounts/account-login/username-validation/) to be an alphanumeric. Then, you will be asked to enter an alphanumeric username between the configured minimum and maximum lengths.
-        - The existing users who have already registered with their email address as the username can continue to use it to access applications, instead of having to create a new username.
-
-3. You can either request the user to set the password or set one on the user's behalf.
-
-    - **Invite user to set their own password:**
-
-        - **Invite via email:** If this option is selected, an email with a confirmation link will be sent to the provided email (username). The user can use the confirmation link to set up a new password.
-
-        - **Invite offline:** If this option is selected, the administrator will receive an invite link at the end of user registration. This link can be shared with the user.
-
-    - **Set a password for the user:**
-            If this option is selected, the administrator can set a password for the user. The user can change this password from the [My Account Portal]({{base_path}}/guides/user-self-service/customer-self-service-portal/).
-
-4. Add the user to a group in the next step. You will not see this option if you haven't created any groups in {{ product_name }}.
-5. Click **Finish**.
-
-    !!! note
-        If you have selected **Invite offline** or decided to **set a password for the user**, you can copy the corresponding information at the **Summary** page of the wizard and share with the user.
-
-### Onboard multiple users
-
-In addition to adding a single user, you can onboard multiple users at once, either manually or by using a CSV file. This is especially useful for large organizations that seek efficiency.
-
-![Add multiple users]({{base_path}}/assets/img/guides/users/add-multiple-users-form.png)
-
-!!! note
-    Importing multiple users is only supported for the Asgardeo-provided **DEFAULT** user store.
-
-#### Add multiple users manually
-
-1. On the Asgardeo Console, go to **User Management** > **Users**.
-2. Click **Add User** > **Multiple Users**.
-3. Switch to the **Manual** tab.
-4. Enter the email addresses of the users you want to invite. Press **Enter** after each email to add it to the list.
-5. Under Groups, select the group(s) from the dropdown to which users will be added during the import.
-6. Click **Add** to send out the invitations.
-
-An email with a confirmation link will be sent to the provided email addresses, allowing the users to set their own passwords.
-
-#### Add multiple users using a CSV file
-
-1. On the Asgardeo Console, go to **User Management** > **Users**.
-2. Click **Add User** > **Multiple Users**.
-3. Switch to the **File Based** tab.
-4. Click **Upload CSV File** or drag and drop a CSV file into the designated area.
-5. Ensure your CSV file is formatted correctly, with headers that correspond to user attributes. These attributes must be mapped to local attributes.
-
-   - A sample CSV file format would include: `username, givenname, emailaddress, groups`
-
-   - For example:
-
-       ```
-       username,givenname,emailaddress,groups
-       user1,john,john@test.com,group1|group2
-       user2,jake,jake@test.com,group2
-       user3,jane,jane@test.com,group1
-       ```
-
-6. Click **Import** to add the users to the system.
-7. An email with a confirmation link will be sent to the provided email addresses, allowing the users to set their own passwords.
+To learn more about onboarding users, see [Onboard users]({{base_path}}/guides/users/onboard-users/).
 
 ## Assign groups
 A user can be assigned to different [groups]({{base_path}}/guides/users/manage-groups/) in the organization. Groups can be used to restrict the user's access to resources.
@@ -143,17 +56,30 @@ To update the user profile:
 
 4. Click **Update** to save.
 
-## Resend password setup link/code
+## Resend invitation links and codes
 
-If a user is pending to set up an initial password or is required to reset their password through an admin-initiated password reset, and the previously sent link or code has expired, an administrator can resend the link or code.
+Administrators can resend expired invitation links or verification codes to users. This applies when users need to:
 
-To resend the link/code:
+- Complete registration
+- Reset passwords through an admin-initiated password reset
+- Confirm their account
+- Verify their email address
 
-1. Click the `Resend` link available in the warning message displayed at the top of the user's profile.
+### Use the Console
 
-    ![Resend link]({{base_path}}/assets/img/guides/users/resend-password-setup-link.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+To resend links or codes through the Console:
 
-Alternatively, administrators can use the resend-code API to resend the link or code as shown below.
+1. Navigate to the user's profile in **User Management** > **Users**.
+
+2. Click the **Resend** link in the warning message at the top of the user's profile.
+
+    ![Resend link]({{base_path}}/assets/img/guides/users/resend-account-setup-otp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    ![Resend link]({{base_path}}/assets/img/guides/users/resend-admin-initiated-password-reset.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+### Use the API
+
+You can also use the **resend-code API** to resend links or codes programmatically.
 
 !!! abstract ""
 
@@ -189,7 +115,7 @@ Alternatively, administrators can use the resend-code API to resend the link or 
         -d '{
             "user": {
                 "username": "jane",
-                "realm": "PRIMARY"
+                "realm": "DEFAULT"
             },
             "properties": [
                 {
@@ -200,13 +126,23 @@ Alternatively, administrators can use the resend-code API to resend the link or 
             }'
         ```
 
-    The recovery scenario should be specified in the properties parameter of the API request body, as follows:
+#### Recovery scenarios
 
-    - `ASK_PASSWORD`: When the user is pending to set up an initial password using the setup link.
-    - `ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK`: When the user is pending an admin-forced password reset via an email link.
-    - `ADMIN_FORCED_PASSWORD_RESET_VIA_OTP`: When the user is pending an admin-forced password reset via an OTP sent through email.
+Specify the **recovery scenario** in the `properties` parameter of the API request:
 
-    Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+- **`ASK_PASSWORD`**: User needs to set up their initial password using the setup link.
+- **`ASK_PASSWORD_VIA_EMAIL_OTP`**: User needs to complete registration using an email OTP.
+- **`ASK_PASSWORD_VIA_SMS_OTP`**: User needs to complete registration using an SMS OTP.
+- **`ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK`**: User needs to reset password via an admin-forced email link.
+- **`ADMIN_FORCED_PASSWORD_RESET_VIA_OTP`**: User needs to reset password via an admin-forced OTP sent through email.
+- **`EMAIL_VERIFICATION`**: User needs to verify their email using the setup link.
+- **`EMAIL_VERIFICATION_OTP`**: User needs to verify their email using an email OTP.
+- **`SELF_SIGN_UP`**: User needs to confirm their account using the email link.
+
+!!! note
+    - Provide the username without the user store domain prefix
+    - Specify the relevant user store domain name in the `realm` parameter
+
 
     ---
     **Response**
@@ -315,24 +251,61 @@ To lock a user account:
 
 Disabling a user's account prevents users from logging into applications or to the self-service My Account portal. It is intended to be a long-term and a more permanent measure than locking a user's account. Therefore, if you simply wish to restrict a user's access temporarily, it is recommended to use [account locking](#lock-a-user-account).
 
-!!! note "Enable account disabling"
+To disable a user account you can use either the Console or the SCIM API.
 
-    Account disabling is not an option available for a user's account by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
+=== "Use the Console"
 
-To disable a user account,
+    !!! note "Enable account disabling"
 
-1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
-2. In the **Danger Zone**, turn the **Disable user** toggle on to disable the user's profile. Turn it off to enable it.
+        Account disabling is not an option available for a users' accounts by default. If you wish to enable this option for your organization, refer to [account disabling]({{base_path}}/guides/account-configurations/account-disabling/).
 
-    ![Disable User Account]({{base_path}}/assets/img/guides/users/user-account-disable.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    1. On the {{product_name}} Console, go to **User Management** > **Users** and select the user.
+    2. In the **Danger Zone**, turn the **Disable user** toggle on to disable the user's profile. Turn it off to enable it.
 
-3. Select the checkbox to confirm your action.
-4. Click **Confirm**.
+        ![Disable User Account]({{base_path}}/assets/img/guides/users/user-account-disable.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-!!! note
-    When a user account is disabled, the follwing message will be displayed in the user's profile.
+    3. Select the checkbox to confirm your action.
+    4. Click **Confirm**.
 
-![Account disable reason]({{base_path}}/assets/img/guides/users/account-disable-text.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    When a user account is disabled, the following message will be displayed in the user's profile.
+
+    ![Account disable reason]({{base_path}}/assets/img/guides/users/account-disable-text.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+=== "Use the API"
+
+    You can use {{ product_name }}'s [SCIM API]({{base_path}}/apis/scim2/scim2-users-rest-api/#tag/Users-Endpoint/operation/patchUser) to disable user accounts. To do so,
+
+    1. [Get an access token]({{base_path}}/apis/#oauth-based-authentication) with the `internal_user_mgt_update` scope.
+
+    2. Use the obtained access token to execute the following cURL.
+
+        !!! note
+
+            Replace `<user_id>` with the ID of the user you want to disable, and `<access_token>` with the access token you obtained in step 1.
+
+        ``` curl
+        curl --location --request PATCH 'https://api.asgardeo.io/t/{organization_name}/o/scim2/Users/<user-id>' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Bearer <access_token>' \
+        --data '{
+        "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:PatchOp",
+            "urn:scim:wso2:schema"
+        ],
+        "Operations": [
+            {
+                    "op": "replace",
+                    "value": {
+                        "urn:scim:wso2:schema": {
+                            "accountDisabled": false
+                        }
+                    }
+            }
+        ]
+        }'
+        ```
+
+        After you successfully execute the cURL, the user profile gets disabled.
 
 ## Delete a user
 A user account can be deleted by administrators. Once an account is deleted, the action is irreversible.

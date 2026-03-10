@@ -12,7 +12,6 @@ WSO2 Identity Server exposes most of the features via REST APIs. Those APIs are 
     
     <!-- TODO You can write your handlers for authentication and authorization and register them in OSGI. For more information, refer to [Write a Custom Local Authenticator]({{base_path}}/references/extend/federation/write-a-custom-local-authenticator).-->
 
-
 ## Get access to APIs
 
 At least one authentication element should be sent in an API invocation request to invoke the API successfully. If you fail to add the authentication element, the  API request will return a `401` unauthorized HTTP response.
@@ -24,6 +23,7 @@ WSO2 Identity Server supports the following API authentication methods:
 - [Certificate-based authentication](#certificate-based-authentication)
 
 ### Basic authentication
+
 This authentication method uses the user's credentials to invoke the APIs. If the API you wish to invoke has `Basic authentication` as the authentication requirement, use the following request format to access the API.
 
 #### Access the API
@@ -33,6 +33,10 @@ This is a sample cURL command template for the request.
 ``` curl
 curl -X GET "https://localhost:9443/api/server/v1/applications?limit=30&offset=0" -H "accept: application/json" -H "Authorization: Basic <Base64(username:password)>"
 ```
+
+!!! warning "Avoid using super admin credentials for API authentication"
+
+    When invoking APIs using basic authentication, never use the super admin or any high-privileged user credentials. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
 
 ---
 

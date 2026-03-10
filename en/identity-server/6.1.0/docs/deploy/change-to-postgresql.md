@@ -19,7 +19,7 @@ After setting up the PostgreSQL database, you can point the `WSO2_IDENTITY_DB` o
 
 ### Minimum configurations for changing the default datasource to PostgreSQL
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. Following are the basic configurations and their descriptions. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. Following are the basic configurations and their descriptions. 
 
 {!./includes/db-basic-config.md !} 
  
@@ -43,8 +43,8 @@ A sample configuration is given below.
     
         Execute the scripts in the following files, against the database created.
         
-        - `<IS-HOME>/dbscripts/identity/postgresql.sql`
-        - `<IS-HOME>/dbscripts/consent/postgresql.sql`
+        - `<IS_HOME>/dbscripts/identity/postgresql.sql`
+        - `<IS_HOME>/dbscripts/consent/postgresql.sql`
         
 2. `WSO2_SHARED_DB`
     
@@ -62,7 +62,7 @@ A sample configuration is given below.
         
     2.  Execute database scripts.
     
-        Execute the scripts in the `<IS-HOME>/dbscripts/postgresql.sql` file against the database created.
+        Execute the scripts in the `<IS_HOME>/dbscripts/postgresql.sql` file against the database created.
         
 3. If you have a requirement to use the workflow feature, see [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds).
     
@@ -117,3 +117,19 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 ### Configure the connection pool to rollback pending transactions on connection return
 
 {!./includes/rollback-pending.md !}
+
+## Driver-Level Timeouts (Recommended for Production)
+
+{!./includes/driver-level-timeouts.md !}
+
+### Example: PostgreSQL database
+
+```toml
+[database.identity_db]
+url = "jdbc:postgresql://DB_HOST:5432/WSO2_IDENTITY_DB?connectTimeout=10&socketTimeout=60&tcpKeepAlive=true"
+username = "..."
+password = "..."
+driver = "org.postgresql.Driver"
+```
+
+Learn more in [PostgreSQL JDBC connection parameters](https://jdbc.postgresql.org/documentation/use/#connection-parameters){: target="_blank"}.

@@ -22,7 +22,7 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
 
 **Minimum Configurations for changing default datasource to MySQL**
  
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`. 
 
 Following are the basic configurations and their descriptions. 
 
@@ -74,11 +74,11 @@ Following are the basic configurations and their descriptions.
        
        1. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/mysql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/mysql.sql`
-           - `<IS-HOME>/dbscripts/consent/mysql.sql`
+           - `<IS_HOME>/dbscripts/identity/mysql.sql`
+           - `<IS_HOME>/dbscripts/identity/uma/mysql.sql`
+           - `<IS_HOME>/dbscripts/consent/mysql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -96,9 +96,9 @@ Following are the basic configurations and their descriptions.
            
        1. Execute database scripts.
         
-          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+          Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/mysql.sql`
+           - `<IS_HOME>/dbscripts/mysql.sql`
            
     !!! note     
             Instead of defining `hostname`, `port`, and `name` separately, you can define `url`
@@ -208,7 +208,7 @@ However, if required, you can disable the latter mentioned default behavior by d
 **Configure the connection pool to commit pending transactions on connection return**
         
   1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS:
+        -   On Linux/macOS:
             `                 <IS_HOME>/bin/wso2server.sh/                `
         -   On Windows:
             `                 <IS_HOME>\bin\wso2server.bat                `
@@ -279,4 +279,31 @@ The elements in the above configuration are described below:
  | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
 
-    
+## Driver-Level Timeouts (Recommended for Production)
+
+If the database becomes unresponsive, WSO2 Identity Server threads can get stuck waiting for a JDBC connection. This happens because the Tomcat JDBC Pool can't abort connection creation by itself ([source](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L693-L702){: target="_blank"}).
+
+To prevent this, configure **driver-level timeouts** in the JDBC URL:
+
+- **`connectTimeout`** → Maximum time to wait while establishing a database connection.  
+- **`socketTimeout`** (or driver-specific equivalent) → Maximum time to wait for responses on an active connection.  
+- **`tcpKeepAlive=true`** (if supported) → Helps detect unresponsive database servers.
+
+Also note the distinction:
+
+- **`maxWait`** (Tomcat pool) controls how long to wait for a free connection from the pool.  
+- **`connectTimeout` / `socketTimeout`** (driver) → how long to connect/read at the DB level.
+
+> **Note:** The `PoolExhaustedException` warning log is logged only when `maxWait` expires ([source](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741){: target="_blank"}). It does **not** cover delays inside the driver’s connection or read operations. Driver-level timeouts are required to handle those cases.
+
+### Example: MySQL database
+
+```toml
+[database.identity_db]
+url = "jdbc:mysql://DB_HOST:3306/WSO2_IDENTITY_DB?connectTimeout=10000&socketTimeout=60000&tcpKeepAlive=true"
+username = "..."
+password = "..."
+driver = "com.mysql.cj.jdbc.Driver"
+```
+
+Learn more in [MySQL Connector/J properties](https://docs.oracle.com/cd/E19509-01/820-3497/agqju/index.html){: target="_blank"}.

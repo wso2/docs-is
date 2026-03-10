@@ -18,7 +18,7 @@ application using WSO2 Identity Server as the Identity Provider.
 Before you start the tutorial, be sure to complete the following
 prerequisites:
 
--   Set up a MacOS based computer to try out the tutorial.
+-   Set up a macOS based computer to try out the tutorial.
 -   Download and install WSO2 Identity Server, which will act as the
     identity provider in the tutorial. You can download the product
     installer from

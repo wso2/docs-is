@@ -1,0 +1,978 @@
+openapi: 3.1.0
+info:
+  title: SCIM 2.0 Group Management Endpoint API
+  description: |
+    SCIM 2.0 Group Management endpoints
+  version: 1.0.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/o/scim2
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+paths:
+  /Groups:
+    get:
+      tags:
+        - Groups Endpoint
+      summary: Filter groups
+      description: "This API returns groups according to the specified filter, sort,\
+        \ and pagination parameters.\n\n  
+        \  \n  <b>Scope(Permission) required:</b>`internal_org_group_mgt_view`\n"
+      operationId: getGroup
+      parameters:
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Filter expression for filtering
+          schema:
+            type: string
+        - name: startIndex
+          in: query
+          description: The 1-based index of the first query result
+          schema:
+            type: integer
+            format: int32
+        - name: count
+          in: query
+          description: Specifies the desired maximum number of query results per page.
+          schema:
+            type: integer
+            format: int32
+        - name: domain
+          in: query
+          description: The name of the user store where filtering needs to be applied.
+          schema:
+            type: string
+      responses:
+        200:
+          description: Valid groups are found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupsListResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/o/scim2/Groups' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    post:
+      tags:
+        - Groups Endpoint
+      summary: Create group
+      description: "This API creates a group and returns the details of the created\
+        \ group including its unique ID.\n
+        \n<b>Scope(Permission) required:</b>`internal_org_group_mgt_create`\n    \n"
+      operationId: createGroup
+      parameters:
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/GroupRequestObject'
+        required: false
+      responses:
+        201:
+          description: Valid group is created
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        409:
+          description: Group already exist
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorGroupAlreadyAvailable'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/o/scim2/Groups' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:schemas:core:2.0:Group"
+            ],
+            "displayName": "manager",
+            "members": [
+              {
+                "value": "008bba85-451d-414b-87de-c03b5a1f4217",
+                "display": "kim"
+              }
+            ]
+            }'
+      x-codegen-request-body-name: body
+  /Groups/.search:
+    post:
+      tags:
+        - Groups Endpoint
+      summary: Search groups
+      description: "This API returns groups according to the specified filter, sort,\
+        \ and pagination parameters.\n
+        \n<b>Scope(Permission) required:</b>`internal_org_group_mgt_view`\n    \n"
+      operationId: getGroupsByPost
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/GroupSearchRequestObject'
+        required: false
+      responses:
+        200:
+          description: Valid groups are found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupSearchResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/o/scim2/Groups/.search' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:SearchRequest"
+            ],
+            "startIndex": 1,
+            "filter": "displayName eq manager"
+            }'
+      x-codegen-request-body-name: body
+  /Groups/{id}:
+    get:
+      tags:
+        - Groups Endpoint
+      summary: Get group by ID
+      description: "This API returns the group details of a particular group using\
+        \ its unique ID.\n
+        \n<b>Scope(Permission) required:</b>`internal_org_group_mgt_view`\n    \n"
+      operationId: getGroup by id
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          schema:
+            type: string
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+      responses:
+        200:
+          description: Valid group is found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/o/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    put:
+      tags:
+        - Groups Endpoint
+      summary: Update group - PUT
+      description: "This API updates the group details and returns the updated group\
+        \ details using a PUT operation.\n
+        \n<b>Scope(Permission) required:</b>`internal_org_group_mgt_update`\n    \n"
+      operationId: updateGroup
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          schema:
+            type: string
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/GroupPutRequestObject'
+        required: false
+      responses:
+        200:
+          description: Group is updated
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupPutResponseObject'
+        400:
+          description: Invalid Input
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidInput'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/o/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "displayName": "manager",
+            "members": [
+              {
+                "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43",
+                "display": "kris"
+              }
+            ]
+            }'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Groups Endpoint
+      summary: Delete group
+      description: "This API deletes a particular group using its unique ID.\n\n
+        <b>Scope(Permission) required:</b>\n  `internal_org_group_mgt_delete`\n    \n"
+      operationId: deleteGroup
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the resource type.
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: Group is deleted
+          content: {}
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/o/scim2/Groups/{group-id}' \
+            -H 'accept: */*'  \
+            -H 'Authorization: Bearer {bearer_token}'
+    patch:
+      tags:
+        - Groups Endpoint
+      summary: Update group - PATCH
+      description: |
+        This API updates the group details and returns the updated group details using a PATCH operation. <br>
+
+        <b>Scope(Permission) required:</b>`internal_org_group_mgt_update`
+      operationId: patchGroup
+      parameters:
+        - name: id
+          in: path
+          description: Unique id of the resource type.
+          required: true
+          schema:
+            type: string
+        - name: attributes
+          in: query
+          description: SCIM defined attributes parameter.
+          schema:
+            type: string
+        - name: excludedAttributes
+          in: query
+          description: SCIM defined excludedAttribute parameter.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/PatchGroupOperationRequestObject'
+        required: false
+      responses:
+        200:
+          description: Group is updated
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/PatchGroupOperationResponseObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        403:
+          description: Forbidden
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PATCH' \
+            'https://localhost:9443/o/scim2/Groups/{group-id}' \
+            -H 'accept: application/scim+json' \
+            -H 'Content-Type: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "schemas": [
+              "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+            ],
+            "Operations": [
+              {
+                "op": "add",
+                "value": {
+                  "members": [
+                    {
+                      "display": "kris",
+                      "value": "409ca90b-2ba6-4474-9a45-2cf7376e6e43"
+                    }
+                  ]
+                }
+              }
+            ]
+            }'
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    UserResponseObject:
+      required:
+        - meta
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              examples:
+                - 2018-08-17T10:34:29Z
+            location:
+              type: string
+              examples:
+                - https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217
+            lastModified:
+              type: string
+              examples:
+                - 2018-08-17T10:34:29Z
+            resourceType:
+              type: string
+              examples:
+                - User
+        schemas:
+          type: object
+          properties: {}
+          examples:
+            -
+              - urn:ietf:params:scim:schemas:core:2.0:User
+              - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+        username:
+          type: string
+          examples:
+            - PRIMARY/kim
+        id:
+          type: string
+          examples:
+            - 008bba85-451d-414b-87de-c03b5a1f4217
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+              examples:
+                - Kim
+            familyName:
+              type: string
+              examples:
+                - Berry
+        emails:
+          type: array
+          examples:
+            -
+              - value: kim@gmail.com
+              - type: work
+                value: kim@wso2.com
+          items:
+            type: object
+            properties: {}
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+          type: object
+          properties:
+            employeeNumber:
+              type: string
+              examples:
+                - 1234A
+            manager:
+              type: object
+              properties:
+                value:
+                  type: string
+                  examples:
+                    - Taylor
+        roles:
+          type: object
+          properties: {}
+          examples:
+            -
+              - type: default
+                value: Internal/everyone
+    GroupRequestObject:
+      required:
+        - displayName
+        - schemas
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
+        displayName:
+          type: string
+          examples:
+            - manager
+        members:
+          type: array
+          items:
+            type: object
+            properties: {}
+            examples:
+              -
+                value: 008bba85-451d-414b-87de-c03b5a1f4217
+                display: kim
+    GroupResponseObject:
+      type: object
+      properties:
+        displayName:
+          type: string
+          examples:
+            - PRIMARY/manager
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              examples:
+                - 2019-08-26T14:27:36
+            location:
+              type: string
+              examples:
+                - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+            lastModified:
+              type: string
+              examples:
+                - 2019-08-26T14:27:36
+            resourceType:
+              type: string
+              examples:
+                - Group
+        schemas:
+          type: array
+          items:
+            type: string
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
+        id:
+          type: string
+          examples:
+            - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+        members:
+          type: array
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                examples:
+                  - https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
+              display:
+                type: string
+                examples:
+                  - kim
+              value:
+                type: string
+                examples:
+                  - 008bba85-451d-414b-87de-c03b5a1f4217
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                examples:
+                  - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              display:
+                type: string
+                examples:
+                  - loginRole
+              value:
+                type: string
+                examples:
+                  - 4645709c-ea8c-4495-8590-e1fa0efe3de0
+    GroupsListResponseObject:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          examples:
+            - 3
+        startIndex:
+          type: integer
+          examples:
+            - 1
+        itemsPerPage:
+          type: integer
+          examples:
+            - 3
+        schemas:
+          type: array
+          items:
+            type: string
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupOb'
+    GroupSearchRequestObject:
+      type: object
+      properties:
+        schemas:
+          type: object
+          properties: {}
+          examples:
+            -
+              - urn:ietf:params:scim:api:messages:2.0:SearchRequest
+        startIndex:
+          type: integer
+          examples:
+            - 1
+        filter:
+          type: string
+          examples:
+            - displayName eq manager
+    GroupSearchResponseObject:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          examples:
+            - 1
+        startIndex:
+          type: integer
+          examples:
+            - 1
+        itemsPerPage:
+          type: integer
+          examples:
+            - 3
+        schemas:
+          type: array
+          items:
+            type: string
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupOb'
+    groupOb:
+      type: object
+      properties:
+        displayName:
+          type: string
+          examples:
+            - PRIMARY/manager
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              examples:
+                - 2019-08-26T14:27:36
+            location:
+              type: string
+              examples:
+                - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+            lastModified:
+              type: string
+              examples:
+                - 2019-08-26T14:27:36
+        members:
+          type: array
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                examples:
+                  - https://localhost:9443/scim2/Users/3a12bae9-4386-44be-befd-caf349297f45
+              display:
+                type: string
+                examples:
+                  - kim
+              value:
+                type: string
+                examples:
+                  - 008bba85-451d-414b-87de-c03b5a1f4217
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+                examples:
+                  - https://localhost:9443/scim2/Roles/4645709c-ea8c-4495-8590-e1fa0efe3de0
+              display:
+                type: string
+                examples:
+                  - loginRole
+              value:
+                type: string
+                examples:
+                  - 4645709c-ea8c-4495-8590-e1fa0efe3de0
+        id:
+          type: string
+          examples:
+            - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+    GroupPutRequestObject:
+      type: object
+      properties:
+        displayName:
+          type: string
+          examples:
+            - manager
+        members:
+          type: array
+          items:
+            type: object
+            properties: {}
+            examples:
+              -
+                value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+                display: kris
+    GroupPutResponseObject:
+      type: object
+      properties:
+        displayName:
+          type: string
+          examples:
+            - PRIMARY/manager
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              examples:
+                - 2019-08-26T14:27:36
+            location:
+              type: string
+              examples:
+                - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+            lastModified:
+              type: string
+              examples:
+                - 2019-08-26T14:27:36
+            resourceType:
+              type: string
+              examples:
+                - Group
+        schemas:
+          type: array
+          items:
+            type: string
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
+        id:
+          type: string
+          examples:
+            - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+        members:
+          type: array
+          items:
+            type: object
+            properties: {}
+            examples:
+              -
+                display: kris
+                value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+    PatchGroupOperationRequestObject:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            examples:
+              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupItemObj'
+    GroupItemObj:
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+            - add
+            - remove
+            - replace
+        value:
+          type: object
+          properties:
+            members:
+              type: array
+              items:
+                type: object
+                properties: {}
+                examples:
+                  -
+                    display: kris
+                    value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+    PatchGroupOperationResponseObject:
+      type: object
+      properties:
+        displayName:
+          type: string
+          examples:
+            - PRIMARY/manager
+        meta:
+          type: object
+          properties:
+            created:
+              type: string
+              examples:
+                - 2019-08-26T14:27:36
+            location:
+              type: string
+              examples:
+                - https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469
+            lastModified:
+              type: string
+              examples:
+                - 2019-08-26T14:27:36
+            resourceType:
+              type: string
+              examples:
+                - Group
+        schemas:
+          type: object
+          properties: {}
+          examples:
+            -
+              - urn:ietf:params:scim:schemas:core:2.0:Group
+        id:
+          type: string
+          examples:
+            - 7bac6a86-1f21-4937-9fb1-5be4a93ef469
+        members:
+          type: array
+          items:
+            type: object
+            properties: {}
+            examples:
+              -
+                - display: kris
+                  value: 409ca90b-2ba6-4474-9a45-2cf7376e6e43
+                - display: kim
+                  value: 007bfc66-e4f0-4d53-9dfd-0c4a77b33257
+    ErrorInvalidInput:
+      required:
+        - detail
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          examples:
+            - "400"
+        schemas:
+          type: string
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          examples:
+            - invalidSyntax
+        detail:
+          type: string
+          examples:
+            - Request is unparsable, syntactically incorrect, or violates schema.
+    ErrorUnauthorized:
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          examples:
+            - "401"
+        schemas:
+          type: string
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          examples:
+            - Unauthorized
+    ErrorForbidden:
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          examples:
+            - "403"
+        schemas:
+          type: string
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          examples:
+            - Forbidden
+    ErrorGroupAlreadyAvailable:
+      required:
+        - detail
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          examples:
+            - "409"
+        schemas:
+          type: string
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          examples:
+            - 'Group with name: PRIMARY/manager already exists in the system.'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information

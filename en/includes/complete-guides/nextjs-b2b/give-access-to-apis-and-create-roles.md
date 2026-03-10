@@ -1,5 +1,4 @@
 
-
 Before implementing team management features, we need to configure the necessary API resources and roles in {{product_name}}. This ensures that Teamspace has the required permissions to manage organizations, users, and their roles.
 
 ![App Permissions]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image6.png){: width="300" style="display: block; margin: auto;"}  
@@ -15,19 +14,18 @@ Let's give the application access to the required API resources.
     | Application Management API      | `/api/server/v1/applications`        | view                 |
     | Application Management Api      | `/o/api/server/v1/applications`      | view                 |
     | Organization Management API     | `/api/server/v1/organizations`       | view, create         |
-    | SCIM2 Users API                 | `/scim2/Users`                       | view, create         |
-    | SCIM2 Users API                 | `/o/scim2/Users`                     | view, create, delete |
+    | SCIM2 Users API                 | `/scim2/Users`                       | view, create, list   |
+    | SCIM2 Users API                 | `/o/scim2/Users`                     | view, create, delete, list |
     | SCIM2 Roles API                 | `/scim2/Roles`                       | view, update         |
     | SCIM2 Roles API                 | `/o/scim2/Roles`                     | view, update         |
     | Guest Invitation Management API | `/o/api/server/v1/guests/invitation` | create               |
 
-
     ![App APIs]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image7.png){: width="700" style="display: block; margin: 0;"}  
 
 !!! Note
-    copy the scopes to be added to your app’s `env.local` file once it is set up in the next steps.
+    copy the scopes to be added to your app’s `.env` file once it is set up in the next steps.
 
-Once access to the APIs is given, create the necessary roles in the application. 
+Once access to the APIs is given, create the necessary roles in the application.
 
 1. Navigate to the “Roles” tab of your application.
 2. Keep the role audience as "Application"
@@ -36,12 +34,12 @@ Once access to the APIs is given, create the necessary roles in the application.
 For Teamspace, we can create two roles as follows:
 
 - **TEAM_ADMIN** - can manage teams and users
-	- This role is assigned to anyone signing up to the app as well. Therefore, the permissions required to add teams and users must be there. 
-	- Roles API is required to assign the added users to roles.
-	- Application API is required to get the app ID.
+  - This role is assigned to anyone signing up to the app as well. Therefore, the permissions required to add teams and users must be there.
+  - Roles API is required to assign the added users to roles.
+  - Application API is required to get the app ID.
 - **TEAM_MEMBER** - can view users in the team
 
-For the TEAM_ADMIN role, give the following permissions.
+For the TEAM_ADMIN role, give the all permissions in the following paths.
 
 | API                             | Path                                 |
 | ------------------------------- | ------------------------------------ |
@@ -53,10 +51,14 @@ For the TEAM_ADMIN role, give the following permissions.
 | SCIM2 Roles API                 | `/o/scim2/Roles`                     |
 | Guest Invitation Management API | `/o/api/server/v1/guests/invitation` |
 
-!!! Note
-	The name of the admin role, TEAM_ADMIN, must be noted to be added to your app’s `env.local` file later.
-
 ![App Roles]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image8.png){: width="700" style="display: block; margin: 0;"}  
+
+For the TEAM_MEMBER role, give the following permissions.
+
+| API                             | Path                                 | Permissions |
+| ------------------------------- | ------------------------------------ |--------------|
+| SCIM2 Users API	| /scim2/Users	| list |
+| SCIM2 Users API	| /o/scim2/Users	| list |
 
 !!! Info
     - Read more on [role creation]({{base_path}}/guides/users/manage-roles/#create-a-role){:target="\_blank"}

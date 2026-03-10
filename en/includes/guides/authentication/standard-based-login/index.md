@@ -4,16 +4,16 @@
 
   <div class="cards-container">
     <a href="../../../guides/authentication/standard-based-login/add-oidc-idp-login" class="card square">
-      <img src="../../../assets/img/logo/oidc-logo.svg" alt="OIDC" />
+      <img class="skip-glightbox" src="../../../assets/img/logo/oidc-logo.svg" alt="OIDC" />
       <span>OpenID Connect</span>
     </a>
     <a href="../../../guides/authentication/standard-based-login/add-saml-idp-login" class="card square">
-      <img src="../../../assets/img/logo/saml-logo.svg" alt="SAML" />
+      <img class="skip-glightbox" src="../../../assets/img/logo/saml-logo.svg" alt="SAML" />
       <span>SAML</span>
     </a>
     {% if product_name == "WSO2 Identity Server" %}
     <a href="../../../guides/authentication/standard-based-login/add-ws-federation" class="card square">
-      <img src="../../../assets/img/logo/ws-fed.svg" alt="WS-Fed" /></br></br></br>
+      <img class="skip-glightbox" src="../../../assets/img/logo/ws-fed.svg" alt="WS-Fed" /></br></br></br>
       <span>WS-Federation</span>
     </a>
     {% endif %}

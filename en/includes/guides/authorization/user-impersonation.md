@@ -197,11 +197,11 @@ Subject token is a JWT token that contains information on both the impersonated 
 === "Request Format"
 
     ``` bash
-    https://{{base_url}}/oauth2/authorize?
+    {{base_url}}/oauth2/authorize?
       client_id={clientID}
       redirect_uri={redirect_uri}
       &state={sample_state}
-      &scope=internal_user_impersonate,{other_Required_Scopes}
+      &scope=internal_user_impersonate {other_Required_Scopes}
       &response_type={response_type}
       &requested_subject={userid_of_the_end_user}
       &nonce={nonce}
@@ -211,11 +211,11 @@ Subject token is a JWT token that contains information on both the impersonated 
 === "Sample Request"
     
     ``` bash
-    https://{{base_url_sample}}/oauth2/authorize?
+    {{base_url_sample}}/oauth2/authorize?
       client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a
       &redirect_uri=https://oauth.pstmn.io/v1/callback
       &state=sample_state
-      &scope=internal_user_impersonate,openid,internal_org_user_mgt_view
+      &scope=internal_user_impersonate openid internal_org_user_mgt_view
       &response_type=id_token subject_token
       &requested_subject=32bc4697-ed0f-4546-8387-dcd6403e7caa
       &nonce=2131232
@@ -269,7 +269,7 @@ The decoded subject token may looks as follows:
   "nbf": 1718694997,
   "azp": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "scope": "internal_login internal_user_mgt_list internal_user_mgt_view",
-  "iss": "https://{{base_url}}/oauth2/token",
+  "iss": "{{base_url}}/oauth2/token",
   "may_act": {
     "sub": "2d931c9d-876e-46c0-9aba-f34501879dfc"
   },
@@ -290,7 +290,7 @@ Once a subject token is received, it can then be exchanged for an access token w
 === "Request Format"
 
     ``` bash
-    curl --location 'https://{{base_url}}/oauth2/token' \
+    curl --location '{{base_url}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
     --data-urlencode 'subject_token={subject_token}' \
@@ -304,7 +304,7 @@ Once a subject token is received, it can then be exchanged for an access token w
 === "Sample Request"
 
     ``` bash
-    curl --location 'https://{{base_url_sample}}/oauth2/token' \
+    curl --location '{{base_url_sample}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic QVVhZkoyeWpXM2dUR3JZaWZCTlF1MTBXRWtNYToybWN1blJ1T1Y5WFQ3QXpzRDEyVmY3cGhOVWJRUmdlT0NtZW5Wa0xKQTR3YQ==' \
     --data-urlencode 'subject_token=eyJ4NXQiOiJDN3Q1elQ4UUhXcWJBZ3ZJ9HVXWTN4UnlwcE0iLCJraWQiOiJaR0UyTXpjeE1XWXpORGhtTVRoak1HSmlOamhpTmpNMFlqWXhNakJtTUdZeFl6ZzBabU0zWldJd1pHRmxZakk1TTJZelpHTmtaalkxWXpBeE5qZzNNUV9SUzI1NiIsInR5cCI6Imp3dCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIxYmI0NmMyOC0zN2U4LTQxN2UtYWI5NS0wMzAzYTYzM2ZlZTIiLCJhdWQiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIiwibmJmIjoxNzI4ODc5NTQ3LCJhenAiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIiwic2NvcGUiOiJpbnRlcm5hbF9vcmdfYXBwbGljYXRpb25fbWd0X3ZpZXcgb3BlbmlkIiwiaXNzIjoiaHR0cHM6XC9cL2FwaS5hc2dhcmRlby5pb1wvdFwvaGltZXNoZGV2aW5kYVwvb2F1dGgyXC90b2tlbiIsIm1heV9hY3QiOnsic3ViIjoiNTllNmNlZWEtOGU2Ni00MTkyLWJlMDktMzQwYmIwMmQ1N2MxIn0sImV4cCI6MTcyODg3OTcyNywiaWF0IjoxNzI4ODc5NTQ3LCJqdGkiOiIzYjIzNDViOS1jN2Y4LTQ4MjUtYWYyNC1lNDRjYjk3Y2U5NWEiLCJjbGllbnRfaWQiOiJBVWFmSjJ5alczZ1RHcllpZkJOUXUxMFdFa01hIn0.UmhvpiqrgbgJ8MSXNkzyUMbw5c2BG5oWv9HpBDrZwig2HkM-FpceFlGi4tnl45LGAxDeVE2NJBAII3Q6ccMK0pk9DM2piX0m7gtxtfNy9XQURMad39JOY1GTy8p9uJY0wYWrYXYCc3nyF83kwu4y3xHABYd1JNjcZgLW_B5M1XUUk05cOOyJLOvjaMAkl8DlohD9mAY4-C2UyaxsG8ftfth4mMJZeg3MJOW150cye9TAil0SACO6DIv3Tik7Wt_zyghSueBKQiOqgLEXZdphIT-7TWYASiJigTX0n_PKBF67qOo9tD5FIDEh5fQquXYAjPP9LHJYeK_C6dkh9jiX7w' \
@@ -333,7 +333,7 @@ The decoded access token may looks as follows:
 {
   "sub": "32bc4697-ed0f-4546-8387-dcd6403e7caa",
   "aut": "APPLICATION_USER",
-  "iss": "https://{{base_url_sample}}/oauth2/token",
+  "iss": "{{base_url_sample}}/oauth2/token",
   "client_id": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "aud": "jVcW4oLn1Jjb2T94H4gtPV9z5Y0a",
   "nbf": 1718695052,
@@ -446,7 +446,7 @@ The following diagram shows the detailed steps involved in receiving an imperson
 === "Request Format"
 
     ``` bash
-    curl --location 'https://{{base_url}}/oauth2/token' \
+    curl --location '{{base_url}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
     --data-urlencode 'client_id={Client_Id}' \
@@ -459,7 +459,7 @@ The following diagram shows the detailed steps involved in receiving an imperson
 === "Sample Request"
 
     ``` bash
-    curl --location 'https://{{base_url_sample}}/oauth2/token' \
+    curl --location '{{base_url_sample}}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Authorization: Basic QVVhZkoyeWpXM2dUR3JZaWZCTlF1MTBXRWtNYToybWN1blJ1T1Y5WFQ3QXpzRDEyVmY3cGhOVWJRUmdlT0NtZW5Wa0xKQTR3YQ==' \
     --data-urlencode 'client_id=AUafJ2yjW3gTGrYifBNQu10WEkMb' \

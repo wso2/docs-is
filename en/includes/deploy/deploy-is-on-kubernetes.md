@@ -13,7 +13,7 @@ The {{product_name}} Helm Chart has been tested in the following environments:
 	</tr>
 	<tr>
 		<td>RKE2</td>
-		<td>v1.31.8+rke2r1</td>
+		<td>v1.32.6+rke2r1</td>
 	</tr>
 </table>
 
@@ -76,8 +76,7 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
     --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false" \
-    --set deployment.externalJKS.enabled="true"
+    --set deployment.apparmor.enabled="false"
     ```
     {% else %}
     ```shell
@@ -86,8 +85,7 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     --set deployment.image.registry="wso2" \
     --set deployment.image.repository="wso2is" \
     --set deployment.image.tag="{{is_version}}" \
-    --set deployment.apparmor.enabled="false" \
-    --set deployment.externalJKS.enabled="true"
+    --set deployment.apparmor.enabled="false"
     ```
 {% endif %}
 

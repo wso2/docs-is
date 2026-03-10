@@ -334,7 +334,7 @@ Deploy this sample web app on a web container.
         Therefore, you won't be able to edit it by opening the file via a
         text editor. Instead, edit the file using the terminal commands.  
         For example, use the following command if you are working on a
-        Mac/Linux environment.
+        macOS/Linux environment.
 
         ``` java
         sudo nano /etc/hosts

@@ -409,5 +409,29 @@ conversion when reading from/writing to a user store.
 <p>Default : true </p>
 </td>
 </tr>
+<tr class="even">
+<td>GroupIDEnabled</td>
+<td>group_id_enabled</td>
+<td>Enable Group Unique Id</td>
+<td>Enables support for assigning a unique, persistent ID for SCIM groups.</td>
+</tr>
+<tr class="odd">
+<td>GroupIdAttribute</td>
+<td>group_id_attribute</td>
+<td>Group Id Attribute</td>
+<td>Defines which LDAP attribute should be used as the SCIM group ID</td>
+</tr>
+<tr class="even">
+<td>GroupCreated<br>DateAttribute</td>
+<td>group_created_timestamp_attribute</td>
+<td>Group Created Date Attribute</td>
+<td>Specifies the LDAP attribute that represents the group's creation time.</td>
+</tr>
+<tr class="odd">
+<td>GroupLastModified<br>DateAttribute</td>
+<td>group_modified_timestamp_attribute</td>
+<td>Group Last Modified Date Attribute</td>
+<td>Specifies the LDAP attribute that indicates the last modification time of a group.</td>
+</tr>
 </tbody>
 </table>

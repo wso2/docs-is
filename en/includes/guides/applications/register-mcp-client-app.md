@@ -1,6 +1,10 @@
-# Register an MCP Client Application
+# Setting up MCP Clients
+
+The Model Context Protocol (MCP) specification defines that authorization is initiated by MCP clients. These clients handle authorization flows, manage tokens and sessions with MCP servers, and provide end-user experiences based on user permissions.
 
 {{ product_name }} provides an application template with default configurations to register an MCP client with minimal effort. This template has been configured to create an OAuth application that adheres to the guidelines and best practices outlined in the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
+
+## Register an MCP Client Application
 
 To regiser an MCP Client application,  
 
@@ -45,4 +49,8 @@ To regiser an MCP Client application,
 ## What's next?
 
 - [Obtain an M2M token using client credential grant]({{base_path}}/references/grant-types/#client-credentials-grant)
+{% if product_name == "Asgardeo" %}
+- [End-to-end MCP Authorization with Asgardeo]({{base_path}}/tutorials/end-to-end-mcp-authorization-with-asgardeo/)
+{% else %}
 - [Implement authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/)
+{% endif %}
