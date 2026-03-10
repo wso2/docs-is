@@ -81,6 +81,88 @@ In the Identity Server 5.9.0 only the access log pattern is configurable.
     created by default inside the `<IS_HOME>/repository/logs          ` directory. The
     log is rotated on a daily basis.
 
+### Routing access logs to the Log4j2 logger
+
+By default, HTTP access logs write to a separate `http_access.log` file using the Tomcat Access Log Valve. WSO2 Identity Server also supports routing HTTP access logs through the Log4j2 logger, which gives you full control over where those logs go.
+
+To enable Log4j2-based access logging, set `useLogger = true` in `<IS_HOME>/repository/conf/deployment.toml`:
+
+```toml
+[http_access_log]
+useLogger = true
+```
+
+After enabling this, update `<IS_HOME>/repository/conf/log4j2.properties` to add the HTTP access log appender and logger.
+
+#### Route to a dedicated rolling log file
+
+If you want to keep HTTP access logs in their own file, separate from other server logs, you can write them to a dedicated rolling log file that rotates daily and caps at 10 MB.
+
+Add `HTTP_ACCESS` to the `appenders` list:
+
+```properties
+appenders = CARBON_CONSOLE, CARBON_LOGFILE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE, CARBON_TRACE_LOGFILE, DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE, HTTP_ACCESS
+```
+
+Add `HTTP_ACCESS` to the `loggers` list:
+
+```properties
+loggers = HTTP_ACCESS, AUDIT_LOG, trace-messages, ...
+```
+
+Add the appender and logger configuration:
+
+```properties
+logger.HTTP_ACCESS.name = HTTP_ACCESS
+logger.HTTP_ACCESS.level = INFO
+logger.HTTP_ACCESS.appenderRef.HTTP_ACCESS.ref = HTTP_ACCESS
+logger.HTTP_ACCESS.additivity = false
+
+appender.HTTP_ACCESS.type = RollingFile
+appender.HTTP_ACCESS.name = HTTP_ACCESS
+appender.HTTP_ACCESS.fileName = ${sys:carbon.home}/repository/logs/http_access.log
+appender.HTTP_ACCESS.filePattern = ${sys:carbon.home}/repository/logs/http_access-%d{MM-dd-yyyy}.log
+appender.HTTP_ACCESS.layout.type = PatternLayout
+appender.HTTP_ACCESS.layout.pattern = [%X{Correlation-ID}] %mm%n
+appender.HTTP_ACCESS.policies.type = Policies
+appender.HTTP_ACCESS.policies.time.type = TimeBasedTriggeringPolicy
+appender.HTTP_ACCESS.policies.time.interval = 1
+appender.HTTP_ACCESS.policies.time.modulate = true
+appender.HTTP_ACCESS.policies.size.type = SizeBasedTriggeringPolicy
+appender.HTTP_ACCESS.policies.size.size = 10MB
+appender.HTTP_ACCESS.strategy.type = DefaultRolloverStrategy
+appender.HTTP_ACCESS.strategy.max = 20
+appender.HTTP_ACCESS.filter.threshold.type = ThresholdFilter
+appender.HTTP_ACCESS.filter.threshold.level = INFO
+```
+
+#### Route to console only
+
+In Kubernetes environments, logs are typically collected from standard output rather than files. To make HTTP access logs part of that flow, route them to the console alongside all other server logs.
+
+Set `appenders` to `CARBON_CONSOLE` only:
+
+```properties
+appenders = CARBON_CONSOLE
+```
+
+Add `HTTP_ACCESS` to the `loggers` list:
+
+```properties
+loggers = HTTP_ACCESS, AUDIT_LOG, trace-messages, ...
+```
+
+Add the logger configuration:
+
+```properties
+logger.HTTP_ACCESS.name = HTTP_ACCESS
+logger.HTTP_ACCESS.level = INFO
+logger.HTTP_ACCESS.appenderRef.HTTP_ACCESS.ref = CARBON_CONSOLE
+logger.HTTP_ACCESS.additivity = false
+```
+
+You can define other logging patterns and targets for the `HTTP_ACCESS` logger using standard Log4j2 configuration. See the [Log4j2 documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for available options.
+
 ### Customizing access logs by pattern
 
 Given below are a few sample configurations for customizing the
