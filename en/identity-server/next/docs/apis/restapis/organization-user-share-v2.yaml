@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: "User Sharing API Definition (v2)"
+  title: "User Sharing API (v2)"
   description: |-
     This document defines the **User Sharing REST API (v2)** for organizations in **WSO2 Identity Server**.
     It enables organization administrators to:

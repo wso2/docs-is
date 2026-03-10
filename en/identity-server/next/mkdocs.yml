@@ -1267,7 +1267,7 @@ nav:
         - Verification Code Management API: apis/verification-code-management-rest-api.md
         - Identity verification API: apis/admin-identity-verification.md
       - User sharing management APIs:
-        - V1: apis/organization-user-share-rest-api.md
+        - V1 (deprecated): apis/organization-user-share-rest-api.md
         - V2: apis/organization-user-share-v2-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
       - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md      

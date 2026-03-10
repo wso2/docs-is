@@ -715,7 +715,7 @@ nav:
         - Session management API: apis/session.md
         - Session extension API: apis/extend-sessions.md
       - User sharing management APIs:
-        - V1: apis/organization-user-share-rest-api.md
+        - V1 (deprecated): apis/organization-user-share-rest-api.md
         - V2: apis/organization-user-share-v2-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
