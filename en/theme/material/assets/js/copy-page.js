@@ -80,6 +80,7 @@
 
     button.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); setOpen(!isOpen); });
     backdrop.addEventListener('click', () => setOpen(false));
+    window.addEventListener('scroll', () => { if (isOpen) setOpen(false); }, { passive: true });
 
     menu.querySelector('.cp-copy').addEventListener('click', async () => {
       const btnText = button.querySelector('.btn-text');
