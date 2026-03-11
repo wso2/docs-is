@@ -1,6 +1,11 @@
 # Create New Keystores
 
-There are two ways to create keystores for WSO2 Identity Server. You can either generate a keystore using an already existing public key certificate (CA-signed), or you can create the public key certificate at the time of generating the keystore.
+This page explains how to create keystores using keytool commands. After creating keystores, you will need to configure them in the `deployment.toml` file — see [Configure Keystores]({{base_path}}/deploy/security/keystores/configure-keystores) for the next steps.
+
+There are two ways to create keystores for WSO2 Identity Server:
+
+1. Generate a keystore with a new self-signed certificate
+2. Generate a keystore using an existing CA-signed certificate
 
 !!! note
     If you are creating a new keystore for [data encryption]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption), make sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained [here]({{base_path}}/deploy/security/asymmetric-encryption/use-asymmetric-encryption/#recommendations-for-setting-up-keystores).
@@ -42,6 +47,177 @@ There are two ways to create keystores for WSO2 Identity Server. You can either 
     !!! tip
         - If you did not specify values for the `-keypass` and the `-storepass`, , you will be prompted to enter the keystore password (`-storepass`). It’s advisable to use a password generator to create a strong password. When prompted for `-keypass`, press Enter to use the same password for both the keystore and the key.
         - If you did not specify values for `-dname`, you will be asked to provide those details individually.
+
+## Create the internal keystore
+
+The internal keystore is used for encrypting sensitive internal data such as admin passwords and other sensitive information in configuration files via the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
+
+{% if not is_version == "7.0.0" %}
+It is recommended to use a **symmetric AES key** due to its resilience against post-quantum threats and better performance. However, if your [Cipher Tool configuration]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool) requires asymmetric encryption, you can create the internal keystore with an RSA key pair instead.
+
+Navigate to `<IS_HOME>/repository/resources/security/` and run one of the following commands:
+
+=== "PKCS12"
+
+    === "Symmetric (AES) - Recommended"
+
+        ``` bash
+        keytool -genseckey \
+          -alias <internal-key-alias> \
+          -keyalg AES \
+          -keysize 256 \
+          -keystore <internal-keystore-name>.p12 \
+          -storetype PKCS12 \
+          -storepass <internal-keystore-password> \
+          -keypass <internal-keystore-password>
+        ```
+
+        This command will create a keystore with the following details:
+
+        - **Keystore name**: `<internal-keystore-name>.p12`
+        - **Alias of the secret key**: `<internal-key-alias>`
+        - **Keystore password**: `<internal-keystore-password>`
+
+    === "Asymmetric (RSA)"
+
+        ``` bash
+        keytool -genkeypair \
+          -alias <internal-key-alias> \
+          -keyalg RSA \
+          -keysize 2048 \
+          -keystore <internal-keystore-name>.p12 \
+          -storetype PKCS12 \
+          -storepass <internal-keystore-password> \
+          -keypass <internal-keystore-password>
+        ```
+
+        This command will create a keystore with the following details:
+
+        - **Keystore name**: `<internal-keystore-name>.p12`
+        - **Alias of the key pair**: `<internal-key-alias>`
+        - **Keystore password**: `<internal-keystore-password>`
+
+        !!! note
+            The public key certificate must have the **Data Encipherment** key usage to allow encryption of raw data. If using an asymmetric key for internal encryption, ensure your certificate includes this usage.
+
+=== "JKS"
+
+    JKS keystores do not support symmetric (AES) keys. You can only use an RSA key pair.
+
+    ``` bash
+    keytool -genkeypair \
+      -alias <internal-key-alias> \
+      -keyalg RSA \
+      -keysize 2048 \
+      -keystore <internal-keystore-name>.jks \
+      -storepass <internal-keystore-password> \
+      -keypass <internal-keystore-password>
+    ```
+
+    This command will create a keystore with the following details:
+
+    - **Keystore name**: `<internal-keystore-name>.jks`
+    - **Alias of the key pair**: `<internal-key-alias>`
+    - **Keystore password**: `<internal-keystore-password>`
+
+    !!! note
+        The public key certificate must have the **Data Encipherment** key usage to allow encryption of raw data. Ensure your certificate includes this usage.
+
+{% else %}
+
+=== "PKCS12"
+
+    ``` bash
+    keytool -genkeypair \
+      -alias <internal-key-alias> \
+      -keyalg RSA \
+      -keysize 2048 \
+      -keystore <internal-keystore-name>.p12 \
+      -storetype PKCS12 \
+      -storepass <internal-keystore-password> \
+      -keypass <internal-keystore-password>
+    ```
+
+    This command will create a keystore with the following details:
+
+    - **Keystore name**: `<internal-keystore-name>.p12`
+    - **Alias of the key pair**: `<internal-key-alias>`
+    - **Keystore password**: `<internal-keystore-password>`
+
+=== "JKS"
+
+    ``` bash
+    keytool -genkeypair \
+      -alias <internal-key-alias> \
+      -keyalg RSA \
+      -keysize 2048 \
+      -keystore <internal-keystore-name>.jks \
+      -storepass <internal-keystore-password> \
+      -keypass <internal-keystore-password>
+    ```
+
+    This command will create a keystore with the following details:
+
+    - **Keystore name**: `<internal-keystore-name>.jks`
+    - **Alias of the key pair**: `<internal-key-alias>`
+    - **Keystore password**: `<internal-keystore-password>`
+
+{% endif %}
+
+!!! warning
+    Adding an internal keystore to an existing deployment will make already encrypted data unusable. This should be done during initial setup only.
+
+## Import a certificate into the truststore
+
+After creating a new keystore (for example, a TLS keystore), export its certificate and import it into the truststore so that {{product_name}} trusts it.
+
+1. Export the certificate from the keystore:
+
+    === "PKCS12"
+
+        ```bash
+        keytool -exportcert \
+          -alias <key-alias> \
+          -keystore <keystore-name>.p12 \
+          -storetype PKCS12 \
+          -storepass <keystore-password> \
+          -file <certificate-name>.crt
+        ```
+
+    === "JKS"
+
+        ```bash
+        keytool -exportcert \
+          -alias <key-alias> \
+          -keystore <keystore-name>.jks \
+          -storepass <keystore-password> \
+          -file <certificate-name>.crt
+        ```
+
+2. Import the exported certificate into the truststore:
+
+    === "PKCS12"
+
+        ```bash
+        keytool -importcert \
+          -alias <key-alias> \
+          -file <certificate-name>.crt \
+          -keystore client-truststore.p12 \
+          -storetype PKCS12 \
+          -storepass <truststore-password> \
+          -noprompt
+        ```
+
+    === "JKS"
+
+        ```bash
+        keytool -importcert \
+          -alias <key-alias> \
+          -file <certificate-name>.crt \
+          -keystore client-truststore.jks \
+          -storepass <truststore-password> \
+          -noprompt
+        ```
 
 ## Create a keystore using an existing certificate
 
