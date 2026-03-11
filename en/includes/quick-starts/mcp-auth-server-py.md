@@ -1,6 +1,6 @@
 # MCP-Auth Quickstart
 
-Welcome to the Secure MCP server Quickstart guide! This guide shows you how to build a secure MCP (Model Context Protocol) server in Python using the [FastMCP framework](https://github.com/modelcontextprotocol/python-sdk), and protect it with **{{ product_name }}**.
+Welcome to the Secure MCP server Quickstart guide! This guide shows you how to build a secure MCP (Model Context Protocol) server in Python using the [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk), and protect it with **{{ product_name }}**.
 
 By the end of this guide, you will have a working MCP Resource Server that:
 
