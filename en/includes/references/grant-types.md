@@ -11,6 +11,7 @@ Grant types in OAuth 2.0 are defined as the methods used by a client to obtain a
 - [Password grant](#password-grant)
 - [Device authorization grant](#device-authorization-grant)
 - [Token exchange grant](#token-exchange-grant)
+- [CIBA grant](#ciba-grant)
 {% if product_name == "WSO2 Identity Server" %}
 - [JWT Bearer Grant](#jwt-bearer-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
@@ -391,6 +392,91 @@ The diagram below illustrates the device flow.
 8. The client application can now request resources from the resource server by providing the access token.
 
 9. The resource server returns the requested user information to the client application.
+
+## CIBA grant
+
+[Client Initiated Backchannel Authentication (CIBA) grant](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html) is an authentication flow that decouples the consumption device from the authentication device. Instead of the user authenticating on the same device where the application resides (like a standard authorization code flow), the application initiates the authentication request in the background, and the user is prompted to authenticate via a separate device (such as a smartphone).
+
+The diagram below illustrates the CIBA flow.
+
+![How the CIBA grant works]({{base_path}}/assets/img/references/grants/ciba-grant.png)
+
+1. The client application (Consumption Device) sends a backchannel authentication request to {{product_name}}.
+
+    === "Request format (/ciba)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth2/ciba \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "scope=<scopes>" \
+        --data-urlencode "login_hint=<username>" \
+        --data-urlencode "binding_message=<custom_message>"
+        ```
+
+    === "Sample request (/ciba)"
+
+        ```bash
+        curl -v -k -X POST {{base_url_example}}/oauth2/ciba \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "scope=openid profile" \
+        --data-urlencode "login_hint=admin" \
+        --data-urlencode "binding_message=Please authenticate to My App"
+        ```
+
+2. {{product_name}} validates the request and issues an authentication request identifier (`auth_req_id`). Depending on the notification channel configured, it might also return an `auth_url` for user authentication.
+
+    ```json
+    {
+        "auth_req_id": "015a2f21-6844-4e9c-80dd-a608544dcd8f",
+        "interval": 2,
+        "auth_url": "{{base_url}}/oauth2/ciba_authorize?authCodeKey=2d9999e0-debb-4f9d-860b-ec221a478e42",
+        "expires_in": 120
+    }
+    ```
+
+3. {{product_name}} notifies the user to authenticate on a separate Authentication Device (e.g. by sending an email, SMS, or relying on external delivery of the `auth_url`).
+
+4. The user authenticates and provides consent via the Authentication Device.
+
+5. Meanwhile, the client application polls the token endpoint with the `auth_req_id` to retrieve the access token.
+
+    === "Request format (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "grant_type=urn:openid:params:grant-type:ciba" \
+        --data-urlencode "auth_req_id=<AUTH_REQ_ID>"
+        ```
+
+    === "Sample request (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url_example}}/oauth2/token \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "grant_type=urn:openid:params:grant-type:ciba" \
+        --data-urlencode "auth_req_id=015a2f21-6844-4e9c-80dd-a608544dcd8f"
+        ```
+
+6. If the user has authenticated successfully, the authorization server responds with the access token.
+
+    ```json
+    {
+        "access_token":"74d610ab-7f4a-3b11-90e8-279d76644fc7",
+        "refresh_token":"fdb58069-ecc7-3803-9b8b-6f2ed85eff19",
+        "id_token":"eyJ4...",
+        "token_type":"Bearer",
+        "expires_in":3600
+    }
+    ```
+
+7. The client application can now request resources from the resource server by providing the access token.
+
+8. The resource server returns the requested user information to the client application.
 
 ## Token exchange grant
 

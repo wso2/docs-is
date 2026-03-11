@@ -702,6 +702,7 @@ nav:
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Grant types:
               - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
+              - CIBA Grant: guides/authentication/configure-ciba-grant.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Tokens and validation:
