@@ -23,6 +23,39 @@
   <link rel="stylesheet" href="{{ 'assets/css/config-catalog.css' | url }}">
 {% endblock %}
 
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ 'assets/js/config-catalog.js' | url }}"></script>
+{% endblock %}
+
+{% block site_nav %}
+  {% if nav %}
+    <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% include "partials/nav.html" %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+    <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--secondary">
+          <label class="md-nav__title" for="__toc">On this page</label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            {% for section in config.extra.configuration_catalog.sections %}
+              <li class="md-nav__item">
+                <a href="#{{ section.hyperlink }}" class="md-nav__link">{{ section.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
 {% block container %}
 
     <div class="md-content" data-md-component="content">
@@ -43,20 +76,36 @@
       </p>
 
       <div class="mb-task-filter">
-        <label for="mbTaskSelect">I want to:</label>
+        <label for="mbTaskSelect">I want to configure:</label>
         <select id="mbTaskSelect">
           <option value="">All configurations</option>
-          <option value="minimum-required">Configure the minimum required settings</option>
-          <option value="connect-database">Connect an external database</option>
-          <option value="enable-oauth">Enable OAuth for applications</option>
+          <option value="minimum-required">the minimum required settings</option>
+          <option value="configure-database">an external database</option>
+          <option value="configure-tls">TLS and transport security</option>
+          <option value="configure-oauth">OAuth and OIDC</option>
+          <option value="configure-authentication">authentication</option>
+          <option value="configure-user-store">user stores</option>
+          <option value="configure-clustering">clustering</option>
+          <option value="configure-cache">caching</option>
+          <option value="configure-monitoring">monitoring and logging</option>
+          <option value="configure-email">email sending</option>
+          <option value="configure-fido">FIDO / passkeys</option>
+          <option value="configure-ai">AI services</option>
+          <option value="configure-actions">actions</option>
+          <option value="configure-identity">identity management</option>
+          <option value="configure-security">API security</option>
+          <option value="configure-sts">security token service (STS)</option>
         </select>
+        <input type="search" id="mbConfigSearch" placeholder="Search parameters…" autocomplete="off" />
         <button type="button" id="mbTaskClear">Clear</button>
       </div>
 
 
       {% for section in config.extra.configuration_catalog.sections %}
+        <div class="mb-config-section" data-tasks="{{ section.tasks | join(' ') }}" data-id="{{ section.id }}" data-title="{{ section.title }}">
         <h2 id="{{ section.hyperlink }}">
           {{ section.title }}
+          <label for="toggle-{{ section.id }}" class="toggle-label"></label>
           <a class="headerlink" href="#{{ section.hyperlink }}" title="Permanent link">¶</a>
         </h2>
 
@@ -65,8 +114,6 @@
             <div class="mb-config-options">
               <div class="superfences-tabs">
                 <input type="checkbox" id="toggle-{{ section.id }}" class="toggle-checkbox" />
-                <label for="toggle-{{ section.id }}" class="toggle-label"></label>
-                <i class="icon fa fa-code"></i>
 
                 <div class="superfences-content">
                   <div class="mb-config-example">
@@ -89,7 +136,7 @@
 
                   <div class="params-wrap">
                     {% for param in section.configs %}
-                      <div class="param">
+                      <div class="param" data-key="{{ param.key }}">
                         <div class="param-name">
                           <span class="param-name-wrap">
                             <code>{{ param.key }}</code>
@@ -132,6 +179,7 @@
             </div>
           </section>
         </div>
+        </div><!-- /.mb-config-section -->
       {% endfor %}
 
     </article>
