@@ -22,7 +22,7 @@ type = "database_unique_id"
 
 [database.identity_db]
 type = "mariadb"
-url = "jdbc:mariadb://172.17.0.2:3306/elevbeta3snap1"
+url = "jdbc:mariadb://172.17.0.2:3306/elevbeta3snap1?useBulkStmts=false"
 username = "root"
 password = "mypass"
 
@@ -37,7 +37,7 @@ commitOnReturn=true
 
 [database.shared_db]
 type = "mariadb"
-url = "jdbc:mariadb://172.17.0.2:3306/elevbeta3snap1"
+url = "jdbc:mariadb://172.17.0.2:3306/elevbeta3snap1?useBulkStmts=false"
 username = "root"
 password = "mypass"
 
