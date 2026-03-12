@@ -7,17 +7,17 @@ Outbound provisioning automatically provisions user accounts from {{product_name
 {{product_name}} lets you configure outbound provisioning at the following levels:
 
 {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
-- [Organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level): Organization-level outbound provisioning acts as the default provisioner for all applications. You can override this by configuring an **application-level** outbound provisioner. With organization-level outbound provisioning, users are automatically provisioned to external systems when:
+- [Organization-level]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning): Organization-level outbound provisioning acts as the default provisioner for all applications. You can override this by configuring an **application-level** outbound provisioner. With organization-level outbound provisioning, users are automatically provisioned to external systems when:
     - a user is provisioned in {{product_name}} over an API.
     - an administrator onboards a user from the {{product_name}} Console.
     - a user self-signs up from a {{product_name}} login page.
     - a user is JIT provisioned in {{product_name}}.
 
-- [Application-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level): Application-level outbound provisioning is specific to an individual application. If an application does not have its own outbound provisioner configured, it defaults to the organization-level outbound provisioner. When application-level provisioning is enabled, users are automatically provisioned to the external system when:
+- [Application-level]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning): Application-level outbound provisioning is specific to an individual application. If an application does not have its own outbound provisioner configured, it defaults to the organization-level outbound provisioner. When application-level provisioning is enabled, users are automatically provisioned to the external system when:
     - a user is created using a token retrieved by the application.
     - a user is JIT provisioned through the application.
 {% else %}
-- [Organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level): Users are automatically provisioned to the external system when:
+- [Organization-level]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning): Users are automatically provisioned to the external system when:
     - a user is provisioned in {{product_name}} over an API.
     - an administrator onboards a user from the {{product_name}} Console.
     - a user self-signs up from a {{product_name}} login page.
@@ -40,11 +40,11 @@ Learn more about [role-based provisioning]({{base_path}}/guides/users/outbound-p
 
 ## Outbound connectors
 
+{% if product_name == "Asgardeo" %}
+{{product_name}} supports provisioning users via [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2).
+{% else %}
 {{product_name}} supports provisioning users via the following outbound connectors:
 
-{% if product_name == "Asgardeo" %}
-- [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2)
-{% else %}
 - [Google]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google)
 - [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce)
 - [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2)

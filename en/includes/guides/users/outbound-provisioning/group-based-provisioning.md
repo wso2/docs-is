@@ -1,17 +1,13 @@
 # Configure group-based outbound provisioning
 
-This guide explains how to automatically provision users to an external system based on their group membership. With group-based provisioning, you control user access to external applications by assigning users to specific groups in your organization.
-
-When group-based outbound provisioning is enabled, users in the specified group will be provisioned to the external system. When a user is added to the group, the user is automatically provisioned to the provisioning target. Conversely, when a user is removed from the group, the user is deprovisioned from the external system.
-
-Follow the steps given below to configure group-based provisioning in {{product_name}}.
+Group-based provisioning allows you to automatically provision users to external systems when they are added to a group and automatically deprovision when they are removed from a group. This guide explains how to configure group-based provisioning in {{product_name}}.
 
 ## Prerequisites
 
 {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
-Before you begin, ensure you have set up outbound provisioning at the [organization level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [application level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level).
+Before you begin, ensure you have [set up outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) at the organization or application level.
 {% else %}
-Before you begin, ensure you have enabled [organization-level outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level).
+Before you begin, ensure you have [set up outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) at the organization level.
 {% endif %}
 
 ## Enable group-based provisioning

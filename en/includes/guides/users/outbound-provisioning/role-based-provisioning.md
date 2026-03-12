@@ -6,7 +6,7 @@ Follow the steps given below to configure role-based provisioning in {{product_n
 
 ## Prerequisites
 
-Before you begin, ensure you have enabled [organization-level outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level).
+Before you begin, ensure you have [set up outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) at the organization level.
 
 ## Enable role-based provisioning
 

@@ -5,7 +5,7 @@ This guide explains how you can configure a System for Cross-domain Identity Man
 ## Configure the SCIM2 outbound connector
 
 {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
-[Create a provisioning connection]({{base_path}}/guides/users/outbound-provisioning/create-provisioning-connection) and enter the following details to configure the SCIM2 outbound connector.
+[Set up outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) and enter the following details to configure the SCIM2 outbound connector.
 
 <table>
     <tr>
@@ -63,7 +63,7 @@ This guide explains how you can configure a System for Cross-domain Identity Man
     </tr>
 </table>
 {% else %}
-Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) outbound provisioning connection and enter the following details to configure the SCIM2 outbound connector.
+Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) outbound provisioning connection and enter the following details to configure the SCIM2 outbound connector.
 
 <table>
     <tr>
