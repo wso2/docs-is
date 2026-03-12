@@ -36,6 +36,13 @@ To register a trusted token issuer:
       </tr>
     </table>
 
+    {% if product_name == "WSO2 Identity Server" %}
+
+    !!! note "Using {{ product_name }} tokens as issuer"
+        If a token issued by {{ product_name }} is used as a subject token, signature validation fails if the issuer's public certificate expires. To resolve this, ensure that the renewed public certificate is updated in both the keystore and the truststore of {{ product_name }}.
+
+    {% endif %}
+
 4. Click **Next** and provide the mode of certificate configuration.
 
     - **JWKS endpoint**: The JWKS endpoint of the trusted token issuer.
