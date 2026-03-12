@@ -1945,4 +1945,3 @@ sections:
         description: >
           The digest algorithm used when signing SAML tokens.
 
-
