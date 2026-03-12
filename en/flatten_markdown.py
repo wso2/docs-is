@@ -6,7 +6,6 @@ GENERATED_GUIDES = []
 ALL_PAGES = []
 
 def promote_headings_outside_fences(content):
-    """Safely promotes headings only when they are outside of code blocks."""
     in_fence = False
     out = []
     for line in content.splitlines():
@@ -20,7 +19,6 @@ def promote_headings_outside_fences(content):
     return "\n".join(out)
 
 def prettify_tech_name(name):
-    """Dynamically formats tech slugs with standard overrides."""
     if not name: return ""
     overrides = {
         "nextjs": "Next.js", 
@@ -31,48 +29,92 @@ def prettify_tech_name(name):
     }
     return overrides.get(name.lower(), name.capitalize())
 
+def resolve_includes(content, current_dir, docs_dir, visited=None):
+    if visited is None:
+        visited = set()
+    include_pattern = re.compile(r'\{%\s*include\s*[\'"](.+?)[\'"]\s*%\}')
+    frontmatter_re = re.compile(r'^---.*?---\s*', re.DOTALL)
+
+    def replace_match(match):
+        rel_path = match.group(1)
+        target = os.path.abspath(os.path.join(docs_dir if rel_path.startswith('/') else current_dir, rel_path.lstrip('/')))
+        if target in visited: return ""
+        if os.path.exists(target):
+            visited.add(target)
+            with open(target, 'r', encoding='utf-8') as f:
+                body = frontmatter_re.sub('', f.read())
+                return resolve_includes(body, os.path.dirname(target), docs_dir, visited)
+        return ""
+    return include_pattern.sub(replace_match, content)
+
+def inject_api_spec(content, page_src_path, docs_dir):
+    redoc_pattern = re.compile(r'<redoc[^>]*\sspec-url=["\']([^"\']+)["\'][^>]*>.*?</redoc>|<redoc[^>]*\sspec-url=["\']([^"\']+)["\'][^>]*/>', re.IGNORECASE | re.DOTALL)
+
+    def replace_with_yaml(match):
+        spec_url = match.group(1) or match.group(2)
+        if not spec_url: return match.group(0)
+
+        spec_url = re.sub(r'\{\{\s*base_path\s*\}\}', '', spec_url)
+        filename = os.path.basename(spec_url)
+        
+        # 1. Try standard relative/absolute paths first
+        page_dir = os.path.dirname(page_src_path)
+        paths_to_check = [
+            os.path.abspath(os.path.join(page_dir, spec_url)),
+            os.path.abspath(os.path.join(docs_dir, spec_url.lstrip('/'))),
+            os.path.abspath(os.path.join(docs_dir, "apis", "restapis", filename))
+        ]
+
+        target_path = next((p for p in paths_to_check if os.path.exists(p)), None)
+
+        # 2. THE NUCLEAR OPTION: If still not found, search the whole project for the filename
+        if not target_path:
+            # Search upwards from docs_dir to find the project root if necessary
+            search_root = os.path.dirname(docs_dir) 
+            for root, dirs, files in os.walk(search_root):
+                if filename in files:
+                    target_path = os.path.join(root, filename)
+                    break
+
+        if target_path:
+            try:
+                with open(target_path, 'r', encoding='utf-8') as f:
+                    yaml_content = f.read()
+                # Success! Log where we actually found it to help debug
+                print(f"FOUND: {filename} at {target_path}")
+                return f"\n\n## API Specification (OpenAPI)\n\n```yaml\n{yaml_content}\n```\n"
+            except Exception as e:
+                return f"\n\n"
+        
+        print(f"CRITICAL FAILURE: Cannot find {filename} anywhere in {search_root}")
+        return f"\n\n"
+
+    return redoc_pattern.sub(replace_with_yaml, content)
+
 def on_pre_build(config):
-    """Reset global trackers at the start of every build to prevent accumulation across repeated runs."""
     global GENERATED_GUIDES, ALL_PAGES
     GENERATED_GUIDES = []
     ALL_PAGES = []
 
 def on_nav(nav, config, files):
-    """
-    Scans navigation to identify unique sections within 'complete-guides/'.
-    """
     TARGET_PARENT_DIR = "complete-guides/"
-    processed_folders = set() 
+    processed_paths = set() 
 
     def walk_nav(items):
         for item in items:
             if item.is_section:
                 first_page = find_first_page(item)
                 if first_page and TARGET_PARENT_DIR in first_page.file.src_path:
-                    parts = first_page.file.src_path.split('/')
-                    try:
-                        cg_idx = parts.index('complete-guides')
-                        if len(parts) > cg_idx + 1:
-                            folder_name = parts[cg_idx + 1]
-                            
-                            if folder_name not in processed_folders:
-                                processed_folders.add(folder_name)
-                                tech_slug = folder_name.split('-')[0]
-                                tech_prefix = prettify_tech_name(tech_slug)
-                                
-                                clean_item_title = item.title
-                                if clean_item_title.lower().startswith(tech_prefix.lower()):
-                                    display_title = clean_item_title
-                                elif tech_prefix.lower() in clean_item_title.lower():
-                                    display_title = clean_item_title
-                                else:
-                                    display_title = f"{tech_prefix} {clean_item_title}"
-                                
-                                create_merged_guide(item, folder_name, display_title, config)
-                    except ValueError:
-                        pass
+                    guide_dir = os.path.dirname(first_page.file.src_path)
+                    if guide_dir != TARGET_PARENT_DIR.rstrip('/') and guide_dir not in processed_paths:
+                        processed_paths.add(guide_dir)
+                        path_parts = guide_dir.split('/')
+                        cg_idx = path_parts.index('complete-guides')
+                        guide_slug = "-".join(path_parts[cg_idx+1:])
+                        tech_prefix = prettify_tech_name(path_parts[cg_idx+1].split('-')[0])
+                        display_title = item.title if tech_prefix.lower() in item.title.lower() else f"{tech_prefix} {item.title}"
+                        create_merged_guide(item, guide_slug, display_title, config)
                 walk_nav(item.children)
-
     walk_nav(nav)
     return nav
 
@@ -84,68 +126,10 @@ def find_first_page(section):
             if res: return res
     return None
 
-def inject_api_spec(content, page_src_path, docs_dir):
-    docs_root = os.path.abspath(os.path.normpath(docs_dir))
-
-    def _within_docs_dir(path):
-        abs_path = os.path.abspath(os.path.normpath(path))
-        return os.path.commonpath([docs_root]) == os.path.commonpath([docs_root, abs_path])
-
-    redoc_pattern = re.compile(r'<redoc[^>]*\sspec-url=["\']([^"\']+)["\']', re.IGNORECASE | re.DOTALL)
-    match = redoc_pattern.search(content)
-    if match:
-        spec_relative_path = match.group(1)
-        page_dir = os.path.dirname(page_src_path)
-        if spec_relative_path.startswith('/'):
-            spec_path = os.path.abspath(os.path.normpath(os.path.join(docs_dir, spec_relative_path.lstrip('/'))))
-        elif spec_relative_path.startswith('../'):
-            spec_path = os.path.abspath(os.path.normpath(os.path.join(page_dir, spec_relative_path)))
-        else:
-            spec_path = os.path.abspath(os.path.normpath(os.path.join(page_dir, spec_relative_path)))
-        if not _within_docs_dir(spec_path):
-            print(f"ERROR: spec-url resolves outside docs_dir, skipping: {spec_path}")
-            return content
-        if not os.path.exists(spec_path):
-            filename = os.path.basename(spec_relative_path)
-            fallback_path = os.path.abspath(os.path.normpath(os.path.join(docs_dir, "apis", "restapis", filename)))
-            if not _within_docs_dir(fallback_path):
-                print(f"ERROR: fallback path resolves outside docs_dir, skipping: {fallback_path}")
-                return content
-            if os.path.exists(fallback_path):
-                spec_path = fallback_path
-        if os.path.exists(spec_path):
-            try:
-                with open(spec_path, 'r', encoding='utf-8') as f:
-                    yaml_content = f.read()
-                return content + f"\n\n## API Specification (OpenAPI)\n\n```yaml\n{yaml_content}\n```\n"
-            except Exception as e:
-                print(f"ERROR: Read failed: {e}")
-    return content
-
-def resolve_includes(content, current_dir, docs_dir, visited=None):
-    if visited is None:
-        visited = set()
-    docs_root = os.path.abspath(docs_dir)
-    include_pattern = re.compile(r'\{%\s*include\s*[\'"](.+?)[\'"]\s*%\}')
-    def replace_match(match):
-        rel_path = match.group(1)
-        raw = os.path.join(docs_dir, rel_path.lstrip('/')) if rel_path.startswith('/') else os.path.join(current_dir, rel_path)
-        target = os.path.abspath(raw)
-        if os.path.commonpath([docs_root]) != os.path.commonpath([docs_root, target]):
-            return ""
-        if target in visited: return ""
-        if os.path.exists(target):
-            visited.add(target)
-            with open(target, 'r', encoding='utf-8') as f:
-                return resolve_includes(f.read(), os.path.dirname(target), docs_dir, visited)
-        return ""
-    return include_pattern.sub(replace_match, content)
-
-def create_merged_guide(section_item, folder_name, title, config):
-    combined_md = f"# {title} Complete Guide\n\n"
+def create_merged_guide(section_item, guide_slug, title, config):
     docs_dir = config['docs_dir']
-    first_page = find_first_page(section_item)
-    if not first_page: return
+    frontmatter_re = re.compile(r'^---.*?---\s*', re.DOTALL)
+    combined_md = f"# {title} Complete Guide\n\n"
 
     def collect_md(items):
         md_text = ""
@@ -153,60 +137,52 @@ def create_merged_guide(section_item, folder_name, title, config):
             if item.is_page:
                 try:
                     with open(item.file.abs_src_path, 'r', encoding='utf-8') as f:
-                        content = f.read()
-                    content = resolve_includes(content, os.path.dirname(item.file.abs_src_path), docs_dir)
-                    content = inject_api_spec(content, item.file.abs_src_path, docs_dir)
-                    content = promote_headings_outside_fences(content)
-                    md_text += f"\n\n---\n## Section: {item.title}\n\n{content}\n"
-                except Exception as e: 
-                    print(f"Error merging {item.title}: {e}")
-            elif item.is_section: 
+                        body = frontmatter_re.sub('', f.read())
+                    res = resolve_includes(body, os.path.dirname(item.file.abs_src_path), docs_dir)
+                    res = inject_api_spec(res, item.file.abs_src_path, docs_dir)
+                    res = promote_headings_outside_fences(res)
+                    if res.strip():
+                        md_text += f"\n\n---\n## Section: {item.title}\n\n{res}\n"
+                except Exception as e: print(f"Error merging {item.title}: {e}")
+            elif item.is_section:
                 md_text += collect_md(item.children)
         return md_text
 
     combined_md += collect_md(section_item.children)
-    full_dest_path = first_page.file.abs_dest_path
-    dest_dir = os.path.join(full_dest_path.split("complete-guides/")[0], "complete-guides") if "complete-guides/" in full_dest_path else os.path.dirname(os.path.dirname(full_dest_path))
-    dest_path = os.path.join(dest_dir, f"{folder_name}.md")
-    rel_url = os.path.relpath(dest_path, config['site_dir'])
-    
-    GENERATED_GUIDES.append({"title": title, "url": rel_url, "desc": f"Comprehensive {title.lower()} integration"})
+    dest_path = os.path.join(config['site_dir'], "complete-guides", f"{guide_slug}.md")
     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
     with open(dest_path, 'w', encoding='utf-8') as f: f.write(combined_md)
+    
+    GENERATED_GUIDES.append({"title": title, "url": f"complete-guides/{guide_slug}.md", "desc": f"Comprehensive {title.lower()} integration"})
 
 def on_post_page(output, page, config):
-    # Skip index files inside complete-guides
-    if "complete-guides/" in page.file.src_path:
-        parts = page.file.src_path.split('/')
-        if len(parts) > 2 and parts[2].startswith("index"): return 
+    if "complete-guides/" in page.file.src_path and page.file.src_path.endswith("index.md"): return
 
     docs_dir = config['docs_dir']
-    current_file_dir = os.path.dirname(page.file.abs_src_path)
-    content = resolve_includes(page.markdown, current_file_dir, docs_dir)
+    abs_dest = page.file.abs_dest_path
+    
+    # Handle Directory URLs vs Direct File URLs to fix 404s
+    if abs_dest.endswith("index.html"):
+        parent_dir = os.path.dirname(os.path.dirname(abs_dest))
+        folder_name = os.path.basename(os.path.dirname(abs_dest))
+        dest_path = os.path.join(parent_dir, f"{folder_name}.md")
+    else:
+        dest_path = os.path.splitext(abs_dest)[0] + ".md"
+
+    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+    
+    content = resolve_includes(page.markdown, os.path.dirname(page.file.abs_src_path), docs_dir)
     content = inject_api_spec(content, page.file.abs_src_path, docs_dir)
     content = promote_headings_outside_fences(content)
     
-    abs_dest_path = page.file.abs_dest_path
-    if config.get('use_directory_urls'):
-        current_dir = os.path.dirname(abs_dest_path)
-        parent_dir = os.path.dirname(current_dir)
-        folder_name = os.path.basename(current_dir)
-        is_version = re.match(r'^\d+\.\d+\.\d+$', folder_name)
-        if folder_name in ['en', 'next', 'latest'] or is_version:
-            dest_path = os.path.join(current_dir, "index.md")
-        else:
-            dest_path = os.path.join(parent_dir, f"{folder_name}.md")
-    else:
-        dest_path = os.path.splitext(abs_dest_path)[0] + ".md"
-
-    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
     with open(dest_path, 'w', encoding='utf-8') as f: f.write(content)
-    
+        
     rel_url = os.path.relpath(dest_path, config['site_dir'])
     if not any(p["url"] == rel_url for p in ALL_PAGES):
         ALL_PAGES.append({"title": page.title, "url": rel_url})
 
 def on_post_build(config):
+    # llms.txt and llms-full.txt generation
     llms_path = os.path.join(config['site_dir'], "llms.txt")
     lines = [
         "# WSO2 Identity Server Documentation",
@@ -216,20 +192,15 @@ def on_post_build(config):
         "## Complete Integration Guides (Flattened)",
         "End-to-end framework-specific implementation guides with all details:",
     ]
-    
-    seen_urls = set()
-    for guide in sorted(GENERATED_GUIDES, key=lambda x: x['title']):
-        if guide['url'] not in seen_urls:
-            lines.append(f"- [{guide['title']} Complete Guide](./{guide['url']}) - {guide['desc']}")
-            seen_urls.add(guide['url'])
+    for g in sorted(GENERATED_GUIDES, key=lambda x: x['title']):
+        lines.append(f"- [{g['title']} Complete Guide](./{g['url']}) - {g['desc']}")
     
     lines.extend(["", "---", "## Site Map", "- [Comprehensive file index for advanced discovery](./llms-full.txt)"])
-    
     with open(llms_path, "w", encoding="utf-8") as f: f.write("\n".join(lines))
     
     full_path = os.path.join(config['site_dir'], "llms-full.txt")
     full_lines = ["# WSO2 Identity Server - Full Document Index", ""]
-    for page in sorted(ALL_PAGES, key=lambda x: x['url']):
-        full_lines.append(f"- [{page['title']}](./{page['url']})")
+    for p in sorted(ALL_PAGES, key=lambda x: x['url']):
+        full_lines.append(f"- [{p['title']}](./{p['url']})")
     with open(full_path, "w", encoding="utf-8") as f: f.write("\n".join(full_lines))
     print(f"SUCCESS - llms.txt and llms-full.txt generated.")
