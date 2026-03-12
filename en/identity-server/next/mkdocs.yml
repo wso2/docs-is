@@ -1052,6 +1052,7 @@ nav:
             - Manage keystores: deploy/security/keystores/configure-keystores.md
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
             - Configure custom keystores for authentication protocols: deploy/security/keystores/configure-custom-keystores.md
+        - Clean up flow context: deploy/flow-context-cleanup.md
       - Deploy:
         - Deployment overview:
           - Deployment Patterns: deploy/deployment-guide.md
