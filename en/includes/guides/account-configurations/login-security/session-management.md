@@ -51,7 +51,7 @@ To adjust session management settings, follow these steps:
   </tr>
   <tr>
     <td><code>Skip terminating current session and token on password update</code></td>
-    <td>If enabled, the current session and token will NOT be terminated or revoked when the user updates their password.</td>
+    <td>If enabled, the current session and token will NOT be terminated or revoked when the user updates their password. This behavior applies only when the password is updated via the <a href="{{base_path}}/apis/self-password-update-rest-api">Self Password Update API</a>. Password updates performed through the SCIM 2.0 Me (<code>/scim2/Me</code>) endpoint using Basic Authentication will still terminate the current session and token.</td>
   </tr>
 {% endif %}
 </table>
