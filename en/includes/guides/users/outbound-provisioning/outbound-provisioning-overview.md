@@ -7,13 +7,13 @@ Outbound provisioning automatically provisions user accounts from {{product_name
 {{product_name}} lets you configure outbound provisioning at the following levels:
 
 {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
-- [Organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level): Users are automatically provisioned to the external system when:
+- [Organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level): Organization-level outbound provisioning acts as the default provisioner for all applications. You can override this by configuring an **application-level** outbound provisioner. With organization-level outbound provisioning, users are automatically provisioned to external systems when:
     - a user is provisioned in {{product_name}} over an API.
     - an administrator onboards a user from the {{product_name}} Console.
     - a user self-signs up from a {{product_name}} login page.
     - a user is JIT provisioned in {{product_name}}.
 
-- [Application-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level): Users are automatically provisioned to the external system when:
+- [Application-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/application-level): Application-level outbound provisioning is specific to an individual application. If an application does not have its own outbound provisioner configured, it defaults to the organization-level outbound provisioner. When application-level provisioning is enabled, users are automatically provisioned to the external system when:
     - a user is created using a token retrieved by the application.
     - a user is JIT provisioned through the application.
 {% else %}
@@ -22,12 +22,6 @@ Outbound provisioning automatically provisions user accounts from {{product_name
     - an administrator onboards a user from the {{product_name}} Console.
     - a user self-signs up from a {{product_name}} login page.
     - a user is JIT provisioned in {{product_name}}.
-{% endif %}
-
-{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
-## How provisioning levels interact
-
-When application-level outbound provisioning is configured for a specific application, it takes priority over the organization-level configuration for that application. If an application does not have its own outbound provisioning configuration, the organization-level configuration is used as the fallback.
 {% endif %}
 
 {% if product_name == "Asgardeo" or is_version > "7.2.0" %}
