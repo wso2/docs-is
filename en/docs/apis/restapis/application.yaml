@@ -2615,6 +2615,10 @@ components:
           type: boolean
           example: false
           description: Decides whether user consent needs to be skipped during logout flows.
+        useExternalConsentPage:
+          type: boolean
+          example: false
+          description: Decides whether users should be presented with an external consent page.
         returnAuthenticatedIdpList:
           type: boolean
           example: false

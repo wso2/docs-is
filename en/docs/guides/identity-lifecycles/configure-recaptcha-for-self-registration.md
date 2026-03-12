@@ -42,7 +42,7 @@ You can either configure the reCAPTCHA for a tenant or configure it globally.
     lock_on_creation=true
     enable_recaptcha=true
     verification_email_validity="1440m"
-    callback_url="[${carbon.protocol}://${carbon.host}:${carbon.management.port}].*[/authenticationendpoint/login.do]*"
+    callback_url="${carbon.protocol}://${carbon.host}:${carbon.management.port}/.*"
 
     [identity_mgt.user_self_registration.notification]
     manage_internally=true    

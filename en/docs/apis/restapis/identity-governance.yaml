@@ -108,6 +108,37 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/ServerError'
+    patch:
+      tags:
+        - Management
+      summary: Patch governance connectors of a category
+      operationId: patchConnectorsOfCategory
+      description: |
+        Patch governance connectors of a category.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/update <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_update
+      parameters:
+        - $ref: '#/components/parameters/categoryIdPathParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/OK'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipleConnectorsPatchReq'
+        description: Governance connectors and properties to update
+        required: true
   '/identity-governance/{category-id}/connectors/{connector-id}':
     get:
       tags:
@@ -373,6 +404,40 @@ components:
           enum:
             - UPDATE
           example: UPDATE
+        properties:
+          type: array
+          description: Governance connector properties to patch.
+          items:
+            $ref: '#/components/schemas/PropertyReq'
+    MultipleConnectorsPatchReq:
+      type: object
+      description: Multiple governance connectors properties patch request.
+      required:
+        - operation
+        - connectors
+      properties:
+        operation:
+          type: string
+          description: Governance connector properties patch operation.
+          enum:
+            - UPDATE
+          example: UPDATE
+        connectors:
+          type: array
+          description: Governance connectors to patch
+          items:
+            $ref: '#/components/schemas/ConnectorReq'
+    ConnectorReq:
+      type: object
+      description: Governance connector to patch
+      required:
+        - id
+        - properties
+      properties:
+        id:
+          type: string
+          description: Connector id.
+          example: c3VzcGVuc2lvbi5ub3RpZmljYXRpb24
         properties:
           type: array
           description: Governance connector properties to patch.
