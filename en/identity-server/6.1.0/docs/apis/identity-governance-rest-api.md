@@ -26,6 +26,7 @@ and properties of connectors as mentioned below. <br>
     | Minimum number of characters  | passwordPolicy.min.length   | This denotes the minimum number of characters in the password. |
     | Maximum number of characters  | passwordPolicy.max.length   | This denotes the maximum number of characters in the password. |
     | Password pattern regex   | passwordPolicy.pattern   | The regular expression pattern to validate the password. |
+    | Username check mode   | passwordPolicy.username.check.mode   | This property specifies whether to check the password contains or equals the username.<div><div class="admonition info"><p class="admonition-title">Info</p><p>This feature is available for WSO2 Identity Server 6.1.0 from update level 250 onwards (Updates 2.0 model). If you don't already have this update, see the instructions on <a href="https://updates.docs.wso2.com/en/latest/updates/overview/">updating WSO2 products</a>.</p></div></div> |
     | Error message on pattern violation   | passwordPolicy.errorMsg   | The error message that will be displayed when a pattern violation is detected in the password. |
 
 ??? "User Onboarding"
