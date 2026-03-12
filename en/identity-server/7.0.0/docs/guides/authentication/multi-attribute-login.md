@@ -1,6 +1,8 @@
-# Multi-Attribute Login
+# Multi-attribute login
 
-{{product_name}} lets you configure multiple attributes as the login identifier. While username is the default login identifier, users can have the option to enter a mobile number, email address or any attribute of their choice.
+{{product_name}} uses the username as the default login identifier. When you enable multi-attribute login, you can configure any user attributes such as email address, mobile number, or other supported attributes as valid login identifiers.
+
+Users can then log in using any of the configured attributes, giving flexibility beyond the traditional username.
 
 !!! info "Supported flows"
 
