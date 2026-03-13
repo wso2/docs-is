@@ -419,6 +419,12 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
+        - Outbound provisioning:
+          - Overview: guides/users/outbound-provisioning/outbound-provisioning-overview.md
+          - Set up outbound provisioning: guides/users/outbound-provisioning/setup-outbound-provisioning.md
+          - Group-based provisioning: guides/users/outbound-provisioning/group-based-provisioning.md
+          - Configure an outbound connector:
+            - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
         - Migrate users to Asgardeo:
           - Migrate users to Asgardeo: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
