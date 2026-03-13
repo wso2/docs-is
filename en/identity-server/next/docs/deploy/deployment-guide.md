@@ -64,7 +64,7 @@ The above recommendations can change based on the expected concurrency and perfo
 </tr>
 <tr class="even">
 <th>Java</th>
-<td>Open JDK 11</td>
+<td>Open JDK 21</td>
 </tr>
 <tr class="odd">
 <th>Web browsers</th>
