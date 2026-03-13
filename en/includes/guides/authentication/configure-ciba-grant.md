@@ -1,6 +1,8 @@
 # Configure CIBA grant
 
-[Client Initiated Backchannel Authentication (CIBA) grant]({{base_path}}/references/grant-types/#ciba-grant) is an authentication flow that decouples the consumption device from the authentication device. Instead of the user authenticating on the same device where the application resides, the application initiates the authentication request in the background, and the user is prompted to authenticate via a separate device.
+[Client Initiated Backchannel Authentication (CIBA)]({{base_path}}/references/grant-types/#ciba-grant) is designed for scenarios where the device used to consume a service is different from the device used for authentication. For example, a user may initiate a login on a smart TV or kiosk and approve the authentication request on their mobile phone.
+
+In a CIBA flow, the consuming device initiates the authentication request through the client application. The authorization server then sends an authentication request to the user’s authenticating device, where the user can approve the login.
 
 Follow this guide for instructions on configuring the CIBA grant type in your application.
 
