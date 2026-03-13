@@ -23,8 +23,8 @@ To establish an identity for your AI agent, begin by registering it in {{ produc
 - Sign in to [{{ product_name }}](https://console.asgardeo.io/) console and go to **Agents**.
 - Click **+ New Agent**.
 - Provide:
-    - Name: A descriptive name for your AI agent for human-readable display purposes
-    - Description (optional): Purpose and functionality of the agent
+  - Name: A descriptive name for your AI agent for human-readable display purposes
+  - Description (optional): Purpose and functionality of the agent
 
 !!! Example
     Name: Math Assistant Agent
@@ -98,6 +98,18 @@ Pick your agent development framework and install the corresponding dependencies
     pip install asgardeo asgardeo_ai python-dotenv google-adk==1.20.0 google-genai==1.54.0
     ```
 
+=== "Crew AI"
+
+    ```bash
+    pip install asgardeo asgardeo_ai crewai google-genai==1.54.0 python-dotenv
+    ```
+
+=== "Vercel AI"
+
+    ```bash
+    pip install asgardeo asgardeo_ai python-dotenv vercel-ai-sdk==0.0.1.dev4
+    ```
+
 Create `main.py` that implements an AI agent which first obtains a valid access token from **{{ product_name }}** by authenticating itself. The agent then includes that token in the `Authorization` header (for example `Authorization: Bearer <token>`) when calling the MCP tool.
 
 === "LangChain"
@@ -145,7 +157,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
             {
                 "mcp_server": {
                     "transport": "streamable_http",
-                    "url": "<mcp_server_url>",
+                    "url": os.getenv("MCP_SERVER_URL"),
                     "headers": {
                         "Authorization": f"Bearer {agent_token.access_token}"
                     }
@@ -217,7 +229,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
         # Connect to MCP Server with Auth Header
         return McpToolset(
             connection_params=StreamableHTTPConnectionParams(
-                url= "<mcp_server_url>",
+                url= os.getenv("MCP_SERVER_URL"),
                 headers={"Authorization": f"Bearer {agent_token.access_token}"}
             )
         )
@@ -268,9 +280,156 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
 
     ```
 
-!!! Important
-    Replace `<mcp_server_url>` with your MCP server’s URL.
-    If you followed the [MCP Auth Server quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server), you can use: `http://127.0.0.1:8000/mcp`
+=== "Crew AI"
+
+    ```python title="main.py"
+    import os
+    import asyncio
+    from pathlib import Path
+    from dotenv import load_dotenv
+    
+    from asgardeo import AsgardeoConfig
+    from asgardeo_ai import AgentConfig, AgentAuthManager
+    
+    from crewai import Agent, Task, Crew
+    from crewai.mcp import MCPServerHTTP
+    
+    # Load environment variables from .env file
+    load_dotenv()
+    
+    ASGARDEO_CONFIG = AsgardeoConfig(
+        base_url=os.getenv("ASGARDEO_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    
+    AGENT_CONFIG = AgentConfig(
+        agent_id=os.getenv("AGENT_ID"),
+        agent_secret=os.getenv("AGENT_SECRET")
+    )
+    
+    async def get_agent_token():
+        # Asynchronously fetches the agent token from Asgardeo.
+        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+            return await auth_manager.get_agent_token(["openid"])
+    
+    def main():
+        agent_token = asyncio.run(get_agent_token())
+    
+        while True:
+            question = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
+    
+            if question.lower() == "exit":
+                print("Exiting the program. Goodbye!")
+                break
+            mcp_server = MCPServerHTTP(
+                url=os.getenv("MCP_SERVER_URL"),
+                headers={"Authorization": f"Bearer {agent_token.access_token}"},
+                streamable=True
+            )
+    
+            agent = Agent(
+                role="Calculation Specialist",
+                goal="Add two numbers accurately using an MCP server.",
+                backstory="You are an intelligent agent that strictly uses the provided MCP tool 'add(a, b)' to compute the addition of numbers when requested by a user.",
+                mcps=[mcp_server],
+                llm=os.getenv("MODEL_NAME"), # Use 'gemini/gemini-1.5-flash' or similar
+                verbose=False
+            )
+    
+            task = Task(
+                description=f"Address the user's request: '{question}'",
+                expected_output="The exact calculated sum of the numbers based on the MCP tool execution.",
+                agent=agent
+            )
+    
+            crew = Crew(
+                agents=[agent],
+                tasks=[task]
+            )
+    
+            result = crew.kickoff()
+    
+            print("\nAgent Response:", result.raw)
+    
+    if __name__ == "__main__":
+        main()
+    
+    ```
+
+=== "Vercel AI"
+
+    ```python title="main.py"
+    import os
+    import asyncio
+    
+    from dotenv import load_dotenv
+    from pathlib import Path
+    
+    from asgardeo import AsgardeoConfig
+    from asgardeo_ai import AgentConfig, AgentAuthManager
+    
+    import vercel_ai_sdk as ai
+    
+    # Load environment variables from .env file
+    load_dotenv()
+    
+    ASGARDEO_CONFIG = AsgardeoConfig(
+    base_url=os.getenv("ASGARDEO_BASE_URL"),
+    client_id=os.getenv("CLIENT_ID"),
+    redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    
+    AGENT_CONFIG = AgentConfig(
+    agent_id=os.getenv("AGENT_ID"),
+    agent_secret=os.getenv("AGENT_SECRET")
+    )
+    
+    async def my_agent(llm, messages, auth_token):
+    
+        tools = await ai.mcp.get_http_tools(
+            os.getenv("MCP_SERVER_URL"),
+            headers={
+                "Authorization": f"Bearer {auth_token}"
+            }
+        )
+    
+        return await ai.stream_loop(llm, messages, tools=tools)
+    
+    
+    async def main():
+        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+            agent_token = await auth_manager.get_agent_token(["openid"])
+        
+            google_key = os.getenv("GOOGLE_API_KEY", "")
+            os.environ["OPENAI_API_KEY"] = google_key
+            os.environ["OPENAI_BASE_URL"] = "https://generativelanguage.googleapis.com/v1beta/openai/"
+        
+            llm = ai.openai.OpenAIModel(
+                model=os.getenv("MODEL_NAME")
+            )
+        
+            while True:
+                user_input = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
+                messages = ai.make_messages(user=user_input)
+        
+                # Exit the loop if the user types "exit"
+                if user_input.lower() == "exit":
+                    print("Exiting the program. Goodbye!")
+                    break
+                result = ai.run(my_agent, llm, messages, agent_token.access_token)
+        
+                print("\nAgent Response: ", end="")
+        
+                async for msg in result:
+                    if getattr(msg, "text_delta", None):
+                        print(msg.text_delta, end="", flush=True)
+        
+                print()
+        
+    if __name__ == "__main__":
+    asyncio.run(main())
+    ```
 
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
@@ -286,6 +445,12 @@ AGENT_SECRET=<agent_secret>
 
 # Google Gemini API Key
 GOOGLE_API_KEY=<google_api_key>
+
+# MCP Server URL
+MCP_SERVER_URL=<mcp_server_url>
+
+# LLM model used by the agent (any supported model can be used).
+MODEL_NAME="gemini-2.5-flash"
 ```
 
 !!! Important
@@ -296,6 +461,9 @@ GOOGLE_API_KEY=<google_api_key>
     - Add the `Agent ID` and `Agent Secret` from the [Agent Registration](#register-an-ai-agent) step.
 
     - You’ll need a Google API key to use Gemini as your model. You can generate one from [Google AI Studio](https://aistudio.google.com/app/api-keys)
+
+    - Replace `<mcp_server_url>` with your MCP server’s URL.
+      If you followed the [MCP Auth Server quickstart](https://wso2.com/asgardeo/docs/quick-starts/mcp-auth-server/#add-auth-to-the-mcp-server), you can use: `http://127.0.0.1:8000/mcp`
 
 ## Project Structure
 
@@ -337,7 +505,7 @@ To test the setup without authentication, simply remove the `Authorization` head
         {
             "mcp_server": {
                 "transport": "streamable_http",
-                "url": "<mcp_server_url>"
+                "url": os.getenv("MCP_SERVER_URL")
             }
         }
     )
@@ -350,8 +518,29 @@ To test the setup without authentication, simply remove the `Authorization` head
     ...
     return McpToolset(
             connection_params=StreamableHTTPConnectionParams(
-                url= "<mcp_server_url>"
+                url= os.getenv("MCP_SERVER_URL")
             )
+        )
+    ...
+    ```
+
+=== "Crew AI"
+
+    ```python
+    ...
+    mcp_server = MCPServerHTTP(
+                url=os.getenv("MCP_SERVER_URL"),
+                streamable=True
+            )
+    ...
+    ```
+
+=== "Vercel AI"
+
+    ```python
+    ...
+    tools = await ai.mcp.get_http_tools(
+    os.getenv("MCP_SERVER_URL"),
         )
     ...
     ```
@@ -462,6 +651,7 @@ Here is the updated implementation:
 
     ```python title="main.py"
     import os
+    import webbrowser
     import asyncio
     
     from dotenv import load_dotenv
@@ -502,14 +692,12 @@ Here is the updated implementation:
             # Generate user authorization URL
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid"])
     
-            print("Open this URL in your browser to authenticate:")
-            print(auth_url)
-    
             callback = OAuthCallbackServer(port=6274)
             callback.start()
-    
-            print("Waiting for authorization code from redirect...")
-    
+     
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
+
             # Wait for redirect
             auth_code, returned_state, error = await callback.wait_for_code()
             callback.stop()
@@ -566,6 +754,7 @@ Here is the updated implementation:
 
     ```python title="main.py"
     import os
+    import webbrowser
     import asyncio
     from pathlib import Path
     from dotenv import load_dotenv
@@ -580,7 +769,6 @@ Here is the updated implementation:
     from google.genai import types
     
     from oauth_callback import OAuthCallbackServer
-    
 
     # Load environment variables from .env file
     load_dotenv()
@@ -604,15 +792,13 @@ Here is the updated implementation:
     
             # Generate user authorization URL
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid"])
-    
-            print("Open this URL in your browser to authenticate:")
-            print(auth_url)
-    
+
             callback = OAuthCallbackServer(port=6274)
             callback.start()
-    
-            print("Waiting for authorization code from redirect...")
-    
+            
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
+     
             # Wait for redirect
             auth_code, returned_state, error = await callback.wait_for_code()
             callback.stop()
@@ -658,7 +844,7 @@ Here is the updated implementation:
             user_id="user"
         )
     
-        question = input("Enter your question: ")
+        question = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
     
         try:
             async for event in runner.run_async(
@@ -683,6 +869,228 @@ Here is the updated implementation:
 
     ```
 
+=== "Crew AI"
+
+    ```python title="main.py"
+    import os
+    import asyncio
+    import sys
+    import webbrowser
+    from pathlib import Path
+    from dotenv import load_dotenv
+    
+    from crewai import Agent, Task, Crew, Process
+    from crewai.tools import BaseTool
+    from crewai.mcp import MCPServerHTTP
+    
+    from pydantic import Field
+    
+    # Asgardeo / Identity imports
+    from asgardeo import AsgardeoConfig
+    from asgardeo_ai import AgentConfig, AgentAuthManager
+    
+    from oauth_callback import OAuthCallbackServer
+    
+    import warnings
+    
+    # Suppress RuntimeWarning related to coroutine not awaited
+    warnings.filterwarnings("ignore", category=RuntimeWarning, message="coroutine '.*' was never awaited")
+    
+    # Load environment variables from .env file
+    load_dotenv()
+     
+    async def get_obo_token():
+        # Handles the OAuth/OBO flow to get the user token.
+        ASGARDEO_CONFIG = AsgardeoConfig(
+            base_url=os.getenv("ASGARDEO_BASE_URL"),
+            client_id=os.getenv("CLIENT_ID"),
+            redirect_uri=os.getenv("REDIRECT_URI")
+        )
+        AGENT_CONFIG = AgentConfig(
+            agent_id=os.getenv("AGENT_ID"),
+            agent_secret=os.getenv("AGENT_SECRET")
+        )
+    
+        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+            agent_token = await auth_manager.get_agent_token(["openid", "email"])
+            auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
+    
+            callback = OAuthCallbackServer(port=6274)
+            callback.start()
+            
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
+
+            auth_code, _, error = await callback.wait_for_code()
+            callback.stop()
+    
+            if not auth_code:
+                raise Exception(f"Auth failed: {error}")
+    
+            obo_token = await auth_manager.get_obo_token(
+                auth_code,
+                agent_token=agent_token,
+                code_verifier=code_verifier
+            )
+            return obo_token.access_token
+    
+    # --- Main CrewAI Execution ---
+    
+    async def main():
+        # 1. Get the Token via OBO Flow
+        try:
+            access_token = await get_obo_token()
+            print("Successfully obtained OBO Token.")
+        except Exception as e:
+            print(f"Failed to authenticate: {e}")
+            return
+    
+        while True:
+            # 2. Get the user question
+            question = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
+    
+            # Exit the loop if the user types "exit"
+            if question.lower() == "exit":
+                print("Exiting the program. Goodbye!")
+                break
+            # 3. Configure the MCP server for CrewAI
+            # We map StreamableHTTPConnectionParams directly to MCPServerHTTP
+            mcp_server = MCPServerHTTP(
+                url=os.getenv("MCP_SERVER_URL"),
+                headers={"Authorization": f"Bearer {access_token}"},
+                streamable=True
+            )
+    
+            # 4. Define the CrewAI Agent
+            agent = Agent(
+                role="Calculation Specialist",
+                goal="Add two numbers accurately using an MCP server.",
+                backstory="You are an intelligent agent that strictly uses the provided MCP tool 'add(a, b)' to compute the addition of numbers when requested by a user.",
+                mcps=[mcp_server],
+                llm=os.getenv("MODEL_NAME"), # Use 'gemini/gemini-1.5-flash' or similar
+                verbose=False
+            )
+    
+            # 5. Define the Task
+            task = Task(
+                description=f"Address the user's request: '{question}'",
+                expected_output="The exact calculated sum of the numbers based on the MCP tool execution.",
+                agent=agent
+            )
+    
+            # 6. Setup and run the Crew
+            crew = Crew(
+                agents=[agent],
+                tasks=[task]
+            )
+    
+            result = crew.kickoff()
+    
+            print("\nAgent Response:", result.raw)
+    
+    if __name__ == "__main__":
+        asyncio.run(main())
+    ```
+
+=== "Vercel AI"
+
+    ```python title="main.py"
+    import os
+    import asyncio
+    import sys
+    import webbrowser
+    
+    import vercel_ai_sdk as ai
+    
+    from dotenv import load_dotenv
+    from pathlib import Path
+    
+    from asgardeo import AsgardeoConfig
+    from asgardeo_ai import AgentConfig, AgentAuthManager
+    
+    from oauth_callback import OAuthCallbackServer
+    
+    # Load environment variables from .env file
+    load_dotenv()
+    
+    ASGARDEO_CONFIG = AsgardeoConfig(
+    base_url=os.getenv("ASGARDEO_BASE_URL"),
+    client_id=os.getenv("CLIENT_ID"),
+    redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    
+    AGENT_CONFIG = AgentConfig(
+    agent_id=os.getenv("AGENT_ID"),
+    agent_secret=os.getenv("AGENT_SECRET")
+    )
+    
+    # 1. Define the agent logic (no decorators needed)
+    async def my_agent(llm, messages, auth_token):
+    
+        # Connect to MCP Server using the user's OBO token
+        tools = await ai.mcp.get_http_tools(
+            os.getenv("MCP_SERVER_URL"),
+            headers={
+                "Authorization": f"Bearer {auth_token}"
+            }
+        )
+    
+        # Execute the agent tool loop
+        return await ai.stream_loop(llm, messages, tools=tools)
+    
+    
+    async def main():
+    async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+    agent_token = await auth_manager.get_agent_token(["openid", "email"])
+    
+            auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
+    
+            callback = OAuthCallbackServer(port=6274)
+            callback.start()
+
+            print(f"\nOpening browser for authentication...")
+            webbrowser.open(auth_url)
+ 
+            auth_code, returned_state, error = await callback.wait_for_code()
+            callback.stop()
+    
+            if auth_code is None:
+                print(f"Authorization failed or cancelled. Error: {error}")
+                return
+    
+            obo_token = await auth_manager.get_obo_token(auth_code, agent_token=agent_token, code_verifier=code_verifier)
+    
+            google_key = os.getenv("GOOGLE_API_KEY", "")
+            os.environ["OPENAI_API_KEY"] = google_key
+            os.environ["OPENAI_BASE_URL"] = "https://generativelanguage.googleapis.com/v1beta/openai/"
+    
+            llm = ai.openai.OpenAIModel(
+                model=os.getenv("MODEL_NAME")
+            )
+    
+            while True:
+                user_input = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
+    
+                # Exit the loop if the user types "exit"
+                if user_input.lower() == "exit":
+                    print("Exiting the program. Goodbye!")
+                    break
+    
+                messages = ai.make_messages(user=user_input)
+                result = ai.run(my_agent, llm, messages, obo_token.access_token)
+    
+                print("\nAgent Response: ", end="")
+    
+                # Stream the output token-by-token
+                async for msg in result:
+                    if getattr(msg, "text_delta", None):
+                        print(msg.text_delta, end="", flush=True)
+                print()
+    
+    if __name__ == "__main__":
+    asyncio.run(main())
+    ```
+
 ## Project Structure (OBO flow)
 
 After adding OBO support, your project should look like this:
@@ -701,16 +1109,11 @@ Start your agent:
   python main.py
 ```
 
-You will see an output similar to:
+You will see an output similar to this and your default browser will open, prompting you to log in:
 
 ``` bash
-    Open this URL in your browser to authenticate:
-    https://api.asgardeo.io/...<full authorize URL>...
-
-    Waiting for the authorization code...
+    Opening browser for authentication...
 ```
-
-Open the URL in your browser and log in as a test user.
 
 !!! Info
     You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
@@ -718,9 +1121,9 @@ Open the URL in your browser and log in as a test user.
 After successful login, return to the terminal. Your agent will automatically resume once it receives the authorization code and call the MCP tool on behalf of the authenticated user.
 
 ``` bash
-    Authorization code received: <code>
-    Enter your question: Can you add seventy six and eight?
-    Agent Response: The sum of seventy six and eight is 84.
+    Successfully obtained OBO Token.
+
+    Enter your question (e.g., 'Add 45 and 99') or type 'exit' to quit:
 ```
 
 Your AI agent has now successfully performed an authenticated, user-authorized, On-Behalf-Of request to your MCP server.

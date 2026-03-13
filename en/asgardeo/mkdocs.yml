@@ -117,6 +117,7 @@ validation:
 
 hooks:
   - hooks.py
+  - ../flatten_markdown.py
 
 plugins:
   - search:
@@ -261,6 +262,7 @@ nav:
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
     - Secure Your AI Agents:
         - Python: quick-starts/agent-auth-py.md
+        - TypeScript: quick-starts/agent-auth-ts.md
     
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
@@ -417,6 +419,12 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
+        - Outbound provisioning:
+          - Overview: guides/users/outbound-provisioning/outbound-provisioning-overview.md
+          - Set up outbound provisioning: guides/users/outbound-provisioning/setup-outbound-provisioning.md
+          - Group-based provisioning: guides/users/outbound-provisioning/group-based-provisioning.md
+          - Configure an outbound connector:
+            - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
         - Migrate users to Asgardeo:
           - Migrate users to Asgardeo: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
@@ -624,6 +632,7 @@ nav:
             - "&lt;OrganizationSwitcher /&gt;": sdks/react/components/organization-components/organization-switcher.md
             - "&lt;OrganizationList /&gt;": sdks/react/components/organization-components/organization-list.md
             - "&lt;Organization /&gt;": sdks/react/components/organization-components/organization.md
+            - "&lt;OrganizationContext /&gt;": sdks/react/components/organization-components/organization-context.md
         - hooks:
           - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
       - Guides:
@@ -711,7 +720,9 @@ nav:
       - User sessions:
         - Session management API: apis/session.md
         - Session extension API: apis/extend-sessions.md
-      - User sharing management API: apis/organization-user-share-rest-api.md
+      - User sharing management APIs:
+        - V1 (deprecated): apis/organization-user-share-rest-api.md
+        - V2: apis/organization-user-share-v2-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
       - Webhook Management API: apis/webhook-management-rest-api.md
@@ -746,6 +757,7 @@ nav:
         - User Account Association API: apis/organization-apis/org-association-rest-api.md
         - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
+      - User sharing management API V2: apis/organization-apis/organization-user-share-v2.md
       - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
       - SCIM 2.0 Me API: apis/scim2-me.md
@@ -758,6 +770,7 @@ nav:
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
       - Organization Me API: apis/user-organization-api.md
+      - Self password update API: apis/self-password-update-rest-api.md
       - Verification Code Management Me API: apis/verification-code-management-me-api.md
   - References:
     - References - Overview: references/index.md

@@ -13,7 +13,7 @@ While you are able to encrypt passwords using symmetric or asymmetric encryption
 Asymmetric encryption methods like RSA are not recommended due to their vulnerability to quantum computing capabilities.
 
 !!! important
-    [Configure a separate keystore]({{base_path}}/deploy/security/keystores/configure-keystores/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
+    [Configure the internal keystore]({{base_path}}/deploy/security/keystores/configure-keystores/#configure-the-internal-keystore) to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
 
 Follow the steps below to encrypt passwords:
 
@@ -34,7 +34,7 @@ Follow the steps below to encrypt passwords:
 
         !!! note "Prerequisite"
 
-            To support symmetric encryption, you should have a symmetric secret in an internal keystore of type PKCS12. Follow the instructions [here]({{base_path}}/deploy/security/keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore) to add one.
+            To support symmetric encryption, you should have a symmetric secret in an internal keystore of type PKCS12. Follow the instructions for [creating the internal keystore]({{base_path}}/deploy/security/keystores/create-new-keystores/#create-the-internal-keystore) with a symmetric AES key.
 
         - **For Linux**: `./ciphertool.sh -Dconfigure -Dsymmetric`
 
@@ -112,7 +112,7 @@ password="$secret{admin_password}"
 
 [keystore.tls]
 password = "$secret{keystore_password}" 
-alias = "$secret{keystore_password}" 
+alias = "alias" 
 key_password = "$secret{key_password}"  
 
 [truststore]                  
