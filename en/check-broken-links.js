@@ -48,6 +48,29 @@ function logBrokenLink(link, sourceUrl) {
   fs.appendFileSync(logFile, logEntry);
 }
 
+// Checks a single markdown link and returns a promise so caller can await or chain checks
+function checkLink(link, sourceUrl) {
+  return new Promise((resolve, reject) => {
+    markdownLinkCheck(link, { retry: true }, (err, results) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      results.forEach(result => {
+        const { dead, statusCode } = result;
+
+        if (dead || statusCode === 404) {
+          logBrokenLink(link, sourceUrl);
+          console.log(`\n[Broken Link] Found: ${link}\n`);
+        }
+      });
+
+      resolve();
+    });
+  });
+}
+
 // Function to check links on a page and crawl nested links
 async function checkLinksOnPage(url, depth = 2) {
   if (isShuttingDown || depth < 0 || visitedUrls.has(url)) return; // Stop if shutting down, depth limit reached, or already visited
