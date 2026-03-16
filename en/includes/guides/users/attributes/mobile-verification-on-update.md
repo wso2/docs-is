@@ -32,7 +32,7 @@ If you only support a single mobile number and wish to update the mobile number 
 
 4. Click **Update** to save the changes. An SMS OTP will be sent to the specified mobile number for verification. The user needs to enter the SMS OTP to verify the mobile number.
 
-Alternatively, you may update the mobile number via a PATCH operation to the [SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2/scim2-me-rest-api/) as shown below.
+Alternatively, you may update the mobile number via a PATCH operation to the {% if product_name == "WSO2 Identity Server" %}[SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2-me-rest-apis/){% else %}[SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2-me/){% endif %} as shown below.
 
 !!! abstract ""
 
@@ -132,7 +132,7 @@ A verification code will be sent to your mobile number.
 
 An SMS OTP will be sent to the specified mobile number for verification. The user needs to provide the OTP to verify the mobile number.
  
-Alternatively, you may update the mobile numbers via a PATCH operation to the [SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2/scim2-me-rest-api/) as shown below.
+Alternatively, you may update the mobile numbers via a PATCH operation to the {% if product_name == "WSO2 Identity Server" %}[SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2-me-rest-apis/){% else %}[SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2-me/){% endif %} as shown below.
 
 !!! abstract ""
 

@@ -135,24 +135,24 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     dotenv.config();
     
     const asgardeoConfig = {
-    afterSignInUrl: process.env.REDIRECT_URI || "",
-    clientId: process.env.CLIENT_ID || "",
-    baseUrl: process.env.ASGARDEO_BASE_URL || "",
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
     
     const agentConfig = {
-    agentID: process.env.AGENT_ID || "",
-    agentSecret: process.env.AGENT_SECRET || "",
+        agentID: process.env.AGENT_ID || "",
+        agentSecret: process.env.AGENT_SECRET || "",
     };
     
     const model = new ChatGoogleGenerativeAI({
-    apiKey: process.env.GOOGLE_API_KEY || "",
-    model: process.env.MODEL_NAME || "gemini-2.5-flash",
+        apiKey: process.env.GOOGLE_API_KEY || "",
+        model: process.env.MODEL_NAME || "gemini-2.5-flash",
     });
     
     async function runAgent() {
-    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
-    const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
+        const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
+        const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
     
         const client = new MultiServerMCPClient({
             math: {
@@ -217,22 +217,22 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     dotenv.config();
     
     const asgardeoConfig = {
-    afterSignInUrl: process.env.REDIRECT_URI,
-    clientId: process.env.CLIENT_ID,
-    baseUrl: process.env.ASGARDEO_BASE_URL,
+        afterSignInUrl: process.env.REDIRECT_URI,
+        clientId: process.env.CLIENT_ID,
+        baseUrl: process.env.ASGARDEO_BASE_URL,
     };
     
     const agentConfig = {
-    agentID: process.env.AGENT_ID,
-    agentSecret: process.env.AGENT_SECRET,
+        agentID: process.env.AGENT_ID,
+        agentSecret: process.env.AGENT_SECRET,
     };
     
     process.env.GOOGLE_GENAI_API_KEY = process.env.GOOGLE_API_KEY;
     
     async function runAgent() {
-    silenceADK();
-    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
-    const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
+        silenceADK();
+        const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
+        const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
     
         const rootAgent = new LlmAgent({
             name: "example_agent",
@@ -308,14 +308,14 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     }
     
     function silenceADK() {
-    const originalWrite = process.stdout.write;
-    // @ts-ignore
-    process.stdout.write = function (chunk, encoding, callback) {
-    if (typeof chunk === 'string' && chunk.includes('[ADK INFO]')) {
-    return true; // Skip this log
-    }
-    return originalWrite.apply(process.stdout, [chunk, encoding, callback]);
-    };
+        const originalWrite = process.stdout.write;
+        // @ts-ignore
+        process.stdout.write = function (chunk, encoding, callback) {
+            if (typeof chunk === 'string' && chunk.includes('[ADK INFO]')) {
+                return true; // Skip this log
+            }
+            return originalWrite.apply(process.stdout, [chunk, encoding, callback]);
+        };
     }
     
     runAgent().catch(console.error);
@@ -347,8 +347,8 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     };
     
     const agentConfig = {
-    agentID: process.env.AGENT_ID || "",
-    agentSecret: process.env.AGENT_SECRET || "",
+        agentID: process.env.AGENT_ID || "",
+        agentSecret: process.env.AGENT_SECRET || "",
     };
     
     async function getMCPTools(url: string, authToken: string) {
@@ -592,23 +592,23 @@ Here is the updated implementation:
     dotenv.config();
     
     const asgardeoConfig = {
-    afterSignInUrl: process.env.REDIRECT_URI || "",
-    clientId: process.env.CLIENT_ID || "",
-    baseUrl: process.env.ASGARDEO_BASE_URL || "",
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
     
     const agentConfig = {
-    agentID: process.env.AGENT_ID || "",
-    agentSecret: process.env.AGENT_SECRET || "",
+        agentID: process.env.AGENT_ID || "",
+        agentSecret: process.env.AGENT_SECRET || "",
     };
     
     const model = new ChatGoogleGenerativeAI({
-    apiKey: process.env.GOOGLE_API_KEY || "",
-    model: process.env.MODEL_NAME || "gemini-2.5-flash",
+        apiKey: process.env.GOOGLE_API_KEY || "",
+        model: process.env.MODEL_NAME || "gemini-2.5-flash",
     });
     
     async function runAgent() {
-    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
+        const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
     
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
         console.log("Opening authentication URL in your browser...");
@@ -739,21 +739,21 @@ Here is the updated implementation:
     dotenv.config();
     
     const asgardeoConfig = {
-    afterSignInUrl: process.env.REDIRECT_URI || "",
-    clientId: process.env.CLIENT_ID || "",
-    baseUrl: process.env.ASGARDEO_BASE_URL || "",
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
     
     const agentConfig = {
-    agentID: process.env.AGENT_ID || "",
-    agentSecret: process.env.AGENT_SECRET || "",
+        agentID: process.env.AGENT_ID || "",
+        agentSecret: process.env.AGENT_SECRET || "",
     };
     
     process.env.GOOGLE_GENAI_API_KEY = process.env.GOOGLE_API_KEY;
     
     async function runAgent() {
-    silenceADK();
-    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
+        silenceADK();
+        const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
     
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
         console.log("Opening authentication URL in your browser...");
@@ -876,14 +876,14 @@ Here is the updated implementation:
     }
     
     function silenceADK() {
-    const originalWrite = process.stdout.write;
-    // @ts-ignore
-    process.stdout.write = function (chunk, encoding, callback) {
-    if (typeof chunk === 'string' && chunk.includes('[ADK INFO]')) {
-    return true;
-    }
-    return originalWrite.apply(process.stdout, [chunk, encoding, callback]);
-    };
+        const originalWrite = process.stdout.write;
+        // @ts-ignore
+        process.stdout.write = function (chunk, encoding, callback) {
+            if (typeof chunk === 'string' && chunk.includes('[ADK INFO]')) {
+                return true;
+            }
+            return originalWrite.apply(process.stdout, [chunk, encoding, callback]);
+        };
     }
     
     runAgent().catch(console.error);
@@ -981,7 +981,7 @@ Here is the updated implementation:
     }
     
     async function runAgent() {
-    const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
+        const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
     
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
         console.log("Opening authentication URL in your browser...");
