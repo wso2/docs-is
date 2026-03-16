@@ -46,7 +46,7 @@ same application.
 
 The above scenario is unlikely because in practice, an application is usually designed to handle this situation using scopes, or in the case of a multithreaded client, there is usually a separate thread to acquire access tokens so that other threads can retrieve from it.
 
-### Synchronous token persistence
+### Synchronous token persistence recovery
 
 The flow of the synchronous token persistence when receiving two identical access token requests is as follows:
 
@@ -62,3 +62,225 @@ The process flow now moves on to the recovery flow described above to handle the
 - Since the same thread is being used, the OAuth2 component in the second node checks the database again for an ACTIVE access token.
 - Since there is now an ACTIVE token that was persisted by the first node, the second node now returns the access token persisted by the first node to the client.
 - Both access token requests receive the same access token.
+
+## Optimizing JWT access token persistence
+
+By default, JWT access token generation or validation triggers interactions with the database. JWT access token persistence differs from opaque token persistence, where an existing active token is retrieved during a token request. The issuer always issues a new JWT access token. The following sections explain how to optimize the default JWT persistence in Identity Server using **non-persistent access tokens**.
+
+### Why optimize JWT access token persistence?
+
+In large-scale WSO2 Identity Server deployments, especially with millions of users and high concurrency, the number of tokens stored in the database can grow quickly, making it harder to scale. This can lead to reduced performance and lower Transactions Per Second (TPS) for token generation. To address this, token persistence optimization helps by not storing access tokens. This approach avoids storing access tokens during generation while still supporting essential features like token revocation and refresh grants, improving scalability and performance.
+
+- **Reduce database queries during token request**: When a token is issued, both the **access token** and **refresh token** will no longer be stored in the `IDN_OAUTH2_ACCESS_TOKEN` table. As a result, authorization grants like **Client Credentials**, which do not issue a refresh token, will experience improved throughput due to the reduction in database query overhead.
+- **Efficient database storage**: When tokens are stored in the persistent access_token mode, new entries are added to the database with each token request, even if the same refresh token is used. However, with the **non-persistent access token** feature enabled, only the **refresh token** is stored. If the current refresh token is still valid for the grant, no additional database rows will be added during token requests, leading to more efficient database storage.
+- **Improved token validation**: With the **non-persistent access token** feature enabled, revoked tokens can be stored in the database. However, deployments have the option to opt out of storing revoked tokens and can instead listen for revoked token events, providing greater flexibility in token management. This approach is particularly beneficial when the Identity Server acts as a **Key Manager** for **WSO2 API Manager**, as the Gateway can self-validate JWTs without additional hops to the Key Manager, improving performance and reducing latency.
+
+### Things to consider when using JWT access token persistence optimization
+
+- This mode is particularly suitable for the following scenarios:
+  - When most token requests are based on authorization grants such as **Client Credentials**, which do not issue a refresh token.
+  - When **Refresh Token Grants** are configured **without refresh token rotation**, reducing the need for persistent token tracking.
+- The **token persistence optimization** feature works only with **JWT access tokens**, as they can be self-validated.
+- When enabling this feature in an existing setup:
+  - **Opaque token generation** will continue to work as expected for applications configured to use opaque tokens.
+  - Applications configured for **JWT access token type** will be switched to **non-persistent access token mode**, meaning JWT access tokens will no longer be stored in the database.
+- In the case of persistent token storage, if an active access token already exists during the token generation flow, the existing token will be marked as inactive. However, in the non-persistent mode, multiple active tokens can exist, as the authorization server does not store the access tokens.
+- **Token binding**, **Retrieving authorized apps for user**, and **OIDC Request Object** features are currently not supported in **non-persistent access token mode**.
+- Actions like revoking issued access tokens when re-submitting an authorization code and revoking all issued access tokens when revoking refresh tokens are also not supported, because the Identity Server does not store access tokens in this mode.
+- In non-persistent mode, the cleanup deletes the selected entries; they are not moved to an audit table as in the persistent case.
+
+- Following are the additional claims that will be added to the JWT access token for internal references.
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>Claims</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>entity_id</code></td>
+            <td>
+                <p>Unique Identifier to identify the subject within the system.</p>
+                <p> - For application: Client Id.</p>
+                <p> - For Users from unique Id user store: User Unique Id.</p>
+                <p> - For Users from non-unique Id user store: Username with userstore domain and tenant domain.</p>
+                <p> - For non-JIT provisioned federated Users: Session Id.</p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>entityType</code></td>
+            <td>
+                <p>Type of entity id.</p>
+                <p> - For application: CLIENT_ID.</p>
+                <p> - For Users from unique Id user store: USER_ID.</p>
+                <p> - For Users from non-unique Id user store: USER_NAME.</p>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td><code>is_federated</code></td>
+            <td>
+                <p>Flag to show whether the user is federated or not.</p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>token_id</code></td>
+            <td>
+                <p>Token id for internal reference.</p>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td><code>is_consented</code></td>
+            <td>
+                <p>Flag to show whether the user is consented for claims.</p>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td><code>grantType</code></td>
+            <td>
+                <p>Grant type</p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>accessing_organization</code></td>
+            <td>
+                <p>org id of the app (saas scenarios).</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### Enable JWT access token persistence optimization
+
+!!! note "Custom JWT Token Issuer"
+    If you already use a custom JWT token issuer that extends
+    [`JWTTokenIssuer`](https://github.com/wso2-extensions/identity-inbound-auth-oauth/blob/master/components/org.wso2.carbon.identity.oauth/src/main/java/org/wso2/carbon/identity/oauth2/token/JWTTokenIssuer.java),
+    add the **setClaimsForNonPersistence** call **inside `createJWTClaimSet(...)` just before you return the jwt claim set**.
+    This injects the non-persistence–related claims.
+
+    ```java
+    @Override
+    protected JWTClaimsSet createJWTClaimSet(
+            OAuthAuthzReqMessageContext authAuthzReqMessageContext,
+            OAuthTokenReqMessageContext tokenReqMessageContext,
+            String consumerKey) throws IdentityOAuth2Exception {
+
+        // ... set your standard logic here ...
+
+        // Add non-persistence claims BEFORE returning:
+        setClaimsForNonPersistence(jwtClaimsSetBuilder, authAuthzReqMessageContext,
+                tokenReqMessageContext, authenticatedUser, oAuthAppDO);
+
+        return jwtClaimsSetBuilder.build();
+    }
+
+    ```
+
+Add the following to the deployment.toml to enable the feature in WSO2 Identity Server.
+
+```toml
+[oauth.token_persistence]
+persist_access_token = false
+retain_revoked_token = true
+persist_refresh_token = false
+```
+
+!!! Tip
+    If you have a long-living refresh token with refresh token rotation, it is recommended to store the refresh token. The following configuration can be used to enable refresh token persistence while keeping the access token as non-persistent.
+    ```toml
+    [oauth.token_persistence]
+    persist_access_token = false
+    persist_refresh_token = true
+    ```
+
+!!! Tip
+    If you don't want the Identity Server to store revoked tokens and details related to revoked subjects, you can disable this by updating the following configuration.
+    ```toml
+    [oauth.token_persistence]
+    retain_revoked_access_token = false
+    ```
+
+### Removing unused refresh tokens and revoke entries from the Database
+
+!!! note
+    This section applies to database cleanup when the non-persistent access token feature is enabled. For persistent mode, refer to [Clean unused tokens from database](../../setup/removing-unused-tokens-from-the-database).
+
+As you continue to use **WSO2 Identity Server (WSO2 IS)**, the number of **revoked**, **inactive**, and **expired** tokens increases in the `IDN_OAUTH2_REFRESH_TOKEN` table. When a token is revoked, a record is also added to the `IDN_OAUTH2_REVOKED_TOKENS` table. These tokens are retained for purposes such as **logging**, **auditing**, and **validation**.
+
+However, over time, the accumulation of such records can impact overall server performance and increase the size of the database. To ensure optimal performance, it is recommended to periodically clean up unused and expired tokens.
+
+The following sections guide you through the different ways to perform cleanup and how to configure them.
+
+- [**Token Cleanup via Stored Procedure** (Recommended)](#token-cleanup-via-stored-procedure)
+- [**Configuring WSO2 Identity Server for token cleanup**](#configuring-wso2-identity-server-for-token-cleanup)
+
+#### Token Cleanup via Stored Procedure
+
+You can use the provided stored procedures to run a
+token cleanup task periodically to remove the old and invalid tokens and clean up the `IDN_OAUTH2_REVOKED_TOKENS` table.
+Follow the instructions below to configure token cleanup using this
+method.
+
+!!! tip
+    It is safe to run these steps in read-only mode or during a time when traffic on the server is low but that is not mandatory.
+
+1. **Disable Internal Token Cleanup**
+   Update the `deployment.toml` file located in `<IS_HOME>/repository/conf`:
+
+   ```toml
+   [oauth.token_cleanup]
+   enable = false
+   ```
+
+2. **Run the Cleanup Script**
+   Select the appropriate SQL script based on your database type and execute it.
+
+      - [MySQL Stored Procedure Script](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/mysql/non-persistence-access-token-cleanup/)
+
+      - [Oracle Stored Procedure Script](https://github.com/wso2/carbon-identity-framework/blob/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures/oracle/non-persistence-access-token-cleanup/)
+
+   This script:
+
+   - Backs up token-related tables (if enabled)
+   - Deletes eligible expired, revoked, or inactive entries
+
+3. **Restart the Server**
+   Once cleanup is complete, restart **WSO2 Identity Server** with the updated and cleaned database. You can optionally **schedule periodic execution** of the cleanup procedure.
+
+#### Configuring WSO2 Identity Server for token cleanup
+
+You can also configure **WSO2 Identity Server** to trigger **refresh token cleanup** during the following events:
+
+1. **On token refresh**: When issuing a new refresh token
+2. **On token revocation**: When a refresh token is explicitly revoked
+3. **User revoke events**: This includes events like **user deletion**, **user locked**, or **user role deletion**.
+4. **Application revoke events**: This includes **application credentials revocation** or **application deletion**.
+
+!!! warning  "Manual Cleanup Required For Cleaning IDN_OAUTH2_REVOKED_TOKENS and IDN_SUBJECT_ENTITY_REVOKED_EVENT"
+    The tables `IDN_OAUTH2_REVOKED_TOKENS` and `IDN_SUBJECT_ENTITY_REVOKED_EVENT` do not have an automatic cleanup procedure by default. You must **manually implement** cleanup scripts for these tables to avoid database bloat and maintain performance.
+
+Enable token cleanup by configuring the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+
+```toml
+[oauth.token_cleanup]
+enable = true
+```
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>enable</code></td>
+            <td>
+                <p>Set this property to <code>true</code> to enable refresh token cleanup.</p>
+                <p>Set it to <code>false</code> to disable token cleanup.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
