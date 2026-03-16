@@ -1,4 +1,4 @@
-# Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+# Copyright (c) 2023-2026, WSO2 LLC. (https://www.wso2.com).
 #
 # WSO2 LLC. licenses this file to you under the Apache License,
 # Version 2.0 (the "License"); you may not use this file except
@@ -190,6 +190,7 @@ extra:
               url: Guides|Organizations|Organizations
 hooks:
   - hooks.py
+  - ../../flatten_markdown.py
 
 plugins:
   - search:
@@ -751,11 +752,9 @@ nav:
         - Provisioning:
           - Inbound provisioning: guides/users/inbound-provisioning/inbound-provisioning.md
           - Outbound provisioning:
-            - Outbound provisioning: guides/users/outbound-provisioning/index.md
-            - Enable outbound provisioning:
-              - Organization-level provisioning: guides/users/outbound-provisioning/provisioning-levels/org-level.md
-              - IdP-level provisioning: guides/users/outbound-provisioning/provisioning-levels/idp-level.md
-            - Role-based provisioning: guides/users/outbound-provisioning/role-based-provisioning.md
+            - Overview: guides/users/outbound-provisioning/outbound-provisioning-overview.md
+            - Set up outbound provisioning: guides/users/outbound-provisioning/setup-outbound-provisioning.md
+            - Group-based provisioning: guides/users/outbound-provisioning/group-based-provisioning.md
             - Configure an outbound connector:
               - Google: guides/users/outbound-provisioning/outbound-connectors/google.md
               - Salesforce: guides/users/outbound-provisioning/outbound-connectors/salesforce.md
@@ -855,35 +854,44 @@ nav:
         - Build your own self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
           - Organizations: guides/organization-management/index.md
-          - Overview: guides/organization-management/organizations-overview.md
-          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
+          - Getting started:
+            - Overview: guides/organization-management/organizations-overview.md
           - Set up organizations: guides/organization-management/manage-organizations.md
-          - Set up administration for organizations: guides/organization-management/manage-b2b-administration.md
-          - Manage applications:
-            - Shared applications: guides/organization-management/share-applications.md
-            - Organization applications: guides/organization-management/organization-applications.md
-          - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
-          - Onboard admins:
-            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
-            - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
-            - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-          - Onboard users: guides/organization-management/onboard-users.md
-          - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
-          - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-          - Inheritance in organizations:
-            - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
-            - Login & registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
-            - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
-            - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
-            - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
-            - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
-            - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
-          - Organization discovery:
-            - Organization discovery: guides/organization-management/organization-discovery/index.md
-            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
-          - Customizations:
+          - Delegate administration:
+            - Set up administration portal: guides/organization-management/manage-b2b-administration.md
+            - Onboard administrators:
+              - Onboard administrators: guides/organization-management/onboard-org-admins/index.md
+              - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
+              - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
+          - Configure organization applications:
+            - Share applications: guides/organization-management/share-applications.md
+            - Create organization applications: guides/organization-management/organization-applications.md
+            - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
+          - Authorize API resources:
+            - Overview: guides/organization-management/api-authorization-overview.md
+            - Authorize applications to API resources: guides/organization-management/api-authorization-for-b2b.md
+            - Configure roles to consume authorized APIs: guides/organization-management/organization-roles.md
+            - Generate tokens for organization applications: guides/organization-management/generate-tokens-for-organization-apps.md
+          - Manage organization users:
+            - Onboard users: guides/organization-management/onboard-users.md
+            - Share users: guides/organization-management/share-user-profiles.md
+          - Customize organizations:
+            - Organization settings:
+              - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
+              - Login and registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
+              - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
+              - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
+              - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
+              - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
+              - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
             - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
-          - Cleaning up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
+          - Enable organization-based login:
+            - Organization discovery: guides/organization-management/organization-discovery/organization-discovery.md
+            - Email domain-based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+          - Offboard organizations:
+            - Disable or delete an organization: guides/organization-management/disable-delete-organizations.md
+            - Clean up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
+          - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
       - Notification Channels:
           - Configure Email Provider: guides/notification-channels/configure-email-provider.md
           - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
@@ -1042,6 +1050,7 @@ nav:
             - Manage keystores: deploy/security/keystores/configure-keystores.md
             - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
             - Configure custom keystores for authentication protocols: deploy/security/keystores/configure-custom-keystores.md
+        - Clean up flow context: deploy/flow-context-cleanup.md
       - Deploy:
         - Deployment overview:
           - Deployment Patterns: deploy/deployment-guide.md
@@ -1122,6 +1131,7 @@ nav:
             - "&lt;OrganizationSwitcher /&gt;": sdks/react/components/organization-components/organization-switcher.md
             - "&lt;OrganizationList /&gt;": sdks/react/components/organization-components/organization-list.md
             - "&lt;Organization /&gt;": sdks/react/components/organization-components/organization.md
+            - "&lt;OrganizationContext /&gt;": sdks/react/components/organization-components/organization-context.md
         - hooks:
           - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
       - Guides:
@@ -1255,7 +1265,9 @@ nav:
         - User Account Association API: apis/association-rest-api.md
         - Verification Code Management API: apis/verification-code-management-rest-api.md
         - Identity verification API: apis/admin-identity-verification.md
-      - User sharing management API: apis/organization-user-share-rest-api.md
+      - User sharing management APIs:
+        - V1 (deprecated): apis/organization-user-share-rest-api.md
+        - V2: apis/organization-user-share-v2-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
       - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md      
       - Webhook Management API: apis/webhook-management-rest-api.md
@@ -1301,6 +1313,7 @@ nav:
         - User Account Association API: apis/organization-apis/org-association-rest-api.md
         - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
+      - User sharing management API V2: apis/organization-apis/organization-user-share-v2.md
       - User store management API: apis/organization-apis/user-store.md
       - Validation rules API: apis/organization-apis/validation-rules.md
     - End User APIs:
@@ -1313,6 +1326,7 @@ nav:
         - User account association API: apis/me-association-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
         - Identity Verification: apis/user-identity-verification.md
+        - Self password update API: apis/self-password-update-rest-api.md
         - Verification Code Management Me API: apis/verification-code-management-me-api.md
   - References:
     - References: references/index.md

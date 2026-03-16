@@ -19,7 +19,7 @@ To manually enable or disable this feature, **you must update all related attrib
 1. On the {{ product_name }} Console, navigate to **User Attributes and Stores** > **Attributes**.
 2. Under **Manage Attributes**, click **Attributes** to view the list of all attributes.
 3. Click **Edit** next to the corresponding attribute.
-4. Enable/Disable the **Display this attribute on the user's profile** checkbox.
+4. Enable or disable the **Display** checkbox across all profiles (Administrator Console, End-User Profile, and Self-Registration).
 5. Click **Update** to save the changes.
 
 ## Exclude these attributes from a user store
