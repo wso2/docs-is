@@ -42,3 +42,9 @@ backchannel
 frontchannel
 URL
 timeframe
+localpwd
+localcrt
+CAs
+openssl
+keystores
+CA's

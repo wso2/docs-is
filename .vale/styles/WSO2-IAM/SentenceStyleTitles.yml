@@ -2,9 +2,7 @@ extends: capitalization
 message: "'%s' should use sentence-style capitalization."
 level: suggestion
 scope: heading
-match: $sentence
-indicators:
-  - ':'
+style: sentence
 exceptions:
   - Azure
   - CLI
@@ -35,3 +33,5 @@ exceptions:
   - Asgardeo
   - React Native App CLI
   - JWT
+  - X.509
+  - Certificate Authority (CA)
