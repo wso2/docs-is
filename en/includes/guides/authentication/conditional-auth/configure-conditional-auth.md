@@ -46,8 +46,6 @@ Secrets securely store values associated with external APIs. These secret values
 
 You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for conditional authentication script.
 
-You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for `callChoreo()` conditional authentication function.
-
 
 
 ### Create a new secret
