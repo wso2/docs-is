@@ -39,18 +39,14 @@ There are two ways to add a conditional authentication script:
 
 {% endif %}
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.1.0") %}
+
 ## Add a secret to the script
 Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
-
 You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for conditional authentication script.
 
-{% else %}
-
 You can securely store these secret values on the {{ product_name }} Console and retrieve them whenever required for `callChoreo()` conditional authentication function.
-
-{% endif %}
 
 
 
@@ -104,7 +100,6 @@ To add a new secret:
 
 6. Click **Finish** to complete the creation.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 ### Use secret in the script
 
@@ -115,8 +110,6 @@ var secretValue = secrets.secretName;
 ```
 
 This allows you to securely access secret values within your authentication scripts, enhancing the security and flexibility of your authentication process.
-
-{% endif %}
 
 ### Delete an existing secret
 
@@ -144,3 +137,5 @@ To delete an existing secret:
 4. Click the trash icon next to the secret you wish to delete.
 
 5. Select the checkbox and confirm your action.
+
+{% endif %}
