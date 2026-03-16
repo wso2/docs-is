@@ -77,7 +77,7 @@ If you selected **Manual Configuration** in the previous step, follow the steps 
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
-3. (Optional) Provide the mode of certificate configuration.
+2. (Optional) Provide the mode of certificate configuration.
 
     !!! note
         You can either configure a SAML metadata endpoint URL or upload a PEM certificate. {{ product_name }} uses the certificate to validate SAML response signatures and federated IdP-initiated logout request signatures.
@@ -103,11 +103,11 @@ If you selected **Manual Configuration** in the previous step, follow the steps 
 
 {% else %}
 
-3. (Optional) Upload the public certificate of the identity provider.
+2. (Optional) Upload the public certificate of the identity provider.
 
 {% endif %}
 
-4. Click **Finish** to complete the registration.
+3. Click **Finish** to complete the registration.
 
 ### Use a SAML metadata file
 
