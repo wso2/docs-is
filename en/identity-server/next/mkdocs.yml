@@ -663,11 +663,6 @@ nav:
           - Add conditional authentication:
             - Add conditional authentication: guides/authentication/conditional-auth/index.md
             - Set up conditional authentication: guides/authentication/conditional-auth/configure-conditional-auth.md
-            - Advanced scenarios:
-              - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
-              - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
-              - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
-              - OTP Retry and Resend Limits: guides/authentication/conditional-auth/otp-retry-resend-limits.md
             - Add access control:
               - Add access control: guides/authentication/conditional-auth/access-control.md
               - Age-based access: guides/authentication/conditional-auth/user-age-based-template.md
@@ -685,6 +680,11 @@ nav:
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
               - MFA based on TypingDNA: guides/authentication/conditional-auth/typingdna-based-adaptive-auth.md
+            - Specialized scenarios:
+              - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+              - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
+              - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
+              - OTP Retry and Resend Limits: guides/authentication/conditional-auth/otp-retry-resend-limits.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - App-native authentication:
