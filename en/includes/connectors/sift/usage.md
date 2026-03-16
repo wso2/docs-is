@@ -72,9 +72,9 @@ How it works:
 
 - Based on the returned risk score:
 
-    - If the score is greater than 0.7, it sends an error response, effectively blocking the login attempt.
+  - If the score is greater than 0.7, it sends an error response, effectively blocking the login attempt.
 
-    - If the score is between 0.5 and 0.7, it executes step 2 (e.g., an additional authentication step like OTP).
+  - If the score is between 0.5 and 0.7, it executes step 2 (e.g., an additional authentication step like OTP).
 
 - If step 1 fails, it calls the `publishLoginEventToSift()` function to notify Sift of the failed login attempt, which can help improve future risk assessments.
 
@@ -133,9 +133,9 @@ How it works:
 
 - Based on the returned decision ID:
 
-    - If the decision ID is `session_looks_bad_account_takeover`, it sends an error response, effectively blocking the login attempt.
+  - If the decision ID is `session_looks_bad_account_takeover`, it sends an error response, effectively blocking the login attempt.
 
-    - If the decision ID is `mfa_account_takeover`, it executes step 2 (e.g., an additional authentication step like OTP).
+  - If the decision ID is `mfa_account_takeover`, it executes step 2 (e.g., an additional authentication step like OTP).
 
 - If step 1 fails, it calls the `publishLoginEventToSift()` function to notify Sift of the failed login attempt, which can help improve future risk assessments.
 

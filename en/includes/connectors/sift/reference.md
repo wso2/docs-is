@@ -13,9 +13,9 @@ This function,
 - returns a value between 0 and 1. Higher the score, greater the risk.
 - returns –1 if an error occurs due to an invalid API key, network issue or a Sift server issue.
 - takes the following arguments.
-    - `AuthenticationContext` - Current authentication [context]({{base_path}}/references/conditional-auth/api-reference/#context).
-    - `LoginStatus` - Status of login; *LOGIN_SUCCESS* for a success status, *LOGIN_FAILED* for a failed status.
-    - `AdditionalParameters` - Any extra parameters you want to send to Sift as explained in [additional parameters](#additional-parameters).
+  - `AuthenticationContext` - Current authentication [context]({{base_path}}/references/conditional-auth/api-reference/#context).
+  - `LoginStatus` - Status of login; *LOGIN_SUCCESS* for a success status, *LOGIN_FAILED* for a failed status.
+  - `AdditionalParameters` - Any extra parameters you want to send to Sift as explained in [additional parameters](#additional-parameters).
 
 ## `getSiftWorkflowDecision()`
 
@@ -24,9 +24,9 @@ This function,
 - returns the Sift decision ID for a login event. This ID uniquely identifies the decision made during the Sift workflow for that event. Learn more about [Sift workflows](https://developers.sift.com/tutorials/workflows){: target="_blank"}.
 - returns null if an error occurs due to an invalid API key, network issue or a Sift server issue.
 - takes the following arguments.
-    - `AuthenticationContext` - Current authentication [context]({{base_path}}/references/conditional-auth/api-reference/#context).
-    - `LoginStatus` - Status of login; *LOGIN_SUCCESS* for a success status, *LOGIN_FAILED* for a failed status.
-    - `AdditionalParameters` - Any extra parameters you want to send to Sift as explained in [additional parameters](#additional-parameters).
+  - `AuthenticationContext` - Current authentication [context]({{base_path}}/references/conditional-auth/api-reference/#context).
+  - `LoginStatus` - Status of login; *LOGIN_SUCCESS* for a success status, *LOGIN_FAILED* for a failed status.
+  - `AdditionalParameters` - Any extra parameters you want to send to Sift as explained in [additional parameters](#additional-parameters).
 
 ## `publishLoginEventToSift()`
 
@@ -34,9 +34,9 @@ This function,
 
 - publishes the status of the current login event to Sift, indicating whether it succeeded or failed.
 - takes the following arguments.
-    - `AuthenticationContext` - Current authentication [context]({{base_path}}/references/conditional-auth/api-reference/#context).
-    - `LoginStatus` - Status of login; *LOGIN_SUCCESS* for a success status, *LOGIN_FAILED* for a failed status.
-    - `AdditionalParameters` - Any extra parameters you want to send to Sift as explained in [additional parameters](#additional-parameters).
+  - `AuthenticationContext` - Current authentication [context]({{base_path}}/references/conditional-auth/api-reference/#context).
+  - `LoginStatus` - Status of login; *LOGIN_SUCCESS* for a success status, *LOGIN_FAILED* for a failed status.
+  - `AdditionalParameters` - Any extra parameters you want to send to Sift as explained in [additional parameters](#additional-parameters).
 
 ## Additional parameters
 
@@ -68,7 +68,7 @@ var additionalParams = {
 
 The following user attributes may be included in the event payload depending on your [fraud detection configuration]({{base_path}}/connectors/sift/set-up/#step-3-configure-fraud-detection-settings).
 
-**User information**
+#### User information
 
 | Field | Description |
 |---|---|
@@ -76,7 +76,7 @@ The following user attributes may be included in the event payload depending on 
 | **Mobile** | The user's mobile phone number. Published only if in E.164 format. |
 | **Name** | The user's full name. If unavailable, the first or last name is used instead. |
 
-**User browser and device metadata**
+#### User browser and device metadata
 
 | Field | Description |
 |---|---|

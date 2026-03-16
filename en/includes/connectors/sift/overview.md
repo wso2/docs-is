@@ -27,8 +27,8 @@ How it works,
 - Sift returns this value to {{product_name}}.
 
 - Based on the configured threshold, {{product_name}} executes a predefined action:
-    - Allow login if the score is within acceptable limits.
-    - Deny login or enforce additional MFA if the score exceeds the threshold.
+  - Allow login if the score is within acceptable limits.
+  - Deny login or enforce additional MFA if the score exceeds the threshold.
 
 ## Decide based on decision ID
 
@@ -45,6 +45,6 @@ How it works,
 - When a user attempts to log in, {{product_name}} sends the relevant contextual data such as IP address, device details, geolocation, to Sift.
 - Sift analyzes these attributes along with its own data and returns a decision ID to {{product_name}}.
 - Based on the decision ID received, {{product_name}} executes the corresponding action:
-    - Allow login if the decision is `allow`.
-    - Deny login if the decision is `deny`.
-    - Enforce additional MFA if the decision is `challenge`.
+  - Allow login if the decision is `allow`.
+  - Deny login if the decision is `deny`.
+  - Enforce additional MFA if the decision is `challenge`.
