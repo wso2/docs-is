@@ -136,7 +136,7 @@ The `provider` object has the following structure:
 
 **Determine the provider name**
 
-Set `provider.name` to one of the name of the push notification providers that the administrator has configured in {{product_name}} and that your application intends to use for the device. The supported values are:
+Set `provider.name` to the name of one of the push notification providers that the administrator has configured in {{product_name}} and that your application intends to use for the device. The supported values are:
 
 - `FCM` — for Firebase Cloud Messaging
 - `AmazonSNS` — for Amazon Simple Notification Service
@@ -248,7 +248,7 @@ The below given is a sample request payload to be sent to the registration API.
       "deviceId": "<device unique identifier>",
       "model": "<device model>",
       "name": "<device name>",
-      "deviceToken": "<device token issued by the platform push service>",
+      "deviceToken": "<device unique identifier token>",
       "publicKey": "<base64 encoded public key>",
       "signature": "<base64 encoded signature>",
       "provider": {
@@ -267,12 +267,12 @@ The below given is a sample request payload to be sent to the registration API.
       "deviceId": "<device unique identifier>",
       "model": "<device model>",
       "name": "<device name>",
-      "deviceToken": "<device token issued by the platform push service>",
+      "deviceToken": "<device unique identifier token>",
       "publicKey": "<base64 encoded public key>",
       "signature": "<base64 encoded signature>"
     }
     ```
-    Although it is still supported with default provider configuration, it is highly reccomand you to use the new request payload. The main purpose for supporting this payload is to be backward compatible with already existing applications.
+    Although it is still supported with default provider configuration, it is highly recommend you to use the new request payload. The main purpose for supporting this payload is to be backward compatible with already existing applications.
 
 Upon successful registration, the registration request will return a **201 Created** response.
 
