@@ -260,7 +260,7 @@ The below given is a sample request payload to be sent to the registration API.
     }
     ```
 
-=== "Sample old request"
+=== "Sample legacy request"
 
     ```json
     {
