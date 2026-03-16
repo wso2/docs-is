@@ -128,7 +128,6 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     from langchain.agents import create_agent
     from langchain_google_genai import ChatGoogleGenerativeAI
     
-    
     # Load environment variables from .env file
     load_dotenv()
     
@@ -143,15 +142,12 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
         agent_secret=os.getenv("AGENT_SECRET")
     )
     
-    
     async def main():
-    
         # Scenario 1: AI agent acting on its own using its own credentials to authenticate
         async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
-    
-    
+
         # Connect to MCP Server with Authorization Header
         client = MultiServerMCPClient(
             {
@@ -354,7 +350,6 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     if __name__ == "__main__":
         main()
-    
     ```
 
 === "Vercel AI"
@@ -375,14 +370,14 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     load_dotenv()
     
     ASGARDEO_CONFIG = AsgardeoConfig(
-    base_url=os.getenv("ASGARDEO_BASE_URL"),
-    client_id=os.getenv("CLIENT_ID"),
-    redirect_uri=os.getenv("REDIRECT_URI")
+        base_url=os.getenv("ASGARDEO_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
     )
     
     AGENT_CONFIG = AgentConfig(
-    agent_id=os.getenv("AGENT_ID"),
-    agent_secret=os.getenv("AGENT_SECRET")
+        agent_id=os.getenv("AGENT_ID"),
+        agent_secret=os.getenv("AGENT_SECRET")
     )
     
     async def my_agent(llm, messages, auth_token):
@@ -1014,14 +1009,14 @@ Here is the updated implementation:
     load_dotenv()
     
     ASGARDEO_CONFIG = AsgardeoConfig(
-    base_url=os.getenv("ASGARDEO_BASE_URL"),
-    client_id=os.getenv("CLIENT_ID"),
-    redirect_uri=os.getenv("REDIRECT_URI")
+        base_url=os.getenv("ASGARDEO_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
     )
     
     AGENT_CONFIG = AgentConfig(
-    agent_id=os.getenv("AGENT_ID"),
-    agent_secret=os.getenv("AGENT_SECRET")
+        agent_id=os.getenv("AGENT_ID"),
+        agent_secret=os.getenv("AGENT_SECRET")
     )
     
     # 1. Define the agent logic (no decorators needed)
@@ -1040,8 +1035,8 @@ Here is the updated implementation:
     
     
     async def main():
-    async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-    agent_token = await auth_manager.get_agent_token(["openid", "email"])
+        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+            agent_token = await auth_manager.get_agent_token(["openid", "email"])
     
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
     
