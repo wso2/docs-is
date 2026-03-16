@@ -178,7 +178,7 @@ When you configure a SAML metadata endpoint, {{ product_name }} fetches and cach
 - **`validUntil`**: The absolute expiry timestamp of the metadata. {{ product_name }} invalidates the cached certificate when this timestamp is reached.
 - **`cacheDuration`**: The duration for which the metadata is considered valid. {{ product_name }} invalidates the cached certificate after this duration.
 
-If neither `validUntil` nor `cacheDuration` is defined, a default cache lifetime of 24 hours applies.
+If neither `validUntil` nor `cacheDuration` is defined, a default maximum cache lifetime of 24 hours applies.
 
 {% if product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
 
