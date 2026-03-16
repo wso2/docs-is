@@ -198,7 +198,7 @@ persist_refresh_token = false
     If you don't want the Identity Server to store revoked tokens and details related to revoked subjects, you can disable this by updating the following configuration.
     ```toml
     [oauth.token_persistence]
-    retain_revoked_access_token = false
+    retain_revoked_token = false
     ```
 
 ### Removing unused refresh tokens and revoke entries from the database
@@ -215,7 +215,7 @@ The following sections guide you through the different ways to perform cleanup a
 - [**Token Cleanup via Stored Procedure** (Recommended)](#token-cleanup-via-stored-procedure)
 - [**Configuring WSO2 Identity Server for token cleanup**](#configuring-wso2-identity-server-for-token-cleanup)
 
-#### Token Cleanup via Stored Procedure
+#### Token cleanup via stored procedure
 
 You can use the provided stored procedures to run a
 token cleanup task periodically to remove the old and invalid tokens and clean up the `IDN_OAUTH2_REVOKED_TOKENS` table.
