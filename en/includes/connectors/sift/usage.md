@@ -2,6 +2,11 @@
 
 Administrators can use the risk score or decision ID returned by Sift to decide whether to allow, deny, or step up authentication for a login attempt.
 
+{{product_name}} supports two mechanisms for Sift fraud detection:
+
+- **Event Publishing** — Passively publishes user events such as registrations, logins, logouts, credential updates, profile updates, and user verifications to Sift. Once configured, events are published automatically with no additional steps required. This is useful for events outside the login flow that conditional authentication cannot cover.
+- **Conditional Authentication** — Actively queries Sift during login and makes real-time authentication decisions based on the risk score or decision ID returned by Sift.
+
 This guide gives examples of how to use the Sift functions in [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) scripts to customize the login flow based on risk.
 
 ## Prerequisites
@@ -29,7 +34,6 @@ In this example scenario, imagine you want to fulfill the following requirements
 You can implement this using the [getSiftRiskScoreForLogin()]({{base_path}}/connectors/sift/reference/#getsiftriskscoreforlogin) function in a conditional authentication script as shown below.
 
 ```javascript
-
 var additionalParams = {
     "loggingEnabled": true, // enable logging for debugging
     "$user_agent": "" // prevent sending user agent info to Sift
@@ -45,7 +49,7 @@ var onLoginRequest = function (context) {
         onSuccess: function (context) {
             var riskScore = getSiftRiskScoreForLogin(context, "LOGIN_SUCCESS", additionalParams);
             if (riskScore == -1) {
-                console.log("Error occured while obtaining Sift score.");
+                Log.info("Error occured while obtaining Sift score.");
             }
             if (riskScore > 0.7) {
                 sendError(errorPage, suspiciousLoginError);
@@ -68,13 +72,13 @@ How it works:
 
 - Based on the returned risk score:
 
-      - If the score is greater than 0.7, it sends an error response, effectively blocking the login attempt.
+  - If the score is greater than 0.7, it sends an error response, effectively blocking the login attempt.
 
-      - If the score is between 0.5 and 0.7, it executes step 2 (e.g., an additional authentication step like OTP).
+  - If the score is between 0.5 and 0.7, it executes step 2 (e.g., an additional authentication step like OTP).
 
 - If step 1 fails, it calls the `publishLoginEventToSift()` function to notify Sift of the failed login attempt, which can help improve future risk assessments.
 
-- Additional parameters enable logging and prevent WSO2 Identity Server from sending the user agent information to Sift.
+- Additional parameters enable logging and prevent {{product_name}} from sending the user agent information to Sift.
 
 ## Decision ID-based scenario
 
@@ -106,7 +110,7 @@ var onLoginRequest = function (context) {
         onSuccess: function (context) {
             var workflowDecision = getSiftWorkflowDecision(context, "LOGIN_SUCCESS", additionalParams);
             if (workflowDecision == null) {
-                console.log("Error occured while obtaining Sift score.");
+                Log.info("Error occured while obtaining Sift score.");
             }
             if (workflowDecision == "session_looks_bad_account_takeover") {
                 sendError(errorPage, suspiciousLoginError);
@@ -129,9 +133,9 @@ How it works:
 
 - Based on the returned decision ID:
 
-      - If the decision ID is `session_looks_bad_account_takeover`, it sends an error response, effectively blocking the login attempt.
+  - If the decision ID is `session_looks_bad_account_takeover`, it sends an error response, effectively blocking the login attempt.
 
-      - If the decision ID is `mfa_account_takeover`, it executes step 2 (e.g., an additional authentication step like OTP).
+  - If the decision ID is `mfa_account_takeover`, it executes step 2 (e.g., an additional authentication step like OTP).
 
 - If step 1 fails, it calls the `publishLoginEventToSift()` function to notify Sift of the failed login attempt, which can help improve future risk assessments.
 

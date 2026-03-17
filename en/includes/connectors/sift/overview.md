@@ -5,9 +5,7 @@
 You can integrate {{product_name}} with Sift to assess the risk level of login attempts. During authentication, {{product_name}} sends relevant contextual data to Sift. Sift then evaluates the request and returns either a risk score or a decision ID. Based on this response, you can decide to:
 
 - Allow the login.
-
 - Deny the login.
-
 - Trigger additional verification (e.g., MFA).
 
 The following sections describe two common use cases for integrating {{product_name}} with Sift.
@@ -23,16 +21,14 @@ You can configure {{product_name}} to deny or step up authentication when the ri
 How it works,
 
 - When a user attempts to log in, {{product_name}} sends the relevant contextual data such as IP address, device details, geolocation, to Sift.
-  
+
 - Sift analyzes these attributes along with its own data and calculates a risk score.
-  
+
 - Sift returns this value to {{product_name}}.
-  
+
 - Based on the configured threshold, {{product_name}} executes a predefined action:
-
-      - Allow login if the score is within acceptable limits.
-
-      - Deny login or enforce additional MFA if the score exceeds the threshold.
+  - Allow login if the score is within acceptable limits.
+  - Deny login or enforce additional MFA if the score exceeds the threshold.
 
 ## Decide based on decision ID
 
@@ -47,13 +43,8 @@ By using decision IDs, organizations can offload complex risk logic to Sift, kee
 How it works,
 
 - When a user attempts to log in, {{product_name}} sends the relevant contextual data such as IP address, device details, geolocation, to Sift.
-
 - Sift analyzes these attributes along with its own data and returns a decision ID to {{product_name}}.
-
 - Based on the decision ID received, {{product_name}} executes the corresponding action:
-
-      - Allow login if the decision is `allow`.
-
-      - Deny login if the decision is `deny`.
-
-      - Enforce additional MFA if the decision is `challenge`.
+  - Allow login if the decision is `allow`.
+  - Deny login if the decision is `deny`.
+  - Enforce additional MFA if the decision is `challenge`.
