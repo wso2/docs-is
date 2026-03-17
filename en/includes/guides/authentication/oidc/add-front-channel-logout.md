@@ -21,8 +21,7 @@ The front-channel logout flow works as follows:
 4. {{ product_name }} responds with an HTML page that embeds an iframe for each application that has a front-channel logout URI configured.
 5. Upon receiving the logout request, each client application validates the requests and proceeds to invalidate the corresponding user session.
 
-When a user signs out, {{ product_name }} sends a front-channel logout request to the configured front-channel logout URL.
-Validate `iss` and `sid`, then terminate the matching user session.
+The logout request includes `iss` (issuer) and `sid` (session ID) query parameters.
 
 === "Logout request format"
 
