@@ -29,6 +29,8 @@ To use TOTP as a multi-factor authentication(MFA) option, application users need
 
 TOTP enrollment during the first login is enabled by default for all applications.
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
 {{ product_name }} provides two ways to control this enrollment behavior:
 
 - **Organization-level configuration**: Define a default policy that applies across all applications in the organization.
@@ -56,6 +58,14 @@ To configure TOTP enrollment for all applications in your organization:
 ### Configure at application level
 
 To override the organization-level setting for a specific application:
+
+{% else %}
+
+Administrators of an organization can configure their business applications to disable TOTP enrollment during the login flow of the users.
+
+To disable TOTP enrollment during login:
+
+{% endif %}
 
 1. On the {{ product_name }} Console, [enable TOTP](#enable-totp-for-an-app)  for a selected application.
 2. Turn on **Conditional Authentication** by switching the toggle.

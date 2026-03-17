@@ -2,7 +2,7 @@
 
 Grant types in OAuth 2.0 are defined as the methods used by a client to obtain an access token from the identity provider. {{product_name}} supports the following grant types. Each grant type is designed for a specific use case and supports different parameters.
 
-#### OAuth 2.0 grants
+## OAuth 2.0 grants
 
 - [Authorization code grant](#authorization-code-grant)
 - [Refresh token grant](#refresh-token-grant)
@@ -16,7 +16,7 @@ Grant types in OAuth 2.0 are defined as the methods used by a client to obtain a
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 {% endif %}
 
-#### {{product_name}}'s custom grants
+### {{product_name}}'s custom grants
 
 - [Organization switch grant](#organization-switch-grant)
 
@@ -35,14 +35,13 @@ The following diagram shows how the authorization code flow works.
 1. The user visits the client application and requests for login through {{ product_name }}.
 2. The client application redirects the authorization code request to {{ product_name }} (front channel).
 
-
     === "Request format (/authorize)"
 
         ``` bash
         {{base_url}}/oauth2/authorize
         ?response_type=code
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
+        &client_id=<client_id>
+        &redirect_uri=<redirect_uri>
         &scope=<scopes>
         ```
 
@@ -63,17 +62,18 @@ The following diagram shows how the authorization code flow works.
     ``` bash
     https://localhost:3000?code=9142d4cad58c66d0a5edfad8952192
     ```
+
 6. The client application uses this authorization code to request an access token from {{ product_name }} (back channel).
 
     === "Request format (/token)"
 
         ``` bash
         curl -v -X POST {{base_url}}/oauth2/token \ 
-        --basic -u <CLIENT_ID>:<CLIENT_SECRET> \
+        --basic -u <client_id>:<client_secret> \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
         --data-urlencode "grant_type=authorization_code" \
-        --data-urlencode "code=<AUTHORIZATION_CODE>" \
-        --data-urlencode "redirect_uri=<REDIRECT_URI>"
+        --data-urlencode "code=<authorization_code>" \
+        --data-urlencode "redirect_uri=<redirect_uri>"
         ```
 
     === "Sample request (/token)"
@@ -128,7 +128,7 @@ The following diagram shows how the refresh token flow works.
         --data-urlencode "grant_type=refresh_token" \
         --data-urlencode "refresh_token=<REFRESH_TOKEN>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -171,7 +171,7 @@ The following diagram shows how the client credentials grant flow works.
         --data-urlencode "grant_type=client_credentials" \
         --data-urlencode "scope=<scopes>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -192,7 +192,7 @@ The following diagram shows how the client credentials grant flow works.
     "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
-    
+
 3. The client application can now request for resources by providing the access token.
 
 4. The resource server returns the requested resources to the client application.
@@ -218,8 +218,8 @@ The following diagram shows how the implicit grant flow works.
         ```bash
         {{base_url}}/oauth2/authorize
         ?response_type=token
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
+        &client_id=<client_id>
+        &redirect_uri=<redirect_uri>
         ```
 
     === "Sample request (/authorize)"
@@ -272,7 +272,7 @@ The following diagram shows how the password grant flow works.
         --data-urlencode "scope=<scopes>"
 
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -305,7 +305,7 @@ The following diagram shows how the password grant flow works.
 
 ## Device authorization grant
 
-[Device authorization grant](https://datatracker.ietf.org/doc/html/rfc8628) (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser. 
+[Device authorization grant](https://datatracker.ietf.org/doc/html/rfc8628) (Device flow) is an OAuth 2.0 extension that lets clients sign in to applications through input-constrained devices and devices without a browser.
 Such devices include smart TVs, printers, and gaming consoles. The device flow does not require two-way communication between the OAuth client and the device. Instead, it guides the end user to another device, such as a smartphone, to complete the sign-in process.
 
 The diagram below illustrates the device flow.
@@ -318,16 +318,20 @@ The diagram below illustrates the device flow.
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/device_authorize \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=<CLIENT_ID>"
+        --data-urlencode "client_id=<client_id>" \
+        --data-urlencode "scope=<scopes>"
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
         curl -v -k -X POST {{base_url_example}}/oauth2/device_authorize \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga"
+        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
+        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
 2. {{product_name}} issues a device code, a user code, and a verification URI.
@@ -343,7 +347,6 @@ The diagram below illustrates the device flow.
     }
     ```
 
-
 3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
 
 4. {{ product_name }} prompts the user to enter the end-user code and the user enters the user code.
@@ -356,16 +359,18 @@ The diagram below illustrates the device flow.
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
-        --data-urlencode "client_id=<CLIENT_ID>" \
-        --data-urlencode "device_code=<DEVICE_CODE>"
+        --data-urlencode "client_id=<client_id>" \
+        --data-urlencode "device_code=<device_code>" 
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
         curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
         --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
@@ -379,7 +384,8 @@ The diagram below illustrates the device flow.
     "access_token":"74d610ab-7f4a-3b11-90e8-279d76644fc7",
     "refresh_token":"fdb58069-ecc7-3803-9b8b-6f2ed85eff19",
     "token_type":"Bearer",
-    "expires_in":3600
+    "expires_in":3600,
+    "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
 
@@ -491,10 +497,10 @@ The following diagram shows how the token exchange grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer" \
-        --data-urlencode "assertion=<base64-URL_encoded_assertion>" \
+        --data-urlencode "assertion=<base64_url_encoded_assertion>" \
         --data-urlencode "scope=<scopes>" \
         ```
-    
+
     === "Sample request (/token)"
 
         ```bash
@@ -527,14 +533,14 @@ The following diagram illustrates the process of obtaining an access token using
 
         ``` bash
         curl -v -X POST {{base_url}}/oauth2/token \
-        --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
+        --header 'Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=organization_switch' \
-        --data-urlencode 'token={access token from an organization}' \
-        --data-urlencode 'scope={required scopes}' \
-        --data-urlencode 'switching_organization={organization id}'
+        --data-urlencode 'token=<access_token_from_organization>' \
+        --data-urlencode 'scope=<scopes>' \
+        --data-urlencode 'switching_organization=<organization_id>'
         ```
-    
+
     === "Sample request (/token)"
 
         ``` bash

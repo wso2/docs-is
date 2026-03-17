@@ -46,6 +46,9 @@ A sample configuration is given below.
         - `<IS_HOME>/dbscripts/identity/postgresql.sql`
         - `<IS_HOME>/dbscripts/consent/postgresql.sql`
         
+        !!! info
+            For stored procedures, use the scripts in the `<IS_HOME>/dbscripts/identity/stored-procedures/postgresql/postgre-11x` folder. The supported PostgreSQL versions (15.10, 16.6, 17.4) are compatible with the 11x stored procedures.
+        
 2. `WSO2_SHARED_DB`
     
     1.  Configure the `deployment.toml` file.

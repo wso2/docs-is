@@ -59,7 +59,7 @@ Now that you have installed the Onfido connector, follow the steps below to inte
 3. Enter a name for the Onfido connector and the necessary configurations:
 
     - **API Token**: The API token generated via the Onfido dashboard.
-    - **Workflow ID**: The unique identifier for the Workflow created using Onfido Studio. For more information refer  to the [Onfido Workflow Setup Guide](onfido-setup-guide.md){: target="_blank"}.
+    - **Workflow ID**: The unique identifier for the Workflow created using Workflow Studio. For more information refer to the [Onfido Workflow Studio](https://documentation.identity.entrust.com/getting-started/onfido-studio-product/){: target="_blank"}.
     - **Base URL**: The regional base URL for Onfido API calls.
   
 4. Click **Create** to create the Onfido connector.
