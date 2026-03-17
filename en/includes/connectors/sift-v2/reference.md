@@ -61,12 +61,32 @@ var additionalParams = {
 }
 ```
 
+!!! important
+    The `$user_id` field sent to Sift is **not** the user's actual UUID. By default, it contains a hashed value of the username. To reliably identify users in Sift, use the `user_uuid` field, which is published separately in the event payload and contains the actual user UUID.
+
+### User data published to Sift
+
+The following user attributes may be included in the event payload depending on your [fraud detection configuration]({{base_path}}/connectors/sift/set-up/#step-3-configure-fraud-detection-settings).
+
+#### User information
+
+| Field | Description |
+|---|---|
+| **Email** | The user's registered email address. |
+| **Mobile** | The user's mobile phone number. Published only if in E.164 format. |
+| **Name** | The user's full name. If unavailable, the first or last name is used instead. |
+
+#### User browser and device metadata
+
+| Field | Description |
+|---|---|
+| **IP Address** | The user's IP address at the time of the event. |
+| **User Agent** | The browser or device user agent string associated with the user's session. |
+
 ### Enable logging
 
 You can enable logging by sending `"loggingEnabled": true` as an additional parameter in the functions.
 
-- If sent with `getSiftRiskScoreForLogin()` function, it logs the risk score that Sift returns.
-
-- If sent with `getSiftWorkflowDecision()`, it logs the Sift decision ID that Sift returns.
-
-- If sent with, `publishLoginEventToSift()`, it logs a success message.
+- If sent with `getSiftRiskScoreForLogin()`, it logs the risk score that Sift returns.
+- If sent with `getSiftWorkflowDecision()`, it logs the decision ID returned by Sift.
+- If sent with `publishLoginEventToSift()`, it logs a success message.
