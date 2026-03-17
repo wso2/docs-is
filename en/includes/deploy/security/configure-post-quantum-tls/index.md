@@ -36,7 +36,7 @@ A hybrid key agreement algorithm combines a classical algorithm with a post-quan
 3. Restart the Server.
 
 !!! note
-    Some outbound TLS connections may omit the SNI extension when the BC provider is enabled, causing certain servers to reject the handshake.
+    Some outbound TLS connections may omit the Server Name Indication (SNI) extension when the Bouncy Castle (BC) provider is enabled, causing certain servers to reject the handshake.
 
     To resolve this, add the following system property at server startup:
 
