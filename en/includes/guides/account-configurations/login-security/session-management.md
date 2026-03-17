@@ -51,7 +51,7 @@ To adjust session management settings, follow these steps:
   </tr>
   <tr>
     <td><code>Skip terminating current session and token on password update</code></td>
-    <td>If enabled, the current session and token will NOT be terminated or revoked when the user updates their password.</td>
+    <td>If enabled, the current session and token will NOT be terminated or revoked when the user updates their password using the <a href="{{base_path}}/guides/user-self-service/change-password">My Account portal</a> or <a href="{{base_path}}/apis/self-password-update-rest-api">the change password API</a>.</td>
   </tr>
 {% endif %}
 </table>
