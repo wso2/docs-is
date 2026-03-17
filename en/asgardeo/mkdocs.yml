@@ -235,6 +235,8 @@ nav:
       - React:
         - Quickstart: quick-starts/react.md
         - Complete Guide: complete-guides/react/introduction.md
+      - Vue:
+        - Quickstart: quick-starts/vue.md
       - Angular:
         - Quickstart: quick-starts/angular.md
         - Complete Guide: complete-guides/angular/introduction.md

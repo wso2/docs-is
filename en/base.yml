@@ -201,6 +201,9 @@ extra:
     React SDK:
       icon: fontawesome/brands/react
       level: 2
+    Vue SDK:
+      icon: fontawesome/brands/vuejs
+      level: 2
     Next.js SDK:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 2
@@ -218,6 +221,12 @@ extra:
       level: 3
     React Quickstart:
       icon: fontawesome/brands/react
+      level: 3
+    Vue:
+      icon: fontawesome/brands/vuejs
+      level: 3
+    Vue Quickstart:
+      icon: fontawesome/brands/vuejs
       level: 3
     .NET:
       icon: assets/libs/custom-icons/dotnet.svg
