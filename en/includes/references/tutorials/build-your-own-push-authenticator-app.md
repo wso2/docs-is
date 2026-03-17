@@ -17,7 +17,6 @@ A push authenticator application should have the following capabilities:
 {{product_name}} provides the necessary APIs to build your own push authenticator application. The below given guide explains how to build a push authenticator application using the APIs
 provided by {{product_name}}.
 
-
 ## Register push notification device
 
 For the users to receive push notifications during an authentication flow, they need to register their devices with the {{product_name}}.
@@ -28,10 +27,10 @@ The registration process starts with the user scanning a QR code that contains t
 can be accessed from the MyAccount portal or when push device progressive enrollment is enabled for an authentication flow of an application.
 
 !!! note
-    Learn more about enrolling push notification devices [via My Account](../../guides/user-self-service/register-push-notification-device.md) 
+    Learn more about enrolling push notification devices [via My Account](../../guides/user-self-service/register-push-notification-device.md)
     and [progressive enrollment](../../guides/authentication/mfa/add-push-auth-login.md#enable-push-notification-device-progressive-enrollment).
 
-The content encoded in the QR code is retrieved from the response of the push device registration discovery data API endpoint. 
+The content encoded in the QR code is retrieved from the response of the push device registration discovery data API endpoint.
 This response contains the following information:
 
 <table>
@@ -99,11 +98,11 @@ Regardless of the service, retrieve this unique token from the app instance and 
 
 Since push notification based authentication leverages asymmetric cryptography to secure the authentication process,
 during the registration process, the device should generate a **public and private key** and securely store the private key on the device.
-The private key is used to sign the authentication response during the authentication process and the public key is used by the IAM system 
+The private key is used to sign the authentication response during the authentication process and the public key is used by the IAM system
 to verify the signed authentication response.
 
-{{product_name}} supports public and private key pairs generated using the **RSA algorithm** with a key size of **2048 bits**. 
-In order to send the public key in the registration request, it should be converted to a **PEM format**, **headers and footers should be removed**, 
+{{product_name}} supports public and private key pairs generated using the **RSA algorithm** with a key size of **2048 bits**.
+In order to send the public key in the registration request, it should be converted to a **PEM format**, **headers and footers should be removed**,
 and the content should be **base64 encoded**.
 
 ### **Step 4**: Generate the signature for registration verification
@@ -134,14 +133,14 @@ The `provider` object has the following structure:
 }
 ```
 
-**Determine the provider name**
+#### Determine the provider name
 
 Set `provider.name` to the name of one of the push notification providers that the administrator has configured in {{product_name}} and that your application intends to use for the device. The supported values are:
 
 - `FCM` — for Firebase Cloud Messaging
 - `AmazonSNS` — for Amazon Simple Notification Service
 
-**Provider metadata**
+#### Provider metadata
 
 Each provider has different metadata requirements.
 
@@ -276,7 +275,6 @@ The below given is a sample request payload to be sent to the registration API.
 
 Upon successful registration, the registration request will return a **201 Created** response.
 
-
 ## Receive push notifications
 
 During a push notification based authentication flow, {{product_name}} builds the data required for the authentication and send it as a push notification through
@@ -353,10 +351,9 @@ The data sent through the push notification contains the following information:
 With the above information, the push authenticator app should display the authentication request information to the user.
 The user should be able to approve or deny the authentication request based on the information displayed.
 
-
 ## Invoke the authentication API
 
-The push authenticate API endpoint has to be invoked to send an authentication response to the {{product_name}} server from the push authenticator application. 
+The push authenticate API endpoint has to be invoked to send an authentication response to the {{product_name}} server from the push authenticator application.
 With this request, the {{product_name}} server will validate the authentication response and complete the authentication flow.
 
 The authentication from the push authenticator app should be in the form of a JWT token signed with the private key generated during the registration process.

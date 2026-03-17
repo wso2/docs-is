@@ -32,14 +32,12 @@ The following list shows the platforms that each provider supports.
 
       ![Update Push Provider]({{base_path}}/assets/img/guides/mfa/push/push-provider-configured-fcm.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-
 !!! note
     Firebase Cloud Messaging can send push notifications to iOS devices through Apple Push Notification Service (APNs). However, you need to configure APNs separately to send push notifications to iOS devices. For more information, [refer to the Firebase documentation](https://firebase.google.com/docs/cloud-messaging/ios/client).
 
 ### Configure Amazon Simple Notification Service (SNS)
 
 1. In the AWS console, create a platform application for each platform you plan to support (for example, FCM or APNs). For instructions, see [Mobile push notifications](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html) in the AWS documentation.
-
 
 2. Create an IAM user in the same AWS region and attach a policy that grants the following permissions. For guidance on creating IAM users and attaching policies, see the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 
@@ -56,14 +54,13 @@ The following list shows the platforms that each provider supports.
 4. Enter the **AWS Access Key ID**, **AWS Secret Access Key**, and **AWS Region** of the IAM user you created.
 
 5. Add the platform application ARN for each platform you created:
-      
+
     1. Select the platform from the **Select Platform** dropdown.
     2. Paste the platform application ARN in the text field.
     3. Click **+ Add**.
     4. Repeat for each platform.
 
       ![Configure Amazon SNS Platform ARNs]({{base_path}}/assets/img/guides/mfa/push/push-provider-configure-sns-platforms.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
 
 6. Click **Update** to save your changes.
 
@@ -88,4 +85,3 @@ To set a provider as the default:
 
 !!! note
     If you configure **only one provider** and do not explicitly set a default provider, {{ product_name }} uses that provider for legacy registration payloads. In that case, {{ product_name }} registers the device with the configured provider. However, we recommend that you still mark the provider as the default if you need legacy payload support.
-
