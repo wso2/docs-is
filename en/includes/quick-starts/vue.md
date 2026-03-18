@@ -7,7 +7,7 @@ Welcome to the Vue quickstart guide! In this document, you will learn to build a
 ## Configure an application in {{ product_name }}
 
 - Sign into the {{ product_name }} Console and navigate to **Applications > New Application**.
-- Select **Vue** and complete the wizard by providing a suitable name and an authorized redirect URL.
+- Select **Single-Page Application** and complete the wizard by providing a suitable name and an authorized redirect URL.
 
 !!! Example
     **Name:** `{{ product }}-vue`
@@ -82,7 +82,7 @@ Asgardeo Vue SDK provides all the components and composables you need to integra
 
 Add the following changes to `main.js` to register the plugin.
 
-```javascript title="src/main.js" hl_lines="3 6"
+```javascript title="src/main.js" hl_lines="3 7"
 import { createApp } from 'vue'
 import './style.css'
 import { AsgardeoPlugin } from '@asgardeo/vue'
@@ -102,7 +102,7 @@ Then replace the contents of `App.vue` with the following to wrap your app with 
     - `<your-app-client-id>`
     - `{{content.sdkconfig.baseUrl}}`
 
-```vue title="src/App.vue" hl_lines="2-4"
+```vue title="src/App.vue" hl_lines="2-5 7"
 <template>
   <AsgardeoProvider
     client-id="<your-app-client-id>"
@@ -119,7 +119,7 @@ Asgardeo Vue SDK provides `SignInButton` and `SignOutButton` components to handl
 
 Replace the contents of `App.vue` with the following.
 
-```vue title="src/App.vue" hl_lines="1-3 10-16"
+```vue title="src/App.vue" hl_lines="2 11-16"
 <script setup>
 import { SignedIn, SignedOut, SignInButton, SignOutButton } from '@asgardeo/vue'
 </script>
@@ -148,7 +148,7 @@ You can use the `UserProfile` or `UserDropdown` components to display user profi
 - `UserProfile`: Displays and allows the user to edit their profile information.
 - `UserDropdown`: Provides a dropdown menu with built-in user information and sign-out functionality.
 
-```vue title="src/App.vue" hl_lines="2 12 19-23"
+```vue title="src/App.vue" hl_lines="2 12 20-22"
 <script setup>
 import { SignedIn, SignedOut, SignInButton, SignOutButton, UserDropdown, UserProfile } from '@asgardeo/vue'
 </script>
