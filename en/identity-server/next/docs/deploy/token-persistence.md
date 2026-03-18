@@ -85,7 +85,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
   - **Opaque token generation** will continue to work as expected for applications configured to use opaque tokens.
   - Applications configured for **JWT access token type** will be switched to **non-persistent access token mode**, meaning JWT access tokens will no longer be stored in the database.
 - In the case of persistent token storage, if an active access token already exists during the token generation flow, the existing token will be marked as inactive. However, in the non-persistent mode, multiple active tokens can exist, as the authorization server does not store the access tokens.
-- **Token binding**, **Retrieving authorized apps for user**, and **OIDC Request Object** features are currently not supported in **non-persistent access token mode**.
+- **Token binding**, **Retrieving authorized apps for user**,**Rich Authorization Details**,  and **OIDC Request Object** features are currently not supported in **non-persistent access token mode**.
 - Actions like revoking issued access tokens when re-submitting an authorization code and revoking all issued access tokens when revoking refresh tokens are also not supported, because the Identity Server does not store access tokens in this mode.
 - In non-persistent mode, the cleanup deletes the selected entries; they are not moved to an audit table as in the persistent case.
 
