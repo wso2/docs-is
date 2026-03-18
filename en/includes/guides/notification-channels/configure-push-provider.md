@@ -3,7 +3,7 @@
 To use push notification-based authentication, you need to configure at least one push notification provider in {{ product_name }}. {{ product_name }} supports **Firebase Cloud Messaging (FCM)** and **Amazon Simple Notification Service (SNS)** as push notification providers.
 
 !!! note
-    You can configure **multiple providers** and keep them active at the same time. When a user enrolls a device, the device registers with the push provider that it specifies in the registration request. When {{ product_name }} sends a push notification, it uses the provider that the device registered with.
+    You can configure **multiple providers** and keep them active at the same time. During enrollment, the device will send the preferred push provider in the registration request. Once successfully registered, {{product_name}} will send push notifications via the device's registered push provider.
 
     You can also mark one provider as the **default push provider**.
 
@@ -39,13 +39,16 @@ The following list shows the platforms that each provider supports.
 
 1. In the AWS console, create a platform application for each platform you plan to support (for example, FCM or APNs). For instructions, see [Mobile push notifications](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html) in the AWS documentation.
 
-2. Create an IAM user in the same AWS region and attach a policy that grants the following permissions. For guidance on creating IAM users and attaching policies, see the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
+2. Create an IAM user and attach a policy that grants the following permissions. For guidance on creating IAM users and attaching policies, see the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 
     - `sns:CreatePlatformEndpoint` — register devices with SNS
     - `sns:GetEndpointAttributes` — retrieve device endpoint details
     - `sns:SetEndpointAttributes` — update device endpoint registrations
     - `sns:DeleteEndpoint` — unregister devices from SNS
     - `sns:Publish` — send push notifications to device endpoints
+
+!!! note
+    IAM users are global by default. If desired, you can limit the scope of these permissions to a specific AWS Region by defining the region in the policy's Resource ARN.
 
 3. Select the **Amazon SNS** tab on the Push Providers page.
 

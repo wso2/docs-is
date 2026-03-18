@@ -353,7 +353,7 @@ The user should be able to approve or deny the authentication request based on t
 
 ## Invoke the authentication API
 
-The push authenticate API endpoint has to be invoked to send an authentication response to the {{product_name}} server from the push authenticator application.
+The push authentication API endpoint has to be invoked to send an authentication response to the {{product_name}} server from the push authenticator application.
 With this request, the {{product_name}} server will validate the authentication response and complete the authentication flow.
 
 The authentication from the push authenticator app should be in the form of a JWT token signed with the private key generated during the registration process.
