@@ -680,9 +680,11 @@ nav:
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on ELK-risk: guides/authentication/conditional-auth/elk-risk-based-template.md
               - MFA based on TypingDNA: guides/authentication/conditional-auth/typingdna-based-adaptive-auth.md
-            - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
-            - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
-            - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
+            - Specialized scenarios:
+              - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+              - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
+              - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
+              - OTP Retry and Resend Limits: guides/authentication/conditional-auth/otp-retry-resend-limits.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - Configure multi-attribute login: guides/authentication/multi-attribute-login.md
           - App-native authentication:
@@ -704,6 +706,7 @@ nav:
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Grant types:
               - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
+              - CIBA Grant: guides/authentication/configure-ciba-grant.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Tokens and validation:
