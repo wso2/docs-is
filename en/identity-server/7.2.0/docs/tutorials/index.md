@@ -8,3 +8,6 @@ See the topics listed below for end-to-end tutorials on how to use WSO2 Identity
 - [Configure Choreo for silent password migration]({{base_path}}/references/tutorials/configure-choreo-for-password-migration/)
 - [Build your own push authenticator app]({{base_path}}/references/tutorials/build-your-own-push-authenticator-app/)
 - [Secure Agentic AI Systems with WSO2 Identity Server]({{base_path}}/tutorials/secure-agentic-ai-systems/)
+- [Integrating Asgardeo With WSO2 AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/)
+- [Integrating Asgardeo With Kong AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/kong-ai-gateway-with-agent-identity-aware-access-control/)
+
