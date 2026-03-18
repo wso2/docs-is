@@ -271,7 +271,11 @@ The below given is a sample request payload to be sent to the registration API.
       "signature": "<base64 encoded signature>"
     }
     ```
-    Although it is still supported with default provider configuration, it is highly recommend you to use the new request payload. The main purpose for supporting this payload is to be backward compatible with already existing applications.
+
+    !!! note
+        Although it is still supported with default provider configuration, it is highly recommended to use the new request payload. The main purpose for supporting this payload is to be backward compatible with already existing applications.
+
+        Note that Amazon SNS does not support this payload as it requires additional metadata.
 
 Upon successful registration, the registration request will return a **201 Created** response.
 

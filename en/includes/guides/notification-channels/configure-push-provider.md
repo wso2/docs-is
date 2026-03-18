@@ -47,8 +47,8 @@ The following list shows the platforms that each provider supports.
     - `sns:DeleteEndpoint` — unregister devices from SNS
     - `sns:Publish` — send push notifications to device endpoints
 
-!!! note
-    IAM users are global by default. If desired, you can limit the scope of these permissions to a specific AWS Region by defining the region in the policy's Resource ARN.
+    !!! note
+        IAM users are global by default. If desired, you can limit the scope of these permissions to a specific AWS Region by defining the region in the policy's Resource ARN.
 
 3. Select the **Amazon SNS** tab on the Push Providers page.
 
