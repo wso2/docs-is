@@ -19,7 +19,7 @@ Inbound provisioning is the process of automatically provisioning user accounts 
 3. Under **Provisioning user store domain**, select the user store to which you wish to provision the user.
 
     !!! note
-        Selecting **Proxy mode** allows {{product_name}} to act as a mediator. In this case, the user will not be provisioned to a user store but will be provisioned to the configured outbound connectors.
+        Selecting **Proxy mode** allows {{product_name}} to act as a mediator. In this case, the user will not be provisioned to a user store but will be provisioned to the external system through the configured outbound connectors.
 
 4. Click **Update** to save the changes.
 

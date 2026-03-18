@@ -2,7 +2,7 @@
 
 Grant types in OAuth 2.0 are defined as the methods used by a client to obtain an access token from the identity provider. {{product_name}} supports the following grant types. Each grant type is designed for a specific use case and supports different parameters.
 
-**OAuth 2.0 grants**
+## OAuth 2.0 grants
 
 - [Authorization code grant](#authorization-code-grant)
 - [Refresh token grant](#refresh-token-grant)
@@ -11,12 +11,13 @@ Grant types in OAuth 2.0 are defined as the methods used by a client to obtain a
 - [Password grant](#password-grant)
 - [Device authorization grant](#device-authorization-grant)
 - [Token exchange grant](#token-exchange-grant)
+- [CIBA grant](#ciba-grant)
 {% if product_name == "WSO2 Identity Server" %}
 - [JWT Bearer Grant](#jwt-bearer-grant)
 - [SAML 2.0 bearer grant](#saml-20-bearer-grant)
 {% endif %}
 
-#### {{product_name}}'s custom grants
+### {{product_name}}'s custom grants
 
 - [Organization switch grant](#organization-switch-grant)
 
@@ -35,14 +36,13 @@ The following diagram shows how the authorization code flow works.
 1. The user visits the client application and requests for login through {{ product_name }}.
 2. The client application redirects the authorization code request to {{ product_name }} (front channel).
 
-
     === "Request format (/authorize)"
 
         ``` bash
         {{base_url}}/oauth2/authorize
         ?response_type=code
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
+        &client_id=<client_id>
+        &redirect_uri=<redirect_uri>
         &scope=<scopes>
         ```
 
@@ -70,11 +70,11 @@ The following diagram shows how the authorization code flow works.
 
         ``` bash
         curl -v -X POST {{base_url}}/oauth2/token \ 
-        --basic -u <CLIENT_ID>:<CLIENT_SECRET> \
+        --basic -u <client_id>:<client_secret> \
         --header "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k \
         --data-urlencode "grant_type=authorization_code" \
-        --data-urlencode "code=<AUTHORIZATION_CODE>" \
-        --data-urlencode "redirect_uri=<REDIRECT_URI>"
+        --data-urlencode "code=<authorization_code>" \
+        --data-urlencode "redirect_uri=<redirect_uri>"
         ```
 
     === "Sample request (/token)"
@@ -219,8 +219,8 @@ The following diagram shows how the implicit grant flow works.
         ```bash
         {{base_url}}/oauth2/authorize
         ?response_type=token
-        &client_id=<CLIENT_ID>
-        &redirect_uri=<REDIRECT_URI>
+        &client_id=<client_id>
+        &redirect_uri=<redirect_uri>
         ```
 
     === "Sample request (/authorize)"
@@ -321,7 +321,8 @@ The diagram below illustrates the device flow.
         curl -v -k -X POST {{base_url}}/oauth2/device_authorize \
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=<CLIENT_ID>"
+        --data-urlencode "client_id=<client_id>" \
+        --data-urlencode "scope=<scopes>"
         ```
 
     === "Sample request (/token)"
@@ -330,7 +331,8 @@ The diagram below illustrates the device flow.
         curl -v -k -X POST {{base_url_example}}/oauth2/device_authorize \
         --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
         --header "Content-Type:application/x-www-form-urlencoded" \
-        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga"
+        --data-urlencode "client_id=bbwJEayR_OMwPkAgm9VOMzLnYLga" \
+        --data-urlencode "scope=internal_idp_view internal_idp_create internal_organization_view"
         ```
 
 2. {{product_name}} issues a device code, a user code, and a verification URI.
@@ -345,7 +347,6 @@ The diagram below illustrates the device flow.
     "expires_in":3600
     }
     ```
-
 
 3. The client device instructs the user to access the provided URI using a secondary device (e.g., a mobile device). The client device provides the user with the user code.
 
@@ -362,8 +363,8 @@ The diagram below illustrates the device flow.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:device_code" \
-        --data-urlencode "client_id=<CLIENT_ID>" \
-        --data-urlencode "device_code=<DEVICE_CODE>"
+        --data-urlencode "client_id=<client_id>" \
+        --data-urlencode "device_code=<device_code>" 
         ```
 
     === "Sample request (/token)"
@@ -384,13 +385,99 @@ The diagram below illustrates the device flow.
     "access_token":"74d610ab-7f4a-3b11-90e8-279d76644fc7",
     "refresh_token":"fdb58069-ecc7-3803-9b8b-6f2ed85eff19",
     "token_type":"Bearer",
-    "expires_in":3600
+    "expires_in":3600,
+    "scope": "internal_idp_view internal_idp_create internal_organization_view"
     }
     ```
 
 8. The client application can now request resources from the resource server by providing the access token.
 
 9. The resource server returns the requested user information to the client application.
+
+## CIBA grant
+
+[Client Initiated Backchannel Authentication (CIBA) grant](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html) is an authentication flow that decouples the consumption device from the authentication device. Instead of the user authenticating on the same device where the application resides (like a standard authorization code flow), the application initiates the authentication request in the background, and the user is prompted to authenticate via a separate device (such as a smartphone).
+
+The diagram below illustrates the CIBA flow.
+
+![How the CIBA grant works]({{base_path}}/assets/img/references/grants/ciba-grant.png)
+
+1. The client application (Consumption Device) sends a backchannel authentication request to {{product_name}}.
+
+    === "Request format (/ciba)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth2/ciba \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "scope=<scopes>" \
+        --data-urlencode "login_hint=<username>" \
+        --data-urlencode "binding_message=<custom_message>"
+        ```
+
+    === "Sample request (/ciba)"
+
+        ```bash
+        curl -v -k -X POST {{base_url_example}}/oauth2/ciba \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "scope=openid profile" \
+        --data-urlencode "login_hint=admin" \
+        --data-urlencode "binding_message=Please authenticate to My App"
+        ```
+
+2. {{product_name}} validates the request and issues an authentication request identifier (`auth_req_id`). Depending on the notification channel configured, it might also return an `auth_url` for user authentication.
+
+    ```json
+    {
+        "auth_req_id": "015a2f21-6844-4e9c-80dd-a608544dcd8f",
+        "interval": 2,
+        "auth_url": "{{base_url}}/oauth2/ciba_authorize?authCodeKey=2d9999e0-debb-4f9d-860b-ec221a478e42",
+        "expires_in": 120
+    }
+    ```
+
+3. {{product_name}} notifies the user to authenticate on a separate Authentication Device (e.g. by sending an email, SMS, or relying on external delivery of the `auth_url`).
+
+4. The user authenticates and provides consent via the Authentication Device.
+
+5. Meanwhile, the client application polls the token endpoint with the `auth_req_id` to retrieve the access token.
+
+    === "Request format (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url}}/oauth2/token \
+        --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "grant_type=urn:openid:params:grant-type:ciba" \
+        --data-urlencode "auth_req_id=<AUTH_REQ_ID>"
+        ```
+
+    === "Sample request (/token)"
+
+        ```bash
+        curl -v -k -X POST {{base_url_example}}/oauth2/token \
+        --header "Authorization: Basic YmJ3SkVheVJfT013UGtBZ205Vk9NekxuWUxnYTpTZDU2RGY3UkhLQm9JTWpWdzJLMnRhUzg5MjBh" \
+        --header "Content-Type:application/x-www-form-urlencoded" \
+        --data-urlencode "grant_type=urn:openid:params:grant-type:ciba" \
+        --data-urlencode "auth_req_id=015a2f21-6844-4e9c-80dd-a608544dcd8f"
+        ```
+
+6. If the user has authenticated successfully, the authorization server responds with the access token.
+
+    ```json
+    {
+        "access_token":"74d610ab-7f4a-3b11-90e8-279d76644fc7",
+        "refresh_token":"fdb58069-ecc7-3803-9b8b-6f2ed85eff19",
+        "id_token":"eyJ4...",
+        "token_type":"Bearer",
+        "expires_in":3600
+    }
+    ```
+
+7. The client application can now request resources from the resource server by providing the access token.
+
+8. The resource server returns the requested user information to the client application.
 
 ## Token exchange grant
 
@@ -496,7 +583,7 @@ The following diagram shows how the token exchange grant flow works.
         --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
         --header "Content-Type:application/x-www-form-urlencoded" \
         --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer" \
-        --data-urlencode "assertion=<base64-URL_encoded_assertion>" \
+        --data-urlencode "assertion=<base64_url_encoded_assertion>" \
         --data-urlencode "scope=<scopes>" \
         ```
 
@@ -532,14 +619,14 @@ The following diagram illustrates the process of obtaining an access token using
 
         ``` bash
         curl -v -X POST {{base_url}}/oauth2/token \
-        --header 'Authorization: Basic <base64 Encoded (clientId:clientSecret)>' \
+        --header 'Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=organization_switch' \
-        --data-urlencode 'token={access token from an organization}' \
-        --data-urlencode 'scope={required scopes}' \
-        --data-urlencode 'switching_organization={organization id}'
+        --data-urlencode 'token=<access_token_from_organization>' \
+        --data-urlencode 'scope=<scopes>' \
+        --data-urlencode 'switching_organization=<organization_id>'
         ```
-    
+
     === "Sample request (/token)"
 
         ``` bash

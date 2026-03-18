@@ -1,6 +1,6 @@
 # Configure outbound provisioning with Google
 
-This guide explains how you can configure Google as an outbound connector in {{product_name}}.
+This guide explains how you can configure Google for outbound provisioning in {{product_name}}.
 
 ## Configure Google Workspace for provisioning
 
@@ -36,20 +36,18 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
     8. From **IAM & Admin** > **Service accounts**, take note of the client ID of your service account.
 
-    9. Select the service account and in the **DETAILS** tab, expand **Advanced settings**.
+2. Delegate domain-wide authority to the service account:
 
-    10. Delegate domain-wide authority to the service account.
+    1. Select your service account and in the **DETAILS** tab, expand **Advanced settings**. Enable domain-wide delegation for the service account.
 
         !!! note
-            Learn how to do so in the [Google documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority){: target="#"}.
+            Learn how to enable domain-wide delegation in the [Google documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority){: target="#"}.
 
-5. Delegate domain-wide authority to the service account:
+    2. Go to your domain's [admin console](https://admin.google.com){:target="_blank"}.
 
-    1. Go to your domain's [admin console](https://admin.google.com){:target="_blank"}.
+    3. Navigate to **Security** > **Access and data control** > **API Controls** > **Domain-wide Delegation**.
 
-    2. Navigate to **Security** > **Access and data control** > **API Controls** > **Domain-wide Delegation**.
-
-    3. Do the following:
+    4. Do the following:
         1. Click **Add new** and paste the client ID of the service account.
 
         2. Enter the following as the value for scopes.
@@ -57,7 +55,7 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
         3. Click **Authorize**.
 
-7. Enable the Admin SDK.
+3. Enable the Admin SDK.
 
     1. Open the [Google developers console](https://console.developers.google.com/cloud-resource-manager){:target="_blank"}.
 
@@ -69,32 +67,36 @@ Follow the steps below to learn how you can configure Google Workspace for provi
 
 ## Configure the Google outbound connector
 
-Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/org-level) or [IdP-level]({{base_path}}/guides/users/outbound-provisioning/provisioning-levels/idp-level) outbound provisioning and enter the following details to configure the Google outbound connector.
+{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+[Set up outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) and enter the following details to configure the Google outbound connector.
+{% else %}
+Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) outbound provisioning connection and enter the following details to configure the Google outbound connector.
+{% endif %}
 
 <table>
     <tr>
         <td>Google Domain</td>
-        <td>The name of the Google domain used to provision users.</br>
+        <td>The name of the Google domain to which users will be provisioned.<br/>
             e.g.<code> mygoogledomain.com</code></td>
     </tr>
     <tr>
         <td>Primary Email Claim</td>
-        <td>Claim URI that will be used to retrieve the primary email address of the created account. This must be an attribute that is available locally in {{product_name}}.</br>
+        <td>Claim URI that will be used to retrieve the primary email address of the created account. This must be an attribute that is available locally in {{product_name}}.<br/>
             e.g. <code>http://wso2.org/claims/emailaddress</code></td>
     </tr>
     <tr>
         <td>Given Name Claim</td>
-        <td>Claim URI which will be used to retrieve the given name attribute of the user. This must be an attribute that is available locally in {{product_name}}.</br>
+        <td>Claim URI which will be used to retrieve the given name attribute of the user. This must be an attribute that is available locally in {{product_name}}.<br/>
             e.g. <code>http://wso2.org/claims/givenname</code></td>
     </tr>
     <tr>
         <td>Family Name Claim</td>
-        <td>Claim URI which will be used to retrieve the family name attribute of the user. This must be an attribute that is available locally in {{product_name}}.</br>
-            e.g. <code>http://wso2.org/claims/lastnname</code></td>
+        <td>Claim URI which will be used to retrieve the family name attribute of the user. This must be an attribute that is available locally in {{product_name}}.<br/>
+            e.g. <code>http://wso2.org/claims/lastname</code></td>
     </tr>
     <tr>
         <td>Service Account Email</td>
-        <td>Email used for authentication.</br>
+        <td>Email used for authentication.<br/>
         e.g. <code>d343s86gf@developer.gserviceaccount.com</code></td>
     </tr>
     <tr>
@@ -111,13 +113,12 @@ Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/
     </tr>
     <tr>
         <td>Google Outbound Provisioning Pattern</td>
-        <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.</br>
+        <td>{{product_name}} uses this pattern to build the user ID of the provisioned user account. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.<br/>
         e.g. <code>{UD,UN,TD,IDP}</code></td>
     </tr>
     <tr>
         <td>Google Provisioning Separator </td>
-        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a></br>
+        <td>Used to separate provisioning pattern attributes of the user ID. Learn more about <a href="{{base_path}}/guides/users/outbound-provisioning/provisioning-patterns">provisioning patterns</a>.<br/>
         e.g. <code>-</code>(hyphen).</td>
-        </td>
     </tr>
 </table>
