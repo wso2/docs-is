@@ -2,7 +2,7 @@
 
 Whether you are a large enterprise, startup, or medium-sized business, one of the key software components you need to invest in is an employee identity solution. This system helps you efficiently provision and deprovision users, while managing their access across your organization. Too relaxed employee identity practices increase both security and business risks, while overly strict employee identity practices can lead to inefficiencies and frustration among staff. Therefore, it is important to choose an employee identity solution that aligns with your security requirements and increases productivity. A well-implemented identity solution offers several benefits, including:
 
-- **Improved Efficiency and Productivity** - Employee identity solutions improve efficiency and productivity by automating user provisioning and deprovisioning, ensuring that staff members have the correct system access without the need for manual intervention. Enterprise Single-Sign-On (SSO) allows seamless access to multiple applications, both on-premise and cloud-based, without the need to login in again. Additionally, the group and role-based capabilities make it easier to manage access based on job roles.
+- **Improved Efficiency and Productivity** - Employee identity solutions improve efficiency and productivity by automating user provisioning and deprovisioning, ensuring that staff members have the correct system access without the need for manual intervention. Enterprise Single-Sign-On (SSO) allows seamless access to multiple applications, both on-premise and cloud-based, without the need to log in again. Additionally, the group and role-based capabilities make it easier to manage access based on job roles.
 
 - **Enhanced Security** - Employee identity solutions enhance security by offering advanced authentication methods like security keys, passkeys, and push notifications. Risk-based adaptive authentication evaluates access based on factors like location, device, and behavior, while access control limits permissions to what's necessary for job duties. Automated provisioning and deprovisioning ensure prompt removal of access when employees leave or change roles, also helping enforce security policies.
 
@@ -24,7 +24,7 @@ Automate and create unified onboarding experiences for your workforce by integra
 
 Secure user accounts of your workforce and business applications by enforcing MFA options. {{product_name}} offers secure MFA options including SMS and Email OTP, TOTP using authenticator apps, FIDO-based Passkeys, Duo-based push notifications and hardware tokens and facial biometrics such as iProov.   
 
- Eliminate the need for passwords and offer secure passwordless authentication for your workforce using Magic Link, Passkeys, biometrics and Email/SMS OTPs. 
+Eliminate the need for passwords and offer secure passwordless authentication for your workforce using Magic Link, Passkeys, biometrics and Email/SMS OTPs. 
 
 - Configure Email OTP for your workforce
 - Configure SMS OTP for your workforce
@@ -68,7 +68,7 @@ Add self-manage features for your application users:
 - Allow users to update their user profiles
 - Allow users to update their passwords 
 - Allow users to recover forgotten password 
-- Allow users to login with multiple login identities
+- Allow users to log in with multiple login identities
 - Allow users to associate social accounts 
 - Allow users to enable MFA 
 - Allow users to enroll passkeys 
