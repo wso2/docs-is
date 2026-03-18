@@ -43,7 +43,7 @@ The following list shows the platforms that each provider supports.
 
 ### Configure Amazon Simple Notification Service (SNS)
 
-1. In the AWS console, create a platform application for each platform you plan to support (for example, FCM or APNs). For instructions, see [Mobile push notifications](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html) in the AWS documentation.
+1. In the AWS Management Console, create a platform application for each platform you plan to support (for example, FCM or APNs). For instructions, see [Mobile push notifications](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html) in the AWS documentation.
 
 2. Create an IAM user and attach a policy that grants the following permissions. For guidance on creating IAM users and attaching policies, see the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 

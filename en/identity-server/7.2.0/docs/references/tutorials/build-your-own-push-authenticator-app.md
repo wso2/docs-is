@@ -2,5 +2,4 @@
 
 {% set product_name = "WSO2 Identity Server" %}
 {% set is_version = "7.2.0" %}
-
 {% include "../../../../../includes/references/tutorials/build-your-own-push-authenticator-app.md" %}

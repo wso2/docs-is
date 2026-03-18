@@ -98,8 +98,8 @@ Regardless of the service, retrieve this unique token from the app instance and 
 
 {% else %}
 
-Push notifications are sent to a unique device of a user during the authentication process. These notifications are sent through different push notification services. 
-These services identify the device using a **unique identifier**. Since, the IAM system triggers the push notification through the 
+Push notifications are sent to a unique device of a user during the authentication process. These notifications are sent through different push notification services.
+These services identify the device using a **unique identifier**. Since, the IAM system triggers the push notification through the
 push notification service, the device unique identifier should be registered with the IAM system.
 
 {{product_name}} supports Firebase Cloud Messaging (FCM) to send push notifications. Firebase identifies the devices using a unique identifier called the **registration token**.
@@ -318,7 +318,7 @@ The below given is a sample request payload to be sent to the registration API.
 
 {% endif %}
 
-Upon successful registration, the registration request will return a **201 Created** response.
+Upon successful registration, the registration request returns a **201 Created** response.
 
 ## Receive push notifications
 
