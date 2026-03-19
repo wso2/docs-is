@@ -48,35 +48,35 @@ Customize the dropdown appearance and fallback content:
 
 ## Props
 
-The `UserDropdown` component accepts all props from `BaseUserDropdown`, except `user` and `onManageProfile` (handled internally):
+The `UserDropdown` component accepts the following props:
 
 | Prop             | Type                           | Required | Description |
 |------------------|-------------------------------|----------|-------------|
+| `attributeMapping`    | `object`                  | ❌       | Mapping of component attribute names to identity provider field names. Supports `firstName`, `lastName`, `picture`, and `username` fields |
+| `className`           | `string`                  | ❌       | CSS class name for the dropdown container |
 | `menuItems`      | `MenuItem[]`                  | ❌       | Custom menu items for the dropdown |
 | `showTriggerLabel` | `boolean`                    | ❌       | Show user's name next to avatar |
-| `avatarSize`     | `number`                      | ❌       | Size of the avatar |
+| `avatarSize`     | `number`                      | ❌       | Size of the avatar in pixels |
 | `fallback`       | `ReactElement`                | ❌       | Content to show when no user is signed in |
 | `children`       | `function`                    | ❌       | Render prop for full customization |
 | `renderTrigger`  | `function`                    | ❌       | Custom trigger button renderer |
-
-### BaseUserDropdown props
-
-The `UserDropdown` component internally uses the `BaseUserDropdown` component and accepts all its props except `user` and `onManageProfile`, which are handled automatically. The following table lists all available props from `BaseUserDropdown`:
-
-| Prop                  | Type                      | Required | Description |
-|-----------------------|---------------------------|----------|-------------|
-| `attributeMapping`    | `object`                  | ❌       | Mapping of component attribute names to identity provider field names. Supports `firstName`, `lastName`, `picture`, and `username` fields |
-| `avatarSize`          | `number`                  | ❌       | Size of the avatar in pixels |
-| `className`           | `string`                  | ❌       | CSS class name for the dropdown container |
-| `fallback`            | `ReactElement`            | ❌       | Element to render when no user is signed in |
 | `isLoading`           | `boolean`                 | ❌       | Whether the user data is currently loading. Automatically managed by `UserDropdown` |
-| `menuItems`           | `MenuItem[]`              | ❌       | Menu items to display in the dropdown |
-| `onManageProfile`     | `function`                | ❌       | Callback function for manage profile action. Automatically managed by `UserDropdown` |
 | `onSignOut`           | `function`                | ❌       | Callback function for sign out action |
 | `portalId`            | `string`                  | ❌       | The HTML element ID where the portal should be mounted |
 | `showDropdownHeader`  | `boolean`                 | ❌       | Show dropdown header with user information |
-| `showTriggerLabel`    | `boolean`                 | ❌       | Show user's display name next to avatar in the trigger button |
-| `user`                | `object`                  | ✅       | The user object containing profile information. Automatically provided by `UserDropdown` |
+
+### Render prop arguments
+
+When using the `children` or `renderTrigger` render props, the following arguments are provided:
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `user` | `object` | The authenticated user object. Note that `user.name` is a nested object with `givenName` and `familyName` fields rather than a flat string |
+| `isLoading` | `boolean` | Whether the user data is currently loading |
+| `isProfileOpen` | `boolean` | Whether the profile dialog is currently open |
+| `openProfile` | `function` | Opens the user profile dialog |
+| `closeProfile` | `function` | Closes the user profile dialog |
+| `signOut` | `function` | Triggers the sign-out flow |
 
 #### MenuItem interface
 
