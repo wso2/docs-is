@@ -667,3 +667,14 @@ Content-Type: application/json
 
 !!! note
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
+
+{% if (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+## Custom authentication with app-native authentication
+
+You can configure custom authentication services in app-native authentication flows, which authenticate users through API-based mechanisms instead of redirecting them to a web browser.
+
+!!! note
+    Learn more about [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/)
+
+Refer to the [custom authentication-based app-native authentication flow]({{base_path}}/references/app-native-authentication/#scenario-9-user-logs-in-with-service-based-custom-authentication) for a detailed guidance on how to implement this.
+{% endif %}

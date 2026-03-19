@@ -8,3 +8,4 @@
 {% include "../../../../includes/references/concurrent-session-based-access-control-app-native-reference.md" %}
 {% set api_oauth2_path = "https://localhost:9443/oauth2" %}
 {% include "../../../../includes/references/device-flow-app-native-reference.md" %}
+{% include "../../../../includes/references/custom-authentication-app-native-reference.md" %}

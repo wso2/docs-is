@@ -104,7 +104,7 @@ Now that you have configured {{ product_name }}, set up and run the sample appli
 Clone the project repository from GitHub to your local machine and navigate into the project directory.
 
 ```bash
-git clone https://github.com/shashimalcse/iam-ai-samples.git
+git clone https://github.com/wso2/iam-ai-samples.git
 cd iam-ai-samples/hotel-booking-agent-autogen-agent-iam
 ```
 

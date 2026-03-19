@@ -469,9 +469,7 @@ paths:
         Retrieve identity provider by identity provider's ID
       description: >
         This API provides the capability to retrieve the identity provider
-        details by using its ID. Furthermore, by specifying the "Accept :
-        application/xml" header, it provides the ability to export IdP data as
-        XML. <br>
+        details by using its ID.
         <b>Scope(Permission) required:</b> `internal_idp_view`
       operationId: getIDP
       parameters:
@@ -2997,6 +2995,10 @@ components:
         jwksUri:
           type: string
           example: "https://localhost:9444/oauth2/jwks"
+        samlMetadataUri:
+          type: string
+          description: The SAML metadata endpoint URL of the external identity provider. When configured, WSO2 Identity Server fetches and caches the signing certificate from this URL to validate SAML response signatures and IdP-initiated logout request signatures.
+          example: "https://idp.example.com/saml/metadata"
     IdentityProviderPOSTRequest:
       type: object
       required:

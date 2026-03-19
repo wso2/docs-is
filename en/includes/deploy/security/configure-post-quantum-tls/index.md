@@ -12,8 +12,6 @@ A hybrid key agreement algorithm combines a classical algorithm with a post-quan
 
 - **Hybrid compatibility**: Ensures compatibility with current systems while introducing quantum-resistant security.
 
-- **Optimized performance**: Leverages TLS 1.3 for faster handshakes and stronger encryption.
-
 ## Supported communication channels
 
 {{ product_name }} supports post-quantum security for both:
