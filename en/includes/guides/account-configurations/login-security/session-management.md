@@ -51,7 +51,17 @@ To adjust session management settings, follow these steps:
   </tr>
   <tr>
     <td><code>Skip terminating current session and token on password update</code></td>
-    <td>If enabled, the current session and token will NOT be terminated or revoked when the user updates their password using the <a href="{{base_path}}/guides/user-self-service/change-password">My Account portal</a> or <a href="{{base_path}}/apis/self-password-update-rest-api">the change password API</a>.</td>
+    <td>
+      When enabled, the system does not terminate or revoke the current session and token when the user updates their password. This behavior applies when the password is updated via:
+      <ul>
+        <li><a href="{{base_path}}/guides/user-self-service/change-password">My Account</a> portal.</li>
+        <li><a href="{{base_path}}/apis/self-password-update-rest-api">Self Password Update API</a> (using an OAuth2 access token).</li>
+        <li>{% if product_name == "WSO2 Identity Server" %}<a href="{{base_path}}/apis/scim2-me-rest-apis/#tag/Me-Endpoint/operation/patchUserMe">SCIM 2.0 Me API</a>{% elif product_name == "Asgardeo" %}<a href="{{base_path}}/apis/scim2-me/#tag/Me-Endpoint/operation/patchUserMe">SCIM 2.0 Me API</a>{% endif %} (using an OAuth2 access token).</li>
+      </ul>
+      Password updates via the SCIM 2.0 Me endpoint using Basic Authentication bypass this configuration and terminate the active session and token.
+      <br><br>
+      <strong>Note:</strong> For self-service password management, WSO2 recommends using the <a href="{{base_path}}/apis/self-password-update-rest-api">Self Password Update API</a>.
+    </td>
   </tr>
 {% endif %}
 </table>
