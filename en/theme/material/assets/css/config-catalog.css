@@ -120,7 +120,7 @@
     display: table;
     width: 100%;
     max-width: 770px;
-    border: 1px solid #f5f5f5;
+    border: 1px solid var(--md-default-fg-color--lighter);
     padding: 0 1em 1em;
     overflow-x: hidden;
 }
@@ -243,7 +243,7 @@
 }
 
 .mb-config-catalog > section:not(.title) > .mb-config-options {
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid var(--md-default-fg-color--lighter);
     padding-top: 1em;
 }
 
@@ -252,8 +252,8 @@
 }
 
 .mb-config-catalog > section:not(.title) > .mb-config-example {
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid var(--md-default-fg-color--lighter);
+    border-bottom: 1px solid var(--md-default-fg-color--lighter);
 }
 
 .mb-config-catalog > section.title > .mb-config-example {
@@ -387,7 +387,7 @@
 .mb-config-catalog .mb-config .param > .param-info {
     display: table-cell;
     width: 100%;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--md-default-fg-color--lighter);
     padding: 10px 10px 10px 0;
     box-sizing: border-box;
     word-break: break-word;
