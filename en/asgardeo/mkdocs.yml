@@ -419,6 +419,7 @@ nav:
       - User management:
         - User management: guides/users/index.md
         - Manage administrators: guides/users/manage-administrators.md
+        - Configure enterprise login: guides/users/configure-enterprise-login.md
         - Users: 
           - Onboard users: guides/users/onboard-users.md
           - Manage users: guides/users/manage-users.md
