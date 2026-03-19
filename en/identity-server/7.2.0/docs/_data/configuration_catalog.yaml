@@ -33,7 +33,7 @@ sections:
       - key: serverDetails
         type: string
         required: false
-        default: "WSO2 IS as KM 5.11.0"
+        default: "WSO2 Identity Server"
         description: >
           A description of the server instance.
 
@@ -106,19 +106,19 @@ sections:
       - key: alias
         type: string
         required: true
-        default: "$env{ENV_VAR}"
+        default: wso2carbon
         description: >
           The alias of the TLS key entry inside the keystore.
       - key: key_password
         type: string
         required: true
-        default: "$env{ENV_VAR}"
+        default: wso2carbon
         description: >
           The password for the TLS key entry.
       - key: password
         type: string
         required: true
-        default: "$env{ENV_VAR}"
+        default: wso2carbon
         description: >
           The password for the TLS keystore file.
 
@@ -134,7 +134,7 @@ sections:
       - key: password
         type: string
         required: true
-        default: "$env{ENV_VAR}"
+        default: wso2carbon
         description: >
           The password for the truststore file.
 

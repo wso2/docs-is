@@ -325,7 +325,6 @@
     box-sizing: border-box;
     position: relative;
     padding: 1.7em 0;
-    vertical-align: top;
     line-height: 20px;
     white-space: nowrap;
     font-size: .929em;
@@ -390,7 +389,7 @@
     border-bottom: 1px solid var(--md-default-fg-color--lighter);
     padding: 10px 10px 10px 0;
     box-sizing: border-box;
-    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .mb-config-catalog .mb-config .param-default {
