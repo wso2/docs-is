@@ -42,3 +42,9 @@ backchannel
 frontchannel
 URL
 timeframe
+hostnames
+keystores
+vCPUs
+failover
+[Ff]ailover
+liveness

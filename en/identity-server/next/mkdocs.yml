@@ -966,147 +966,154 @@ nav:
     - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
     - Secure Agentic AI Systems with WSO2 Identity Server: tutorials/secure-agentic-ai-systems.md
   - Setup:
-      - Install:
-        - Install: deploy/get-started/install.md
-        - Run: deploy/get-started/run-the-product.md
-        - Get WSO2 updates: deploy/get-started/get-wso2-updates.md
-      - Configure:
-        - User Stores:
-          - User Stores: deploy/configure/user-stores/index.md
-          - Add high availability for LDAP: deploy/configure/user-stores/configure-high-availability-ldap.md
-          - Secure a JDBC user store with hashing: deploy/configure/user-stores/securing-a-user-store-with-hashing.md
-          - Configure the Authorization Manager: deploy/configure/user-stores/configure-authorization-manager.md
-          - Configure the System Administrator: deploy/configure/user-stores/configure-system-administrator.md
-        - Databases:
-          - Databases: deploy/configure/databases/index.md
-          - Change the Carbon Database:
-            - Change the Carbon Database: deploy/configure/databases/carbon-database/index.md
-            - Change to IBM DB2: deploy/configure/databases/carbon-database/change-to-ibm-db2.md
-            - Change to MariaDB: deploy/configure/databases/carbon-database/change-to-mariadb.md
-            - Change to MSSQL: deploy/configure/databases/carbon-database/change-to-mssql.md
-            - Change to MySQL: deploy/configure/databases/carbon-database/change-to-mysql.md
-            - Change to Oracle: deploy/configure/databases/carbon-database/change-to-oracle.md
-            - Change to Oracle RAC: deploy/configure/databases/carbon-database/change-to-oracle-rac.md
-            - Change to PostgreSQL: deploy/configure/databases/carbon-database/change-to-postgresql.md
-            - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
-            - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
-            - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
-            - Change the Default Datasources for the Registry Data: deploy/configure/databases/carbon-database/change-datasource-registry-data.md
-            - Change the Default Datasource for Agent Identities: deploy/configure/databases/carbon-database/change-datasource-agent-identity.md
-          - Data Dictionary:
-            - Registry Related Tables: deploy/configure/databases/data-dictionary/registry-related-tables.md
-            - User Management Related Tables: deploy/configure/databases/data-dictionary/user-management-related-tables.md
-            - Identity Related Tables: deploy/configure/databases/data-dictionary/identity-related-tables.md
-            - Service Provider Related Tables: deploy/configure/databases/data-dictionary/service-provider-related-tables.md
-            - Identity Provider Related Tables: deploy/configure/databases/data-dictionary/identity-provider-related-tables.md
-          - Data Purging: deploy/configure/databases/data-purging.md
-          - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
-        - Session persistence: deploy/configure/session-persistence.md
-        - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
-        - Clock tolerance: deploy/configure/clock-tolerance.md
-        - Cookie consent banner: deploy/configure/cookie-consent-banner.md
-      - Secure:
-        - Mitigate attacks:
-          - Mitigate attacks: deploy/mitigate-attacks/index.md
-          - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md
-          - Authorization Code Interception attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
-          - Brute Force attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
-          - Replay attacks: deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
-          - SameSite attribute support: deploy/samesite-attribute-support.md
-          - Prevent browser caching: deploy/security/prevent-browser-caching.md
-        - Work with tokens:
-          - Add logs for tokens: deploy/add-logs-for-tokens.md
-          - Token persistence: deploy/token-persistence.md
-          - Remove unused tokens from the database: deploy/remove-unused-tokens-from-the-database.md
-          - Enable assertions in access tokens: deploy/enable-assertions-in-access-tokens.md
-          - Generate JWT tokens without revoking existing tokens: deploy/generate-jwt-tokens-without-revoking-existing-tokens.md
-        #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
-        - Enable hostname verification: deploy/enable-hostname-verification.md
-        - Transport Level Security:
-          - Configure TLS: deploy/security/configure-transport-level-security.md
-          - Configure TLS termination: deploy/configure-tls-termination.md
-          - Configure post-quantum TLS: deploy/security/configure-post-quantum-tls.md
-        - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
-        - Configure Admin Advisory Banner: deploy/security/configure-admin-advisory-banner.md
-        - Secure passwords in configuration files:
-          - Encrypt passwords with Cipher Tool: deploy/security/encrypt-passwords-with-cipher-tool.md
-          - Resolve encrypted passwords: deploy/security/resolve-encrypted-passwords.md
-          - Customize secure vault: deploy/security/customize-secure-vault.md
-          - Set passwords using environment variables/system properties: deploy/security/set-passwords-using-environment-variables-or-system-properties.md
-        - Enable HTTP Strict Transport Security (HSTS) headers: deploy/security/enable-hsts.md
-        - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
-        - Enable Mutual SSL: deploy/security/enable-mutual-ssl.md
-        - Enable FIPS 140-2-compliant mode: deploy/security/enable-fips-for-is.md
-        - Security guidelines:
-          - Security guidelines: deploy/security/security-guidelines/index.md
-          - Product-level: deploy/security/security-guidelines/product-level-security-guidelines.md
-          - OS-level: deploy/security/security-guidelines/os-level-security-guidelines.md
-          - Network-level: deploy/security/security-guidelines/network-level-security-guidelines.md
-        - Encryption:
-          - Symmetric encryption:
-            - Symmetric encryption: deploy/security/symmetric-encryption/index.md
-          - Asymmetric encryption:
-            - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
-          - Keystores:
-            - Keystores: deploy/security/keystores/index.md
-            - Create new keystores: deploy/security/keystores/create-new-keystores.md
-            - Manage keystores: deploy/security/keystores/configure-keystores.md
-            - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
-            - Configure custom keystores for authentication protocols: deploy/security/keystores/configure-custom-keystores.md
-        - Clean up flow context: deploy/flow-context-cleanup.md
-      - Deploy:
-        - Deployment overview:
-          - Deployment Patterns: deploy/deployment-guide.md
-          - Deployment Checklist: deploy/deployment-checklist.md
-          - Product Compatibility: deploy/product-compatibility.md
-          - Change the Hostname: deploy/change-the-hostname.md
-          - Restrict public access to management operations: deploy/configure-console-hostname.md
-          - Promote Configurations Across Environments: deploy/promote-configurations.md
-        - High Availability (HA) and clustering:
-          - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
-          - Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
-          - Configure Hazelcast: deploy/configure-hazelcast.md
-        - Containerized deployments:
-          - Kubernetes: deploy/deploy-is-on-kubernetes.md
-          - OpenShift: deploy/deploy-is-on-openshift.md
-        - Performance and scaling:
-          - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
-          - Configure Cache Layers: deploy/performance/configure-cache-layers.md
-        - Multi-data center deployments (Disaster Recovery):
-          - Understanding Disaster Recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
-          - Deployment Patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
-          - Additional Reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
-        - Maintenance and troubleshooting in Production:
-          - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
-          - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
-      - Compliance:
-          - Compliance: deploy/compliance/index.md
-          - GDPR: deploy/compliance/gdpr.md
-          - CCPA: deploy/compliance/ccpa.md
-          - FIPS: deploy/compliance/fips.md
-          - FAPI: deploy/compliance/fapi.md
-          - Accessibility compliance: deploy/compliance/accessibility.md
-      - Analytics:
-        - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
-        - Configure SSO with ELK analytics: deploy/elk-analytics-sso-guide.md
-        - Configure ELK alerts: deploy/elk-configuring-alerts.md
-        - Configure ELK analytics for adaptive authentication: deploy/elk-analytics-for-adaptive-authentication.md
-      - Monitor:
-        - Monitor: deploy/monitor/index.md
-        - Monitor logs:
-          - Overview: deploy/monitor/monitor-logs.md
-          - HTTP access logs: deploy/monitor/http-access-logging.md
-          - OAuth transaction logs: deploy/monitor/oauth-transaction-logs.md
-          - Remote log publishing: deploy/monitor/remote-log-publishing.md
-          - Mask sensitive info:
-            - Overview: deploy/monitor/mask-sensitive-information-in-logs.md
-            - Log masking with Filebeat: deploy/monitor/elk-mask-sensitive-information-in-logs.md
-            - Log masking with Log4j: deploy/monitor/log4j-mask-sensitive-information-in-logs.md
-          - Log claims in audit logs: deploy/monitor/log-claims-in-audit-logs.md
-        - Monitor server health: deploy/monitor/monitor-server-health.md
-        - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
-        - Work with product observability: deploy/monitor/work-with-product-observability.md
-      - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
+      - Choose your deployment path: deploy/choose-your-deployment-path.md
+      - Deployment paths:
+          - "Path A: Evaluation (single node)": deploy/deployment-paths/evaluation.md
+          - "Path B: Production (single region, HA)": deploy/deployment-paths/production-ha.md
+          - "Path C: Production (multi-region, DR)": deploy/deployment-paths/production-dr.md
+          - "Path D: Container platforms (Kubernetes and OpenShift)": deploy/deployment-paths/containers.md
+      - Detailed resources:
+          - Install:
+            - Install: deploy/get-started/install.md
+            - Run: deploy/get-started/run-the-product.md
+            - Get WSO2 updates: deploy/get-started/get-wso2-updates.md
+          - Configure:
+            - User Stores:
+              - User Stores: deploy/configure/user-stores/index.md
+              - Add high availability for LDAP: deploy/configure/user-stores/configure-high-availability-ldap.md
+              - Secure a JDBC user store with hashing: deploy/configure/user-stores/securing-a-user-store-with-hashing.md
+              - Configure the Authorization Manager: deploy/configure/user-stores/configure-authorization-manager.md
+              - Configure the System Administrator: deploy/configure/user-stores/configure-system-administrator.md
+            - Databases:
+              - Databases: deploy/configure/databases/index.md
+              - Change the Carbon Database:
+                - Change the Carbon Database: deploy/configure/databases/carbon-database/index.md
+                - Change to IBM DB2: deploy/configure/databases/carbon-database/change-to-ibm-db2.md
+                - Change to MariaDB: deploy/configure/databases/carbon-database/change-to-mariadb.md
+                - Change to MSSQL: deploy/configure/databases/carbon-database/change-to-mssql.md
+                - Change to MySQL: deploy/configure/databases/carbon-database/change-to-mysql.md
+                - Change to Oracle: deploy/configure/databases/carbon-database/change-to-oracle.md
+                - Change to Oracle RAC: deploy/configure/databases/carbon-database/change-to-oracle-rac.md
+                - Change to PostgreSQL: deploy/configure/databases/carbon-database/change-to-postgresql.md
+                - Change to remote H2: deploy/configure/databases/carbon-database/change-to-remote-h2.md
+                - Change the Default Datasource for Consent Management: deploy/configure/databases/carbon-database/change-datasource-consent-management.md
+                - Change the Default Datasource for Session Data: deploy/configure/databases/carbon-database/change-datasource-session.md
+                - Change the Default Datasources for the Registry Data: deploy/configure/databases/carbon-database/change-datasource-registry-data.md
+                - Change the Default Datasource for Agent Identities: deploy/configure/databases/carbon-database/change-datasource-agent-identity.md
+              - Data Dictionary:
+                - Registry Related Tables: deploy/configure/databases/data-dictionary/registry-related-tables.md
+                - User Management Related Tables: deploy/configure/databases/data-dictionary/user-management-related-tables.md
+                - Identity Related Tables: deploy/configure/databases/data-dictionary/identity-related-tables.md
+                - Service Provider Related Tables: deploy/configure/databases/data-dictionary/service-provider-related-tables.md
+                - Identity Provider Related Tables: deploy/configure/databases/data-dictionary/identity-provider-related-tables.md
+              - Data Purging: deploy/configure/databases/data-purging.md
+              - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
+            - Session persistence: deploy/configure/session-persistence.md
+            - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
+            - Clock tolerance: deploy/configure/clock-tolerance.md
+            - Cookie consent banner: deploy/configure/cookie-consent-banner.md
+          - Secure:
+            - Mitigate attacks:
+              - Mitigate attacks: deploy/mitigate-attacks/index.md
+              - Cross Site Request Forgery attacks: deploy/mitigate-attacks/mitigate-cross-site-request-forgery-attacks.md
+              - Authorization Code Interception attacks: deploy/mitigate-attacks/mitigate-authorization-code-interception-attacks.md
+              - Brute Force attacks: deploy/mitigate-attacks/mitigate-brute-force-attacks.md
+              - Replay attacks: deploy/mitigate-attacks/timestamp-in-ws-security-to-mitigate-replay-attacks.md
+              - SameSite attribute support: deploy/samesite-attribute-support.md
+              - Prevent browser caching: deploy/security/prevent-browser-caching.md
+            - Work with tokens:
+              - Add logs for tokens: deploy/add-logs-for-tokens.md
+              - Token persistence: deploy/token-persistence.md
+              - Remove unused tokens from the database: deploy/remove-unused-tokens-from-the-database.md
+              - Enable assertions in access tokens: deploy/enable-assertions-in-access-tokens.md
+              - Generate JWT tokens without revoking existing tokens: deploy/generate-jwt-tokens-without-revoking-existing-tokens.md
+            #- Configure rsync for Deployment Synchronization: deploy/configuring-rsync-for-deployment-synchronization.md
+            - Enable hostname verification: deploy/enable-hostname-verification.md
+            - Transport Level Security:
+              - Configure TLS: deploy/security/configure-transport-level-security.md
+              - Configure TLS termination: deploy/configure-tls-termination.md
+              - Configure post-quantum TLS: deploy/security/configure-post-quantum-tls.md
+            - Maintain logins and passwords: deploy/security/maintain-logins-and-passwords.md
+            - Configure Admin Advisory Banner: deploy/security/configure-admin-advisory-banner.md
+            - Secure passwords in configuration files:
+              - Encrypt passwords with Cipher Tool: deploy/security/encrypt-passwords-with-cipher-tool.md
+              - Resolve encrypted passwords: deploy/security/resolve-encrypted-passwords.md
+              - Customize secure vault: deploy/security/customize-secure-vault.md
+              - Set passwords using environment variables/system properties: deploy/security/set-passwords-using-environment-variables-or-system-properties.md
+            - Enable HTTP Strict Transport Security (HSTS) headers: deploy/security/enable-hsts.md
+            - Enable Java Security Manager: deploy/security/enable-java-security-manager.md
+            - Enable Mutual SSL: deploy/security/enable-mutual-ssl.md
+            - Enable FIPS 140-2-compliant mode: deploy/security/enable-fips-for-is.md
+            - Security guidelines:
+              - Security guidelines: deploy/security/security-guidelines/index.md
+              - Product-level: deploy/security/security-guidelines/product-level-security-guidelines.md
+              - OS-level: deploy/security/security-guidelines/os-level-security-guidelines.md
+              - Network-level: deploy/security/security-guidelines/network-level-security-guidelines.md
+            - Encryption:
+              - Symmetric encryption:
+                - Symmetric encryption: deploy/security/symmetric-encryption/index.md
+              - Asymmetric encryption:
+                - Asymmetric encryption: deploy/security/asymmetric-encryption/index.md
+              - Keystores:
+                - Keystores: deploy/security/keystores/index.md
+                - Create new keystores: deploy/security/keystores/create-new-keystores.md
+                - Manage keystores: deploy/security/keystores/configure-keystores.md
+                - Manage CA-Signed certificates in a keystore: deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore.md
+                - Configure custom keystores for authentication protocols: deploy/security/keystores/configure-custom-keystores.md
+            - Clean up flow context: deploy/flow-context-cleanup.md
+          - Deploy:
+            - Deployment overview:
+              - Deployment Patterns: deploy/deployment-guide.md
+              - Deployment Checklist: deploy/deployment-checklist.md
+              - Product Compatibility: deploy/product-compatibility.md
+              - Change the Hostname: deploy/change-the-hostname.md
+              - Restrict public access to management operations: deploy/configure-console-hostname.md
+              - Promote Configurations Across Environments: deploy/promote-configurations.md
+            - High Availability (HA) and clustering:
+              - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
+              - Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
+              - Configure Hazelcast: deploy/configure-hazelcast.md
+            - Containerized deployments:
+              - Kubernetes: deploy/deploy-is-on-kubernetes.md
+              - OpenShift: deploy/deploy-is-on-openshift.md
+            - Performance and scaling:
+              - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
+              - Configure Cache Layers: deploy/performance/configure-cache-layers.md
+            - Multi-data center deployments (Disaster Recovery):
+              - Understanding Disaster Recovery: deploy/disaster-recovery/understanding-disaster-recovery.md
+              - Deployment Patterns: deploy/disaster-recovery/disaster-recovery-deployment-patterns.md
+              - Additional Reading: deploy/disaster-recovery/additional-reading-on-disaster-recovery.md
+            - Maintenance and troubleshooting in Production:
+              - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
+              - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
+          - Compliance:
+              - Compliance: deploy/compliance/index.md
+              - GDPR: deploy/compliance/gdpr.md
+              - CCPA: deploy/compliance/ccpa.md
+              - FIPS: deploy/compliance/fips.md
+              - FAPI: deploy/compliance/fapi.md
+              - Accessibility compliance: deploy/compliance/accessibility.md
+          - Analytics:
+            - Configure ELK analytics: deploy/elk-analytics-installation-guide.md
+            - Configure SSO with ELK analytics: deploy/elk-analytics-sso-guide.md
+            - Configure ELK alerts: deploy/elk-configuring-alerts.md
+            - Configure ELK analytics for adaptive authentication: deploy/elk-analytics-for-adaptive-authentication.md
+          - Monitor:
+            - Monitor: deploy/monitor/index.md
+            - Monitor logs:
+              - Overview: deploy/monitor/monitor-logs.md
+              - HTTP access logs: deploy/monitor/http-access-logging.md
+              - OAuth transaction logs: deploy/monitor/oauth-transaction-logs.md
+              - Remote log publishing: deploy/monitor/remote-log-publishing.md
+              - Mask sensitive info:
+                - Overview: deploy/monitor/mask-sensitive-information-in-logs.md
+                - Log masking with Filebeat: deploy/monitor/elk-mask-sensitive-information-in-logs.md
+                - Log masking with Log4j: deploy/monitor/log4j-mask-sensitive-information-in-logs.md
+              - Log claims in audit logs: deploy/monitor/log-claims-in-audit-logs.md
+            - Monitor server health: deploy/monitor/monitor-server-health.md
+            - JMX-Based Monitoring: deploy/monitor/jmx-based-monitoring.md
+            - Work with product observability: deploy/monitor/work-with-product-observability.md
+          - Upgrade WSO2 Identity Server: deploy/upgrade/upgrade-wso2-is.md
   - SDKs:
     - Integrate WSO2 IS into your application: integrations/index.md
   - SDK Documentation:
