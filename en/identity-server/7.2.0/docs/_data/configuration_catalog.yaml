@@ -1,0 +1,1947 @@
+sections:
+
+  # ─────────────────────────── MINIMUM REQUIRED ───────────────────────────
+
+  - id: server
+    hyperlink: server
+    title: Server
+    required: true
+    tasks: [minimum-required]
+    description: >
+      Basic configurations to identify and deploy a WSO2 Identity Server node.
+
+    configs:
+      - key: hostname
+        type: string
+        required: true
+        default: localhost
+        possible_values: [localhost, 127.0.0.1, "<any-ip-address>", "<any-hostname>"]
+        description: >
+          The hostname of the machine hosting the Identity Server instance.
+      - key: node_ip
+        type: string
+        required: true
+        default: 127.0.0.1
+        description: >
+          The IP address of the machine hosting the Identity Server instance.
+      - key: base_path
+        type: string
+        required: false
+        default: "${carbon.protocol}://${carbon.host}:${carbon.management.port}"
+        description: >
+          The base path URL used to access the server.
+      - key: serverDetails
+        type: string
+        required: false
+        default: "WSO2 Identity Server"
+        description: >
+          A description of the server instance.
+
+  - id: super_admin
+    hyperlink: super-admin
+    title: Super admin
+    required: true
+    tasks: [minimum-required]
+    description: >
+      Configurations for the super admin user of the Identity Server.
+
+    configs:
+      - key: username
+        type: string
+        required: true
+        default: admin
+        description: >
+          The username of the super admin user.
+      - key: password
+        type: string
+        required: true
+        default: admin
+        description: >
+          The password of the super admin user. Use environment variables in production environments.
+      - key: admin_role
+        type: string
+        required: false
+        default: admin
+        description: >
+          The role name assigned to the super admin user.
+      - key: create_admin_account
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to create the admin account if it does not already exist.
+
+  - id: keystore.primary
+    hyperlink: primary-keystore
+    title: Primary keystore
+    required: true
+    tasks: [minimum-required]
+    description: >
+      Configurations for the primary keystore used to sign and encrypt tokens.
+
+    configs:
+      - key: name
+        type: string
+        required: true
+        default: wso2carbon.jks
+        description: >
+          The filename of the primary keystore.
+      - key: password
+        type: string
+        required: true
+        default: wso2carbon
+        description: >
+          The password of the primary keystore file.
+
+  - id: keystore.tls
+    hyperlink: tls-keystore
+    title: TLS keystore
+    required: true
+    tasks: [minimum-required, configure-tls]
+    description: >
+      Configurations for the keystore used for TLS communication.
+
+    configs:
+      - key: alias
+        type: string
+        required: true
+        default: wso2carbon
+        description: >
+          The alias of the TLS key entry inside the keystore.
+      - key: key_password
+        type: string
+        required: true
+        default: wso2carbon
+        description: >
+          The password for the TLS key entry.
+      - key: password
+        type: string
+        required: true
+        default: wso2carbon
+        description: >
+          The password for the TLS keystore file.
+
+  - id: truststore
+    hyperlink: truststore
+    title: Truststore
+    required: false
+    tasks: [minimum-required, configure-tls]
+    description: >
+      Configurations for the truststore, which validates certificates from external systems.
+
+    configs:
+      - key: password
+        type: string
+        required: true
+        default: wso2carbon
+        description: >
+          The password for the truststore file.
+
+  - id: database.shared_db
+    hyperlink: shared-database
+    title: Shared database
+    required: true
+    tasks: [minimum-required, configure-database]
+    description: >
+      Configurations for the shared database that stores registry and governance data.
+
+    configs:
+      - key: type
+        type: string
+        required: true
+        default: mysql
+        possible_values: [mysql, mssql, oracle, postgresql, db2, h2]
+        description: >
+          The type of the database.
+      - key: hostname
+        type: string
+        required: true
+        default: localhost
+        description: >
+          The hostname of the database server.
+      - key: port
+        type: integer
+        required: true
+        default: "3306"
+        description: >
+          The port on which the database server listens.
+      - key: name
+        type: string
+        required: true
+        default: regdb
+        description: >
+          The name of the shared database.
+      - key: username
+        type: string
+        required: true
+        default: regadmin
+        description: >
+          The username for the database connection.
+      - key: password
+        type: string
+        required: true
+        default: regadmin
+        description: >
+          The password for the database connection.
+
+  - id: database.shared_db.pool_options
+    hyperlink: shared-database-pool-options
+    title: Shared database pool options
+    required: false
+    tasks: [minimum-required, configure-database]
+    description: >
+      Connection pool settings for the shared database. Tune these based on your database server capacity and load.
+
+    configs:
+      - key: maxActive
+        type: integer
+        required: false
+        default: "80"
+        description: >
+          The maximum number of active connections in the pool.
+      - key: maxWait
+        type: integer
+        required: false
+        default: "360000"
+        description: >
+          The maximum time (in milliseconds) to wait for a connection before throwing an error.
+      - key: minIdle
+        type: integer
+        required: false
+        default: "5"
+        description: >
+          The minimum number of idle connections maintained in the pool.
+      - key: testOnBorrow
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to validate a connection before borrowing it from the pool.
+      - key: validationInterval
+        type: integer
+        required: false
+        default: "30000"
+        description: >
+          The interval (in milliseconds) between successive connection validation runs.
+      - key: validationQuery
+        type: string
+        required: false
+        default: "SELECT 1"
+        description: >
+          The SQL query used to validate connections.
+      - key: defaultAutoCommit
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable auto-commit on borrowed connections.
+      - key: commitOnReturn
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to commit any pending transactions when a connection returns to the pool. Required for PostgreSQL.
+
+  - id: database.identity_db
+    hyperlink: identity-database
+    title: Identity database
+    required: true
+    tasks: [minimum-required, configure-database]
+    description: >
+      Configurations for the identity database that stores user identity and authentication data.
+
+    configs:
+      - key: type
+        type: string
+        required: true
+        default: mysql
+        possible_values: [mysql, mssql, oracle, postgresql, db2, h2]
+        description: >
+          The type of the database.
+      - key: hostname
+        type: string
+        required: true
+        default: localhost
+        description: >
+          The hostname of the database server.
+      - key: port
+        type: integer
+        required: true
+        default: "3306"
+        description: >
+          The port on which the database server listens.
+      - key: name
+        type: string
+        required: true
+        default: regdb
+        description: >
+          The name of the identity database.
+      - key: username
+        type: string
+        required: true
+        default: regadmin
+        description: >
+          The username for the database connection.
+      - key: password
+        type: string
+        required: true
+        default: regadmin
+        description: >
+          The password for the database connection.
+      - key: url
+        type: string
+        required: false
+        default: "jdbc:mysql://DB_HOST:3306/WSO2_IDENTITY_DB"
+        description: >
+          A full JDBC connection URL. When set, this overrides the individual hostname, port, and name values.
+      - key: driver
+        type: string
+        required: false
+        default: "com.mysql.cj.jdbc.Driver"
+        description: >
+          The fully-qualified class name of the JDBC driver.
+
+  - id: database.identity_db.pool_options
+    hyperlink: identity-database-pool-options
+    title: Identity database pool options
+    required: false
+    tasks: [minimum-required, configure-database]
+    description: >
+      Connection pool settings for the identity database. Tune these based on your database server capacity and load.
+
+    configs:
+      - key: maxActive
+        type: integer
+        required: false
+        default: ""
+        description: >
+          The maximum number of active connections in the pool.
+      - key: maxWait
+        type: integer
+        required: false
+        default: ""
+        description: >
+          The maximum time (in milliseconds) to wait for a connection.
+      - key: maxIdle
+        type: integer
+        required: false
+        default: ""
+        description: >
+          The maximum number of idle connections to keep in the pool.
+      - key: minIdle
+        type: integer
+        required: false
+        default: ""
+        description: >
+          The minimum number of idle connections maintained in the pool.
+      - key: testOnBorrow
+        type: boolean
+        required: false
+        default: ""
+        possible_values: [true, false]
+        description: >
+          Set to true to validate a connection before borrowing it from the pool.
+      - key: validationInterval
+        type: integer
+        required: false
+        default: ""
+        description: >
+          The interval (in milliseconds) between successive connection validation runs.
+      - key: validationQuery
+        type: string
+        required: false
+        default: ""
+        description: >
+          The SQL query used to validate connections.
+      - key: MaxPermSize
+        type: string
+        required: false
+        default: ""
+        description: >
+          The maximum permanent memory size. Applicable to certain JDBC drivers.
+
+  # ─────────────────────────── AUTHORIZATION ───────────────────────────
+
+  - id: authorization_manager
+    hyperlink: authorization-manager
+    title: Authorization manager
+    required: false
+    tasks: [configure-user-store]
+    description: >
+      Configures the class that manages authorization checks for the Identity Server.
+
+    configs:
+      - key: class
+        type: string
+        required: true
+        default: org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager
+        description: >
+          The fully-qualified class name of the authorization manager implementation.
+
+  - id: authorization_manager.properties
+    hyperlink: authorization-manager-properties
+    title: Authorization manager properties
+    required: false
+    tasks: [configure-user-store]
+    description: >
+      Fine-tuning properties for the authorization manager.
+
+    configs:
+      - key: AdminRoleManagementPermissions
+        type: string
+        required: false
+        default: permission
+        description: >
+          The permission path assigned to admin role management operations.
+      - key: AuthorizationCacheEnabled
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable caching of authorization decisions.
+      - key: GetAllRolesOfUserEnabled
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to allow retrieving all roles assigned to a user.
+
+  # ─────────────────────────── TRANSPORT / TLS ───────────────────────────
+
+  - id: transport
+    hyperlink: transport
+    title: Transport
+    required: false
+    tasks: [configure-tls]
+    description: >
+      Top-level toggles for enabling or disabling the HTTP and HTTPS transports.
+
+    configs:
+      - key: http.enabled
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable the HTTP transport. Disable in production to enforce HTTPS-only access.
+      - key: https.enabled
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable the HTTPS transport.
+
+  - id: transport.http
+    hyperlink: transport-http
+    title: HTTP transport
+    required: false
+    tasks: [configure-tls]
+    description: >
+      Configurations for the HTTP transport connector.
+
+    configs:
+      - key: enabled
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable the HTTP connector and enforce all traffic over HTTPS.
+
+  - id: transport.https.sslHostConfig.properties
+    hyperlink: transport-https-ssl-host-config
+    title: HTTPS SSL host configuration
+    required: false
+    tasks: [configure-tls]
+    description: >
+      SSL/TLS protocol version and cipher suite settings for the HTTPS transport.
+
+    configs:
+      - key: protocols
+        type: string
+        required: false
+        default: "TLSv1.2+TLSv1.3"
+        description: >
+          The TLS protocol versions to enable. Separate multiple values with +. For example, TLSv1.2+TLSv1.3.
+      - key: ciphers
+        type: string
+        required: false
+        default: ""
+        description: >
+          A comma-separated list of cipher suites to enable. Leave empty to use the JVM defaults.
+
+  - id: intermediate_cert_validation
+    hyperlink: intermediate-cert-validation
+    title: Intermediate certificate validation
+    required: false
+    tasks: [configure-tls]
+    description: >
+      Enables validation of intermediate CA certificates in client certificate chains.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable intermediate certificate validation.
+      - key: cert_cns
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of common names (CNs) of certificates the server accepts.
+      - key: exempt_contexts
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of API endpoint paths exempt from intermediate certificate validation.
+
+  - id: client_certificate_based_authentication
+    hyperlink: client-certificate-based-authentication
+    title: Client certificate-based authentication
+    required: false
+    tasks: [configure-tls]
+    description: >
+      Enables authentication using client certificates for API access.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable client certificate-based authentication.
+      - key: trusted_issuer
+        type: string
+        required: false
+        default: ""
+        description: >
+          The distinguished name (DN) of the CA that issues trusted client certificates.
+      - key: cert_thumbprint
+        type: string
+        required: false
+        default: ""
+        description: >
+          The SHA-256 thumbprint of a trusted client certificate.
+      - key: allowed_username
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of usernames permitted to authenticate with client certificates.
+      - key: allowed_system_user
+        type: string
+        required: false
+        default: admin
+        description: >
+          The system user granted access when using certificate-based authentication.
+
+  # ─────────────────────────── OAUTH / OIDC ───────────────────────────
+
+  - id: oauth.endpoints
+    hyperlink: oauth-endpoints
+    title: OAuth endpoints
+    required: false
+    tasks: [configure-oauth]
+    description: >
+      Custom URLs for OAuth 2.0 and OIDC consent pages. Override the defaults if you use a custom authentication endpoint.
+
+    configs:
+      - key: oauth2_consent_page
+        type: string
+        required: false
+        default: "${carbon.protocol}://localhost:${carbon.management.port}/authenticationendpoint/oauth2_authz.do"
+        description: >
+          The URL of the OAuth 2.0 authorization consent page.
+      - key: oidc_consent_page
+        type: string
+        required: false
+        default: "${carbon.protocol}://localhost:${carbon.management.port}/authenticationendpoint/oauth2_consent.do"
+        description: >
+          The URL of the OIDC consent page.
+
+  - id: oauth.jarm
+    hyperlink: oauth-jarm
+    title: JWT-secured authorization response mode (JARM)
+    required: false
+    tasks: [configure-oauth]
+    description: >
+      Enables JWT-Secured Authorization Response Mode (JARM) for OAuth 2.0 authorization responses.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable JARM for OAuth 2.0 authorization responses.
+
+  - id: oauth.jwt.renew_token_without_revoking_existing
+    hyperlink: oauth-jwt-renew-token-without-revoking
+    title: JWT token renewal without revoking existing tokens
+    required: false
+    tasks: [configure-oauth]
+    description: >
+      Allows generating new JWT access tokens without revoking existing ones. Useful for service-to-service scenarios.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to allow issuing new JWT tokens without revoking the current active token.
+      - key: allowed_grant_types
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          The list of OAuth grant types for which this behavior applies.
+
+  # ─────────────────────────── AUTHENTICATION ───────────────────────────
+
+  - id: authentication.adaptive
+    hyperlink: authentication-adaptive
+    title: Adaptive authentication
+    required: false
+    tasks: [configure-authentication]
+    description: >
+      HTTP connection settings for external function calls made during adaptive authentication script execution.
+
+    configs:
+      - key: http_connections.connection_timeout
+        type: integer
+        required: false
+        default: "3000"
+        description: >
+          The timeout (in milliseconds) when establishing a connection to an external endpoint.
+      - key: http_connections.read_timeout
+        type: integer
+        required: false
+        default: "6000"
+        description: >
+          The timeout (in milliseconds) when reading a response from an external endpoint.
+      - key: http_connections.request_timeout
+        type: integer
+        required: false
+        default: "3000"
+        description: >
+          The maximum time (in milliseconds) allowed for a full HTTP request.
+      - key: http_connections.request_retry_count
+        type: integer
+        required: false
+        default: "2"
+        description: >
+          The number of retries when an HTTP request to an external endpoint fails.
+      - key: http_function_allowed_domains
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of domains that adaptive authentication scripts can call using the httpGet() or httpPost() functions.
+
+  - id: session.nonce.cookie
+    hyperlink: session-nonce-cookie
+    title: Session nonce cookie
+    required: false
+    tasks: [configure-authentication]
+    description: >
+      Configures which authenticators bypass nonce cookie validation during passwordless flows.
+
+    configs:
+      - key: default_whitelist_authenticators
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of authenticator names excluded from nonce cookie validation. Used for magic link and similar passwordless flows.
+
+  # ─────────────────────────── USER STORE ───────────────────────────
+
+  - id: user_store.properties
+    hyperlink: user-store-properties
+    title: User store properties
+    required: false
+    tasks: [configure-user-store]
+    description: >
+      Additional properties for the primary user store.
+
+    configs:
+      - key: StoreUserAttributeValueAsUnicode
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to store user attribute values as Unicode. Required for Microsoft SQL Server to support special characters.
+
+  - id: user_store_commons
+    hyperlink: user-store-commons
+    title: User store commons
+    required: false
+    tasks: [configure-user-store]
+    description: >
+      Common resilience and retry configurations applied across all user store connections.
+
+    configs:
+      - key: enable_circuit_breaker_for_user_stores
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable the circuit breaker pattern for user store connections. This prevents cascading failures when a user store is unresponsive.
+      - key: maxConnectionRetryCount
+        type: integer
+        required: false
+        default: "2"
+        description: >
+          The maximum number of reconnection attempts before the circuit breaker trips.
+      - key: minConnectionRetryDelayInMilliSeconds
+        type: integer
+        required: false
+        default: "60000"
+        description: >
+          The minimum delay (in milliseconds) between reconnection attempts.
+
+  # ─────────────────────────── CLUSTERING ───────────────────────────
+
+  - id: clustering
+    hyperlink: clustering
+    title: Clustering
+    required: false
+    tasks: [configure-clustering]
+    description: >
+      Configures cluster membership for high-availability deployments. Each node must specify its hostname and port for inter-node communication.
+
+    configs:
+      - key: membership_scheme
+        type: string
+        required: true
+        default: wka
+        possible_values: [wka, multicast, kubernetes, aws, aws-ecs]
+        description: >
+          The mechanism nodes use to discover each other. Use kubernetes for containerized deployments and aws-ecs for Amazon ECS.
+      - key: domain
+        type: string
+        required: false
+        default: wso2.carbon.domain
+        description: >
+          The Hazelcast cluster domain name. Nodes with the same domain form a cluster.
+      - key: local_member_host
+        type: string
+        required: true
+        default: "10.0.21.80"
+        description: >
+          The IP address or hostname of this node, used for cluster communication.
+      - key: local_member_port
+        type: integer
+        required: true
+        default: "5701"
+        description: >
+          The port this node listens on for cluster communication.
+      - key: members
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of cluster member addresses in host:port format. Used for well-known address (WKA) membership.
+
+  - id: clustering.properties
+    hyperlink: clustering-properties
+    title: Clustering properties
+    required: false
+    tasks: [configure-clustering]
+    description: >
+      Provider-specific properties for the cluster membership scheme, such as Kubernetes, AWS EC2, or Amazon ECS settings.
+
+    configs:
+      - key: KUBERNETES_NAMESPACE
+        type: string
+        required: false
+        default: wso2-is
+        description: >
+          The Kubernetes namespace where Identity Server pods run.
+      - key: KUBERNETES_SERVICES
+        type: string
+        required: false
+        default: wso2is-service
+        description: >
+          The name of the Kubernetes service used for pod discovery.
+      - key: region
+        type: string
+        required: false
+        default: us-east-1
+        description: >
+          The AWS region where the EC2 instances or ECS cluster runs.
+      - key: accessKey
+        type: string
+        required: false
+        default: ""
+        description: >
+          The AWS access key for EC2 or ECS membership discovery.
+      - key: secretKey
+        type: string
+        required: false
+        default: ""
+        description: >
+          The AWS secret key for EC2 or ECS membership discovery.
+      - key: clusterName
+        type: string
+        required: false
+        default: ECS-IS-CLUSTER
+        description: >
+          The name of the Amazon ECS cluster.
+      - key: hostHeader
+        type: string
+        required: false
+        default: ec2
+        description: >
+          The header type for ECS host resolution.
+      - key: vpcCidrBlock
+        type: string
+        required: false
+        default: "10.0.*.*"
+        description: >
+          The CIDR block of the VPC used to filter EC2 instances for clustering.
+      - key: securityGroup
+        type: string
+        required: false
+        default: security_group_name
+        description: >
+          The AWS security group name used to identify cluster member EC2 instances.
+      - key: tagKey
+        type: string
+        required: false
+        default: a_tag_key
+        description: >
+          An EC2 tag key used to identify cluster member instances.
+      - key: tagValue
+        type: string
+        required: false
+        default: a_tag_value
+        description: >
+          The value of the EC2 tag used to identify cluster member instances.
+
+  # ─────────────────────────── PERFORMANCE / CACHING ───────────────────────────
+
+  - id: cache.app_info_cache
+    hyperlink: cache-app-info-cache
+    title: Application info cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for OAuth application metadata.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.authentication_context_cache
+    hyperlink: cache-authentication-context-cache
+    title: Authentication context cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for authentication context objects used during the authentication flow.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.authentication_request_cache
+    hyperlink: cache-authentication-request-cache
+    title: Authentication request cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for incoming authentication requests.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.authentication_result_cache
+    hyperlink: cache-authentication-result-cache
+    title: Authentication result cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for authentication results after a successful login.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.authorization_grant_cache
+    hyperlink: cache-authorization-grant-cache
+    title: Authorization grant cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for OAuth 2.0 authorization grants.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.framework_session_context_cache
+    hyperlink: cache-framework-session-context-cache
+    title: Framework session context cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for session context objects used by the authentication framework.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.idp_cache_by_auth_property
+    hyperlink: cache-idp-cache-by-auth-property
+    title: IdP cache by authentication property
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for looking up identity providers by their authentication properties.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.idp_cache_by_hri
+    hyperlink: cache-idp-cache-by-hri
+    title: IdP cache by home realm identifier
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for looking up identity providers by home realm identifier (HRI).
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.idp_cache_by_name
+    hyperlink: cache-idp-cache-by-name
+    title: IdP cache by name
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for looking up identity providers by their configured name.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.jwks_cache
+    hyperlink: cache-jwks-cache
+    title: JWKS cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for JSON Web Key Sets (JWKS) fetched from external identity providers.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.oauth_cache
+    hyperlink: cache-oauth-cache
+    title: OAuth cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for OAuth 2.0 access tokens and related data.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.oauth_scope_cache
+    hyperlink: cache-oauth-scope-cache
+    title: OAuth scope cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for OAuth 2.0 scope metadata.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.oauth_session_data_cache
+    hyperlink: cache-oauth-session-data-cache
+    title: OAuth session data cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for OAuth session data used during authorization code flows.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.provisioning_connector_cache
+    hyperlink: cache-provisioning-connector-cache
+    title: Provisioning connector cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for outbound provisioning connector configurations.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.provisioning_entity_cache
+    hyperlink: cache-provisioning-entity-cache
+    title: Provisioning entity cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for provisioned entity data during outbound provisioning.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.saml_sso_participant_cache
+    hyperlink: cache-saml-sso-participant-cache
+    title: SAML SSO participant cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for SAML SSO service provider (SP) participant data.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.saml_sso_session_data_cache
+    hyperlink: cache-saml-sso-session-data-cache
+    title: SAML SSO session data cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for SAML SSO session data.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.saml_sso_session_index_cache
+    hyperlink: cache-saml-sso-session-index-cache
+    title: SAML SSO session index cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for SAML SSO session index mappings.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "300"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.service_provider_cache
+    hyperlink: cache-service-provider-cache
+    title: Service provider cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for service provider (application) configurations.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.service_provider_cache_id
+    hyperlink: cache-service-provider-cache-id
+    title: Service provider cache by ID
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for looking up service providers by their unique identifier.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.service_provider_cache_inbound_auth
+    hyperlink: cache-service-provider-cache-inbound-auth
+    title: Service provider cache by inbound auth
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for looking up service providers by their inbound authentication configuration.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: cache.service_provider_provisioning_connector_cache
+    hyperlink: cache-service-provider-provisioning-connector-cache
+    title: Service provider provisioning connector cache
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Cache for service provider outbound provisioning connector configurations.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to false to disable this cache.
+      - key: timeout
+        type: integer
+        required: false
+        default: "900"
+        description: >
+          The time (in seconds) before a cache entry expires.
+      - key: capacity
+        type: integer
+        required: false
+        default: "5000"
+        description: >
+          The maximum number of entries the cache holds.
+
+  - id: pagination
+    hyperlink: pagination
+    title: Pagination
+    required: false
+    tasks: [configure-cache]
+    description: >
+      Controls the maximum number of users returned per role in list operations.
+
+    configs:
+      - key: max_users_list_per_role
+        type: integer
+        required: false
+        default: "1000"
+        description: >
+          The maximum number of users listed per role in paginated responses.
+
+  # ─────────────────────────── MONITORING / LOGGING ───────────────────────────
+
+  - id: carbon_health_check
+    hyperlink: carbon-health-check
+    title: Carbon health check
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Enables the built-in health check endpoint (/api/health-check/v1.0/health) to monitor server and data source health.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable the health check API.
+
+  - id: carbon_health_check.health_checker.data_source_health_checker
+    hyperlink: carbon-health-check-data-source-checker
+    title: Data source health checker
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Checks whether configured data sources are reachable and functional.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable the data source health checker.
+      - key: order
+        type: string
+        required: false
+        default: "97"
+        description: >
+          The execution order of this checker relative to others. Lower values run first.
+      - key: pool_usage_limit_percentage
+        type: string
+        required: false
+        default: "20"
+        description: >
+          The maximum percentage of the connection pool that can be in use before this checker reports an unhealthy status.
+
+  - id: carbon_health_check.health_checker.super_tenant_health_checker
+    hyperlink: carbon-health-check-super-tenant-checker
+    title: Super tenant health checker
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Checks the health of the super tenant's user store connection.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable the super tenant health checker.
+      - key: order
+        type: string
+        required: false
+        default: "98"
+        description: >
+          The execution order of this checker relative to others.
+
+  - id: monitoring.jmx
+    hyperlink: monitoring-jmx
+    title: JMX monitoring
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Enables JMX (Java Management Extensions) for runtime monitoring and management of server components.
+
+    configs:
+      - key: rmi_server_start
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to start the JMX RMI server, allowing external JMX clients to connect and monitor the server.
+
+  - id: tracing.opentelemetry
+    hyperlink: tracing-opentelemetry
+    title: OpenTelemetry tracing
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Configures OpenTelemetry distributed tracing for monitoring request flows across services.
+
+    configs:
+      - key: ldap.enabled
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable tracing of LDAP operations.
+      - key: ldap.scope_name
+        type: string
+        required: false
+        default: wso2isldap
+        description: >
+          The tracing scope name used for LDAP spans.
+
+  - id: log_mgt
+    hyperlink: log-mgt
+    title: Log management
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Controls log file behavior and formatting for the Identity Server.
+
+    configs:
+      - key: audit_log.truncate_to_microseconds
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to truncate audit log timestamps to microsecond precision.
+
+  - id: masking_logs
+    hyperlink: masking-logs
+    title: Log masking
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Enables masking of sensitive data (such as passwords and tokens) in log output.
+
+    configs:
+      - key: enabled
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to enable log masking. Define the patterns to mask under [masking_pattern.properties].
+
+  - id: catalina.valves.valve.properties
+    hyperlink: catalina-valves-valve-properties
+    title: HTTP access log valve
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Configures the Tomcat extended access log valve for logging HTTP requests.
+
+    configs:
+      - key: className
+        type: string
+        required: true
+        default: org.apache.catalina.valves.ExtendedAccessLogValve
+        description: >
+          The fully-qualified class name of the Tomcat access log valve.
+      - key: directory
+        type: string
+        required: false
+        default: "${carbon.home}/repository/logs"
+        description: >
+          The directory where access log files are written.
+      - key: prefix
+        type: string
+        required: false
+        default: localhost_access_log.
+        description: >
+          The filename prefix for access log files.
+      - key: suffix
+        type: string
+        required: false
+        default: .log
+        description: >
+          The filename suffix for access log files.
+      - key: pattern
+        type: string
+        required: false
+        default: "%h %l %u %t \"%r\" %s %b"
+        description: >
+          The log pattern defining which HTTP request attributes to record.
+
+  - id: audit.log.loggable_user_claim
+    hyperlink: audit-log-loggable-user-claim
+    title: Audit log user claims
+    required: false
+    tasks: [configure-monitoring]
+    description: >
+      Specifies user attribute claims to include in audit log entries for each operation.
+
+    configs:
+      - key: claim1
+        type: string
+        required: false
+        default: "http://wso2.org/claims/identity/accountLocked"
+        description: >
+          The URI of a claim to include in audit log entries. Replace with any valid WSO2 claim URI.
+      - key: claim2
+        type: string
+        required: false
+        default: "http://wso2.org/claims/role"
+        description: >
+          The URI of a second claim to include in audit log entries.
+
+  # ─────────────────────────── EMAIL ───────────────────────────
+
+  - id: output_adapter.email
+    hyperlink: output-adapter-email
+    title: Email sending module
+    required: false
+    tasks: [configure-email]
+    description: >
+      Configures the SMTP settings for outbound email notifications such as account verification and password reset emails.
+
+    configs:
+      - key: hostname
+        type: string
+        required: true
+        default: smtp.gmail.com
+        description: >
+          The hostname of the SMTP server.
+      - key: port
+        type: integer
+        required: true
+        default: "587"
+        description: >
+          The port of the SMTP server. Common values are 25, 465 (SMTPS), and 587 (STARTTLS).
+      - key: from_address
+        type: string
+        required: true
+        default: ""
+        description: >
+          The email address that appears in the From field of outgoing messages.
+      - key: username
+        type: string
+        required: false
+        default: ""
+        description: >
+          The username used to authenticate with the SMTP server.
+      - key: password
+        type: string
+        required: false
+        default: ""
+        description: >
+          The password used to authenticate with the SMTP server.
+      - key: auth_type
+        type: string
+        required: false
+        default: BASIC
+        possible_values: [BASIC, NTLM]
+        description: >
+          The authentication method for the SMTP connection.
+      - key: enable_authentication
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to require SMTP authentication.
+      - key: enable_start_tls
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to upgrade the SMTP connection to TLS using the STARTTLS command.
+      - key: signature
+        type: string
+        required: false
+        default: ""
+        description: >
+          A signature line appended at the bottom of outgoing email messages.
+
+  # ─────────────────────────── FIDO / PASSKEYS ───────────────────────────
+
+  - id: fido.metadata_service
+    hyperlink: fido-metadata-service
+    title: FIDO metadata service
+    required: false
+    tasks: [configure-fido]
+    description: >
+      Enables FIDO2 attestation verification using the FIDO Metadata Service (MDS). Required for enforcing strong authenticator policies.
+
+    configs:
+      - key: enable
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to true to fetch and use the FIDO Alliance Metadata Service for attestation validation.
+      - key: mds_endpoints
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of URLs from which the server downloads FIDO MDS metadata blobs.
+
+  # ─────────────────────────── AI SERVICES ───────────────────────────
+
+  - id: ai_services
+    hyperlink: ai-services
+    title: AI services
+    required: false
+    tasks: [configure-ai]
+    description: >
+      Configures the API key for WSO2 AI-powered features such as AI-assisted login flow design.
+
+    configs:
+      - key: key
+        type: string
+        required: true
+        default: ""
+        description: >
+          The subscription key that authenticates requests to the WSO2 AI services API.
+
+  # ─────────────────────────── ACTIONS ───────────────────────────
+
+  - id: actions
+    hyperlink: actions
+    title: Actions
+    required: false
+    tasks: [configure-actions]
+    description: >
+      HTTP connection pool settings for external action endpoints invoked during authentication and provisioning flows.
+
+    configs:
+      - key: http_client.connection_pool_size
+        type: integer
+        required: false
+        default: "10"
+        description: >
+          The maximum number of connections the HTTP client maintains across all external action endpoints.
+      - key: http_client.connection_timeout
+        type: integer
+        required: false
+        default: "3000"
+        description: >
+          The timeout (in milliseconds) for establishing a connection to an action endpoint.
+      - key: http_client.read_timeout
+        type: integer
+        required: false
+        default: "6000"
+        description: >
+          The timeout (in milliseconds) for reading a response from an action endpoint.
+      - key: http_client.request_timeout
+        type: integer
+        required: false
+        default: "3000"
+        description: >
+          The maximum time (in milliseconds) allowed for a complete HTTP request to an action endpoint.
+      - key: http_client.retry_count
+        type: integer
+        required: false
+        default: "1"
+        description: >
+          The number of times the HTTP client retries a failed request to an action endpoint.
+
+  # ─────────────────────────── IDENTITY MANAGEMENT ───────────────────────────
+
+  - id: identity_mgt.user_self_registration
+    hyperlink: identity-mgt-user-self-registration
+    title: User self-registration
+    required: false
+    tasks: [configure-identity]
+    description: >
+      Controls behavior of the user self-registration flow for preferred channel verification.
+
+    configs:
+      - key: enable_account_lock_for_verified_preferred_channel
+        type: boolean
+        required: false
+        default: "false"
+        possible_values: [true, false]
+        description: >
+          Set to false to skip account locking when a user self-registers with a verified preferred communication channel.
+
+  # ─────────────────────────── API SECURITY ───────────────────────────
+
+  - id: resource.access_control
+    hyperlink: resource-access-control
+    title: Resource access control
+    required: false
+    tasks: [configure-security]
+    description: >
+      Configures access control rules for specific API endpoints, such as requiring authentication or specific scopes.
+
+    configs:
+      - key: context
+        type: string
+        required: true
+        default: "/api/identity/*"
+        description: >
+          The URL context pattern this access control rule applies to.
+      - key: secured
+        type: boolean
+        required: false
+        default: "true"
+        possible_values: [true, false]
+        description: >
+          Set to true to require authentication for requests matching the context.
+      - key: http_method
+        type: string
+        required: false
+        default: all
+        description: >
+          The HTTP method this rule applies to. Use all to match any method.
+      - key: permissions
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of permission strings a caller must have to access this resource.
+      - key: scope
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of OAuth scopes required to access this resource.
+      - key: allowed_auth_handlers
+        type: array
+        required: false
+        default: "[]"
+        description: >
+          A list of authentication handler names permitted to authenticate requests to this resource.
+
+  # ─────────────────────────── STS (WS-FEDERATION) ───────────────────────────
+
+  - id: sts
+    hyperlink: sts
+    title: Security token service (STS)
+    required: false
+    tasks: [configure-sts]
+    description: >
+      Configures the WS-Federation Security Token Service (STS), which issues SAML tokens for WS-Federation web applications.
+
+    configs:
+      - key: signature_algorithm
+        type: string
+        required: false
+        default: "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+        description: >
+          The XML signature algorithm used to sign issued SAML tokens.
+      - key: digest_algorithm
+        type: string
+        required: false
+        default: "http://www.w3.org/2001/04/xmlenc#sha256"
+        description: >
+          The digest algorithm used when signing SAML tokens.
+
