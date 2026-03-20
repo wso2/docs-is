@@ -71,7 +71,8 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
     From update level 54 onwards, the `A192CBC-HS384` encryption method is supported.
 {% endif %}
 
-- **Encrypt the Content Encryption Key (CEK)**: {{product_name}} uses the registered public key of the application to encrypt the CEK using the specified asymmetric encryption algorithm, known as the **encryption algorithm**. {{product_name}} supports the following encryption algorithms:
+- **Encrypt the Content Encryption Key (CEK)** - {{product_name}} uses the registered public key of the application to encrypt the CEK using the specified asymmetric encryption algorithm, known as the **encryption algorithm**. {{product_name}} supports the following encryption algorithms:
+
     - RSA1_5
     - RSA-OAEP
     {% if version is not defined or major > 7 or (major == 7 and minor > 2) %}
@@ -91,6 +92,7 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
 
 {% if product_name == "WSO2 Identity Server" %}
 You can configure the default values of the encryption methods and encryption algorithms by making changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
 ```toml
 [oauth.oidc.id_token]
 supported_encryption_algorithms=["RSA1_5","RSA-OAEP"]
