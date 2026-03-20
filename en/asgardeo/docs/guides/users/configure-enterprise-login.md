@@ -46,7 +46,6 @@ First, register your external enterprise IdP as a connection in Asgardeo.
     !!! note
         Both SAML and OIDC connections are supported for enterprise login. Choose the protocol that your external IdP supports.
 
-
 ## Step 2: Configure enterprise login in Console settings
 
 After setting up the enterprise connection, configure it for Console login.
@@ -81,7 +80,6 @@ After setting up the enterprise connection, configure it for Console login.
 
 5. Click **Save** to apply the enterprise login configuration.
 
-
 Once saved, users who belong to the mapped IdP groups can sign in to the Asgardeo Console using your enterprise IdP.
 
 ## Sign in with enterprise login
@@ -96,11 +94,9 @@ If you want users to access the console directly through the enterprise IdP with
 
 2. Under the connection's general settings, configure the **Home Realm Identifier** value.
 
-    <!-- TODO: Add screenshot of the Home Realm Identifier configuration -->
-
 3. Share the following URL with your enterprise users for direct access:
 
-    ```
+    ```text
     https://console.asgardeo.io/t/<organization-name>/app?fidp=<home-realm-identifier>
     ```
 
