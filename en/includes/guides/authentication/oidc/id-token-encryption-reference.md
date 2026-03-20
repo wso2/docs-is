@@ -1,3 +1,10 @@
+{% if version is defined %}
+    {% set major = version.major | default(0) %}
+    {% set minor = version.minor | default(0) %}
+{% else %}
+    {% set major = none %}
+    {% set minor = none %}
+{% endif %}
 # ID token encryption reference
 
 This reference explains the format of encrypted ID tokens in detail and the algorithms and methods used for encryption.
@@ -52,24 +59,42 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
     - A256GCM
     - A128CBC-HS256
     - A128CBC+HS256
+    {% if version is not defined or major > 7 or (major == 7 and minor > 2) %}
     - A192CBC-HS384
+    {% endif %}
 
-- **Encrypt the Content Encryption Key (CEK)** - {{product_name}} uses the registered public key of the application to encrypt the CEK using the specified asymmetric encryption algorithm, known as the **encryption algorithm**. {{product_name}} supports the following encryption algorithms:
+{% if major == 7 and minor == 0 %}
+!!! note
+    From update level 135 onwards, the `A192CBC-HS384` encryption method is supported.
+{% elif major == 7 and minor == 1 %}
+!!! note
+    From update level 54 onwards, the `A192CBC-HS384` encryption method is supported.
+{% endif %}
 
+- **Encrypt the Content Encryption Key (CEK)**: {{product_name}} uses the registered public key of the application to encrypt the CEK using the specified asymmetric encryption algorithm, known as the **encryption algorithm**. {{product_name}} supports the following encryption algorithms:
     - RSA1_5
     - RSA-OAEP
-    - RSA-OAEP-256 
-    - RSA-OAEP-384 
-    - RSA-OAEP-512 
+    {% if version is not defined or major > 7 or (major == 7 and minor > 2) %}
+    - RSA-OAEP-256
+    - RSA-OAEP-384
+    - RSA-OAEP-512
     - ECDH-ES+A256KW
+    {% endif %}
+
+{% if major == 7 and minor == 0 %}
+!!! note
+    From update level 135 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, `RSA-OAEP-512`, and `ECDH-ES+A256KW` encryption algorithms are supported.
+{% elif major == 7 and minor == 1 %}
+!!! note
+    From update level 54 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, `RSA-OAEP-512`, and `ECDH-ES+A256KW` encryption algorithms are supported.
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}
 You can configure the default values of the encryption methods and encryption algorithms by making changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
-
 ```toml
 [oauth.oidc.id_token]
-supported_encryption_algorithms=["RSA1_5","RSA-OAEP", "RSA-OAEP-256", "RSA-OAEP-384", "RSA-OAEP-512", "ECDH-ES+A256KW"]
-supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256", "A192CBC-HS384"]
+supported_encryption_algorithms=["RSA1_5","RSA-OAEP"]
+supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256"]
 ```
 
 {% endif %}
