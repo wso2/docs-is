@@ -17,10 +17,7 @@ template: templates/quick-start.html
       "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
       "A favorite text editor or IDE"
     ],
-    source_code: "<a href='https://github.com/asgardeo/web-ui-sdks/tree/main/samples/teamspace-vue' target='_blank' class='github-icon'>Vue Vite App Sample</a>",
-    whats_next: [
-      "Try out <a href='{{ base_path }}/complete-guides/vue/introduction/' target='_blank'>{{ product_name }} complete Vue guide</a>"
-    ]
+    source_code: "<a href='https://github.com/asgardeo/web-ui-sdks/tree/main/samples/vue-sdk-playground' target='_blank' class='github-icon'>Vue Vite App Sample</a>"
   };
 </script>
 
