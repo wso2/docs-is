@@ -52,19 +52,24 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
     - A256GCM
     - A128CBC-HS256
     - A128CBC+HS256
+    - A192CBC-HS384
 
 - **Encrypt the Content Encryption Key (CEK)** - {{product_name}} uses the registered public key of the application to encrypt the CEK using the specified asymmetric encryption algorithm, known as the **encryption algorithm**. {{product_name}} supports the following encryption algorithms:
 
     - RSA1_5
     - RSA-OAEP
+    - RSA-OAEP-256 
+    - RSA-OAEP-384 
+    - RSA-OAEP-512 
+    - ECDH-ES+A256KW
 
 {% if product_name == "WSO2 Identity Server" %}
 You can configure the default values of the encryption methods and encryption algorithms by making changes to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```toml
 [oauth.oidc.id_token]
-supported_encryption_algorithms=["RSA1_5","RSA-OAEP"]
-supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256"]
+supported_encryption_algorithms=["RSA1_5","RSA-OAEP", "RSA-OAEP-256", "RSA-OAEP-384", "RSA-OAEP-512", "ECDH-ES+A256KW"]
+supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256", "A192CBC-HS384"]
 ```
 
 {% endif %}
