@@ -1,10 +1,3 @@
-{% if version is defined %}
-    {% set major = version.major | default(0) %}
-    {% set minor = version.minor | default(0) %}
-{% else %}
-    {% set major = none %}
-    {% set minor = none %}
-{% endif %}
 # ID token encryption reference
 
 This reference explains the format of encrypted ID tokens in detail and the algorithms and methods used for encryption.
@@ -59,14 +52,14 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
     - A256GCM
     - A128CBC-HS256
     - A128CBC+HS256
-    {% if version is not defined or major > 7 or (major == 7 and minor > 2) %}
+    {% if product_name != "WSO2 Identity Server" or is_version != "7.2.0" %}
     - A192CBC-HS384
     {% endif %}
 
-{% if major == 7 and minor == 0 %}
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
 !!! note
     From update level 135 onwards, the `A192CBC-HS384` encryption method is supported.
-{% elif major == 7 and minor == 1 %}
+{% elif product_name == "WSO2 Identity Server" and is_version == "7.1.0" %}
 !!! note
     From update level 54 onwards, the `A192CBC-HS384` encryption method is supported.
 {% endif %}
@@ -75,17 +68,17 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
 
     - RSA1_5
     - RSA-OAEP
-    {% if version is not defined or major > 7 or (major == 7 and minor > 2) %}
+    {% if product_name != "WSO2 Identity Server" or is_version != "7.2.0" %}
     - RSA-OAEP-256
     - RSA-OAEP-384
     - RSA-OAEP-512
     - ECDH-ES+A256KW
     {% endif %}
 
-{% if major == 7 and minor == 0 %}
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
 !!! note
     From update level 135 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, `RSA-OAEP-512`, and `ECDH-ES+A256KW` encryption algorithms are supported.
-{% elif major == 7 and minor == 1 %}
+{% elif product_name != "WSO2 Identity Server" or is_version == "7.1.0" %}
 !!! note
     From update level 54 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, `RSA-OAEP-512`, and `ECDH-ES+A256KW` encryption algorithms are supported.
 {% endif %}
