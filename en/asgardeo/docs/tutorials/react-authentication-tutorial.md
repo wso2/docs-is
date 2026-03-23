@@ -31,7 +31,7 @@ source_code: '<a href="https://github.com/asgardeo-samples/react-authentication-
 
 ---
 
-## Introduction to React Authentication
+## Introduction to React authentication
 
 Adding user authentication to your React application may not be the most exciting task, but it's essential to secure your app and protect user data. One approach is to build your own authentication system, which typically involves the following activities.
 
@@ -51,15 +51,15 @@ The good news is that modern AI-powered coding tools and embeddable auth librari
 
 Another viable option, which this article explores, is integrating with an identity provider that offers most if not all of these capabilities out of the box. Next, let's review the key factors to consider, given the wide variety of identity providers available today.
 
-## Pick the Right Identity Provider
+## Pick the right identity provider
 
 When picking the right identity provider for your React app, it's important to look beyond just the technical features and consider how your choice will affect things in the long-run. You don't want to replace your authentication system every few years. Here are the top three aspects to evaluate:
 
-- **Alignment and Flexibility in the Long Run:** Identity providers are available in multiple forms: cloud services you can instantly sign up for, open-source downloadable solutions you can host yourself, or proprietary platforms. Cloud-only providers with free tiers may seem ideal during early development but can incur high costs over time. Choosing a provider that offers multiple deployment options such as hosted cloud and downloadable open-source can provide long-term flexibility and reduce future migration risks.
+- **Alignment and flexibility in the Long Run:** Identity providers are available in multiple forms: cloud services you can instantly sign up for, open-source downloadable solutions you can host yourself, or proprietary platforms. Cloud-only providers with free tiers may seem ideal during early development but can incur high costs over time. Choosing a provider that offers multiple deployment options such as hosted cloud and downloadable open-source can provide long-term flexibility and reduce future migration risks.
 
-- **Supported Authentication Options:** Password-based authentication is widely used but increasingly considered insecure. Eventually, you'll need to add multi-factor authentication or fully transition to more secure options like passkeys or MagicLink. Identity providers shine here by offering these strong and adaptive authentication methods out of the box, letting you focus on your application without building backend login APIs from scratch.
+- **Supported authentication options:** Password-based authentication is widely used but increasingly considered insecure. Eventually, you'll need to add multi-factor authentication or fully transition to more secure options like passkeys or MagicLink. Identity providers shine here by offering these strong and adaptive authentication methods out of the box, letting you focus on your application without building backend login APIs from scratch.
 
-- **Clean, Component-Driven SDK:** Identity provider SDKs vary in developer experience. Some offer generic SDKs that provide portability but require understanding protocols like OpenID Connect and manually handling JWT tokens, which can be cumbersome. Others provide React hooks and providers that simplify token processing and protocol handling. The most powerful approach is SDKs with drop-in React components — ready-made login, logout, and user profile components that you can style and use like your own, while still exposing hooks for advanced customization.
+- **Clean, component-driven SDK:** Identity provider SDKs vary in developer experience. Some offer generic SDKs that provide portability but require understanding protocols like OpenID Connect and manually handling JWT tokens, which can be cumbersome. Others provide React hooks and providers that simplify token processing and protocol handling. The most powerful approach is SDKs with drop-in React components — ready-made login, logout, and user profile components that you can style and use like your own, while still exposing hooks for advanced customization.
 
 Once you've picked the right identity provider for your goals, you can start integrating your React application, which typically involves the following three steps:
 
@@ -67,7 +67,7 @@ Once you've picked the right identity provider for your goals, you can start int
 2. Connect your application by creating a corresponding application in the identity provider.
 3. Add drop-in components for login and user profiles, and style them as needed.
 
-## Set Up Your React App
+## Set up your React app
 
 First, scaffold a simple React application. You can use any approach you prefer — we'll use Vite, as it provides a fast and minimal setup with everything needed to build this application.
 
@@ -162,7 +162,7 @@ createRoot(document.getElementById('root')).render(
 
 ```
 
-## Implement User Login
+## Implement user login
 
 In this step, we use the drop-in components provided by the Asgardeo React SDK to add user login and logout functionality.
 
@@ -201,7 +201,7 @@ Now you can understand what happens behind the scenes when using these component
 
 You’re completely free to style these components using Tailwind or any other CSS library you prefer. Treat them like your own React components. The idea is simple: the SDK provides secure, production-ready authentication logic, while giving you full control over styling and customization.
 
-## Display User Profile
+## Display user profile
 
 Before we test our application, let’s also add some code to render the user profile of the logged-in user. Again, simply import and add `<UserProfile />` component from Asgardeo React SDK as highlighted in the following code.
 
@@ -261,7 +261,7 @@ At this stage, we have successfully added user login, logout, and user profile f
 
 Next, let’s explore how to call a protected backend HTTP API from your React application, a very common task in real-world apps for retrieving or updating server-side data.
 
-## Call a Secured Backend API
+## Call a secured backend API
 
 Since React is a client-side framework, your application is downloaded and runs entirely in the browser. Because of this, your app has to regularly make API calls to the backend API both to retrieve data and update state. As a React developer, this is one of the most common things you implement.
 
@@ -366,7 +366,7 @@ After revisiting your application and logging in successfully, you should see th
 
 ![user-profile-via-scim]({{base_path}}/assets/img/tutorials/react-authentication-tutorial/user-profile-via-scim.png)
 
-## Protect Your Routes
+## Protect your app routes
 
 In real-world React applications, it’s common to secure certain routes while keeping others public. Some paths should only be accessible to authenticated users.
 
