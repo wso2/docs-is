@@ -41,7 +41,7 @@ Adding user authentication to your React application may not be the most excitin
 
 - Define secure routes using React Router or TanStack Router to protect the pages and components by redirecting unauthenticated users to the login interface.
 
-- Handle tokens securely by temporarily storing them locally such as in localStorage, Web Worker, or Service Worker and using token data to populate the user profile and manage sessions.
+- Handle tokens securely by temporarily storing them locally such as in sessionStorage, Web Worker, or Service Worker and using token data to populate the user profile and manage sessions.
 
 - Invalidate sessions and tokens on logout or when the token expires.
 
