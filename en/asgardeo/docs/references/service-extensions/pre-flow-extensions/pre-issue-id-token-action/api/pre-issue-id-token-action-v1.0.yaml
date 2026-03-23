@@ -168,7 +168,7 @@ components:
         accessingOrganization:
           allOf:
             - $ref: '#/components/schemas/Organization'
-          description: Refers to the organization to which the user is accessing. This is only applicable for `organization_switch` grant type.
+          description: Refers to the organization that the user is accessing. Applies only to the `organization_switch` grant type.
       description: Contains information about the authenticated user associated with the token request.
       example:
         id: e204849c-4ec2-41f1-8ff7-ec1ebff02821
