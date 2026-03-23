@@ -39,7 +39,7 @@ Adding user authentication to your React application may not be the most excitin
 
 - Implement a backend Login API using Node.js/Express (or similar) with a connected database to store usernames, attributes, and password hashes. The Login API returns valid tokens (e.g., JWT) containing authentication status and user attributes.
 
-- Define secure routes using React Router or Tanstack Router to protect the pages and components by redirecting unauthenticated users to the login interface.
+- Define secure routes using React Router or TanStack Router to protect the pages and components by redirecting unauthenticated users to the login interface.
 
 - Handle tokens securely by temporarily storing them locally such as in localStorage, Web Worker, or Service Worker and using token data to populate the user profile and manage sessions.
 
