@@ -6,9 +6,9 @@ template: templates/quick-start.html
   const meta = {
     what_you_will_learn: [
       "Create a new MCP server in Typescript",
+      "Defines a MCP tool that adds two numbers",
       "Install <a href='https://www.npmjs.com/package/@asgardeo/mcp-express' target='_blank' rel='noopener noreferrer'>Asgardeo MCP SDK</a>",
-      "Set up {{ product_name }} for user authentication",
-      "Access MCP tools and resources securely"
+      "Set up MCP authorization with {{ product_name }}"
     ],
     prerequisites: [
       "About 15 minutes",
