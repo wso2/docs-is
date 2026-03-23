@@ -77,7 +77,7 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
 !!! note
-    From update level 135 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, `RSA-OAEP-512`, and `ECDH-ES+A256KW` encryption algorithms are supported.
+    From update level 135 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, and `RSA-OAEP-512` encryption algorithms are supported.
 {% elif product_name == "WSO2 Identity Server" and is_version == "7.1.0" %}
 !!! note
     From update level 54 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, `RSA-OAEP-512`, and `ECDH-ES+A256KW` encryption algorithms are supported.
