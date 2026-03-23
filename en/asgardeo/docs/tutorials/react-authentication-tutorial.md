@@ -35,9 +35,9 @@ source_code: '<a href="https://github.com/asgardeo-samples/react-authentication-
 
 Adding user authentication to your React application may not be the most exciting task, but it's essential to secure your app and protect user data. One approach is to build your own authentication system, which typically involves the following activities.
 
--  Build user interface components for login form, user profile, and logout.
+- Build user interface components for login form, user profile, and logout.
 
--  Implement a backend Login API using Node.js/Express (or similar) with a connected database to store usernames, attributes, and password hashes. The Login API returns valid tokens (e.g., JWT) containing authentication status and user attributes.
+- Implement a backend Login API using Node.js/Express (or similar) with a connected database to store usernames, attributes, and password hashes. The Login API returns valid tokens (e.g., JWT) containing authentication status and user attributes.
 
 - Define secure routes using React Router or Tanstack Router to protect the pages and components by redirecting unauthenticated users to the login interface.
 
@@ -139,11 +139,10 @@ Once you have created the application in Asgardeo console, copy the following va
 
 - **Base URL** – The base URL of your Asgardeo organization. It usually looks like: `https://api.asgardeo.io/t/<your-organization-name>` . The React SDK uses this URL to send login requests to the correct organization.
 
-
 Next, configure the `<AsgardeoProvider />` for your application to act as the context provider for the React SDK. To integrate it, wrap your root component in the main.jsx file with `<AsgardeoProvider />`. This makes the context created by the provider available throughout your application, so any component can access authentication state and related functions.
 You also need to pass the Client ID and Base URL values you copied in the previous step to `<AsgardeoProvider />`, as shown in the code below. This completes the connection between your React application and the Asgardeo cloud.
 
-```javascript title="src/main.jsx" 
+```javascript title="src/main.jsx"
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -169,7 +168,7 @@ In this step, we use the drop-in components provided by the Asgardeo React SDK t
 
 Simply replace the contents of your `App.jsx` file with the following code.
 
-```javascript title="src/ App.jsx.jsx" 
+```javascript title="src/App.jsx"
 
 import { SignedIn, SignedOut, SignInButton, SignOutButton } from '@asgardeo/react'
 import './App.css'
@@ -192,7 +191,7 @@ export default App
 ```
 
 In the above code, we first import the drop-in components `<SignedIn>`, `<SignedOut>`
-, `<SignOutButton />`, and  `<SignOutButton />` from the Asgardeo React SDK.
+, `<SignInButton />`, and  `<SignOutButton />` from the Asgardeo React SDK.
 
 We then use the `<SignedIn>` control component to check whether the current user is authenticated. If the user is signed in, we render the `<SignOutButton />` component to display a logout button. When the user clicks it, the component automatically handles the logout process by sending the logout request to Asgardeo and removing the stored tokens behind the scenes.
 
@@ -203,9 +202,10 @@ Now you can understand what happens behind the scenes when using these component
 You’re completely free to style these components using Tailwind or any other CSS library you prefer. Treat them like your own React components. The idea is simple: the SDK provides secure, production-ready authentication logic, while giving you full control over styling and customization.
 
 ## Display User Profile
-Before we test our application, let’s also add some code to render the user profile of the logged in user. Again, simply import and add `<UserProfile />` component from Asgardeo React SDK as highlighted in the following code. 
 
-```javascript title="src/ App.jsx.jsx" hl_lines="1 15-17"
+Before we test our application, let’s also add some code to render the user profile of the logged-in user. Again, simply import and add `<UserProfile />` component from Asgardeo React SDK as highlighted in the following code.
+
+```javascript title="src/App.jsx" hl_lines="1 15-17"
 
 import { SignedIn, SignedOut, SignInButton, SignOutButton, UserProfile } from '@asgardeo/react'
 import './App.css'
@@ -234,7 +234,7 @@ In the above code, we added the `<UserProfile />` component, which provides a de
 
 Alternatively, you can use `<UserDropdown />`, which shows a dropdown menu with built-in user details and sign-out functionality. The `<User />` component offers a render-prop pattern, allowing you to access user profile information programmatically.
 
-Now, we are ready to try-out our React application secured with Asgardeo. Let’s start the application again by running the following code. 
+Now, we are ready to try-out our React application secured with Asgardeo. Let’s start the application again by running the following code.
 
 === "npm"
     ```bash
@@ -251,7 +251,7 @@ Now, we are ready to try-out our React application secured with Asgardeo. Let’
 
 Now, if you visit [http://localhost:5173](http://localhost:5173) in your browser, you should see your application, which will look like the screenshot below. For simplicity, we haven’t added any CSS styles yet.
 
-Now, if you click the `Login` button, you will be redirected to the Asgardeo cloud, where you can sign in using a test user account. If you haven’t created a test user yet, you can follow [this guide](http://localhost:8000/asgardeo/docs/guides/users/manage-users/#onboard-single-user) to set one up.
+Now, if you click the `Login` button, you will be redirected to the Asgardeo cloud, where you can sign in using a test user account. If you haven’t created a test user yet, you can follow [this guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user) to set one up.
 
 Once you authenticate with your test user credentials, you will be redirected back to the application, and your test user profile will be displayed, as shown in the screenshot below.
 
@@ -282,7 +282,7 @@ Ideally, we would call a backend API that you created and secured with Asgardeo.
 In this section, we’ll use the SCIM 2.0 /Me endpoint, which returns the profile details of the logged-in user. The same approach applies when calling your own backend APIs, as long as they are secured with Asgardeo.
 Following React best practices, let’s first create a new component called MyProfile.jsx and add the following code.
 
-```javascript title="src/ MyProfile.jsx"
+```javascript title="src/MyProfile.jsx"
 
 import { useState } from 'react'
 import { useAsgardeo } from '@asgardeo/react'
@@ -314,7 +314,7 @@ function MyProfile() {
             {userData && (
                 <div>
                     <p> Given Name : {userData.name.givenName}</p>
-                    <p> FamilyName Name : {userData.name.familyName}</p>
+                    <p> Family Name Name : {userData.name.familyName}</p>
                 </div>
             )}
         </div>
@@ -327,7 +327,7 @@ export default MyProfile;
 
 In the above code apart from `useState` hook we have imported `useAsgardeo` hook which is provided by the Asgardeo React SDK and gives us access to authentication state and a built-in HTTP client.
 
-Then we have received two important constants by calling the  `useAsgardeo` hook. 
+Then we have received two important constants by calling the  `useAsgardeo` hook.
 
 - **isSignedIn** – tells us whether the user is authenticated.
 - **http** – a secure HTTP client provided by the SDK. This automatically attaches the current OAuth2 access token to outgoing requests.
@@ -388,11 +388,11 @@ First, install the following additional packages in your application.
     ```
 Next, following common conventions, create a pages directory under src and add the following components:
 
-MyProfile – Move the MyProfile.jsx file we created earlier into the src/pages directory.
+- **MyProfile** – Move the `MyProfile.jsx` file we created earlier into the `src/pages` directory.
 
-Dashboard – Create a `Dashboard.jsx` file and move the code from `App.jsx` into it, adding one additional line as shown below.
+- **Dashboard** – Create a `Dashboard.jsx` file in the `src/pages` directory and move the code from `App.jsx` into it, adding one additional line as shown below.
 
-```javascript title="src/Dashboard.jsx"
+```javascript title="src/pages/Dashboard.jsx"
 
 import { SignedIn, SignedOut, SignInButton, SignOutButton, UserProfile } from '@asgardeo/react'
 import { Link } from 'react-router-dom';
@@ -462,4 +462,5 @@ Once you authenticate, you’ll be redirected back, and clicking the “My Profi
 ## Conclusion
 
 This guide showed how to secure a React application using Asgardeo and its React SDK without building custom authentication from scratch. By using ready-to-use components like  `<SignInButton />`, `<SignOutButton />`, and `<UserProfile />`, you can quickly integrate authentication into any React project.
+
 With the SDK, you can implement a complete authentication flow, securely call protected APIs via the `useAsgardeo` hook’s built-in HTTP client, and protect routes using `<ProtectedRoute />`. This approach delivers a production-ready authentication system while letting developers focus on building application features instead of dealing with security boilerplate.
