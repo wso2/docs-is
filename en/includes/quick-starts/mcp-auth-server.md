@@ -88,7 +88,9 @@ Initialize the TypeScript configuration by running the following command.
     ```   
 
 Update the `tsconfig.json` file with the following settings.
+
 ```json title="tsconfig.json"
+
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -103,7 +105,7 @@ Update the `tsconfig.json` file with the following settings.
 
 ## Create a simple MCP server
 
-First, create `mcp-server.ts` file in the the root and add the following code. This sets up a MCP server with a MCP tool(addition):
+First, create `mcp-server.ts` file in the root and add the following code. This sets up a MCP server with a MCP tool (addition):
 
 ```typescript title="mcp-server.ts"
 
@@ -202,8 +204,7 @@ npx @modelcontextprotocol/inspector --url http://localhost:3000/mcp --transport 
 
 ```  
 
-Use it to list tools, invoke the "add" tool using the inspector UI.
-
+Use it to list available tools and invoke the “add” tool through the Inspector UI
 
 ## Add auth to the MCP server
 
@@ -311,10 +312,10 @@ To register MCP Inspector as a MCP client in {{product_name}}:
 <!-- markdownlint-enable MD007 -->
 
 !!! Info
-    The authorized redirect URL determines where users are sent after login, typically where the client app connecting to the MCP server is running. 
+    The authorized redirect URL determines where users are sent after login, typically where the client app connecting to the MCP server is running.
     For this guide, we'll use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we'll use `http://localhost:6274/oauth/callback/debug`, as the authorized redirect URL.
 
-Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during next step. 
+Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during next step.
 
 Use MCP Inspector to test (now requires auth):
 
