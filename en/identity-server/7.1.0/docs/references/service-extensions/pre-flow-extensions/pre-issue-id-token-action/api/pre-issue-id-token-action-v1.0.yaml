@@ -108,30 +108,12 @@ components:
           example:
             - openid
             - profile
-        additionalHeaders:
-          type: array
-          description: Any additional HTTP headers included in the ID token request. These may contain custom information or metadata sent by the client.
-          items:
-            $ref: '#/components/schemas/RequestHeaders'
-        additionalParams:
-          type: array
-          items:
-            $ref: '#/components/schemas/RequestParams'
-      description: Any additional parameters included in the ID token request. These may be custom parameters defined by the client or necessary for specific flows.
       example:
         grantType: authorization_code
         clientId: 1u31N7of6gCNR9FqkG1neSlsF_Qa
         scopes:
           - openid
           - profile
-        additionalHeaders:
-          - name: X-Custom-Header
-            value:
-              - customValue
-        additionalParams:
-          - name: custom_param
-            value:
-              - customValue
     Tenant:
       type: object
       required:
