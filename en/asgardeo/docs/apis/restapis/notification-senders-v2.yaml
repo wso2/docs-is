@@ -31,10 +31,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailProviderList'
               examples:
-                basicAuthWithAuthTypePOSTEXample:
-                  $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypeResponseExample'
-                clientCredentialPOSTEXample:
-                  $ref: '#/components/examples/EmailSenderClientCredentialResponseExample'
+                basicAuthWithAuthTypeResponseExample:
+                  $ref: '#/components/examples/SMTPBasedEmailSenderWithBasicAuthTypeListResponseExample'
+                clientCredentialResponseEXample:
+                  $ref: '#/components/examples/SMTPBasedEmailSenderWithClientCredentialAuthTypeListResponseExample'
+                httpBasicAuthResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithBasicAuthTypeListResponseExample'
+                httpClientCredentialResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithClientCredentialAuthTypeListResponseExample'
+                httpBearerTokenResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithBearerTokenAuthTypeListResponseExample'
+                httpApiKeyResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypeListResponseExample'
+                httpNoneAuthResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypeListResponseExample'
         "400":
           description: Bad Request
           content:
@@ -75,7 +85,7 @@ paths:
         - Email Senders
       summary: Create an email sender
       description: |
-        This API provides the capability to create an email sender.\n\nIf the 'name' is not not defined, 'EmailPublisher' is taken as the default name. <br>
+        This API provides the capability to create an email sender.\nIf the 'name' is not defined, 'EmailPublisher' is taken as the default name. For SMTP-based providers, Basic and Client Credential authentication types are supported. For HTTP-based providers, Basic, Client Credential, Bearer Token, API Key, and None authentication types are supported. <br>
         
         <b>Scope(Permission) required:</b> `internal_notification_senders_create`
       operationId: createEmailSender
@@ -84,13 +94,23 @@ paths:
           application/json:
             schema:
               oneOf:
-                - $ref: '#/components/schemas/EmailSenderAddBasicWithAuthType'
-                - $ref: '#/components/schemas/EmailSenderAddClientCredential'
+                - $ref: '#/components/schemas/HTTPBasedEmailSenderAdd'
+                - $ref: '#/components/schemas/SMTPBasedEmailSenderAdd'
             examples:
               basicAuthWithAuthTypePOSTEXample:
-                $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypePOSTRequestExample'
+                $ref: '#/components/examples/SMTPBasedEmailSenderBasicAuthWithAuthTypePOSTRequestExample'
               clientCredentialPOSTEXample:
-                $ref: '#/components/examples/EmailSenderClientCredentialPOSTRequestExample'
+                $ref: '#/components/examples/SMTPBasedEmailSenderClientCredentialPOSTRequestExample'
+              httpBasicAuthPOSTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithBasicAuthTypePOSTRequestExample'
+              httpClientCredentialPOSTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithClientCredentialAuthTypePOSTRequestExample'
+              httpBearerTokenPOSTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithBearerTokenAuthTypePOSTRequestExample'
+              httpApiKeyPOSTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypePOSTRequestExample'
+              httpNoneAuthPOSTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypePOSTRequestExample'
       responses:
         "201":
           description: Successful Response
@@ -98,13 +118,23 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/EmailSenderAddBasicWithAuthType'
-                  - $ref: '#/components/schemas/EmailSenderAddClientCredential'
+                  - $ref: '#/components/schemas/HTTPBasedEmailSenderAdd'
+                  - $ref: '#/components/schemas/SMTPBasedEmailSenderAdd'
               examples:
-                basicAuthWithAuthTypePOSTEXample:
-                  $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypeResponseExample'
-                clientCredentialPOSTEXample:
-                  $ref: '#/components/examples/EmailSenderClientCredentialResponseExample'
+                basicAuthWithAuthTypeResponseExample:
+                  $ref: '#/components/examples/SMTPBasedEmailSenderWithBasicAuthTypeResponseExample'
+                clientCredentialResponseExample:
+                  $ref: '#/components/examples/SMTPBasedEmailSenderWithClientCredentialAuthTypeResponseExample'
+                httpBasicAuthResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithBasicAuthTypeResponseExample'
+                httpClientCredentialResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithClientCredentialAuthTypeResponseExample'
+                httpBearerTokenResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithBearerTokenAuthTypeResponseExample'
+                httpApiKeyResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypeResponseExample'
+                httpNoneAuthResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypeResponseExample'
         "400":
           description: Bad Request
           content:
@@ -193,10 +223,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailSender'
               examples:
-                basicAuthWithAuthTypePOSTEXample:
-                  $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypeResponseExample'
-                clientCredentialPOSTEXample:
-                  $ref: '#/components/examples/EmailSenderClientCredentialResponseExample'
+                basicAuthWithAuthTypeResponseExample:
+                  $ref: '#/components/examples/SMTPBasedEmailSenderWithBasicAuthTypeResponseExample'
+                clientCredentialResponseExample:
+                  $ref: '#/components/examples/SMTPBasedEmailSenderWithClientCredentialAuthTypeResponseExample'
+                httpBasicAuthResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithBasicAuthTypeResponseExample'
+                httpClientCredentialResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithClientCredentialAuthTypeResponseExample'
+                httpBearerTokenResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithBearerTokenAuthTypeResponseExample'
+                httpApiKeyResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypeResponseExample'
+                httpNoneAuthResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypeResponseExample'
         "400":
           description: Bad Request
           content:
@@ -256,14 +296,23 @@ paths:
           application/json:
             schema:
               oneOf:
-                - $ref: '#/components/schemas/EmailSenderAddBasic'
-                - $ref: '#/components/schemas/EmailSenderAddBasicWithAuthType'
-                - $ref: '#/components/schemas/EmailSenderAddClientCredential'
+                - $ref: '#/components/schemas/HTTPBasedEmailSenderUpdate'
+                - $ref: '#/components/schemas/SMTPBasedEmailSenderUpdate'
             examples:
-              basicAuthWithAuthTypePOSTEXample:
-                $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypePUTRequestExample'
-              clientCredentialPOSTEXample:
-                $ref: '#/components/examples/EmailSenderClientCredentialPUTRequestExample'
+              basicAuthWithAuthTypePUTEXample:
+                $ref: '#/components/examples/SMTPBasedEmailSenderBasicAuthWithAuthTypePUTRequestExample'
+              clientCredentialPUTEXample:
+                $ref: '#/components/examples/SMTPBasedEmailSenderClientCredentialPUTRequestExample'
+              httpBasicAuthPUTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithBasicAuthTypePUTRequestExample'
+              httpClientCredentialPUTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithClientCredentialAuthTypePUTRequestExample'
+              httpBearerTokenPUTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithBearerTokenAuthTypePUTRequestExample'
+              httpApiKeyPUTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypePUTRequestExample'
+              httpNoneAuthPUTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypePUTRequestExample'
 
         required: true
       responses:
@@ -274,10 +323,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailSender'
               examples:
-                basicAuthWithAuthTypePOSTEXample:
-                  $ref: '#/components/examples/EmailSenderBasicAuthWithAuthTypeResponseExample'
-                clientCredentialPOSTEXample:
-                  $ref: '#/components/examples/EmailSenderClientCredentialResponseExample'
+                basicAuthWithAuthTypePUTEXample:
+                  $ref: '#/components/examples/SMTPBasedEmailSenderWithBasicAuthTypeResponseExample'
+                clientCredentialPUTEXample:
+                  $ref: '#/components/examples/SMTPBasedEmailSenderWithClientCredentialAuthTypeResponseExample'
+                httpBasicAuthResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithBasicAuthTypeResponseExample'
+                httpClientCredentialResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithClientCredentialAuthTypeResponseExample'
+                httpBearerTokenResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithBearerTokenAuthTypeResponseExample'
+                httpApiKeyResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypeResponseExample'
+                httpNoneAuthResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypeResponseExample'
         "400":
           description: Bad Request
           content:
@@ -1116,13 +1175,14 @@ components:
         traceId:
           type: string
           example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
-    EmailSenderAddClientCredential:
-      required:
-        - fromAddress
+    SMTPBasedEmailSenderAdd:
       type: object
       properties:
         name:
           type: string
+        provider:
+          type: string
+          example: SMTP
         smtpServerHost:
           type: string
         smtpPort:
@@ -1150,30 +1210,31 @@ components:
               value: "https://graph.microsoft.com/.default"
           items:
             $ref: '#/components/schemas/Properties'
-    EmailSenderAddBasicWithAuthType:
-      required:
-        - fromAddress
+    HTTPBasedEmailSenderAdd:
       type: object
       properties:
         name:
           type: string
-        smtpServerHost:
+        provider:
           type: string
-        smtpPort:
-          type: integer
-        fromAddress:
+          example: HTTP
+        providerURL:
           type: string
-          example: iam@gmail.com
+          example: https://custom.email.provider/send
         authType:
           type: string
           example: BASIC
         properties:
           type: array
           example:
-            - key: body.scope
-              value: "true"
-            - key: mail.smtp.starttls.enable
-              value: true
+            - key: http.client.method
+              value: POST
+            - key: contentType
+              value: JSON
+            - key: http.headers
+              value: "X-Version: 1, Header1: value1"
+            - key: body
+              value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
             - key: clientId
               value: "3e172dd2-901b-43a9-a26a-728466795f01"
             - key: clientSecret
@@ -1245,13 +1306,18 @@ components:
             $ref: '#/components/schemas/Properties'
     EmailSender:
       required:
-        - fromAddress
         - name
       type: object
       properties:
         name:
           type: string
           example: EmailPublisher
+        provider:
+          type: string
+          example: SMTP
+        providerURL:
+          type: string
+          example: https://custom.email.provider/send
         smtpServerHost:
           type: string
           example: smtp.gmail.com
@@ -1333,23 +1399,22 @@ components:
               value: "sampleKeyId"
           items:
             $ref: '#/components/schemas/Properties'
-    EmailSenderUpdateRequest:
-      required:
-        - fromAddress
+    SMTPBasedEmailSenderUpdate:
       type: object
       properties:
+        provider:
+          type: string
+          example: SMTP
         smtpServerHost:
           type: string
-          example: smtp.gmail.com
         smtpPort:
           type: integer
-          example: 587
         fromAddress:
           type: string
           example: iam@gmail.com
         authType:
           type: string
-          example: BASIC
+          example: CLIENT_CREDENTIAL
         properties:
           type: array
           example:
@@ -1357,10 +1422,47 @@ components:
               value: "true"
             - key: mail.smtp.starttls.enable
               value: true
-            - key: userName
-              value: iam
-            - key: password
-              value: iam123
+            - key: clientId
+              value: "3e172dd2-901b-43a9-a26a-728466795f01"
+            - key: clientSecret
+              value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+            - key: tokenEndpoint
+              value: "https://login.microsoftonline.com/da76d684-740f-4d94-8717-9d5fb21dd1f9/oauth2/v2.0/token"
+            - key: scopes
+              value: "https://graph.microsoft.com/.default"
+          items:
+            $ref: '#/components/schemas/Properties'
+    HTTPBasedEmailSenderUpdate:
+      type: object
+      properties:
+        provider:
+          type: string
+          example: HTTP
+        providerURL:
+          type: string
+          example: https://custom.email.provider/send
+        authType:
+          type: string
+          example: BASIC
+        properties:
+          type: array
+          example:
+            - key: http.client.method
+              value: POST
+            - key: contentType
+              value: JSON
+            - key: http.headers
+              value: "X-Version: 1, Header1: value1"
+            - key: body
+              value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+            - key: clientId
+              value: "3e172dd2-901b-43a9-a26a-728466795f01"
+            - key: clientSecret
+              value: "83cdc120-ccf6-4163-a4a8-c1ba3e872daa"
+            - key: tokenEndpoint
+              value: "https://login.microsoftonline.com/da76d684-740f-4d94-8717-9d5fb21dd1f9/oauth2/v2.0/token"
+            - key: scopes
+              value: "https://graph.microsoft.com/.default"
           items:
             $ref: '#/components/schemas/Properties'
     SMSSenderUpdateRequest:
@@ -1531,10 +1633,11 @@ components:
           tokenUrl: https://api.asgardeo.io/t/{tenant-domain}/oauth2/token
           scopes: {}
   examples:
-    EmailSenderClientCredentialPOSTRequestExample:
-      summary: "Post request for email  providers with client credential authentication"
+    SMTPBasedEmailSenderClientCredentialPOSTRequestExample:
+      summary: "Post request for SMTP based email  providers with client credential authentication"
       value:
         name: "EmailPublisher"
+        provider: "SMTP"
         smtpServerHost: "smtp.gmail.com"
         smtpPort: 587
         fromAddress: "test@gmail.com"
@@ -1550,10 +1653,11 @@ components:
             value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
           - key: "scopes"
             value: "https://graph.microsoft.com/.default"
-    EmailSenderBasicAuthWithAuthTypePOSTRequestExample:
-      summary: "Post request for email providers with basic authentication"
+    SMTPBasedEmailSenderBasicAuthWithAuthTypePOSTRequestExample:
+      summary: "Post request for SMTP based email providers with basic authentication"
       value:
         name: "EmailPublisher"
+        provider: "SMTP"
         smtpServerHost: "smtp.gmail.com"
         smtpPort: 587
         fromAddress: "test@gmail.com"
@@ -1565,10 +1669,108 @@ components:
             value: "iam"
           - key: "password"
             value: "iam123"
-    EmailSenderClientCredentialPUTRequestExample:
-      summary: "Put request for email  providers with client credential authentication"
+    HTTPBasedEmailSenderWithBasicAuthTypePOSTRequestExample:
+      summary: "Post request for HTTP based email providers with basic authentication"
       value:
         name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "BASIC"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "userName"
+            value: "iam"
+          - key: "password"
+            value: "iam123"
+    HTTPBasedEmailSenderWithClientCredentialAuthTypePOSTRequestExample:
+      summary: "Post request for HTTP based email providers with client credential authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "CLIENT_CREDENTIAL"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "clientId"
+            value: "client-id-123"
+          - key: "clientSecret"
+            value: "client-secret-abc"
+          - key: "tokenEndpoint"
+            value: "https://example.com/oauth2/token"
+          - key: "scopes"
+            value: "send_scope"
+    HTTPBasedEmailSenderWithBearerTokenAuthTypePOSTRequestExample:
+      summary: "Post request for HTTP based email providers with bearer token authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "BEARER"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "accessToken"
+            value: "bearer-token"
+    HTTPBasedEmailSenderWithAPIKeyAuthTypePOSTRequestExample:
+      summary: "Post request for HTTP based email providers with API key authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "API_KEY"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "apiKeyHeader"
+            value: "API-Key-Header"
+          - key: "apiKeyValue"
+            value: "api-key-value"
+    HTTPBasedEmailSenderWithNoneAuthTypePOSTRequestExample:
+      summary: "Post request for HTTP based email providers with no authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "NONE"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+    SMTPBasedEmailSenderClientCredentialPUTRequestExample:
+      summary: "Put request for SMTP based email  providers with client credential authentication"
+      value:
+        provider: "SMTP"
         smtpServerHost: "smtp.gmail.com"
         smtpPort: 587
         fromAddress: "test@gmail.com"
@@ -1584,10 +1786,10 @@ components:
             value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
           - key: "scopes"
             value: "https://graph.microsoft.com/.default"
-    EmailSenderBasicAuthWithAuthTypePUTRequestExample:
-      summary: "Put request for email providers with basic authentication"
+    SMTPBasedEmailSenderBasicAuthWithAuthTypePUTRequestExample:
+      summary: "Put request for SMTP based email providers with basic authentication"
       value:
-        name: "EmailPublisher"
+        provider: "SMTP"
         smtpServerHost: "smtp.gmail.com"
         smtpPort: 587
         fromAddress: "test@gmail.com"
@@ -1599,10 +1801,104 @@ components:
             value: "iam"
           - key: "password"
             value: "iam123"
-    EmailSenderClientCredentialResponseExample:
-      summary: "Response for email  providers with client credential authentication"
+    HTTPBasedEmailSenderWithBasicAuthTypePUTRequestExample:
+      summary: "Put request for HTTP based email providers with basic authentication"
+      value:
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "BASIC"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "userName"
+            value: "iam"
+          - key: "password"
+            value: "iam123"
+    HTTPBasedEmailSenderWithClientCredentialAuthTypePUTRequestExample:
+      summary: "Put request for HTTP based email providers with client credential authentication"
+      value:
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "CLIENT_CREDENTIAL"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "clientId"
+            value: "client-id-123"
+          - key: "clientSecret"
+            value: "client-secret-abc"
+          - key: "tokenEndpoint"
+            value: "https://example.com/oauth2/token"
+          - key: "scopes"
+            value: "send_scope"
+    HTTPBasedEmailSenderWithBearerTokenAuthTypePUTRequestExample:
+      summary: "Put request for HTTP based email providers with bearer token authentication"
+      value:
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "BEARER"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "accessToken"
+            value: "bearer-token"
+    HTTPBasedEmailSenderWithAPIKeyAuthTypePUTRequestExample:
+      summary: "Put request for HTTP based email providers with API key authentication"
+      value:
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "API_KEY"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "apiKeyHeader"
+            value: "API-Key-Header"
+          - key: "apiKeyValue"
+            value: "api-key-value"
+    HTTPBasedEmailSenderWithNoneAuthTypePUTRequestExample:
+      summary: "Put request for HTTP based email providers with no authentication"
+      value:
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "NONE"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+    SMTPBasedEmailSenderWithClientCredentialAuthTypeResponseExample:
+      summary: "Response for SMTP based email  providers with client credential authentication"
       value:
         name: "EmailPublisher"
+        provider: "SMTP"
         smtpServerHost: "smtp.gmail.com"
         smtpPort: 587
         fromAddress: "test@gmail.com"
@@ -1616,10 +1912,11 @@ components:
             value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
           - key: "scopes"
             value: "https://graph.microsoft.com/.default"
-    EmailSenderBasicAuthWithAuthTypeResponseExample:
-      summary: "Response for email providers with basic authentication"
+    SMTPBasedEmailSenderWithBasicAuthTypeResponseExample:
+      summary: "Response for SMTP based email providers with basic authentication"
       value:
         name: "EmailPublisher"
+        provider: "SMTP"
         smtpServerHost: "smtp.gmail.com"
         smtpPort: 587
         fromAddress: "test@gmail.com"
@@ -1629,6 +1926,222 @@ components:
             value: "Identity Server"
           - key: "userName"
             value: "iam"
+    HTTPBasedEmailSenderWithBasicAuthTypeResponseExample:
+      summary: "Response for HTTP based email providers with basic authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "BASIC"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "userName"
+            value: "iam"
+    HTTPBasedEmailSenderWithClientCredentialAuthTypeResponseExample:
+      summary: "Response for HTTP based email providers with client credential authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "CLIENT_CREDENTIAL"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "clientId"
+            value: "client-id-123"
+          - key: "tokenEndpoint"
+            value: "https://example.com/oauth2/token"
+          - key: "scopes"
+            value: "send_scope"
+    HTTPBasedEmailSenderWithBearerTokenAuthTypeResponseExample:
+      summary: "Response for HTTP based email providers with bearer token authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "BEARER"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+    HTTPBasedEmailSenderWithAPIKeyAuthTypeResponseExample:
+      summary: "Response for HTTP based email providers with API key authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "API_KEY"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "apiKeyHeader"
+            value: "API-Key-Header"
+    HTTPBasedEmailSenderWithNoneAuthTypeResponseExample:
+      summary: "Response for HTTP based email providers with no authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "NONE"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+    SMTPBasedEmailSenderWithBasicAuthTypeListResponseExample:
+      summary: "List response containing an SMTP-based email provider with basic authentication"
+      value:
+        - name: "EmailPublisher"
+          provider: "SMTP"
+          smtpServerHost: "smtp.gmail.com"
+          smtpPort: 587
+          fromAddress: "test@gmail.com"
+          authType: "BASIC"
+          properties:
+            - key: "mail.smtp.signature"
+              value: "Identity Server"
+            - key: "userName"
+              value: "iam"
+    SMTPBasedEmailSenderWithClientCredentialAuthTypeListResponseExample:
+      summary: "List response containing an SMTP-based email provider with client credential authentication"
+      value:
+        - name: "EmailPublisher"
+          provider: "SMTP"
+          smtpServerHost: "smtp.gmail.com"
+          smtpPort: 587
+          fromAddress: "test@gmail.com"
+          authType: "CLIENT_CREDENTIAL"
+          properties:
+            - key: "mail.smtp.signature"
+              value: "Identity Server"
+            - key: "clientId"
+              value: "3e172dd2-901b-43a9-a26a-728466795f01"
+            - key: "tokenEndpoint"
+              value: "https://login.microsoftonline.com/da84-740f-9d5ff9/oauth2/token"
+            - key: "scopes"
+              value: "https://graph.microsoft.com/.default"
+    HTTPBasedEmailSenderWithBasicAuthTypeListResponseExample:
+      summary: "List response containing an HTTP-based email provider with basic authentication"
+      value:
+        - name: "EmailPublisher"
+          provider: "HTTP"
+          providerURL: "https://api.example.com/api/v1"
+          authType: "BASIC"
+          properties:
+            - key: "http.client.method"
+              value: "POST"
+            - key: contentType
+              value: "JSON"
+            - key: "http.headers"
+              value: "X-Version: 1, Custom-Header: value"
+            - key: "body"
+              value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+            - key: "userName"
+              value: "iam"
+    HTTPBasedEmailSenderWithClientCredentialAuthTypeListResponseExample:
+      summary: "List response containing an HTTP-based email provider with client credential authentication"
+      value:
+        - name: "EmailPublisher"
+          provider: "HTTP"
+          providerURL: "https://api.example.com/api/v1"
+          authType: "CLIENT_CREDENTIAL"
+          properties:
+            - key: "http.client.method"
+              value: "POST"
+            - key: contentType
+              value: "JSON"
+            - key: "http.headers"
+              value: "X-Version: 1, Custom-Header: value"
+            - key: "body"
+              value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+            - key: "clientId"
+              value: "client-id-123"
+            - key: "tokenEndpoint"
+              value: "https://example.com/oauth2/token"
+            - key: "scopes"
+              value: "send_scope"
+    HTTPBasedEmailSenderWithBearerTokenAuthTypeListResponseExample:
+      summary: "List response containing an HTTP-based email provider with bearer token authentication"
+      value:
+        - name: "EmailPublisher"
+          provider: "HTTP"
+          providerURL: "https://api.example.com/api/v1"
+          authType: "BEARER"
+          properties:
+            - key: "http.client.method"
+              value: "POST"
+            - key: contentType
+              value: "JSON"
+            - key: "http.headers"
+              value: "X-Version: 1, Custom-Header: value"
+            - key: "body"
+              value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+            - key: "accessToken"
+              value: "bearer-token"
+    HTTPBasedEmailSenderWithAPIKeyAuthTypeListResponseExample:
+      summary: "List response containing an HTTP-based email provider with API key authentication"
+      value:
+        - name: "EmailPublisher"
+          provider: "HTTP"
+          providerURL: "https://api.example.com/api/v1"
+          authType: "API_KEY"
+          properties:
+            - key: "http.client.method"
+              value: "POST"
+            - key: contentType
+              value: "JSON"
+            - key: "http.headers"
+              value: "X-Version: 1, Custom-Header: value"
+            - key: "body"
+              value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+            - key: "apiKeyHeader"
+              value: "API-Key-Header"
+            - key: "apiKeyValue"
+              value: "api-key-value"
+    HTTPBasedEmailSenderWithNoneAuthTypeListResponseExample:
+      summary: "List response containing an HTTP-based email provider with no authentication"
+      value:
+        - name: "EmailPublisher"
+          provider: "HTTP"
+          providerURL: "https://api.example.com/api/v1"
+          authType: "NONE"
+          properties:
+            - key: "http.client.method"
+              value: "POST"
+            - key: contentType
+              value: "JSON"
+            - key: "http.headers"
+              value: "X-Version: 1, Custom-Header: value"
+            - key: "body"
+              value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
     TwilioSMSProviderRequestExample:
       summary: Post and PUT request for Twilio SMS Provider
       value:
