@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: API contract for pre-issue ID token action
-  description: This API defines the REST API contract for a service that implements logic to extend the ID token issuance flow of Asgardeo.
+  description: This API defines the REST API contract for a service that implements logic to extend the ID token issuance flow of WSO2 Identity Server.
   version: v1
 security:
 - BasicAuth: []
@@ -159,7 +159,7 @@ components:
           description: Refers to the organization to which the user belongs.
         userType:
           type: string
-          description: Defines the type of user. `LOCAL` indicates a user that exists in Asgardeo organization; `FEDERATED` indicates a federated user authenticated via a federated identity provider.
+          description: Defines the type of user. `LOCAL` indicates a user that exists in WSO2 Identity Server organization; `FEDERATED` indicates a federated user authenticated via a federated identity provider.
           example: LOCAL
         federatedIdP:
           type: string
@@ -175,8 +175,6 @@ components:
         organization:
           id: 5c7930f2-c97d-4b38-89a6-7be5fb138a35
           name: foo.com
-          orgHandle: foo.com
-          depth: 0
         userType: LOCAL
     Organization:
       type: object
@@ -192,14 +190,6 @@ components:
           type: string
           description: Name of the organization used to identify the organization in configurations, user interfaces, etc.
           example: foo.com
-        orgHandle:
-          type: string
-          description: The organization handle.
-          example: foo.com
-        depth:
-          type: integer
-          description: The depth of the organization in the hierarchy.
-          example: 0
       description: This property represents the organization context.
     UserStore:
       type: object
@@ -423,14 +413,6 @@ components:
         - event
         - allowedOperations
       properties:
-        flowId:
-          type: string
-          description: A unique identifier that associates with the token issuing flow in Asgardeo
-          example: Ec1wMjmiG8
-        requestId:
-          type: string
-          description: A unique correlation identifier that associates with the token request received by Asgardeo
-          example: 6783a180f817075313ea3fb01d79c221
         actionType:
           type: string
           enum:
