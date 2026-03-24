@@ -73,6 +73,9 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
     - RSA-OAEP-384
     - RSA-OAEP-512
     {% endif %}
+    {% if product_name == "WSO2 Identity Server" and is_version == "7.1.0" %}
+    - ECDH-ES+A256KW
+    {% endif %}
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
 !!! note
