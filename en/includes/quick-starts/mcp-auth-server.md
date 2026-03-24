@@ -1,6 +1,6 @@
 # MCP-Auth Quickstart
 
-This quickstart shows you how to build a secure MCP (Model Context Protocol) server using [MCP TypeScript SDK](https://www.npmjs.com/package/@modelcontextprotocol/sdk) and [WSO2 MCP Auth SDK](https://www.npmjs.com/package/@asgardeo/mcp-express). After completing this guide, you will have a working MCP server that secured using **OAuth 2.1** according to the [MCP auth specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
+This quickstart shows you how to build a secure MCP (Model Context Protocol) server using [MCP TypeScript SDK](https://www.npmjs.com/package/@modelcontextprotocol/sdk) and [WSO2 MCP Auth SDK](https://www.npmjs.com/package/@asgardeo/mcp-express). After completing this guide, you will have a working MCP server that is secured with **OAuth 2.1** according to the [MCP auth specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
 
 [//] STEPS_START
 
@@ -49,21 +49,21 @@ Install the following dependencies.
 === "npm"
 
     ``` bash
-    npm install express zod @modelcontextprotocol/sdk
+    npm install express cors dotenv zod @modelcontextprotocol/sdk
     npm install -D typescript tsx @types/express @types/node @types/cors
     ```
 
 === "yarn"
 
     ``` bash
-    yarn add express zod @modelcontextprotocol/sdk
+    yarn add express cors dotenv zod @modelcontextprotocol/sdk
     yarn add -D typescript tsx @types/express @types/node @types/cors
     ``` 
 
 === "nnpm"
 
     ``` bash
-    nnpm install express zod @modelcontextprotocol/sdk
+    nnpm install express cors dotenv zod @modelcontextprotocol/sdk
     nnpm install -D typescript tsx @types/express @types/node @types/cors
     ```
 
@@ -312,7 +312,7 @@ To register MCP Inspector as a MCP client in {{product_name}}:
 <!-- markdownlint-enable MD007 -->
 
 !!! Info
-    The authorized redirect URL determines where users are sent after login, typically where the client app connecting to the MCP server is running.
+    The authorized redirect URL determines where users are sent after sign-in, typically where the client app connecting to the MCP server is running.
     For this guide, we'll use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we'll use `http://localhost:6274/oauth/callback/debug`, as the authorized redirect URL.
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during next step.
@@ -329,7 +329,7 @@ npx @modelcontextprotocol/inspector --url http://localhost:3000/mcp --transport 
 
 1. In the MCP inspector, open the **Authentication** settings in the left side. Under *OAuth 2.0 Flow* provide the `client-id` obtained earlier in this guide.
 
-2. Click **Open Auth Settings** and then click **Quick OAuth2 Flow** to initiate the OAuth2 flow, then the inspector will prompt for authentication. Follow the OAuth flow to obtain a bearer token from {{ product_name }}.
+2. Click **Open Auth Settings** and then click **Quick OAuth2 Flow** to initiate the OAuth2 flow, then the inspector will prompt for authentication. Follow the OAuth flow to get a bearer token from {{ product_name }}.
 
 3. Once the user authentication is complete, click the **Connect** button from the left side.  Now you should be able to view and invoke the tools exposed by the MCP server.
 
