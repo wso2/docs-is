@@ -812,6 +812,7 @@ nav:
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
+        - Approval workflow rules: guides/workflows/workflow-rules.md
         - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
