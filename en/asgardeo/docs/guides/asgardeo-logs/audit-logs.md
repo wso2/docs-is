@@ -97,7 +97,7 @@ Follow the steps below to observe an audit log due to user onboarding:
 
     ![auditlog data viewer]({{base_path}}/assets/img/guides/asgardeo-logs/audit-logs/auditlog-data-viewer.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    You can also **Copy** and **Download** the additional data presented in the Auditlog Data Viewer.
+    You can also **Copy** and **Download** the additional data presented in the Audit Log Data Viewer.
 
 ## Audit log actions
 
@@ -113,7 +113,7 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 | `update-action` | An action was updated. |
 | `deactivate-action` | An action was deactivated. |
 
-### Application Management
+### Application management
 
 | Audit Log | Description |
 |---|---|
@@ -122,7 +122,7 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 | `update-application` | An application was updated. |
 | `create-oauth-application` | A new OAuth application was created. |
 
-### Application Sharing
+### Application sharing
 
 | Audit Log | Description |
 |---|---|
@@ -130,12 +130,6 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 | `processing-unshare-application-from-all-orgs` | An application was unshared from all organizations. |
 | `processing-unshare-application-from-selected-orgs` | An application was unshared from selected organizations. |
 | `processing-share-application-with-selected-orgs` | An application was shared with selected organizations. |
-
-### Authentication
-
-| Audit Log | Description |
-|---|---|
-| `PostTokenIssue` | A token was issued via the password grant. |
 
 ### Connections
 
@@ -145,7 +139,7 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 | `Delete-IDP` | A connection was deleted. |
 | `Update-IDP` | A connection was updated. |
 
-### Flow Management
+### Flow management
 
 | Audit Log | Description |
 |---|---|
@@ -156,7 +150,7 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 | `update-flow-config-REGISTRATION` | The registration flow configuration was updated. |
 | `update-flow-REGISTRATION` | The registration flow was updated. |
 
-### Organization Management
+### Organization management
 
 | Audit Log | Description |
 |---|---|
@@ -164,7 +158,7 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 | `delete-organization` | An organization was deleted. |
 | `update-organization` | An organization was updated. |
 
-### Role Management
+### Role management
 
 | Audit Log | Description |
 |---|---|
@@ -183,7 +177,7 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 |---|---|
 | `TerminateSession` | A user session was terminated. |
 
-### System Operations
+### System operations
 
 | Audit Log | Description |
 |---|---|
@@ -191,13 +185,13 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 | `Kill-All-Agents-In-Tenant` | All agents in a tenant were terminated. |
 | `resource-creation-via-impersonation` | A resource was created via impersonation. |
 
-### Tenant Management
+### Tenant management
 
 | Audit Log | Description |
 |---|---|
 | `Add-Tenant` | A new tenant was added. |
 
-### Token Management
+### Token management
 
 | Audit Log | Description |
 |---|---|
