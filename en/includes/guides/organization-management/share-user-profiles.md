@@ -10,7 +10,7 @@ There are three ways how user profiles are shared between organizations:
 
 2. An organization admin can invite users from the immediate parent organization to join the organization. Once the user accepts the invitation, the user profile is automatically shared with the child organization. Learn more about [inviting existing users from the parent organization]({{base_path}}/guides/organization-management/onboard-users/#invite-existing-users-from-the-parent-organization).
 
-3. An admin can share users of an organization with other organizations lower in the hierarchy using the [User Sharing API]({{base_path}}/apis/organization-user-share-rest-api).
+3. An admin can share users of an organization with other organizations lower in the hierarchy {% if is_version > "7.2.0" %}[through the {{product_name}} Console]({{base_path}}/guides/users/manage-users/#share-user-with-organizations) or {% endif %} using the [User Sharing API]({{base_path}}/apis/organization-user-share-rest-api).
 
 ## Customize user attributes in shared user profiles
 

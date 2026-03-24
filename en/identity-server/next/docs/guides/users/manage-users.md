@@ -8,6 +8,24 @@ This guide walks you through how you can manage user accounts as an administrato
 
 To learn more about onboarding users, see [Onboard users]({{base_path}}/guides/users/onboard-users/).
 
+## Filter users
+
+Administrators can filter users based on their account status from the {{ product_name }} Console.
+
+To filter users by account status:
+
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
+2. Click the **Account Status** dropdown and select the relevant filter criteria:
+
+    - **Locked**: Filters users with locked accounts.
+    - **Disabled**: Filters users with deactivated accounts.
+    - **Pending password reset**: Filters users for whom the administrator has initiated a forced password reset, but the users haven't yet reset their passwords.
+    - **Pending initial password setup**: Filters users an administrator invited to set their own password during initial account creation but who haven't done so yet.
+    - **Pending email verification**: Filters users who haven't yet verified their primary email addresses.
+    - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
+
+        ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 ## Assign groups
 
 Groups are useful when you wish to assign a certain permission level to multiple users. A user can be a member of multiple groups in the organization. Learn how to [manage groups]({{base_path}}/guides/users/manage-groups/).
@@ -20,6 +38,7 @@ To assign users to groups:
 4. Select the relevant groups and click **Save**.
 
     ![Add user]({{base_path}}/assets/img/guides/users/assign-groups-to-users.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 
 ## Manage user profiles
 
@@ -54,6 +73,30 @@ To update the user profile:
 3. Update the information on the user profile.
 
 4. Click **Update** to save.
+
+## Share user with organizations
+
+An administrator can share a user with an organization (or multiple organizations) via the WSO2 Identity Server Console.
+
+To share a user with organizations:
+
+1. On the WSO2 Identity Server Console, go to **User Management** > **Users**.
+
+2. Find the user's account in the user list and click **Edit**.
+
+3. Navigate to the **Shared Access** tab.
+
+4. Select the appropriate sharing option.
+
+    - **Do not share user with any organization** - user will not be shared with any organizations.
+        
+    - **Share user with all organizations** - user is shared with all current and future organizations. When the user is shared, administrators can also configure which roles should be assigned to the user in the shared organizations.
+
+       ![Share user with all organizations]({{base_path}}/assets/img/guides/users/share-user-with-all-organizations.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - **Share user with selected organizations** - user is shared with a specific set of existing organizations, but they are not shared with the future organizations. Administrators can configure which roles should be assigned to the user in the shared organizations.
+
+5. Once selected and configured, click **Save**.
 
 ## Resend invitation links and codes
 
@@ -319,21 +362,3 @@ To delete a user account:
 
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.
-
-## Filter users
-
-Administrators can filter users based on their account status from the {{ product_name }} Console.
-
-To filter users by account status:
-
-1. On the {{ product_name }} Console, go to **User Management** > **Users**.
-2. Click the **Account Status** dropdown and select the relevant filter criteria:
-
-    - **Locked**: Filters users with locked accounts.
-    - **Disabled**: Filters users with deactivated accounts.
-    - **Pending password reset**: Filters users for whom the administrator has initiated a forced password reset, but the users haven't yet reset their passwords.
-    - **Pending initial password setup**: Filters users an administrator invited to set their own password during initial account creation but who haven't done so yet.
-    - **Pending email verification**: Filters users who haven't yet verified their primary email addresses.
-    - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
-
-        ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
