@@ -202,7 +202,7 @@ The following are the audit logs generated in Asgardeo, grouped by category.
 | `Revoke-All-Access-Tokens-For-Remote-User-Store` | All access tokens for a remote user store were revoked. |
 | `validate-scope` | OAuth scope validation was performed. |
 
-### User Management
+### User management
 
 | Audit Log | Description |
 |---|---|
