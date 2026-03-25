@@ -1,14 +1,8 @@
 openapi: 3.0.1
 info:
   title: API contract for pre-issue access token action
-  description: This API defines the REST API contract for a service that implements logic to extend the access token issuance flow of WSO2 Identity Server.
+  description: This API defines the REST API contract for a service that implements logic to extend the access token issuance flow of Asgardeo.
   version: v1.2
-  contact:
-    name: WSO2
-    url: 'https://wso2.com/identity-server/'
-  license:
-    name: Apache 2.0
-    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
 security:
 - BasicAuth: []
 - BearerAuth: []
@@ -227,7 +221,7 @@ components:
             Standard claims:
             
             - **sub**: The subject identifier for the token, typically representing the user. In M2M apps that use client credentials this represents the application.
-            - **iss**: The issuer of the token, which is the tenant of WSO2 Identity Server that acts as the authorization server.
+            - **iss**: The issuer of the token, which is the tenant of Asgardeo that acts as the authorization server.
             - **aud**: The audience for the token.
             - **client_id**: The identifier of the client (application) that requested the token.
             - **aut**: The authorized user type associated with the token.
@@ -415,11 +409,11 @@ components:
       properties:
         flowId:
           type: string
-          description: A unique identifier that associates with the token issuing flow in WSO2 Identity Server.
+          description: A unique identifier that associates with the token issuing flow in Asgardeo.
           example: Ec1wMjmiG8
         requestId:
           type: string
-          description: A unique correlation identifier that associates with the token request received by WSO2 Identity Server.
+          description: A unique correlation identifier that associates with the token request received by Asgardeo.
           example: 6783a180f817075313ea3fb01d79c221
         actionType:
           type: string
