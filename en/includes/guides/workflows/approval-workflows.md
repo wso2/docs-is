@@ -18,8 +18,9 @@ The workflows support the following types of operations:
 !!! note
     In the workflow creation page, you can select multiple operations if approval steps are common for those operations.
 
-{% if is_version > "7.2.0" %}
-By default, approval workflows trigger for all configured operations. You can optionally define rules to control when an approval workflow engages. This allows dynamic approval enforcement based on business requirements such as user attributes, roles, or domains.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+By default, approval workflows trigger for all configured operations. You can optionally define rules to control when an approval workflow engages. This allows dynamic approval enforcement based on business requirements such as user attributes, roles, or user store domains.
 
 To learn more on how to configure rules, see [Approval workflow rules]({{base_path}}/guides/workflows/workflow-rules/).
 {% endif %}
@@ -42,7 +43,7 @@ After creating the workflow, you can view its details, edit it, or delete it.
 
 To learn how to review the approval requests, see [Manage Approvals]({{base_path}}/guides/user-self-service/manage-approvals/).
 
-{% if is_version > "7.2.0" %}
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 ### Configure notifications
 
@@ -50,10 +51,19 @@ After configuring the approval steps, you can set up notifications to keep appro
 
 The following notification channels are available:
 
-- **Approver Notifications**: Send notifications to the approvers assigned to review the request. Select **Email**, **SMS**, or both.
-- **Notify Initiator on Completion**: Send notifications to the user who initiated the request once the workflow completes. Select **Email**, **SMS**, or both.
-
 ![Notification configuration]({{base_path}}/assets/img/guides/workflows/workflow-notification-configuration.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+- **Approver Notifications**: Notify the approvers assigned to review the request when a new approval task is ready. Select **Email**, **SMS**, or both.
+
+    When enabled, approvers receive a notification with the request details and a link to review and take action.
+
+    ![Approver notification email]({{base_path}}/assets/img/guides/workflows/workflow-notification-approver-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+- **Notify Initiator on Completion**: Notify the user who initiated the request once the workflow reaches a final decision. Select **Email**, **SMS**, or both.
+
+    When enabled, the initiator receives a notification with the outcome of the approval request.
+
+    ![Initiator notification email]({{base_path}}/assets/img/guides/workflows/workflow-notification-initiator-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% endif %}
 

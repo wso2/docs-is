@@ -36,9 +36,9 @@ You can combine multiple conditions using logical operators:
 - **And**: All conditions must be true for the rule to match.
 - **Or**: At least one condition must be true for the rule to match.
 
-## Example: Require approval only for users with a specific role
+## Example: require approval only for users with a specific role
 
-Consider an organization that requires approval for user removal **only if the user belongs to the HR_MANAGER or MANAGING_DIRECTOR role**. To configure this:
+Consider an organization that requires approval for user removal **only if the user belongs to the HR_MANAGER or MANAGING_DIRECTOR roles**. To configure this:
 
 1. Open the approval workflow and navigate to the **Workflow Operation Details** step.
 2. Click **Add Rule** next to the **Remove User** operation.
@@ -58,5 +58,5 @@ Consider an organization that requires approval for user removal **only if the u
 
 With this rule in place:
 
-- Removing a user who belongs to the **HR_MANAGER** or **MANAGING_DIRECTOR** role sends the request for approval.
+- Removing a user who belongs to the **HR_MANAGER** or **MANAGING_DIRECTOR** roles sends the request for approval.
 - Removing a user who does not belong to either role completes without approval.
