@@ -110,80 +110,48 @@
       {% for section in config.extra.configuration_catalog.sections %}
         <div class="mb-config-section" data-tasks="{{ section.tasks | join(' ') }}" data-id="{{ section.id }}" data-title="{{ section.title }}">
         <h2 id="{{ section.hyperlink }}">
-          {{ section.title }}
-          <label for="toggle-{{ section.id }}" class="toggle-label"><span class="sr-only">Toggle sample configuration for {{ section.title }}</span></label>
+          {{ section.title }} <code>[{{ section.id }}]</code>
           <a class="headerlink" href="#{{ section.hyperlink }}" title="Permanent link">¶</a>
         </h2>
 
         <div class="mb-config-catalog">
-          <section>
-            <div class="mb-config-options">
-              <div class="superfences-tabs">
-                <input type="checkbox" id="toggle-{{ section.id }}" class="toggle-checkbox" />
+          <div class="mb-config">
+            <div class="config-wrap">
+              <p>{{ section.description }}</p>
+            </div>
 
-                <div class="superfences-content">
-                  <div class="mb-config-example">
-                    <pre><code class="language-toml">[{{ section.id }}]
+            <div class="mb-config-example-block">
+              <div class="mb-config-example-header">Sample configuration</div>
+              <pre><code><span class="toml-section">[{{ section.id }}]</span>
 {% for param in section.configs -%}
-{{ param.key }} = {% if param.type == "string" %}{{ param.default | tojson }}{% else %}{{ param.default }}{% endif %}
+<span class="toml-key">{{ param.key }}</span> <span class="toml-eq">=</span> <span class="toml-val">{% if param.type == "string" %}{{ param.default | tojson }}{% else %}{{ param.default }}{% endif %}</span>
 {% endfor -%}
 </code></pre>
-                  </div>
-                </div>
-              </div>
-
-              <div class="doc-wrapper">
-                <div class="mb-config">
-                  <div class="config-wrap">
-                    <code>[{{ section.id }}]</code>
-                    {% if section.required %}<span class="badge-required">Required</span>{% endif %}
-                    <p>{{ section.description }}</p>
-                  </div>
-
-                  <div class="params-wrap">
-                    {% for param in section.configs %}
-                      <div class="param" data-key="{{ param.key }}">
-                        <div class="param-name">
-                          <span class="param-name-wrap">
-                            <code>{{ param.key }}</code>
-                          </span>
-                        </div>
-
-                        <div class="param-info">
-                          <div>
-                            <p>
-                              <span class="param-type string">{{ param.type }}</span>
-                              {% if param.required %}
-                                <span class="badge-required">Required</span>
-                              {% endif %}
-                            </p>
-                          </div>
-
-                            <div class="param-default">
-                              <span class="param-default-value">
-                                Default: <code>{{ param.default }}</code>
-                              </span>
-                            </div>
-                            {% if param.possible_values %}
-                            <div class="param-possible">
-                              <span class="param-possible-values">
-                                Possible values: <code>{{ param.possible_values | join(', ') }}</code>
-                              </span>
-                            </div>
-                            {% endif %}
-                            <div class="param-description">
-                              <p>{{ param.description }}</p>
-                          </div>
-                        </div>
-                      </div>
-                    {% endfor %}
-                  </div>
-
-                </div>
-              </div>
-
             </div>
-          </section>
+
+            <div class="params-wrap">
+              {% for param in section.configs %}
+                <div class="param" data-key="{{ param.key }}">
+                  <div class="param-header">
+                    <span class="param-name-wrap">{{ param.key }}</span>
+                    <span class="param-type">{{ param.type }}</span>
+                    {% if param.required %}<span class="badge-required">Required</span>{% endif %}
+                  </div>
+                  <div class="param-meta">
+                    <span class="param-default-value">Default: <code>{{ param.default | e }}</code></span>
+                  </div>
+                  {% if param.possible_values %}
+                  <div class="param-meta">
+                    <span class="param-possible-values">Possible values: <code>{{ param.possible_values | map('e') | join(', ') }}</code></span>
+                  </div>
+                  {% endif %}
+                  <div class="param-description">
+                    <p>{{ param.description }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
         </div>
         </div><!-- /.mb-config-section -->
       {% endfor %}
