@@ -5,7 +5,6 @@ sections:
   - id: server
     hyperlink: server
     title: Server
-    required: true
     tasks: [minimum-required]
     description: >
       Basic configurations to identify and deploy a WSO2 Identity Server node.
@@ -40,7 +39,6 @@ sections:
   - id: super_admin
     hyperlink: super-admin
     title: Super admin
-    required: true
     tasks: [minimum-required]
     description: >
       Configurations for the super admin user of the Identity Server.
@@ -75,7 +73,6 @@ sections:
   - id: keystore.primary
     hyperlink: primary-keystore
     title: Primary keystore
-    required: true
     tasks: [minimum-required]
     description: >
       Configurations for the primary keystore used to sign and encrypt tokens.
@@ -97,7 +94,6 @@ sections:
   - id: keystore.tls
     hyperlink: tls-keystore
     title: TLS keystore
-    required: true
     tasks: [minimum-required, configure-tls]
     description: >
       Configurations for the keystore used for TLS communication.
@@ -125,7 +121,6 @@ sections:
   - id: truststore
     hyperlink: truststore
     title: Truststore
-    required: false
     tasks: [minimum-required, configure-tls]
     description: >
       Configurations for the truststore, which validates certificates from external systems.
@@ -141,7 +136,6 @@ sections:
   - id: database.shared_db
     hyperlink: shared-database
     title: Shared database
-    required: true
     tasks: [minimum-required, configure-database]
     description: >
       Configurations for the shared database that stores registry and governance data.
@@ -188,7 +182,6 @@ sections:
   - id: database.shared_db.pool_options
     hyperlink: shared-database-pool-options
     title: Shared database pool options
-    required: false
     tasks: [minimum-required, configure-database]
     description: >
       Connection pool settings for the shared database. Tune these based on your database server capacity and load.
@@ -249,7 +242,6 @@ sections:
   - id: database.identity_db
     hyperlink: identity-database
     title: Identity database
-    required: true
     tasks: [minimum-required, configure-database]
     description: >
       Configurations for the identity database that stores user identity and authentication data.
@@ -308,7 +300,6 @@ sections:
   - id: database.identity_db.pool_options
     hyperlink: identity-database-pool-options
     title: Identity database pool options
-    required: false
     tasks: [minimum-required, configure-database]
     description: >
       Connection pool settings for the identity database. Tune these based on your database server capacity and load.
@@ -369,7 +360,6 @@ sections:
   - id: authorization_manager
     hyperlink: authorization-manager
     title: Authorization manager
-    required: false
     tasks: [configure-user-store]
     description: >
       Configures the class that manages authorization checks for the Identity Server.
@@ -385,7 +375,6 @@ sections:
   - id: authorization_manager.properties
     hyperlink: authorization-manager-properties
     title: Authorization manager properties
-    required: false
     tasks: [configure-user-store]
     description: >
       Fine-tuning properties for the authorization manager.
@@ -417,7 +406,6 @@ sections:
   - id: transport
     hyperlink: transport
     title: Transport
-    required: false
     tasks: [configure-tls]
     description: >
       Top-level toggles for enabling or disabling the HTTP and HTTPS transports.
@@ -441,7 +429,6 @@ sections:
   - id: transport.http
     hyperlink: transport-http
     title: HTTP transport
-    required: false
     tasks: [configure-tls]
     description: >
       Configurations for the HTTP transport connector.
@@ -458,7 +445,6 @@ sections:
   - id: transport.https.sslHostConfig.properties
     hyperlink: transport-https-ssl-host-config
     title: HTTPS SSL host configuration
-    required: false
     tasks: [configure-tls]
     description: >
       SSL/TLS protocol version and cipher suite settings for the HTTPS transport.
@@ -480,7 +466,6 @@ sections:
   - id: intermediate_cert_validation
     hyperlink: intermediate-cert-validation
     title: Intermediate certificate validation
-    required: false
     tasks: [configure-tls]
     description: >
       Enables validation of intermediate CA certificates in client certificate chains.
@@ -509,7 +494,6 @@ sections:
   - id: client_certificate_based_authentication
     hyperlink: client-certificate-based-authentication
     title: Client certificate-based authentication
-    required: false
     tasks: [configure-tls]
     description: >
       Enables authentication using client certificates for API access.
@@ -552,7 +536,6 @@ sections:
   - id: oauth.endpoints
     hyperlink: oauth-endpoints
     title: OAuth endpoints
-    required: false
     tasks: [configure-oauth]
     description: >
       Custom URLs for OAuth 2.0 and OIDC consent pages. Override the defaults if you use a custom authentication endpoint.
@@ -574,7 +557,6 @@ sections:
   - id: oauth.jarm
     hyperlink: oauth-jarm
     title: JWT-secured authorization response mode (JARM)
-    required: false
     tasks: [configure-oauth]
     description: >
       Enables JWT-Secured Authorization Response Mode (JARM) for OAuth 2.0 authorization responses.
@@ -591,7 +573,6 @@ sections:
   - id: oauth.jwt.renew_token_without_revoking_existing
     hyperlink: oauth-jwt-renew-token-without-revoking
     title: JWT token renewal without revoking existing tokens
-    required: false
     tasks: [configure-oauth]
     description: >
       Allows generating new JWT access tokens without revoking existing ones. Useful for service-to-service scenarios.
@@ -616,7 +597,6 @@ sections:
   - id: authentication.adaptive
     hyperlink: authentication-adaptive
     title: Adaptive authentication
-    required: false
     tasks: [configure-authentication]
     description: >
       HTTP connection settings for external function calls made during adaptive authentication script execution.
@@ -656,7 +636,6 @@ sections:
   - id: session.nonce.cookie
     hyperlink: session-nonce-cookie
     title: Session nonce cookie
-    required: false
     tasks: [configure-authentication]
     description: >
       Configures which authenticators bypass nonce cookie validation during passwordless flows.
@@ -674,7 +653,6 @@ sections:
   - id: user_store.properties
     hyperlink: user-store-properties
     title: User store properties
-    required: false
     tasks: [configure-user-store]
     description: >
       Additional properties for the primary user store.
@@ -691,7 +669,6 @@ sections:
   - id: user_store_commons
     hyperlink: user-store-commons
     title: User store commons
-    required: false
     tasks: [configure-user-store]
     description: >
       Common resilience and retry configurations applied across all user store connections.
@@ -722,7 +699,6 @@ sections:
   - id: clustering
     hyperlink: clustering
     title: Clustering
-    required: false
     tasks: [configure-clustering]
     description: >
       Configures cluster membership for high-availability deployments. Each node must specify its hostname and port for inter-node communication.
@@ -763,7 +739,6 @@ sections:
   - id: clustering.properties
     hyperlink: clustering-properties
     title: Clustering properties
-    required: false
     tasks: [configure-clustering]
     description: >
       Provider-specific properties for the cluster membership scheme, such as Kubernetes, AWS EC2, or Amazon ECS settings.
@@ -841,7 +816,6 @@ sections:
   - id: cache.app_info_cache
     hyperlink: cache-app-info-cache
     title: Application info cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for OAuth application metadata.
@@ -870,7 +844,6 @@ sections:
   - id: cache.authentication_context_cache
     hyperlink: cache-authentication-context-cache
     title: Authentication context cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for authentication context objects used during the authentication flow.
@@ -899,7 +872,6 @@ sections:
   - id: cache.authentication_request_cache
     hyperlink: cache-authentication-request-cache
     title: Authentication request cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for incoming authentication requests.
@@ -928,7 +900,6 @@ sections:
   - id: cache.authentication_result_cache
     hyperlink: cache-authentication-result-cache
     title: Authentication result cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for authentication results after a successful login.
@@ -957,7 +928,6 @@ sections:
   - id: cache.authorization_grant_cache
     hyperlink: cache-authorization-grant-cache
     title: Authorization grant cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for OAuth 2.0 authorization grants.
@@ -986,7 +956,6 @@ sections:
   - id: cache.framework_session_context_cache
     hyperlink: cache-framework-session-context-cache
     title: Framework session context cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for session context objects used by the authentication framework.
@@ -1015,7 +984,6 @@ sections:
   - id: cache.idp_cache_by_auth_property
     hyperlink: cache-idp-cache-by-auth-property
     title: IdP cache by authentication property
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for looking up identity providers by their authentication properties.
@@ -1044,7 +1012,6 @@ sections:
   - id: cache.idp_cache_by_hri
     hyperlink: cache-idp-cache-by-hri
     title: IdP cache by home realm identifier
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for looking up identity providers by home realm identifier (HRI).
@@ -1073,7 +1040,6 @@ sections:
   - id: cache.idp_cache_by_name
     hyperlink: cache-idp-cache-by-name
     title: IdP cache by name
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for looking up identity providers by their configured name.
@@ -1102,7 +1068,6 @@ sections:
   - id: cache.jwks_cache
     hyperlink: cache-jwks-cache
     title: JWKS cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for JSON Web Key Sets (JWKS) fetched from external identity providers.
@@ -1131,7 +1096,6 @@ sections:
   - id: cache.oauth_cache
     hyperlink: cache-oauth-cache
     title: OAuth cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for OAuth 2.0 access tokens and related data.
@@ -1160,7 +1124,6 @@ sections:
   - id: cache.oauth_scope_cache
     hyperlink: cache-oauth-scope-cache
     title: OAuth scope cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for OAuth 2.0 scope metadata.
@@ -1189,7 +1152,6 @@ sections:
   - id: cache.oauth_session_data_cache
     hyperlink: cache-oauth-session-data-cache
     title: OAuth session data cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for OAuth session data used during authorization code flows.
@@ -1218,7 +1180,6 @@ sections:
   - id: cache.provisioning_connector_cache
     hyperlink: cache-provisioning-connector-cache
     title: Provisioning connector cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for outbound provisioning connector configurations.
@@ -1247,7 +1208,6 @@ sections:
   - id: cache.provisioning_entity_cache
     hyperlink: cache-provisioning-entity-cache
     title: Provisioning entity cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for provisioned entity data during outbound provisioning.
@@ -1276,7 +1236,6 @@ sections:
   - id: cache.saml_sso_participant_cache
     hyperlink: cache-saml-sso-participant-cache
     title: SAML SSO participant cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for SAML SSO service provider (SP) participant data.
@@ -1305,7 +1264,6 @@ sections:
   - id: cache.saml_sso_session_data_cache
     hyperlink: cache-saml-sso-session-data-cache
     title: SAML SSO session data cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for SAML SSO session data.
@@ -1334,7 +1292,6 @@ sections:
   - id: cache.saml_sso_session_index_cache
     hyperlink: cache-saml-sso-session-index-cache
     title: SAML SSO session index cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for SAML SSO session index mappings.
@@ -1363,7 +1320,6 @@ sections:
   - id: cache.service_provider_cache
     hyperlink: cache-service-provider-cache
     title: Service provider cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for service provider (application) configurations.
@@ -1392,7 +1348,6 @@ sections:
   - id: cache.service_provider_cache_id
     hyperlink: cache-service-provider-cache-id
     title: Service provider cache by ID
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for looking up service providers by their unique identifier.
@@ -1421,7 +1376,6 @@ sections:
   - id: cache.service_provider_cache_inbound_auth
     hyperlink: cache-service-provider-cache-inbound-auth
     title: Service provider cache by inbound auth
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for looking up service providers by their inbound authentication configuration.
@@ -1450,7 +1404,6 @@ sections:
   - id: cache.service_provider_provisioning_connector_cache
     hyperlink: cache-service-provider-provisioning-connector-cache
     title: Service provider provisioning connector cache
-    required: false
     tasks: [configure-cache]
     description: >
       Cache for service provider outbound provisioning connector configurations.
@@ -1479,7 +1432,6 @@ sections:
   - id: pagination
     hyperlink: pagination
     title: Pagination
-    required: false
     tasks: [configure-cache]
     description: >
       Controls the maximum number of users returned per role in list operations.
@@ -1497,7 +1449,6 @@ sections:
   - id: carbon_health_check
     hyperlink: carbon-health-check
     title: Carbon health check
-    required: false
     tasks: [configure-monitoring]
     description: >
       Enables the built-in health check endpoint (/api/health-check/v1.0/health) to monitor server and data source health.
@@ -1514,7 +1465,6 @@ sections:
   - id: carbon_health_check.health_checker.data_source_health_checker
     hyperlink: carbon-health-check-data-source-checker
     title: Data source health checker
-    required: false
     tasks: [configure-monitoring]
     description: >
       Checks whether configured data sources are reachable and functional.
@@ -1543,7 +1493,6 @@ sections:
   - id: carbon_health_check.health_checker.super_tenant_health_checker
     hyperlink: carbon-health-check-super-tenant-checker
     title: Super tenant health checker
-    required: false
     tasks: [configure-monitoring]
     description: >
       Checks the health of the super tenant's user store connection.
@@ -1566,7 +1515,6 @@ sections:
   - id: monitoring.jmx
     hyperlink: monitoring-jmx
     title: JMX monitoring
-    required: false
     tasks: [configure-monitoring]
     description: >
       Enables JMX (Java Management Extensions) for runtime monitoring and management of server components.
@@ -1583,7 +1531,6 @@ sections:
   - id: tracing.opentelemetry
     hyperlink: tracing-opentelemetry
     title: OpenTelemetry tracing
-    required: false
     tasks: [configure-monitoring]
     description: >
       Configures OpenTelemetry distributed tracing for monitoring request flows across services.
@@ -1606,7 +1553,6 @@ sections:
   - id: log_mgt
     hyperlink: log-mgt
     title: Log management
-    required: false
     tasks: [configure-monitoring]
     description: >
       Controls log file behavior and formatting for the Identity Server.
@@ -1623,7 +1569,6 @@ sections:
   - id: masking_logs
     hyperlink: masking-logs
     title: Log masking
-    required: false
     tasks: [configure-monitoring]
     description: >
       Enables masking of sensitive data (such as passwords and tokens) in log output.
@@ -1640,7 +1585,6 @@ sections:
   - id: catalina.valves.valve.properties
     hyperlink: catalina-valves-valve-properties
     title: HTTP access log valve
-    required: false
     tasks: [configure-monitoring]
     description: >
       Configures the Tomcat extended access log valve for logging HTTP requests.
@@ -1680,7 +1624,6 @@ sections:
   - id: audit.log.loggable_user_claim
     hyperlink: audit-log-loggable-user-claim
     title: Audit log user claims
-    required: false
     tasks: [configure-monitoring]
     description: >
       Specifies user attribute claims to include in audit log entries for each operation.
@@ -1704,7 +1647,6 @@ sections:
   - id: output_adapter.email
     hyperlink: output-adapter-email
     title: Email sending module
-    required: false
     tasks: [configure-email]
     description: >
       Configures the SMTP settings for outbound email notifications such as account verification and password reset emails.
@@ -1773,7 +1715,6 @@ sections:
   - id: fido.metadata_service
     hyperlink: fido-metadata-service
     title: FIDO metadata service
-    required: false
     tasks: [configure-fido]
     description: >
       Enables FIDO2 attestation verification using the FIDO Metadata Service (MDS). Required for enforcing strong authenticator policies.
@@ -1798,7 +1739,6 @@ sections:
   - id: ai_services
     hyperlink: ai-services
     title: AI services
-    required: false
     tasks: [configure-ai]
     description: >
       Configures the API key for WSO2 AI-powered features such as AI-assisted login flow design.
@@ -1816,7 +1756,6 @@ sections:
   - id: actions
     hyperlink: actions
     title: Actions
-    required: false
     tasks: [configure-actions]
     description: >
       HTTP connection pool settings for external action endpoints invoked during authentication and provisioning flows.
@@ -1858,7 +1797,6 @@ sections:
   - id: identity_mgt.user_self_registration
     hyperlink: identity-mgt-user-self-registration
     title: User self-registration
-    required: false
     tasks: [configure-identity]
     description: >
       Controls behavior of the user self-registration flow for preferred channel verification.
@@ -1877,7 +1815,6 @@ sections:
   - id: resource.access_control
     hyperlink: resource-access-control
     title: Resource access control
-    required: false
     tasks: [configure-security]
     description: >
       Configures access control rules for specific API endpoints, such as requiring authentication or specific scopes.
@@ -1926,7 +1863,6 @@ sections:
   - id: sts
     hyperlink: sts
     title: Security token service (STS)
-    required: false
     tasks: [configure-sts]
     description: >
       Configures the WS-Federation Security Token Service (STS), which issues SAML tokens for WS-Federation web applications.
