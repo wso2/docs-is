@@ -280,8 +280,6 @@ components:
       description: Represents the refresh token that is about to be issued. It contains refresh token expiry time which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
     Session:
       type: object
-      required:
-        - sessionDataKeyConsent
       properties:
         sessionDataKeyConsent:
           type: string
