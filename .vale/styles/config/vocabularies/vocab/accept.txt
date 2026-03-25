@@ -48,3 +48,5 @@ vCPUs
 failover
 [Ff]ailover
 liveness
+Hazelcast
+hazelcast

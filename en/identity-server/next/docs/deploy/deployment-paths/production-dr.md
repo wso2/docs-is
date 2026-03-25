@@ -1,5 +1,7 @@
 # Path C: Production (multi-region, disaster recovery)
 
+[Start deployment guide]({{base_path}}/complete-guides/deploy-dr/introduction){ .md-button .md-button--primary }
+
 Use this path to deploy WSO2 Identity Server across geographic regions with cross-region redundancy, failover, and disaster recovery capabilities.
 
 ## Overview
