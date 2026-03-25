@@ -39,7 +39,6 @@ To assign users to groups:
 
     ![Add user]({{base_path}}/assets/img/guides/users/assign-groups-to-users.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-
 ## Manage user profiles
 
 A user profile consists of attributes that represent the details of the user such as username, email address, contact information, other custom attributes, etc.
@@ -89,7 +88,7 @@ To share a user with organizations:
 4. Select the appropriate sharing option.
 
     - **Do not share user with any organization** - user will not be shared with any organizations.
-        
+
     - **Share user with all organizations** - user is shared with all current and future organizations. When the user is shared, administrators can also configure which roles should be assigned to the user in the shared organizations.
 
        ![Share user with all organizations]({{base_path}}/assets/img/guides/users/share-user-with-all-organizations.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -185,7 +184,6 @@ Specify the **recovery scenario** in the `properties` parameter of the API reque
     - Provide the username without the user store domain prefix
     - Specify the relevant user store domain name in the `realm` parameter
 
-
     ---
     **Response**
     ```
@@ -238,7 +236,7 @@ To reset the password:
 
 3. Click **Reset Password**.
 
-**Using the API**
+### Using the API
 
 You can also use WSO2 Identity Server's [SCIM API]({{base_path}}/apis/scim2-users-rest-apis/#tag/Users-Endpoint/operation/patchUser) to initiate the admin initiated password recovery flow.
 

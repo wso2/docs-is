@@ -31,7 +31,7 @@ If your organization has a user whose profile is managed by another organization
             <tr>
                 <td>From Shared Profile</td>
                 <td>The organization can customize the user attribute value.</td>
-            </tr>   
+            </tr>
             <tr>
                 <td>From First Found in Hierarchy</td>
                 <td>The user attribute inherits the value from the nearest organization in the hierarchy that has assigned a non-null value to it.</td>
@@ -40,5 +40,3 @@ If your organization has a user whose profile is managed by another organization
     </table>
 
 Learn more about attribute configurations in [configure attributes]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
-
-
