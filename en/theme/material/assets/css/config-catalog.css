@@ -111,7 +111,7 @@
     border-radius: 2px;
 }
 
-/* Subtle search highlight on section heading */
+
 .mb-config-section.mb-search-section-match > h2 {
     border-left: 3px solid var(--md-accent-fg-color);
     padding-left: 0.5rem;
@@ -189,9 +189,7 @@
     color: #cdd6f4; /* base text — Catppuccin Mocha */
 }
 
-/* Manual TOML token colouring via nth-line approach isn't feasible in raw HTML,
-   so we target the structure we know: [section.id] is first line, rest are key = value.
-   We inject spans in the template for the three token types. */
+
 .mb-config-example-block .toml-section {
     color: #89b4fa; /* blue — section header */
     font-weight: 600;
