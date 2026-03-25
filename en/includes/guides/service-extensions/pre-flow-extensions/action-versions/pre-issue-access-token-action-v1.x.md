@@ -2,6 +2,7 @@ The following API contracts defines the request and response structures that you
 
 - [pre-issue access token API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0/)
 - [pre-issue access token API contract v1.1]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1/)
+- [pre-issue access token API contract v1.2]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.2/)
 
 ### Request from {{product_name}}
 
