@@ -1,17 +1,6 @@
 (function () {
   'use strict';
 
-  // Sync .sample-open class on the section so the h2 label can reflect checked state
-  function initSampleToggles() {
-    document.querySelectorAll('.toggle-checkbox').forEach(function (cb) {
-      var section = cb.closest('.mb-config-section');
-      if (!section) return;
-      cb.addEventListener('change', function () {
-        section.classList.toggle('sample-open', cb.checked);
-      });
-    });
-  }
-
   function applyFilters(task, query) {
     var q = query.trim().toLowerCase();
     var sections = document.querySelectorAll('.mb-config-section');
@@ -69,12 +58,11 @@
       params.forEach(function (p) {
         var key = (p.getAttribute('data-key') || '').toLowerCase();
         if (key.indexOf(qNorm) !== -1) {
-          p.classList.remove('mb-search-hidden');
           p.classList.add('mb-search-highlight');
+          p.classList.remove('mb-search-hidden');
           anyVisible = true;
         } else {
-          p.classList.add('mb-search-hidden');
-          p.classList.remove('mb-search-highlight');
+          p.classList.remove('mb-search-hidden', 'mb-search-highlight');
         }
       });
 
@@ -91,8 +79,6 @@
     var clearBtn    = document.getElementById('mbTaskClear');
     var searchInput = document.getElementById('mbConfigSearch');
     if (!select) return;
-
-    initSampleToggles();
 
     function refresh() {
       applyFilters(select.value, searchInput ? searchInput.value : '');

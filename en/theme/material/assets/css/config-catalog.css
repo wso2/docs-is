@@ -107,15 +107,26 @@
 /* Highlight the entire param container that matches a search by key */
 .param.mb-search-highlight {
     background-color: var(--md-accent-fg-color--transparent, rgba(0, 0, 0, 0.08));
-    border-left: 3px solid var(--md-accent-fg-color);
+    box-shadow: inset 3px 0 0 var(--md-accent-fg-color);
     border-radius: 2px;
-    padding-left: calc(0.525rem - 3px);
 }
 
-/* Subtle heading tint when the whole section matches */
+
 .mb-config-section.mb-search-section-match > h2 {
     border-left: 3px solid var(--md-accent-fg-color);
     padding-left: 0.5rem;
+}
+
+/* Section group separators */
+.mb-config-section {
+    border-top: 1px solid var(--md-default-fg-color--lightest, rgba(0,0,0,0.08));
+    border-bottom: 1px solid var(--md-default-fg-color--lightest, rgba(0,0,0,0.08));
+    padding: 0.75rem 0 1rem;
+    margin-bottom: -1px;
+}
+
+.mb-config-section:last-of-type {
+    border-bottom: none;
 }
 
 /* Hide sections/params that don't match the current search */
@@ -133,178 +144,67 @@
 }
 
 .mb-config-catalog {
-    display: table;
+    display: block;
     width: 100%;
     max-width: 770px;
-    border: 1px solid var(--md-default-fg-color--lighter);
-    padding: 0 1em 1em;
+    padding: 0 0 1em;
     overflow-x: hidden;
 }
 
 /* ---------------------------
-   View Sample toggle behavior
-   (ADDED / FIXED)
+   Sample block (always visible, at bottom)
    --------------------------- */
 
-.mb-config-catalog .superfences-tabs {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Hide the checkbox but keep it functional */
-.mb-config-catalog .superfences-tabs > input.toggle-checkbox {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* View Sample label — lives in the h2 */
-.mb-config-section h2 .toggle-label {
-    cursor: pointer;
-    user-select: none;
-    display: inline-flex;
-    align-items: center;
-    margin-left: 0.75rem;
-    padding: 2px 10px;
-    border: 1px solid var(--md-accent-fg-color);
-    border-radius: 4px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--md-accent-fg-color);
-    vertical-align: middle;
-    line-height: 1.8;
-    transition: background-color 0.15s ease-in-out;
-}
-
-.mb-config-section h2 .toggle-label:hover {
-    background-color: var(--md-accent-fg-color--transparent);
-}
-
-.mb-config-section h2 .toggle-label::after {
-    content: "View sample";
-}
-
-.mb-config-section.sample-open h2 .toggle-label::after {
-    content: "Hide sample";
-}
-
-/* Hide sample by default */
-.mb-config-catalog .superfences-tabs > .superfences-content {
-    display: none;
-    flex-direction: column;
-    order: 0;
-}
-
-/* Show sample when checked */
-.mb-config-catalog .superfences-tabs > input.toggle-checkbox:checked ~ .superfences-content {
-    display: block;
-    max-width: 100%;
-}
-
-/* Docs content stays visible */
-.mb-config-catalog .superfences-tabs > .doc-wrapper {
-    order: 1;
-    padding: .525rem;
-}
-
-/* ---------------------------
-   Existing styles (unchanged)
-   --------------------------- */
-
-.mb-config-catalog .superfences-tabs .tab-selector {
-    text-align: right;
-}
-
-.mb-config-catalog .superfences-tabs .tab-selector > .icon {
-    margin-right: 5px;
-}
-
-.mb-config-catalog .superfences-content {
-    flex-direction: column;
-    order: 0;
-}
-
-/* Keeping these is fine, but the toggle rules above are the ones that matter */
-.mb-config-catalog .superfences-tabs > input + label::after {
-    content: "View Sample";
-}
-
-.mb-config-catalog .superfences-tabs > input:checked + label::after {
-    content: "Hide Sample";
-}
-
-.mb-config-catalog > section {
-    display: table-row;
-}
-
-.mb-config-catalog > section > .mb-config-options{
-    display: table-cell;
-    flex-direction: column;
+.mb-config-example-block {
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+    border-radius: 6px;
+    overflow: hidden;
     max-width: 736px;
 }
 
-.mb-config-catalog > section > .mb-config-example > .example-config-wrap {
-    margin-right: 1em;
+.mb-config-example-header {
+    background: #1e1e2e;
+    color: #6c7086;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 7px 16px;
 }
 
-.mb-config-catalog .mb-config > .params-wrap {
-    display: table;
-    width: 100%;
-}
-
-.mb-config-catalog > section > .mb-config-example > code {
-    font-weight: bold;
-    font-size: 105%;
-}
-
-.mb-config-catalog > section:not(.title) > .mb-config-options {
-    border-bottom: 1px solid var(--md-default-fg-color--lighter);
-    padding-top: 1em;
-}
-
-.mb-config-catalog > section:last-child > .mb-config-options {
-    border-bottom: none;
-}
-
-.mb-config-catalog > section:not(.title) > .mb-config-example {
-    border-top: 1px solid var(--md-default-fg-color--lighter);
-    border-bottom: 1px solid var(--md-default-fg-color--lighter);
-}
-
-.mb-config-catalog > section.title > .mb-config-example {
-    display: none;
-}
-
-.mb-config-catalog .mb-config-example code,
-.mb-config-catalog .mb-config-example pre {
+.mb-config-example-block pre {
     margin: 0;
+    border-radius: 0;
+    background: #1e1e2e !important;
+    /* Remove any box-shadow or border Material adds */
+    box-shadow: none !important;
+    border: none !important;
 }
 
-.mb-config-catalog .mb-config-example:hover .md-clipboard:before {
-    color: rgba(0, 0, 0, .54);
+.mb-config-example-block pre code {
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #cdd6f4; /* base text — Catppuccin Mocha */
 }
 
-[data-md-color-accent=deep-orange] .mb-config-catalog .mb-config-example:hover .md-clipboard:active:before,
-[data-md-color-accent=deep-orange] .mb-config-catalog .mb-config-example:hover .md-clipboard:hover:before {
-    color: #ff6e40;
+
+.mb-config-example-block .toml-section {
+    color: #89b4fa; /* blue — section header */
+    font-weight: 600;
 }
 
-.mb-config-catalog > section.title > .mb-config-options > h2 {
-    margin-bottom: 1rem;
+.mb-config-example-block .toml-key {
+    color: #a6e3a1; /* green — key */
 }
 
-.mb-config-catalog > section > .mb-config-example {
-    background: #f5f5f5;
-    width: 35%;
-    padding: .5em;
-    vertical-align: top;
+.mb-config-example-block .toml-eq {
+    color: #89dceb; /* sky — equals sign */
 }
 
-.mb-config-catalog > section > .mb-config-example code {
-    background: transparent;
-    box-shadow: none;
-    white-space: pre-line;
+.mb-config-example-block .toml-val {
+    color: #f9e2af; /* yellow — value */
 }
 
 .mb-config-catalog .badge-required {
@@ -316,145 +216,105 @@
     font-size: 75%;
 }
 
+.mb-config-section h2 code {
+    font-size: 0.65em;
+    font-weight: 400;
+    vertical-align: middle;
+    padding: 0.1em 0.3em;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: var(--md-default-fg-color--light);
+}
+
 .mb-config-catalog .mb-config > .config-wrap {
     margin-right: 1em;
 }
 
-.mb-config-catalog .mb-config > .params-wrap {
-    display: table;
-    width: 100%;
-}
+/* ---------------------------
+   Parameter rows
+   --------------------------- */
 
-.mb-config-catalog .mb-config > .config-wrap > code {
-    font-weight: bold;
-    font-size: 105%;
+.mb-config-catalog .mb-config .params-wrap {
+    display: flex;
+    flex-direction: column;
 }
 
 .mb-config-catalog .mb-config .param {
-    display: table-row;
+    padding: 1rem 0 1rem 0.5rem;
 }
 
-.mb-config-catalog .mb-config .param > .param-name {
-    display: table-cell;
-    vertical-align: top;
-    border-left: 2px solid #ff7043;
-    box-sizing: border-box;
-    position: relative;
-    padding: 1.7em 0;
-    line-height: 20px;
-    white-space: nowrap;
-    font-size: .929em;
-    font-weight: 400;
+.mb-config-catalog .mb-config .param-header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
 }
 
-.mb-config-catalog .mb-config .param .param-name-wrap {
-    display: inline-block;
-    padding-right: 25px;
-    font-family: Montserrat, sans-serif;
-}
-
-.mb-config-catalog .mb-config .param > .param-name > span::before {
-    content: '';
-    display: inline-block;
-    width: 2px;
-    height: 8px;
-    background-color: #ff7043;
-    margin: -4px 10px 0;
-    vertical-align: middle;
-}
-
-.mb-config-catalog .mb-config .param > .param-name > span::after {
-    content: '';
-    position: absolute;
-    border-top: 2px solid #ff7043;
-    width: 10px;
-    left: 0;
-    top: 2.3em;
-}
-
-.mb-config-catalog .mb-config .param:first-of-type > .param-name::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -2px;
-    top: 0;
-    border-left: 3px solid var(--md-default-bg-color);
-    height: 34px;
-}
-
-.mb-config-catalog .mb-config .param:last-of-type > .param-name,
-.mb-config-catalog .mb-config .param.last > .param-name {
-    position: relative;
-}
-
-.mb-config-catalog .mb-config .param:last-of-type > .param-name::after,
-.mb-config-catalog .mb-config .param.last > .param-name::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -2px;
-    border-left: 3px solid var(--md-default-bg-color);
-    top: 36px;
-    background-color: var(--md-default-bg-color);
-    bottom: 0;
-}
-
-.mb-config-catalog .mb-config .param > .param-info {
-    display: table-cell;
-    width: 100%;
-    border-bottom: 1px solid var(--md-default-fg-color--lighter);
-    padding: 10px 10px 10px 0;
-    box-sizing: border-box;
-    overflow-wrap: anywhere;
+.mb-config-catalog .mb-config .param-name-wrap {
+    font-size: 0.88em;
+    font-weight: 700;
+    font-family: var(--md-code-font-family);
+    background: none;
+    color: var(--md-default-fg-color);
+    padding: 0;
 }
 
 .mb-config-catalog .mb-config .param-default {
-    font-size: .95em;
+    font-size: .88em;
+    color: var(--md-default-fg-color--light);
+}
+
+.mb-config-catalog .mb-config .param-meta {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: .88em;
+    color: var(--md-default-fg-color--light);
+    margin-bottom: 2px;
+}
+
+.mb-config-catalog .mb-config .param-meta code {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    font-size: 0.95em;
+    color: var(--md-default-fg-color);
+}
+
+.mb-config-catalog .mb-config .param-meta-sep {
+    color: var(--md-default-fg-color--lighter, rgba(0,0,0,0.26));
+    user-select: none;
+}
+
+.mb-config-catalog .mb-config .param-description {
+    margin-top: 2px;
+}
+
+.mb-config-catalog .mb-config .param-description p {
+    margin: 0;
+    font-size: .9em;
 }
 
 .mb-config-catalog .mb-config .param-type {
-    color: #b5b5b5;
+    font-size: 0.7em;
+    font-weight: 500;
+    color: var(--md-default-fg-color--light);
+    background: var(--md-default-fg-color--lightest, rgba(0,0,0,0.07));
+    padding: 1px 5px;
+    border-radius: 3px;
 }
 
-@media only screen and (min-width: 100em) {
-    .mb-config-catalog .mb-config .param > .param-name > span::before {
-        margin: 0 10px;
-    }
-
-    .mb-config-catalog .mb-config .param:first-of-type > .param-name::before {
-        height: 38px;
-    }
-
-    .mb-config-catalog .mb-config .param:last-of-type > .param-name::after,
-    .mb-config-catalog .mb-config .param.last > .param-name::after {
-        top: 40px;
-    }
-}
-
-@media (min-width: 1600px){
-    .mb-config-catalog .superfences-tabs > input.toggle-checkbox + label.toggle-label {
-        right: 1rem;
-    }
-
-    .mb-config-catalog .mb-config .param > .param-name {
-        font-size: 1em;
+@media (min-width: 1600px) {
+    .mb-config-catalog .mb-config .param-name-wrap {
+        font-size: 0.95em;
     }
 }
 
 @media (max-width: 767px) {
     .mb-config-catalog {
         margin-bottom: 3rem;
-    }
-
-    .mb-config-catalog,
-    .mb-config-catalog > section,
-    .mb-config-catalog > section > .mb-config-options,
-    .mb-config-catalog > section > .mb-config-example {
-        display: block;
-        width: 100% !important;
-    }
-
-    .mb-config-catalog > section:not(.title) > .mb-config-options {
-        padding-bottom: 1rem;
     }
 }
