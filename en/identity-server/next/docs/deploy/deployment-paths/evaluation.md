@@ -1,5 +1,7 @@
 # Path A: Evaluation (single node)
 
+[Start deployment guide]({{base_path}}/complete-guides/deploy-eval/introduction){ .md-button .md-button--primary }
+
 Use this path to explore WSO2 Identity Server features, build a proof of concept, or familiarize yourself with the product before planning a production deployment.
 
 ## Overview

@@ -32,3 +32,68 @@
   background-color: var(--md-surface-fg-color);
   padding: 30px;
 }
+
+/* Deployment path cards */
+
+.deploy-paths-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.deploy-path-card {
+  width: calc(50% - 0.625rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.deploy-path-label {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 10%, transparent);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 0.75rem;
+}
+
+.deploy-path-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.deploy-path-card p {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.deploy-path-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--md-divider-color);
+  padding-top: 0.75rem;
+}
+
+.deploy-path-specs li {
+  padding: 3px 0;
+  color: var(--md-default-fg-color--light);
+}
+
+.deploy-path-specs li strong {
+  color: var(--md-default-fg-color);
+}
+
+@media screen and (max-width: 600px) {
+  .deploy-path-card {
+    width: 100%;
+  }
+}

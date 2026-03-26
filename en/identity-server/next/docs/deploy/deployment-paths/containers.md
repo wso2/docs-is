@@ -1,5 +1,7 @@
 # Path D: Container platforms (Kubernetes and OpenShift)
 
+[Start deployment guide]({{base_path}}/complete-guides/deploy-k8s/introduction){ .md-button .md-button--primary }
+
 Use this path to deploy WSO2 Identity Server on Kubernetes or OpenShift with platform-native orchestration, automated scaling, and declarative configuration management.
 
 ## Overview

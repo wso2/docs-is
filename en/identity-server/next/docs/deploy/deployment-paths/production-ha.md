@@ -1,5 +1,7 @@
 # Path B: Production (single region, high availability)
 
+[Start deployment guide]({{base_path}}/complete-guides/deploy-ha/introduction){ .md-button .md-button--primary }
+
 Use this path to deploy a resilient, production-grade WSO2 Identity Server cluster within a single data center or cloud region. This path covers the most common production scenario.
 
 ## Overview
