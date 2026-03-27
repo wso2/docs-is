@@ -150,7 +150,7 @@ Follow the steps given below.
     - `<TOKEN_ENDPOINT_URL>`: Provide the {{ product_name }} token endpoint URL.
     - `<OIDC_APP_CLIENT_ID>`: Provide the OIDC application ID.
     - `<OIDC_APP_CLIENT_SECRET>`: Provide the OIDC application secret that you created when configuring the application in {{ product_name }}.
-    - `claimMappings`: Configure the claims that you need to offer with the verifiable credential to the wallet holder by adding them in the `claimMappings` parameter in the request payload. See the [MATTR-supported credential claim mappings](https://learn.mattr.global/tutorials/web-credentials/issue/oidc-bridge/common-mappings){:target="_blank"}.
+    - `claimMappings`: Configure the claims that you need to offer with the verifiable credential to the wallet holder by adding them in the `claimMappings` parameter in the request payload. See the  MATTR-supported credential claim mappings  documentation on the MATTR website.
 
     !!! note
         In the step that displays the QR code, we'll refer to the `id` parameter in the response as `{issuer-id}`.
@@ -179,7 +179,7 @@ Follow the steps given below.
 1. Download the MATTR mobile wallet app to your mobile phone.
 
     !!! note
-        See [this documentation](https://learn.mattr.global/tutorials/wallets/mattr-wallet) for details.
+        See [this documentation](https://learn.mattr.global/docs/holding/go-hold/getting-started) for details.
 
 2. Go to the MATTR mobile wallet app and scan the QR code.
 3. Click **Proceed** and log in to your account in {{ product_name }}.
@@ -241,7 +241,7 @@ Let's use a sample MATTR application to perform the credential verification. For
 2. Download and configure the MATTR sample application by visiting the GitHub repository below.
 
     ```bash
-    https://github.com/mattrglobal/sample-apps/tree/master/verify-callback-express
+    https://github.com/mattrglobal/sample-apps
     ```
 
     Update the environment variables in the `.env` file according to your setup. Specifically, for the `TEMPLATEID` variable, use the ID value you received from the response to the previous request.
