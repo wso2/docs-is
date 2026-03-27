@@ -16,9 +16,10 @@ By default, {{product_name}} uses the internal names of the authenticators as AM
 
 ## ACR vs AMR
 
-While ACR denotes the set of business rules that must be satisfied during authentication, AMR denotes the authentication methods that were actually used to satisfy those rules.
+While ACR denotes the set of business rules that must be met during authentication, AMR denotes the authentication methods that were actually used to meet those rules.
 
 For example:
+
 - An application requests `acr2` (high assurance) → {{product_name}} enforces MFA based on the configured authentication script.
 - The resulting ID token's `amr` claim reflects the actual methods used: e.g., `["BasicAuthenticator", "totp"]`.
 
@@ -72,8 +73,16 @@ Add the following configuration to the `deployment.toml` file found in the `<IS_
 ```toml
 [[authentication_context.method_refs]]
 method = "<authenticator_name>"
-amr_value = "<amr_uri>"
+amr_value = "<amr_value>"
 ```
+
+The following table describes the configuration parameters:
+
+| Parameter | Type | Description |
+|---|---|---|
+| `method` | String | The internal name of the authenticator as registered in {{product_name}}. |
+| `amr_value` | String | The AMR value to include in the ID token for the given authenticator. |
+| `excluded_methods` | Array of strings | Authenticators to exclude from the `amr` claim in the ID token. |
 
 To prevent a specific authenticator from appearing in the `amr` claim of the ID token, use `excluded_methods`:
 
@@ -129,6 +138,7 @@ After configuring the mappings, the `amr` claim in the ID token will reflect the
 }
 ```
 
-!!! info "Related topics"
-    - [Guide: Configure ACR-based adaptive authentication]({{base_path}}/guides/authentication/conditional-auth/acr-based-adaptive-auth/)
-    - [Reference: Conditional authentication API]({{base_path}}/references/conditional-auth/api-reference/)
+## Next steps
+
+- [Configure ACR-based adaptive authentication]({{base_path}}/guides/authentication/conditional-auth/acr-based-adaptive-auth/)
+- [Conditional authentication API reference]({{base_path}}/references/conditional-auth/api-reference/)
