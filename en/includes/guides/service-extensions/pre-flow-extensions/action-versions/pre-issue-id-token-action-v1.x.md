@@ -13,14 +13,6 @@ The following API contract defines the request and response structures that your
 </thead>
 <tbody>
 <tr class="odd">
-<td>flowId</td>
-<td><p>A unique identifier that associates with the token issuing flow in {{product_name}}.</p></td>
-</tr>
-<tr class="even">
-<td>requestId</td>
-<td><p>A unique correlation identifier that associates with the token request received by {{product_name}}.</p></td>
-</tr>
-<tr class="odd">
 <td>actionType</td>
 <td><p>Specifies the action. In this case, <code>PRE_ISSUE_ID_TOKEN</code> triggers the pre-issue ID token flow.</p></td>
 </tr>
@@ -281,8 +273,6 @@ Host: your-service.example.com
 Content-Type: application/json
 
 {
-  "flowId": "Ec1wMjmiG8",
-  "requestId": "20260216T154100Z-r1cd497db865scbfhC1SG17gy000000010zg000000009hap",
   "actionType": "PRE_ISSUE_ID_TOKEN",
   "event": {
     "request": {
