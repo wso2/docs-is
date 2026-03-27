@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: API contract for pre-issue access token action
   description: This API defines the REST API contract for a service that implements logic to extend the access token issuance flow of Asgardeo.
-  version: v1.1
+  version: v1.2
 security:
 - BasicAuth: []
 - BearerAuth: []
@@ -95,6 +95,8 @@ components:
           $ref: '#/components/schemas/AccessToken'
         refreshToken:
           $ref: '#/components/schemas/RefreshToken'
+        session:
+          $ref: '#/components/schemas/Session'
       description: Defines the context data related to the pre issue access token event that needs to be shared with the custom service to process and execute.
     Request:
       type: object
@@ -270,6 +272,15 @@ components:
             - name: expires_in
               value: 86400
       description: Represents the refresh token that is about to be issued. It contains refresh token expiry time which can then be modified by your external service based on the logic implemented in the pre-issue access token action.
+    Session:
+      type: object
+      properties:
+        sessionDataKeyConsent:
+          type: string
+          description: This is the sessionDataKeyConsent provided to the consent page in authorization_code grant flow.
+          example: 
+            "785a520d-3bd5-41c1-830d-8e053714ded9"
+      description: This property contains the details related to the current auth session.
     AllowedOperations:
       type: array
       description: Defines the set of operations that your external service is permitted to perform on the access token's claims and scopes.
