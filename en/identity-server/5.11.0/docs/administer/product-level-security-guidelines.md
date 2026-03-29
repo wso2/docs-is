@@ -97,7 +97,7 @@ It is recommended to change this by configuring the server name in the `deployme
 
 ## HSTS
 
-For products based on Carbon 4.4.11 or later versions, HTTP Strict Transport Security (HSTS) is disabled for the applications with which WSO2 Identity Server is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.
+HTTP Strict Transport Security (HSTS) is disabled for the applications with which WSO2 Identity Server is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.
 
 
 Make sure to enable  (HSTS) for all the applications that are deployed in your WSO2 Identity Server. This includes Management Console and any other web applications. For instructions, see <a href="../../administer/enabling-hsts">Enabling HTTP Strict Transport Security (HSTS) Headers</a>.
@@ -175,13 +175,13 @@ To enable hostname verification:
     wso2server.bat
     ```
 
-2. For products with the **Carbon version 4.4.17 or later**, set the `hostnameVerifier` property to `Strict`.
+2. Set the `hostnameVerifier` property to `Strict`.
 
     ```java 
     -Dhttpclient.hostnameVerifier=Strict \
     ``` 
 
-3. For products with the **Carbon version prior to 4.4.17**, set the `ignoreHostnameVerification` property to `false`.
+3. Set the `ignoreHostnameVerification` property to `false`.
 
     ``` java
     -Dorg.wso2.ignoreHostnameVerification=false \
