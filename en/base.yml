@@ -90,6 +90,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - pymdownx.superfences
   - pymdownx.snippets:
       base_path: docs
   - attr_list
