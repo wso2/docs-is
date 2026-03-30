@@ -1,20 +1,10 @@
-# Product-Level Security Guidelines for Production Deployment
+# Product-level security guidelines for production deployment
 
 This section provides the list of product-level security guidelines that are recommended for your production environment.
 
 ## Security updates
 
-Apply all the security patches relevant to your WSO2 Identity Server version. For more information, see [here]({{base_path}}/deploy/get-started/get-wso2-updates/)
-
-<!--If your WSO2 Identity Server is listed as a WUM-supported product <a href="http://wso2.com/update/">here</a>, follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a>.</li>-->
-        
-<!--!!! note
-
-    WSO2 releases security patch notifications monthly via the **Support Portal** and on the [WSO2 Security Patch Releases](http://wso2.com/security-patch-releases) page. 
-
-    -   For highly critical issues, patches are issued immediately to **customers**. 
-
-    -   The WSO2 Security Patch Release page has all the security patches for the latest product versions—WSO2 does not issue patches publicly for older product versions. **Community users** are encouraged to use the latest product version to receive all the security fixes.-->
+Apply all the security patches relevant to your WSO2 Identity Server version. For more information, see [instructions to get WSO2 updates]({{base_path}}/deploy/get-started/get-wso2-updates/).
 
 ## Default keystores
 
@@ -41,7 +31,7 @@ Follow these guidelines:
 !!! info
     For more information, see [Recommendations for setting up keystores]({{base_path}}/deploy/security/keystores/#recommendations-for-setting-up-keystores), [Create New Keystores]({{base_path}}/deploy/security/keystores/create-new-keystores), and [Configure Keystores]({{base_path}}/deploy/security/keystores/configure-keystores).
 
-## Passwords in config files
+## Passwords in configuration files
 
 WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text passwords in configuration files. For instructions, see [Encrypt Passwords with the Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool).
 
@@ -53,8 +43,7 @@ For instructions on changing default ports, see [Change the default port offset]
 ## Access to external systems
 
 ### Read-only access
-
-If your WSO2 Identity Server is connecting to an external user store, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, make sure to enable read-only access to that user store. For instructions, see <a href="{{base_path}}/guides/users/user-stores/">Configure Userstores</a>.
+If your WSO2 Identity Server connects to an external user store, such as Microsoft Active Directory, to read and retrieve user information, enable read-only access to that user store. For instructions, see [Configure Userstores]({{base_path}}/guides/users/user-stores/).
 
 ### TLS
 
@@ -107,28 +96,6 @@ If there are dynamic pages in your application with sensitive information, you n
 !!! tip
     By default, cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy on your server. For instructions, see <a href="{{base_path}}/deploy/security/prevent-browser-caching">Prevent browser caching</a>.
 
-
-## Ephemeral Diffie-Hellman key size
-
-Before starting the server,
-
-1. Open the product startup script in the `<IS_HOME>/bin` directory.
-
-    === "Linux/macOS"
-        ``` bash
-        wso2server.sh
-        ```
-
-    === "Windows"
-        ```bash
-        wso2server.bat
-        ```
-
-2. Add the following with the other Java properties.
-
-    ``` java
-    -Djdk.tls.ephemeralDHKeySize=2048 \
-    ```
 
 ## Client-initiated renegotiation
 
@@ -239,13 +206,16 @@ Log forging can be prevented by appending a UUID to the log message.
 
 ## JVM parameters
 
-- The recommended JDK versions are JDK 11 and 17. For more information, see <a href="{{base_path}}/deploy/get-started/install/#prerequisites">Prerequisites</a>. 
+{% if is_version > "7.2.0" %}
+- The recommended JDK version is JDK 21. For more information, see <a href="{{base_path}}/deploy/get-started/install/#prerequisites">Prerequisites</a>.
+{% else %}
+- The recommended JDK versions are JDK 11 and 17. For more information, see <a href="{{base_path}}/deploy/get-started/install/#prerequisites">Prerequisites</a>.
+{% endif %}
 
+- To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine.
     ```java
     -Xms512m -Xmx2048m 
     ```
-
-- To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4 GB of memory on the physical machine.
 
 ## Mutual SSL
 
