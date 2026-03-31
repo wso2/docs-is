@@ -28,9 +28,9 @@ Key capabilities include:
 - Enable the CIBA grant type per application from the Console under **Applications** > **Protocol** > **Allowed grant types**.
 - Configure the `auth_req_id` expiry time to control how long an authentication request remains valid.
 - Deliver the authentication prompt to the user through multiple notification channels:
-  - **Email**: Sends an authentication notification to the user's registered email address.
-  - **SMS**: Sends an authentication notification to the user's registered mobile number.
-  - **External**: Returns an `auth_url` in the backchannel authentication response, delegating notification delivery to the client application.
+      - **Email**: Sends an authentication notification to the user's registered email address.
+      - **SMS**: Sends an authentication notification to the user's registered mobile number.
+      - **External**: Returns an `auth_url` in the backchannel authentication response, delegating notification delivery to the client application.
 - Client applications poll the token endpoint using the `auth_req_id` to retrieve access and ID tokens once the user authenticates.
 
 Learn more about [configuring the CIBA grant]({{base_path}}/guides/authentication/configure-ciba-grant/).
@@ -42,6 +42,18 @@ WSO2 Identity Server now supports OpenID Connect front-channel logout, a browser
 Instead of direct server-to-server communication, logout messages are delivered through the user's browser using iframes. Each participating application receives the logout notification and clears its session state, including cookies and local storage, based on the browser notification.
 
 Learn more about [front-channel logout]({{base_path}}/guides/authentication/oidc/add-front-channel-logout/).
+
+### Enhanced organization authentication in B2B applications
+
+WSO2 Identity Server introduces a new authentication model for B2B and organization scenarios, delivering a more native, organization-aware login experience with fewer redirects.
+
+Key capabilities include:
+
+- Seamless API-based authentication with fewer redirects, improving the developer experience.
+- A direct access path for organization users to access an organization without an organization discovery step.
+- Organization discovery support during API-based authentication to resolve the user's organization.
+- Single Sign-On (SSO) between organization-level applications and B2B SaaS applications.
+- Support for password and client credential grants alongside the authorization code grant and organization switch grant for B2B SaaS applications.
 
 ### UI support for B2B user sharing
 
@@ -61,14 +73,23 @@ Organizations can now select the token issuer when creating or updating OAuth 2.
 Key capabilities include:
 
 - **Organization as identity provider**: Organizations can act as their own token issuer, enabling them to issue tokens for custom applications serving their own end users.
-- **Granular issuer selection**: Administrators can select the appropriate token issuer — the root organization or the organization — during application creation and updates.
+- **Granular issuer selection**: Administrators can select the appropriate token issuer, the root organization or the organization, during application creation and updates.
 - **Root-level governance**: Root organizations can control whether organizations are permitted to use the root organization's token issuer. Organizations can use the root issuer only if explicitly granted permission. By default, the root organization's issuer is available to organizations.
 
 These configurations are now fully integrated into the Console.
 
+### Token exchange for organization applications
+
+WSO2 Identity Server now supports the token exchange grant type for applications created in organizations. Applications in organizations can exchange tokens issued by configured trusted token issuers in the organization.
+
+Administrators can also configure trusted token issuers with the following enhancements:
+
+- Enable implicit user account association when configuring a trusted token issuer from the Console.
+- Define up to two lookup attributes in the **Advanced** tab to identify the local user account during token exchange. These attributes must be configured as unique across user stores.
+
 ### SCIM filtering improvements for users and groups
 
-WSO2 Identity Server now supports Greater Than or Equal (GE) and Less Than or Equal (LE) filter operators for JDBC user stores and the identity database, extending the range-based filtering capabilities that were available only for LDAP user stores.
+WSO2 Identity Server now supports Greater Than or Equal (GE) and Less Than or Equal (LE) filter operators for JDBC user stores and the identity database, extending the range-based filtering capabilities that were available for LDAP user stores.
 
 This enables more flexible queries across user attributes, identity claims, roles, and groups, allowing you to perform range-based filtering alongside the existing comparison operators.
 
@@ -90,7 +111,7 @@ Administrators can define the notification channels when creating a workflow.
 
 ### Rule-based workflow engagement
 
-From WSO2 Identity Server 7.3.0, you can configure rules for user operations such as adding a user or creating a role to control whether an approval workflow should be triggered when the operation occurs.
+From WSO2 Identity Server 7.3.0, you can configure rules for user operations such as adding a user or creating a role. These rules determine whether an approval workflow is triggered when the operation occurs.
 
 This enhancement gives administrators more precise control over workflow configuration, enabling approvals to be enforced only when specific business conditions are met.
 
@@ -122,6 +143,10 @@ Key capabilities include:
 - **Backward compatibility**: Progressive enrollment is enabled by default, preserving existing behavior for current deployments.
 
 Learn more about [configuring TOTP at the organization level]({{base_path}}/guides/authentication/mfa/add-totp-login/#configure-at-organization-level).
+
+### App-native authentication for SAML identity provider login flows
+
+WSO2 Identity Server now supports app-native authentication for login flows that include SAML identity provider options. This extends app-native authentication to federated authentication scenarios involving SAML identity providers, enabling in-app sign-in without browser redirects.
 
 ### Improved Sift integration for fraud detection
 
@@ -162,6 +187,10 @@ Multi-provider support allows you to configure multiple push services simultaneo
 
 Learn more about [push notification-based authentication]({{base_path}}/guides/authentication/mfa/add-push-auth-login/).
 
+### Tenant-level backward compatibility settings
+
+WSO2 Identity Server now provides a dedicated REST API for managing tenant-level backward compatibility settings. The API supports configuration inheritance and timestamp-based defaults, enabling administrators to manage compatibility settings per tenant without modifying server-level configurations.
+
 ### Automatic certificate refresh for SAML identity providers using metadata URLs
 
 You can now configure a SAML metadata URL as the certificate source when setting up or updating a SAML federated connection. WSO2 Identity Server automatically retrieves and updates the identity provider certificates from the metadata URL, removing the need for manual certificate updates during key rotations.
@@ -177,6 +206,14 @@ WSO2 Identity Server now supports the Pre-Issue ID Token Action, a pre-flow exte
 Administrators and developers can use this extension to add, update, or remove ID token claims, adjust token validity periods, and enforce custom validation or business logic before the token reaches the client application.
 
 Learn more about the [pre-issue ID token action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-id-token-action/).
+
+### Java 21 compile-time support
+
+WSO2 Identity Server 7.3.0 adds compile-time support for Java 21, enabling organizations to build and deploy on the latest Java LTS release.
+
+### IAM CTL tool improvements
+
+The IAM CTL tool now includes improved support for propagating configuration data, simplifying configuration management and deployment workflows.
 
 ### HTTP-based email provider support
 
