@@ -36,16 +36,6 @@ WSO2 Identity Server uses a tool called Secure Vault to encrypt the plain-text p
 All the default ports that are used by WSO2 Identity Server are listed in [Default Ports of WSO2 Identity Server]({{base_path}}/references/default-ports/), e.g., the default HTTPS port is 9443 and the HTTP port is 9763.
 For instructions on changing default ports, see [Change the default port offset]({{base_path}}/references/default-ports#change-the-offset-for-default-ports).
 
-### JVM parameters
-
-{% if is_version > "7.2.0" %}
-- The recommended JDK version is JDK 21. For more information, see [Prerequisites]({{base_path}}/deploy/get-started/install/#prerequisites).
-{% else %}
-- The supported JDK versions are JDK 11 and above. For more information, see [Prerequisites]({{base_path}}/deploy/get-started/install/#prerequisites).
-{% endif %}
-
-- To run the JVM with 2 GB heap space, you should ideally have about 4 GB of memory on the physical machine. For more information, see [Performance Tuning]({{base_path}}/deploy/performance/performance-tuning-recommendations/).
-
 ## Network and transport security
 
 ### TLS protocol and cipher suites
