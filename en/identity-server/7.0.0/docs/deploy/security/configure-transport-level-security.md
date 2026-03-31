@@ -17,52 +17,20 @@ Follow the instructions given below to configure SSL/TLS protocols in the WSO2 I
 
 2. Restart the server.
 
-## Disable weak ciphers
+## Configure cipher suites
 
-A cipher is an algorithm for performing encryption or decryption. When the `sslprotocol` is set to `TLS`, only the TLS and default ciphers are enabled by default. However, note that the strength of the ciphers will not be considered when they are enabled.
+By default, all SSL ciphers supported by JSSE are enabled. To restrict the server to a specific set of secure cipher suites, explicitly configure the `ciphers` property. If left blank, weak ciphers (including EXPORT ciphers) will also be available, which can make the server vulnerable to attacks such as the Logjam attack.
 
-This is a security risk as weak ciphers, also known as EXPORT ciphers, can make your system vulnerable to attacks such as the Logjam attack on Diffie-Hellman key exchange.
+1. Use the [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6){:target="_blank"} to get a recommended list of cipher suites for your Tomcat version and security profile.
 
-Therefore, to disable the weak ciphers, you must ensure that only the ciphers you want your server to support are entered as the `ciphers` attribute in the comma-separated list. Also, if you do not add this cipher attribute or keep it blank, all SSL ciphers by JSSE will be supported by your server, thereby enabling the weak ciphers.
-
-1. Navigate to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
-
-2. Take a backup of the `deployment.toml` file and stop the WSO2 IS server.
-
-3. Add the following configuration to the `deployment.toml` file by adding the list of ciphers that you want your server to support as follows:
-
-    !!! note
-        For a list of cipher suites that are secure and functional in Tomcat for the TLSv1.2 and TLSv1.3 protocols, see the list of ciphers provided in the [secure configuration generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6){:target="_blank"}, which the Mozilla Foundation provides.
+2. Add the selected ciphers as a comma-separated list to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ```toml
     [transport.https.sslHostConfig.properties]
     ciphers="<cipher-name>,<cipher-name>"
     ```
 
-4. Start the server.
-
-5. To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar]({{base_path}}/assets/attachments/TestSSLServer.jar).
-
-    ``` java
-    $ java -jar TestSSLServer.jar localhost 9443
-    ```
-
-    !!! note
-        Note the following when you run `TestSSLServer.jar` :
-
-        - The "Supported cipher suites" section in the output does not contain any EXPORT ciphers.
-    
-        - When you use the supported cipher suites, the BEAST attack status will be shown as vulnerable. This is a client-side vulnerability caused by the TLSv1 protocol. You can protect the BEAST status by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended to resolve this on the client side.
-
-From **Firefox 39.0** onwards, the browser does not allow access to websites that support DHE with keys less than `1023` bits (not just `DHE\_EXPORT`). `768/1024` bits are considered too small and vulnerable to attacks if the hacker has enough computing resources.
-
-!!! tip
-    To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html){:target="_blank"}.
-    
-    From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048`. It rejects all algorithms that have key sizes less than `2048` for `MD2`, `DSA`, and `RSA`.
-
-    !!! note
-        This tip is not applicable when disabling weak ciphers in the WSO2 Identity Server.
+3. Restart the server.
 
 ## Enable SSL protocols and ciphers in ThriftAuthenticationService
 
