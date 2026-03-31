@@ -53,6 +53,10 @@ Use the [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org/#se
 
 For configuration instructions, see [Configure Transport-Level Security]({{base_path}}/deploy/security/configure-transport-level-security).
 
+### Disable HTTP transport
+
+In production, disable the plain HTTP transport and use HTTPS exclusively to prevent sensitive data from being transmitted over unencrypted connections. For instructions, see [Configure Transport-Level Security]({{base_path}}/deploy/security/configure-transport-level-security).
+
 ### HTTP response headers
 
 When sending HTTP responses, by default, WSO2 Identity Server passes `WSO2 Carbon Server` as the **server value** in HTTP headers. This exposes information about the WSO2 Identity Server stack.
