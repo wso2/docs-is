@@ -85,7 +85,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
     iamctl setupCLI
     ```
 
-3. A new folder named **configs** will be created with an **env** folder inside it. The **env** folder will contain three configuration files, **serverConfig.json**, **toolConfig.json**, and **keywordConfig.json**.
+3. A new folder named `configs` will be created with an `env` folder inside it. The `env` folder will contain three configuration files, `serverConfig.json`, `toolConfig.json`, and `keywordConfig.json`.
 
     !!! note
         If you have multiple environments, get a copy of the `env` folder and rename it according to the environments you have.
