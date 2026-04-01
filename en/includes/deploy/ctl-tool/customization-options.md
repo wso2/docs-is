@@ -1,6 +1,6 @@
 ## Customization Options
 
-IAM-CTL provides several advanced customization options to handle environment-specific needs and streamline configuration management:
+IAM-CTL provides the following advanced customization options to handle environment-specific needs and streamline configuration management:
 
 ### Keyword Mapping
 
@@ -17,7 +17,7 @@ IAM-CTL supports **partial propagation** of resources using the below properties
 
 ### Resource Deletion
 
-By default, IAM-CTL does not delete any resources during import. However, it can be configured to either replace all
+By default, IAM-CTL does not delete any resources during import. It can be configured to either replace all
 existing resources with the imported resources or merge the imported resources with the existing ones using the
 **`ALLOW_DELETE`** property.
 

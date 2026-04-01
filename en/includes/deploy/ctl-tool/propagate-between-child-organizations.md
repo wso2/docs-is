@@ -19,6 +19,7 @@ If the target environment is a child organization, ensure that a Standard-Based 
     - Organization Switch
 4. Grant the following API authorizations under Organization APIs.
 
+<!-- vale off -->
 <table>
     <tr>
         <td>Organization --> Application Management API</td>
@@ -37,6 +38,7 @@ If the target environment is a child organization, ensure that a Standard-Based 
         <td>Create Userstore, Update Userstore, Delete Userstore, View Userstore</td>
     </tr>
 </table>
+<!-- vale on -->
 
 Take note of the **Client ID** and **Client Secret** of the application you created.
 

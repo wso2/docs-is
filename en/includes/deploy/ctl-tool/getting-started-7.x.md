@@ -1,6 +1,6 @@
 ## Getting Started
 
-Before using IAM-CTL, you need to register Machine-to-Machine (M2M) applications in your target environments. If you are propagating resources between root orgs, you need to create M2M apps in root organizations. These applications will be used by IAM-CTL to authenticate and perform operations on your behalf.
+Before using IAM-CTL, you need to register Machine-to-Machine (M2M) applications in your target environments. If you are propagating resources between root organizations, you need to create M2M apps in root organizations. These applications will be used by IAM-CTL to authenticate and perform operations on your behalf.
 
 ### Register tool management application
 
@@ -8,6 +8,7 @@ Follow the steps below to register an M2M application.
 
 1. [Register an M2M application]({{base_path}}/guides/applications/register-machine-to-machine-app/){:target="_blank"} with the following API authorization.
 
+<!-- vale off -->
 <table>
     <tr>
         <td>Management --> Application Management API</td>
@@ -30,5 +31,6 @@ Follow the steps below to register an M2M application.
         <td>Create Userstore, Update Userstore, Delete Userstore, View Userstore</td>
     </tr>
 </table>
+<!-- vale on -->
 
 Take note of the **Client ID** and **Client Secret** of the M2M application you created.
