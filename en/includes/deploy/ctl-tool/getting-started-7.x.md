@@ -1,4 +1,4 @@
-## Getting Started
+## Getting started
 
 Before using IAM-CTL, you need to register Machine-to-Machine (M2M) applications in your target environments. If you are propagating resources between root organizations, you need to create M2M apps in root organizations. These applications will be used by IAM-CTL to authenticate and perform operations on your behalf.
 

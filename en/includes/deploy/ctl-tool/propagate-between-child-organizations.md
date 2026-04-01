@@ -2,7 +2,7 @@
 
 IAM-CTL provides the capability to propagate configurations and resources across child organizations in the organization hierarchy.
 
-### Supported Resource Types
+### Supported resource types
 
 - Applications
 - Identity Providers

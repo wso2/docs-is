@@ -1,4 +1,4 @@
-# Promote Configurations Across Environments
+# Promote configurations across environments
 
 This guide outlines the recommended workflow for promoting resource configurations seamlessly between environments. By leveraging the **IAM-CTL** tool, you can efficiently manage configurations, automate deployments, and ensure consistency across your environments.
 

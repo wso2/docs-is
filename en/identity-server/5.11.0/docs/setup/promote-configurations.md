@@ -1,4 +1,4 @@
-# Promote Configurations Across Environments
+# Promote configurations across environments
 
 This guide outlines the recommended workflow for promoting resource configurations seamlessly between environments. By leveraging the **IAM-CTL** tool, you can efficiently manage configurations, automate deployments, and ensure consistency across your environments.
 
@@ -11,7 +11,7 @@ The [IAM-CTL](https://github.com/wso2-extensions/identity-tools-cli) tool is a c
 - **Backup and Restore**: Act as a backup solution for environment configurations.
 - **CI/CD Integration**: Automate deployment processes and resource propagation using CI/CD pipelines. To integrate with GitHub workflows, refer to the [sample workflow guide](https://github.com/wso2-extensions/identity-tools-cli/blob/master/docs/resource-propagation.md).
 
-### Supported Resource Types
+### Supported resource types
 
 IAM-CTL provides support for propagating the following resource types:
 
@@ -30,7 +30,7 @@ IAM-CTL provides support for propagating the following resource types:
 !!! note
     Management of the **Resident Identity Provider** and **Kerberos, OpenID** inbound authentication configurations of service providers is not supported with IAM-CTL.
 
-## Getting Started
+## Getting started
 
 Before using IAM-CTL, you must register an OAuth application in your target environments. These applications will be used by IAM-CTL to authenticate and perform operations on your behalf.
 
@@ -130,28 +130,28 @@ Follow the steps below to learn how you can configure IAM-CTL.
     iamctl importAll -c ./configs/env
     ```
 
-## Customization Options
+## Customization options
 
 IAM-CTL provides the following advanced customization options to handle environment-specific needs and streamline configuration management:
 
-### Keyword Mapping
+### Keyword mapping
 
 When managing multiple environments, resource configuration files often contain environment-specific variables. IAM-CTL supports **dynamic keyword replacement** to handle these variables during import or export. Keyword mapping can also be defined for specific resources within that environment.
 
 For more details, refer to the [environment-specific variables guide](https://github.com/wso2-extensions/identity-tools-cli/blob/master/docs/env-specific-variables.md).
 
-### Partial Propagation
+### Partial propagation
 
 IAM-CTL supports **partial propagation** of resources using the below properties.
 
 - **`EXCLUDE`**: Exclude specific resource types or a set of individual resources during import or export.
 - **`INCLUDE_ONLY`**: Include only specific resource types or a set of individual resources during import or export.
 
-### Resource Deletion
+### Resource deletion
 
 By default, IAM-CTL does not delete any resources during import. It can be configured to either replace all existing resources with the imported resources or merge the imported resources with the existing ones using the **`ALLOW_DELETE`** property.
 
-### Secret Handling
+### Secret handling
 
 IAM-CTL provides options to manage sensitive data securely. By default, secrets fields are masked. The **`EXCLUDE_SECRETS`** property can be used to override this behavior and include the secrets in the exported resources.
 
