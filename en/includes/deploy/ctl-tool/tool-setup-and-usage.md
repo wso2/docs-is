@@ -12,7 +12,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
         ```bash
         alias iamctl="<IAM-CTL-PATH>/bin/iamctl"
         ```
-    
+
     === "Windows"
         ```bash
         doskey iamctl="<IAM-CTL-PATH>\bin\iamctl.exe" $*
@@ -43,7 +43,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
 4. Open the **serverConfig.json** file and provide the client ID and client secret of the application you created earlier.
 
     To propagate resources between root organizations, provide the details of the M2M application created in the root organization and the organization details.
-    
+
     === "serverConfig.json"
 
         ```json
@@ -57,7 +57,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
         ```
 
     === "Example"
-    
+
         ```json
         {
             "SERVER_URL" : "{{server_url}}",
@@ -70,14 +70,14 @@ Follow the steps below to learn how you can configure IAM-CTL.
 
 5. Run the following commands to export and import configurations.
 
-    a. **Export** 
+    a. **Export**
 
     === "CLI Command"
         ```bash
         iamctl exportAll -c ./configs/env
         ```
-    
-    b. **Import** 
+
+    b. **Import**
 
     === "CLI Command"
         ```bash

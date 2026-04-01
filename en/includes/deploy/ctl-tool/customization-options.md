@@ -17,13 +17,13 @@ IAM-CTL supports **partial propagation** of resources using the below properties
 
 ### Resource Deletion
 
-By default, IAM-CTL does not delete any resources during import. However, it can be configured to either replace all 
-existing resources with the imported resources or merge the imported resources with the existing ones using the 
+By default, IAM-CTL does not delete any resources during import. However, it can be configured to either replace all
+existing resources with the imported resources or merge the imported resources with the existing ones using the
 **`ALLOW_DELETE`** property.
 
 ### Secret Handling
 
-IAM-CTL provides options to manage sensitive data securely. By default, secrets fields are masked. 
+IAM-CTL provides options to manage sensitive data securely. By default, secrets fields are masked.
 The **`EXCLUDE_SECRETS`** property can be used to override this behavior and include the secrets in the exported resources.
 
 Learn more about these configurations in the [tool configurations documentation](https://github.com/wso2-extensions/identity-tools-cli/blob/master/docs/cli-mode.md#tool-configurations){:target="_blank"}.

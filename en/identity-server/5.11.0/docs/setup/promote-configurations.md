@@ -59,19 +59,19 @@ Follow the steps below to learn how you can configure IAM-CTL.
 
     - **Linux/macOS**
 
-        ```
+        ```bash
         alias iamctl="<IAM-CTL-PATH>/bin/iamctl"
         ```
 
     - **Windows**
 
-        ```
+        ```bash
         doskey iamctl="<IAM-CTL-PATH>\bin\iamctl.exe" $*
         ```
 
 4. Run the following command to view the available commands:
 
-    ```
+    ```bash
     iamctl -h
     ```
 
@@ -81,7 +81,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
 
 2. Run the following command to create the configuration files needed.
 
-    ```
+    ```bash
     iamctl setupCLI
     ```
 
@@ -120,13 +120,13 @@ Follow the steps below to learn how you can configure IAM-CTL.
 
     **Export**
 
-    ```
+    ```bash
     iamctl exportAll -c ./configs/env
     ```
 
     **Import**
 
-    ```
+    ```bash
     iamctl importAll -c ./configs/env
     ```
 
