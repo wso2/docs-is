@@ -1,8 +1,8 @@
-## Propogate resources between chlid organizations
+## Propagate resources between child organizations
 
-IAM-CTL provides capability to propagate configurations and resources across child organizations in the organization hierarchy.
+IAM-CTL provides the capability to propagate configurations and resources across child organizations in the organization hierarchy.
 
-### Supported Resource types
+### Supported Resource Types
 
 - Applications
 - Identity Providers

@@ -28,7 +28,7 @@ IAM-CTL provides support for propagating the following resource types:
 - Governance Connectors
 
 !!! note
-    Management of the **Resident Identity Provider** and **Kerberos,OpenID** inbound authentication configurations of service providers is not supported with IAM-CTL.
+    Management of the **Resident Identity Provider** and **Kerberos, OpenID** inbound authentication configurations of service providers is not supported with IAM-CTL.
 
 ## Getting Started
 
@@ -85,12 +85,12 @@ Follow the steps below to learn how you can configure IAM-CTL.
     iamctl setupCLI
     ```
 
-3. A new folder named `configs` will be created with an `env` folder inside it. The `env` folder will contain three configuration files, `serverConfig.json`, `toolConfig.json`, and `keywordConfig.json`.
+3. A new folder named **`configs`** will be created with an **`env`** folder inside it. The **`env`** folder will contain three configuration files, **`serverConfig.json`**, **`toolConfig.json`**, and **`keywordConfig.json`**.
 
     !!! note
-        If you have multiple environments, get a copy of the `env` folder and rename it according to the environments you have.
+        If you have multiple environments, get a copy of the **`env`** folder and rename it according to the environments you have.
 
-4. Open the **serverConfig.json** file and provide the client ID and client secret of the application you created       earlier and the tenant details.
+4. Open the **`serverConfig.json`** file and provide the client ID and client secret of the application you created earlier and the tenant details.
 
     **serverConfig.json**
 

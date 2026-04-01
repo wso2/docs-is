@@ -702,7 +702,7 @@ nav:
       - 'Configuring rsync for Deployment Synchronization': setup/configuring-rsync-for-deployment-synchronization.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
       - 'Configuring the Identity Server to Send Emails': setup/configuring-email-sending.md
-      - 'Promote Configurations Across Environments' : setup/promote-configurations.md
+      - 'Promote Configurations Across Environments': setup/promote-configurations.md
     - 'Monitor':
         - 'Monitoring':
           - 'Overview': setup/monitoring-the-identity-server.md
