@@ -111,7 +111,7 @@ Administrators can define the notification channels when creating a workflow.
 
 ### Rule-based workflow engagement
 
-From WSO2 Identity Server 7.3.0, you can configure rules for user operations such as adding a user or creating a role. These rules determine whether an approval workflow is triggered when the operation occurs.
+Administrators can now configure rules for user operations such as adding a user or creating a roles to determine whether an approval workflow should trigger for these operations.
 
 This enhancement gives administrators more precise control over workflow configuration, enabling approvals to be enforced only when specific business conditions are met.
 
@@ -146,7 +146,7 @@ Learn more about [configuring TOTP at the organization level]({{base_path}}/guid
 
 ### App-native authentication for SAML identity provider login flows
 
-WSO2 Identity Server now supports app-native authentication for login flows that include SAML identity provider options. This extends app-native authentication to federated authentication scenarios involving SAML identity providers, enabling in-app sign-in without browser redirects.
+`<to do>`
 
 ### Improved Sift integration for fraud detection
 
@@ -161,7 +161,7 @@ Administrators can also configure which user and network attributes are included
 
 Learn more about the [Sift connector]({{base_path}}/connectors/sift/).
 
-### OTP retry and resend limits in adaptive authentication
+### Configure OTP retry and resend limits in adaptive scripts
 
 WSO2 Identity Server now supports configuring limits on OTP retry and resend attempts within a single authentication session using adaptive authentication scripts. This helps prevent misuse while maintaining a smooth experience for legitimate users.
 
@@ -169,7 +169,7 @@ Administrators can define the upper limit on the number of times a user can atte
 
 Learn more about [OTP retry and resend limits]({{base_path}}/guides/authentication/conditional-auth/otp-retry-resend-limits/).
 
-### Session lifetime limit enforcement
+### Enforce session lifetime limits
 
 WSO2 Identity Server now supports configuring an absolute session lifetime for user sessions. Once this limit is reached, users are required to re-authenticate, regardless of their activity.
 
@@ -181,15 +181,13 @@ Learn more about [session management]({{base_path}}/guides/account-configuration
 
 WSO2 Identity Server now supports Amazon Simple Notification Service (SNS) as a native push notification provider, and introduces multi-provider support for push notification-based authentication.
 
-With Amazon SNS, WSO2 Identity Server can deliver push notifications across Android, iOS (Apple Push Notification service), Amazon Fire OS (ADM), Baidu Cloud Push, Windows Phone (MPNS), and Windows (WNS).
+Key capabilities include:
 
-Multi-provider support allows you to configure multiple push services simultaneously within the same deployment, such as FCM and Amazon SNS. This eliminates single-provider bottlenecks and improves delivery reliability across different devices and regions.
+- **Expanded global coverage with Amazon SNS**: WSO2 Identity Server can now deliver push notifications across six major platforms: Android, iOS (Apple Push Notification service), Amazon Fire OS (ADM), Baidu Cloud Push, Windows Phone (MPNS), and Windows (WNS). This enables organizations to deliver a consistent login experience across a wide range of devices and regions.
+
+- **Multiple provider support**: You can configure multiple push services simultaneously within the same deployment, such as FCM and Amazon SNS. This eliminates single-provider bottlenecks and improves delivery reliability by combining the strengths of different providers.
 
 Learn more about [push notification-based authentication]({{base_path}}/guides/authentication/mfa/add-push-auth-login/).
-
-### Tenant-level backward compatibility settings
-
-WSO2 Identity Server now provides a dedicated REST API for managing tenant-level backward compatibility settings. The API supports configuration inheritance and timestamp-based defaults, enabling administrators to manage compatibility settings per tenant without modifying server-level configurations.
 
 ### Automatic certificate refresh for SAML identity providers using metadata URLs
 
@@ -203,17 +201,17 @@ Learn more about [adding a SAML identity provider login]({{base_path}}/guides/au
 
 WSO2 Identity Server now supports the Pre-Issue ID Token Action, a pre-flow extension that allows you to execute custom logic just before an OIDC ID token is issued. You can register an external HTTPS service endpoint that WSO2 Identity Server calls synchronously during the ID token issuance flow.
 
-Administrators and developers can use this extension to add, update, or remove ID token claims, adjust token validity periods, and enforce custom validation or business logic before the token reaches the client application.
+Administrators can use this extension to add, update, or remove ID token claims, adjust token validity periods, and enforce custom validation or business logic before the token reaches the client application.
 
 Learn more about the [pre-issue ID token action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-id-token-action/).
 
 ### Java 21 compile-time support
 
-WSO2 Identity Server 7.3.0 adds compile-time support for Java 21, enabling organizations to build and deploy on the latest Java LTS release.
+`< to do >`
 
 ### IAM CTL tool improvements
 
-The IAM CTL tool now includes improved support for propagating configuration data, simplifying configuration management and deployment workflows.
+`< to do >`
 
 ### HTTP-based email provider support
 
