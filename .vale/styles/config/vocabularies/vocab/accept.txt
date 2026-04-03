@@ -44,3 +44,6 @@ frontchannel
 URL
 timeframe
 [Aa]pprovers?
+server_version
+[Uu]serstore
+Kerberos
