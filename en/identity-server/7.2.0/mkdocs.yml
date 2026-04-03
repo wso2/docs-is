@@ -1260,6 +1260,7 @@ nav:
       - Validation rules API: apis/validation-rules-rest-api.md
       - Webhook Management API: apis/webhook-management-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
+      - Workflow management API: apis/workflow-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
