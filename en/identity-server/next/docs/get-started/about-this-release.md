@@ -80,12 +80,13 @@ These configurations are now fully integrated into the Console.
 
 ### Token exchange for organization applications
 
-WSO2 Identity Server now supports the token exchange grant type for applications created in organizations. Applications in organizations can exchange tokens issued by configured trusted token issuers in the organization.
+WSO2 Identity Server now supports the Token Exchange grant type for applications created in organizations. Applications can exchange tokens issued by any trusted token issuer defined at the organization level.
 
-Administrators can also configure trusted token issuers with the following enhancements:
+Administrators can configure trusted token issuers with the following enhancements:
 
-- Enable implicit user account association when configuring a trusted token issuer from the Console.
-- Define up to two lookup attributes in the **Advanced** tab to identify the local user account during token exchange. These attributes must be configured as unique across user stores.
+- **Enable implicit user account association**: Automatically link an incoming external token to an existing local user account for both root and child organizations.
+
+- **Define lookup attributes** : Specify up to two attributes in the **Advanced** tab to identify the corresponding local user during token exchange. These attributes must be configured as unique across user stores to ensure accurate user mapping.
 
 ### SCIM filtering improvements for users and groups
 
