@@ -1,21 +1,13 @@
 openapi: 3.0.0
 info:
-  title: WSO2 Identity Server - Workflow Approval API Definition
+  title: Asgardeo - Workflow Approval API
   description: |
-    This is the RESTful API for a user to manage his/her pending approvals in WSO2 Identity Server. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
-  contact:
-    name: WSO2 Identity Server
-    url: https://wso2.com/identity-and-access-management/
-    email: architecture@wso2.org
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    This is the RESTful API for a user to manage pending approvals in Asgardeo. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
   version: v2
 servers:
-  - url: "https://localhost:9443/t/{tenant-domain}/api/users/v2"
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/users/v2'
 security:
   - OAuth2: []
-  - BasicAuth: []
 tags:
   - name: me
     description: Operations for the authenticated user.
@@ -374,15 +366,12 @@ components:
         items:
           enum: [READY, RESERVED, COMPLETED]
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: https://localhost:9443/oauth2/authorize
-          tokenUrl: https://localhost:9443/oauth2/token
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
           scopes:
             internal_approval_task_view: View approval tasks
             internal_approval_task_update: Update approval tasks

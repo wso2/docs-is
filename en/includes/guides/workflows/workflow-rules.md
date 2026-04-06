@@ -38,7 +38,7 @@ You can combine multiple conditions using logical operators:
 
 ## Example: require approval only for users with a specific role
 
-Consider an organization that requires approval for user removal **only if the user belongs to the HR_MANAGER or MANAGING_DIRECTOR roles**. To configure this:
+Consider an organization that requires approval for user removal **only if the user belongs to the Marketing Team Lead or IT Security Admin roles**. To configure this:
 
 1. Open the approval workflow and navigate to the **Workflow Operation Details** step.
 2. Click **Add Rule** next to the **Remove User** operation.
@@ -46,17 +46,17 @@ Consider an organization that requires approval for user removal **only if the u
 
     | Field       | Operator  | Value             |
     |-------------|-----------|-------------------|
-    | user roles  | contains  | MANAGING_DIRECTOR |
+    | user's assigned roles  | contains  | Marketing Team Lead |
 
     **Or**
 
     | Field       | Operator  | Value             |
     |-------------|-----------|-------------------|
-    | user roles  | contains  |    HR_MANAGER     |
+    | user's assigned roles  | contains  | IT Security Admin |
 
 4. Click **Finish** to save.
 
 With this rule in place:
 
-- Removing a user who belongs to the **HR_MANAGER** or **MANAGING_DIRECTOR** roles sends the request for approval.
+- Removing a user who belongs to the **Marketing Team Lead** or **IT Security Admin** roles sends the request for approval.
 - Removing a user who does not belong to either role completes without approval.
