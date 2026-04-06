@@ -27,21 +27,17 @@ To learn more on how to configure rules, see [Approval workflow rules]({{base_pa
 
 ### Configure workflow steps
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+The next step in creating a workflow is to configure its steps. You can add multiple steps to a workflow, and each step can have multiple approvers. Approvers can belong to a configured role or be defined as individual users.
+{% else %}
 The final step in creating a workflow is to configure its steps. You can add multiple steps to a workflow, and each step can have multiple approvers. Approvers can belong to a configured role or be defined as individual users.
+{% endif %}
 
 ![Workflow steps configuration]({{base_path}}/assets/img/guides/workflows/workflow-steps-configuration.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-Once you have configured the steps, you can save the workflow. The workflow will now be available for use in the system.
 
 !!! note
     If you assign admin user in the first step of approval and if admin creates a user, still workflow will be triggered.
     Other participants in the first step will also receive the approval request.
-
-After creating the workflow, you can view its details, edit it, or delete it.
-
-![Approval Workflow configuration]({{base_path}}/assets/img/guides/workflows/workflow-approval-edit.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-To learn how to review the approval requests, see [Manage Approvals]({{base_path}}/guides/user-self-service/manage-approvals/).
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
@@ -66,6 +62,14 @@ The following notification channels are available:
     ![Initiator notification email]({{base_path}}/assets/img/guides/workflows/workflow-notification-initiator-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% endif %}
+
+Once you have configured the steps, you can save the workflow. The workflow will now be available for use in the system.
+
+After creating the workflow, you can view its details, edit it, or delete it.
+
+![Approval Workflow configuration]({{base_path}}/assets/img/guides/workflows/workflow-approval-edit.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+To learn how to review the approval requests, see [Manage Approvals]({{base_path}}/guides/user-self-service/manage-approvals/).
 
 {% if product_name == "WSO2 Identity Server" %}
 
