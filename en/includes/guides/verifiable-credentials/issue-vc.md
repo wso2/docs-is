@@ -103,7 +103,7 @@ To retrieve the offer URI:
     The wallets listed below have been verified for compatibility with {{ product_name }}. Any digital wallet that implements the [OID4VCI specification](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html){:target="_blank"} should be able to receive credentials — you are not limited to these wallets.
 
 !!! note
-    These wallets require a **specific client ID** to be set when registering the Digital wallet application. The {{ product_name }} Console does not support defining a custom client ID at application creation time. Use the [Application Management API]({{base_path}}/apis/application-rest-api/) to create these clients with the required client ID and redirect URI.
+    These wallets require a **specific client ID** to be set when registering the Digital wallet application. The {{ product_name }} Console does not support defining a custom client ID at application creation time. Use the [Application Management API]({{base_path}}/{{content.application_management_api_path}}/) to create these clients with the required client ID and redirect URI.
 
 === "Lissi"
 
@@ -199,11 +199,6 @@ To retrieve the offer URI:
 
     4. The signed credential appears in your Inji wallet after the wallet completes the OID4VCI flow.
 
-## What's next
-
-- **Understand the protocol**: Learn the technical details of the issuance flow in the [OID4VCI concept page]({{base_path}}/references/concepts/oid4vci/).
-- **Manage VC attributes**: Customize the claims included in your credentials via [VC attribute mappings]({{base_path}}/guides/users/attributes/).
-
 ## Configure VC attribute mappings
 
 {{ product_name }} maps user profile attributes to verifiable credential claims using the **Verifiable Credentials** attribute dialect. Default mappings are pre-loaded for common claims such as `given_name`, `family_name`, and `email`.
@@ -220,3 +215,8 @@ To view or update the attribute mappings:
 
 !!! note
     You can add custom claim mappings if you need to include additional user attributes in your credentials.
+
+## What's next
+
+- **Understand the protocol**: Learn the technical details of the issuance flow in the [OID4VCI concept page]({{base_path}}/{{content.oid4vci_reference_path}}/).
+- **Manage VC attributes**: Customize the claims included in your credentials via [VC attribute mappings]({{base_path}}/guides/users/attributes/).
