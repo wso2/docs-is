@@ -115,7 +115,7 @@ To retrieve the offer URI:
     ??? note "Prerequisite: Register the `openid_credential` authorization type"
         The Lissi wallet sends an `authorization_details` parameter using the [Rich Authorization Requests (RAR)]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) mechanism when it initiates the PAR request. For this to succeed, the `openid_credential` authorization type must be registered in {{ product_name }} and authorized for your Digital wallet application.
 
-        Register the following schema as a new authorization type, then authorize it for the Digital wallet application you created in [Step 2](#step-2-register-a-vc-client-application). See [Configuring your application for RAR]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) for instructions.
+        Register the following schema as a new authorization type, then authorize it for the Digital wallet application you created in [Step 2](#step-2-register-a-digital-wallet-application). See [Configuring your application for RAR]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) for instructions.
 
         ```json
         {
