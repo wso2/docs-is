@@ -112,6 +112,7 @@ To retrieve the offer URI:
     | **Client ID** | `9c481dc3-2ad0-4fe0-881d-c32ad02fe0fc` |
     | **Redirect URI** | `https://oob.lissi.io/vci-cb` |
 
+    {% if product_name == "WSO2 Identity Server" %}
     ??? note "Prerequisite: Register the `openid_credential` authorization type"
         The Lissi wallet sends an `authorization_details` parameter using the [Rich Authorization Requests (RAR)]({{base_path}}/guides/authorization/rich-authorization-requests/#configuring-your-application-for-rar) mechanism when it initiates the PAR request. For this to succeed, the `openid_credential` authorization type must be registered in {{ product_name }} and authorized for your Digital wallet application.
 
@@ -150,6 +151,7 @@ To retrieve the offer URI:
             }
         }
         ```
+    {% endif %}
 
     **Claiming the credential:**
 
