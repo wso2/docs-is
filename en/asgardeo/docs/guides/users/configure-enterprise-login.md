@@ -80,7 +80,7 @@ After setting up the enterprise connection, configure it for Console login.
 
 5. Click **Save** to apply the enterprise login configuration.
 
-Once saved, users who belong to the mapped IdP groups can sign in to the Asgardeo Console using your enterprise IdP.
+After you save the configuration, users who belong to the mapped IdP groups can sign in to the Asgardeo Console using your enterprise IdP.
 
 ## Sign in with enterprise login
 
@@ -118,6 +118,27 @@ If you want users to access the console directly through the enterprise IdP with
     </table>
 
     Users who navigate to this URL go directly to the enterprise IdP's sign-in page and are redirected to the Asgardeo Console after successful authentication.
+
+## Troubleshooting
+
+If enterprise login does not work as expected, check the following common issues:
+
+| Issue | What to check |
+|---|---|
+| Users from the enterprise IdP cannot sign in | Verify that the enterprise connection is selected under **Console Settings** > **Enterprise Login** > **Enterprise Connection** and that the configuration is saved. |
+| Groups are not mapped correctly | Confirm that the group names configured in Asgardeo exactly match the group names sent by your external IdP in its authentication response. Group names are case-sensitive. |
+| JIT provisioning is not creating user accounts | Verify that JIT provisioning is enabled on the enterprise connection. Check the Asgardeo provisioning logs for error details. |
+| Group information is missing from the authentication response | Confirm that the groups claim mapping is configured on the connection and that the `groups` scope is included in the connection's requested scopes. |
+| The Home Realm Identifier URL does not redirect to the enterprise IdP | Verify that the **Home Realm Identifier** value in the connection settings matches the value used in the direct access URL. |
+
+## Next steps
+
+After you configure enterprise login, consider the following actions:
+
+- Verify that enterprise users can sign in with the expected Console roles by testing with a user from each mapped IdP group.
+- Monitor sign-in activity in the Asgardeo Console audit logs to detect any authentication issues.
+- Document the claim format used by your external IdP, including the groups claim name and value format, for future reference.
+- Share the direct access URL with your enterprise administrators so they can access the Asgardeo Console directly through your enterprise IdP.
 
 ## Remove enterprise login
 
