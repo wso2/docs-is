@@ -8,7 +8,7 @@ WSO2 Identity Server 7.3.0 introduces a range of new features and enhancements:
 
 ### Support for OpenID for Verifiable Credential Issuance (OID4VCI)
 
-WSO2 Identity Server now natively supports OpenID for Verifiable Credential Issuance (OID4VCI), enabling organizations to issue verifiable credentials to digital wallets using a standardized, OpenID-based protocol.
+WSO2 Identity Server now natively supports [OpenID for Verifiable Credential Issuance (OID4VCI)](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html){:target="_blank"}, enabling organizations to issue verifiable credentials to digital wallets using a standardized, OpenID-based protocol.
 
 Key capabilities include:
 
@@ -21,7 +21,7 @@ Learn more about [verifiable credentials]({{base_path}}/guides/verifiable-creden
 
 ### Client Initiated Backchannel Authentication (CIBA) grant
 
-WSO2 Identity Server now supports the Client Initiated Backchannel Authentication (CIBA) grant, enabling authentication flows where the device consuming a service is decoupled from the device used for authentication. For example, a user can start a login on a smart TV or kiosk and complete authentication on their mobile phone.
+WSO2 Identity Server now supports the [Client Initiated Backchannel Authentication (CIBA)](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html){:target="_blank"} grant, enabling authentication flows where the device consuming a service is decoupled from the device used for authentication. For example, a user can start a login on a smart TV or kiosk and complete authentication on their mobile phone.
 
 Key capabilities include:
 
@@ -37,7 +37,7 @@ Learn more about [configuring the CIBA grant]({{base_path}}/guides/authenticatio
 
 ### OIDC front-channel logout support
 
-WSO2 Identity Server now supports OpenID Connect front-channel logout, a browser-based logout mechanism that ensures all applications sharing a session are notified when a user signs out.
+WSO2 Identity Server now supports [OpenID Connect front-channel logout](https://openid.net/specs/openid-connect-frontchannel-1_0.html){:target="_blank"}, a browser-based logout mechanism that ensures all applications sharing a session are notified when a user signs out.
 
 Instead of direct server-to-server communication, logout messages are delivered through the user's browser using iframes. Each participating application receives the logout notification and clears its session state, including cookies and local storage, based on the browser notification.
 
@@ -80,7 +80,7 @@ These configurations are now fully integrated into the Console.
 
 ### Token exchange for organization applications
 
-WSO2 Identity Server now supports the Token Exchange grant type for applications created in organizations. Applications can exchange tokens issued by any trusted token issuer defined at the organization level.
+WSO2 Identity Server now supports the [Token Exchange](https://www.rfc-editor.org/rfc/rfc8693){:target="_blank"} grant type for applications created in organizations. Applications can exchange tokens issued by any trusted token issuer defined at the organization level.
 
 Administrators can configure trusted token issuers with the following enhancements:
 
