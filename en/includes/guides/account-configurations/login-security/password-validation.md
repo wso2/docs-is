@@ -41,8 +41,8 @@ To configure rule-based password expiration,
 {% if product_name == "Asgardeo" %}
 2. In the **Enforce password expiry for** field, select who the password expiry policy applies to:
 
-    - **All application login flows** (default): Enforces password expiry for all users upon login, regardless of which application they sign in to.
-    - **Selected application login flows**: Enforces password expiry only when users sign in to applications where password expiry has been enabled in the login flow. When selected, organization-wide password expiry enforcement is disabled.
+    - **All application login flows** (default): Enforces password expiry for all users upon login, regardless of which application they log in to.
+    - **Selected application login flows**: Enforces password expiry only when users log in to applications where password expiry has been enabled in the login flow. When selected, organization-wide password expiry enforcement is disabled.
 
         !!! info
             To enforce password expiry for a specific application, add the Password Reset Enforcer as an authentication step in the application's login flow. See [Configure login flows]({{base_path}}/guides/authentication/) for instructions.
@@ -50,7 +50,7 @@ To configure rule-based password expiration,
             ![Password Expiry Reset Enforcer]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-expiry-reset-enforcer.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
         !!! tip
-            By default, users are automatically signed in after successfully resetting their password. To require users to sign in again from the beginning of the login flow, use the `passwordResetComplete` property in the authentication context of your adaptive script and call the `fail()` function as shown below.
+            By default, users are automatically logged in after successfully resetting their password. To require users to log in again from the beginning of the login flow, use the `passwordResetComplete` property in the authentication context of your adaptive script and call the `fail()` function as shown below.
 
             ```js
             var onLoginRequest = function(context) {
@@ -72,7 +72,7 @@ To configure rule-based password expiration,
             ```
 {% endif %}
 
-3. Set a default password expiry rule that applies to any user that does not meet the custom criteria.
+3. Set a default password expiry rule that applies to any user who does not meet the custom criteria.
 
 4. Click **Add Rule** and start defining custom rules. Each subsequent rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
 
