@@ -1,5 +1,5 @@
 ---
-template: templates/complete-guide.html
+template: templates/deployment-guide.html
 heading: Prerequisites
 read_time: 1 min
 ---

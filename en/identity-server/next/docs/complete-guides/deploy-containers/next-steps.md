@@ -1,5 +1,5 @@
 ---
-template: templates/complete-guide.html
+template: templates/deployment-guide.html
 heading: Next steps
 read_time: 2 mins
 ---

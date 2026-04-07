@@ -1,6 +1,7 @@
 ---
-template: templates/complete-guide.html
+template: templates/deployment-guide.html
 read_time: 30 mins
+platform_label: Kubernetes
 ---
 
 Deploy WSO2 Identity Server to a Kubernetes cluster. This step covers writing the Deployment and Service manifests, configuring the ConfigMap for `deployment.toml`, and exposing WSO2 Identity Server through an Ingress resource.

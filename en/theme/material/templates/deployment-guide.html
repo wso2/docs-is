@@ -1,0 +1,438 @@
+<!--
+ * Copyright (c) 2024-2025, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/css/deployment-guide.css' | url }}">
+{% endblock %}
+
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    .md-header {
+      overflow: visible;
+    }
+    .deploy-progress-bar-wrap {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      pointer-events: none;
+    }
+    .deploy-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--md-typeset-a-color);
+      transition: width 0.1s linear;
+    }
+  </style>
+{% endblock %}
+
+{% block container %}
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner md-typeset">
+      <div>
+        <article>
+          {% if page.meta.heading %}
+            <h1 id="{{ page.meta.heading | lower | replace(' ', '-') | replace('/', '-') }}">
+              {{ page.meta.heading }}
+              {% if page.meta.read_time %}
+                <br /><span class="">{{ page.meta.read_time }}</span>
+              {% endif %}
+            </h1>
+          {% endif %}
+
+          {{ page.content }}
+        </article>
+      </div>
+      <div>
+        <hr />
+        <!-- Link to previous and/or next page -->
+        {% if "navigation.footer" in features %}
+          {% if page.previous_page or page.next_page %}
+            {% if page.meta and page.meta.hide %}
+              {% set hidden = "hidden" if "footer" in page.meta.hide %}
+            {% endif %}
+            <nav
+              class="md-footer__inner md-grid"
+              aria-label="{{ lang.t('footer') }}"
+              {{ hidden }}
+            >
+
+              {% set current_parent = page.url.split('/')[:-2] | join('/') %}
+
+              <!-- Link to previous page -->
+              {% if page.previous_page %}
+                {% set previous_parent = page.previous_page.url.split('/')[:-2] | join('/') %}
+                
+                {% if current_parent == previous_parent and page.previous_page.url != page.url %}
+                  {% set direction = lang.t("footer.previous") %}
+                  <a
+                    href="{{ page.previous_page.url | url }}"
+                    class="md-footer__link md-footer__link--prev"
+                    aria-label="{{ direction }}: {{ page.previous_page.title | e }}"
+                  >
+                    <div class="md-footer__button md-icon">
+                      {% set icon = config.theme.icon.previous or "material/arrow-left" %}
+                      {% include ".icons/" ~ icon ~ ".svg" %}
+                    </div>
+                    <div class="md-footer__title">
+                      <span class="md-footer__direction">
+                        {{ direction }}
+                      </span>
+                      <div class="md-ellipsis">
+                        {{ page.previous_page.title }}
+                      </div>
+                    </div>
+                  </a>
+                {% endif %}
+              {% endif %}
+              
+              <!-- Link to next page -->
+              {% if page.next_page %}
+                {% set next_parent = page.next_page.url.split('/')[:-2] | join('/') %}
+              
+                {% if current_parent == next_parent and page.next_page.url != page.url %}
+                  {% set direction = lang.t("footer.next") %}
+                  <a
+                    href="{{ page.next_page.url | url }}"
+                    class="md-footer__link md-footer__link--next"
+                    aria-label="{{ direction }}: {{ page.next_page.title | e }}"
+                  >
+                    <div class="md-footer__title">
+                      <span class="md-footer__direction">
+                        {{ direction }}
+                      </span>
+                      <div class="md-ellipsis">
+                        {{ page.next_page.title }}
+                      </div>
+                    </div>
+                    <div class="md-footer__button md-icon">
+                      {% set icon = config.theme.icon.next or "material/arrow-right" %}
+                      {% include ".icons/" ~ icon ~ ".svg" %}
+                    </div>
+                  </a>
+                {% endif %}
+              {% endif %}
+            
+            </nav>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="deploy-progress-bar-wrap" id="deploy-progress-wrap" aria-hidden="true">
+    <div class="deploy-progress-bar" id="deploy-progress-bar"></div>
+  </div>
+
+  <div style="display: none;" id="prerendered-icons">
+    <span class="arrow-left">
+      {% set icon = "fontawesome/solid/arrow-left" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </span>
+  </div>
+
+  <script>
+
+    const nav = document.querySelector('.md-nav.md-nav--primary');
+    if (nav && !nav.classList.contains('md-nav--lifted')) {
+      nav.classList.add('md-nav--lifted');
+    }
+    const activeLink = nav ? nav.querySelector('a.md-nav__link--active') : null;
+    const pages = activeLink ? activeLink.closest('ul.md-nav__list') : null;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // JS fallback: walk up from the page list hiding siblings at every ancestor level.
+      // CSS handles this at large breakpoints; JS ensures it works at all sizes.
+      if (pages) {
+        let cursor = pages.parentElement;
+        while (cursor) {
+          if (cursor.classList.contains('md-nav--primary')) break;
+          if (cursor.tagName === 'LI' && cursor.parentElement && cursor.parentElement.classList.contains('md-nav__list')) {
+            Array.from(cursor.parentElement.children).forEach(sib => {
+              if (sib !== cursor) sib.style.display = 'none';
+            });
+          }
+          cursor = cursor.parentElement;
+        }
+      }
+
+        if (!document.referrer.includes('/complete-guides/')) {
+    sessionStorage.setItem("lastVisitedPage", document.referrer);}
+
+      let lastValidPage = sessionStorage.getItem("lastVisitedPage");
+
+      let lastVisitedPage = sessionStorage.getItem("lastVisitedPage");
+
+      console.log(sessionStorage);
+
+        const isLastPageValid = lastValidPage && (lastValidPage !== window.location.href);
+
+        const icon = document.getElementById("prerendered-icons").querySelector(".arrow-left").innerHTML;
+
+        const goBackLabel = document.createElement("label");
+        const goBackLink = document.createElement("a");
+
+        goBackLink.href = lastVisitedPage ? lastVisitedPage : '{{ "" | url }}';
+        goBackLink.innerHTML =
+          `<span class="icon">${icon}</span>` + (isLastPageValid ? "Go Back" : "Go Back Home");
+        
+        goBackLabel.classList.add("md-nav__link", "md-nav__go-back");
+        goBackLabel.appendChild(goBackLink);
+
+        console.log(goBackLabel);
+
+        if (nav) {
+            nav.prepend(goBackLabel);
+
+            // Add path name title below the go-back button
+            const pathLi = pages && pages.parentElement && pages.parentElement.parentElement;
+            if (pathLi) {
+              const labelEl = pathLi.querySelector(':scope > label.md-nav__link') ||
+                              pathLi.querySelector(':scope > div.md-nav__link--index > a');
+              if (labelEl) {
+                const pathTitle = labelEl.textContent.trim();
+                if (pathTitle) {
+                  const titleEl = document.createElement('span');
+                  titleEl.className = 'guide-nav-title';
+                  titleEl.textContent = pathTitle;
+                  nav.insertBefore(titleEl, goBackLabel.nextSibling);
+                }
+              }
+            }
+        }
+    });
+
+    // Detect platform groups from data-platform-label (emitted via frontmatter in nav-item.html)
+    // Consecutive items sharing data-platform-label form a group.
+    const platformGroups = [];
+    if (pages) {
+      let currentGroup = null;
+      Array.from(pages.children).forEach(item => {
+        if (item.dataset.platformLabel) {
+          if (!currentGroup) { currentGroup = []; platformGroups.push(currentGroup); }
+          currentGroup.push(item);
+        } else {
+          currentGroup = null;
+        }
+      });
+    }
+    const secondaryPlatformItems = new Set(platformGroups.flatMap(g => g.slice(1)));
+
+    // Progress bar
+    if (pages) {
+      const items = Array.from(pages.children);
+      // Secondary platform items collapse into their group's primary — exclude from count
+      const requiredItems = items.filter(item => {
+        if (item.classList.contains('md-nav__item--optional')) return false;
+        if (secondaryPlatformItems.has(item)) return false;
+        return true;
+      });
+      const totalPages = requiredItems.length;
+      const currentItem = items.find(item => item.querySelector('a.md-nav__link--active'));
+      const isOptional = currentItem && currentItem.classList.contains('md-nav__item--optional');
+      const isSecondaryPlatform = currentItem && secondaryPlatformItems.has(currentItem);
+
+      let currentIndex;
+      if (isOptional) {
+        let prev = -1;
+        for (let i = 0; i < items.indexOf(currentItem); i++) {
+          if (!items[i].classList.contains('md-nav__item--optional')) prev++;
+        }
+        currentIndex = prev >= 0 ? prev : 0;
+      } else if (isSecondaryPlatform) {
+        const group = platformGroups.find(g => g.includes(currentItem));
+        currentIndex = requiredItems.indexOf(group[0]);
+      } else {
+        currentIndex = requiredItems.indexOf(currentItem);
+      }
+
+      if (totalPages > 0 && currentIndex >= 0) {
+        const pageStart = currentIndex / totalPages * 100;
+        const pageEnd = (currentIndex + 1) / totalPages * 100;
+
+        const bar = document.getElementById('deploy-progress-bar');
+        const wrap = document.getElementById('deploy-progress-wrap');
+
+        // Attach to header so it moves with it naturally
+        if (wrap) {
+          const header = document.querySelector('.md-header');
+          if (header) header.appendChild(wrap);
+        }
+
+        // Set initial width without transition to avoid animating from 0
+        if (bar) {
+          bar.style.transition = 'none';
+          bar.style.width = pageStart + '%';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => { bar.style.transition = 'width 0.1s linear'; });
+          });
+        }
+
+        const updateBar = () => {
+          const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPct = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 1;
+          const pct = pageStart + scrollPct * (pageEnd - pageStart);
+          if (bar) bar.style.width = pct + '%';
+        };
+
+        updateBar();
+        window.addEventListener('scroll', updateBar, { passive: true });
+      }
+    }
+
+    // Initialize the section count
+    let sectionCount = 1;
+
+    if (pages) {
+      pages.classList.add('guide-page-list');
+
+      const groupStepNums = new Map(); // group[0] → assigned step number
+      Array.from(pages.children).forEach(child => {
+        const span = document.createElement('span');
+        span.className = 'guide-page-number';
+        if (child.classList.contains('md-nav__item--optional')) {
+          span.textContent = '';
+        } else {
+          const group = platformGroups.find(g => g.includes(child));
+          if (group) {
+            if (!groupStepNums.has(group[0])) groupStepNums.set(group[0], sectionCount++);
+            span.textContent = groupStepNums.get(group[0]);
+          } else {
+            span.textContent = sectionCount++;
+          }
+        }
+        child.prepend(span);
+      });
+
+      // Insert "Expand your deployment" separator before first optional step
+      const allChildren = Array.from(pages.children);
+      const firstOptIdx = allChildren.findIndex(c => c.classList.contains('md-nav__item--optional'));
+      if (firstOptIdx > 0) {
+        allChildren[firstOptIdx - 1].classList.add('guide-last-required');
+        const sep = document.createElement('li');
+        sep.className = 'guide-optional-separator';
+        sep.setAttribute('aria-hidden', 'true');
+        sep.innerHTML = '<hr><span class="guide-optional-title">Expand your deployment</span>';
+        pages.insertBefore(sep, allChildren[firstOptIdx]);
+      }
+
+      // Platform selectors — one per group; pills for ≤2 items, dropdown for >2
+      platformGroups.forEach(group => {
+        const labels = group.map(item => item.dataset.platformLabel);
+        const storageKey = 'guide-platform:' + labels.join(',');
+        const stored = localStorage.getItem(storageKey);
+        const activeItem = group.find(item => item.querySelector('a.md-nav__link--active'));
+        const currentLabel = activeItem
+          ? activeItem.dataset.platformLabel
+          : (labels.includes(stored) ? stored : labels[0]);
+
+        const selectorEl = document.createElement('div');
+        selectorEl.className = 'guide-platform-selector';
+        selectorEl.setAttribute('aria-hidden', 'true');
+
+        if (group.length <= 2) {
+          // Pill buttons
+          const pillsDiv = document.createElement('div');
+          pillsDiv.className = 'guide-platform-pills';
+
+          const selectPlatform = (label) => {
+            group.forEach(item => {
+              item.style.display = item.dataset.platformLabel === label ? '' : 'none';
+            });
+            pillsDiv.querySelectorAll('.guide-platform-btn').forEach(btn => {
+              btn.classList.toggle('active', btn.dataset.label === label);
+            });
+            localStorage.setItem(storageKey, label);
+          };
+
+          group.forEach(item => {
+            const btn = document.createElement('button');
+            btn.className = 'guide-platform-btn';
+            btn.type = 'button';
+            btn.textContent = item.dataset.platformLabel;
+            btn.dataset.label = item.dataset.platformLabel;
+            btn.addEventListener('click', () => selectPlatform(item.dataset.platformLabel));
+            pillsDiv.appendChild(btn);
+          });
+
+          selectorEl.appendChild(pillsDiv);
+          nav.prepend(selectorEl);
+          selectPlatform(currentLabel);
+        } else {
+          // Dropdown for 3+ options
+          const select = document.createElement('select');
+          select.className = 'guide-platform-select';
+
+          const selectPlatform = (label) => {
+            group.forEach(item => {
+              item.style.display = item.dataset.platformLabel === label ? '' : 'none';
+            });
+            select.value = label;
+            localStorage.setItem(storageKey, label);
+          };
+
+          group.forEach(item => {
+            const opt = document.createElement('option');
+            opt.value = item.dataset.platformLabel;
+            opt.textContent = item.dataset.platformLabel;
+            select.appendChild(opt);
+          });
+
+          select.addEventListener('change', () => selectPlatform(select.value));
+          selectorEl.appendChild(select);
+          nav.prepend(selectorEl);
+          selectPlatform(currentLabel);
+        }
+      });
+    }
+
+    // Function to mark visited links
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!pages) return;
+      const visitedUrls = JSON.parse(localStorage.getItem('visitedUrls')) || [];
+
+      Array.from(pages.children).forEach(child => {
+        const link = child.querySelector('a.md-nav__link');
+        const readTime = child.querySelector('.md-nav__link-read_time');
+
+        if (link && readTime) {
+          const linkUrl = link.href;
+
+          // Check if the URL is in visitedUrls and add the 'visited' class
+          if (visitedUrls.includes(linkUrl)) {
+            readTime.classList.add('visited');
+          }
+
+          // Add the current page URL to visitedUrls if not already present
+          const currentPageUrl = window.location.href;
+
+          if (!visitedUrls.includes(currentPageUrl)) {
+            visitedUrls.push(currentPageUrl);
+            localStorage.setItem('visitedUrls', JSON.stringify(visitedUrls));
+          }
+        }
+      });
+    });
+
+  </script>
+{% endblock %}
