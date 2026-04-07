@@ -28,6 +28,10 @@ To configure rule-based password expiration,
 
 2. Set a default password expiry rule that applies to any user that does not meet the custom criteria.
 
+3. Click **Add Rule** and start defining custom rules. Each subsequent rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
+
+    ![Rule-Based Password Expiration]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-expiration.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 Refer to the following table for more information on rule parameters.
 
 <table>
