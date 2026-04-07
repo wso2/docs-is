@@ -51,6 +51,10 @@
     {% set class = class ~ " md-nav__item--active" %}
   {% endif %}
 
+  {% if nav_item.meta and nav_item.meta.optional %}
+    {% set class = class ~ " md-nav__item--optional" %}
+  {% endif %}
+
   {% set current_title = nav_item.title %}
 
   <!-- Set nav icon -->
@@ -263,7 +267,9 @@
 
   <!-- Currently active page -->
   {% elif nav_item == page %}
-    <li class="{{ class }}">
+    <li class="{{ class }}"
+      {% if nav_item.meta and nav_item.meta.platform_label %}data-platform-label="{{ nav_item.meta.platform_label }}"{% endif %}
+    >
       {% set toc = page.toc %}
 
       <!-- Active checkbox expands items contained within nested section -->
@@ -315,7 +321,9 @@
 
   <!-- Main navigation item -->
   {% else %}
-    <li class="{{ class }} {{ hide_nav_class }}">
+    <li class="{{ class }} {{ hide_nav_class }}"
+      {% if nav_item.meta and nav_item.meta.platform_label %}data-platform-label="{{ nav_item.meta.platform_label }}"{% endif %}
+    >
       <a href="{{ nav_item.url | url }}" class="md-nav__link">
         <span>
           {% if icon %}

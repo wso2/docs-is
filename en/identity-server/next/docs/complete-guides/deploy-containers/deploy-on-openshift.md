@@ -1,6 +1,7 @@
 ---
-template: templates/complete-guide.html
+template: templates/deployment-guide.html
 read_time: 30 mins
+platform_label: OpenShift
 ---
 
 Deploy WSO2 Identity Server to an OpenShift cluster. OpenShift applies stricter security policies than standard Kubernetes, including restricted pod security contexts and the requirement to use Routes instead of Ingress resources.

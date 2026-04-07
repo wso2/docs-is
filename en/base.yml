@@ -107,6 +107,7 @@ extra:
   generator: false
   isolated_templates:
     - templates/complete-guide.html
+    - templates/deployment-guide.html
     - templates/sdk.html
 
   expanded_navs:
@@ -128,8 +129,6 @@ extra:
     SDK Documentation:
       level: 1
     Technology Guides:
-      level: 1
-    Deployment guides:
       level: 1
     Try for a sample app:
       level: 1
@@ -163,6 +162,18 @@ extra:
     Frontend Security:
       link: complete-guides/fesecurity/introduction
       level: 2
+    "Path A: Evaluation (single node)":
+      link: complete-guides/deploy-eval/introduction
+      level: 3
+    "Path B: Production (single region, HA)":
+      link: complete-guides/deploy-ha/introduction
+      level: 3
+    "Path C: Production (multi-region, DR)":
+      link: complete-guides/deploy-dr/introduction
+      level: 3
+    "Path D: Container platforms":
+      link: complete-guides/deploy-containers/introduction
+      level: 3
 
   nav_icons:
     Overview:

@@ -968,10 +968,53 @@ nav:
   - Setup:
       - Choose your deployment path: deploy/choose-your-deployment-path.md
       - Deployment paths:
-          - "Path A: Evaluation (single node)": complete-guides/deploy-eval/introduction.md
-          - "Path B: Production (single region, HA)": complete-guides/deploy-ha/introduction.md
-          - "Path C: Production (multi-region, DR)": complete-guides/deploy-dr/introduction.md
-          - "Path D: Container platforms (Kubernetes and OpenShift)": complete-guides/deploy-containers/introduction.md
+          - "Path A: Evaluation (single node)":
+              - Introduction: complete-guides/deploy-eval/introduction.md
+              - Prerequisites: complete-guides/deploy-eval/prerequisites.md
+              - Install WSO2 Identity Server: complete-guides/deploy-eval/install.md
+              - Start the server: complete-guides/deploy-eval/start-the-server.md
+              - Next steps: complete-guides/deploy-eval/next-steps.md
+          - "Path B: Production (single region, HA)":
+              - Introduction: complete-guides/deploy-ha/introduction.md
+              - Prerequisites: complete-guides/deploy-ha/prerequisites.md
+              - Install WSO2 Identity Server: complete-guides/deploy-ha/install.md
+              - Set up external databases: complete-guides/deploy-ha/configure-databases.md
+              - Change the hostname: complete-guides/deploy-ha/change-hostname.md
+              - Configure TLS: complete-guides/deploy-ha/configure-tls.md
+              - Configure keystores: complete-guides/deploy-ha/configure-keystores.md
+              - Configure clustering: complete-guides/deploy-ha/configure-clustering.md
+              - Configure the load balancer: complete-guides/deploy-ha/configure-load-balancer.md
+              - Apply security hardening: complete-guides/deploy-ha/security-hardening.md
+              - Verify the deployment: complete-guides/deploy-ha/verify-deployment.md
+              - Next steps: complete-guides/deploy-ha/next-steps.md
+              - Configure data replication: complete-guides/deploy-ha/configure-replication.md
+              - Configure regional failover: complete-guides/deploy-ha/configure-failover.md
+          - "Path C: Production (multi-region, DR)":
+              - Introduction: complete-guides/deploy-dr/introduction.md
+              - Prerequisites: complete-guides/deploy-dr/prerequisites.md
+              - Install WSO2 Identity Server: complete-guides/deploy-dr/install.md
+              - Set up external databases: complete-guides/deploy-dr/configure-databases.md
+              - Change the hostname: complete-guides/deploy-dr/change-hostname.md
+              - Configure TLS: complete-guides/deploy-dr/configure-tls.md
+              - Configure keystores: complete-guides/deploy-dr/configure-keystores.md
+              - Configure clustering: complete-guides/deploy-dr/configure-clustering.md
+              - Configure the load balancer: complete-guides/deploy-dr/configure-load-balancer.md
+              - Configure data replication: complete-guides/deploy-dr/configure-replication.md
+              - Configure regional failover: complete-guides/deploy-dr/configure-failover.md
+              - Apply security hardening: complete-guides/deploy-dr/security-hardening.md
+              - Verify the deployment: complete-guides/deploy-dr/verify-deployment.md
+              - Next steps: complete-guides/deploy-dr/next-steps.md
+          - "Path D: Container platforms":
+              - Introduction: complete-guides/deploy-containers/introduction.md
+              - Prerequisites: complete-guides/deploy-containers/prerequisites.md
+              - Change the hostname: complete-guides/deploy-containers/change-hostname.md
+              - Configure TLS: complete-guides/deploy-containers/configure-tls.md
+              - Configure keystores: complete-guides/deploy-containers/configure-keystores.md
+              - Deploy on Kubernetes: complete-guides/deploy-containers/deploy-on-kubernetes.md
+              - Deploy on OpenShift: complete-guides/deploy-containers/deploy-on-openshift.md
+              - Apply security hardening: complete-guides/deploy-containers/security-hardening.md
+              - Verify the deployment: complete-guides/deploy-containers/verify-deployment.md
+              - Next steps: complete-guides/deploy-containers/next-steps.md
       - Detailed resources:
           - Install:
             - Install: deploy/get-started/install.md
@@ -1431,52 +1474,6 @@ nav:
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
       - OpenID for verifiable credential issuance (OID4VCI): references/concepts/oid4vci.md
-  - Deployment guides:
-      - "Path A: Evaluation (single node)":
-          - Introduction: complete-guides/deploy-eval/introduction.md
-          - Prerequisites: complete-guides/deploy-eval/prerequisites.md
-          - Install WSO2 Identity Server: complete-guides/deploy-eval/install.md
-          - Start the server: complete-guides/deploy-eval/start-the-server.md
-          - Next steps: complete-guides/deploy-eval/next-steps.md
-      - "Path B: Production (single region, HA)":
-          - Introduction: complete-guides/deploy-ha/introduction.md
-          - Prerequisites: complete-guides/deploy-ha/prerequisites.md
-          - Install WSO2 Identity Server: complete-guides/deploy-ha/install.md
-          - Set up external databases: complete-guides/deploy-ha/configure-databases.md
-          - Change the hostname: complete-guides/deploy-ha/change-hostname.md
-          - Configure TLS: complete-guides/deploy-ha/configure-tls.md
-          - Configure keystores: complete-guides/deploy-ha/configure-keystores.md
-          - Configure clustering: complete-guides/deploy-ha/configure-clustering.md
-          - Configure the load balancer: complete-guides/deploy-ha/configure-load-balancer.md
-          - Apply security hardening: complete-guides/deploy-ha/security-hardening.md
-          - Verify the deployment: complete-guides/deploy-ha/verify-deployment.md
-          - Next steps: complete-guides/deploy-ha/next-steps.md
-      - "Path C: Production (multi-region, DR)":
-          - Introduction: complete-guides/deploy-dr/introduction.md
-          - Prerequisites: complete-guides/deploy-dr/prerequisites.md
-          - Install WSO2 Identity Server: complete-guides/deploy-dr/install.md
-          - Set up external databases: complete-guides/deploy-dr/configure-databases.md
-          - Change the hostname: complete-guides/deploy-dr/change-hostname.md
-          - Configure TLS: complete-guides/deploy-dr/configure-tls.md
-          - Configure keystores: complete-guides/deploy-dr/configure-keystores.md
-          - Configure clustering: complete-guides/deploy-dr/configure-clustering.md
-          - Configure the load balancer: complete-guides/deploy-dr/configure-load-balancer.md
-          - Configure data replication: complete-guides/deploy-dr/configure-replication.md
-          - Configure regional failover: complete-guides/deploy-dr/configure-failover.md
-          - Apply security hardening: complete-guides/deploy-dr/security-hardening.md
-          - Verify the deployment: complete-guides/deploy-dr/verify-deployment.md
-          - Next steps: complete-guides/deploy-dr/next-steps.md
-      - "Path D: Container platforms (Kubernetes and OpenShift)":
-          - Introduction: complete-guides/deploy-containers/introduction.md
-          - Prerequisites: complete-guides/deploy-containers/prerequisites.md
-          - Change the hostname: complete-guides/deploy-containers/change-hostname.md
-          - Configure TLS: complete-guides/deploy-containers/configure-tls.md
-          - Configure keystores: complete-guides/deploy-containers/configure-keystores.md
-          - Deploy on Kubernetes: complete-guides/deploy-containers/deploy-on-kubernetes.md
-          - Deploy on OpenShift: complete-guides/deploy-containers/deploy-on-openshift.md
-          - Apply security hardening: complete-guides/deploy-containers/security-hardening.md
-          - Verify the deployment: complete-guides/deploy-containers/verify-deployment.md
-          - Next steps: complete-guides/deploy-containers/next-steps.md
   - Technology Guides:
       - Actions:
           - Introduction: complete-guides/actions/introduction.md

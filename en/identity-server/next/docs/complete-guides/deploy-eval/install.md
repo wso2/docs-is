@@ -1,5 +1,5 @@
 ---
-template: templates/complete-guide.html
+template: templates/deployment-guide.html
 read_time: 10 mins
 ---
 

@@ -67,7 +67,7 @@ WSO2 Identity Server supports four deployment paths. Each path targets a specifi
       <li><strong>High availability</strong> - Yes (cluster-managed)</li>
       <li><strong>Setup time</strong> - 1–3 days</li>
     </ul>
-    <a href="{{base_path}}/complete-guides/deploy-k8s/introduction/" class="md-button md-button--primary">Start Path D</a>
+    <a href="{{base_path}}/complete-guides/deploy-containers/introduction/" class="md-button md-button--primary">Start Path D</a>
   </div>
 
 </div>
