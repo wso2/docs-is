@@ -35,6 +35,11 @@ extra:
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
+    oid4vci_reference_path: "references/oid4vci"
+    application_management_api_path: "apis/application-management"
+    org_resources_shared: "Applications, Roles (with shared apps), Users"
+    org_resources_created: "Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts"
+    org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes"
   product_name: *site_name
   explicit_tab_list:
     - Home
@@ -355,9 +360,11 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
-            - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
-            - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
-            - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
+            - Specialized scenarios:
+              - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+              - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
+              - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
+              - OTP Retry and Resend Limits: guides/authentication/conditional-auth/otp-retry-resend-limits.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - App-native authentication:
             - App-native authentication: guides/authentication/app-native-authentication/index.md
@@ -377,6 +384,7 @@ nav:
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Grant types:
               - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
+              - CIBA Grant: guides/authentication/configure-ciba-grant.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Tokens and validation:
@@ -419,6 +427,12 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
+        - Outbound provisioning:
+          - Overview: guides/users/outbound-provisioning/outbound-provisioning-overview.md
+          - Set up outbound provisioning: guides/users/outbound-provisioning/setup-outbound-provisioning.md
+          - Group-based provisioning: guides/users/outbound-provisioning/group-based-provisioning.md
+          - Configure an outbound connector:
+            - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
         - Migrate users to Asgardeo:
           - Migrate users to Asgardeo: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
@@ -449,6 +463,7 @@ nav:
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
+        - Approval workflow rules: guides/workflows/workflow-rules.md
         - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
@@ -500,33 +515,40 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
+        - Getting started:
+            - Overview: guides/organization-management/organizations-overview.md
         - Set up organizations: guides/organization-management/manage-organizations.md
-        - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-        - Application Management:
-          - Share applications: guides/organization-management/share-applications.md
-          - Organization applications: guides/organization-management/organization-applications.md
-        - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
-        - Onboard admins: 
-            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
+        - Delegate administration:
+          - Set up administration portal: guides/organization-management/manage-b2b-administration.md
+          - Onboard administrators:
+            - Onboard administrators: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-        - Onboard users: guides/organization-management/onboard-users.md
-        - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
-        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
-        - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-        - Inheritance in organizations:
-            - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
-            - Login & registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
+        - Configure organization applications:
+          - Share applications: guides/organization-management/share-applications.md
+          - Create organization applications: guides/organization-management/organization-applications.md
+          - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
+        - Authorize API resources:
+          - Overview: guides/organization-management/api-authorization-overview.md
+          - Authorize applications to API resources: guides/organization-management/api-authorization-for-b2b.md
+          - Configure roles to consume authorized APIs: guides/organization-management/organization-roles.md
+          - Generate tokens for organization applications: guides/organization-management/generate-tokens-for-organization-apps.md
+        - Manage organization users:
+          - Onboard users: guides/organization-management/onboard-users.md
+          - Share users: guides/organization-management/share-user-profiles.md
+        - Customize organizations:
+          - Organization settings:
+            - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
+            - Login and registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
             - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
             - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
             - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
             - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
             - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
-        - Organization discovery:
-            - Organization discovery: guides/organization-management/organization-discovery/index.md
-            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
-        - Customizations:
-            - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
+          - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
+        - Offboard organizations:
+          - Disable or delete an organization: guides/organization-management/disable-delete-organizations.md
+        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
       - Notification Channels:
         - Configure Email Provider: guides/notification-channels/configure-email-provider.md
         - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
@@ -555,6 +577,9 @@ nav:
             - Understanding webhooks: guides/webhooks/understanding-webhooks.md
             - Setup webhooks: guides/webhooks/setup-webhooks.md
             - Webhook events and payloads: guides/webhooks/webhook-events-and-payloads.md
+      - Verifiable Credentials:
+        - Overview: guides/verifiable-credentials/index.md
+        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -695,6 +720,7 @@ nav:
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User credential management API: apis/end-user-credential-management-rest-api.md
+      - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -721,6 +747,7 @@ nav:
       - Validation API: apis/validation.md
       - Webhook Management API: apis/webhook-management-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
+      - Workflow Management API: apis/workflow-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
@@ -766,6 +793,7 @@ nav:
       - Organization Me API: apis/user-organization-api.md
       - Self password update API: apis/self-password-update-rest-api.md
       - Verification Code Management Me API: apis/verification-code-management-me-api.md
+      - Approval API: apis/approvals-rest-api.md
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md
@@ -829,6 +857,7 @@ nav:
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - Push Notification based authentication: references/push-notification-based-authentication.md
+      - OpenID for verifiable credential issuance (OID4VCI): references/oid4vci.md
   - Technology Guides:
     - Actions:
       - Introduction: complete-guides/actions/introduction.md

@@ -585,7 +585,9 @@ nav:
               - Add adaptive MFA:
                   - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md
                   - MFA based on user role: guides/authentication/conditional-auth/role-based-template.md
-                  - MFA based on auth context: guides/authentication/conditional-auth/acr-based-adaptive-auth.md
+                  - MFA based on auth context:
+                      - Overview: guides/authentication/conditional-auth/acr-and-amr.md
+                      - Configure ACR-based adaptive authentication: guides/authentication/conditional-auth/acr-based-adaptive-auth.md
                   - MFA based on user store: guides/authentication/conditional-auth/user-store-based-template.md
                   - MFA based on login-attempts: guides/authentication/conditional-auth/login-attempt-based-template.md
                   - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
@@ -660,9 +662,7 @@ nav:
               - Inbound provisioning: guides/users/inbound-provisioning/inbound-provisioning.md
               - Outbound provisioning:
                   - Outbound provisioning: guides/users/outbound-provisioning/index.md
-                  - Enable outbound provisioning:
-                      - Organization-level provisioning: guides/users/outbound-provisioning/provisioning-levels/org-level.md
-                      - IdP-level provisioning: guides/users/outbound-provisioning/provisioning-levels/idp-level.md
+                  - Set up outbound provisioning: guides/users/outbound-provisioning/setup-outbound-provisioning.md
                   - Role-based provisioning: guides/users/outbound-provisioning/role-based-provisioning.md
                   - Configure an outbound connector:
                       - Google: guides/users/outbound-provisioning/outbound-connectors/google.md
@@ -803,6 +803,7 @@ nav:
               - Pre-flow extensions (Actions):
                   - Setting up an action: guides/service-extensions/pre-flow-extensions/setting-up-actions.md
                   - Pre issue access token action: guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action.md
+                  - Pre issue id token action: guides/service-extensions/pre-flow-extensions/pre-issue-id-token-action.md
                   - Pre update password action: guides/service-extensions/pre-flow-extensions/pre-update-password-action.md
       - Analytics:
           - ELK Analytics:
@@ -862,6 +863,7 @@ nav:
               - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
           - Session persistence: deploy/configure/session-persistence.md
           - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
+          - Custom Header Filter: deploy/configure/custom-header-filter.md
           - Clock tolerance: deploy/configure/clock-tolerance.md
           - Cookie consent banner: deploy/configure/cookie-consent-banner.md
           - Email sending module: deploy/configure/email-sending-module.md
@@ -1197,7 +1199,10 @@ nav:
           - Pre-flow extensions (Actions):
               - Pre issue access token action:
                   - API contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/api-contract.md
-                  - Sample success reponses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
+                  - Sample success responses: references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/sample-success-responses.md
+              - Pre issue id token action:
+                  - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/pre-issue-id-token-action-v1.0.md
+                  - Sample success responses: references/service-extensions/pre-flow-extensions/pre-issue-id-token-action/sample-success-responses.md
               - Pre update password action:
                   - API contract to implement: references/service-extensions/pre-flow-extensions/pre-update-password-action/api-contract.md
       - Architecture: references/architecture.md

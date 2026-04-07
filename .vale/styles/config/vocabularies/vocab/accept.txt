@@ -5,11 +5,15 @@ OAuth2
 IdP
 SAML
 product_name
+product_url_format
+product_url_sample
+asgardeo_auth_script_warning
 keystore
 truststore
 truststores
 is_version
 endif
+endraw
 browserpwd
 Kibana
 VSCode
@@ -39,3 +43,8 @@ backchannel
 frontchannel
 URL
 timeframe
+[Aa]pprovers?
+server_version
+[Uu]serstore
+Kerberos
+root_org_url

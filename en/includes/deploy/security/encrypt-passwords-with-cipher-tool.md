@@ -96,6 +96,9 @@ To encrypt passwords on the WSO2 Identity Server:
 
 ## Use encrypted passwords
 
+!!! note
+    When you start the server after configuring encrypted passwords, the server requires the keystore and private key passwords to decrypt the secrets. See [Resolve Encrypted Passwords]({{base_path}}/deploy/security/resolve-encrypted-passwords) for the available options to provide these passwords at server startup.
+
 Once you have [encrypted passwords](#encrypt-passwords), you can use them in the relevant configuration files as follows:
 
 ### In deployment.toml

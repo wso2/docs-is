@@ -150,7 +150,7 @@ that you need to use later on in this guide.
 
 ## Configure the X509 certificate for the app
 
-1.  Download [{{ product_name }}](http://wso2.com/products/identity-server/).
+1.  Download [{{ product_name }}](https://wso2.com/identity-platform/access-manager/).
 
 2.  Replace your keystore file path, keystore password, trust store file path and trust store password (you can use the keystore and
     truststore, which you created in the [Work with Certificates](#work-with-certificates) section) in the following configuration and add it to the
