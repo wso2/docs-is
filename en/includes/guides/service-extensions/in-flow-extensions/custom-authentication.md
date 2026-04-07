@@ -175,7 +175,7 @@ The following are some troubleshooting steps that you may take to resolve issues
 3. Use diagnostic logs to capture detailed information during the troubleshooting process. For more information refer to the [troubleshooting guide here]({{base_path}}/guides/service-extensions/understanding-service-extensions/#troubleshooting).
 
 {% if product_name == "WSO2 Identity Server" %}
-4. If your external service uses a self-signed certificate and custom authenticator invocations fail due to certificate errors, ensure the certificate is imported into the WSO2 Carbon truststore (`<IS_HOME>/repository/resources/security/client-truststore.jks`) and then configure {{product_name}} to use it for outbound HTTPS calls made by custom authenticator.
+4. If your external service uses a self-signed certificate, ensure the certificate is imported into the WSO2 Carbon truststore. By default, {{product_name}} uses the WSO2 Carbon truststore at `<IS_HOME>/repository/resources/security/client-truststore.jks`.
 
     {% if is_version <= "7.2.0" %}
     Add the following configuration to the `deployment.toml` file and restart the server:
@@ -187,12 +187,12 @@ The following are some troubleshooting steps that you may take to resolve issues
 
     {% if is_version == "7.1.0" %}
     !!! note
-        This configuration is available from the update level: **`7.1.0.60`**   
+        This configuration is available from the update level: **`7.1.0.60`**.
     {% elif is_version == "7.2.0" %}
     !!! note
         This configuration is available from the update level: **`7.2.0.19`**.
     {% endif %}
-    
+
     {% endif %}
 {% endif %}
 
@@ -691,6 +691,7 @@ Content-Type: application/json
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
 
 {% if (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
 ## Custom authentication with app-native authentication
 
 You can configure custom authentication services in app-native authentication flows, which authenticate users through API-based mechanisms instead of redirecting them to a web browser.

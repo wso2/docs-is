@@ -135,7 +135,7 @@ Try these troubleshooting steps to resolve issues.
 2. Confirm that the request and response payloads conform to the expected formats as defined by the REST API contract.
 
 {% if product_name == "WSO2 Identity Server" %}
-3. If your external service uses a self-signed certificate and action invocations fail due to certificate errors, ensure the certificate is imported into the WSO2 Carbon truststore (`<IS_HOME>/repository/resources/security/client-truststore.jks`) and then configure {{product_name}} to use it for outbound HTTPS calls made by actions.
+3. If your external service uses a self-signed certificate, ensure the certificate is imported into the WSO2 Carbon truststore. By default, {{product_name}} uses the WSO2 Carbon truststore at `<IS_HOME>/repository/resources/security/client-truststore.jks`.
 
     {% if is_version <= "7.2.0" %}
     Add the following configuration to the `deployment.toml` file and restart the server:
@@ -147,11 +147,11 @@ Try these troubleshooting steps to resolve issues.
 
     {% if is_version == "7.1.0" %}
     !!! note
-        This configuration is available from the update level: **`7.1.0.60`**   
+        This configuration is available from the update level: **`7.1.0.60`**.
     {% elif is_version == "7.2.0" %}
     !!! note
         This configuration is available from the update level: **`7.2.0.19`**.
     {% endif %}
-    
+
     {% endif %}
 {% endif %}
