@@ -35,6 +35,8 @@ extra:
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
+    oid4vci_reference_path: "references/oid4vci"
+    application_management_api_path: "apis/application-management"
     org_resources_shared: "Applications, Roles (with shared apps), Users"
     org_resources_created: "Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts"
     org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes"
@@ -575,6 +577,9 @@ nav:
             - Understanding webhooks: guides/webhooks/understanding-webhooks.md
             - Setup webhooks: guides/webhooks/setup-webhooks.md
             - Webhook events and payloads: guides/webhooks/webhook-events-and-payloads.md
+      - Verifiable Credentials:
+        - Overview: guides/verifiable-credentials/index.md
+        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -715,6 +720,7 @@ nav:
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User credential management API: apis/end-user-credential-management-rest-api.md
+      - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -851,6 +857,7 @@ nav:
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - Push Notification based authentication: references/push-notification-based-authentication.md
+      - OpenID for verifiable credential issuance (OID4VCI): references/oid4vci.md
   - Technology Guides:
     - Actions:
       - Introduction: complete-guides/actions/introduction.md
