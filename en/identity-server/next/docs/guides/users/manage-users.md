@@ -93,7 +93,7 @@ To share a user with organizations:
 
        ![Share user with all organizations]({{base_path}}/assets/img/guides/users/share-user-with-all-organizations.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    - **Share user with selected organizations** - user is shared with a specific set of existing organizations, but they are not shared with the future organizations. Administrators can configure which roles should be assigned to the user in the shared organizations.
+    - **Share user with selected organizations** - user is shared with a specific set of existing organizations, but they are not shared with the future children organizations. Administrators can configure which roles should be assigned to the user in the shared organizations.
 
 5. Once selected and configured, click **Save**.
 
