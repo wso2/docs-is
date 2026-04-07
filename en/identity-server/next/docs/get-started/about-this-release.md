@@ -55,6 +55,14 @@ Key capabilities include:
 - Single Sign-On (SSO) between organization-level applications and B2B SaaS applications.
 - Support for password and client credential grants alongside the authorization code grant and organization switch grant for B2B SaaS applications.
 
+### Enhanced standards-based authorization for Model Context Protocol (MCP)
+
+WSO2 Identity Server now provides enhanced standards-based authorization within the Model Context Protocol (MCP). MCP clients can be registered as applications using a preconfigured template that follows the recommended MCP identity configurations. Additionally, MCP servers can be accessed by most application types (Single Page Applications, Traditional Web Applications, Mobile Applications, and M2M Applications), with the exception of Digital Wallet applications.
+
+MCP servers can also be registered as protected resources, enabling granular access control over the servers and their associated tools. Organizations can define specific permissions for MCP tools and resources, authorize applications to access them, and grant user access through Role-Based Access Control (RBAC).
+
+These capabilities streamline MCP integrations, ensure consistent authorization rules, and ensure that only authorized applications and users can access the required resources.
+
 ### Share users with organizations through Console
 
 Organization administrators can now share users with child organizations directly from the Console.

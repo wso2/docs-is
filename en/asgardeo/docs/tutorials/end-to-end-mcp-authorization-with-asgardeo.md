@@ -111,23 +111,26 @@ We need to have the Vet Assist AI application registered in Asgardeo, so that th
 To register the MCP client,
 
 - On {{ product_name }}, navigate to Applications > New Application
-- Select the MCP client application template.
+- Select the **MCP Client Application** template.
 - Provide the necessary details and click create.
     - **Name** - provide a meaningful name
     - **Redirect URL** - provide an endpoint in the VetAssist AI app that can receive and process the authorization code.
 
 ![Register VetAssist MCP Client]({{base_path}}/assets/img/tutorials/e2e-mcp-authz/register-vetassist-mcp-client.png)
 
+!!! note
+    While the **MCP Client Application** template provides optimized defaults for MCP connections, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
+
 Record the Client ID of the created application. We will need this when configuring {{ product_name }} in the Vet Assist application.
 
 ##### Authorize MCP server to the client
 
-The registered MCP client needs to be authorized to access the MCP server. To do that,
+The registered application needs to be authorized to access the MCP server. To do that,
 
 - Navigate to **Applications**.
-- Click on the MCP client application you created in the above step.
+- Click on the application you created in the above step.
 - Navigate to the **Authorization** tab.
-- Click on **Authorize an API Resource**.
+- Click on **Authorize Resource**.
 - Select MCP server from the Resource dropdown.
 - Select `pet-profile:read` and `pet-profile:write` scopes.
 - Click Finish.
