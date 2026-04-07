@@ -38,22 +38,45 @@ To configure rule-based password expiration,
 
 1. Turn the **Password Expiration** toggle on to enable password expiration.
 
+{% if product_name == "Asgardeo" %}
 2. In the **Enforce password expiry for** field, select who the password expiry policy applies to:
 
-   - **All organization users** (default): Enforces password expiry for all users upon login, regardless of which application they sign in to.
-   - **Specific application login flows**: Enforces password expiry only when users sign in to applications where password expiry has been enabled in the login flow.
+    - **All application login flows** (default): Enforces password expiry for all users upon login, regardless of which application they sign in to.
+    - **Selected application login flows**: Enforces password expiry only when users sign in to applications where password expiry has been enabled in the login flow. When selected, organization-wide password expiry enforcement is disabled.
+
+        !!! info
+            To enforce password expiry for a specific application, add the Password Reset Enforcer as an authentication step in the application's login flow. See [Configure login flows]({{base_path}}/guides/authentication/) for instructions.
+
+            ![Password Expiry Reset Enforcer]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-expiry-reset-enforcer.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+        !!! tip
+            By default, users are automatically signed in after successfully resetting their password. To require users to sign in again from the beginning of the login flow, use the `passwordResetComplete` property in the authentication context of your adaptive script and call the `fail()` function as shown below.
+
+            ```js
+            var onLoginRequest = function(context) {
+                executeStep(1, {
+                    onSuccess: function(context) {
+                        // Step 2: Password reset enforcer authenticator.
+                        executeStep(2, {
+                            onSuccess: function(context) {
+                                var isPasswordResetComplete = context.passwordResetComplete;
+                                if (isPasswordResetComplete === true) {
+                                    var parameterMap = {'errorCode': 'password_reset_complete', 'errorMessage': 'Your password has been successfully reset due to expiry.', "errorURI":'https://localhost:9443/authenticationendpoint/retry.do'};
+                                    fail(parameterMap);
+                                }
+                            }
+                        });
+                    }
+                });
+            };
+            ```
+{% endif %}
 
 3. Set a default password expiry rule that applies to any user that does not meet the custom criteria.
 
 4. Click **Add Rule** and start defining custom rules. Each subsequent rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
 
     ![Rule-Based Password Expiration]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-expiration.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-!!! note
-When you select **Specific application login flows**, organization-wide password expiry enforcement is disabled. Password expiry will only be enforced in applications where it has been explicitly configured in the login flow. Selecting **All organization users** preserves the default behavior and requires no additional per-application setup.
-
-!!! tip
-To enforce password expiry for a specific application, you need to configure the login flow of that application to include password expiry as an authentication step. See [Configure login flows]({{base_path}}/guides/authentication/) for instructions.
 
 Refer to the following table for more information on rule parameters.
 
