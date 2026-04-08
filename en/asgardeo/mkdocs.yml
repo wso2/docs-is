@@ -577,9 +577,6 @@ nav:
             - Understanding webhooks: guides/webhooks/understanding-webhooks.md
             - Setup webhooks: guides/webhooks/setup-webhooks.md
             - Webhook events and payloads: guides/webhooks/webhook-events-and-payloads.md
-      - Verifiable Credentials:
-        - Overview: guides/verifiable-credentials/index.md
-        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -614,6 +611,9 @@ nav:
           - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
           - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
           - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
+      - Verifiable Credentials:
+        - Overview: guides/verifiable-credentials/index.md
+        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
   - Tutorials:
     - Tutorials - Overview: tutorials/index.md
     - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
