@@ -39,10 +39,10 @@ To configure rule-based password expiration,
 1. Turn the **Password Expiration** toggle on to enable password expiration.
 
 {% if product_name == "Asgardeo" %}
-2. In the **Enforce password expiry for** field, select who the password expiry policy applies to:
+2. Select the users to whom the password expiry policy should apply using the **Enforce password expiry for** field:
 
-    - **All application login flows** (default): Enforces password expiry for all users upon login, regardless of which application they log in to.
-    - **Selected application login flows**: Enforces password expiry only when users log in to applications where password expiry has been enabled in the login flow. When selected, organization-wide password expiry enforcement is disabled.
+    - **All application login flows**: Applies the password expiry policy to all users during login, regardless of the application they access. This is the default behavior.
+    - **Selected application login flows**: Enforces password expiry only when users log in to applications that have enabled this in the login flow. Selecting this option disables organization-wide password expiry enforcement
 
         !!! info
             To enforce password expiry for a specific application, add the Password Reset Enforcer as an authentication step in the application's login flow. See [Configure login flows]({{base_path}}/guides/authentication/) for instructions.
@@ -72,9 +72,17 @@ To configure rule-based password expiration,
             ```
 {% endif %}
 
+{% if product_name == "Asgardeo" %}
 3. Set a default password expiry rule that applies to any user who does not meet the custom criteria.
+{% else %}
+2. Set a default password expiry rule that applies to any user who does not meet the custom criteria.
+{% endif %}
 
-4. Click **Add Rule** and start defining custom rules. Each subsequent rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
+{% if product_name == "Asgardeo" %}
+4. Click **Add Rule** and start defining custom rules. Each rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
+{% else %}
+3. Click **Add Rule** and start defining custom rules. Each rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
+{% endif %}
 
     ![Rule-Based Password Expiration]({{base_path}}/assets/img/guides/organization/account-security/password-validation/password-expiration.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
