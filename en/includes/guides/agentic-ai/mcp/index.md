@@ -103,10 +103,3 @@ This new flow outlines the steps for an Agent (MCP Host) to register its identit
 | **OpenID Connect Discovery 1.0** | Allows MCP Clients to automatically discover authorization endpoints and configurations. |
 | **OpenID Connect Dynamic Client Registration 1.0** | Enables dynamic onboarding of MCP Clients. |
 | **OAuth 2.0 Pushed Authorization Requests (PAR)** | Enhances security by preventing authorization parameters from being exposed in the URL. |
-
-## What's Next?
-
-Get hands-on with MCP server authorization,
-
-- 📖 [**MCP Server Quick Start - TypeScript**]({{base_path}}/quick-starts/mcp-auth-server/)
-- 📖 [**MCP Server Quick Start - Python**]({{base_path}}/quick-starts/mcp-auth-server-py/)
