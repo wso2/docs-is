@@ -6,14 +6,6 @@ This guide walks you through key processes involved in managing AI agents, inclu
 
 {{ product_name }} supports two categories of AI agents based on whether they require user authentication:
 
-### Agents without user login
-
-These agents operate autonomously and authenticate using their own credentials (Agent ID and Agent Secret). They perform tasks on their own behalf without requiring user login or consent. These agents are suitable for:
-
-- Background processing tasks
-- System-to-system integrations
-- Automated workflows that don't involve user-specific data
-
 ### Agents with user login
 
 These are AI agents that allow users to log in to the agent. When users log in, these agents can act on behalf of authenticated users and access user-specific resources. Users must provide explicit consent before the agent can perform actions on their behalf. {{ product_name }} automatically creates an OAuth/OIDC application for these agents to enable secure user authentication and authorization flows.
