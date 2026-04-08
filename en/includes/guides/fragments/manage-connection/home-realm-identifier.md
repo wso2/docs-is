@@ -14,7 +14,7 @@ To configure the home realm identifier:
 
 Once configured, use this identifier in your application's authorization request as follows:
 
-```
+```bash
 https://<host_name>/t/<org_name>/oauth2/authorize?
   response_type=code
   &client_id=<client_id>
