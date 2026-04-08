@@ -13,6 +13,7 @@ These are AI agents that allow users to log in to the agent. When users log in, 
 Agents with user login come in two variants:
 
 **Interactive agents**: These agents require constant user interaction throughout their operation. Examples include:
+
 - Chatbots that respond to user queries in real-time
 - AI assistants that help users complete tasks
 - Conversational interfaces
@@ -20,6 +21,7 @@ Agents with user login come in two variants:
 Interactive agents use the OAuth `authorization_code` grant flow with PKCE (Proof Key for Code Exchange) to authenticate users and obtain access tokens.
 
 **Background agents**: These agents perform tasks on behalf of users but operate asynchronously without requiring constant user interaction. Examples include:
+
 - Scheduled report generators
 - Notification services
 - Batch processing systems that work with user data
