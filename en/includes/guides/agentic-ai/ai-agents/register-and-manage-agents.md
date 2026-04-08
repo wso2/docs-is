@@ -18,7 +18,7 @@ Agents with user login come in two variants:
 - AI assistants that help users complete tasks
 - Conversational interfaces
 
-Interactive agents use the OAuth `authorization_code` grant flow with PKCE (Proof Key for Code Exchange) to authenticate users and obtain access tokens.
+Interactive agents use the OAuth `authorization_code` grant flow with PKCE (Proof Key for Code Exchange) to authenticate users and get access tokens.
 
 **Background agents**: These agents perform tasks on behalf of users but operate asynchronously without requiring constant user interaction. Examples include:
 
@@ -26,7 +26,7 @@ Interactive agents use the OAuth `authorization_code` grant flow with PKCE (Proo
 - Notification services
 - Batch processing systems that work with user data
 
-Background agents use CIBA (Client Initiated Backchannel Authentication) flow, which allows the agent to initiate authentication through an out-of-band channel (such as email or SMS) and receive consent from the user asynchronously.
+Background agents use CIBA (Client Initiated Backchannel Authentication) flow. This flow lets the agent start authentication through an out-of-band channel (such as email or SMS). The user provides consent asynchronously.
 
 ## AI agent lifecycle Management
 
@@ -79,6 +79,7 @@ Registering an AI agent is the first step to bring an autonomous system into you
 After successful registration, the agent receives a unique Agent ID that acts as its permanent identifier within the system. A secret credential is also issued at this point and is displayed only once. Be sure to store it securely for deployment.
 
 For agents with user login enabled, an OAuth application is automatically created with the appropriate grant types configured:
+
 - **Interactive agents**: Configured with `authorization_code` and `refresh_token` grant types
 - **Background agents**: Configured with `urn:openid:params:grant-type:ciba` (Client Initiated Backchannel Authentication) grant type
 
