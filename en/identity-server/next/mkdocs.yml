@@ -1193,6 +1193,12 @@ nav:
       - Usage: connectors/onfido/usage.md
       - Reference: connectors/onfido/reference.md
       - Try it: connectors/onfido/try-it.md
+    - Password Reset Enforcer:
+      - Overview: connectors/password-reset-enforcer/overview.md
+      - Set up: connectors/password-reset-enforcer/set-up.md
+      - Usage: connectors/password-reset-enforcer/usage.md
+      - Reference: connectors/password-reset-enforcer/reference.md
+      - Try it: connectors/password-reset-enforcer/try-it.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
