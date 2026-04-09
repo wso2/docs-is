@@ -8,7 +8,7 @@ WSO2 Identity Server 7.3.0 introduces a range of new features and enhancements:
 
 ### Support for OpenID for Verifiable Credential Issuance (OID4VCI)
 
-WSO2 Identity Server now supports [OpenID for Verifiable Credential Issuance (OID4VCI)](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html){:target="_blank"}, enabling organizations to issue verifiable credentials to digital wallets using a standardized, OpenID-based protocol.
+WSO2 Identity Server now natively supports [OpenID for Verifiable Credential Issuance (OID4VCI)](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html){:target="_blank"}, enabling organizations to issue verifiable credentials to digital wallets using a standardized, OpenID-based protocol.
 
 Key capabilities include:
 
