@@ -125,6 +125,7 @@ AUTH_ISSUER=https://api.asgardeo.io/t/<your-tenant>/oauth2/token
 CLIENT_ID=<your-client-id>
 JWKS_URL=https://api.asgardeo.io/t/<your-tenant>/oauth2/jwks
 ```
+
 {% else %}
 
 ```properties title=".env"
@@ -132,6 +133,7 @@ AUTH_ISSUER=https://localhost:9443/t/<your-tenant>/oauth2/token
 CLIENT_ID=<your-client-id>
 JWKS_URL=https://localhost:9443/t/<your-tenant>/oauth2/jwks
 ```
+
 {% endif %}
 
 !!! Important
