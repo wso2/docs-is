@@ -52,4 +52,4 @@ Learn more about [role-based provisioning]({{base_path}}/guides/users/outbound-p
 
 ## Provisioning attributes
 
-When the provisioning request originates using a token issued to an authorized application (other than the Console application), {{product_name}} provisions only the attributes requested by that application to the external system.
+When a provisioning request uses a token issued to an authorized application (other than the Console application), {{product_name}} applies attribute filtering. Only the attributes requested by that application are provisioned to the external system.
