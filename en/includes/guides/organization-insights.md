@@ -30,21 +30,24 @@ The example below shows insights related to login events of the organization for
     Why? </br>
     There is a latency of up to 20 minutes between the user activity and insights. This delay ensures accurate data processing and allows for a more comprehensive analysis of all activities including logins, registrations, and M2M token usage.
 
-
 ## User engagement metrics
+
 This section will help you further understand the statistics shown in the graphs.
 
 ### Active Users
+
 This graph in login insights, represents the number of unique user logins within the selected duration. You can view each day's count by hovering your mouse over a point on the graph. This metric helps measure the daily engagement of users with the platform.
 
 ![Unique active users]({{base_path}}/assets/img/guides/organization-insights/active-users-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Total Logins
+
 This graph in login insights, represents the total number of successful user logins within the selected duration. By hovering your mouse over a point on the graph, you can view the specific count of user logins for each day.
 
 ![Total user logins]({{base_path}}/assets/img/guides/organization-insights/total-logins-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Failed Logins
+
 This graph in login insights, represents the total number of failed logins within the selected duration. You can view each day's failed login attempt count by hovering your mouse over a point on the graph.
 
 ![Failed login attempts]({{base_path}}/assets/img/guides/organization-insights/failed-logins-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -53,11 +56,13 @@ This graph in login insights, represents the total number of failed logins withi
     The graph does not include data related to failed login attempts made by the organization owner or administrators to either the {{ product_name }} Console or the My Account portal.
 
 ### User Signups
+
 This graph in registration insights, represents the total number of successful user signups within the selected duration. You can view each day's signup count by hovering your mouse over a point on the graph.
 
 ![User signups graph]({{base_path}}/assets/img/guides/organization-insights/user-signups-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### M2M Authentications
+### M2M authentications
+
 This graph in M2M insights represents the number of new M2M tokens issued to your organization within the selected duration. By hovering your mouse over a point on the graph, you can view the specific count of M2M token requests for each day.
 
 ![M2M authentications graph]({{base_path}}/assets/img/guides/organization-insights/m2m-authentications-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
