@@ -12,7 +12,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/quick-set-up/'>Set-up {{ product_name }}</a>",
+      "<a href='{{ base_path }}/get-started/quick-set-up/'>Set up {{ product_name }}</a>",
       "Install Node.js on your system",
       "Make sure you have a JavaScript package manager like npm, yarn, or pnpm",
       "A favorite text editor or IDE"

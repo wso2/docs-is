@@ -11,7 +11,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/quick-set-up/'>Set-up {{ product_name }}</a>",
+      "<a href='{{ base_path }}/get-started/quick-set-up/'>Set up {{ product_name }}</a>",
       "Install Python 3.10 or later on your system",
       "Python package installer like pip installed",
       "A favorite text editor or IDE"
