@@ -21,7 +21,7 @@ Learn more about [verifiable credentials]({{base_path}}/guides/verifiable-creden
 
 ### Client Initiated Backchannel Authentication (CIBA) grant
 
-WSO2 Identity Server now supports the [Client Initiated Backchannel Authentication (CIBA)](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html){:target="_blank"} grant, enabling authentication flows where the device consuming a service is decoupled from the device used for authentication. For example, a user can start a sign-in on a smart TV or kiosk and complete authentication on their mobile phone.
+WSO2 Identity Server now supports the [Client Initiated Backchannel Authentication (CIBA)](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html){:target="_blank"} grant, enabling authentication flows where the device consuming a service is decoupled from the device used for authentication. For example, a user can start a login on a smart TV or kiosk and complete authentication on their mobile phone.
 
 Key capabilities include:
 
