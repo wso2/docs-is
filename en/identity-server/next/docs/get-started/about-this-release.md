@@ -55,7 +55,7 @@ Key capabilities include:
 - Single Sign-On (SSO) between organization-level applications and B2B SaaS applications.
 - Support for password and client credential grants alongside the authorization code grant and organization switch grant for B2B SaaS applications.
 
-### UI support for B2B user sharing
+### Share users with Organizations through Console
 
 Organization administrators can now share users with child organizations directly from the Console.
 
@@ -66,17 +66,21 @@ When sharing a user, administrators can choose from the following sharing polici
 
 Administrators can also assign roles to shared users that apply within the target child organization. Invited administrators can be permitted to share users with child organizations by assigning them a role with the **Shared User Management** permission through the Console settings.
 
+Learn more about [user sharing]({{base_path}}/guides/users/manage-users/#share-user-with-organizations).
+
 ### Selectable token issuer for organization applications
 
-Organizations can now select the token issuer when creating or updating OAuth 2.0 applications from the Console. This enables organizations to function either as independent identity providers for their own applications or to use the root organization as the token issuer for B2B API consumption scenarios.
+WSO2 Identity Server now supports the Token Exchange grant type for applications within organizations, enabling secure token exchange across  trusted token issuers defined at the organization level.
 
 Key capabilities include:
 
-- **Organization as identity provider**: Organizations can act as their own token issuer, enabling them to issue tokens for custom applications serving their own end users.
-- **Granular issuer selection**: Administrators can select the appropriate token issuer, the root organization or the organization, during application creation and updates.
-- **Root-level governance**: Root organizations can control whether organizations are permitted to use the root organization's token issuer. Organizations can use the root issuer only if explicitly granted permission. By default, the root organization's issuer is available to organizations.
+**Trusted token issuer support**: Configure and use trusted token issuers at the organization level to enable secure token exchange between systems.
 
-These configurations are now fully integrated into the Console.
+**Enable implicit user account association**: Automatically link an incoming external token to an existing local user account for both root and child organizations.
+
+**Define lookup attributes**: Specify up to two attributes to identify the corresponding local user during token exchange. These attributes must be configured as unique across user stores to ensure accurate user mapping.
+
+Learn more about [token exchange]({{base_path}}/guides/authentication/configure-token-exchange/).
 
 ### Token exchange for organization applications
 
@@ -88,11 +92,7 @@ Administrators can configure trusted token issuers with the following enhancemen
 
 - **Define lookup attributes** : Specify up to two attributes in the **Advanced** tab to identify the corresponding local user during token exchange. These attributes must be configured as unique across user stores to ensure accurate user mapping.
 
-### SCIM filtering improvements for users and groups
-
-WSO2 Identity Server now supports Greater Than or Equal (GE) and Less Than or Equal (LE) filter operators for JDBC user stores and the identity database, extending the range-based filtering capabilities that were available for LDAP user stores.
-
-This enables more flexible queries across user attributes, identity claims, roles, and groups, allowing you to perform range-based filtering alongside the existing comparison operators.
+Learn more about [token exchange]({{base_path}}guides/authentication/configure-token-exchange/).
 
 ### Selectable storage locations for user attributes
 
@@ -110,11 +110,15 @@ When a user operation such as adding a user or creating a role triggers a config
 
 Administrators can define the notification channels when creating a workflow.
 
+Learn more about [enabling approval notifications]({{base_path}}/guides/workflows/approval-workflows/#configure-notifications).
+
 ### Rule-based workflow engagement
 
-Administrators can now configure rules for user operations such as adding a user or creating a roles to determine whether an approval workflow should trigger for these operations.
+From WSO2 Identity Server 7.3.0, you can configure rules for user operations, such as adding a user or creating a role, to control whether an approval workflow should be triggered when the operation occurs.
 
 This enhancement gives administrators more precise control over workflow configuration, enabling approvals to be enforced only when specific business conditions are met.
+
+Learn more about [configuring rules for approval workflows]({{base_path}}/guides/workflows/workflow-rules/).
 
 ### SCIM outbound provisioning for organizations
 
@@ -145,10 +149,6 @@ Key capabilities include:
 
 Learn more about [configuring TOTP at the organization level]({{base_path}}/guides/authentication/mfa/add-totp-login/#configure-at-organization-level).
 
-### App-native authentication for SAML identity provider login flows
-
-`<to do>`
-
 ### Improved Sift integration for fraud detection
 
 WSO2 Identity Server now supports publishing additional event types to Sift at the organization level, enabling more accurate and contextual risk score generation during application login flows.
@@ -162,15 +162,7 @@ Administrators can also configure which user and network attributes are included
 
 Learn more about the [Sift connector]({{base_path}}/connectors/sift/).
 
-### Configure OTP retry and resend limits in adaptive scripts
-
-WSO2 Identity Server now supports configuring limits on OTP retry and resend attempts within a single authentication session using adaptive authentication scripts. This helps prevent misuse while maintaining a smooth experience for legitimate users.
-
-Administrators can define the upper limit on the number of times a user can attempt to verify a one-time password or request a new one, helping to mitigate brute-force attacks and reduce unnecessary SMS or email delivery costs. These limits apply across both API-based and redirect-based authentication flows.
-
-Learn more about [OTP retry and resend limits]({{base_path}}/guides/authentication/conditional-auth/otp-retry-resend-limits/).
-
-### Enforce session lifetime limits
+### Session lifetime limit enforcement
 
 WSO2 Identity Server now supports configuring an absolute session lifetime for user sessions. Once this limit is reached, users are required to re-authenticate, regardless of their activity.
 
@@ -206,13 +198,22 @@ Administrators can use this extension to add, update, or remove ID token claims,
 
 Learn more about the [pre-issue ID token action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-id-token-action/).
 
-### Java 21 compile-time support
+### Enhanced IAM-CTL support for configuration promotion
 
-`< to do >`
+WSO2 Identity Server now provides enhanced support for managing and promoting configuration data using the IAM-CTL tool, a command-line utility that acts as a bridge for environment promotion, CI/CD automation, and configuration backups.
 
-### IAM CTL tool improvements
+This release introduces support for OIDC Scopes, Roles, API Resources, Workflows, Notification Channels, Flows, Branding, Actions, Organizations, Account Recovery Configurations, Alternative Login Identifiers, Security Policies, and Notification Settings.
 
-`< to do >`
+Key capabilities include:
+
+- **Bulk configuration management**: Export and import multiple resource types across environments in a single operation.
+- **Keyword mapping and secrets**: Replace environment-specific values using keywords and securely manage sensitive data during import and export.
+- **Selective propagation**: Exclude specific resource types or individual resources when promoting configurations.
+- **Environment promotion**:  Move configurations across environments such as development, staging, and production.
+- **Backup and restore**: Use IAM-CTL as a version-controlled backup solution for your environment-specific configurations.
+- **CI/CD integration**: Automate resource promotion as part of deployment pipelines.
+
+Learn more about [promoting configurations across environments]({{base_path}}/deploy/promote-configurations/).
 
 ### HTTP-based email provider support
 
@@ -282,9 +283,30 @@ Learn more about [access token settings]({{base_path}}/references/app-settings/o
 
 ### Skip session revocation on password update
 
-Administrators can now configure WSO2 Identity Server to skip session revocation when a user updates their password, at the organization level. This ensures that session preservation configurations are applied consistently when users update their passwords through the My Account portal, the Self Password Update API, or the SCIM 2.0 Me API using an OAuth 2.0 access token.
+Administrators can now configure WSO2 Identity Server to skip session revocation when a user updates their password, at the organization level. This enables consistent session preservation behavior across applications and user flows.
+
+Key capabilities include:
+
+- **Organization-level configuration**: Control whether user sessions and active tokens are preserved during password updates using organization-specific settings.
+- **Dedicated self-service password update API**: A new API (POST /me/change-password) enables password updates while respecting session preservation configurations.
+- **Consistent My Account behavior**: Password updates through the My Account portal now follow the configured session preservation policy instead of always terminating the session.
+- **Controlled behavior across APIs**: When session preservation is enabled, password updates performed via the Self Password Update API or the SCIM 2.0 Me API using OAuth 2.0 access tokens do not revoke sessions or tokens. Updates performed using Basic Authentication continue to terminate sessions and tokens.
 
 Learn more about [self password update]({{base_path}}/apis/self-password-update-rest-api/) and [session management settings]({{base_path}}/guides/account-configurations/login-security/session-management/#parameters).
+
+### SCIM filtering improvements for users and groups
+
+WSO2 Identity Server now supports Greater Than or Equal (GE) and Less Than or Equal (LE) filter operators for JDBC user stores and the identity database, extending the range-based filtering capabilities that were available for LDAP user stores.
+
+This enables more flexible queries across user attributes, identity claims, roles, and groups, allowing you to perform range-based filtering alongside the existing comparison operators.
+
+### OTP retry and resend limits in adaptive authentication
+
+WSO2 Identity Server now supports configuring limits on OTP retry and resend attempts within a single authentication session using adaptive authentication scripts. This helps prevent misuse while maintaining a smooth experience for legitimate users.
+
+Administrators can define the upper limit on the number of times a user can attempt to verify a one-time password or request a new one, helping to mitigate brute-force attacks and reduce unnecessary SMS or email delivery costs. These limits apply across both API-based and redirect-based authentication flows.
+
+Learn more about [OTP retry and resend limits]({{base_path}}/guides/authentication/conditional-auth/otp-retry-resend-limits/).
 
 ## Deprecated features
 
