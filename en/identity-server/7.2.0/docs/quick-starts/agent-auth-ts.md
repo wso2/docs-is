@@ -15,8 +15,8 @@ template: templates/quick-start.html
       "A <a href='{{ base_path }}/get-started/quick-set-up/'>{{ product_name }} setup</a>",
       "Node.js installed on your system",
       "Make sure you have a JavaScript package manager like npm, yarn, or pnpm",
-      "A favorite text editor or IDE",
-      "An MCP server secured with {{ product_name }} (you may use your own or follow the MCP Auth Server quickstart)"
+      "A text editor or IDE",
+      "An MCP server secured with {{ product_name }} (you may use your own or follow the <a href='{{ base_path }}/quick-starts/mcp-auth-server/'>MCP Server Auth quickstart</a>)"
     ],
     source_code: "<a href='https://github.com/wso2/iam-ai-samples/tree/main/agent-identity/typescript' target='_blank' class='github-icon'>Agent-Auth TypeScript Sample</a>"
   };

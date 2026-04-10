@@ -15,7 +15,7 @@ template: templates/quick-start.html
       "<a href='{{ base_path }}/get-started/quick-set-up/'>Set up {{ product_name }}</a>",
       "Install Node.js on your system",
       "Make sure you have a JavaScript package manager like npm, yarn, or pnpm",
-      "A favorite text editor or IDE"
+      "A text editor or IDE"
     ],
     source_code: "<a href='https://github.com/wso2/iam-ai-samples/tree/main/mcp-auth/typescript' target='_blank' class='github-icon'>MCP-Auth Sample</a>"
   };

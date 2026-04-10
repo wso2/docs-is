@@ -233,14 +233,12 @@ Create '.env' file and add the base URL of your {{product_name}} organization as
 
 ```env
 BASE_URL=https://api.asgardeo.io/t/<you-org-name>
-
 ```
 
 {% else %}
 
 ```env
 BASE_URL=https://localhost:9443/t/<you-org-name>
-
 ```
 
 {% endif %}

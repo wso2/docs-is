@@ -15,8 +15,8 @@ template: templates/quick-start.html
       "A <a href='{{ base_path }}/get-started/quick-set-up/'>{{ product_name }} setup</a>",
       "Python 3.10 or later installed on your system",
       "pip or another Python package manager",
-      "A favorite text editor or IDE",
-      "An MCP server secured with {{ product_name }} (you may use your own or follow the MCP Auth Server quickstart)"
+      "A text editor or IDE",
+      "An MCP server secured with {{ product_name }} (you may use your own or follow the [MCP Auth Server quickstart]({{base_path}}/quick-starts/mcp-auth-server-py))"
     ],
     source_code: "<a href='https://github.com/wso2/iam-ai-samples/tree/main/agent-identity/python' target='_blank' class='github-icon'>Agent-Auth Python Sample</a>"
   };
