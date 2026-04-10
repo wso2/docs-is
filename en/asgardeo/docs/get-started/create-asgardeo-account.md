@@ -22,10 +22,18 @@ An organization in Asgardeo will be your own unique space and it will contain yo
 !!! tip "Access the Asgardeo Console"
 
     As an organization owner, or an administrator, you can manage all organizations, applications and users that you create using the Asgardeo Console. You can access the console using the following link.
-
+    
+    Asgardeo - US
     ```curl
 
     https://console.asgardeo.io/
+
+    ```
+    
+    Asgardeo - EU
+    ```curl
+
+    https://console.eu.asgardeo.io/
 
     ```
 
