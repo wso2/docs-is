@@ -15,7 +15,7 @@ Key capabilities include:
 - Define credential templates that specify credential types, supported claims, and metadata, managed through a dedicated management API and the Console.
 - Issue verifiable credentials through the authorization code flow, where the end user authenticates before the wallet retrieves the credential from the credential endpoint using an OAuth 2.0 access token.
 - Register digital wallets using a dedicated application template.
-- Leverage existing OAuth 2.0 and OpenID Connect infrastructure for authentication and authorization during credential issuance.
+- Use existing OAuth 2.0 and OpenID Connect infrastructure for authentication and authorization during credential issuance.
 
 Learn more about [verifiable credentials]({{base_path}}/guides/verifiable-credentials/).
 
@@ -39,13 +39,13 @@ Learn more about [configuring the CIBA grant]({{base_path}}/guides/authenticatio
 
 WSO2 Identity Server now supports [OpenID Connect front-channel logout](https://openid.net/specs/openid-connect-frontchannel-1_0.html){:target="_blank"}, a browser-based logout mechanism that ensures all applications sharing a session are notified when a user signs out.
 
-Instead of direct server-to-server communication, logout messages are delivered through the user's browser using iframes. Each participating application receives the logout notification and clears its session state, including cookies and local storage, based on the browser notification.
+Instead of direct server-to-server communication, WSO2 Identity Server delivers logout messages through the user's browser using iframes. Each participating application receives the logout notification and clears its session state, including cookies and local storage.
 
 Learn more about [front-channel logout]({{base_path}}/guides/authentication/oidc/add-front-channel-logout/).
 
 ### Enhanced organization authentication in B2B applications
 
-WSO2 Identity Server introduces a new authentication model for B2B and organization scenarios, delivering a more native, organization-aware login experience with fewer redirects.
+WSO2 Identity Server introduces a new authentication model for B2B and organization scenarios, delivering an organization-aware sign-in experience with fewer redirects.
 
 Key capabilities include:
 
@@ -55,7 +55,7 @@ Key capabilities include:
 - Single Sign-On (SSO) between organization-level applications and B2B SaaS applications.
 - Support for password and client credential grants alongside the authorization code grant and organization switch grant for B2B SaaS applications.
 
-### Share users with Organizations through Console
+### Share users with organizations through Console
 
 Organization administrators can now share users with child organizations directly from the Console.
 
@@ -64,39 +64,41 @@ When sharing a user, administrators can choose from the following sharing polici
 - Share the user with all current and future organizations.
 - Share the user with a selected set of organizations.
 
-Administrators can also assign roles to shared users that apply within the target child organization. Invited administrators can be permitted to share users with child organizations by assigning them a role with the **Shared User Management** permission through the Console settings.
+Administrators can also assign roles to shared users that apply within the target child organization. Administrators can permit invited administrators to share users with child organizations by assigning them a role with the **Shared User Management** permission in the Console settings.
 
 Learn more about [user sharing]({{base_path}}/guides/users/manage-users/#share-user-with-organizations).
 
 ### Selectable token issuer for organization applications
 
-WSO2 Identity Server now supports the Token Exchange grant type for applications within organizations, enabling secure token exchange across  trusted token issuers defined at the organization level.
+Organizations can now select the token issuer when creating or updating OAuth 2.0 applications from the Console. This enables organizations to function either as independent identity providers for their own applications or to use the root organization as the token issuer for B2B API consumption scenarios.
 
 Key capabilities include:
 
-**Trusted token issuer support**: Configure and use trusted token issuers at the organization level to enable secure token exchange between systems.
+- **Organization as identity provider**: Organizations can act as their own token issuer, enabling them to issue tokens for custom applications serving their own end users.
 
-**Enable implicit user account association**: Automatically link an incoming external token to an existing local user account for both root and child organizations.
+- **Granular issuer selection**: Administrators can select the appropriate token issuer, the root organization or the organization during application creation and updates.
+  
+- **Root-level governance**: Root organizations can control whether organizations are permitted to use the root organization's token issuer. Organizations can use the root issuer only if explicitly granted permission. By default, the root organization's issuer is available to organizations.
 
-**Define lookup attributes**: Specify up to two attributes to identify the corresponding local user during token exchange. These attributes must be configured as unique across user stores to ensure accurate user mapping.
-
-Learn more about [token exchange]({{base_path}}/guides/authentication/configure-token-exchange/).
+These configurations are now fully integrated into the Console.
 
 ### Token exchange for organization applications
 
 WSO2 Identity Server now supports the [Token Exchange](https://www.rfc-editor.org/rfc/rfc8693){:target="_blank"} grant type for applications created in organizations. Applications can exchange tokens issued by any trusted token issuer defined at the organization level.
 
-Administrators can configure trusted token issuers with the following enhancements:
+Key capabilities include:
+
+- **Trusted token issuer support**: Configure and use trusted token issuers at the organization level to enable secure token exchange between systems.
 
 - **Enable implicit user account association**: Automatically link an incoming external token to an existing local user account for both root and child organizations.
 
-- **Define lookup attributes** : Specify up to two attributes in the **Advanced** tab to identify the corresponding local user during token exchange. These attributes must be configured as unique across user stores to ensure accurate user mapping.
+- **Define lookup attributes**: Specify up to two attributes in the **Advanced** tab to identify the corresponding local user during token exchange. These attributes must be configured as unique across user stores to ensure accurate user mapping.
 
-Learn more about [token exchange]({{base_path}}guides/authentication/configure-token-exchange/).
+Learn more about [token exchange]({{base_path}}/guides/authentication/configure-token-exchange/).
 
 ### Selectable storage locations for user attributes
 
-Starting from WSO2 Identity Server 7.3.0, you can choose whether specific user attributes are stored internally within WSO2 Identity Server or in connected user stores. This provides greater control over data management and residency.
+Starting from WSO2 Identity Server 7.3.0, you can store specific user attributes internally within WSO2 Identity Server or in connected user stores. This gives you greater control over data management and residency.
 
 You can configure attribute storage at a global level or customize it for each connected user store, depending on your organization's requirements.
 
@@ -114,17 +116,17 @@ Learn more about [enabling approval notifications]({{base_path}}/guides/workflow
 
 ### Rule-based workflow engagement
 
-From WSO2 Identity Server 7.3.0, you can configure rules for user operations, such as adding a user or creating a role, to control whether an approval workflow should be triggered when the operation occurs.
+From WSO2 Identity Server 7.3.0, you can configure rules for user operations, such as adding a user or creating a role, to control whether an approval workflow triggers when the operation occurs.
 
-This enhancement gives administrators more precise control over workflow configuration, enabling approvals to be enforced only when specific business conditions are met.
+This enhancement gives administrators more precise control over workflow configuration, enabling approvals only when specific business conditions are met.
 
 Learn more about [configuring rules for approval workflows]({{base_path}}/guides/workflows/workflow-rules/).
 
 ### SCIM outbound provisioning for organizations
 
-Starting from WSO2 Identity Server 7.3.0, outbound provisioning is extended to support organizations. Organizations can now configure and manage their own outbound provisioning connectors independently.
+WSO2 Identity Server 7.3.0 extends outbound provisioning to support organizations. Organizations can now configure and manage their own outbound provisioning connectors independently.
 
-Application-level outbound provisioning is also supported. You can configure provisioning at both the organization level and the application level, enabling you to define organization-wide provisioning rules while customizing behavior for specific applications.
+WSO2 Identity Server also supports application-level outbound provisioning. You can configure provisioning at both the organization level and the application level, enabling you to define organization-wide provisioning rules while customizing behavior for specific applications.
 
 Learn more about [outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/outbound-provisioning-overview/).
 
@@ -142,7 +144,7 @@ WSO2 Identity Server now supports managing TOTP (Time-based One-Time Password) e
 
 Key capabilities include:
 
-- **Centralized governance**: Enable or disable TOTP progressive enrollment globally from organization settings. When disabled, users are not prompted to enroll during login, allowing administrators to enforce a consistent default policy across all applications.
+- **Centralized governance**: Enable or disable TOTP progressive enrollment globally from organization settings. When disabled, users are not prompted to enroll during sign-in, allowing administrators to enforce a consistent default policy across all applications.
 - **Application-level flexibility**: Individual applications can still override the organization-level setting using conditional authentication scripts.
 - **Organization support**: These policies apply consistently to the root organization and all organizations in the hierarchy.
 - **Backward compatibility**: Progressive enrollment is enabled by default, preserving existing behavior for current deployments.
@@ -151,22 +153,22 @@ Learn more about [configuring TOTP at the organization level]({{base_path}}/guid
 
 ### Improved Sift integration for fraud detection
 
-WSO2 Identity Server now supports publishing additional event types to Sift at the organization level, enabling more accurate and contextual risk score generation during application login flows.
+WSO2 Identity Server now publishes additional event types to Sift at the organization level, enabling more accurate risk score generation during application sign-in flows.
 
 Newly supported event types include:
 
 - **User lifecycle events**: User registration, credential update, profile update, and user verification events.
 - **User authentication events**: Login and logout events.
 
-Administrators can also configure which user and network attributes are included in event payloads, allowing alignment with organizational data-sharing and privacy policies.
+Administrators can also configure which user and network attributes appear in event payloads, aligning with organizational data-sharing and privacy policies.
 
-Learn more about the [Sift connector]({{base_path}}/connectors/sift/).
+Learn more about the [Sift connector]({{base_path}}/connectors/sift/overview/).
 
 ### Session lifetime limit enforcement
 
 WSO2 Identity Server now supports configuring an absolute session lifetime for user sessions. Once this limit is reached, users are required to re-authenticate, regardless of their activity.
 
-This setting goes beyond standard idle and remember-me timeouts by enforcing a fixed session duration, reducing the risk of prolonged sessions. The feature is disabled by default and can be enabled by configuring the session lifetime limit in minutes.
+This setting goes beyond standard idle and remember-me timeouts by enforcing a fixed session duration, reducing the risk of prolonged sessions. The feature is disabled by default. Administrators can enable it by setting the session lifetime limit in minutes.
 
 Learn more about [session management]({{base_path}}/guides/account-configurations/login-security/session-management/).
 
@@ -192,7 +194,7 @@ Learn more about [adding a SAML identity provider login]({{base_path}}/guides/au
 
 ### Pre-issue ID token action
 
-WSO2 Identity Server now supports the Pre-Issue ID Token Action, a pre-flow extension that allows you to execute custom logic just before an OIDC ID token is issued. You can register an external HTTPS service endpoint that WSO2 Identity Server calls synchronously during the ID token issuance flow.
+WSO2 Identity Server now supports the Pre-Issue ID Token Action, a pre-flow extension that allows you to execute custom logic just before WSO2 Identity Server issues an OIDC ID token. You can register an external HTTPS service endpoint that WSO2 Identity Server calls synchronously during the ID token issuance flow.
 
 Administrators can use this extension to add, update, or remove ID token claims, adjust token validity periods, and enforce custom validation or business logic before the token reaches the client application.
 
@@ -200,7 +202,7 @@ Learn more about the [pre-issue ID token action]({{base_path}}/guides/service-ex
 
 ### Enhanced IAM-CTL support for configuration promotion
 
-WSO2 Identity Server now provides enhanced support for managing and promoting configuration data using the IAM-CTL tool, a command-line utility that acts as a bridge for environment promotion, CI/CD automation, and configuration backups.
+WSO2 Identity Server now extends support for managing and promoting configuration data using the IAM-CTL tool, a command-line utility for environment promotion, CI/CD automation, and configuration backups.
 
 This release introduces support for OIDC Scopes, Roles, API Resources, Workflows, Notification Channels, Flows, Branding, Actions, Organizations, Account Recovery Configurations, Alternative Login Identifiers, Security Policies, and Notification Settings.
 
@@ -229,7 +231,7 @@ Learn more about [configuring email providers]({{base_path}}/guides/notification
 
 ### OAuth client credentials authentication for HTTP-based SMS and email providers
 
-WSO2 Identity Server now supports OAuth 2.0 Client Credentials-based authentication for HTTP-based custom SMS and email providers. Instead of relying on static bearer tokens, administrators can leverage dynamic token management that reduces the risk of token leakage and enables automated token rotation.
+WSO2 Identity Server now supports OAuth 2.0 Client Credentials-based authentication for HTTP-based custom SMS and email providers. Instead of relying on static bearer tokens, administrators can use dynamic token management, reducing the risk of token leakage and enabling automated token rotation.
 
 Administrators can configure custom SMS providers using Client Credentials, Basic Password, API Key, or Bearer Token authentication.
 
@@ -239,7 +241,7 @@ Learn more about [configuring SMS providers]({{base_path}}/guides/notification-c
 
 WSO2 Identity Server now supports non-persistent, self-contained JWT access tokens and refresh tokens, reducing dependency on database storage for token management.
 
-This addresses scaling and performance challenges in high-traffic environments where large volumes of active tokens accumulate over time. Administrators can configure persistence settings flexibly based on their use case, including an option to skip storing revoked tokens.
+This addresses scaling and performance challenges in high-traffic environments where large volumes of active tokens accumulate over time. Administrators can configure persistence settings based on their use case, including an option to skip storing revoked tokens.
 
 Learn more about [optimizing JWT access token persistence]({{base_path}}/deploy/token-persistence/#optimizing-jwt-access-token-persistence).
 
@@ -260,11 +262,11 @@ Learn more about [ID token encryption]({{base_path}}/guides/authentication/oidc/
 
 ### App-native authentication for device authorization grant
 
-The app-native authentication API now supports the device authorization grant flow. Applications using the device authorization grant can integrate app-native authentication to enable rich, in-app authentication experiences without redirecting users to a browser.
+The app-native authentication API now supports the device authorization grant flow. Applications using the device authorization grant can integrate app-native authentication to enable in-app authentication experiences without redirecting users to a browser.
 
 Learn more about [app-native authentication for the device authorization grant]({{base_path}}/references/app-native-authentication/#scenario-8-device-authorization-flow).
 
-### PROFILE_UPDATE webhook event
+### `PROFILE_UPDATE` webhook event
 
 WSO2 Identity Server now publishes a `PROFILE_UPDATE` webhook event when a user's email address or mobile number is verified during a profile update. This event enables downstream systems to react in real time to verified contact detail changes.
 
@@ -283,7 +285,7 @@ Learn more about [access token settings]({{base_path}}/references/app-settings/o
 
 ### Skip session revocation on password update
 
-Administrators can now configure WSO2 Identity Server to skip session revocation when a user updates their password, at the organization level. This enables consistent session preservation behavior across applications and user flows.
+At the organization level, administrators can now configure WSO2 Identity Server to skip session revocation when a user updates their password. This enables consistent session preservation behavior across applications and user flows.
 
 Key capabilities include:
 
@@ -302,9 +304,9 @@ This enables more flexible queries across user attributes, identity claims, role
 
 ### OTP retry and resend limits in adaptive authentication
 
-WSO2 Identity Server now supports configuring limits on OTP retry and resend attempts within a single authentication session using adaptive authentication scripts. This helps prevent misuse while maintaining a smooth experience for legitimate users.
+WSO2 Identity Server now supports configuring limits on OTP retry and resend attempts within a single authentication session using adaptive authentication scripts. This helps prevent misuse while preserving a consistent experience for legitimate users.
 
-Administrators can define the upper limit on the number of times a user can attempt to verify a one-time password or request a new one, helping to mitigate brute-force attacks and reduce unnecessary SMS or email delivery costs. These limits apply across both API-based and redirect-based authentication flows.
+Administrators can set the maximum number of times a user can attempt to verify a one-time password or request a new one, helping to mitigate brute-force attacks and reduce unnecessary SMS or email delivery costs. These limits apply across both API-based and redirect-based authentication flows.
 
 Learn more about [OTP retry and resend limits]({{base_path}}/guides/authentication/conditional-auth/otp-retry-resend-limits/).
 
