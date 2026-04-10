@@ -40,10 +40,10 @@ paths:
 
         <b>Permission required:</b>
 
-            * No permissions required
+            * No additional roles or scopes required. Authentication is required.
       operationId: getSchemas
       produces:
-        - application/json
+        - application/scim+json
       parameters: []
       responses:
         200:
@@ -74,7 +74,7 @@ paths:
             * No permissions required
       operationId: getSchemaById
       produces:
-        - application/json
+        - application/scim+json
       parameters:
         - name: id
           in: path
@@ -362,7 +362,7 @@ definitions:
     type : object
     required:
       - status
-      - schema
+      - schemas
     properties:
       status:
         type: string
@@ -381,7 +381,7 @@ definitions:
     type : object
     required:
       - status
-      - schema
+      - schemas
       - detail
     properties:
       status:

@@ -16,13 +16,13 @@ paths:
         - Schemas Endpoint
       summary: Get All Schemas
       description: "This API returns all supported SCIM 2.0 schema definitions.\n\n
-              <b>No Scope(Permission) required.</b>"
+              <b>No additional scopes or permissions required. Authentication is required.</b>"
       operationId: getSchemas
       responses:
         200:
           description: Schemas are found
           content:
-            application/json:
+            application/scim+json:
               schema:
                 type: array
                 items:
@@ -53,7 +53,7 @@ paths:
         - Schemas Endpoint
       summary: Get Schema by ID
       description: "This API returns the SCIM 2.0 schema definition identified by the given id.\n\n
-              <b>No Scope(Permission) required.</b>"
+              <b>No additional scopes or permissions required. Authentication is required.</b>"
       operationId: getSchemaById
       parameters:
         - name: id
@@ -66,7 +66,7 @@ paths:
         200:
           description: Schema is found
           content:
-            application/json:
+            application/scim+json:
               schema:
                 $ref: '#/components/schemas/SchemaObject'
         401:
@@ -325,6 +325,7 @@ components:
     ErrorUnauthorized:
       required:
         - status
+        - schemas
       type: object
       properties:
         schemas:
@@ -341,6 +342,7 @@ components:
       required:
         - detail
         - status
+        - schemas
       type: object
       properties:
         status:
