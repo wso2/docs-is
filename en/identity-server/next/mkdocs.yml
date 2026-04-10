@@ -1262,6 +1262,7 @@ nav:
           - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
           - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Schema API: apis/scim2/scim2-schema-rest-api.md
           - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
           - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md

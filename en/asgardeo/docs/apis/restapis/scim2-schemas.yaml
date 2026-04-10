@@ -1,0 +1,354 @@
+openapi: 3.0.1
+info:
+  title: SCIM 2.0 Schemas Retrieval API
+  description: |
+    This document specifies **SCIM 2.0 Schemas RESTful API** for **Asgardeo**.
+  version: "v1"
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'
+tags:
+  - name: Schemas Endpoint
+    description: This API lists and returns metadata about SCIM 2.0 schemas.
+paths:
+  /Schemas:
+    get:
+      tags:
+        - Schemas Endpoint
+      summary: Get All Schemas
+      description: "This API returns all supported SCIM 2.0 schema definitions.\n\n
+              <b>No Scope(Permission) required.</b>"
+      operationId: getSchemas
+      responses:
+        200:
+          description: Schemas are found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SchemaObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        404:
+          description: Schema not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchemaNotFound'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Schemas' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+
+  '/Schemas/{id}':
+    get:
+      tags:
+        - Schemas Endpoint
+      summary: Get Schema by ID
+      description: "This API returns the SCIM 2.0 schema definition identified by the given id.\n\n
+              <b>No Scope(Permission) required.</b>"
+      operationId: getSchemaById
+      parameters:
+        - name: id
+          in: path
+          description: Unique ID of the schema (e.g., urn:ietf:params:scim:schemas:core:2.0:User).
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Schema is found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaObject'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        404:
+          description: Schema not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchemaNotFound'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/Schemas/{id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+
+components:
+  schemas:
+    SchemaObject:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the schema.
+          example: "User"
+        description:
+          type: string
+          description: The description of the schema.
+          example: "User Account"
+        attributes:
+          type: array
+          description: The list of attributes defined in the schema.
+          items:
+            $ref: '#/components/schemas/SchemaAttribute'
+        id:
+          type: string
+          description: The unique URI of the schema.
+          example: "urn:ietf:params:scim:schemas:core:2.0:User"
+
+    SchemaAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The attribute's name.
+          example: "userName"
+        type:
+          type: string
+          description: The attribute's data type.
+          enum:
+            - STRING
+            - COMPLEX
+            - BOOLEAN
+            - DECIMAL
+            - INTEGER
+            - DATE_TIME
+            - DATE
+            - BINARY
+            - REFERENCE
+          example: "STRING"
+        multiValued:
+          type: boolean
+          description: Whether the attribute is multi-valued.
+          example: false
+        description:
+          type: string
+          description: The attribute's human-readable description.
+          example: "Username"
+        required:
+          type: boolean
+          description: Whether the attribute is required.
+          example: false
+        caseExact:
+          type: boolean
+          description: Whether the string attribute is case sensitive.
+          example: false
+        mutability:
+          type: string
+          description: Indicates whether the attribute is mutable.
+          enum:
+            - READ_ONLY
+            - READ_WRITE
+            - IMMUTABLE
+            - WRITE_ONLY
+          example: "READ_WRITE"
+        returned:
+          type: string
+          description: Indicates when an attribute is returned in a response.
+          enum:
+            - ALWAYS
+            - NEVER
+            - DEFAULT
+            - REQUEST
+          example: "DEFAULT"
+        uniqueness:
+          type: string
+          description: Indicates how unique a value must be.
+          enum:
+            - NONE
+          example: "NONE"
+        displayName:
+          type: string
+          description: The display name of the attribute.
+          example: "Username"
+        displayOrder:
+          type: integer
+          description: The display order of the attribute.
+          example: 1
+        supportedByDefault:
+          type: boolean
+          description: Whether the attribute is supported by default.
+          example: true
+        sharedProfileValueResolvingMethod:
+          type: string
+          description: The method used to resolve shared profile values.
+          example: "FromOrigin"
+        regEx:
+          type: string
+          description: The regular expression for validating the attribute value.
+          example: "^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,10})+$"
+        subAttributes:
+          type: array
+          description: The sub-attributes of a COMPLEX attribute.
+          items:
+            $ref: '#/components/schemas/SchemaSubAttribute'
+        profiles:
+          type: object
+          description: Profile-specific configurations for the attribute.
+          properties:
+            console:
+              type: object
+              properties:
+                supportedByDefault:
+                  type: boolean
+                  example: true
+        inputFormat:
+          type: object
+          description: The input format configuration for the attribute.
+          properties:
+            inputType:
+              type: string
+              example: "text_input"
+        excludedUserStores:
+          type: string
+          description: Comma-separated list of excluded user stores.
+          example: ""
+
+    SchemaSubAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The sub-attribute's name.
+          example: "familyName"
+        type:
+          type: string
+          description: The sub-attribute's data type.
+          enum:
+            - STRING
+            - COMPLEX
+            - BOOLEAN
+            - DECIMAL
+            - INTEGER
+            - DATE_TIME
+            - DATE
+            - BINARY
+            - REFERENCE
+          example: "STRING"
+        multiValued:
+          type: boolean
+          description: Whether the sub-attribute is multi-valued.
+          example: false
+        description:
+          type: string
+          description: The sub-attribute's human-readable description.
+          example: "Last Name"
+        required:
+          type: boolean
+          description: Whether the sub-attribute is required.
+          example: false
+        caseExact:
+          type: boolean
+          description: Whether the string sub-attribute is case sensitive.
+          example: false
+        mutability:
+          type: string
+          description: Indicates whether the sub-attribute is mutable.
+          enum:
+            - READ_ONLY
+            - READ_WRITE
+            - IMMUTABLE
+            - WRITE_ONLY
+          example: "READ_WRITE"
+        returned:
+          type: string
+          description: Indicates when a sub-attribute is returned in a response.
+          enum:
+            - ALWAYS
+            - NEVER
+            - DEFAULT
+            - REQUEST
+          example: "DEFAULT"
+        uniqueness:
+          type: string
+          description: Indicates how unique a value must be.
+          enum:
+            - NONE
+          example: "NONE"
+        displayName:
+          type: string
+          description: The display name of the sub-attribute.
+          example: "Last Name"
+        displayOrder:
+          type: integer
+          description: The display order of the sub-attribute.
+          example: 3
+        supportedByDefault:
+          type: boolean
+          description: Whether the sub-attribute is supported by default.
+          example: true
+        sharedProfileValueResolvingMethod:
+          type: string
+          description: The method used to resolve shared profile values.
+          example: "FromOrigin"
+        regEx:
+          type: string
+          description: The regular expression for validating the sub-attribute value.
+        profiles:
+          type: object
+          description: Profile-specific configurations for the sub-attribute.
+          properties:
+            console:
+              type: object
+              properties:
+                supportedByDefault:
+                  type: boolean
+                  example: true
+        inputFormat:
+          type: object
+          description: The input format configuration for the sub-attribute.
+          properties:
+            inputType:
+              type: string
+              example: "text_input"
+        excludedUserStores:
+          type: string
+          description: Comma-separated list of excluded user stores.
+          example: ""
+
+    ErrorUnauthorized:
+      required:
+        - status
+      type: object
+      properties:
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: "Authorization failure. Authorization information was invalid or missing from your request."
+        status:
+          type: string
+          example: "401"
+
+    ErrorSchemaNotFound:
+      required:
+        - detail
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "404"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: Schema not found.
