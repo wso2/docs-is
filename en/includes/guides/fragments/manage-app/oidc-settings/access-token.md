@@ -62,6 +62,11 @@ For **JWT** access tokens, this feature enables you to specify which user attrib
 !!! note 
     All configured user attributes are included in the access token, regardless of the requested scopes.
 
+!!! warning "Important requirement for custom attributes"
+    For custom attributes to appear in the access token, you must explicitly add them to an OIDC scope. Without this mapping, custom attributes will not be included in the access token, even if they are configured under **Access Token Attributes**.
+    
+    To map custom attributes to an OIDC scope, configure the scope settings in your application's OIDC configuration and ensure the custom attributes are associated with the appropriate scope.
+
 ![Access-Token-Attributes]({{base_path}}/assets/img/guides/authorization/access-token/access-token-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% endif %}
