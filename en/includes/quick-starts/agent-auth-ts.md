@@ -880,7 +880,7 @@ Here is the updated implementation:
         {% if product_name == "Asgardeo" %}
         const oboToken = await asgardeoJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
         {% else %}
-        const oboToken = await idenityServerJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
+        const oboToken = await identityServerJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
         {% endif %}
         const rootAgent = new LlmAgent({
             name: "example_agent",
@@ -1003,7 +1003,7 @@ Here is the updated implementation:
         baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
     {% else %}
-    const identityServrConfig = {
+    const identityServerConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
         baseUrl: process.env.IDENTITY_SERVER_BASE_URL || "",
@@ -1067,7 +1067,7 @@ Here is the updated implementation:
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
         {% else %}
-        const identityServerJavaScriptClient = new AsgardeoJavaScriptClient(identityServrConfig);
+        const identityServerJavaScriptClient = new AsgardeoJavaScriptClient(identityServerConfig);
         const authURL = await identityServerJavaScriptClient.getOBOSignInURL(agentConfig);
         {% endif %}
         console.log("Opening authentication URL in your browser...");
