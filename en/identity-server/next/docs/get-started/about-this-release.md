@@ -310,27 +310,26 @@ Learn more about [OTP retry and resend limits]({{base_path}}/guides/authenticati
 
 ### Enhanced password expiry reset enforcement
 
-WSO2 Identity Server introduces two key enhancements to password expiry 
+WSO2 Identity Server introduces two key enhancements to password expiry
 reset enforcement.
 
-A new **Enforce password expiry for** setting is introduced to control how password expiry enforcement is applied. 
-This setting becomes available under **Login & Registration** > **Password Validation** when password expiration is 
+A new **Enforce password expiry for** setting is introduced to control how password expiry enforcement is applied.
+This setting becomes available under **Login & Registration** > **Password Validation** when password expiration is
 enabled and the password reset enforcement feature is activated via configuration.
 
-- **All organization users** (default): Preserves the existing behavior. 
-  Password expiry is enforced for every user in the organization upon login. 
-  For applications with the Password Reset Enforcer in their login flow, 
-  enforcement is triggered inline at the configured step and org-wide 
+- **All application login flows** (default): Preserves the existing behavior.
+  Password expiry is enforced for every user in the organization upon login.
+  For applications with the Password Reset Enforcer in their login flow,
+  enforcement is triggered inline at the configured step and org-wide
   enforcement is skipped for those applications.
 
-- **Specific application login flows**: Org-wide enforcement is fully 
-  disabled. Password expiry is enforced only for applications where the 
+- **Selected application login flows**: Password expiry is enforced only for applications where the
   Password Reset Enforcer has been explicitly added to the login flow.
 
-The Password Reset Enforcer now also supports app native 
-authentication flows in addition to the existing redirect-based flow. 
-A new property is introduced in the authentication context to track the 
-password reset completion status, enabling adaptive authentication scripts 
+The Password Reset Enforcer now also supports app native
+authentication flows in addition to the existing redirect-based flow.
+A new property is introduced in the authentication context to track the
+password reset completion status, enabling adaptive authentication scripts
 to conditionally control subsequent steps in the flow based on the outcome.
 
 Learn more about the [Password Reset Enforcer connector]({{base_path}}/connectors/password-reset-enforcer/overview/).

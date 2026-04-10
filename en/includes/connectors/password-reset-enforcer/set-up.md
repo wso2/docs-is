@@ -44,7 +44,7 @@ name = "password-reset-enforcer"
 enable = true
 ```
 
-## Step 4: Enable the password reset enforcement scope configurarion (WSO2 Identity Server 7.3 and later)
+## Step 4: Enable the password reset enforcement scope configuration (WSO2 Identity Server 7.3 and later)
 
 ```toml
 [console.ui]
