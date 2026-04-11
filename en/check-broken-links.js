@@ -48,73 +48,83 @@ function logBrokenLink(link, sourceUrl) {
   fs.appendFileSync(logFile, logEntry);
 }
 
+// Checks a single markdown link and returns a promise so caller can await or chain checks
+function checkLink(link, sourceUrl) {
+  return new Promise((resolve, reject) => {
+    markdownLinkCheck(link, { retry: true }, (err, results) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      results.forEach(result => {
+        const { dead, statusCode } = result;
+
+        if (dead || statusCode === 404) {
+          logBrokenLink(link, sourceUrl);
+          console.log(`\n[Broken Link] Found: ${link}\n`);
+        }
+      });
+
+      resolve();
+    });
+  });
+}
+
 // Function to check links on a page and crawl nested links
 async function checkLinksOnPage(url, depth = 2) {
   if (isShuttingDown || depth < 0 || visitedUrls.has(url)) return; // Stop if shutting down, depth limit reached, or already visited
 
   visitedUrls.add(url); // Mark the URL as visited
 
-  return new Promise((resolve) => {
-    // Use Puppeteer to get links from the page
-    (async () => {
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
+  // Use Puppeteer to get links from the page
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
 
-      try {
-        spinner.text = `Visiting: ${url}`;
-        await page.goto(url, { waitUntil: 'networkidle2' });
-        const linksWithInfo = await page.evaluate(() => {
-          const anchorTags = Array.from(document.querySelectorAll('a'));
-          return anchorTags.map(tag => tag.href).filter(link => link.startsWith('http'));
-        });
+  try {
+    spinner.text = `Visiting: ${url}`;
+    await page.goto(url, { waitUntil: 'networkidle2' });
+    const linksWithInfo = await page.evaluate(() => {
+      const anchorTags = Array.from(document.querySelectorAll('a'));
+      return anchorTags.map(tag => tag.href).filter(link => link.startsWith('http'));
+    });
+    const linkCheckPromises = [];
 
-        // Check each link
-        for (const link of linksWithInfo) {
-          if (shouldIgnore(link)) {
-            continue; // Skip ignored links
-          }
-
-          // Check if the link is in the same domain
-          const linkDomain = new URL(link).hostname;
-
-          // Increment local or external link count
-          if (linkDomain === baseDomain) {
-            localLinksCount++;
-          } else {
-            externalLinksCount++;
-          }
-
-          // Check the link status
-          markdownLinkCheck(link, { retry: true }, (err, results) => {
-            if (err) {
-              console.error(`Error checking ${link}:`, err);
-              return;
-            }
-
-            results.forEach(result => {
-              const { dead, statusCode } = result;
-
-              if (dead || statusCode === 404) {
-                logBrokenLink(link, url);
-                console.log(`\n[Broken Link] Found: ${link}\n`);
-              }
-            });
-          });
-
-          // Recursively check nested links if they are in the same domain
-          if (linkDomain === baseDomain) {
-            await checkLinksOnPage(link, depth - 1);
-          }
-        }
-      } catch (error) {
-        console.error(`Error visiting ${url}:`, error);
-      } finally {
-        await browser.close(); // Ensure the browser is closed
-
-        resolve();
+    // Check each link
+    for (const link of linksWithInfo) {
+      if (shouldIgnore(link)) {
+        continue; // Skip ignored links
       }
-    })();
-  });
+
+      // Check if the link is in the same domain
+      const linkDomain = new URL(link).hostname;
+
+      // Increment local or external link count
+      if (linkDomain === baseDomain) {
+        localLinksCount++;
+      } else {
+        externalLinksCount++;
+      }
+
+      // Keep page resolution blocked until all link checks finish.
+      linkCheckPromises.push(
+        checkLink(link, url).catch(err => {
+          console.error(`Error checking ${link}:`, err);
+        })
+      );
+
+      // Recursively check nested links if they are in the same domain
+      if (linkDomain === baseDomain) {
+        await checkLinksOnPage(link, depth - 1);
+      }
+    }
+
+    await Promise.all(linkCheckPromises);
+  } catch (error) {
+    console.error(`Error visiting ${url}:`, error);
+  } finally {
+    await browser.close(); // Ensure the browser is closed
+  }
 }
 
 // Function to handle termination
