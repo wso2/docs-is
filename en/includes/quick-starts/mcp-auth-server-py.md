@@ -118,16 +118,28 @@ Stop the running server before continuing.
 
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
+{% if product_name == "Asgardeo" %}
+
 ```properties title=".env"
 AUTH_ISSUER=https://api.asgardeo.io/t/<your-tenant>/oauth2/token
 CLIENT_ID=<your-client-id>
 JWKS_URL=https://api.asgardeo.io/t/<your-tenant>/oauth2/jwks
 ```
 
+{% else %}
+
+```properties title=".env"
+AUTH_ISSUER=https://localhost:9443/t/<your-tenant>/oauth2/token
+CLIENT_ID=<your-client-id>
+JWKS_URL=https://localhost:9443/t/<your-tenant>/oauth2/jwks
+```
+
+{% endif %}
+
 !!! Important
 
     Replace `<your-tenant>` and `<your-client-id>` with the values obtained from the {{ product_name }} console.
-    The tenant name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<your-tenant>`), and the client ID is found in the application's **Protocol** tab.
+    The tenant name is visible in the console URL path {% if product_name == "Asgardeo" %}(e.g., `https://console.asgardeo.io/t/<your-tenant>`) {% else %} (e.g., `https://localhost:9443/t/<your-tenant>`) {% endif %}, and the client ID is found in the application's **Protocol** tab.
 
 Create a `jwt_validator.py` file in the project directory using the implementation below.
 

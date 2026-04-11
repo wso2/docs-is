@@ -575,6 +575,12 @@ nav:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
           - WS-Federation: get-started/try-samples/ws-federation-webapp.md
+      - Secure MCP Servers:
+          - TypeScript: quick-starts/mcp-auth-server.md
+          - Python: quick-starts/mcp-auth-server-py.md
+      - Secure Your AI Agents:
+          - Python: quick-starts/agent-auth-py.md
+          - TypeScript: quick-starts/agent-auth-ts.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
       - About this release: get-started/about-this-release.md
   - Guides:
