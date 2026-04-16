@@ -523,7 +523,7 @@ This function returns a session object  (i.e. all the active user sessions of th
 var user = context.currentKnownSubject;
 var sessions = getUserSessions(user);
 if (sessions.length > 0) {
-    var result = terminateUserSession(user, sessions[0]);
+    var result = terminateUserSession(user, sessions[0].id);
     Log.info(“Terminate Operation Successful?: ” + result);
 }
 
