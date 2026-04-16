@@ -1199,6 +1199,22 @@ The step number is the one configured at the step configuration, not the actual 
     <td><code>context.serviceProviderName</code></td>
     <td>Get the application name.</td>
   </tr>
+  <tr>
+    <td><code>context.currentKnownSubject</code></td>
+    <td>Access the user who is currently identified (known) in the authentication flow. This is available after an authentication step identifies the user. Returns a <a href="#user">user</a> object.</td>
+  </tr>
+  <tr>
+    <td><code>context.requestedAcr</code></td>
+    <td>The list of Authentication Context Class Reference (ACR) values requested by the application. For OIDC requests, these come from the <code>acr_values</code> parameter. For SAML SSO requests, these come from the <code>samlp:AuthnContextClassRef</code> elements.</td>
+  </tr>
+  <tr>
+    <td><code>context.selectedAcr</code></td>
+    <td><code>(Read/Write)</code> <br> The ACR value selected during the authentication flow. Set this to return the appropriate ACR value in the authentication response.</td>
+  </tr>
+  <tr>
+    <td><code>context.tenantDomain</code></td>
+    <td>The tenant domain of the application that initiated the authentication request.</td>
+  </tr>
 </table>
 
 
