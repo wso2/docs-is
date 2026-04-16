@@ -908,61 +908,61 @@ This document describes all the REST API error codes that are used in WSO2 Ident
       <td>KSS-65001</td>
       <td>500</td>
       <td>Unable to retrieve the keystore for tenant: {{tenant domain}}.</td>
-      <td>Server error occured while retrieving the keystore.</td>
+      <td>Server error occurred while retrieving the keystore.</td>
     </tr>
     <tr>  
       <td>KSS-65002</td>
       <td>500</td>
       <td>Unable to retrieve keystore information for keystore: {{keystore name}}</td>
-      <td>Server error occured while retrieving the keystore information.</td>
+      <td>Server error occurred while retrieving the keystore information.</td>
     </tr>
     <tr>  
       <td>KSS-65003</td>
       <td>500</td>
-      <td>Unable to retrieve client truststore for tenant: {{tenent domain}}</td>
-      <td>Server error occured while retrieving the client truststore.</td>
+      <td>Unable to retrieve client truststore for tenant: {{tenant domain}}</td>
+      <td>Server error occurred while retrieving the client truststore.</td>
     </tr>
     <tr>  
       <td>KSS-65004</td>
       <td>500</td>
       <td>Unable to retrieve the client truststore aliases for tenant: {{tenant domain}}.</td>
-      <td>Server error occured while retrieving the aliases from client truststore.</td>
+      <td>Server error occurred while retrieving the aliases from client truststore.</td>
     </tr>
     <tr>  
       <td>KSS-65005</td>
       <td>500</td>
-      <td>Unable to retrive the client truststore certificate for alias: {{alias}}.</td>
-      <td>Server error occured while retriving the certificate from client truststore.</td>
+      <td>Unable to retrieve the client truststore certificate for alias: {{alias}}.</td>
+      <td>Server error occurred while retrieving the certificate from client truststore.</td>
     </tr>
     <tr>  
       <td>KSS-65006</td>
       <td>500</td>
       <td>Unable to add certificate with alias: {{alias}}</td>
-      <td>Server error occured while adding a certificate.</td>
+      <td>Server error occurred while adding a certificate.</td>
     </tr>
     <tr>  
       <td>KSS-65007</td>
       <td>500</td>
       <td>Unable to delete certificate with alias: {{alias}}.</td>
-      <td>Server error occured while removing a certificate.</td>
+      <td>Server error occurred while removing a certificate.</td>
     </tr>  
     <tr>  
       <td>KSS-65008</td>
       <td>500</td>
       <td>Error occurred while validating the certificate.</td>
-      <td>Server error occured while adding a certificate.</td>
+      <td>Server error occurred while adding a certificate.</td>
     </tr>
     <tr>  
       <td>KSS-65010</td>
       <td>500</td>
       <td>Unable to create file: {{filename}}.</td>
-      <td>Server error occured while creating a file to return the certificate.</td>
+      <td>Server error occurred while creating a file to return the certificate.</td>
     </tr>
     <tr>  
       <td>KSS-65011</td>
       <td>500</td>
       <td>Unable to encode the certificate with alias: {{alias}}.</td>
-      <td>Server error occured while encoding the certificate.</td>
+      <td>Server error occurred while encoding the certificate.</td>
     </tr>
   </tbody>
 </table>
@@ -1199,7 +1199,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
         <td>IDP-65050</a></td>
         <td>500</td>
         <td>Unable to list existing identity provider templates</td>
-        <td>Error occured while listing identity provider templates.</td>
+        <td>Error occurred while listing identity provider templates.</td>
       </tr> 
       <tr>
         <td>IDP-65051</a></td>

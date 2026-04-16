@@ -108,7 +108,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		-	**Username**: `Jane`
 		-	**Define password here**: Unselected
 		-	**Ask Password from user**: Selected
-		-	**Email Address**: Enter the email address to which you wish to recieve the account confirmation email. 
+		-	**Email Address**: Enter the email address to which you wish to receive the account confirmation email. 
 
 			!!! tip "Using special characters in the email address"
 

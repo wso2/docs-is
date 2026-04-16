@@ -4,7 +4,7 @@ WSO2 Identity Server [supports the JSON
 format]({{base_path}}/references/concepts/authorization/access-control)
 in addition to the default XML format when you work with XACML 3.0
 requests and responses. Therefore, you can send XACML Multiple Decision
-Profile (MDP) requests in JSON format, and can also recieve MDP
+Profile (MDP) requests in JSON format, and can also receive MDP
 responses in the JSON format in an authorization flow in WSO2 Identity
 Server. For a list of key points you need to keep in mind when you work
 with XACML 3.0 JSON requests and responses, see [JSON Support with XACML
@@ -642,5 +642,5 @@ You will see that the response has 8 decisions for the 8 requests.
 
 Now that you understand how to work with MDP requests and responses in
 JSON format using WSO2 Identity Server, you can send XACML MDP requests
-in JSON format, and recieve MDP responses in the JSON format depending
+in JSON format, and receive MDP responses in the JSON format depending
 on your requirement in an authorization flow.
