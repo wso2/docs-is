@@ -1201,7 +1201,7 @@ The step number is the one configured at the step configuration, not the actual 
   </tr>
   <tr>
     <td><code>context.currentKnownSubject</code></td>
-    <td>Access the user who is currently identified (known) in the authentication flow. This is available after an authentication step identifies the user. Returns a <a href="#user">user</a> object.</td>
+    <td>Access the authenticated user from the subject identifier step. It resolves the user from the first completed step that is configured as the subject identifier step. If no subject identifier step is completed yet, it falls back to the user from the current step. Returns a <a href="#user">user</a> object or <code>null</code> if no step has been completed.</td>
   </tr>
   <tr>
     <td><code>context.requestedAcr</code></td>
