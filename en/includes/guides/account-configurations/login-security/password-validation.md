@@ -39,10 +39,10 @@ To configure rule-based password expiration,
 1. Turn the **Password Expiration** toggle on to enable password expiration.
 
 {% if product_name == "Asgardeo" %}
-2. Select the users to whom the password expiry policy should apply using the **Enforce password expiry for** field:
+2. Select the users that this policy should apply using the **Enforce password expiry for** field:
 
-    - **All application login flows**: Applies the password expiry policy to all users during login, regardless of the application they access. This is the default behavior.
-    - **Selected application login flows**: Enforces password expiry only when users log in to applications that have enabled this in the login flow. Selecting this option disables organization-wide password expiry enforcement
+    - **All application login flows**: Applies to all users of an organization, regardless of the application they access. This is the default behavior.
+    - **Selected application login flows**: Enforces for only the applications that have enabled this in the login flow. This overrides the default behavior.
 
         !!! info
             To enforce password expiry for a specific application, add the Password Reset Enforcer as an authentication step in the application's login flow. See [Configure login flows]({{base_path}}/guides/authentication/) for instructions.
