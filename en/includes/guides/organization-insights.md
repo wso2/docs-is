@@ -61,7 +61,9 @@ This graph in registration insights, represents the total number of successful u
 
 ![User signups graph]({{base_path}}/assets/img/guides/organization-insights/user-signups-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+<!-- vale WSO2-IAM.SentenceStyleTitles = NO -->
 ### Machine-to-Machine (M2M) authentications
+<!-- vale WSO2-IAM.SentenceStyleTitles = YES -->
 
 This graph in M2M insights represents the number of new M2M tokens issued to your organization within the selected duration. By hovering your mouse over a point on the graph, you can view the specific count of M2M token requests for each day.
 
