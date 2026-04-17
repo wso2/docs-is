@@ -1101,7 +1101,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <tr>  
       <td>KSS-65003</td>
       <td>500</td>
-      <td>Unable to retrieve client truststore for tenant: {{'{{tenent domain}}'}}.</td>
+      <td>Unable to retrieve client truststore for tenant: {{'{{tenant domain}}'}}.</td>
       <td>The server encountered an error while retrieving the client truststore.</td>
     </tr>
     <tr>  
@@ -1113,8 +1113,8 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <tr>  
       <td>KSS-65005</td>
       <td>500</td>
-      <td>Unable to retrive the client truststore certificate for alias: {{'{{alias}}'}}.</td>
-      <td>The server encountered an error while retriving the certificate from client truststore.</td>
+      <td>Unable to retrieve the client truststore certificate for alias: {{'{{alias}}'}}.</td>
+      <td>The server encountered an error while retrieving the certificate from client truststore.</td>
     </tr>
     <tr>  
       <td>KSS-65006</td>

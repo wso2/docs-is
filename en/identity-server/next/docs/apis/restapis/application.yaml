@@ -5312,7 +5312,7 @@ components:
       properties:
         applicationClaim:
           type: string
-          description: "Claim URI recieved by the application"
+          description: "Claim URI received by the application"
           example: firstname
         localClaim:
           $ref: '#/components/schemas/Claim'

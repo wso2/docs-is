@@ -1022,7 +1022,7 @@ This endpoint is used to create and manage groups and group members.
 !!! note
 	From WSO2 Identity Server 5.8.0 onwards, new configurations have been added to support filtering users and groups only from the PRIMARY domain. 
 
-	If these properties are enabled, the responses recieved for the users endpoint and groups endpoint will change.
+	If these properties are enabled, the responses received for the users endpoint and groups endpoint will change.
 
 
 

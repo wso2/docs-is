@@ -114,7 +114,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 
 1. See [OAuth Grant Types]({{base_path}}/guides/access-delegation/auth-code-playground) and try out one of the grant types with the `openid` scope to obtain an access token.
 
-2. You will recieve an access token and an encrypted ID token. 
+2. You will receive an access token and an encrypted ID token. 
 
 3. To decrypt the ID token, provide the private key of the client. 
 

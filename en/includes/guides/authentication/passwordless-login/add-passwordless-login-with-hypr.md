@@ -95,7 +95,7 @@ Follow the steps below to register HYPR as a connection in {{ product_name }}.
       </tr>
       <tr>
           <td>API Token</td>
-          <td>The token you recieve when you [create an API token in HYPR](#create-an-api-token-in-hypr).</td>
+          <td>The token you receive when you [create an API token in HYPR](#create-an-api-token-in-hypr).</td>
       </tr>
     </table>
 
