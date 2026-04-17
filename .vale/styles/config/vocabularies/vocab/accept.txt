@@ -4,7 +4,7 @@ OIDC
 OAuth2
 IdP
 SAML
-OpenId
+OpenID
 SDK
 product_name
 product_url_format
