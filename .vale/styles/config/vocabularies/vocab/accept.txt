@@ -4,6 +4,8 @@ OIDC
 OAuth2
 IdP
 SAML
+OpenId
+SDK
 product_name
 product_url_format
 product_url_sample
@@ -35,7 +37,19 @@ hostname
 watchlists
 watchlist
 onboarding
+onboarded
 Onfido
+[Cc]horeo
+[Vv]ercel
+Teamspace
+[Ww]ebapp
+baseUrl
+openid
+npm
+pnpm
+[Uu]serId
+organizationName
+organizationId
 [Vv]ite
 [Pp]asswordless
 [Uu]sernameless
@@ -48,3 +62,8 @@ server_version
 [Uu]serstore
 Kerberos
 root_org_url
+host_name
+source_code
+whats_next
+const
+base_url
