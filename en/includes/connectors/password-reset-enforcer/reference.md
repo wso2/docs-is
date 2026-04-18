@@ -1,6 +1,8 @@
 # Reference
 
-## Event handler configuration
+## Configure the event handler
+
+The Password Reset Enforcer relies on a background event handler that tracks password changes and determines when a user's password has expired. Add the following configuration to your `<IS_HOME>/repository/conf/deployment.toml` file to set it up.
 
 Password Reset Enforcer uses an event handler named `passwordExpiry`.
 
@@ -38,13 +40,13 @@ priorReminderTimeInDays = "0"
   </tr>
 </table>
 
-## Password history
+## Prevent password reuse
 
 To prevent users from reusing previous passwords, configure **Password History Count**.
 
 For instructions, see [Password validation]({{base_path}}/guides/account-configurations/login-security/password-validation/#password-history-count).
 
-## Enforcement scope
+## Control enforcement scope
 
 When you enable **Password Expiration** under **Login & Registration** > **Password Validation**, use **Enforce password expiry for** to control where password expiry enforcement applies.
 
@@ -52,7 +54,7 @@ When you enable **Password Expiration** under **Login & Registration** > **Passw
 
 - **Selected application login flows**: Disables organization-wide enforcement and applies password expiry enforcement only to applications that include **Password Reset Enforcer** in the login flow.
 
-## App native and adaptive script support
+## Use with app-native and adaptive authentication
 
 Password Reset Enforcer supports API-based (App Native) authentication flows in addition to redirect-based flows.
 

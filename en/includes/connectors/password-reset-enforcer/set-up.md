@@ -13,7 +13,9 @@ The following guide explains how you can install and set up Password Reset Enfor
 
 2. Copy the `jar` file into the `<IS_HOME>/repository/components/dropins` directory of your WSO2 Identity Server installation.
 
-3. Copy `pwd-reset.jsp` from the extracted artifacts package to the `IS_HOME/repository/deployment/server/webapps/authenticationendpoint/` directory (Not required in WSO2 Identity Server 7.3 and later).
+{% if is_version in ["7.0.0", "7.1.0", "7.2.0"] %}
+3. Copy `pwd-reset.jsp` from the extracted artifacts package to the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/` directory.
+{% endif %}
 
 ## Step 2: Configure password expiry event handling
 
@@ -34,9 +36,9 @@ enableDataPublishing = false
 priorReminderTimeInDays = "0"
 ```
 
-## Step 3: Enable the authenticator (WSO2 Identity Server 7.0 and later)
+## Step 3: Enable the authenticator
 
-To make the authenticator available in application step configurations, add the following configuration to the `IS_HOME/repository/conf/deployment.toml` file.
+To make the authenticator available in application step configurations, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```toml
 [authentication.authenticator.password-reset-enforcer]
@@ -44,12 +46,16 @@ name = "password-reset-enforcer"
 enable = true
 ```
 
-## Step 4: Enable the password reset enforcement scope configuration (WSO2 Identity Server 7.3 and later)
+{% if is_version not in ["7.0.0", "7.1.0", "7.2.0"] %}
+## Step 4: Enable the enforcement scope configuration
+
+To make the **Enforce password expiry for** setting available in the Console, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```toml
 [console.ui]
 is_password_reset_enforcement_scope_enabled = true
 ```
+{% endif %}
 
 ## Step 5: Restart {{product_name}}
 

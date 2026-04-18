@@ -1198,7 +1198,6 @@ nav:
       - Set up: connectors/password-reset-enforcer/set-up.md
       - Usage: connectors/password-reset-enforcer/usage.md
       - Reference: connectors/password-reset-enforcer/reference.md
-      - Try it: connectors/password-reset-enforcer/try-it.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:

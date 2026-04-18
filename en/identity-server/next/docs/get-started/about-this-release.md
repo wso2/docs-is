@@ -314,7 +314,7 @@ WSO2 Identity Server introduces two key enhancements to password expiry
 reset enforcement.
 
 A new **Enforce password expiry for** setting is introduced to control how password expiry enforcement is applied.
-This setting becomes available under **Login & Registration** > **Password Validation** when password expiration is
+This setting becomes available under **Login & Registration** > **Password Validation** when password expiry is
 enabled and the password reset enforcement feature is activated via configuration.
 
 - **All application login flows** (default): Preserves the existing behavior.

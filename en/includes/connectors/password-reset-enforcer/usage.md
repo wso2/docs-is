@@ -48,7 +48,7 @@ When **Password Expiration** is enabled, the **Enforce password expiry for** set
         };
         ```
 
-## Step 1: Add Password Reset Enforcer to an application's login flow
+## Add Password Reset Enforcer to an application's login flow
 
 1. On the {{product_name}} Console, go to **Applications**.
 
@@ -60,7 +60,7 @@ When **Password Expiration** is enabled, the **Enforce password expiry for** set
 
 5. Click **Update** to save the changes.
 
-## Step 2: Verify the behavior
+## Verify the behavior
 
 1. Ensure the user account has an expired password based on your configured password expiration rules.
 

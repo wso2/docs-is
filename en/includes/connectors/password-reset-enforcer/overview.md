@@ -10,9 +10,12 @@ You can use this connector to:
 
 Configure password expiration rules from the {{product_name}} Console. For instructions, see [Password validation]({{base_path}}/guides/account-configurations/login-security/password-validation/).
 
+![Password Reset Enforcer overview]({{base_path}}/assets/img/connectors/password-reset-enforcer/password-reset-enforcer-overview.png)
+
 How it works,
 
 - A user starts a sign-in flow to your application.
 - {{product_name}} evaluates password expiration based on your configured password expiration rules.
 - If the password has expired, {{product_name}} shows the password reset screen.
 - After the user resets the password successfully, {{product_name}} continues the authentication flow.
+
