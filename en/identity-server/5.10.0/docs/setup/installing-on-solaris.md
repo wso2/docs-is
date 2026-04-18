@@ -16,7 +16,7 @@ Follow the instructions below to install Identity Server on Solaris.
 ### Installing the Identity Server
 
 1.  Download the latest version of the Identity Server from
-    <http://wso2.com/products/identity-server/> .
+    <https://wso2.com/identity-platform/access-manager/> .
 2.  Extract the archive file to a dedicated directory for the Identity
     Server, which will hereafter be referred to as
     `           <IS_HOME>          ` .

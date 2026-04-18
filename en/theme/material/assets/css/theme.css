@@ -735,6 +735,25 @@
     margin: 0;
 }
 
+.md-typeset .superfences-tabs {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    margin: 1em 0;
+    border-radius: .2em;
+}
+
+html .md-typeset .superfences-tabs > label{
+    color: #ff7043;
+    font-weight: normal;
+    border: none;
+}
+
+html .md-typeset .superfences-tabs > label:hover {
+    color: #ff7043;
+    font-weight: bold;
+}
+
 /* Media query breakpoints
 
     $base_px: 16px;

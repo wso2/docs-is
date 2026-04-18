@@ -474,7 +474,7 @@ This type of attribute is not found in the core schemas of the SCIM specificatio
 
 Let's consider the **Enterprise** schema with an attribute called devices.
 
--   **Example 1:** Replace the `devices` attribue in attribute in the **Enterprise** user schema (without using the path param):
+-   **Example 1:** Replace the `devices` attribute in attribute in the **Enterprise** user schema (without using the path param):
 
     ```json
     {
@@ -487,7 +487,7 @@ Let's consider the **Enterprise** schema with an attribute called devices.
     }
     ```
 
--   **Example 2:** Replace the `devices` attribue in attribute in the **Enterprise** user schema (using the path param):
+-   **Example 2:** Replace the `devices` attribute in attribute in the **Enterprise** user schema (using the path param):
 
     ```json
     {

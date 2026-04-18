@@ -12,8 +12,6 @@ A hybrid key agreement algorithm combines a classical algorithm with a post-quan
 
 - **Hybrid compatibility**: Ensures compatibility with current systems while introducing quantum-resistant security.
 
-- **Optimized performance**: Leverages TLS 1.3 for faster handshakes and stronger encryption.
-
 ## Supported communication channels
 
 {{ product_name }} supports post-quantum security for both:
@@ -36,3 +34,20 @@ A hybrid key agreement algorithm combines a classical algorithm with a post-quan
     ```
 
 3. Restart the Server.
+
+!!! note
+    Some outbound TLS connections may omit the Server Name Indication (SNI) extension when the Bouncy Castle (BC) provider is enabled, causing certain servers to reject the handshake.
+
+    To resolve this, add the following system property at server startup:
+
+    === "Linux/Mac OS"
+        ``` bash
+        sh wso2server.sh -Dorg.bouncycastle.jsse.client.assumeOriginalHostName=true
+        ```
+
+    === "Windows"
+        ``` bash
+        wso2server.bat -Dorg.bouncycastle.jsse.client.assumeOriginalHostName=true
+        ```
+
+    Note that this may expose connections to **man-in-the-middle (MITM) attacks** if the name service is not trustworthy.

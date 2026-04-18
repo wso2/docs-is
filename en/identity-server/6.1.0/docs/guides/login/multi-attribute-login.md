@@ -23,7 +23,7 @@ Follow the steps given below to enable multi-attribute login from the Management
 
     !!! info
         - The **admin** is the default administrative user in WSO2 Identity Server.
-        - If you use multiple tenant domains, you need to configure multi-attribute login for each tenent.
+        - If you use multiple tenant domains, you need to configure multi-attribute login for each tenant.
 
 2.  Go to **Main** > **Identity Providers** > **Resident** and expand **Account Management**.
 
