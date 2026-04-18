@@ -26,7 +26,7 @@ Are you new to **{{ product_name }}**? Learn how you can get started.
 
 ![IAM functionality]({{base_path}}/assets/img/get-started/iam-functionality.png)
 
-- **Unify sign-ins** - WSO2 IS provides single sign-on (SSO) so you do not maintain separate credentials for each application.
+- **Unify sign-ins** - WSO2 Identity Server provides single sign-on (SSO) so you do not maintain separate credentials for each application.
 
 - **Give the right access to the right people** - Control access to applications based on permission levels of users or groups.
 
