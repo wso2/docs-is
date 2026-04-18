@@ -39,7 +39,6 @@ You can sign in to applications you register in Asgardeo. Create a user by follo
 
 You can now manage this user account from the **Asgardeo Console**.
 
-
 !!! note
     You can also manage your account from the **Asgardeo self-service portal**. Learn more about [user self-service]({{base_path}}/guides/user-self-service/).
 
