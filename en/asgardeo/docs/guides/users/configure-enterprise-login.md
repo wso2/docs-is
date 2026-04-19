@@ -130,6 +130,7 @@ If enterprise login does not work as expected, check the following common issues
 | JIT provisioning is not creating user accounts | Verify that JIT provisioning is enabled on the enterprise connection. Check the Asgardeo provisioning logs for error details. |
 | Group information is missing from the authentication response | Confirm that the groups claim mapping is configured on the connection and that the `groups` scope is included in the connection's requested scopes. |
 | The Home Realm Identifier URL does not redirect to the enterprise IdP | Verify that the **Home Realm Identifier** value in the connection settings matches the value used in the direct access URL. |
+| Login fails after setting up enterprise login | Your browser may have a cached session that conflicts with the new configuration. Clear your browser cookies and try again, or sign in using a private or incognito browser tab. |
 
 ## Next steps
 
