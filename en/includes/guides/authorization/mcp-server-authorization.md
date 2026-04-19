@@ -58,7 +58,7 @@ To register an MCP server,
 Applications, by default, don't have permissions to access MCP servers. Administrators can selectively grant authorization for applications to use specific MCP servers, so that users logging into the application will have access to that MCP server, provided they're assigned to a role that grants the necessary permissions.
 
 !!! note
-    MCP servers can be authorized to all OIDC application types including Custom OIDC applications, Traditional Web applications, Single-Page applications (SPA), Mobile applications, and Machine-to-Machine (M2M) applications. The [MCP client Application]({{base_path}}/guides/applications/register-mcp-client-app/) template provides a pre-configured option for MCP-specific use cases. Digital Wallet applications can only access Verifiable Credential resources and cannot authorize MCP servers.
+    MCP servers can be authorized to all OIDC application types including Custom OIDC applications, Traditional Web applications, Single-Page applications (SPA), Mobile applications, and Machine-to-Machine (M2M) applications. The [MCP Client Application]({{base_path}}/guides/applications/register-mcp-client-app/) template provides a pre-configured option for MCP-specific use cases. Digital Wallet applications can only access Verifiable Credential resources and cannot authorize MCP servers.
 
 To authorize an application to consume an MCP server,
 
