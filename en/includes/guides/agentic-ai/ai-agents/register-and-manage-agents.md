@@ -15,17 +15,17 @@ Agents with user login come in two variants:
 
 - **Interactive agents**: These agents require constant user interaction throughout their operation. Examples include:
 
-  - Chatbots that respond to user queries in real-time
-  - AI assistants that help users complete tasks
-  - Conversational interfaces
+    - Chatbots that respond to user queries in real-time
+    - AI assistants that help users complete tasks
+    - Conversational interfaces
 
     Interactive agents use the OAuth `authorization_code` grant flow with PKCE (Proof Key for Code Exchange) to authenticate users and get access tokens.
 
 - **Background agents**: These agents perform tasks on behalf of users but operate asynchronously without requiring constant user interaction. Examples include:
 
-  - Scheduled report generators
-  - Notification services
-  - Batch processing systems that work with user data
+    - Scheduled report generators
+    - Notification services
+    - Batch processing systems that work with user data
 
     Background agents use CIBA (Client Initiated Backchannel Authentication) flow. This flow lets the agent start authentication through an out-of-band channel (such as email or SMS). The user provides consent asynchronously.
 
