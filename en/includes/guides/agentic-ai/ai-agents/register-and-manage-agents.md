@@ -169,7 +169,7 @@ Deleting an AI agent permanently removes the agent and all associated data, incl
 
 ## Best practices
 
-It's always recomended to follow these best practices to maintain security, reliability, and compliance when managing AI agents in your organization.
+It's always recommended to follow these best practices to maintain security, reliability, and compliance when managing AI agents in your organization.
 
 - *Apply the Principle of Least Privilege.*
     Assign only the minimum permissions necessary for the agent to perform its tasks, limiting potential exposure.
