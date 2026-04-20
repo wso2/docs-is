@@ -1,8 +1,8 @@
 In today’s rapidly evolving AI-driven environments, effective management of AI agents is essential to ensure security, compliance, and operational efficiency. AI agents act autonomously to perform various tasks, and thus require well-defined lifecycle management from creation to retirement. {{ product_name }} provides a comprehensive framework to help you create, configure, monitor, and securely manage the entire lifecycle of your AI agents.
 
 This guide walks you through key processes involved in managing AI agents, including identity creation, credential issuance, role assignment, deployment, monitoring, and eventual deactivation or deletion. Following these best practices ensures your AI agents operate reliably within your organizational security policies and governance standards.
+{% if is_version == "next" or product == "asgardeo" %}
 
-{% if is_version == "next" %}
 ## Understanding agent types
 
 {{ product_name }} supports two categories of AI agents based on whether they require user authentication.
@@ -15,21 +15,22 @@ Agents with user login come in two variants:
 
 - **Interactive agents**: These agents require constant user interaction throughout their operation. Examples include:
 
-  - Chatbots that respond to user queries in real-time
-  - AI assistants that help users complete tasks
-  - Conversational interfaces
+    - Chatbots that respond to user queries in real-time
+    - AI assistants that help users complete tasks
+    - Conversational interfaces
 
     Interactive agents use the OAuth `authorization_code` grant flow with PKCE (Proof Key for Code Exchange) to authenticate users and get access tokens.
 
 - **Background agents**: These agents perform tasks on behalf of users but operate asynchronously without requiring constant user interaction. Examples include:
 
-  - Scheduled report generators
-  - Notification services
-  - Batch processing systems that work with user data
+    - Scheduled report generators
+    - Notification services
+    - Batch processing systems that work with user data
 
     Background agents use CIBA (Client Initiated Backchannel Authentication) flow. This flow lets the agent start authentication through an out-of-band channel (such as email or SMS). The user provides consent asynchronously.
 
 {% endif %}
+
 ## AI agent lifecycle Management
 
 1. **Create Agent Identity**  
@@ -69,7 +70,7 @@ Registering an AI agent is the first step to bring an autonomous system into you
 3. Enter the following details:
     - **Name**: A descriptive name for your AI agent for human-readable display purposes
     - **Description** (optional): Purpose and functionality of the agent
-{% if is_version == "next" %}
+{% if is_version == "next" or product == "asgardeo" %}
 4. If you want to allow users to log in to this agent, enable the **Allow users to log in to this agent** checkbox. This will configure OAuth/OIDC authentication for the agent.
 5. If you enabled the user login option, select the agent type:
     - **Interactive Agent**: Select this if the agent requires constant user interaction (e.g., chatbots, AI assistants). You will need to provide:
@@ -78,13 +79,15 @@ Registering an AI agent is the first step to bring an autonomous system into you
         - **Authentication Request Expiry Time**: Duration in seconds for which the CIBA authentication request remains valid
         - **Notification Channels**: Select how users will be notified for authentication (Email, SMS, or both)
 6. Click **Create** to complete the registration.
-{% else %}
+{% endif %}
+
+{% if is_version != "next" and product != "asgardeo" %}
 4. Click **Create** to complete the registration.
 {% endif %}
 
 After successful registration, the agent receives a unique Agent ID that acts as its permanent identifier within the system. A secret credential is also issued at this point and is displayed only once. Be sure to store it securely for deployment.
 
-{% if is_version == "next" %}
+{% if is_version == "next" or product == "asgardeo" %}
 For agents with user login enabled, an OAuth application is automatically created with the appropriate grant types configured:
 
 - **Interactive agents**: Configured with `authorization_code` and `refresh_token` grant types
@@ -94,11 +97,11 @@ The success screen will display the Agent ID, Agent Secret (masked), and for age
 
 === "Agent with user login"
 
-    ![Agent registration success with user login]({{base_path}}/assets/img/guides/agentic-ai/agent-registration-success-with-user-login.png){: width="600" style="display: block; margin: 0;"}
+    ![Agent registration success with user login]({{base_path}}/assets/img/guides/agentic-ai/agent-registration-success-with-user-login.png){: width="600" style="display: block; margin: 0 auto;"}
 
 === "Agent without user login"
 
-    ![Agent registration success without user login]({{base_path}}/assets/img/guides/agentic-ai/agent-registration-success-without-user-login.png){: width="600" style="display: block; margin: 0;"}
+    ![Agent registration success without user login]({{base_path}}/assets/img/guides/agentic-ai/agent-registration-success-without-user-login.png){: width="600" style="display: block; margin: 0 auto;"}
 
 {% endif %}
 If needed, you can generate new credentials later. For detailed information on managing credentials, refer to the [Agent Credentials]({{base_path}}/guides/agentic-ai/ai-agents/agent-credentials/) section.
@@ -127,7 +130,8 @@ Deactivation is a vital security control used to temporarily suspend an AI agent
     !!! warning
         Deactivating an AI agent will immediately revoke all its active access tokens, rendering any existing sessions invalid. Furthermore, it prevents the agent from initiating any new authentication attempts, effectively halting its operations until it's reactivated.
 
-{% if is_version == "next" %}
+{% if is_version == "next" or product == "asgardeo" %}
+
 ### Managing OAuth applications for agents with user login
 
 When you create an agent with user login enabled, {{ product_name }} automatically creates an OAuth/OIDC application to handle user authentication flows. This application is configured with appropriate grant types based on the agent type you selected.
@@ -147,13 +151,10 @@ To view and manage the OAuth application:
         Changes to the OAuth application settings will affect how the agent authenticates users. Ensure you understand the implications before modifying these settings.
 
 {% endif %}
+
 ### Deleting an agent
 
-{% if is_version == "next" %}
-Deleting an AI agent permanently removes the agent and all associated data, including credentials and configurations. For agents with user login enabled, the automatically created OAuth application will also be removed. This action is irreversible and should only be performed when you are certain that the agent is no longer needed.
-{% else %}
-Deleting an AI agent permanently removes the agent and all associated data, including credentials and configurations. This action is irreversible and should only be performed when you are certain that the agent is no longer needed.
-{% endif %}
+Deleting an AI agent permanently removes the agent and all associated data, including credentials and configurations.{% if is_version == "next" or product == "asgardeo" %} For agents with user login enabled, the automatically created OAuth application will also be removed.{% endif %} This action is irreversible and should only be performed when you are certain that the agent is no longer needed.
 
 1. On the {{ product_name }} Console, go to **Agents**.
 2. Select your AI agent from the list.
@@ -161,7 +162,7 @@ Deleting an AI agent permanently removes the agent and all associated data, incl
 4. Click **Delete agent**.
 5. Confirm the deletion when prompted.
 
-{% if is_version == "next" %}
+{% if is_version == "next" or product == "asgardeo" %}
     !!! warning
         For agents with user login enabled, deleting the agent will also delete the associated OAuth application. Any users or services relying on this application for authentication will lose access immediately.
 {% endif %}
