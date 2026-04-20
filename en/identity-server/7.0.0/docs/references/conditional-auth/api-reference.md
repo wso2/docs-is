@@ -688,17 +688,37 @@ This function sends an email to the specified user. It includes the parameters l
         </tr>
         <tr>
           <td><code>placeholderParameters</code></td>
-          <td>Used to replace any placeholders in the template.</td>
+          <td><p>Used to replace any placeholders in the template.</p>
+            <p>This parameter also supports the following optional fields:</p>
+            <ul>
+              <li><code>send-to</code>: Specifies the email address to send the email to. Use this to send emails to users who do not exist in the identity server.</li>
+              <li><code>flowType</code>: Specifies the flow type. Set this to <code>registration</code> when sending emails to non-existent users.</li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </table>
 
 - **Example**
 
+    Send an email to an existing user:
+
     ``` js
     var user = context.steps[1].subject;
     var firstName = user.localClaims['http://wso2.org/claims/givenname'];
     sendEmail(user, 'myTemplate', {'firstName':firstName});
+    ```
+
+    Send an email to a non-existent user:
+
+    ``` js
+    var email = 'user@example.com';
+    var otp = '123456';
+    var sent = sendEmail(context.currentKnownSubject, 'EmailOTP', {
+        'send-to': email,
+        'flowType': 'registration',
+        'OTPCode': otp
+    });
     ```
 
 ### Get parameter value from JWT
