@@ -2,10 +2,14 @@
 
 The Model Context Protocol (MCP) specification defines that authorization is initiated by MCP clients. These clients handle authorization flows, manage tokens and sessions with MCP servers, and provide end-user experiences based on user permissions.
 
+{% if is_version == "next" or product_name == "Asgardeo" %}
 {{ product_name }} provides an **MCP Client Application** template with default configurations to register an MCP client with minimal effort. This template has been configured to create an OAuth application that adheres to the guidelines and best practices outlined in the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
 
 !!! info "Other Application Types"
     While the MCP Client Application template is optimized for MCP connections, MCP servers can also be accessed by most other application types in {{ product_name }}, including Single Page Applications, Traditional Web Applications, Mobile Applications, and M2M Applications. The only exception is Digital Wallet applications, which cannot access MCP servers.
+{% else %}
+{{ product_name }} provides an application template with default configurations to register an MCP client with minimal effort. This template has been configured to create an OAuth application that adheres to the guidelines and best practices outlined in the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
+{% endif %}
 
 ## Register an MCP Client Application
 

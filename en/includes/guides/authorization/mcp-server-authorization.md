@@ -58,13 +58,21 @@ To register an MCP server,
 Applications, by default, don't have permissions to access MCP servers. Administrators can selectively grant authorization for applications to use specific MCP servers, so that users logging into the application will have access to that MCP server, provided they're assigned to a role that grants the necessary permissions.
 
 !!! note
+    {% if is_version == "next" or product_name == "Asgardeo" %}
     MCP servers can be authorized to all OIDC application types including Custom OIDC applications, Traditional Web applications, Single-Page applications (SPA), Mobile applications, and Machine-to-Machine (M2M) applications. The [MCP Client Application]({{base_path}}/guides/applications/register-mcp-client-app/) template provides a pre-configured option for MCP-specific use cases. Digital Wallet applications can only access Verifiable Credential resources and cannot authorize MCP servers.
+    {% else %}
+    Currently MCP servers can only be authorized to applications that are created from the [MCP client Application]({{base_path}}/guides/applications/register-mcp-client-app/) template.
+    {% endif %}
 
 To authorize an application to consume an MCP server,
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
+{% if is_version == "next" or product_name == "Asgardeo" %}
 2. Select your application and go to its **Authorization** tab.
+{% else %}
+2. Select the MCP client application and go to its **Authorization** tab.
+{% endif %}
 
 3. Click **Authorize a resource**.
 
@@ -80,7 +88,11 @@ To authorize an application to consume an MCP server,
         </tr>
         <tr>
             <td><b>Authorized Scopes</b></td>
+            {% if is_version == "next" or product_name == "Asgardeo" %}
             <td>Select the scopes that the application should be able to request.</td>
+            {% else %}
+            <td>Select the scopes that the MCP client should be able to request.</td>
+            {% endif %}
         </tr>
     </table>
 

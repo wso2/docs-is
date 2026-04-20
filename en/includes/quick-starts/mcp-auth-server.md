@@ -323,8 +323,10 @@ To register MCP Inspector as a MCP client in {{product_name}}:
 !!! Info
     The authorized redirect URL determines where users are sent after sign-in, typically where the client app connecting to the MCP server is running.
     For this guide, we'll use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we'll use `http://localhost:6274/oauth/callback/debug`, as the authorized redirect URL.
+    {% if is_version == "next" or product_name == "Asgardeo" %}
 
     While we're using the **MCP Client Application** template here for optimized MCP settings, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
+    {% endif %}
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during next step.
 
