@@ -46,7 +46,7 @@ Follow the steps below to learn how you can configure IAM-CTL.
 
     {% if product_name == "Asgardeo" %}
     !!! note
-        `SERVER_VERSION` is only relevant for on-premise deployments. Leave this field empty for Asgardeo.
+        `SERVER_VERSION` is only relevant for on-premise deployments. Leave this field empty ("") for Asgardeo.
     {% endif %}
 
     === "serverConfig.json"
