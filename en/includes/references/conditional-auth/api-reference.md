@@ -1,3 +1,5 @@
+<!-- markdownlint-disable-file MD007 -->
+
 # Conditional authentication - API reference
 
 {{ product_name }} provides a set of defined functions and objects to write your conditional authentication script. They are grouped as follows:
