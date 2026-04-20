@@ -27,6 +27,10 @@ To enable clients to sign in and safely connect to the MCP server, an applicatio
 !!! Info
     The authorized redirect URL defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     For this guide, we will use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we will use `http://localhost:6274/oauth/callback`, as the authorized redirect URL.
+    {% if is_version == "next" or product_name == "Asgardeo" %}
+
+    While we're using the **MCP Client Application** template here for optimized MCP settings, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
+    {% endif %}
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Test the MCP server with authentication](#test-the-mcp-server-with-authentication) section of this guide.
 
