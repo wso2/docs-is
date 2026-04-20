@@ -109,6 +109,12 @@ extra:
       source_link: https://store.wso2.com/connector/identity-outbound-auth-naver
       category: authentication
       documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-naver/blob/master/docs/README_LATEST.md
+    - name: Password Reset Enforcer
+      icon: assets/img/logo/password-reset-enforcer-logo.svg
+      description: Enforces password reset upon expiration as part of the application's authentication flow.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-passwordPolicy
+      category: authentication
+      documentation_link: password-reset-enforcer
       
 
 
@@ -1199,6 +1205,11 @@ nav:
       - Usage: connectors/onfido/usage.md
       - Reference: connectors/onfido/reference.md
       - Try it: connectors/onfido/try-it.md
+    - Password Reset Enforcer:
+      - Overview: connectors/password-reset-enforcer/overview.md
+      - Set up: connectors/password-reset-enforcer/set-up.md
+      - Usage: connectors/password-reset-enforcer/usage.md
+      - Reference: connectors/password-reset-enforcer/reference.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
