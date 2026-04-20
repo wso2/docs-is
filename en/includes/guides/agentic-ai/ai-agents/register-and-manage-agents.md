@@ -4,7 +4,7 @@ This guide walks you through key processes involved in managing AI agents, inclu
 
 ## Understanding agent types
 
-{{ product_name }} supports two categories of AI agents based on whether they require user authentication:
+{{ product_name }} supports two categories of AI agents based on whether they require user authentication.
 
 ### Agents with user login
 
@@ -12,21 +12,21 @@ These are AI agents that allow users to log in to the agent. When users log in, 
 
 Agents with user login come in two variants:
 
-**Interactive agents**: These agents require constant user interaction throughout their operation. Examples include:
+- **Interactive agents**: These agents require constant user interaction throughout their operation. Examples include:
 
-- Chatbots that respond to user queries in real-time
-- AI assistants that help users complete tasks
-- Conversational interfaces
+    - Chatbots that respond to user queries in real-time
+    - AI assistants that help users complete tasks
+    - Conversational interfaces
 
-Interactive agents use the OAuth `authorization_code` grant flow with PKCE (Proof Key for Code Exchange) to authenticate users and get access tokens.
+    Interactive agents use the OAuth `authorization_code` grant flow with PKCE (Proof Key for Code Exchange) to authenticate users and get access tokens.
 
-**Background agents**: These agents perform tasks on behalf of users but operate asynchronously without requiring constant user interaction. Examples include:
+- **Background agents**: These agents perform tasks on behalf of users but operate asynchronously without requiring constant user interaction. Examples include:
 
-- Scheduled report generators
-- Notification services
-- Batch processing systems that work with user data
+    - Scheduled report generators
+    - Notification services
+    - Batch processing systems that work with user data
 
-Background agents use CIBA (Client Initiated Backchannel Authentication) flow. This flow lets the agent start authentication through an out-of-band channel (such as email or SMS). The user provides consent asynchronously.
+    Background agents use CIBA (Client Initiated Backchannel Authentication) flow. This flow lets the agent start authentication through an out-of-band channel (such as email or SMS). The user provides consent asynchronously.
 
 ## AI agent lifecycle Management
 
@@ -84,6 +84,14 @@ For agents with user login enabled, an OAuth application is automatically create
 - **Background agents**: Configured with `urn:openid:params:grant-type:ciba` (Client Initiated Backchannel Authentication) grant type
 
 The success screen will display the Agent ID, Agent Secret (masked), and for agents with user login, the OAuth Client ID which can be used for OAuth/OIDC flows.
+
+=== "Agent with user login"
+
+    ![Agent registration success with user login]({{base_path}}/assets/img/guides/agentic-ai/agent-registration-success-with-user-login.png){: width="600" style="display: block; margin: 0;"}
+
+=== "Agent without user login"
+
+    ![Agent registration success without user login]({{base_path}}/assets/img/guides/agentic-ai/agent-registration-success-without-user-login.png){: width="600" style="display: block; margin: 0;"}
 
 If needed, you can generate new credentials later. For detailed information on managing credentials, refer to the [Agent Credentials]({{base_path}}/guides/agentic-ai/ai-agents/agent-credentials/) section.
 
