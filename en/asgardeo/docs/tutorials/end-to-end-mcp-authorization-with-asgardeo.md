@@ -77,7 +77,7 @@ Register the VetAssist MCP Server in {{ product_name }} as an MCP server (identi
 Define the scopes that the MCP server will use to ensure the correct access to its tools and resources. For our example use case, let’s define the following scopes.
 
 - pet-profile:read Permission to get the authorized user’s Pet information
-- pet-profile:write Permission to add new pet information or update existing pet information 
+- pet-profile:write Permission to add new pet information or update existing pet information
 
     ![ Configure scopes for VetAssist MCP Server tools]({{base_path}}/assets/img/tutorials/e2e-mcp-authz/configure-vetassist-mcp-scopes.png)
 
@@ -104,6 +104,8 @@ Navigate to the Pet Owner role’s edit view, go to the Users tab and assign Bob
 
 #### Configure the MCP client
 
+To configure the MCP client, you need to register a new MCP client application in {{ product_name }}.
+
 ##### Register a new MCP client application
 
 We need to have the Vet Assist AI application registered in Asgardeo, so that the registered MCP server can be authorized to the AI application and the application can securely access the MCP server on behalf of the authenticated user.
@@ -113,8 +115,8 @@ To register the MCP client,
 - On {{ product_name }}, navigate to Applications > New Application
 - Select the **MCP Client Application** template.
 - Provide the necessary details and click create.
-    - **Name** - provide a meaningful name
-    - **Redirect URL** - provide an endpoint in the VetAssist AI app that can receive and process the authorization code.
+  - **Name** - provide a meaningful name
+  - **Redirect URL** - provide an endpoint in the VetAssist AI app that can receive and process the authorization code.
 
 ![Register VetAssist MCP Client]({{base_path}}/assets/img/tutorials/e2e-mcp-authz/register-vetassist-mcp-client.png)
 
