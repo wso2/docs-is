@@ -46,6 +46,11 @@ Take note of the **Client ID** and **Client Secret** of the application you crea
 
 Open the **serverConfig.json** file and provide the details of the application shared with the child organization and the child organization details, before running the tool.
 
+{% if product_name == "Asgardeo" %}
+!!! note
+    `SERVER_VERSION` is only relevant for on-premise deployments. Leave this field empty ("") for Asgardeo.
+{% endif %}
+
 === "serverConfig.json"
 
     ```json
