@@ -227,15 +227,15 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
 
     === "Symmetric encryption"
 
-        - For Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon`
+        - For Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon -Dsymmetric`
 
-        - For Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon`
+        - For Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon -Dsymmetric`
 
     === "Asymmetric encryption"
 
-        - On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon -Dsymmetric`
+        - On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon`
 
-        - On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon  -Dsymmetric`
+        - On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon`
 
 5. Go back to the `deployment.toml` file and see that the passwords are re-encrypted with the new encryption key.
 

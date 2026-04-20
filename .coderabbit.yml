@@ -10,6 +10,7 @@ reviews:
   estimate_code_review_effort: false
   auto_assign_reviewers: true
   poem: false
+  auto_apply_labels: true
   labeling_instructions:
   - label: "Team/Authentication & registration"
     instructions: >

@@ -133,13 +133,19 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     
     // Load environment variables from .env file
     dotenv.config();
-    
+    {% if product_name == "Asgardeo" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
         baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
-    
+    {% else %}
+    const identityServerConfig = {
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.IDENTITY_SERVER_BASE_URL || "",
+    };
+    {% endif %}
     const agentConfig = {
         agentID: process.env.AGENT_ID || "",
         agentSecret: process.env.AGENT_SECRET || "",
@@ -151,8 +157,13 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     });
     
     async function runAgent() {
+        {% if product_name == "Asgardeo" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
+        {% else %}
+        const identityServerJavaScriptClient = new AsgardeoJavaScriptClient(identityServerConfig);
+        const agentToken = await identityServerJavaScriptClient.getAgentToken(agentConfig);
+        {% endif %}
     
         const client = new MultiServerMCPClient({
             math: {
@@ -215,13 +226,19 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     
     // Load environment variables from .env file
     dotenv.config();
-    
+    {% if product_name == "Asgardeo" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI,
         clientId: process.env.CLIENT_ID,
         baseUrl: process.env.ASGARDEO_BASE_URL,
     };
-    
+    {% else %}
+    const identityServerConfig = {
+        afterSignInUrl: process.env.REDIRECT_URI,
+        clientId: process.env.CLIENT_ID,
+        baseUrl: process.env.IDENTITY_SERVER_BASE_URL,
+    };
+    {% endif %}
     const agentConfig = {
         agentID: process.env.AGENT_ID,
         agentSecret: process.env.AGENT_SECRET,
@@ -231,9 +248,14 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     
     async function runAgent() {
         silenceADK();
+        {% if product_name == "Asgardeo" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
-    
+        {% else %}
+        const identityServerJavaScriptClient = new AsgardeoJavaScriptClient(identityServerConfig);
+        const agentToken = await identityServerJavaScriptClient.getAgentToken(agentConfig);
+        {% endif %}
+
         const rootAgent = new LlmAgent({
             name: "example_agent",
             model: process.env.MODEL_NAME || "gemini-2.5-flash",
@@ -339,13 +361,19 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     
     // Load environment variables from .env file
     dotenv.config();
-    
+    {% if product_name == "Asgardeo" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
         baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
-    
+    {% else %}
+    const identityServerConfig = {
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.IDENTITY_SERVER_BASE_URL || "",
+    };
+    {% endif %}
     const agentConfig = {
         agentID: process.env.AGENT_ID || "",
         agentSecret: process.env.AGENT_SECRET || "",
@@ -400,8 +428,13 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     }
     
     async function runAgent() {
+        {% if product_name == "Asgardeo" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
+        {% else %}
+        const identityServerJavaScriptClient = new AsgardeoJavaScriptClient(identityServerConfig);
+        const agentToken = await identityServerJavaScriptClient.getAgentToken(agentConfig);
+        {% endif %}
     
         process.env.GOOGLE_GENERATIVE_AI_API_KEY = process.env.GOOGLE_API_KEY || "";
     
@@ -458,6 +491,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
 ```properties title=".env"
+{% if product_name == "Asgardeo" %}
 # Asgardeo OAuth2 Configuration
 ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<organization-name>
 CLIENT_ID=<your-client-id>
@@ -466,6 +500,16 @@ REDIRECT_URI=http://localhost:3001/callback
 # Asgardeo Agent Credentials
 AGENT_ID=<agent_id>
 AGENT_SECRET=<agent_secret>
+{% else %}
+# Identity Server OAuth2 Configuration
+IDENTITY_SERVER_BASE_URL=https://localhost:9443/t/<tenant-name>
+CLIENT_ID=<your-client-id>
+REDIRECT_URI=http://localhost:3001/callback
+
+# Identity Server Agent Credentials
+AGENT_ID=<agent_id>
+AGENT_SECRET=<agent_secret>
+{% endif %}
 
 # Google Gemini API Key
 GOOGLE_API_KEY=<google_api_key>
@@ -478,9 +522,13 @@ MODEL_NAME="gemini-2.5-flash"
 ```
 
 !!! Important
-
+    {% if product_name == "Asgardeo" %}
     - Replace `<organization-name>` and `<client-id>` with the values obtained from the {{ product_name }} console.
-      The organization name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<your-tenant>`), and the `client ID` can be found in the application's **Protocol** tab.
+      The organization name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<organization-name>`), and the `client ID` can be found in the application's **Protocol** tab.
+    {% else %}
+    - Replace `<tenant-name>` and `<client-id>` with the values obtained from the {{ product_name }} console.
+      The tenant name is visible in the console URL path (e.g., `https://localhost:9443/t/<your-tenant>`), and the `client ID` can be found in the application's **Protocol** tab.
+      {% endif %}
 
     - Add the `<agent-id>` and `<agent-secret>` from the [Agent Registration](#register-an-ai-agent) step.
 
@@ -590,13 +638,19 @@ Here is the updated implementation:
     
     // Load environment variables from .env file
     dotenv.config();
-    
+    {% if product_name == "Asgardeo" %}   
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
         baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
-    
+    {% else %}
+    const identityServerConfig = {
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.IDENTITY_SERVER_BASE_URL || "",
+    };
+    {% endif %}
     const agentConfig = {
         agentID: process.env.AGENT_ID || "",
         agentSecret: process.env.AGENT_SECRET || "",
@@ -608,9 +662,14 @@ Here is the updated implementation:
     });
     
     async function runAgent() {
+        {% if product_name == "Asgardeo" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
-    
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
+        {% else %}
+        const identityServerJavaScriptClient = new AsgardeoJavaScriptClient(identityServerConfig );
+        const authURL = await identityServerJavaScriptClient.getOBOSignInURL(agentConfig);
+        {% endif %}
+    
         console.log("Opening authentication URL in your browser...");
         await open(authURL);
     
@@ -659,8 +718,11 @@ Here is the updated implementation:
             });
     
         authCodeResponse = await authCodePromise;
-    
+        {% if product_name == "Asgardeo" %}
         const oboToken = await asgardeoJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
+        {% else %}
+        const oboToken = await identityServerJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
+        {% endif %}
     
         const client = new MultiServerMCPClient({
             math: {
@@ -737,12 +799,19 @@ Here is the updated implementation:
     
     // Load environment variables from .env file
     dotenv.config();
-    
+    {% if product_name == "Asgardeo" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
         baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
+    {% else %}
+    const identityServerConfig = {
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.IDENTITY_SERVER_BASE_URL || "",
+    };
+    {% endif %}
     
     const agentConfig = {
         agentID: process.env.AGENT_ID || "",
@@ -753,9 +822,13 @@ Here is the updated implementation:
     
     async function runAgent() {
         silenceADK();
+        {% if product_name == "Asgardeo" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
-    
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
+        {% else %}
+        const identityServerJavaScriptClient = new AsgardeoJavaScriptClient(identityServerConfig);
+        const authURL = await identityServerJavaScriptClient.getOBOSignInURL(agentConfig);
+        {% endif %}
         console.log("Opening authentication URL in your browser...");
         await open(authURL);
     
@@ -804,9 +877,11 @@ Here is the updated implementation:
             });
     
         authCodeResponse = await authCodePromise;
-    
+        {% if product_name == "Asgardeo" %}
         const oboToken = await asgardeoJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
-    
+        {% else %}
+        const oboToken = await identityServerJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
+        {% endif %}
         const rootAgent = new LlmAgent({
             name: "example_agent",
             model: process.env.MODEL_NAME || "gemini-2.5-flash",
@@ -921,12 +996,19 @@ Here is the updated implementation:
     const callbackPort = Number(
         redirectURL.port || (redirectURL.protocol === "https:" ? 443 : 80)
     );
-    
+    {% if product_name == "Asgardeo" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
         baseUrl: process.env.ASGARDEO_BASE_URL || "",
     };
+    {% else %}
+    const identityServerConfig = {
+        afterSignInUrl: process.env.REDIRECT_URI || "",
+        clientId: process.env.CLIENT_ID || "",
+        baseUrl: process.env.IDENTITY_SERVER_BASE_URL || "",
+    };
+    {% endif %}
     
     const agentConfig = {
         agentID: process.env.AGENT_ID || "",
@@ -981,9 +1063,13 @@ Here is the updated implementation:
     }
     
     async function runAgent() {
+        {% if product_name == "Asgardeo" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
-    
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
+        {% else %}
+        const identityServerJavaScriptClient = new AsgardeoJavaScriptClient(identityServerConfig);
+        const authURL = await identityServerJavaScriptClient.getOBOSignInURL(agentConfig);
+        {% endif %}
         console.log("Opening authentication URL in your browser...");
         await open(authURL);
     
@@ -1091,6 +1177,7 @@ Add environment configuration by creating a `.env` file at the project root to h
 
 ```properties title=".env"
 # Asgardeo OAuth2 Configuration
+{% if product_name == "Asgardeo" %}
 ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-tenant>
 CLIENT_ID=<your-client-id>
 REDIRECT_URI=http://localhost:3001/callback
@@ -1098,6 +1185,15 @@ REDIRECT_URI=http://localhost:3001/callback
 # Asgardeo Agent Credentials
 AGENT_ID=<agent_id>
 AGENT_SECRET=<agent_secret>
+{% else %}
+IDENTITY_SERVER_BASE_URL=https://localhost:9443/t/<your-tenant>
+CLIENT_ID=<your-client-id>
+REDIRECT_URI=http://localhost:3001/callback
+
+# Identity Server Agent Credentials
+AGENT_ID=<agent_id>
+AGENT_SECRET=<agent_secret>
+{% endif %}
 
 # Google Gemini API Key
 GOOGLE_API_KEY=<google_api_key>

@@ -250,7 +250,7 @@ Then include the following content.
         {
             apiResponse = "Error invoking protected API.";
             // Handle error (unauthorized, forbidden, etc.)
-            Console.WriteLine("Error invoking protected API. Recieved an unsuccessful response: " + response.StatusCode);
+            Console.WriteLine("Error invoking protected API. received an unsuccessful response: " + response.StatusCode);
         }
     }
 

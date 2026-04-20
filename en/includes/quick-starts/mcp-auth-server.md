@@ -229,10 +229,19 @@ Stop the dev server and install the Asgardeo MCP Auth SDK.
 
 Create '.env' file and add the base URL of your {{product_name}} organization as given below.
 
+{% if product_name == "Asgardeo" %}
+
 ```env
 BASE_URL=https://api.asgardeo.io/t/<you-org-name>
-
 ```
+
+{% else %}
+
+```env
+BASE_URL=https://localhost:9443/t/<you-org-name>
+```
+
+{% endif %}
 
 Update `server.ts` to integrate the Asgardeo middleware. This adds:
 
