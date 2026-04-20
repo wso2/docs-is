@@ -326,7 +326,7 @@ enabled and the password reset enforcement feature is activated via configuratio
 - **Selected application login flows**: Password expiry is enforced only for applications where the
   Password Reset Enforcer has been explicitly added to the login flow.
 
-The Password Reset Enforcer now also supports app native
+The Password Reset Enforcer now also supports app-native
 authentication flows in addition to the existing redirect-based flow.
 A new property is introduced in the authentication context to track the
 password reset completion status, enabling adaptive authentication scripts

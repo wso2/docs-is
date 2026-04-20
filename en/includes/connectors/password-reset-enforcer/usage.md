@@ -1,11 +1,11 @@
 # Usage
 
-This guide explains how to enforce password expiration for an application using Password Reset Enforcer.
+This guide explains how to enforce password reset upon expiry for an application using Password Reset Enforcer.
 
 ## Prerequisites
 
 - [Set up Password Reset Enforcer]({{base_path}}/connectors/password-reset-enforcer/set-up/) in your {{product_name}} installation.
-- Enable and configure password expiration in your organization.
+- Enable and configure password expiry in your organization.
 
   1. On the {{product_name}} Console, go to **Login & Registration** > **Password Validation**.
   2. Enable **Password Expiration**.
@@ -69,4 +69,4 @@ When **Password Expiration** is enabled, the **Enforce password expiry for** set
 3. Confirm that {{product_name}} redirects the user to the password reset screen before completing authentication.
 
 !!! note
-    Password Reset Enforcer supports both redirect-based and app native authentication flows.
+    Password Reset Enforcer supports both redirect-based and app-native authentication flows.
