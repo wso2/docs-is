@@ -4,8 +4,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Action management
 
-??? note "`activate-action` <span style="float:right;font-weight:normal;opacity:0.7">Action management</span>"
-    **Description:** An action was activated.
+??? note "`activate-action` - An action was activated."
 
     ```json
     {
@@ -24,8 +23,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`add-action` <span style="float:right;font-weight:normal;opacity:0.7">Action management</span>"
-    **Description:** A new action was added.
+??? note "`add-action` - A new action was added."
 
     ```json
     {
@@ -54,8 +52,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`deactivate-action` <span style="float:right;font-weight:normal;opacity:0.7">Action management</span>"
-    **Description:** An action was deactivated.
+??? note "`deactivate-action` - An action was deactivated."
 
     ```json
     {
@@ -74,8 +71,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`delete-action` <span style="float:right;font-weight:normal;opacity:0.7">Action management</span>"
-    **Description:** An action was deleted.
+??? note "`delete-action` - An action was deleted."
 
     ```json
     {
@@ -94,8 +90,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-action` <span style="float:right;font-weight:normal;opacity:0.7">Action management</span>"
-    **Description:** An action was updated.
+??? note "`update-action` - An action was updated."
 
     ```json
     {
@@ -120,8 +115,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Application management
 
-??? note "`create-application` <span style="float:right;font-weight:normal;opacity:0.7">Application management</span>"
-    **Description:** A new application was created.
+??? note "`create-application` - A new application was created."
 
     ```json
     {
@@ -199,8 +193,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`create-oauth-application` <span style="float:right;font-weight:normal;opacity:0.7">Application management</span>"
-    **Description:** A new OAuth application was created.
+??? note "`create-oauth-application` - A new OAuth application was created."
 
     ```json
     {
@@ -225,8 +218,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`delete-application` <span style="float:right;font-weight:normal;opacity:0.7">Application management</span>"
-    **Description:** An application was deleted.
+??? note "`delete-application` - An application was deleted."
 
     ```json
     {
@@ -241,8 +233,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-application` <span style="float:right;font-weight:normal;opacity:0.7">Application management</span>"
-    **Description:** An application was updated.
+??? note "`update-application` - An application was updated."
 
     ```json
     {
@@ -371,8 +362,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Application sharing
 
-??? note "`processing-share-application-with-all-orgs` <span style="float:right;font-weight:normal;opacity:0.7">Application sharing</span>"
-    **Description:** An application was shared with all organizations.
+??? note "`processing-share-application-with-all-orgs` - An application was shared with all organizations."
 
     ```json
     {
@@ -391,8 +381,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`processing-share-application-with-selected-orgs` <span style="float:right;font-weight:normal;opacity:0.7">Application sharing</span>"
-    **Description:** An application was shared with selected organizations.
+??? note "`processing-share-application-with-selected-orgs` - An application was shared with selected organizations."
 
     ```json
     {
@@ -411,8 +400,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`processing-unshare-application-from-all-orgs` <span style="float:right;font-weight:normal;opacity:0.7">Application sharing</span>"
-    **Description:** An application was unshared from all organizations.
+??? note "`processing-unshare-application-from-all-orgs` - An application was unshared from all organizations."
 
     ```json
     {
@@ -431,8 +419,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`processing-unshare-application-from-selected-orgs` <span style="float:right;font-weight:normal;opacity:0.7">Application sharing</span>"
-    **Description:** An application was unshared from selected organizations.
+??? note "`processing-unshare-application-from-selected-orgs` - An application was unshared from selected organizations."
 
     ```json
     {
@@ -453,8 +440,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Connections
 
-??? note "`Add-IDP` <span style="float:right;font-weight:normal;opacity:0.7">Connections</span>"
-    **Description:** A new connection was added.
+??? note "`Add-IDP` - A new connection was added."
 
     ```json
     {
@@ -473,8 +459,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`Delete-IDP` <span style="float:right;font-weight:normal;opacity:0.7">Connections</span>"
-    **Description:** A connection was deleted.
+??? note "`Delete-IDP` - A connection was deleted."
 
     ```json
     {
@@ -488,8 +473,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`Update-IDP` <span style="float:right;font-weight:normal;opacity:0.7">Connections</span>"
-    **Description:** A connection was updated.
+??? note "`Update-IDP` - A connection was updated."
 
     ```json
     {
@@ -509,8 +493,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Flow management
 
-??? note "`update-flow-config-INVITED_USER_REGISTRATION` <span style="float:right;font-weight:normal;opacity:0.7">Flow management</span>"
-    **Description:** The invited user registration flow configuration was updated.
+??? note "`update-flow-config-INVITED_USER_REGISTRATION` - The invited user registration flow configuration was updated."
 
     ```json
     {
@@ -525,8 +508,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-flow-config-PASSWORD_RECOVERY` <span style="float:right;font-weight:normal;opacity:0.7">Flow management</span>"
-    **Description:** The password recovery flow configuration was updated.
+??? note "`update-flow-config-PASSWORD_RECOVERY` - The password recovery flow configuration was updated."
 
     ```json
     {
@@ -541,8 +523,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-flow-config-REGISTRATION` <span style="float:right;font-weight:normal;opacity:0.7">Flow management</span>"
-    **Description:** The registration flow configuration was updated.
+??? note "`update-flow-config-REGISTRATION` - The registration flow configuration was updated."
 
     ```json
     {
@@ -557,8 +538,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-flow-INVITED_USER_REGISTRATION` <span style="float:right;font-weight:normal;opacity:0.7">Flow management</span>"
-    **Description:** The invited user registration flow was updated.
+??? note "`update-flow-INVITED_USER_REGISTRATION` - The invited user registration flow was updated."
 
     ```json
     {
@@ -573,8 +553,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-flow-PASSWORD_RECOVERY` <span style="float:right;font-weight:normal;opacity:0.7">Flow management</span>"
-    **Description:** The password recovery flow was updated.
+??? note "`update-flow-PASSWORD_RECOVERY` - The password recovery flow was updated."
 
     ```json
     {
@@ -589,8 +568,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-flow-REGISTRATION` <span style="float:right;font-weight:normal;opacity:0.7">Flow management</span>"
-    **Description:** The registration flow was updated.
+??? note "`update-flow-REGISTRATION` - The registration flow was updated."
 
     ```json
     {
@@ -607,8 +585,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Organization management
 
-??? note "`add-organization` <span style="float:right;font-weight:normal;opacity:0.7">Organization management</span>"
-    **Description:** A new organization was added.
+??? note "`add-organization` - A new organization was added."
 
     ```json
     {
@@ -642,8 +619,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`delete-organization` <span style="float:right;font-weight:normal;opacity:0.7">Organization management</span>"
-    **Description:** An organization was deleted.
+??? note "`delete-organization` - An organization was deleted."
 
     ```json
     {
@@ -661,8 +637,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-organization` <span style="float:right;font-weight:normal;opacity:0.7">Organization management</span>"
-    **Description:** An organization was updated.
+??? note "`update-organization` - An organization was updated."
 
     ```json
     {
@@ -685,8 +660,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Role management
 
-??? note "`add-role` <span style="float:right;font-weight:normal;opacity:0.7">Role management</span>"
-    **Description:** A new role was created.
+??? note "`add-role` - A new role was created."
 
     ```json
     {
@@ -709,8 +683,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`delete-role` <span style="float:right;font-weight:normal;opacity:0.7">Role management</span>"
-    **Description:** A role was deleted.
+??? note "`delete-role` - A role was deleted."
 
     ```json
     {
@@ -725,8 +698,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`get-users-of-role` <span style="float:right;font-weight:normal;opacity:0.7">Role management</span>"
-    **Description:** Users of a role were retrieved.
+??? note "`get-users-of-role` - Users of a role were retrieved."
 
     ```json
     {
@@ -742,8 +714,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-groups-of-role` <span style="float:right;font-weight:normal;opacity:0.7">Role management</span>"
-    **Description:** Groups of a role were updated.
+??? note "`update-groups-of-role` - Groups of a role were updated."
 
     ```json
     {
@@ -763,8 +734,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-permissions-of-role` <span style="float:right;font-weight:normal;opacity:0.7">Role management</span>"
-    **Description:** Permissions of a role were updated.
+??? note "`update-permissions-of-role` - Permissions of a role were updated."
 
     ```json
     {
@@ -785,8 +755,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-role-name` <span style="float:right;font-weight:normal;opacity:0.7">Role management</span>"
-    **Description:** A role name was updated.
+??? note "`update-role-name` - A role name was updated."
 
     ```json
     {
@@ -804,8 +773,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-users-of-role` <span style="float:right;font-weight:normal;opacity:0.7">Role management</span>"
-    **Description:** Users of a role were updated.
+??? note "`update-users-of-role` - Users of a role were updated."
 
     ```json
     {
@@ -825,8 +793,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`Update users list of role by id` <span style="float:right;font-weight:normal;opacity:0.7">Role management</span>"
-    **Description:** Users list of a role was updated by ID.
+??? note "`Update users list of role by id` - Users list of a role was updated by ID."
 
     ```json
     {
@@ -842,8 +809,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Session management
 
-??? note "`TerminateSession` <span style="float:right;font-weight:normal;opacity:0.7">Session management</span>"
-    **Description:** A user session was terminated.
+??? note "`TerminateSession` - A user session was terminated."
 
     ```json
     {
@@ -861,8 +827,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## System operations
 
-??? note "`Kill-All-Agents-In-Tenant` <span style="float:right;font-weight:normal;opacity:0.7">System operations</span>"
-    **Description:** All agents in a tenant were terminated.
+??? note "`Kill-All-Agents-In-Tenant` - All agents in a tenant were terminated."
 
     ```json
     {
@@ -876,8 +841,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`Kill-All-Agents-In-User-Store` <span style="float:right;font-weight:normal;opacity:0.7">System operations</span>"
-    **Description:** All agents in a user store were terminated.
+??? note "`Kill-All-Agents-In-User-Store` - All agents in a user store were terminated."
 
     ```json
     {
@@ -892,8 +856,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`resource-creation-via-impersonation` <span style="float:right;font-weight:normal;opacity:0.7">System operations</span>"
-    **Description:** A resource was created via impersonation.
+??? note "`resource-creation-via-impersonation` - A resource was created via impersonation."
 
     ```json
     {
@@ -911,8 +874,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Tenant management
 
-??? note "`Add-Tenant` <span style="float:right;font-weight:normal;opacity:0.7">Tenant management</span>"
-    **Description:** A new tenant was added.
+??? note "`Add-Tenant` - A new tenant was added."
 
     ```json
     {
@@ -930,8 +892,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## Token management
 
-??? note "`Generate-Access-Token-For-Remote-User-Store` <span style="float:right;font-weight:normal;opacity:0.7">Token management</span>"
-    **Description:** An access token was generated for a remote user store.
+??? note "`Generate-Access-Token-For-Remote-User-Store` - An access token was generated for a remote user store."
 
     ```json
     {
@@ -946,8 +907,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`issue-access-token` <span style="float:right;font-weight:normal;opacity:0.7">Token management</span>"
-    **Description:** An access token was issued.
+??? note "`issue-access-token` - An access token was issued."
 
     ```json
     {
@@ -970,8 +930,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`ISSUE-SYSTEM-TOKEN` <span style="float:right;font-weight:normal;opacity:0.7">Token management</span>"
-    **Description:** A system token was issued.
+??? note "`ISSUE-SYSTEM-TOKEN` - A system token was issued."
 
     ```json
     {
@@ -985,8 +944,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`PostTokenIssue` <span style="float:right;font-weight:normal;opacity:0.7">Token management</span>"
-    **Description:** A token was issued via the password grant.
+??? note "`PostTokenIssue` - A token was issued via the password grant."
 
     ```json
     {
@@ -1004,8 +962,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`Revoke-All-Access-Tokens-For-Remote-User-Store` <span style="float:right;font-weight:normal;opacity:0.7">Token management</span>"
-    **Description:** All access tokens for a remote user store were revoked.
+??? note "`Revoke-All-Access-Tokens-For-Remote-User-Store` - All access tokens for a remote user store were revoked."
 
     ```json
     {
@@ -1020,8 +977,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`validate-scope` <span style="float:right;font-weight:normal;opacity:0.7">Token management</span>"
-    **Description:** OAuth scope validation was performed.
+??? note "`validate-scope` - OAuth scope validation was performed."
 
     ```json
     {
@@ -1053,8 +1009,7 @@ The audit log catalog provides detailed information about all audit log action k
 
 ## User management
 
-??? note "`Account Disable` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A user account was disabled.
+??? note "`Account Disable` - A user account was disabled."
 
     ```json
     {
@@ -1070,8 +1025,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`Account Enable` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A user account was enabled.
+??? note "`Account Enable` - A user account was enabled."
 
     ```json
     {
@@ -1087,8 +1041,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`add-group` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A new group was added.
+??? note "`add-group` - A new group was added."
 
     ```json
     {
@@ -1106,8 +1059,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`add-user` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A new user was added.
+??? note "`add-user` - A new user was added."
 
     ```json
     {
@@ -1135,8 +1087,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`create-federated-user-association` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A federated user association was created.
+??? note "`create-federated-user-association` - A federated user association was created."
 
     ```json
     {
@@ -1151,8 +1102,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`credential-update-by-administrator` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** User credentials were updated by an administrator.
+??? note "`credential-update-by-administrator` - User credentials were updated by an administrator."
 
     ```json
     {
@@ -1167,8 +1117,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`credential-update-by-user` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** User credentials were updated by the user.
+??? note "`credential-update-by-user` - User credentials were updated by the user."
 
     ```json
     {
@@ -1183,8 +1132,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`delete-group` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A group was deleted.
+??? note "`delete-group` - A group was deleted."
 
     ```json
     {
@@ -1199,8 +1147,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`delete-user` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A user was deleted.
+??? note "`delete-user` - A user was deleted."
 
     ```json
     {
@@ -1215,8 +1162,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`delete-user-claim-value` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A user claim value was deleted.
+??? note "`delete-user-claim-value` - A user claim value was deleted."
 
     ```json
     {
@@ -1231,8 +1177,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`set-user-claim-value` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A user claim value was set.
+??? note "`set-user-claim-value` - A user claim value was set."
 
     ```json
     {
@@ -1247,8 +1192,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`set-user-claim-values` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** Multiple user claim values were set.
+??? note "`set-user-claim-values` - Multiple user claim values were set."
 
     ```json
     {
@@ -1269,8 +1213,7 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
-??? note "`update-group-name` <span style="float:right;font-weight:normal;opacity:0.7">User management</span>"
-    **Description:** A group name was updated.
+??? note "`update-group-name` - A group name was updated."
 
     ```json
     {
