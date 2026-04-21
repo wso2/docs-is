@@ -9,7 +9,7 @@ This page documents the mechanisms specific to that legacy model — how applica
 
 ---
 
-## Initiate organization login
+## Start organization login
 
 Send a standard authentication request to the root organization. The login page shows an **Organization SSO** option alongside any other configured authenticators. When the user selects it, {{ product_name }} prompts them for an organization identifier and then delegates the rest of the flow to that organization.
 
@@ -167,9 +167,3 @@ Any parameter listed in `ssoAdditionalParams` that is present on the initial req
 
 !!! note
     Under **enhanced organization authentication**, this script is no longer required. Custom parameters on the initial authorize request are forwarded automatically. See [Enable organization-based login]({{base_path}}/guides/organization-management/organization-login/).
-
----
-
-## What's next
-
-- [Migrate between organization login approaches]({{base_path}}/guides/organization-management/organization-login/migrate-organization-login/) — How to move from the legacy model to enhanced organization authentication.

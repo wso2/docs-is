@@ -15,11 +15,11 @@
 
 ---
 
-## Initiate organization login
+## Start organization login
 
-There are two ways to initiate a login to an organization.
+Two methods are available for starting organization login.
 
-### Method 1: Initiate organization login from root organization endpoint
+### Method 1: Start from the root organization endpoint
 
 Send the authentication request to the root organization's endpoint. {{ product_name }} will prompt users to identify their organization when the **Sign in with SSO** option is selected during the login flow.
 
@@ -43,7 +43,7 @@ Send the authentication request to the root organization's endpoint. {{ product_
 !!! tip
     You can route users directly to their organization by including an organization discovery parameter in the request — such as `orgHandle`, `org` (organization name), `orgId` (organization ID), or an email domain hint. See [Organization discovery]({{base_path}}/guides/organization-management/organization-discovery/organization-discovery/).
 
-### Method 2: Initiate organization login using direct organization path
+### Method 2: Start from the direct organization path
 
 Send the authentication request directly to the organization's endpoint using the root organization handle and the accessing organization's ID.
 
@@ -65,11 +65,3 @@ Send the authentication request directly to the organization's endpoint using th
     ```
 
 Replace `<root_org_handle>` with the handle of your root organization and `<org_id>` with the accessing organization's ID.
-
----
-
-## What's next
-
-- [Organization discovery]({{base_path}}/guides/organization-management/organization-discovery/organization-discovery/) — Route users using org name, handle, or email domain.
-- [Email domain-based discovery]({{base_path}}/guides/organization-management/organization-discovery/email-domain-based-organization-discovery/) — Automatically identify organizations from email domains.
-- [Migrate between login approaches]({{base_path}}/guides/organization-management/organization-login/migrate-organization-login/) — Understand what changes when switching to or from enhanced organization authentication.

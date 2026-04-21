@@ -1,4 +1,4 @@
-# App-native authentication for organizations
+# Organization login with app-native authentication
 
 App-native authentication lets mobile and native applications handle B2B login without redirecting users to a browser. Users complete the full authentication flow from within the application, including any multi-factor authentication steps required by the organization.
 
@@ -8,11 +8,11 @@ App-native authentication lets mobile and native applications handle B2B login w
 
 ---
 
-## Initiate organization login
+## Start organization login
 
 The initial request follows the same structure as a standard app-native authentication request, with `response_mode=direct`. The difference is in the endpoint — it must target the organization rather than the root organization.
 
-### Method 1: Initiate using direct organization path
+### Method 1: Use the direct organization path
 
 Send the request directly to the organization's endpoint using the root organization handle and the accessing organization's ID.
 
@@ -119,7 +119,7 @@ The final token request also uses the organization-scoped path:
     --data-urlencode 'redirect_uri=<redirect_uri>'
     ```
 
-### Method 2: Initiate from root organization endpoint
+### Method 2: Use the root organization endpoint
 
 Send the request to the root organization's endpoint.
 
@@ -270,10 +270,3 @@ The final token request is sent to the root organization's token endpoint, match
 After the initial request, {{ product_name }} returns instructions for the next authentication step. The rest of the flow — collecting user credentials, calling the Authentication API, and receiving the authorization code — is the same as regular app-native authentication.
 
 See [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) for the full step-by-step flow.
-
----
-
-## What's next
-
-- [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) — Full guide to setup and the authentication flow.
-- [Handle advanced login scenarios]({{base_path}}/guides/authentication/app-native-authentication/handle-advanced-login-scenarios/) — SSO, multi-option login, and federated authentication.
