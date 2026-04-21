@@ -10,7 +10,7 @@ App-native authentication lets mobile and native applications handle B2B login w
 
 ## Start organization login
 
-The initial request follows the same structure as a standard app-native authentication request, with `response_mode=direct`. The difference is in the endpoint — it must target the organization rather than the root organization.
+The initial request follows the same structure as a standard app-native authentication request, with `response_mode=direct`. Depending on the flow, the request may be sent directly to the organization's endpoint (Method 1) or to the root organization's endpoint (Method 2).
 
 ### Method 1: Use the direct organization path
 
@@ -19,13 +19,13 @@ Send the request directly to the organization's endpoint using the root organiza
 === "Sample request"
 
     ```bash
-    curl --location 'https://{{host_name}}/t/<root_org_handle>/o/<org_id>/oauth2/authorize'
-    --header 'Accept: application/json'
-    --header 'Content-Type: application/x-www-form-urlencoded'
-    --data-urlencode 'client_id=<client_id>'
-    --data-urlencode 'response_type=code'
-    --data-urlencode 'redirect_uri=<redirect_uri>'
-    --data-urlencode 'scope=<scopes>'
+    curl --location 'https://{{host_name}}/t/<root_org_handle>/o/<org_id>/oauth2/authorize' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'client_id=<client_id>' \
+    --data-urlencode 'response_type=code' \
+    --data-urlencode 'redirect_uri=<redirect_uri>' \
+    --data-urlencode 'scope=<scopes>' \
     --data-urlencode 'response_mode=direct'
     ```
 
@@ -91,9 +91,9 @@ When the user provides their credentials, send them to the organization-scoped A
 === "Sample request"
 
     ```bash
-    curl --location 'https://{{host_name}}/t/<root_org_handle>/o/<org_id>/oauth2/authn'
-    --header 'Accept: application/json'
-    --header 'Content-Type: application/json'
+    curl --location 'https://{{host_name}}/t/<root_org_handle>/o/<org_id>/oauth2/authn' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
     --data '{
         "flowId": "<flow_id>",
         "selectedAuthenticator": {
@@ -111,11 +111,11 @@ The final token request also uses the organization-scoped path:
 === "Sample request"
 
     ```bash
-    curl --location 'https://{{host_name}}/t/<root_org_handle>/o/<org_id>/oauth2/token'
-    --header 'Content-Type: application/x-www-form-urlencoded'
-    --data-urlencode 'client_id=<client_id>'
-    --data-urlencode 'grant_type=authorization_code'
-    --data-urlencode 'code=<code>'
+    curl --location 'https://{{host_name}}/t/<root_org_handle>/o/<org_id>/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'client_id=<client_id>' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'code=<code>' \
     --data-urlencode 'redirect_uri=<redirect_uri>'
     ```
 
@@ -126,13 +126,13 @@ Send the request to the root organization's endpoint.
 === "Sample request"
 
     ```bash
-    curl --location 'https://{{host_name}}/t/<root_org_handle>/oauth2/authorize'
-    --header 'Accept: application/json'
-    --header 'Content-Type: application/x-www-form-urlencoded'
-    --data-urlencode 'client_id=<client_id>'
-    --data-urlencode 'response_type=code'
-    --data-urlencode 'redirect_uri=<redirect_uri>'
-    --data-urlencode 'scope=<scopes>'
+    curl --location 'https://{{host_name}}/t/<root_org_handle>/oauth2/authorize' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'client_id=<client_id>' \
+    --data-urlencode 'response_type=code' \
+    --data-urlencode 'redirect_uri=<redirect_uri>' \
+    --data-urlencode 'scope=<scopes>' \
     --data-urlencode 'response_mode=direct'
     ```
 
@@ -204,9 +204,9 @@ When the user selects the **SSO** option, send the organization selection respon
 === "Sample request"
 
     ```bash
-    curl --location 'https://{{host_name}}/t/<root_org_handle>/oauth2/authn'
-    --header 'Accept: application/json'
-    --header 'Content-Type: application/json'
+    curl --location 'https://{{host_name}}/t/<root_org_handle>/oauth2/authn' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
     --data '{
         "flowId": "<flow_id>",
         "selectedAuthenticator": {
@@ -228,16 +228,16 @@ You can identify the organization using any of the following parameters:
 | `login_hint` | An email address used to discover the organization by its email domain. |
 | `orgDiscoveryType` | The discovery mechanism to use (for example, `emailDomain`). |
 
-See [Organization discovery]({{base_path}}/guides/organization-management/organization-login/organization-discovery/) for more on these parameters.
+See [Organization discovery]({{base_path}}/guides/organization-management/organization-discovery/) for more on these parameters.
 
 Once the user's organization is identified, {{ product_name }} scopes the remaining authentication steps to that organization. For example, the next authentication step — such as a username and password prompt — would be sent to the organization-scoped Authentication API endpoint:
 
 === "Sample request"
 
     ```bash
-    curl --location 'https://{{host_name}}/t/<root_org_handle>/o/<org_id>/oauth2/authn'
-    --header 'Accept: application/json'
-    --header 'Content-Type: application/json'
+    curl --location 'https://{{host_name}}/t/<root_org_handle>/o/<org_id>/oauth2/authn' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
     --data '{
         "flowId": "<flow_id>",
         "selectedAuthenticator": {
@@ -255,11 +255,11 @@ The final token request is sent to the root organization's token endpoint, match
 === "Sample request"
 
     ```bash
-    curl --location 'https://{{host_name}}/t/<root_org_handle>/oauth2/token'
-    --header 'Content-Type: application/x-www-form-urlencoded'
-    --data-urlencode 'client_id=<client_id>'
-    --data-urlencode 'grant_type=authorization_code'
-    --data-urlencode 'code=<code>'
+    curl --location 'https://{{host_name}}/t/<root_org_handle>/oauth2/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'client_id=<client_id>' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'code=<code>' \
     --data-urlencode 'redirect_uri=<redirect_uri>'
     ```
 

@@ -3,9 +3,15 @@
 !!! warning "Legacy approach"
     This guide describes the **federation-based organization login** approach used in older versions of {{ product_name }}. For new implementations, use the [enhanced organization authentication]({{base_path}}/guides/organization-management/organization-login/) approach instead.
 
-Before enhanced organization authentication, B2B organization login in {{ product_name }} was implemented using a built-in **Organization SSO** federated identity provider. The root organization exposed this federated IdP as an authentication option, and users selected it from the login page to identify their organization and continue logging in against that organization's user store.
+Before enhanced organization authentication, B2B organization login in {{ product_name }} was implemented using a built-in **Organization SSO** federated identity provider. The root organization exposed this federated IdP as an authentication option. Users selected it from the login page to identify their organization and authenticate against that organization.
 
-This page documents the mechanisms specific to that legacy model — how applications initiated login, which query parameters routed users to a specific organization, the conditional authentication script patterns, the `orgDiscovery` scope, and how custom parameters were forwarded to the organization.
+This page documents the mechanisms specific to that legacy model:
+
+- How applications initiated login
+- Query parameters for routing users to a specific organization
+- Conditional authentication script patterns
+- The `orgDiscovery` scope
+- How custom parameters were forwarded to the organization
 
 ---
 
@@ -71,7 +77,7 @@ To skip the **Organization SSO** selection screen and route a user straight to t
 
 ## Use a conditional authentication script
 
-Instead of passing `fidp=OrganizationSSO` on every request, you can add a conditional authentication script to your application that inspects the request and auto-selects the **Organization SSO** authenticator when an organization discovery parameter is present.
+Instead of passing `fidp=OrganizationSSO` on every request, add a conditional authentication script to your application. The script auto-selects the **Organization SSO** authenticator when an organization discovery parameter is present.
 
 The following script routes users through SSO when the `orgId` parameter is detected on the request.
 

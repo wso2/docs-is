@@ -78,7 +78,10 @@ curl --location --request PUT 'https://localhost:9443/api/server/v1/organization
             "key": "defaultParam",
             "value": "orgHandle"
         },
-        < other available key value properties >
+        {
+            "key": "<another_property_key>",
+            "value": "<another_property_value>"
+        }
     ]
 }'
 ```
@@ -91,7 +94,7 @@ Configure `default_param` to control what users enter during Single Sign-On (SSO
 
 **When `default_param = "orgHandle"`** (recommended):
 
-Users select **Sign In With Single Sign-On (SSO)** to log in. They get redirected to the default SSO option. Users should provide the **organization handle**.
+Users select **Sign In With Single Sign-On (SSO)** to sign in. They get redirected to the default SSO option. Users should provide the **organization handle**.
 
 When you enable email domain discovery, the UI shows the default prompt option as follows:
 

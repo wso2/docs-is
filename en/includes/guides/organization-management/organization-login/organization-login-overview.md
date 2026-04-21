@@ -1,4 +1,4 @@
-# Enable organization-based login
+# Organization-based login
 
 {{ product_name }} supports B2B application login, allowing users of your partner or customer organizations to log in using their own organization's identity. This section covers organization-based login using the **enhanced organization authentication** model.
 
