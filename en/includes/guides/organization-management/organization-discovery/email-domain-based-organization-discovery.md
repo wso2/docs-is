@@ -30,7 +30,7 @@ Before you configure email domain-based organization discovery, understand the f
 For any user to be discoverable by their email domain, the following requirements must be met during user creation:
 
 - The user's **username** must be in a valid email format (for example, `user@company-domain.com`).
-- The domain portion of this username (for example, `company-domain.com`) must match one of the domains configured for organization discovery.
+- The domain part of this username (for example, `company-domain.com`) must match one of the domains configured for organization discovery.
 - This is a strict requirement during user creation. Attempting to create a user with a non-email username or a username with a non-matching domain for an organization with this feature enabled will fail.
 
 ## Enable email domain based organization discovery
