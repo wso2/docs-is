@@ -898,7 +898,7 @@ nav:
             - Organization discovery:
               - Discover organizations during login: guides/organization-management/organization-discovery/organization-discovery.md
               - Email domain-based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
-            - App-native authentication: guides/organization-management/organization-login/app-native-authentication.md
+            - Organization login with app-native authentication: guides/organization-management/organization-login/organization-login-with-app-native-authentication.md
             - Legacy approach:
               - Overview: guides/organization-management/organization-login/legacy-approach.md
               - Migrate to the newer approach: guides/organization-management/organization-login/migrate-to-enhanced-approach.md

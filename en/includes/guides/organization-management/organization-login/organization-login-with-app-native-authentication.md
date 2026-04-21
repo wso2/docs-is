@@ -1,4 +1,4 @@
-# App-native authentication for organizations
+# Organization login with app-native authentication
 
 App-native authentication lets mobile and native applications handle B2B login without redirecting users to a browser. Users complete the full authentication flow from within the application, including any multi-factor authentication steps required by the organization.
 
