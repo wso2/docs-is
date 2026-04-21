@@ -1,6 +1,6 @@
 # Audit log catalog
 
-The audit log catalog is a comprehensive reference guide that provides detailed information about all audit log action keys used in Asgardeo. This guide enables you to understand the structure and contents of each audit log type by providing sample audit logs for reference.
+The audit log catalog provides detailed information about all audit log action keys used in Asgardeo. This guide helps you understand the structure and content of each audit log type along with sample audit logs for reference.
 
 ## Action management
 
