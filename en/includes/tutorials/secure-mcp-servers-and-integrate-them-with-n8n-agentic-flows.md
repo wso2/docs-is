@@ -88,9 +88,9 @@ Double-click the **MCP Client** node.
 
 You can find these values in the **Protocol** and **Info** tabs of your {{ product_name }} application.
 
-### Configure the Google Gemini Chat Model node
+## Configure the Google Gemini chat model node
 
-1. Open the **Google Gemini Chat Model** node.
+1. Open the **Google Gemini chat model** node.
 2. Generate an API key from [Google AI Studio API keys](https://aistudio.google.com/api-keys).
 3. Add the API key to the node configuration.
 
