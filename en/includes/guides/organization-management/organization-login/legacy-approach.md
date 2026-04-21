@@ -168,8 +168,3 @@ Any parameter listed in `ssoAdditionalParams` that is present on the initial req
 !!! note
     Under **enhanced organization authentication**, this script is no longer required. Custom parameters on the initial authorize request are forwarded automatically. See [Enable organization-based login]({{base_path}}/guides/organization-management/organization-login/).
 
----
-
-## What's next
-
-- [Migrate between organization login approaches]({{base_path}}/guides/organization-management/organization-login/migrate-organization-login/) — How to move from the legacy model to enhanced organization authentication.

@@ -271,9 +271,3 @@ After the initial request, {{ product_name }} returns instructions for the next 
 
 See [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) for the full step-by-step flow.
 
----
-
-## What's next
-
-- [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) — Full guide to setup and the authentication flow.
-- [Handle advanced login scenarios]({{base_path}}/guides/authentication/app-native-authentication/handle-advanced-login-scenarios/) — SSO, multi-option login, and federated authentication.

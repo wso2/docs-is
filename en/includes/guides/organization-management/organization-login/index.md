@@ -66,10 +66,3 @@ Send the authentication request directly to the organization's endpoint using th
 
 Replace `<root_org_handle>` with the handle of your root organization and `<org_id>` with the accessing organization's ID.
 
----
-
-## What's next
-
-- [Organization discovery]({{base_path}}/guides/organization-management/organization-discovery/organization-discovery/) — Route users using org name, handle, or email domain.
-- [Email domain-based discovery]({{base_path}}/guides/organization-management/organization-discovery/email-domain-based-organization-discovery/) — Automatically identify organizations from email domains.
-- [Migrate between login approaches]({{base_path}}/guides/organization-management/organization-login/migrate-organization-login/) — Understand what changes when switching to or from enhanced organization authentication.
