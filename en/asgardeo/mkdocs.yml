@@ -610,7 +610,7 @@ nav:
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
     - Integrating Asgardeo With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
     - Integrating Asgardeo With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
-    - Secure MCP Servers with Asgardeo and Integrate Them with n8n Agentic Flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
+    - Secure MCP servers with Asgardeo and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
   - SDKs:
     - Integrate Asgardeo into your application: sdks/index.md
   - SDK Documentation:
