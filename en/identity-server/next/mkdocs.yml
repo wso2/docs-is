@@ -901,7 +901,7 @@ nav:
             - Organization login with app-native authentication: guides/organization-management/organization-login/organization-login-with-app-native-authentication.md
             - Legacy approach:
               - Overview: guides/organization-management/organization-login/legacy-approach.md
-              - Migrate to the newer approach: guides/organization-management/organization-login/migrate-to-enhanced-approach.md
+              - Migrate applications to enhanced approach: guides/organization-management/organization-login/migrate-to-enhanced-approach.md
           - Offboard organizations:
             - Disable or delete an organization: guides/organization-management/disable-delete-organizations.md
             - Clean up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
