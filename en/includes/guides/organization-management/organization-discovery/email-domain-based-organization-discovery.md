@@ -286,6 +286,7 @@ To try out user login,
             &scope=<scopes>
             &response_type=code
             &login_hint=<user_email>
+            &orgDiscoveryType=emailDomain
             ```
         === "SAML"
             
@@ -293,6 +294,7 @@ To try out user login,
             https://{{host_name}}{{organization_path_param}}/samlsso?
             spEntityID=<app_entity_id>
             &login_hint=<user_email>
+            &orgDiscoveryType=emailDomain
             ```
         {% else %}
         {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}

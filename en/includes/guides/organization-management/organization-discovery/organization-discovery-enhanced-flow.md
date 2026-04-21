@@ -13,19 +13,9 @@ This guide explains the organization discovery flow, the available discovery typ
 
 After the user clicks **Sign in with SSO**, they are redirected to the organization discovery page where they identify their organization.
 
-{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
-
 By default, users are prompted to enter the **organization handle** — a human-readable, unique identifier for the organization.
 
 ![Organization discovery page - org handle]({{base_path}}/assets/img/guides/organization/organization-login/discovery-page-org-handle.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-{% else %}
-
-By default, users are prompted to enter the **organization name**.
-
-![Organization discovery page - org name]({{base_path}}/assets/img/guides/organization/organization-login/discovery-page-org-name.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-{% endif %}
 
 ### Available discovery types
 
@@ -112,7 +102,7 @@ When you enable email domain discovery, the UI shows the default prompt option a
 
 ## Directly access the organization
 
-To route users directly to their organization's login page without showing the discovery page, include an organization discovery parameter in the initial authentication request. {{ product_name }} resolves the organization from the parameter and routes the user to that organization's login page automatically — no `fidp` parameter or authentication script is required.
+To route users directly to their organization's login page without showing the discovery page, include an organization discovery parameter in the initial authentication request. {{ product_name }} resolves the organization from the parameter and routes the user to that organization's login page automatically.
 
 === "Organization Handle"
 

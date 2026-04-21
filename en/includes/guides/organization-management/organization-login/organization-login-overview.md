@@ -9,7 +9,7 @@
     2. Go to the **Shared Access** tab.
     3. Check whether **Enhanced Organization Authentication** is enabled.
 
-    <!-- TODO: Add screenshot of the Shared Access tab showing the Enhanced Organization Authentication toggle -->
+    ![Enhanced Organization Authentication toggle]({{base_path}}/assets/img/guides/organization/organization-login/enhanced-org-authentication.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     If **Enhanced Organization Authentication** is not enabled, your application is using the legacy approach. See [Organization login - legacy approach]({{base_path}}/guides/organization-management/organization-login/legacy-approach/).
 
@@ -22,6 +22,8 @@ Two methods are available for starting organization login.
 ### Method 1: Start from the root organization endpoint
 
 Send the authentication request to the root organization's endpoint. {{ product_name }} will prompt users to identify their organization when the **Sign in with SSO** option is selected during the login flow.
+
+![Sign in with SSO option]({{base_path}}/assets/img/guides/organization/organization-login/sso-option.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 === "OIDC"
 

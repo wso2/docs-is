@@ -262,11 +262,3 @@ The final token request is sent to the root organization's token endpoint, match
     --data-urlencode 'code=<code>' \
     --data-urlencode 'redirect_uri=<redirect_uri>'
     ```
-
----
-
-## Complete the authentication flow
-
-After the initial request, {{ product_name }} returns instructions for the next authentication step. The rest of the flow — collecting user credentials, calling the Authentication API, and receiving the authorization code — is the same as regular app-native authentication.
-
-See [Add app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/) for the full step-by-step flow.

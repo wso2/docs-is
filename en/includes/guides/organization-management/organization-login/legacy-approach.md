@@ -48,7 +48,7 @@ To skip the **Organization SSO** selection screen and route a user straight to t
 | `orgHandle` | The organization's handle. |
 | `org` | The organization's name. |
 | `login_hint` | An email address used to discover the organization by its email domain. |
-| `org_hint` | Legacy variant of `login_hint` for email domain-based discovery. Retained for backward compatibility. |
+| `orgDiscoveryType` | The discovery mechanism to use. For example, pass `emailDomain` for email domain-based discovery. |
 
 ### Sample requests
 
@@ -129,47 +129,57 @@ var onLoginRequest = function(context) {
 
 ---
 
-## The `orgDiscovery` scope
+## Pass additional parameters to the organization request
 
-The `orgDiscovery` scope signals to {{ product_name }} that the request participates in organization discovery. Request it on the initial authorize call alongside your usual scopes.
+Under the legacy model, query parameters on the initial authorize request are **not** automatically forwarded to the organization's authentication flow. To forward custom parameters, configure them as authenticator parameters for the Organization SSO option in the conditional authentication script using `ssoAdditionalParams`.
 
-```bash
-https://{{host_name}}/t/<root_org_handle>/oauth2/authorize?
-client_id=<client_id>
-&redirect_uri=<redirect_url>
-&scope=openid orgDiscovery
-&response_type=code
-&fidp=OrganizationSSO
-&<discovery_param>=<value>
-```
+### Static parameters
 
----
-
-## Pass additional parameters to the organization
-
-Under the legacy model, query parameters on the initial authorize request are **not** automatically forwarded to the organization's authentication flow. To forward custom parameters, declare them in the adaptive authentication script using `ssoAdditionalParams`.
+Pass fixed values directly in the script:
 
 ```javascript
-var ssoAdditionalParams = ["<custom_param_1>", "<custom_param_2>"];
-
 var onLoginRequest = function(context) {
     executeStep(1, {
-        authenticationOptions: [{
-            idp: (context.request.params.orgId && !context.steps[1].idp) ? "SSO" : context.steps[1].idp
-        }],
-        authenticationOptionsParams: {
-            SSO: ssoAdditionalParams.reduce(function(acc, key) {
-                if (context.request.params[key]) {
-                    acc[key] = context.request.params[key];
+        authenticatorParams: {
+            federated: {
+                SSO: {
+                    ssoAdditionalParams: 'param1=value1&param2=value2'
                 }
-                return acc;
-            }, {})
+            }
         }
-    });
+    }, {});
 };
 ```
 
-Any parameter listed in `ssoAdditionalParams` that is present on the initial request is forwarded to the organization.
+### Dynamic parameters
+
+Pass values resolved at runtime using:
+
+- `${key}` — resolves from a query parameter in the initial authentication request
+- `$authparam{key}` — resolves from a value defined under `common` in the script
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        authenticatorParams: {
+            federated: {
+                SSO: {
+                    ssoAdditionalParams: 'param1=value1&param2=${abc}&param3=$authparam{pqr}'
+                }
+            },
+            common: {
+                pqr: 'xyz'
+            }
+        }
+    }, {});
+};
+```
+
+In this example, if the initial request includes `abc=def`, the parameters forwarded to the organization are:
+
+```
+param1=value1&param2=def&param3=xyz
+```
 
 !!! note
-    Under **enhanced organization authentication**, this script is no longer required. Custom parameters on the initial authorize request are forwarded automatically. See [Enable organization-based login]({{base_path}}/guides/organization-management/organization-login/).
+    Under **enhanced organization authentication**, this script is no longer required. Custom parameters on the initial authorize request are forwarded automatically. See [Organization-based login]({{base_path}}/guides/organization-management/organization-login/).
