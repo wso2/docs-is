@@ -595,7 +595,9 @@ nav:
       - Asgardeo logs:
         - Asgardeo logs: guides/asgardeo-logs/index.md
         - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
-        - Audit logs: guides/asgardeo-logs/audit-logs.md
+        - Audit logs:
+          - Audit logs: guides/asgardeo-logs/audit-logs/index.md
+          - Audit log catalog: guides/asgardeo-logs/audit-logs/audit-log-catalog.md
         - Remote log publish: guides/asgardeo-logs/remote-log-publish.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
