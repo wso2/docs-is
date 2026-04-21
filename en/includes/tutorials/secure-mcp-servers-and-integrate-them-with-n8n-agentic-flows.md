@@ -1,4 +1,4 @@
-# Secure MCP Servers with {{ product_name }} and Integrate Them with n8n Agentic Flows
+# Secure MCP servers with {{ product_name }} and integrate them with n8n agentic flows
 
 The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) provides a standard way for AI agents and applications to discover and invoke tools. However, an MCP connection alone does not provide production-grade security. Without authentication and authorization, a client can access tools and resources without sufficient control.
 
@@ -17,8 +17,7 @@ In this tutorial, you will:
 ## Step 1: Set up n8n
 
 First, clone this [repository](https://github.com/AkinduH/iam-ai-samples) and go to the `mcp-auth/integrations/mcp-auth-n8n-example` directory to access the required project files and sample workflow.
-To install and run n8n locally using either Docker or Node.js, follow this [step-by-step guide](https://community.n8n.io/t/how-to-install-n8n-locally-docker-or-node-js-step-by-step/228296
-) from the n8n community.
+To install and run n8n locally using either Docker or Node.js, follow this [step-by-step guide](https://community.n8n.io/t/how-to-install-n8n-locally-docker-or-node-js-step-by-step/228296) from the n8n community.
 
 ### Import the MCP client workflow
 
@@ -45,10 +44,10 @@ Select the `mcp-client-n8n-example.json` file from the cloned repository.
 
 ![Create MCP client application]({{base_path}}/assets/img/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/create-mcp-client-application.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Configure the application:
-	- **Application Name**: n8n-example
+Configure the application with the following values:
+	- **Application Name**: `n8n-example`
 	- **Redirect URL**: `http://localhost:5678/rest/oauth2-credential/callback`
-Disable **Public Client**.
+	- Disable **Public Client**.
 
 !!! note
 		Why disable Public Client?
@@ -88,7 +87,7 @@ Double-click the **MCP Client** node.
 
 You can find these values in the **Protocol** and **Info** tabs of your {{ product_name }} application.
 
-## Configure the Google Gemini chat model node
+### Configure the Google Gemini chat model node
 
 1. Open the **Google Gemini chat model** node.
 2. Generate an API key from [Google AI Studio API keys](https://aistudio.google.com/api-keys).
