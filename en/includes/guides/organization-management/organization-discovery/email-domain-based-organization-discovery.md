@@ -272,6 +272,29 @@ To try out user login,
 
     !!! note
 
+        {% if product_name == "WSO2 Identity Server" and is_version >= "7.3.0" %}
+        You can route users directly to their organization's login page by passing the user's email as a `login_hint` on the initial authentication request. {{product_name}} resolves the organization from the email domain and skips the SSO selection prompt.
+
+        Sample requests:
+
+        === "OIDC"
+            
+            ```curl
+            https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
+            client_id=<client_id>
+            &redirect_uri=<redirect_url>
+            &scope=<scopes>
+            &response_type=code
+            &login_hint=<user_email>
+            ```
+        === "SAML"
+            
+            ```curl
+            https://{{host_name}}{{organization_path_param}}/samlsso?
+            spEntityID=<app_entity_id>
+            &login_hint=<user_email>
+            ```
+        {% else %}
         {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
         In {{product_name}} {{is_version}} from update level **7.0.0.88** onwards (Updates 2.0 model), you can bypass the `Sign In With SSO` page and go directly to your organization's login page by adding the following query parameters in the login request.
         {% else %}
@@ -303,6 +326,7 @@ To try out user login,
             &login_hint=<user_email>
             &fidp=OrganizationSSO
             ```
+        {% endif %}
 
 7. Input the email address associated with the username for `Alice` within the *Best Car Mart* organization.
 
@@ -315,6 +339,13 @@ To try out user login,
 {% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 
 ### Self-registration
+
+{% if is_version >= "7.3.0" %}
+
+!!! warning "Not supported with enhanced organization authentication"
+    Email domain-based self-registration is not supported for applications using the **enhanced organization authentication** model.
+
+{% endif %}
 
 To try out self-registration,
 
