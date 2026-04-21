@@ -43,7 +43,7 @@ mentioned user attributes.
         salesforce outbound provisioning connector.
 
 4.  Edit the outbound provisioning connector configuration of the
-    identity provider and enter a provisioning pattern and seperator for
+    identity provider and enter a provisioning pattern and separator for
     the following fields.
 
     -   **Provisioning Pattern** - Enter a combination of user
