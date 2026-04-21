@@ -1,3 +1,5 @@
+<!-- markdownlint-disable-file MD007 -->
+
 # Conditional authentication - API reference
 
 {{ product_name }} provides a set of defined functions and objects to write your conditional authentication script. They are grouped as follows:
@@ -1086,6 +1088,43 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
         });
     }
     ```
+
+{% if product_name == "Asgardeo" %}
+!!! note
+    Asgardeo uses the following default connection configurations for `httpPost` requests:
+
+    <table>
+        <thead>
+            <tr>
+                <th>Configuration</th>
+                <th>Description</th>
+                <th>Default Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Connection timeout</strong></td>
+                <td>The maximum time (in milliseconds) to wait when establishing a connection to an external service.</td>
+                <td>3000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>Read (socket) timeout</strong></td>
+                <td>The maximum time (in milliseconds) to wait for a response from an external service.</td>
+                <td>3000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>Connection request timeout</strong></td>
+                <td>The maximum time (in milliseconds) to wait to obtain a connection from the connection pool.</td>
+                <td>1000 ms</td>
+            </tr>
+            <tr>
+                <td><strong>Retry count</strong></td>
+                <td>The number of retry attempts for requests.</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+{% endif %}
 
 ### Resolve multi attribute login identifier
 
