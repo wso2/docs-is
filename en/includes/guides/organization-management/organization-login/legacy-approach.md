@@ -177,7 +177,7 @@ var onLoginRequest = function(context) {
 
 In this example, if the initial request includes `abc=def`, the parameters forwarded to the organization are:
 
-```
+```text
 param1=value1&param2=def&param3=xyz
 ```
 
