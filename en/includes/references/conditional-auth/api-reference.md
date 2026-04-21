@@ -1105,7 +1105,7 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
             <tr>
                 <td><strong>Connection timeout</strong></td>
                 <td>The maximum time (in milliseconds) to wait when establishing a connection to an external service.</td>
-                <td>2000 ms</td>
+                <td>3000 ms</td>
             </tr>
             <tr>
                 <td><strong>Read (socket) timeout</strong></td>
