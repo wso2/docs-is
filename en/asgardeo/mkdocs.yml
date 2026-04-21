@@ -596,8 +596,8 @@ nav:
         - Asgardeo logs: guides/asgardeo-logs/index.md
         - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
         - Audit logs:
-          - Audit logs: guides/asgardeo-logs/audit-logs.md
-          - Audit log catalog: guides/asgardeo-logs/audit-log-catalog.md
+          - Audit logs: guides/asgardeo-logs/audit-logs/index.md
+          - Audit log catalog: guides/asgardeo-logs/audit-logs/audit-log-catalog.md
         - Remote log publish: guides/asgardeo-logs/remote-log-publish.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
@@ -982,10 +982,3 @@ nav:
       - Cross-Site Scripting (XSS): complete-guides/fesecurity/xss.md
       - Cross-Site Request Forgery (CSRF): complete-guides/fesecurity/csrf.md
       - Next Steps: complete-guides/fesecurity/next-steps.md
-not_in_nav: |
-  /page-not-found.md
-  /get-started/explore-asgardeo.md
-  /get-started/start-integrating-apps.md
-  /get-started/try-samples/index.md
-  /get-started/try-your-own-app/index.md
-  /get-started/try-your-own-app/angular.md
