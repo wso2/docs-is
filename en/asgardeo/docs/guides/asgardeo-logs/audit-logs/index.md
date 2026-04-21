@@ -99,6 +99,10 @@ Follow the steps below to observe an audit log due to user onboarding:
 
     You can also **Copy** and **Download** the additional data presented in the Audit Log Data Viewer.
 
-## Audit log actions
+## Audit log catalog
 
+<<<<<<< HEAD:en/asgardeo/docs/guides/asgardeo-logs/audit-logs.md
 For a comprehensive list of all audit log actions available in Asgardeo, grouped by category, refer to the [Audit log catalog](audit-log-catalog.md).
+=======
+For a complete list of audit log action keys with sample logs, see the [Audit log catalog](audit-log-catalog.md).
+>>>>>>> 415083ea0 (Merge pull request #6081 from sumedhe/update-audit-logs):en/asgardeo/docs/guides/asgardeo-logs/audit-logs/index.md
