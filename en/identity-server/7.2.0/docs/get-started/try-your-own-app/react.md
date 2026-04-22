@@ -155,7 +155,7 @@ Implement a login button as follows using the `signIn()` function in the `useAut
 ```js
 <button onClick={ () => signIn() }>Login</button>
 ```
-Clicking on the **Login** button will take the user to the the {{ product_name }} login page. Once `signIn()` succeeds, the user will be redirected to the app (based on the `signInRedirectURL` specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `true`.
+Clicking on the **Login** button will take the user to the {{ product_name }} login page. Once `signIn()` succeeds, the user will be redirected to the app (based on the `signInRedirectURL` specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `true`.
 
 ### Get access token
 

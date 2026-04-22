@@ -714,7 +714,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-catergory-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-category-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |
@@ -941,7 +941,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-catergory-id}' \
+            'https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-category-id}' \
             -H 'accept: application/json' \
             -H 'Authorization: Bearer {bearer_token}'                
       x-wso2-request: |

@@ -109,6 +109,12 @@ extra:
       source_link: https://store.wso2.com/connector/identity-outbound-auth-naver
       category: authentication
       documentation_link: https://github.com/wso2-extensions/identity-outbound-auth-naver/blob/master/docs/README_LATEST.md
+    - name: Password Reset Enforcer
+      icon: assets/img/logo/password-reset-enforcer-logo.svg
+      description: Enforces password reset upon expiration as part of the application's authentication flow.
+      source_link: https://store.wso2.com/connector/identity-outbound-auth-passwordPolicy
+      category: authentication
+      documentation_link: password-reset-enforcer
       
 
 
@@ -584,6 +590,12 @@ nav:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
           - WS-Federation: get-started/try-samples/ws-federation-webapp.md
+      - Secure MCP Servers:
+          - TypeScript: quick-starts/mcp-auth-server.md
+          - Python: quick-starts/mcp-auth-server-py.md
+      - Secure Your AI Agents:
+          - Python: quick-starts/agent-auth-py.md
+          - TypeScript: quick-starts/agent-auth-ts.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
       - About this release: get-started/about-this-release.md
   - Guides:
@@ -1199,6 +1211,11 @@ nav:
       - Usage: connectors/onfido/usage.md
       - Reference: connectors/onfido/reference.md
       - Try it: connectors/onfido/try-it.md
+    - Password Reset Enforcer:
+      - Overview: connectors/password-reset-enforcer/overview.md
+      - Set up: connectors/password-reset-enforcer/set-up.md
+      - Usage: connectors/password-reset-enforcer/usage.md
+      - Reference: connectors/password-reset-enforcer/reference.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
@@ -1268,6 +1285,7 @@ nav:
           - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
           - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Schema API: apis/scim2/scim2-schema-rest-api.md
           - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
           - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md

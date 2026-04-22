@@ -13,6 +13,7 @@ To check insights of your organization:
 
     - **Login** - displays insights related to successful and failed user logins made to business applications and the My Account portal.
     - **Registration** - displays insights related to user registrations via self sign-up and admin-initiated registration methods.
+    - **M2M** - displays insights related to machine-to-machine (M2M) token issuance.
 
 3. Use the dropdown in the top right corner to adjust the duration.
 
@@ -27,23 +28,26 @@ The example below shows insights related to login events of the organization for
     The statistics displayed in the graphs are not real-time. </br></br>
 
     Why? </br>
-    There is a latency of up to 20 minutes between the user activity and insights. This delay ensures accurate data processing and allows for a more comprehensive analysis of user logins and login trends.
-
+    There is a latency of up to 20 minutes between the user activity and insights. This delay ensures accurate data processing and allows for a more comprehensive analysis of all activities including logins, registrations, and M2M token usage.
 
 ## User engagement metrics
+
 This section will help you further understand the statistics shown in the graphs.
 
 ### Active Users
+
 This graph in login insights, represents the number of unique user logins within the selected duration. You can view each day's count by hovering your mouse over a point on the graph. This metric helps measure the daily engagement of users with the platform.
 
 ![Unique active users]({{base_path}}/assets/img/guides/organization-insights/active-users-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Total Logins
+
 This graph in login insights, represents the total number of successful user logins within the selected duration. By hovering your mouse over a point on the graph, you can view the specific count of user logins for each day.
 
 ![Total user logins]({{base_path}}/assets/img/guides/organization-insights/total-logins-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ### Failed Logins
+
 This graph in login insights, represents the total number of failed logins within the selected duration. You can view each day's failed login attempt count by hovering your mouse over a point on the graph.
 
 ![Failed login attempts]({{base_path}}/assets/img/guides/organization-insights/failed-logins-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -52,17 +56,29 @@ This graph in login insights, represents the total number of failed logins withi
     The graph does not include data related to failed login attempts made by the organization owner or administrators to either the {{ product_name }} Console or the My Account portal.
 
 ### User Signups
+
 This graph in registration insights, represents the total number of successful user signups within the selected duration. You can view each day's signup count by hovering your mouse over a point on the graph.
 
 ![User signups graph]({{base_path}}/assets/img/guides/organization-insights/user-signups-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+<!-- vale WSO2-IAM.SentenceStyleTitles = NO -->
+### Machine-to-Machine (M2M) authentications
+<!-- vale WSO2-IAM.SentenceStyleTitles = YES -->
+
+This graph in M2M insights represents the number of new M2M tokens issued to your organization within the selected duration. By hovering your mouse over a point on the graph, you can view the specific count of M2M token requests for each day.
+
+![M2M authentications graph]({{base_path}}/assets/img/guides/organization-insights/m2m-authentications-graph.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! note
+    This graph only tracks tokens issued via the [client credentials grant]({{base_path}}/references/grant-types/#client-credentials-grant). Reissued tokens are not counted.
+
 ## Filter insights
 
-You can use filters to further narrow down insights related to login and registration activities.
+You can use filters to further narrow down insights related to login, registration, and M2M activities.
 
 To filter insights,
 
-1. On the {{ product_name }} Console, go to **Insights**, and select an activity (Login or Registration).
+1. On the {{ product_name }} Console, go to **Insights**, and select an activity (**Login**, **Registration**, or **M2M**).
 
 2. Click the filter icon and use the following fields to filter insights .
 
@@ -143,6 +159,20 @@ To filter insights,
           <td>User ID</td>
           <td>Filter registrations based on the user ID found in a user's profile.</br></br>
           Example for a user ID: <code>1450ea7f-88db-49c2-b750-065e219a1fba</code>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2">M2M</td>
+          <td>Client ID</td>
+          <td>Filter M2M token requests based on the client ID of an M2M application in your organization.</br></br>
+          (You can find the client ID of an application from the <b>Protocol</b> section of the application on the {{ product_name }} Console.)</br></br>
+          Example for a client ID: <code>rXJ4z9k2mL8pQvN5wX1aB3</code>
+          </td>
+        </tr>
+        <tr>
+          <td>Organization</td>
+          <td>Filter M2M token requests based on the organization.</br></br>
+          You can search and select the organization from the dropdown list.
           </td>
         </tr>
   </table>
