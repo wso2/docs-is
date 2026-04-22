@@ -38,9 +38,9 @@ In the legacy approach, routing users to their organization required both `fidp=
     &orgHandle=<organization_handle>
     ```
 
-### Adaptive authentication scripts
+### Conditional authentication scripts
 
-Review any adaptive authentication scripts configured for your application. In the legacy approach, the Organization SSO authenticator was a federated IdP (`SSO`). Under enhanced organization authentication, the authenticator becomes a local authenticator (`OrganizationIdentifierHandler`). Update any place in your scripts where the `SSO` IdP is selected or where authenticator properties are set — replace references to the federated `SSO` authenticator with the local `OrganizationIdentifierHandler`.
+Review any conditional authentication scripts configured for your application. In the legacy approach, the Organization SSO authenticator was a federated IdP (`SSO`). Under enhanced organization authentication, the authenticator becomes a local authenticator (`OrganizationIdentifierHandler`). Update any place in your scripts where the `SSO` IdP is selected or where authenticator properties are set — replace references to the federated `SSO` authenticator with the local `OrganizationIdentifierHandler`.
 
 ### Custom parameter forwarding
 
