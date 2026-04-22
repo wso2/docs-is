@@ -387,7 +387,7 @@ This API deletes a user using the user's unique ID. It returns
 
 **Responses**
 
--   HTTP 204 - User has been succesfully deleted
+-   HTTP 204 - User has been successfully deleted
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid user is not found
 
@@ -2288,7 +2288,7 @@ HTTP/1.1 204 NOT IMPLEMENTED
 </table>
 
 **Response** 
--	HTTP 204 - User has been succesfully deleted
+-	HTTP 204 - User has been successfully deleted
 -	HTTP 401 - Unauthorized
 -	HTTP 404 - Valid user is not found
 
