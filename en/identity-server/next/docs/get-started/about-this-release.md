@@ -342,29 +342,29 @@ Learn more about the [Password Reset Enforcer connector]({{base_path}}/connector
 
 ## Deprecated features
 
-In WSO2 Identity Server 7.3.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users.
+In WSO2 Identity Server 7.3.0, we have deprecated several features to enhance security, streamline operations, and improve usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users.
 
 Learn more about [WSO2 Identity Server feature deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
 
-### TLS 1.1 and 1.0
-We are deprecating support for TLS 1.0 and TLS 1.1 due to known security vulnerabilities (e.g., POODLE, BEAST, CRIME) and industry-wide deprecation across major vendors and browsers. These protocols are no longer considered secure and are widely unsupported.
+### Support for TLS 1.1 and 1.0
+TLS 1.0 and TLS 1.1 have known security vulnerabilities (for example, POODLE, BEAST, and CRIME) and have been deprecated across major vendors and browsers. These protocol versions are no longer considered secure and are widely unsupported.
 
-In alignment with modern security standards and Java 21 defaults, TLS 1.3 will be enabled by default, and older TLS versions will be disabled. This change improves security posture, prevents downgrade attacks, and ensures compatibility with current platform and ecosystem standards.
+To align with current security standards and Java 21 defaults, {{ product_name }} has deprecated support for TLS 1.0 and TLS 1.1 and enables TLS 1.3 by default. This change improves the security posture, helps prevent downgrade attacks, and ensures compatibility with modern platforms and ecosystem standards.
 
-**Recommended action**: Upgrade to and use TLS 1.3, as it provides stronger security, improved performance, and aligns with current industry standards and platform defaults.
+**Recommended action**: Upgrade to TLS 1.3 and use it for all connections. It provides stronger security, improved performance, and aligns with current industry standards and platform defaults.
 
 ### Organization User Share REST API v1
-The [Organization User Share REST API v1]({{base_path}}/apis/organization-user-share-rest-api/) is deprecated and introduced in v2. The v1 API will no longer receive enhancements or non-critical fixes and may be removed in a future 
+The [Organization User Share REST API v1]({{base_path}}/apis/organization-user-share-rest-api/) has been deprecated and replaced by v2. The v1 API will no longer receive enhancements or non-critical fixes and may be removed in a future release.
 
 **Recommended action**:
-Migrate to the [Organization User Share REST API v2]({{base_path}}/apis/organization-user-share-v2-rest-api/) to benefit from improved request/response structures, enhanced validation, and long-term support.
+Migrate to the [Organization User Share REST API v2]({{base_path}}/apis/organization-user-share-v2-rest-api/) to benefit from improved request and response structures, enhanced validation, and ongoing support.
 
 ### Notification Sender REST API v1
-The [Notification Sender REST API v1]({{base_path}}/apis/notification-sender-rest-api/) is being deprecated due to the introduction of an improved and more consistent v2 API that provides better scalability, enhanced security, and a simplified configuration model for notification management.
+The [Notification Sender REST API v1]({{base_path}}/apis/notification-sender-rest-api/) has been deprecated and replaced by the v2 API that provides better scalability, enhanced security, and a simplified configuration model for notification management.
 
 The v1 API will no longer receive new enhancements or feature updates and may be removed in a future release.
 
-**Recommended action**: Migrate to the [Notification Sender REST API v2]({{base_path}}/apis/notification-sender-v2-rest-api/) to benefit from improved API design, enhanced extensibility, and long-term support.
+**Recommended action**: Migrate to the [Notification Sender REST API v2]({{base_path}}/apis/notification-sender-v2-rest-api/) to benefit from improved API design, enhanced extensibility, and ongoing support.
 
 
 ## Fixed issues
