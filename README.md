@@ -1,6 +1,6 @@
 # WSO2 Identity Platform documentation
 
-This repository holds the source code and content for the following product documentations:
+This repository holds the source code and content for the following product documentation:
 
 - WSO2 Identity Server - [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
 - Asgardeo - [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
