@@ -84,6 +84,8 @@ Key capabilities include:
 
 These configurations are now fully integrated into the Console.
 
+Learn more about [organization applications]({{base_path}}/guides/organization-management/organization-applications).
+
 ### Token exchange for organization applications
 
 WSO2 Identity Server now supports the [Token Exchange](https://www.rfc-editor.org/rfc/rfc8693){:target="_blank"} grant type for applications created in organizations. Applications can exchange tokens issued by any trusted token issuer defined at the organization level.
