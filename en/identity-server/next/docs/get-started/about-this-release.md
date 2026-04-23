@@ -55,6 +55,8 @@ Key capabilities include:
 - Single Sign-On (SSO) between organization-level applications and B2B SaaS applications.
 - Support for password and client credential grants alongside the authorization code grant and organization switch grant for B2B SaaS applications.
 
+Learn more about [enhanced organization authentication]({{base_path}}/guides/organization-management/organization-login/).
+
 ### Share users with organizations through Console
 
 Organization administrators can now share users with child organizations directly from the Console.

@@ -905,9 +905,15 @@ nav:
               - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
               - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
             - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
-          - Enable organization-based login:
-            - Organization discovery: guides/organization-management/organization-discovery/organization-discovery.md
-            - Email domain-based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+          - Organization-based login:
+            - Overview: guides/organization-management/organization-login/organization-login-overview.md
+            - Organization discovery:
+              - Discover organizations during login: guides/organization-management/organization-discovery/organization-discovery.md
+              - Email domain-based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
+            - Organization login with app-native authentication: guides/organization-management/organization-login/organization-login-with-app-native-authentication.md
+            - Legacy approach:
+              - Overview: guides/organization-management/organization-login/legacy-approach.md
+              - Migrate applications to enhanced approach: guides/organization-management/organization-login/migrate-to-enhanced-approach.md
           - Offboard organizations:
             - Disable or delete an organization: guides/organization-management/disable-delete-organizations.md
             - Clean up deleted organization resources: guides/organization-management/cleanup-organization-resources.md
