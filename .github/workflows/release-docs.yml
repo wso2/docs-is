@@ -46,8 +46,8 @@ jobs:
 
           # Extract base version (remove hotfix suffix if present)
           if [[ $LATEST_TAG =~ -hotfix-[0-9]+$ ]]; then
-            # It's a hotfix tag, extract the base version
-            CURRENT_VERSION="${LATEST_TAG%-hotfix-*}"
+            # It's a hotfix tag, extract the base version (remove all -hotfix-* suffixes)
+            CURRENT_VERSION="${LATEST_TAG%%-hotfix-*}"
           else
             # It's a regular tag
             CURRENT_VERSION="$LATEST_TAG"
