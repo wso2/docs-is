@@ -235,6 +235,8 @@ nav:
       - React:
         - Quickstart: quick-starts/react.md
         - Complete Guide: complete-guides/react/introduction.md
+      - Vue:
+        - Quickstart: quick-starts/vue.md
       - Angular:
         - Quickstart: quick-starts/angular.md
         - Complete Guide: complete-guides/angular/introduction.md
@@ -577,9 +579,6 @@ nav:
             - Understanding webhooks: guides/webhooks/understanding-webhooks.md
             - Setup webhooks: guides/webhooks/setup-webhooks.md
             - Webhook events and payloads: guides/webhooks/webhook-events-and-payloads.md
-      - Verifiable Credentials:
-        - Overview: guides/verifiable-credentials/index.md
-        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
       - Your Asgardeo:
         - Your Asgardeo: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
@@ -596,7 +595,9 @@ nav:
       - Asgardeo logs:
         - Asgardeo logs: guides/asgardeo-logs/index.md
         - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
-        - Audit logs: guides/asgardeo-logs/audit-logs.md
+        - Audit logs:
+          - Audit logs: guides/asgardeo-logs/audit-logs/index.md
+          - Audit log catalog: guides/asgardeo-logs/audit-logs/audit-log-catalog.md
         - Remote log publish: guides/asgardeo-logs/remote-log-publish.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
@@ -614,6 +615,9 @@ nav:
           - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
           - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
           - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
+      - Verifiable Credentials:
+        - Overview: guides/verifiable-credentials/index.md
+        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
   - Tutorials:
     - Tutorials - Overview: tutorials/index.md
     - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
@@ -728,6 +732,7 @@ nav:
           - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
           - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Schema API: apis/scim2/scim2-schema-rest-api.md
           - SCIM 2.0 Batch Operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
           - SCIM 2.0 Service provider configs API: apis/scim2/scim2-service-provider-configs-rest-api.md

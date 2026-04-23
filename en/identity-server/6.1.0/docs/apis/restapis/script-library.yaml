@@ -107,7 +107,7 @@ paths:
       summary: |
         Get script library.
       description: >
-        This API provides the capability to retrive the script library details by using its name.
+        This API provides the capability to retrieve the script library details by using its name.
       operationId: getScriptLibraryByName
       parameters:
         - name: script-library-name
@@ -238,7 +238,7 @@ paths:
       summary: |
         Get the content of the script library.
       description: >
-        This API provides the capability to retrive the content of script library by using its name.
+        This API provides the capability to retrieve the content of script library by using its name.
       operationId: getScriptLibraryContentByName
       parameters:
         - name: script-library-name

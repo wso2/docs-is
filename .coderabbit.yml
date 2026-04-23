@@ -10,14 +10,29 @@ reviews:
   estimate_code_review_effort: false
   auto_assign_reviewers: true
   poem: false
+  auto_apply_labels: true
   labeling_instructions:
-    - label: "Team/Authentication & registration"
-      instructions: "Use for documentation related to custom authenticators, login flows, registration flows, application authentication settings, login UI, identity providers in login, MFA configuration and authentication steps."
-    - label: "Team/User & identity administration"
-      instructions: "Use for documentation related to user management, identity management, profile management, account settings, password management, user roles and permissions."
-    - label: "Team/API Access Mgt & Authorization"
-      instructions: "Use for documentation related to API authorization, OAuth/OIDC authorization issues, role management, permission management, consent management, scope management, access policies."
-    - label: "Team/B2B"
-      instructions: "Use for documentation related to sub-organization management, partner authentication, partner identity management, organization hierarchy."
-    - label: "Team/Identity Server Core"
-      instructions: "Use for documentation related to email provider configuration, SMS provider configuration, deployment configuration, server performance improvements, infrastructure issues, core backend services, tenant management, web application or API performance and maintenance."
+  - label: "Team/Authentication & registration"
+    instructions: >
+      Apply this label ONLY if there is no existing label starting with "Team/" already present on the PR.
+      Use for documentation related to custom authenticators, login flows, registration flows, application authentication settings, login UI, identity providers in login, MFA configuration and authentication steps.
+
+  - label: "Team/User & identity administration"
+    instructions: >
+      Apply this label ONLY if there is no existing label starting with "Team/" already present on the PR.
+      Use for documentation related to user management, identity management, profile management, account settings, password management, user roles and permissions.
+
+  - label: "Team/API Access Mgt & Authorization"
+    instructions: >
+      Apply this label ONLY if there is no existing label starting with "Team/" already present on the PR.
+      Use for documentation related to API authorization, OAuth/OIDC authorization issues, role management, permission management, consent management, scope management, access policies.
+
+  - label: "Team/B2B"
+    instructions: >
+      Apply this label ONLY if there is no existing label starting with "Team/" already present on the PR.
+      Use for documentation related to sub-organization management, partner authentication, partner identity management, organization hierarchy.
+
+  - label: "Team/Identity Server Core"
+    instructions: >
+      Apply this label ONLY if there is no existing label starting with "Team/" already present on the PR.
+      Use for documentation related to email provider configuration, SMS provider configuration, deployment configuration, server performance improvements, infrastructure issues, core backend services, tenant management, web application or API performance and maintenance.

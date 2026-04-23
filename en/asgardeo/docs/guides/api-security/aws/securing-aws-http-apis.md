@@ -305,7 +305,7 @@ curl -X POST "https://api.asgardeo.io/t/<ORG_NAME>/scim2/Roles" \
   -H "Authorization: Bearer $ACCESS_TOKEN" \
   -d '{
         "displayName": "PharmacyUser",
-        "users": [ { "value": <USER_ID> } ],
+        "users": [ { "value": "<USER_ID>" } ],
         "permissions": [ { "value": "get_pharmacy_user" } ]
       }'
 ```
