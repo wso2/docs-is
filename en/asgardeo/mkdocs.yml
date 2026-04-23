@@ -528,7 +528,9 @@ nav:
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
         - Configure organization applications:
           - Share applications: guides/organization-management/share-applications.md
-          - Create organization applications: guides/organization-management/organization-applications.md
+          - Organization applications:
+            - Create applications: guides/organization-management/organization-applications.md
+            - Select token issuer: guides/organization-management/select-token-issuer-for-organization-apps.md
           - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
         - Authorize API resources:
           - Overview: guides/organization-management/api-authorization-overview.md

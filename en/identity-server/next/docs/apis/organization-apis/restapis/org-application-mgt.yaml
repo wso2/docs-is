@@ -155,6 +155,10 @@ paths:
                       method: "A128CBC+HS256"
                   scopeValidators:
                     - "Role based scope validator"
+                  issuer:
+                    organizationId: "bdece142-646b-45c0-9385-a4159f1ea219"
+                    tenantDomain: "wso2-sub.com"
+                    value: "https://localhost:9443/t/carbon.super/o/bdece142-646b-45c0-9385-a4159f1ea219/oauth2/token"
         description: This represents the application to be created.
         required: true
       responses:
@@ -259,7 +263,12 @@ paths:
                 },
                 "scopeValidators": [
                   "Role based scope validator"
-                ]
+                ],
+                "issuer": {
+                  "organizationId": "bdece142-646b-45c0-9385-a4159f1ea219",
+                  "tenantDomain": "wso2-sub.com",
+                  "value": "https://localhost:9443/t/carbon.super/o/bdece142-646b-45c0-9385-a4159f1ea219/oauth2/token"
+                }
               }
             }
             }'
@@ -925,6 +934,10 @@ paths:
                   subjectType: "public"
                   sectorIdentifierUri: "https://app.example.com"
                 isFAPIApplication: false
+                issuer:
+                  organizationId: "bdece142-646b-45c0-9385-a4159f1ea219"
+                  tenantDomain: "wso2-sub.com"
+                  value: "https://localhost:9443/t/carbon.super/o/bdece142-646b-45c0-9385-a4159f1ea219/oauth2/token"
         '400':
           description: Bad Request
           content:
@@ -1063,7 +1076,12 @@ paths:
                 "subjectType": "public",
                 "sectorIdentifierUri": "https://app.example.com"
               },
-              "isFAPIApplication": false
+              "isFAPIApplication": false,
+              "issuer": {
+                "organizationId": "bdece142-646b-45c0-9385-a4159f1ea219",
+                "tenantDomain": "wso2-sub.com",
+                "value": "https://localhost:9443/t/carbon.super/o/bdece142-646b-45c0-9385-a4159f1ea219/oauth2/token"
+              }
             }'
       requestBody:
         content:
@@ -1111,6 +1129,10 @@ paths:
                 subjectType: "public"
                 sectorIdentifierUri: "https://app.example.com"
               isFAPIApplication: false
+              issuer:
+                organizationId: "bdece142-646b-45c0-9385-a4159f1ea219"
+                tenantDomain: "wso2-sub.com"
+                value: "https://localhost:9443/t/carbon.super/o/bdece142-646b-45c0-9385-a4159f1ea219/oauth2/token"
         description: >-
           This represents the OIDC authentication protocol parameters of an
           application.
@@ -2208,6 +2230,8 @@ components:
           default: false
           description: Enabling this option will make the application FAPI conformant.
           example: false
+        issuer:
+          $ref: '#/components/schemas/AllowedIssuer'
     OAuth2PKCEConfiguration:
       type: object
       properties:
@@ -2361,6 +2385,23 @@ components:
         sectorIdentifierUri:
           type: string
           example: 'https://app.example.com'
+    AllowedIssuer:
+      type: object
+      properties:
+        value:
+          type: string
+          readOnly: true
+          description: The issuer URL of the allowed issuer organization.
+          example: "https://localhost:9443/t/carbon.super/o/bdece142-646b-45c0-9385-a4159f1ea219/oauth2/token"
+        organizationId:
+          type: string
+          description: Organization ID of the allowed issuer.
+          example: "bdece142-646b-45c0-9385-a4159f1ea219"
+        tenantDomain:
+          type: string
+          readOnly: true
+          description: Tenant domain of the allowed issuer.
+          example: "wso2-sub.com"
     OIDCLogoutConfiguration:
       type: object
       properties:
