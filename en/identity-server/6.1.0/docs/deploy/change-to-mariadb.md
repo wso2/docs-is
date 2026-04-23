@@ -22,7 +22,7 @@ type = "database_unique_id"
 
 [database.identity_db]
 type = "mariadb"
-url = "jdbc:mariadb://172.17.0.2:3306/elevbeta3snap1?useBulkStmts=false"
+url = "jdbc:mariadb://localhost:3306/WSO2IS_IDENTITY_DB"
 username = "root"
 password = "mypass"
 
@@ -37,7 +37,7 @@ commitOnReturn=true
 
 [database.shared_db]
 type = "mariadb"
-url = "jdbc:mariadb://172.17.0.2:3306/elevbeta3snap1?useBulkStmts=false"
+url = "jdbc:mariadb://localhost:3306/WSO2IS_SHARED_DB"
 username = "root"
 password = "mypass"
 
