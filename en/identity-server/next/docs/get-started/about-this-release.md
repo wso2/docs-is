@@ -363,7 +363,6 @@ Migrate to the [Organization User Share REST API v2]({{base_path}}/apis/organiza
 ### Notification Sender REST API v1
 The [Notification Sender REST API v1]({{base_path}}/apis/notification-sender-rest-api/) has been deprecated and replaced by the v2 API that provides better scalability, enhanced security, and a simplified configuration model for notification management. The v1 API will no longer receive new enhancements or feature updates and may be removed in a future release.
 
-
 **Recommended action**: Migrate to the [Notification Sender REST API v2]({{base_path}}/apis/notification-sender-v2-rest-api/) to benefit from improved API design, enhanced extensibility, and ongoing support.
 
 
