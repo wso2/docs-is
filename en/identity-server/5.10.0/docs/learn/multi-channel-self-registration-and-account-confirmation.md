@@ -369,7 +369,7 @@ to WSO2 Identity Server is managed by an external notification management mechan
         - For more information, see [Notification channel selection criteria](../.
         ./learn/extended-self-registration-api-and-account-confirmation-api/#notification-channel-selection-criteria).
         
-3. If the notification channel is **EMAIL**, access the relevant email account and and click 
+3. If the notification channel is **EMAIL**, access the relevant email account and click 
 the button or the confirmation link. Then the user account will be unlocked.
 
     !!! Note
