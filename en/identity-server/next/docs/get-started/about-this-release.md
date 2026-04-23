@@ -347,6 +347,7 @@ In WSO2 Identity Server 7.3.0, we have deprecated several features to enhance se
 Learn more about [WSO2 Identity Server feature deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
 
 ### Support for TLS 1.1 and 1.0
+
 TLS 1.0 and TLS 1.1 have known security vulnerabilities (for example, POODLE, BEAST, and CRIME) and have been deprecated across major vendors and browsers. These protocol versions are no longer considered secure and are widely unsupported.
 
 To align with current security standards and Java 21 defaults, {{ product_name }} has deprecated support for TLS 1.0 and TLS 1.1 and enables TLS 1.3 by default. This change improves the security posture, helps prevent downgrade attacks, and ensures compatibility with modern platforms and ecosystem standards.
