@@ -42,12 +42,26 @@ jobs:
 
       - name: Get the current version
         run: |
-          echo "CURRENT_VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+          LATEST_TAG=$(git describe --tags --abbrev=0)
+
+          # Extract base version (remove hotfix suffix if present)
+          if [[ $LATEST_TAG =~ -hotfix-[0-9]+$ ]]; then
+            # It's a hotfix tag, extract the base version
+            CURRENT_VERSION="${LATEST_TAG%-hotfix-*}"
+          else
+            # It's a regular tag
+            CURRENT_VERSION="$LATEST_TAG"
+          fi
+
+          echo "Latest tag: $LATEST_TAG"
+          echo "Current version: $CURRENT_VERSION"
+          echo "CURRENT_VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
+        shell: bash
 
       - name: Increment version
         run: |
           NEW_VERSION="${{ github.event.inputs.version }}"
-          
+
           if [[ -z "$NEW_VERSION" ]]; then
             set -euxo pipefail
             IFS='.' read -r MAJOR MINOR PATCH <<< "${{ env.CURRENT_VERSION }}"
@@ -58,7 +72,7 @@ jobs:
               PATCH=$((PATCH+1))
               echo "Version is auto incremented."
             fi
-            
+
             NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
           fi
 
@@ -70,24 +84,18 @@ jobs:
         if: ${{ env.IS_HOTFIX == 'true' }}
         run: |
           set +e
-          
-          # Determine the hotfix tag
-          # echo "Determining the hotfix tag..."
 
-          hotfix_count=$(git tag | grep -E "${{ env.NEW_VERSION }}-hotfix-[0-9]+" | wc -l)
+          # Count existing hotfix tags for the current version
+          hotfix_count=$(git tag | grep -E "^${{ env.NEW_VERSION }}-hotfix-[0-9]+$" | wc -l)
           echo "Hotfix count: $hotfix_count"
 
           next_hotfix_no=$((hotfix_count + 1))
           echo "Next Hotfix number: $next_hotfix_no"
 
-          # Replace the last digit with the incremented value
-          hotfix_release_tag=${{ env.NEW_VERSION }}-hotfix-$next_hotfix_no
+          hotfix_release_tag="${{ env.NEW_VERSION }}-hotfix-${next_hotfix_no}"
           echo "Hotfix release tag: $hotfix_release_tag"
 
-          # set the new version to the hotfix version
-          NEW_VERSION=$(echo $hotfix_release_tag)
-          
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "NEW_VERSION=$hotfix_release_tag" >> $GITHUB_ENV
 
         shell: bash
 
