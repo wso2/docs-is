@@ -342,9 +342,30 @@ Learn more about the [Password Reset Enforcer connector]({{base_path}}/connector
 
 ## Deprecated features
 
-No features are deprecated in WSO2 Identity Server 7.3.0.
+In WSO2 Identity Server 7.3.0, we have deprecated several features to enhance security, streamline operations, and improve overall usability. These deprecations align with our commitment to maintaining a robust and future-ready platform. Below is a list of deprecated features along with recommended actions for users.
 
 Learn more about [WSO2 Identity Server feature deprecation]({{base_path}}/references/wso2-identity-server-feature-deprecation/).
+
+### TLS 1.1 and 1.0
+We are deprecating support for TLS 1.0 and TLS 1.1 due to known security vulnerabilities (e.g., POODLE, BEAST, CRIME) and industry-wide deprecation across major vendors and browsers. These protocols are no longer considered secure and are widely unsupported.
+
+In alignment with modern security standards and Java 21 defaults, TLS 1.3 will be enabled by default, and older TLS versions will be disabled. This change improves security posture, prevents downgrade attacks, and ensures compatibility with current platform and ecosystem standards.
+
+**Recommended action**: Upgrade to and use TLS 1.3, as it provides stronger security, improved performance, and aligns with current industry standards and platform defaults.
+
+### Organization User Share REST API v1
+The [Organization User Share REST API v1]({{base_path}}/apis/organization-user-share-rest-api/) is deprecated and introduced in v2. The v1 API will no longer receive enhancements or non-critical fixes and may be removed in a future 
+
+**Recommended action**:
+Migrate to the [Organization User Share REST API v2]({{base_path}}/apis/organization-user-share-v2-rest-api/) to benefit from improved request/response structures, enhanced validation, and long-term support.
+
+### Notification Sender REST API v1
+The [Notification Sender REST API v1]({{base_path}}/apis/notification-sender-rest-api/) is being deprecated due to the introduction of an improved and more consistent v2 API that provides better scalability, enhanced security, and a simplified configuration model for notification management.
+
+The v1 API will no longer receive new enhancements or feature updates and may be removed in a future release.
+
+**Recommended action**: Migrate to the [Notification Sender REST API v2]({{base_path}}/apis/notification-sender-v2-rest-api/) to benefit from improved API design, enhanced extensibility, and long-term support.
+
 
 ## Fixed issues
 
