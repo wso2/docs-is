@@ -15,6 +15,7 @@ concurrency:
 
 jobs:
   broken-link-checker:
+    name: Broken link checker (${{ matrix.doc_path }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
