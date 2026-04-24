@@ -6,22 +6,19 @@ At the same time, no-code and low-code platforms such as [n8n](https://n8n.io/) 
 
 The good news is that secure MCP ecosystems can be built using {% if product_name == "Asgardeo" %}[Asgardeo](https://asgardeo.io/){% else %}[WSO2 Identity Server](https://wso2.com/products/downloads/?product=wso2is){% endif %}. By leveraging {{ product_name }} for authentication and authorization, you can protect MCP servers and ensure that only trusted clients and users are allowed to access specific tools.
 
-In this tutorial, you will:
+By the end of this tutorial, you will be able to run n8n locally, configure its MCP client secured by {{ product_name }}, set up a demo MCP server, and securely interact with it using OAuth 2.0 with PKCE from the n8n chat interface.
 
-1. Run n8n locally.
-2. Create an MCP client application in {{ product_name }}.
-3. Configure and run a demo MCP server.
-4. Configure the n8n MCP client to use OAuth 2.0 with PKCE.
-5. Invoke the secured MCP server from the n8n chat interface.
+## Getting started
+
+First, clone this [repository](https://github.com/wso2/iam-ai-samples) and go to the `mcp-auth/integrations/mcp-auth-n8n-example` directory to access the required project files and sample workflow.
 
 ## Step 1: Set up n8n
 
-First, clone this [repository](https://github.com/AkinduH/iam-ai-samples) and go to the `mcp-auth/integrations/mcp-auth-n8n-example` directory to access the required project files and sample workflow.
-To install and run n8n locally using either Docker or Node.js, follow this [step-by-step guide](https://community.n8n.io/t/how-to-install-n8n-locally-docker-or-node-js-step-by-step/228296) from the n8n community.
+Follow [n8n documentation](https://community.n8n.io/t/how-to-install-n8n-locally-docker-or-node-js-step-by-step/228296) to install and run n8n locally using either Docker or Node.js.
 
 ### Import the MCP client workflow
 
-1. Open the n8n UI.
+1. Open the n8n UI. (Usually at `http://localhost:5678`).
 2. Select **Create Workflow**.
 3. Select **Import from File**.
 
@@ -33,13 +30,10 @@ Select the `mcp-client-n8n-example.json` file from the cloned repository.
 
 ## Step 2: Set up {{ product_name }}
 
-1. Go to the {{ product_name }} Console.
-2. Create an application for your MCP client.
-
 ### Create an MCP client application
 
-1. Open the **Applications** tab.
-2. Select **New Application**.
+1. On {{ product_name }} Console, Go to **Applications**.
+2. Click on **New Application**.
 3. Select **MCP Client Application**.
 
 ![Create MCP client application]({{base_path}}/assets/img/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/create-mcp-client-application.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -47,12 +41,7 @@ Select the `mcp-client-n8n-example.json` file from the cloned repository.
 Configure the application with the following values:
 	- **Application Name**: `n8n-example`
 	- **Redirect URL**: `http://localhost:5678/rest/oauth2-credential/callback`
-	- Disable **Public Client**.
-
-!!! note
-		Why disable Public Client?
-
-		In practice, MCP Clients can be public  clients  with the PKCE enabled OAuth flow. However, n8n currently supports confidential clients and expects the client secret during configuration. Hence, let’s configure the application like this.
+	- Disable **Public Client** option, as n8n currently only supports confidential clients and expects the client secret during configuration. 
 
 ![Save MCP client application]({{base_path}}/assets/img/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/save-mcp-client-application.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
