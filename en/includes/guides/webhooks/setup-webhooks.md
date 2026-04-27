@@ -1,12 +1,6 @@
-# Setup webhooks {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
+# Setup webhooks
 
 This guide provides a step-by-step approach to setting up webhooks in {{product_name}} to integrate external systems.
-
-{% if product_name == "Asgardeo" %}
-!!! Note
-      This feature is currently in **Preview**. Functionality and event payloads may change during development.  
-      Expect updates without prior notice.
-{% endif %}
 
 ## Prerequisites
 
