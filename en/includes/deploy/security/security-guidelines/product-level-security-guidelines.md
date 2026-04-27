@@ -278,6 +278,13 @@ For the scenarios listed below, you can define a regular expression to validate 
 - [Self User Registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration/)
 <!-- TODO - [Lite User Registration]({{base_path}}/guides/identity-lifecycles/lite-user-registration) -->
 
+## WebappAdmin service
+
+The `WebappAdmin` SOAP service allows users with administrative privileges to upload web applications (WAR files) and deploy them to the server's webapps directory, making them accessible over the internet. This service is disabled by default.
+
+!!! warning "Security risk when enabling WebappAdmin"
+    Once enabled, any user with administrative privileges can deploy arbitrary web applications to the server. A malicious administrator could exploit this to upload a harmful web application.
+
 ## Prevent accepting sensitive data as query parameters in API requests
 
 {% if is_version != "7.0.0" %}
