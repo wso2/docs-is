@@ -365,3 +365,10 @@ For the scenarios listed below, you can define a regular expression to validate 
 - [Password Recovery](../../learn/password-recovery)
 - [Username Recovery](../../learn/username-recovery)
 - [Self User Registration](../../learn/self-registration-and-account-confirmation/#configuring-self-registration)
+
+## WebappAdmin service
+
+The `WebappAdmin` SOAP service allows users with administrative privileges to upload web applications (WAR files) and deploy them to the server's webapps directory, making them accessible over the internet. This service is disabled by default.
+
+!!! warning "Security risk when enabling WebappAdmin"
+    Enabling the `WebappAdmin` service carries security risk. Once enabled, any user with administrative privileges can deploy arbitrary web applications to the server. A malicious administrator could exploit this to upload a harmful web application.
