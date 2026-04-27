@@ -22,8 +22,6 @@ Once you finish creating the application, note down the following values from it
 
 !!! Info
 
-    The Asgardeo Nuxt SDK runs the OAuth 2.0 authorization code exchange entirely on the Nitro server and stores tokens in a signed, HTTP-only session cookie. Because of this, the application is registered as a **Traditional Web Application** (a confidential OAuth client) — never as a single-page application. The browser never sees the authorization code, the access token, or the client secret.
-
     The authorized redirect URL is the address {{ product_name }} sends the user back to after a successful sign-in. The SDK exposes this callback at `/api/auth/callback`, so for local development you must register `http://localhost:3000/api/auth/callback`.
 
 ## Create a Nuxt app
@@ -118,7 +116,7 @@ The `asgardeo` block is where you tune SDK behavior such as the post sign-in / s
 
 Replace the contents of `app.vue` with the following.
 
-```vue title="app.vue"
+```vue title="app.vue" hl_lines="2 4"
 <template>
   <AsgardeoRoot>
     <NuxtPage />
@@ -135,7 +133,7 @@ The Asgardeo Nuxt SDK provides `<AsgardeoSignInButton />` and `<AsgardeoSignOutB
 
 Create a `pages/index.vue` file (or replace its contents if it already exists) with the following.
 
-```vue title="pages/index.vue"
+```vue title="pages/index.vue" hl_lines="3-8"
 <template>
   <header>
     <AsgardeoSignedOut>

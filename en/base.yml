@@ -208,7 +208,7 @@ extra:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 2
     Nuxt.js SDK:
-      icon: assets/libs/custom-icons/nextjs.svg
+      icon: assets/libs/custom-icons/nuxt.svg
       level: 2
     Connectors:
       icon: octicons/beaker-16
@@ -255,11 +255,17 @@ extra:
     Next.js Quickstart:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 3
+    Nuxt:
+      icon: assets/libs/custom-icons/nuxt.svg
+      level: 3
+    Nuxt Quickstart:
+      icon: assets/libs/custom-icons/nuxt.svg
+      level: 3
     Nuxt.js:
-      icon: assets/libs/custom-icons/nextjs.svg
+      icon: assets/libs/custom-icons/nuxt.svg
       level: 3
     Nuxt.js Quickstart:
-      icon: assets/libs/custom-icons/nextjs.svg
+      icon: assets/libs/custom-icons/nuxt.svg
       level: 3
     Angular:
       icon: fontawesome/brands/angular
