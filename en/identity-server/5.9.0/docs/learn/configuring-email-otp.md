@@ -498,7 +498,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         </tr>
         <tr class="even">
         <td><code>               GmailTokenEndpoint              </code></td>
-        <td>Use the the deafult value.</td>
+        <td>Use the default value.</td>
         </tr>
         <tr class="odd">
         <td><code>               SendgridAuthTokenType              </code></td>
