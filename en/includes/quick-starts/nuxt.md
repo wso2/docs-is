@@ -81,12 +81,9 @@ Create a `.env` file in the root of your Nuxt project. The Nuxt module reads `NU
 ```bash title=".env"
 NUXT_PUBLIC_ASGARDEO_BASE_URL="{{content.sdkconfig.baseUrl}}"
 NUXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
+NUXT_PUBLIC_ASGARDEO_AFTER_SIGN_OUT_URL="<after-sign-out-redirect-url>"
 ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
-ASGARDEO_SESSION_SECRET="<random-32-character-string>"
 ```
-
-!!! Important
-    `ASGARDEO_CLIENT_SECRET` and `ASGARDEO_SESSION_SECRET` are server-only values — they are never sent to the browser. Do **not** prefix them with `NUXT_PUBLIC_`. Generate `ASGARDEO_SESSION_SECRET` as a strong random string (for example, `openssl rand -hex 32`); it is used to sign the session cookie.
 
 {% if product_name == "WSO2 Identity Server" %}
 !!! Note
@@ -97,18 +94,13 @@ ASGARDEO_SESSION_SECRET="<random-32-character-string>"
 
 Open `nuxt.config.ts` and add `@asgardeo/nuxt` to the `modules` array. The SDK reads the credentials you set in `.env` automatically — you only need to declare the module.
 
-```typescript title="nuxt.config.ts" hl_lines="2 4-7"
+```typescript title="nuxt.config.ts" hl_lines="2"
 export default defineNuxtConfig({
   modules: ['@asgardeo/nuxt'],
-
-  asgardeo: {
-    afterSignInUrl: '/',
-    afterSignOutUrl: '/',
-  },
 });
 ```
 
-The `asgardeo` block is where you tune SDK behavior such as the post sign-in / sign-out destinations. `baseUrl`, `clientId`, `clientSecret`, and `sessionSecret` are picked up from the environment variables, so you do not need to repeat them here.
+The SDK reads your credentials from the environment variables automatically. You can optionally configure post sign-in / sign-out destinations in the `asgardeo` config block if needed.
 
 ## Wrap your app with `<AsgardeoRoot />`
 
@@ -150,20 +142,16 @@ When the user clicks **Sign In**, the SDK calls `/api/auth/signin`, which redire
 
 ## Display the signed-in user's profile information
 
-The SDK ships ready-made user components and a `useAsgardeo()` composable for reading the current session. Use whichever fits the surface you are building:
+The SDK provides several ways to access the signed-in user's profile information. You can use the `AsgardeoUser`, `AsgardeoUserProfile`, or `AsgardeoUserDropdown` components to access and display user profile information in a declarative way.
 
-- `<AsgardeoUserDropdown />` — a dropdown with the user's avatar, basic profile info, and a built-in sign-out action.
-- `<AsgardeoUserProfile />` — a full profile view that lets the user inspect and update their attributes.
-- `useAsgardeo()` — programmatic access to `isSignedIn`, `user`, `signIn()`, and `signOut()`.
+- `<AsgardeoUser />`: Component provides a render prop pattern to access user profile information:
+- `<AsgardeoUserProfile />` — Component provides a declarative way to display and update user profile information.
+- `<AsgardeoUserDropdown />` — Component provides a dropdown menu with built-in user information and sign-out functionality.
 
 Update `pages/index.vue` to render the dropdown and a personalized greeting.
 
 {% raw %}
-```vue title="pages/index.vue" hl_lines="2 11-14 19-22"
-<script setup lang="ts">
-const { user } = useAsgardeo();
-</script>
-
+```vue title="pages/index.vue" hl_lines="7 14-21"
 <template>
   <header>
     <AsgardeoSignedOut>
@@ -177,10 +165,13 @@ const { user } = useAsgardeo();
 
   <main>
     <AsgardeoSignedIn>
-      <p>
-        Welcome back,
-        {{ user?.givenName ?? user?.username ?? user?.sub }}.
-      </p>
+      <AsgardeoUser>
+        {(user) => (
+          <div>
+            <p>Welcome back, {user.userName || user.username || user.sub}</p>
+          </div>
+        )}
+      </AsgardeoUser>
       <AsgardeoUserProfile />
     </AsgardeoSignedIn>
   </main>
@@ -188,36 +179,24 @@ const { user } = useAsgardeo();
 ```
 {% endraw %}
 
-`useAsgardeo()` reads from server-hydrated state, so on the very first render the user object is already populated — no client-side flicker.
-
 ## Protect a page with middleware
 
-Use `defineAsgardeoMiddleware()` to gate any route behind authentication. Unauthenticated visitors are redirected to the sign-in flow automatically.
+The Asgardeo Nuxt SDK provides a named middleware called `auth` that you can use to gate any route behind authentication. Unauthenticated visitors are redirected to the sign-in flow automatically.
 
-Create the middleware file:
-
-```typescript title="middleware/auth.ts"
-export default defineAsgardeoMiddleware();
-```
-
-Then opt any page into protection with `definePageMeta`. For example, create a `pages/dashboard.vue`:
+Use `definePageMeta` to apply the `auth` middleware to any page. For example, create a `pages/dashboard.vue`:
 
 {% raw %}
-```vue title="pages/dashboard.vue"
+```vue title="pages/dashboard.vue" hl_lines="2"
 <script setup lang="ts">
 definePageMeta({ middleware: ['auth'] });
-
-const { flattenedProfile } = useUser();
 </script>
 
 <template>
   <h1>Dashboard</h1>
-  <pre>{{ flattenedProfile }}</pre>
+  <p>This page includes protected content.</p>
 </template>
 ```
 {% endraw %}
-
-`useUser()` returns the SCIM 2.0 profile that the SDK fetched on the server during SSR, so the page renders with the data ready on first paint.
 
 ## Choose how users will sign in
 
@@ -238,13 +217,13 @@ Before running the app, you need to decide how you want users to sign into your 
 
 <div class="mode-content" data-content-for="quickstart" data-content-value="redirect">
 
-When users click **Sign In**, your app navigates to `/api/auth/signin` which redirects them to {{ product_name }}'s hosted sign-in page. After they sign in, {{ product_name }} redirects them back to `/api/auth/callback` in your app where the server exchanges the code for tokens. This default behavior works without extra configuration.
+When users click `Sign In`, your app redirects them to {{ product_name }}'s sign-in page. After they sign in, it redirects them back to your app. This default behavior works without extra configurations.
 
 </div>
 
 <div class="mode-content" data-content-for="quickstart" data-content-value="embedded" style="display: none;">
 
-The sign-in form appears directly inside your application using the `<AsgardeoSignIn>` component. Users never leave your app during the sign-in process. When `signInUrl` is set in the module config, `<AsgardeoSignInButton>` navigates to that page instead of redirecting to {{ product_name }}.
+The sign-in form appears directly inside your application using the `AsgardeoSignIn` component. Users never leave your app during the sign-in process.
 
 </div>
 
@@ -266,43 +245,17 @@ To enable this feature, follow these steps:
 
 Create a dedicated sign-in page that renders the embedded form. Create `pages/sign-in.vue`:
 
-```vue title="pages/sign-in.vue"
-<script setup lang="ts">
-function onSuccess() {
-  navigateTo('/');
-}
-</script>
-
+```vue title="pages/sign-in.vue" hl_lines="2"
 <template>
-  <AsgardeoSignIn @success="onSuccess" />
+  <AsgardeoSignIn />
 </template>
 ```
 
-Then update `nuxt.config.ts` to tell the module about the sign-in page. When `signInUrl` is set, `<AsgardeoSignInButton>` navigates to that URL instead of triggering the redirect flow:
+Then, update the `.env` file with the route for the sign-in page. Add the following line to your `.env` file:
 
-```typescript title="nuxt.config.ts" hl_lines="5"
-export default defineNuxtConfig({
-  modules: ['@asgardeo/nuxt'],
-
-  asgardeo: {
-    signInUrl: '/sign-in',
-    afterSignInUrl: '/',
-    afterSignOutUrl: '/',
-  },
-});
+```bash title=".env"
+NUXT_PUBLIC_ASGARDEO_SIGN_IN_URL="/sign-in"
 ```
-
-!!! Info
-
-    If your sign-in flow includes social login steps (e.g. Google, GitHub), those steps redirect the user's browser to the external provider and then back to your app. Create a `pages/callback.vue` to handle this:
-
-    ```vue title="pages/callback.vue"
-    <template>
-      <AsgardeoCallback @error="(err) => console.error(err)" />
-    </template>
-    ```
-
-    You must also register `http://localhost:3000/callback` as an additional **Authorized redirect URL** in the {{ product_name }} Console for the social login redirect to be accepted.
 
 ## Run the app [//] SHOW_IF="data-quickstart=redirect,data-quickstart=embedded"
 
