@@ -178,3 +178,111 @@ As shown in the above sequence diagram, the flow proceeds as follows.
 
 9. **Successful Access**
    The request succeeds. The AI agent is now authorized to act on the user’s behalf and access the required resources.
+
+### Practical implementation
+
+This section provides curl examples to help you implement the on-behalf-of flow.
+
+#### Step 1: Obtain an actor token for the agent
+
+Before initiating the user authorization flow, the AI agent must obtain its own actor token using the Client Credentials grant.
+
+```bash
+curl --location ‘{{ api_base_path }}/oauth2/token’ \
+--header ‘Content-Type: application/x-www-form-urlencoded’ \
+--data-urlencode ‘grant_type=client_credentials’ \
+--data-urlencode ‘client_id=<agent_client_id>’ \
+--data-urlencode ‘client_secret=<agent_client_secret>’ \
+--data-urlencode ‘scope=agent_scope’
+```
+
+**Sample response:**
+
+```json
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+
+Store this `access_token` as the **actor token** for use in subsequent steps.
+
+#### Step 2: Initiate user authorization with requested_actor
+
+The client redirects the user to the authorization endpoint, including the `requested_actor` parameter that identifies the AI agent.
+
+```bash
+curl --location ‘{{ api_base_path }}/oauth2/authorize’ \
+--header ‘Accept: application/json’ \
+--header ‘Content-Type: application/x-www-form-urlencoded’ \
+--data-urlencode ‘client_id=<client_id>’ \
+--data-urlencode ‘response_type=code’ \
+--data-urlencode ‘redirect_uri=https://example.com/callback’ \
+--data-urlencode ‘scope=read_bookings write_bookings’ \
+--data-urlencode ‘requested_actor=<agent_client_id>’ \
+--data-urlencode ‘state=xyz123’
+```
+
+!!! note "Key parameters"
+    - **requested_actor**: The client ID of the AI agent that will act on behalf of the user
+    - **scope**: The permissions being requested for the agent to access user resources
+    - **state**: A unique value to maintain state between the request and callback
+
+#### Step 3: User authentication and consent
+
+The authorization server authenticates the user and displays a consent screen showing:
+
+- The scopes being requested
+- The identity of the AI agent (`requested_actor`)
+- A clear indication that the agent will act on the user’s behalf
+
+After the user approves, the authorization server redirects back to the specified `redirect_uri` with an authorization code.
+
+**Sample redirect:**
+
+```
+https://example.com/callback?code=a1b2c3d4e5f6&state=xyz123
+```
+
+#### Step 4: Exchange authorization code for delegated token
+
+The client exchanges the authorization code for a delegated access token by including the agent’s **actor token** in the request.
+
+```bash
+curl --location ‘{{ api_base_path }}/oauth2/token’ \
+--header ‘Content-Type: application/x-www-form-urlencoded’ \
+--header ‘Authorization: Bearer <actor_token>’ \
+--data-urlencode ‘grant_type=authorization_code’ \
+--data-urlencode ‘client_id=<client_id>’ \
+--data-urlencode ‘code=<authorization_code>’ \
+--data-urlencode ‘redirect_uri=https://example.com/callback’
+```
+
+!!! note "Authorization header"
+    The `Authorization: Bearer <actor_token>` header contains the actor token obtained in Step 1, proving the agent’s identity.
+
+**Sample response:**
+
+```json
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "refresh_token": "d4e5f6g7h8i9...",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "scope": "read_bookings write_bookings"
+}
+```
+
+The returned `access_token` is a delegated JWT token that represents both the user and the authorized agent. This token can be decoded to reveal claims identifying both parties in the delegation relationship.
+
+#### Step 5: Access protected resources
+
+The agent can now use the delegated access token to make authorized requests on behalf of the user.
+
+```bash
+curl --location ‘https://api.example.com/bookings’ \
+--header ‘Authorization: Bearer <delegated_access_token>’
+```
+
+The resource server validates the token and grants access based on the user’s identity and the agent’s authorized scopes.
