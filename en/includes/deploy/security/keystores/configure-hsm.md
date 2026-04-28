@@ -19,7 +19,7 @@ WSO2 Identity Server integrates with HSMs through the **PKCS#11** standard, whic
 
 ### Why use an HSM?
 
-HSMs provide enterprise-grade security for cryptographic key management, meeting regulatory requirements such as FIPS 140-2 Level 3 and PCI DSS. Unlike file-based keystores, private keys generated in an HSM cannot be exported or extracted, ensuring they remain secure within tamper-resistant hardware throughout their lifecycle.
+HSMs provide enterprise-grade security for cryptographic key management and can help you meet requirements such as FIPS 140-2 and PCI DSS, depending on HSM certification level and deployment controls. Unlike file-based keystores, private keys generated in an HSM cannot be exported or extracted, ensuring they remain secure within tamper-resistant hardware throughout their lifecycle.
 
 ### Architecture: HSM vs file-based keystore
 
@@ -36,7 +36,6 @@ When HSM is enabled, all private key operations in WSO2 Identity Server are perf
 
 - **OAuth2 JWT signing**: Access tokens, ID tokens, and JWT-based client assertions
 - **SAML assertion signing**: SAML response and assertion signatures
-- **TLS operations**: Server-side certificate private key operations for HTTPS and mutual TLS
 
 ---
 
