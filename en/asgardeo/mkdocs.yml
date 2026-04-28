@@ -422,7 +422,9 @@ nav:
         - Identity Verification with Onfido: guides/identity-verification/add-identity-verification-with-onfido.md
       - User management:
         - User management: guides/users/index.md
-        - Manage administrators: guides/users/manage-administrators.md
+        - Administrators:
+          - Manage administrators: guides/users/manage-administrators.md
+          - Admin SSO: guides/users/configure-enterprise-login.md
         - Users: 
           - Onboard users: guides/users/onboard-users.md
           - Manage users: guides/users/manage-users.md
