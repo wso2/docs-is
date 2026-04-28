@@ -25,8 +25,7 @@ HSMs provide enterprise-grade security for cryptographic key management, meeting
 
 The following diagram illustrates how WSO2 Identity Server operates with an HSM-backed keystore compared to a traditional file-based keystore.
 
-<img src="{{base_path}}/assets/img/deploy/security/keystores/hsm-vs-jks-architecture.png#only-light" alt="HSM vs file-based keystore architecture" />
-<img src="{{base_path}}/assets/img/deploy/security/keystores/hsm-vs-jks-architecture-dark.png#only-dark" alt="HSM vs file-based keystore architecture" />
+![HSM vs file-based keystore architecture]({{base_path}}/assets/img/deploy/security/keystores/hsm-vs-jks-keystore.png)
 
 !!! tip
     When HSM is enabled, WSO2 Identity Server is fully backward compatible. You can switch between HSM and file-based keystores by toggling the `[keystore.hsm]` configuration in `deployment.toml` without any code changes. A server restart is required after changing this configuration.
