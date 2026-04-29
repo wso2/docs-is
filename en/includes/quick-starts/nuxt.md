@@ -179,20 +179,15 @@ Update `pages/index.vue` to render the dropdown and a personalized greeting.
 
 ## Protect a page with middleware
 
-The Asgardeo Nuxt SDK provides a named middleware called `auth` that you can use to gate any route behind authentication. Unauthenticated visitors are redirected to the sign-in flow automatically.
+The Asgardeo Nuxt SDK provides a named middleware called `asgardeoMiddleware` that you can use to gate any route behind authentication. Unauthenticated visitors are redirected to the sign-in flow automatically.
 
-Use `definePageMeta` to apply the `auth` middleware to any page. For example, create a `pages/dashboard.vue`:
+Use `definePageMeta` to apply the `asgardeoMiddleware` middleware to any page. For example, create a `pages/dashboard.vue`:
 
 {% raw %}
 ```vue title="pages/dashboard.vue" hl_lines="2"
 <script setup lang="ts">
-definePageMeta({ middleware: ['auth'] });
+  definePageMeta({ middleware: ['asgardeoMiddleware'] });
 </script>
-
-<template>
-  <h1>Dashboard</h1>
-  <p>This page includes protected content.</p>
-</template>
 ```
 {% endraw %}
 
