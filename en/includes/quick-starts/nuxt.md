@@ -117,23 +117,23 @@ Replace the contents of `app.vue` with the following.
 ```
 
 !!! Info
-    All SDK components are auto-registered with the `Asgardeo` prefix (for example, `AsgardeoSignedIn`, `AsgardeoSignInButton`, `AsgardeoUserDropdown`). You can use them directly in any `<template>` without an explicit import.
+    All SDK components are auto-registered (for example, `SignedIn`, `SignInButton`, `UserDropdown`). You can use them directly in any `<template>` without an explicit import.
 
 ## Add sign-in and sign-out to your app
 
-The Asgardeo Nuxt SDK provides `<AsgardeoSignInButton />` and `<AsgardeoSignOutButton />` to start and end a session. Combine them with `<AsgardeoSignedIn />` and `<AsgardeoSignedOut />` to render content based on the user's authentication state.
+The Asgardeo Nuxt SDK provides `<SignInButton />` and `<SignOutButton />` to start and end a session. Combine them with `<SignedIn />` and `<SignedOut />` to render content based on the user's authentication state.
 
 Create a `pages/index.vue` file (or replace its contents if it already exists) with the following.
 
 ```vue title="pages/index.vue" hl_lines="3-8"
 <template>
   <header>
-    <AsgardeoSignedOut>
-      <AsgardeoSignInButton />
-    </AsgardeoSignedOut>
-    <AsgardeoSignedIn>
-      <AsgardeoSignOutButton />
-    </AsgardeoSignedIn>
+    <SignedOut>
+      <SignInButton />
+    </SignedOut>
+    <SignedIn>
+      <SignOutButton />
+    </SignedIn>
   </header>
 </template>
 ```
@@ -142,11 +142,11 @@ When the user clicks **Sign In**, the SDK calls `/api/auth/signin`, which redire
 
 ## Display the signed-in user's profile information
 
-The SDK provides several ways to access the signed-in user's profile information. You can use the `AsgardeoUser`, `AsgardeoUserProfile`, or `AsgardeoUserDropdown` components to access and display user profile information in a declarative way.
+The SDK provides several ways to access the signed-in user's profile information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
 
-- `<AsgardeoUser />`: Component provides a scoped slot (v-slot) pattern to access user profile information:
-- `<AsgardeoUserProfile />` — Component provides a declarative way to display and update user profile information.
-- `<AsgardeoUserDropdown />` — Component provides a dropdown menu with built-in user information and sign-out functionality.
+- `<User />`: Component provides a scoped slot (v-slot) pattern to access user profile information:
+- `<UserProfile />` — Component provides a declarative way to display and update user profile information.
+- `<UserDropdown />` — Component provides a dropdown menu with built-in user information and sign-out functionality.
 
 Update `pages/index.vue` to render the dropdown and a personalized greeting.
 
@@ -154,24 +154,24 @@ Update `pages/index.vue` to render the dropdown and a personalized greeting.
 ```vue title="pages/index.vue" hl_lines="7 14-19"
 <template>
   <header>
-    <AsgardeoSignedOut>
-      <AsgardeoSignInButton />
-    </AsgardeoSignedOut>
-    <AsgardeoSignedIn>
-      <AsgardeoUserDropdown />
-      <AsgardeoSignOutButton />
-    </AsgardeoSignedIn>
+    <SignedOut>
+      <SignInButton />
+    </SignedOut>
+    <SignedIn>
+      <UserDropdown />
+      <SignOutButton />
+    </SignedIn>
   </header>
 
   <main>
-    <AsgardeoSignedIn>
-      <AsgardeoUser v-slot="{ user }">
+    <SignedIn>
+      <User v-slot="{ user }">
         <div>
           <p>Welcome back, {{ user.userName || user.username || user.sub }}</p>
         </div>
-      </AsgardeoUser>
-      <AsgardeoUserProfile />
-    </AsgardeoSignedIn>
+      </User>
+      <UserProfile />
+    </SignedIn>
   </main>
 </template>
 ```
@@ -216,7 +216,7 @@ When users click `Sign In`, your app redirects them to {{ product_name }}'s sign
 
 <div class="mode-content" data-content-for="quickstart" data-content-value="embedded" style="display: none;">
 
-The sign-in form appears directly inside your application using the `AsgardeoSignIn` component. Users never leave your app during the sign-in process.
+The sign-in form appears directly inside your application using the `SignIn` component. Users never leave your app during the sign-in process.
 
 </div>
 
@@ -240,7 +240,7 @@ Create a dedicated sign-in page that renders the embedded form. Create `pages/si
 
 ```vue title="pages/sign-in.vue" hl_lines="2"
 <template>
-  <AsgardeoSignIn />
+  <SignIn />
 </template>
 ```
 
