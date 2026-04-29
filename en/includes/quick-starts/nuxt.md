@@ -102,17 +102,17 @@ export default defineNuxtConfig({
 
 The SDK reads your credentials from the environment variables automatically. You can optionally configure post sign-in / sign-out destinations in the `asgardeo` config block if needed.
 
-## Wrap your app with `<AsgardeoRoot />`
+## Wrap your app with `<AsgardeoProvider />`
 
-`<AsgardeoRoot />` is the Nuxt equivalent of the React `AsgardeoProvider`. It mounts the SDK's full provider tree (auth, user, organization, branding, theme) and exposes the SSR-hydrated state to every composable below it. The component is auto-registered by the module — you do not need to import it.
+`<AsgardeoProvider />` mounts the SDK's full provider tree (auth, user, organization, branding, theme) and exposes the SSR-hydrated state to every composable below it. The component is auto-registered by the module — you do not need to import it.
 
 Replace the contents of `app.vue` with the following.
 
 ```vue title="app.vue" hl_lines="2 4"
 <template>
-  <AsgardeoRoot>
+  <AsgardeoProvider>
     <NuxtPage />
-  </AsgardeoRoot>
+  </AsgardeoProvider>
 </template>
 ```
 
