@@ -13,7 +13,7 @@ While you are able to encrypt passwords using symmetric or asymmetric encryption
 Asymmetric encryption methods like RSA are not recommended due to their vulnerability to quantum computing capabilities.
 
 !!! important
-    [Configure a separate keystore]({{base_path}}/deploy/security/keystores/configure-keystores/#configure-a-separate-keystore-for-encrypting-data-in-internal-datastores) as the internal keystore to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
+    [Configure the internal keystore]({{base_path}}/deploy/security/keystores/configure-keystores/#configure-the-internal-keystore) to encrypt passwords. If the internal keystore is not specified, the primary keystore will be used instead.
 
 Follow the steps below to encrypt passwords:
 
@@ -34,7 +34,7 @@ Follow the steps below to encrypt passwords:
 
         !!! note "Prerequisite"
 
-            To support symmetric encryption, you should have a symmetric secret in an internal keystore of type PKCS12. Follow the instructions [here]({{base_path}}/deploy/security/keystores/configure-keystores/#add-a-symmetric-secret-to-a-pkcs12-keystore) to add one.
+            To support symmetric encryption, you should have a symmetric secret in an internal keystore of type PKCS12. Follow the instructions for [creating the internal keystore]({{base_path}}/deploy/security/keystores/create-new-keystores/#create-the-internal-keystore) with a symmetric AES key.
 
         - **For Linux**: `./ciphertool.sh -Dconfigure -Dsymmetric`
 
@@ -95,6 +95,9 @@ To encrypt passwords on the WSO2 Identity Server:
 {% endif %}
 
 ## Use encrypted passwords
+
+!!! note
+    When you start the server after configuring encrypted passwords, the server requires the keystore and private key passwords to decrypt the secrets. See [Resolve Encrypted Passwords]({{base_path}}/deploy/security/resolve-encrypted-passwords) for the available options to provide these passwords at server startup.
 
 Once you have [encrypted passwords](#encrypt-passwords), you can use them in the relevant configuration files as follows:
 
@@ -224,15 +227,15 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
 
     === "Symmetric encryption"
 
-        - For Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon`
+        - For Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon -Dsymmetric`
 
-        - For Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon`
+        - For Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon -Dsymmetric`
 
     === "Asymmetric encryption"
 
-        - On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon -Dsymmetric`
+        - On Linux: `./ciphertool.sh -Drotate -Dold.alias=wso2carbon`
 
-        - On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon  -Dsymmetric`
+        - On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon`
 
 5. Go back to the `deployment.toml` file and see that the passwords are re-encrypted with the new encryption key.
 

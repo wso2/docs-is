@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2025, WSO2 LLC. (https://www.wso2.com).
+# Copyright (c) 2023-2026, WSO2 LLC. (https://www.wso2.com).
 #
 # WSO2 LLC. licenses this file to you under the Apache License,
 # Version 2.0 (the "License"); you may not use this file except
@@ -80,12 +80,17 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - pymdownx.superfences
   - pymdownx.snippets:
       base_path: docs
   - attr_list
@@ -95,9 +100,11 @@ extra_css:
   - assets/css/theme.css
   - assets/css/admonition.css
   - https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/build.css
+  - assets/css/copy-page.css
 
 extra_javascript:
   - assets/js/theme.js
+  - assets/js/copy-page.js
 
 extra:
   material:
@@ -194,6 +201,9 @@ extra:
     React SDK:
       icon: fontawesome/brands/react
       level: 2
+    Vue SDK:
+      icon: fontawesome/brands/vuejs
+      level: 2
     Next.js SDK:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 2
@@ -211,6 +221,12 @@ extra:
       level: 3
     React Quickstart:
       icon: fontawesome/brands/react
+      level: 3
+    Vue:
+      icon: fontawesome/brands/vuejs
+      level: 3
+    Vue Quickstart:
+      icon: fontawesome/brands/vuejs
       level: 3
     .NET:
       icon: assets/libs/custom-icons/dotnet.svg
@@ -260,6 +276,8 @@ extra:
       icon: assets/images/sift-logo.svg
     Onfido:
       icon: assets/images/onfido-logo.svg
+    Password Reset Enforcer:
+      icon: octicons/repo-locked-16
   
   connectors:
     - name: Sift

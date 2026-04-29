@@ -32,14 +32,14 @@ If you only support a single mobile number and wish to update the mobile number 
 
 4. Click **Update** to save the changes. An SMS OTP will be sent to the specified mobile number for verification. The user needs to enter the SMS OTP to verify the mobile number.
 
-Alternatively, you may update the mobile number via a PATCH operation to the [SCIM 2.0 Users endpoint]({{base_path}}/apis/scim2/scim2-users-rest-api/) as shown below.
+Alternatively, you may update the mobile number via a PATCH operation to the {% if product_name == "WSO2 Identity Server" %}[SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2-me-rest-apis/){% else %}[SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2-me/){% endif %} as shown below.
 
 !!! abstract ""
 
     === "Request format"
         ```
-        curl -X PATCH 
-        https://{{ host_name }}/scim2/Users/<user_ID> \
+        curl -X PATCH
+        https://{{ host_name }}/scim2/Me \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"], 
             "Operations":[{
@@ -54,8 +54,8 @@ Alternatively, you may update the mobile number via a PATCH operation to the [SC
     === "Sample request"
 
         ```curl
-        curl -X PATCH 
-        https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
+        curl -X PATCH
+        https://{{ host_name_example }}/scim2/Me \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
@@ -132,15 +132,15 @@ A verification code will be sent to your mobile number.
 
 An SMS OTP will be sent to the specified mobile number for verification. The user needs to provide the OTP to verify the mobile number.
  
-Alternatively, you may update the mobile numbers via a PATCH operation to the [SCIM 2.0 Users endpoint]({{base_path}}/apis/scim2/scim2-users-rest-api/) as shown below.
+Alternatively, you may update the mobile numbers via a PATCH operation to the {% if product_name == "WSO2 Identity Server" %}[SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2-me-rest-apis/){% else %}[SCIM 2.0 Me endpoint]({{base_path}}/apis/scim2-me/){% endif %} as shown below.
 
 !!! abstract ""
 
     === "Request format"
-    
+
         ```curl
-        curl -X PATCH 
-        https://{{ host_name }}/scim2/Users/<user_ID> \
+        curl -X PATCH
+        https://{{ host_name }}/scim2/Me \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{
@@ -154,8 +154,8 @@ Alternatively, you may update the mobile numbers via a PATCH operation to the [S
     === "Sample request"
 
         ```curl
-        curl -X PATCH 
-        https://{{ host_name_example }}/scim2/Users/1e624046-520c-4628-a245-091e04b03f21 \
+        curl -X PATCH
+        https://{{ host_name_example }}/scim2/Me \
         -d '{
             "schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
             "Operations":[{

@@ -34,5 +34,7 @@ To delete an organization:
 4. Select the checkbox and confirm your action.
 
 !!! note
-    - If the organization you want to delete has child organizations, you must delete those child organizations first.
-    - Deleting an organization removes it from the {{ product_name }} Console and blocks access to its resources. The associated data remains in the database. To permanently remove this data, run the cleanup scripts provided by WSO2. See [Clean up deleted organization resources]({{base_path}}/guides/organization-management/cleanup-organization-resources/) for more information.
+        - If the organization you want to delete has child organizations, you must delete those child organizations first.
+    {% if product_name == "WSO2 Identity Server" %}
+        - Deleting an organization removes it from the {{ product_name }} Console and blocks access to its resources. The associated data remains in the database. To permanently remove this data, run the cleanup scripts provided by WSO2. See [Clean up deleted organization resources]({{base_path}}/guides/organization-management/cleanup-organization-resources/) for more information.
+    {% endif %}

@@ -136,6 +136,50 @@ Use the following steps to use the client credentials to get an access token.
     }
     ```
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+## Token exchange grant
+
+Use the following request to exchange a subject token for an access token.
+
+=== "Request format"
+
+    ```bash
+    curl --user <OAUTH_CLIENT_KEY>:<OAUTH_CLIENT_SECRET> -k 
+    -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
+    -d "requested_token_type=urn:ietf:params:oauth:token-type:access_token"
+    -d "subject_token_type=urn:ietf:params:oauth:token-type:jwt"
+    -d "subject_token=<jwt_issued_from_a_trusted_token_issuer>"
+    -d "scope=<desired scopes>"
+    -H "Content-Type: application/x-www-form-urlencoded"
+    {{ root_org_url }}/o/<ORG_ID>/oauth2/token
+    ```
+
+=== "Sample request"
+
+    ```bash
+    curl --user fhErtAT2YF_M0Ek3AAYHLI8L25oa:JirxvtfoecnrS8vBjM7ygOtSIXuCS_uK_9WEC7d1zPEa -k 
+    -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
+    -d "requested_token_type=urn:ietf:params:oauth:token-type:access_token"
+    -d "subject_token_type=urn:ietf:params:oauth:token-type:jwt"
+    -d "subject_token=<jwt_issued_from_a_trusted_token_issuer>"
+    -d "scope=openid internal_org_user_mgt_list read_stores"
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/token
+    ```
+
+=== "Sample response"
+
+    ```
+    {
+        "access_token": "bc978da1-6c56-3125-a999-a8d61c889672",
+        "token_type": "Bearer",
+        "expires_in": 3600
+    }
+    ```
+
+{% endif %}
+
 !!! note
     If you need scopes in the response, add the `scope` parameter to the token request with the required scopes.
 

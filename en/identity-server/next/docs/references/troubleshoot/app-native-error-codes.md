@@ -15,18 +15,12 @@ This document provides a list of error codes for the [authentication API]({{base
 |60008|400|Authentication flow time out.|Authentication flow has timed out as it took too long to complete.|
 |60009|400|Invalid flow identifier.|The provided flowId is invalid.|
 |60010|400|Invalid logout request.|Received logout request is invalid.|
+|60011|400|Application is disabled.|The application is disabled, and access is restricted.|
+|60012|400|Invalid authenticator.|Requested authenticator is invalid.|
+|60013|400|Maximum retry attempts exceeded.|The maximum number of OTP verification failure attempts configured for the application has been exceeded.|
+|60014|400|Maximum resend attempts exceeded.|The maximum number of OTP resend attempts configured for the application has been exceeded.|
 |65001|500|Unable to proceed with authentication.|Server encountered an error while processing the authentication request.|
 |65002|500|Unable to find authenticator.|Authenticator not found for name: \{\{authenticator_name\}\}.|
 |65003|500|Unknown authentication flow status.|Unknown authentication flow status: \{\{flow_status\}\}.|
 |65004|500|Unable to retrieve application.|Server encountered an error while retrieving application for clientId \{\{client_id\}\} in tenant domain \{\{tenant_domain\}\}.|
 |65005|500|Unable to proceed with logout.|Server encountered an error while processing the logout request.|
-
-
-
-
-
-
-
-
-
-

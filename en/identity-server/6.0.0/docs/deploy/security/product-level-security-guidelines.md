@@ -390,3 +390,10 @@ When set to `false`, the server will reject requests with sensitive data with an
 !!! info
 
     This feature is available from **6.0.0.213** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/). It is recommended to apply this configuration as part of your secure production deployment.
+
+## WebappAdmin service
+
+The `WebappAdmin` SOAP service allows users with administrative privileges to upload web applications (WAR files) and deploy them to the server's webapps directory, making them accessible over the internet. This service is disabled by default.
+
+!!! warning "Security risk when enabling WebappAdmin"
+    Once enabled, any user with administrative privileges can deploy arbitrary web applications to the server. A malicious administrator could exploit this to upload a harmful web application.

@@ -40,11 +40,7 @@ The {{product_name}} {{is_version}} runtime has been tested with the following J
 	<th>Versions</th>
 	<tr>
 		<td>Temurin OpenJDK</td>
-		<td>21, 17, 11</td>
-	</tr>
-	<tr>
-		<td>Oracle JDK</td>
-		<td>21</td>
+		<td>21, 25</td>
 	</tr>
 </table>
 
@@ -64,7 +60,7 @@ The {{product_name}} {{is_version}} runtime has been tested with the following d
 	<th>Versions</th>
 	<tr>
 		<td>MySQL</td>
-		<td>8.4, 8.0, 5.7</td>
+		<td>8.4, 8.0</td>
 	</tr>
 	<tr>
 		<td>Oracle RAC</td>

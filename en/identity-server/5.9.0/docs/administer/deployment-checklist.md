@@ -35,7 +35,7 @@ Deployment</a></li>
 <td><div class="content-wrapper">
 <p>By default, WSO2 products identify the hostname of the current machine through the Java API. However, this value 
 sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname 
-by setting the relavent parameter in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/deployment.toml     
+by setting the relevant parameter in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/deployment.toml     
     
      </code> file.</p>
 <div class="code panel pdl" style="border-width: 1px;">
