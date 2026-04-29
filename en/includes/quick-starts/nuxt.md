@@ -144,14 +144,14 @@ When the user clicks **Sign In**, the SDK calls `/api/auth/signin`, which redire
 
 The SDK provides several ways to access the signed-in user's profile information. You can use the `AsgardeoUser`, `AsgardeoUserProfile`, or `AsgardeoUserDropdown` components to access and display user profile information in a declarative way.
 
-- `<AsgardeoUser />`: Component provides a render prop pattern to access user profile information:
+- `<AsgardeoUser />`: Component provides a scoped slot (v-slot) pattern to access user profile information:
 - `<AsgardeoUserProfile />` — Component provides a declarative way to display and update user profile information.
 - `<AsgardeoUserDropdown />` — Component provides a dropdown menu with built-in user information and sign-out functionality.
 
 Update `pages/index.vue` to render the dropdown and a personalized greeting.
 
 {% raw %}
-```vue title="pages/index.vue" hl_lines="7 14-21"
+```vue title="pages/index.vue" hl_lines="7 14-19"
 <template>
   <header>
     <AsgardeoSignedOut>
@@ -165,12 +165,10 @@ Update `pages/index.vue` to render the dropdown and a personalized greeting.
 
   <main>
     <AsgardeoSignedIn>
-      <AsgardeoUser>
-        {(user) => (
-          <div>
-            <p>Welcome back, {user.userName || user.username || user.sub}</p>
-          </div>
-        )}
+      <AsgardeoUser v-slot="{ user }">
+        <div>
+          <p>Welcome back, {{ user.userName || user.username || user.sub }}</p>
+        </div>
       </AsgardeoUser>
       <AsgardeoUserProfile />
     </AsgardeoSignedIn>
