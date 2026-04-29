@@ -970,6 +970,9 @@ nav:
       - Usage: connectors/onfido/usage.md
       - Reference: connectors/onfido/reference.md
       - Try it: connectors/onfido/try-it.md
+      - Email & SMS:
+          - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
+          - Configure Email Provider: deploy/configure/email-sending-module.md
   - APIs:
     - APIs: apis/index.md
     - System APIs:
