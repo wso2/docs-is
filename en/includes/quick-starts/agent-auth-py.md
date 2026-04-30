@@ -50,6 +50,10 @@ To allow your agent (or user acting through the agent) to authenticate and conne
 !!! Info
     The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:6274/oauth/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
+    {% if is_version == "next" or product_name == "Asgardeo" %}
+
+    While we're using the **MCP Client Application** template here for optimized MCP settings, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
+    {% endif %}
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Build an AI Agent](#build-an-ai-agent) section of this guide.
 
@@ -128,30 +132,32 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     from langchain.agents import create_agent
     from langchain_google_genai import ChatGoogleGenerativeAI
     
-    
     # Load environment variables from .env file
     load_dotenv()
-    
+    {% if product_name == "Asgardeo" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
         redirect_uri=os.getenv("REDIRECT_URI")
     )
-    
+    {% else %}
+    IDENTITY_SERVER_CONFIG = AsgardeoConfig(
+        base_url=os.getenv("IDENTITY_SERVER_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    {% endif %}
     AGENT_CONFIG = AgentConfig(
         agent_id=os.getenv("AGENT_ID"),
         agent_secret=os.getenv("AGENT_SECRET")
     )
     
-    
     async def main():
-    
         # Scenario 1: AI agent acting on its own using its own credentials to authenticate
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
-    
-    
+
         # Connect to MCP Server with Authorization Header
         client = MultiServerMCPClient(
             {
@@ -209,20 +215,26 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     # Load environment variables from .env file
     load_dotenv()
-    
+    {% if product_name == "Asgardeo" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
         redirect_uri=os.getenv("REDIRECT_URI")
     )
-    
+    {% else %}
+    IDENTITY_SERVER_CONFIG = AsgardeoConfig(
+        base_url=os.getenv("IDENTITY_SERVER_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    {% endif %}
     AGENT_CONFIG = AgentConfig(
         agent_id=os.getenv("AGENT_ID"),
         agent_secret=os.getenv("AGENT_SECRET")
     )
     
     async def build_toolset():
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
     
@@ -296,13 +308,19 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     # Load environment variables from .env file
     load_dotenv()
-    
+    {% if product_name == "Asgardeo" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
         redirect_uri=os.getenv("REDIRECT_URI")
     )
-    
+    {% else %}
+    IDENTITY_SERVER_CONFIG = AsgardeoConfig(
+        base_url=os.getenv("IDENTITY_SERVER_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    {% endif %}   
     AGENT_CONFIG = AgentConfig(
         agent_id=os.getenv("AGENT_ID"),
         agent_secret=os.getenv("AGENT_SECRET")
@@ -310,7 +328,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     async def get_agent_token():
         # Asynchronously fetches the agent token from Asgardeo.
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             return await auth_manager.get_agent_token(["openid"])
     
     def main():
@@ -354,7 +372,6 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     if __name__ == "__main__":
         main()
-    
     ```
 
 === "Vercel AI"
@@ -373,16 +390,22 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     # Load environment variables from .env file
     load_dotenv()
-    
+    {% if product_name == "Asgardeo" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
-    base_url=os.getenv("ASGARDEO_BASE_URL"),
-    client_id=os.getenv("CLIENT_ID"),
-    redirect_uri=os.getenv("REDIRECT_URI")
+        base_url=os.getenv("ASGARDEO_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
     )
-    
+    {% else %}
+    IDENTITY_SERVER_CONFIG = AsgardeoConfig(
+        base_url=os.getenv("IDENTITY_SERVER_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    {% endif %}
     AGENT_CONFIG = AgentConfig(
-    agent_id=os.getenv("AGENT_ID"),
-    agent_secret=os.getenv("AGENT_SECRET")
+        agent_id=os.getenv("AGENT_ID"),
+        agent_secret=os.getenv("AGENT_SECRET")
     )
     
     async def my_agent(llm, messages, auth_token):
@@ -398,7 +421,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     
     async def main():
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             agent_token = await auth_manager.get_agent_token(["openid"])
         
             google_key = os.getenv("GOOGLE_API_KEY", "")
@@ -434,6 +457,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
 ```properties title=".env"
+{% if product_name == "Asgardeo" %}
 # Asgardeo OAuth2 Configuration
 ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-tenant>
 CLIENT_ID=<your-client-id>
@@ -442,6 +466,16 @@ REDIRECT_URI=http://localhost:6274/oauth/callback
 # Asgardeo Agent Credentials
 AGENT_ID=<agent_id>
 AGENT_SECRET=<agent_secret>
+{% else %}
+# Identity Server OAuth2 Configuration
+IDENTITY_SERVER_BASE_URL=https://localhost:9443/t/<your-tenant>
+CLIENT_ID=<your-client-id>
+REDIRECT_URI=http://localhost:6274/oauth/callback
+
+# Identity Server Agent Credentials
+AGENT_ID=<agent_id>
+AGENT_SECRET=<agent_secret>
+{% endif %}
 
 # Google Gemini API Key
 GOOGLE_API_KEY=<google_api_key>
@@ -456,7 +490,7 @@ MODEL_NAME="gemini-2.5-flash"
 !!! Important
 
     - Replace `<your-tenant>`, `<your-client-id>`and the redirect URL with the values obtained from the {{ product_name }} console.
-      The tenant name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<your-tenant>`), and the `client ID` can be found in the application's **Protocol** tab.
+      The tenant name is visible in the console URL path (e.g., {% if product_name == "Asgardeo" %}`https://console.asgardeo.io/t/<your-tenant>` {% else %}`https://localhost:9443/t/<your-tenant>`{% endif %}), and the `client ID` can be found in the application's **Protocol** tab.
 
     - Add the `Agent ID` and `Agent Secret` from the [Agent Registration](#register-an-ai-agent) step.
 
@@ -669,23 +703,28 @@ Here is the updated implementation:
     
     # Load environment variables from .env file
     load_dotenv()
-    
+    {% if product_name == "Asgardeo" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
         redirect_uri=os.getenv("REDIRECT_URI")
     )
-    
+    {% else %}
+    IDENTITY_SERVER_CONFIG = AsgardeoConfig(
+        base_url=os.getenv("IDENTITY_SERVER_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    {% endif %}
     AGENT_CONFIG = AgentConfig(
         agent_id=os.getenv("AGENT_ID"),
         agent_secret=os.getenv("AGENT_SECRET")
     )
     
-    
     async def main():
     
         # Perform OBO flow (authenticating on behalf of the user)
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
     
@@ -772,13 +811,19 @@ Here is the updated implementation:
 
     # Load environment variables from .env file
     load_dotenv()
-    
+    {% if product_name == "Asgardeo" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
         redirect_uri=os.getenv("REDIRECT_URI")
     )
-    
+    {% else %}
+    IDENTITY_SERVER_CONFIG = AsgardeoConfig(
+        base_url=os.getenv("IDENTITY_SERVER_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    {% endif %}
     AGENT_CONFIG = AgentConfig(
         agent_id=os.getenv("AGENT_ID"),
         agent_secret=os.getenv("AGENT_SECRET")
@@ -786,7 +831,7 @@ Here is the updated implementation:
     
     # Perform OBO flow (authenticating on behalf of the user)
     async def build_toolset():
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
     
@@ -901,17 +946,25 @@ Here is the updated implementation:
      
     async def get_obo_token():
         # Handles the OAuth/OBO flow to get the user token.
+        {% if product_name == "Asgardeo" %}       
         ASGARDEO_CONFIG = AsgardeoConfig(
             base_url=os.getenv("ASGARDEO_BASE_URL"),
             client_id=os.getenv("CLIENT_ID"),
             redirect_uri=os.getenv("REDIRECT_URI")
         )
+        {% else %}
+        IDENTITY_SERVER_CONFIG = AsgardeoConfig(
+            base_url=os.getenv("IDENTITY_SERVER_BASE_URL"),
+            client_id=os.getenv("CLIENT_ID"),
+            redirect_uri=os.getenv("REDIRECT_URI")
+        )
+        {% endif %}
         AGENT_CONFIG = AgentConfig(
             agent_id=os.getenv("AGENT_ID"),
             agent_secret=os.getenv("AGENT_SECRET")
         )
     
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             agent_token = await auth_manager.get_agent_token(["openid", "email"])
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
     
@@ -1012,16 +1065,22 @@ Here is the updated implementation:
     
     # Load environment variables from .env file
     load_dotenv()
-    
+    {% if product_name == "Asgardeo" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
-    base_url=os.getenv("ASGARDEO_BASE_URL"),
-    client_id=os.getenv("CLIENT_ID"),
-    redirect_uri=os.getenv("REDIRECT_URI")
+        base_url=os.getenv("ASGARDEO_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
     )
-    
+    {% else %}
+    IDENTITY_SERVER_CONFIG = AsgardeoConfig(
+        base_url=os.getenv("IDENTITY_SERVER_BASE_URL"),
+        client_id=os.getenv("CLIENT_ID"),
+        redirect_uri=os.getenv("REDIRECT_URI")
+    )
+    {% endif %}
     AGENT_CONFIG = AgentConfig(
-    agent_id=os.getenv("AGENT_ID"),
-    agent_secret=os.getenv("AGENT_SECRET")
+        agent_id=os.getenv("AGENT_ID"),
+        agent_secret=os.getenv("AGENT_SECRET")
     )
     
     # 1. Define the agent logic (no decorators needed)
@@ -1040,8 +1099,8 @@ Here is the updated implementation:
     
     
     async def main():
-    async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-    agent_token = await auth_manager.get_agent_token(["openid", "email"])
+        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+            agent_token = await auth_manager.get_agent_token(["openid", "email"])
     
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
     

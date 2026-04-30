@@ -1,0 +1,1487 @@
+/**
+ * Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — ADMONITIONS (note, info, tip, warning…)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article .admonition {
+    border: none;
+    border-left: 3px solid;
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 1rem;
+    margin: 1.25rem 0;
+    box-shadow: none;
+    font-size: 0.88rem;
+}
+
+.tutorial-page article .admonition-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    padding: 0;
+    background: none !important;
+}
+
+.tutorial-page article .admonition-title::before {
+    display: none !important;
+}
+
+/* Note */
+.tutorial-page article .admonition.note {
+    background: color-mix(in srgb, #888 6%, transparent);
+    border-left-color: #999;
+}
+.tutorial-page article .admonition.note > .admonition-title {
+    color: #777;
+}
+
+/* Info */
+.tutorial-page article .admonition.info,
+.tutorial-page article .admonition.abstract,
+.tutorial-page article .admonition.summary {
+    background: color-mix(in srgb, #4a90d9 6%, transparent);
+    border-left-color: #4a90d9;
+}
+.tutorial-page article .admonition.info > .admonition-title,
+.tutorial-page article .admonition.abstract > .admonition-title {
+    color: #4a90d9;
+}
+
+/* Tip */
+.tutorial-page article .admonition.tip,
+.tutorial-page article .admonition.hint {
+    background: color-mix(in srgb, #2eaa6e 6%, transparent);
+    border-left-color: #2eaa6e;
+}
+.tutorial-page article .admonition.tip > .admonition-title,
+.tutorial-page article .admonition.hint > .admonition-title {
+    color: #2eaa6e;
+}
+
+/* Warning */
+.tutorial-page article .admonition.warning,
+.tutorial-page article .admonition.caution,
+.tutorial-page article .admonition.attention {
+    background: color-mix(in srgb, #e8a027 6%, transparent);
+    border-left-color: #e8a027;
+}
+.tutorial-page article .admonition.warning > .admonition-title,
+.tutorial-page article .admonition.caution > .admonition-title {
+    color: #e8a027;
+}
+
+/* Danger */
+.tutorial-page article .admonition.danger,
+.tutorial-page article .admonition.error {
+    background: color-mix(in srgb, #e05454 6%, transparent);
+    border-left-color: #e05454;
+}
+.tutorial-page article .admonition.danger > .admonition-title,
+.tutorial-page article .admonition.error > .admonition-title {
+    color: #e05454;
+}
+
+/* Failure */
+.tutorial-page article .admonition.failure,
+.tutorial-page article .admonition.fail,
+.tutorial-page article .admonition.missing {
+    background: color-mix(in srgb, #cf4f4f 6%, transparent);
+    border-left-color: #cf4f4f;
+}
+.tutorial-page article .admonition.failure > .admonition-title,
+.tutorial-page article .admonition.fail > .admonition-title {
+    color: #cf4f4f;
+}
+
+/* Success */
+.tutorial-page article .admonition.success,
+.tutorial-page article .admonition.check,
+.tutorial-page article .admonition.done {
+    background: color-mix(in srgb, #2eaa6e 7%, transparent);
+    border-left-color: #2eaa6e;
+}
+.tutorial-page article .admonition.success > .admonition-title,
+.tutorial-page article .admonition.check > .admonition-title {
+    color: #2eaa6e;
+}
+
+/* Question */
+.tutorial-page article .admonition.question,
+.tutorial-page article .admonition.help,
+.tutorial-page article .admonition.faq {
+    background: color-mix(in srgb, #7c6fcd 6%, transparent);
+    border-left-color: #7c6fcd;
+}
+.tutorial-page article .admonition.question > .admonition-title,
+.tutorial-page article .admonition.help > .admonition-title {
+    color: #7c6fcd;
+}
+
+/* Example */
+.tutorial-page article .admonition.example {
+    background: color-mix(in srgb, #7c6fcd 5%, transparent);
+    border-left-color: #9c8fe0;
+}
+.tutorial-page article .admonition.example > .admonition-title {
+    color: #9c8fe0;
+}
+
+/* Quote */
+.tutorial-page article .admonition.quote,
+.tutorial-page article .admonition.cite {
+    background: color-mix(in srgb, #888 5%, transparent);
+    border-left-color: #aaa;
+    font-style: italic;
+}
+.tutorial-page article .admonition.quote > .admonition-title,
+.tutorial-page article .admonition.cite > .admonition-title {
+    color: #888;
+    font-style: normal;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — NUMBERED LIST
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article ol {
+    list-style: none;
+    counter-reset: tutorial-counter;
+    padding-left: 0;
+}
+
+.tutorial-page article ol li {
+    counter-increment: tutorial-counter;
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.75;
+}
+
+.tutorial-page article ol li::before {
+    content: counter(tutorial-counter) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--md-default-fg-color);
+}
+
+.tutorial-page article ol li::marker {
+    content: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — BULLET POINTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article ul:not([class]) li,
+.tutorial-page article .md-typeset ul:not([class]) li {
+    list-style: none;
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+}
+
+.tutorial-page article ul:not([class]) li::marker {
+    content: none;
+}
+
+.tutorial-page article ul:not([class]) li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--md-default-fg-color);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — H2 HEADINGS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--md-default-fg-color);
+    margin-top: 2.75rem;
+    margin-bottom: 0.65rem;
+    padding: 0;
+    border: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — CODE BLOCKS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Dark card applied to .highlight so it wraps both title bar and code */
+.tutorial-page article .highlight {
+    position: relative;
+    background: #0f1117;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    margin: 0.85rem 0;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tutorial-page article pre {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: none !important;
+}
+
+/* Language label in top-right corner (only when no title) */
+.tutorial-page article .highlight:not(:has(.filename))::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.65rem;
+    right: 0.9rem;
+    font-size: 0.65rem;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Title bar for titled code blocks (```lang title="...") */
+.tutorial-page article .highlight .filename {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.75rem 0.4rem 1rem;
+    font-size: 0.72rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px 10px 0 0;
+}
+
+
+/* Filename text — inherit title bar style, no inline-code decoration */
+.tutorial-page article .highlight .filename code {
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    background: none !important;
+    border: none !important;
+    border-radius: 0;
+    padding: 0;
+}
+
+/* Code block placeholders e.g. PH-STARTyour-valuePH-END */
+.tutorial-placeholder {
+    background: rgba(255, 200, 50, 0.12);
+    color: #f0c040 !important;
+    border: 1px dashed rgba(240, 192, 64, 0.4);
+    border-radius: 3px;
+    padding: 0 0.25em;
+    font-style: italic;
+    cursor: help;
+}
+
+/* Dot indicator before filename */
+.tutorial-page article .highlight .filename::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+/* Highlighted lines (hl_lines) */
+.tutorial-page article .highlight .hll {
+    display: block;
+    background: rgba(99, 179, 237, 0.1) !important;
+    border-left: 3px solid #63b3ed;
+    margin: 0 -1.4rem;
+    padding: 0 1.4rem;
+}
+
+.tutorial-page article pre code {
+    display: block;
+    padding: 0.55rem 1rem !important;
+    font-size: 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: transparent !important;
+    overflow-x: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — TABBED CODE BLOCKS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Wrap the whole tabbed set in the dark card */
+.tutorial-page article .tabbed-set {
+    background: #0f1117;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+/* Tab labels row */
+.tutorial-page article .tabbed-set .tabbed-labels {
+    display: flex;
+    gap: 0;
+    padding: 0 0.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+}
+
+.tutorial-page article .tabbed-set .tabbed-labels label {
+    font-size: 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tutorial-page article .tabbed-set .tabbed-labels label:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Active tab */
+.tutorial-page article .tabbed-set input:checked + label {
+    color: var(--md-primary-fg-color) !important;
+    border-bottom-color: var(--md-primary-fg-color) !important;
+}
+
+/* Tab content area */
+.tutorial-page article .tabbed-set .tabbed-content {
+    background: transparent;
+}
+
+.tutorial-page article .tabbed-set .tabbed-content pre {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+}
+
+.tutorial-page article .tabbed-set .tabbed-content pre code {
+    color: #e2e8f0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — CTA BUTTON
+   ═══════════════════════════════════════════════════════════════════ */
+
+a.tutorial-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--md-primary-fg-color) !important;
+    background: color-mix(in srgb, var(--md-primary-fg-color) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 35%, transparent);
+    border-radius: 6px;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    margin: 0.75rem 0;
+}
+
+a.tutorial-btn::after {
+    content: none !important;
+}
+
+a.tutorial-btn:hover {
+    background: color-mix(in srgb, var(--md-primary-fg-color) 15%, transparent);
+    border-color: var(--md-primary-fg-color);
+}
+
+a.tutorial-btn:active {
+    transform: scale(0.97);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — EXTERNAL LINKS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article a[href^="http"]::after {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 4px;
+    vertical-align: middle;
+    opacity: 0.6;
+    background-color: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 3v2H5v14h14v-9h2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9zm5 0h-4V1h6v6h-2V3.414l-7.293 7.293-1.414-1.414L19 3z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 3v2H5v14h14v-9h2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9zm5 0h-4V1h6v6h-2V3.414l-7.293 7.293-1.414-1.414L19 3z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.tutorial-page article a[href^="http"]:active::after {
+    background-color: var(--md-primary-fg-color);
+    opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE CONTENT — INLINE CODE
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article :not(pre):not(.filename) > code {
+    font-size: 1.05em;
+    font-family: 'Courier New', Courier, monospace;
+    background: rgba(0, 0, 0, 0.02) !important;
+    color: var(--md-default-fg-color);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    padding: 0.25em 0.45em;
+    white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   READING PROGRESS BAR
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        var(--md-primary-fg-color) 0%,
+        var(--md-primary-fg-shade-color, var(--md-accent-fg-color)) 100%
+    );
+    transition: width 0.1s linear;
+    border-radius: 0 2px 2px 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TUTORIAL HERO  (injected after H1)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-hero {
+    margin: 0.5rem 0 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--md-divider-color, #d8dde8);
+}
+
+/* Tags + difficulty row */
+.tutorial-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.tutorial-tag {
+    display: inline-block;
+    padding: 0.2em 0.75em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--md-primary-fg-color);
+    background: rgba(var(--md-primary-fg-color-rgb, 255 115 0) / 0.09);
+    border: 1px solid rgba(var(--md-primary-fg-color-rgb, 255 115 0) / 0.25);
+    border-radius: 100px;
+    line-height: 1.6;
+}
+
+.tutorial-difficulty {
+    display: inline-block;
+    padding: 0.2em 0.75em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    line-height: 1.6;
+}
+
+.tutorial-difficulty--beginner {
+    color: #349256;
+    background: rgba(52, 146, 86, 0.1);
+    border: 1px solid rgba(52, 146, 86, 0.3);
+}
+
+.tutorial-difficulty--intermediate {
+    color: #b5660a;
+    background: rgba(247, 147, 30, 0.1);
+    border: 1px solid rgba(247, 147, 30, 0.3);
+}
+
+.tutorial-difficulty--advanced {
+    color: #c0392b;
+    background: rgba(192, 57, 43, 0.1);
+    border: 1px solid rgba(192, 57, 43, 0.3);
+}
+
+[data-md-color-scheme="slate"] .tutorial-difficulty--intermediate {
+    color: #f7931e;
+}
+
+/* Description */
+.tutorial-hero-description {
+    font-size: 1.05rem;
+    color: var(--md-default-fg-color--light);
+    line-height: 1.65;
+    margin: 0 0 0.85rem;
+}
+
+/* Single meta row — avatar · Name | Title | date · reading time */
+.tutorial-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.tutorial-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    color: var(--md-default-fg-color);
+}
+
+.tutorial-meta-item svg {
+    flex-shrink: 0;
+    color: var(--md-primary-fg-color);
+}
+
+/* Initials avatar circle */
+.tutorial-author-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--md-primary-fg-color);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-right: 0.15rem;
+}
+
+/* Pipe separators */
+.tutorial-meta-pipe {
+    color: var(--md-default-fg-color--lighter, #bbb);
+    font-size: 0.85rem;
+    margin: 0 0.1rem;
+    user-select: none;
+}
+
+.tutorial-meta-pipe--group {
+    margin: 0 0.35rem;
+}
+
+.tutorial-meta-title {
+    color: var(--md-default-fg-color--light);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SUMMARY BOX  (What you'll learn + Technology Used + Source Code)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-summary-box {
+    margin: 2rem 0 2.5rem;
+    padding: 1.5rem 1.75rem;
+    border: 1px solid var(--md-divider-color, #d8dde8);
+    border-radius: var(--md-border-radius-2x, 12px);
+    background: var(--md-default-bg-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.tutorial-summary-box::before {
+    content: none;
+}
+
+
+.tutorial-summary-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--md-default-fg-color--light);
+    margin: 0 0 0.75rem !important;
+}
+
+.tutorial-summary-heading svg {
+    color: var(--md-primary-fg-color);
+    flex-shrink: 0;
+}
+
+/* 3:2 grid — What You Will Learn gets more space than Technology Used */
+.tutorial-summary-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1.5rem 2.5rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (max-width: 600px) {
+    .tutorial-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Technology Used list */
+.tutorial-tech-list,
+.md-typeset .tutorial-tech-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0;
+}
+
+.tutorial-tech-item,
+.md-typeset .tutorial-tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.55rem;
+    font-size: 0.8rem;
+    color: var(--md-default-fg-color);
+    list-style: none !important;
+}
+
+.tutorial-tech-item::marker { content: none; }
+.tutorial-tech-item::before { content: none !important; }
+
+/* Local SVG icon loaded via <img> */
+.tutorial-tech-svg-icon {
+    flex-shrink: 0;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.75;
+    display: inline-block !important;
+    margin: 0 !important;
+}
+
+/* Initial-letter fallback badge */
+.tutorial-tech-initial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: var(--md-default-fg-color--lighter, #ccc);
+    color: var(--md-default-bg-color);
+}
+
+/* Tick list — suppress Material theme's own bullet completely */
+.tutorial-tick-list,
+.md-typeset .tutorial-tick-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0;
+}
+
+.tutorial-tick-list > li,
+.md-typeset .tutorial-tick-list > li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--md-default-fg-color);
+    list-style: none !important;
+}
+
+/* Remove any marker the theme injects */
+.tutorial-tick-list > li::marker {
+    content: none;
+}
+
+/* Custom icon — filled dot */
+.tutorial-tick-list > li::before {
+    content: '';
+    position: absolute;
+    left: 0.1rem;
+    top: 0.5em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--md-default-fg-color);
+}
+
+/* Source code link row */
+.tutorial-source-code {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--md-divider-color, #d8dde8);
+    color: var(--md-default-fg-color--light);
+}
+
+.tutorial-source-code svg {
+    flex-shrink: 0;
+    color: var(--md-default-fg-color--light);
+}
+
+.tutorial-source-code a {
+    color: var(--md-primary-fg-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tutorial-source-code a:hover {
+    text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   STEPS SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-steps-section {
+    margin: 2.5rem 0 3rem;
+    position: relative;
+}
+
+/* Individual step */
+.tutorial-step {
+    position: relative;
+    padding: 0 0 2rem 3.25rem;
+    border-left: 2px solid var(--md-divider-color, #d8dde8);
+    margin-left: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.tutorial-step:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0.5rem;
+}
+
+.tutorial-step > h2 {
+    position: relative;
+    margin-top: 0 !important;
+    line-height: 1.25;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding-top: 0.1rem;
+}
+
+/* Step number bubble */
+.tutorial-step-number {
+    position: absolute;
+    left: -3.6rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: var(--md-primary-fg-color);
+    color: #fff;
+    box-shadow: 0 0 0 4px var(--md-default-bg-color);
+    z-index: 1;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tutorial-step:hover .tutorial-step-number {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px var(--md-default-bg-color),
+                0 0 0 6px rgba(var(--md-primary-fg-color-rgb, 255 115 0) / 0.2);
+}
+
+/* Completed step styling (applied via JS when scrolled past) */
+.tutorial-step.is-passed {
+    border-left-color: var(--md-primary-fg-color);
+}
+
+.tutorial-step.is-passed .tutorial-step-number {
+    background: var(--md-default-fg-color--lighter, #bbb);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   WHAT'S NEXT — CARD GRID
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-whats-next {
+    margin: 3.5rem 0 1rem;
+}
+
+.tutorial-whats-next-heading {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 1.25rem !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.tutorial-next-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Card — landscape */
+a.tutorial-next-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 160px;
+    border: 1px solid var(--md-divider-color, #e5e5e5);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: var(--md-default-fg-color) !important;
+    transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+}
+
+a.tutorial-next-card::after { content: none !important; }
+
+a.tutorial-next-card:hover {
+    border-color: var(--md-primary-fg-color);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transform: translateX(3px);
+}
+
+/* Thumbnail — left side fixed width */
+.tutorial-next-card-thumb {
+    flex-shrink: 0;
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+    height: 160px;
+    overflow: hidden;
+    background: var(--md-code-bg-color);
+}
+
+.tutorial-next-card-thumb--empty {
+    background: linear-gradient(135deg, var(--md-code-bg-color) 0%, color-mix(in srgb, var(--md-primary-fg-color) 8%, var(--md-default-bg-color)) 100%);
+}
+
+.tutorial-next-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Body — right side */
+.tutorial-next-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0.6rem 0.9rem;
+    gap: 0.2rem;
+}
+
+.tutorial-next-card-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--md-primary-fg-color);
+}
+
+.tutorial-next-card-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--md-default-fg-color);
+}
+
+.tutorial-next-card-desc {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--md-default-fg-color--light);
+    flex: 1;
+}
+
+.tutorial-next-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+    font-size: 0.7rem;
+    color: var(--md-default-fg-color--light);
+}
+
+.tutorial-next-card-footer span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    .tutorial-next-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RIGHT SIDEBAR TOC — step numbers + progress line
+   ═══════════════════════════════════════════════════════════════════ */
+
+.md-nav--secondary .md-nav__list {
+    margin-top: 0.5rem;
+}
+
+.md-sidebar--secondary [data-md-component='toc'] .md-nav__link {
+    position: relative;
+    overflow: visible;
+    padding: 0.15rem 0.6rem 0.5rem 1.4rem;
+    margin: 0;
+    font-size: 0.72rem;
+}
+
+/* Vertical connector line */
+.md-sidebar--secondary [data-md-component='toc'] .md-nav__link::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    left: 0.3rem;
+    width: 0;
+    height: calc(100% - 4px);
+    border-left: 1.5px solid var(--md-divider-color, #d8dde8);
+    transition: border-color 0.2s ease;
+}
+
+.md-sidebar--secondary [data-md-component='toc'] .md-nav__item:last-child > .md-nav__link::before {
+    border-left: none !important;
+}
+
+/* TOC step number dot */
+.tutorial-toc-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0.3rem;
+    left: 0;
+    width: 0.65rem;
+    height: 0.65rem;
+    font-size: 0.38rem;
+    font-weight: 700;
+    border-radius: 50%;
+    background: var(--md-default-fg-color--lighter, #bbb);
+    color: var(--md-default-bg-color);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Active TOC item */
+.md-sidebar--secondary [data-md-component='toc'] .md-nav__link.md-nav__link--active .tutorial-toc-step-number {
+    background: var(--md-primary-fg-color);
+    transform: scale(1.35);
+}
+
+.md-sidebar--secondary [data-md-component='toc'] .md-nav__link.md-nav__link--active::before {
+    border-left-color: var(--md-primary-fg-color);
+}
+
+/* Passed TOC items */
+.md-sidebar--secondary [data-md-component='toc'] .md-nav__link.md-nav__link--passed::before {
+    border-left-color: var(--md-primary-fg-color);
+    opacity: 0.5;
+}
+
+.md-sidebar--secondary [data-md-component='toc'] .md-nav__link.md-nav__link--passed .tutorial-toc-step-number {
+    background: var(--md-primary-fg-color);
+    opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MODE / SELECTION BUTTONS  (same pattern as quick-start)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.mode-selection-container {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.mode-selection-container .mode-selection-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border: 2px solid var(--md-default-fg-color--light);
+    color: var(--md-default-fg-color--light);
+    border-radius: var(--md-border-radius, 8px);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-width: 180px;
+}
+
+.mode-selection-container .mode-selection-btn:hover {
+    border-color: var(--md-primary-fg-color);
+    background: rgba(var(--md-primary-fg-color-rgb, 255 115 0) / 0.05);
+    color: var(--md-default-fg-color);
+}
+
+.mode-selection-container .mode-selection-btn.active {
+    border-color: var(--md-primary-fg-color);
+    background: rgba(var(--md-primary-fg-color-rgb, 255 115 0) / 0.1);
+    color: var(--md-primary-fg-color);
+}
+
+.mode-selection-container .mode-selection-btn .mode-radio {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--md-primary-fg-color);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES
+   ═══════════════════════════════════════════════════════════════════ */
+
+[data-md-color-scheme="slate"] .tutorial-summary-box {
+    background: var(--md-default-bg-color);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-md-color-scheme="slate"] .tutorial-source-code {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-md-color-scheme="slate"] .tutorial-hero {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+
+[data-md-color-scheme="slate"] .tutorial-step {
+    border-left-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-md-color-scheme="slate"] .tutorial-step-number {
+    box-shadow: 0 0 0 4px var(--md-default-bg-color, #1e2129);
+}
+
+[data-md-color-scheme="slate"] .mode-selection-container .mode-selection-btn {
+    color: var(--md-default-fg-color);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .tutorial-summary-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .tutorial-meta-row {
+        gap: 0.75rem;
+    }
+
+    .tutorial-step {
+        padding-left: 2.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .tutorial-step-number {
+        left: -2.85rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        line-height: 1.6rem;
+        font-size: 0.72rem;
+    }
+
+    .mode-selection-container {
+        flex-direction: column;
+    }
+
+    .mode-selection-container .mode-selection-btn {
+        min-width: unset;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   YOUTUBE EMBEDS — responsive 16:9, modern aesthetic
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article .tutorial-video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    margin: 2rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0f1117;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.08),
+        0 12px 40px rgba(0,0,0,0.12);
+}
+
+.tutorial-page article .tutorial-video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+[data-md-color-scheme="slate"] .tutorial-page article .tutorial-video-wrapper {
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.35),
+        0 12px 40px rgba(0,0,0,0.45);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BREADCRUMB — minimalist top nav
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    margin-bottom: 1.75rem;
+    padding: 0;
+    list-style: none;
+}
+
+.tutorial-breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--md-default-fg-color--light);
+    text-decoration: none !important;
+    padding: 0;
+    transition: color 0.15s ease;
+}
+
+.tutorial-breadcrumb-item::after {
+    display: none !important;
+}
+
+.tutorial-breadcrumb-item svg {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+    opacity: 0.6;
+}
+
+.tutorial-breadcrumb-item:hover {
+    color: var(--md-primary-fg-color);
+}
+
+.tutorial-breadcrumb-item:hover svg {
+    opacity: 1;
+}
+
+.tutorial-breadcrumb-item--active {
+    color: var(--md-default-fg-color);
+    font-weight: 500;
+    cursor: default;
+}
+
+
+.tutorial-breadcrumb-item--active svg {
+    opacity: 0.85;
+}
+
+.tutorial-breadcrumb-sep {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    color: var(--md-default-fg-color--light);
+    opacity: 0.35;
+    margin: 0 0.1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONTENT IMAGES — scoped to p > img only (excludes tech icons)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article p img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 1.5rem auto;
+    box-shadow:
+        0 1px 4px rgba(0,0,0,0.06),
+        0 8px 28px rgba(0,0,0,0.09);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.tutorial-page article p img:hover {
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.09),
+        0 14px 40px rgba(0,0,0,0.13);
+    transform: translateY(-2px);
+}
+
+[data-md-color-scheme="slate"] .tutorial-page article p img {
+    box-shadow:
+        0 1px 4px rgba(0,0,0,0.3),
+        0 8px 28px rgba(0,0,0,0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TABLES — modern, minimalist, aesthetic
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.82rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--md-divider-color, rgba(0,0,0,0.08));
+}
+
+.tutorial-page article thead tr {
+    background: rgba(0,0,0,0.04);
+    border-bottom: 1px solid var(--md-divider-color, rgba(0,0,0,0.1));
+}
+
+[data-md-color-scheme="slate"] .tutorial-page article thead tr {
+    background: rgba(255,255,255,0.06);
+}
+
+.tutorial-page article thead th {
+    padding: 0.6rem 1rem;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--md-default-fg-color);
+    white-space: nowrap;
+}
+
+.tutorial-page article tbody tr {
+    border-bottom: 1px solid var(--md-divider-color, rgba(0,0,0,0.06));
+    transition: background 0.12s ease;
+}
+
+.tutorial-page article tbody tr:last-child {
+    border-bottom: none;
+}
+
+.tutorial-page article tbody tr:hover {
+    background: color-mix(in srgb, var(--md-primary-fg-color) 3%, var(--md-default-bg-color));
+}
+
+.tutorial-page article td {
+    padding: 0.55rem 1rem;
+    vertical-align: middle;
+    color: var(--md-default-fg-color);
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   KBD — keyboard shortcut badges
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article kbd {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15em 0.45em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.82em;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--md-default-fg-color);
+    background: var(--md-code-bg-color);
+    border: 1px solid var(--md-divider-color, rgba(0,0,0,0.15));
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TABBED CODE BLOCKS — match dark aesthetic
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tutorial-page article .tabbed-set {
+    margin: 1.25rem 0;
+}
+
+.tutorial-page article .tabbed-set .tabbed-labels {
+    display: flex;
+    gap: 0;
+    border-bottom: none;
+    background: #1a1d27;
+    border-radius: 10px 10px 0 0;
+    padding: 0.4rem 0.6rem 0;
+    overflow: hidden;
+}
+
+.tutorial-page article .tabbed-set .tabbed-labels label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: color 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+}
+
+.tutorial-page article .tabbed-set .tabbed-labels label:hover {
+    color: rgba(255,255,255,0.75);
+}
+
+.tutorial-page article .tabbed-set input:checked + label,
+.tutorial-page article .tabbed-set .tabbed-labels > label:has(+ input:checked) {
+    color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.06);
+}
+
+.tutorial-page article .tabbed-set .tabbed-content {
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+.tutorial-page article .tabbed-set .tabbed-content .highlight {
+    border-radius: 0 !important;
+    margin: 0 !important;
+}
+
+.tutorial-page article .tabbed-set .tabbed-content .tabbed-block:first-child .highlight {
+    border-radius: 0 0 10px 10px !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   TUTORIAL PAGE — RIGHT TOC (SECONDARY NAV)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* "Jump to" label */
+.tutorial-page ~ .md-sidebar--secondary .md-nav__title,
+.md-sidebar--secondary .md-nav[aria-label="Table of contents"] > .md-nav__title {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--md-default-fg-color--light);
+    padding: 0 0 0.6rem 1rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Strip Material's default TOC list styles */
+.tutorial-page ~ .md-sidebar--secondary .md-nav__list,
+.md-sidebar--secondary .md-nav[aria-label="Table of contents"] .md-nav__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-left: none;
+}
+
+/* Each TOC item */
+.tutorial-page ~ .md-sidebar--secondary .md-nav__item,
+.md-sidebar--secondary .md-nav[aria-label="Table of contents"] .md-nav__item {
+    padding: 0;
+    margin: 0;
+}
+
+/* Show only H2 — hide nested lists (H3 and below) */
+.tutorial-page ~ .md-sidebar--secondary .md-nav__item .md-nav,
+.md-sidebar--secondary .md-nav[aria-label="Table of contents"] .md-nav__item .md-nav {
+    display: none !important;
+}
+
+/* TOC links */
+.tutorial-page ~ .md-sidebar--secondary .md-nav__link,
+.md-sidebar--secondary .md-nav[aria-label="Table of contents"] .md-nav__link {
+    display: block;
+    padding: 0.35rem 0.75rem;
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--md-default-fg-color--light);
+    border-left: 2px solid transparent;
+    margin-left: -2px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    text-decoration: none;
+}
+
+.tutorial-page ~ .md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav[aria-label="Table of contents"] .md-nav__link:hover {
+    color: var(--md-default-fg-color);
+    border-left-color: var(--md-default-fg-color--light);
+}
+
+/* Active / current TOC item */
+.tutorial-page ~ .md-sidebar--secondary .md-nav__link--active,
+.md-sidebar--secondary .md-nav[aria-label="Table of contents"] .md-nav__link--active {
+    color: var(--md-primary-fg-color);
+    border-left-color: var(--md-primary-fg-color);
+    font-weight: 500;
+}
+

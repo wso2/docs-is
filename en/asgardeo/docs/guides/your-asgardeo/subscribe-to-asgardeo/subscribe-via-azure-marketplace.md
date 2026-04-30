@@ -38,7 +38,7 @@ Follow the steps below to purchase an Asgardeo subscription via the Azure Market
 
 6. Review the details of your subscription and click **Subscribe**.
 
-7. Click **Configure accout now** and you will be redirected to Asgardeo to [link your subscription](#link-your-subscription) to an organization.
+7. Click **Configure account now** and you will be redirected to Asgardeo to [link your subscription](#link-your-subscription) to an organization.
 
 
 ## Link your subscription

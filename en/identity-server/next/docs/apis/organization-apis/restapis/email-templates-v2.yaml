@@ -16,7 +16,7 @@ tags:
 
       - User creation with SCIM2 APIs
       - Locking/Unlocking accounts with SCIM2 APIs
-      - Password recovery API
+      - Password recovery API V2
       - Email verification flows
       - Resend email flows
 

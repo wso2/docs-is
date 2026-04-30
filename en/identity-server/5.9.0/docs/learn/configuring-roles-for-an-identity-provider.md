@@ -44,6 +44,6 @@ following.
       role_claim_value_attribute_separator=","
     ```
     
-    If this is not configured and if the **no MulitAttributeSeparator** is
-    configured, the default seperator will be " **,,,** ".
+    If this is not configured and if the **no MultiAttributeSeparator** is
+    configured, the default separator will be " **,,,** ".
     

@@ -1,9 +1,11 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: 'User Sharing API Definition'
+  title: 'User Sharing API (deprecated)'
   description: |-
     This document defines the **User Sharing REST API for organizations** in **Asgardeo**. This enables organization administrators to share users across child organizations, manage and revoke shared access, and retrieve users' shared organizations and roles.
+
+    **Shared scopes with User Sharing API v2:** The OAuth2 scopes `internal_user_share`, `internal_user_unshare`, and `internal_user_shared_access_view` are shared between this API (v1) and the User Sharing v2 API. Authorizing either API automatically grants access to the equivalent endpoints in the other that use the same scopes.
 
 security:
   - OAuth2: []

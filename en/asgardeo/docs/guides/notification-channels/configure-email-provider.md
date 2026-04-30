@@ -4,16 +4,18 @@
 
 This document explains the steps to configure {{ product_name }} to send emails during multiple email-related customer identity and access management tasks such as [email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/), email notifications, and account recovery.
 
-Follow the steps given below to enable the email sender per organization.
+{{ product_name }} supports SMTP-based and HTTP-based email providers. To learn how to configure each email provider per organization, please see the relevant section.
+
+## Configure SMTP based email provider
 
 1. On the {{ product_name }} Console, go to **Notification Channels** > **Email Provider**.
-2. Provide the required details.
+2. Click the **SMTP** tab, provide the required details.
 
    ![Configure Email Provider]({{base_path}}/assets/img/notification-channels/email-provider/configure-email-provider.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Click **Update**.
 
-## Supported Providers
+### Supported providers
 
 ??? note "Configuring Gmail as the email provider"
     If you use a Gmail account as the **from_address**, you must create an [App Password](https://support.google.com/accounts/answer/185833?visit_id=637943607149528455-3801902236&p=InvalidSecondFactor&rd=1){:target="_blank"}.
@@ -66,3 +68,50 @@ Follow the steps given below to enable the email sender per organization.
        ![Configure Email Provider]({{base_path}}/assets/img/notification-channels/email-provider/email-provider-config-page.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     
     - Click **Update** to save the configurations.
+
+## Configure HTTP based email provider
+
+Integrate with a custom email service by sending email data to an external HTTP endpoint. When an email is triggered, {{ product_name }} constructs a request using the configured payload template and delivers it to the specified URL.
+
+1. On the {{ product_name }} Console, go to **Notification Channels** > **Email Provider**.
+2. Click the **HTTP** tab, provide the required details and click **Update**.
+
+    ![Configure Email Provider]({{base_path}}/assets/img/notification-channels/email-provider/configure-http-based-email-provider.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>Email Provider URL</td>
+        <td>URL of the Email gateway where the payload should be published.</td>
+        <td><code>https://api.example.com/api/v1</code></td>
+      </tr>
+      <tr>
+        <td>Content Type</td>
+        <td>Content type of the payload. Possible values are <code>JSON</code> or <code>FORM</code></td>
+        <td><code>JSON</code></td>
+      </tr>
+      <tr>
+        <td>HTTP Method</td>
+        <td>HTTP method that should be used when publishing the payload to the provider URL. Possible values: <code>PUT</code>, <code>POST</code>. </td>
+        <td><code>POST</code></td>
+      </tr>
+      <tr>
+        <td>HTTP Headers</td>
+        <td>Custom static headers need to be passed. If multiple headers need to be passed, they should be comma separated. (Optional)</td>
+        <td><code>x-csrf: true, x-abc: some-value</code></td>
+      </tr>
+      <tr>
+        <td>Payload Template</td>
+        <td>How the payload template should be. </br>Placeholders:</br><code>\{\{subject\}\}</code> - Subject of the Email. </br><code>\{\{body\}\}</code> - Generated body of the Email. </br><code>\{\{footer\}\}</code> - Footer of the Email. </br><code>\{\{send-to\}\}</code> - Email address that this email should be sent to. </td>
+        <td>Example JSON payload template: </br><code>{“subject”: “\{\{subject\}\}”, “body”: “\{\{body\}\}”, “footer”: “\{\{footer\}\}”, “to”: “\{\{send-to\}\}”}</code></br></br>(<code>\{\{subject\}\}</code> , <code>\{\{body\}\}</code>  <code>\{\{footer\}\}</code> and <code>\{\{send-to\}\}</code>  will be replaced with the corresponding values at the runtime.)</td>
+      </tr>
+      <tr>
+        <td>Authentication</td>
+        <td>Authentication settings for the HTTP-based email provider. Select the preferred authentication scheme and enter the required authentication properties.</td>
+        <td>Authentication Scheme <code>Basic</code> with username and password.</td>
+      </tr>
+    </table>

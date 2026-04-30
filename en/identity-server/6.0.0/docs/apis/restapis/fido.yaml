@@ -6,7 +6,7 @@ info:
 
   contact:
     name: WSO2
-    url: http://wso2.com/products/identity-server/
+    url: https://wso2.com/identity-platform/access-manager/
     email: architecture@wso2.org
   license:
     name: Apache 2.0

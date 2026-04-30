@@ -42,14 +42,14 @@ mentioned user attributes.
         salesforce outbound provisioning connector.
 
 4. Edit the outbound provisioning connector configuration of the
-    identity provider and enter a provisioning pattern and seperator for
+    identity provider and enter a provisioning pattern and separator for
     the following fields.
 
     - **Provisioning Pattern** - Enter a combination of user
         attributes of the user ID as the pattern, for
         example {UD,UN,TD,IDP}
     - **Provisioning Seperator** - This can be a character such as a
-        dash ( - ) which is used to seperate the attributes.
+        dash ( - ) which is used to separate the attributes.
     - **Provisioning Domain** - This refers to the user store domain
         in WSO2 Identity Server. If no value is entered here, the WSO2
         IS will take the primary user store domain by default.

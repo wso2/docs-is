@@ -1,0 +1,163 @@
+<!--
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/css/config-catalog.css' | url }}">
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ 'assets/js/config-catalog.js' | url }}"></script>
+{% endblock %}
+
+{% block site_nav %}
+  {% if nav %}
+    <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% include "partials/nav.html" %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+    <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--secondary">
+          <label class="md-nav__title" for="__toc">On this page</label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            {% for section in config.extra.configuration_catalog.sections %}
+              <li class="md-nav__item">
+                <a href="#{{ section.hyperlink }}" class="md-nav__link">{{ section.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block container %}
+
+    <div class="md-content" data-md-component="content">
+    <article class="md-content__inner md-typeset">
+
+      <div class="wip-banner">
+        <span style="font-size: 0.9rem; line-height: 1;">🚧</span>
+        <strong style="font-size: 0.82rem; color: #1a1a2e;">Work in progress:</strong>
+        <span style="color: #1a1a2e; font-size: 0.8rem;">Some configurations may be incomplete or subject to change.</span>
+      </div>
+
+      <h1 id="configuration-catalog">
+        Configuration catalog
+        <a class="headerlink" href="#configuration-catalog" title="Permanent link">¶</a>
+      </h1>
+
+      <p>
+        The configuration model of WSO2 Identity Server is based on the toml format.
+        The <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file is the single source used to configure and tune various features.
+      </p>
+
+      <p>
+        This document describes all the configuration parameters used in {{ config.extra.product_name }}.
+      </p>
+
+      <div class="mb-task-filter">
+        <label for="mbTaskSelect">I want to configure:</label>
+        <select id="mbTaskSelect">
+          <option value="">All configurations</option>
+          <option value="minimum-required">the minimum required settings</option>
+          <option value="configure-database">an external database</option>
+          <option value="configure-tls">TLS and transport security</option>
+          <option value="configure-oauth">OAuth and OIDC</option>
+          <option value="configure-authentication">authentication</option>
+          <option value="configure-user-store">user stores</option>
+          <option value="configure-clustering">clustering</option>
+          <option value="configure-cache">caching</option>
+          <option value="configure-monitoring">monitoring and logging</option>
+          <option value="configure-email">email sending</option>
+          <option value="configure-fido">FIDO / passkeys</option>
+          <option value="configure-ai">AI services</option>
+          <option value="configure-actions">actions</option>
+          <option value="configure-identity">identity management</option>
+          <option value="configure-security">API security</option>
+          <option value="configure-sts">security token service (STS)</option>
+        </select>
+        <input type="search" id="mbConfigSearch" placeholder="Search parameters…" autocomplete="off" />
+        <button type="button" id="mbTaskClear">Clear</button>
+      </div>
+
+
+      {% for section in config.extra.configuration_catalog.sections %}
+        <div class="mb-config-section" data-tasks="{{ section.tasks | join(' ') }}" data-id="{{ section.id }}" data-title="{{ section.title }}">
+        <h2 id="{{ section.hyperlink }}">
+          {{ section.title }} <code>[{{ section.id }}]</code>
+          <a class="headerlink" href="#{{ section.hyperlink }}" title="Permanent link">¶</a>
+        </h2>
+
+        <div class="mb-config-catalog">
+          <div class="mb-config">
+            <div class="config-wrap">
+              <p>{{ section.description }}</p>
+            </div>
+
+            <div class="mb-config-example-block">
+              <div class="mb-config-example-header">Sample configuration</div>
+              <pre><code><span class="toml-section">[{{ section.id }}]</span>
+{% for param in section.configs -%}
+<span class="toml-key">{{ param.key }}</span> <span class="toml-eq">=</span> <span class="toml-val">{% if param.type == "string" %}{{ param.default | tojson }}{% else %}{{ param.default }}{% endif %}</span>
+{% endfor -%}
+</code></pre>
+            </div>
+
+            <div class="params-wrap">
+              {% for param in section.configs %}
+                <div class="param" data-key="{{ param.key }}">
+                  <div class="param-header">
+                    <span class="param-name-wrap">{{ param.key }}</span>
+                    <span class="param-type">{{ param.type }}</span>
+                    {% if param.required %}<span class="badge-required">Required</span>{% endif %}
+                  </div>
+                  <div class="param-meta">
+                    <span class="param-default-value">Default: <code>{{ param.default | e }}</code></span>
+                  </div>
+                  {% if param.possible_values %}
+                  <div class="param-meta">
+                    <span class="param-possible-values">Possible values: <code>{{ param.possible_values | map('e') | join(', ') }}</code></span>
+                  </div>
+                  {% endif %}
+                  <div class="param-description">
+                    <p>{{ param.description }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        </div><!-- /.mb-config-section -->
+      {% endfor %}
+
+    </article>
+  </div>
+
+{% endblock %}
+

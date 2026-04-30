@@ -1,9 +1,9 @@
-# WSO2 Identity Server and Asgardeo documentation
+# WSO2 Identity Platform documentation
 
-Welcome to the WSO2 Identity Server and Asgardeo documentation repository. We welcome your contributions!
+This repository holds the source code and content for the following product documentation:
 
-- WSO2 Identity Server Docs: [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
-- Asgardeo Docs: [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
+- WSO2 Identity Server - [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
+- Asgardeo - [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
 
 ## Table of content
 

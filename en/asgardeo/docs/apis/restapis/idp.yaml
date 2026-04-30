@@ -2353,6 +2353,10 @@ components:
         jwksUri:
           type: string
           example: "https://api.asgardeo.io/t/{org-name}/oauth2/jwks"
+        samlMetadataUri:
+          type: string
+          description: The SAML metadata endpoint URL of the external identity provider. When configured, Asgardeo fetches and caches the signing certificate from this URL to validate SAML response signatures and IdP-initiated logout request signatures.
+          example: "https://idp.example.com/saml/metadata"
     IdentityProviderPOSTRequest:
       type: object
       required:
