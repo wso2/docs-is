@@ -5,18 +5,18 @@ information such as the persons who access it, how many hits
 it received, what the errors are, etc. This information is useful for
 troubleshooting errors. WSO2 Identity Server can enable access logs for the
 HTTP servlet transport. This servlet transport works on `9443`/`9763` ports,
-and it receives admin/operation requests. Therefore, access logs for the
+and it receives admin/operation requests. So, access logs for the
 servlet transport is useful for analysing operational/admin-level access
 details.
 
-### Configuring access logs for the HTTP servlet transport
+## Configuring access logs for the HTTP servlet transport
 
 In the Identity Server 5.9.0 only the access log pattern is configurable.
 
-1.  Open the `<IS_HOME>/repository/conf/deployment.toml`
+1. Open the `<IS_HOME>/repository/conf/deployment.toml`
     file.
 
-2.  Add the following configuration.
+2. Add the following configuration.
 
     ``` toml
     [http_access_log]
@@ -75,16 +75,98 @@ In the Identity Server 5.9.0 only the access log pattern is configurable.
     </tbody>
     </table>
 
-3.  Restart the server. According to the configurations, a log
+3. Restart the server. According to the configurations, a log
     file named
-    `           http_access.{DATE}.log          ` is
-    created by default inside the `<IS_HOME>/repository/logs          ` directory. The
+    `http_access.{DATE}.log` is
+    created by default inside the `<IS_HOME>/repository/logs` directory. The
     log is rotated on a daily basis.
+
+## Routing access logs to the Log4j2 logger
+
+By default, HTTP access logs write to a separate `http_access.log` file using the Tomcat Access Log Valve. WSO2 Identity Server also supports routing HTTP access logs through the Log4j2 logger, which gives you full control over where those logs go.
+
+To enable Log4j2-based access logging, set `useLogger = true` in `<IS_HOME>/repository/conf/deployment.toml`:
+
+```toml
+[http_access_log]
+useLogger = true
+```
+
+After enabling this, update `<IS_HOME>/repository/conf/log4j2.properties` to add the HTTP access log appender and logger.
+
+### Route to a dedicated rolling log file
+
+If you want to keep HTTP access logs in their own file, separate from other server logs, you can route them to a rolling log file that rotates on a schedule and rolls over when it reaches a configured size. To do so,
+
+1. Add `HTTP_ACCESS` to the `appenders` list:
+
+    ```properties
+    appenders = CARBON_CONSOLE, CARBON_LOGFILE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE,    CARBON_TRACE_LOGFILE, DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE, HTTP_ACCESS
+    ```
+
+2. Add `HTTP_ACCESS` to the `loggers` list:
+
+    ```properties
+    loggers = HTTP_ACCESS, AUDIT_LOG, trace-messages, ...
+    ```
+
+3. Add the appender and logger configuration:
+
+    ```properties
+    logger.HTTP_ACCESS.name = HTTP_ACCESS
+    logger.HTTP_ACCESS.level = INFO
+    logger.HTTP_ACCESS.appenderRef.HTTP_ACCESS.ref = HTTP_ACCESS
+    logger.HTTP_ACCESS.additivity = false
+
+    appender.HTTP_ACCESS.type = RollingFile
+    appender.HTTP_ACCESS.name = HTTP_ACCESS
+    appender.HTTP_ACCESS.fileName = ${sys:carbon.home}/repository/logs/http_access.log
+    appender.HTTP_ACCESS.filePattern = ${sys:carbon.home}/repository/logs/http_access-%d    {MM-dd-yyyy}.log
+    appender.HTTP_ACCESS.layout.type = PatternLayout
+    appender.HTTP_ACCESS.layout.pattern = [%X{Correlation-ID}] %mm%n
+    appender.HTTP_ACCESS.policies.type = Policies
+    appender.HTTP_ACCESS.policies.time.type = TimeBasedTriggeringPolicy
+    appender.HTTP_ACCESS.policies.time.interval = 1
+    appender.HTTP_ACCESS.policies.time.modulate = true
+    appender.HTTP_ACCESS.policies.size.type = SizeBasedTriggeringPolicy
+    appender.HTTP_ACCESS.policies.size.size = 10MB
+    appender.HTTP_ACCESS.strategy.type = DefaultRolloverStrategy
+    appender.HTTP_ACCESS.strategy.max = 20
+    appender.HTTP_ACCESS.filter.threshold.type = ThresholdFilter
+    appender.HTTP_ACCESS.filter.threshold.level = INFO
+    ```
+
+### Route to standard output
+
+In Kubernetes environments, logs are typically collected from standard output rather than files. To make HTTP access logs part of that flow, route them to the console alongside all other server logs. To do so,
+
+1. Set `appenders` to `CARBON_CONSOLE` only:
+
+    ```properties
+    appenders = CARBON_CONSOLE
+    ```
+
+2. Add `HTTP_ACCESS` to the `loggers` list:
+
+    ```properties
+    loggers = HTTP_ACCESS, AUDIT_LOG, trace-messages, ...
+    ```
+
+3. Add the logger configuration:
+
+    ```properties
+    logger.HTTP_ACCESS.name = HTTP_ACCESS
+    logger.HTTP_ACCESS.level = INFO
+    logger.HTTP_ACCESS.appenderRef.HTTP_ACCESS.ref = CARBON_CONSOLE
+    logger.HTTP_ACCESS.additivity = false
+    ```
+
+You can define other logging patterns and targets for the `HTTP_ACCESS` logger using standard Log4j2 configuration. See the [Log4j2 documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for available options.
 
 ### Customizing access logs by pattern
 
 Given below are a few sample configurations for customizing the
-`         pattern        ` attribute:
+`pattern` attribute:
 
 #### Example 1: Logging request headers
 
@@ -98,14 +180,14 @@ The configuration is as follows:
 This sample configuration logs the Content-type,
 Accept and Accept-encoding headers of every request coming to the
 server. For example, in the following example, we use the
-`         RequestInfoExample        ` to send the HTTP request:
+`RequestInfoExample` to send the HTTP request:
 
 ``` java
 GET http://<IP>:<PORT>/example/servlets/servlet/RequestInfoExample?abc=xyz
 ```
 
 The following log entry is recorded in the
-`         http_access.{DATE}.log        ` file.
+`http_access.{DATE}.log` file.
 
 ``` java
 text/plain; charset=utf-8        */*        gzip,deflate,sdch
@@ -120,9 +202,8 @@ The configuration is as follows:
    pattern = "%{Content-Type}o %{Content-Length}o %{Date}o %{Server}o"
    ```
 
-The a bove configuration sample logs the `         Content-type        `
-, `         Content-Length        `, `         Date,        ` and
-`         Server        ` headers of every response coming from the
+The above configuration sample logs the `Content-type`,
+`Content-Length`, `Date`, and `Server` headers of every response coming from the
 server as follows:
 
 ``` java
@@ -149,11 +230,11 @@ server as follows:
 
 #### Example 4: Logging URL encoded parameters
 
-You cannot use the `         AccessLogValve        ` to log URL encoded
+You cannot use the `AccessLogValve` to log URL encoded
 parameters. However, you can use the
-`         ExtendedAccessLogValve        ` attribute for this purpose. In
-this example only two values (namely, `         className        `, and
-`         pattern        ` ) are modified from the previous
+`ExtendedAccessLogValve` attribute for this purpose. In
+this example only two values (namely, `className`, and
+`pattern`) are modified from the previous
 configuration. Hence this will be added as a new valve.
 
 The configuration is as follows:
@@ -168,8 +249,8 @@ pattern="x-P(param1) x-P(param2)"
 ```
 
 Send the POST request together with the URL encoded values such as
-`         param1        ` = `         value1        ` and
-`         param2        ` = `         value2        ` as follows:
+`param1` = `value1` and
+`param2` = `value2` as follows:
 
 ``` java
 POST http://<IP>:<PORT>/example/servlets/servlet/RequestInfoExample
