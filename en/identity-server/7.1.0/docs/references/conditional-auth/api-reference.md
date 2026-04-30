@@ -43,6 +43,201 @@
 
 ---
 
+## Script structure and syntax
+
+Conditional authentication scripts in {{ product_name }} are JavaScript-based and follow standard JavaScript syntax conventions. Understanding the structure and scripting engine helps you write effective authentication logic.
+
+### Scripting engine
+
+{{ product_name }} uses **GraalVM JavaScript (GraalJS)** as its scripting engine for conditional authentication. GraalJS provides:
+
+- ECMAScript 2022 (ES13) compatibility
+- High performance JavaScript execution
+- Seamless integration with Java-based authentication components
+
+!!! note "Script compatibility"
+    Older versions of {{ product_name }} used the Nashorn JavaScript engine. GraalJS provides better performance and standards compliance while maintaining compatibility with most existing scripts.
+
+### Script structure
+
+Every conditional authentication script follows this basic structure:
+
+```javascript
+// Define the main authentication flow
+var onLoginRequest = function(context) {
+    // Authentication logic goes here
+    // Execute steps, check conditions, apply rules
+    executeStep(1);
+};
+```
+
+The `onLoginRequest` function is the entry point for your authentication logic and is automatically invoked when a user initiates login.
+
+### Basic syntax patterns
+
+#### Simple step execution
+
+Execute authentication steps sequentially:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1);
+    executeStep(2);
+};
+```
+
+#### Conditional logic
+
+Make authentication decisions based on user attributes:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            var user = context.currentKnownSubject;
+            if (isMemberOfAnyOfGroups(user, ['admin'])) {
+                executeStep(2);
+            }
+        }
+    });
+};
+```
+
+#### Event callbacks
+
+Handle success and failure scenarios:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            // Handle successful authentication
+            Log.info('Step 1 succeeded');
+        },
+        onFail: function(context) {
+            // Handle authentication failure
+            fail({'errorCode': 'auth_failed'});
+        }
+    });
+};
+```
+
+### Variable declarations and scoping
+
+Use standard JavaScript variable declarations:
+
+```javascript
+var onLoginRequest = function(context) {
+    // Declare variables with var, let, or const
+    var allowedGroups = ['admin', 'manager'];
+    var user = context.currentKnownSubject;
+
+    // Variables declared inside callbacks have function scope
+    executeStep(1, {
+        onSuccess: function(context) {
+            var authenticated = true;
+            // authenticated is accessible here
+        }
+    });
+};
+```
+
+### Working with authentication context
+
+Access request information, user details, and authentication steps through the context object:
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            // Access authenticated user
+            var user = context.currentKnownSubject;
+
+            // Access user attributes
+            var email = user.localClaims['http://wso2.org/claims/emailaddress'];
+            var username = user.username;
+
+            // Access request details
+            var userAgent = context.request.headers['user-agent'];
+            var ipAddress = context.request.ip;
+
+            // Access application information
+            var appName = context.serviceProviderName;
+        }
+    });
+};
+```
+
+### Common scripting patterns
+
+#### Pattern 1: Role-based step execution
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            var hasAdminRole = hasAnyOfTheRolesV2(context, ['admin']);
+            if (hasAdminRole) {
+                executeStep(2); // Additional security step for admins
+            }
+        }
+    });
+};
+```
+
+#### Pattern 2: Risk-based authentication
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            var riskScore = callRiskEngine(context);
+            if (riskScore > 70) {
+                executeStep(2); // Require MFA for high-risk logins
+            }
+        }
+    });
+};
+
+function callRiskEngine(context) {
+    // Custom risk calculation logic
+    var ipAddress = context.request.ip;
+    // Return risk score based on your criteria
+    return 50;
+}
+```
+
+#### Pattern 3: Attribute-based access control
+
+```javascript
+var onLoginRequest = function(context) {
+    executeStep(1, {
+        onSuccess: function(context) {
+            var user = context.currentKnownSubject;
+            var department = user.localClaims['http://wso2.org/claims/department'];
+
+            if (department === 'finance') {
+                // Allow access
+                Log.info('Finance user granted access');
+            } else {
+                // Deny access
+                fail({'errorCode': 'access_denied',
+                      'errorMessage': 'Access restricted to finance department'});
+            }
+        }
+    });
+};
+```
+
+!!! tip "Best practices"
+    - Keep your scripts modular by using helper functions for complex logic.
+    - Use meaningful variable names to improve script readability.
+    - Handle both `onSuccess` and `onFail` callbacks for robust error handling.
+    - Test your scripts thoroughly with different user scenarios.
+    - Use the `Log` object for debugging during development.
+
+---
+
 ## Core functions
 
 These are the basic functions that are required for defining the application login flow using an authentication script.
