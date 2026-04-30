@@ -5,6 +5,15 @@ info:
   description: |
     SCIM 2.0 endpoints
     It is written with [swagger 2](http://swagger.io/).
+
+    <div style="border-left: 4px solid #f0ad4e; padding: 8px 12px; margin: 12px 0; background-color: #fcf8e3;">
+        <strong>Note:</strong> To prevent federated users from accessing the <code>Me</code> endpoint,
+        set the following property to <code>true</code> in
+        <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code>.
+        <pre><code>[scim2]
+    restrict_federated_user_access_to_me_endpoint = true
+        </code></pre>
+        </div>
   contact:
     name: WSO2 Identity Server Team
     url: 'http://wso2.com'

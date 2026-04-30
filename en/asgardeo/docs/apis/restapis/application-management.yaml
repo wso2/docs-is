@@ -4460,7 +4460,7 @@ components:
       properties:
         applicationClaim:
           type: string
-          description: Claim URI recieved by the application
+          description: Claim URI received by the application
           example: firstname
         localClaim:
           $ref: '#/components/schemas/Claim'
@@ -4828,6 +4828,10 @@ components:
         validateTokenBinding:
           type: boolean
           description: If enabled, both the access token and the token binding need to be present for a successful API invocation.
+        enableJwtScopeAsArray:
+          type: boolean
+          description: If enabled, the scope claim in JWT access tokens will be formatted as a JSON array instead of a space-separated string.
+          example: false
     RefreshTokenConfiguration:
       type: object
       properties:

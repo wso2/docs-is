@@ -5,7 +5,7 @@ info:
     This document specifies a **Consent Management RESTfulAPI** for WSO2 **Identity Server**.
   contact:
     name: WSO2
-    url: http://wso2.com/products/identity-server/
+    url: https://wso2.com/identity-platform/access-manager/
     email: architecture@wso2.com
   license:
     name: Apache 2.0

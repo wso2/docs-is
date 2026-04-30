@@ -11,7 +11,7 @@ Follow the steps below to enable adaptive authentication for a standard deployme
 
 1. Stop the WSO2 Identity Server if it is already running.
 
-2. Run the **adaptive.sh** (or **adaptive.bat** for Windows) found in the `<IS-HOME>/bin` directory.
+2. Run the **adaptive.sh** (or **adaptive.bat** for Windows) found in the `<IS_HOME>/bin` directory.
 
 3. Restart the server.
 
@@ -21,7 +21,7 @@ Follow the steps below to enable adaptive authentication for a standard deployme
 
 ## For Docker deployments
 
-You can find the docker images for WSO2 Identity Server in the [WSO2 Docker Hub](https://docker.wso2.com/tags.php?repo=wso2is).
+You can find the docker images for WSO2 Identity Server in the [WSO2 Docker Registry](https://registry.wso2.com/harbor/projects/7/repositories/is/artifacts-tab).
 
 To create a Docker image with adaptive authentication enabled, add the following commands to your Dockerfile and run it against the base image.
 

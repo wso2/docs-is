@@ -95,6 +95,9 @@ appender.AUDIT_LOGFILE.filter.threshold.level = INFO
 
 The log levels that can be configured are [listed below](#set-the-log4j-log-level).
 
+!!! note "Audit log timestamp precision"
+    With Java 21 support in WSO2 Identity Server 7.1, the timestamps in audit logs (v2 version) can have nanosecond precision due to the Java upgrade. This change affects the `recordedAt` field in the audit log.
+
 ### Configure HTTP access logs
 
 See [HTTP Access Logging]({{base_path}}/deploy/monitor/http-access-logging) for instructions on how to configure and use HTTP access logs.

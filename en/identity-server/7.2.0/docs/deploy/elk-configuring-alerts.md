@@ -68,7 +68,7 @@ Alert dashboards display long sessions and suspicious login alerts. Follow the s
 
 1. Generate encryption keys for Kibana using the following command.
     ```
-    {KIBANA_HOME}/bin/kibana-encryption-keys generate
+    <KIBANA_HOME>/bin/kibana-encryption-keys generate
     ```
 2. Open the **kibana.yml** file found in the `<KIBANA_HOME>/config` directory.
 3. Copy the generated keys and paste them at the bottom of the **kibana.yml** file.

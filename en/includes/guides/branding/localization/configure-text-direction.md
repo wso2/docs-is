@@ -40,6 +40,14 @@ To configure text direction for authentication, recovery, and accounts endpoints
 
 4. Save the file and restart the server for changes to take effect.
 
+!!! note "Important: Adding language resource files"
+
+    Updating the `LanguageOptions.properties` file alone does not enable language support for JSP portals. You must also add the corresponding language resource files to the following directory:
+
+    `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/`
+
+    Without the language resource files, the selected language will not be functional even if configured in `LanguageOptions.properties`.
+
 !!! tip
 
     The RTL/LTR configuration applies to all three endpoints (authentication, recovery, and accounts) since they share the same `LanguageOptions.properties` file.

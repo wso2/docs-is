@@ -11,7 +11,7 @@ This section describes some recommended performance tuning configurations to opt
 When it comes to performance, the OS that the server runs plays an important role.
 
 !!! info
-    If you are running on MacOS Sierra or High Sierra, and experiencing long start-up times for WSO2 Identity Server, try mapping your Mac hostname to `127.0.0.1` and `::1` in the `/etc/hosts` file.
+    If you are running on macOS Sierra or High Sierra, and experiencing long start-up times for WSO2 Identity Server, try mapping your Mac hostname to `127.0.0.1` and `::1` in the `/etc/hosts` file.
 
     ``` java
     127.0.0.1   localhost <my_computer_hostname>

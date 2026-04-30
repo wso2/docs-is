@@ -66,7 +66,7 @@ To create a sample certificate and create your own Certificate Authority to sign
     !!! info "Got the 'permission denied' error?"
         Note that when adding the certificate to the JVM trust store you may get the permission denied error. Running this command as an administrator resolves this permission issue. 
 
-        For example, if you are a Mac user, you can use sudo in front of this command to fix the permission issue.  
+        For example, if you are a macOS user, you can use sudo in front of this command to fix the permission issue.  
 
 7. Now you have created the CA to sign the certificate. To create the server certificate follow the steps given below:
 
@@ -145,7 +145,7 @@ Once you have done the above steps, you have the keystore (`localcrt.jks`), trus
 
 ## Configuring the X509 certificate for the app
 
-1.  Download the [WSO2 Identity Server](http://wso2.com/products/identity-server/).
+1.  Download the [WSO2 Identity Server](https://wso2.com/identity-platform/access-manager/).
 
 2.  Replace your keystore file path, keystore password, trust store file path and trust store password (you can use the keystore and
     truststore, which you created in the [Working with Certificates](#working-with-certificates) section) in the following configuration and add it to the

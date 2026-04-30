@@ -9,18 +9,18 @@ Follow the steps given below to quickly set up and install {{ product_name }} on
 
 Follow the steps given below.
 
-1. Download and install Oracle Java SE Development Kit (JDK) version 11 or 17.
+1. Download and install Java SE Development Kit (JDK) version 21 or 25.
 2. Go to [{{ product_name }} official website](https://wso2.com/identity-server/){:target="_blank"} and click on **Download**.
 3. Install {{ product_name }} by downloading the **LATEST RELEASE**.
 
     !!! info
-        The installation location of {{ product_name }} is referred to as `{IS_HOME}`.
+        The installation location of {{ product_name }} is referred to as `<IS_HOME>`.
 
 <!-- The {{ product_name }} installation location can vary depending on the operating system as given below:
 
 |OS     |Home Directory                                |
 |:------|:---------------------------------------------|
-|Mac OS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
+|macOS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
 |Windows| `C:\Program Files\WSO2\IdentityServer\<IS_HOME>` |
 |Ubuntu | `/usr/lib/wso2/IdentityServer/<IS_HOME>`         |
 |CentOS | `/usr/lib64/IdentityServer/<IS_HOME>`           |
@@ -31,7 +31,7 @@ Follow the steps given below.
 
 To start {{product_name}}, open a terminal, navigate to the `<IS_HOME>/bin` folder, and execute one of the following commands:
 
-- On Linux/MacOS
+- On Linux/macOS
 
     ``` bash
     sh wso2server.sh

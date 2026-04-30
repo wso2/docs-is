@@ -7,5 +7,15 @@ By default, whenever the refresh token is exchanged for a new access token, {{pr
 
 If you select the **Renew refresh token** option, each time the refresh token is exchanged for a new access token, {{product_name}} invalidates the existing refresh token and issues a new refresh token.
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+#### Extend expiry time of renewed refresh token
+
+!!! note
+    This option is only applicable when **Renew refresh token** is enabled.
+
+When you set this configuration to `false`, renewed refresh tokens carry the remaining validity period of the original refresh token.
+{% endif %}
+
 #### Refresh token expiry time
+
 This option specifies the validity period of a refresh token in seconds. The default value is 86400 seconds.

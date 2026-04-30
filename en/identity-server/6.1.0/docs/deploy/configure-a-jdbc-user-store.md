@@ -15,7 +15,7 @@ Management Related Tables]({{base_path}}/deploy/user-management-related-tables) 
 
 ##Configure the internal database as JDBC userstore. 
 
-You can use the default configurations in the `<IS-HOME>/repository/conf/deployment.toml`.
+You can use the default configurations in the `<IS_HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]
@@ -40,7 +40,7 @@ as the userstore. Refer the following topic for further instructions.
         
 	??? example "PostgreSQL"
 		
-		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
+		1.	Configure `<IS_HOME>/repository/conf/deployment.toml` as follows.
 			
 			```
 			[database.user]
@@ -53,13 +53,13 @@ as the userstore. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```
 			
-		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/postgresql.sql` file against the database created.    
+		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS_HOME>/dbscripts/postgresql.sql` file against the database created.    
 			
 		3. Download the PostgreSQL JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 	??? example "MySQL"
 
-		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
+		1.	Configure `<IS_HOME>/repository/conf/deployment.toml` as follows.
 
 			```
 			[database.user]
@@ -72,14 +72,14 @@ as the userstore. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```
 		
-		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/mysql.sql` file
+		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS_HOME>/dbscripts/mysql.sql` file
 			against the database created.        
 
 		3.  Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.          
 
 	??? example "DB2"
 
-		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
+		1.	Configure `<IS_HOME>/repository/conf/deployment.toml` as follows.
 
 			```
 			[database.user]
@@ -92,14 +92,14 @@ as the userstore. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```   
 
-		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/db2.sql` file
+		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS_HOME>/dbscripts/db2.sql` file
 			against the database created.       
 	
 		3.	Download the DB2 JDBC driver for the version you are using. Extract the downloaded file if necessary, and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
 
 	??? example "MSSQL"
 
-		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
+		1.	Configure `<IS_HOME>/repository/conf/deployment.toml` as follows.
 
 			```
 			[database.user]
@@ -112,7 +112,7 @@ as the userstore. Refer the following topic for further instructions.
 			data_source = "WSO2USER_DB"
 			```
 		2. 	Execute the scripts of 
-			[User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/mssql.sql` file
+			[User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS_HOME>/dbscripts/mssql.sql` file
 			against the database created.        
 			
 		3. Download the MSSQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
@@ -120,7 +120,7 @@ as the userstore. Refer the following topic for further instructions.
 
 	??? example "Oracle"
 
-		1.	Configure `<IS-HOME>/repository/conf/deployment.toml` as follows.
+		1.	Configure `<IS_HOME>/repository/conf/deployment.toml` as follows.
 
 			```
 			[database.user]
@@ -132,7 +132,7 @@ as the userstore. Refer the following topic for further instructions.
 			[realm_manager]
 			data_source = "WSO2USER_DB"
 			```
-		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS-HOME>/dbscripts/oracle.sql` file
+		2. 	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/user-management-related-tables) in the `<IS_HOME>/dbscripts/oracle.sql` file
 			against the database created.      
 			
 		3. Download the Oracle JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
@@ -144,7 +144,7 @@ as the userstore. Refer the following topic for further instructions.
 Following are the properties used in JDBC userstore manager. You can configure any of
 those properties as follows. 
 
-Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
+Add the following configuration to `<IS_HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]

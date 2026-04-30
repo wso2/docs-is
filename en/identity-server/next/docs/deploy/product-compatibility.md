@@ -1,14 +1,14 @@
 # Product compatibility
 
-This document provides compatibility details for WSO2 Identity Server 7.1.0 across various environments.
+This document provides compatibility details for WSO2 Identity Server {{is_version}} across various environments.
 
-## {{product_name}} runtime compatibility 
+## {{product_name}} runtime compatibility
 
-Given below is the tested compatibility of the runtime of {{product_name}} 7.1.0.
+Given below is the tested compatibility of the runtime of {{product_name}} {{is_version}}.
 
 ### Tested operating systems
 
-WSO2 Identity Server, being a Java application, is compatible with most operating systems. Listed below are the operating systems that have been tested with the {{product_name}} 7.1.0 runtime.
+WSO2 Identity Server, being a Java application, is compatible with most operating systems. Listed below are the operating systems that have been tested with the {{product_name}} {{is_version}} runtime.
 
 <table>
 	<th>Operating System</th>
@@ -33,18 +33,14 @@ WSO2 Identity Server, being a Java application, is compatible with most operatin
 
 ### Tested JDKs
 
-The {{product_name}} 7.1.0 runtime has been tested with the following JDKs:
+The {{product_name}} {{is_version}} runtime has been tested with the following JDKs:
 
 <table>
 	<th>JDKs</th>
 	<th>Versions</th>
 	<tr>
 		<td>Temurin OpenJDK</td>
-		<td>21, 17, 11</td>
-	</tr>
-	<tr>
-		<td>Oracle JDK</td>
-		<td>21</td>
+		<td>21, 25</td>
 	</tr>
 </table>
 
@@ -57,14 +53,14 @@ The {{product_name}} 7.1.0 runtime has been tested with the following JDKs:
 
 ## Tested DBMSs
 
-The {{product_name}} 7.1.0 runtime has been tested with the following database management systems (DBMSs):
+The {{product_name}} {{is_version}} runtime has been tested with the following database management systems (DBMSs):
 
 <table>
 	<th>DBMS</th>
 	<th>Versions</th>
 	<tr>
 		<td>MySQL</td>
-		<td>8.0.4, 5.7</td>
+		<td>8.4, 8.0</td>
 	</tr>
 	<tr>
 		<td>Oracle RAC</td>
@@ -80,7 +76,7 @@ The {{product_name}} 7.1.0 runtime has been tested with the following database m
 	</tr>
 	<tr>
 		<td>Postgres</td>
-		<td>17.2, 16.6, 15.10</td>
+		<td>17.4, 16.6, 15.10</td>
 	</tr>
 	<tr>
 		<td>Maria DB</td>
@@ -94,7 +90,7 @@ The {{product_name}} 7.1.0 runtime has been tested with the following database m
 
 ## Tested web browsers
 
-The {{product_name}} 7.1.0 runtime has been tested with the following browsers:
+The {{product_name}} {{is_version}} runtime has been tested with the following browsers:
 
 <table>
 	<th>Browser</th>
@@ -119,7 +115,7 @@ The {{product_name}} 7.1.0 runtime has been tested with the following browsers:
 
 ## Tested LDAPs
 
-The {{product_name}} 7.1.0 runtime has been tested with the following LDAPs:
+The {{product_name}} {{is_version}} runtime has been tested with the following LDAPs:
 
 <table>
 	<th>LDAP</th>

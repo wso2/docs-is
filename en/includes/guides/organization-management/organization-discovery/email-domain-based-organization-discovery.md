@@ -21,13 +21,22 @@ In this example scenario:
 - User Alice with email `alice@bcmart.com` should go to the login screen of `Best Car Mart` organization.
 - User Bob and Ben, with emails `bob@gcmart.com` and `ben@glory.com` should go to the login screen of `Glory Car Mart` organization.
 
+## Prerequisites
+
+Before you configure email domain-based organization discovery, understand the following requirements:
+
+### Username requirements during user creation
+
+For any user to be discoverable by their email domain, the following requirements must be met during user creation:
+
+- The user's **username** must be in a valid email format (for example, `user@company-domain.com`).
+- The domain part of this username (for example, `company-domain.com`) must match one of the domains configured for organization discovery.
+- This is a strict requirement during user creation. Attempting to create a user with a non-email username or a username with a non-matching domain for an organization with this feature enabled will fail.
+
 ## Enable email domain based organization discovery
 
 !!! note "Important"
     - The root organization only permits enabling this feature and mapping email domains to organizations.
-    {% if product_name == "WSO2 Identity Server" %}
-    - For this feature to work, make sure to [enable email address as the username]({{base_path}}/guides/users/attributes/enable-email-as-username/) so that users may log in to applications with their email addresses.
-    {% endif %}
     - **For Just-In-Time (JIT) provisioning**: Set the Subject Attribute to `http://wso2.org/claims/emailaddress` in your external identity provider. See [Map email domains to organizations](#map-email-domains-to-organizations) below.
 
 === "Using the Console"
@@ -263,6 +272,31 @@ To try out user login,
 
     !!! note
 
+        {% if product_name == "WSO2 Identity Server" and is_version >= "7.3.0" %}
+        You can route users directly to their organization's login page by passing the user's email as a `login_hint` on the initial authentication request. {{product_name}} resolves the organization from the email domain and skips the SSO selection prompt.
+
+        Sample requests:
+
+        === "OIDC"
+            
+            ```curl
+            https://{{host_name}}{{organization_path_param}}/oauth2/authorize?
+            client_id=<client_id>
+            &redirect_uri=<redirect_url>
+            &scope=<scopes>
+            &response_type=code
+            &login_hint=<user_email>
+            &orgDiscoveryType=emailDomain
+            ```
+        === "SAML"
+            
+            ```curl
+            https://{{host_name}}{{organization_path_param}}/samlsso?
+            spEntityID=<app_entity_id>
+            &login_hint=<user_email>
+            &orgDiscoveryType=emailDomain
+            ```
+        {% else %}
         {% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
         In {{product_name}} {{is_version}} from update level **7.0.0.88** onwards (Updates 2.0 model), you can bypass the `Sign In With SSO` page and go directly to your organization's login page by adding the following query parameters in the login request.
         {% else %}
@@ -294,6 +328,7 @@ To try out user login,
             &login_hint=<user_email>
             &fidp=OrganizationSSO
             ```
+        {% endif %}
 
 7. Input the email address associated with the username for `Alice` within the *Best Car Mart* organization.
 
@@ -306,6 +341,13 @@ To try out user login,
 {% if product_name == "WSO2 Identity Server" and is_version != "7.0.0" %}
 
 ### Self-registration
+
+{% if is_version >= "7.3.0" %}
+
+!!! warning "Not supported with enhanced organization authentication"
+    Email domain-based self-registration is not supported for applications using the **enhanced organization authentication** model.
+
+{% endif %}
 
 To try out self-registration,
 

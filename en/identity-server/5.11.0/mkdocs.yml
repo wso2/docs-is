@@ -23,7 +23,7 @@ site_url: https://is.docs.wso2.com/en/5.11.0/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.11.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/5.11.0/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -559,7 +559,10 @@ nav:
           - 'REST APIs':
             - 'Rest APIs': develop/rest-apis.md
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
-            - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
+            - Account recovery API:
+                - Best Practices for Password Recovery Portal: develop/recovery-portal-best-practices.md
+                - Account Recovery v0.9: develop/using-the-account-recovery-rest-apis.md
+                - Account Recovery v1: develop/using-the-account-recovery-v1-rest-apis.md
             - 'Application Management' : develop/application-rest-api.md
             - 'Approvals': develop/approvals-rest-api.md
             - 'Associations': develop/association-rest-api.md
@@ -638,7 +641,7 @@ nav:
       - 'Installing the Product':
         - 'Installing the Product': setup/installing-the-product.md
         - 'Installation Prerequisites': setup/installation-prerequisites.md
-        - 'Installing on Linux or OS X': setup/installing-on-linux-or-os-x.md
+        - 'Installing on Linux or macOS': setup/installing-on-linux-or-os-x.md
         - 'Installing on Solaris': setup/installing-on-solaris.md
         - 'Installing on Windows': setup/installing-on-windows.md
         - 'Installing as a Linux Service': setup/installing-as-a-linux-service.md
@@ -699,6 +702,7 @@ nav:
       - 'Configuring rsync for Deployment Synchronization': setup/configuring-rsync-for-deployment-synchronization.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
       - 'Configuring the Identity Server to Send Emails': setup/configuring-email-sending.md
+      - 'Promote Configurations Across Environments': setup/promote-configurations.md
     - 'Monitor':
         - 'Monitoring':
           - 'Overview': setup/monitoring-the-identity-server.md
@@ -838,6 +842,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.highlight:
+      use_pygments: false
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -845,6 +851,19 @@ markdown_extensions:
 
 plugins:
     - search
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
     - redirects:
           redirect_maps:
               'develop/setting-up-my-account-in-a-dev-environment.md': 'https://github.com/wso2/identity-apps/'

@@ -71,13 +71,13 @@ Follow the steps below to configure the analytics engine in WSO2 Identity Server
 
 To import the certificate, open a terminal window and run the following command.
 
- ```
-   keytool -trustcacerts -keystore {IS_HOME}/repository/resources/security/client-truststore.jks -storepass wso2carbon -importcert -alias elk -file {ELASTICSEARCH_HOME}/config/certs/http_ca.crt
+ ```bash
+   keytool -trustcacerts -keystore <IS_HOME>/repository/resources/security/client-truststore.jks -storepass wso2carbon -importcert -alias elk -file <ELASTICSEARCH_HOME>/config/certs/http_ca.crt
  ```
 
 !!! info
-      This example uses the default keystores and certificates. Replace {IS_HOME} and {ELASTICSEARCH_HOME} accordingly. The default keystore password is `wso2carbon`.
+      This example uses the default keystores and certificates. Replace <IS_HOME> and <ELASTICSEARCH_HOME> accordingly. The default keystore password is `wso2carbon`.
 
 ## What's Next?
 
-Now that you have prepared WSO2 Idenity server for adaptive authentication using ELK analytics, [try an ELK-based adaptive authentication scenario]({{base_path}}/guides/authentication/conditional-auth/elk-risk-based-template).
+Now that you have prepared WSO2 Identity server for adaptive authentication using ELK analytics, [try an ELK-based adaptive authentication scenario]({{base_path}}/guides/authentication/conditional-auth/elk-risk-based-template).

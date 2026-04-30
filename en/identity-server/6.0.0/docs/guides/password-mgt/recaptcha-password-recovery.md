@@ -39,7 +39,7 @@ Follow the instructions given below to configure password recovery with reCAPTCH
 
 Alternatively, follow the instructions given below to configure password recovery with reCAPTCHA globally.  
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to enable password recovery with reCAPTCHA.
+1.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to enable password recovery with reCAPTCHA.
 
     !!! tip
     

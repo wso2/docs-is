@@ -100,7 +100,7 @@ permissions or attributes are updated.
     email.subscription.userOperation.endpoint.1=privateMail
     email.subscription.userOperation.endpoint.privateMail.address=wso2demomail@gmail.com
     email.subscription.userOperation.endpoint.privateMail.salutation=wso2demomail@gmail.com
-    email.subscription.userOperation.endpoint.privateMail.subject= The User Operation change has occured.
+    email.subscription.userOperation.endpoint.privateMail.subject= The User Operation change has occurred.
     #
     email.subscription.userOperation.endpoint.2=wso2demomail@gmail.com
     email.subscription.userOperation.endpoint.officeMail.address=wso2demomail@gmail.com

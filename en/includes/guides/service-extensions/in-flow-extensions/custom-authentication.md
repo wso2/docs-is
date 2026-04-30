@@ -174,6 +174,28 @@ The following are some troubleshooting steps that you may take to resolve issues
 2. Confirm that the request and response payloads conform to the expected formats as defined by the [REST API contract]({{base_path}}/references/service-extensions/in-flow-extensions/custom-authentication/api-contract).
 3. Use diagnostic logs to capture detailed information during the troubleshooting process. For more information refer to the [troubleshooting guide here]({{base_path}}/guides/service-extensions/understanding-service-extensions/#troubleshooting).
 
+{% if product_name == "WSO2 Identity Server" %}
+4. If your external service uses a self-signed certificate, ensure the certificate is imported into the WSO2 Carbon truststore. By default, {{product_name}} uses the WSO2 Carbon truststore at `<IS_HOME>/repository/resources/security/client-truststore.jks`.
+
+    {% if is_version <= "7.2.0" %}
+    Add the following configuration to the `deployment.toml` file and restart the server:
+
+    ```toml
+    [actions.http_client]
+    use_carbon_truststore = true
+    ```
+
+    {% if is_version == "7.1.0" %}
+    !!! note
+        This configuration is available from the update level: **`7.1.0.60`**.
+    {% elif is_version == "7.2.0" %}
+    !!! note
+        This configuration is available from the update level: **`7.2.0.19`**.
+    {% endif %}
+
+    {% endif %}
+{% endif %}
+
 ## Custom authentication API deep dive
 
 This section delves into the specifics of the custom authentication API, providing a detailed look at the requests {{product_name}} sends to your external authentication service and the responses it expects. Understanding these interactions is crucial for successfully implementing and integrating your custom authenticator.
@@ -667,3 +689,15 @@ Content-Type: application/json
 
 !!! note
     Currently, the <code>errorMessage</code> or <code>errorDescription</code> from the external service’s <code>ERROR</code> response isn't directly included in the error response sent back to the application.
+
+{% if (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+
+## Custom authentication with app-native authentication
+
+You can configure custom authentication services in app-native authentication flows, which authenticate users through API-based mechanisms instead of redirecting them to a web browser.
+
+!!! note
+    Learn more about [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/)
+
+Refer to the [custom authentication-based app-native authentication flow]({{base_path}}/references/app-native-authentication/#scenario-9-user-logs-in-with-service-based-custom-authentication) for a detailed guidance on how to implement this.
+{% endif %}

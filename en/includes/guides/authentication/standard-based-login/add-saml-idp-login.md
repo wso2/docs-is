@@ -1,12 +1,10 @@
 # Add login with a SAML identity provider
 
-You can add standard SAML login to your applications using an external OIDC Identity Provider (IdP) and enable users to log in with their external identities.
-
-Follow this guide to register an OIDC IdP in {{ product_name }} and add it to the login flow of your application.
-
-![Configure SAML Enterprise IDP login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/configure-login.png){: width=600"}
+You can add standard SAML login to your applications using an external SAML Identity Provider (IdP) and enable users to log in with their external identities.
 
 Follow this guide to register a SAML IdP in {{ product_name }} and add it to the login flow of your application.
+
+![Configure SAML Enterprise IDP login in {{ product_name }}]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/configure-login.png){: width=600"}
 
 ## Register {{ product_name }} in the IdP
 You need to register {{ product_name }} as a SAML application in the external identity provider. Follow the identity provider's documentation to know how to register a SAML application.
@@ -77,8 +75,39 @@ If you selected **Manual Configuration** in the previous step, follow the steps 
         </tr>
     </table>
 
-3. (Optional) Upload the public certificate of the identity provider.
-4. Click **Finish** to complete the registration.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+2. (Optional) Provide the mode of certificate configuration.
+
+    !!! note
+        You can either configure a SAML metadata endpoint URL or upload a PEM certificate. {{ product_name }} uses the certificate to validate SAML response signatures and federated IdP-initiated logout request signatures.
+
+    - **SAML metadata endpoint**: Enter the metadata endpoint URL of the external identity provider. {{ product_name }} fetches and caches the signing certificate from this URL. Learn more about [certificate validation with the SAML metadata endpoint](#certificate-validation-with-the-saml-metadata-endpoint).
+    - **Use PEM certificate**: Upload or paste the public certificate of the external identity provider. The certificate should be in PEM format.
+
+        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/){:target=\"_blank\"}"
+            **Convert CRT to PEM**
+            ```bash
+            openssl x509 -in cert.crt -out cert.pem
+
+            ```
+            **Convert CER to PEM:**
+            ```bash
+            openssl x509 -in cert.cer -out cert.pem
+            ```
+
+            **Convert DER to PEM:**
+            ```bash
+            openssl x509 -in cert.der -out cert.pem
+            ```
+
+{% else %}
+
+2. (Optional) Upload the public certificate of the identity provider.
+
+{% endif %}
+
+3. Click **Finish** to complete the registration.
 
 ### Use a SAML metadata file
 
@@ -99,12 +128,130 @@ If you selected **File Based Configuration** in the previous step, follow the st
 
     ![Create SAML Enterprise IDP with Metadata file]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-metafile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+3. (Optional) Provide the mode of certificate configuration.
+
+    !!! note
+        You can either configure a SAML metadata endpoint URL or upload a PEM certificate. {{ product_name }} uses the certificate to validate SAML response signatures and federated IdP-initiated logout request signatures.
+
+    - **SAML metadata endpoint**: Enter the metadata endpoint URL of the external identity provider. {{ product_name }} fetches and caches the signing certificate from this URL. Learn more about [certificate validation with the SAML metadata endpoint](#certificate-validation-with-the-saml-metadata-endpoint).
+    - **Use PEM certificate**: Upload or paste the public certificate of the external identity provider. The certificate should be in PEM format.
+
+        ??? note "If you have a certificate in other formats such as `.crt`, `.cer` or `.der`, expand here to see how you can convert them to PEM format using [OpenSSL](https://www.openssl.org/){:target=\"_blank\"}"
+            **Convert CRT to PEM**
+            ```bash
+            openssl x509 -in cert.crt -out cert.pem
+
+            ```
+            **Convert CER to PEM:**
+            ```bash
+            openssl x509 -in cert.cer -out cert.pem
+            ```
+
+            **Convert DER to PEM:**
+            ```bash
+            openssl x509 -in cert.der -out cert.pem
+            ```
+
+{% else %}
+
 3. (Optional) Upload the public certificate of the identity provider.
+
+{% endif %}
+
 4. Click **Finish** to complete the registration.
 
 !!! note
     Once the SAML identity provider is created, you can configure [additional SAML settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/) from the **Settings** tab.
-  
+
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+## Certificate validation with the SAML metadata endpoint
+
+When you configure a SAML metadata endpoint, {{ product_name }} fetches and caches the signing certificate from that URL to validate SAML response signatures and federated IdP-initiated logout request signatures.
+
+### Certificate cache invalidation
+
+{{ product_name }} honors the `validUntil` and `cacheDuration` properties defined at the `EntityDescriptor` or `IDPSSODescriptor` level in the SAML metadata to determine when to invalidate the cached certificate:
+
+- **`validUntil`**: The absolute expiry timestamp of the metadata. {{ product_name }} invalidates the cached certificate when this timestamp is reached.
+- **`cacheDuration`**: The duration for which the metadata is considered valid. {{ product_name }} invalidates the cached certificate after this duration.
+
+If neither `validUntil` nor `cacheDuration` is defined, a default maximum cache lifetime of 24 hours applies.
+
+{% if product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
+
+You can change this default in `deployment.toml`:
+
+```toml
+[authentication.authenticator.saml.parameters]
+RemoteCertificateCacheMaxLifetime = "24h"
+```
+
+{% endif %}
+
+### Automatic certificate refresh for key rotation
+
+If signature validation fails, {{ product_name }} automatically fetches fresh certificates from the metadata endpoint to support key rotation scenarios where the external IdP replaces its signing certificate.
+
+{{ product_name }} applies a default 5-minute block period between consecutive refresh attempts to prevent excessive metadata refresh requests.
+
+{% if product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
+
+You can configure this duration in `deployment.toml`:
+
+```toml
+[authentication.authenticator.saml.parameters]
+RemoteCertificateRefreshRetryBlockDuration = "5m"
+```
+
+### HTTP client configuration
+
+The following parameters configure the HTTP client that fetches the SAML metadata. The values shown are the defaults:
+
+```toml
+[authentication.authenticator.saml.parameters]
+RemoteCertificateClientConnectionTimeout = "1s"
+RemoteCertificateClientReadTimeout = "1s"
+RemoteCertificateClientConnectionRequestTimeout = "1s"
+RemoteCertificateClientConnectionPoolSize = "20"
+RemoteCertificateClientMaxConnectionPerRoute = "3"
+RemoteCertificateRetryCount = "0"
+RemoteCertificateClientResponseLimit = "512000"
+```
+
+| Parameter | Description |
+|---|---|
+| `RemoteCertificateClientConnectionTimeout` | Maximum time to wait to establish a connection to the metadata endpoint. |
+| `RemoteCertificateClientReadTimeout` | Maximum time to wait to read data after a connection is established. |
+| `RemoteCertificateClientConnectionRequestTimeout` | Maximum time to wait to obtain a connection from the connection pool. |
+| `RemoteCertificateClientConnectionPoolSize` | Total number of connections maintained in the pool. |
+| `RemoteCertificateClientMaxConnectionPerRoute` | Maximum connections maintained per route. |
+| `RemoteCertificateRetryCount` | Number of retry attempts on a failed metadata fetch. |
+| `RemoteCertificateClientResponseLimit` | Maximum response size in bytes accepted from the metadata endpoint. |
+
+### Metadata certificate cache configuration
+
+{{ product_name }} caches the signing certificates fetched from the metadata endpoint. Configure the cache using the following settings in `deployment.toml`. The values shown are the defaults:
+
+```toml
+[cache.saml_cert_cache]
+enable = true
+timeout = 900
+capacity = 100
+```
+
+| Parameter | Description | Default |
+|---|---|---|
+| `enable` | Enables or disables the metadata certificate cache. | `true` |
+| `timeout` | Cache entry expiration time in seconds. | `900` (15 minutes) |
+| `capacity` | Maximum number of cache entries. | `100` |
+
+{% endif %}
+
+{% endif %}
+
 ## Enable the SAML IdP for login
 
 {% include "../../../guides/fragments/add-login/standard-based-login/add-saml-idp-login.md" %}

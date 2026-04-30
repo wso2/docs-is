@@ -19,7 +19,7 @@ To do so,
 
 1. In the {{product_name}} Console, go to **Connections** and select your IdP.
 
-2. In its **General** tab, 
+2. In its **General** tab,
 
     - under **issuer** configure a trusted token issuer.
     - under **Certificates**, configure either upload a certificate or configure a JWKS Endpoint.
@@ -29,13 +29,12 @@ To do so,
 !!! tip
     Refer to the [sample scenario]({{base_path}}/references/app-native-authentication/#scenario-4-user-selects-federated-authentication-native-mode) to see it in action.
 
-
 ### Redirect mode
 
 In the rediect mode, the application redirects the user to the IdP as it does in a [conventional federated login flow]({{base_path}}/guides/authentication/federated-login/). However, under the hood, app-native authentication handles federated authentication slightly differently.
 
 !!! note "How is it different?"
-    
+
     Although federated login flows in both [conventional login]({{base_path}}/guides/authentication/federated-login/) and app-native authentication redirect the user to the external IdP, there is a subtle difference between them.
 
     - **In a conventional flow**, 
@@ -94,7 +93,7 @@ The number of login options a login step has is indicated by the `stepType` para
 
 If it is set to:
 
-- `AUTHENTICATOR_PROMPT`, it is a login step with a single login option. 
+- `AUTHENTICATOR_PROMPT`, it is a login step with a single login option.
 
     The following is part of the response for a single-option login step.
 
@@ -111,8 +110,8 @@ If it is set to:
         ...
     }   
     ```
- 
-- `MULTI_OPTIONS_PROMPT`, it is a login step with multiple login options. 
+
+- `MULTI_OPTIONS_PROMPT`, it is a login step with multiple login options.
 
     The following is part of the response for a multi-option login step.
 
@@ -132,7 +131,7 @@ If it is set to:
 
 In app-native authentication, multi-option steps behave slightly differently compared to a single-option step.
 
-Some authenticators such as `Username & Password` which only require user input, sends its metadata directly in the response. For other authenticators which require a form of 'initiation', the response does not contain the metadata for the authenticator. 
+Some authenticators such as `Username & Password` which only require user input, sends its metadata directly in the response. For other authenticators which require a form of 'initiation', the response does not contain the metadata for the authenticator.
 
 !!! note "Some authenticatiors that require 'initiation'"
 
@@ -145,8 +144,8 @@ If during login, the user selects such an authenticator, the application needs t
 !!! tip
     Refer to the [sample scenario]({{base_path}}/references/app-native-authentication/#scenario-3-user-selects-passkey-login-out-of-multiple-options) to see it in action.
 
-
 ## Handle Single Sign-On
+
 Single Sign-On (SSO) for app-native authentication can be handled in the following two ways.
 
 ### Cookie based SSO
@@ -188,4 +187,23 @@ Given below is a sample authorization request using the `isk` value as the `sess
     ```
 
 !!! note
-    If both cookie based SSO and SessionId based SSO are used, cookie based SSO takes precedence.
+    If both cookie-based SSO and SessionId-based SSO are used, cookie-based SSO takes precedence.
+
+{% if product_name == 'Asgardeo' or is_version >= "7.2.0" %}
+
+## Handle device authorization flow
+
+Device authorization flow lets users log in on input-constrained devices. Examples include smart TVs, printers, and gaming consoles without browsers or keyboards.
+
+To enable device authorization flow:
+
+1. Register your application in the {{product_name}} Console.
+2. Enable **Device Code** under **Grant Types** in your application settings.
+3. Enable [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/add-app-native-authentication/#enable-app-native-authentication) for your application.
+
+For more information, see [device authorization grant]({{base_path}}/references/grant-types/#device-authorization-grant).
+
+!!! tip
+    Refer to the [sample scenario]({{base_path}}/references/app-native-authentication/#scenario-8-device-authorization-flow) to see it in action.
+
+{% endif %}

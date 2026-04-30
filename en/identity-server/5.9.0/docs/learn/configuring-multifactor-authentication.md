@@ -51,7 +51,7 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 1. Navigate to `<IS_HOME>/bin` directory via a command prompt and start the server by executing one of the following commands.
 
-    ``` java tab="Linux/MacOS"
+    ``` java tab="Linux/macOS"
     sh wso2server.sh
     ```
 
@@ -162,4 +162,4 @@ You have now added and configured the service provider.
 
     ![authenticate-with-smsotp](../assets/img/tutorials/authenticating-with-smsotp.png)
 
-You are redirected to the Pickup Dispatch home page. You have succesfully configured and logged in using multifactor authentication.
+You are redirected to the Pickup Dispatch home page. You have successfully configured and logged in using multifactor authentication.

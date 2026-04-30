@@ -4,7 +4,7 @@ This document explains the steps to configure WSO2 Identity Server to send email
 
 ## Configure email sending
 1.  Shut down the server if it is running.
-2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
+2.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to configure the email server.
 
     ```toml
     [output_adapter.email]
@@ -21,13 +21,13 @@ This document explains the steps to configure WSO2 Identity Server to send email
     |                                                   |                                                |
     |---------------------------------------------------|------------------------------------------------|
     | `               from_address                `     | The mail address from where you want to send the notification. It can be any working mail address. |
-    | `               username                    `     | Provide the username of the SMTP account. <br/> User name of the the mail you have provide in **from_address**    |
+    | `               username                    `     | Provide the username of the SMTP account. <br/> Username of the mail you have provided in **from_address**    |
     | `               password                        ` | Provide the password of the SMTP account. <br/> Password of the mail you have provided in **from_address**     |
     | `               host                        ` | The SMTP server to connect to. |
     | `               port                         `|The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25. |
    | `               enable_start_tls`            | If true, enables the use of the STARTTLS` command (if supported by the before issuing any login commands. Note that an appropriate trust store must configured so that the client will trust the server's certificate. Defaults to true.
    | `enable_authentication`                      | If true, attempt to authenticate the user using the AUTH command. Defaults to true.|
-   | `signature`                                   | Signature of the sender account |
+   | `signature`                                   | Specifies the display name for the "From" email address. For example, "ABC Company" results in `"ABC Company" <mail@address.tld>`). <br/><br/>If you don't set this property, the display name becomes `null` and the system falls back to your SMTP server settings. For example, some servers use the `username` as the display name.<br/><br/>To send an email with no display name and show only the email address, set this value to an empty string: `signature = ""`. |
     
     !!! Tip 
         For information about the SMTP, see

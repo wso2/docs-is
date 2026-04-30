@@ -9,14 +9,22 @@
         SCIM 1.1 APIs (e.g., additional search filters for filtering users).
     -   The SCIM 2.0 schema supports more fine-grained requirements.  
     -   There is more focus on feature development for SCIM 2.0 APIs.
+
+!!! note "Prevent federated users from accessing the Me endpoint"
+
+    To prevent federated users from accessing the Me endpoint, set the following property to true in `<IS_HOME>/repository/conf/deployment.toml` file.
     
+    ```toml
+    [scim]
+    restrict_federated_user_access = true
+    ``` 
 
 The SCIM API is used in to perform various tasks in the WSO2
 Identity Server. For simplicity, cURL commands are used in this example
 to send CRUD requests to the REST endpoints of Identity Server.
 
 To execute these commands, you need to [Download the WSO2 Identity
-Server](http://wso2.com/products/identity-server/), unzip it and run
+Server](https://wso2.com/identity-platform/access-manager/), unzip it and run
 it.
 
 -   Navigate to the *SCIM User Endpoint* at the following URL:

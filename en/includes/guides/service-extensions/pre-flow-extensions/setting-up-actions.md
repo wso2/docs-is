@@ -62,11 +62,30 @@ Follow the steps below to configure an action.
 
 4. Click **Create** to create the action.
 
+### Action versioning
+
+Actions use versioning to ensure your external service continues to operate without disruption as the action feature evolves. Each action has a major and minor version:
+
+- Major version – Indicates breaking changes, such as removed fields or incompatible response changes.
+- Minor version – Indicates backward-compatible improvements, such as new optional fields or minor enhancements.
+
+How versions work
+
+- When you create a new action, {{product_name}} automatically uses the latest available version.
+- If a newer version releases later, you can upgrade your action to use it.
+- {{product_name}} always uses the latest minor version within the configured major version when invoking an action. Existing service extensions continue to work without changes.
+- To take advantage of improvements in a new minor version, you must explicitly upgrade your external service accordingly.
+
+!!! warning
+    Once an action is updated to a major version, it cannot revert to an older major version.
+    Before upgrading, ensure your external service implements the request and response format of the new version.
+
 ## Invoke actions conditionally
 
-You can trigger actions conditionally by configuring rules. Currently, all three action types support rule-based invocation:
+You can trigger actions conditionally by configuring rules. The following action types support rule-based invocation:
 
 - [Pre-Issue Access Token]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-access-token-action/#conditional-invocation-of-pre-issue-access-token-action)
+- [Pre-Issue ID Token]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-issue-id-token-action/#conditional-invocation-of-pre-issue-id-token-action)
 - [Pre-Update Password]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-update-password-action/#conditional-invocation-of-pre-update-password-action)
 {% if not is_version == "7.1.0" %}
 - [Pre-Update Profile]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-update-profile-action/#conditional-invocation-of-pre-update-profile-action)
@@ -114,3 +133,25 @@ Try these troubleshooting steps to resolve issues.
 1. Check that your external service runs without errors and responds to requests from {{product_name}}.
 
 2. Confirm that the request and response payloads conform to the expected formats as defined by the REST API contract.
+
+{% if product_name == "WSO2 Identity Server" %}
+3. If your external service uses a self-signed certificate, ensure the certificate is imported into the WSO2 Carbon truststore. By default, {{product_name}} uses the WSO2 Carbon truststore at `<IS_HOME>/repository/resources/security/client-truststore.jks`.
+
+    {% if is_version <= "7.2.0" %}
+    Add the following configuration to the `deployment.toml` file and restart the server:
+
+    ```toml
+    [actions.http_client]
+    use_carbon_truststore = true
+    ```
+
+    {% if is_version == "7.1.0" %}
+    !!! note
+        This configuration is available from the update level: **`7.1.0.60`**.
+    {% elif is_version == "7.2.0" %}
+    !!! note
+        This configuration is available from the update level: **`7.2.0.19`**.
+    {% endif %}
+
+    {% endif %}
+{% endif %}

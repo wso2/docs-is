@@ -36,7 +36,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
     1.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
     
-    2. Add following property to `deployment.toml` file in the `IS_HOME/repository/conf` folder to comment out the <module ref="addressing"/> property inorder to avoid syntax errors.
+    2. Add following property to `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to comment out the <module ref="addressing"/> property inorder to avoid syntax errors.
     
     ```
     [server]
@@ -498,7 +498,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         </tr>
         <tr class="even">
         <td><code>               GmailTokenEndpoint              </code></td>
-        <td>Use the the deafult value.</td>
+        <td>Use the default value.</td>
         </tr>
         <tr class="odd">
         <td><code>               SendgridAuthTokenType              </code></td>

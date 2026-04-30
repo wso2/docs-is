@@ -7,7 +7,7 @@ notifications](../../learn/enabling-notifications-for-user-operations),
 [account recovery](../../learn/password-recovery).
 
 1.  Shut down the server if it is running.
-2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
+2.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to configure the email server.
 
     ```toml
     [output_adapter.email]
@@ -23,7 +23,7 @@ notifications](../../learn/enabling-notifications-for-user-operations),
     |                                                   |                                                |
     |---------------------------------------------------|------------------------------------------------|
     | `               from_address                `     | The mail address from where you want to send the notification. It can be any working mail address. |
-    | `               username                    `     | Provide the username of the SMTP account. <br/> User name of the the mail you have provide in **from_address**    |
+    | `               username                    `     | Provide the username of the SMTP account. <br/> Username of the mail you have provided in **from_address**    |
     | `               password                        ` | Provide the password of the SMTP account. <br/> Password of the mail you have provided in **from_address**     |
     | `               host                        ` | The SMTP server to connect to. |
     | `               port                         `|The SMTP server port to connect to, if the connect() method does not explicitly specify one. Defaults to 25. |

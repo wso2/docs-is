@@ -19,7 +19,7 @@ After setting up the MS SQL database, you can point the `WSO2_IDENTITY_DB` or
 
 ### Minimum configurations for changing default datasource to MS SQL
 
-You can configure the datasource by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`.
+You can configure the datasource by editing the default configurations in `<IS_HOME>/repository/conf/deployment.toml`.
 
 Following are the basic configurations and their descriptions.
 
@@ -29,7 +29,7 @@ A sample configuration is given below.
 
 1. `WSO2_IDENTITY_DB`
 
-    1. Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1. Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
 
         ``` toml
         [database.identity_db]
@@ -43,14 +43,14 @@ A sample configuration is given below.
 
     2. Execute database scripts.
 
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files against the database created.
+        Navigate to `<IS_HOME>/dbscripts`. Execute the scripts in the following files against the database created.
         
-        - `<IS-HOME>/dbscripts/identity/mssql.sql`
-        - `<IS-HOME>/dbscripts/consent/mssql.sql`
+        - `<IS_HOME>/dbscripts/identity/mssql.sql`
+        - `<IS_HOME>/dbscripts/consent/mssql.sql`
 
 2. `WSO2_SHARED_DB`
 
-    1.  Configure the `<IS-HOME>/repository/conf/deployment.toml` file.
+    1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
 
         ``` toml
         [database.shared_db]
@@ -64,13 +64,13 @@ A sample configuration is given below.
 
     2.  Execute database scripts.
 
-        Execute the scripts in the `<IS-HOME>/dbscripts/mssql.sql` file, against the database created.
+        Execute the scripts in the `<IS_HOME>/dbscripts/mssql.sql` file, against the database created.
 
     !!! note
         As Microsoft SQL Server is inherently case-insensitive, it is recommended to deactivate the case-insensitive functionality of {{product_name}} when integrating with the Microsoft SQL Server.
         Disabling this feature in {{product_name}} eliminates unnecessary processing, thereby potentially enhancing overall system performance.
 
-        To disable case-insensitivity for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configurations to the primary user store.
+        To disable case-insensitivity for the primary user store, open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and add the following configurations to the primary user store.
 
         ``` toml
         [user_store.properties]
@@ -86,7 +86,7 @@ A sample configuration is given below.
         ```
 
     !!! note
-        To store user attributes as Unicode for the primary user store, open the `deployment.toml` file found in the `<IS-HOME>/repository/conf/` directory and add the following configuration under the primary user store.
+        To store user attributes as Unicode for the primary user store, open the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` directory and add the following configuration under the primary user store.
 
         ```toml
         [user_store.properties]

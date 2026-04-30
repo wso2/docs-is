@@ -387,7 +387,7 @@ This API deletes a user using the user's unique ID. It returns
 
 **Responses**
 
--   HTTP 204 - User has been succesfully deleted
+-   HTTP 204 - User has been successfully deleted
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid user is not found
 
@@ -1022,7 +1022,7 @@ This endpoint is used to create and manage groups and group members.
 !!! note
 	From WSO2 Identity Server 5.8.0 onwards, new configurations have been added to support filtering users and groups only from the PRIMARY domain. 
 
-	If these properties are enabled, the responses recieved for the users endpoint and groups endpoint will change.
+	If these properties are enabled, the responses received for the users endpoint and groups endpoint will change.
 
 
 
@@ -2142,6 +2142,15 @@ All the of the users dialect and meta dialect are supported. For more informatio
 ## Me Endpoint 
 This endpoint is used to create and manage the currently authenticated user. 
 
+!!! note "Prevent federated users from accessing the Me endpoint"
+
+	To prevent federated users from accessing the Me endpoint, set the following property to true in `<IS_HOME>/repository/conf/deployment.toml` file.
+	
+	```toml
+	[scim2]
+	restrict_federated_user_access_to_me_endpoint = true
+	```
+
 ### POST/ Create Me
 `POST https://localhost:9443/t/{tenant-domain}/scim2/Me`
 
@@ -2279,7 +2288,7 @@ HTTP/1.1 204 NOT IMPLEMENTED
 </table>
 
 **Response** 
--	HTTP 204 - User has been succesfully deleted
+-	HTTP 204 - User has been successfully deleted
 -	HTTP 401 - Unauthorized
 -	HTTP 404 - Valid user is not found
 

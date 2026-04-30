@@ -1,0 +1,15 @@
+extends: substitution
+message: "Use '%s' instead of '%s'. Avoid informal abbreviations in documentation."
+level: error
+ignorecase: true
+scope: text
+
+swap:
+  '\bconfig\b': configuration
+  '\bconfigs\b': configurations
+  '\bdev\b': development
+  '\bprod\b': production
+  '\benv\b': environment
+  '\benvs\b': environments
+  '\brepo\b': repository
+  '\brepos\b': repositories

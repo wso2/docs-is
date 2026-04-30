@@ -6,7 +6,7 @@ Given below are the various transport-level security configurations that are req
 
 Follow the instructions given below to configure SSL/TLS protocols in the WSO2 Identity Server.
 
-1. You can configure multiple TLS versions or a single TLS version by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. Note that the list of protocols needs to be seperated by `+` sign.
+1. You can configure multiple TLS versions or a single TLS version by adding the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. Note that the list of protocols needs to be separated by `+` sign.
 
     ```toml
     [transport.https.sslHostConfig.properties]
@@ -106,7 +106,7 @@ By default, the WSO2 Identity Server passes `WSO2 WSO2 IS server` as the server 
 
 ## Enable/disable http/https transport
 
-By default, both the `http` and `https` connectors are enabled. To disable either the `http` or `https` connector, add the corresponding configuration to `<IS-HOME>/repository/conf/deployment.toml` as shown below. 
+By default, both the `http` and `https` connectors are enabled. To disable either the `http` or `https` connector, add the corresponding configuration to `<IS_HOME>/repository/conf/deployment.toml` as shown below. 
 
 ```toml
 [transport]

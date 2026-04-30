@@ -37,15 +37,15 @@ export const appConfig: ApplicationConfig = {
 
 !!! tip "Tip"
 
-    You need to construct the '<base-url>' value as per the followng instructions: 
+    You need to construct the '<base-url>' value as per the following instructions: 
 
     For Asgardeo: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
-    For WSO2 Idenity Server: 
+    For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`
 
 ### Step 2: Make HTTP Requests
 
@@ -78,15 +78,15 @@ export class DashboardComponent {
 
 !!! tip "Tip"
 
-    You need to construct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the following instructions: 
 
     For Asgardeo: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
-    For WSO2 Idenity Server: 
+    For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`
 
 In the above code, the access token is automatically attached to the `Authorization` header by the Angular OAuth2 OIDC SDK when you make requests to the specified allowed URLs.
 
@@ -123,13 +123,13 @@ export class DashboardComponent {
 
 !!! tip "Tip"
 
-    You need to construct the `<base-url>` value as per the followng instructions: 
+    You need to construct the `<base-url>` value as per the following instructions: 
 
     For Asgardeo: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
-    For WSO2 Idenity Server: 
+    For WSO2 Identity Server: 
 
-    `<base-url> =https://localhost:9443`
+    `<base-url> = https://localhost:9443`
   

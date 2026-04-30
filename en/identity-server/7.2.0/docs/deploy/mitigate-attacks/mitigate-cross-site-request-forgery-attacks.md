@@ -93,7 +93,7 @@ Follow the steps below to secure web applications.
     </html>
     ```
 
-3. Create a CSRF configuration properties file (e.g. `abc.properties` ) within your application, and copy the content in the `<CARBON_HOME>repository/conf/security/Owasp.CsrfGuard.Carbon.properties` file to it.
+3. Create a CSRF configuration properties file (e.g. `abc.properties` ) within your application, and copy the content in the `<CARBON_HOME>/repository/conf/security/Owasp.CsrfGuard.Carbon.properties` file to it.
 
 4. Use the `org.owasp.csrfguard.unprotected.` prefix in the configuration property keys, for the relevant patterns that you need to exclude from CSRF protection. For example;
 
@@ -165,7 +165,7 @@ Follow the steps below to secure Jaggery applications.
     </html>
     ```
 
-3. Create a CSRF configuration properties file (e.g. `abc.properties` ) within your application, and copy the content in the `<CARBON_HOME>repository/conf/security/` `Owasp.CsrfGuard.Carbon.properties` file to it.
+3. Create a CSRF configuration properties file (e.g. `abc.properties` ) within your application, and copy the content in the `<CARBON_HOME>/repository/conf/security/` `Owasp.CsrfGuard.Carbon.properties` file to it.
 
 4. Use the `org.owasp.csrfguard.unprotected.` prefix in the configuration property keys, for the relevant patterns that you need to exclude from CSRF protection. For example;
 

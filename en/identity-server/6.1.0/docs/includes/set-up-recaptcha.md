@@ -16,7 +16,7 @@
     
         If you have additional authorization endpoints, you need to include
         the `login.do` URL paths of these endpoints. Here,
-        URL paths are the URLs without the host parameters. The URL paths should be comma seperated. The `redirect_urls`
+        URL paths are the URLs without the host parameters. The URL paths should be comma separated. The `redirect_urls`
         should be added as a property of `[recaptcha]` in the deployment.toml file.
     
         ``` toml
