@@ -261,12 +261,6 @@ extra:
     Nuxt Quickstart:
       icon: assets/libs/custom-icons/nuxt.svg
       level: 3
-    Nuxt.js:
-      icon: assets/libs/custom-icons/nuxt.svg
-      level: 3
-    Nuxt.js Quickstart:
-      icon: assets/libs/custom-icons/nuxt.svg
-      level: 3
     Angular:
       icon: fontawesome/brands/angular
       level: 3
