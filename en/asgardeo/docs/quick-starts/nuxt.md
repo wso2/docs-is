@@ -18,7 +18,7 @@ template: templates/quick-start.html
       "Make sure you have a JavaScript package manager like <code>npm</code>, <code>yarn</code>, or <code>pnpm</code>.",
       "A favorite text editor or IDE"
     ],
-    source_code: "<a href='https://github.com/asgardeo/web-ui-sdks/tree/main/samples/nuxt' target='_blank' class='github-icon'>Nuxt App Sample</a>"
+    source_code: "<a href='https://github.com/asgardeo/web-ui-sdks/tree/main/samples/nuxt' target='_blank' rel='noopener noreferrer' class='github-icon'>Nuxt App Sample</a>"
   };
 </script>
 

@@ -151,6 +151,7 @@ The SDK provides several ways to access the signed-in user's profile information
 Update `pages/index.vue` to render the dropdown and a personalized greeting.
 
 {% raw %}
+
 ```vue title="pages/index.vue" hl_lines="7 14-19"
 <template>
   <header>
@@ -175,6 +176,7 @@ Update `pages/index.vue` to render the dropdown and a personalized greeting.
   </main>
 </template>
 ```
+
 {% endraw %}
 
 ## Protect a page with middleware
@@ -184,11 +186,13 @@ The Asgardeo Nuxt SDK provides a named middleware called `asgardeoMiddleware` th
 Use `definePageMeta` to apply the `asgardeoMiddleware` middleware to any page. For example, create a `pages/dashboard.vue`:
 
 {% raw %}
+
 ```vue title="pages/dashboard.vue" hl_lines="2"
 <script setup lang="ts">
   definePageMeta({ middleware: ['asgardeoMiddleware'] });
 </script>
 ```
+
 {% endraw %}
 
 ## Choose how users will sign in
