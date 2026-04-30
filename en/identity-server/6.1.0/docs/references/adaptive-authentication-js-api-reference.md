@@ -272,12 +272,26 @@ following parameters.
 |-----------------------|--------------------------------------------------------------------------------------------------------|
 | user                  | An object representing the user details.                                                               |
 | templateId            | Identifier of the email template. The email template specifies the body of the email that is sent out. |
-| placeholderParameters | Used to replace any placeholders in the template.                                                      |
+| placeholderParameters | Used to replace any placeholders in the template.<br/><br/>This parameter also supports the following optional fields:<br/><ul><li>`send-to`: Specifies the email address to send the email to. Use this to send emails to users who do not exist in the identity server.</li><li>`flowType`: Specifies the flow type. Set this to `registration` when sending emails to non-existent users.</li></ul> |
+
+Send an email to an existing user:
 
 ``` java
 var user = context.steps[1].subject;
 var firstName = user.localClaims['http://wso2.org/claims/givenname'];
 sendEmail(user, 'myTemplate', {'firstName':firstName});
+```
+
+Send an email to a non-existent user:
+
+``` java
+var email = 'user@example.com';
+var otp = '123456';
+var sent = sendEmail(context.currentKnownSubject, 'EmailOTP', {
+    'send-to': email,
+    'flowType': 'registration',
+    'OTPCode': otp
+});
 ```
 
 #### sendError(url,parameters)
