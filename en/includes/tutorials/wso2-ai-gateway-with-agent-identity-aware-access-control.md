@@ -36,26 +36,44 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
 1. Log in to the **{{ product_name }} Console**.
 2. Go to **Applications > New Application**.
 3. Select **Standard-Based Application**.
-4. Configure the application:
+
+Configure the application:
+
    - **Name**: `Enterprise Support System`
+
    - **Protocol**: OpenID Connect.
+
    - Tick **Allow AI agents to sign into this application**.
-5. In the **Protocol** tab:
-   - Add **Allowed grant types**: Password.
+
+After Creation, in the **Protocol** tab:
+
+   - Add **Allowed grant types**: Code.
+
+   - For Authorized redirect URLs, add the callback URL of your application. (For agent auth, this is not really needed, so you can use `http://localhost:3000/callback`).
+
    - Enable the **public client** in Client Authentication.
+
    - Set the **Access Token type** to JWT and add roles to Access Token Attributes.
 
 ### Create the scopes
 
 1. Navigate to **Resources > API Resources**.
 2. Click **+ New API Resources**.
+
 3. Configure the resource:
+
    - **Identifier**: `https://agent-identifier` (Doesn't need to be publicly accessible, just an identifier).
+
    - **Display Name**: `agent-identifier`.
+
 4. In the **Scopes**, add:
+
    - `Technical-Specialist`
+
    - `Support-Coordinator`
+
 5. Click **Next** and **Create**.
+
 6. Go to the `Enterprise Support System` application you created and navigate to the **API Authorization** tab.
 7. Click **Authorize API resource**, search for the `agent-identifier` resource you created, and select all scopes.
 8. Click **Finish**.
