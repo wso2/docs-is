@@ -30,9 +30,11 @@ Select the `mcp-client-n8n-example.json` file from the cloned repository.
 
 ## Step 2: Set up {{ product_name }}
 
+Register an application in {{ product_name }} to represent the n8n MCP client.
+
 ### Create an MCP client application
 
-1. On {{ product_name }} Console, Go to **Applications**.
+1. On {{ product_name }} console, Go to **Applications**.
 2. Click on **New Application**.
 3. Select **MCP Client Application**.
 
@@ -41,7 +43,7 @@ Select the `mcp-client-n8n-example.json` file from the cloned repository.
 Configure the application with the following values:
 	- **Application Name**: `n8n-example`
 	- **Redirect URL**: `http://localhost:5678/rest/oauth2-credential/callback`
-	- Disable **Public Client** option, as n8n currently only supports confidential clients and expects the client secret during configuration. 
+	- Disable **Public Client** option, as n8n currently only supports confidential clients and expects the client secret during configuration.
 
 ![Save MCP client application]({{base_path}}/assets/img/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/save-mcp-client-application.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
