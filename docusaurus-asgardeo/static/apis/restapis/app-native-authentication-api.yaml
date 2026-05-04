@@ -1,0 +1,455 @@
+openapi: 3.0.0
+info:
+  description: >
+    This document specifies an **Authentication RESTful API** for **Asgardeo** which can be used to perform a complete API-based user authentication.
+    
+    > This API is part of the **App-Native Authentication** capability that can authenticate users within the context of the application without external redirects.
+    Refer to the feature documentation for more information.
+  version: v1
+  title: Asgardeo - Application-native Authentication Rest API
+  contact:
+    name: WSO2
+    url: 'https://wso2.com/products/identity-server/'
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/oauth2/'
+    variables:
+      tenant-domain:
+        default: "carbon.super"
+      server-url:
+        default: "localhost:9443"
+
+paths:
+  /authorize:
+    get:
+      operationId: Initiate Authentication*
+      description: | 
+        This API is used to initiate application-native authentication.
+        
+        *While this is not an API specific to app-native authentication, a standard OAuth2 authorization request is used
+        to initiate app-native authentication with the exception of setting the `response_mode` to `direct`. Subsequent requests should be made to the `/authn` endpoint described under [Handle Authentication](#operation/Handle%20Authentication).
+      parameters:
+        - name: response_type
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - code
+        - name: client_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: response_mode
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - direct
+        - name: redirect_uri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: scope
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: state
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /authn:
+    post:
+      operationId: Handle Authentication
+      description: This API provides the capability to perform user authentication.
+      requestBody:
+        required: true
+        description: Authentication request body.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/AuthResponse'
+                  - $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    AuthRequest:
+      description: |
+        Authentication request body.
+      required:
+        - flowId
+        - selectedAuthenticator
+      type: object
+      properties:
+        flowId:
+          type: string
+          description: A unique identifier for the authentication flow.
+            The value of the flowId will remain the same for the entire authentication flow.
+          example: 3bd1f207-e5b5-4b45-8a91-13b0acfb2151
+        selectedAuthenticator:
+          $ref: '#/components/schemas/SelectedAuthenticator'
+    SelectedAuthenticator:
+      type: object
+      description: Contains the data related to a selected authenticator.
+      required:
+          - authenticatorId
+      properties:
+        authenticatorId:
+          type: string
+          description: The unique identifier of the selected authenticator.
+          example: QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM
+        params:
+          type: object
+          description: |
+            The parameters required for the authenticator to perform user authentication.
+          additionalProperties:
+            type: string
+          example:
+            username: johnd
+            password: a#m1N
+    AuthResponse:
+      type: object
+      description: Authentication response body.
+      required:
+        - flowId
+        - flowStatus
+        - flowType
+        - nextStep
+        - links
+      properties:
+        flowId:
+          type: string
+          description: A unique identifier for the authentication flow.
+            The value of the flowId will remain the same for the entire authentication flow.
+          example: 3bd1f207-e5b5-4b45-8a91-13b0acfb2151
+        flowStatus:
+          type: string
+          enum:
+            - INCOMPLETE
+            - FAIL_INCOMPLETE
+          description: |
+            The status of the authentication flow. 
+            - INCOMPLETE - The authentication flow is incomplete and requires further steps.
+            - FAIL_INCOMPLETE - The authentication flow has failed and requires further steps.
+          example: INCOMPLETE
+        flowType:
+          type: string
+          enum:
+            - AUTHENTICATION
+          description: The type of the authentication flow. This version only contains flowType AUTHENTICATION.
+          example: AUTHENTICATION
+        nextStep:
+          $ref: '#/components/schemas/NextStep'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Contains the urls related to the authentication flow.
+    NextStep:
+      type: object
+      description: Contains the authenticator data related to the next step.
+      required:
+        - stepType
+        - authenticators
+      properties:
+        stepType:
+          type: string
+          enum:
+            - MULTI_OPTIONS_PROMPT
+            - AUTHENTICATOR_PROMPT
+          description: |
+            The type of the next step in the authentication flow.
+            - MULTI_OPTIONS_PROMPT - The next step is for authenticator selection.
+            - AUTHENTICATOR_PROMPT - The next step is for authenticating the user through a 
+              configured authenticator.
+          example: AUTHENTICATOR_PROMPT
+        authenticators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Authenticator'
+          description: Contains the data related to the available authentication steps.
+        acceptErrorParams:
+          type: boolean
+          description: |
+            Denote that the server is capable of handling errors on behalf of the application. When this is set to `true` 
+            and when the application is handling part of the authentication process (ex: handling federation) when there 
+            are errors, the application can send the params in the error response to the server to handle it appropriately.
+          example: false
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+          description: Contains any messages related to the authentication step.
+    Authenticator:
+      type: object
+      description: Contains the data related to an authenticator.
+      required:
+        - authenticatorId
+        - authenticator
+        - idp
+        - metadata
+      properties:
+        authenticatorId:
+          type: string
+          description: |
+            The authenticator identifier. Note that this identifier is mutable and can change over time. 
+            Therefore do not base any logic on this value.
+          example: QmFzaWNBdXRoZW50aWNhdG9yOkxPQ0FM
+        authenticator:
+          type: string
+          description: The authenticator identifier.
+          example: Username & Password
+        idp:
+          type: string
+          description: The identity provider identifier.
+          example: LOCAL
+        metadata:
+          $ref: '#/components/schemas/AuthenticatorMetadata'
+        requiredParams:
+          type: array
+          items:
+            type: string
+          description: |
+            Contains the required parameters that should be sent to the server for processing the current step of the 
+            authentication request.
+          example: [ "username", "password" ]
+    AuthenticatorMetadata:
+      type: object
+      description: Contains the metadata related to an authenticator.
+      required:
+        - i18nKey
+      properties:
+        i18nKey:
+          type: string
+          description: The i18n key for the authenticator. This can be used to get the localized text for the
+            authenticator.
+          example: authenticator.basic
+        promptType:
+          type: string
+          enum:
+            - USER_PROMPT
+            - INTERNAL_PROMPT
+            - REDIRECTION_PROMPT
+          description: |
+            The type of the prompt. The prompt can be one of the following.
+            - USER_PROMPT - The prompt is for the user to input the required parameters for the authenticator.
+            - INTERNAL_PROMPT - The prompt is for the system to perform an internal action which will result in 
+              obtaining the required parameters. ex: prompt for fido authentication, prompt for native federated authentication.
+            - REDIRECTION_PROMPT - The prompt is for the user to be redirected to a different url which will result in obtaining 
+              the required parameters. ex: Authenticate using a federated authenticator which requires the user to be 
+              redirect to the federation identity provider. In this case a redirectUrl will be available in `additionalData`.
+          example: USER_PROMPT
+        params:
+          type: array
+          items:
+            $ref: '#/components/schemas/Param'
+          description: |
+            Contains the data related to input parameters of the authenticator. Only present if the `promptType` is `USER_PROMPT`.
+        additionalData:
+          type: object
+          additionalProperties:
+            type: string
+          description: |
+            Contains any additional data related to the authenticator which would be needed for the application to perform 
+            authentication. ex: Fido2 challenge, redirectUrl for federated authentication.
+          example:
+            redirectUrl: https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=https%3A%2F%2Fexample-app.com%2Fredirect&state=e12f-ed27-49e5-ad0a-8bbb5671d81e%2COIDC&client_id=231644702133-ds23592jt.apps.googleusercontent.com&scope=openid
+    Param:
+      type: object
+      description: Contains the data related to an input parameter of the authenticator.
+      required:
+        - param
+        - type
+        - isConfidential
+        - order
+        - i18nKey
+      properties:
+        param:
+          type: string
+          description: The parameter identifier.
+          example: username
+        type:
+          type: string
+          enum:
+            - STRING
+            - INTEGER
+            - BOOLEAN
+          description: Indicates the data type of the parameter.
+          example: STRING
+        isConfidential:
+          type: boolean
+          description: Indicates whether the parameter is confidential or not.
+          example: false
+        order:
+          type: integer
+          description: Indicates the recommended display order of the parameter.
+          example: 1
+        validationRegex:
+          type: string
+          description: Contains the regex pattern to validate the parameter value.
+          example: ^[\S]{3,50}$
+        i18nKey:
+          type: string
+          description: The i18n key for the parameter. This can be used to get the localized text for the parameter.
+          example: param.username
+    Message:
+      type: object
+      description: Contains the data related to a message for the authentication step.
+      required:
+        - type
+        - messageId
+        - message
+        - i18nKey
+      properties:
+        type:
+          type: string
+          enum:
+            - INFO
+            - ERROR
+          description: Indicates the type of the message.
+          example: ERROR
+        messageId:
+          type: string
+          description: The message identifier.
+          example: msg_invalid_un_pw
+        message:
+          type: string
+          description: The message.
+          example: Invalid username or password.
+        i18nKey:
+          type: string
+          description: The i18n key for the message. This can be used to get the localized text for the message.
+          example: message.msg_invalid_un_pw
+        context:
+          type: array
+          items:
+            $ref: '#/components/schemas/Context'
+          description: |
+            Contains any context information related to the message. The context information can be used to 
+            create localized messages. The available different context information is bound to the messageId. 
+            ex: failed attempt remaining count.
+    Context:
+      type: object
+      description: A property map to contain any context information for messages.
+      required:
+        - key
+        - value
+      properties:
+        key:
+          type: string
+          example: remainingAttempts
+        value:
+          type: string
+          example: 2
+    Link:
+      type: object
+      description: Contains the data related to a link.
+      required:
+        - name
+        - href
+        - method
+      properties:
+        name:
+          type: string
+          description: The identifier of the link.
+          example: authentication
+        href:
+          type: string
+          description: The relative url of the link.
+          example: /api/authenticate/v1
+        method:
+          type: string
+          enum:
+            - GET
+            - POST
+          description: The supported http methods of the link.
+          example: POST
+    SuccessResponse:
+      type: object
+      description: Response with authorization code received after a successful authentication.
+      properties:
+        flowStatus:
+          type: string
+          enum:
+            - SUCCESS_COMPLETED
+          description: |
+            The status of the authentication flow.
+            - SUCCESS_COMPLETED - The authentication flow has been successfully completed.
+          example: SUCCESS_COMPLETED
+        authData:
+          type: object
+          description: |
+            Data related to the successful authentication. This will contain the authorization code which can be used to
+            obtain the access token.
+          additionalProperties:
+            type: string
+          example:
+            code: dbde709c-c5a5-3643-8604-30ef32b44c90
+            state: loginpg
+    Error:
+      type: object
+      description: Contains the data related to an error.
+      required:
+        - code
+        - message
+        - description
+        - traceId
+      properties:
+        code:
+          type: string
+          example: ABA-00000
+        message:
+          type: string
+          example: Some error message.
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047

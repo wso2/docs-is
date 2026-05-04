@@ -1,0 +1,692 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: Asgardeo - Email Templates API
+  description: 
+    "This is the RESTful API for managing email templates in WSO2 Asgardeo. This API allows adding, retrieving, replacing, and removing email
+    templates and template types. 
+    \n To access the email template APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
+tags:
+  - name: Email template types
+    description: An email template type can have multiple email templates for different languages.
+  - name: Email templates
+    description: An email template of a specific type and language.
+security:
+  - OAuth2: []
+paths:
+  /email/template-types:
+    get:
+      tags:
+        - Email template types
+      summary: Get email template types
+      operationId: getAllEmailTemplateTypes
+      description: |
+        Retrieves all the email template types in your organization, with limited details of the email templates.
+
+        <b>Scopes required:</b> `internal_email_mgt_view`
+      parameters:
+        # - $ref: '#/components/parameters/limitQueryParam'
+        # - $ref: '#/components/parameters/offsetQueryParam'
+        # - $ref: '#/components/parameters/sortOrderQueryParam'
+        # - $ref: '#/components/parameters/sortByQueryParam'
+        - $ref: '#/components/parameters/requiredAttributesQueryParam'
+      responses:
+        '200':
+          description: Results matching the request criteria
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailTemplateTypeWithoutTemplates'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
+    post:
+      tags:
+        - Email template types
+      summary: Add email template type
+      operationId: addEmailTemplateType
+      description: |
+        Adds a new email template type to your organization. An email template type can have any number of email templates. <br>
+
+        * Note that the _**displayName**_ attribute of the template type should be unique. <br>
+
+        <b>Scopes required:</b> `internal_email_mgt_create`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateType'
+        description: Use the following parameters in your request body to define your new email template type. 
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            self:
+              description: Location of the newly created identity provider.
+              schema:
+                type: string
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EmailTemplateTypeWithoutTemplates'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "displayName": "Account Confirmation",
+            "templates": [
+              {
+                "contentType": "text/html",
+                "subject": "WSO2 - Account Confirmation",
+                "body": "HTML Body",
+                "footer": "WSO2 Asgardeo Team",
+                "id": "en_US"
+              }
+            ]
+            }'       
+  /email/template-types/{template-type-id}:
+    delete:
+      tags:
+        - Email template types
+      summary: Remove email template type
+      operationId: deleteEmailTemplateType
+      description: |
+        Removes an existing email template type with all its email templates
+        from your organization. <br>
+
+        <b>Scopes required:</b> `internal_email_mgt_delete`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'          
+    get:
+      tags:
+        - Email templates
+      summary: Get email templates per type
+      operationId: getEmailTemplateType
+      description: |
+        Retrieves an email template type (matching the template type ID) including all of its email templates. <br>
+
+        <br><b>Scopes required:</b> `internal_email_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        #- $ref: '#/components/parameters/templateTypeIdPathParam'
+        #- $ref: '#/components/parameters/limitQueryParam'
+        #- $ref: '#/components/parameters/offsetQueryParam'
+        #- $ref: '#/components/parameters/sortOrderQueryParam'
+        #- $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Results matching the request criteria
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EmailTemplateTypeWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
+    post:
+      tags:
+        - Email templates
+      summary: Add email template
+      operationId: addEmailTemplate
+      description: |
+        Adds a new email template to a template type. Note that the template ID is the locale and it be unique for the template type. You cannot have two templates with the same locale for a template type.
+  
+        <b>Scopes required:<br> `internal_email_mgt_create`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateWithID'
+        description: Use the following parameters in your request body to define your new email template type.
+      responses:
+        '201':
+          description: Item Created
+          headers:
+            Location:
+              description: Location of the newly created identity provider
+              schema:
+                type: string
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/SimpleEmailTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "contentType": "text/html",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Asgardeo Team",
+            "id": "en_US"
+            }'         
+    put:
+      tags:
+        - Email templates
+      summary: Replace all email templates
+      operationId: updateEmailTemplateType
+      description: |
+        Replaces all the email templates of the respective email template type with
+        the newly provided email templates. <br>
+
+        <b>Scopes required:</b> `internal_email_mgt_update`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/EmailTemplateWithID'
+        description: Use the following parameters in your request body. These parameter values will replace all the content in all the existing templates for the template type.
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "contentType": "text/html",
+              "subject": "WSO2 - Account Confirmation",
+              "body": "HTML Body",
+              "footer": "WSO2 Asgardeo Team",
+              "id": "en_US"
+            }
+            ]'          
+  '/email/template-types/{template-type-id}/templates':
+    get:
+      tags:
+        - Email templates
+      summary: List email templates per type
+      operationId: getTemplatesListOfEmailTemplateType
+      description: |
+        Retrieves the list of email templates for the template type ID. <br>
+
+        <b>Scopes required:</b> `internal_email_mgt_view`
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        #- $ref: '#/components/parameters/limitQueryParam'
+        #- $ref: '#/components/parameters/offsetQueryParam'
+        #- $ref: '#/components/parameters/sortOrderQueryParam'
+        #- $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Results matching the request criteria
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimpleEmailTemplate'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}/templates' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
+  '/email/template-types/{template-type-id}/templates/{template-id}':
+    get:
+      tags:
+        - Email templates
+      summary:  Get an email template
+      operationId: getEmailTemplate
+      description: |
+        Retrieves the email template that matches the specified template ID and template type. <br>
+
+        <b>Scopes required:</b> `internal_email_mgt_view`
+         
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/templateIdPathParam'
+        #- $ref: '#/components/parameters/limitQueryParam'
+        #- $ref: '#/components/parameters/offsetQueryParam'
+        #- $ref: '#/components/parameters/sortOrderQueryParam'
+        #- $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Results matching the request criteria
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EmailTemplateWithID'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}/templates/{template-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
+    put:
+      tags:
+        - Email templates
+      summary: Replace an email template
+      operationId: updateEmailTemplate
+      description: |
+        Replaces the email template identified by the template ID and template type. <br>
+
+        <b>Scopes required:</b> `internal_email_mgt_update`
+
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/templateIdPathParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateWithID'
+        description: Email templates for the template type
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}/templates/{template-id}' \
+            -H 'accept: */*' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "contentType": "text/html",
+            "subject": "WSO2 - Account Confirmation",
+            "body": "HTML Body",
+            "footer": "WSO2 Asgardeo Team",
+            "id": "en_US"
+            }'         
+    delete:
+      tags:
+        - Email templates
+      summary: Remove email template
+      operationId: deleteEmailTemplate
+      description: |
+        Removes an email template identified by the template ID and template type. <br>
+
+        <b>Scopes required:</b> `internal_email_mgt_delete`
+        
+      parameters:
+        - $ref: '#/components/parameters/templateTypeIdPathParam'
+        - $ref: '#/components/parameters/templateIdPathParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/Deleted'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/email/template-types/{email-template-type-id}/templates/{template-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'          
+servers:
+  - url: 'https://api.asgardeo.io/t/{org-name}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: unknown
+
+components:
+  parameters:
+    templateTypeIdPathParam:
+      in: path
+      name: template-type-id
+      required: true
+      description: The ID of the email template type.
+      schema:
+        type: string
+    templateIdPathParam:
+      in: path
+      name: template-id
+      required: true
+      description: Email template ID. This should be a valid locale.
+      schema:
+        type: string
+    offsetQueryParam:
+      in: query
+      name: offset
+      description: >-
+        Number of records to skip for pagination. <b>This option is not yet
+        supported.<b>
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    limitQueryParam:
+      in: query
+      name: limit
+      description: >-
+        Maximum number of records to return. <b>This option is not yet
+        supported.<b>
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    sortOrderQueryParam:
+      in: query
+      name: sortOrder
+      required: false
+      description: >-
+        Define the order in which the retrieved records should be sorted. <b>This
+        option is not yet supported.<b>
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
+    sortByQueryParam:
+      in: query
+      name: sortBy
+      required: false
+      description: >-
+        Attribute by which the retrieved records should be sorted. <b>This
+        option is not yet supported.<b>
+      schema:
+        type: string
+    requiredAttributesQueryParam:
+      in: query
+      name: requiredAttributes
+      required: false
+      description: >-
+        Specifies the required parameters in the response. See the response schema for the complete list of parameters your can get in the response. </br></br> By default, all the required parameters (in the response schema) will be returned. Use this parameter to specify additional attributes that you need in the response.
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: The specified resource is not found
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+    Forbidden:
+      description: Forbidden
+    ServerError:
+      description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Invalid input request
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Item Already Exists
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Deleted:
+      description: Item Deleted
+    Updated:
+      description: Item Updated
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
+          scopes:
+            internal_email_mgt_view: Grants read access
+            internal_email_mgt_create: Grants write access
+            internal_email_mgt_delete: Grants permission to delete records
+            internal_email_mgt_update: Grants permission to update existing records
+
+  schemas:
+    EmailTemplateTypeWithoutTemplates:
+      type: object
+      required:
+        - id
+        - displayName
+        - self
+      properties:
+        id:
+          type: string
+          example: YWNjb3VudGNvbmZpcm1hdGlvbg
+          description: Unique ID of the email template type.
+        displayName:
+          type: string
+          example: Account Confirmation
+          description: Display name of the email template type.
+        templates:
+          type: array
+          description: Email templates for the template type. This is the HTML template of the email body.
+          items:
+            $ref: '#/components/schemas/EmailTemplateWithID'
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v1/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg
+          description: Location of the created/updated resource.
+    EmailTemplateType:
+      type: object
+      required:
+        - displayName
+        - templates
+      properties:
+        displayName:
+          type: string
+          example: Account Confirmation
+          description: The unique display name of the email template type.
+        templates:
+          type: array
+          description: Email templates for the template type.
+          items:
+            $ref: '#/components/schemas/EmailTemplateWithID'
+    EmailTemplateTypeWithID:
+      allOf:
+        - $ref: '#/components/schemas/EmailTemplateType'
+        - required:
+            - id
+          properties:
+            id:
+              type: string
+              example: YWNjb3VudGNvbmZpcm1hdGlvbg
+              description: Unique ID of the email template type.
+    EmailTemplate:
+      type: object
+      required:
+        - contentType
+        - subject
+        - body
+        - footer
+      properties:
+        contentType:
+          type: string
+          example: text/html
+          description: Content type of the email template.
+        subject:
+          type: string
+          example: WSO2 - Account Confirmation
+          description: The subject of the email.
+        body:
+          type: string
+          example: HTML Body
+          description: The body (HTML) of the email.
+        footer:
+          type: string
+          example: WSO2 Asgardeo Team
+          description: The footer of the email.
+    EmailTemplateWithID:
+      allOf:
+        - $ref: '#/components/schemas/EmailTemplate'
+        - required:
+            - id
+          properties:
+            id:
+              type: string
+              example: en_US
+              description: >-
+                Unique ID of the email template. This ID represents the locale of the email template.
+    SimpleEmailTemplate:
+      type: object
+      required:
+        - id
+        - self
+      properties:
+        id:
+          type: string
+          example: en_US
+          description: >-
+            Unique ID of the email template. This ID represents the locale of the email template.
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v1/email/template-types/YWNjb3VudGNvbmZpcm1hdGlvbg/templates/en_US
+          description: Location of the created/updated resource.
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: ET0001
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: TR0001

@@ -1,0 +1,1395 @@
+/**
+ * Custom CSS for Asgardeo Docusaurus docs.
+ * Migrated from the en/theme/material mkdocs theme.
+ */
+
+/* ==========================================================================
+   Gilmer Font
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Gilmer';
+  src: url('../assets/fonts/gilmer/gilmer-regular.eot');
+  src:
+    url('../assets/fonts/gilmer/gilmer-regular.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/gilmer/gilmer-regular.woff2') format('woff2'),
+    url('../assets/fonts/gilmer/gilmer-regular.woff') format('woff'),
+    url('../assets/fonts/gilmer/gilmer-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilmer';
+  src: url('../assets/fonts/gilmer/gilmer-medium.eot');
+  src:
+    url('../assets/fonts/gilmer/gilmer-medium.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/gilmer/gilmer-medium.woff2') format('woff2'),
+    url('../assets/fonts/gilmer/gilmer-medium.woff') format('woff'),
+    url('../assets/fonts/gilmer/gilmer-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilmer';
+  src: url('../assets/fonts/gilmer/gilmer-bold.eot');
+  src:
+    url('../assets/fonts/gilmer/gilmer-bold.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/gilmer/gilmer-bold.woff2') format('woff2'),
+    url('../assets/fonts/gilmer/gilmer-bold.woff') format('woff'),
+    url('../assets/fonts/gilmer/gilmer-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   FontAwesome Solid Icons
+   ========================================================================== */
+
+@font-face {
+  font-family: 'FA-Solid';
+  src: url('../assets/fonts/fa/fa-solid-900.woff2') format('woff2'),
+       url('../assets/fonts/fa/fa-solid-900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: block;
+}
+
+/* ==========================================================================
+   FontAwesome Brand Icons
+   ========================================================================== */
+
+@font-face {
+  font-family: 'FA-Brands';
+  src: url('../assets/fonts/fa/fa-brands-400.woff2') format('woff2'),
+       url('../assets/fonts/fa/fa-brands-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+/* ==========================================================================
+   CSS Custom Properties (Light Mode / Default)
+   ========================================================================== */
+
+:root {
+  --ifm-font-family-base: 'Gilmer', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Gilmer', system-ui, -apple-system, sans-serif;
+
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.7;
+
+  /* Primary color - Asgardeo orange */
+  --ifm-color-primary: #ff7300;
+  --ifm-color-primary-dark: #e66800;
+  --ifm-color-primary-darker: #d96200;
+  --ifm-color-primary-darkest: #b35100;
+  --ifm-color-primary-light: #ff811a;
+  --ifm-color-primary-lighter: #ff8926;
+  --ifm-color-primary-lightest: #ff9f4d;
+
+  /* Code */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Layout */
+  --ifm-navbar-height: 62px;
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #1f2024;
+  --ifm-navbar-link-hover-color: #ff7300;
+
+  --ifm-spacing-horizontal: 1.5rem;
+
+  /* Border radius */
+  --ifm-border-radius: 8px;
+  --ifm-global-radius: 8px;
+  --ifm-card-border-radius: 12px;
+
+  /* Code block colors (dark theme, same for light mode in mkdocs) */
+  --ifm-code-background: #161618;
+  --ifm-code-color: #d9d9de;
+  --ifm-pre-background: #161618;
+  --ifm-pre-color: #d9d9de;
+
+  /* Custom variables */
+  --ds-colors-white: #ffffff;
+  --ds-colors-mystic: #d8dde8;
+  --ds-colors-shark: #1f2024;
+  --ds-colors-alabaster: #f9f9f9;
+  --ds-colors-discord-blurple: #5865F2;
+  --ds-border-color: #d8dde8;
+  --ds-surface-bg: #ffffff;
+  --ds-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+  --ds-box-shadow-2: 0 12px 32px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .08);
+
+  /* Icon colors */
+  --ds-icon-color-1-bg: rgba(233, 246, 252, 1);
+  --ds-icon-color-1-fg: #27aae1;
+  --ds-icon-color-2-bg: rgba(255, 236, 246, 1);
+  --ds-icon-color-2-fg: #cf3b89;
+  --ds-icon-color-3-bg: rgba(231, 246, 245, 1);
+  --ds-icon-color-3-fg: #15a79e;
+  --ds-icon-color-4-bg: rgba(255, 247, 239, 1);
+  --ds-icon-color-4-fg: #f7931e;
+}
+
+/* ==========================================================================
+   Dark Mode CSS Custom Properties
+   ========================================================================== */
+
+[data-theme='dark'] {
+  --ifm-color-primary: #ff811a;
+  --ifm-color-primary-dark: #ff7300;
+  --ifm-color-primary-darker: #f56e00;
+  --ifm-color-primary-darkest: #cc5a00;
+  --ifm-color-primary-light: #ff8f33;
+  --ifm-color-primary-lighter: #ff9640;
+  --ifm-color-primary-lightest: #ffad66;
+
+  --ifm-background-color: #232327;
+  --ifm-background-surface-color: #232327;
+  --ifm-navbar-background-color: #232327;
+  --ifm-footer-background-color: #232327;
+
+  --ifm-navbar-link-color: #e3e3e3;
+  --ifm-navbar-link-hover-color: #ff811a;
+
+  --ifm-code-background: #161618;
+  --ifm-code-color: #d9d9de;
+  --ifm-pre-background: #161618;
+  --ifm-pre-color: #d9d9de;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ds-border-color: rgba(255, 255, 255, 0.1);
+  --ds-surface-bg: #1f2024;
+  --ds-icon-color-1-bg: rgba(233, 246, 252, 0.1);
+  --ds-icon-color-2-bg: rgba(255, 236, 246, 0.1);
+  --ds-icon-color-3-bg: rgba(231, 246, 245, 0.1);
+  --ds-icon-color-4-bg: rgba(255, 247, 239, 0.1);
+}
+
+/* ==========================================================================
+   Inline Code Styling (Light Mode: light bg, dark code)
+   ========================================================================== */
+
+:root:not([data-theme='dark']) code:not([class*='language-']) {
+  background-color: #161618;
+  color: #d9d9de;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.3rem;
+}
+
+[data-theme='dark'] code:not([class*='language-']) {
+  background-color: #161618;
+  color: #d9d9de;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.3rem;
+}
+
+/* ==========================================================================
+   Navbar / Header Styling
+   ========================================================================== */
+
+.navbar {
+  border-bottom: 1px solid var(--ds-border-color);
+  box-shadow: none;
+  padding: 0 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1px;
+}
+
+.navbar__inner {
+  padding: 0;
+}
+
+.navbar__brand {
+  margin-right: 1rem;
+}
+
+.navbar__logo {
+  height: 1.4rem;
+}
+
+.navbar__logo img {
+  height: 1.4rem;
+}
+
+.navbar__items--right > * {
+  margin-left: 0.5rem;
+}
+
+.navbar__link {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+/* Search bar styling in navbar */
+.navbar__search-input {
+  font-size: 0.7rem;
+  border-radius: var(--ifm-border-radius);
+}
+
+/* ==========================================================================
+   Theme / Color Mode Toggle
+   ========================================================================== */
+
+.navbar .clean-btn svg {
+  height: 20px;
+  width: 20px;
+}
+
+/* ==========================================================================
+   Sidebar / Docs Menu Styling
+   ========================================================================== */
+
+.theme-doc-sidebar-container {
+  border-right: none !important;
+}
+
+.menu {
+  font-size: 14px;
+  line-height: 1.3;
+  padding: 1rem 0;
+  margin: 0 0 0 1rem;
+}
+
+.menu__list {
+  margin-bottom: 15px;
+}
+
+.menu__list-item {
+  margin-top: 0.8em;
+}
+
+.menu__link {
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: var(--ifm-border-radius);
+  padding: 0.4rem 0.75rem;
+  color: var(--ifm-font-color-base);
+}
+
+.menu__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+.menu__link--active {
+  font-weight: 500;
+  color: var(--ifm-color-primary);
+}
+
+.menu__caret,
+.menu__link--sublist-caret::after {
+  min-width: 1.25rem;
+}
+
+/* Hide the TOC sidebar when not needed (matching mkdocs behavior) */
+/* The .hide-toc logic can be applied via frontmatter if needed */
+
+/* ==========================================================================
+   Content / Main Area Styling
+   ========================================================================== */
+
+.markdown {
+  font-size: 16px;
+  letter-spacing: 0.1px;
+}
+
+.markdown h1 {
+  color: var(--ifm-heading-color);
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2rem;
+}
+
+/* ==========================================================================
+   Code Blocks Styling
+   ========================================================================== */
+
+.theme-code-block {
+  border-radius: 0.4rem;
+  box-shadow: none;
+  font-size: 0.875rem;
+}
+
+.prism-code {
+  border-radius: 0.4rem;
+}
+
+/* ==========================================================================
+   Admonitions / Callouts Styling
+   ========================================================================== */
+
+.theme-admonition {
+  font-size: 14px;
+  border-radius: var(--ifm-border-radius);
+  border-left-width: 4px;
+}
+
+[data-theme='dark'] .theme-admonition {
+  background-color: rgba(0, 0, 0, 0.17);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ==========================================================================
+   Footer Styling
+   ========================================================================== */
+
+.footer {
+  --ifm-footer-background-color: var(--ds-colors-alabaster);
+  color: var(--ifm-font-color-base);
+  border-top: 1px solid var(--ds-border-color);
+  padding: 3rem 0 2rem;
+}
+
+[data-theme='dark'] .footer {
+  --ifm-footer-background-color: #232327;
+}
+
+.footer__links {
+  margin-bottom: 2rem;
+}
+
+.footer__title {
+  font-size: 0.85rem;
+}
+
+.footer__item {
+  font-size: 0.8rem;
+}
+
+.footer__link-item {
+  font-weight: 500;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+}
+
+.footer__col {
+  margin-bottom: 1.5rem;
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--ds-border-color);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  font-size: 0.75rem;
+}
+
+[data-theme='dark'] .footer {
+  --ifm-footer-background-color: #232327;
+}
+
+[data-theme='dark'] .footer__bottom {
+  background-color: var(--ds-colors-alabaster);
+  color: var(--ifm-font-color-base);
+}
+
+/* ==========================================================================
+   Cards Styling (for landing page / section pages)
+   ========================================================================== */
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: 50px 0;
+}
+
+.cards-container .card {
+  display: inline-block;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  max-width: 330px;
+  text-align: center;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.cards-container .card:hover {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.cards-container .card > h3 {
+  margin-top: 0;
+}
+
+.cards-container .card > p:last-child {
+  margin-bottom: 0;
+}
+
+.cards-container .card.square {
+  width: 185px;
+  height: 185px;
+}
+
+.cards-container .card > img {
+  width: 100px;
+  max-height: 100px;
+}
+
+.cards-container .card > p > a {
+  margin: 10px;
+  color: var(--ifm-font-color-base);
+}
+
+.cards-container .card > p > a:hover {
+  color: var(--ifm-color-primary);
+}
+
+.center-all {
+  text-align: center;
+}
+
+.center-all .cards-container {
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Buttons Styling
+   ========================================================================== */
+
+.md-button {
+  border-radius: var(--ifm-border-radius);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  transition: color 125ms, background-color 125ms, border-color 125ms;
+  padding: 8px 16px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.md-button:hover {
+  opacity: 0.9;
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
+
+.md-button.md-button--primary {
+  background: linear-gradient(77.74deg, #eb4f63 11.16%, #ff7300 99.55%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.md-button.md-button--primary:hover {
+  color: #ffffff;
+}
+
+.md-button.md-button--link {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.md-button.md-button--small {
+  padding: 6px 12px;
+}
+
+.md-button.md-button--flex {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   Chip Styling (Beta, Preview, New, Premium badges)
+   ========================================================================== */
+
+.md-chip {
+  max-width: 100%;
+  font-family: 'Gilmer', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-color-primary);
+  cursor: default;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-size: 0.6125rem;
+  height: 24px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: 0px;
+  text-decoration: none;
+  border: none;
+  padding: 0px;
+}
+
+.md-chip__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 12px;
+  padding-right: 12px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.md-chip--beta {
+  background: linear-gradient(131deg, rgba(143, 197, 246, 0.30) 0%, rgba(72, 141, 180, 0.30) 100%);
+  border: 1px solid #488DB4;
+}
+
+.md-chip--beta .md-chip__label {
+  background-image: linear-gradient(93deg, #488DB4 0%, #1F3D4E 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.md-chip--preview {
+  background: linear-gradient(131deg, rgba(233, 95, 255, 0.30) 0%, rgba(140, 57, 153, 0.30) 100%);
+  border: 1px solid #8C3999;
+}
+
+.md-chip--preview .md-chip__label {
+  background-image: linear-gradient(93deg, #8C3999 0%, #2F1333 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.md-chip--new {
+  background: linear-gradient(131deg, rgba(117, 237, 161, 0.30) 28.46%, rgba(52, 146, 86, 0.30) 119.09%);
+  border: 1px solid #349256;
+}
+
+.md-chip--new .md-chip__label {
+  background-image: linear-gradient(93deg, #349256 28.46%, #102C1A 119.09%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.md-chip--premium {
+  background: linear-gradient(131deg, rgba(224, 184, 52, 0.30) 25.98%, rgba(181, 138, 0, 0.30) 112.91%);
+  border: 1px solid #928934;
+}
+
+.md-chip--premium .md-chip__label {
+  background-image: linear-gradient(93deg, #928934 28.46%, #2C2910 119.09%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+[data-theme='dark'] .md-chip--beta .md-chip__label {
+  background-image: linear-gradient(93deg, #adcddf 0%, #59859e 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+[data-theme='dark'] .md-chip--preview .md-chip__label {
+  background-image: linear-gradient(93deg, #ef85ff 0%, #e1bae7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+[data-theme='dark'] .md-chip--new .md-chip__label {
+  background-image: linear-gradient(93deg, #5bb77c 28.46%, #65d48d 119.09%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+[data-theme='dark'] .md-chip--premium .md-chip__label {
+  background-image: linear-gradient(93deg, #d9d07c 28.46%, #867f46 119.09%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ==========================================================================
+   Icon Color Variants (for section landing pages)
+   ========================================================================== */
+
+.icon-color-1 { background-color: var(--ds-icon-color-1-bg); }
+.icon-color-1 svg path { fill: var(--ds-icon-color-1-fg) !important; }
+.icon-color-2 { background-color: var(--ds-icon-color-2-bg); }
+.icon-color-2 svg path { fill: var(--ds-icon-color-2-fg) !important; }
+.icon-color-3 { background-color: var(--ds-icon-color-3-bg); }
+.icon-color-3 svg path { fill: var(--ds-icon-color-3-fg) !important; }
+.icon-color-4 { background-color: var(--ds-icon-color-4-bg); }
+.icon-color-4 svg path { fill: var(--ds-icon-color-4-fg) !important; }
+
+/* ==========================================================================
+   Card Component Styling (md-card)
+   ========================================================================== */
+
+.md-card {
+  box-shadow: var(--ds-box-shadow);
+  border: 1px solid var(--ds-border-color);
+  border-radius: 12px;
+  background-color: var(--ds-surface-bg);
+  padding: 30px;
+}
+
+/* ==========================================================================
+   Image + Text Layouts
+   ========================================================================== */
+
+.image-text-wrapped-container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.image-text-wrapped-container .wrapping-text {
+  flex: 1;
+  padding: 20px;
+  margin-bottom: 1em;
+}
+
+.image-text-wrapped-container .wrapped-image {
+  flex-shrink: 0;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.image-text-wrapped-container .wrapped-image > img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.centered-container {
+  display: flex;
+  justify-content: left;
+  align-items: baseline;
+}
+
+.border-text {
+  margin: 10px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Progress / Visited States
+   ========================================================================== */
+
+.md-nav__link-read_time {
+  font-size: 10px;
+  color: var(--ifm-color-emphasis-600);
+  white-space: nowrap;
+  word-break: keep-all;
+  font-style: italic;
+}
+
+.md-nav__link-read_time.visited > .md-nav__link-read_check:after {
+  display: inline-block;
+}
+
+.md-nav__link-read_time > .md-nav__link-read_check:after {
+  background-color: #00c853;
+  -webkit-mask-image: var(--ifm-admonition-icon-success);
+  mask-image: var(--ifm-admonition-icon-success);
+  content: "";
+  height: 0.6rem;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  position: absolute;
+  width: 0.6rem;
+  display: none;
+  padding-left: 25px;
+  top: 0.82rem;
+}
+
+/* ==========================================================================
+   Tabbed Content
+   ========================================================================== */
+
+.tabbed-content.tab_with_no_code {
+  background: var(--ifm-color-emphasis-100);
+  padding: 0 20px 10px;
+  border-radius: 0 0 0.4rem 0.4rem;
+}
+
+/* ==========================================================================
+   Copy Page Button
+   ========================================================================== */
+
+.copy-page-container {
+  display: flex;
+  position: relative;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.copy-page-button.header-group-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-600);
+  transition: all 0.2s ease-in-out;
+  height: 34px;
+  white-space: nowrap;
+}
+
+.copy-page-button.header-group-btn:hover {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  background-color: rgba(255, 115, 0, 0.05);
+}
+
+.copy-page-button.copied-success {
+  color: #2e7d32;
+  border-color: #2e7d32;
+  background-color: rgba(46, 125, 50, 0.1);
+}
+
+.copy-page-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: auto;
+  min-width: 230px;
+  padding: 6px;
+  background-color: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  box-shadow: var(--ds-box-shadow-2);
+  z-index: 100;
+  display: none;
+}
+
+.copy-page-menu.active { display: block; }
+
+.copy-page-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  color: var(--ifm-font-color-base);
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.copy-page-item:hover { background-color: var(--ifm-color-emphasis-100); }
+
+.copy-page-item-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.copy-page-item-title { font-weight: 600; }
+.copy-page-item-desc { font-size: 0.65rem; color: var(--ifm-color-emphasis-600); }
+.copy-page-divider { height: 1px; background-color: var(--ifm-color-emphasis-300); margin: 6px 0; opacity: 0.5; }
+
+.copy-page-chevron-icon { transition: transform 0.2s; }
+.copy-page-button[aria-expanded="true"] .copy-page-chevron-icon { transform: rotate(180deg); }
+
+.copy-page-backdrop {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 90;
+}
+.copy-page-backdrop.active { display: block; }
+
+@media (max-width: 600px) {
+  .copy-page-button .btn-text, .copy-page-chevron-icon { display: none; }
+  .copy-page-button { width: 100px; padding: 0; justify-content: center; }
+  .copy-page-container { width: 50px; }
+}
+
+/* ==========================================================================
+   Superfences / Tabs
+   ========================================================================== */
+
+.superfences-tabs {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 1em 0;
+  border-radius: 0.2em;
+}
+
+html .superfences-tabs > label {
+  color: #ff7043;
+  font-weight: normal;
+  border: none;
+}
+
+html .superfences-tabs > label:hover {
+  color: #ff7043;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media screen and (max-width: 996px) {
+  .navbar__items {
+    font-size: 14px;
+  }
+
+  .menu {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 997px) {
+  article .markdown {
+    margin: 0 auto 3rem;
+    padding: 0.5rem 2rem;
+    max-width: 900px;
+  }
+}
+
+/* ==========================================================================
+   Prism / Syntax Highlighting Overrides
+   ========================================================================== */
+
+/* Override Prism code block to use the dark code theme colors */
+.prism-code {
+  color: #d9d9de;
+  background-color: #161618;
+}
+
+/* Token colors matching mkdocs code highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #47bfffb5;
+}
+
+.token.punctuation {
+  color: #d9d9de;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #d52a2a;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a0fbaa;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #d9d9de;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #4489FF;
+}
+
+.token.function,
+.token.class-name {
+  color: #ec9752;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #47bfffb5;
+}
+
+/* ==========================================================================
+   Tables Styling
+   ========================================================================== */
+
+.markdown table {
+  display: table;
+  width: 100%;
+  border-radius: var(--ifm-border-radius);
+}
+
+.markdown th {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.markdown td {
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Breadcrumbs Styling
+   ========================================================================== */
+
+.theme-doc-breadcrumbs {
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs__link {
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   Sidebar Category Icons (top-level only, not sub-items)
+   ========================================================================== */
+
+/* Common styles for all sidebar icons */
+.sidebar-icon-home > .menu__link::before,
+.sidebar-icon-rocket > .menu__list-item-collapsible > .menu__link::before,
+.sidebar-icon-book > .menu__list-item-collapsible > .menu__link::before,
+.sidebar-icon-graduation > .menu__list-item-collapsible > .menu__link::before,
+.sidebar-icon-cube > .menu__list-item-collapsible > .menu__link::before,
+.sidebar-icon-code > .menu__list-item-collapsible > .menu__link::before,
+.sidebar-icon-external-link > .menu__list-item-collapsible > .menu__link::before {
+  font-family: 'FA-Solid';
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 8px;
+  display: inline-block;
+  width: 17px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.sidebar-icon-home > .menu__link::before         { content: '\f015'; }
+.sidebar-icon-rocket > .menu__list-item-collapsible > .menu__link::before  { content: '\f135'; }
+.sidebar-icon-book > .menu__list-item-collapsible > .menu__link::before    { content: '\f518'; }
+.sidebar-icon-graduation > .menu__list-item-collapsible > .menu__link::before { content: '\f19d'; }
+.sidebar-icon-cube > .menu__list-item-collapsible > .menu__link::before    { content: '\f1b2'; }
+.sidebar-icon-code > .menu__list-item-collapsible > .menu__link::before    { content: '\f121'; }
+.sidebar-icon-external-link > .menu__list-item-collapsible > .menu__link::before { content: '\f35d'; }
+
+/* Connect App tech stack brand icons */
+.sidebar-icon-ca-react > .menu__list-item-collapsible > .menu__link::before,
+.sidebar-icon-ca-vue > .menu__list-item-collapsible > .menu__link::before,
+.sidebar-icon-ca-angular > .menu__list-item-collapsible > .menu__link::before,
+.sidebar-icon-ca-js > .menu__list-item-collapsible > .menu__link::before {
+  font-family: 'FA-Brands';
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 8px;
+  display: inline-block;
+  width: 17px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.sidebar-icon-ca-react > .menu__list-item-collapsible > .menu__link::before    { content: '\f41b'; }
+.sidebar-icon-ca-vue > .menu__list-item-collapsible > .menu__link::before      { content: '\f41f'; }
+.sidebar-icon-ca-angular > .menu__list-item-collapsible > .menu__link::before  { content: '\f420'; }
+.sidebar-icon-ca-js > .menu__list-item-collapsible > .menu__link::before       { content: '\f3b8'; }
+
+/* Sidebar divider */
+.sidebar-divider {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  margin: 15px 0;
+}
+
+/* ==========================================================================
+   SDK Cards
+   ========================================================================== */
+
+.sdk-type-heading {
+  margin-top: 2rem;
+}
+
+.sdk-type-description {
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.flex-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 2rem;
+}
+
+.sdk-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sdk-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sdk-card-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.sdk-card-icon-container {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sdk-card-icon {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+[data-theme='dark'] .sdk-card-icon--dark {
+  display: inline;
+}
+
+[data-theme='light'] .sdk-card-icon--dark,
+:root:not([data-theme='dark']) .sdk-card-icon--dark {
+  display: none;
+}
+
+.sdk-card-package-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sdk-card-heading {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.sdk-card-artifact-id code {
+  font-size: 0.75rem;
+  background: var(--ifm-color-emphasis-100);
+  padding: 2px 8px;
+  border-radius: 4px;
+  word-break: break-all;
+}
+
+.sdk-card-description {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  flex: 1;
+}
+
+.sdk-card-description p {
+  margin: 0;
+}
+
+.integration-card-source-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.integration-card-source-links .source-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--ifm-color-emphasis-600);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.integration-card-source-links .source-link:hover {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-primary);
+}
+
+/* ==========================================================================
+   Home Page Styles
+   ========================================================================== */
+
+/* Hide TOC sidebar on home page */
+.docMainContainer_TBSr:has(#asgardeo-home) ~ .col {
+  display: none !important;
+}
+
+.docMainContainer_TBSr:has(#asgardeo-home) .row .col.docItemCol_VOVn {
+  max-width: 100% !important;
+}
+
+/* Override Docusaurus content max-width for home page */
+#asgardeo-home {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Prevent Docusaurus article/navbar default max-widths from boxing-in the home page */
+.markdown:has(#asgardeo-home) {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 auto 3rem !important;
+}
+
+.docMainContainer_TBSr:has(#asgardeo-home) > .container {
+  max-width: 100% !important;
+}
+
+#asgardeo-home .md-home-search-input-description {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-page-container {
+  position: relative;
+}
+
+:root,
+[data-theme='light'] {
+  --md-home-body-gradient: conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #d9a300 180deg, #ff7300 1turn);
+}
+
+[data-theme='dark'] {
+  --md-home-body-gradient: conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #d9a300 180deg, #ff7300 1turn);
+}
+
+.md-home-gradient {
+  background: var(--md-home-body-gradient);
+  width: 1000px;
+  height: 1000px;
+  display: block;
+  mix-blend-mode: normal;
+  filter: blur(75px);
+  opacity: 0.15;
+  will-change: filter;
+  border-radius: 9999px;
+  max-width: 100%;
+  top: -500px;
+  position: absolute;
+  z-index: -1;
+}
+
+.md-home-search-container {
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+.md-home-search-input-label {
+  margin-bottom: 0.5em;
+  font-size: 2rem;
+}
+
+.md-home-search-input-description {
+  display: block;
+  max-width: 800px;
+  margin: 2em auto 5em;
+  text-align: center;
+}
+
+.md-home-sections {
+  max-width: 1400px;
+  margin-bottom: 5rem !important;
+}
+
+.md-column-grid {
+  margin: auto;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.md-grid-column {
+  width: 32%;
+  flex-shrink: 0;
+}
+
+.md-grid-column:last-child {
+  margin-right: 0;
+}
+
+.md-column-grid-item {
+  margin: 0 0 20px 0;
+}
+
+/* Override Docusaurus content max-width for home page */
+#asgardeo-home {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Prevent Docusaurus article/navbar default max-widths from boxing-in the home page */
+.markdown:has(#asgardeo-home) {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 auto 3rem !important;
+}
+
+.docMainContainer_TBSr:has(#asgardeo-home) > .container {
+  max-width: 100% !important;
+}
+
+#asgardeo-home .md-home-search-input-description {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-wrapper .home-page-container {
+  max-width: 100%;
+}
+
+.home-page-container .md-home-search-input-description {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Remove Docusaurus article default max-width on home page */
+article:has(.home-page-container) {
+  max-width: 100% !important;
+}
+
+article:has(.home-page-container) ~ .container {
+  max-width: 100% !important;
+}
+
+.markdown:has(.home-page-container) {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.md-column-grid-item-header-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.md-column-grid-item-header-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 2.5;
+}
+
+.md-column-grid-item-header-icon {
+  background: #F7F8FB;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  flex-shrink: 0;
+}
+
+[data-theme='dark'] .md-column-grid-item-header-icon {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.md-list-item > a {
+  color: var(--ifm-font-color-base);
+  display: block;
+  padding: 10px 0;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  text-decoration: none;
+}
+
+.md-list-item > a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.md-list-item:last-child > a {
+  border-bottom: none;
+}
+
+.md-list-item-icon {
+  margin-right: 0.5rem;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.md-list-item-icon svg > path {
+  fill: var(--ifm-color-primary);
+}
+
+.md-list-item-icon,
+.md-list-item-text {
+  max-width: 92%;
+  white-space: normal;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 996px) {
+  .md-column-grid {
+    flex-direction: column;
+  }
+
+  .md-grid-column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Scrollbar Styling
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-emphasis-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-500);
+}

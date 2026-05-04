@@ -1,0 +1,110 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Asgardeo - User session extension API
+  description:
+    "You can use this API to extend the user's session at Asgardeo. \n
+    To identify the session that needs to be extended, this API requires one of the following: \n
+    <ul>
+      <li><b>Session identifier as a request parameter</b>: This method is ideal in cases where third-party cookies have been blocked. This can be obtained from the ID token.</li>
+      <li><b>Session identifier as a cookie</b>: The session identifier used in this method is the commonAuthId value of the session cookie.</li>
+    </ul>"
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}'
+paths:
+  /identity/extend-session:
+    get:
+      summary: Extend user sessions
+      description: "This API is used to extend the Asgardeo session of a user. To identify the session that needs to be extended, this API requires one of the following: \n
+        <ul>
+          <li><b>Session identifier as a request parameter</b>: If you are using this method, you need to include the session identifier as a query parameter in the request. You can obtain the session identifier from the ID token.</li>
+          <li><b>Session identifier as a cookie</b>: If you are using this method, you need to include the session identifier as a cookie. This is the commonAuthId cookie.</li>
+        </ul>"
+      parameters:
+        - name: idpSessionKey
+          in: query
+          description: Decode the ID token and obtain the `isk` claim value to do this. The `isk` value is the session's identifier.
+          required: true
+          schema:
+            type: string
+        - name: commonAuthId
+          in: cookie
+          description: Use the commonAuthId value as the session identifier in the cookie section of the request. This value can be obtained from the session cookie generated for the session. 
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          headers:
+            Location:
+              description: This denotes the session is successfully extended.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServer'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/identity/extend-session?idpSessionKey={isk}' \
+            -H 'accept: */*' \
+            -H 'Cookie: commonAuthId={common-auth-id}' \
+            -H 'Authorization: Bearer {bearer_token}'
+components:
+  schemas:
+    ErrorServer:
+      type: object
+      properties:
+        code:
+          type: string
+          example: ISE-65001
+        message:
+          type: string
+          example: Unexpected server error
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+    ErrorRequest:
+      type: object
+      properties:
+        code:
+          type: string
+          description: 
+            "The possible error codes are as follows:
+            <ul>
+              <li>ISE-60001</li>
+              <li>ISE-60002</li>
+              <li>ISE-60003</li>
+              <li>ISE-60004</li>
+            </ul>"
+          example: ISE-60002
+        message:
+          type: string
+          description:
+            "The error messages respective to each code are as follows:
+            <ul>
+              <li>ISE-60001: Invalid request</li>
+              <li>ISE-60002: Session Key param value invalid</li>
+              <li>ISE-60003: Session cookie invalid</li>
+              <li>ISE-60004: Session not available / already expired</li>
+            </ul>"
+          example: Session Key param value invalid
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047

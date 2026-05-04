@@ -1,0 +1,7 @@
+.docusaurus
+.generated-docs
+node_modules
+.cache-loader
+build
+*.log
+.DS_Store

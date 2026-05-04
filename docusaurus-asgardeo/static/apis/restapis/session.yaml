@@ -1,0 +1,467 @@
+openapi: 3.0.1
+info:
+  title: Asgardeo - User Session Management API
+  description: "This is the RESTful API for managing user sessions in Asgardeo.
+  \n To access the session management APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
+  version: v1
+servers:
+- url: https://api.asgardeo.io/t/{organization-name}/api/users/v1
+security:
+- OAuth2: []
+tags:
+- name: me
+  description: Session management operations for the authenticated user.
+- name: admin
+  description: |
+    Operations available for privileged users, to be invoked on behalf of another user.
+paths:
+  /me/sessions:
+    get:
+      tags:
+      - me
+      summary: Get active sessions
+      description: "A user can have multiple active sessions. This endpoint is used to retrieve information of all the active sessions of the authenticated user.\n\n
+      <b>Scope required:</b>``internal_login``"
+      operationId: getSessionsOfLoggedInUser
+      responses:
+        200:
+          description: Successfully retrieved session information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sessions'
+              example:
+                userId: 81fae417-13f6-4db6-9501-7ce128608cb5
+                sessions:
+                - applications:
+                  - id: 298c5fd8-01ac-4ada-bc10-1ce37f32140b
+                    subject: admin
+                    appName: travelocity-requestpath
+                    appId: "4"
+                  - id: 27385fd8-01ac-4ada-bc10-1ce37363h40b
+                    subject: admin
+                    appName: avis-basic
+                    appId: "5"
+                  userAgent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101
+                    Firefox/15.0.1
+                  ip: 127.0.0.1
+                  loginTime: "1565586399249"
+                  lastAccessTime: "1565586435955"
+                  id: 30e775bcc2c858ff88584b38b017d6c703a6657f38320804a071ff82fce1a0fe
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Resource Not Found
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/sessions' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
+    delete:
+      tags:
+      - me
+      summary: Terminate all sessions
+      description: "A user has multiple active sessions. This endpoint is used to terminate all the active sessions of the authenticated user.\n\n 
+      <b>Scope required:</b> ``internal_login``"
+      operationId: terminateSessionsByLoggedInUser
+      responses:
+        204:
+          description: No Content
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/sessions' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
+  /me/sessions/{session-id}:
+    delete:
+      tags:
+      - me
+      summary: Terminate a session
+      description: "A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the `session-id`.\n\n
+      <b>Scope required:</b> ``internal_login`` "
+      operationId: terminateSessionByLoggedInUser
+      parameters:
+      - name: session-id
+        in: path
+        description: ID of the session.
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: No Content
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/sessions/{session-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
+  /{user-id}/sessions:
+    get:
+      tags:
+      - admin
+      summary: Get active sessions
+      description: "Retrieves information related to the active sessions of a user
+        identified by the `user-id`. \n\n
+      <b>Scope required:</b> ``internal_session_view``"
+      operationId: getSessionsByUserId
+      parameters:
+      - name: user-id
+        in: path
+        description: ID of the user.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successfully retrieved session information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sessions'
+        400:
+          description: Invalid input request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        404:
+          description: Resource Not Found
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/{user-id}/sessions' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
+    delete:
+      tags:
+      - admin
+      summary: Terminate all sessions
+      description: "Delete all the sessions of a user identified by the `user-id`.\n\n
+        <b>Scope required:</b> ``internal_session_delete``"
+      operationId: terminateSessionsByUserId
+      parameters:
+      - name: user-id
+        in: path
+        description: ID of the user.
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: No Content
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/{user-id}/sessions' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
+  /{user-id}/sessions/{session-id}:
+    delete:
+      tags:
+      - admin
+      summary: Terminate a session
+      description: "Terminate a specific session of a user identified by the `session-id`.\n\n
+      <b>Scope required:</b> ``internal_session_delete`` "
+      operationId: terminateSessionBySessionId
+      parameters:
+      - name: user-id
+        in: path
+        description: ID of the user.
+        required: true
+        schema:
+          type: string
+      - name: session-id
+        in: path
+        description: ID of the session.
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: No Content
+          content: {}
+        400:
+          description: Invalid input request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        500:
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/{user-id}/sessions/{session-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
+components:
+  schemas:
+    Application:
+      required:
+      - appId
+      - appName
+      - id
+      - subject
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID of the application.
+          example: 298c5fd8-01ac-4ada-bc10-1ce37f32140b
+        subject:
+          type: string
+          description: Username of the logged in user for the application.
+          example: apiuser01
+        appName:
+          type: string
+          description: Name of the application.
+          example: sampleApp
+        appId:
+          type: string
+          description: ID of the application.
+          example: "012"
+    Session:
+      type: object
+      properties:
+        applications:
+          type: array
+          description: List of applications in the session.
+          items:
+            $ref: '#/components/schemas/Application'
+        userAgent:
+          type: string
+          description: User agent of the session.
+          example: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101
+            Firefox/15.0.1
+        ip:
+          type: string
+          description: IP address of the session.
+          example: 172.95.192.63
+        loginTime:
+          type: string
+          description: Login time of the session.
+          example: "1560412617"
+        lastAccessTime:
+          type: string
+          description: Last access time of the session.
+          example: "1560416196"
+        id:
+          type: string
+          description: ID of the session.
+          example: 8d9806d1-4efc-483e-a96a-a0fa77d4328b
+    Sessions:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: "00000001"
+        sessions:
+          type: array
+          description: List of active sessions.
+          items:
+            $ref: '#/components/schemas/Session'
+    Error:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+  responses:
+    Forbidden:
+      description: Resource Forbidden
+      content: {}
+    InvalidInput:
+      description: Invalid input request
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NoContent:
+      description: No Content
+      content: {}
+    NotFound:
+      description: Resource Not Found
+      content: {}
+    NotImplemented:
+      description: Not Implemented
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    OK:
+      description: OK
+      content: {}
+    ServerError:
+      description: Internal Server Error
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+      content: {}
+  parameters:
+    limitQueryParam:
+      name: limit
+      in: query
+      description: |
+        Maximum number of records to return.
+        _This parameter is not supported yet._
+      schema:
+        type: integer
+        format: int32
+    offsetQueryParam:
+      name: offset
+      in: query
+      description: |
+        Number of records to skip for pagination.
+        _This parameter is not supported yet._
+      schema:
+        type: integer
+        format: int32
+    filterQueryParam:
+      name: filter
+      in: query
+      description: |
+        Condition to filter the retrival of records.
+        _This parameter is not supported yet._
+      schema:
+        type: string
+    sortQueryParam:
+      name: sort
+      in: query
+      description: |
+        Define the order in which the retrieved records should be sorted.
+        _This parameter is not supported yet._
+      schema:
+        type: string
+    userIdPathParam:
+      name: user-id
+      in: path
+      description: ID of the user.
+      required: true
+      schema:
+        type: string
+    sessionIdPathParam:
+      name: session-id
+      in: path
+      description: ID of the session.
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.asgardeo.io/t/{org-name}/oauth2/token
+          scopes:
+            internal_login: Grant permission for an authenticated user for self session management.
+            internal_session_view: Grant permissions to list seeion info.
+            internal_session_delete: Grant permissions to delete sessions.

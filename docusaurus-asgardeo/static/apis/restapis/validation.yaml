@@ -1,0 +1,443 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: Asgardeo - Validation API
+  description: 
+    "This is the RESTful API for managing input validation configuration for an organization in WSO2 Asgardeo. 
+    This API allows retrieving and updating the input validation configurations."
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
+security:
+  - OAuth2: []
+paths:
+  /validation-rules:
+    get:
+      tags:
+        - Validation Rules
+      description: Get validation rules for user inputs (e.g., password).
+      operationId: Get Validation Rules
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
+    put:
+      tags:
+        - Validation Rules
+      description: |
+        Update validation rules for user inputs.
+        
+        <b>Scopes required:</b> `internal_config_mgt_update`
+      operationId: Update Validation Rules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationConfiguration'
+            examples:
+              Rules:
+                value:
+                  - field: password/username
+                    rules:
+                      - validator: LengthValidator
+                        properties:
+                          - key: min.length
+                            value: 5
+                          - key: max.length
+                            value: 15
+              Regex:
+                value:
+                  - field: password/username
+                    regEx:
+                      - validator: JavaRegExValidator
+                        properties:
+                          - key: java.regex
+                            value: (?=.*[A-Z])
+        description: Represents the validation criteria.
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "field": "password/username",
+              "rules": [
+                {
+                  "validator": "LengthValidator",
+                  "properties": [
+                    {
+                      "key": "min.length",
+                      "value": 5
+                    },
+                    {
+                      "key": "max.length",
+                      "value": 15
+                    }
+                  ]
+                }
+              ]
+            }
+            ]'         
+  /validation-rules/{field}:
+    get:
+      tags:
+        - Validation Rules for a specific field
+      description: Get validation rules for a particular field of user inputs (e.g., password).
+      operationId: Get Validation Rules for a field
+      parameters:
+        - name: field
+          in: path
+          description: name of the field
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessForField'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules/{field-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
+    put:
+      tags:
+        - Validation Rules for a specific field
+      description: |
+        Update validation rules of a particular field of user inputs.
+        
+        <b>Scopes required:</b> `internal_config_mgt_update`
+      operationId: Update validation rules for a user inputs field
+      parameters:
+        - name: field
+          in: path
+          description: name of the field
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationConfigModelForField'
+            example:
+              rules:
+                - validator: LengthValidator
+                  properties:
+                    - key: min.length
+                      value: 5
+                    - key: max.length
+                      value: 15
+        description: Represents the validation criteria.
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessForField'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules/field-name' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "rules": [
+              {
+                "validator": "LengthValidator",
+                "properties": [
+                  {
+                    "key": "min.length",
+                    "value": 5
+                  },
+                  {
+                    "key": "max.length",
+                    "value": 15
+                  }
+                ]
+              }
+            ]
+            }'         
+  /validation-rules/validators:
+    get:
+      tags:
+        - Validators
+      description: Retrieve all available validators that can be configured.
+      operationId: Get available Validators
+      responses:
+        '200':
+          description: Configurations successfully updated.
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ValidatorModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/server/v1/validation-rules/validators' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'          
+components:
+  schemas:
+    ValidatorModel:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - RULE
+            - REGEX
+        name:
+          type: string
+          example: LengthValidator
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyModel'
+    PropertyModel:
+      type: object
+      properties:
+        name:
+          type: string
+          example: min.length
+          description: Name of the validator property.
+        description:
+          type: string
+          example: Minimum length required
+          description: Description for the validator property.
+        displayName:
+          type: string
+          example: Minimum limit
+          description: Display name for the validator property.
+        type:
+          type: string
+          example: int
+          description: Type of the validator property value.
+        displayOrder:
+          type: integer
+          example: 1
+          description: Display the order of the validator property.
+    ValidationConfiguration:
+      type: array
+      items:
+        $ref: '#/components/schemas/ValidationConfigModel'
+    ValidationConfigModel:
+      type: object
+      required:
+        - field
+      properties:
+        field:
+          type: string
+          example: password
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleModel'
+        regEx:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleModel'
+    ValidationConfigModelForField:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleModel'
+        regEx:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleModel'
+    RuleModel:
+      type: object
+      required:
+        - validator
+        - properties
+      properties:
+        validator:
+          type: string
+          example: lengthValidator
+          description: Name of the validator.
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/MappingModel'
+    MappingModel:
+      type: object
+      required:
+        - key
+        - value
+      properties:
+        key:
+          type: string
+          description: Name of the validator property.
+        value:
+          type: string
+          description: Value of the validator property.
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: VR-60001
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+    NotFoundError:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: IVM-60002
+        message:
+          type: string
+          example: Field is not found.
+        description:
+          type: string
+          example: Invalid or unsupported field is provided.
+  responses:
+    Unauthorized:
+      description: Unauthorized
+    Forbidden:
+      description: Resource Forbidden
+    ServerError:
+      description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid Input Request
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Invalid or unsupported field is provided.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    Success:
+      description: Configurations successfully updated.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/ValidationConfiguration'
+          examples:
+            Rules:
+              value:
+                - field: password/username
+                  rules:
+                    - validator: LengthValidator
+                      properties:
+                        - key: min.length
+                          value: 5
+                        - key: max.length
+                          value: 15
+            Regex:
+              value:
+                - field: password/username
+                  regEx:
+                    - validator: JavaRegExValidator
+                      properties:
+                        - key: java.regex
+                          value: (?=.*[A-Z])
+    SuccessForField:
+      description: Successfully updated configurations for the field.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/ValidationConfigModel'
+          example:
+            field: password/username
+            rules:
+              - validator: LengthValidator
+                properties:
+                  - key: min.length
+                    value: 5
+                  - key: max.length
+                    value: 15
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
+          scopes:
+            internal_config_mgt_update: Grants permission to update validation configurations
+            

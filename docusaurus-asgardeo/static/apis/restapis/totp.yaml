@@ -1,0 +1,226 @@
+openapi: 3.0.0
+
+info:
+  description: |
+    This is the RESTful API for a user to manage TOTP QR URLs/secrets in Asgardeo.
+  version: "v1"
+  title: "Asgardeo - TOTP API Definition"
+servers:
+- url: https://api.asgardeo.io/t/{organization-name}/api/users/v1
+
+security:
+  - OAuth2: []
+
+tags:
+- name: me
+  description: Operations for the authenticated user.
+  
+paths:
+  /me/totp:
+    post:
+      description:
+        "This API is used to perform following actions.\n\n 
+        <li><b>INIT</b>- Generate the TOTP QR code URL for the authenticated user.</li> \n 
+        <li><b>REFRESH</b> - Refresh the TOTP secret key of the authenticated user.</li> \n 
+        <li><b>VALIDATE</b> - Validate the user entered verification code.</li> \n\n <b>Scope required:</b> ``internal_login``"
+      summary: |
+        Generate, refresh and validate the QR
+      parameters:
+        - name: request
+          in: path
+          description:  Actions supported by the API. Actions can be INIT, VALIDATE or REFRESH
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRequest'
+      responses:
+        200:
+          description: TOTP secret successfully refreshed
+        201:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOTPResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/totp' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \  
+            -d '{
+              "action": "INIT, REFRESH, VALIDATE",
+              "verificationCode": 0
+            }'
+                        
+      tags:
+        - me
+    get:
+      tags:
+        - me
+      summary: Retrieve the QR Code URL
+      description:
+        "This API is used to retrieve the QR code URL of the authenticated user.\n\n <b>Scope required:</b>``internal_login``"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOTPResponse'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/totp' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
+    delete:
+      tags:
+        - me
+      summary: Reset TOTP credentials
+      description:
+        "This API is used to delete the TOTP credentials of the authenticated user.\n\n <b>Scope required:</b>``internal_login``"
+      responses:
+        200:
+          description: Credentials deleted successfully
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/totp' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer_token}'                
+  /me/totp/secret:
+    get:
+      tags:
+        - me
+      summary: Retrieve the TOTP secret
+      description:
+        "This API is used to retrieve the TOTP secret of the authenticated user.\n\n <b>Scope required:</b>``internal_login``"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOTPSecretResponse'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/api/users/v1/me/totp/secret' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: "some_error_code"
+        message:
+          type: string
+          example: "Some Error Message"
+        description:
+          type: string
+          example: "Some Error Description"
+        traceId:
+          type: string
+          example: "Some Correlation for Error Instance"
+
+    UserRequest:
+      type: object
+      required: [action]
+      properties:
+        action:
+          type: string
+          example: INIT, REFRESH, VALIDATE
+          enum: [INIT, REFRESH, VALIDATE]
+        verificationCode:
+          type: integer
+          example: Verification code that need to be verified by the server
+
+    TOTPResponse:
+      type: object
+      properties:
+        qrCodeUrl:
+          type: string
+          description: QR Code URL for the authenticated user
+        isValid:
+          type: boolean
+          description: Secret key of the authenticated user
+
+    TOTPSecretResponse:
+      type: object
+      properties:
+        secret:
+          type: string
+          description: Refreshed TOTP secret key of the authenticated user
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "You can use the following OAuth grant type to securely access the respective API endpoints.
+      \n\n **Authorization Code OAuth Flow**
+      \n\n Authorization URL: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
+      \n\n This flow type is used for the ```me``` endpoint of TOTP APIs. You can use the following scope for this endpoints.
+        \n\n - ```internal_login```: Grant permission for an authenticated user for self management."

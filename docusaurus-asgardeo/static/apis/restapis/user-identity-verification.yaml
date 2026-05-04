@@ -1,0 +1,299 @@
+openapi: 3.0.3
+info:
+  title: Identity Verification API
+  description: |-
+    This is the RESTful API for users to manage their identity verification information stored in Asgardeo.
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/users/v1'
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /me/idv/verify:
+    post:
+      tags:
+        - Me - Identity Verification
+      summary: Verify an Identity
+      description: >
+        This API provides the capability to verify a user with the configured verification required attributes.<br>
+        <b>Scope(Permission) required:</b> `internal_login`
+      operationId: meVerifyIdentity
+      requestBody:
+        description: Verify an identity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verifyRequest'
+        required: true
+      responses:
+        '201':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationPostResponse'
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationPostResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /me/idv/claims:
+    get:
+      tags:
+        - Me - Identity Verification
+      summary: Get the identity verification claims of a user
+      description: >
+        This API provides the capability to retrieve the verification details of a user.
+        <br><b>Scope(Permission) required:</b> `internal_login`
+      operationId: meGetIdVClaims
+      parameters:
+        - $ref: '#/components/parameters/idVPQueryParam'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimResponse'
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /me/idv/claims/{claim-id}:
+    get:
+      tags:
+        - Me - Identity Verification
+      summary: Get identity verification claim
+      description: >
+        This API provides the capability to retrieve a identity verification claim of a user.
+        <br><b>Scope(Permission) required:</b> `internal_login`
+      operationId: meGetIdVClaim
+      parameters:
+        - name: claim-id
+          in: path
+          description: Claim that needs to retrieve verification metadata
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/verificationClaimResponse'
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  parameters:
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
+        type: integer
+        format: int32
+    offsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: |
+        Number of records to skip for pagination.
+      schema:
+        type: integer
+        format: int32
+    idVPQueryParam:
+      in: query
+      name: idVProviderId
+      required: false
+      description: |
+        Id of the identity verification provider.
+      schema:
+        type: string
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-****-****-8dd0-7b7d38e13047
+    verificationPostResponse:
+      type: object
+      properties:
+        idVProviderId:
+          type: string
+          example: "d75b8685-****-****-a555-80a3eecb5af2"
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/verificationClaimResponse'
+    verificationClaimResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: aHR0cDovL3******************cy91c2VybmFtZQ
+          readOnly: true
+        uri:
+          type: string
+          example: 'http://wso2.org/claims/dob'
+        isVerified:
+          type: boolean
+          example: true
+        idVProviderId:
+          type: string
+          example: '2159375-****-****-a456-5566424414527'
+        claimMetadata:
+          $ref: '#/components/schemas/claimMetadata'
+    verificationClaimRequest:
+      type: object
+      properties:
+        uri:
+          type: string
+          example: 'http://wso2.org/claims/dob'
+        isVerified:
+          type: boolean
+          example: true
+        idVProviderId:
+          type: string
+          example: '2159375-****-****-a456-5566424414527'
+        claimMetadata:
+          $ref: '#/components/schemas/claimMetadata'
+    verificationClaimUpdateRequest:
+      type: object
+      properties:
+        isVerified:
+          type: boolean
+          example: true
+        claimMetadata:
+          $ref: '#/components/schemas/claimMetadata'
+      required:
+        - isVerified
+        - claimMetadata
+    claimMetadata:
+      type: object
+      additionalProperties: true
+      example: '{"source": "Provider", "trackingId": "123e4567-****-****-a456-556642440000" }'
+    verificationClaimPostRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/verificationClaimRequest'
+    verificationClaimPostResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/verificationClaimResponse'
+    verifyRequest:
+      type: object
+      properties:
+        idVProviderId:
+          type: string
+          example: "d75b8685-383a-4320-a555-80a3eecb5af2"
+        claims:
+          type: array
+          items:
+            type: string
+          example:
+            - http://wso2.org/claims/dob
+            - http://wso2.org/claims/country
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProviderProperty'
+      required:
+        - identityVerificationProvider
+        - properties
+    ProviderProperty:
+      type: object
+      properties:
+        key:
+          type: string
+          example: status
+        value:
+          type: string
+          example: "INITIATED"
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}

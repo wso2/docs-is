@@ -1,0 +1,125 @@
+openapi: 3.0.0
+
+info:
+  description: |
+    This is the RESTful API for users to export their profile information stored in Asgardeo.
+  version: "v1"
+  title: "Asgardeo - Export user profile information API"
+servers:
+- url: https://api.asgardeo.io/t/{organization-name}/api/identity/user/v1.0
+
+security:
+  - OAuth2: []
+
+tags:
+- name: me
+  description: Operations for the authenticated user.
+  
+paths:
+  /me:
+    get:
+      tags:
+        - me
+      summary: Export user profile
+      description:
+        "This API is used to export the user's information as a `.json` file.\n\n <b>Scope required:</b>``internal_login``"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/api/identity/user/v1.0/me' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: "some_error_code"
+        message:
+          type: string
+          example: "Some Error Message"
+        description:
+          type: string
+          example: "Some Error Description"
+        traceId:
+          type: string
+          example: "Some Correlation for Error Instance"
+
+    UserProfile:
+      type: object
+      properties:
+        user_profile:
+          type: object
+          properties:
+            emailVerified:
+              type: boolean
+              description: Specify if the user's email address is verified.
+              example: "true"
+            backupCodeEnabled:
+              type: boolean
+              description: Specifies if the user has enabled backup codes for login.
+              example: "false"
+            givenname:
+              type: string
+              description: User's first name.
+              example: "John"
+            created:
+              type: string
+              description: The date and time the user profile was created.
+              example: "2022-08-24T13:14:53.699037Z"
+            modified:
+              type: string
+              description: Last modified date and time of the user profile.
+              example: "2023-05-03T09:45:46.064920Z"
+            emailaddress:
+              type: string
+              description: User's email address.
+              example: "johnd@bifrost.com"
+            userid:
+              type: string
+              description: Unique identifier of the user.
+              example: "ba21bad4-****-****-****-0a993c753721"
+            totpEnabled:
+              type: boolean
+              description: Specifies if the user has enabled TOTP for login.
+              example: "true"
+            username:
+              type: string
+              description: Username of the user. If a username is not configured, it will be the user's email address.
+              example: "johnd@bifrost.com"
+            lastname:
+              type: string
+              description: The last name of the user.
+              example: "Doe"
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "You can use the following OAuth grant type to securely access the respective API endpoints.
+      \n\n **Authorization Code OAuth Flow**
+      \n\n Authorization URL: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
+      \n\n This flow type is used for the ```me``` endpoint of TOTP APIs. You can use the following scope for this endpoint.
+        \n\n - ```internal_login```: Grant permission for an authenticated user for self-management."

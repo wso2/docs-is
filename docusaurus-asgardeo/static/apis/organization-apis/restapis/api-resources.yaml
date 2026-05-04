@@ -1,0 +1,779 @@
+openapi: 3.0.0
+info:
+  description: >
+    This document explains the RESTful API for API Resource Management in Asgardeo.
+  version: "v1"
+  title: Asgardeo - API Resource Management Rest API
+
+security:
+  - OAuth2: []
+
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1'
+
+paths:
+  /api-resources:
+    get:
+      tags:
+        - API Resources
+      summary: List all API resources in the server
+      description: |
+        List all API resources in the server
+
+        <b>Scope(Permission) required:</b> `internal_org_api_resource_view`
+      operationId: getAPIResources
+      parameters:
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/attributes'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResourceListResponse'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/api-resources' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+  /api-resources/{apiResourceId}:
+    get:
+      tags:
+        - API Resources
+      summary: Get API resource specified by the id
+      description: |
+        Get API resource specified by the id
+        
+        <b>Scope(Permission) required:</b> `internal_org_api_resource_view`
+      parameters:
+        - $ref: '#/components/parameters/apiResourceId'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResourceResponse'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/api-resources/{apiResourceId}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+  /api-resources/{apiResourceId}/scopes:
+    get:
+      tags:
+        - API Resource Scopes
+      summary: Get API resource scopes
+      description: |
+        Get API resource scopes specified by the id
+
+        <b>Scope(Permission) required:</b> `internal_org_api_resource_view`
+      parameters:
+        - $ref: '#/components/parameters/apiResourceId'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScopeGetModel'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/api-resources/{apiResourceId}/scopes' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+  /scopes:
+    get:
+      tags:
+        - API Resource Scopes
+      summary: Get all scopes in the tenant
+      description: |
+        Get all scopes in the tenant
+
+        <b>Scope(Permission) required:</b> `internal_org_api_resource_view`
+      parameters:
+        - $ref: '#/components/parameters/scopeFilter'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScopeGetModel'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1/scopes' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+components:
+  parameters:
+    organizationId:
+      in: path
+      name: organizationId
+      description: uuid of the org.
+      required: true
+      schema:
+        type: string
+        example: "1234-4567-4567"
+
+    apiResourceId:
+      name: apiResourceId
+      in: path
+      description: ID of the API Resource.
+      required: true
+      schema:
+        type: string
+        example: er34-gf23-bv54-vb90
+
+    collectionId:
+      name: collectionId
+      in: path
+      description: ID of the API Resource Collection.
+      required: true
+      schema:
+        type: string
+        example: er34-gf23-bv54-vb90
+
+    scopeName:
+      name: scopeName
+      in: path
+      description: Name of the Scope.
+      required: true
+      schema:
+        type: string
+
+    applicationId:
+      name: applicationId
+      in: path
+      description: ID of the Application.
+      required: true
+      schema:
+        type: string
+
+    authorizationId:
+      name: authorizationId
+      in: path
+      description: ID of the authorization.
+      required: true
+      schema:
+        type: string
+
+    before:
+      name: before
+      in: query
+      required: false
+      description: |
+        Base64 encoded cursor value for backward pagination.
+      schema:
+        type: string
+      example: Ng==
+
+    after:
+      name: after
+      in: query
+      required: false
+      description: |
+        Base64 encoded cursor value for forward pagination.
+      schema:
+        type: string
+      example: Ng==
+
+    filter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew' and 'eq' operations.
+      schema:
+        type: string
+      example: identifier+eq+greetings
+
+    scopeFilter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Condition to filter the retrieval of scopes by name. Supports 'sw', 'co', 'ew' and 'eq' operations.
+      schema:
+        type: string
+      example: name+co+greetings
+
+    collectionFilter:
+      name: filter
+      in: query
+      required: false
+      description: |
+        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew' and 'eq' operations.
+      schema:
+        type: string
+      example: type+eq+tenant
+
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
+        type: integer
+      example: 10
+
+    attributes:
+      name: attributes
+      in: query
+      required: false
+      description: Specifies the required attributes in the response. Only 'properties' attribute is currently supported.
+      schema:
+        type: string
+
+    collectionAttributes:
+      name: attributes
+      in: query
+      required: false
+      description: Specifies the required attributes in the response. Only 'apiResources' attribute is currently supported.
+      schema:
+        type: string
+
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+
+    APIResourceListItem:
+      type: object
+      required:
+        - id
+        - name
+        - identifier
+        - self
+      properties:
+        id:
+          type: string
+          example: gh43-jk34-vb34-df67
+        name:
+          type: string
+          example: Greetings API
+        identifier:
+          type: string
+          example: greetings_api
+        type:
+          type: string
+          example: SYSTEM
+        requiresAuthorization:
+          type: boolean
+          example: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+        self:
+          type: string
+          example: /o/api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+
+    APIResourceResponse:
+      type: object
+      required:
+        - id
+        - name
+        - identifier
+        - self
+      properties:
+        id:
+          type: string
+          example: gh43-jk34-vb34-df67
+        name:
+          type: string
+          example: Greetings API
+        description:
+          type: string
+          example: Greeting API representation
+        identifier:
+          type: string
+          example: greetings_api
+        type:
+          type: string
+          example: BUSINESS
+        requiresAuthorization:
+          type: boolean
+          example: true
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeGetModel'
+        subscribedApplications:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscribedApplicationGetModel'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+        self:
+          type: string
+          example: /o/api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+
+    APIResourceCreationModel:
+      type: object
+      required:
+        - identifier
+        - name
+      properties:
+        name:
+          type: string
+          example: Greetings API
+        identifier:
+          type: string
+          example: greetings_api
+        description:
+          type: string
+          example: Greetings API representation
+        requiresAuthorization:
+          type: boolean
+          example: true
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeCreationModel'
+
+    APIResourcePatchModel:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Greetings API
+        description:
+          type: string
+          example: Greetings API representation
+        addedScopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeCreationModel'
+        removedScopes:
+          type: array
+          items:
+            type: string
+          description: This field is not supported yet.
+      example:
+        {
+          "name": "Greetings API",
+          "description": "Greetings API representation",
+          "addedScopes": [
+            {
+              "name": "greetings:read",
+              "displayName": "Read Greetings",
+              "description": "Allows to read greetings"
+            }
+          ]
+        }
+    PaginationLink:
+      type: object
+      properties:
+        rel:
+          type: string
+          example: before
+        href:
+          type: string
+          example: /o/api/server/v1/api-resources?after=NDoy
+
+    APIResourceListResponse:
+      type: object
+      required:
+        - links
+      properties:
+        totalResults:
+          type: integer
+          example: 1
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaginationLink'
+        APIResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResourceListItem'
+
+    APIResourceMap:
+      type: object
+      properties:
+        read:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResourceCollectionItem'
+        write:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResourceCollectionItem'
+
+    APIResourceCollectionListItem:
+      type: object
+      required:
+        - id
+        - name
+        - displayName
+        - self
+      properties:
+        id:
+          type: string
+          example: gh43-jk34-vb34-df67
+        name:
+          type: string
+          example: bulkUserImport
+        displayName:
+          type: string
+          example: Bulk User Import
+        type:
+          type: string
+          example: TENANT
+        apiResources:
+          $ref: '#/components/schemas/APIResourceMap'
+        self:
+          type: string
+          example: /o/api/server/v1/api-resource-collections/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+
+    APIResourceCollectionListResponse:
+      type: object
+      required:
+        - links
+      properties:
+        totalResults:
+          type: integer
+          example: 1
+        apiResourceCollections:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResourceCollectionListItem'
+      example:
+        {
+          "totalResults": 2,
+          "apiResourceCollections": [
+            {
+              "id": "YXBwbGljYXRpb25z",
+              "name": "applications",
+              "displayName": "Applications",
+              "type": "tenant",
+              "self": "/o/api/server/v1/api-resource-collections/YXBwbGljYXRpb25z"
+            },
+            {
+              "id": "b3JnX2VtYWlsVGVtcGxhdGVz",
+              "name": "org_emailTemplates",
+              "displayName": "Email Templates",
+              "type": "organization",
+              "self": "/o/api/server/v1/api-resource-collections/b3JnX2VtYWlsVGVtcGxhdGVz"
+            }
+          ]
+        }
+    APIResourceCollectionItem:
+      type: object
+      required:
+        - id
+        - name
+        - displayName
+        - self
+      properties:
+        id:
+          type: string
+          example: gh43-jk34-vb34-df67
+        name:
+          type: string
+          example: Greetings API
+        description:
+          type: string
+          example: Greeting API representation
+        identifier:
+          type: string
+          example: greetings_api
+        type:
+          type: string
+          example: BUSINESS
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeGetModel'
+        self:
+          type: string
+          example: /o/api/server/v1/api-resources/eDUwOUNlcnRpZmljYXRlQXV0aGVudGljYXRvcg
+
+    APIResourceCollectionResponse:
+      type: object
+      required:
+        - id
+        - name
+        - displayName
+      properties:
+        id:
+          type: string
+          example: gh43-jk34-vb34-df67
+        name:
+          type: string
+          example: bulkUserImport
+        displayName:
+          type: string
+          example: Bulk User Import
+        type:
+          type: string
+          example: TENANT
+        apiResources:
+          $ref: '#/components/schemas/APIResourceMap'
+      example:
+        {
+          "id": "YXBwbGljYXRpb25z",
+          "name": "applications",
+          "displayName": "Applications",
+          "type": "tenant",
+          "apiResources": {
+            "read": [
+              {
+                "id": "dea5bc01-f8e2-4a29-bc39-acdcb6c73e0e",
+                "name": "Userstore Management API",
+                "scopes": [
+                  {
+                    "displayName": "View Userstore",
+                    "name": "internal_userstore_view"
+                  }
+                ],
+                "self": "/v1/api-resources/dea5bc01-f8e2-4a29-bc39-acdcb6c73e0e"
+              },
+              {
+                "id": "ec4882d7-9628-413b-9704-1b06fc8c5888",
+                "name": "Identity Provider Management API",
+                "scopes": [
+                  {
+                    "displayName": "View Identity Provider",
+                    "name": "internal_idp_view"
+                  }
+                ],
+                "self": "/v1/api-resources/ec4882d7-9628-413b-9704-1b06fc8c5888"
+              }
+            ]
+          }
+        }
+    ScopeGetModel:
+      type: object
+      required:
+        - id
+        - displayName
+        - name
+      properties:
+        id:
+          type: string
+          example: sf23-fg34-fy53-hj23
+        displayName:
+          type: string
+          example: Write
+        name:
+          type: string
+          example: greetings:write
+        description:
+          type: string
+          example: Allow writing greetings
+
+    ScopeCreationModel:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: 'greetings:write'
+        displayName:
+          type: string
+          example: "Write Greetings"
+        description:
+          type: string
+          example: "Allows writing greetings"
+
+    ScopePatchModel:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: "Write Greetings"
+        description:
+          type: string
+          example: "Allows writing greetings"
+
+    SubscribedApplicationGetModel:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Application1
+        id:
+          type: string
+          example: 23fd-23gd-54vv-sdhf
+
+    Property:
+      type: object
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          example: "label"
+        value:
+          type: string
+          example: "Internal"
+
+  responses:
+    BadRequest:
+      description: Bad Request. Invalid request or validation error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: Bad Request
+            description: Invalid request or validation error
+
+    Conflict:
+      description: Conflict. Specified resource already exists.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 409
+            message: Conflict
+            description: Specified resource already exists
+            moreInfo: ''
+            error: []
+    Forbidden:
+      description: >-
+        Forbidden. The request must be conditional but no condition has been
+        specified.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 403
+            message: Forbidden
+            description: >-
+              The request must be conditional but no condition has been
+              specified
+    InternalServerError:
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 500
+            message: Internal Server Error
+            description: >-
+              The server encountered an internal error. Please contact
+              administrator.
+            moreInfo: ''
+            error: []
+    NotFound:
+      description: Not Found. The specified resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not Found
+            description: The specified resource does not exist
+            moreInfo: ''
+            error: []
+
+    Unauthorized:
+      description: Unauthorized. The user is not authorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 401
+            message: Unauthorized
+            description: The user is not authorized
+            moreInfo: ''
+            error: []
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'http://localhost:9443/oauth2/token'
+          scopes: {}

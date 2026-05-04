@@ -1,0 +1,125 @@
+openapi: 3.0.1
+info:
+  title: SCIM 2.0 Resource Types Retrieval API
+  description: |
+    This document specifies **SCIM 2.0 Resource types RESTful API** for **Asgardeo**. 
+  version: "v1"
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'
+tags:
+  - name: Resource Types Endpoint
+    description: This API lists and returns metadata about resource types.
+paths:
+  /ResourceTypes:
+    get:
+      tags:
+      - Resource Types Endpoint
+      summary: Get Resource Types
+      description: "This API lists and returns metadata about resource types.\n\n
+              <b>No Scope(Permission) required.</b>"
+      operationId: getResourceType
+      responses:
+        200:
+          description: Schema is found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ResourceTypeResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        404:
+          description: Schema not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchemaNotFound'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/ResourceTypes' \
+            -H 'accept: application/scim+json' \
+            -H 'Authorization: Bearer {bearer_token}'
+components:
+  schemas:
+    ResourceTypeResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            example: urn:ietf:params:scim:schemas:core:2.0:ResourceType
+        resourceType:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserObResourceType'
+    UserObResourceType:
+      type: object
+      properties:
+        schema:
+          type: string
+          example: urn:ietf:params:scim:schemas:core:2.0:User
+        endpoint:
+          type: string
+          example: /Users
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              example: https://api.asgardeo.io/t/{org-name}/scim2/ResourceType/User
+            resourceType:
+              type: string
+              example: ResourceType
+        name:
+          type: string
+          example: User
+        description:
+          type: string
+          example: User Account
+        schemaExtensions:
+          type: object
+          properties:
+            schema:
+              type: string
+              example: urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+            required:
+              type: boolean
+              example: false
+        id:
+          type: string
+          example: User
+    ErrorUnauthorized:
+      required:
+      - status
+      type: object
+      properties:
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: "Authorization failure. Authorization information was invalid or missing from your request."
+        status:
+          type: string
+          example: "401"
+    ErrorSchemaNotFound:
+      required:
+      - detail
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "404"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: Schema not found.

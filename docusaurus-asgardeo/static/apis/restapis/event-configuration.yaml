@@ -1,0 +1,349 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: Asgardeo - Event Configuration Management API
+  description: "This document specifies a RESTful API for managing event publisher configurations in Asgardeo."
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/event-configurations/v1'
+security:
+  - OAuth2: []
+paths:
+  '/events':
+    get:
+      tags:
+        - Events Configurations
+      summary: Retrieve all events.
+      description: |
+        This API provides capability to retrieve all events of the Asgardeo event publisher. <br/>
+        
+        <b>Permissions required:</b> <br/>
+          * /permission/admin/manage/identity/eventconfig/view
+        
+        <b>Scopes required:</b> <br/>
+          * internal_event_config_view
+      operationId: getEvents
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EventsList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/api/event-configurations/v1/events' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'                      
+    put:
+      tags:
+        - Events Configurations
+      summary: Update multiple events.
+      description: |
+        This API provides the capability to enable/ disable multiple events for the Asgardeo event publisher. <br/>
+        You need to send the complete list of events in order for it to be accepted as a valid request. <br/>
+        
+        <b>Permissions required:</b> <br/>
+          * /permission/admin/manage/identity/eventconfig/update
+        
+        <b>Scopes required:</b> <br/>
+          * internal_event_config_update
+      operationId: replaceEvents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventsList'
+        description: |
+          Represents the request to configure event publishing for multiple events. You can pass an array of Event objects.
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EventsList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/api/event-configurations/v1/events' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '[
+            {
+              "eventName": "registrations.addUser",
+              "eventSchema": "urn:ietf:params:registrations:addUser",
+              "displayName": "Add user event",
+              "category": "Registration events",
+              "publish": true
+            }
+            ]'                      
+  /events/{eventName}:
+    get:
+      tags:
+        - Event Configurations
+      summary: Retrieve event publishing configuration by event name.
+      description: |
+        This API provides the capability to retrieve Asgardeo event publisher configuration by event name. <br/>
+        
+        <b>Permissions required:</b> <br/>
+          * /permission/admin/manage/identity/eventconfig/view
+        
+        <b>Scopes required:</b> <br/>
+          * internal_event_config_view
+      operationId: getEventConfig
+      parameters:
+        - name: eventName
+          in: path
+          description: Name of the event
+          example: "registrations.addUser"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EventConfigurationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/api/event-configurations/v1/events/{event-name}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+    put:
+      tags:
+        - Event Configurations
+      summary: Configure event publishing configuration by event name.
+      description: |
+        This API provides the capability to configure Asgardeo event publisher configuration by event name. <br/>
+        
+        <b>Permissions required:</b> <br/>
+          * /permission/admin/manage/identity/eventconfig/update
+        
+        <b>Scopes required:</b> <br/>
+          * internal_event_config_update
+      operationId: replaceEventConfig
+      parameters:
+        - name: eventName
+          in: path
+          description: Name of the event
+          example: "registrations.addUser"
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventConfigurationObject'
+        description: |
+          Represents the request to configure event publishing of the event. You can configure event properties by passing an array of key/ value pair objects.
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/EventConfigurationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://api.asgardeo.io/t/%7Borganization-name%7D/api/event-configurations/v1/events/{event-name}' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+            "publish": true,
+            "properties": [
+              {
+                "key": "attribute1",
+                "value": "value1"
+              }
+            ]
+            }'                      
+components:
+  schemas:
+    Event:
+      type: object
+      required:
+        - eventName
+        - publish
+        - eventSchema
+      properties:
+        eventName:
+          type: string
+          example: "registrations.addUser"
+        eventSchema:
+          type: string
+          example: "urn:ietf:params:registrations:addUser"
+        displayName:
+          type: string
+          example: "Add user event"
+        category:
+          type: string
+          example: "Registration events"
+        publish:
+          type: boolean
+          example: true
+    EventsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Event'
+    EventProperty:
+      type: object
+      required:
+        - key
+        - value
+      properties:
+        key:
+          type: string
+          example: "attribute1"
+        value:
+          type: object
+          example: "value1"
+    EventConfigurationObject:
+      type: object
+      required:
+        - publish
+        - properties
+      properties:
+        publish:
+          type: boolean
+          example: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventProperty'
+    EventConfigurationResponse:
+      type: object
+      required:
+        - eventSchema
+        - category
+        - displayName
+        - publish
+        - properties
+      properties:
+        eventSchema:
+          type: string
+          example: "urn:ietf:params:registrations:addUser"
+        category:
+          type: string
+          example: "Registration events"
+        displayName:
+          type: string
+          example: "Add user event"
+        publish:
+          type: boolean
+          example: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventProperty'
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: ASG-ECM-10001
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: "e0fbcfeb-3617-43c4-8dd0-7b7d38e13047"
+  responses:
+    BadRequest:
+      description: Invalid input request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Resource forbidden.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+            tokenUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/token
+            scopes:
+              internal_event_config_view: Grant permissions to view event configurations.
+              internal_event_config_update: Grant permissions to update event configurations.

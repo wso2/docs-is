@@ -1,0 +1,106 @@
+openapi: 3.0.1
+info:
+  title: Asgardeo - SCIM 2.0 Service Provider Configs API
+  description: |
+    This document specifies **SCIM 2.0 Service provider configuration RESTful API** for **Asgardeo**.
+  version: "v1"
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'
+paths:
+  /ServiceProviderConfig:
+    get:
+      tags:
+      - Service Provider Config Endpoint
+      summary: Get Service Provider Config
+      description: "This API returns the service provider's configuration details.\n\n
+              <b>No Scope(Permission) required.</b>"
+      operationId: getServiceProviderConfig
+      responses:
+        200:
+          description: Schema is found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPConfigResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+        404:
+          description: Schema not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorSchemaNotFound'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://api.asgardeo.io/t/{organization-name}/scim2/ServiceProviderConfig' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer_token}'
+components:
+  schemas:
+    SPConfigResponse:
+      type: object
+      example:
+        patch:
+          supported: true
+        filter:
+          maxResults: 200
+          supported: true
+        documentationUri: http://example.com/help/scim.html
+        authenticationSchemes:
+        - name: OAuth Bearer Token
+          description: Authentication scheme using the OAuth Bearer Token Standard
+          specUri: http://www.rfc-editor.org/info/rfc6750
+          type: oauthbearertoken
+          primary: true
+        - name: HTTP Basic
+          description: Authentication scheme using the HTTP Basic Standard
+          specUri: http://www.rfc-editor.org/info/rfc2617
+          type: httpbasic
+          primary: false
+        schemas:
+        - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+        etag:
+          supported: false
+        sort:
+          supported: false
+        bulk:
+          maxPayloadSize: 1048576
+          maxOperations: 1000
+          supported: true
+        changePassword:
+          supported: false
+    ErrorUnauthorized:
+      required:
+      - status
+      type: object
+      properties:
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: "Authorization failure. Authorization information was invalid or missing from your request."
+        status:
+          type: string
+          example: "401"
+    ErrorSchemaNotFound:
+      required:
+      - detail
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          example: "404"
+        schemas:
+          type: string
+          example: urn:ietf:params:scim:api:messages:2.0:Error
+        detail:
+          type: string
+          example: Schema not found.

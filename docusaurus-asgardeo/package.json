@@ -1,0 +1,35 @@
+{
+  "name": "asgardeo-docs-docusaurus",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "prebuild": "node scripts/preprocess.js",
+    "build": "docusaurus build",
+    "start": "ulimit -n 4096 && CHOKIDAR_USEPOLLING=1000 npm run prebuild && docusaurus start --no-open",
+    "dev": "ulimit -n 4096 && CHOKIDAR_USEPOLLING=1000 npm run prebuild && docusaurus start --no-open --poll 1000",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear && rm -rf .generated-docs"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/preset-classic": "^3.10.1",
+    "clsx": "^2.1.1",
+    "nunjucks": "^3.2.4",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^3.10.1",
+    "@docusaurus/types": "^3.10.1"
+  },
+  "browserslist": {
+    "production": [">0.5%", "not dead", "not op_mini all"],
+    "development": ["last 3 chrome version", "last 3 firefox version", "last 5 safari version"]
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+}
