@@ -6,8 +6,8 @@ In this tutorial, we explore how enterprises can securely scale multi-agent AI s
 
 Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single general-purpose agent, they use multiple agents:
 
-- **The Coordinator Agent**: A fast, cost-effective agent that classifies incoming tickets.
-- **The Expert Agent**: A "deep thinking" agent reserved for critical, complex infrastructure outages.
+* **The Coordinator Agent**: A fast, cost-effective agent that classifies incoming tickets.
+* **The Expert Agent**: A "deep thinking" agent reserved for critical, complex infrastructure outages.
 
 ### The agents in action
 
@@ -34,19 +34,15 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
 1. Log in to the **{{ product_name }} Console**.
 2. Go to **Applications > New Application**.
 3. Select **Standard-Based Application**.
-
-Configure the application:
-
-* **Name**: `Enterprise Support System`
-* **Protocol**: OpenID Connect.
-* Tick **Allow AI agents to sign into this application**.
-
-After Creation, in the **Protocol** tab:
-
-* Add **Allowed grant types**: Code.
-* For Authorized redirect URLs, add the callback URL of your application. (For agent auth, this is not really needed, so you can use `http://localhost:3000/callback`).
-* Enable the **public client** in Client Authentication.
-* Set the **Access Token type** to JWT and add roles to Access Token Attributes.
+4. Configure the application:
+     * **Name**: `Enterprise Support System`
+     * **Protocol**: OpenID Connect
+     * Tick **Allow AI agents to sign into this application**.
+5. After Creation, in the **Protocol** tab:
+     * Add **Allowed grant types**: Code
+     * For Authorized redirect URLs, add the callback URL of your application. (For agent auth, this is not really needed, so you can use `http://localhost:3000/callback`).
+     * Enable the **public client** in Client Authentication.
+     * Set the **Access Token type** to JWT and add roles to Access Token Attributes.
 
 ### Create the roles
 
@@ -54,13 +50,13 @@ We need to define the roles that Kong will look for.
 
 1. Navigate to **User Management > Roles**.
 2. Click **+ New Role**.
-   - **Role Name**: Support-Coordinator.
-   - Assign application **Enterprise Support System**.
-   - Click **Finish**.
+     * **Role Name**: Support-Coordinator
+     * Assign application **Enterprise Support System**.
+     * Click **Finish**.
 3. Click **+ New Role** again.
-   - **Role Name**: Technical-Specialist.
-   - Assign application **Enterprise Support System**.
-   - Click **Finish**.
+     * **Role Name**: Technical-Specialist
+     * Assign application **Enterprise Support System**.
+     * Click **Finish**.
 
 ### Register AI agents
 
@@ -68,13 +64,13 @@ Since these are autonomous agents, we create **"Auth Identities"** for them. WSO
 
 1. On {{ product_name }} Console, go to **Agents**.
 2. Create the **Coordinator Agent**:
-   - **Name**: coordinator-agent.
-   - Make a note of the **Agent ID** and **Agent Secret**.
-   - Go to **Roles** and assign this agent to the **Support-Coordinator** role.
+     * **Name**: coordinator-agent
+     * Make a note of the **Agent ID** and **Agent Secret**.
+     * Go to **Roles** and assign this agent to the **Support-Coordinator** role.
 3. Create the **Expert Agent**:
-   - **Name**: expert-agent.
-   - Make a note of the **Agent ID** and **Agent Secret**.
-   - Go to **Roles** and assign this agent to the **Technical-Specialist** role.
+     * **Name**: expert-agent
+     * Make a note of the **Agent ID** and **Agent Secret**.
+     * Go to **Roles** and assign this agent to the **Technical-Specialist** role.
 
 ---
 
@@ -89,10 +85,10 @@ We create a service to act as a placeholder. The AI Proxy plugin will intercept 
 1. Log in to **Kong Konnect**.
 2. Go to **API Gateway > Gateways**.
 3. Click **New API Gateway**.
-   - **Name**: Google-Gemini-Service.
-   - **Full URL**: https://generativelanguage.googleapis.com (or any valid placeholder).
+     * **Name**: Google-Gemini-Service
+     * **Full URL**: https://generativelanguage.googleapis.com (or any valid placeholder)
 4. Click **Save**.
-   - **Note**: Copy the **Proxy URL** displayed; this is the endpoint your application will call.
+     * **Note**: Copy the **Proxy URL** displayed; this is the endpoint your application will call.
 
 ![Create_a_Dummy_Service]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\create-a-dummy-service.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -100,17 +96,18 @@ We create a service to act as a placeholder. The AI Proxy plugin will intercept 
 
 We use a single service but split traffic into two lanes based on the agent's intent.
 
-1. Go to the **Routes** tab in your Gateway Service:
-   - **Route 1 (The Triage Lane)**:
-     - **Name**: coordinator-route.
-     - **Paths**: /chat.
-     - **Methods**: POST.
-     - **Headers**: x-agent-type = Support-Coordinator.
-   - **Route 2 (The Expert Lane)**:
-     - **Name**: expert-route.
-     - **Paths**: /chat.
-     - **Methods**: POST.
-     - **Headers**: x-agent-type = Technical-Specialist.
+Go to the **Routes** tab in your Gateway Service:
+
+1. **Route 1 (The Triage Lane)**:
+       * **Name**: coordinator-route
+       * **Paths**: /chat
+       * **Methods**: POST
+       * **Headers**: x-agent-type = Support-Coordinator
+2. **Route 2 (The Expert Lane)**:
+       * **Name**: expert-route
+       * **Paths**: /chat
+       * **Methods**: POST
+       * **Headers**: x-agent-type = Technical-Specialist
 
 ![Create_Two_Routes]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\create-two-routes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -120,48 +117,52 @@ This plugin acts as the security guard, ensuring only the right agent enters the
 
 ![OpenID_Connect_Plugin]({{base_path}}\assets\img\tutorials\kong-ai-gateway-with-agent-identity-aware-access-control\openid-connect-plugin.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-- **For Route 1 (coordinator-route)**:
-  1. Add the **OpenID Connect plugin**.
-  2. Configure the following:
-     - **Name**: coordinator-OpenID.
-     - **Client ID**: (From your {{ product_name }} application).
-     - {% if product_name == "Asgardeo" %}**Issuer**: https://api.asgardeo.io/t/<your_org>/oauth2/token.{% else %}**Issuer**: https://<your_domain>>/oauth2/token.{% endif %}
-     - **Auth Methods**: Bearer Access Token.
-     - **Authorization Tab**: Set **Roles Required** to Support-Coordinator.
+**For Route 1 (coordinator-route)**:
 
-- **For Route 2 (expert-route)**:
-  1. Repeat the steps above but name it **expert-OpenID**.
-  2. **Authorization Tab**: Set **Roles Required** to Technical-Specialist.
+1. Add the **OpenID Connect plugin**.
+2. Configure the following:
+     * **Name**: coordinator-OpenID
+     * **Client ID**: (From your {{ product_name }} application)
+     * {% if product_name == "Asgardeo" %}**Issuer**: https://api.asgardeo.io/t/<your_org>/oauth2/token{% else %}**Issuer**: https://<your_domain>>/oauth2/token{% endif %}
+     * **Auth Methods**: Bearer Access Token
+     * **Authorization Tab**: Set **Roles Required** to Support-Coordinator
+
+**For Route 2 (expert-route)**:
+
+1. Repeat the steps above but name it **expert-OpenID**.
+2. **Authorization Tab**: Set **Roles Required** to Technical-Specialist.
 
 ### Enable the AI Proxy plugins
 
 Here, we define which "Brain" powers each route.
 
-- **For Route 1 (coordinator-route)**:
-  1. Add the **AI Proxy plugin**.
-  2. Configure the following:
-     - **Name**: coordinator-AI-Proxy.
-     - **Auth Param**:
-       - **Location**: query.
-       - **Name**: key.
-       - **Value**: <your_gemini_api_key>.
-     - **Model**: gemini-2.5-flash-lite (Provider: gemini).
-     - **Route Type**: llm/v1/chat.
+**For Route 1 (coordinator-route)**:
 
-- **For Route 2 (expert-route)**:
-  1. Add the **AI Proxy Advanced plugin**.
-  2. Configure the following:
-     - **Name**: expert-AI-Proxy.
-     - **Balancer Algorithm**: lowest-latency (automatically picks the fastest model).
-     - **Targets**: Add multiple high-reasoning models with Auth Params:
-       - **Target 1**: gemini-2.5-pro.
-       - **Target 2**: gemini-3-pro-preview.
+1. Add the **AI Proxy plugin**.
+2. Configure the following:
+     * **Name**: coordinator-AI-Proxy
+     * **Auth Param**:
+         * **Location**: query
+         * **Name**: key
+         * **Value**: your_gemini_api_key
+     * **Model**: gemini-2.5-flash-lite (Provider: gemini)
+     * **Route Type**: llm/v1/chat
+
+**For Route 2 (expert-route)**:
+
+1. Add the **AI Proxy Advanced plugin**.
+2. Configure the following:
+     * **Name**: expert-AI-Proxy
+     * **Balancer Algorithm**: lowest-latency (automatically picks the fastest model)
+     * **Targets**: Add multiple high-reasoning models with Auth Params:
+         * **Target 1**: gemini-2.5-pro
+         * **Target 2**: gemini-3-pro-preview
 
 ### Enable request transformer plugins
 
 We must strip the {{ product_name }} authentication token before the request leaves Kong. If we don't, Google will receive a confusing Bearer token and reject the request.
 
-- **In Both Routes**:
+**In Both Routes**:
 
 Add the **Request Transformer plugin**, and in **RemoveHeaders**, add **Authorization**.
 
@@ -171,11 +172,11 @@ Add the **Request Transformer plugin**, and in **RemoveHeaders**, add **Authoriz
 
 Finally, we apply the budget protection.
 
-- **For Route 1 (coordinator-route)**:
-  - Limit 1: 20 requests every 300 seconds (5 mins).
-  - Limit 2: 200 requests every 3600 seconds (1 hour).
-- **For Route 2 (expert-route)**:
-  - Limit: Set significantly lower limits (e.g., 5 requests every 300 seconds) to strictly control the usage of the expensive Pro models.
+1. **For Route 1 (coordinator-route)**:
+       * Limit 1: 20 requests every 300 seconds (5 mins).
+       * Limit 2: 200 requests every 3600 seconds (1 hour).
+2. **For Route 2 (expert-route)**:
+       * Limit: Set significantly lower limits (e.g., 5 requests every 300 seconds) to strictly control the usage of the expensive Pro models.
 
 ---
 

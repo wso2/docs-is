@@ -41,9 +41,10 @@ Register an application in {{ product_name }} to represent the n8n MCP client.
 ![Create MCP client application]({{base_path}}/assets/img/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/create-mcp-client-application.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 Configure the application with the following values:
-	- **Application Name**: `n8n-example`
-	- **Redirect URL**: `http://localhost:5678/rest/oauth2-credential/callback`
-	- Disable **Public Client** option, as n8n currently only supports confidential clients and expects the client secret during configuration.
+
+* **Application Name**: `n8n-example`
+* **Redirect URL**: `http://localhost:5678/rest/oauth2-credential/callback`
+* Disable **Public Client** option, as n8n currently only supports confidential clients and expects the client secret during configuration.
 
 ![Save MCP client application]({{base_path}}/assets/img/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/save-mcp-client-application.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -66,13 +67,13 @@ Double-click the **MCP Client** node.
 ![n8n MCP client node]({{base_path}}/assets/img/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/n8n-mcp-client-node.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 1. Set the MCP server endpoint:
-	- If you use Docker: `http://host.docker.internal:3000/mcp`
-	- If you do not use Docker: `http://localhost:3000/mcp`
+	  * If you use Docker: `http://host.docker.internal:3000/mcp`
+	  * If you do not use Docker: `http://localhost:3000/mcp`
 2. Select **Set Up Credentials**.
 3. Configure OAuth 2.0 settings:
-	- Disable **Use Dynamic Client Registration**.
-	- Set **Grant Type** to `PKCE`.
-	- Provide the **Authorization URL**, **Access Token URL**, **Client ID**, and **Client Secret**.
+	  * Disable **Use Dynamic Client Registration**.
+	  * Set **Grant Type** to `PKCE`.
+	  * Provide the **Authorization URL**, **Access Token URL**, **Client ID**, and **Client Secret**.
 
 ![n8n MCP client OAuth settings]({{base_path}}/assets/img/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/n8n-mcp-client-oauth-settings.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -96,5 +97,5 @@ You can find these values in the **Protocol** and **Info** tabs of your {{ produ
 
 ## Troubleshooting
 
-- If the OAuth callback fails, confirm that the redirect URL shown in n8n is `http://localhost:5678/rest/oauth2-credential/callback`.
-- If token requests fail, verify the **Authorization URL**, **Access Token URL**, **Client ID**, and **Client Secret** from the {{ product_name }} application.
+If the OAuth callback fails, confirm that the redirect URL shown in n8n is `http://localhost:5678/rest/oauth2-credential/callback`.
+If token requests fail, verify the **Authorization URL**, **Access Token URL**, **Client ID**, and **Client Secret** from the {{ product_name }} application.
