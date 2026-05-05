@@ -59,7 +59,7 @@ Let’s look into the underlying details of what’s happening here.
 
 The `auth.initialize` holds the configuration necessary for connecting the app to {{product_name}}. It includes properties like `signInRedirectURL` and `signOutRedirectURL`, which determine where users are redirected after signing in or out. The `clientID` identifies the application, and `baseUrl` specifies the {{product_name}} API endpoint specific to your organization. The scope array lists the OAuth 2.0 permissions the app requires, such as `openid` and `profile`. 
 
-The application uses the auth Asgardeo SPA Client instance to access the authentication state  and methods (`signIn` and `signOut`). Inside the index.html, the app conditionally renders a login or logout button based on whether the user is authenticated. If the user is authenticated, a "Logout" button is shown that triggers the signOut function. Otherwise, a "Login" button appears, which initiates the signIn process.
+The application uses the auth WSO2 Identity Platform SPA Client instance to access the authentication state  and methods (`signIn` and `signOut`). Inside the index.html, the app conditionally renders a login or logout button based on whether the user is authenticated. If the user is authenticated, a "Logout" button is shown that triggers the signOut function. Otherwise, a "Login" button appears, which initiates the signIn process.
 
 Save the changes and re-run the application in development mode if it is not running already.
 

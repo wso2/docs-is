@@ -226,7 +226,7 @@ Start the server:
 npm start
 ```
 
-Open `http://localhost:3000` and click the "Login with Asgardeo" button. You will be redirected to the {{product_name}} login page. Enter the user credentials and click "Sign In". You will be redirected back to the index page.
+Open `http://localhost:3000` and click the "Login with WSO2 Identity Platform" button. You will be redirected to the {{product_name}} login page. Enter the user credentials and click "Sign In". You will be redirected back to the index page.
 
 ![Login page]({{base_path}}/assets/img/complete-guides/nodejs/image10.png){: width="800" style="display: block; margin: 0;"}
 

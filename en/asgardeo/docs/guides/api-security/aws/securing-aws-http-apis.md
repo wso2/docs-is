@@ -1,16 +1,16 @@
 ---
 template: templates/quick-start.html
-heading: Securing APIs with AWS API Gateway and Asgardeo
-description: This guide walks you through securing a Pharmacy User API using AWS API Gateway and Asgardeo. You'll deploy a Lambda function, expose it via an HTTP API, and secure the endpoint using JWT tokens issued by Asgardeo and validated by API Gateway.
+heading: Securing APIs with AWS API Gateway and WSO2 Identity Platform
+description: This guide walks you through securing a Pharmacy User API using AWS API Gateway and WSO2 Identity Platform. You'll deploy a Lambda function, expose it via an HTTP API, and secure the endpoint using JWT tokens issued by WSO2 Identity Platform and validated by API Gateway.
 what_you_will_learn:
   - Deploy a serverless endpoint using AWS Lambda
   - Secure your API with AWS API Gateway’s JWT authorizer
-  - Configure an OAuth2 application and define API scopes in Asgardeo
+  - Configure an OAuth2 application and define API scopes in WSO2 Identity Platform
   - Protect and test your API using JWT-based access control
 prerequisites:
   - About 20 minutes
   - AWS Account with CLI access
-  - An <a href="https://asgardeo.io" target="_blank" rel="noopener noreferrer">Asgardeo account</a>
+  - An <a href="https://asgardeo.io" target="_blank" rel="noopener noreferrer">WSO2 Identity Platform account</a>
   - Tools: <code>curl</code> and <code>jq</code>
   - Familiarity with shell and JSON
 ---
@@ -142,13 +142,13 @@ aws apigatewayv2 create-stage --api-id $API_ID --stage-name dev --auto-deploy
 echo "API deployed to stage 'dev'"
 ```
 
-## Step 3: Configure Asgardeo to Secure the API
+## Step 3: Configure WSO2 Identity Platform to Secure the API
 
-In this step, you'll set up everything needed in Asgardeo to secure your Pharmacy User API. This includes getting a bearer token, registering the API as a protected resource, creating an OAuth2 application, linking the app to the API, and configuring role handling.
+In this step, you'll set up everything needed in WSO2 Identity Platform to secure your Pharmacy User API. This includes getting a bearer token, registering the API as a protected resource, creating an OAuth2 application, linking the app to the API, and configuring role handling.
 
-### 1. Obtain a Bearer Token for Asgardeo Manage App
+### 1. Obtain a Bearer Token for WSO2 Identity Platform Manage App
 
-You will need a Client ID and Client Secret from an Asgardeo application that is authorized to invoke Asgardeo management APIs. You can use an existing application or create a new application in the Asgardeo console with the Client Credentials grant enabled. Make sure the application has the scope `internal_application_mgt_create` (this scope is required to create a new application via the API).
+You will need a Client ID and Client Secret from an WSO2 Identity Platform application that is authorized to invoke WSO2 Identity Platform management APIs. You can use an existing application or create a new application in the WSO2 Identity Platform console with the Client Credentials grant enabled. Make sure the application has the scope `internal_application_mgt_create` (this scope is required to create a new application via the API).
 
 ```bash
 curl -X POST "https://api.asgardeo.io/t/<YOUR_ASGARDEO_ORG_NAME>/oauth2/token" \
@@ -156,15 +156,15 @@ curl -X POST "https://api.asgardeo.io/t/<YOUR_ASGARDEO_ORG_NAME>/oauth2/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "grant_type=client_credentials&scope=internal_application_mgt_create" 2>/dev/null | jq -r .access_token
 ```
-Use the obtained token in all subsequent Asgardeo API calls:
+Use the obtained token in all subsequent WSO2 Identity Platform API calls:
 
 ```bash
 -H "Authorization: Bearer $ACCESS_TOKEN"
 ```
 
-### 2. Register the API Resource in Asgardeo
+### 2. Register the API Resource in WSO2 Identity Platform
 
-In this step, you’ll register the Pharmacy User API as a protected resource in Asgardeo. This allows you to define access scopes that control which operations clients can perform on the API.
+In this step, you’ll register the Pharmacy User API as a protected resource in WSO2 Identity Platform. This allows you to define access scopes that control which operations clients can perform on the API.
 
 ```bash
 curl -X POST "https://api.asgardeo.io/t/<ORG_NAME>/api/server/v1/api-resources" \
@@ -183,9 +183,9 @@ curl -X POST "https://api.asgardeo.io/t/<ORG_NAME>/api/server/v1/api-resources" 
       }'
 ```
 
-### 3. Register an OAuth2 Application in Asgardeo
+### 3. Register an OAuth2 Application in WSO2 Identity Platform
 
-Create an application in Asgardeo that will request access tokens to call your API. This app represents the client, and you’ll configure it to use the Client Credentials grant type with JWT access tokens.
+Create an application in WSO2 Identity Platform that will request access tokens to call your API. This app represents the client, and you’ll configure it to use the Client Credentials grant type with JWT access tokens.
 
 ```bash
 curl -X POST "https://api.asgardeo.io/t/<ORG_NAME>/api/server/v1/applications" \
@@ -235,7 +235,7 @@ curl -X PATCH "https://api.asgardeo.io/t/<ORG_NAME>/api/server/v1/applications/<
 
 ## Step 4: Secure the API Route with JWT Authorizer
 
-In this step, you’ll configure API Gateway to validate JWT tokens issued by Asgardeo. This includes creating a JWT authorizer, attaching it to the /user route, and deploying the changes.
+In this step, you’ll configure API Gateway to validate JWT tokens issued by WSO2 Identity Platform. This includes creating a JWT authorizer, attaching it to the /user route, and deploying the changes.
 
 ### 1. Configure JWT Authorizer
 
@@ -276,11 +276,11 @@ aws apigatewayv2 create-stage \
 
 ## Step 5: Try Out the Secured API
 
-In this step, you’ll verify that the Pharmacy User API only allows access when a valid JWT with the correct scope is provided. The required scope in this setup is get_pharmacy_user, and it must be included in the access token issued by Asgardeo.
+In this step, you’ll verify that the Pharmacy User API only allows access when a valid JWT with the correct scope is provided. The required scope in this setup is get_pharmacy_user, and it must be included in the access token issued by WSO2 Identity Platform.
 
-### 1. Create a User in Asgardeo
+### 1. Create a User in WSO2 Identity Platform
 
-Create a user in Asgardeo to simulate a real-world client accessing the API.
+Create a user in WSO2 Identity Platform to simulate a real-world client accessing the API.
 
 ```bash
 curl -X POST "https://api.asgardeo.io/t/<ORG_NAME>/scim2/Users" \
@@ -324,4 +324,4 @@ You should receive a 200 OK response.
 { "message": "Welcome User!" }
 ```
 
-Your Pharmacy User API is now secured with JWT authorization via Asgardeo 
+Your Pharmacy User API is now secured with JWT authorization via WSO2 Identity Platform 

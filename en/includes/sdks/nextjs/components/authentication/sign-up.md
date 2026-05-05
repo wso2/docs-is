@@ -1,4 +1,4 @@
-Use the `SignUp` component to add a flexible, styled registration flow for browser-based Next.js applications with Asgardeo authentication. The component manages the entire sign-up process, including API calls, error handling, and redirection. Customize it for your application's needs.
+Use the `SignUp` component to add a flexible, styled registration flow for browser-based Next.js applications with WSO2 Identity Platform authentication. The component manages the entire sign-up process, including API calls, error handling, and redirection. Customize it for your application's needs.
 
 ## Overview
 
@@ -126,4 +126,4 @@ If sign-up fails, the `onError` callback is invoked with a descriptive error obj
 
 - Automatically disables the UI and shows loading state during sign-up.
 - Handles all registration steps, including social sign-up and federated flows, with minimal configuration.
-- Requires an Asgardeo context provider (`useAsgardeo`) to function.
+- Requires an WSO2 Identity Platform context provider (`useAsgardeo`) to function.

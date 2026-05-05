@@ -63,7 +63,7 @@ You can register an external IdP in {{product_name}} by creating a connection. {
       <span>WS-Federation</span>
     </a>
     {% endif %}
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     <a href="{{base_path}}/guides/authentication/decentralized-login/sign-in-with-ethereum" class="card square">
       <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/ethereum.svg" alt="Ethereum" /></br>
       <span>Sign-in with Ethereum</span>

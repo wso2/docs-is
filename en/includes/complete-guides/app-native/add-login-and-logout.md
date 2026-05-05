@@ -1,5 +1,5 @@
 
-Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
+WSO2 Identity Platform SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
 Replace the existing content of the `app/page.tsx` file with following content.
 
@@ -41,7 +41,7 @@ export default function Home() {
 
 This code snippet adds a login button in the application as well as displays user profile and a dropdown when the user is signed in.
 
-However since app native authentication needs to be used, the following can be done to integrate the Asgardeo Next SDK with {{product_name}}. Since you have already enabled app-native authentication in the {{product_name}} side during step 3, you can add the below logic to the application.
+However since app native authentication needs to be used, the following can be done to integrate the WSO2 Identity Platform Next SDK with {{product_name}}. Since you have already enabled app-native authentication in the {{product_name}} side during step 3, you can add the below logic to the application.
 
 First, create an app route for the sign-in page. Create a new file called `app/sign-in/page.tsx` and add the following code:
 

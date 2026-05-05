@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Register an application in Asgardeo
+heading: Register an application in WSO2 Identity Platform
 read_time: 2 min
 ---
 
@@ -25,7 +25,7 @@ First unless you already have done that, you need to create an organization in {
 
         The authorized redirect URL determines where {{product_name}} should send users after they successfully log in. Typically, this will be the web address where your application is hosted. For this guide, we'll use http://localhost:3000, as the sample application will be accessible at this URL
 
-5. Make a note of the following values from the **Guide** tab of the registered application. You will need them to configure the Asgardeo provider.
+5. Make a note of the following values from the **Guide** tab of the registered application. You will need them to configure the WSO2 Identity Platform provider.
 
     ```bash
     NEXT_PUBLIC_ASGARDEO_BASE_URL="https://api.asgardeo.io/t/<your-org-name>"

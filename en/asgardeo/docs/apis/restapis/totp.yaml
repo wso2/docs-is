@@ -2,9 +2,9 @@ openapi: 3.0.0
 
 info:
   description: |
-    This is the RESTful API for a user to manage TOTP QR URLs/secrets in Asgardeo.
+    This is the RESTful API for a user to manage TOTP QR URLs/secrets in WSO2 Identity Platform.
   version: "v1"
-  title: "Asgardeo - TOTP API Definition"
+  title: "WSO2 Identity Platform - TOTP API Definition"
 servers:
 - url: https://api.asgardeo.io/t/{organization-name}/api/users/v1
 

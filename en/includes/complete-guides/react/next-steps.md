@@ -2,14 +2,14 @@ This guide you just have completed, covered the adding user login for React apps
 
 !!! tip "Tip"
     
-    As you are now familiar with the concepts discussed in the guide, you can use the Asgardeo React template to bootstrap your application by running the following command.  
+    As you are now familiar with the concepts discussed in the guide, you can use the WSO2 Identity Platform React template to bootstrap your application by running the following command.  
 
     ```bash
 
     npx tmplr --dir my-vite-react-app asgardeo/asgardeo-vite-react-template
 
     ```
-    The Asgardeo React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
+    The WSO2 Identity Platform React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
 
     All you need is a `client_id`, which you can obtain by registering a **Single Page Application** in {{product_name}}.
 

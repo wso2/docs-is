@@ -14,7 +14,7 @@ Welcome to the JavaScript Quickstart guide! In this document, you will learn to 
 
     **Authorized redirect URL:** http://localhost:5173
 
-Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  Asgardeo JavaScript SDK.
+Note down the following values from the **Protocol** tab of the registered application. You will need them to configure  WSO2 Identity Platform JavaScript SDK.
 
 - **`client-id`** from the **Protocol** tab.
 - **The name of your {{ product_name }} organization**
@@ -65,7 +65,7 @@ Create (a.k.a scaffold) your new JavaScript app using Vite.
 
 ## Install @asgardeo/auth-spa
 
-Asgardeo JavaScript SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo JavaScript SDK to the project. Make sure to stop the dev server started in the previous step.
+WSO2 Identity Platform JavaScript SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the WSO2 Identity Platform JavaScript SDK to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 

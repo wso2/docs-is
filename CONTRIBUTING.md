@@ -1,6 +1,6 @@
-# Contributing to WSO2 Identity Server / Asgardeo Documentation
+# Contributing to WSO2 Identity Server / WSO2 Identity Platform Documentation
 
-We would really appreciate your contributions to WSO2 Identity Server / Asgardeo Docs to help make it even better than it is today!
+We would really appreciate your contributions to WSO2 Identity Server / WSO2 Identity Platform Docs to help make it even better than it is today!
 As a contributor, here are the guidelines we would like you to follow:
 
  - [Adding Quickstart guides](#adding-quickstart-guides)

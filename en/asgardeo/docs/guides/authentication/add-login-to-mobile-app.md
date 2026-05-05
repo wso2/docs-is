@@ -1,4 +1,4 @@
-{% set product_name = "Asgardeo" %}
+{% set product_name = "WSO2 Identity Platform" %}
 
 {% set link_to_tutotials = "## Add login to your framework-based mobile apps
 

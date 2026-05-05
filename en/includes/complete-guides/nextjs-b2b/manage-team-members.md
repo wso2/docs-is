@@ -15,7 +15,7 @@ The implementation in the app handles two scenarios:
 
 ![Members flow]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image14.png){: width="350" style="display: block; margin: auto;"}
 
-Asgardeo SDK provides InviteUser, UserList components to handle managing users and viewing users.
+WSO2 Identity Platform SDK provides InviteUser, UserList components to handle managing users and viewing users.
 
 Replace the existing content of the app/page.tsx file with following content to add the Invite Users button.
 
@@ -95,7 +95,7 @@ export default function Home() {
 
 This code snippet adds a Invite Users button in the application.
 
-Now since we need to display a Invite Users Page, the following can be done to integrate the Asgardeo Next SDK with {{product_name}} and perform the user invite.
+Now since we need to display a Invite Users Page, the following can be done to integrate the WSO2 Identity Platform Next SDK with {{product_name}} and perform the user invite.
 
 First, create an app route for the user invite page. Create a new file called `app/invite-users/page.tsx` and add the following code:
 
@@ -138,7 +138,7 @@ npm run dev
 
 Once the application is started, you will see the homepage of the application with the changes we made to include the Invite Users button.
 
-Clicking on the Invite Users button will display the user invite page from the Asgardeo SDK. Once you fill this information and click 'Continue' the user will be added in {{product_name}}.
+Clicking on the Invite Users button will display the user invite page from the WSO2 Identity Platform SDK. Once you fill this information and click 'Continue' the user will be added in {{product_name}}.
 
 ## View Members
 
@@ -227,7 +227,7 @@ export default function Home() {
 
 This code snippet adds a View Users button in the application.
 
-Now since we need to display a View Users Page, the following can be done to integrate the Asgardeo Next SDK with {{product_name}} and perform the listing of users.
+Now since we need to display a View Users Page, the following can be done to integrate the WSO2 Identity Platform Next SDK with {{product_name}} and perform the listing of users.
 
 First, create an app route for the user view page. Create a new file called `app/view-users/page.tsx` and add the following code:
 
@@ -264,6 +264,6 @@ npm run dev
 
 Once the application is started, you will see the homepage of the application with the changes we made to include the View Users button.
 
-Clicking on the View Users button will display the view user page from the Asgardeo SDK.
+Clicking on the View Users button will display the view user page from the WSO2 Identity Platform SDK.
 
-With this guide, you've learnt to built a Next.js team management app with Asgardeo for authentication, team management, and team switching. Enhance it further by adding [branding]({{base_path}}/guides/branding/configure-ui-branding/){:target="\_blank"} or integrating more Asgardeo features to fit your needs. 🚀
+With this guide, you've learnt to built a Next.js team management app with WSO2 Identity Platform for authentication, team management, and team switching. Enhance it further by adding [branding]({{base_path}}/guides/branding/configure-ui-branding/){:target="\_blank"} or integrating more WSO2 Identity Platform features to fit your needs. 🚀

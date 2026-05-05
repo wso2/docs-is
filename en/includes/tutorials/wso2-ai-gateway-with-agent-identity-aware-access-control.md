@@ -116,13 +116,13 @@ Go to the **Organization level** and in the left navigation menu, click **Admin 
 
 1. Click the **Key Managers** tab.
 2. To add an identity provider, click **+ Key Manager**.
-3. {% if product_name == "Asgardeo" %}Select Asgardeo.{% else %}Select Custom.{% endif %}
+3. {% if product_name == "WSO2 Identity Platform" %}Select WSO2 Identity Platform.{% else %}Select Custom.{% endif %}
 4. In the dialog that opens, specify:
 
 - **Name** and **Description** for the IdP.
 - **Well-Known URL**: Paste the well-known URL from your {{ product_name }} instance.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 ![{{ product_name }}_instance_Well-Known_URL]({{base_path}}/assets/img/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/asgardeo-instance-well-known-url.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 {% else %}
 ![{{ product_name }}_instance_Well-Known_URL]({{base_path}}/assets/img/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/identity-server-instance-well-known-url.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

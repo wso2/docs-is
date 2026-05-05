@@ -2,9 +2,9 @@
 
 ## Token Validation
 
-A key principle of security tokens is that the receiver must first validate the token. This involves checking the authenticity of the token issuer, ensuring the token meets validity criteria such as expiration time, and confirming that the receiver is authorized to use the token. The Asgardeo JavaScript SDK handles token validation automatically as part of its authentication and session management process to ensure that users have valid and unexpired tokens when accessing protected resources.
+A key principle of security tokens is that the receiver must first validate the token. This involves checking the authenticity of the token issuer, ensuring the token meets validity criteria such as expiration time, and confirming that the receiver is authorized to use the token. The WSO2 Identity Platform JavaScript SDK handles token validation automatically as part of its authentication and session management process to ensure that users have valid and unexpired tokens when accessing protected resources.
 
-When a user signs in, the Asgardeo JavaScript SDK acquires an access token (and often an ID token) from {{product_name}}. The access token is by default an opaque token and the ID token is in the form of JSON Web Tokens (JWTs). The SDK automatically validates the token when it is obtained. This involves several checks:
+When a user signs in, the WSO2 Identity Platform JavaScript SDK acquires an access token (and often an ID token) from {{product_name}}. The access token is by default an opaque token and the ID token is in the form of JSON Web Tokens (JWTs). The SDK automatically validates the token when it is obtained. This involves several checks:
 
 - **Signature Validation:** The SDK verifies the JWT's signature using the public key retrieved from {{product_name}} JWKS endpoint. This ensures that the token has been issued by a trusted authority and has not been tampered with.
 
@@ -18,7 +18,7 @@ If the token is close to being expired, the SDK will automatically attempt to re
 
 ## Token Persistence
 
-In the Asgardeo JavaScript SDK, the state storage mechanism determines where the authentication state, tokens, and other related data are stored. By default, Asgardeo JavaScript SDK uses session storage, but you can configure the SDK to use other storage options like local storage or even a web worker.
+In the WSO2 Identity Platform JavaScript SDK, the state storage mechanism determines where the authentication state, tokens, and other related data are stored. By default, WSO2 Identity Platform JavaScript SDK uses session storage, but you can configure the SDK to use other storage options like local storage or even a web worker.
 
 You can specify the storage mechanism in the authConfig object using the storage property. Here's how you can configure it for different storage types.
 
@@ -68,7 +68,7 @@ Compared to other methods for persisting tokens, web workers are the most secure
 
 ## Initiate Logout
 
-The Asgardeo JavaScript SDK provides a simple approach  to handle user logout from your app. When a user logs out, the SDK ensures that both the local session and the session on the {{product_name}} are terminated, ensuring a complete and secure logout process and you don’t need to worry on cleanup activities
+The WSO2 Identity Platform JavaScript SDK provides a simple approach  to handle user logout from your app. When a user logs out, the SDK ensures that both the local session and the session on the {{product_name}} are terminated, ensuring a complete and secure logout process and you don’t need to worry on cleanup activities
 
 When a user initiates log out, the following steps typically occur.
 
@@ -80,11 +80,11 @@ When a user initiates log out, the following steps typically occur.
 
 ## Silent Sign In
 
-Silent login allows an app to check if a user is already authenticated, either through a session cookie or a token stored in the browser, and re-authenticate automatically in the background. To implement silent sign-in using the Asgardeo JavaScript SDK, you can leverage the library's built-in support for token renewal and session management. Here's how you can do it:
+Silent login allows an app to check if a user is already authenticated, either through a session cookie or a token stored in the browser, and re-authenticate automatically in the background. To implement silent sign-in using the WSO2 Identity Platform JavaScript SDK, you can leverage the library's built-in support for token renewal and session management. Here's how you can do it:
 
 - **Configure the Silent Sign-In:** Ensure that your `authConfig` is set up to allow silent sign-in. You need to configure the prompt parameter to `none` when initiating a silent sign-in request. This instructs the identity provider to not display any login prompts and to rely on existing sessions instead.
 
-- **Use the SDK’s Built-in Functionality:** The Asgardeo JavaScript SDK typically handles silent token renewal automatically if the configuration is set correctly. When the access token is about to expire, the SDK will attempt to renew it silently in the background.
+- **Use the SDK’s Built-in Functionality:** The WSO2 Identity Platform JavaScript SDK typically handles silent token renewal automatically if the configuration is set correctly. When the access token is about to expire, the SDK will attempt to renew it silently in the background.
 
 - **Handling Token Expiry:** In your JavaScript components, you can handle token expiry by checking the authentication state and initiating a silent sign-in if the user’s session is still valid but the token has expired.
 

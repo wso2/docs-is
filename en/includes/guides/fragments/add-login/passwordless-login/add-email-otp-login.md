@@ -6,7 +6,7 @@ Follow the steps given below to add **Email OTP** login to the login flow of you
 
 3. Go to the **Login Flow** tab of the application and add email OTP login as follows:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
 
     === "Visual Editor"
         To add passwordless login with email OTP using the Visual Editor:
@@ -17,7 +17,7 @@ Follow the steps given below to add **Email OTP** login to the login flow of you
 
         3. Click **Confirm** to add passwordless login with email OTP to the sign-in flow.
 
-            ![Configuring email OTP login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Configuring email OTP login in WSO2 Identity Platform using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/email-otp/add-email-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
     === "Classic Editor"

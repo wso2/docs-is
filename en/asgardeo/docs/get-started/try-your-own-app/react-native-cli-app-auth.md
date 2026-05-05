@@ -1,6 +1,6 @@
-# Integrate Asgardeo with your React Native App CLI
+# Integrate WSO2 Identity Platform with your React Native App CLI
 
-The following guide walks you through integrating Asgardeo with your React Native mobile application using the React Native CLI. With {{product_name}}, your app can securely authorize and authenticate users via OAuth 2.0 and OpenID Connect.
+The following guide walks you through integrating WSO2 Identity Platform with your React Native mobile application using the React Native CLI. With {{product_name}}, your app can securely authorize and authenticate users via OAuth 2.0 and OpenID Connect.
 
 This integration uses the [react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth){:target="_blank"} library, a production-ready library that handles OAuth 2.0 and OpenID Connect for React Native applications and provides:
 
@@ -28,13 +28,13 @@ Make sure to install the required tools and set up your development environment:
 
     - Xcode 12.5 or newer.
 
-## Step 1: Set up your Asgardeo environment
+## Step 1: Set up your WSO2 Identity Platform environment
 
-Before integrating Asgardeo with your React Native app, set up the following in your Asgardeo organization:
+Before integrating WSO2 Identity Platform with your React Native app, set up the following in your WSO2 Identity Platform organization:
 
-- **Register a mobile application** - Your application must have app-specific credentials to interact with Asgardeo. You can get these credentials by registering an application on the {{product_name}} Console. Follow the guide and [register a mobile application in Asgardeo]({{base_path}}/guides/applications/register-mobile-app/).
+- **Register a mobile application** - Your application must have app-specific credentials to interact with WSO2 Identity Platform. You can get these credentials by registering an application on the {{product_name}} Console. Follow the guide and [register a mobile application in WSO2 Identity Platform]({{base_path}}/guides/applications/register-mobile-app/).
 
-- **Create a user** - You also need a user in your Asgardeo organization to log into your application. Follow the guide and [onboard a user]({{base_path}}/guides/users/manage-users/#onboard-users) to your {{product_name}} organization.
+- **Create a user** - You also need a user in your WSO2 Identity Platform organization to log into your application. Follow the guide and [onboard a user]({{base_path}}/guides/users/manage-users/#onboard-users) to your {{product_name}} organization.
 
 ## Step 2: Create a React Native application
 
@@ -167,7 +167,7 @@ To ensure users are redirected correctly, configure deep linking for both Androi
 
 ## Step 5: Create a configuration file
 
-Your React Native app needs to know your Asgardeo organization details to interact with it. Follow the steps below to create a configuration file in your React Native project.
+Your React Native app needs to know your WSO2 Identity Platform organization details to interact with it. Follow the steps below to create a configuration file in your React Native project.
 
 1. Create the `src/config.ts` file to store configurations and add the following: (You will define the actual values as environment variables in the next step.)
 
@@ -185,11 +185,11 @@ Your React Native app needs to know your Asgardeo organization details to intera
 
     - **issuer** - API endpoint that issues tokens upon request.
     - **clientId** - The Client ID of your application.
-    - **redirectUrl** - After successful login, Asgardeo redirects the user to the redirect URL of your app.
+    - **redirectUrl** - After successful login, WSO2 Identity Platform redirects the user to the redirect URL of your app.
     - **scopes** - Scopes needed for requesting user information. The `openid` scope is mandatory to get the ID token. You can add other OIDC scopes such as `profile` and `email`.
-    - **postLogoutRedirectUrl** - After logout, Asgardeo redirects the user to the postLogoutRedirectUrl of your app.
+    - **postLogoutRedirectUrl** - After logout, WSO2 Identity Platform redirects the user to the postLogoutRedirectUrl of your app.
 
-2. Create a `.env` file in your project root and enter the actual details of your Asgardeo environment:
+2. Create a `.env` file in your project root and enter the actual details of your WSO2 Identity Platform environment:
 
     ```bash
     ASGARDEO_ISSUER=https://api.asgardeo.io/t/<organization-name>/oauth2/token
@@ -387,7 +387,7 @@ export default App;
 
 ## Step 7: Run the application
 
-Now that you have developed the React Native app and integrated it with Asgardeo, you can run it by following the steps below:
+Now that you have developed the React Native app and integrated it with WSO2 Identity Platform, you can run it by following the steps below:
 
 1. In React Native projects, the Metro Bundler compiles your JavaScript code and serves it to the app. It also watches for file changes and enables hot reloading during development. Start it with:
 

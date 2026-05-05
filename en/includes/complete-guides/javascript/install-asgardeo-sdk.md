@@ -1,11 +1,11 @@
 
 ## Install @asgardeo/auth-spa
 
-The Asgardeo JavaScript SDK is a production-ready SDK that simplifies integrating {{product_name}} as an Identity Provider in your JavaScript applications. It provides essential features like user authentication, retrieving user information, and an HTTP client for sending network requests with attached tokens. Additionally, it ensures best practices by being Secure by Design and Secure by Default.
+The WSO2 Identity Platform JavaScript SDK is a production-ready SDK that simplifies integrating {{product_name}} as an Identity Provider in your JavaScript applications. It provides essential features like user authentication, retrieving user information, and an HTTP client for sending network requests with attached tokens. Additionally, it ensures best practices by being Secure by Design and Secure by Default.
 
 !!! Info
 
-    Asgardeo JavaScript SDK has been developed on open standards such as OAuth2, OpenID Connect etc, therefore you can use the Asgardeo JavaScript SDK for adding authentication to your application with any other OpenID Connect  identity provider such as [WSO2 Identity Server (WSO2 IS)](https://wso2.com/identity-server/){:target="_blank"}  and WSO2 [Private Identity Cloud (WSO2 PIC)](https://wso2.com/private-identity-cloud/){:target="_blank"} .
+    WSO2 Identity Platform JavaScript SDK has been developed on open standards such as OAuth2, OpenID Connect etc, therefore you can use the WSO2 Identity Platform JavaScript SDK for adding authentication to your application with any other OpenID Connect  identity provider such as [WSO2 Identity Server (WSO2 IS)](https://wso2.com/identity-server/){:target="_blank"}  and WSO2 [Private Identity Cloud (WSO2 PIC)](https://wso2.com/private-identity-cloud/){:target="_blank"} .
 
 As the next step, run the following command to install the JavaScript SDK from the npm registry.
 
@@ -24,7 +24,7 @@ npm install @asgardeo/auth-spa
 
 ## Initialize @asgardeo/auth-spa
 
-During the previous section, we have added Asgardeo Javascript SDK as a dependency in our app.  Now we are going to use the `AuthSPAClient` component from the Asgardeo Javascript SDK. Add the following code snippet to the `main.js` file to initialize the `AuthSPAClient` component, as shown below.
+During the previous section, we have added WSO2 Identity Platform Javascript SDK as a dependency in our app.  Now we are going to use the `AuthSPAClient` component from the WSO2 Identity Platform Javascript SDK. Add the following code snippet to the `main.js` file to initialize the `AuthSPAClient` component, as shown below.
 
 !!! Important
 
@@ -49,14 +49,14 @@ await auth.initialize({
 
 ```
 
-We used `AsgardeoSPAClient` at the root level of the application to ensure that all components can interact with the authentication logic provided by Asgardeo. It takes the configuration object with the following values for the single page application defined in the {{product_name}} console. You can copy these values from the {{product_name}}  console.
+We used `AsgardeoSPAClient` at the root level of the application to ensure that all components can interact with the authentication logic provided by WSO2 Identity Platform. It takes the configuration object with the following values for the single page application defined in the {{product_name}} console. You can copy these values from the {{product_name}}  console.
 
 | **Field**             | **Description**                                                                                                                                                             | **Example**                            |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
 | `signInRedirectURL`    | The URL to redirect the user to after successfully signing in. This URL should be an absolute URL and only accessible to authenticated users.                             | `http://localhost:5173`               |
 | `signOutRedirectURL`   | The URL to redirect the user to after signing out. This should be an absolute URL and should be accessible without authentication.                                         | `http://localhost:5173`               |
 | `clientID`             | The client ID of the created OIDC application.                                                                                                                           | N/A                                    |
-| `baseUrl`              | The base URL of the Identity Provider API. This depends on the identity provider you are using. For Asgardeo, this can be obtained from your application settings in the Asgardeo console. | `{{content.sdkconfig.baseUrl}}` |
+| `baseUrl`              | The base URL of the Identity Provider API. This depends on the identity provider you are using. For WSO2 Identity Platform, this can be obtained from your application settings in the WSO2 Identity Platform console. | `{{content.sdkconfig.baseUrl}}` |
 | `scope`               | Specifies the required application scopes as a list. In this guide, we need access to user details, so we will request the `profile` scope.                               | `["profile"]`                         |
 
 !!! Info

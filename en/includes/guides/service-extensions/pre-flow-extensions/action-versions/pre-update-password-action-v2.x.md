@@ -28,7 +28,7 @@ The request from {{product_name}} includes following in the JSON request payload
 </tr>
 </thead>
 <tbody>
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 <tr class="odd">
 <td>requestId</td>
 <td>
@@ -198,7 +198,7 @@ The following shows how the <code>initiatorType</code> and <code>action</code> p
 <td><p>This occurs when a user updates their password directly through their profile settings in MyAccount app or via
 {% if product_name == "WSO2 Identity Server"%}
 <a href="{{base_path}}/apis/scim2-me-rest-apis/">SCIM 2.0 Me API</a>
-{% elif product_name == "Asgardeo" %}
+{% elif product_name == "WSO2 Identity Platform" %}
 <a href="{{base_path}}/apis/scim2-me/">SCIM 2.0 Me API</a>
 {% endif %}.
 </p>

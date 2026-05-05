@@ -4,14 +4,14 @@
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application, go to the **Login Flow** tab and add Apple login from your preferred editor:
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     === "Classic Editor"
         To add Apple login using the Classic Editor:
         1. If you haven't already defined a sign-in flow, click **Start with Default configuration** to get started.
 
         2. Click **Add Authentication** on the step, select your Apple identity provider, and click **Add**.
 
-            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add Apple login in WSO2 Identity Platform]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add Apple login using the Visual Editor:
@@ -20,7 +20,7 @@
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Apple connection.
 
-            ![Add Apple login in Asgardeo]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add Apple login in WSO2 Identity Platform]({{base_path}}/assets/img/guides/idp/apple-idp/add-apple-federation-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
     {% else %}

@@ -1,21 +1,21 @@
-# Asgardeo MCP Server <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# WSO2 Identity Platform MCP Server <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
 
-The **Asgardeo MCP Server** helps you manage identity and access management tasks using natural language prompts. It connects your code editor or AI tool to Asgardeo’s Management APIs, letting you automate common identity management operations—such as listing applications, updating application settings, or managing users—without going through UI interfaces or needing to write API calls.
+The **WSO2 Identity Platform MCP Server** helps you manage identity and access management tasks using natural language prompts. It connects your code editor or AI tool to WSO2 Identity Platform’s Management APIs, letting you automate common identity management operations—such as listing applications, updating application settings, or managing users—without going through UI interfaces or needing to write API calls.
 
-You can use the Asgardeo MCP Server with popular editors and tools like **VS Code, Claude Desktop, Cursor, Windsurf**, and others. The MCP server acts as a bridge between your editor and Asgardeo, handling authentication and API requests for you. This quickstart explains how to set up the server, connect it to your Asgardeo organization, and verify your setup.
+You can use the WSO2 Identity Platform MCP Server with popular editors and tools like **VS Code, Claude Desktop, Cursor, Windsurf**, and others. The MCP server acts as a bridge between your editor and WSO2 Identity Platform, handling authentication and API requests for you. This quickstart explains how to set up the server, connect it to your WSO2 Identity Platform organization, and verify your setup.
 
 !!! Note
 
-    The Asgardeo MCP Server is currently in **Preview**. Some features may be subject to changes in future releases.
+    The WSO2 Identity Platform MCP Server is currently in **Preview**. Some features may be subject to changes in future releases.
 
-## On Asgardeo
+## On WSO2 Identity Platform
 
-The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perform the actions required by each MCP tool. To make this work, it must first get an access token with the appropriate scopes. This requires configuring access to your {{ product_name }} organization by creating a Machine-to-Machine (M2M) application and authorizing API Resources and Scopes to access the necessary APIs.
+The WSO2 Identity Platform MCP Server communicates with the WSO2 Identity Platform Management APIs to perform the actions required by each MCP tool. To make this work, it must first get an access token with the appropriate scopes. This requires configuring access to your {{ product_name }} organization by creating a Machine-to-Machine (M2M) application and authorizing API Resources and Scopes to access the necessary APIs.
 
 1. Sign into {{ product_name }} console and navigate to **Applications > New Application**. Then, select **M2M Application** and complete the wizard popup by providing a suitable name.
 
     !!! Example
-        **name:** Asgardeo-MCP-Server
+        **name:** WSO2 Identity Platform-MCP-Server
 
     Note down the following values from the **Protocol** tab of the registered application. You will need them in **step-3**.
 
@@ -25,7 +25,7 @@ The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perfor
 
 2. Authorize the API resources and corresponding scopes required for the actions performed by the MCP tools. The following table includes the required API resources and scopes for all currently supported tools.
 
-| **Asgardeo Management API** | **Required scopes** |
+| **WSO2 Identity Platform Management API** | **Required scopes** |
 |--------|---------|
 | **Application Management API** (`/api/server/v1/applications`) | `internal_application_mgt_view`, `internal_application_mgt_update`, `internal_application_mgt_create` |
 | **API Resource Management API** (`/api/server/v1/api-resources`) | `internal_api_resource_update`, `internal_api_resource_create`, `internal_api_resource_view` |
@@ -35,7 +35,7 @@ The Asgardeo MCP Server communicates with the Asgardeo Management APIs to perfor
 | **SCIM2 Users API** (`/scim2/Users`) | `internal_user_mgt_create` |
 | **OIDC Scope Management API** (`/api/server/v1/oidc/scopes`) | `internal_oidc_scope_mgt_view` |
 
-To authorize API resources, navigate to the **API Authorization** tab within your Asgardeo application settings and click the **Authorize an API Resource** button. In the pop-up window that appears, use the dropdown to search and select the necessary API Resources from the Management APIs and authorize necessary scopes.
+To authorize API resources, navigate to the **API Authorization** tab within your WSO2 Identity Platform application settings and click the **Authorize an API Resource** button. In the pop-up window that appears, use the dropdown to search and select the necessary API Resources from the Management APIs and authorize necessary scopes.
 
 !!! Note
 
@@ -44,7 +44,7 @@ To authorize API resources, navigate to the **API Authorization** tab within you
 
 Once completed, your API Authorization configuration should look as follows.
 
-![Asgardeo M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
+![WSO2 Identity Platform M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
 
 ## Configure your code editor
 
@@ -162,44 +162,44 @@ Once completed, your API Authorization configuration should look as follows.
     }
     ```
 
-## Verify Asgardeo MCP server setup
+## Verify WSO2 Identity Platform MCP server setup
 
-Use the following simple prompt to verify whether you have configured Asgardeo MCP Server successfully.
+Use the following simple prompt to verify whether you have configured WSO2 Identity Platform MCP Server successfully.
 
 ```text
-List my Asgardeo applications, names only
+List my WSO2 Identity Platform applications, names only
 
 ```
 
-Depending on the code editor you're using, you should see a list of results. The output may vary based on the number of applications you've created in Asgardeo, but you should see at least one application name listed.
+Depending on the code editor you're using, you should see a list of results. The output may vary based on the number of applications you've created in WSO2 Identity Platform, but you should see at least one application name listed.
 
 === " VS Code  "
-    Asgardeo application list displayed in VS Code.
+    WSO2 Identity Platform application list displayed in VS Code.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image2.png){: width="500" style="display: block; margin: 0;"}
 
 === " Cursor  "
-    Asgardeo application list displayed in Cursor.
+    WSO2 Identity Platform application list displayed in Cursor.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image3.png){: width="500" style="display: block; margin: 0;"}
 
 === " Windsurf  "
-    Asgardeo application list displayed in Windsurf.
+    WSO2 Identity Platform application list displayed in Windsurf.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image4.png){: width="500" style="display: block; margin: 0;"}
 
 === " Claude Desktop "
-    Asgardeo application list displayed in Claude Desktop.
+    WSO2 Identity Platform application list displayed in Claude Desktop.
 
     ![ Claude Desktop]({{base_path}}/assets/img/quick-starts/mcp-server/image5.png){: width="800" style="display: block; margin: 0;"}
 
 ## Build a real-world sample
 
-Now that you’ve configured and verified the Asgardeo MCP Server with your preferred code editor, it’s time to build a real-world example. The following quickstarts are great starting points to try out the Asgardeo MCP Server alongside your AI toolkit:
+Now that you’ve configured and verified the WSO2 Identity Platform MCP Server with your preferred code editor, it’s time to build a real-world example. The following quickstarts are great starting points to try out the WSO2 Identity Platform MCP Server alongside your AI toolkit:
 
-- [Asgardeo React Quickstart]({{ base_path }}/quick-starts/react/){:target="_blank"}
-- [Asgardeo Angular Quickstart]({{ base_path }}/quick-starts/angular/){:target="_blank"}
-- [Asgardeo React Spring Quickstart]({{ base_path }}/quick-starts/springboot/){:target="_blank"}
+- [WSO2 Identity Platform React Quickstart]({{ base_path }}/quick-starts/react/){:target="_blank"}
+- [WSO2 Identity Platform Angular Quickstart]({{ base_path }}/quick-starts/angular/){:target="_blank"}
+- [WSO2 Identity Platform React Spring Quickstart]({{ base_path }}/quick-starts/springboot/){:target="_blank"}
 
 Explore these guides to put your setup into action and see how natural-language-powered identity management can accelerate your development workflow.
 
@@ -207,4 +207,4 @@ Explore these guides to put your setup into action and see how natural-language-
 
     During tool execution, you will be prompted to give **explicit consent** for the action. It’s recommended to 
     approve actions with "Approve Once" option rather than selecting "Approve Always" option so you retain full control and visibility
-    over the operations performed in your Asgardeo organization.
+    over the operations performed in your WSO2 Identity Platform organization.

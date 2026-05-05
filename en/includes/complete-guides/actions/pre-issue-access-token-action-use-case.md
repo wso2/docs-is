@@ -1,4 +1,4 @@
-The Pre-Issue Access Token action in Asgardeo allows you to execute custom logic just before an access token is issued
+The Pre-Issue Access Token action in WSO2 Identity Platform allows you to execute custom logic just before an access token is issued
 during the OAuth2 flow. This is useful in real-world scenarios that require token customization or additional
 validation. Once the token is modified, the changes are stored as transactional data and persist throughout the token’s
 lifecycle. These modifications are reflected in subsequent flows, such as the refresh token flow, and are available to
@@ -33,7 +33,7 @@ enhancing security posture and minimizing unauthorized access.
 
 ## Request and Response Handling
 
-When an access token request is made, Asgardeo or WSO2 Identity Server (WSO2 IS) will send a request to your configured
+When an access token request is made, WSO2 Identity Platform or WSO2 Identity Server (WSO2 IS) will send a request to your configured
 extension service containing the information of the access token request and the allowed operations.
 
 Your service will process this request and respond with an appropriate status:

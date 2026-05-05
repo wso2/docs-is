@@ -223,7 +223,7 @@ The request from {{product_name}} includes following in the JSON request payload
 <td><p>A unique correlation identifier, used to track the login flow throughout all requests and responses.</p></td>
 </tr>
 </tr>
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 <tr class="odd">
 <td>requestId</td>
 <td>

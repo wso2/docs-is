@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Asgardeo - SCIM 2.0 Bulk API
+  title: WSO2 Identity Platform - SCIM 2.0 Bulk API
   description: |
-    This document specifies **SCIM 2.0 Bulk RESTful API** for **Asgardeo**. To access the SCIM 2.0 APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization.
+    This document specifies **SCIM 2.0 Bulk RESTful API** for **WSO2 Identity Platform**. To access the SCIM 2.0 APIs in WSO2 Identity Platform, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization.
   version: "v1"
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'
@@ -99,7 +99,7 @@ components:
         failOnErrors:
           type: integer
           example: 1
-          description: The number of errors that will be accepted by Asgardeo before returning the response.
+          description: The number of errors that will be accepted by WSO2 Identity Platform before returning the response.
         schemas:
           type: array
           description: This is the schema that is required for sending bulk requests
@@ -121,7 +121,7 @@ components:
         failOnErrors:
           type: integer
           example: 1
-          description: The number of errors that will be accepted by Asgardeo before returning the response.
+          description: The number of errors that will be accepted by WSO2 Identity Platform before returning the response.
         schemas:
           type: array
           description: This is the schema that is required for sending bulk requests
@@ -143,7 +143,7 @@ components:
         failOnErrors:
           type: integer
           example: 1
-          description: The number of errors that will be accepted by Asgardeo before returning the response.
+          description: The number of errors that will be accepted by WSO2 Identity Platform before returning the response.
         schemas:
           type: array
           description: This is the schema that is required for sending bulk requests
@@ -165,7 +165,7 @@ components:
         failOnErrors:
           type: integer
           example: 1
-          description: The number of errors that will be accepted by Asgardeo before returning the response.
+          description: The number of errors that will be accepted by WSO2 Identity Platform before returning the response.
         schemas:
           type: array
           description: This is the schema that is required for sending bulk requests
@@ -187,7 +187,7 @@ components:
         failOnErrors:
           type: integer
           example: 1
-          description: The number of errors that will be accepted by Asgardeo before returning the response.
+          description: The number of errors that will be accepted by WSO2 Identity Platform before returning the response.
         schemas:
           type: array
           description: This is the schema that is required for sending bulk requests
@@ -209,7 +209,7 @@ components:
         failOnErrors:
           type: integer
           example: 1
-          description: The number of errors that will be accepted by Asgardeo before returning the response.
+          description: The number of errors that will be accepted by WSO2 Identity Platform before returning the response.
         schemas:
           type: array
           description: This is the schema that is required for sending bulk requests
@@ -231,7 +231,7 @@ components:
         failOnErrors:
           type: integer
           example: 1
-          description: The number of errors that will be accepted by Asgardeo before returning the response.
+          description: The number of errors that will be accepted by WSO2 Identity Platform before returning the response.
         schemas:
           type: array
           description: This is the schema that is required for sending bulk requests
@@ -253,7 +253,7 @@ components:
         failOnErrors:
           type: integer
           example: 1
-          description: The number of errors that will be accepted by Asgardeo before returning the response.
+          description: The number of errors that will be accepted by WSO2 Identity Platform before returning the response.
         schemas:
           type: array
           description: This is the schema that is required for sending bulk requests

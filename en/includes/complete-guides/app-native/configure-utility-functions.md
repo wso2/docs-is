@@ -187,7 +187,7 @@ export const logoutFromAsgardeo = async (idToken: string) => {
       });
   
       if (!response.ok) {
-        throw new Error('Failed to log out from Asgardeo');
+        throw new Error('Failed to log out from WSO2 Identity Platform');
       }
     } catch (error) {
       console.error("Logout request failed:", error);

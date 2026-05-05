@@ -1,13 +1,13 @@
-# Connect Asgardeo as an OIDC attribute provider for verifiable credentials (VC) with Microsoft Entra Verified ID
+# Connect WSO2 Identity Platform as an OIDC attribute provider for verifiable credentials (VC) with Microsoft Entra Verified ID
 
 [Microsoft Entra Verified ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-verified-id) is a verifiable credential issuance and verification service provided by Microsoft Azure. It allows users to generate, present, and verify their digital identities.
 
-Microsoft allows configuring an IDP (such as Asgardeo) as an OpenID Connect (OIDC) attribute provider for verifiable credentials using their `idTokens` attestation in which the claims provided through the OIDC id token is used to generate the verifiable credential.
+Microsoft allows configuring an IDP (such as WSO2 Identity Platform) as an OpenID Connect (OIDC) attribute provider for verifiable credentials using their `idTokens` attestation in which the claims provided through the OIDC id token is used to generate the verifiable credential.
 
-This tutorial explains how this is done using Asgardeo and Microsoft Entra. Given below are the high-level steps you will follow:
+This tutorial explains how this is done using WSO2 Identity Platform and Microsoft Entra. Given below are the high-level steps you will follow:
 
 1. Configure Microsoft Entra Verified ID to issue verifiable credentials.
-2. Configure Asgardeo as an OIDC attribute provider.
+2. Configure WSO2 Identity Platform as an OIDC attribute provider.
 3. Try out the Microsoft Verified ID Node JS sample.
 
 ## Sample scenario
@@ -16,7 +16,7 @@ Consider the sample use case given below.
 
 Krusty Krab is a fast-food restaurant owned and operated by Mr. Krabs. Krusty Krab has an employee management system where employees can log in and perform their employee-related operations, such as payroll handling, expense reimbursement, etc.
 
-Krusty Krab utilizes Asgardeo as their identity provider and has created an organization named **krustykrab**. Every Krusty Krab employee has an account in the Asgardeo organization.
+Krusty Krab utilizes WSO2 Identity Platform as their identity provider and has created an organization named **krustykrab**. Every Krusty Krab employee has an account in the WSO2 Identity Platform organization.
 
 Recently Mr. Krabs decided to issue employee credentials to their employees using Verifiable Credentials, which the employees can then use to prove their employment at Krusty Krab.
 
@@ -207,15 +207,15 @@ With that, you have completed setting up the Entra Verified ID instance. Now you
 
 ![welcome to Entra verified ID]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-11.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Step 2: Configure Asgardeo as the OIDC attribute provider
+## Step 2: Configure WSO2 Identity Platform as the OIDC attribute provider
 
-In this step, you will configure the connection between Asgardeo and the Microsoft Verified ID service. Here, we need to create an application in Asgardeo with the Mobile template.
+In this step, you will configure the connection between WSO2 Identity Platform and the Microsoft Verified ID service. Here, we need to create an application in WSO2 Identity Platform with the Mobile template.
 
-1. On the [Asgardeo Console](https://console.asgardeo.io/), go to **Applications**.
+1. On the [WSO2 Identity Platform Console](https://console.asgardeo.io/), go to **Applications**.
 
 2. Click **New Application** and select **Mobile Application**:
 
-    ![register new app in Asgardeo]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/select-mobile-template.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![register new app in WSO2 Identity Platform]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/select-mobile-template.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details:
 
@@ -251,10 +251,10 @@ In this step, you will configure the connection between Asgardeo and the Microso
         - PKCE is disabled as it is not required for the tutorial.
         - The listed configurations in the **Guide** tab are needed for the next step of the tutorial.
 
-7. Go to **User Management** > **Users** on the Asgardeo Console and add a new user from there.
+7. Go to **User Management** > **Users** on the WSO2 Identity Platform Console and add a new user from there.
 
     !!! note
-        This step is required to ensure you can log in to the application. You need a business user registered in the Asgardeo organization to be able to perform user login.
+        This step is required to ensure you can log in to the application. You need a business user registered in the WSO2 Identity Platform organization to be able to perform user login.
 
     ![add new user to organization]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/add-new-user-to-organization.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -286,7 +286,7 @@ Now, let's create a credential for the Verified ID service with the id token att
         }
     },
     "consent": {
-        "instructions": "Sign in with your Asgardeo account to get your card.",
+        "instructions": "Sign in with your WSO2 Identity Platform account to get your card.",
         "title": "Do you want to get your Krusty Krab Verified Credential?"
     },
     "claims": [
@@ -317,9 +317,9 @@ Now, let's create a credential for the Verified ID service with the id token att
 5. Configure the **Rules definition**.
 
     !!! note
-        This is the most important part, where we add configurations for the connection with Asgardeo. The rules definition determines what the user should do to get the credential.
+        This is the most important part, where we add configurations for the connection with WSO2 Identity Platform. The rules definition determines what the user should do to get the credential.
 
-        Here, the attestation should be an `idTokens` attestation, and the rules definition should contain the Asgardeo application's client ID, openid configuration url, scopes, and claim mappings. See the below table to learn how to retrieve these values on Asgardeo.
+        Here, the attestation should be an `idTokens` attestation, and the rules definition should contain the WSO2 Identity Platform application's client ID, openid configuration url, scopes, and claim mappings. See the below table to learn how to retrieve these values on WSO2 Identity Platform.
 
     <table>
         <tr>
@@ -335,7 +335,7 @@ Now, let's create a credential for the Verified ID service with the id token att
                 clientId
             </td>
             <td>
-                The OAuth 2.0 Client ID received from the created Asgardeo application.
+                The OAuth 2.0 Client ID received from the created WSO2 Identity Platform application.
             </td>
         </tr>
         <tr>
@@ -343,7 +343,7 @@ Now, let's create a credential for the Verified ID service with the id token att
                 configuration
             </td>
             <td>
-                The OpenID Connect identity provider metadata discovery endpoint of the Asgardeo organization.
+                The OpenID Connect identity provider metadata discovery endpoint of the WSO2 Identity Platform organization.
             </td>
         </tr>
         <tr>
@@ -359,7 +359,7 @@ Now, let's create a credential for the Verified ID service with the id token att
                 scope
             </td>
             <td>
-                The scopes requested from the Asgardeo application.
+                The scopes requested from the WSO2 Identity Platform application.
             </td>
         </tr>
         <tr>
@@ -367,7 +367,7 @@ Now, let's create a credential for the Verified ID service with the id token att
                 mapping
             </td>
             <td>
-                The output and input claim mappings for VC and Asgardeo. You'll be able to find the identifier for the <code>inputClaim</code> from the <b>User Attributes</b> tab of the created Asgardeo application.
+                The output and input claim mappings for VC and WSO2 Identity Platform. You'll be able to find the identifier for the <code>inputClaim</code> from the <b>User Attributes</b> tab of the created WSO2 Identity Platform application.
             </td>
         </tr>
     </table>
@@ -560,9 +560,9 @@ To get the KrustyKrab verifiable credential:
 
     ![scan QR code]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-18.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Scan the QR and you'll see an option to sign in with Asgardeo.
+3. Scan the QR and you'll see an option to sign in with WSO2 Identity Platform.
 
-4. Click **Sign In with Asgardeo**, and you are redirected to the login page provided by Asgardeo.
+4. Click **Sign In with WSO2 Identity Platform**, and you are redirected to the login page provided by WSO2 Identity Platform.
 
 5. Sign in with the user account you added previously.
 
@@ -574,7 +574,7 @@ To get the KrustyKrab verifiable credential:
 
     ![add to wallet]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-20.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-You can view the user details you received from Asgardeo by clicking the verifiable credential card inside the wallet.
+You can view the user details you received from WSO2 Identity Platform by clicking the verifiable credential card inside the wallet.
 
 ### Step 5.3: Verify the credential
 
@@ -596,4 +596,4 @@ The sample website now receives the user details from the KrustyKrab credential.
 
 ![credentials received]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/img-23.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Now that you have successfully configured Asgardeo as an OIDC attribute provider for Microsoft Entra verifiable credentials, you can continue to harness the full capabilities that Asgardeo provides by customizing the sign-in flow, enhancing application security, etc.
+Now that you have successfully configured WSO2 Identity Platform as an OIDC attribute provider for Microsoft Entra verifiable credentials, you can continue to harness the full capabilities that WSO2 Identity Platform provides by customizing the sign-in flow, enhancing application security, etc.

@@ -135,11 +135,11 @@ Use the following cURL to obtain an access token
 }
 ```
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 !!! note
 
-    Find the default values related to the device authorization flow in the Asgardeo.
+    Find the default values related to the device authorization flow in the WSO2 Identity Platform.
     
     <table>
     <tr>

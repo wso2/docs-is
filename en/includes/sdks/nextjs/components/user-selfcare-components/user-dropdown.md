@@ -1,4 +1,4 @@
-The `UserDropdown` component displays a user avatar with a dropdown menu, automatically retrieving user data from the Asgardeo authentication context. It includes an inbuilt user profile popup and sign-out functionality, making it easy to integrate profile management and sign-out actions.
+The `UserDropdown` component displays a user avatar with a dropdown menu, automatically retrieving user data from the WSO2 Identity Platform authentication context. It includes an inbuilt user profile popup and sign-out functionality, making it easy to integrate profile management and sign-out actions.
 
 ## Overview
 

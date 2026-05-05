@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: "v1"
   title: 'Authenticators API'
-  description: 'This document specifies a **Authenticators RESTful API** for Asgardeo'
+  description: 'This document specifies a **Authenticators RESTful API** for WSO2 Identity Platform'
 
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'

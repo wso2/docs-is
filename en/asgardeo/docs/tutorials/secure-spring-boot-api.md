@@ -1,8 +1,8 @@
-# Secure Your Spring Boot API with Asgardeo
+# Secure Your Spring Boot API with WSO2 Identity Platform
 
 Spring Boot is a Java framework that simplifies the development of robust applications by offering a production-ready environment with minimal configurations. Spring security provides comprehensive tools to facilitate authentication and authorization for REST APIs. Spring Security seamlessly integrates with Spring Boot and allows developers to focus on business logic rather than boilerplate code.
 
-The goal of this tutorial is to explore how we can enhance API security by integrating Asgardeo, a comprehensive identity and access management solution, with Spring Security. This combination will handle authentication and authorization processes effectively.
+The goal of this tutorial is to explore how we can enhance API security by integrating WSO2 Identity Platform, a comprehensive identity and access management solution, with Spring Security. This combination will handle authentication and authorization processes effectively.
 
 Let's look at the following example scenario.
 
@@ -20,7 +20,7 @@ The application users are divided into the following two roles with different le
 - `Reporters` can create and list issues.
 - `Fix-Verifiers` have full access to the application and can perform all operations.
 
-You are tasked with delegating access to the application so that users are given appropriate levels of access based on their roles. Let's use Asgardeo to achieve this.
+You are tasked with delegating access to the application so that users are given appropriate levels of access based on their roles. Let's use WSO2 Identity Platform to achieve this.
 
 ## Step 1: Create a simple CRUD API
 
@@ -30,17 +30,17 @@ You can find a sample implementation in the following [repository](https://githu
 
 <!-- To use the above implementation, clone the repository and configure the values in the src/main/resources/application.properties. You can configure these values after the following steps.  -->
 
-## Step 2: Integrate your service with Asgardeo
+## Step 2: Integrate your service with WSO2 Identity Platform
 
- Follow the instructions below to connect your Issue Management service with Asgardeo.
+ Follow the instructions below to connect your Issue Management service with WSO2 Identity Platform.
 
-### Step 2.1: Register your API resources in Asgardeo
+### Step 2.1: Register your API resources in WSO2 Identity Platform
 
-First, let's register your issue management REST API with Asgardeo. To do so,
+First, let's register your issue management REST API with WSO2 Identity Platform. To do so,
 
-1. Go to your organization from the [Asgardeo Console](https://console.asgardeo.io/).
+1. Go to your organization from the [WSO2 Identity Platform Console](https://console.asgardeo.io/).
 
-2. [Register your API in Asgardeo]({{base_path}}/guides/api-authorization/#register-an-api-resource).
+2. [Register your API in WSO2 Identity Platform]({{base_path}}/guides/api-authorization/#register-an-api-resource).
 
 3. [Define permissions for the API resource]({{base_path}}/guides/api-authorization/#define-permissions-for-an-api-resource) with the following permissions.
 
@@ -49,11 +49,11 @@ First, let's register your issue management REST API with Asgardeo. To do so,
     - <code>issues:update</code>
     - <code>issues:delete</code>
 
-### Step 2.2 Register your application in Asgardeo
+### Step 2.2 Register your application in WSO2 Identity Platform
 
-You need to register your application in Asgardeo and connect your API resources to it. To do so,
+You need to register your application in WSO2 Identity Platform and connect your API resources to it. To do so,
 
-1. [Create a standard-based application in Asgardeo]({{base_path}}/guides/applications/register-standard-based-app/) by selecting the grant type as `Code` and the access token type as `JWT`.
+1. [Create a standard-based application in WSO2 Identity Platform]({{base_path}}/guides/applications/register-standard-based-app/) by selecting the grant type as `Code` and the access token type as `JWT`.
 
 2. [Connect the API resources]({{base_path}}/guides/api-authorization/#authorize-the-api-resources-for-an-app) with the application that you created in Step 1 above.
 
@@ -66,34 +66,34 @@ To do so, [create roles and associate to the application]({{base_path}}/guides/a
 - Reporter - Assign `create:isses` and `view:issues` permissions.
 - Fix-Verifier - Assign all permissions.
 
-### Step 2.4 Assign roles to user groups in Asgardeo
+### Step 2.4 Assign roles to user groups in WSO2 Identity Platform
 
-For the application roles defined in Step 2.3 above to take effect, we need to assign those roles to users in Asgardeo. The best way to do this is to create user groups and assign the relevant roles to each group.
+For the application roles defined in Step 2.3 above to take effect, we need to assign those roles to users in WSO2 Identity Platform. The best way to do this is to create user groups and assign the relevant roles to each group.
 
 To do so,
 
-1. [Create user groups in Asgardeo]({{base_path}}/guides/users/manage-groups/). For this scenario, let's create two groups and name them `Reporter` and `Fix-Verifier`.
+1. [Create user groups in WSO2 Identity Platform]({{base_path}}/guides/users/manage-groups/). For this scenario, let's create two groups and name them `Reporter` and `Fix-Verifier`.
 
 2. [Assign application roles]({{base_path}}/guides/api-authorization/#assign-roles-to-groups) created in step 2.3 above to the relevant groups.
 
-### Step 2.5 Assign users to groups in Asgardeo
+### Step 2.5 Assign users to groups in WSO2 Identity Platform
 
-Now that you have assigned the application roles to the relevant user groups in Asgardeo, let's add users to these groups so that they can access the API resources.
+Now that you have assigned the application roles to the relevant user groups in WSO2 Identity Platform, let's add users to these groups so that they can access the API resources.
 
 To do so,
 
-1. [Onboard users to Asgardeo]({{base_path}}/guides/users/manage-users/#onboard-a-user).
+1. [Onboard users to WSO2 Identity Platform]({{base_path}}/guides/users/manage-users/#onboard-a-user).
 
 2. [Assign users to relevant groups]({{base_path}}/guides/users/manage-users/#assign-groups).
 
 ## Step 3: Configure Spring Security
 
-In your Spring project, do the following configurations so that it is correctly integrated with Asgardeo.:
+In your Spring project, do the following configurations so that it is correctly integrated with WSO2 Identity Platform.:
 
-1. Create a security configuration file and include the following JWT decoder to validate Asgardeo issued tokens.
+1. Create a security configuration file and include the following JWT decoder to validate WSO2 Identity Platform issued tokens.
 
     !!! note
-        Asgardeo issues access tokens of `at+jwt` type.
+        WSO2 Identity Platform issues access tokens of `at+jwt` type.
 
     ``` java
     NimbusJwtDecoder jwtDecoder = NimbusJwtDecoder.withJwkSetUri(jwkSetUri).jwtProcessorCustomizer(customizer -> {
@@ -130,7 +130,7 @@ Let's try to access the API resources of the sample application as a `Reporter` 
     &scope=issues:create+issues:delete+issues:update+issues:view
     ```
 
-2. Log in as a `Reporter` user to Asgardeo and provide consent to the application to access the shown scopes.
+2. Log in as a `Reporter` user to WSO2 Identity Platform and provide consent to the application to access the shown scopes.
 
     ![Consent page of the Spring boot app]({{base_path}}/assets/img/tutorials/springboot-app/request-scopes-spring-tutorial.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

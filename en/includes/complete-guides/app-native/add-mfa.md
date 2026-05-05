@@ -3,9 +3,9 @@ Multi-factor authentication (MFA) is a security mechanism that requires users to
 
 In this guide, we will look into enabling Email OTP as an MFA factor in your Next.js application. Email OTP is a simple and effective MFA method that sends a one-time passcode to the user's email address, which they must enter to complete the login process.
 
-{% if product_name == 'Asgardeo' %}
+{% if product_name == 'WSO2 Identity Platform' %}
 
-You can configure SMTP settings in the {{product_name}} Console by navigating to the **Notification Channels** tab > **Email Provider** section. In Asgardeo you can simply use default Asgardeo SMTP settings available out of the box without configuring an  **Email Provider**.
+You can configure SMTP settings in the {{product_name}} Console by navigating to the **Notification Channels** tab > **Email Provider** section. In WSO2 Identity Platform you can simply use default WSO2 Identity Platform SMTP settings available out of the box without configuring an  **Email Provider**.
 
 {% else %}
 

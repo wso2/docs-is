@@ -2,7 +2,7 @@
 
 We recommend the following best practices to protect your organization in the production environment:
 
-- **Strong authentication for Asgardeo administrators**
+- **Strong authentication for WSO2 Identity Platform administrators**
 
     It is recommended to enable strong authentication for administrators with access to your admin console. This can be done by users' preference only. Administrators can enable multi-factor authentication for their asgardeo account. [Learn more]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#enroll-totp-for-asgardeo-users)
 

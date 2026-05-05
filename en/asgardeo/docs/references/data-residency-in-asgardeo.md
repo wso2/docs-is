@@ -1,12 +1,12 @@
-# Data residency in Asgardeo
+# Data residency in WSO2 Identity Platform
 
 Data residency is the geographical (or regulatory) boundary where your data is stored and processed.
 
-![data residency in Asgardeo]({{base_path}}/assets/img/references/asgardeo-data-residency.png){: width="700"}
+![data residency in WSO2 Identity Platform]({{base_path}}/assets/img/references/asgardeo-data-residency.png){: width="700"}
 
 ## Data centers
 
-Asgardeo uses two regional data centers to store data:
+WSO2 Identity Platform uses two regional data centers to store data:
 
 <table>
     <tr>
@@ -44,16 +44,16 @@ Asgardeo uses two regional data centers to store data:
     </tr>
 </table>
 
-You can onboard to Asgardeo in your preferred region by using the relevant URL (listed below). Your data will be stored in the corresponding regional data center.
+You can onboard to WSO2 Identity Platform in your preferred region by using the relevant URL (listed below). Your data will be stored in the corresponding regional data center.
 
-- **Asgardeo Console - US region**: https://console.asgardeo.io/
-- **Asgardeo Console - EU region**: https://console.eu.asgardeo.io/
+- **WSO2 Identity Platform Console - US region**: https://console.asgardeo.io/
+- **WSO2 Identity Platform Console - EU region**: https://console.eu.asgardeo.io/
 
 Effective June 27, 2025, all applicable user and service-related data are stored in the selected regional data center (US or EU), replacing the previous approach of storing some data types only in the US.
 
 ### Subscription data
 
-Your subscription account is the user account that's created when you are onboarded to Asgardeo. Billing details are linked to this account. Listed below are some of the subscription data:
+Your subscription account is the user account that's created when you are onboarded to WSO2 Identity Platform. Billing details are linked to this account. Listed below are some of the subscription data:
 
 - Billing email
 - Subscription ID
@@ -65,7 +65,7 @@ Your subscription account is the user account that's created when you are onboar
 
 ### Administrator data
 
-Users onboarded to Asgardeo as [organization administrators]({{base_path}}/guides/users/manage-administrators/) are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) was previously stored exclusively in the US datacenter.
+Users onboarded to WSO2 Identity Platform as [organization administrators]({{base_path}}/guides/users/manage-administrators/) are granted access to the global WSO2 services such as billing and support. Therefore, the administrator data (including profile information and login information from the billing/support portals) was previously stored exclusively in the US datacenter.
 
 The profile information of organization administrators includes all the data that organization administrators enter in their user profiles.
 
@@ -75,7 +75,7 @@ The profile information of organization administrators includes all the data tha
 
 ### End-user data
 
-Data of your end users are only stored in the regional datacenter you selected when onboarding to Asgardeo.
+Data of your end users are only stored in the regional datacenter you selected when onboarding to WSO2 Identity Platform.
 
 ## Data sharing
 
@@ -86,8 +86,8 @@ Therefore, note that your organization–level logs may include personal informa
 
 ## Data privacy
 
-Learn about Asgardeo's [privacy policy](https://wso2.com/asgardeo/privacy-policy/#:~:text=Asgardeo%20doesn%27t%20store%20any,API%20Services%20User%20Data%20Policy.) to understand how your data privacy is protected.
+Learn about WSO2 Identity Platform's [privacy policy](https://wso2.com/asgardeo/privacy-policy/#:~:text=WSO2 Identity Platform%20doesn%27t%20store%20any,API%20Services%20User%20Data%20Policy.) to understand how your data privacy is protected.
 
 ## Get support
 
-If you require more details or have other data residency requirements for your organizations and businesses, contact the Asgardeo support team.
+If you require more details or have other data residency requirements for your organizations and businesses, contact the WSO2 Identity Platform support team.

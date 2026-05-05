@@ -1,6 +1,6 @@
 # API resources and scopes required for MCP tools
 
-The following table details the API Resources and Scopes each MCP Tool in Asgardeo MCP Server requires for authorization.
+The following table details the API Resources and Scopes each MCP Tool in WSO2 Identity Platform MCP Server requires for authorization.
 
 <table>
     <thead>

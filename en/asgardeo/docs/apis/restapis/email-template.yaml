@@ -1,11 +1,11 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: Asgardeo - Email Templates API
+  title: WSO2 Identity Platform - Email Templates API
   description: 
-    "This is the RESTful API for managing email templates in WSO2 Asgardeo. This API allows adding, retrieving, replacing, and removing email
+    "This is the RESTful API for managing email templates in WSO2 WSO2 Identity Platform. This API allows adding, retrieving, replacing, and removing email
     templates and template types. 
-    \n To access the email template APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
+    \n To access the email template APIs in WSO2 Identity Platform, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
 tags:
   - name: Email template types
     description: An email template type can have multiple email templates for different languages.
@@ -108,7 +108,7 @@ paths:
                 "contentType": "text/html",
                 "subject": "WSO2 - Account Confirmation",
                 "body": "HTML Body",
-                "footer": "WSO2 Asgardeo Team",
+                "footer": "WSO2 WSO2 Identity Platform Team",
                 "id": "en_US"
               }
             ]
@@ -238,7 +238,7 @@ paths:
             "contentType": "text/html",
             "subject": "WSO2 - Account Confirmation",
             "body": "HTML Body",
-            "footer": "WSO2 Asgardeo Team",
+            "footer": "WSO2 WSO2 Identity Platform Team",
             "id": "en_US"
             }'         
     put:
@@ -287,7 +287,7 @@ paths:
               "contentType": "text/html",
               "subject": "WSO2 - Account Confirmation",
               "body": "HTML Body",
-              "footer": "WSO2 Asgardeo Team",
+              "footer": "WSO2 WSO2 Identity Platform Team",
               "id": "en_US"
             }
             ]'          
@@ -419,7 +419,7 @@ paths:
             "contentType": "text/html",
             "subject": "WSO2 - Account Confirmation",
             "body": "HTML Body",
-            "footer": "WSO2 Asgardeo Team",
+            "footer": "WSO2 WSO2 Identity Platform Team",
             "id": "en_US"
             }'         
     delete:
@@ -643,7 +643,7 @@ components:
           description: The body (HTML) of the email.
         footer:
           type: string
-          example: WSO2 Asgardeo Team
+          example: WSO2 WSO2 Identity Platform Team
           description: The footer of the email.
     EmailTemplateWithID:
       allOf:

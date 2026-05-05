@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Asgardeo - OAuth2 Dynamic Client Registration API
+  title: WSO2 Identity Platform - OAuth2 Dynamic Client Registration API
   description: |
-    This document specifies an OAuth2 Dynamic Client Registration endpoint for Asgardeo.
+    This document specifies an OAuth2 Dynamic Client Registration endpoint for WSO2 Identity Platform.
     <div style="border: 1px solid #f4c542; border-left: 6px solid #f4c542; border-radius: 6px; overflow: hidden; margin: 16px 0; background-color: #fffaf0;">
       <div style="background-color: #fff8e5; padding: 10px 14px; border-bottom: 1px solid #f4c542;">
         <span style="font-weight: 600; color: #8a6d00; font-size: 15px;">⚠️ NOTE</span>
@@ -309,7 +309,7 @@ components:
           type: array
           items:
             type: string
-          description: The redirect URI determines where Asgardeo will redirect users after authentication and logout.
+          description: The redirect URI determines where WSO2 Identity Platform will redirect users after authentication and logout.
         client_name:
           type: string
           description: The name of the OAuth2 client application.
@@ -326,7 +326,7 @@ components:
             - password
           items:
             type: string
-          description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
+          description: "The This will determine how the application communicates with the token service. WSO2 Identity Platform supports following grant types:
           <ul>
             <li>authorization_code</li>
             <li>client_credentials</li>
@@ -381,7 +381,7 @@ components:
             - password
           items:
             type: string
-          description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
+          description: "The This will determine how the application communicates with the token service. WSO2 Identity Platform supports following grant types:
           <ul>
             <li>authorization_code</li>
             <li>client_credentials</li>
@@ -419,7 +419,7 @@ components:
             - password
           items:
             type: string
-          description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
+          description: "The This will determine how the application communicates with the token service. WSO2 Identity Platform supports following grant types:
           <ul>
             <li>authorization_code</li>
             <li>client_credentials</li>

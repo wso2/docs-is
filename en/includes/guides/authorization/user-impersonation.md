@@ -361,7 +361,7 @@ holds the value of `2d931c9d-876e-46c0-9aba-f34501879dfc`, which is the userid o
 
 In order to troubleshoot issues and keep track of the actions performed by impersonators, {{product_name}} supports logs for user impersonation. Whenever a resource gets modified using an impersonated access token, an audit log is printed with the relevant details of the impersonator. 
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 You may access these logs from the **Logs** section of the {{product_name}} Console.
 

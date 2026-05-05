@@ -49,7 +49,7 @@ The user can follow the steps below to sign up using an email.
     !!! note
 
         - Administrators can change which attributes users need to enter during the sign up process. Learn how to [update user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) so that they are displayed in the user profile.
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         - Users can either be allowed to use the email as the username or be asked to enter a separate username. Learn how to [configure username requirements]({{base_path}}/guides/user-accounts/account-login/username-validation/).
         {% endif %}
 
@@ -59,7 +59,7 @@ The user can follow the steps below to sign up using an email.
 
     ![Account verification email notification]({{base_path}}/assets/img/guides/organization/self-service/customer/account-verification-email.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 5. If **Account Verification** enabled, users can resend the account verification email if needed.
     - If **Activate Account Immediately** enabled, after successfully logging into My Account, a warning message with a resend link will appear. Click this link to resend the account verification email.
 

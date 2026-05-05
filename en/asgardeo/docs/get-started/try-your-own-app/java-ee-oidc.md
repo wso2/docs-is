@@ -1,11 +1,11 @@
 # Integrate OIDC with your Java EE webapp
 
-Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Asgardeo Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent) which enables OIDC-based login and logout.
+Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [WSO2 Identity Platform Tomcat OIDC Agent](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent) which enables OIDC-based login and logout.
 
 ## Prerequisites
 - [Download](https://tomcat.apache.org/tomcat-9.0-doc/) Apache Tomcat 9.x or 8.x in your local environment.
 - [Download](https://maven.apache.org/download.cgi), and [install](https://maven.apache.org/install.html) Apache Maven (3.6.x or higher) as the package manager if you already haven't.
-- You need to have an application registered in Asgardeo. If you don't, see the instructions on [registering an OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/).
+- You need to have an application registered in WSO2 Identity Platform. If you don't, see the instructions on [registering an OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/).
 
 ## Install the SDK
 
@@ -38,7 +38,7 @@ The Agent is hosted at **WSO2 Internal Repository**. To resolve the dependency m
 
 ## Initialize the SDK
 
-To initialize the OIDC agent, you need a property file with the configurations such as the Asgardeo endpoints. The Asgardeo OIDC agent reads the configurations from this file.
+To initialize the OIDC agent, you need a property file with the configurations such as the WSO2 Identity Platform endpoints. The WSO2 Identity Platform OIDC agent reads the configurations from this file.
 
 Create a file named `oidc-sample-app.properties` in the _<YOUR_APP>/src/main/resources_ directory, using the content
 below.
@@ -118,7 +118,7 @@ flow if it does not find an authenticated application session.
 
 Add the following snippet to enable logout.
 
-When the user initiates the logout, the local authenticated application session is cleared and the session in Asgardeo
+When the user initiates the logout, the local authenticated application session is cleared and the session in WSO2 Identity Platform
 is terminated.
 
 ```html
@@ -127,4 +127,4 @@ is terminated.
 </form>
 ```
 
-See the [Asgardeo Tomcat OIDC Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent#how-it-works) for more information on how it works.
+See the [WSO2 Identity Platform Tomcat OIDC Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-oidc-agent#how-it-works) for more information on how it works.

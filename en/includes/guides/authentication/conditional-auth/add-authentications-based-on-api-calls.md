@@ -139,7 +139,7 @@ Follow the steps given below.
     "url": "<Choreo API URL>",
     "consumerKey": "<Consumer key of the Choreo application>",
     "consumerSecret": "<Consumer secret of the Choreo application>",
-    "asgardeoTokenEndpoint": "<Token endpoint of the tenant in Asgardeo>"
+    "asgardeoTokenEndpoint": "<Token endpoint of the tenant in WSO2 Identity Platform>"
     };    
     var onLoginRequest = function(context) {
     executeStep(1, {
@@ -191,12 +191,12 @@ Follow the steps given below.
           </tr>
           <tr>
                <td><code>asgardeoTokenEndpoint</code></td>
-               <td>Token endpoint of the organization in Asgardeo. For example: <code>https://api.asgardeo.io/t/{org_name}/oauth2/token</code></td>
+               <td>Token endpoint of the organization in WSO2 Identity Platform. For example: <code>https://api.asgardeo.io/t/{org_name}/oauth2/token</code></td>
           </tr>
      </table>
 
     ??? note "Use a stored `Secret`"
-        If you don't want to enter the `consumerkey` and `consumerSecret` obtained from the Choreo application every time you use the conditional authentication script, you can store them as **Secret**s on Asgardeo.
+        If you don't want to enter the `consumerkey` and `consumerSecret` obtained from the Choreo application every time you use the conditional authentication script, you can store them as **Secret**s on WSO2 Identity Platform.
 
         - **Using a stored `consumer key` and `consumer secret` in the conditional authentication script.**
 

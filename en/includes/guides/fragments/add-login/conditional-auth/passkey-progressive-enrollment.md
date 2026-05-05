@@ -1,4 +1,4 @@
-{% if product_name == 'Asgardeo' %}
+{% if product_name == 'WSO2 Identity Platform' %}
 === "Visual Editor"
     To add the adaptive script using the Visual Editor:
 

@@ -111,7 +111,7 @@ If you omit these parameters, the OTP step uses its default behavior with no app
 
 When you use app-native authentication, reaching either limit returns an error response.
 
-{% if product_name != "Asgardeo" %}
+{% if product_name != "WSO2 Identity Platform" %}
 !!! note
     See the [App-native error codes]({{base_path}}/references/troubleshoot/app-native-error-codes/) catalog for the full list of error codes.
 {% endif %}

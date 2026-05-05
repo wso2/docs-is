@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies the **Userstore Management RESTful API** for Asgardeo organizations.
+    This document specifies the **Userstore Management RESTful API** for WSO2 Identity Platform organizations.
   version: "v1"
-  title: Asgardeo - UserStore Management Rest API
+  title: WSO2 Identity Platform - UserStore Management Rest API
 
 security:
   - OAuth2: []

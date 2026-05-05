@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Asgardeo - SCIM 2.0 Service Provider Configs API
+  title: WSO2 Identity Platform - SCIM 2.0 Service Provider Configs API
   description: |
-    This document specifies **SCIM 2.0 Service provider configuration RESTful API** for **Asgardeo**.
+    This document specifies **SCIM 2.0 Service provider configuration RESTful API** for **WSO2 Identity Platform**.
   version: "v1"
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'

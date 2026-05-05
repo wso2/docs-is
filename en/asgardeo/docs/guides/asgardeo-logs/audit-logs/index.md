@@ -1,6 +1,6 @@
 # Audit logs
 
-Audit logs in Asgardeo are designed for developers to access and analyze vital state changes that happen to resources in Asgardeo. These logs are important for enhancing system security as they proactively identify suspicious activities and potential security threats.
+Audit logs in WSO2 Identity Platform are designed for developers to access and analyze vital state changes that happen to resources in WSO2 Identity Platform. These logs are important for enhancing system security as they proactively identify suspicious activities and potential security threats.
 
 In the event of incidents or errors, audit logs serve as a valuable forensic tool, facilitating the investigation process by providing detailed insights into the sequence of events and identifying the responsible parties.
 
@@ -10,7 +10,7 @@ This guide provides instructions on how to access and analyze audit logs to moni
 
 To access audit logs:
 
-1. On the Asgardeo Console, go to **Log**
+1. On the WSO2 Identity Platform Console, go to **Log**
 
 2. Switch to the **Audit** tab.
 
@@ -28,7 +28,7 @@ For example, the diagram below shows the results for a search filtered with the 
 
 ## Structure of an audit log
 
-When you expand an audit log in Asgardeo by clicking on it, you will get the following view.
+When you expand an audit log in WSO2 Identity Platform by clicking on it, you will get the following view.
 
 ![Expanded audit log view]({{base_path}}/assets/img/guides/asgardeo-logs/audit-logs/expanded-view-audit-log.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -65,7 +65,7 @@ The following are the properties of an audit log:
     </tr>
     <tr>
         <td><code>targetType</code></td>
-        <td>The type of the target resource, such as <code>user</code> or <code>application</code>. <br><br> Note that Asgardeo currently publishes audit logs for the <code>targetTypes</code>: <b>User</b>, <b>Group</b>, <b>Role</b>, <b>Application</b></td>
+        <td>The type of the target resource, such as <code>user</code> or <code>application</code>. <br><br> Note that WSO2 Identity Platform currently publishes audit logs for the <code>targetTypes</code>: <b>User</b>, <b>Group</b>, <b>Role</b>, <b>Application</b></td>
     </tr>
     <tr>
         <td><code>actionId</code></td>
@@ -85,9 +85,9 @@ The following are the properties of an audit log:
 
 Follow the steps below to observe an audit log due to user onboarding:
 
-1. <a :href="$withBase('/guides/users/manage-users/#onboard-single-user')">Onboard a user</a> to Asgardeo.
+1. <a :href="$withBase('/guides/users/manage-users/#onboard-single-user')">Onboard a user</a> to WSO2 Identity Platform.
 
-2. On the Asgardeo Console, go to **Logs**.
+2. On the WSO2 Identity Platform Console, go to **Logs**.
 
 3. Switch to the **Audit** tab, expand the latest with the `add-user` tag, and observe the following audit log.
 

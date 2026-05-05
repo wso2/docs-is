@@ -1,4 +1,4 @@
-# Asgardeo Production Checklist
+# WSO2 Identity Platform Production Checklist
 
 Before you go live, use the following list to ensure that your organizations are ready for use in a production environment.
 

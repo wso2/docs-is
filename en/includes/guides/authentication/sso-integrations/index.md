@@ -14,7 +14,7 @@
       <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/microsoft-logo.svg" alt="Microsoft" />
       <span>Microsoft</span>
     </a>
-    {% if product_name == "WSO2 Identity Server" or (product_name == "Asgardeo" and sso_integrations_zoom_slack) %}
+    {% if product_name == "WSO2 Identity Server" or (product_name == "WSO2 Identity Platform" and sso_integrations_zoom_slack) %}
     <a href="{{base_path}}/guides/authentication/sso-integrations/add-zoom-template" class="card square">
       <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/zoom.svg" alt="Zoom" />
       <span>Zoom</span>

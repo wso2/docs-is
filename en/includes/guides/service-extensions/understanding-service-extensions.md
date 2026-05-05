@@ -295,7 +295,7 @@ Shown below is an example of a diagnostic log generated during the pre-issue acc
 
 {%else %}
 
-![Asgardeo logs]({{base_path}}/assets/img/guides/actions/action-diagnostics-logs-in-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![WSO2 Identity Platform logs]({{base_path}}/assets/img/guides/actions/action-diagnostics-logs-in-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {%endif %}
 
@@ -377,7 +377,7 @@ loggers = org-wso2-carbon-identity-action-execution
     It is highly recommended to disable both diagnostic logs and system debug logs once troubleshooting is completed as it may expose sensitive information included in responses and requests.
 
 {%else %}
-You may view the diagnostics logs under the logs tab in Asgardeo. [Refer here]({{base_path}}/guides/asgardeo-logs/diagnostic-logs/) to learn more about diagnostic logs in Asgardeo.
+You may view the diagnostics logs under the logs tab in WSO2 Identity Platform. [Refer here]({{base_path}}/guides/asgardeo-logs/diagnostic-logs/) to learn more about diagnostic logs in WSO2 Identity Platform.
 {%endif %}
 
 

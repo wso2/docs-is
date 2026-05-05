@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: Asgardeo - Webhook Management Rest API
+  title: WSO2 Identity Platform - Webhook Management Rest API
   description: >
-    The Webhook Management REST API provides a standardized interface to manage webhooks within Asgardeo. Webhooks allow external systems to receive real-time notifications for various events, such as login successes or failures, enabling seamless integration and automation across external applications and services. 
+    The Webhook Management REST API provides a standardized interface to manage webhooks within WSO2 Identity Platform. Webhooks allow external systems to receive real-time notifications for various events, such as login successes or failures, enabling seamless integration and automation across external applications and services. 
     This API empowers developers and administrators to create, update, delete, and retrieve webhook configurations tailored to their specific business needs and event-driven workflows.
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
