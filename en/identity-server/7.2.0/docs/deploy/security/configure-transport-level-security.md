@@ -19,18 +19,18 @@ Follow the instructions given below to configure SSL/TLS protocols in the WSO2 I
 
 ## Configure cipher suites
 
-By default, all SSL ciphers supported by JSSE are enabled. To restrict the server to a specific set of secure cipher suites, explicitly configure the `ciphers` property. If left blank, weak ciphers (including EXPORT ciphers) will also be available, which can make the server vulnerable to attacks such as the Logjam attack.
+By default, {{product_name}} enables a secure set of cipher suites. To restrict the server to a specific set of secure cipher suites, you can configure the `ciphers` property.
 
-1. Use the [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6){:target="_blank"} to get a recommended list of cipher suites for your Tomcat version and security profile.
+To override the default cipher suites, use the [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org/#server=tomcat&version=9.0.58&config=intermediate&guideline=5.6){:target="_blank"} to select a cipher list suitable for your Tomcat version and security profile, then configure it as follows:
 
-2. Add the selected ciphers as a comma-separated list to the `<IS_HOME>/repository/conf/deployment.toml` file:
+1. Add the selected ciphers as a comma-separated list to the `<IS_HOME>/repository/conf/deployment.toml` file:
 
     ```toml
     [transport.https.sslHostConfig.properties]
     ciphers="<cipher-name>,<cipher-name>"
     ```
 
-3. Restart the server.
+2. Restart the server.
 
 ## Enable SSL protocols and ciphers in ThriftAuthenticationService
 

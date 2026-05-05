@@ -61,7 +61,7 @@ In production, disable the plain HTTP transport and use HTTPS exclusively to pre
 
 When sending HTTP responses, by default, WSO2 Identity Server passes `WSO2 Carbon Server` as the **server value** in HTTP headers. This exposes information about the WSO2 Identity Server stack.
 
-It is recommended to change this by configuring the server name. For instructions, see [Configure Transport Level Security]({{base_path}}/deploy/security/configure-transport-level-security).
+It is recommended to change this by configuring the server name. For instructions, see [Configure Transport-Level Security]({{base_path}}/deploy/security/configure-transport-level-security).
 
 ### HTTP Strict Transport Security (HSTS)
 
@@ -80,21 +80,11 @@ If there are dynamic pages in your application with sensitive information, you n
 
 Disable client-initiated TLS renegotiation to prevent denial-of-service attacks that exploit the high asymmetry of renegotiation costs.
 
-Before starting the server, open the product startup script in the `<IS_HOME>/bin` directory and add the following JVM property:
-
-=== "Linux/macOS"
-    ``` bash
-    wso2server.sh
-    ```
-
-=== "Windows"
-    ```bash
-    wso2server.bat
-    ```
-
-``` java
--Djdk.tls.rejectClientInitiatedRenegotiation=true \
-```
+1. Open the startup script in the `<IS_HOME>/bin` directory.
+   - Use `wso2server.sh` on Linux/macOS.
+   - Use `wso2server.bat` on Windows.
+2. Add the JVM option `-Djdk.tls.rejectClientInitiatedRenegotiation=true` to the JVM options in the startup script.
+3. Start the server.
 
 ### Hostname verification
 
@@ -106,15 +96,15 @@ For instructions, see [Enable HostName Verification]({{base_path}}/deploy/enable
 
 ### Read-only access
 
-If your WSO2 Identity Server connects to an external user store, such as Microsoft Active Directory, to read and retrieve user information, enable read-only access to that user store. For instructions, see [Configure Userstores]({{base_path}}/guides/users/user-stores/).
+If your WSO2 Identity Server connects to an external user store, such as Microsoft Active Directory, to read and retrieve user information, enable read-only access to that user store. For instructions, see [Configure user store]({{base_path}}/guides/users/user-stores/).
 
 ### TLS
 
-To ensure adequate network-level protection, all connections from your WSO2 Identity Server to external databases, userstores (LDAP), or other services should be over TLS. Therefore, make sure to use **TLS-enabled external systems**.
+To ensure adequate network-level protection, all connections from your WSO2 Identity Server to external databases, user stores (LDAP), or other services should be over TLS. Therefore, make sure to use **TLS-enabled external systems**.
 
 ### Privileged users
 
-When connecting WSO2 Identity Server to external databases or userstores (LDAP), make sure to go through a user who does not have permission to change the data store's schema.
+When connecting WSO2 Identity Server to external databases or a user store (LDAP), make sure to use a user account that does not have permission to change the data store schema.
 
 !!! warning
     As all permissions are generally granted to the root user, do not use the root user of the data store.
@@ -140,7 +130,7 @@ Do not use the super admin or any high-privileged user credentials when invoking
 
 ### Client authentication
 
-Client authentication is used to identify the application or the client that is making the request. The web applications provided out of the box use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the `ResourceAccessControl` tag of the `<IS_HOME>/repository/conf/identity/identity.xml` file.
+Client authentication is used to identify the application or the client that is making the request. The web applications provided by default use a set of default credentials to authenticate with WSO2 Identity Server REST APIs that are marked as **secure** under the `ResourceAccessControl` tag of the `<IS_HOME>/repository/conf/identity/identity.xml` file.
 
 Follow the steps below to change the default credentials.
 
