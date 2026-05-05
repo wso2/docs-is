@@ -37,30 +37,14 @@ The following table details the API Resources and Scopes each MCP Tool in Asgard
             <td><code>internal_application_mgt_create</code></td>
         </tr>
         <tr>
-            <td rowspan="3"><code>get_application_by_name</code></td>
+            <td><code>get_application_by_name</code></td>
             <td>Application Management API (<code>/api/server/v1/applications</code>)</td>
-            <td><code>internal_application_mgt_create</code></td>
+            <td><code>internal_application_mgt_view</code></td>
         </tr>
         <tr>
-            <td>Claim Management API (<code>/api/server/v1/claim-dialects</code>)</td>
-            <td><code>internal_claim_meta_view</code></td>
-        </tr>
-        <tr>
-            <td>OIDC Scope Management API (<code>/api/server/v1/oidc/scopes</code>)</td>
-            <td><code>internal_oidc_scope_mgt_view</code></td>
-        </tr>
-        <tr>
-            <td rowspan="3"><code>get_application_by_client_id</code></td>
+            <td><code>get_application_by_client_id</code></td>
             <td>Application Management API (<code>/api/server/v1/applications</code>)</td>
-            <td><code>internal_application_mgt_create</code></td>
-        </tr>
-        <tr>
-            <td>Claim Management API (<code>/api/server/v1/claim-dialects</code>)</td>
-            <td><code>internal_claim_meta_view</code></td>
-        </tr>
-        <tr>
-            <td>OIDC Scope Management API (<code>/api/server/v1/oidc/scopes</code>)</td>
-            <td><code>internal_oidc_scope_mgt_view</code></td>
+            <td><code>internal_application_mgt_view</code></td>
         </tr>
         <tr>
             <td><code>update_application_basic_info</code></td>
