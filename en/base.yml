@@ -315,6 +315,20 @@ extra:
               version: ''
               documentation_link: sdks/react/overview
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/react
+            - name: Vue SDK
+              artifact_id: '@asgardeo/vue'
+              icon: assets/img/logo/vuejs-logo.svg
+              description: Vue implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/vue/latest
+              version: ''
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/vue
+            - name: Nuxt SDK
+              artifact_id: '@asgardeo/nuxt'
+              icon: assets/img/logo/nuxtjs-logo.svg
+              description: Nuxt implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/nuxt/latest
+              version: ''
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/nuxt
             - name: Next.js SDK
               artifact_id: '@asgardeo/nextjs'
               icon: assets/img/logo/nextjs-logo-dark.svg
