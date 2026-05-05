@@ -88,7 +88,7 @@ Use this mode to enable hashing for client secrets only, while leaving access to
         - `client_secret_hash_algorithm` defaults to `SHA-256`. WSO2 Identity Server allows you to use hashing algorithms supported by MessageDigest. For more information on hashing algorithms supported by MessageDigest, see [MessageDigest Algorithms](https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#MessageDigest).  
 
     !!! warning
-        Enabling this feature does **not** hash client secrets that are already stored in the database. A separate migration is required to hash previously stored client secrets. Migration scripts can be found [here](https://github.com/wso2-extensions/identity-inbound-auth-oauth/tree/master/features/org.wso2.carbon.identity.oauth.server.feature/resources/dbScripts/storedProcedure/HashClientSecret).
+        Enabling this feature does **not** hash client secrets that are already stored in the database. A separate migration is required to hash previously stored client secrets. See the [client secret hashing migration scripts](https://github.com/wso2-extensions/identity-inbound-auth-oauth/tree/master/features/org.wso2.carbon.identity.oauth.server.feature/resources/dbScripts/storedProcedure/HashClientSecret) for details.
 
 ----
 
