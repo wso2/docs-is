@@ -183,10 +183,6 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ??? Example "H2"
         ```sql
-        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE;
-        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN;
-        DROP TABLE IF EXISTS IDN_OAUTH2_REVOKED_TOKENS;
-        DROP TABLE IF EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT;
 
         CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID VARCHAR (255),
@@ -248,10 +244,6 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ??? Example "MySQL"
         ```sql
-        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE;
-        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN;
-        DROP TABLE IF EXISTS IDN_OAUTH2_REVOKED_TOKENS;
-        DROP TABLE IF EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT;
 
         CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID VARCHAR (255),
@@ -313,10 +305,6 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ??? Example "MySQL Cluster"
         ```sql
-        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE;
-        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN;
-        DROP TABLE IF EXISTS IDN_OAUTH2_REVOKED_TOKENS;
-        DROP TABLE IF EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT;
 
         CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID VARCHAR (255),
@@ -378,10 +366,6 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ??? Example "PostgreSQL"
         ```sql
-        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN_SCOPE;
-        DROP TABLE IF EXISTS IDN_OAUTH2_REFRESH_TOKEN;
-        DROP TABLE IF EXISTS IDN_OAUTH2_REVOKED_TOKENS;
-        DROP TABLE IF EXISTS IDN_SUBJECT_ENTITY_REVOKED_EVENT;
 
         CREATE TABLE IF NOT EXISTS IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID VARCHAR (255),
@@ -443,6 +427,8 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ??? Example "Microsoft SQL Server"
         ```sql
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_OAUTH2_REFRESH_TOKEN]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID VARCHAR (255),
             REFRESH_TOKEN VARCHAR(2048),
@@ -464,6 +450,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
             FOREIGN KEY (CONSUMER_KEY_ID) REFERENCES IDN_OAUTH_CONSUMER_APPS(ID) ON DELETE CASCADE
         );
 
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_OAUTH2_REFRESH_TOKEN_SCOPE]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN_SCOPE (
             REFRESH_TOKEN_ID VARCHAR (255),
             TOKEN_SCOPE VARCHAR (255),
@@ -472,6 +459,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
             FOREIGN KEY (REFRESH_TOKEN_ID) REFERENCES IDN_OAUTH2_REFRESH_TOKEN(REFRESH_TOKEN_ID) ON DELETE CASCADE
         );
 
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_OAUTH2_REVOKED_TOKENS]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_OAUTH2_REVOKED_TOKENS (
             UUID VARCHAR(255) NOT NULL,
             TOKEN_IDENTIFIER VARCHAR(2048) NOT NULL,
@@ -481,6 +469,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
             PRIMARY KEY (UUID)
         );
 
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_SUBJECT_ENTITY_REVOKED_EVENT]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_SUBJECT_ENTITY_REVOKED_EVENT (
             EVENT_ID VARCHAR(255) NOT NULL,
             ENTITY_ID VARCHAR(255) NOT NULL,
@@ -503,6 +492,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ??? Example "DB2"
         ```sql
+
         CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID VARCHAR (255),
             REFRESH_TOKEN VARCHAR(2048),
@@ -573,6 +563,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ??? Example "Oracle"
         ```sql
+
         CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID VARCHAR2(255),
             REFRESH_TOKEN VARCHAR2(2048),
@@ -643,6 +634,7 @@ In large-scale WSO2 Identity Server deployments, especially with millions of use
 
     ??? Example "Oracle RAC"
         ```sql
+
         CREATE TABLE IDN_OAUTH2_REFRESH_TOKEN (
             REFRESH_TOKEN_ID VARCHAR2(255),
             REFRESH_TOKEN VARCHAR2(2048),
