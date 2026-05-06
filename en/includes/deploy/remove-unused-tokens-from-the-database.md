@@ -1,4 +1,4 @@
-# Remove unused tokens from the Database
+# Remove unused tokens from the database
 
 As you use WSO2 Identity Server, the number of revoked, inactive, and expired tokens accumulate in the `IDN_OAUTH2_ACCESS_TOKEN` table. The database stores these tokens for logging and audit purposes, but they can degrade the server's performance over time.
 
