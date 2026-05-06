@@ -65,9 +65,15 @@ The following table details the API Resources and Scopes each MCP Tool in Asgard
             <td><code>internal_application_mgt_update</code></td>
         </tr>
         <tr>
-            <td><code>authorize_api</code></td>
-            <td>Application Management API (<code>/api/server/v1/applications</code>)</td>
+            <td rowspan="3"><code>authorize_api</code></td>
+            <td rowspan="3">Application Management API (<code>/api/server/v1/applications</code>)</td>
             <td><code>internal_application_mgt_update</code></td>
+        </tr>
+        <tr>
+            <td><code>internal_application_internal_api_update</code> (required when authorizing management/organization APIs)</td>
+        </tr>
+        <tr>
+            <td><code>internal_application_business_api_update</code> (required when authorizing business APIs)</td>
         </tr>
         <tr>
             <td><code>list_authorized_api</code></td>
