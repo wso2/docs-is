@@ -1,20 +1,15 @@
-# Remove Unused Tokens from the Database
+# Remove unused tokens from the Database
 
-As you use WSO2 Identity Server (WSO2 IS), the number of revoked, inactive, and expired tokens accumulate in the `IDN_OAUTH2_ACCESS_TOKEN` table. These tokens are kept in the database for logging and audit purposes but they can have a negative impact on the server's performance over time.
-Therefore, it is recommended to clean them periodically in order to enhance the token lookup and to avoid a growing access token table.
+As you use WSO2 Identity Server, the number of revoked, inactive, and expired tokens accumulate in the `IDN_OAUTH2_ACCESS_TOKEN` table. The database stores these tokens for logging and audit purposes, but they can degrade the server's performance over time.
 
-You can use one of the following methods for token cleanup.
+To maintain optimal performance, and avoid the access token table from growing indefinitely, you can periodically clean up the database by removing unused tokens. You can do this using either of the following methods:
 
-!!! note
-    We recommend using stored procedures instead of the WSO2 Identity Server to clean up tokens.
+## Use the stored procedures for token cleanup (recommended)
 
-## Use the store procedure for token cleanup
-
-You can use the provided stored procedures to run a token cleanup task periodically to remove the old and invalid tokens.
-Follow the instructions below to configure token cleanup using this method.
+You can use the provided stored procedures to run a token cleanup task periodically to remove the old and invalid tokens. Follow the instructions below to configure token cleanup using this method.
 
 !!! tip
-    It is safe to run these steps in read-only mode or during a time when traffic on the server is low, but it is not mandatory.
+    Run these steps during a low-traffic period to reduce disruption to the server.
 
 1. Disable the internal token cleanup process by configuring the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
@@ -36,13 +31,13 @@ Follow the instructions below to configure token cleanup using this method.
 
 ## Configure WSO2 Identity Server for token cleanup
 
-Alternatively, you can use the WSO2 Identity Server, which triggers token cleanup during the following instances.
+While stored procedures are recommended, you can use the WSO2 Identity Server to trigger token cleanup during the following instances.
 
 - New token generation
 - Token refresh
 - Token revocation
 
-Enable token cleanup by configuring the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+Enable token cleanup by configuring the following properties in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```toml
 [oauth.token_cleanup]
