@@ -14,6 +14,7 @@ The workflows support the following types of operations:
 - **User Deletion**: Triggered when a user is deleted.
 - **Role Creation**: Triggered when a new role is created.
 - **User Role Assignment**: Triggered when users are assigned to or removed from a role.
+- **Group Creation**: Triggered when a new group is created.
 
 !!! note
     In the workflow creation page, you can select multiple operations if approval steps are common for those operations.
