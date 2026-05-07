@@ -352,6 +352,12 @@ extra:
               documentation_link: get-started/try-your-own-app/java-ee-saml/
               download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
               source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
+            - name: Flutter Push Authentication Package
+              artifact_id: asgardeo_push_auth
+              icon: assets/img/logo/flutter-logo.svg
+              description: Flutter package for implementing push authentication with {{ product_name }}.
+              documentation_link: sdks/flutter/push-authentication/overview
+              source_link: https://github.com/asgardeo/flutter/tree/main/packages/push-authentication
             - name: Android Mobile UI SDK
               artifact_id: io.asgardeo:asgardeo-android
               icon: assets/img/logo/android-logo.svg
