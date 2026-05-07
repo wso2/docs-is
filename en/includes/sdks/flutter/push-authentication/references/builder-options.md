@@ -28,7 +28,7 @@
 !!! note
     Calling `build()` more than once throws `AsgardeoAlreadyInitializedException`. `AsgardeoPushAuth.reset()` exists for development and testing only — it disposes the singleton and allows re-initialization. Do not use `reset()` in production code.
 
-For pluggable interfaces (`httpManager`, `storageManager`, `cryptoEngine`, `logger`, `deviceInfoProvider`), see [Custom Managers]({{base_path}}/sdks/flutter/push-authentication/configuration/custom-managers/).
+For pluggable interfaces (`httpManager`, `storageManager`, `cryptoEngine`, `logger`, `deviceInfoProvider`), see [Custom Managers]({{base_path}}/sdks/flutter/push-authentication/references/custom-managers/).
 
 ---
 

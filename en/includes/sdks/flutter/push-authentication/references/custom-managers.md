@@ -29,6 +29,7 @@ For example, to trust a self-signed certificate when connecting to a local serve
 ```dart
 import 'dart:io';
 import 'package:asgardeo_push_auth/asgardeo_push_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:http/io_client.dart';
 
 final certBytes = await rootBundle.load('assets/certs/server.pem');
