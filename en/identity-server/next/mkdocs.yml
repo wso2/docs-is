@@ -130,6 +130,10 @@ extra:
               url: Get started|Quick Setup
             - title: Connect React App
               url: Get started|Connect App|React|Quickstart
+            - title: Connect Vue App
+              url: Get started|Connect App|Vue|Quickstart
+            - title: Connect Nuxt App
+              url: Get started|Connect App|Nuxt|Quickstart
             - title: Connect Angular App
               url: Get started|Connect App|Angular|Quickstart
             - title: Connect Javascript App
@@ -566,6 +570,10 @@ nav:
           - React:
               - Quickstart: quick-starts/react.md
               - Complete Guide: complete-guides/react/introduction.md
+          - Vue:
+              - Quickstart: quick-starts/vue.md
+          - Nuxt:
+              - Quickstart: quick-starts/nuxt.md
           - Angular:
               - Quickstart: quick-starts/angular.md
               - Complete Guide: complete-guides/angular/introduction.md
@@ -1469,7 +1477,7 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
         - DPoP: references/token-binding/dpop.md
-      - Token hashing: references/token-hashing.md
+      - Client Secret & Token hashing: references/client-secret-and-token-hashing.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
