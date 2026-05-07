@@ -754,7 +754,7 @@ persist_refresh_token = false
 ### Removing unused refresh tokens and revoke entries from the database
 
 !!! note
-    This section applies to database cleanup when the non-persistent access token feature is enabled. For persistent mode, refer to [Clean unused tokens from database](../../setup/removing-unused-tokens-from-the-database).
+    This section applies to database cleanup when the non-persistent access token feature is enabled. For persistent mode, refer to [Clean unused tokens from database]({{base_path}}/deploy/remove-unused-tokens-from-the-database).
 
 As you continue to use **WSO2 Identity Server (WSO2 IS)**, the number of **revoked**, **inactive**, and **expired** tokens increases in the `IDN_OAUTH2_REFRESH_TOKEN` table. When a token is revoked, a record is also added to the `IDN_OAUTH2_REVOKED_TOKENS` table. These tokens are retained for purposes such as **logging**, **auditing**, and **validation**.
 
