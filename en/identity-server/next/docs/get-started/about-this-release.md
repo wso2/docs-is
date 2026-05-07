@@ -32,6 +32,7 @@ Key capabilities include:
       - **SMS**: Sends an authentication notification to the user's registered mobile number.
       - **External**: Returns an `auth_url` in the backchannel authentication response, delegating notification delivery to the client application.
 - Client applications poll the token endpoint using the `auth_req_id` to retrieve access and ID tokens once the user authenticates.
+- Issue [On-Behalf-Of (OBO) tokens]({{base_path}}/guides/agentic-ai/ai-agents/agent-authentication/#using-ciba-for-on-behalf-of-delegation) via CIBA by including an `actor_token` in the backchannel authentication request, enabling background AI agents to act on behalf of users.
 
 Learn more about [configuring the CIBA grant]({{base_path}}/guides/authentication/configure-ciba-grant/).
 

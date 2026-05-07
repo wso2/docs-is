@@ -94,4 +94,33 @@ Follow the steps given below to test the CIBA flow.
 
     Upon successful execution (and after user authentication is complete), you will receive the requested access and ID tokens.
 
+## Use CIBA with on-behalf-of (OBO) tokens
+
+When [agent identities]({{base_path}}/guides/agentic-ai/ai-agents/register-and-manage-agents/) are enabled, the CIBA grant supports issuing On-Behalf-Of (OBO) tokens. This allows background AI agents to act on behalf of users through the backchannel authentication flow, without requiring browser-based redirects.
+
+To request an OBO token via CIBA, include the agent's `actor_token` parameter in the backchannel authentication request:
+
+```bash
+curl -v -k -X POST {{base_url_sample}}/oauth2/ciba \
+--header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+--header "Content-Type:application/x-www-form-urlencoded" \
+--data-urlencode "scope=openid profile" \
+--data-urlencode "login_hint=admin" \
+--data-urlencode "binding_message=Please authenticate to My App" \
+--data-urlencode "actor_token=<AGENT_ACTOR_TOKEN>"
+```
+
+The `actor_token` is a signed JWT representing the AI agent's identity. When the user authenticates via the notification channel and the client polls the token endpoint, the issued access token will include an `act` claim that identifies the agent acting on behalf of the user:
+
+```json
+{
+    "sub": "user@example.com",
+    "act": {
+        "sub": "agent-identity@example.com"
+    }
+}
+```
+
+Learn more about [authenticating AI agents on behalf of users]({{base_path}}/guides/agentic-ai/ai-agents/agent-authentication/#using-ciba-for-on-behalf-of-delegation).
+
 Refer to the [CIBA grant reference]({{base_path}}/references/grant-types/#ciba-grant) for more information on how the complete flow works.

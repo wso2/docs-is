@@ -178,3 +178,62 @@ As shown in the above sequence diagram, the flow proceeds as follows.
 
 9. **Successful Access**
    The request succeeds. The AI agent is now authorized to act on the user’s behalf and access the required resources.
+
+{% if is_version == "next" or product == "asgardeo" %}
+
+### Using CIBA for on-behalf-of delegation
+
+For background agents that operate without direct user interaction, the [CIBA grant]({{base_path}}/guides/authentication/configure-ciba-grant/) can be combined with OBO tokens to enable delegation. Instead of redirecting the user to a browser for consent, the agent initiates a backchannel authentication request with its `actor_token`, and the user approves the delegation asynchronously on a separate device via email, SMS, or an external notification channel.
+
+![Agent OBO via CIBA Flow Diagram](../../../assets/img/guides/agentic-ai/ai-agent-obo-ciba-flow.png)
+
+The flow proceeds as follows:
+
+1. **Backchannel Authentication with Actor Token**
+   The agent sends a backchannel authentication request to the `/oauth2/ciba` endpoint, including its `actor_token` alongside standard CIBA parameters.
+
+    ```bash
+    curl -v -k -X POST {{ api_base_path }}/oauth2/ciba \
+    --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+    --header "Content-Type:application/x-www-form-urlencoded" \
+    --data-urlencode "scope=openid profile" \
+    --data-urlencode "login_hint=<username>" \
+    --data-urlencode "binding_message=Agent requesting access on your behalf" \
+    --data-urlencode "actor_token=<AGENT_ACTOR_TOKEN>"
+    ```
+
+    The `actor_token` is a JWT representing the AI agent’s identity, obtained through the agent’s own [authentication flow](#ai-agent-acting-on-its-own).
+
+2. **User Notification and Authentication**
+   {{ product_name }} validates the actor token and sends a notification to the user through the configured channel (email, SMS, or external). The user authenticates and provides consent on the separate device.
+
+3. **Token Polling**
+   The agent polls the token endpoint using the `auth_req_id` received in the CIBA response:
+
+    ```bash
+    curl -v -k -X POST {{ api_base_path }}/oauth2/token \
+    --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+    --header "Content-Type:application/x-www-form-urlencoded" \
+    --data-urlencode "grant_type=urn:openid:params:grant-type:ciba" \
+    --data-urlencode "auth_req_id=<AUTH_REQ_ID>"
+    ```
+
+4. **Delegated Token Issuance**
+   Once the user authenticates, the authorization server issues a delegated access token containing an `act` claim that identifies the agent:
+
+    ```json
+    {
+      "sub": "user@example.com",
+      "act": {
+        "sub": "agent-identity@example.com"
+      },
+      ...
+    }
+    ```
+
+    This token allows the agent to access protected resources on behalf of the user, while resource servers can verify both the user’s identity and the agent acting on their behalf.
+
+!!! note
+    To use OBO tokens with CIBA, agent identities must be enabled in {{ product_name }}, and the application must have the CIBA grant type enabled. Learn more about [registering background agents]({{base_path}}/guides/agentic-ai/ai-agents/register-and-manage-agents/#registering-an-ai-agent).
+
+{% endif %}
