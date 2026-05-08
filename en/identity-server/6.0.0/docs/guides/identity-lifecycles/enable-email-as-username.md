@@ -71,12 +71,12 @@
     </div></td>
     </tr>
     <tr class="even">
-    <td><code>               UsernameJavaScriptRegEx              </code></td>
+    <td><code>               UsernameWithEmailJavaScriptRegEx              </code></td>
     <td><div class="content-wrapper">
-    <p>Change this property that is under the relevant userstore manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
+    <p>Change this property that is under the relevant userstore manager tag as follows. This property validates usernames when email is used as the username and allows special characters like "@" in the username.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_script_regex = &apos;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$&apos;</code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store.properties]<br>UsernameWithEmailJavaScriptRegEx = &apos;^[a-zA-Z0-9_@\.\-\+]{5,200}$&apos;</code></pre></div>
     </div>
     </div>
     </div></td>
