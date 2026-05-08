@@ -24,7 +24,7 @@ To filter users by account status:
     - **Pending email verification**: Filters users who haven't yet verified their primary email addresses.
     - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
 
-        ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Assign groups
 A user can be assigned to different [groups]({{base_path}}/guides/users/manage-groups/) in the organization. Groups can be used to restrict the user's access to resources.
