@@ -223,9 +223,9 @@ The flow proceeds as follows:
 
     ```json
     {
-      "sub": "user@example.com",
+      "sub": "<user_identifier>",
       "act": {
-        "sub": "agent-identity@example.com"
+        "sub": "<agent_identifier>"
       },
       ...
     }
