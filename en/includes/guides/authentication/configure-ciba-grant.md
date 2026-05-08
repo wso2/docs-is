@@ -114,9 +114,9 @@ The `actor_token` is a signed JWT representing the AI agent's identity. When the
 
 ```json
 {
-    "sub": "user@example.com",
+    "sub": "<user_identifier>",
     "act": {
-        "sub": "agent-identity@example.com"
+        "sub": "<agent_identifier>"
     }
 }
 ```
