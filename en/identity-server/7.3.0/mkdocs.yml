@@ -17,14 +17,14 @@
 INHERIT: ../is_common.yml
 
 # Project information
-site_url: https://is.docs.wso2.com/en/next
+site_url: https://is.docs.wso2.com/en/7.3.0
 
 # Repository
-edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/next/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/7.3.0/docs/
 
 extra:
-  base_path: /en/next
-  is_version: next
+  base_path: /en/7.3.0
+  is_version: 7.3.0
   content:
     default_keystore_type: PKCS12
     default_keystore_ext: p12
