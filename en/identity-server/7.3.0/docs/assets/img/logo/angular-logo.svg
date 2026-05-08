@@ -1,0 +1,16 @@
+<!--
+ * Copyright (c) 2021, WSO2 Inc. (http://www.wso2.com). All Rights Reserved.
+ *
+ * This software is the property of WSO2 Inc. and its suppliers, if any.
+ * Dissemination of any information or reproduction of any material contained
+ * herein in any form is strictly forbidden, unless permitted by WSO2 expressly.
+ * You may not alter or remove any copyright or other notice from copies of this content."
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="279.078" height="299.762" viewBox="0 0 279.078 299.762">
+	<g id="angular-logo" transform="translate(-31.9 -30)">
+		<path id="Path_6" data-name="Path 6" d="M171.439,30h0L31.9,79.76l21.283,184.5,118.256,65.5h0l118.256-65.5,21.283-184.5Z" transform="translate(0)" fill="#dd0031"/>
+		<path id="Path_7" data-name="Path 7" d="M125,30V214.953h0V329.762h0l118.256-65.5,21.283-184.5Z" transform="translate(46.439)" fill="#c3002f"/>
+		<path id="Path_8" data-name="Path 8" d="M154.031,52.1,66.8,247.695H99.324l17.536-43.765H190.9l17.536,43.765h32.524L154.031,52.1Zm25.48,124.851h-50.96l25.48-61.3Z" transform="translate(17.408 11.024)" fill="#fff"/>
+	</g>
+</svg>
