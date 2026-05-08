@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: SCIM 2.0 Resource Types Retrieval API
+  description: |
+    This document specifies **SCIM 2.0 Resource Types RESTful API** for **WSO2 Identity Server**.
+  version: 1.0.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/scim2
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /ResourceTypes:
+    get:
+      tags:
+        - ResourceTypes Endpoint
+      summary: Get resource types
+      description: |
+        This API lists and returns metadata about resource types.
+        
+        <b>No Scope(Permission) required.</b>
+      operationId: getResourceType
+      responses:
+        200:
+          description: Schema is found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ResourceTypeResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/scim2/ResourceTypes' \
+            -H 'accept: application/scim+json'
+components:
+  schemas:
+    UserObResourceType:
+      type: object
+      properties:
+        schema:
+          type: string
+          examples:
+            - urn:ietf:params:scim:schemas:core:2.0:User
+        endpoint:
+          type: string
+          examples:
+            - /Users
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              examples:
+                - https://localhost:9443/scim2/ResourceType/User
+            resourceType:
+              type: string
+              examples:
+                - ResourceType
+        name:
+          type: string
+          examples:
+            - User
+        description:
+          type: string
+          examples:
+            - User Account
+        schemaExtensions:
+          type: object
+          properties:
+            schema:
+              type: string
+              examples:
+                - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+            required:
+              type: boolean
+              examples:
+                - false
+        id:
+          type: string
+          examples:
+            - User
+    ResourceTypeResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:ResourceType
+        resourceType:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserObResourceType'
+    ErrorUnauthorized:
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          examples:
+            - "401"
+        schemas:
+          type: string
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          examples:
+            - Unauthorized

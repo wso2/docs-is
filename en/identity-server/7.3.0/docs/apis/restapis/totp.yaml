@@ -1,0 +1,240 @@
+openapi: 3.0.1
+info:
+  title: TOTP API Definition
+  description: |
+    This is the RESTful API for a user to manage his/her TOTP QR URLs/secrets in **WSO2 Identity Server**. Going forward this will be the API for user portal as well as external parties.
+  version: v1
+servers:
+  - url: https://localhost:9443/t/{tenant-domain}/api/users/v1
+security:
+  - OAuth2: []
+tags:
+  - name: me
+    description: Operations for the authenticated user.
+paths:
+  /me/totp:
+    get:
+      tags:
+        - me
+      summary: Retrieve the QR Code URL of the authenticated user
+      description: |
+        This API is used to retrieve the QR code URL of the authenticated user.
+
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOTPResponse'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/me/totp' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer-token}'
+    post:
+      tags:
+        - me
+      summary: |
+        Refresh, validate the QR code URL
+      description: |
+        This API is used to perform following actions.
+        * <b>INIT</b>- Generate TOTP QR code URL for the authenticated user
+        * <b>REFRESH</b> - Refresh TOTP secret key of the authenticated user
+        * <b>VALIDATE</b> - Validate the user entered verification code
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      requestBody:
+        description: Actions supported by the API. Actions can be INIT, VALIDATE or
+          REFRESH
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+        required: true
+      responses:
+        200:
+          description: TOTP secret successfully refreshed
+          content: {}
+        201:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOTPResponse'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        409:
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/users/v1/me/totp' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer-token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "action": "INIT, REFRESH, VALIDATE",
+            "verificationCode": 0
+            }'
+      x-codegen-request-body-name: request
+    delete:
+      tags:
+        - me
+      summary: Resets TOTP credentials of the authenticated user
+      description: |
+        This API is used to delete the TOTP credentials of the authenticated user.
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        200:
+          description: Credentials deleted successfully
+          content: {}
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/users/v1/me/totp' \
+            -H 'accept: */*' \
+            -H 'Authorization: Bearer {bearer-token}'
+  /me/totp/secret:
+    get:
+      tags:
+        - me
+      summary: Retrieve the TOTP secret of the authenticated user
+      description: |
+        This API is used to retrieve the TOTP secret of the authenticated user.
+
+        <b>Scope(Permission) required:</b> `internal_login`
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOTPSecretResponse'
+        401:
+          description: Unauthorized
+          content: {}
+        403:
+          description: Resource Forbidden
+          content: {}
+        500:
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/users/v1/me/totp/secret' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer {bearer-token}'             
+components:
+  schemas:
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: some_error_code
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: Some Correlation for Error Instance
+    UserRequest:
+      required:
+        - action
+      type: object
+      properties:
+        action:
+          type: string
+          example: INIT, REFRESH, VALIDATE
+          enum:
+            - INIT
+            - REFRESH
+            - VALIDATE
+        verificationCode:
+          type: integer
+    TOTPResponse:
+      type: object
+      properties:
+        qrCodeUrl:
+          type: string
+          description: QR Code URL for the authenticated user
+        isValid:
+          type: boolean
+          description: Secret key of the authenticated user
+    TOTPSecretResponse:
+      type: object
+      properties:
+        secret:
+          type: string
+          description: Refreshed TOTP secret key of the authenticated user
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth2/authorize
+          tokenUrl: https://localhost:9443/oauth2/token
+          scopes: {}
