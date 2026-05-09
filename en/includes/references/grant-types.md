@@ -415,6 +415,12 @@ The diagram below illustrates the CIBA flow.
         --data-urlencode "binding_message=<custom_message>"
         ```
 
+        To issue an [on-behalf-of (OBO) token]({{base_path}}/guides/agentic-ai/ai-agents/agent-authentication/#using-ciba-for-on-behalf-of-delegation) for agent delegation, include the `actor_token` parameter:
+
+        ```bash
+        --data-urlencode "actor_token=<AGENT_ACTOR_TOKEN>"
+        ```
+
     === "Sample request (/ciba)"
 
         ```bash

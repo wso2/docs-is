@@ -61,12 +61,6 @@
     <div class="md-content" data-md-component="content">
     <article class="md-content__inner md-typeset">
 
-      <div class="wip-banner">
-        <span style="font-size: 0.9rem; line-height: 1;">🚧</span>
-        <strong style="font-size: 0.82rem; color: #1a1a2e;">Work in progress:</strong>
-        <span style="color: #1a1a2e; font-size: 0.8rem;">Some configurations may be incomplete or subject to change.</span>
-      </div>
-
       <h1 id="configuration-catalog">
         Configuration catalog
         <a class="headerlink" href="#configuration-catalog" title="Permanent link">¶</a>
@@ -82,26 +76,36 @@
       </p>
 
       <div class="mb-task-filter">
-        <label for="mbTaskSelect">I want to configure:</label>
-        <select id="mbTaskSelect">
-          <option value="">All configurations</option>
-          <option value="minimum-required">the minimum required settings</option>
-          <option value="configure-database">an external database</option>
-          <option value="configure-tls">TLS and transport security</option>
-          <option value="configure-oauth">OAuth and OIDC</option>
-          <option value="configure-authentication">authentication</option>
-          <option value="configure-user-store">user stores</option>
-          <option value="configure-clustering">clustering</option>
-          <option value="configure-cache">caching</option>
-          <option value="configure-monitoring">monitoring and logging</option>
-          <option value="configure-email">email sending</option>
-          <option value="configure-fido">FIDO / passkeys</option>
-          <option value="configure-ai">AI services</option>
-          <option value="configure-actions">actions</option>
-          <option value="configure-identity">identity management</option>
-          <option value="configure-security">API security</option>
-          <option value="configure-sts">security token service (STS)</option>
-        </select>
+        <label id="mbTaskSelectLabel">Filter by topic:</label>
+        <div class="mb-custom-select" id="mbTaskSelectWrapper" data-value="">
+          <button type="button" class="mb-custom-select__trigger" id="mbTaskSelectTrigger" aria-expanded="false">
+            <span class="mb-custom-select__label" id="mbTaskSelectValue">All configurations</span>
+            <svg class="mb-custom-select__chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                 viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+              <path d="M2.22 4.47a.75.75 0 011.06 0L6 7.19l2.72-2.72a.75.75 0 111.06 1.06l-3.25 3.25a.75.75 0 01-1.06 0L2.22 5.53a.75.75 0 010-1.06z" />
+            </svg>
+          </button>
+          <div class="mb-custom-select__menu" id="mbTaskSelectMenu">
+            <button type="button" class="mb-custom-select__option is-selected" data-value="">All configurations</button>
+            <button type="button" class="mb-custom-select__option" data-value="minimum-required">Quick start / minimal setup</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-actions">Actions &amp; event hooks</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-ai">AI services</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-security">API authorization</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-authentication">Authentication methods</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-clustering">Clustering &amp; high availability</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-database">Database &amp; persistence</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-email">Email &amp; notifications</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-identity">Identity &amp; user lifecycle</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-monitoring">Logging &amp; monitoring</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-oauth">OAuth 2.0 &amp; OIDC</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-fido">Passkeys &amp; FIDO2</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-cache">Performance &amp; caching</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-sts">Security token service (STS)</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-tls">TLS &amp; certificates</button>
+            <button type="button" class="mb-custom-select__option" data-value="configure-user-store">User stores &amp; LDAP</button>
+          </div>
+          <div class="mb-custom-select__backdrop" id="mbTaskSelectBackdrop"></div>
+        </div>
         <input type="search" id="mbConfigSearch" placeholder="Search parameters…" autocomplete="off" />
         <button type="button" id="mbTaskClear">Clear</button>
       </div>

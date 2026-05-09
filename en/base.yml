@@ -318,6 +318,7 @@ extra:
             - name: Vue SDK
               artifact_id: '@asgardeo/vue'
               icon: assets/img/logo/vuejs-logo.svg
+              dark_icon: assets/img/logo/vuejs-logo-dark.svg
               description: Vue implementation of Asgardeo JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/vue/latest
               version: ''
@@ -396,7 +397,6 @@ extra:
             artifact_id: react-native-app-auth
             icon: assets/img/logo/react-logo.svg
             description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
-            documentation_link: get-started/try-your-own-app/react-native-cli-app-auth/
             source_link: https://github.com/FormidableLabs/react-native-app-auth
           - name: AppAuth Android
             artifact_id: net.openid:appauth

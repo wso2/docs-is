@@ -1,0 +1,723 @@
+openapi: 3.0.0
+info:
+  title: Branding Preferences API
+  description: >-
+    This document specifies a RESTful API for **Managing Branding Preferences of Organizations** in WSO2 Identity Server.
+  version: v1
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
+    variables:
+      server-url:
+        default: "localhost:9443"
+      tenant-domain:
+        default: "carbon.super"
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  '/branding-preference':
+    get:
+      tags:
+        - Branding Preference
+      operationId: getBrandingPreference
+      summary: Get branding preference of a tenant.
+      description: |
+        This API provides the capability to retrieve the branding preference of a tenant/specific application.<br>
+        If there is no branding preference available for the requested locale, API will check for the default locale('en-US') and return it.<br>
+        If there is no branding preference available for the requested application, API will check for the tenant's branding preference and return it.<br>
+        
+          <b>Scope(Permission) required:</b> None
+      parameters:
+        - $ref: '#/components/parameters/typeQueryParam'
+        - $ref: '#/components/parameters/nameQueryParam'
+        - $ref: '#/components/parameters/localeQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/BrandingPreferenceModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/branding-preference?type=ORG&name=WSO2&locale=en-US' \
+            -H 'accept: application/json'
+    post:
+      tags:
+        - Branding Preference
+      operationId: addBrandingPreference
+      summary: Add branding preferences for a tenant.
+      description: |
+        This API provides the capability to add a custom branding preference for a tenant/application.<br>
+        Currently this API provides the capability to only configure tenant wise branding preference for 'en-US' locale.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_branding_preference_update`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandingPreferenceModel'
+        description: This represents the branding preferences to be added.
+        required: true
+      responses:
+        '201':
+          description: Successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandingPreferenceModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        "409":
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/branding-preference' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "type": "ORG",
+              "name": "WSO2",
+              "locale": "en-US",
+              "preference": {
+                "organizationDetails": {
+                  "displayName": "Ballerina.io",
+                  "siteTitle": "Login - Ballerina",
+                  "copyrightText": "© 2021 WSO2",
+                  "supportEmail": "support@ballerina.io"
+                },
+                "images": {
+                  "logo": {
+                    "imgURL": "https://ballerina.io/img/ballerina-logo.svg",
+                    "altText": "Ballerina.io Logo"
+                  },
+                  "favicon": {
+                    "imgURL": "https://central.ballerina.io/favicon.ico"
+                  }
+                },
+                "urls": {
+                  "privacyPolicyURL": "https://ballerina.io/privacy-policy",
+                  "termsOfUseURL": "https://ballerina.io/terms-of-service/",
+                  "cookiePolicyURL": "https://ballerina.io/privacy-policy/#cookie-policy"
+                },
+                "stylesheets": {
+                  "accountApp": "https://firebasestorage.googleapis.com/v0/b/asgardeo-branding.appspot.com/o/ballerina%2Flogin-portal.overrides.css?alt=media&token=0315462e-534e-4f33-83f9-e4c092d0273d",
+                  "myAccountApp": "https://asgardeo-branding/user-portal.css"
+                },
+                "configs": {
+                  "isBrandingEnabled": true,
+                  "removeDefaultBranding": false,
+                  "selfSignUpEnabled": true
+                }
+              }
+            }'
+    put:
+      tags:
+        - Branding Preference
+      operationId: updateBrandingPreference
+      summary: Update branding preferences of a tenant.
+      description: |
+        This API provides the capability to update the branding preference of a tenant/application.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_branding_preference_update`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandingPreferenceModel'
+        description: This represents the branding preferences to be updated.
+        required: true
+      responses:
+        '200' :
+          description: Successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandingPreferenceModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/branding-preference' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "type": "ORG",
+              "name": "WSO2",
+              "locale": "en-US",
+              "preference": {
+                "organizationDetails": {
+                  "displayName": "Ballerina.io",
+                  "siteTitle": "Login - Ballerina",
+                  "copyrightText": "© 2021 WSO2",
+                  "supportEmail": "support@ballerina.io"
+                },
+                "images": {
+                  "logo": {
+                    "imgURL": "https://ballerina.io/img/ballerina-logo.svg",
+                    "altText": "Ballerina.io Logo"
+                  },
+                  "favicon": {
+                    "imgURL": "https://central.ballerina.io/favicon.ico"
+                  }
+                },
+                "urls": {
+                  "privacyPolicyURL": "https://ballerina.io/privacy-policy",
+                  "termsOfUseURL": "https://ballerina.io/terms-of-service/",
+                  "cookiePolicyURL": "https://ballerina.io/privacy-policy/#cookie-policy"
+                },
+                "stylesheets": {
+                  "accountApp": "https://firebasestorage.googleapis.com/v0/b/asgardeo-branding.appspot.com/o/ballerina%2Flogin-portal.overrides.css?alt=media&token=0315462e-534e-4f33-83f9-e4c092d0273d",
+                  "myAccountApp": "https://asgardeo-branding/user-portal.css"
+                },
+                "configs": {
+                  "isBrandingEnabled": true,
+                  "removeDefaultBranding": false,
+                  "selfSignUpEnabled": true
+                }
+              }
+            }'
+    delete:
+      tags:
+        - Branding Preference
+      operationId: deleteBrandingPreference
+      summary: Deletes branding preferences of a tenant.
+      description: |
+        This API provides the capability to delete the branding preferences of a tenant/application.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_branding_preference_update`
+      parameters:
+        - $ref: '#/components/parameters/typeQueryParam'
+        - $ref: '#/components/parameters/nameQueryParam'
+        - $ref: '#/components/parameters/localeQueryParam'
+      responses:
+        '204' :
+          description: Successfully deleted.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/branding-preference?type=ORG&name=WSO2&locale=en-US' \
+            -H 'accept: */*'
+  '/branding-preference/resolve':
+    get:
+      tags:
+        - Branding Preference
+      operationId: resolveBrandingPreference
+      summary: Resolve branding preference of an organization.
+      description: |
+        This API provides the capability to retrieve the branding preference of an organization/specific application.<br>
+        If there is no branding preference available for the requested locale, API will check for the default locale('en-US') and return it.<br>
+        If there is no branding preference available for the requested application, API will check for the organization's branding preference and return it.<br>
+        
+          <b>Scope(Permission) required:</b> None
+      parameters:
+        - $ref: '#/components/parameters/typeQueryParam'
+        - $ref: '#/components/parameters/nameQueryParam'
+        - $ref: '#/components/parameters/localeQueryParam'
+        - $ref: '#/components/parameters/restrictToPublishedQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/BrandingPreferenceModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/branding-preference/resolve?type=ORG&name=WSO2&locale=en-US' \
+            -H 'accept: application/json'
+  '/branding-preference/text':
+    get:
+      tags:
+        - Custom Text
+      operationId: getCustomText
+      summary: Get Custom text of a tenant.
+      description: |
+        This API provides the capability to retrieve the existing custom text configurations of a tenant for the specified screen and locale.<br>
+        If there is no custom texts available for the requested locale, API will check for the default locale('en-US') and return it.<br>
+        
+          <b>Scope(Permission) required:</b> None
+      parameters:
+        - $ref: '#/components/parameters/typeQueryParam'
+        - $ref: '#/components/parameters/nameQueryParam'
+        - $ref: '#/components/parameters/localeQueryParam'
+        - $ref: '#/components/parameters/screenQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/CustomTextModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/branding-preference/text?type=ORG&name=WSO2&locale=en-US&screen=login' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    post:
+      tags:
+        - Custom Text
+      operationId: addCustomText
+      summary: Add custom text for a tenant.
+      description: |
+        This API provides the capability to add custom texts for the specified screen & locale.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_branding_preference_update`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTextModel'
+        description: This represents the custom text to be added.
+        required: true
+      responses:
+        '201':
+          description: Successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTextModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        "409":
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+        '501':
+          $ref: '#/components/responses/NotImplemented'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/branding-preference/text' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "type": "ORG",
+              "name": "WSO2",
+              "locale": "en-US",
+              "screen": "login",
+              "preference": {
+                "login": "Sign In",
+                "welcome": "Welcome",
+                "account.linking": "Account Linking",
+                "username": "Username",
+                "email.username": "Email address",
+                "back.to.sign.in": "Back to Sign In",
+                "or": "Or",
+                "dont.have.an.account": "Don'\''t have an account?"
+              }
+            }' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    put:
+      tags:
+        - Custom Text
+      operationId: updateCustomText
+      summary: Update custom text of a tenant.
+      description: |
+        This API provides the capability to update the custom texts for the specified screen & locale.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_branding_preference_update`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTextModel'
+        description: This represents the custom text content to be updated for the specified screen & locale.
+        required: true
+      responses:
+        '200' :
+          description: Successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTextModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'PUT' \
+            'https://localhost:9443/api/server/v1/branding-preference/text' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "type": "ORG",
+              "name": "WSO2",
+              "locale": "en-US",
+              "screen": "login",
+              "preference": {
+                "login": "Sign In",
+                "welcome": "Welcome",
+                "account.linking": "Account Linking",
+                "username": "Username",
+                "email.username": "Email address",
+                "back.to.sign.in": "Back to Sign In",
+                "or": "Or",
+                "dont.have.an.account": "Don'\''t have an account?"
+              }
+            }' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    delete:
+      tags:
+        - Custom Text
+      operationId: deleteCustomText
+      summary: Deletes custom text.
+      description: |
+        This API provides the capability to delete the custom texts for the specified screen & locale of a tenant.<br>
+        If no query parameter was specified in the delete request, all the custom texts configured in the tenant will be deleted.<br>
+        
+          <b>Scope(Permission) required:</b> `internal_branding_preference_update`
+      parameters:
+        - $ref: '#/components/parameters/typeQueryParam'
+        - $ref: '#/components/parameters/nameQueryParam'
+        - $ref: '#/components/parameters/localeQueryParam'
+        - $ref: '#/components/parameters/screenQueryParam'
+      responses:
+        '204' :
+          description: Successfully deleted.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/branding-preference/text?type=ORG&name=WSO2&locale=en-US&screen=login' \
+            -H 'accept: */*'
+  '/branding-preference/text/resolve':
+    get:
+      tags:
+        - Custom Text
+      operationId: resolveCustomText
+      summary: Resolve custom text of an organization.
+      description: |
+        This API provides the capability to retrieve the custom text configurations of an organization/specific application.<br>
+        If there is no custom text available for the requested locale, API will check for the default locale('en-US') and return it.<br>
+        If there is no custom text available for the requested organization, API will check for the parent organization's custom text configurations and return it.<br>
+        
+          <b>Scope(Permission) required:</b> None
+      parameters:
+        - $ref: '#/components/parameters/typeQueryParam'
+        - $ref: '#/components/parameters/nameQueryParam'
+        - $ref: '#/components/parameters/localeQueryParam'
+        - $ref: '#/components/parameters/screenQueryParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/CustomTextModel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/branding-preference/text/resolve?type=ORG&name=WSO2&locale=en-US&screen=login' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+components:
+  parameters:
+    typeQueryParam:
+      in: query
+      name: type
+      required: false
+      description: Type to filter the retrieval of customizations.
+      schema:
+        type: string
+        enum:
+          - ORG
+          - APP
+          - CUSTOM
+      example: "ORG"
+    nameQueryParam:
+      in: query
+      name: name
+      required: false
+      description: Tenant/Application name to filter the retrieval of customizations.
+      schema:
+        type: string
+      example: "WSO2"
+    localeQueryParam:
+      in: query
+      name: locale
+      required: false
+      description: Locale to filter the retrieval of customizations.
+      schema:
+        type: string
+      example: "en-US"
+    screenQueryParam:
+      in: query
+      name: screen
+      required: false
+      description: Screen to filter the retrieval of customizations.
+      schema:
+        type: string
+      example: "login"
+    restrictToPublishedQueryParam:
+      in: query
+      name: restrictToPublished
+      required: false
+      description: |
+        Specifies whether to limit resolving to published branding preferences.
+        If set to true, branding preference will be resolved only using published branding preferences.
+        If set to false, branding preference will be resolved using both published and unpublished branding preferences.
+      schema:
+        type: boolean
+        default: false
+      example: true
+
+  schemas:
+    BrandingPreferenceModel:
+      required:
+        - type
+        - preference
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - ORG
+            - APP
+            - CUSTOM
+          example: "ORG"
+        name:
+          type: string
+          example: "WSO2"
+        locale:
+          type: string
+          example: "en-US"
+          default: "en-US"
+        preference:
+          type: object
+          description: "This is the JSON structured branding preference"
+          example: {
+            "organizationDetails": {
+              "displayName": "Ballerina.io",
+              "siteTitle": "Login - Ballerina",
+              "copyrightText": "© 2021 WSO2",
+              "supportEmail": "support@ballerina.io"
+            },
+            "images": {
+              "logo": {
+                "imgURL": "https://ballerina.io/img/ballerina-logo.svg",
+                "altText": "Ballerina.io Logo"
+              },
+              "favicon": {
+                "imgURL": "https://central.ballerina.io/favicon.ico"
+              }
+            },
+            "urls": {
+              "privacyPolicyURL": "https://ballerina.io/privacy-policy",
+              "termsOfUseURL": "https://ballerina.io/terms-of-service/",
+              "cookiePolicyURL": "https://ballerina.io/privacy-policy/#cookie-policy"
+            },
+            "stylesheets": {
+              "accountApp": "https://firebasestorage.googleapis.com/v0/b/asgardeo-branding.appspot.com/o/ballerina%2Flogin-portal.overrides.css?alt=media&token=0315462e-534e-4f33-83f9-e4c092d0273d",
+              "myAccountApp": "https://asgardeo-branding/user-portal.css"
+            },
+            "configs": {
+              "isBrandingEnabled": true,
+              "removeDefaultBranding": false,
+              "selfSignUpEnabled": true
+            }
+          }
+
+    CustomTextModel:
+      required:
+        - type
+        - screen
+        - preference
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - ORG
+            - APP
+            - CUSTOM
+          example: "ORG"
+        name:
+          type: string
+          example: "WSO2"
+        locale:
+          type: string
+          example: "en-US"
+          default: "en-US"
+        screen:
+          type: string
+          example: "login"
+        preference:
+          type: object
+          description: "This is the JSON structured branding preference"
+          example: {
+            "login": "Sign In",
+            "welcome": "Welcome",
+            "account.linking": "Account Linking",
+            "username": "Username",
+            "email.username": "Email address",
+            "back.to.sign.in": "Back to Sign In",
+            "or": "Or",
+            "dont.have.an.account": "Don't have an account?"
+          }
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: BPM-60001
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: 3erfee-232-efewv-2321-43ferfe24r
+
+  #-----------------------------------------------------
+  # Descriptions of Branding Preference API responses.
+  #-----------------------------------------------------
+  responses:
+    BadRequest:
+      description: Invalid input in the request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication information is missing or invalid.
+    Forbidden:
+      description: Access forbidden.
+    NotFound:
+      description: Requested resource is not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Conflict.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  #-----------------------------------------------------
+  # Applicable authentication mechanisms.
+  #-----------------------------------------------------
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
