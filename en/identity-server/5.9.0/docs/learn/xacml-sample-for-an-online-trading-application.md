@@ -19,7 +19,7 @@ Requires Java 1.8
     the customer (age, email etc).
 -   In the initial phase of their access control system, K-Market has
     included the following access control scenario:  
-    K-Market has three seperate customer groups (i.e. Blue, Silver and
+    K-Market has three separate customer groups (i.e. Blue, Silver and
     Gold) and have put limitations for each group when purchasing items
     online:  
       

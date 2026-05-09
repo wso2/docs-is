@@ -575,6 +575,12 @@ nav:
           - OIDC Java EE: get-started/try-samples/qsg-oidc-webapp-java-ee.md
           - SAML Java EE: get-started/try-samples/qsg-saml-webapp-java-ee.md
           - WS-Federation: get-started/try-samples/ws-federation-webapp.md
+      - Secure MCP Servers:
+          - TypeScript: quick-starts/mcp-auth-server.md
+          - Python: quick-starts/mcp-auth-server-py.md
+      - Secure Your AI Agents:
+          - Python: quick-starts/agent-auth-py.md
+          - TypeScript: quick-starts/agent-auth-ts.md
       - Subscribe to AI features: get-started/subscribe-to-ai-features.md
       - About this release: get-started/about-this-release.md
   - Guides:
@@ -664,7 +670,9 @@ nav:
             - Add adaptive MFA:
               - Add adaptive MFA: guides/authentication/conditional-auth/adaptive-mfa.md
               - MFA based on user role: guides/authentication/conditional-auth/role-based-template.md
-              - MFA based on auth context: guides/authentication/conditional-auth/acr-based-adaptive-auth.md
+              - MFA based on auth context:
+                - Overview: guides/authentication/conditional-auth/acr-and-amr.md
+                - Configure ACR-based adaptive authentication: guides/authentication/conditional-auth/acr-based-adaptive-auth.md
               - MFA based on user store: guides/authentication/conditional-auth/user-store-based-template.md
               - MFA based on login-attempts: guides/authentication/conditional-auth/login-attempt-based-template.md
               - MFA based on user group: guides/authentication/conditional-auth/group-based-template.md
@@ -991,6 +999,7 @@ nav:
           - Remove References to Deleted User Identities: deploy/configure/databases/remove-references-to-deleted-user-identities.md
         - Session persistence: deploy/configure/session-persistence.md
         - Cross-Origin Resource Sharing (CORS): deploy/configure/configure-cors.md
+        - Custom Header Filter: deploy/configure/custom-header-filter.md
         - Clock tolerance: deploy/configure/clock-tolerance.md
         - Cookie consent banner: deploy/configure/cookie-consent-banner.md
       - Secure:
@@ -1244,6 +1253,7 @@ nav:
           - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
           - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Schema API: apis/scim2/scim2-schema-rest-api.md
           - SCIM 2.0 Batch operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types.md
           - SCIM 2.0 Service provider configuration API: apis/scim2/scim2-sp-config-rest-api.md
@@ -1260,6 +1270,7 @@ nav:
       - Validation rules API: apis/validation-rules-rest-api.md
       - Webhook Management API: apis/webhook-management-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
+      - Workflow management API: apis/workflow-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
@@ -1317,6 +1328,7 @@ nav:
   - References:
     - References: references/index.md
     - Feature deprecation: references/wso2-identity-server-feature-deprecation.md
+    - Configuration catalog: references/configuration-catalog.md
     - User management:
       - User roles: references/user-management/user-roles.md
       - Track user deletion: references/user-management/track-deletion.md
@@ -1397,7 +1409,7 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
         - DPoP: references/token-binding/dpop.md
-      - Token hashing: references/token-hashing.md
+      - Client Secret & Token hashing: references/client-secret-and-token-hashing.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md

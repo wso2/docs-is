@@ -71,7 +71,7 @@ you through the entire process.
     untick the **Supported by Default** checkbox.
 
     !!! info "Why do these claims need to be edited?"
-      These attributes are not supported by Active Directory by default.Therefore if these attributes are ticked as **Supported by Default** in Identity Server, they will be shown in the default user profile and you will recieve an error once you try to update the user profile.
+      These attributes are not supported by Active Directory by default.Therefore if these attributes are ticked as **Supported by Default** in Identity Server, they will be shown in the default user profile and you will receive an error once you try to update the user profile.
         - Country - http://wso2.org/claims/country
         - Organization - http://wso2.org/claims/organization
         - IM - http://wso2.org/claims/im

@@ -9,7 +9,7 @@ Follow the steps given below to quickly set up and install {{ product_name }} on
 
 Follow the steps given below.
 
-1. Download and install Oracle Java SE Development Kit (JDK) version 11 or 17.
+1. Download and install Java SE Development Kit (JDK) version 21 or 25.
 2. Go to [{{ product_name }} official website](https://wso2.com/identity-server/){:target="_blank"} and click on **Download**.
 3. Install {{ product_name }} by downloading the **LATEST RELEASE**.
 

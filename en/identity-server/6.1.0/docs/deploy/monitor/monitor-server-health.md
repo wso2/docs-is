@@ -85,7 +85,7 @@ the health check API. A sample cURL command is shown below.
 curl -k -v https://{hostname}:{port}/api/health-check/v1.0/health
 ```
 
-If the request is successful, you will recieve a `200 OK` response
+If the request is successful, you will receive a `200 OK` response
 (similar to the one shown below) with a list of health check results.
 
 ``` java

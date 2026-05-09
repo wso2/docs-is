@@ -2,7 +2,7 @@
 
 The database scripts for WSO2 Identity Server can be found in the
 `         <IS_HOME>/dbscripts        ` directory. Currently, the
-following databases are supported and a seperate file is included in the
+following databases are supported and a separate file is included in the
 `         dbscripts        ` folder containing SQL commands for database
 and table creation for each type of database:
 

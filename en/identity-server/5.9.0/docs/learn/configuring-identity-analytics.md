@@ -93,4 +93,4 @@ Let's create some basic authentication statistics. To do this, log in to the WSO
 
     ![is-analytics-login-attempts](../assets/img/learn/is-analytics-login-attempts.png)
 
-You have succesfully enabled WSO2 IS Analytics and published statistics to the dashboard. For more information on what you can do with IS analytics, see [Analytics](../../learn/analytics).
+You have successfully enabled WSO2 IS Analytics and published statistics to the dashboard. For more information on what you can do with IS analytics, see [Analytics](../../learn/analytics).

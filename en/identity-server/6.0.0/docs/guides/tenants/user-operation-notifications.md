@@ -76,7 +76,7 @@ email.subscription.userOperation.endpoint.privateMail.subject=User operation cha
     <tr>
         <td><code>email.subscription.userOperation.endpoint.privateMail.address</code></td>
         <td>This property is used to add the email address of the email receiver of the endpoint defined in the <code>email.subscription.userOperation.endpoint.1</code> property.</td>
-        <td><code>reciever@gmail.com</code></td>
+        <td><code>receiver@gmail.com</code></td>
     </tr>
     <tr>
         <td><code>email.subscription.userOperation.endpoint.privateMail.salutation</code></td>

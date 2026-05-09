@@ -49,3 +49,7 @@ Learn more about [role-based provisioning]({{base_path}}/guides/users/outbound-p
 - [Salesforce]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce)
 - [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2)
 {% endif %}
+
+## Provisioning attributes
+
+When a provisioning request uses a token issued to an authorized application (other than the Console application), {{product_name}} applies attribute filtering. Only the attributes requested by that application are provisioned to the external system.

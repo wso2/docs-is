@@ -27,6 +27,10 @@ To enable clients to sign in and safely connect to the MCP server, an applicatio
 !!! Info
     The authorized redirect URL defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     For this guide, we will use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we will use `http://localhost:6274/oauth/callback`, as the authorized redirect URL.
+    {% if is_version == "next" or product_name == "Asgardeo" %}
+
+    While we're using the **MCP Client Application** template here for optimized MCP settings, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
+    {% endif %}
 
 Make a note of the **client-id** from the **Protocol** tab of the registered application. You will need it during the [Test the MCP server with authentication](#test-the-mcp-server-with-authentication) section of this guide.
 
@@ -118,16 +122,28 @@ Stop the running server before continuing.
 
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
+{% if product_name == "Asgardeo" %}
+
 ```properties title=".env"
 AUTH_ISSUER=https://api.asgardeo.io/t/<your-tenant>/oauth2/token
 CLIENT_ID=<your-client-id>
 JWKS_URL=https://api.asgardeo.io/t/<your-tenant>/oauth2/jwks
 ```
 
+{% else %}
+
+```properties title=".env"
+AUTH_ISSUER=https://localhost:9443/t/<your-tenant>/oauth2/token
+CLIENT_ID=<your-client-id>
+JWKS_URL=https://localhost:9443/t/<your-tenant>/oauth2/jwks
+```
+
+{% endif %}
+
 !!! Important
 
     Replace `<your-tenant>` and `<your-client-id>` with the values obtained from the {{ product_name }} console.
-    The tenant name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<your-tenant>`), and the client ID is found in the application's **Protocol** tab.
+    The tenant name is visible in the console URL path {% if product_name == "Asgardeo" %}(e.g., `https://console.asgardeo.io/t/<your-tenant>`) {% else %} (e.g., `https://localhost:9443/t/<your-tenant>`) {% endif %}, and the client ID is found in the application's **Protocol** tab.
 
 Create a `jwt_validator.py` file in the project directory using the implementation below.
 

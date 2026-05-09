@@ -45,7 +45,7 @@ var onLoginRequest = function (context) {
         onSuccess: function (context) {
             var riskScore = getSiftRiskScoreForLogin(context, "LOGIN_SUCCESS", additionalParams);
             if (riskScore == -1) {
-                console.log("Error occured while obtaining Sift score.");
+                console.log("Error occurred while obtaining Sift score.");
             }
             if (riskScore > 0.7) {
                 sendError(errorPage, suspiciousLoginError);
@@ -106,7 +106,7 @@ var onLoginRequest = function (context) {
         onSuccess: function (context) {
             var workflowDecision = getSiftWorkflowDecision(context, "LOGIN_SUCCESS", additionalParams);
             if (workflowDecision == null) {
-                console.log("Error occured while obtaining Sift score.");
+                console.log("Error occurred while obtaining Sift score.");
             }
             if (workflowDecision == "session_looks_bad_account_takeover") {
                 sendError(errorPage, suspiciousLoginError);

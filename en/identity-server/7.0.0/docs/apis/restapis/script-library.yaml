@@ -119,7 +119,7 @@ paths:
       summary: |
         Get script library
       description: |
-        This API provides the capability to retrive the script library details by using its name.
+        This API provides the capability to retrieve the script library details by using its name.
         
         <b>Scope(Permission) required:</b> `internal_functional_lib_view`
       operationId: getScriptLibraryByName
@@ -277,7 +277,7 @@ paths:
       summary: |
         Get the content of the script library
       description: |
-        This API provides the capability to retrive the content of script library by using its name.
+        This API provides the capability to retrieve the content of script library by using its name.
         
         <b>Scope(Permission) required:</b> `internal_functional_lib_view`
       operationId: getScriptLibraryContentByName

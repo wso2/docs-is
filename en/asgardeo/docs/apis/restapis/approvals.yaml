@@ -1,0 +1,377 @@
+openapi: 3.0.0
+info:
+  title: Asgardeo - Workflow Approval API
+  description: |
+    This is the RESTful API for a user to manage pending approvals in Asgardeo. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
+  version: v2
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/users/v2'
+security:
+  - OAuth2: []
+tags:
+  - name: me
+    description: Operations for the authenticated user.
+paths:
+  /me/approval-tasks:
+    get:
+      tags:
+        - me
+      summary: Retrieves available approvals for the authenticated user
+      description: |
+        Retrieve the available approval tasks in the system for the authenticated user. This API returns the following types of approvals:
+          * READY - Tasks that are _claimable_ by the user. If a particular task is in the READY state, the user is eligible to self-assign the task and complete it.
+          * RESERVED -  Tasks that are _assigned_ to the user and to be approved by this user.
+          * COMPLETED - Tasks that are already _completed_ (approved or denied) by this user.
+
+         A user can also invoke the endpoint with the following query parameters.
+      security:
+        - OAuth2:
+            - internal_approval_task_view
+      operationId: listApprovalTasksForLoggedInUser
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/statusQueryParam'
+      responses:
+        "200":
+          description: Array of approval tasks matching the search criteria
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskSummary'
+              example:
+                - id: "453"
+                  name: "Sample Task 1"
+                  presentationSubject: Update Claims
+                  presentationName: SampleWorkflowTask
+                  taskType: TASK
+                  status: RESERVED
+                  priority: 0
+                  createdTimeInMillis: "1565597712157"
+                - id: "452"
+                  name: "Sample Task 2"
+                  presentationSubject: Update Claims
+                  presentationName: SampleWorkflowTask
+                  taskType: TASK
+                  status: COMPLETED
+                  priority: 0
+                  createdTimeInMillis: "1565597675414"
+                - id: "451"
+                  name: "Sample task 3"
+                  presentationSubject: Update Claims
+                  presentationName: SampleWorkflowTask
+                  taskType: TASK
+                  status: READY
+                  priority: 0
+                  createdTimeInMillis: "1565597569021"
+        400:
+          $ref: '#/components/responses/InvalidInput'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/Forbidden'
+        500:
+          $ref: '#/components/responses/ServerError'
+  /me/approval-tasks/{task-id}:
+    get:
+      tags:
+        - me
+      summary: Retrieves an approval task by the task-id
+      description: |
+        Retrieves information of a specific approval task identified by the task-id 
+
+      security:
+        - OAuth2:
+            - internal_approval_task_view
+      operationId: getApprovalTaskInfo
+      parameters:
+        - $ref: '#/components/parameters/taskIdPathParam'
+      responses:
+        "200":
+          description: Detailed information of the approval task identified by the
+            task-id
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/TaskData'
+              example:
+                id: "452"
+                subject: Update Claims
+                description: You have a request to approve claim update action of
+                  a user.
+                priority: 0
+                initiator: admin
+                approvalStatus: APPROVE
+                assignees:
+                  - key: group
+                    value: admin
+                properties:
+                  - key: REQUEST ID
+                    value: "34172334-fccb-4ef4-9830-08c3caeaab9e,"
+                  - key: Username
+                    value: "aysh234,"
+                  - key: User Store Domain
+                    value: "PRIMARY,"
+                  - key: Profile
+                    value: "default,"
+                  - key: Claims
+                    value: "http://wso2.org/claims/organization:,http://wso2.org/claims/telephone:,http://wso2.org/claims/im:,http://wso2.org/claims/country:Sri\
+                    \ Lanka,http://wso2.org/claims/mobile:,http://wso2.org/claims/emailaddress:ayesha@wso2.com,profileConfiguration:default,http://wso2.org/claims/lastname:Dissanayaka,http://wso2.org/claims/url:,http://wso2.org/claims/givenname:Ayesha,"
+        400:
+          $ref: '#/components/responses/InvalidInput'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/Forbidden'
+        404:
+          $ref: '#/components/responses/NotFound'
+        409:
+          $ref: '#/components/responses/Conflict'
+        500:
+          $ref: '#/components/responses/ServerError'
+  /me/approval-tasks/{task-id}/state:
+    put:
+      tags:
+        - me
+      summary: Changes the state of an approval task
+      description: |
+        Update the approval task status by defining one of the following actions:
+         * CLAIM - Reserve the task for the user. Status of the task will be changed from READY to RESERVED.
+         * RELEASE - Release the task for other users to claim. Status of the task will be changed from RESERVED to READY.
+         * APPROVE - Approve the task. Status of the task will be changed to COMPLETED.
+         * REJECT - Deny the task. Status of the task will be changed to COMPLETED.
+
+      security:
+        - OAuth2:
+            - internal_approval_task_update
+      operationId: updateStateOfTask
+      parameters:
+        - $ref: '#/components/parameters/taskIdPathParam'
+      requestBody:
+        description: To which state the task should be changed.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/StateDTO'
+        required: false
+      responses:
+        200:
+          $ref: '#/components/responses/OK'
+        400:
+          $ref: '#/components/responses/InvalidInput'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/Forbidden'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/ServerError'
+components:
+  schemas:
+    TaskSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID to represent an Approval Task
+          example: "451"
+        name:
+          type: string
+          description: Unique name for the Approval Task
+          example: s367:testTask
+        presentationSubject:
+          type: string
+          description: Display value for Approval Operation
+          example: Add new Role
+        presentationName:
+          type: string
+          description: Display value for Approval Task
+          example: sampleTask
+        taskType:
+          type: string
+          description: Type of the Approval
+          example: TASK
+        status:
+          type: string
+          description: State of the Approval task
+          example: READY
+          enum:
+            - READY
+            - RESERVED
+            - COMPLETED
+        priority:
+          type: integer
+          description: Priority of the Approval task
+          example: 0
+        createdTimeInMillis:
+          type: string
+          description: The time that the operation for approval initiated
+          example: "1565597569021"
+    TaskData:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID to represent a approval task
+          example: "451"
+        subject:
+          type: string
+          description: Subject of the Approval
+          example: Add new Role
+        description:
+          type: string
+          description: Description on the Approval task
+          example: Adds a new role to the system
+        priority:
+          type: integer
+          description: Priority of the Approval task
+          example: 0
+        initiator:
+          type: string
+          description: The user who initiated the task
+          example: some-user-name
+        approvalStatus:
+          type: string
+          description: |
+            Available only for the completed Tasks, APPROVED or REJECTED if the task has been completed, PENDING otherwise
+          example: APPROVE
+          enum:
+            - PENDING
+            - APPROVED
+            - REJECTED
+        assignees:
+          type: array
+          description: |
+            To whom the task is assigned:
+              * user - username(s) if the task is reserved for specific user(s).
+              * group - role name(s) if the task is assignable for group(s).
+          items:
+            $ref: '#/components/schemas/Property'
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    StateDTO:
+      type: object
+      properties:
+        action:
+          type: string
+          description: Action to perform on the task.
+          example: APPROVE
+          enum:
+            - CLAIM
+            - RELEASE
+            - APPROVE
+            - REJECT
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          example: some_error_code
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: Some Correlation for Error Instance
+  responses:
+    NotFound:
+      description: The specified resource is not found
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+    ServerError:
+      description: Internal Server Error
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Invalid input request
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Element Already Exists
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Created:
+      description: Item Created
+    OK:
+      description: OK
+    Deleted:
+      description: Item Deleted
+    Forbidden:
+      description: Resource Forbidden
+  parameters:
+    taskIdPathParam:
+      name: task-id
+      in: path
+      description: Task ID
+      required: true
+      schema:
+        type: string
+    offsetQueryParam:
+      name: offset
+      in: query
+      description: Number of records to skip for pagination
+      schema:
+        minimum: 0
+        type: integer
+        format: int32
+    limitQueryParam:
+      name: limit
+      in: query
+      description: Maximum number of records to return
+      schema:
+        minimum: 0
+        type: integer
+        format: int32
+    statusQueryParam:
+      name: status
+      in: query
+      description: |
+        Approval task's status to filter tasks by their status:
+         * **RESERVED** - Tasks that are **assigned to** the authenticated user.
+         * **READY** - Tasks that **can be assigned to** and **can be approved by** the authenticated user.
+         * **COMPLETED** - Tasks that are **completed by** the user
+         * \<empty\> - **All** the viewable tasks will be retrieved if this parameter is not specified.
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          enum: [READY, RESERVED, COMPLETED]
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
+          scopes:
+            internal_approval_task_view: View approval tasks
+            internal_approval_task_update: Update approval tasks

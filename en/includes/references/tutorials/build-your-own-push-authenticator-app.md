@@ -335,6 +335,24 @@ The data sent through the push notification contains the following information:
        <td><code>username</code></td>
        <td>Username of the user trying to authenticate.</td>
      </tr>
+
+     {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+     <tr>
+       <td><code>relativePath</code></td>
+       <td>
+         The resolved relative path to build the authentication API endpoint.<br/>
+         Possible relative paths:
+         <ol>
+           <li>/t/{tenant-domain}</li>
+           <li>/o/{organization-id}</li>
+           <li>/t/{tenant-domain}/o/{organization-id}</li>
+         </ol>
+       </td>
+     </tr>
+
+     {% endif %}
+
      <tr>
        <td><code>tenantDomain</code></td>
        <td>Tenant domain of the root organization user (tenant user).</td>
@@ -389,9 +407,15 @@ The data sent through the push notification contains the following information:
      </tr>
 </table>
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+{% else %}
+
 !!! note
     - For a root organization user (tenant user), only the **tenantDomain** will be available in the push notification data.
     - For an organization user, only **organizationId** and **organizationName** will be available in the push notification data.
+
+{% endif %}
 
 With the above information, the push authenticator app should display the authentication request information to the user.
 The user should be able to approve or deny the authentication request based on the information displayed.
@@ -445,6 +469,40 @@ The JWT token should contain the following claims in the payload:
      </tr>
 </table>
 
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+Based on the notification data, the authentication API endpoint should be conditionally invoked with a **tenanted path**, an **organization path**, or a **tenant qualified organization aware path** by the push authenticator app. Either of the following methods can be used to build the authentication API endpoint.
+
+### Option 1: Use relative path from notification data
+
+The user information contains the resolved **relative path** to build the correct API endpoint. Invoke the authentication API with the **relative path** as shown below.
+
+```text
+{{baseUrl}}/{relative-path}/push-auth/authenticate
+```
+
+### Option 2: Build full endpoint
+
+1. If the user information contains the **tenant domain**, the authentication API should be invoked with the **tenanted path** as shown below.
+
+    ```text
+    {{baseUrl}}/t/{tenant-domain}/push-auth/authenticate
+    ```
+
+2. If the user information contains the **organization ID**, the authentication API should be invoked with the **organization path**.
+
+    ```text
+    {{baseUrl}}/o/{organization-id}/push-auth/authenticate
+    ```
+
+3. If the user information contains both the **tenant domain** and the **organization ID**, the authentication API should be invoked with the **tenant qualified organization aware path**.
+
+    ```text
+    {{baseUrl}}/t/{tenant-domain}/o/{organization-id}/push-auth/authenticate
+    ```
+
+{% else %}
+
 According to the stored user information, the push authenticator app should conditionally invoke the relevant API authenticate endpoint with a **tenanted path** or an **organization path**.
 
 If the user information contains the **tenant domain**, the authentication API should be invoked with the **tenanted path** as shown below.
@@ -455,11 +513,15 @@ If the user information contains the **organization ID**, the authentication API
 
     {{baseUrl}}/o/{organization-id}/push-auth/authenticate
 
+{% endif %}
+
 The below given is a sample request payload to be sent to the authentication API.
 
-    {
-      "authResponse": <JWT token>
-    }
+```json
+{
+  "authResponse": "<JWT token>"
+}
+```
 
 Once the authentication request is sent successfully, the push authenticator app will receive a **202 Accepted** response. With that, the authentication flow
 will be continued and the user will be authenticated based on the response sent by the push authenticator app.
