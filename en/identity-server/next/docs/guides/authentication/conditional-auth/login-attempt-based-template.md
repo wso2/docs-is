@@ -28,11 +28,11 @@ To enable conditional authentication:
 
 2. Select the relevant application and go to its **Login Flow** tab.
 
-3. Add role-based adaptive MFA as follows:
+3. Add login-attempt-based adaptive MFA as follows:
 
     1. Go to **Predefined Flows** > **Conditional Login Flows**.
 
-    2. Click **Adaptive MFA** > **Login-Attempts-Based** > **ADD** to add the role-based adaptive MFA script.
+    2. Click **Adaptive MFA** > **Login-Attempts-Based** > **ADD** to add the login-attempt-based adaptive MFA script.
 
         ![Login attempts based adaptive MFA with visual editor]({{base_path}}/assets/img/guides/conditional-auth/login-attempt-based-adaptive-mfa-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
