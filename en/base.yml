@@ -353,6 +353,12 @@ extra:
               description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
               registry_url: https://registry.npmjs.org/@asgardeo/auth-node/latest
               source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
+            - name: Flutter SDK
+              artifact_id: asgardeo_flutter
+              icon: assets/img/logo/flutter-logo.svg
+              description: Official {{ product_name }} Flutter SDK. Currently supports push authentication.
+              documentation_link: sdks/flutter/overview
+              source_link: https://github.com/asgardeo/flutter/tree/main/packages/flutter
             - name: Tomcat OIDC Agent
               artifact_id: io.asgardeo.tomcat.oidc.agent
               icon: assets/img/logo/java-logo.svg
@@ -367,12 +373,6 @@ extra:
               documentation_link: get-started/try-your-own-app/java-ee-saml/
               download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
               source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
-            - name: Flutter Push Authentication Package
-              artifact_id: asgardeo_push_auth
-              icon: assets/img/logo/flutter-logo.svg
-              description: Flutter package for implementing push authentication with {{ product_name }}.
-              documentation_link: sdks/flutter/push-authentication/overview
-              source_link: https://github.com/asgardeo/flutter/tree/main/packages/push-authentication
             - name: Android Mobile UI SDK
               artifact_id: io.asgardeo:asgardeo-android
               icon: assets/img/logo/android-logo.svg
