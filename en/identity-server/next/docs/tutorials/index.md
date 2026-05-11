@@ -12,3 +12,4 @@ See the topics listed below for end-to-end tutorials on how to use WSO2 Identity
 - [Integrating WSO2 Identity Server With WSO2 AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/)
 - [Integrating WSO2 Identity Server With Kong AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/kong-ai-gateway-with-agent-identity-aware-access-control/)
 - [Secure MCP servers with WSO2 Identity Server and integrate them with n8n agentic flows]({{base_path}}/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/)
+- [Authenticate Agents with their own Agent ID to Claude API Using Workload Identity Federation]({{base_path}}/tutorials/agent-id-claude-authentication/)
