@@ -17,6 +17,7 @@ After the user clicks **Sign in with SSO**, they are redirected to the organizat
 By default, users are prompted to enter the **organization name**.
 
 ![Organization discovery page - org name]({{base_path}}/assets/img/guides/organization/organization-login/discovery-page-org-name.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 {% else %}
 By default, users are prompted to enter the **organization handle** — a human-readable, unique identifier for the organization.
 
@@ -50,6 +51,7 @@ By default, users are prompted to enter the **organization handle** — a human-
 ---
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ## Configure default parameter for organization discovery
 
 You can set the default discovery parameter for organization discovery across your server or for your root organization. This configuration determines which parameter users provide during SSO login. It affects the user experience.
@@ -114,6 +116,7 @@ When you enable email domain discovery, the UI shows the default prompt option a
 ![Email input for Single Sign-On (SSO) login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 {% endif %}
+
 ---
 
 ## Directly access the organization
