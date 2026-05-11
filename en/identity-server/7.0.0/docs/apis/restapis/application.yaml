@@ -4552,6 +4552,15 @@ components:
         alwaysIncludeAttributesInResponse:
           type: boolean
           default: false
+        nameFormat:
+          type: string
+          default: urn:oasis:names:tc:SAML:2.0:attrname-format:basic
+          enum:
+            - urn:oasis:names:tc:SAML:2.0:attrname-format:basic
+            - urn:oasis:names:tc:SAML:2.0:attrname-format:uri
+          description: >
+            Specifies the type of attribute names used in the attribute statement of SAML assertions.
+            **Available from update level 7.0.0.156 onwards.**
     SingleLogoutProfile:
       type: object
       properties:
