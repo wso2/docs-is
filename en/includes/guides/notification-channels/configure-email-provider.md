@@ -2,9 +2,21 @@
 
 This document explains the steps to configure {{ product_name }} to send emails during multiple email-related customer identity and access management tasks such as [email OTP]({{base_path}}/guides/authentication/mfa/add-emailotp-login/), email notifications, and account recovery.
 
+{% if product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"] %}
+
+{{ product_name }} supports SMTP-based and HTTP-based email providers. To learn how to configure each email provider please see the relevant section.
+
+{% else %}
+
+{{ product_name }} supports SMTP-based email providers. To learn how to configure the email provider please see the relevant section.
+
+{% endif %}
+
 ## Global Configurations of Email Provider
 
 Follow the steps given below to enable the email sender globally for all tenants in {{ product_name }}.
+
+### Configure SMTP based email provider globally
 
 1. Shut down the server if it is running.
 2. Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to configure the email provider.
@@ -21,7 +33,7 @@ Follow the steps given below to enable the email sender globally for all tenants
     enable_authentication= true
     signature = "ABC.com"
     ```
-   
+
     <table>
       <tr>
         <th>Property</th>
@@ -35,7 +47,7 @@ Follow the steps given below to enable the email sender globally for all tenants
         <td><code>auth_type</code></td>
         <td>
           Authentication type to use when sending the email. {{ product_name }} supports <code>BASIC</code> and <code>CLIENT_CREDENTIAL</code> authentication types.
-          <br/> For <code>BASIC</code> you need to configure <code>username</code> and <code>password</code>. 
+          <br/> For <code>BASIC</code> you need to configure <code>username</code> and <code>password</code>.
           <br/> For <code>CLIENT_CREDENTIAL</code> you need to configure <code>client_id</code>, <code>client_secret</code>, <code>token_endpoint</code> and  <code>scopes</code>.
           Support for the <code>CLIENT_CREDENTIAL</code> authentication type is available for Microsoft 365 Exchange Online.
         </td>
@@ -74,8 +86,7 @@ Follow the steps given below to enable the email sender globally for all tenants
     </table>
 
     !!! Tip
-        For information about the SMTP, see 
-        [here](https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html){:target="_blank"}.
+        For information about the SMTP, see the [JavaMail SMTP documentation](https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html){:target="_blank"}.
 
     !!! info
         - If you use a Gmail account as the **from_address**, you must create an [App Password](https://support.google.com/accounts/answer/185833?visit_id=637943607149528455-3801902236&p=InvalidSecondFactor&rd=1){:target="_blank"}.
@@ -87,6 +98,116 @@ Follow the steps given below to enable the email sender globally for all tenants
 
 3. Save the configurations and start the server.
 
+{% if product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"] %}
+
+### Configure HTTP based email provider globally
+
+1. Shut down the server if running.
+2. Update the content of the `EmailPublisher.xml` file in the `<IS_HOME>/repository/deployment/server/eventpublishers` folder with below content and update the properties based on the provider you are using.
+
+    {% raw %}
+
+      ```xml
+      <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      <eventPublisher xmlns="http://wso2.org/carbon/eventpublisher" name="EmailPublisher" statistics="disable" trace="disable">
+          <from streamName="id_gov_notify_stream" version="1.0.0"/>
+          <mapping customMapping="enable" type="json">
+              <inline>{"source": "{{subject}}", "content": "{{body}}", "footer": "{{footer}}", "to": "{{send-to}}"}</inline>
+          </mapping>
+          <to eventAdapterType="http">
+              <property name="http.headers">X-Version: 1, Header-1: Value-1</property>
+              <property name="http.client.method">POST</property>
+              <property name="http.url">https://example.com.email.provider </property>
+              <property name="http.authType">CLIENT_CREDENTIAL</property>
+              <property name="http.clientId">clientID</property>
+              <property name="http.clientSecret">clientSecret</property>
+              <property name="http.tokenEndpoint">https://example.com/oauth2/token</property>
+              <property name="http.scopes">email_send_scope</property>
+          </to>
+      </eventPublisher>
+      ```
+
+    {% endraw %}
+
+    The `<mapping>` element's `<inline>` tag defines the email payload template. Use the following placeholders, which are replaced with actual values at runtime:
+
+    | Placeholder | Description |
+    |---|---|
+    | `{% raw %}{{subject}}{% endraw %}` | Subject of the email. |
+    | `{% raw %}{{body}}{% endraw %}` | Generated body content of the email. |
+    | `{% raw %}{{footer}}{% endraw %}` | Footer of the email. |
+    | `{% raw %}{{send-to}}{% endraw %}` | Recipient email address. |
+
+    The `<to eventAdapterType="http">` element accepts the following properties:
+
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>http.headers</code></td>
+        <td>Custom static HTTP headers to include in every request sent to the email provider. Multiple headers should be comma-separated. (Optional)</td>
+      </tr>
+      <tr>
+        <td><code>http.client.method</code></td>
+        <td>HTTP method to use when sending the request to the provider URL. Supported values: <code>POST</code>, <code>PUT</code>.</td>
+      </tr>
+      <tr>
+        <td><code>http.url</code></td>
+        <td>The URL of the HTTP-based email provider endpoint where the payload will be delivered.</td>
+      </tr>
+      <tr>
+        <td><code>http.authType</code></td>
+        <td>
+          Authentication type to use when calling the provider URL. Supported values:
+          <br/> <code>BASIC</code> — requires <code>http.username</code> and <code>http.password</code>.
+          <br/> <code>CLIENT_CREDENTIAL</code> — requires <code>http.clientId</code>, <code>http.clientSecret</code>, <code>http.tokenEndpoint</code>, and <code>http.scopes</code>.
+          <br/> <code>BEARER</code> — requires <code>http.accessToken</code>.
+          <br/> <code>API_KEY</code> — requires <code>http.apiKeyHeader</code> and <code>http.apiKeyValue</code>.
+          <br/> <code>NONE</code> — no authentication.
+        </td>
+      </tr>
+      <tr>
+        <td><code>http.username</code></td>
+        <td>Username for <code>BASIC</code> authentication.</td>
+      </tr>
+      <tr>
+        <td><code>http.password</code></td>
+        <td>Password for <code>BASIC</code> authentication.</td>
+      </tr>
+      <tr>
+        <td><code>http.clientId</code></td>
+        <td>Client ID of the OAuth 2.0 application used for <code>CLIENT_CREDENTIAL</code> authentication.</td>
+      </tr>
+      <tr>
+        <td><code>http.clientSecret</code></td>
+        <td>Client secret of the OAuth 2.0 application used for <code>CLIENT_CREDENTIAL</code> authentication.</td>
+      </tr>
+      <tr>
+        <td><code>http.tokenEndpoint</code></td>
+        <td>Token endpoint URL used to get an access token for <code>CLIENT_CREDENTIAL</code> authentication.</td>
+      </tr>
+      <tr>
+        <td><code>http.scopes</code></td>
+        <td>Comma-separated list of OAuth 2.0 scopes to request when obtaining an access token for <code>CLIENT_CREDENTIAL</code> authentication.</td>
+      </tr>
+      <tr>
+        <td><code>http.accessToken</code></td>
+        <td>Static bearer token used for <code>BEARER</code> authentication.</td>
+      </tr>
+      <tr>
+        <td><code>http.apiKeyHeader</code></td>
+        <td>Name of the HTTP header used to pass the API key for <code>API_KEY</code> authentication.</td>
+      </tr>
+      <tr>
+        <td><code>http.apiKeyValue</code></td>
+        <td>Value of the API key used for <code>API_KEY</code> authentication.</td>
+      </tr>
+    </table>
+
+{% endif %}
+
 ## Tenant Specific Configurations of Email Provider
 
 !!! info
@@ -94,15 +215,44 @@ Follow the steps given below to enable the email sender globally for all tenants
 
 Follow the steps given below to enable the email sender per tenant.
 
+### Configure SMTP based email provider per tenant
+
+{% if product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"] %}
+
+1. On the {{ product_name }} Console, go to **Notification Channels** > **Email Provider**.
+2. Click the **SMTP** tab and provide the required details.
+
+   ![Configure Email Provider]({{base_path}}/assets/img/guides/notification-channels/email-provider/configure-email-provider.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Click **Update**.
+4. Since these configurations apply during the tenant loading process, [configure tenant loading and unloading for your tenant]({{base_path}}/guides/multitenancy/configure-the-tenant-loading-policy/).
+
+{% else %}
+
 1. On the {{ product_name }} Console, go to **Notification Channels** > **Email Provider**.
 2. Provide the required details.
 
    ![Configure Email Provider]({{base_path}}/assets/img/guides/notification-channels/email-provider/configure-email-provider.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Click **Update**. 
-4. Since these configurations will be applicable during the tenant loading process, [configure tenant loading and unloading for your tenant]({{base_path}}/guides/multitenancy/configure-the-tenant-loading-policy/).
+3. Click **Update**.
+4. Since these configurations apply during the tenant loading process, [configure tenant loading and unloading for your tenant]({{base_path}}/guides/multitenancy/configure-the-tenant-loading-policy/).
 
-## Supported Providers
+{% endif %}
+
+{% if product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"] %}
+
+### Configure HTTP based email provider per tenant
+
+1. On the {{ product_name }} Console, go to **Notification Channels** > **Email Provider**.
+2. Click the **HTTP** tab and provide the required details.
+
+   ![Configure Email Provider]({{base_path}}/assets/img/guides/notification-channels/email-provider/configure-http-based-email-provider.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Click **Update**.
+
+{% endif %}
+
+## Supported SMTP based email providers
 
 ??? note "Configuring Gmail as the email provider"
     If you use a Gmail account as the **from_address**, you must create an [App Password](https://support.google.com/accounts/answer/185833?visit_id=637943607149528455-3801902236&p=InvalidSecondFactor&rd=1){:target="_blank"}.
@@ -114,7 +264,7 @@ Follow the steps given below to enable the email sender per tenant.
     ```
 
 ??? note "Configuring Microsoft 365 Exchange Online as the email provider"
-    
+
     ## Before you start
     
     - You must have a [Microsoft 365](https://www.microsoft.com/en-us/microsoft-365) account with an active subscription.

@@ -203,6 +203,11 @@ Specifies whether to include the user's attributes in the SAML assertions as par
 
 #### Attribute name format
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
+!!! note
+    This improvement is available from **update level 7.0.0.156** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
+
 The attribute name format specifies the type of attribute names used in the attribute statements of SAML assertions. The following are the attribute name format types supported by {{ product_name }}.
 
 - `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`

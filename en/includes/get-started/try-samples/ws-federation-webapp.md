@@ -65,7 +65,7 @@ To configure additional properties for the sample application:
 
 3. Enter the following details:
 
-    ![Create a new Passice STS app]({{base_path}}/assets/img/guides/applications/create-new-ws-federation-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Create a new Passive STS app]({{base_path}}/assets/img/guides/applications/create-new-ws-federation-app.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>

@@ -669,7 +669,7 @@ array if there are no sessions). It includes the parameters listed below.
     var user = context.currentKnownSubject;
     var sessions = getUserSessions(user);
     if (sessions.length > 0) {
-        var result = terminateUserSession(user, sessions[0]);
+        var result = terminateUserSession(user, sessions[0].id);
         Log.info("Terminate Operation Successful?: " + result);
     }
     ```
@@ -1160,6 +1160,22 @@ The step number is the one configured at the step configuration, not the actual 
   <tr>
     <td><code>context.serviceProviderName</code></td>
     <td>Get the application name.</td>
+  </tr>
+  <tr>
+    <td><code>context.currentKnownSubject</code></td>
+    <td>Access the authenticated user from the subject identifier step. It resolves the user from the first completed step that is configured as the subject identifier step. If no subject identifier step is completed yet, it falls back to the user from the current step. Returns a <a href="#user">user</a> object or <code>null</code> if no step has been completed.</td>
+  </tr>
+  <tr>
+    <td><code>context.requestedAcr</code></td>
+    <td>The list of Authentication Context Class Reference (ACR) values requested by the application. For OIDC requests, these come from the <code>acr_values</code> parameter. For SAML SSO requests, these come from the <code>samlp:AuthnContextClassRef</code> elements.</td>
+  </tr>
+  <tr>
+    <td><code>context.selectedAcr</code></td>
+    <td><code>(Read/Write)</code> <br> The ACR value selected during the authentication flow. Set this to return the appropriate ACR value in the authentication response.</td>
+  </tr>
+  <tr>
+    <td><code>context.tenantDomain</code></td>
+    <td>The tenant domain of the application that initiated the authentication request.</td>
   </tr>
 </table>
 

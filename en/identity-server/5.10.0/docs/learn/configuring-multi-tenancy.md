@@ -43,14 +43,14 @@ Repeat steps 4-5 and create a tenant called "pickup-taxis.com" with different ad
 
 You can now log in to each tenant using the relevant tenant admin's credentials and create users and roles in the tenant. Note that you are managing two separate sets of users and roles for each tenant using one instance of WSO2 Identity Server.
 
-1. Sign out of the Management Console and sign in using the `pickup-eats` admin credentitals.
+1. Sign out of the Management Console and sign in using the `pickup-eats` admin credentials.
 
     - `Username:` jane@pickup-eats.com
     - `Password:` jane123
 
 2. Create a new user called **Cameron**. For instructions on how to create a user, see [Adding Users and Roles](../../learn/adding-users-and-roles#create-a-user). 
 
-You have succesfully created a user in the `pickup-eats` tenant. Now repeat step 1-2 and create a user in the `pickup-taxis` tenant as well. 
+You have successfully created a user in the `pickup-eats` tenant. Now repeat steps 1-2 and create a user in the `pickup-taxis` tenant as well. 
 
 ## Try it out
 

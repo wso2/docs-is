@@ -130,7 +130,7 @@ After establishing account links, administrators can't delete them. Users can ma
 !!! note
     {{ product_name }} skips implicit account linking when **Require linked local account** is disabled, even if the implicit linking option remains enabled.
 
-{% if product_name == "Asgardeo" %}    
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 To enable implicit account linking,
 
@@ -150,20 +150,14 @@ To enable implicit account linking,
 !!! note
     If {{ product_name }} can't find a matching local user account using the primary lookup attribute, it searches for matching accounts using the secondary lookup attribute.
 
-    Following three attributes can be configured as lookup attributes
-
-    - `http://wso2.org/claims/username`
-    - `http://wso2.org/claims/emailaddress`
-    - `http://wso2.org/claims/mobile`
+    By default, the `username` attribute is available as a lookup attribute. Administrators can make an attribute [unique across the user stores]({{base_path}}/guides/users/attributes/configure-unique-attributes), after which it will appear in the lookup attributes list.
 
     {{ product_name }} will look for the <a href="{{base_path}}/guides/users/attributes/manage-oidc-attribute-mappings/#view-openid-connect-attributes">mapped OpenID Connect attribute</a> in the third-party token.
 
 {% else %}
 
-### Implicit account linking
-
-In {{ product_name }}, implicit account linking can be configured via the 
-[Implicit Association API](https://is.docs.wso2.com/en/{{ is_version }}/apis/idp/#tag/Implicit-Association/operation/updateImplicitAssociation).    
+You can configure implicit account linking using the
+[Implicit Association API](https://is.docs.wso2.com/en/{{ is_version }}/apis/idp/#tag/Implicit-Association/operation/updateImplicitAssociation).
 
 {% endif %}
 
@@ -188,5 +182,9 @@ Follow the steps given below.
     !!! note
         {{ product_name }} only copies the `sub` claim from the token received from the trusted token issuer to the exchanged {{ product_name }} token.
 
-Upon successful execution, you will receive the exchanged token issued by {{ product_name }}.
+{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+    !!! note
+        To learn how token exchange can be invoked in organization applications, see [Generate tokens for organization applications]({{base_path}}/guides/organization-management/generate-tokens-for-organization-apps).
+{% endif %}
 
+Upon successful execution, you will receive the exchanged token.

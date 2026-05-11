@@ -8,7 +8,7 @@ supports fine-grained authorization using XACML requests and responses
 in JSON format via REST calls.
 
 Consider a sample scenario where a user requests authorization to a
-resource registered in WSO2 IS. When WSO2 IS recieves the request, an
+resource registered in WSO2 IS. When WSO2 IS receives the request, an
 enforced policy will be evaluated and the Policy Decision Point (PDP) in
 WSO2 Identity Server decides whether or not to grant the user access to
 the resource.

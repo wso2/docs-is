@@ -94,3 +94,11 @@ Components are the individual UI elements placed inside a step, such as input fi
          - From the **Attribute** dropdown, select the relevant attribute. Only attributes **displayed in user profiles** are available for mapping. Learn how to [display attributes in user profiles]({{base_path}}/guides/users/attributes/manage-attributes/#configure-attributes).
 
 ![Components]({{base_path}}/assets/img/guides/flows/flow-builder-components.gif){: width="auto" style="display: block; margin: 0;"}
+
+{% if product_name == "WSO2 Identity Server" %}
+
+## Manage flow context data
+
+Flow context records are stored in the `IDN_FLOW_CONTEXT_STORE` database table and accumulate over time. To prevent this from affecting server performance, periodically clean up the table using the provided stored procedure scripts. See [Clean up flow context]({{base_path}}/deploy/flow-context-cleanup/) for instructions.
+
+{% endif %}

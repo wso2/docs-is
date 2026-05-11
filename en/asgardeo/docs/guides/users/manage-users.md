@@ -8,6 +8,24 @@ This guide walks you through the process of managing a user account. An owner or
 
 To learn more about onboarding users, see [Onboard users]({{base_path}}/guides/users/onboard-users/).
 
+## Filter users
+
+Administrators can filter users based on their account status from the {{ product_name }} Console.
+
+To filter users by account status:
+
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
+2. Click the **Account Status** dropdown and select the relevant filter criteria:
+
+    - **Locked**: Users with locked accounts.
+    - **Disabled**: Users with deactivated accounts.
+    - **Pending password reset**: Users who haven't updated their passwords after an administrator-initiated password reset.
+    - **Pending initial password setup**: Users who haven't set their passwords after an administrator-initiated account creation.
+    - **Pending email verification**: Users who haven't verified their primary email addresses.
+    - **Pending mobile verification**: Users who haven't verified their primary mobile numbers.
+
+    ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 ## Assign groups
 A user can be assigned to different [groups]({{base_path}}/guides/users/manage-groups/) in the organization. Groups can be used to restrict the user's access to resources.
 
@@ -55,6 +73,26 @@ To update the user profile:
     ![update-user-profile]({{base_path}}/assets/img/guides/users/update-user-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Update** to save.
+
+## Share user with organizations
+
+An administrator can share a user with an organization or multiple organizations via the {{ product_name }} Console.
+
+To share a user with organizations:
+
+1. On the {{ product_name }} Console, go to **User Management** > **Users**.
+2. Find the user's account and click **Edit**.
+3. Go to the **Shared Access** tab.
+4. Select the appropriate sharing option:
+
+    - **Do not share user with any organization**: The user will not be shared with any organizations.
+    - **Share user with all organizations**: The user is shared with all current and future organizations. When the user is shared, administrators can also configure which roles should be assigned to the user in the shared organizations.
+
+        ![Share user with all organizations]({{base_path}}/assets/img/guides/users/share-user-with-all-organizations.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - **Share user with selected organizations**: The user is shared with a specific set of existing organizations, but not with future child organizations. Administrators can configure which roles should be assigned to the user in the shared organizations.
+
+5. Once selected and configured, click **Save**.
 
 ## Resend invitation links and codes
 
@@ -196,7 +234,7 @@ To reset the password:
 
 3. Click **Reset Password**.
 
-**Using the API**
+### Using the API
 
 You can also use Asgardeo's [SCIM API]({{base_path}}/apis/scim2/#tag/Users-Endpoint/operation/patchUser) to initiate the admin initiated password recovery flow.
 
@@ -226,7 +264,7 @@ You can also use Asgardeo's [SCIM API]({{base_path}}/apis/scim2/#tag/Users-Endpo
     }'
     ```
 
-Upon successful execution of the cURL the user will recieve an email to reset their password.
+Upon successful execution of the cURL the user will receive an email to reset their password.
 
 ## Lock a user account
 
@@ -319,21 +357,3 @@ To delete a user account:
 
 3. Enable the checkbox to confirm your action.
 4. Click **Confirm**.
-
-## Filter users
-
-Administrators can filter users based on their account status from the {{ product_name }} Console.
-
-To filter users by account status:
-
-1. On the {{ product_name }} Console, go to **User Management** > **Users**.
-2. Click the **Account Status** dropdown and select the relevant filter criteria:
-
-    - **Locked**: Filters users with locked accounts.
-    - **Disabled**: Filters users with deactivated accounts.
-    - **Pending password reset**: Filters users for whom the administrator has initiated a forced password reset, but the users haven't yet reset their passwords.
-    - **Pending initial password setup**: Filters users an administrator invited to set their own password during initial account creation but who haven't done so yet.
-    - **Pending email verification**: Filters users who haven't yet verified their primary email addresses.
-    - **Pending mobile verification**: Filters users who haven't yet verified their primary mobile numbers.
-
-        ![Filter users by account status]({{base_path}}/assets/img/guides/users/filter-users-by-account-status.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

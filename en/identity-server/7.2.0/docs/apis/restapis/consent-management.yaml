@@ -770,7 +770,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-catergory-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-category-id}' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/<Purpose_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -826,7 +826,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-catergory-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/{purpose-category-id}' \
             -H 'accept: */*'
       x-wso2-request: |
         curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/purpose-categories/<Purpose_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -1022,7 +1022,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'GET' \
-            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-catergory-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-category-id}' \
             -H 'accept: application/json'
       x-wso2-request: |
         curl -k -X GET "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/<PII_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"
@@ -1078,7 +1078,7 @@ paths:
         - lang: Curl
           source: |
             curl -X 'DELETE' \
-            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-catergory-id}' \
+            'https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/{pii-category-id}' \
             -H 'accept: */*'
       x-wso2-request: |
         curl -k -X DELETE "https://localhost:9443/api/identity/consent-mgt/v1.0/consents/pii-categories/<PII_Category_ID>" -H "Authorization: Basic <Base64Encoded[username:password]>" -H "accept: application/json"

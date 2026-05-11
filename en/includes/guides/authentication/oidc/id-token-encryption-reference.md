@@ -52,11 +52,38 @@ An encrypted ID token consists of five base64-encoded parts separated by a perio
     - A256GCM
     - A128CBC-HS256
     - A128CBC+HS256
+    {% if product_name != "WSO2 Identity Server" or is_version != "7.2.0" %}
+    - A192CBC-HS384
+    {% endif %}
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
+!!! note
+    From update level 135 onwards, the `A192CBC-HS384` encryption method is supported.
+{% elif product_name == "WSO2 Identity Server" and is_version == "7.1.0" %}
+!!! note
+    From update level 54 onwards, the `A192CBC-HS384` encryption method is supported.
+{% endif %}
 
 - **Encrypt the Content Encryption Key (CEK)** - {{product_name}} uses the registered public key of the application to encrypt the CEK using the specified asymmetric encryption algorithm, known as the **encryption algorithm**. {{product_name}} supports the following encryption algorithms:
 
     - RSA1_5
     - RSA-OAEP
+    {% if product_name != "WSO2 Identity Server" or is_version != "7.2.0" %}
+    - RSA-OAEP-256
+    - RSA-OAEP-384
+    - RSA-OAEP-512
+    {% endif %}
+    {% if product_name == "WSO2 Identity Server" and is_version == "7.1.0" %}
+    - ECDH-ES+A256KW
+    {% endif %}
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.0.0" %}
+!!! note
+    From update level 135 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, and `RSA-OAEP-512` encryption algorithms are supported.
+{% elif product_name == "WSO2 Identity Server" and is_version == "7.1.0" %}
+!!! note
+    From update level 57 onwards, `RSA-OAEP-256`, `RSA-OAEP-384`, `RSA-OAEP-512`, and `ECDH-ES+A256KW` encryption algorithms are supported.
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}
 You can configure the default values of the encryption methods and encryption algorithms by making changes to the `<IS_HOME>/repository/conf/deployment.toml` file.

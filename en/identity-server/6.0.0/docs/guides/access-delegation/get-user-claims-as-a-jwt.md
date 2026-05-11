@@ -94,7 +94,7 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 
 **Using the REST API**
 
-1. Use the following curl command to send a request with the required user claims and recieve a JWT token. 
+1. Use the following curl command to send a request with the required user claims and receive a JWT token. 
 
     You can add more required claims as a comma-separated list. 
 
@@ -110,7 +110,7 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 
 Alternatively, you can also use the `OAuth2ValidationService` to send the request. 
 
-1. Call the `validate` method of `OAuth2ValidationService` to send a request with the user claims and recieve a JWT token as shown below. For more information, see [OAuth Token Validation Using SOAP Service]({{base_path}}/oauth-token-validation)
+1. Call the `validate` method of `OAuth2ValidationService` to send a request with the user claims and receive a JWT token as shown below. For more information, see [OAuth Token Validation Using SOAP Service]({{base_path}}/oauth-token-validation)
 
     Note that the response contains the received JWT token under the `<tokenString>` element. 
     If there are no requested claim URIs defined, all the claims that carry values for the user are returned.

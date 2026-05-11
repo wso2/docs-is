@@ -55,7 +55,7 @@ database structure for a logical separation of data.
 <li>Contains identity related data. For example user sessions, OAuth 2.0, SAML 2.0, User Managed Access (UMA) etc.</li>
 <li>In the default database configuration, all the UMA, consent and identity data are located 
 in the <code>IDENTITY_DB</code>.
- In a deplyment both identity and UMA can be seperated for a single database while consent data is configured to a seperate
+ In a deplyment both identity and UMA can be separated for a single database while consent data is configured to a separate
   database `CONSENT_MGT`</li>
 <li>For more information, see <a href="../../setup/working-with-databases">Working with Databases</a>.</li>
 </td>
@@ -85,7 +85,7 @@ During a deployment, user data can be configured to a different database <code>U
 <td>
 <li>Used for data pertaining to user consents.</li>
 <li>In the default database configuration, UMA, consent and identity data are located <code>IDENTITY_DB</code>. 
-In a deplyment both identity and UMA can be seperated for a single database while consent data is configured to a seperate 
+In a deplyment both identity and UMA can be separated for a single database while consent data is configured to a separate 
 database.</li>
 <li>For more information, see <a href="../../setup/changing-datasource-consent-management">Changing the Default Datasource for 
 Consent Management Database</a>.</li>

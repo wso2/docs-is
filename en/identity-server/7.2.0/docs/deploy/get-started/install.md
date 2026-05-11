@@ -180,7 +180,7 @@ Follow the instructions below to install WSO2 Identity Server on Linux or macOS.
 
 #### Install WSO2 Identity Server
 
-1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
+1. Download the [latest version of WSO2 Identity Server](https://wso2.com/identity-platform/access-manager/).
 2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
 #### Set up JAVA_HOME
@@ -252,7 +252,7 @@ Follow the instructions below to install the WSO2 Identity Server on Windows.
 
 #### Install WSO2 Identity Server
 
-1. Download the [latest version of WSO2 Identity Server](http://wso2.com/products/identity-server/).
+1. Download the [latest version of WSO2 Identity Server](https://wso2.com/identity-platform/access-manager/).
 2. Extract the archive file to a dedicated directory for WSO2 Identity Server, which will hereafter be referred to as `<IS_HOME>`.
 
 3. Set the `CARBON_HOME` environment variable by pointing it to the directory where you download the WSO2 Identity Server. For more information on how to do this, see [here](https://www.java.com/en/download/help/path.xml){:target="_blank"}.
