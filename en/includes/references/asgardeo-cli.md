@@ -1,6 +1,6 @@
 # Asgardeo CLI <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
 
-The **Asgardeo CLI** helps you manage identity and access management tasks using terminal commands. It connects your terminal or AI tool to Asgardeo's Management APIs, automating common identity management operations such as creating applications, updating API resources, and managing users, groups, and roles without using the Asgardeo Console UI or writing API calls.
+The **Asgardeo CLI** helps you manage identity and access management tasks using terminal commands. It connects your terminal to Asgardeo's Management APIs. This automates identity management operations such as creating applications, updating API resources, and managing users, groups, and roles. You can do this without using the Asgardeo Console UI or writing API calls.
 
 The Asgardeo CLI acts as a bridge between your terminal and Asgardeo, handling authentication and API requests. This guide explains how to set up the CLI, connect it to your Asgardeo organization, and verify your setup.
 
