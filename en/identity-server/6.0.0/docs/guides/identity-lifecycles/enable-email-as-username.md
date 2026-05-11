@@ -4,25 +4,24 @@
     Configuring the email address as the username in an **already running
     Identity Server** is not the production recommended way. Therefore,
     **make sure to configure it before you begin working with WSO2 IS**.
-    
 
-1.  Log in to the Management Console and click **Claims > List > http://wso2.org/claims**.
-   
+1. Log in to the Management Console and click **Claims > List > http://wso2.org/claims**.
+
 2. Click the **Edit** link corresponding to the **Username** claim and configure the `Mapped Attribute` property to `mail`.
 
     ![email-as-username-attribute-mapping]({{base_path}}/assets/img/guides/email-as-username-attribute-mapping.png)
-    
+
 3. Click **Update** to save the changes.
 
-4.  Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+4. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-5.  Add the following configuration to enable email authentication.
+5. Add the following configuration to enable email authentication.
 
     ``` toml
     [tenant_mgt]
     enable_email_domain= true
     ```
-    
+
 6. Configure the following set of parameters in the userstore
     configuration, depending on the type of userstore you are connected
     to (LDAP/Active Directory/ JDBC).
@@ -71,12 +70,12 @@
     </div></td>
     </tr>
     <tr class="even">
-    <td><code>               UsernameJavaScriptRegEx              </code></td>
+    <td><code>               UsernameWithEmailJavaScriptRegEx              </code></td>
     <td><div class="content-wrapper">
-    <p>Change this property that is under the relevant userstore manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
+    <p>Change this property that is under the relevant userstore manager tag as follows. This property validates usernames when email is used as the username and allows special characters like "@" in the username.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_script_regex = &apos;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$&apos;</code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store.properties]<br>UsernameWithEmailJavaScriptRegEx = &apos;^[a-zA-Z0-9_@.+-]{5,200}$&apos;</code></pre></div>
     </div>
     </div>
     </div></td>
@@ -105,17 +104,17 @@
     <p class="admonition-title">Note</p>
     <p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
     <p>After this configuration, the user having the username <strong><code>                  admin@wso2.com                 </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-    <img src="{{base_path}}/assets/img/guides/super-admin.png" width="600" /></p></div>
+    <img src="{{base_path}}/assets/img/guides/super-admin.png" alt="super-admin" width="600" /></p></div>
     </div></td>
     </tr>
     </tbody>
     </table>
 
-    !!! info 
+    !!! info
         - With these configuration users can log in to super tenant with both
         email username (**`alex@gmail.com`**) or
-        non-email usernames (`larry`). However, for tenants, only email usernames are allowed. (**`tod@gmail.com@wso2.com`**). 
+        non-email usernames (`larry`). However, for tenants, only email usernames are allowed. (**`tod@gmail.com@wso2.com`**).
         - You can configure email username without enabling the **`enable_email_domain`** property (step 5). Then users can log in to both the super tenant and the tenant using email and non-email usernames. However, super tenant users should always use
         ***@carbon.super*** at the end of usernames.
 
-7.  Restart the server.
+7. Restart the server.

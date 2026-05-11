@@ -4,25 +4,24 @@
     Configuring the email address as the username in an **already running
     Identity Server** is not the production recommended way. Therefore,
     **make sure to configure it before you begin working with WSO2 IS**.
-    
 
-1.  Log in to the WSO2 Identity Server Console and click **User Attributes & Stores** > **Attributes**.
-   
+1. Log in to the WSO2 Identity Server Console and click **User Attributes & Stores** > **Attributes**.
+
 2. Click the **Username** attribute and configure the `Mapped Attribute` as `mail`.
 
     ![email-as-username-attribute-mapping]({{base_path}}/assets/img/guides/organization/attributes/email-as-username-attribute-mapping.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-    
+
 3. Click **Update** to save the changes.
 
-4.  Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+4. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-5.  Add the following configuration to enable email authentication.
+5. Add the following configuration to enable email authentication.
 
     ``` toml
     [tenant_mgt]
     enable_email_domain= true
     ```
-    
+
 6. Configure the following set of parameters in the userstore
     configuration, depending on the type of userstore you are connected
     to (LDAP/Active Directory/ JDBC).
@@ -71,12 +70,12 @@
     </div></td>
     </tr>
     <tr class="even">
-    <td><code>               UsernameJavaScriptRegEx              </code></td>
+    <td><code>               UsernameWithEmailJavaScriptRegEx              </code></td>
     <td><div class="content-wrapper">
-    <p>Change this property that is under the relevant userstore manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
+    <p>Change this property that is under the relevant userstore manager tag as follows. This property validates usernames when email is used as the username and allows special characters like "@" in the username.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_script_regex = &apos;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$&apos;</code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store.properties]<br>UsernameWithEmailJavaScriptRegEx = &apos;^[a-zA-Z0-9_@.+-]{5,200}$&apos;</code></pre></div>
     </div>
     </div>
     </div></td>
@@ -105,17 +104,17 @@
     <p class="admonition-title">Note</p>
     <p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
     <p>After this configuration, the user having the username <strong><code>                  admin@wso2.com                 </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-    <img src="{{base_path}}/assets/img/guides/organization/attributes/super-admin.png" width="600" /></p></div>
+    <img src="{{base_path}}/assets/img/guides/organization/attributes/super-admin.png" alt="super-admin" width="600" /></p></div>
     </div></td>
     </tr>
     </tbody>
     </table>
 
-7.  Update the username claim mapping in the `<IS_HOME>/repository/conf/claim-config.xml` file.
+7. Update the username claim mapping in the `<IS_HOME>/repository/conf/claim-config.xml` file.
 
     !!! warning "Important"
-        By default, the claim `http://wso2.org/claims/username` is mapped to the `uid` attribute in the userstore. When enabling email as username, this mapping must be changed to `mail` to ensure the username is correctly stored and retrieved from the userstore. 
-        
+        By default, the claim `http://wso2.org/claims/username` is mapped to the `uid` attribute in the userstore. When enabling email as username, this mapping must be changed to `mail` to ensure the username is correctly stored and retrieved from the userstore.
+
         Without this change, the super admin's username will remain stored under the `uid` attribute instead of `mail`, which can cause issues.
 
     In the `<Dialect dialectURI="http://wso2.org/claims">` dialect, locate the `<Claim>` element with `ClaimURI` as `http://wso2.org/claims/username` and update the `AttributeID` from `uid` to `mail`:
@@ -130,4 +129,4 @@
     </Claim>
     ```
 
-8.  Restart the server.
+8. Restart the server.

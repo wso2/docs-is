@@ -1,0 +1,1 @@
+{% include "../../../../../../includes/guides/analytics/elk-analytics/analyzing-active-sessions.md" %}

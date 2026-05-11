@@ -1,0 +1,199 @@
+openapi: 3.1.0
+info:
+  title: SCIM 2.0 Service Provider Configuration Retrieval API
+  description: |
+    This document specifies **SCIM 2.0 Service Provider Configuration Retrieval RESTful API** for **WSO2 Identity Server**.
+  version: 1.0.0
+servers:
+  - url: https://{serverUrl}/t/{tenantDomain}/scim2
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /ResourceTypes:
+    get:
+      tags:
+        - ResourceType Endpoint
+      summary: Get resource types
+      description: |
+        This API lists and returns metadata about resource types.
+        
+        <b>No Scope(Permission) required.</b>
+      operationId: getResourceType
+      responses:
+        200:
+          description: Schema is found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ResourceTypeResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/scim2/ResourceTypes' \
+            -H 'accept: application/scim+json'
+  /ServiceProviderConfig:
+    get:
+      tags:
+        - ServiceProviderConfig Endpoint
+      summary: Get service provider config
+      description: |
+        This API returns the service provider's configuration details.
+
+        <b>No Scope(Permission) required.</b>
+      operationId: getServiceProviderConfig
+      responses:
+        200:
+          description: Schema is found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/SPConfigResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorUnauthorized'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/scim2/ServiceProviderConfig' \
+            -H 'accept: application/scim+json'
+components:
+  schemas:
+    ResourceTypeResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            examples:
+              - urn:ietf:params:scim:schemas:core:2.0:ResourceType
+        resourceType:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserObResourceType'
+    UserObResourceType:
+      type: object
+      properties:
+        schema:
+          type: string
+          examples:
+            - urn:ietf:params:scim:schemas:core:2.0:User
+        endpoint:
+          type: string
+          examples:
+            - /Users
+        meta:
+          type: object
+          properties:
+            location:
+              type: string
+              examples:
+                - https://localhost:9443/scim2/ResourceType/User
+            resourceType:
+              type: string
+              examples:
+                - ResourceType
+        name:
+          type: string
+          examples:
+            - User
+        description:
+          type: string
+          examples:
+            - User Account
+        schemaExtensions:
+          type: object
+          properties:
+            schema:
+              type: string
+              examples:
+                - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+            required:
+              type: boolean
+              examples:
+                - false
+        id:
+          type: string
+          examples:
+            - User
+    SPConfigResponse:
+      type: object
+      examples:
+        -
+          patch:
+            supported: true
+          filter:
+            maxResults: 200
+            supported: true
+          documentationUri: http://example.com/help/scim.html
+          authenticationSchemes:
+            - name: OAuth Bearer Token
+              description: Authentication scheme using the OAuth Bearer Token Standard
+              specUri: http://www.rfc-editor.org/info/rfc6750
+              type: oauthbearertoken
+              primary: true
+            - name: HTTP Basic
+              description: Authentication scheme using the HTTP Basic Standard
+              specUri: http://www.rfc-editor.org/info/rfc2617
+              type: httpbasic
+              primary: false
+          schemas:
+            - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+          etag:
+            supported: false
+          sort:
+            supported: false
+          bulk:
+            maxPayloadSize: 1048576
+            maxOperations: 1000
+            supported: true
+          changePassword:
+            supported: false
+    ErrorUnauthorized:
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          type: string
+          examples:
+            - "401"
+        schemas:
+          type: string
+          examples:
+            - urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          examples:
+            - Unauthorized
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:9443/oauth/authorize
+          tokenUrl: https://localhost:9443/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants read and write access to administrative information
