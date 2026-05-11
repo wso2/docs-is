@@ -26,7 +26,7 @@ The Asgardeo CLI communicates with the Asgardeo Management APIs to perform the a
     ![Asgardeo M2M app]({{base_path}}/assets/img/quick-starts/cli-tool/credentials.png){: width="800" style="display: block; margin: 0;"}
 
     !!! Note
-        It is recommended to set the `Token type` of the Access Token of this application to `Opaque`, and `Application access token expiry time` of the application to a preferred value. These configurations can be done in the **Protocol** tab.
+        We recommend to set the `Token type` of the Access Token of this application to `Opaque`, and `Application access token expiry time` of the application to a preferred value. These configurations can be done in the **Protocol** tab.
 
 2. Authorize the API resources and corresponding scopes required for the actions performed by the CLI. The following table includes the required API resources and scopes for the currently supported CLI commands.
 
@@ -122,7 +122,7 @@ The credentials of the application created [earlier](#configure-asgardeo) will b
 
     The current authentication status will be displayed in the terminal.
 
-## Command Line Interface
+## Command line interface
 
 Once the CLI is authenticated, commands can be executed.
 Commands follow the `<root> <resource_type> <action> --<flags>` pattern.
@@ -143,7 +143,7 @@ For example:
       asg groups members add --help
     ```
 
-## Text User Interface
+## Text user interface
 
 The Asgardeo CLI provides a Text User Interface (TUI) for interactive navigation and command execution without manually typing commands.
 
