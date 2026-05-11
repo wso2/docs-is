@@ -65,6 +65,7 @@ extra:
             - name: Nuxt SDK
               artifact_id: '@asgardeo/nuxt'
               icon: assets/img/logo/nuxtjs-logo.svg
+              dark_icon: assets/img/logo/nuxtjs-logo-dark.svg
               description: Nuxt implementation of Asgardeo JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/nuxt/latest
               version: ''
