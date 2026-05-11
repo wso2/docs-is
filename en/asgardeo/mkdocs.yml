@@ -811,8 +811,8 @@ nav:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
   - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
-  # uncomment after relasing the CLI.
-  # - Asgardeo CLI: asgardeo-cli.md
+  # uncomment after releasing the CLI.
+  # - Asgardeo CLI: references/asgardeo-cli.md
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
