@@ -1367,6 +1367,15 @@ nav:
           - Introduction: complete-guides/aws/introduction.md
           - Prerequisites: complete-guides/aws/prerequisites.md
           - Deployment Architecture: complete-guides/aws/architecture-overview.md
+          - VPC and Network Security: complete-guides/aws/vpc-network-security.md
+          - EC2 Instance Setup: complete-guides/aws/ec2-setup.md
+          - Database Setup: complete-guides/aws/database-setup.md
+          - WSO2 IS Installation: complete-guides/aws/wso2-is-installation.md
+          - Database Configuration: complete-guides/aws/database-configuration.md
+          - NGINX and SSL Configuration: complete-guides/aws/nginx-ssl-configuration.md
+          - Cluster Configuration: complete-guides/aws/cluster-configuration.md
+          - Testing and Validation: complete-guides/aws/testing-validation.md
+          - Troubleshooting: complete-guides/aws/troubleshooting.md
 not_in_nav: |
   /page-not-found.md
   /guides/authentication/add-identifier-first-login.md
