@@ -1,95 +1,118 @@
+# Deployment Architecture
 
-# WSO2 Identity Server Deployment Architecture
+This section explains how WSO2 Identity Server is structured for the testing deployment covered in this guide. It describes the components involved, the role each one plays, and how traffic flows between them.
 
-This architecture overview explains how WSO2 Identity Server is deployed on AWS for the testing, detailing the components involved and the network flow between them.
+!!! warning "Testing Environment Only"
+    The architecture described in this section is designed for testing and evaluation. Key decisions — such as placing nodes in public subnets and using self-signed SSL certificates — prioritize accessibility during testing. These must be revisited and hardened for any production deployment.
+
+---
+
+## Architecture Diagram
 
 ![Deployment Architecture Diagram]({{base_path}}/assets/img/complete-guides/aws/image1.png){: width="800" style="display: block; margin: 0;"}
 
-## High-Level Architecture Diagram
+The diagram above shows the overall layout of the deployment. Multiple WSO2 IS nodes run on separate EC2 instances and connect to a shared MySQL RDS database. NGINX sits in front of the nodes, receiving all incoming traffic and distributing it across the available instances.
 
-The diagram above illustrates the overall deployment setup of WSO2 Identity Server on AWS. It shows multiple WSO2 IS nodes running across EC2 instances, connected to a centralized MySQL RDS database. NGINX is configured as a reverse proxy and load balancer to distribute incoming traffic to the available IS nodes.
+---
 
-## Components Involved
-
-The deployment architecture consists of several key components that work together to provide a secure, scalable, and highly available identity management solution.
+## Components
 
 ### EC2 Instances
 
-**EC2 Instances** host the WSO2 Identity Server nodes. Multiple instances provide redundancy to prevent service interruption if one instance fails, scalability to handle increased load, and geographical distribution across availability zones for better resilience.
+EC2 instances host the WSO2 Identity Server nodes. Running two or more nodes provides the following benefits:
+
+- **Redundancy** — if one instance becomes unavailable, the remaining nodes continue serving requests
+- **Load distribution** — authentication and authorization workloads are spread across instances
+- **Scalability** — additional nodes can be added to the cluster as demand grows
 
 ### Virtual Private Cloud (VPC)
 
-The **VPC** creates an isolated, secure network environment for all AWS resources in this deployment. Within this private network, you control IP addressing, subnet allocation, routing tables, and network gateways. Security groups and network ACLs protect your resources while VPN or Direct Connect options enable secure connectivity with on-premises infrastructure.
+The VPC creates an isolated, private network for all resources in this deployment. Within the VPC, you control IP addressing, subnet allocation, route tables, and internet access. Security groups attached to each resource restrict what traffic can reach them.
 
-!!! info "Network Security"
-    A properly configured VPC is the foundation of a secure deployment. Subnet isolation, security groups, and network ACLs work together to protect your Identity Server deployment from unauthorized access.
+!!! note
+    A well-configured VPC is the foundation of a secure deployment. Subnet isolation and security group rules work together to ensure that only intended traffic reaches your WSO2 IS nodes and database.
 
-### WSO2 Identity Server (IS) Nodes
+### WSO2 Identity Server Nodes
 
-The **WSO2 Identity Server** is the core component of this architecture. Each node independently processes authentication requests, manages user identities, and enforces security policies. These nodes work together to provide comprehensive identity and access management services including:
+Each WSO2 IS node independently handles incoming authentication and authorization requests. The nodes share the same RDS database, which means they maintain consistent state — a user session created on one node is visible to all others. The nodes provide:
 
-* Authentication and authorization
-* Identity federation with external providers
-* Advanced authentication methods including MFA
-* Policy-based access control
+- Authentication and authorization processing
+- Identity federation with external identity providers
+- Multi-factor authentication (MFA) support
+- Policy-based access control
 
 ### MySQL RDS Database
 
-The **MySQL RDS Database** functions as the central repository for all configuration, user, and session data. Using AWS's Relational Database Service (RDS) provides significant operational advantages:
+The MySQL RDS instance is the shared data store for all WSO2 IS nodes. All user data, session information, and identity configurations are stored here and accessed by every node in the cluster.
 
-**Data consistency**: All nodes access the same data store, ensuring users have consistent experiences regardless of which node handles their request.
+Using AWS RDS provides the following operational benefits:
 
-**Managed service benefits**: AWS handles routine database maintenance tasks, including backups, patch management, and high availability configurations.
+| Benefit | Description |
+|---------|-------------|
+| Data consistency | All nodes read from and write to the same database, ensuring consistent state across the cluster |
+| Automated backups | AWS handles scheduled backups and point-in-time recovery |
+| Patch management | RDS applies database engine patches automatically during maintenance windows |
+| Scalability | Instance class and storage can be upgraded without data loss |
 
-!!! note "Database Configuration"
-    All WSO2 IS nodes must connect to the same database to maintain consistent state across the deployment. AWS RDS provides managed database services, reducing operational overhead.
+!!! note
+    All WSO2 IS nodes must connect to the same database instance. This shared connection is what makes clustering possible — configuration changes and user data are immediately available to all nodes.
 
 ### NGINX
 
-**NGINX** serves as both a reverse proxy and load balancer in this architecture. It receives all incoming client requests and intelligently distributes them across the available WSO2 IS nodes. Beyond basic load balancing, NGINX handles SSL/TLS termination, implements request filtering for security purposes, and delivers high-performance HTTP handling.
+NGINX acts as the reverse proxy and load balancer for this deployment. It is the single entry point for all incoming client traffic and is responsible for:
 
-### Domain & DNS Configuration
+- Receiving HTTPS requests from clients
+- Terminating SSL/TLS connections
+- Distributing requests across the available WSO2 IS nodes
+- Forwarding client IP information to the backend nodes via request headers
 
-The domain and DNS setup creates a user-friendly entry point to your Identity Server deployment. This configuration maps your public domain name to the appropriate AWS resources, associates SSL/TLS certificates, and ensures users can access your services through familiar, branded URLs rather than AWS-specific endpoints.
+### Domain and DNS
+
+A domain name maps to the NGINX instance's public IP address, giving clients a consistent, user-friendly URL to access the identity services. In this testing guide, the mapping is handled through a local hosts file entry rather than a DNS provider.
+
+For a production deployment, this would be configured through Route 53 or your organization's DNS provider.
 
 ### SSL/TLS Certificates
 
-Secure communication is essential for any identity management system. SSL/TLS certificates establish encrypted connections between clients and your WSO2 Identity Server deployment. Beyond encryption, these certificates authenticate your service's identity to clients, preventing man-in-the-middle attacks and building trust with end-users and applications that rely on your identity services.
+SSL/TLS certificates encrypt all communication between clients and the WSO2 IS deployment. In this guide, a self-signed certificate is used for testing. Self-signed certificates provide encryption but are not trusted by browsers or clients by default, which is why a browser warning appears during testing.
 
-!!! warning "Detailed Implementation Guide"
-    In the following sections of this guide, we will examine each of these components in depth, providing both theoretical understanding and practical deployment steps. You'll learn how to properly configure and integrate all of these elements to create a robust WSO2 Identity Server deployment on AWS.
+For production, replace the self-signed certificate with one issued by a trusted Certificate Authority (CA) such as Let's Encrypt, AWS Certificate Manager, or your organization's internal CA.
 
-## Network Flow Explanation
+---
 
-Understanding how traffic flows through this architecture helps in troubleshooting issues and optimizing performance. The diagram below represents the complete request-response cycle in this deployment:
+## Network Flow
 
-### Request Processing
+Understanding how a request travels through this architecture is useful for troubleshooting and performance tuning.
 
-When a user or application attempts to access WSO2 Identity Server services, the request follows this path:
+### Inbound Request Path
 
-**Initial Access**: Users connect to your service through the configured domain name over HTTPS. The DNS system resolves this domain to your AWS infrastructure.
+| Step | Description |
+|------|-------------|
+| 1. Client request | A user or application sends an HTTPS request to the configured domain name |
+| 2. DNS resolution | The domain resolves to the public IP of the NGINX instance |
+| 3. SSL termination | NGINX receives the request, terminates the SSL connection, and decrypts the traffic |
+| 4. Load balancing | NGINX selects a WSO2 IS node from the upstream pool and forwards the request |
+| 5. Request processing | The WSO2 IS node authenticates the user or processes the requested operation |
+| 6. Database access | The node reads from or writes to the shared MySQL RDS database as needed |
 
-**Load Balancing**: NGINX receives the incoming request and selects an appropriate WSO2 IS node based on current load, availability, and configured balancing algorithms.
+### Outbound Response Path
 
-**Request Processing**: The selected WSO2 IS node authenticates the user, processes the requested operation, and prepares a response.
+| Step | Description |
+|------|-------------|
+| 7. Node response | The WSO2 IS node generates a response and sends it back to NGINX |
+| 8. Return to client | NGINX forwards the response to the original client over the encrypted HTTPS connection |
 
-**Database Operations**: During processing, the node reads from or writes to the shared MySQL RDS database to access configuration data, user information, or session state.
+!!! tip "Load Balancer Health Checks"
+    Configure NGINX health checks to ensure traffic is only directed to nodes that are fully started and responsive. This prevents requests from being forwarded to a node that is still initializing or has become unavailable.
 
-### Response Path
+---
 
-Once processing is complete, the response travels back through the system:
+## Alternative Load Balancer Options
 
-**Node Response**: The WSO2 IS node completes the requested operation and generates a response.
+This guide uses NGINX as the load balancer. If your environment already uses AWS-native load balancing, the following options are compatible with WSO2 IS:
 
-**Return Through NGINX**: The response passes back through NGINX, which forwards it to the original client.
-
-**Secure Delivery**: All communication remains encrypted throughout the process, protecting sensitive identity information.
-
-!!! tip "Best Practice"
-    Configure health checks on your load balancer to ensure traffic is only directed to healthy instances. This improves reliability by automatically routing around failed or degraded nodes.
-
-!!! info "Alternative Load Balancer Options"
-    While this guide focuses on NGINX as the load balancer, you can also use AWS Elastic Load Balancing (ELB) services:
-
-    * **Application Load Balancer (ALB)**: Best for HTTP/HTTPS traffic with advanced routing capabilities
-    * **Network Load Balancer (NLB)**: Ideal for ultra-high performance and static IP requirements
+| Option | Best For |
+|--------|----------|
+| NGINX | Full control over proxy configuration, SSL termination, and custom routing rules |
+| AWS Application Load Balancer (ALB) | HTTP/HTTPS traffic with path-based or host-based routing |
+| AWS Network Load Balancer (NLB) | High-throughput workloads requiring static IPs or ultra-low latency |

@@ -1,33 +1,55 @@
-# Prerequisites for Deploying WSO2 Identity Server on AWS
+# Prerequisites
 
-Before starting the deployment process, ensure that you have all the necessary access, tools, and configurations in place. Meeting these requirements will help you avoid interruptions and streamline the setup of WSO2 Identity Server on AWS.
+Before starting the deployment process, ensure that all the necessary access, tools, and configurations are in place. Meeting these requirements before you begin will help you avoid interruptions during the setup.
+
+!!! warning "Testing Environment Only"
+    This guide sets up a WSO2 Identity Server deployment for testing and evaluation purposes. Some configurations — such as permissive security group rules and self-signed SSL certificates — are not suitable for production use. Review all settings carefully before considering any production deployment.
+
+---
 
 ## AWS Account Requirements
 
-To deploy WSO2 Identity Server components, you must have an AWS account with the right level of permissions and billing setup.
+To provision and manage the AWS resources required in this guide, your account must meet the following requirements.
 
-- **Active AWS account**  
-  You must have an active AWS account with billing configured. Without billing, required resources such as EC2 instances, networking components, and storage services cannot be provisioned.
+| Requirement | Details |
+|-------------|---------|
+| Active AWS account | Billing must be configured. Without active billing, resources such as EC2 instances, VPC components, and RDS cannot be provisioned. |
+| IAM permissions | Your account must have permissions to create and manage EC2, VPC, security groups, RDS, and IAM roles. If you are unsure of your current permissions, consult your AWS administrator before proceeding. |
+| Region selection | Choose the AWS region where you will deploy WSO2 Identity Server. Select a region close to your primary user base to minimize latency. Your region choice may also be influenced by compliance or data residency requirements. |
 
-- **IAM permissions**  
-  Ensure your account has the necessary **IAM (Identity and Access Management) permissions** to create and manage AWS resources. At a minimum, you will need permissions to manage EC2, VPC, IAM roles, security groups, Elastic Load Balancers, and RDS (if applicable). If you're unsure about your permissions, consult with your AWS administrator.
+---
 
-- **Region selection**  
-  Decide on the AWS region where you will deploy WSO2 Identity Server. The choice of region can affect latency, cost, and compliance. It is recommended to select a region closest to your primary user base.
+## Technical Knowledge
 
-!!! tip "New to AWS? Don't worry!"
-    Even if you don't have all the prerequisites or are unfamiliar with AWS concepts, you can still follow this guide. Each section explains the necessary AWS components and their purpose in detail, helping you learn as you deploy. This is a great opportunity to build your AWS skills while setting up WSO2 Identity Server.
+The following knowledge areas will help you follow this guide without interruption. If you are unfamiliar with any of these topics, the relevant sections of the guide include explanations.
 
-## Knowledge and Tools
+| Area | Why It Is Needed |
+|------|-----------------|
+| AWS EC2 basics | You will launch, configure, and SSH into EC2 instances |
+| VPC and networking concepts | You will create subnets, security groups, and route tables |
+| Linux command line | All server-side setup is performed via SSH using shell commands |
+| MySQL basics | You will create schemas, run SQL scripts, and manage database users |
+| NGINX configuration | You will configure NGINX as a reverse proxy and load balancer |
+| SSL/TLS concepts | You will generate and configure certificates for HTTPS communication |
 
-In addition to account requirements, it’s beneficial to have:
+---
 
-- **Familiarity with AWS Services**: A basic understanding of EC2, VPC, IAM, security groups, and networking concepts.
-- **SSL/TLS Certificates**: For secure communication, especially if Identity Server will be accessed externally.
+## Software and Files
+
+Before starting, ensure you have the following available on your local machine:
+
+| Item | Notes |
+|------|-------|
+| WSO2 Identity Server distribution package | Download from the [WSO2 website](https://wso2.com/identity-server/). Use the version appropriate for your environment. |
+| MySQL Connector/J | Download from the [MySQL Connector/J download page](https://dev.mysql.com/downloads/connector/j/). Select the version compatible with your MySQL RDS engine. |
+| SSH client | Required to connect to EC2 instances. Linux and macOS include SSH natively. Windows users can use PuTTY or Windows Subsystem for Linux (WSL). |
+| AWS CLI (optional) | Useful for scripting and automating AWS resource management. Not required for this guide. |
+
+---
 
 ## Next Steps
 
-After ensuring all prerequisites are met, you can proceed to the **infrastructure architecture design** phase.  
+Once all prerequisites are in place, proceed to the **Deployment Architecture** section to understand the components and network topology before starting the infrastructure setup.
 
-!!! note "Note"
-    In the architecture design phase, you will implement the foundational AWS resources such as the VPC, subnets, route tables, security groups, and IAM roles. These components create the base environment on which WSO2 Identity Server will be deployed. Careful planning at this stage ensures scalability, security, and high availability of your deployment.
+!!! note
+    The architecture section covers the VPC, subnets, security groups, EC2 nodes, RDS database, and NGINX proxy — and explains how they interact. Reviewing this section before starting the setup steps will give you a clearer picture of what you are building and why each component is needed.
