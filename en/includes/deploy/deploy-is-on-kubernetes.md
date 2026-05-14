@@ -31,19 +31,21 @@ Make sure you have the following before starting this guide.
 
 - A running Kubernetes cluster (e.g. [minikube](https://kubernetes.io/docs/tasks/tools/#minikube){:target="_blank"} or an existing cluster).
 
-- A Kubernetes [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/deploy/){:target="_blank"}.
+- One of the following Kubernetes traffic management options, depending on the deployment pattern you choose:
 
-- Envoy Gateway (Required for the Kubernetes Gateway API pattern). If choosing this option, you must install the Envoy Gateway Controller with Experimental Features and Extension APIs enabled. These are required to support `BackendTLSPolicy` for secure backend communication and `EnvoyPatchPolicy` for session persistence.
+    - **Option 1: Kubernetes Ingress pattern** — Install a Kubernetes [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/deploy/){:target="_blank"}.
 
-    ```
-    helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
-      --version v1.7.0 \
-      -n envoy-gateway-system \
-      --create-namespace \
-      --set envoyGateway.gateway.experimentalFeatures.enabled=true \
-      --set config.envoyGateway.extensionApis.enableBackend=true \
-      --set config.envoyGateway.extensionApis.enableEnvoyPatchPolicy=true
-    ```
+    - **Option 2: Kubernetes Gateway API pattern** — Install Envoy Gateway. You must install the Envoy Gateway Controller with Experimental Features and Extension APIs enabled. These are required to support `BackendTLSPolicy` for secure backend communication and `EnvoyPatchPolicy` for session persistence.
+
+        ```
+        helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+          --version v1.7.0 \
+          -n envoy-gateway-system \
+          --create-namespace \
+          --set envoyGateway.gateway.experimentalFeatures.enabled=true \
+          --set config.envoyGateway.extensionApis.enableBackend=true \
+          --set config.envoyGateway.extensionApis.enableEnvoyPatchPolicy=true
+        ```
 
 ## Step 1: Set up environment variables
 
@@ -340,4 +342,4 @@ Once everything is set up, you can access WSO2 Identity Server using the followi
 
 Congratulations! You have successfully deployed WSO2 Identity Server on Kubernetes using Helm.
 
-If you are deploying {{product_name}} on Azure Kubernetes Service (AKS) and require an advanced set up, refer to the relevant section in the [documentation](https://github.com/wso2/kubernetes-is/blob/master/README.md#advance-setup){:target = "_blank"}.
+If you are deploying {{product_name}} on Azure Kubernetes Service (AKS) and require an advanced setup, refer to the relevant section in the [documentation](https://github.com/wso2/kubernetes-is/blob/master/README.md#advance-setup){:target = "_blank"}.
