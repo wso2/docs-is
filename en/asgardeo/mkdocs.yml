@@ -650,6 +650,7 @@ nav:
         - Manage organization users:
           - Onboard users: guides/organization-management/onboard-users.md
           - Share users: guides/organization-management/share-user-profiles.md
+          - Allow shared user login to organizations: guides/organization-management/shared-user-direct-login.md
         - Customize organizations:
           - Organization settings:
             - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
