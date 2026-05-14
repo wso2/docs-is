@@ -2666,6 +2666,21 @@ sections:
 
   # ─────────────────────────── FIDO / PASSKEYS ───────────────────────────
 
+  - id: fido
+    hyperlink: fido
+    title: FIDO
+    tasks: [configure-fido]
+    description: >
+      Configures general FIDO/WebAuthn settings such as the user response timeout for FIDO2 device registration.
+
+    configs:
+      - key: user_response_timeout
+        type: string
+        required: false
+        default: "300000"
+        description: >
+          The time in milliseconds sent as a hint to the browser for how long to wait for the user to interact with their FIDO2 authenticator during device registration. This timeout is enforced by the browser, not the server, and applies only to FIDO2 device registration (not authentication).
+
   - id: fido.metadata_service
     hyperlink: fido-metadata-service
     title: FIDO metadata service
