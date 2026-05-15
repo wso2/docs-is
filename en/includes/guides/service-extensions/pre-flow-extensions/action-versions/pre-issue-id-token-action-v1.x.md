@@ -565,7 +565,7 @@ Configure the authentication scheme when registering the action in {{product_nam
 - **OAuth 2.0 Password Grant**: {{product_name}} retrieves an access token from the configured token endpoint using the OAuth 2.0 resource owner password credentials grant and uses it as a bearer token when invoking the action endpoint.
 
 !!! warning
-    If you use your own {{product_name}} organization as the authorization server (that is, the configured token endpoint belongs to the same organization and the OAuth 2.0 application used to obtain the access token resides in the same organization), exclude that application from this **Pre-Issue ID Token** action (and the **Pre-Issue Access Token** action) by configuring a rule. Otherwise the token issuance flow will fall into a cyclic dependency, since the action invocation triggers a token request, which in turn triggers the same action again. As a result, the ID token and access token issuance will break.
+    If you use the same {{product_name}} organization as the authorization server, you must exclude the application used to get the access token in action authorization from this **Pre-Issue ID Token** action (and the **Pre-Issue Access Token** action) by configuring a rule. Otherwise, ID token and access token issuance will break.
 {% endif %}
 
 ## Conditional invocation of pre-issue id token action
