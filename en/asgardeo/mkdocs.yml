@@ -648,9 +648,9 @@ nav:
           - Configure roles to consume authorized APIs: guides/organization-management/organization-roles.md
           - Generate tokens for organization applications: guides/organization-management/generate-tokens-for-organization-apps.md
         - Manage organization users:
-          - Onboard users: guides/organization-management/onboard-users.md
-          - Share users: guides/organization-management/share-user-profiles.md
-          - Allow shared user login to organizations: guides/organization-management/shared-user-direct-login.md
+          - Onboard users to organizations: guides/organization-management/onboard-users.md
+          - Share users across organizations: guides/organization-management/share-user-profiles.md
+          - Allow shared users to login to organizations: guides/organization-management/shared-user-direct-login.md
         - Customize organizations:
           - Organization settings:
             - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
