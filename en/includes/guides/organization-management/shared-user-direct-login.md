@@ -13,6 +13,9 @@ This is useful when:
 - You want shared users to access an organization through its own branded login page.
 - You want shared users to authenticate directly into an organization instead of first logging in to their resident organization and then exchanging tokens using the `organization_switch` grant type.
 
+!!! warning
+    If the [alternative login identifiers]({{base_path}}/guides/account-configurations/account-login/configure-login-identifiers/) feature is enabled, shared users will not be able to login to organizations.
+
 ## How it works
 
 To enable this behavior for an organization, the **Shared User Identifier** authenticator must be added as the first step of the application's login flow in the organization. This authenticator identifies whether the user attempting to log in is a shared user for the accessing organization. If so, resolves the resident user's details before invoking remaining authenticators in the flow.
