@@ -16,7 +16,7 @@ This is useful when:
 
 ## How it works
 
-To enable this behavior for an organization, the **Shared User Identifier** authenticator must be added as the first step of the application's login flow in the organization. This authenticator identifies whether the user attempting to log in is a shared user for the accessing organization. If so, resolves the resident user's details before invoking remaining authenticators in the flow.
+To enable this behavior for an organization, the **Shared User Identifier** authenticator must be configured as the first step in the application’s login flow. This authenticator identifies whether the user attempting to sign in is a shared user for the target organization. If the user is identified as a shared user, it resolves their resident user profile before continuing with the remaining authentication steps in the flow.
 
 ## Configure shared user login
 
