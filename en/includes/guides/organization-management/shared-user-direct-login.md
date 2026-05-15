@@ -1,15 +1,13 @@
 # Allow shared users to log in to organizations
 
-{{ product_name }} allows users whose identities are managed by a parent organization (shared users) to authenticate directly through an organization's login flow.
-
-Shared users can log in to an organization through either of the following types of applications:
+An organization can include shared users, users who belong to the organization but whose profiles are managed by another organization. Shared users can sign in to the organization using one of the following methods.
 
 - **B2B applications** — applications registered in the parent organization and [shared with child organizations]({{base_path}}/guides/organization-management/share-applications/).
 - **Organization applications** — applications [created directly within an organization]({{base_path}}/guides/organization-management/organization-applications/).
 
 This is useful when:
 
-- Applications are created directly within an organization and need to be accessed by users whose identities live in a parent or ancestor organization.
+- Applications are created directly in an organization and need to be accessed by users whose identities are managed in a parent or higher-level organization.
 - You want shared users to access an organization through its own branded login page.
 - You want shared users to authenticate directly into an organization instead of first logging in to their resident organization and then exchanging tokens using the `organization_switch` grant type.
 
