@@ -1,0 +1,160 @@
+name: Preview Docs (on-demand)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'PR number (e.g. 6138) or branch name'
+        required: true
+        type: string
+      product:
+        description: 'Which docs to build'
+        required: true
+        type: choice
+        options:
+          - asgardeo
+          - identity-server/next
+          - identity-server/7.3.0
+          - identity-server/7.2.0
+          - identity-server/7.1.0
+          - identity-server/7.0.0
+      duration_minutes:
+        description: 'Minutes to keep the preview link alive (max 350)'
+        required: true
+        default: '120'
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: Resolve ref
+        id: resolve
+        env:
+          INPUT_REF: ${{ inputs.ref }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ "$INPUT_REF" =~ ^[0-9]+$ ]]; then
+            head_ref=$(gh pr view "$INPUT_REF" --repo "$GITHUB_REPOSITORY" --json headRefName -q .headRefName)
+            head_repo=$(gh pr view "$INPUT_REF" --repo "$GITHUB_REPOSITORY" --json headRepositoryOwner,headRepository -q '.headRepositoryOwner.login + "/" + .headRepository.name')
+            echo "ref=$head_ref" >> "$GITHUB_OUTPUT"
+            echo "repo=$head_repo" >> "$GITHUB_OUTPUT"
+            echo "pr=$INPUT_REF" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=$INPUT_REF" >> "$GITHUB_OUTPUT"
+            echo "repo=$GITHUB_REPOSITORY" >> "$GITHUB_OUTPUT"
+            echo "pr=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.resolve.outputs.repo }}
+          ref: ${{ steps.resolve.outputs.ref }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install mkdocs dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -r "en/${{ inputs.product }}/requirements.txt"
+
+      - name: Install cloudflared
+        run: |
+          set -euo pipefail
+          curl -fsSL -o cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared.deb
+
+      - name: Serve docs and open tunnel
+        id: tunnel
+        env:
+          PRODUCT: ${{ inputs.product }}
+          DURATION_MINUTES: ${{ inputs.duration_minutes }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr }}
+          RESOLVED_REF: ${{ steps.resolve.outputs.ref }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          cd "en/$PRODUCT"
+          nohup mkdocs serve -a 127.0.0.1:8000 > "$GITHUB_WORKSPACE/mkdocs.log" 2>&1 &
+          MKDOCS_PID=$!
+          cd "$GITHUB_WORKSPACE"
+
+          echo "Waiting for mkdocs to come up..."
+          for i in $(seq 1 120); do
+            if nc -z 127.0.0.1 8000; then
+              echo "mkdocs is up."
+              break
+            fi
+            if ! kill -0 "$MKDOCS_PID" 2>/dev/null; then
+              echo "::error::mkdocs serve exited early. Log:"
+              cat mkdocs.log
+              exit 1
+            fi
+            sleep 1
+          done
+
+          nohup cloudflared tunnel --no-autoupdate --url http://127.0.0.1:8000 > cloudflared.log 2>&1 &
+          CF_PID=$!
+
+          URL=""
+          for i in $(seq 1 60); do
+            URL=$(grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com' cloudflared.log | head -1 || true)
+            if [ -n "$URL" ]; then break; fi
+            if ! kill -0 "$CF_PID" 2>/dev/null; then
+              echo "::error::cloudflared exited early. Log:"
+              cat cloudflared.log
+              exit 1
+            fi
+            sleep 1
+          done
+
+          if [ -z "$URL" ]; then
+            echo "::error::Could not find a trycloudflare.com URL in cloudflared output."
+            cat cloudflared.log
+            exit 1
+          fi
+
+          echo "Preview URL: $URL"
+
+          {
+            echo "## Docs preview ready"
+            echo ""
+            echo "| Field | Value |"
+            echo "| --- | --- |"
+            echo "| Product | \`$PRODUCT\` |"
+            echo "| Ref | \`$RESOLVED_REF\` |"
+            echo "| URL | $URL |"
+            echo "| Lifetime | $DURATION_MINUTES min |"
+            echo ""
+            echo "The link goes dead when this job ends."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ -n "$PR_NUMBER" ]; then
+            BODY=$(printf '**Docs preview:** %s\n\nProduct: `%s` · Ref: `%s` · Live for %s min.\n\n_Triggered by @%s via the Preview Docs workflow._' \
+              "$URL" "$PRODUCT" "$RESOLVED_REF" "$DURATION_MINUTES" "$GITHUB_ACTOR")
+            gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --body "$BODY" || \
+              echo "::warning::Failed to post PR comment (continuing anyway)."
+          fi
+
+          MAX_MINUTES=350
+          if [ "$DURATION_MINUTES" -gt "$MAX_MINUTES" ]; then
+            DURATION_MINUTES=$MAX_MINUTES
+          fi
+          echo "Keeping preview alive for $DURATION_MINUTES minutes..."
+          sleep $(( DURATION_MINUTES * 60 ))
+
+          kill "$CF_PID" 2>/dev/null || true
+          kill "$MKDOCS_PID" 2>/dev/null || true
