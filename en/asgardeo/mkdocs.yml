@@ -740,6 +740,7 @@ nav:
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
     - Secure Agentic AI Systems with Asgardeo: tutorials/secure-agentic-ai-systems.md
+    - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
     - Integrating Asgardeo With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
     - Integrating Asgardeo With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
