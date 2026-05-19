@@ -87,8 +87,8 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     ```shell
     helm install $RELEASE_NAME wso2/identity-server --version {{is_version}}-2 \
     -n $NAMESPACE \
-    --set deployment.image.registry="wso2" \
-    --set deployment.image.repository="wso2is" \
+    --set deployment.image.registry="registry.wso2.com" \
+    --set deployment.image.repository="wso2is/is" \
     --set deployment.image.tag="{{is_version}}" \
     --set deployment.apparmor.enabled="false"
     ```
@@ -96,8 +96,8 @@ There are two ways to install the {{product_name}} using the Helm chart. The Hel
     ```shell
     helm install $RELEASE_NAME wso2/identity-server --version {{is_version}} \
     -n $NAMESPACE \
-    --set deployment.image.registry="wso2" \
-    --set deployment.image.repository="wso2is" \
+    --set deployment.image.registry="registry.wso2.com" \
+    --set deployment.image.repository="wso2is/is" \
     --set deployment.image.tag="{{is_version}}" \
     --set deployment.apparmor.enabled="false"
     ```
@@ -131,8 +131,8 @@ If you prefer to build the chart from the source, follow the steps below:
 
     ```shell
     helm install $RELEASE_NAME -n $NAMESPACE . \
-    --set deployment.image.registry="wso2" \
-    --set deployment.image.repository="wso2is" \
+    --set deployment.image.registry="registry.wso2.com" \
+    --set deployment.image.repository="wso2is/is" \
     --set deployment.image.tag="{{is_version}}" \
     --set deployment.apparmor.enabled="false"
     ```
