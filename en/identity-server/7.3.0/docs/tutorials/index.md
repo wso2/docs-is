@@ -8,6 +8,7 @@ See the topics listed below for end-to-end tutorials on how to use WSO2 Identity
 - [Configure Choreo for silent password migration]({{base_path}}/references/tutorials/configure-choreo-for-password-migration/)
 - [Build your own push authenticator app]({{base_path}}/references/tutorials/build-your-own-push-authenticator-app/)
 - [Secure Agentic AI Systems with WSO2 Identity Server]({{base_path}}/tutorials/secure-agentic-ai-systems/)
+- [Access Control for Ambient Agents]({{base_path}}/tutorials/ciba-for-ai-agents/)
 - [Integrating WSO2 Identity Server With WSO2 AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/)
 - [Integrating WSO2 Identity Server With Kong AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/kong-ai-gateway-with-agent-identity-aware-access-control/)
 - [Secure MCP servers with WSO2 Identity Server and integrate them with n8n agentic flows]({{base_path}}/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/)
