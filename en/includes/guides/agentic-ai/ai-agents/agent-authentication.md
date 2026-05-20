@@ -179,7 +179,7 @@ As shown in the above sequence diagram, the flow proceeds as follows.
 9. **Successful Access**
    The request succeeds. The AI agent is now authorized to act on the user’s behalf and access the required resources.
 
-{% if is_version == "next" or product == "asgardeo" %}
+{% if is_version == "7.3.0" or is_version == "next" or product == "asgardeo" %}
 
 ### Using CIBA for on-behalf-of delegation
 
