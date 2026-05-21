@@ -527,6 +527,7 @@ nav:
           - User impersonation: guides/authorization/user-impersonation/index.md
           - via Console: guides/authorization/user-impersonation/via-console.md
           - via business application (advanced): guides/authorization/user-impersonation/via-business-application.md
+          - Allow impersonation for shared users: guides/authorization/user-impersonation/shared-user-impersonation.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
         - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md
