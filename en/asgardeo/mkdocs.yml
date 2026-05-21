@@ -527,7 +527,6 @@ nav:
           - User impersonation: guides/authorization/user-impersonation/index.md
           - via Console: guides/authorization/user-impersonation/via-console.md
           - via business application (advanced): guides/authorization/user-impersonation/via-business-application.md
-          - Allow impersonation for shared users: guides/authorization/user-impersonation/shared-user-impersonation.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
         - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md
@@ -653,6 +652,7 @@ nav:
           - Onboard users to organizations: guides/organization-management/onboard-users.md
           - Share users across organizations: guides/organization-management/share-user-profiles.md
           - Allow shared users to login to organizations: guides/organization-management/shared-user-direct-login.md
+          - Allow impersonation for shared users: guides/organization-management/shared-user-impersonation.md
         - Customize organizations:
           - Organization settings:
             - Organization settings: guides/organization-management/inheritance-in-organizations/index.md

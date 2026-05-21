@@ -48,7 +48,7 @@ To enable shared user impersonation via the Console, update the Console applicat
 
 Once configured, when a shared user logs in to the Console they will be prompted for their identifier in the first step. {{ product_name }} resolves the resident profile and then engages the authenticators in the second step to complete login.
 
-The shared user can then follow the [standard Console impersonation steps]({{base_path}}/guides/authorization/user-impersonation/via-console/#step-2-impersonate-the-user) to impersonate users within the organization.
+The shared user can then follow the [standard Console impersonation steps]({{base_path}}/guides/authorization/user-impersonation/via-console/##impersonate-users-in-an-organization) to impersonate users within the organization.
 
 ## Impersonate via a business application
 
