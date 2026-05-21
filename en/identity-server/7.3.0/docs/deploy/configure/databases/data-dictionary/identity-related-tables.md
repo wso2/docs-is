@@ -254,6 +254,23 @@ the values it contains.
 
 ---
 
+#### IDN_OAUTH2_REFRESH_TOKEN_BINDING
+
+Stores token-binding metadata associated with a refresh token when non-persistent
+access tokens are enabled. The binding row is created at refresh-token issuance
+and looked up during the refresh-token flow so that the new access token inherits
+the original binding (DPoP, certificate, cookie, SSO session, client-request, etc.).
+
+| Column              | Description                                                                                  |
+|---------------------|----------------------------------------------------------------------------------------------|
+| REFRESH_TOKEN_ID    | Foreign key to `IDN_OAUTH2_REFRESH_TOKEN.REFRESH_TOKEN_ID`. Deleted on cascade.              |
+| TOKEN_BINDING_TYPE  | Binding type — e.g. `DPoP`, `certificate`, `cookie`, `sso-session-based`, `client-request`. |
+| TOKEN_BINDING_REF   | Reference identifier used to look up the binding during the refresh flow.                    |
+| TOKEN_BINDING_VALUE | Opaque value bound to the token (e.g. JWK thumbprint for DPoP, x5t#S256 for certificate).    |
+| TENANT_ID           | Tenant ID of the bound token.                                                                |
+
+---
+
 ####  IDN_SCIM_GROUP
 
 When creating a new role in the userstore, the SCIM attributes for the created role are stored in
