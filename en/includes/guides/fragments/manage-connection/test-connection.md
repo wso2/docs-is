@@ -5,8 +5,8 @@ You can verify that your connection is configured correctly by running a test ag
 To test a connection:
 
 1. On the {{ product_name }} Console, go to **Connections**.
-2. Click on the connection you want to test.
-3. Click **Test Connection** on the connection's page.
+2. Select the **connection you want to test**.
+3. Click **Test Connection** on the connection page.
 
     ![Test Connection button on a connection page]({{base_path}}/assets/img/guides/idp/test-connection/test-connection-button.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
