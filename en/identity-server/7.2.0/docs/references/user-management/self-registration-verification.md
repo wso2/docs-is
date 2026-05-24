@@ -53,10 +53,9 @@ The following points below provide details about the self-registration API and h
         ```
         After adding this configuration, if the user has verified channels, the user will not be asked to verify the account, and the account will be unlocked on creation.
 
-        {{product_name}} recommends verifying users after self-registration (Post channel verification). Therefore, it is recommended to set the property to `true`. After enabling this feature, if the user has verified channels, the user will not be asked to verify the account, and the account will be unlocked on creation.
+        {{product_name}} recommends verifying users after self-registration (Post channel verification). Set the property to `true` to enable this feature. After enabling this feature, if the user has verified channels, the user will not be asked to verify the account, and the account will be unlocked on creation.
 
-- A claim with a user’s preference can be included in the request. This claim is optional, but it is recommended to send the claim with the request body as mentioned in the 
-    previous requests:
+- Include a claim with a user's preference in the request. This claim is optional, but send it in the request body as mentioned in the previous requests:
     - Preferred channel: `http://wso2.org/claims/identity/preferredChannel`
 
 - Once the server receives a self-registration request, the server will send notifications based on the following scenarios:

@@ -2,7 +2,7 @@
 
 [Microsoft Entra Verified ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-verified-id) is a verifiable credential issuance and verification service provided by Microsoft Azure. It allows users to generate, present, and verify their digital identities.
 
-Microsoft allows configuring an IDP (such as Asgardeo) as an OpenID Connect (OIDC) attribute provider for verifiable credentials using their `idTokens` attestation in which the claims provided through the OIDC id token is used to generate the verifiable credential.
+Microsoft allows configuring an IDP (such as Asgardeo) as an OpenID Connect (OIDC) attribute provider for verifiable credentials using their `idTokens` attestation. The claims from the OIDC id token generate the verifiable credential.
 
 This tutorial explains how this is done using Asgardeo and Microsoft Entra. Given below are the high-level steps you will follow:
 

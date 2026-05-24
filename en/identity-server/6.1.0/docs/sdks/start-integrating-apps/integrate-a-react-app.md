@@ -42,7 +42,7 @@ To add CORS configurations:
 5. Enter the **Callback URL** as `https://localhost:3000`.
 
     !!! note
-        The **Callback URL** is the exact location in the service provider's application to which an access token will be sent. This URL should be the landing page to which the user is redirected after successful authentication.
+        The **Callback URL** specifies the exact location in the service provider's application that receives the access token. This URL should be the landing page to which the user is redirected after successful authentication.
 
 6. Enable **Allow authentication without the client secret** checkbox.
 
@@ -52,7 +52,7 @@ To add CORS configurations:
 7. Click **Add** to complete the configuration. 
 
     !!! note
-        Make a note of the **OAuth Client Key** and **OAuth Client Secret** that appear, as they will be used to configure the sample application.
+        Copy the **OAuth Client Key** and **OAuth Client Secret** values that appear. You will need these values to configure the sample application.
 
 ## Configure the resident identity provider
 
@@ -72,11 +72,11 @@ Download the latest release of the [sample react application](https://github.com
 ## Configure the sample
 Change the `config.json` file found in the `asgardeo-react-app/src` sample folder with the relevant values.
 
-- **clientID** - Add the client id of the registered application. The client ID can be copied from **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** section of your service provider.
+- **clientID** - Add the client ID from the registered application. Copy the client ID from **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** in your service provider.
 
 - **baseUrl** - `https://localhost:9443`
 
-- **scope** - The list of OIDC scopes that are used for requesting user information. The ``openid`` and the ``profile`` scopes are mandatory to get the ID token. You can add other OIDC scopes such as ``email``.
+- **scope** - The list of OIDC scopes to request user information. The `openid` and `profile` scopes are mandatory to get the ID token. You can add other OIDC scopes such as `email`.
 
 ``` 
     {
