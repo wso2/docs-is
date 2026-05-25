@@ -98,7 +98,7 @@ These interfaces support i18n, allowing {{product_name}} to load text content fr
             <code>si-LK</code>
         </td>
     </tr>
-    {% if product_name == "WSO2 Identity Server" && is_version > 7.3 || product_name == "Asgardeo" %}
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
     <tr>
         <td>
             Dutch
