@@ -1,76 +1,16 @@
-# API authorization for organizations
-{{ product_name }} allows organizations to authorize user access to an application's API resources based on the API permissions, roles, and groups assigned to the users. See [API authorization]({{base_path}}/guides/api-authorization/) for more information.
+# Authorize applications to API resources
 
-API resources are created and authorized for applications on the organization (root). If the application consuming the API resources is shared with the organization, all application-specific configurations of API resources are inherited by the organization.
+Organizations inherit the following API resources from the root organization:
 
-{% if product_name == "Asgardeo" %}
-![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-api-authorization.png){: width="700" style="display: block; margin: 0;"}
-{% else %}
-![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-api-authorization.png){: width="700" style="display: block; margin: 0;"}
-{% endif %}
+- Default organization API resources defined by {{ product_name }}.
+- API resources created in the root organization.
 
-## Prerequisites
-You need to configure your API resources on the organization (root)
+For your applications to access these API resources, you need to authorize the applications to the required API resources. To do so:
 
-1. [Register an API resource]({{base_path}}/guides/api-authorization/#register-an-api-resource)
-2. [Authorize the API resource to an app]({{base_path}}/guides/api-authorization/#authorize-the-api-resources-for-an-app)
-3. [Create roles and associate to application]({{base_path}}/guides/api-authorization/#associate-roles-to-the-application)
-
-Organizations have roles associated with their shared applications. Shared roles of organizations inherit the permission assignment to the role from the organization (root).
-
-!!! note "Roles of an organization"
-    The shared roles in organizations will inherit the permission to role assignments from the organization (root).
-    Users and group assignment to the roles should be done separately for the organization, as the organization does not inherit the users or groups from the organization (root).
-    {% if product_name == "Asgardeo" %}
-    ![Roles inherited from the organization (root)]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-inherited-roles.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-    {% else %}
-    ![Roles inherited from the organization (root)]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-inherited-roles.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-    {% endif %}
-    Organization administrators cannot create new roles, modify the name or permissions of the shared roles, or delete the shared roles, but you can assign these roles to your organization users and groups.
-
-## Assign organization users to roles
-To assign roles to users of the organization:
-
-1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations).
-2. Go to **User Management** > **Roles**.
-3. Select the role you wish to assign to a user and click **Edit**.
-4. Go to Users and click **Assign Users**.
-5. Select the user who should be assigned to the selected role.
-6. Click **Update** to complete the role-to-user assignment.
-
-## Assign organization groups to roles
-
-Organizations maintain the following types of groups, and you can assign your application roles to any of these groups.
-
-- [Groups](#assign-user-groups-to-roles) - A collection of organization users.
-- [Federated IdP Groups](#assign-federated-idp-groups-to-roles) - These groups are federated from connections in the organization. For example, groups federated from the Google connection.
-
-### Assign user groups to roles
-
-To assign roles to user groups of the organization:
-
-1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations).
-2. Go to **User Management** > **Roles**.
-3. Select the role you wish to assign to a group and click **Edit**.
-4. Go to Groups and click **Assign Groups**.
-5. Select the group which should be assigned to the selected role.
-6. Click **Update** to complete the role to group assignment.
-
-### Assign federated IdP groups to roles
-To assign roles to federated IdP groups:
-
-!!! note "Before you begin"
-    To get started,
-
-    - You should [register, configure, and create groups for a connection]({{base_path}}/guides/authentication/#manage-connections) in your organization.
-    - You should add this connection to the sign-in flow of the application to which the roles are associated.
-
-1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations).
-2. Go to **User Management** > **Roles**.
-3. Select the role you wish to assign to a group and click **Edit**.
-4. Select the federated IdP from which you select groups.
-5. Select the group which should be assigned to the selected role.
-6. Click **Update** to complete the role to group assignment.
+1. On the {{ product_name }} Console, go to **Organizations** and switch to your desired organization.
+2. In the organization, go to **Applications** and select your desired application.
+3. Go to the **API Authorization** tab and click **Authorize API Resources**.
+4. Authorize the required API resources to the application.
 
 ## Try it out
 
@@ -87,7 +27,7 @@ To request scopes for the user:
 
     1. On the {{ product_name }} Console, log in to the organization(root).
     2. Go to **Applications** and select your application.
-    3. Copy the scopes listed at the end of the **API Authorization** section
+    3. Copy the scopes listed at the end of the **API Authorization** section.
 
         {% if product_name == "Asgardeo" %}
         ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/authorization/api-authorization/additional-scopes.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

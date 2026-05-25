@@ -35,7 +35,121 @@ extra:
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
+    oid4vci_reference_path: "references/oid4vci"
+    application_management_api_path: "apis/application-management"
+    org_resources_shared: "Applications, Roles (with shared apps), Users"
+    org_resources_created: "Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts"
+    org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes"
   product_name: *site_name
+  integrations:
+    - official:
+        - heading: Official SDKs
+        - description: Official SDKs developed and maintained by the {{ product_name }} team for seamless integration.
+        - integrations:
+            - name: React SDK
+              artifact_id: '@asgardeo/react'
+              icon: assets/img/logo/react-logo.svg
+              description: React implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/react/latest
+              version: ''
+              documentation_link: sdks/react/overview
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/react
+            - name: Vue SDK
+              artifact_id: '@asgardeo/vue'
+              icon: assets/img/logo/vuejs-logo.svg
+              dark_icon: assets/img/logo/vuejs-logo-dark.svg
+              description: Vue implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/vue/latest
+              version: ''
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/vue
+            - name: Nuxt SDK
+              artifact_id: '@asgardeo/nuxt'
+              icon: assets/img/logo/nuxtjs-logo.svg
+              dark_icon: assets/img/logo/nuxtjs-logo-dark.svg
+              description: Nuxt implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/nuxt/latest
+              version: ''
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/nuxt
+            - name: Next.js SDK
+              artifact_id: '@asgardeo/nextjs'
+              icon: assets/img/logo/nextjs-logo-dark.svg
+              description: Next.js implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/nextjs/latest
+              version: ''
+              documentation_link: sdks/nextjs/overview
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/nextjs
+            - name: Auth SPA SDK
+              artifact_id: '@asgardeo/auth-spa'
+              icon: assets/img/logo/javascript-logo.svg
+              description: An SDK to integrate {{ product_name }} into single page applications
+              registry_url: https://registry.npmjs.org/@asgardeo/auth-spa/latest
+              documentation_link: get-started/try-your-own-app/javascript/
+              download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
+              source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
+            - name: Auth Node SDK
+              artifact_id: '@asgardeo/auth-node'
+              icon: assets/img/logo/expressjs-logo.svg
+              dark_icon: assets/img/logo/expressjs-logo-dark.svg
+              description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
+              registry_url: https://registry.npmjs.org/@asgardeo/auth-node/latest
+              source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
+            - name: Tomcat OIDC Agent
+              artifact_id: io.asgardeo.tomcat.oidc.agent
+              icon: assets/img/logo/java-logo.svg
+              description: A Tomcat agent for implementing login/logout for Tomcat web apps
+              documentation_link: get-started/try-your-own-app/java-ee-oidc/
+              download_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent/releases/latest/download/oidc-sample-app.war
+              source_link: https://github.com/asgardeo/asgardeo-tomcat-oidc-agent
+            - name: Tomcat SAML Agent
+              artifact_id: io.asgardeo.tomcat.saml.agent
+              icon: assets/img/logo/java-logo.svg
+              description: A SAML Tomcat agent for implementing SAML login/logout for Tomcat web apps
+              documentation_link: get-started/try-your-own-app/java-ee-saml/
+              download_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent/releases/latest/download/sample-app.war
+              source_link: https://github.com/asgardeo/asgardeo-tomcat-saml-agent
+            - name: Android Mobile UI SDK
+              artifact_id: io.asgardeo:asgardeo-android
+              icon: assets/img/logo/android-logo.svg
+              description: Android SDK for app-native authentication with {{ product_name }}.
+              documentation_link: https://asgardeo.github.io/mobile-ui-sdks/android/introduction.html
+              source_link: https://github.com/asgardeo/mobile-ui-sdks/tree/main/android
+    - community:
+        - heading: Community SDKs
+        - description: Third-party SDKs built by the community to support OIDC and OAuth integration with any provider.
+        - integrations:
+          - name: Angular OAuth2 OIDC
+            artifact_id: angular-oauth2-oidc
+            icon: assets/img/logo/angular-logo.svg
+            description: A library for implementing OAuth2 and OIDC in Angular applications
+            source_link: https://github.com/manfredsteyer/angular-oauth2-oidc
+          - name: Next Auth
+            artifact_id: next-auth
+            icon: assets/img/logo/nextjs-logo.svg
+            dark_icon: assets/img/logo/nextjs-logo-dark.svg
+            description: A library for implementing OAuth2 and OIDC in NextJS applications
+            source_link: https://github.com/nextauthjs/next-auth
+          - name: Flutter AppAuth
+            artifact_id: flutter_appauth
+            icon: assets/img/logo/flutter-logo.svg
+            description: An SDK to integrate OAuth2 and OIDC providers with Flutter apps
+            source_link: https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth
+          - name: React Native AppAuth
+            artifact_id: react-native-app-auth
+            icon: assets/img/logo/react-logo.svg
+            description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
+            documentation_link: get-started/try-your-own-app/react-native-cli-app-auth/
+            source_link: https://github.com/FormidableLabs/react-native-app-auth
+          - name: AppAuth Android
+            artifact_id: net.openid:appauth
+            icon: assets/img/logo/android-logo.svg
+            description: A client SDK to integrate OAuth2 and OIDC providers into Android applications
+            source_link: https://github.com/openid/AppAuth-Android
+          - name: AppAuth iOS
+            artifact_id: AppAuth
+            icon: assets/img/logo/apple-idp-illustration.svg
+            dark_icon: assets/img/logo/apple-logo-dark.svg
+            description: A client SDK to integrate OAuth2 and OIDC providers into iOS applications
+            source_link: https://github.com/openid/AppAuth-iOS
   explicit_tab_list:
     - Home
     - Get Started
@@ -117,6 +231,7 @@ validation:
 
 hooks:
   - hooks.py
+  - ../flatten_markdown.py
 
 plugins:
   - search:
@@ -229,6 +344,10 @@ nav:
       - React:
         - Quickstart: quick-starts/react.md
         - Complete Guide: complete-guides/react/introduction.md
+      - Vue:
+        - Quickstart: quick-starts/vue.md
+      - Nuxt:
+        - Quickstart: quick-starts/nuxt.md
       - Angular:
         - Quickstart: quick-starts/angular.md
         - Complete Guide: complete-guides/angular/introduction.md
@@ -261,6 +380,7 @@ nav:
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
     - Secure Your AI Agents:
         - Python: quick-starts/agent-auth-py.md
+        - TypeScript: quick-starts/agent-auth-ts.md
     
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
@@ -353,9 +473,11 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
-            - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
-            - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
-            - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
+            - Specialized scenarios:
+              - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
+              - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
+              - Add on-demand silent password migration: guides/authentication/conditional-auth/on-demand-silent-password-migration-template.md
+              - OTP Retry and Resend Limits: guides/authentication/conditional-auth/otp-retry-resend-limits.md
             - Write a custom authentication script: guides/authentication/conditional-auth/write-your-first-script.md
           - App-native authentication:
             - App-native authentication: guides/authentication/app-native-authentication/index.md
@@ -375,6 +497,7 @@ nav:
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Grant types:
               - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
+              - CIBA Grant: guides/authentication/configure-ciba-grant.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
             - Tokens and validation:
@@ -417,6 +540,12 @@ nav:
         - Manage groups: guides/users/manage-groups.md
         - Manage roles: guides/users/manage-roles.md
         - Manage active sessions: guides/users/manage-sessions.md
+        - Outbound provisioning:
+          - Overview: guides/users/outbound-provisioning/outbound-provisioning-overview.md
+          - Set up outbound provisioning: guides/users/outbound-provisioning/setup-outbound-provisioning.md
+          - Group-based provisioning: guides/users/outbound-provisioning/group-based-provisioning.md
+          - Configure an outbound connector:
+            - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
         - Migrate users to Asgardeo:
           - Migrate users to Asgardeo: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
@@ -447,6 +576,7 @@ nav:
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
+        - Approval workflow rules: guides/workflows/workflow-rules.md
         - Workflow requests: guides/workflows/workflow-requests.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
@@ -498,33 +628,45 @@ nav:
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
+        - Getting started:
+            - Overview: guides/organization-management/organizations-overview.md
         - Set up organizations: guides/organization-management/manage-organizations.md
-        - Administration of organizations: guides/organization-management/manage-b2b-administration.md
-        - Application Management:
-          - Share applications: guides/organization-management/share-applications.md
-          - Organization applications: guides/organization-management/organization-applications.md
-        - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
-        - Onboard admins: 
-            - Onboard admins: guides/organization-management/onboard-org-admins/index.md
+        - Delegate administration:
+          - Set up administration portal: guides/organization-management/manage-b2b-administration.md
+          - Onboard administrators:
+            - Onboard administrators: guides/organization-management/onboard-org-admins/index.md
             - Sales-led approach: guides/organization-management/onboard-org-admins/sales-led-approach.md
             - Self-service approach: guides/organization-management/onboard-org-admins/self-service-approach.md
-        - Onboard users: guides/organization-management/onboard-users.md
-        - Share user profiles with organizations: guides/organization-management/share-user-profiles.md
-        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
-        - API authorization for organizations: guides/organization-management/api-authorization-for-b2b.md
-        - Inheritance in organizations:
-            - Inheritance in organizations: guides/organization-management/inheritance-in-organizations/index.md
-            - Login & registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
+        - Configure organization applications:
+          - Share applications: guides/organization-management/share-applications.md
+          - Organization applications:
+            - Create applications: guides/organization-management/organization-applications.md
+            - Select token issuer: guides/organization-management/select-token-issuer-for-organization-apps.md
+          - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
+        - Authorize API resources:
+          - Overview: guides/organization-management/api-authorization-overview.md
+          - Authorize applications to API resources: guides/organization-management/api-authorization-for-b2b.md
+          - Configure roles to consume authorized APIs: guides/organization-management/organization-roles.md
+          - Generate tokens for organization applications: guides/organization-management/generate-tokens-for-organization-apps.md
+        - Manage organization users:
+          - Onboard users to organizations: guides/organization-management/onboard-users.md
+          - Shared users:
+            - Share users across organizations: guides/organization-management/share-user-profiles.md
+            - Allow shared users to log in to organizations: guides/organization-management/shared-user-direct-login.md
+            - Allow impersonation for shared users: guides/organization-management/shared-user-impersonation.md
+        - Customize organizations:
+          - Organization settings:
+            - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
+            - Login and registration settings: guides/organization-management/inheritance-in-organizations/login-registration-inheritance.md
             - UI branding: guides/organization-management/inheritance-in-organizations/ui-branding-inheritance.md
             - Email and SMS templates: guides/organization-management/inheritance-in-organizations/email-sms-templates-inheritance.md
             - User attributes: guides/organization-management/inheritance-in-organizations/attribute-inheritance.md
             - OIDC scopes: guides/organization-management/inheritance-in-organizations/oidc-scope-inheritance.md
             - Flows: guides/organization-management/inheritance-in-organizations/flow-inheritance.md
-        - Organization discovery:
-            - Organization discovery: guides/organization-management/organization-discovery/index.md
-            - Email domain based organization discovery: guides/organization-management/organization-discovery/email-domain-based-organization-discovery.md
-        - Customizations:
-            - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
+          - Extend with service extensions: guides/organization-management/service-extensions/service-extensions.md
+        - Offboard organizations:
+          - Disable or delete an organization: guides/organization-management/disable-delete-organizations.md
+        - Try a B2B use case: guides/organization-management/try-a-b2b-use-case.md
       - Notification Channels:
         - Configure Email Provider: guides/notification-channels/configure-email-provider.md
         - Configure SMS Provider: guides/notification-channels/configure-sms-provider.md
@@ -569,7 +711,9 @@ nav:
       - Asgardeo logs:
         - Asgardeo logs: guides/asgardeo-logs/index.md
         - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
-        - Audit logs: guides/asgardeo-logs/audit-logs.md
+        - Audit logs:
+          - Audit logs: guides/asgardeo-logs/audit-logs/index.md
+          - Audit log catalog: guides/asgardeo-logs/audit-logs/audit-log-catalog.md
         - Remote log publish: guides/asgardeo-logs/remote-log-publish.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
@@ -587,6 +731,9 @@ nav:
           - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
           - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
           - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
+      - Verifiable Credentials:
+        - Overview: guides/verifiable-credentials/index.md
+        - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
   - Tutorials:
     - Tutorials - Overview: tutorials/index.md
     - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
@@ -596,7 +743,11 @@ nav:
     - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
     - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
     - Secure Agentic AI Systems with Asgardeo: tutorials/secure-agentic-ai-systems.md
+    - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
+    - Integrating Asgardeo With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
+    - Integrating Asgardeo With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
+    - Secure MCP servers with Asgardeo and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
   - SDKs:
     - Integrate Asgardeo into your application: sdks/index.md
   - SDK Documentation:
@@ -624,6 +775,7 @@ nav:
             - "&lt;OrganizationSwitcher /&gt;": sdks/react/components/organization-components/organization-switcher.md
             - "&lt;OrganizationList /&gt;": sdks/react/components/organization-components/organization-list.md
             - "&lt;Organization /&gt;": sdks/react/components/organization-components/organization.md
+            - "&lt;OrganizationContext /&gt;": sdks/react/components/organization-components/organization-context.md
         - hooks:
           - useAsgardeo(): sdks/react/hooks/use-asgardeo.md
       - Guides:
@@ -692,6 +844,7 @@ nav:
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
       - User credential management API: apis/end-user-credential-management-rest-api.md
+      - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md
       - User management:
         - SCIM 2.0 API:
           - SCIM 2.0 API: apis/scim2/index.md
@@ -699,6 +852,7 @@ nav:
           - SCIM 2.0 Groups API: apis/scim2/scim2-groups-rest-api.md
           - SCIM 2.0 Patch operations: apis/scim2/scim2-patch-operations.md
           - SCIM 2.0 Bulk API: apis/scim2/scim2-bulk-rest-api.md
+          - SCIM 2.0 Schema API: apis/scim2/scim2-schema-rest-api.md
           - SCIM 2.0 Batch Operations: apis/scim2/scim2-batch-operations.md
           - SCIM 2.0 Resource types API: apis/scim2/scim2-resource-types-rest-api.md
           - SCIM 2.0 Service provider configs API: apis/scim2/scim2-service-provider-configs-rest-api.md
@@ -711,11 +865,14 @@ nav:
       - User sessions:
         - Session management API: apis/session.md
         - Session extension API: apis/extend-sessions.md
-      - User sharing management API: apis/organization-user-share-rest-api.md
+      - User sharing management APIs:
+        - V1 (deprecated): apis/organization-user-share-rest-api.md
+        - V2: apis/organization-user-share-v2-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
       - Webhook Management API: apis/webhook-management-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
+      - Workflow Management API: apis/workflow-rest-api.md
     - Organization APIs:
       - Organization APIs: apis/organization-apis/index.md
       - Get access for organization APIs: apis/organization-apis/authentication.md
@@ -746,6 +903,7 @@ nav:
         - User Account Association API: apis/organization-apis/org-association-rest-api.md
         - Verification Code Management API: apis/organization-apis/verification-code-management-rest-api.md
       - User sharing management API: apis/organization-apis/organization-user-share.md
+      - User sharing management API V2: apis/organization-apis/organization-user-share-v2.md
       - User store management API: apis/organization-apis/org-user-store.md
     - End User APIs:
       - SCIM 2.0 Me API: apis/scim2-me.md
@@ -758,7 +916,9 @@ nav:
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
       - Organization Me API: apis/user-organization-api.md
+      - Self password update API: apis/self-password-update-rest-api.md
       - Verification Code Management Me API: apis/verification-code-management-me-api.md
+      - Approval API: apis/approvals-rest-api.md
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md
@@ -822,6 +982,7 @@ nav:
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - Push Notification based authentication: references/push-notification-based-authentication.md
+      - OpenID for verifiable credential issuance (OID4VCI): references/oid4vci.md
   - Technology Guides:
     - Actions:
       - Introduction: complete-guides/actions/introduction.md

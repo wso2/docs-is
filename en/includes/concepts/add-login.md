@@ -58,7 +58,7 @@ Add self-manage features for your application users to:
 - update their user profiles
 - update their passwords 
 - recover forgotten password 
-- login with multiple login identifies 
+- login with multiple login identifiers 
 - associate social accounts 
 - enable MFA 
 - enroll passkeys 

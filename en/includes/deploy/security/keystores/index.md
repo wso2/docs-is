@@ -49,35 +49,49 @@ PKCS12 is a standard format supported across various platforms, offering high in
 
 Follow the recommendations given below when you set up your keystores.
 
-- Maintain one primary keystore for encrypting sensitive internal data such as admin passwords and any other sensitive information found at both product-level and product feature-level configurations/configuration files.
+In production environments, it is recommended to use three distinct keystores with separate trust chains:
 
-    !!! note
-        The primary keystore will also be used for signing messages when the product communicates with external parties (such as SAML, OIDC id_token signing).
+- **Primary keystore** (`[keystore.primary]`): Used for signing messages when communicating with external parties (SAML assertions, OIDC ID token signing). This keystore contains an RSA key pair. It serves as the fallback for both signing and encryption unless a specific keystore is explicitly defined.
 
-    !!! tip
-        You can have separate keystores for encrypting sensitive information for internal data encryption as a recommended practice. See [Configuring Keystores in WSO2 Identity Server]({{base_path}}/deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products) for details.
+- **Internal keystore** (`[keystore.internal]`): Used for encrypting sensitive internal data such as admin passwords and other sensitive information in configuration files (via the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool)). 
+{% if not is_version == "7.0.0" %}
+    It is recommended to use a **symmetric AES key** (PKCS12 format) for the internal keystore due to its resilience against post-quantum threats. This keystore does not need to be CA-signed as it is not used for external communication.
+{% endif %}
 
-- Maintain another secondary keystore, containing the server’s public key certificate for authenticating communication over SSL/TLS (for both Tomcat and Axis2 level HTTP connections).
+- **TLS keystore** (`[keystore.tls]`): Contains the server’s key pair and certificate for authenticating communication over SSL/TLS (HTTPS). It is recommended to use a CA-signed certificate for the TLS keystore.
 
-- All instances of WSO2 Identity Server must use the same keystore for SSL. 
+Additional recommendations:
 
-- It is recommended to use a CA-signed keystore for SSL communication. However, this is not mandatory. Even a self-signed certificate may suffice if it can be trusted by the clients.
+- All instances of WSO2 Identity Server in a cluster must use the same TLS keystore for SSL.
 
-- The keystore used for SSL must contain the same password for the keystore and private key due to a Tomcat limitation.
+- The TLS keystore must use the same password for the keystore and private key due to a Tomcat limitation.
 
-- The primary keystore used for admin passwords and other data encryption requirements can be a self-signed one. There is no value added by using a CA-signed keystore for this purpose as it is not used for any external communication.
+- Change the default truststore password from `wso2carbon` (which is publicly known) before configuring production deployments.
 
-- The primary keystore's public key certificate must have the **Data Encipherment** key usage to allow direct encipherment of raw data using its public key. This key usage is already included in the self-signed certificate that is included in the default `wso2carbon.{{content.default_keystore_ext}}` keystore. If the **Data Encipherment** key usage is not included in your public key certificate, the following error can occur when you attempt data encryption.
+- Remove the default WSO2 self-signed certificate (alias: `wso2carbon`) from the truststore after importing your own certificates in production environments.
+
+- If you already have existing keystores, generate CA-signed certificates and import them into those keystores rather than creating new ones. See [Add CA-signed certificates]({{base_path}}/deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore/#add-ca-signed-certificates-to-keystores) for instructions.
+
+- Optionally, you can set up separate keystores for message-level data encryption in WS-Security.
+
+!!! note "Using asymmetric encryption for the internal keystore"
+    If you choose to use [asymmetric encryption]({{base_path}}/deploy/security/asymmetric-encryption) for the internal keystore instead of symmetric encryption, the internal keystore’s public key certificate must have the **Data Encipherment** key usage. If not included, the following error occurs when attempting data encryption:
 
     !!! error
         ``` java
         Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200)... 1 more
         ```
 
-- Optionally, you can set up separate keystores for message-level data encryption in WS-Security.
+## Next steps
 
-- If you already have the required keystores, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Add CA-signed certificates]({{base_path}}/deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore/#add-ca-signed-certificates-to-keystores) to keystores for instructions.
+Follow this workflow to set up keystores for your deployment:
 
-!!! info "Related topics"
-    -   [Deploy: Create New Keystores]({{base_path}}/deploy/security/asymmetric-encryption/create-new-keystores)
-    -   [Deploy: Configure Keystores]({{base_path}}/deploy/security/asymmetric-encryption/configure-keystores-in-wso2-products)
+1. **Decide which keystores you need** — Review the [Recommendations for setting up keystores](#recommendations-for-setting-up-keystores) above to determine if you need the primary, internal, and/or TLS keystores.
+
+2. **Create keystores** — Use [Create New Keystores]({{base_path}}/deploy/security/keystores/create-new-keystores) to generate the keystores you need using keytool commands.
+
+3. **Configure keystores** — Use [Configure Keystores]({{base_path}}/deploy/security/keystores/configure-keystores) to set up the keystores in your `deployment.toml` file.
+
+4. **(Optional) Protocol-specific keystores** — If you need separate keystores for different authentication protocols (OAuth, SAML, etc.), see [Configure custom keystores for authentication protocols]({{base_path}}/deploy/security/keystores/configure-custom-keystores).
+
+5. **(Optional) CA-signed certificates** — If you need to work with CA-signed certificates, see [Manage CA-Signed certificates in a keystore]({{base_path}}/deploy/security/keystores/manage-ca-signed-certificates-in-a-keystore).

@@ -55,7 +55,7 @@ above steps.
 Follow the instructions given below to setup two WSO2 Identity Server instances
 for this scenario.
 
-1.  [Download](http://wso2.com/products/identity-server/) and
+1.  [Download](https://wso2.com/identity-platform/access-manager/) and
     [install]({{base_path}}/deploy/get-started/install/) the two WSO2 Identity Server
     instances.
 2. Navigate to `<IDENTITY_PROVIDER_IS_HOME>/repository/conf/deployment.toml`

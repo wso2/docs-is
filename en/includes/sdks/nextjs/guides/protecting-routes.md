@@ -3,7 +3,7 @@ Using the Next Asgardeo SDK you can also secure routes. For example if you have 
 Add the following to the middleware.ts file
 
 ```javascript title="middleware.ts"
-import {asgardeoMiddleware, createRouteMatcher} from '@asgardeo/nextjs/server';
+import {asgardeoMiddleware, createRouteMatcher} from '@asgardeo/nextjs/middleware';
 
 const isProtectedRoute = createRouteMatcher([
   '/dashboard',

@@ -13,14 +13,6 @@ The following API contract defines the request and response structures that your
 </thead>
 <tbody>
 <tr class="odd">
-<td>flowId</td>
-<td><p>A unique identifier that associates with the token issuing flow in {{product_name}}.</p></td>
-</tr>
-<tr class="even">
-<td>requestId</td>
-<td><p>A unique correlation identifier that associates with the token request received by {{product_name}}.</p></td>
-</tr>
-<tr class="odd">
 <td>actionType</td>
 <td><p>Specifies the action. In this case, <code>PRE_ISSUE_ID_TOKEN</code> triggers the pre-issue ID token flow.</p></td>
 </tr>
@@ -281,8 +273,6 @@ Host: your-service.example.com
 Content-Type: application/json
 
 {
-  "flowId": "Ec1wMjmiG8",
-  "requestId": "20260216T154100Z-r1cd497db865scbfhC1SG17gy000000010zg000000009hap",
   "actionType": "PRE_ISSUE_ID_TOKEN",
   "event": {
     "request": {
@@ -570,6 +560,13 @@ Configure the authentication scheme when registering the action in {{product_nam
 - **Basic**: HTTP Basic authentication.
 - **Bearer**: OAuth 2.0 Bearer token in the <code>Authorization</code> header.
 - **API Key**: API key in a header; you can define the header name (for example, <code>X-API-Key</code>).
+{% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "Asgardeo" %}
+- **OAuth 2.0 Client Credentials**: {{product_name}} retrieves an access token from the configured token endpoint using the OAuth 2.0 client credentials grant and uses it as a bearer token when invoking the action endpoint.
+- **OAuth 2.0 Password Grant**: {{product_name}} retrieves an access token from the configured token endpoint using the OAuth 2.0 resource owner password credentials grant and uses it as a bearer token when invoking the action endpoint.
+
+!!! warning
+    If you use the same {{product_name}} organization as the authorization server, you must exclude the application used to get the access token in action authorization from this **Pre-Issue ID Token** action (and the **Pre-Issue Access Token** action) by configuring a rule. Otherwise, ID token and access token issuance will break.
+{% endif %}
 
 ## Conditional invocation of pre-issue id token action
 

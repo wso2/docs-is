@@ -14,11 +14,11 @@ tags:
 
       Application-specific email templates are triggered whenever the user interacts with applications that use the default WSO2 Identity Server UI. However, if the user interacts directly with APIs, application-specific email templates are supported by the following APIs:
 
-      - User creation with SCIM2 APIs
-      - Locking/Unlocking accounts with SCIM2 APIs
-      - Password recovery API
-      - Email verification flows
-      - Resend email flows
+      - [User creation with SCIM2 APIs](../scim2/scim2-users-rest-api)
+      - [Locking/Unlocking accounts with SCIM2 APIs](../scim2/scim2-users-rest-api)
+      - [Password recovery API V2](../user-account-recovery-v2-rest-api/#tag/Password-Recovery)
+      - [Email verification flows](../user-account-recovery-v2-rest-api)
+      - [Resend email flows](../user-account-recovery-v2-rest-api/#tag/Password-Recovery/operation/resendConfirmation)
 
       Note: To ensure application-specific branding is applied during the above API interactions, they must be invoked using an access token issued specifically for the application. If an access token generated from admin credentials is used instead, the branding will default to organization-specific settings.
 security:

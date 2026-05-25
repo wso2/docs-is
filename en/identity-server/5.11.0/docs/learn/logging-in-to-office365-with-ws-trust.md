@@ -100,7 +100,7 @@ you through the entire process.
 		These attributes are not supported by Active Directory by default.
 		Therefore if these attributes are ticked as **Supported by Default**
 		in Identity Server, they will be shown in the default user profile
-		and you will recieve an error once you try to update the user
+		and you will receive an error once you try to update the user
 		profile.
 
 <!-- -->

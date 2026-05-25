@@ -101,7 +101,7 @@ Content-Type: application/json
 
 ### Pre update profile action
 
-The pre-update profile action in WSO2 Identity Server lets you verify user attributes during profile update processes.
+The pre-update profile action in {{ product_name }} lets you verify user attributes during profile update processes.
 
 To learn more, refer to the [Pre update profile action]({{base_path}}/guides/service-extensions/pre-flow-extensions/pre-update-profile-action).
 

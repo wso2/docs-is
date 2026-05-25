@@ -1,4 +1,4 @@
-# Inheritance in organizations
+# Customize organization settings
 
 Parent organizations sit higher in the hierarchy and often define common behaviors for their child organizations. At the same time, child organizations need to maintain their own unique identity and configurations.
 

@@ -3,10 +3,12 @@
 This page guides you through using WSO2 Identity Server to log in to Google.
 
 -----
+
 !!! tip "Before you begin!"
     You need to have a Google domain. Click
-    [here](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/)
+    [Create Google Apps Domain](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/)
     for more information on creating the domain.
+
 -----
 
 ## Configure Google
@@ -16,7 +18,7 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 2. Click **Security**.
 
     !!! info
-        Can't see the Security section? Click the **MORE CONTROLS** bar at the bottom and you can see the Security section.
+        Can't see the Security section? Click the **MORE CONTROLS** bar at the bottom and you can see the Security section.
 
     ![more-controls]({{base_path}}/assets/img/guides/security-google.png)
 
@@ -35,14 +37,14 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 
     ![sso-fill-google.png]({{base_path}}/assets/img/guides/sso-fill-google.png)
 
-5. Upload the Identity Server certificate:  
+5. Upload the Identity Server certificate:
     The certificate file must contain the public key for Google to
     verify the sign-in requests.
 
     1. Navigate to the
         `<IS_HOME>/repository/resources/security`
         directory via the terminal.
-    2. Run the command given below to import the public certificate
+    2. Run the command given below to import the public certificate
         from the keystore to a `.pem` file.
 
         ``` java
@@ -62,28 +64,27 @@ This page guides you through using WSO2 Identity Server to log in to Google.
 ## Configure Email Address as the Username
 
 !!! warning
-    Configuring the email address as the username in an **already running
-    Identity Server** is not the production recommended way. Therefore,
+    Configuring the email address as the username in an **already running
+    Identity Server** is not the production recommended way. So,
     **make sure to configure it before you begin working with WSO2 IS**.
-    
 
-1.  Log in to the Management Console and click **Claims > List > http://wso2.org/claims**.
-   
+1. Log in to the Management Console and click **Claims > List > http://wso2.org/claims**.
+
 2. Click the **Edit** link corresponding to the **Username** claim and configure the `Mapped Attribute` property to `mail`.
 
     ![email-as-username-attribute-mapping]({{base_path}}/assets/img/guides/email-as-username-attribute-mapping.png)
-    
+
 3. Click **Update** to save the changes.
 
-4.  Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+4. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-5.  Add the following configuration to enable email authentication.
+5. Add the following configuration to enable email authentication.
 
     ``` toml
     [tenant_mgt]
     enable_email_domain= true
     ```
-    
+
 6. Configure the following set of parameters in the userstore
     configuration, depending on the type of userstore you are connected
     to (LDAP/Active Directory/ JDBC).
@@ -132,12 +133,12 @@ This page guides you through using WSO2 Identity Server to log in to Google.
     </div></td>
     </tr>
     <tr class="even">
-    <td><code>               UsernameJavaScriptRegEx              </code></td>
+    <td><code>               UsernameWithEmailJavaScriptRegEx              </code></td>
     <td><div class="content-wrapper">
-    <p>Change this property that is under the relevant userstore manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
+    <p>Change this property that is under the relevant userstore manager tag as follows. This property validates usernames when email is used as the username and allows special characters like "@" in the username.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_script_regex = &apos;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$&apos;</code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store.properties]<br>UsernameWithEmailJavaScriptRegEx = &apos;^[a-zA-Z0-9_@.+-]{5,200}$&apos;</code></pre></div>
     </div>
     </div>
     </div></td>
@@ -166,20 +167,20 @@ This page guides you through using WSO2 Identity Server to log in to Google.
     <p class="admonition-title">Note</p>
     <p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
     <p>After this configuration, the user having the username <strong><code>                  admin@wso2.com                 </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-    <img src="{{base_path}}/assets/img/guides/super-admin.png" width="600" /></p></div>
+    <img src="{{base_path}}/assets/img/guides/super-admin.png" alt="super-admin" width="600" /></p></div>
     </div></td>
     </tr>
     </tbody>
     </table>
 
-    !!! info 
+    !!! info
         - With these configuration users can log in to super tenant with both
         email username (**`alex@gmail.com`**) or
-        non-email usernames (`larry`). However, for tenants, only email usernames are allowed. (**`tod@gmail.com@wso2.com`**). 
+        non-email usernames (`larry`). However, for tenants, only email usernames are allowed. (**`tod@gmail.com@wso2.com`**).
         - You can configure email username without enabling the **`enable_email_domain`** property (step 5). Then users can log in to both the super tenant and the tenant using email and non-email usernames. However, super tenant users should always use
         ***@carbon.super*** at the end of usernames.
 
-7.  Restart the server.
+7. Restart the server.
 
 -----
 
@@ -235,25 +236,23 @@ Now, you have successfully configured Google and WSO2 Identity Server.
 
 !!! note
     The admin users of your Google domain do not get redirected to WSO2 IS.
-    Therefore, to try out the tutorial you need to use a user who is not an
+    To try out the tutorial, you need to use a user who is not an
     admin in your Google account.
 
 1. Create a user in WSO2 Identity Server. Make sure that the same user
-    exists in your Google domain.  
+    exists in your Google domain.
     In this example, `alex@wso2support.com`
-    is in the Google domain. Therefore, we need to create the same user in WSO2 Identity Server.
+    is in the Google domain. So, we need to create the same user in WSO2 Identity Server.
 
     {!./includes/create-user-email-username.md!}
 
 2. Navigate to
     `https://google.com/a/<ENTER_YOUR_DOMAIN>/acs`
-    and enter the email address (username) of the user you created.  
+    and enter the email address (username) of the user you created.
     You are navigated to WSO2 Identity Server's sign in screen.
-3. Enter the username and password of the user you created.  
+3. Enter the username and password of the user you created.
     You are navigated to the G-Suite of that domain and you can select
     the application you need to use.
-
-  
 
 !!! tip
     If you want to only access Gmail, navigate to

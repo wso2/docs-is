@@ -2,12 +2,10 @@
 template: templates/no-right-sidebar.html
 ---
 
-# Get started with Asgardeo
-
-Welcome to Asgardeo! Use these guides to begin integrating identity and access management into your applications.
+# Get Started - Overview
+Welcome to Asgardeo! Here are some quick guides to start your journey into identity and access management with Asgardeo.
 
 ## Start integrating apps
-
-Select a technology to begin integrating your application with Asgardeo.
+Select a technology and try integrating an application with Asgardeo.
 
 [Learn more]({{base_path}}/get-started/start-integrating-apps/)

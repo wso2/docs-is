@@ -1,6 +1,7 @@
 {
-    "current": "7.2.0",
+    "current": "7.3.0",
     "list": [
+      "7.3.0",
       "7.2.0",
       "7.1.0",
       "7.0.0",
@@ -8,6 +9,10 @@
       "6.0.0"
     ],
     "all": {
+      "7.3.0": {
+        "doc": "https://is.docs.wso2.com/en/7.3.0",
+        "notes": "7.3.0/get-started/about-this-release"
+      },
       "7.2.0": {
         "doc": "https://is.docs.wso2.com/en/7.2.0",
         "notes": "7.2.0/get-started/about-this-release"
