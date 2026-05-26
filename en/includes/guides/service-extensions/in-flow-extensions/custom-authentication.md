@@ -81,6 +81,10 @@ Your external web service should do the following to integrate as a custom authe
     - Basic Authentication: Use HTTP Basic authentication to secure the endpoint.
     - OAuth 2.0 Bearer Tokens: Use OAuth 2.0 for token-based authentication.
     - API Key Header: Secure the endpoint using an API key sent in the request header.
+    {% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "Asgardeo" %}
+    - OAuth 2.0 Client Credentials Grant: {{product_name}} obtains an access token from your authorization server using the OAuth 2.0 client credentials grant and uses it to call the endpoint.
+    - OAuth 2.0 Password Grant: {{product_name}} obtains an access token from your authorization server using the OAuth 2.0 resource owner password credentials grant and uses it to call the endpoint.
+    {% endif %}
 
     !!! tip
         During the development phase, you may choose to invoke your external service without security for testing purposes. Always secure your service before deploying it in a production environment.
@@ -112,6 +116,10 @@ Follow the steps below to configure a custom authenticator.
         - Basic - Provide a username and password.
         - Bearer - Provide a bearer token.
         - API Key - Provide the header name and the value.
+        {% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "Asgardeo" %}
+        - OAuth 2.0 Client Credentials - Provide the token endpoint, client ID, client secret, and optionally a space-separated list of scopes. {{product_name}} retrieves a fresh access token from the configured token endpoint using the OAuth 2.0 client credentials grant and uses it as a bearer token when invoking the custom authenticator endpoint.
+        - OAuth 2.0 Password Grant - Provide the token endpoint, client ID, client secret, username, password, and optionally a space-separated list of scopes. {{product_name}} retrieves a fresh access token from the configured token endpoint using the OAuth 2.0 resource owner password credentials grant and uses it as a bearer token when invoking the custom authenticator endpoint.
+        {% endif %}
         - No Authentication - No authentication (recommended only for testing purposes).
 
 6. If you select **External (Federated) User Authentication**, configure [JIT-User Provisioning]({{base_path}}/guides/authentication/jit-user-provisioning) according to your requirements. Additionally, review and set up [role assignments for user groups]({{base_path}}/guides/users/manage-roles/#assign-external-groups-to-a-role) to ensure seamless integration.
