@@ -1,0 +1,692 @@
+openapi: 3.0.0
+info:
+  description: >
+    This document specifies a **Flow Extension RESTful API** for **Asgardeo**.
+  version: '1.0'
+  title: Asgardeo - Flow Extension Rest API
+
+security:
+  - OAuth2: []
+
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
+
+paths:
+  /flow/extension:
+    post:
+      tags:
+        - Flow Extensions
+      summary: Create Flow Extension
+      description: "Creates an flow extension and returns the details along with the unique ID.\n\n<b>Scope (Permission) required:</b> ``internal_flow_extension_create``\n\n"
+      operationId: createFlowExtension
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlowExtensionModel'
+            example:
+              name: User Profile Validation Service
+              description: Handles external validation of user email addresses and synchronizes loyalty status metadata during the authentication flow.
+              endpoint:
+                uri: 'https://api.enterprise-services.com/identity/v1/process'
+                authentication:
+                  type: BASIC
+                  properties:
+                    username: admin
+                    password: admin
+              accessConfig:
+                expose:
+                  - path: '/user/claims[uri=http://wso2.org/claims/emailaddress]'
+                    encrypted: false
+                  - path: /application/id
+                    encrypted: false
+                modify:
+                  - path: '/user/claims[uri=http://wso2.org/claims/identifier]'
+                    encrypted: false
+                  - path: '/user/claims[uri=http://wso2.org/claims/tier]'
+                    encrypted: false
+        required: true
+      responses:
+        '201':
+          description: Flow Extension Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlowExtensionResponse'
+              example:
+                id: 02d2636d-6334-4df6-b070-357f7c7922d4
+                name: User Profile Validation Service
+                description: Handles external validation of user email addresses and synchronizes loyalty status metadata during the authentication flow.
+                version: v1
+                createdAt: '2026-05-28T08:27:04.400Z'
+                updatedAt: '2026-05-28T08:27:04.400Z'
+                endpoint:
+                  uri: 'https://api.enterprise-services.com/identity/v1/process'
+                  authentication:
+                    type: BASIC
+                accessConfig:
+                  expose:
+                    - path: '/user/claims[uri=http://wso2.org/claims/emailaddress]'
+                      encrypted: false
+                    - path: /application/id
+                      encrypted: false
+                  modify:
+                    - path: '/user/claims[uri=http://wso2.org/claims/identifier]'
+                      encrypted: false
+                    - path: '/user/claims[uri=http://wso2.org/claims/tier]'
+                      encrypted: false
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Bad Request
+                description: Invalid request body.
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Unauthorized
+                description: Authentication information is missing or invalid.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Forbidden
+                description: You don't have permission to perform this action.
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Server Error
+                description: An unexpected error occurred on the server.
+    get:
+      tags:
+        - Flow Extensions
+      summary: List Flow Extensions
+      description: "Returns a list of all configured flow extensions.\n\n<b>Scope (Permission) required:</b> ``internal_flow_extension_view``\n\n"
+      operationId: getFlowExtensions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlowExtensionResponseList'
+              example:
+                - id: 02d2636d-6334-4df6-b070-357f7c7922d4
+                  name: Risk Assessment Extension
+                  description: Evaluates user risk score during authentication by invoking an external fraud detection service.
+                  version: v1
+                  createdAt: '2026-05-20T08:27:04.400Z'
+                  updatedAt: '2026-05-20T08:27:04.400Z'
+                - id: 09f72f97-53b8-47b5-b3b0-1020298db9cb
+                  name: User Profile Enrichment
+                  description: Fetches and syncs additional user attributes from an external directory during the registration flow.
+                  version: v1
+                  createdAt: '2026-05-22T10:15:30.120Z'
+                  updatedAt: '2026-05-23T14:42:11.308Z'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Unauthorized
+                description: Authentication information is missing or invalid.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Forbidden
+                description: You don't have permission to perform this action.
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Server Error
+                description: An unexpected error occurred on the server.
+
+  /flow/extension/{extensionId}:
+    get:
+      tags:
+        - Flow Extensions
+      summary: Retrieve Flow Extension by ID
+      description: "Retrieves the flow extension by its ID.\n\n<b>Scope (Permission) required:</b> ``internal_flow_extension_view``\n\n"
+      operationId: getFlowExtensionById
+      parameters:
+        - name: extensionId
+          in: path
+          description: Unique identifier of the extension.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlowExtensionResponse'
+              example:
+                id: 02d2636d-6334-4df6-b070-357f7c7922d4
+                name: Risk Assessment Extension
+                description: Evaluates user risk score during authentication by invoking an external fraud detection service.
+                version: v1
+                createdAt: '2026-05-20T08:27:04.400Z'
+                updatedAt: '2026-05-20T08:27:04.400Z'
+                endpoint:
+                  uri: 'https://api.enterprise-services.com/identity/v1/process'
+                  authentication:
+                    type: BASIC
+                accessConfig:
+                  expose:
+                    - path: '/user/claims[uri=http://wso2.org/claims/emailaddress]'
+                      encrypted: false
+                    - path: /application/id
+                      encrypted: false
+                  modify:
+                    - path: '/user/claims[uri=http://wso2.org/claims/identifier]'
+                      encrypted: false
+                    - path: '/user/claims[uri=http://wso2.org/claims/tier]'
+                      encrypted: false
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Unauthorized
+                description: Authentication information is missing or invalid.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Forbidden
+                description: You don't have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Not Found
+                description: The requested flow extension could not be found.
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Server Error
+                description: An unexpected error occurred on the server.
+    patch:
+      tags:
+        - Flow Extensions
+      summary: Update Flow Extension
+      description: "Updates an existing flow extension.\n\n<b>Scope (Permission) required:</b> ``internal_flow_extension_update``\n\n"
+      operationId: updateFlowExtension
+      parameters:
+        - name: extensionId
+          in: path
+          description: Unique identifier of the extension.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlowExtensionUpdateModel'
+            example:
+              name: User Profile Enrichment
+              description: Fetches and syncs additional user attributes from an external directory during the registration flow.
+              version: v1
+        required: true
+      responses:
+        '200':
+          description: Extension Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlowExtensionResponse'
+              example:
+                id: 02d2636d-6334-4df6-b070-357f7c7922d4
+                name: User Profile Enrichment
+                description: Fetches and syncs additional user attributes from an external directory during the registration flow.
+                version: v1
+                createdAt: '2026-05-20T08:27:04.400Z'
+                updatedAt: '2026-05-28T11:04:22.817Z'
+                endpoint:
+                  uri: 'https://api.enterprise-services.com/identity/v1/process'
+                  authentication:
+                    type: BASIC
+                accessConfig:
+                  expose:
+                    - path: '/user/claims[uri=http://wso2.org/claims/emailaddress]'
+                      encrypted: false
+                    - path: /application/id
+                      encrypted: false
+                  modify:
+                    - path: '/user/claims[uri=http://wso2.org/claims/identifier]'
+                      encrypted: false
+                    - path: '/user/claims[uri=http://wso2.org/claims/tier]'
+                      encrypted: false
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Bad Request
+                description: Invalid request body.
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Unauthorized
+                description: Authentication information is missing or invalid.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Forbidden
+                description: You don't have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Not Found
+                description: The requested flow extension could not be found.
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Server Error
+                description: An unexpected error occurred on the server.
+    delete:
+      tags:
+        - Flow Extensions
+      summary: Delete Flow Extension
+      description: "Deletes an flow extension by its ID.\n\n<b>Scope (Permission) required:</b> ``internal_flow_extension_delete``\n\n"
+      operationId: deleteFlowExtension
+      parameters:
+        - name: extensionId
+          in: path
+          description: Unique identifier of the extension.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Extension Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Bad Request
+                description: Invalid request.
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Unauthorized
+                description: Authentication information is missing or invalid.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Forbidden
+                description: You don't have permission to perform this action.
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: FM-00000
+                message: Server Error
+                description: An unexpected error occurred on the server.
+
+components:
+  schemas:
+    FlowExtensionModel:
+      type: object
+      required:
+        - name
+        - endpoint
+      properties:
+        name:
+          type: string
+          description: Name of the extension.
+          example: Risk Assessment Extension
+        description:
+          type: string
+          description: Description of the extension.
+          example: This action invokes during flow execution to assess risk.
+        endpoint:
+          $ref: '#/components/schemas/Endpoint'
+        accessConfig:
+          $ref: '#/components/schemas/AccessConfig'
+
+    FlowExtensionUpdateModel:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        endpoint:
+          $ref: '#/components/schemas/EndpointUpdateModel'
+        accessConfig:
+          $ref: '#/components/schemas/AccessConfig'
+
+    FlowExtensionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        endpoint:
+          $ref: '#/components/schemas/EndpointResponse'
+        accessConfig:
+          $ref: '#/components/schemas/AccessConfig'
+
+    FlowExtensionBasicResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+
+    FlowExtensionResponseList:
+      type: array
+      items:
+        $ref: '#/components/schemas/FlowExtensionBasicResponse'
+
+    Endpoint:
+      type: object
+      required:
+        - uri
+        - authentication
+      properties:
+        uri:
+          type: string
+          pattern: '^https?://.+'
+        authentication:
+          $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          items:
+            type: string
+
+    EndpointUpdateModel:
+      type: object
+      properties:
+        uri:
+          type: string
+          pattern: '^https?://.+'
+        authentication:
+          $ref: '#/components/schemas/AuthenticationType'
+        allowedHeaders:
+          type: array
+          items:
+            type: string
+
+    EndpointResponse:
+      type: object
+      properties:
+        uri:
+          type: string
+        authentication:
+          $ref: '#/components/schemas/AuthenticationTypeResponse'
+        allowedHeaders:
+          type: array
+          items:
+            type: string
+
+    AuthenticationType:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum: [ NONE, BEARER, API_KEY, BASIC, CLIENT_CREDENTIAL, PASSWORD_CREDENTIAL ]
+        properties:
+          type: object
+          additionalProperties: true
+
+    AuthenticationTypeResponse:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [ NONE, BEARER, API_KEY, BASIC, CLIENT_CREDENTIAL, PASSWORD_CREDENTIAL ]
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+        method:
+          type: string
+          enum: [ GET ]
+        rel:
+          type: string
+
+    AccessConfig:
+      type: object
+      properties:
+        expose:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContextPath'
+        modify:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContextPath'
+
+    ContextPath:
+      type: object
+      required:
+        - path
+      properties:
+        path:
+          type: string
+          example: /user/claims[uri=http://wso2.org/claims/mobile]
+        encrypted:
+          type: boolean
+          default: false
+          example: false
+
+    FlowExtensionContextResponse:
+      type: object
+      description: >
+        Controlled Flow Extension context tree for a given flow type, plus per-flow-type
+        policy flags consumed by the Console UI.
+      properties:
+        flowType:
+          type: string
+          description: Echoed flow type. `null` when no flowType was supplied (default tree).
+          example: PASSWORD_RECOVERY
+        context:
+          type: array
+          description: >
+            Tree of context fields available for the active flow type. Fields disabled at
+            the deployment.toml whitelist level are omitted entirely.
+          items:
+            $ref: '#/components/schemas/FlowExtensionContextNode'
+        redirectionEnabled:
+          type: boolean
+          description: Whether REDIRECT is advertised in `allowedOperations` for this flow type.
+          example: true
+        allowReadOnlyClaimsModification:
+          type: boolean
+          description: >
+            Whether the Console UI may permit MODIFY on read-only claims for this flow type.
+            Hardcoded enumerative mapping in the engine.
+          example: true
+
+    FlowExtensionContextNode:
+      type: object
+      description: One node in the controlled Flow Extension context tree.
+      properties:
+        key:
+          type: string
+          example: userId
+        title:
+          type: string
+          example: User ID
+        path:
+          type: string
+          example: /user/userId
+        dataType:
+          type: string
+          example: String
+        nodeType:
+          type: string
+          description: Tree node type.
+          enum: [OBJECT, LEAF, MAP, COMPLEX_MAP]
+          example: LEAF
+        allowedOperations:
+          type: array
+          description: Operations the admin may configure on this node.
+          items:
+            type: string
+            enum: [EXPOSE, MODIFY]
+        readOnly:
+          type: boolean
+          example: false
+        replaceable:
+          type: boolean
+          example: false
+        dynamicEntryAllowed:
+          type: boolean
+          example: true
+        dynamicEntryType:
+          type: string
+          example: String
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlowExtensionContextNode'
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: FM-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
+          scopes:
+            flow_extension_create: internal_flow_extension_create
+            flow_extension_view: internal_flow_extension_view
+            flow_extension_update: internal_flow_extension_update
+            flow_extension_delete: internal_flow_extension_delete

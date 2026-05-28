@@ -830,6 +830,7 @@ nav:
       - Consent management API: apis/consent-management.md
       - Email templates API: apis/email-template.md
       - Event configuration API: apis/event-configuration.md
+      - Flow Extension Management API: apis/flow-extension-management-rest-api.md
       - Identity governance API: apis/identity-governance.md
       - Identity provider API: apis/idp.md
       - Identity verification provider API: apis/identity-verification-providers.md
