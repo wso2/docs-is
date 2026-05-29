@@ -10,3 +10,5 @@ You can start user impersonation in two ways:
    1. [Via Console]({{base_path}}/guides/authorization/user-impersonation/via-console)
 
    2. [Via business application (advanced)]({{base_path}}/guides/authorization/user-impersonation/via-business-application)
+
+If the impersonator is a shared user (a user whose profile is managed by a parent organization), see [Allow impersonation for shared users]({{base_path}}/guides/organization-management/shared-user-impersonation).
