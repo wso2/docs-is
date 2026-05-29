@@ -590,34 +590,6 @@ components:
           default: false
           example: false
 
-    FlowExtensionContextResponse:
-      type: object
-      description: >
-        Controlled Flow Extension context tree for a given flow type, plus per-flow-type
-        policy flags consumed by the Console UI.
-      properties:
-        flowType:
-          type: string
-          description: Echoed flow type. `null` when no flowType was supplied (default tree).
-          example: PASSWORD_RECOVERY
-        context:
-          type: array
-          description: >
-            Tree of context fields available for the active flow type. Fields disabled at
-            the deployment.toml whitelist level are omitted entirely.
-          items:
-            $ref: '#/components/schemas/FlowExtensionContextNode'
-        redirectionEnabled:
-          type: boolean
-          description: Whether REDIRECT is advertised in `allowedOperations` for this flow type.
-          example: true
-        allowReadOnlyClaimsModification:
-          type: boolean
-          description: >
-            Whether the Console UI may permit MODIFY on read-only claims for this flow type.
-            Hardcoded enumerative mapping in the engine.
-          example: true
-
     FlowExtensionContextNode:
       type: object
       description: One node in the controlled Flow Extension context tree.
@@ -676,15 +648,12 @@ components:
           example: Some Error Description
 
   securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
     OAuth2:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
-          tokenUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
+          authorizationUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{organization-name}/oauth2/token'
           scopes:
             flow_extension_create: internal_flow_extension_create
             flow_extension_view: internal_flow_extension_view
