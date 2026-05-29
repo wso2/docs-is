@@ -72,6 +72,10 @@ You can register an external IdP in {{product_name}} by creating a connection. {
   </div>
 </div>
 
+## Test a connection
+
+{% include "../../fragments/manage-connection/test-connection.md" %}
+
 ## Configure JIT provisioning
 
 {% include "../../../guides/fragments/manage-connection/jit-provisioning.md" %}
