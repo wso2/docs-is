@@ -1,6 +1,6 @@
 # Password recovery
 
-Password recovery allows users to securely reset their password if they forget it. The flow involves verifying user identity through a secure method, such as an email or SMS code, before letting them set a new password.
+Password recovery allows users to securely reset their password if they forget it. The user verifies their identity through a secure method, such as an email or SMS code, before setting a new password.
 
 In the **Flow Builder**, you can create the password recovery journey in two ways:
 
@@ -14,7 +14,7 @@ Imagine you want to verify the user’s identity via SMS OTP before allowing the
 
 - The user enters the **username**.
 - {{product_name}} sends a **one-time code** to the user's registered mobile number.
-- The user verifies the email address by entering the code.
+- The user verifies their identity by entering the code.
 - The user resets their password.
 
 This ensures that only users with access to the registered mobile number can reset the password, enhancing security.
@@ -41,7 +41,7 @@ To load the template,
 
 ### Step 2 – Configure the flow completion
 
-The End node determines what the user experiences after successfully resetting their password. You can configure actions like auto login or sending a notification email.
+The End node determines what the user experiences after successfully resetting their password. Configure actions like auto login or sending a notification email.
 
 1. Click on the green End node on the canvas (labeled "Password Reset Successfully").
 
@@ -73,5 +73,5 @@ This section provides details on the configuration options available in the Pass
 
 The Flow Completion Properties, configured on the End node, define the final actions that occur after a user successfully sets their password.
 
-- **Auto Login**: If enabled, the user is automatically logged into their account immediately after successfully completing the registration flow.
+- **Auto Login**: If enabled, the user is automatically logged into their account immediately after successfully completing the password recovery flow.
 - **Send a notification email on flow completion:** When enabled, the user will receive an email confirming that their password recovery is complete and their account is ready to use.

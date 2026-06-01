@@ -1,6 +1,6 @@
 # Get started with flows
 
-A **flow** defines the step by step journey a user takes during a specific interaction with your application, like signing up or resetting a password. This guide introduces the **Flow Builder**, a visual canvas where you can design and customize these journeys to meet your security and user experience goals without writing complex code.
+A **flow** defines the step by step journey a user takes during a specific interaction with your application, like signing up or resetting a password. This guide introduces the **Flow Builder**. It is a visual canvas where you can design and customize these journeys to meet your security and user experience goals without writing complex code.
 
 The Flow Builder allows full customization of the following user journeys. Click on a flow to view a sample scenario built using the flow builder.
 
@@ -67,13 +67,13 @@ The Flow Builder provides a library of reusable, no-code elements to create user
 
 ### Steps
 
-Steps function as the core building block and represent a distinct part of the login process. A flow can contain one or more steps.
+Steps function as the core building block and represent a distinct part of the flow. A flow can contain one or more steps.
 
 ![Steps]({{base_path}}/assets/img/guides/flows/flow-builder-steps.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Widgets
 
-Pre-built login and identity verification components that you can drag and drop into a step.
+Pre-built identity verification components that you can drag and drop into a step.
 
 ![Widgets]({{base_path}}/assets/img/guides/flows/flow-builder-widgets.gif){: width="auto" style="display: block; margin: 0;"}
 
