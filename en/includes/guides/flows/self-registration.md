@@ -89,7 +89,6 @@ Once the flow has been fully configured and is ready for users:
 1. Click **Save Draft** to save all changes.
 2. On the top-right corner of the Flow Builder, turn the toggle **ON** to publish the flow.
 
-
 New users will now go through the simplified registration process with mandatory email verification using a Magic Link.
 
 With these changes, new users will only provide the essentials **Email** and **password** and must verify their email via Magic Link before completing registration.
@@ -97,12 +96,12 @@ With these changes, new users will only provide the essentials **Email** and **p
 {% if product_name == "Asgardeo" %}
 
 !!! Note
-    When using a connection based sign up option (such as Google or Microsoft), configure the authorized redirect URL in the connection settings as: `https://accounts.asgardeo.io/t/{tenant-domain}/accounts/register`
+    When using a connection-based sign-up option (such as Google or Microsoft), configure the authorized redirect URL in the connection settings as: `https://accounts.asgardeo.io/t/{tenant-domain}/accounts/register`
 
 {% else %}
 
 !!! Note
-    When using a connection based sign up option (such as Google or Microsoft), configure the authorized redirect URL in the connection settings as: `https://{is_host}/t/{tenant-domain}/accounts/register`
+    When using a connection-based sign-up option (such as Google or Microsoft), configure the authorized redirect URL in the connection settings as: `https://{is_host}/t/{tenant-domain}/accounts/register`
 
 {% endif %}
 
