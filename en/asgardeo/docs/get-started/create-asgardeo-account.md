@@ -1,22 +1,20 @@
 # Create your Asgardeo account
 
-Follow these steps to set up your Asgardeo account.
+Let's begin setting up your Asgardeo account.
 
 ## Create an organization
 
-An organization in Asgardeo is your own unique space that contains your users and application configurations. Sign up to create your first organization.
+An organization in Asgardeo will be your own unique space and it will contain your users and application configurations. Let's sign up and create your first organization.
 
-1. Go to the [**Asgardeo webpage**](https://wso2.com/asgardeo/) and click **Sign up for free**.
+1. Go to the [Asgardeo webpage](https://wso2.com/asgardeo/) and click **Sign up for free**.
 2. Enter your email address and click **Register**. You will receive an email with instructions on how to complete your account creation.
-
-   ![Sign up to Asgardeo]({{base_path}}/assets/img/get-started/sign-up-to-asgardeo.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 3. Click **Confirm** in the email and fill in your information to create your Asgardeo account.
+
+!!! note
+    You can also use one of the social login methods to create your account.
 
 !!! tip "Access the Asgardeo Console"
     As an organization owner or administrator, you can manage your organizations, applications, and users through the Asgardeo Console. Make sure to use the appropriate console URL based on the region chosen during registration.
-
-    - US Region: https://console.asgardeo.io/
-    - EU Region: https://console.eu.asgardeo.io/
 
 ## Create a user
 
@@ -24,9 +22,10 @@ Users can log in to applications that you register in Asgardeo. Let's create a u
 
 1. On the **Asgardeo Console**, go to **User Management** > **Users**.
 2. Click **Add User** > **Single User**.
-3. Fill in the user details.
+3. Fill in the user's details.
 
-   ![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 4. Select **Set a password for the user** and enter a temporary password for the user. The user will be able to change the password later.
 5. Click **Next** and **Finish**.
 
@@ -37,7 +36,7 @@ You can now manage this user account from the **Asgardeo Console**.
 
 ## What's next?
 
-Now that you have set up your organization and created your first user, you can:
+Now that you've set up your own organization and created your first user, you can:
 
-- Use a test application to quickly try out Asgardeo. See [Try sign-in with Asgardeo]({{base_path}}/get-started/try-it-application/).
-- Set up Asgardeo in your application or a sample application. See [Start integrating Asgardeo into applications]({{base_path}}/get-started/start-integrating-apps/).
+1. Use a test application to quickly try out Asgardeo. See [Try login with Asgardeo]({{base_path}}/get-started/try-it-application/).
+2. Set up Asgardeo in your application or in a sample application. See [Start integrating Asgardeo into applications]({{base_path}}/get-started/start-integrating-apps/).
