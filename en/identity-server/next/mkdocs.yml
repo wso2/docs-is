@@ -833,6 +833,10 @@ nav:
           - Migrate users to WSO2 Identity Server: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
           - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
+      - Consent management:
+        - Consent management: guides/consent-management/index.md
+        - Policy consent: guides/consent-management/policy-consent.md
+        - Preference management consent: guides/consent-management/preference-management-consent.md
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
