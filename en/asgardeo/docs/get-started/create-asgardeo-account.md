@@ -8,6 +8,9 @@ An organization in Asgardeo will be your own unique space and it will contain yo
 
 1. Go to the [Asgardeo webpage](https://wso2.com/asgardeo/) and click **Sign up for free**.
 2. Enter your email address and click **Register**. You will receive an email with instructions on how to complete your account creation.
+
+![Sign up to Asgardeo]({{base_path}}/assets/img/get-started/sign-up-to-asgardeo.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 3. Click **Confirm** in the email and fill in your information to create your Asgardeo account.
 
 !!! note
@@ -15,6 +18,9 @@ An organization in Asgardeo will be your own unique space and it will contain yo
 
 !!! tip "Access the Asgardeo Console"
     As an organization owner or administrator, you can manage your organizations, applications, and users through the Asgardeo Console. Make sure to use the appropriate console URL based on the region chosen during registration.
+
+    - US Region: https://console.asgardeo.io/
+    - EU Region: https://console.eu.asgardeo.io/
 
 ## Create a user
 
@@ -26,8 +32,8 @@ Users can log in to applications that you register in Asgardeo. Let's create a u
 
 ![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-1. Select **Set a password for the user** and enter a temporary password for the user. The user will be able to change the password later.
-2. Click **Next** and **Finish**.
+4. Select **Set a password for the user** and enter a temporary password for the user. The user will be able to change the password later.
+5. Click **Next** and **Finish**.
 
 You can now manage this user account from the **Asgardeo Console**.
 
