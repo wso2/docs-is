@@ -1,4 +1,4 @@
-## Resource specific notes
+## Resource-specific notes
 
 The following notes describe resource-type-specific behavior to be aware of when using IAM-CTL.
 
@@ -13,7 +13,7 @@ Users and groups assigned to roles are not exported or imported by IAM-CTL.
 
 Claim dialect names may contain characters that are not valid in file names (e.g., `http://wso2.org/oidc/claim`). IAM-CTL uses an escaped version of the dialect name as the file name (e.g., `http_wso2_org_oidc_claim`). When referencing a claim dialect in tool configurations such as **`EXCLUDE`** or keyword mappings, use the exact claim dialect name, not the escaped file name.
 
-### User Stores
+### User stores
 
 When propagating user stores, do not exclude the local claim dialect (`http://wso2.org/claims`). Excluding it will prevent new claim attribute mappings of user stores from being propagated.
 
@@ -21,13 +21,13 @@ When propagating user stores, do not exclude the local claim dialect (`http://ws
 
 When propagating applications, do not exclude roles. Excluding roles will prevent new application roles from being propagated.
 
-### Governance Connectors
+### Governance connectors
 
 Group-based password expiry rules of the password expiry connector are not exported by IAM-CTL. As a result, these rules will be removed from the connector on import, when **`ALLOW_DELETE`** is enabled.
 
 {% if product_name == "Asgardeo" or server_version >= "7.3" %}
 
-### Identity Providers
+### Identity providers
 
 Outbound provisioning groups of outbound provisioning connectors are not exported by IAM-CTL. As a result, these groups will be removed from the identity provider on import.
 
