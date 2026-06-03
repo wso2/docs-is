@@ -3,7 +3,7 @@
 The following notes describe resource-type-specific behavior to be aware of when using IAM-CTL.
 
 !!! note
-    Users and groups are considered dynamic configurations and are not portable across environments. When a resource contains user or group data embedded within it, IAM-CTL strips that data during export. As a result, importing into a target environment will remove this data from the affected resource. For resources that contain dynamic data, use IAM-CTL for initial resource creation, add the dynamic configurations manually, and then exclude the resource in subsequent imports using **`EXCLUDE`** to preserve the data.
+    Users and groups are considered dynamic configurations and are not portable across environments. When a resource contains user or group data embedded within it, IAM-CTL strips that data during export. As a result, importing into a target environment will remove this data from the affected resource. For resources that contain dynamic data, use IAM-CTL for initial resource creation, add the dynamic configurations manually, and then exclude the resource in future imports using **`EXCLUDE`** to preserve the data.
 
 ### Roles
 
