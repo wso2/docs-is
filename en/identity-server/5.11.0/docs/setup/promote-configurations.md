@@ -165,7 +165,7 @@ IAM-CTL uses a unified logging system that provides structured, filterable log o
 
 Add a `LOGS` block to your `toolConfig.json` to configure logging behavior:
 
-#### toolConfig.json
+#### `toolConfig.json`
 
 ```json
 {
