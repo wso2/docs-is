@@ -1,9 +1,9 @@
 ## Resource-specific notes
 
-The following notes describe resource-type-specific behavior to be aware of when using IAM-CTL.
+Note the following resource-type-specific behavior when using IAM-CTL.
 
 !!! note
-    Users and groups are considered dynamic configurations and are not portable across environments. When a resource contains user or group data embedded within it, IAM-CTL strips that data during export. As a result, importing into a target environment will remove this data from the affected resource. For resources that contain dynamic data, use IAM-CTL for initial resource creation only. Add the dynamic configurations manually, then exclude the resource in future imports using **`EXCLUDE`** to preserve the data.
+    IAM-CTL treats users and groups as dynamic configurations that are not portable across environments. When a resource contains embedded user or group data, IAM-CTL strips that data during export. As a result, import removes this data from the affected resource in the target environment. For resources that contain dynamic data, use IAM-CTL for initial resource creation only. Add the dynamic configurations manually, then exclude the resource in future imports using **`EXCLUDE`** to preserve the data.
 
 ### Roles
 
@@ -39,11 +39,11 @@ Outbound provisioning groups of outbound provisioning connectors are not exporte
 When referencing organizations in tool configurations such as **`EXCLUDE`** or keyword mappings, use the organization handle as the resource name.
 {% endif %}
 
-When IAM-CTL creates organizations using M2M app credentials, no user is assigned as the creator. As a result, no user has access to the newly created organization after creation. You can [manually assign an organization admin]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-within-the-organization){:target="_blank"} after the organization is created.
+When IAM-CTL creates organizations using the management application credentials, no user is assigned as the creator. As a result, no user has access to the newly created organization after creation. You can [manually assign an organization admin]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-within-the-organization){:target="_blank"} after IAM-CTL creates the organization.
 
 {% if product_name != "Asgardeo" and server_version >= "7.0" and server_version < "7.3" %}
 
-Alternatively, to assign a creator at import time, configure **`CREATOR_ID`** and **`CREATOR_USERNAME`** under `ORGANIZATIONS` in `toolConfig.json`.
+To assign a creator at import time, configure **`CREATOR_ID`** and **`CREATOR_USERNAME`** under `ORGANIZATIONS` in `toolConfig.json`.
 
 === "toolConfig.json"
     ```json
@@ -55,7 +55,7 @@ Alternatively, to assign a creator at import time, configure **`CREATOR_ID`** an
     }
     ```
 
-When both values are set, IAM-CTL assigns the specified user as the organization creator on import. These attributes are stripped on export and are not stored in the exported files, as they are environment-specific and not portable.
+When both values are set, IAM-CTL assigns the specified user as the organization creator on import. IAM-CTL strips these attributes on export and does not store them in the exported files, as they are environment-specific and not portable.
 
 {% endif %}
 
