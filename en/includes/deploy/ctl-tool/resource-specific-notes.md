@@ -33,6 +33,32 @@ Outbound provisioning groups of outbound provisioning connectors are not exporte
 
 {% endif %}
 
+### Organizations
+
+{% if product_name != "Asgardeo" %}
+When referencing organizations in tool configurations such as **`EXCLUDE`** or keyword mappings, use the organization handle as the resource name.
+{% endif %}
+
+When IAM-CTL creates organizations using M2M app credentials, no user is assigned as the creator. As a result, no user has access to the newly created organization after creation. You can [manually assign an organization admin]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-within-the-organization){:target="_blank"} after the organization is created.
+
+{% if product_name != "Asgardeo" and server_version >= "7.0" and server_version < "7.3" %}
+
+Alternatively, to assign a creator at import time, configure **`CREATOR_ID`** and **`CREATOR_USERNAME`** under `ORGANIZATIONS` in `toolConfig.json`.
+
+=== "toolConfig.json"
+    ```json
+    {
+        "ORGANIZATIONS": {
+            "CREATOR_ID": "<user-id>",
+            "CREATOR_USERNAME": "<username>"
+        }
+    }
+    ```
+
+When both values are set, IAM-CTL assigns the specified user as the organization creator on import. These attributes are stripped on export and are not stored in the exported files, as they are environment-specific and not portable.
+
+{% endif %}
+
 ### Branding
 
 Branding contains two sub-resource types: **Branding Preferences** and **Custom Texts**. When referencing branding in tool configurations such as **`EXCLUDE`** or keyword mappings, use the sub-resource type names as shown below.
