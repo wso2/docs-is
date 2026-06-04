@@ -32,6 +32,9 @@ theme:
 extra:
   base_path: /asgardeo/docs
   product: asgardeo
+  nav_chip:
+    Customer Data:
+      type: Preview
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
@@ -578,6 +581,16 @@ nav:
         - Approval workflows: guides/workflows/approval-workflows.md
         - Approval workflow rules: guides/workflows/workflow-rules.md
         - Workflow requests: guides/workflows/workflow-requests.md
+      - Customer Data:
+        - Customer Data: guides/customer-data/index.md
+        - Enable Customer Data Service: guides/customer-data/enable-customer-data-service.md
+        - Concepts:
+          - Profiles: guides/customer-data/concepts/profiles.md
+          - Profile attributes: guides/customer-data/concepts/profile-attributes.md
+          - Unification rules: guides/customer-data/concepts/unification-rules.md
+        - Manage:
+          - Manage profile attributes: guides/customer-data/guides/manage-profile-attributes.md
+          - Manage unification rules: guides/customer-data/guides/manage-unification-rules.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
