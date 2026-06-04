@@ -52,7 +52,7 @@ createRoot(document.getElementById('root')).render(
 )
 ```
 
-As shown above, we used `<AuthProvider />` at the root level of the application to ensure that all components can interact with the authentication logic provided by {{product_name}}. It takes the configuration object with the following values for the single page application defined in the {{product_name}} console. You can copy these values from the {{product_name}}  console.
+As shown above, we used `<AsgardeoProvider />` at the root level of the application to ensure that all components can interact with the authentication logic provided by {{product_name}}. It takes the configuration object with the following values for the single page application defined in the {{product_name}} console. You can copy these values from the {{product_name}}  console.
 
 <!-- markdownlint-disable MD056 -->
 | Parameter | Type | Required | Description | Example
@@ -73,5 +73,5 @@ Here’s a brief overview of what `<AsgardeoProvider />` provides:
 
 * **Context Management:** It creates a context that holds the authentication state and methods to handle authentication actions like logging in, logging out, and checking the user's authentication status.
 * **Session Handling:** `<AsgardeoProvider />` manages user sessions, including token storage and retrieval, token refresh, and user session expiration handling.
-* **Easy Access to Authentication:** By wrapping your app with `<AuthProvider />`, any component within your app can easily access authentication details and actions using hooks like useAuthContext.
+* **Easy Access to Authentication:** By wrapping your app with `<AsgardeoProvider />`, any component within your app can easily access authentication details and actions using hooks like useAuthContext.
 * **Initialization and Configuration:** It initializes the SDK with the necessary configuration, such as client ID, server endpoints, and other authentication settings.
