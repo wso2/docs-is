@@ -28,7 +28,7 @@ Users can log in to applications that you register in Asgardeo. Let's create a u
     ![customer-account-create-ui]({{base_path}}/assets/img/get-started/create-user-account.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Select **Set a password for the user** and enter a temporary password for the user. The user will be able to change the password later.
-5. Click **Next** and **Finish**.
+5. Click **Next** and then **Finish**.
 
 You can now manage this user account from the **Asgardeo Console**.
 
