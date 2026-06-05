@@ -11,11 +11,6 @@ An organization in Asgardeo will be your own unique space and it will contain yo
 
     ![Sign up to Asgardeo]({{base_path}}/assets/img/get-started/sign-up-to-asgardeo.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Click **Confirm** in the email and fill in your information to create your Asgardeo account.
-
-!!! note
-    You can also use one of the social login methods to create your account.
-
 !!! tip "Access the Asgardeo Console"
     As an organization owner or administrator, you can manage your organizations, applications, and users through the Asgardeo Console. Make sure to use the appropriate console URL based on the region chosen during registration.
 
