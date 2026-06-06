@@ -67,5 +67,5 @@ You will then be presented with the login screen for the {{ product_name }}. Ent
 
 ## What's next?
 
-Add login to your application using {{ product_name }} or try it on a sample application. [Try integrating IS into apps]({{base_path}}/get-started/try-samples).
+Add login to your application using {{ product_name }} or try it on a sample application. [Try integrating {{ product_name }} into your applications]({{base_path}}/get-started/try-samples).
 

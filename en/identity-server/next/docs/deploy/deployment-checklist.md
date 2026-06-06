@@ -24,7 +24,7 @@
           <tr class="even">
                <td>Hostname</td>
                <td>
-                    By default, WSO2 Identity Server identifies the hostname of the current machine through the Java API. However, this value sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname by setting the relavent parameter in the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file. <br />
+                    By default, WSO2 Identity Server identifies the hostname of the current machine through the Java API. However, this value sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname by setting the relevant parameter in the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file. <br />
                     <b> Related Topics </b>
                     <li><a href="{{base_path}}/deploy/change-the-hostname">Change the hostname</a></li>
                </td>

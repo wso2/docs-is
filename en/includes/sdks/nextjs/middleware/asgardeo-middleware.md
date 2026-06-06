@@ -9,7 +9,7 @@ The `asgardeoMiddleware` function is designed to be used in Next.js middleware f
 Simply import and use the middleware in your Next.js `middleware.ts` file:
 
 ```javascript title="middleware.ts"
-import { asgardeoMiddleware } from '@asgardeo/nextjs';
+import { asgardeoMiddleware } from '@asgardeo/nextjs/middleware';
 
 export default asgardeoMiddleware();
 ```
@@ -19,7 +19,7 @@ export default asgardeoMiddleware();
 Protect specific routes using `createRouteMatcher`:
 
 ```javascript title="middleware.ts"
-import { asgardeoMiddleware, createRouteMatcher } from '@asgardeo/nextjs';
+import { asgardeoMiddleware, createRouteMatcher } from '@asgardeo/nextjs/middleware';
 
 const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/admin(.*)']);
 
@@ -35,7 +35,7 @@ export default asgardeoMiddleware(async (asgardeo, req) => {
 Customize authentication logic and redirects:
 
 ```javascript title="middleware.ts"
-import { asgardeoMiddleware, createRouteMatcher } from '@asgardeo/nextjs';
+import { asgardeoMiddleware, createRouteMatcher } from '@asgardeo/nextjs/middleware';
 
 const isProtectedRoute = createRouteMatcher(['/dashboard(.*)']);
 const isAuthRoute = createRouteMatcher(['/sign-in', '/sign-up']);

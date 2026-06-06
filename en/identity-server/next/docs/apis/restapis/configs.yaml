@@ -1541,6 +1541,8 @@ components:
             - BEARER
             - API_KEY
             - BASIC
+            - CLIENT_CREDENTIAL
+            - PASSWORD_CREDENTIAL
           example: BASIC
         properties:
           type: object

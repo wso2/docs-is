@@ -1,0 +1,331 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: 'Push Notification Device Management API'
+  description: 'This is the RESTful API for managing devices used for the push notification feature by the users in WSO2 Identity Server.'
+servers:
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/users/v1/me/push'
+tags:
+  - name: me
+    description: Operations for the authenticated user.
+  - name: device
+    description: Operations initiated through user's push authenticator device.
+paths:
+  /discovery-data:
+    get:
+      tags:
+        - me
+      description: |
+        This API is used to generate registration discovery data for the device registration QR code.
+        <b>Scope(Permission) required:</b> `internal_login`
+      summary: |
+        Generate data for device registration.
+      operationId: getRegistrationDiscoveryData
+      responses:
+        '200':
+          description: Successfully generated registration discovery data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscoveryDataDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /devices:
+    post:
+      tags:
+        - device
+      description: |
+        This API is used to register a push notification device into the Identity Server. This API will be invoked from the device.
+      summary: Register devices to receive push notifications.
+      operationId: registerDevice
+      requestBody:
+        description: Request body sent by a device for registration.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationRequestDTO'
+      responses:
+        '201':
+          description: Registered a new device
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    get:
+      tags:
+        - me
+      description: |
+        This API is used to list the devices registered for the particular user.
+        <b>Scope(Permission) required:</b> `internal_login`
+      summary: Get all devices registered for a user.
+      operationId: getDevices
+      responses:
+        '200':
+          description: Listed devices registered for a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceDTOList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /devices/{deviceId}:
+    get:
+      tags:
+        - me
+      description: |
+        This API is used to get a specific registered device.
+        <b>Scope(Permission) required:</b> `internal_login`
+      summary: Get device details by device ID.
+      operationId: getDeviceById
+      parameters:
+        - name: deviceId
+          in: path
+          description: ID of the device to be returned
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully returned the device belongs to the ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - me
+      description: |
+        This API is used to remove a registered device.
+        <b>Scope(Permission) required:</b> `internal_login`
+      summary: Remove a registered device
+      operationId: deleteDeviceById
+      parameters:
+        - name: deviceId
+          in: path
+          description: ID of the device to be removed
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: The device was removed.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /devices/{deviceId}/remove:
+    post:
+      tags:
+        - device
+      description: |
+        This API is used to remove a registered device through device.
+      summary: Remove a registered device from the device.
+      operationId: removeDeviceFromMobile
+      parameters:
+        - name: deviceId
+          in: path
+          description: ID of the device to be removed
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Remove request sent from the device.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveRequestDTO'
+      responses:
+        '204':
+          description: The device was removed.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  schemas:
+    DiscoveryDataDTO:
+      type: object
+      description: Device registration information
+      properties:
+        deviceId:
+          description: Device ID
+          type: string
+          example: b03f90c9-6723-48f6-863b-a35f1ac77f57
+        username:
+          description: Username
+          type: string
+          example: admin
+        host:
+          description: Host
+          type: string
+          example: https://localhost:9443
+        tenantDomain:
+          description: Tenant domain
+          type: string
+          example: carbon.super
+        organizationId:
+          description: Organization ID
+          type: string
+          example: b03f90c9-6723-48f6-863b-a35f1ac77f57
+        organizationName:
+          description: Organization name
+          type: string
+          example: sampleOrg
+        challenge:
+          description: Challenge
+          type: string
+          example: b03f90c9-6723-48f6-863b-a35f1ac77f57
+    RegistrationRequestDTO:
+      type: object
+      description: The registration request body sent from the device
+      properties:
+        deviceId:
+          type: string
+          description: Unique UUID for the device
+          example: b03f90c9-6723-48f6-863b-a35f1ac77f57
+        model:
+          type: string
+          description: Model of the device
+          example: iPhone 16
+        name:
+          type: string
+          description: Name of the device
+          example: My Device
+        deviceToken:
+          type: string
+          description: device token unique to the device
+          example: 'fuRr8s_eQrmB88nu5Tz8oa:APA91bFMqYbuzDYyOGK28VoiLHWYXZYzGNVg3tfxfNwKPH-jDIFpNDdUHkmq5wqBUySYZnuHfpycyQvUrPhwV3UZ1YzjUNLvb9gzFZudfJd1N3fWuU0w2nq_hVJc0UPRabvNPuJy8wMB'
+        publicKey:
+          type: string
+          description: Public key of the keypair generated by the device for the account
+          example: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDOhCpj5pAEqdCdyxuHii0oLFAgnTePMI1EeomZHCRaZZNGv8fdcHyme9rpknNx/caAz9Gck5HrB/vto86cHpBkAghsBBLLWPUlblWNZCBX4pqFhZu+uZKvOnSqp1SwP13yx72nLKbjHRRJGgwCrg/mbdSGN/QKxRU+UhdKVVpQIDAQAB'
+        signature:
+          type: string
+          description: Signature string comprising of the pushId and the challenge
+          example: 'rT/VxgPYMioT6wHajYg0mJpBv46HvFBm/elZ/VL4ClUIFfX7i3Ou5ER5sEiFtehaurLXPNsA8hF4SQAueVBRymEAmchhwYlT160g3wv6kDQvWLkTqnLWGfn++wg5xRManOoN9zG9GhxCgRr9y+lk9rtvydfX0lTcdEZBkynSJnM='
+    RegistrationResponseDTO:
+      type: object
+      description: The registration response sent after successful device registration.
+      properties:
+        deviceId:
+          type: string
+          description: Unique UUID for the device.
+          example: b03f90c9-6723-48f6-863b-a35f1ac77f57
+    DeviceDTO:
+      type: object
+      description: Model for the registered device object
+      properties:
+        deviceId:
+          type: string
+          example: b03f90c9-6723-48f6-863b-a35f1ac77f57
+        name:
+          type: string
+          example: My Phone
+        model:
+          type: string
+          example: iPhone 16
+        provider:
+          type: string
+          example: fcm
+    DeviceDTOList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DeviceDTO'
+    RemoveRequestDTO:
+      type: object
+      description: Remove device request body sent from the device
+      required:
+        - token
+      properties:
+        token:
+          type: string
+          description: JWT containing the remove device information signed with a unique private key
+          example: 'signedJWTToken'
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: UOM-00000
+          description: An error code.
+        message:
+          type: string
+          example: Some Error Message
+          description: An error message.
+        description:
+          type: string
+          example: Some Error Description
+          description: An error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+          description: An error trace identifier.
+  #--------------------------------------------------------
+  # Descriptions of error responses.
+  #--------------------------------------------------------
+  responses:
+    BadRequest:
+      description: Invalid input in the request.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource is not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication information is missing or invalid.
+    Forbidden:
+      description: Access forbidden.
+    ServerError:
+      description: Internal server error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'

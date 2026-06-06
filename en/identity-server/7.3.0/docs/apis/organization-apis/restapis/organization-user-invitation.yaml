@@ -1,0 +1,740 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: "Parent Organization's User Invitation API"
+  description: |-
+    This document specifies an **Parent Organization's User Invitation RESTful API** for **WSO2 Identity Server**. This API allows organization administrators to invite users in parent organization, manage the invitations and invitees to accept the invitation.
+
+security:
+  - OAuth2: []
+
+servers:
+  - url: 'https://{serverUrl}/t/{tenantDomain}/o/api/server/v1'
+    variables:
+      serverUrl:
+        default: localhost:9443
+      tenantDomain:
+        default: carbon.super
+
+paths:
+  /guests/invite:
+    post:
+      tags:
+        - Parent Organization User Invitation
+      summary: Invite a parent organization user to a child organization
+      description: |
+        Initiates an invitation to a user in the parent organization to onboard to the child organization.
+        This will be initiated from the child organization.
+        
+        <b>Scope(Permission) required:</b> `internal_org_guest_mgt_invite_add`
+      operationId: invitationTriggerPost
+      requestBody:
+        $ref: '#/components/requestBodies/InvitationRequestPayload'
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvitationSuccessListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/guests/invite' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+                "usernames": [
+                    "xyz@gmail.com",
+                    "abc@gmail.com"
+                ],
+                "roles": [
+                    "f5b761ca-62f2-48ba-935b-f7b460f58e5c",
+                    "657fgq22-62f2-48ba-935b-f7bfgh6438fd"
+                ],
+                "groups": [
+                    "48badf-rty20-48ba-935b-f7b460f58e5c",
+                    "fd234100-c115-45dc-ad11-70846b783866"
+                ],
+                "properties": [
+                    {
+                      "key": "manageNotificationsInternally",
+                      "value": "true"
+                    }
+                ]
+            }'
+      x-codegen-request-body-name: body
+  /guests/invitation/introspect:
+    post:
+      tags:
+        - Parent Organization User Invitation
+      summary: introspect an invitation's confirmation code
+      description: |
+        This API can be used to introspect the confirmation code. This will be 
+        invoked from the application with the access token of the user which
+        was logged into the application and switched to the organization where 
+        the user resides in.
+
+        <b>Scope(Permission) required:</b> `internal_org_guest_mgt_invite_list`
+      operationId: invitationIntrospectPost
+      requestBody:
+        $ref: '#/components/requestBodies/IntrospectRequestPayload'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntrospectSuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/guests/invitation/introspect' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "confirmationCode": "2663329b-c8c5-4c71-9500-9ea8c4e77d94"
+            }'
+      x-codegen-request-body-name: body
+  /guests/invitation/accept:
+    post:
+      tags:
+        - Parent Organization User Invitation
+      summary: Accepts an invitation from a user in the parent organization
+      description: |
+        After user clicks on the link provided, the redirected application should invoke this API.
+        This API is a public API and this should be invoked with the confirmation code which is 
+        appended to the notification.
+        
+        <b>Scope(Permission) required:</b> None
+      operationId: invitationAcceptPost
+      requestBody:
+        $ref: '#/components/requestBodies/AcceptanceRequestPayload'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/t/carbon.super/o/api/server/v1/guests/invitation/accept' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d '{
+              "confirmationCode": "2663329b-c8c5-4c71-9500-9ea8c4e77d94"
+            }'
+      x-codegen-request-body-name: body
+  /guests/invitations:
+    get:
+      tags:
+        - Invitation Management
+      summary: List down the user invitations
+      description: |
+        List down the invitations triggered from the current organization. This should be invoked
+        from an access token issued from an administrator of that organization.
+        
+        <b>Scope(Permission) required:</b> `internal_org_guest_mgt_invite_list`
+      operationId: invitationListGet
+      parameters:
+        - $ref: '#/components/parameters/FilterQueryParam'
+        - $ref: '#/components/parameters/LimitQueryParam'
+        - $ref: '#/components/parameters/OffsetQueryParam'
+        - $ref: '#/components/parameters/sortOrderQueryParam'
+        - $ref: '#/components/parameters/sortByQueryParam'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvitationsListResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/o/api/server/v1/guests/invitations' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d ''
+  /guests/invitations/{invitationId}:
+    delete:
+      tags:
+        - Invitation Management
+      summary: Delete an invitation
+      description: |
+        Based on the requirements the invitations which are initiated by the same organization
+        can be deleted. This should be invoked from an access token issued from an administrator of that organization.
+        
+        <b>Scope(Permission) required:</b> `internal_org_guest_mgt_invite_delete`
+      operationId: invitationDelete
+      parameters:
+        - name: invitationId
+          in: path
+          description: ID of the invitation to delete
+          required: true
+          schema:
+            type: string
+            example: 2d88a90a-3060-46f0-b863-fc481fef8137
+      responses:
+        '204':
+          description: Successful Response and if the resource not found
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://localhost:9443/o/api/server/v1/guests/invitations/{invitationId}'\
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -d ''
+components:
+  requestBodies:
+    InvitationRequestPayload:
+      description: Details that need to initiate an invitation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InvitationRequestBody'
+      required: true
+    IntrospectRequestPayload:
+      description: Details that need to introspect an invitation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/IntrospectRequestBody'
+      required: true
+    AcceptanceRequestPayload:
+      description: Details that need to confirm an invitation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AcceptanceRequestBody'
+      required: true
+  parameters:
+    FilterQueryParam:
+      in: query
+      name: filter
+      required: false
+      description: Filtering the invitation based on the status. Status can be PENDING or EXPIRED.
+      schema:
+        type: string
+      example: status eq PENDING
+    LimitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: |
+        Maximum number of records to return
+        _This parameter is not supported yet._
+      schema:
+        type: integer
+      example: 10
+    OffsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: |
+        Starting index of the pagination
+        _This parameter is not supported yet._
+      schema:
+        type: integer
+      example: 0
+    sortOrderQueryParam:
+      in: query
+      name: sortOrder
+      required: false
+      description: |
+        Sort order of the returned records. Either ASC or DESC
+        _This parameter is not supported yet._
+      schema:
+        type: string
+        enum:
+          - ASC
+          - DESC
+    sortByQueryParam:
+      in: query
+      name: sortBy
+      required: false
+      description: |
+        Sort by a specific field
+        _This parameter is not supported yet._
+      schema:
+        type: string
+        example: createdTime
+  schemas:
+    InvitationRequestBody:
+      type: object
+      required:
+        - usernames
+      properties:
+        usernames:
+          type: array
+          description: List of usernames of the users who will be invited to the organization. This can be an email or an alphanumeric username.
+          items:
+            type: string
+          example:
+            - xyz@gmail.com
+            - abc@gmail.com
+        userDomain:
+          type: string
+          description: Userstore domain of the inviting user in the parent organization. If not provided, PRIMARY userstore will be used by default.
+          example: PRIMARY
+        roles:
+          type: array
+          description: Role assignments which the user will be assigned to.
+          items:
+            type: string
+          example:
+            - f5b761ca-62f2-48ba-935b-f7b460f58e5c
+            - 657fgq22-62f2-48ba-935b-f7bfgh6438fd
+        groups:
+          type: array
+          description: Group assignments which the user will be assigned to.
+          items:
+            type: string
+          example:
+            - 48badf-rty20-48ba-935b-f7b460f58e5c
+            - fd234100-c115-45dc-ad11-70846b783866
+        properties:
+          type: array
+          description: Custom properties of invitation which can be used in runtime but doesn't
+            persist as invitation information.
+          items:
+            $ref: '#/components/schemas/Property'
+      example:
+        {
+          "usernames": [
+            "xyz@gmail.com",
+            "abc@gmail.com"
+          ],
+          "roles": [
+            "f5b761ca-62f2-48ba-935b-f7b460f58e5c",
+            "657fgq22-62f2-48ba-935b-f7bfgh6438fd"
+          ],
+          "groups": [
+            "48badf-rty20-48ba-935b-f7b460f58e5c",
+            "fd234100-c115-45dc-ad11-70846b783866"
+          ],
+          "properties": [
+            {
+              "key" : "manageNotificationsInternally",
+              "value" : "true"
+            }
+          ]
+        }
+    InvitationSuccessListResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/InvitationSuccessResponse'
+      example:
+        [
+          {
+            "username": "xyz@gmail.com",
+            "result": {
+              "status": "Failed",
+              "errorCode": "OUI-10018",
+              "errorMessage": "Invitation already exists.",
+              "errorDescription": "An active invitation already exists for the user."
+            }
+          },
+          {
+            "username": "abc@gmail.com",
+            "result": {
+              "status": "Successful"
+            }
+          }
+        ]
+    InvitationSuccessResponse:
+      type: object
+      required:
+        - username
+        - result
+      properties:
+        username:
+          type: string
+          description: Username of the user who will be invited to the organization. This can be an
+            email or an alphanumeric username.
+          example: alex@gmail.com/alex
+        result:
+          type: object
+          description: Role assignments which the user will be assigned to.
+          properties:
+            status:
+              type: string
+              example: Successful/Failed
+            errorCode:
+              type: string
+              example: OUI-00000
+            errorMessage:
+              type: string
+              example: Some Error Message
+            errorDescription:
+              type: string
+              example: Some Error Description
+        confirmationCode:
+          type: string
+          description: Confirmation code for the invitation when internally managed notifications are disabled.
+          example: "3363329b-c8c5-4c71-9500-9ea8c4e77d45"
+    IntrospectRequestBody:
+      type: object
+      required:
+        - confirmationCode
+      properties:
+        confirmationCode:
+          type: string
+          example: 2663329b-c8c5-4c71-9500-9ea8c4e77d94
+    IntrospectSuccessResponse:
+      type: object
+      required:
+        - confirmationCode
+        - username
+        - userOrganization
+        - initiatedOrganization
+        - status
+      properties:
+        confirmationCode:
+          type: string
+          description: Confirmation code of the invitation which needs to be introspected.
+          example: 2663329b-c8c5-4c71-9500-9ea8c4e77d94
+        username:
+          type: string
+          description: Username of the user who will be invited to the organization. This can be an
+            email or an alphanumeric username.
+          example: alex@gmail.com/alex
+        userOrganization:
+          type: string
+          description: Organization which the user is residing.
+          example: 8763329b-c8c5-4c71-9500-9ea8c4e77345
+        initiatedOrganization:
+          type: string
+          description: Organization which the invitation is initiated.
+          example: 1239329b-c8c5-4c71-9500-9ea8c4e70987
+        status:
+          type: string
+          description: Status of the invitation.
+          example: PENDING/EXPIRED
+      example:
+        {
+          "confirmationCode": "2663329b-c8c5-4c71-9500-9ea8c4e77d94",
+          "username": "abc@gmail.com",
+          "userOrganization": "10084a8d-113f-4211-a0d5-efe36b082211",
+          "initiatedOrganization": "c7af5764-ceb9-4f64-8848-f04520df99ef",
+          "status": "PENDING"
+        }
+    AcceptanceRequestBody:
+      type: object
+      required:
+        - confirmationCode
+      properties:
+        confirmationCode:
+          type: string
+          example: 2663329b-c8c5-4c71-9500-9ea8c4e77d94
+    InvitationsListResponse:
+      type: object
+      properties:
+        invitations:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvitationResponse'
+      example:
+        {
+          "invitations": [
+            {
+              "id": "4ec7e4d6-7979-4b0f-b7e1-e5737b1006b6",
+              "username": "john",
+              "email": "john@gmail.com",
+              "roles": [
+                {
+                  "displayName": "Administrator",
+                  "id": "78b97c7a-faf1-441f-8c93-c22e5daf39f0",
+                  "audience": [
+                    {
+                      "value": "85504311-3a66-4a2f-bda1-eb37592a3d7c",
+                      "display": "Console",
+                      "type": "application"
+                    }
+                  ]
+                },
+                {
+                  "displayName": "Administartor",
+                  "id": "aa82a741-1bf9-4855-b676-d590381f2453",
+                  "audience": [
+                    {
+                      "value": "43f8a68b-1a39-40a6-a4cd-25e9581c95a0",
+                      "display": "Pet Care App",
+                      "type": "application"
+                    }
+                  ]
+                }
+              ],
+              "groups": [
+                {
+                  "displayName": "group2",
+                  "id": "47cb13fa-3c15-4dc4-8f7a-1b5bf63d451b"
+                },
+                {
+                  "displayName": "group1",
+                  "id": "69c833c5-ee01-4ad1-95ab-3e01a58efc73"
+                }
+              ],
+              "status": "PENDING",
+              "expiredAt": "2024-01-22 13:09:41.702"
+            },
+            {
+              "id": "78652ff3-b9ab-4252-b73e-f7a1545fd50a",
+              "username": "abc",
+              "email": "abc@gmail.com",
+              "roles": [
+                {
+                  "displayName": "Administrator",
+                  "id": "78b97c7a-faf1-441f-8c93-c22e5daf39f0",
+                  "audience": [
+                    {
+                      "value": "85504311-3a66-4a2f-bda1-eb37592a3d7c",
+                      "display": "Console",
+                      "type": "application"
+                    }
+                  ]
+                },
+                {
+                  "displayName": "Administartor",
+                  "id": "aa82a741-1bf9-4855-b676-d590381f2453",
+                  "audience": [
+                    {
+                      "value": "43f8a68b-1a39-40a6-a4cd-25e9581c95a0",
+                      "display": "Pet Care App",
+                      "type": "application"
+                    }
+                  ]
+                }
+              ],
+              "groups": [
+                {
+                  "displayName": "group2",
+                  "id": "47cb13fa-3c15-4dc4-8f7a-1b5bf63d451b"
+                },
+                {
+                  "displayName": "group1",
+                  "id": "69c833c5-ee01-4ad1-95ab-3e01a58efc73"
+                }
+              ],
+              "status": "PENDING",
+              "expiredAt": "2024-01-23 12:48:41.064"
+            }
+          ]
+        }
+    InvitationResponse:
+      type: object
+      required:
+        - id
+        - username
+        - email
+        - status
+      properties:
+        id:
+          type: string
+          example: f7594498-5b52-4201-abd5-d7cf72565c73
+        username:
+          type: string
+          example: alex@gmail.com/alex
+        email:
+          type: string
+          example: alex@gmail.com
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleAssignmentResponse'
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupAssignmentResponse'
+        status:
+          type: string
+          example: PENDING/EXPIRED
+        expiredAt:
+          type: string
+          example: 2021-08-10T10:15:30.00Z
+    GroupAssignmentResponse:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: 'sales'
+        id:
+          type: string
+          example: 'f5b761ca-62f2-48ba-935b-f7b460f58e5c'
+    RoleAssignmentResponse:
+      type: object
+      properties:
+        displayName:
+          type: string
+          example: 'loginRole'
+        id:
+          type: string
+          example: '4645709c-ea8c-4495-8590-e1fa0efe3de0'
+        audience:
+          type: object
+          items:
+            $ref: '#/components/schemas/Audience'
+    Audience:
+      type: object
+      properties:
+        value:
+          type: string
+          example: '3645709f-ea8d-5595-7690-e1fa0efe3df9'
+        display:
+          type: string
+          example: 'My Org'
+        type:
+          type: string
+          example: 'organization'
+    Property:
+      type: object
+      properties:
+        key:
+          type: string
+          example: "manageNotificationsInternally"
+        value:
+          type: string
+          example: "false"
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: OUI-00000
+          description: An error code.
+        message:
+          type: string
+          example: Some Error Message
+          description: An error message.
+        description:
+          type: string
+          example: Some Error Description
+          description: An error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+          description: An error trace identifier.
+  #--------------------------------------------------------
+  # Descriptions of error responses.
+  #--------------------------------------------------------
+  responses:
+    NotFound:
+      description: Resource is not found.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication information is missing or invalid.
+    Forbidden:
+      description: Access forbidden.
+    ServerError:
+      description: Internal server error.
+      content:
+        'application/json':
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}

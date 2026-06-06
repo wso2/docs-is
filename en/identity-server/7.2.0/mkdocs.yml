@@ -958,6 +958,9 @@ nav:
     - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
     - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
     - Secure Agentic AI Systems with WSO2 Identity Server: tutorials/secure-agentic-ai-systems.md
+    - Integrating WSO2 Identity Server With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
+    - Integrating WSO2 Identity Server With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
+    - Secure MCP servers with WSO2 Identity Server and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -1406,7 +1409,7 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
         - DPoP: references/token-binding/dpop.md
-      - Token hashing: references/token-hashing.md
+      - Client Secret & Token hashing: references/client-secret-and-token-hashing.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md

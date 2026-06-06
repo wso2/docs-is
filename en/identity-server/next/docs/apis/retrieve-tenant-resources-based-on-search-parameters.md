@@ -14,7 +14,7 @@ REST API allows you to perform cross-tenant search for resources.
 
 The search context URL should be as follows:
 
-`         https://{host}:{port}/t/{tenant-domain}/api/identity/config-mgt/v1.0/search?$filter={search-query}        `
+`         https://{host}:{port}/t/{tenant-domain}/api/identity/config-mgt/v1.0/search?filter={search-query}        `
 
 Here, the value of `         {search-query}        ` should be in the
 form of a configuration management search query. For information on how
@@ -202,13 +202,13 @@ for a URL. When you are trying out these scenarios, fill the {host},
 <p>Super tenant:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">https:<span class="co">//{host}:{port}/api/identity/config-mgt/v1.0/search?$filter={search-query}</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">https:<span class="co">//{host}:{port}/api/identity/config-mgt/v1.0/search?filter={search-query}</span></a></code></pre></div>
 </div>
 </div>
 <p>Tenant:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">https:<span class="co">//{host}:{port}/t/{tenant-domain}/api/identity/config-mgt/v1.0/search?$filter={search-query}</span></a></code></pre></div>
+<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">https:<span class="co">//{host}:{port}/t/{tenant-domain}/api/identity/config-mgt/v1.0/search?filter={search-query}</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -218,7 +218,7 @@ for a URL. When you are trying out these scenarios, fill the {host},
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">https:<span class="co">//localhost:9443/api/identity/config-mgt/v1.0/search?$filter=tenantDomain eq ‘carbon.super’</span></a></code></pre></div>
+<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">https:<span class="co">//localhost:9443/api/identity/config-mgt/v1.0/search?filter=tenantDomain eq ‘carbon.super’</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -228,7 +228,7 @@ for a URL. When you are trying out these scenarios, fill the {host},
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">curl -k -v --user admin:admin GET &#39;https:<span class="co">//localhost:9443/api/identity/config-mgt/v1.0/search?$filter=%28tenantDomain%20eq%20%27carbon.super%27%29&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">curl -k -v --user admin:admin GET &#39;https:<span class="co">//localhost:9443/api/identity/config-mgt/v1.0/search?filter=%28tenantDomain%20eq%20%27carbon.super%27%29&#39;</span></a></code></pre></div>
 </div>
 </div>
 </div></td>

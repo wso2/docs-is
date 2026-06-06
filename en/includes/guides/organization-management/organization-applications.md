@@ -17,6 +17,12 @@ Organization administrators can create and mange applications directly within th
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
+!!! note
+
+    By default, applications created within an organization use the root organization's token issuer. As an organization administrator, you can change this behavior and configure an application to use either the root organization's token issuer or your organization’s own token issuer.
+
+    For more information on the use cases to select the token issuer, see [Selecting the appropriate token issuer for organization applications]({{base_path}}/guides/organization-management/select-token-issuer-for-organization-apps).
+
 You can use either the Console or the API to create an application in an organization.
 
 === "Using the Console"
@@ -37,7 +43,7 @@ You can use either the Console or the API to create an application in an organiz
 
     To create an application,
     
-    1. Get a bearer token with the `internal_org_application_mgt_create` scope. Learn more about [accessing organization APIs]     ({{base_path}}apis/organization-apis/authentication/)
+    1. Get a bearer token with the `internal_org_application_mgt_create` scope. Learn more about [accessing organization APIs]({{base_path}}/apis/organization-apis/authentication/)
     
     2. Use the [Application management REST API]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Applications/operation/createApplication) to create an application in an organization.
 

@@ -57,6 +57,9 @@ backchannel
 frontchannel
 URL
 timeframe
+appender
+appenders
+servlet
 [Aa]pprovers?
 server_version
 [Uu]serstore

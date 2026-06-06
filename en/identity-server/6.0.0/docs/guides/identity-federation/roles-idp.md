@@ -32,4 +32,4 @@ To configure the roles of the identity provider:
     role_claim_value_attribute_separator=","
     ```
     
-    If this is not configured and if the **no MulitAttributeSeparator** is configured, the default separator will be " **,,,** ".
+    If this is not configured and if the **no MultiAttributeSeparator** is configured, the default separator will be " **,,,** ".

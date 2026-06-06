@@ -1,0 +1,3 @@
+---
+template: templates/connectors.html
+---
