@@ -14,8 +14,8 @@ An organization in Asgardeo will be your own unique space and it will contain yo
 !!! tip "Access the Asgardeo Console"
     As an organization owner or administrator, you can manage your organizations, applications, and users through the Asgardeo Console. Make sure to use the appropriate console URL based on the region chosen during registration.
 
-    - US Region: [Asgardeo Console (US)](https://console.asgardeo.io/)
-    - EU Region: [Asgardeo Console (EU)](https://console.eu.asgardeo.io/)
+    - US Region: https://console.asgardeo.io
+    - EU Region: https://console.eu.asgardeo.io
 
 ## Create a user
 
