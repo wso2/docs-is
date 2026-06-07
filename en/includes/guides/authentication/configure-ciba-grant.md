@@ -46,9 +46,9 @@ Follow the steps given below to test the CIBA flow.
 1. The client application sends a backchannel authentication request to the `/oauth2/ciba` endpoint:
 
     ```bash
-    curl -v -k -X POST {{base_url_sample}}/oauth2/ciba \
-    --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
-    --header "Content-Type:application/x-www-form-urlencoded" \
+    curl -k https://localhost:9443/oauth2/ciba \
+    -u CLIENT_ID:CLIENT_SECRET \
+    -H "Content-Type: application/x-www-form-urlencoded" \
     --data-urlencode "scope=openid profile" \
     --data-urlencode "login_hint=admin" \
     --data-urlencode "binding_message=Please authenticate to My App"
@@ -102,7 +102,7 @@ To request an OBO token via CIBA, include the agent's `actor_token` parameter in
 
 ```bash
 curl -v -k -X POST {{base_url_sample}}/oauth2/ciba \
---header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
+-u CLIENT_ID:CLIENT_SECRET \
 --header "Content-Type:application/x-www-form-urlencoded" \
 --data-urlencode "scope=openid profile" \
 --data-urlencode "login_hint=admin" \
