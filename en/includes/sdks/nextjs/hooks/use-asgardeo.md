@@ -51,7 +51,7 @@ The hook returns all properties and methods provided by `AsgardeoContextProps`:
 
 If `useAsgardeo` is called outside of an `AsgardeoProvider`, it throws:
 
-```
+```text
 Error: useAsgardeo must be used within an AsgardeoProvider
 ```
 
