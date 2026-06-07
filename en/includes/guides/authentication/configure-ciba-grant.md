@@ -46,7 +46,7 @@ Follow the steps given below to test the CIBA flow.
 1. The client application sends a backchannel authentication request to the `/oauth2/ciba` endpoint:
 
     ```bash
-    curl -k {{ base_url_sample }}/oauth2/ciba \
+    curl -v -k -X POST {{base_url_sample}}/oauth2/ciba \
     -u CLIENT_ID:CLIENT_SECRET \
     -H "Content-Type:application/x-www-form-urlencoded" \
     --data-urlencode "scope=openid profile" \
