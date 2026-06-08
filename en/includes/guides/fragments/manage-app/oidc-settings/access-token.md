@@ -1,72 +1,23 @@
 <!-- markdownlint-disable-next-line -->
-#### Token type  
-{{product_name}} supports the following token types.
+#### Token type
 
-- **Opaque**: Opaque tokens are plain text tokens. If a resource server wants to know information related to an opaque token, it has to call the introspection endpoint and receive information related to tokens. An example for a opaque token response is shown below.
+Select the access token type to issue for this application. {{product_name}} supports **Opaque** (reference token) and **JWT** (self-contained) token types.
 
-    ```json
-    {
-    "access_token": "9fac7747-bb2d-46be-bef2-a95b2f69f8b2",
-    "scope": "openid",
-    "id_token": "eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiJhYjdlMDNlMGQ3MzlkNmVlNmQxYTJkMGYwMTk0NDJiZDJiMDE5MDQyNjhiYzY5ZTkyYTg3OTViMjViYmU1NTdkIiwiYXRfaGFzaCI6IkNYb2hyLU9kZ1pISTF6VElvNHF6cmciLCJhdWQiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwiY19oYXNoIjoiajBhd1lkTGtOVF9mdVBzNVcwZ2VFUSIsInN1YiI6IkFsaWNhQGJpZnJvc3QuY29tIiwibmJmIjoxNjIzOTA0ODgzLCJhenAiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuYXNnYXJkZW8uaW9cL3RcL2JpZnJvc3RcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MjM5MDg0ODMsImlhdCI6MTYyMzkwNDg4M30.XHNsUSAcaRAFvOmWB366fdhbQzQxsDiJC0ADD1kiWpiFentvl6fh3h1ITN-x92623cJDYZbC-YK_OdeZ3X7hYLHOK6UXu_gEA4GIaExl7B3iWB9XLukdbU67AX-QpqPFbPgYLqq3CIyyYUxjDC9F22CQreWREc8neLkMW0ejMvZSK7q3hNtuxh6Ox2yhoIJT4KgCygZO259L8xzp6ZuCNDp39nIRsj4zjTOuvz92Md6DC_eauS1BF0SaIZO4YG1PW-FVfmOppcqE0P3MCH8D3EOvmSj2ZqSJRy5hki8E7LOmBhUp4O6yLPWEgFf8QGNa2xAIWK2YqX4kezEyj6Iftw",
-    "token_type": "Bearer",
-    "expires_in": 3522
-    }
-    ```
-
-- **JWT**: JWT tokens are self-contained verifiable access tokens. If a resource server wants to know the information related to that token, it can decode the token and get the required information without any additional network calls. An example for a JWT token response is shown below.
-
-    ```json
-    {
-    "access_token": "eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJhdCtqd3QifQ.eyJzdWIiOiJBbGljYUBiaWZyb3N0LmNvbSIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwibmJmIjoxNjIzOTA0ODA1LCJhenAiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwic2NvcGUiOiJvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuYXNnYXJkZW8uaW9cL3RcL2JpZnJvc3RcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MjM5MDg0MDUsImlhdCI6MTYyMzkwNDgwNSwianRpIjoiOWZhYzc3NDctYmIyZC00NmJlLWJlZjItYTk1YjJmNjlmOGIyIn0.ETimDfsoXiV2wqkCy7ZWZ-cO3mK8VaGKXvbBeFd8hh5TceGppRvrOs_0Kxez6p8gVRTrCbv-iBIrJFikl_I_euqTk30-JfPxvh0ox5RxY_4nsXs8GGycJwL40XfssE5BLlFSff2YIsbvy6Mbih8_Jerb-RA6j7cAZSII_T-4ATD7mk9DeXmK_-jwqBoyH0UNtAxJKLgfIs8G2yIiioaS4rSnX8tEGGvPvcaDzeTdNx2RNKod_EYlWDNJVtJHUf61lstu4WSA0pdHyP5_Fpbhe4pu_FaXeSMyAwsHYIENWVarB8kknvyUnL51lkoOrIJaSHRjqIbSNteIJ3QyEQ-a8Q",
-    "scope": "openid",
-    "id_token": "eyJ4NXQiOiJZemM1T1Rnd1pURTNNV1F6TVdFek5ERm1OelZoTTJOaU9UQmxOamN3TlRJNU9HTTBNbVExWWprd1lqZzJNVEl3WldNd056TTRNemcxWkdJeVpEZzNaQSIsImtpZCI6Ill6YzVPVGd3WlRFM01XUXpNV0V6TkRGbU56VmhNMk5pT1RCbE5qY3dOVEk1T0dNME1tUTFZamt3WWpnMk1USXdaV013TnpNNE16ZzFaR0l5WkRnM1pBX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJpc2siOiJhYjdlMDNlMGQ3MzlkNmVlNmQxYTJkMGYwMTk0NDJiZDJiMDE5MDQyNjhiYzY5ZTkyYTg3OTViMjViYmU1NTdkIiwiYXRfaGFzaCI6IjZSWkQ4a2lZYkFpZkh4OENldWJUcXciLCJhdWQiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwiY19oYXNoIjoiWjVPXzk5cmZFSkFabjJSUl9yTEhxZyIsInN1YiI6IkFsaWNhQGJpZnJvc3QuY29tIiwibmJmIjoxNjIzOTA0ODA1LCJhenAiOiJXc29xOHQ0bkhXODBnU25QZnlEdlJiaUNfX0VhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvYWNjb3VudHMuYXNnYXJkZW8uaW9cL3RcL2JpZnJvc3RcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MjM5MDg0MDUsImlhdCI6MTYyMzkwNDgwNSwic2lkIjoiOTE3MzQzOGQtNDFlNy00MmFhLWFmZTctNjlkNDM3Njk1NTRlIn0.f9rTgJtDD6VAUQ1fXZCbiUtg66B0Q5nNSgGTIbrCI6aBC8sn2QmhI4YFqXntj72b2T7-TTYXiY4k6iQH665Oc_KfhxJIwrCW4X96h6dMMHcDMQYuP5blZNMuP8fi42sFAVgAUcs4B5Lfq-nIiPrqO90XGJVyrzJEdSoGsgbX9fg6HWbx016Shla2oKeVzsvZra6uflk4S1bsEVnk5gmRjZ25Vueqtb5qJW291i38-dKhO6FDEkAJyw_QWG6nK_ZpOMx4GW6qj0GTEKrC_TuUTp5hUX1xUnpLRFHcN8WAQoe7_g6JyLOUQzQSFTr-CniwwftwnK0DcGq916bRPvTEjw",
-    "token_type": "Bearer",
-    "expires_in": 3600
-    }
-    ```
-
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
-    !!! note
-        By default, the `scope` claim in JWT access tokens uses a space-separated string format (e.g., `"scope": "openid profile email"`). This format complies with the **JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens ([RFC 9068](https://www.rfc-editor.org/rfc/rfc9068.html))**.
-
-        You can change this to a JSON array format (e.g., `"scope": ["openid", "profile", "email"]`), but this is **not recommended** as it deviates from the standard specification.
-
-        If you still require this configuration, it can be applied at two levels:
-
-        - **Application level**: Set the `enableJwtScopeAsArray` property in the application's `accessToken` configuration via the [Application Management API]({{base_path}}/apis/{% if product_name == "Asgardeo" %}application-management{% else %}application-rest-api{% endif %}/). This overrides the organization-level setting for the specific application.
-        {% if product_name == "WSO2 Identity Server" %}
-        - **Organization level**: Use the [Server Configuration API]({{base_path}}/apis/configs-rest-api/#tag/Inbound-Authentication-Configurations/operation/updateOAuth2InboundAuthConfig) to set the `enableJwtScopeAsArray` property. This applies to all applications in the organization unless overridden at the application level.
-        {% endif %}
-        {% if product_name == "Asgardeo" %}
-        - **Organization level**: Set the `enableJwtScopeAsArray` property via the following API. This applies to all applications in the organization unless overridden at the application level.
-
-            Get an access token with the `internal_config_update` scope and use it to execute the following cURL:
-
-            ``` curl
-            curl --location --request PATCH 'https://api.asgardeo.io/t/<organization_name>/api/server/v1/configs/authentication/inbound/oauth2' \
-            --header 'Content-Type: application/json' \
-            --header 'Authorization: Bearer <access_token>' \
-            --data '{
-                "enableJwtScopeAsArray": true
-            }'
-            ```
-        {% endif %}
-    {% endif %}
+!!! note
+    Learn about [access token types and validation]({{base_path}}/references/tokens/access-tokens/#token-types) to understand how each type works at runtime.
 
 {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+
 #### Access Token Attributes
 
 For **JWT** access tokens, this feature enables you to specify which user attributes are included in the access token. As a result, when a user logs in to an application, only the chosen attributes are shared, providing enhanced security and flexibility.
 
-!!! note 
+!!! note
     All configured user attributes are included in the access token, regardless of the requested scopes.
 
 !!! warning
     For custom attributes to appear in the access token, you must explicitly add them to an OIDC scope. Without this mapping, custom attributes will not be included in the access token, even if they are configured under **Access Token Attributes**.
-    For custom attributes to appear in the access token, you must explicitly add them to an OIDC scope. Without this mapping, custom attributes will not be included in the access token, even if they are configured under **Access Token Attributes**.
 
-    To map custom attributes to an OIDC scope, configure the scope settings in your application's OIDC configuration and ensure the custom attributes are associated with the appropriate scope.
     To map custom attributes to an OIDC scope, [configure the custom attributes for the appropriate scopes]({{base_path}}/guides/users/attributes/manage-scopes/#edit-scopes) and ensure that your application's OIDC configuration is updated to request those scopes.
 
 ![Access-Token-Attributes]({{base_path}}/assets/img/guides/authorization/access-token/access-token-attributes.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -138,7 +89,9 @@ Token binding securely links authentication tokens to client devices to prevent 
     - **Revoke token upon user logout** - When enabled, a user logout from a session causes access tokens to be revoked provided the logout request contains either `client_id` or `id_token_hint`. Learn more about [logout requests]({{base_path}}/guides/authentication/oidc/add-logout/).
 
 #### User access token expiry time
+
 This option specifies the validity period of an access token issued to a user in seconds. The default expiry time is 3600 seconds.
 
 #### Application access token expiry time
+
 This option specifies the validity period of an access token issued to an application when using the `Client Credentials` grant type in seconds.

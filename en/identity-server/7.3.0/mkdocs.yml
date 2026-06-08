@@ -1462,6 +1462,11 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
         - DPoP: references/token-binding/dpop.md
+      - Tokens:
+        - Tokens: references/tokens/index.md
+        - Access tokens: references/tokens/access-tokens.md
+        - Refresh tokens: references/tokens/refresh-tokens.md
+        - ID tokens: references/tokens/id-tokens.md
       - Client Secret & Token hashing: references/client-secret-and-token-hashing.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md

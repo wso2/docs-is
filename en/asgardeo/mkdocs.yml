@@ -998,6 +998,11 @@ nav:
       - Token binding:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
+      - Tokens:
+        - Tokens: references/tokens/index.md
+        - Access tokens: references/tokens/access-tokens.md
+        - Refresh tokens: references/tokens/refresh-tokens.md
+        - ID tokens: references/tokens/id-tokens.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - Push Notification based authentication: references/push-notification-based-authentication.md
