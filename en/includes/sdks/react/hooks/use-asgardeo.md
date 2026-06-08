@@ -9,7 +9,7 @@ The `useAsgardeo` hook provides access to the Asgardeo authentication context in
 Import and use the hook in any functional component to access authentication data:
 
 ```typescript
-import useAsgardeo from '@asgardeo/react';
+import { useAsgardeo } from '@asgardeo/react';
 
 const MyComponent = () => {
   const { isSignedIn, user, signIn, signOut } = useAsgardeo();
