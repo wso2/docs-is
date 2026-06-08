@@ -33,6 +33,8 @@ This option specifies the validity period of a refresh token in seconds. The def
 
 Enabling **Graceful refresh token rotation** lets the previous refresh token stay usable for a short grace window after rotation. The client can then recover from missed token deliveries without interrupting the user session.
 
+![Graceful-Refresh-Token-Rotation]({{base_path}}/assets/img/guides/authorization/access-token/graceful-refresh-token-rotation.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 !!! note
     Learn about the [graceful refresh token rotation runtime rules]({{base_path}}/references/tokens/refresh-tokens/#graceful-refresh-token-rotation) including replay behavior and error responses.
 
