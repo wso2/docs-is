@@ -1,6 +1,6 @@
 {% if product == "asgardeo" %}
 
-# Anonymous profile to registered user
+# Unify anonymous and registered profiles
 
 !!! note
 

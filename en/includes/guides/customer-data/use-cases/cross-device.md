@@ -1,6 +1,6 @@
 {% if product == "asgardeo" %}
 
-# Omni channel data accumulation
+# Accumulate data across multiple devices
 
 !!! note
 
@@ -8,7 +8,7 @@
 
 ## Overview
 
-Omni channel data accumulation keeps a single user's activity together even when they reach your application from more than one device.
+This use case keeps a single user's activity together even when they reach your application from more than one device.
 
 A user interacts with the application anonymously on one device, and later does the same on another. Because neither session is signed in, each device starts as its own **temporary profile**. When the user signs in on each device, the Customer Data Service associates that device's profile with the authenticated user. Profiles that share the same `user_id` are then merged automatically into the one **permanent profile**, so the activity captured across devices is held together.
 

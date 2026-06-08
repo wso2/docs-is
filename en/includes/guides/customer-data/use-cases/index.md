@@ -23,8 +23,8 @@ These guides show common patterns for integrating with the Customer Data Service
 
 | Read | Use this when |
 |---|---|
-| [Anonymous profile to registered user]({{base_path}}/guides/customer-data/use-cases/self-registration) | A visitor interacts anonymously, then signs up, and their activity is consolidated into the new profile. |
-| [Omni channel data accumulation]({{base_path}}/guides/customer-data/use-cases/cross-device) | A user interacts anonymously across multiple devices and then signs in, and their activity is consolidated into a single profile. |
-| [Lead stitching with unification rules]({{base_path}}/guides/customer-data/use-cases/lead-stitching) | A visitor interacts anonymously across multiple applications or domains, and their activity is consolidated into a single profile based on a shared identifier. |
+| [Unify anonymous and registered profiles]({{base_path}}/guides/customer-data/use-cases/self-registration) | A visitor interacts anonymously, then signs up, and their activity is consolidated into the new profile. |
+| [Accumulate data across multiple devices]({{base_path}}/guides/customer-data/use-cases/cross-device) | A user interacts anonymously across multiple devices and then signs in, and their activity is consolidated into a single profile. |
+| [Stitch user profiles across websites]({{base_path}}/guides/customer-data/use-cases/lead-stitching) | A visitor interacts anonymously across multiple applications or domains, and their activity is consolidated into a single profile based on a shared identifier. |
 
 {% endif %}

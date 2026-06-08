@@ -1,6 +1,6 @@
 {% if product == "asgardeo" %}
 
-# Lead stitching with unification rules
+# Stitch user profiles across websites
 
 !!! note
 
@@ -19,7 +19,7 @@ A prospective customer interacts anonymously with one of your applications and p
 
 !!! note
 
-    Unlike [anonymous profile to registered user]({{base_path}}/guides/customer-data/use-cases/self-registration) and [cross-device data accumulation]({{base_path}}/guides/customer-data/use-cases/cross-device), which merge profiles by the `user_id` assigned at sign-in, this scenario stitches profiles **before an account exists**, so it relies on a unification rule matching a shared attribute.
+    Unlike [unifying anonymous and registered profiles]({{base_path}}/guides/customer-data/use-cases/self-registration) and [accumulating data across multiple devices]({{base_path}}/guides/customer-data/use-cases/cross-device), which merge profiles by the `user_id` assigned at sign-in, this scenario stitches profiles **before an account exists**, so it relies on a unification rule matching a shared attribute.
 
 ## Configure
 
