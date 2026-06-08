@@ -1,7 +1,8 @@
 {% if product == "asgardeo" %}
+
 <h1>Enable Customer Data Service <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
 
-!!! Note
+!!! note
 
     The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
 
@@ -18,7 +19,7 @@ The Customer Data Service is hidden behind Feature Preview while in Preview. Onc
 
 ## Disable Customer Data Service
 
-To turn the feature off again:
+To turn the feature off again
 
 1. Click on the user dropdown in the top right corner.
 2. Select **Feature Preview**.
