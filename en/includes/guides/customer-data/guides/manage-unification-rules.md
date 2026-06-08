@@ -2,7 +2,11 @@
 
 # Manage unification rules
 
-Unification rules tell the Customer Data Service when two profiles should be recognised as the same person and merged. Manage them from **Customer Data** → **Unification Rules** in the console.
+!!! note
+
+    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
+
+Unification rules tell the Customer Data Service when two profiles should be recognized as the same person and merged. Manage them from **Customer Data** → **Unification Rules** in the console.
 
 For a conceptual overview see [Unification rules]({{base_path}}/guides/customer-data/concepts/unification-rules).
 

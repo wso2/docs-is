@@ -2,7 +2,11 @@
 
 # Unification rules
 
-**Unification rules** tell the Customer Data Service when two separate profiles should be recognised as the same person and merged. Each rule specifies a profile attribute to match on, if two profiles share the same value for that attribute, they are candidates for merging.
+!!! note
+
+    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
+
+**Unification rules** tell the Customer Data Service when two separate profiles should be recognized as the same person and merged. Each rule specifies a profile attribute to match on, if two profiles share the same value for that attribute, they are candidates for merging.
 
 ---
 

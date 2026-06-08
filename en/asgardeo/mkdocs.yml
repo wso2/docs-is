@@ -591,6 +591,11 @@ nav:
         - Manage:
           - Manage profile attributes: guides/customer-data/guides/manage-profile-attributes.md
           - Manage unification rules: guides/customer-data/guides/manage-unification-rules.md
+        - Use cases:
+          - Use cases: guides/customer-data/use-cases/index.md
+          - Anonymous profile to registered user: guides/customer-data/use-cases/self-registration.md
+          - Omni channel data accumulation: guides/customer-data/use-cases/cross-device.md
+          - Lead stitching with unification rules: guides/customer-data/use-cases/lead-stitching.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:

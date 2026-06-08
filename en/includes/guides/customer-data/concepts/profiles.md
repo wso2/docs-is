@@ -2,13 +2,17 @@
 
 # Profiles
 
-A **profile** is the central entity in the Customer Data Service. It represents a single person's collected data, their identity attributes, behavioural traits, and per application data unified across all interactions.
+!!! note
 
-![Profile List]({{base_path}}/assets/img/guides/customer-data/profile-list.png){: width="auto" style="display: block; margin: 0;"}
+    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
+
+A **profile** is the central entity in the Customer Data Service. It represents a single person's collected data, their identity attributes, behavioral traits, and per application data unified across all interactions.
+
+![Profile List]({{base_path}}/assets/img/guides/customer-data/temporary-profiles-list.png){: width="auto" style="display: block; margin: 0;"}
 
 ---
 
-## Temporary vs permanent profiles
+## Temporary and permanent profiles
 
 Profiles are either **temporary** (anonymous) or **permanent** (identified).
 
@@ -16,8 +20,7 @@ Profiles are either **temporary** (anonymous) or **permanent** (identified).
 
 - Created when an anonymous user first interacts (e.g. visits a website)
 - Has no `user_id`
-- Linked to a browser cookie (`cds_profile`)
-- Accumulates behavioural data during the anonymous session
+- Accumulates behavioral data during the anonymous session
 
 ### Permanent profile
 
@@ -34,7 +37,7 @@ Profiles are either **temporary** (anonymous) or **permanent** (identified).
 | `profile_id` | System generated UUID. Immutable. |
 | `user_id` | The user's ID from {{ product_name }}. Empty on anonymous profiles. |
 | `identity_attributes` | Attributes sourced from the identity system (e.g. email, phone, name). Keyed by attribute name. |
-| `traits` | Behavioural or preference data (e.g. download count, segment tags). |
+| `traits` | Behavioral or preference data (e.g. download count, segment tags). |
 | `application_data` | Per-application data, keyed by application identifier. |
 | `meta.created_at` | When the profile was created. Read-only. |
 | `meta.updated_at` | When the profile was last modified. Read-only. |
