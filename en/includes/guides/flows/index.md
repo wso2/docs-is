@@ -10,7 +10,7 @@ Design and customize key user journeys in your application with Flows. A flow de
 
 - **Invited user registration** - Let new users complete creating their accounts when administrators invite them. Design secure flows to verify their identities and set their passwords.
 
-Building with starter templates, widgets, and other components provides complete control over how users interact with the application, all without writing complex code.
+Use starter templates, widgets, and other components to control how users interact with your application. No complex coding required.
 
 ## Start building flows
 

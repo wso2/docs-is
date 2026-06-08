@@ -10,7 +10,7 @@ In the **Flow Builder**, you can create a self-registration journey in two ways:
 
 ## Sample use case
 
-Imagine a scenario where the self-registration form is simplified to only request essential user details. For added security, the user's email address must be verified using a Magic Link before the account becomes active.
+Imagine a scenario where the self-registration form is simplified to only request essential user details. For added security, the flow verifies the user's email address using a Magic Link before the account becomes active.
 
 The flow works as follows:
 
@@ -35,7 +35,7 @@ To load the template,
 
 1. On the {{product_name}} console, navigate to Flows.
 
-2. Click on the **Self Registration** card. The Basic Details template is loaded onto the canvas by default.
+2. Click on the **Self Registration** card. This loads the Basic Details template onto the canvas by default.
 
 ![Step 1]({{base_path}}/assets/img/guides/flows/flow-registration-step-01.gif){: width="auto" style="display: block; margin: 0;"}
 
@@ -45,7 +45,7 @@ If the template isn't loaded automatically, click the `+` button next to the **B
 
 ![Step 2]({{base_path}}/assets/img/guides/flows/flow-registration-step-02.gif){: width="auto" style="display: block; margin: 0;"}
 
-### Step 2 – Tidy the form
+### Step 3 – Tidy the form
 
 Simplify the form to collect only the essentials for this registration flow.
 
@@ -55,7 +55,7 @@ Simplify the form to collect only the essentials for this registration flow.
 
 ![Step 3]({{base_path}}/assets/img/guides/flows/flow-registration-step-03.png){: width="auto" style="display: block; margin: 0;"}
 
-### Step 3 – Insert the Magic Link verification step
+### Step 4 – Insert the Magic Link verification step
 
 Insert the Magic Link verification step between the initial sign-up and the successful completion.
 
@@ -89,13 +89,21 @@ Once the flow has been fully configured and is ready for users:
 1. Click **Save Draft** to save all changes.
 2. On the top-right corner of the Flow Builder, turn the toggle **ON** to publish the flow.
 
-
 New users will now go through the simplified registration process with mandatory email verification using a Magic Link.
 
 With these changes, new users will only provide the essentials **Email** and **password** and must verify their email via Magic Link before completing registration.
 
+{% if product_name == "Asgardeo" %}
+
 !!! Note
-    When using a connection based sign up option (such as Google or Microsoft), configure the authorized redirect URL as: `https://{is_host}/t/{tenant-domain}/accounts/register`
+    When using a connection-based sign-up option (such as Google or Microsoft), configure the authorized redirect URL in the connection settings as: `https://accounts.asgardeo.io/t/{tenant-domain}/accounts/register`
+
+{% else %}
+
+!!! Note
+    When using a connection-based sign-up option (such as Google or Microsoft), configure the authorized redirect URL in the connection settings as: `https://{is_host}/t/{tenant-domain}/accounts/register`
+
+{% endif %}
 
 ## Reference
 
@@ -105,7 +113,7 @@ This section provides details on the configuration options available in the Self
 
 The Flow Completion Properties, configured on the End node, define the final actions that occur after a user successfully registers.
 
-- **Verify the account on flow completion:** Requires the user to confirm their account via an email link before they can sign in. This is useful for ensuring the user has access to the email they provided.
+- **Verify the account on flow completion:** Requires the user to confirm their account via an email link before they can sign in. Use this option to ensure the user has access to the email they provided.
 
     !!! Info
         This option won't be applied if the flow already includes a verification step (like Magic Link or Email/SMS OTP).
