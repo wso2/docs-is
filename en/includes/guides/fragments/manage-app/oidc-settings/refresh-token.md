@@ -31,7 +31,7 @@ This option specifies the validity period of a refresh token in seconds. The def
 !!! note
     This option is only applicable when **Renew refresh token** is enabled.
 
-Enabling **Graceful refresh token rotation** lets the previous refresh token remain usable for a short, configurable grace window after rotation, so the client can recover from missed token deliveries without interrupting the user session.
+Enabling **Graceful refresh token rotation** lets the previous refresh token stay usable for a short grace window after rotation. The client can then recover from missed token deliveries without interrupting the user session.
 
 !!! note
     Learn about the [graceful refresh token rotation runtime rules]({{base_path}}/references/tokens/refresh-tokens/#graceful-refresh-token-rotation) including replay behavior and error responses.

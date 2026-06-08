@@ -35,7 +35,7 @@ The following table describes the standard claims in an {{product_name}} ID toke
 | `aud` | Audience — the intended recipient(s) of the ID token. By default this is the client ID of the application. |
 | `azp` | Authorized party — the OAuth 2.0 client ID of the application that requested the token. |
 | `iat` | Issued at — the Unix timestamp when the token was issued. |
-| `exp` | Expiration time — the Unix timestamp after which the token must not be accepted. |
+| `exp` | Expiry time — the Unix timestamp after which the token must not be accepted. |
 | `nbf` | Not before — the Unix timestamp before which the token must not be accepted. |
 | `amr` | Authentication methods reference — an array of authentication method identifiers used during the authentication event. |
 | `at_hash` | Access token hash — a hash of the access token, used to bind the ID token to the access token. |
@@ -80,7 +80,7 @@ Validate an ID token immediately after receiving it from {{product_name}}, befor
 
 Every ID token is cryptographically signed. Verifying the signature confirms that the token was issued by {{product_name}} and has not been tampered with.
 
-1. Read the `alg` value from the token header and confirm it is an algorithm your application accepts. Reject tokens with the `none` algorithm outright.
+1. Read the `alg` value from the token header and confirm the algorithm is accepted by your application. Reject tokens with the `none` algorithm outright.
 2. Retrieve {{product_name}}'s public signing keys from the JWKS endpoint. Use the `kid` value in the token header to select the correct key.
 3. Verify the token signature against the header and payload using the retrieved public key.
 
@@ -127,7 +127,7 @@ ID tokens prove that a user authenticated — they are not authorization credent
 
 - **Audience mismatch**: The `aud` claim in an ID token is set to the client application's client ID, not to an API. A resource server that does not verify the audience could accept any ID token, including tokens stolen from unrelated client applications.
 - **No scopes**: ID tokens do not carry OAuth 2.0 scopes. Using them for API calls bypasses the scope mechanism that restricts which operations the user has authorized.
-- **No sender constraints**: Access tokens can be bound to the requesting client through [token binding]({{base_path}}/references/token-binding/), preventing replay if intercepted. ID tokens do not carry equivalent protections.
+- **No sender constraints**: Access tokens can be bound to the requesting client through [token binding]({{base_path}}/references/token-binding/), preventing replay if intercepted. ID tokens do not carry similar protections.
 
 Always present access tokens to resource servers. Use ID tokens only within the client application to verify user identity and establish a login session.
 

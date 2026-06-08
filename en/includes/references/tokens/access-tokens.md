@@ -1,6 +1,6 @@
 # Access tokens
 
-An access token is a short-lived credential that a client presents to a resource server to prove it is authorized to act on behalf of a user or application. {{product_name}} issues access tokens as part of OAuth 2.0 authorization flows.
+An access token is a short-lived credential that a client presents to a resource server to prove authorization to act on behalf of a user or application. {{product_name}} issues access tokens as part of OAuth 2.0 authorization flows.
 
 Access tokens are sent in the HTTP `Authorization: Bearer` header when calling protected APIs. They represent delegated authorization — what the client is permitted to do — rather than who the user is.
 
@@ -74,7 +74,7 @@ How a resource server validates an access token depends on the token type.
   - `iss` — the issuer must match your {{product_name}} organization's token endpoint.
   - `aud` — the audience must include the identifier of your resource server or client.
 
-If the access token has expired or is otherwise invalid, the resource server returns `HTTP 401 Unauthorized`. The client should then obtain a new access token using a refresh token, or re-initiate the authorization flow.
+If the access token has expired or is otherwise invalid, the resource server returns `HTTP 401 Unauthorized`. The client should then get a new access token using a refresh token, or restart the authorization flow.
 
 Learn how to implement token validation at a resource server in [Validate access tokens at a resource server]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/).
 
@@ -91,7 +91,7 @@ Learn more about [token binding types supported by {{product_name}}]({{base_path
 - **User access token expiry time** — applies to tokens issued on behalf of a user through flows such as the authorization code grant.
 - **Application access token expiry time** — applies to tokens issued directly to an application using the `client_credentials` grant type.
 
-Once an access token expires, the client must obtain a new one. If a refresh token was issued alongside the access token, the client can exchange it for a new access token without requiring the user to log in again.
+Once an access token expires, the client must get a new one. If a refresh token was issued alongside the access token, the client can exchange it for a new access token without requiring the user to log in again.
 
 !!! note
     To configure access token type, expiry, and binding settings for your application, see [OIDC settings for apps]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token).

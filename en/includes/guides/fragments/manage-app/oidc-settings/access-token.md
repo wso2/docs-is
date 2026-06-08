@@ -1,7 +1,7 @@
 <!-- markdownlint-disable-next-line -->
 #### Token type
 
-Select the type of access token to issue for this application. {{product_name}} supports **Opaque** (reference token) and **JWT** (self-contained) token types.
+Select the access token type to issue for this application. {{product_name}} supports **Opaque** (reference token) and **JWT** (self-contained) token types.
 
 !!! note
     Learn about [access token types and validation]({{base_path}}/references/tokens/access-tokens/#token-types) to understand how each type works at runtime.
