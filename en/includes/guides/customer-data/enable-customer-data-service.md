@@ -1,6 +1,6 @@
 {% if product == "asgardeo" %}
 
-<h1>Enable Customer Data Service <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
+<h1>Enable customer data service <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
 
 !!! note
 
@@ -25,7 +25,7 @@ To turn the feature off again
 2. Select **Feature Preview**.
 3. Toggle **Customer Data Service** to **Disabled** and close the dialog.
 
-The **Customer Data** entry is removed from the left navigation pane. Existing profile, attribute, and unification rule data is preserved while the feature is in Preview.
+The **Customer Data** entry is removed from the left navigation pane. Existing profile, attribute, and unification rule data is preserved while the feature is Disabled.
 
 ## Next steps
 
