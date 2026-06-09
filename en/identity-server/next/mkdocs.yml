@@ -964,6 +964,7 @@ nav:
           - Analyze login attempts: guides/analytics/elk-analytics/analyzing-login-attempts.md
           - Analyze active sessions: guides/analytics/elk-analytics/analyzing-active-sessions.md
           - ELK Alerts: guides/analytics/elk-analytics/elk-alert-types.md
+        - Moesif Analytics: guides/analytics/moesif-analytics.md
         - Web analytic solutions: guides/analytics/web-analytics-solutions.md
         - A/B Testing: guides/analytics/ab-testing.md
       - Multitenancy:
