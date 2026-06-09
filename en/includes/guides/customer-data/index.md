@@ -1,6 +1,6 @@
 {% if product == "asgardeo" %}
 
-# Customer Data
+# Customer data
 
 The Customer Data Service (CDS) collects and unifies data about your end users across every interaction with your applications. It gives each user a single profile that represents who they are and what they have done across your applications.
 
