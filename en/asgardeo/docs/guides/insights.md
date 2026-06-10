@@ -63,7 +63,7 @@ The following identity events are published. Each event includes contextual attr
     </tr>
     <tr>
       <td><b>Flow</b></td>
-      <td>Captures step-by-step execution of self-registration, password recovery, and invited-user registration flows, enabling funnel analysis.</td>
+      <td>Captures step-by-step execution of self-registration, password recovery, and invited-user registration flows, enabling funnel analysis. Steps that occur before the user account exists are tracked under an anonymous identifier, which is linked to the resulting user once the flow completes.</td>
       <td>Flow type, step type, node ID and type, context ID, organization, node response status and type, application ID, executor name, cross-organization indicator, timestamp, and error code.</td>
     </tr>
     <tr>

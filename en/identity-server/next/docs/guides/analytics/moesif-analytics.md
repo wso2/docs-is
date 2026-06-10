@@ -23,18 +23,20 @@ You manage your own Moesif subscription. You connect your WSO2 Identity Server t
 
 To make the **Insights** tab visible in the Console and enable Moesif publishing, add the following configurations to the `deployment.toml` file of your WSO2 Identity Server and restart the server.
 
-<!-- TODO: Confirm/replace with the final, complete set of TOML configurations required to enable the Moesif integration. -->
-
 ```toml
 [analytics.moesif]
 enabled = true
-provider_url = "https://api.moesif.net/v1/actions"
+provider_url = "https://api.moesif.net/v1"
 auth_type = "API_KEY"
 api_key_header = "X-Moesif-Application-Id"
-stream_name = "org.wso2.is.analytics.stream.MoesifData"
 stream_version = "1.0.0"
-inline_body = ""
 ```
+
+!!! note
+    `provider_url` is the base URL events are published to. The integration appends the
+    Moesif API path (for example `/actions` or `/users`) per event, so configure the base
+    URL without a trailing API path. If you publish through an intermediary (for example,
+    an event gateway), point `provider_url` at it instead.
 
 The following data publishers are available. You can enable the publishers you need (these can also be enabled per tenant from the **Insights** settings page in the Console):
 
@@ -50,9 +52,13 @@ enable = true
 
 [identity_mgt.events.schemes.moesifOrgSwitchPublisher.properties]
 enable = true
-```
 
-<!-- TODO: Add any remaining required TOML configurations here (for example, session and token publishers, and any other settings). -->
+[identity_mgt.events.schemes.moesifUserSessionPublisher.properties]
+enable = true
+
+[identity_mgt.events.schemes.moesifOAuthTokenIssuancePublisher.properties]
+enable = true
+```
 
 Once these configurations are added and the server is restarted, the **Insights** tab appears in the WSO2 Identity Server Console.
 
@@ -79,7 +85,7 @@ After the integration is enabled, each tenant configures its own connection to M
 
 2. On the Insights settings page, enter the Moesif **collector key** you obtained in Step 2 for this tenant.
 
-3. Enable the data publishers you want for this tenant (for example, authentication, registration, flow, and organization switch).
+3. Enable the data publishers you want for this tenant (authentication, session, token issuance, registration, flow, and organization switch).
 
 4. Save the configuration.
 
