@@ -672,6 +672,9 @@ nav:
             - Share users across organizations: guides/organization-management/share-user-profiles.md
             - Allow shared users to log in to organizations: guides/organization-management/shared-user-direct-login.md
             - Allow impersonation for shared users: guides/organization-management/shared-user-impersonation.md
+        - Manage organization agents:
+          - Share agents: guides/organization-management/share-agents.md
+          - Authorize access to MCP servers: guides/organization-management/mcp-server-inheritance.md
         - Customize organizations:
           - Organization settings:
             - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
@@ -839,6 +842,7 @@ nav:
     - Management APIs:
       - Action Management API: apis/action-management-rest-api.md
       - Agent Management API: apis/scim2-agents-rest-apis.md
+      - Agent Sharing API: apis/agent-share-rest-api.md
       - API resource management API: apis/api-resource-management-rest-api.md
       - Application management API: apis/application-management.md
       - App-native authentication API: apis/app-native-authentication-api.md
