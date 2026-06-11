@@ -674,6 +674,7 @@ nav:
             - Allow impersonation for shared users: guides/organization-management/shared-user-impersonation.md
         - Manage organization agents:
           - Share agents: guides/organization-management/share-agents.md
+        - Authorize MCP servers:
           - Authorize access to MCP servers: guides/organization-management/mcp-server-inheritance.md
         - Customize organizations:
           - Organization settings:

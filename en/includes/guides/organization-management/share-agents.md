@@ -1,6 +1,6 @@
 # Share agents with organizations
 
-If an AI agent defined in your **root organization** needs to operate within **child organizations** lower in the hierarchy, you can share that agent to that organization.
+If an AI agent defined in your **root organization** needs to operate within **child organizations** lower in the hierarchy, you can share that agent with the child organization.
 
 !!! tip "What you'll learn"
     - **Sharing agents** - How to share a root organization's agent with child organizations so it can operate within them.
@@ -40,7 +40,7 @@ When you share an agent, you select a **policy** that determines which organizat
 When sharing an agent, you can optionally assign roles to it in each child organization through a **role assignment** configuration:
 
 - **`NONE`** - Do not assign any roles to the agent via sharing.
-- **`SELECTED`** - Assign only the roles you list. Each role is identified by its display name and an audience (an `organization` or an `application`).
+- **`SELECTED`** - Assign only the roles you list. Each role is identified by its display name and audience (`organization` or `application`).
 
 !!! note
     If no role assignment is provided, the agent is shared with **no roles** by default (same as `NONE`).
@@ -114,7 +114,7 @@ To act on behalf of a user in a child organization, the agent uses the [On-Behal
 1. Redirect the user to the authorization endpoint, including the `requested_actor` parameter set to the shared agent's ID.
 
     ```bash
-    {{ api_base_path }}/oauth2/authorize?client_id=<client_id>&response_type=code&redirect_uri=<redirect_uri>&scope=<scopes>&code_challenge=<code_challenge>&code_challenge_method=S256&requested_actor=<agent_id>
+    {{ api_base_path }}/oauth2/authorize?client_id=<client_id>&response_type=code&redirect_uri=<redirect_uri>&scope=<scopes>&code_challenge=<code_challenge>&code_challenge_method=S256&requested_actor=<agent_id>&orgId=<org_id>&fidp=OrganizationSSO
     ```
 
 2. After the user authenticates and consents, exchange the returned authorization code for a delegated (OBO) token, attaching the agent's actor token.

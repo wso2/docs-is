@@ -907,6 +907,7 @@ nav:
             - Share users: guides/organization-management/share-user-profiles.md
           - Manage organization agents:
             - Share agents: guides/organization-management/share-agents.md
+          - Authorize MCP servers:
             - Authorize access to MCP servers: guides/organization-management/mcp-server-inheritance.md
           - Customize organizations:
             - Organization settings:
