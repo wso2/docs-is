@@ -2,7 +2,7 @@
 <Badge text="Paid subscription required" type="warn" />
 
 !!! warning
-    You need a paid WSO2 Identity Platform subscription to use this feature. If you don’t already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/) and contact the WSO2 Identity Platform sales team.
+    You need a paid WSO2 Identity Platform subscription to use this feature. If you don’t already have one, view the available [subscription plans](https://wso2.com/identity-platform/pricing/) and contact the WSO2 Identity Platform sales team.
 
 By default, the WSO2 Identity Platform interfaces presented to your users (during the login, sign-up, and account recovery flows), as well as the back-end services (such as APIs), are served by WSO2 Identity Platform on the following domains:
 

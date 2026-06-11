@@ -14,7 +14,7 @@ Welcome to the Nuxt quickstart guide! In this document, you will learn to build 
 
     **Authorized redirect URL:** `http://localhost:3000/api/auth/callback`
 
-Once you finish creating the application, note down the following values from its **Info** tab. You will need them to configure the Asgardeo Nuxt SDK.
+Once you finish creating the application, note down the following values from its **Info** tab. You will need them to configure the WSO2 Identity Platform Nuxt SDK.
 
 - **Client ID** - The unique identifier for your application.
 - **Client Secret** - The confidential secret generated for your application.
@@ -54,7 +54,7 @@ Create your new Nuxt app.
 
 ## Install `@asgardeo/nuxt`
 
-The Asgardeo Nuxt SDK is shipped as a Nuxt module. It registers a Nitro server plugin that runs the OAuth flow, a set of API routes under `/api/auth/*`, and auto-imported components and composables you can use anywhere in your app. Stop the dev server before installing the module.
+The WSO2 Identity Platform Nuxt SDK is shipped as a Nuxt module. It registers a Nitro server plugin that runs the OAuth flow, a set of API routes under `/api/auth/*`, and auto-imported components and composables you can use anywhere in your app. Stop the dev server before installing the module.
 
 === "npm"
 
@@ -90,7 +90,7 @@ ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
     If you are running in a local development or testing environment using self-signed SSL certificates, the application may fail to connect to {{ product_name }} due to TLS certificate validation errors. To bypass this check, add `NODE_TLS_REJECT_UNAUTHORIZED=0` to the `.env` file.
 {% endif %}
 
-## Register the Asgardeo Nuxt module
+## Register the WSO2 Identity Platform Nuxt module
 
 Open `nuxt.config.ts` and add `@asgardeo/nuxt` to the `modules` array. The SDK reads the credentials you set in `.env` automatically — you only need to declare the module.
 
@@ -121,7 +121,7 @@ Replace the contents of `app.vue` with the following.
 
 ## Add sign-in and sign-out to your app
 
-The Asgardeo Nuxt SDK provides `<SignInButton />` and `<SignOutButton />` to start and end a session. Combine them with `<SignedIn />` and `<SignedOut />` to render content based on the user's authentication state.
+The WSO2 Identity Platform Nuxt SDK provides `<SignInButton />` and `<SignOutButton />` to start and end a session. Combine them with `<SignedIn />` and `<SignedOut />` to render content based on the user's authentication state.
 
 Create a `pages/index.vue` file (or replace its contents if it already exists) with the following.
 
@@ -181,7 +181,7 @@ Update `pages/index.vue` to render the dropdown and a personalized greeting.
 
 ## Protect a page with middleware
 
-The Asgardeo Nuxt SDK provides a named middleware called `asgardeoMiddleware` that you can use to gate any route behind authentication. Unauthenticated visitors are redirected to the sign-in flow automatically.
+The WSO2 Identity Platform Nuxt SDK provides a named middleware called `asgardeoMiddleware` that you can use to gate any route behind authentication. Unauthenticated visitors are redirected to the sign-in flow automatically.
 
 Use `definePageMeta` to apply the `asgardeoMiddleware` middleware to any page. For example, create a `pages/dashboard.vue`:
 

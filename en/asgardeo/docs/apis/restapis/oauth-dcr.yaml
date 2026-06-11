@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: WSO2 Identity Platform - OAuth2 Dynamic Client Registration API
   description: |
-    This document specifies an OAuth2 Dynamic Client Registration endpoint for Asgardeo.
+    This document specifies an OAuth2 Dynamic Client Registration endpoint for WSO2 Identity Platform.
   version: 1.1.0
 servers:
 - url: https:/api.asgardeo.io/t/{org-name}/api/identity/oauth2/dcr/v1.1

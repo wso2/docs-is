@@ -46,9 +46,9 @@ Once completed, your API Authorization configuration should look as follows.
 
 ![WSO2 Identity Platform M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
 
-## Build the Asgardeo MCP Server
+## Build the WSO2 Identity Platform MCP Server
 
-Before configuring your code editor, you need to build the Asgardeo MCP Server executable locally.
+Before configuring your code editor, you need to build the WSO2 Identity Platform MCP Server executable locally.
 
 1. Clone the repository:
 

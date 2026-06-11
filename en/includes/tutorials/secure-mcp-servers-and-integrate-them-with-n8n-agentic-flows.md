@@ -4,7 +4,7 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-
 
 At the same time, no-code and low-code platforms such as [n8n](https://n8n.io/) are rapidly increasing the number of MCP clients being built. This creates an important question: **Are these clients integrating with MCP servers using proper security standards?**
 
-The good news is that secure MCP ecosystems can be built using {% if product_name == "Asgardeo" %}[Asgardeo](https://asgardeo.io/){% else %}[WSO2 Identity Server](https://wso2.com/products/downloads/?product=wso2is){% endif %}. By leveraging {{ product_name }} for authentication and authorization, you can protect MCP servers and ensure that only trusted clients and users are allowed to access specific tools.
+The good news is that secure MCP ecosystems can be built using {% if product_name == "WSO2 Identity Platform" %}[WSO2 Identity Platform](https://asgardeo.io/){% else %}[WSO2 Identity Server](https://wso2.com/products/downloads/?product=wso2is){% endif %}. By leveraging {{ product_name }} for authentication and authorization, you can protect MCP servers and ensure that only trusted clients and users are allowed to access specific tools.
 
 By the end of this tutorial, you will be able to run n8n locally, configure its MCP client secured by {{ product_name }}, set up a demo MCP server, and securely interact with it using OAuth 2.0 with PKCE from the n8n chat interface.
 

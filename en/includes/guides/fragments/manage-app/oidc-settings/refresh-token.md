@@ -23,7 +23,7 @@ When you set this configuration to `false`, renewed refresh tokens carry the rem
 
 This option specifies the validity period of a refresh token in seconds. The default value is 86400 seconds.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
 
 #### Graceful refresh token rotation
 
@@ -41,16 +41,16 @@ Enabling **Graceful refresh token rotation** lets the previous refresh token sta
 
 The number of seconds the previous refresh token remains usable after rotation. This period cannot extend beyond the refresh token's absolute expiry time set by **Refresh token expiry time**.
 
-{% if product_name == "Asgardeo" %}
-The maximum allowed validity period on Asgardeo is **60 seconds**.
+{% if product_name == "WSO2 Identity Platform" %}
+The maximum allowed validity period on WSO2 Identity Platform is **60 seconds**.
 {% endif %}
 
 #### Graceful refresh token reuse limit
 
 The maximum number of times the previous refresh token may be replayed inside the grace window. Once this limit is reached, further replay attempts are rejected.
 
-{% if product_name == "Asgardeo" %}
-The maximum allowed reuse limit on Asgardeo is **5**.
+{% if product_name == "WSO2 Identity Platform" %}
+The maximum allowed reuse limit on WSO2 Identity Platform is **5**.
 {% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}

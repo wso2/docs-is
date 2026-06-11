@@ -64,7 +64,7 @@ Follow the steps below to register an M2M application.
         <td>Create Email Template, Update Email Template, Delete Email Template, View Email Template</td>
     </tr>
     {% endif %}
-    {% if product_name == "Asgardeo" or server_version >= "7.1" %}
+    {% if product_name == "WSO2 Identity Platform" or server_version >= "7.1" %}
     <tr>
         <td>Management --> Notification Template Management API</td>
         <td>Create Notification Template, Update Notification Template, Delete Notification Template, View Notification Template</td>
@@ -74,7 +74,7 @@ Follow the steps below to register an M2M application.
         <td>Create Action, Update Action, Delete Action, View Action</td>
     </tr>
     {% endif %}
-    {% if product_name == "Asgardeo" or server_version >= "7.2" %}
+    {% if product_name == "WSO2 Identity Platform" or server_version >= "7.2" %}
     <tr>
         <td>Management --> Notification Sender Management API</td>
         <td>Create Notification Senders, Update Notification Senders, Delete Notification Senders, View Notification Senders</td>

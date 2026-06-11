@@ -110,7 +110,7 @@ Some of your data, such as logs, will be accessible outside your selected region
 Therefore, note that your organization–level logs may include personal information (such as the IP addresses and email addresses) of your end users.
 
 ### 3.5 Data privacy
-Learn about [WSO2 Identity Platform's privacy policy](https://wso2.com/asgardeo/privacy-policy/){target="_blank"} to understand how your data privacy is protected.
+Learn about [WSO2 Identity Platform's privacy policy](https://wso2.com/identity-platform/privacy-policy/){target="_blank"} to understand how your data privacy is protected.
 
 ### 3.6 Get support
 
@@ -232,7 +232,7 @@ WSO2 Identity Platform is free of charge but it constrains certain entities with
 
 ![Maximum allowed apps limit]({{base_path}}/assets/img/references/max-allowed-apps-reached.png)
 
-[https://wso2.com/asgardeo/pricing/](https://wso2.com/asgardeo/pricing/){target="_blank"} provides the details on the entity limits and by upgrading the tier or by contacting asgardeo support to increase the limit on certain entities.
+[https://wso2.com/identity-platform/pricing/](https://wso2.com/identity-platform/pricing/){target="_blank"} provides the details on the entity limits and by upgrading the tier or by contacting asgardeo support to increase the limit on certain entities.
 
 ## 7. Billing
 
@@ -312,7 +312,7 @@ WSO2 Identity Platform generates events for various user activities. You can pub
 
 ### 10.1 Product Delivery
 
-WSO2 Identity Platform, as a cloud offering, adheres to agile principles and emphasizes delivering features and fixes iteratively. We strive to deploy updates to production on a daily basis, ensuring faster delivery of new features, enhancements, and critical improvements. Our primary focus is addressing customer concerns, resolving pain points, and introducing enhancements that improve developer-friendliness while also delivering exciting new features. The changelog provides a comprehensive list of updates, innovations, and improvements introduced to the product. Explore the latest changes here: [https://wso2.com/asgardeo/changelog/](https://wso2.com/asgardeo/changelog/){target="_blank"}.
+WSO2 Identity Platform, as a cloud offering, adheres to agile principles and emphasizes delivering features and fixes iteratively. We strive to deploy updates to production on a daily basis, ensuring faster delivery of new features, enhancements, and critical improvements. Our primary focus is addressing customer concerns, resolving pain points, and introducing enhancements that improve developer-friendliness while also delivering exciting new features. The changelog provides a comprehensive list of updates, innovations, and improvements introduced to the product. Explore the latest changes here: [https://wso2.com/identity-platform/changelog/](https://wso2.com/identity-platform/changelog/){target="_blank"}.
 
 ### 10.2 New Features
 

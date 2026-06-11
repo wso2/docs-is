@@ -52,7 +52,7 @@ extra:
             - name: React SDK
               artifact_id: '@asgardeo/react'
               icon: assets/img/logo/react-logo.svg
-              description: React implementation of Asgardeo JavaScript SDK.
+              description: React implementation of WSO2 Identity Platform JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/react/latest
               version: ''
               documentation_link: sdks/react/overview
@@ -61,7 +61,7 @@ extra:
               artifact_id: '@asgardeo/vue'
               icon: assets/img/logo/vuejs-logo.svg
               dark_icon: assets/img/logo/vuejs-logo-dark.svg
-              description: Vue implementation of Asgardeo JavaScript SDK.
+              description: Vue implementation of WSO2 Identity Platform JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/vue/latest
               version: ''
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/vue
@@ -69,14 +69,14 @@ extra:
               artifact_id: '@asgardeo/nuxt'
               icon: assets/img/logo/nuxtjs-logo.svg
               dark_icon: assets/img/logo/nuxtjs-logo-dark.svg
-              description: Nuxt implementation of Asgardeo JavaScript SDK.
+              description: Nuxt implementation of WSO2 Identity Platform JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/nuxt/latest
               version: ''
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/nuxt
             - name: Next.js SDK
               artifact_id: '@asgardeo/nextjs'
               icon: assets/img/logo/nextjs-logo-dark.svg
-              description: Next.js implementation of Asgardeo JavaScript SDK.
+              description: Next.js implementation of WSO2 Identity Platform JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/nextjs/latest
               version: ''
               documentation_link: sdks/nextjs/overview
@@ -221,7 +221,7 @@ extra:
           - title: Community Help
             url: https://discord.com/invite/wso2
           - title: Enterprise Support
-            url: https://wso2.com/asgardeo/pricing/
+            url: https://wso2.com/identity-platform/pricing/
 
 watch:
   - ../theme/material
@@ -767,9 +767,9 @@ nav:
     - Secure Agentic AI Systems with WSO2 Identity Platform: tutorials/secure-agentic-ai-systems.md
     - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
-    - Integrating Asgardeo With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
-    - Integrating Asgardeo With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
-    - Secure MCP servers with Asgardeo and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
+    - Integrating WSO2 Identity Platform With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
+    - Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
+    - Secure MCP servers with WSO2 Identity Platform and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
   - SDKs:
     - Integrate WSO2 Identity Platform into your application: sdks/index.md
   - SDK Documentation:

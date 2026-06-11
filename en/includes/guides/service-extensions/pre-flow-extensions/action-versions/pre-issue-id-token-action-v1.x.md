@@ -560,7 +560,7 @@ Configure the authentication scheme when registering the action in {{product_nam
 - **Basic**: HTTP Basic authentication.
 - **Bearer**: OAuth 2.0 Bearer token in the <code>Authorization</code> header.
 - **API Key**: API key in a header; you can define the header name (for example, <code>X-API-Key</code>).
-{% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "Asgardeo" %}
+{% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "WSO2 Identity Platform" %}
 - **OAuth 2.0 Client Credentials**: {{product_name}} retrieves an access token from the configured token endpoint using the OAuth 2.0 client credentials grant and uses it as a bearer token when invoking the action endpoint.
 - **OAuth 2.0 Password Grant**: {{product_name}} retrieves an access token from the configured token endpoint using the OAuth 2.0 resource owner password credentials grant and uses it as a bearer token when invoking the action endpoint.
 

@@ -17,7 +17,7 @@ Some of these APIs are used for organization management purposes, and they have 
 - [Organization level organization management API]({{base_path}}/apis/organization-apis/org-management)
 
 !!! warning
-    You need a paid WSO2 Identity Platform subscription to use organization level organization management feature. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/){:target="_blank"} and contact the WSO2 Identity Platform sales team.
+    You need a paid WSO2 Identity Platform subscription to use organization level organization management feature. If you don't already have one, view the available [subscription plans](https://wso2.com/identity-platform/pricing/){:target="_blank"} and contact the WSO2 Identity Platform sales team.
 
 - [Idle account identification API]({{base_path}}/apis/organization-apis/org-idle-account-identification)
   
