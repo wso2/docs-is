@@ -98,6 +98,16 @@ These interfaces support i18n, allowing {{product_name}} to load text content fr
             <code>si-LK</code>
         </td>
     </tr>
+    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+    <tr>
+        <td>
+            Dutch
+        </td>
+        <td>
+            <code>nl-NL</code>
+        </td>
+    </tr>
+    {% endif %}
 </table>
 
 ## Configure language settings

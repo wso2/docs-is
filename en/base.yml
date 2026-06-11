@@ -207,6 +207,9 @@ extra:
     Next.js SDK:
       icon: assets/libs/custom-icons/nextjs.svg
       level: 2
+    Nuxt.js SDK:
+      icon: assets/libs/custom-icons/nuxt.svg
+      level: 2
     Connectors:
       icon: octicons/beaker-16
       level: 1
@@ -251,6 +254,12 @@ extra:
       level: 3
     Next.js Quickstart:
       icon: assets/libs/custom-icons/nextjs.svg
+      level: 3
+    Nuxt:
+      icon: assets/libs/custom-icons/nuxt.svg
+      level: 3
+    Nuxt Quickstart:
+      icon: assets/libs/custom-icons/nuxt.svg
       level: 3
     Angular:
       icon: fontawesome/brands/angular
@@ -306,6 +315,22 @@ extra:
               version: ''
               documentation_link: sdks/react/overview
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/react
+            - name: Vue SDK
+              artifact_id: '@asgardeo/vue'
+              icon: assets/img/logo/vuejs-logo.svg
+              dark_icon: assets/img/logo/vuejs-logo-dark.svg
+              description: Vue implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/vue/latest
+              version: ''
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/vue
+            - name: Nuxt SDK
+              artifact_id: '@asgardeo/nuxt'
+              icon: assets/img/logo/nuxtjs-logo.svg
+              dark_icon: assets/img/logo/nuxtjs-logo-dark.svg
+              description: Nuxt implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/nuxt/latest
+              version: ''
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/nuxt
             - name: Next.js SDK
               artifact_id: '@asgardeo/nextjs'
               icon: assets/img/logo/nextjs-logo-dark.svg
@@ -373,7 +398,6 @@ extra:
             artifact_id: react-native-app-auth
             icon: assets/img/logo/react-logo.svg
             description: An SDK to integrate OAuth2 and OIDC providers into React Native apps
-            documentation_link: get-started/try-your-own-app/react-native-cli-app-auth/
             source_link: https://github.com/FormidableLabs/react-native-app-auth
           - name: AppAuth Android
             artifact_id: net.openid:appauth

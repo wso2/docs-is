@@ -2669,6 +2669,30 @@ components:
                   "accessToken": "0d6fed02-eac0-332b-8998-213a543139a0"
                 }
               }``
+
+            - CLIENT_CREDENTIAL: OAuth2 client credentials grant based authentication.<br/>
+              ``{
+                "type": "CLIENT_CREDENTIAL",
+                "properties": {
+                  "clientId": "auth_clientId",
+                  "clientSecret": "auth_clientSecret",
+                  "tokenEndpoint": "https://custom.idp.com/oauth2/token",
+                  "scopes": "send_scope"
+                }
+              }``
+
+            - PASSWORD_CREDENTIAL: OAuth2 resource owner password credentials grant based authentication.<br/>
+              ``{
+                "type": "PASSWORD_CREDENTIAL",
+                "properties": {
+                  "username": "auth_username",
+                  "password": "auth_password",
+                  "clientId": "auth_clientId",
+                  "clientSecret": "auth_clientSecret",
+                  "tokenEndpoint": "https://custom.idp.com/oauth2/token",
+                  "scopes": "send_scope"
+                }
+              }``
       required:
         - type
       properties:
@@ -2679,6 +2703,8 @@ components:
             - BEARER
             - API_KEY
             - BASIC
+            - CLIENT_CREDENTIAL
+            - PASSWORD_CREDENTIAL
           example: BASIC
         properties:
           type: object

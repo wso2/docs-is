@@ -104,6 +104,28 @@ To disable TOTP enrollment during login:
 
 4. Click **Update** to save your changes.
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
+
+## Display the secret key during enrollment
+
+By default, {{ product_name }} only shows the QR code during TOTP enrollment. You can configure {{ product_name }} to also display the TOTP secret key alongside the QR code, allowing users to manually enter it into their authenticator app if QR code scanning is not possible.
+
+To enable the secret key display, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+```toml
+[authentication.authenticator.totp.parameters]
+showSecretKeyInEnrollment = true
+```
+
+!!! note
+    This configuration is available from update level **7.2.0.27** onwards.
+
+When enabled, users will see the secret key alongside the QR code during TOTP enrollment:
+
+![QR code with secret key for TOTP authenticator in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/totp/scan-qr-code-with-secret-key.png){: width="300" style="border: 0.3px solid lightgrey;"}
+
+{% endif %}
+
 ## Try it out
 
 Application users can enroll for TOTP authentication when they login to the business application for the first time. Given below are the steps that a user will follow:

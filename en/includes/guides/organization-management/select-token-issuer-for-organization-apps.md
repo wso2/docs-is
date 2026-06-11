@@ -1,30 +1,31 @@
 # Select token issuer for an organization application
 
-On {{ product_name }}, organization administrators can configure the token issuer for organization applications. You can choose either the root organization’s token issuer or the organization’s own token issuer.
+When you create an application in your organization, you can choose whether it uses the root organization's token issuer or your organization's own. The right choice depends on what the application does and who it serves. The root token issuer option is available only if the root organization has permitted child organizations to use it.
 
-## Control token issuer selection for child organizations
+- **Select the root organization's token issuer** when the child organization's application needs to call APIs provided by the root organization. In this scenario, the root organization acts as the token issuer and grants access to its APIs. The child organization manages the application.
 
-Root organization administrators can decide whether the child organizations can use root organization's token issuer. Administrators can control this by using the **Issuer Usage Scope** organization setting.
+- **Select the organization's own token issuer** when the child organization provides applications directly to its own end users, such as its customers or partners. In this scenario, the child organization acts as an independent identity provider. It manages both the application and issues tokens, without relying on the root organization's identity infrastructure.
 
-![Issuer Usage Scope Organization Setting]({{base_path}}/assets/img/guides/organization/issuer-usage-scope/issuer-usage-scope-config.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+## Control root token issuer access for child organizations
 
-![Issuer Usage Scope Configuration Page]({{base_path}}/assets/img/guides/organization/issuer-usage-scope/issuer-usage-scope-config-page.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+As a root organization administrator, you control whether child organizations can use the root organization's token issuer. By default, child organizations can use the root token issuer in their applications.
 
-By default, the root organization's token issuer can be used in the child organization applications. Root organization administrators can select `Do not allow the issuer to be used in any organizations` to prevent child organizations from using the root organization's token issuer.
+To configure this:
 
-Organization administrators can select the token issuer based on the use case for which the organization application is used. The following sections describe when to use each issuer.
+1. In the root organization, go to **Login & Registration**.
+2. Under **Organization Settings**, select **Issuer Usage Scope**.
 
-## Select root organization's token issuer
+    ![Issuer Usage Scope Organization Setting]({{base_path}}/assets/img/guides/organization/issuer-usage-scope/issuer-usage-scope-config.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-When an organization acts as a consumer of APIs provided by the API provider, administrators can use the root organization's token issuer for organization applications. In this scenario, the application is managed in the child organization by its administrators.
+3. Select `Do not allow the issuer to be used in any organizations` to block child organizations from using the root token issuer.
 
-## Select organization's own token issuer
+    ![Issuer Usage Scope Configuration Page]({{base_path}}/assets/img/guides/organization/issuer-usage-scope/issuer-usage-scope-config-page.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-When an organization provides custom-tailored applications for the customers/partners, organization administrators can use the organization's own token issuer for their applications. In this scenario the application is managed in the child organization and the identity provider is also the child organization.
+## Set the token issuer for an application
 
-## Set the token issuer when creating an application
+As an organization administrator, you can select the token issuer when creating a new application or update it for an existing one.
 
-To create an application with a specific token issuer,
+### For a new application
 
 1. On the {{ product_name }} Console, go to **Organizations** and switch to your desired organization.
 
@@ -42,9 +43,7 @@ To create an application with a specific token issuer,
 
 5. Click **Create** to create the application.
 
-## Update the token issuer for an existing application
-
-To update the token issuer for an existing application,
+### For an existing application
 
 1. On the {{ product_name }} Console, switch to the desired organization and go to **Applications**.
 

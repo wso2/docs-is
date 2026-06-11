@@ -8,8 +8,8 @@ Let’s dive in and see how this architecture brings security, efficiency, and c
 
 Imagine a global software provider facing a **40% year-over-year increase in support tickets**. To scale without bloating the budget, they have deployed a **Multi-Agent AI System**. Instead of a single general-purpose agent, they use multiple specialized agents:
 
-- **The Coordinator Agent**: A fast, cost-effective agent that classifies incoming tickets.
-- **The Expert Agent**: A "deep thinking" agent reserved for critical, complex infrastructure outages.
+* **The Coordinator Agent**: A fast, cost-effective agent that classifies incoming tickets.
+* **The Expert Agent**: A "deep thinking" agent reserved for critical, complex infrastructure outages.
 
 ### The agents in action
 
@@ -37,37 +37,41 @@ We begin by establishing the **"Digital Identities"** for our non-human agents. 
 2. Go to **Applications > New Application**.
 3. Select **Standard-Based Application**.
 4. Configure the application:
-   - **Name**: `Enterprise Support System`
-   - **Protocol**: OpenID Connect.
-   - Tick **Allow AI agents to sign into this application**.
-5. In the **Protocol** tab:
-   - Add **Allowed grant types**: Password.
-   - Enable the **public client** in Client Authentication.
-   - Set the **Access Token type** to JWT and add roles to Access Token Attributes.
+     * **Name**: `Enterprise Support System`
+     * **Protocol**: OpenID Connect.
+     * Tick **Allow AI agents to sign into this application**.
+5. After Creation, in the **Protocol** tab:
+     * Add **Allowed grant types**: Code.
+     * For Authorized redirect URLs, add the callback URL of your application. (For agent auth, this is not really needed, so you can use `http://localhost:3000/callback`).
+     * Enable the **public client** in Client Authentication.
+     * Set the **Access Token type** to JWT and add roles to Access Token Attributes.
 
 ### Create the scopes
 
 1. Navigate to **Resources > API Resources**.
 2. Click **+ New API Resources**.
 3. Configure the resource:
-   - **Identifier**: `https://agent-identifier` (Doesn't need to be publicly accessible, just an identifier).
-   - **Display Name**: `agent-identifier`.
+     * **Identifier**: `https://agent-identifier` (Doesn't need to be publicly accessible, just an identifier).
+     * **Display Name**: `agent-identifier`.
 4. In the **Scopes**, add:
-   - `Technical-Specialist`
-   - `Support-Coordinator`
+     * `Technical-Specialist`
+     * `Support-Coordinator`
 5. Click **Next** and **Create**.
-6. Go to the `Enterprise Support System` application you created and navigate to the **API Authorization** tab.
-7. Click **Authorize API resource**, search for the `agent-identifier` resource you created, and select all scopes.
-8. Click **Finish**.
+
+#### Add API resource permissions to the application
+
+1. Go to the `Enterprise Support System` application you created and navigate to the **API Authorization** tab.
+2. Click **Authorize API resource**, search for the `agent-identifier` resource you created, and select all scopes.
+3. Click **Finish**.
 
 ### Create the roles
 
 1. Navigate to **User Management > Roles**.
 2. Click **+ New Role**.
 3. Configure the role:
-   - **Role Name**: `Support-Coordinator`
-   - Assign application: `Enterprise Support System`.
-   - In **Permission Selection**, select the `agent-identifier` resource and the `Support-Coordinator` scope.
+     * **Role Name**: `Support-Coordinator`
+     * Assign application: `Enterprise Support System`.
+     * In **Permission Selection**, select the `agent-identifier` resource and the `Support-Coordinator` scope.
 4. Click **Finish**.
 5. Repeat the process for the `Technical-Specialist` role.
 
@@ -77,13 +81,13 @@ Since these are autonomous agents, we create **"Auth Identities"** for them. **W
 
 1. Go to **Agents**.
 2. Create the **Coordinator Agent**:
-   - **Name**: `coordinator-agent`
-   - Make a note of the **Agent ID** and **Agent Secret**.
-   - Go to **User Management > Roles** and assign this agent to the `Support-Coordinator` role.
+     * **Name**: `coordinator-agent`
+     * Make a note of the **Agent ID** and **Agent Secret**.
+     * Go to **User Management > Roles** and assign this agent to the `Support-Coordinator` role.
 3. Create the **Expert Agent**:
-   - **Name**: `expert-agent`
-   - Make a note of the **Agent ID** and **Agent Secret**.
-   - Go to **User Management > Roles** and assign this agent to the `Technical-Specialist` role.
+     * **Name**: `expert-agent`
+     * Make a note of the **Agent ID** and **Agent Secret**.
+     * Go to **User Management > Roles** and assign this agent to the `Technical-Specialist` role.
 
 ## WSO2 AI Gateway configuration
 
@@ -91,18 +95,18 @@ Now we configure the **AI Gateway**. **WSO2 AI Gateway** will sit in front of th
 
 ### Create an AI API Proxy in Bijira
 
-1. Log in to **WSO2 Bijira**.
+1. Log in to [**WSO2 Bijira**](https://console.bijira.dev/login).
 2. Create a project and then create a new AI API by selecting:
-   - **API Proxy → Third Party APIs (Egress) → AI APIs**.
+     * **API Proxy → Third Party APIs (Egress) → AI APIs**.
 3. After creation, configure it and deploy it to **Development** and **Production Environments**.
-   - For a detailed guide, refer to the [Docs-ai-apis](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/ai-apis/).
+For a detailed guide, refer to the [Docs-ai-apis](https://wso2.com/bijira/docs/create-api-proxy/third-party-apis/ai-apis/).
 
 ![Create_an_AI_API_Proxy]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\create-an-ai-api-proxy.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 For this tutorial, we create two API proxies using **Azure OpenAI Service API** and deploy them.
 
-- `gpt-4o mini`
-- `gpt-5`
+* `gpt-4o mini`
+* `gpt-5`
 
 ![AI_API_Proxy_Overview]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\ai-api-proxy-overview.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -118,9 +122,8 @@ Go to the **Organization level** and in the left navigation menu, click **Admin 
 2. To add an identity provider, click **+ Key Manager**.
 3. {% if product_name == "WSO2 Identity Platform" %}Select WSO2 Identity Platform.{% else %}Select Custom.{% endif %}
 4. In the dialog that opens, specify:
-
-- **Name** and **Description** for the IdP.
-- **Well-Known URL**: Paste the well-known URL from your {{ product_name }} instance.
+     * **Name** and **Description** for the IdP.
+     * **Well-Known URL**: Paste the well-known URL from your {{ product_name }} instance.
 
 {% if product_name == "WSO2 Identity Platform" %}
 ![{{ product_name }}_instance_Well-Known_URL]({{base_path}}/assets/img/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/asgardeo-instance-well-known-url.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -138,13 +141,13 @@ Following your deployment, we need to restrict access to the specific AI API pro
 2. In the left navigation menu, click **Develop > Policy**.
 3. In the **API Proxy Contract** view, locate your available resources.
 4. For each specific AI resource (e.g., `/chat/completions`):
-   - Click the **Edit Resource-Level Policies** icon.
+     * Click the **Edit Resource-Level Policies** icon.
 
 ![Configure_Permissions]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\configure-permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-- Select **Attach Policy** in the **Request Flow** and go to **Permissions (Scopes)**.
-- For **OpenAI gpt-4o Proxy**, add the `Support-Coordinator` permission.
-- For **OpenAI gpt-5 Proxy**, add the `Technical-Specialist` permission.
+* Select **Attach Policy** in the **Request Flow** and go to **Permissions (Scopes)**.
+* For **OpenAI gpt-4o Proxy**, add the `Support-Coordinator` permission.
+* For **OpenAI gpt-5 Proxy**, add the `Technical-Specialist` permission.
 
 ![Add_Permissions]({{base_path}}\assets\img\tutorials\wso2-ai-gateway-with-agent-identity-aware-access-control\add-permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

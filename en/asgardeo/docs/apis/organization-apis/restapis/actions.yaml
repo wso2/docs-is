@@ -1192,12 +1192,12 @@ components:
       type: object
       description: >
             The type of authentication required by the action's endpoint. The following options are supported:
-            
+
             - NONE: No authentication is required. <br>
               ``{
                 "type": "NONE"
               }``
-              
+
             - BASIC: Basic authentication with a username and password.<br>
               ``{
                 "type": "BASIC",
@@ -1206,7 +1206,7 @@ components:
                   "password": "auth_password"
                 }
               }``
-              
+
             - API_KEY: API key-based authentication, where the key is provided in an HTTP header.<br>
               ``{
                 "type": "API_KEY",
@@ -1215,12 +1215,36 @@ components:
                   "value": "12345-abcde-67890"
                 }
               }``
-            
+
             - BEARER: Bearer token-based authentication.<br/>
               ``{
                 "type": "BEARER",
                 "properties": {
                   "accessToken": "0d6fed02-eac0-332b-8998-213a543139a0"
+                }
+              }``
+
+            - CLIENT_CREDENTIAL: OAuth2 client credentials grant based authentication.<br/>
+              ``{
+                "type": "CLIENT_CREDENTIAL",
+                "properties": {
+                  "clientId": "3e172dd2-901b-43a9-a26a-728466795f01",
+                  "clientSecret": "83cdc120-ccf6-4163-a4a8-c1ba3e872daa",
+                  "tokenEndpoint": "https://custom.idp.com/oauth2/token",
+                  "scopes": "send_scope"
+                }
+              }``
+
+            - PASSWORD_CREDENTIAL: OAuth2 resource owner password credentials grant based authentication.<br/>
+              ``{
+                "type": "PASSWORD_CREDENTIAL",
+                "properties": {
+                  "username": "alice",
+                  "password": "p@ssw0rd!",
+                  "clientId": "3e172dd2-901b-43a9-a26a-728466795f01",
+                  "clientSecret": "83cdc120-ccf6-4163-a4a8-c1ba3e872daa",
+                  "tokenEndpoint": "https://custom.idp.com/oauth2/token",
+                  "scopes": "send_scope"
                 }
               }``
       required:
@@ -1233,6 +1257,8 @@ components:
             - BEARER
             - API_KEY
             - BASIC
+            - CLIENT_CREDENTIAL
+            - PASSWORD_CREDENTIAL
           example: BASIC
         properties:
           type: object
@@ -1257,8 +1283,18 @@ components:
             - BEARER
             - API_KEY
             - BASIC
+            - CLIENT_CREDENTIAL
+            - PASSWORD_CREDENTIAL
           description: Type of the authentication.
           example: BASIC
+        properties:
+          type: object
+          description: Authentication properties (without secrets) specific to the selected type.
+          additionalProperties: true
+      example:
+        type: BASIC
+        properties:
+          username: "auth_username"
 
     ActionUpdateModel:
       type: object

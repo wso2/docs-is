@@ -53,7 +53,7 @@ Create a file called `middleware.ts` in the root of your Next.js project and int
 The `asgardeoMiddleware` helper integrates WSO2 Identity Platform authentication into your Next.js application and supports both the App and Pages routers.
 
 ```bash title="middleware.ts"
-import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+import {asgardeoMiddleware} from '@asgardeo/nextjs/middleware';
 
 export default asgardeoMiddleware();
 

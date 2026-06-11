@@ -186,4 +186,29 @@ To enable this restriction, add the following configuration to the `<IS_HOME>/re
 
 {% endif %}
 
+{% if is_version is defined and is_version >= "7.1.0" %}
+
+## Configure FIDO user response timeout
+
+During FIDO2 device registration, {{ product_name }} sends a timeout hint to the browser indicating how long it should wait for the user to interact with their FIDO2 authenticator. By default, this is set to **300000 milliseconds (5 minutes)**.
+
+!!! note
+    This timeout is enforced by the browser, not by {{ product_name }}, and only applies to **device registration**. It does not affect the authentication flow. Some browsers may override this value based on their own policies.
+
+To change this timeout, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+  ```toml
+    [fido]
+    user_response_timeout = "<timeout_in_milliseconds>"
+  ```
+
+For example, to set the timeout to 2 minutes:
+
+  ```toml
+    [fido]
+    user_response_timeout = "120000"
+  ```
+
+{% endif %}
+
 {% include "./fido-trusted-applications.md" %}

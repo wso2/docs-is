@@ -130,6 +130,10 @@ extra:
               url: Get started|Quick Setup
             - title: Connect React App
               url: Get started|Connect App|React|Quickstart
+            - title: Connect Vue App
+              url: Get started|Connect App|Vue|Quickstart
+            - title: Connect Nuxt App
+              url: Get started|Connect App|Nuxt|Quickstart
             - title: Connect Angular App
               url: Get started|Connect App|Angular|Quickstart
             - title: Connect Javascript App
@@ -566,6 +570,10 @@ nav:
           - React:
               - Quickstart: quick-starts/react.md
               - Complete Guide: complete-guides/react/introduction.md
+          - Vue:
+              - Quickstart: quick-starts/vue.md
+          - Nuxt:
+              - Quickstart: quick-starts/nuxt.md
           - Angular:
               - Quickstart: quick-starts/angular.md
               - Complete Guide: complete-guides/angular/introduction.md
@@ -886,7 +894,7 @@ nav:
           - Configure organization applications:
             - Share applications: guides/organization-management/share-applications.md
             - Organization applications:
-              - Create applications: guides/organization-management/organization-applications.md
+              - Create application: guides/organization-management/organization-applications.md
               - Select token issuer: guides/organization-management/select-token-issuer-for-organization-apps.md
             - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
           - Authorize API resources:
@@ -897,6 +905,10 @@ nav:
           - Manage organization users:
             - Onboard users: guides/organization-management/onboard-users.md
             - Share users: guides/organization-management/share-user-profiles.md
+          - Manage organization agents:
+            - Share agents: guides/organization-management/share-agents.md
+          - Authorize MCP servers:
+            - Authorize access to MCP servers: guides/organization-management/mcp-server-inheritance.md
           - Customize organizations:
             - Organization settings:
               - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
@@ -990,6 +1002,11 @@ nav:
     - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
     - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
     - Secure Agentic AI Systems with WSO2 Identity Server: tutorials/secure-agentic-ai-systems.md
+    - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
+    - Integrating WSO2 Identity Server With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
+    - Integrating WSO2 Identity Server With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
+    - Secure MCP servers with WSO2 Identity Server and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
+    
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -1226,6 +1243,7 @@ nav:
     - Management APIs:
       - Action Management API: apis/action-management-rest-api.md
       - Agent Management API: apis/scim2-agents-rest-apis.md
+      - Agent Sharing Management API: apis/agent-share-rest-api.md
       - API resource management: apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API: apis/application-rest-api.md
@@ -1453,7 +1471,12 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
         - DPoP: references/token-binding/dpop.md
-      - Token hashing: references/token-hashing.md
+      - Tokens:
+        - Tokens: references/tokens/index.md
+        - Access tokens: references/tokens/access-tokens.md
+        - Refresh tokens: references/tokens/refresh-tokens.md
+        - ID tokens: references/tokens/id-tokens.md
+      - Client Secret & Token hashing: references/client-secret-and-token-hashing.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md

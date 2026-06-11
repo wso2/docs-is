@@ -98,7 +98,7 @@ The `asgardeoMiddleware` helper integrates WSO2 Identity Platform authentication
     Create a file called `proxy.ts` in the root of your Next.js project.
 
     ```typescript title="proxy.ts"
-    import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+    import {asgardeoMiddleware} from '@asgardeo/nextjs/middleware';
 
     export const proxy = asgardeoMiddleware();
 
@@ -115,7 +115,7 @@ The `asgardeoMiddleware` helper integrates WSO2 Identity Platform authentication
     Create a file called `middleware.ts` in the root of your Next.js project.
 
     ```typescript title="middleware.ts"
-    import {asgardeoMiddleware} from '@asgardeo/nextjs/server';
+    import {asgardeoMiddleware} from '@asgardeo/nextjs/middleware';
 
     export default asgardeoMiddleware();
 

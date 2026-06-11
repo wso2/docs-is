@@ -27,8 +27,8 @@ The WSO2 Identity Platform MCP Server communicates with the WSO2 Identity Platfo
 
 | **WSO2 Identity Platform Management API** | **Required scopes** |
 |--------|---------|
-| **Application Management API** (`/api/server/v1/applications`) | `internal_application_mgt_view`, `internal_application_mgt_update`, `internal_application_mgt_create` |
-| **API Resource Management API** (`/api/server/v1/api-resources`) | `internal_api_resource_update`, `internal_api_resource_create`, `internal_api_resource_view` |
+| **Application Management API** (`/api/server/v1/applications`) | `internal_application_mgt_view`, `internal_application_mgt_update`, `internal_application_mgt_create`, `internal_application_internal_api_update`, `internal_application_business_api_update` |
+| **API Resource Management API** (`/api/server/v1/api-resources`) | `internal_api_resource_create`, `internal_api_resource_view` |
 | **Identity Provider Management API** (`/api/server/v1/identity-providers`) | `internal_idp_view` |
 | **Authenticators Management API** (`/api/server/v1/authenticators`) | `internal_authenticator_view` |
 | **Claim Management API** (`/api/server/v1/claim-dialects`) | `internal_claim_meta_view` |
@@ -46,17 +46,42 @@ Once completed, your API Authorization configuration should look as follows.
 
 ![WSO2 Identity Platform M2M app]({{base_path}}/assets/img/quick-starts/mcp-server/image1.png){: width="800" style="display: block; margin: 0;"}
 
+## Build the Asgardeo MCP Server
+
+Before configuring your code editor, you need to build the Asgardeo MCP Server executable locally.
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/asgardeo/asgardeo-mcp-server.git
+    ```
+
+2. Navigate to the cloned directory and install dependencies:
+
+    ```bash
+    cd asgardeo-mcp-server
+    go mod tidy
+    ```
+
+3. Build the executable:
+
+    ```bash
+    go build -o asgardeo-mcp
+    ```
+
+This creates the `asgardeo-mcp` binary in the current directory. The absolute path to this binary (e.g., `/Users/<username>/asgardeo-mcp-server/asgardeo-mcp`) is what you will use as `<ABSOLUTE-PATH>` in the next step.
+
 ## Configure your code editor
 
 === " VS Code "
     1. Open **VS Code**.
     2. Press `Ctrl` + `Shift` + `P` (or `Cmd` + `Shift` + `P` on Mac).
-    3. Type **"Preferences: Open Settings (JSON)"** and select it.
+    3. Type **"MCP: Open User Configuration"** and select it.
 
-    Append the following configuration to `settings.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
+    Add the following server configuration to `mcp.json` file. Replace the `<ABSOLUTE-PATH>`, `<client-id>`,  `<client-secret>` and `<organization>` values from the values you copied from the previous steps. 
     
-    ```json title="settings.json" 
-    "mcp": {
+    ```json title="mcp.json" 
+    {
         "servers": {
             "asgardeo-mcp": {
                 "command": "<ABSOLUTE-PATH>/asgardeo-mcp",
