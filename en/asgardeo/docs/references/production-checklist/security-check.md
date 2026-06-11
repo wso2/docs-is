@@ -12,7 +12,7 @@ To ensure the accounts are securely configured in your organizations:
 
 - Enable account lock to prevent brute force attacks.
 - When updating email templates, follow best practices related to `HTML`.
-- Disable preview features provided by asgardeo.
+- Disable preview features provided by WSO2 Identity Platform.
 
 ## Application and connection security
 To ensure the applications and connections are securely configured in your organizations:
