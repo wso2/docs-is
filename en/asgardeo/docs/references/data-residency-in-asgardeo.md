@@ -86,7 +86,7 @@ Therefore, note that your organization–level logs may include personal informa
 
 ## Data privacy
 
-Learn about WSO2 Identity Platform's [privacy policy](https://wso2.com/asgardeo/privacy-policy/#:~:text=WSO2 Identity Platform%20doesn%27t%20store%20any,API%20Services%20User%20Data%20Policy.) to understand how your data privacy is protected.
+Learn about WSO2 Identity Platform's [privacy policy](https://wso2.com/identity-platform/privacy-policy/#:~:text=Asgardeo%20doesn%27t%20store%20any,API%20Services%20User%20Data%20Policy.) to understand how your data privacy is protected.
 
 ## Get support
 

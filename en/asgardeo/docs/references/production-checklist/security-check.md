@@ -4,7 +4,7 @@ Use the following list to ensure your organizations are secure in a production e
 ## Authentication
 To ensure the authentication is properly configured in your organizations:
 
-- (Recommended) Configure strong authentication for WSO2 Identity Platform administrator users. [Learn more]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#enroll-totp-for-asgardeo-users)
+- (Recommended) Configure strong authentication for WSO2 Identity Platform administrator users. [Learn more]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#enroll-totp-for-wso2-identity-platform-users)
 - Configure strong authentication for your business applications based on the application's sensitivity. [Learn more]({{base_path}}/guides/authentication/mfa/)
 
 ## Account Security
