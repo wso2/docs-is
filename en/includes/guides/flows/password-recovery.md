@@ -65,6 +65,25 @@ Once the flow has been fully configured and is ready for users:
 
 Now that these changes are in place, you have built a secure and user-friendly password recovery flow using SMS OTP.
 
+## Configure for alternative login identifiers
+
+If you have enabled [alternative login identifiers]({{base_path}}/guides/authentication/multi-attribute-login/), users can log in using configured attributes such as email address or mobile number as well as their username. To allow users to use these same identifiers when recovering their password, you need to update the identifier input field in the password recovery flow.
+
+Follow the steps below:
+
+1. On the **Edit Password Recovery Flow** canvas, hover over the **Username** input field and click the gear icon (⚙️) that appears to open the **Input Properties** panel.
+
+2. In the **Attribute** dropdown, select **User Identifier**.
+
+    ![Input properties panel showing User Identifier selected in the Attribute field]({{base_path}}/assets/img/guides/flows/flow-password-recovery-user-identifier-selected.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    !!! note
+        The **User Identifier** option only appears in the **Attribute** dropdown after [alternative login identifiers]({{base_path}}/guides/authentication/multi-attribute-login/) have been enabled.
+
+3. Click **Save Draft**, then publish the flow.
+
+Users can now enter any of their configured alternative login identifiers (such as email address) on the **Forgot Password?** page to start password recovery.
+
 ## Reference
 
 This section provides details on the configuration options available in the Password Recovery Flow.
