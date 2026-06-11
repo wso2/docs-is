@@ -67,7 +67,11 @@ Now that these changes are in place, you have built a secure and user-friendly p
 
 ## Configure for alternative login identifiers
 
+{% if product_name == "WSO2 Identity Server" %}
 If you have enabled [alternative login identifiers]({{base_path}}/guides/authentication/multi-attribute-login/), users can log in using configured attributes such as email address or mobile number as well as their username. To allow users to use these same identifiers when recovering their password, you need to update the identifier input field in the password recovery flow.
+{% else %}
+If you have enabled [alternative login identifiers]({{base_path}}/guides/user-accounts/account-login/configure-login-identifiers/), users can log in using configured attributes such as email address or mobile number as well as their username. To allow users to use these same identifiers when recovering their password, you need to update the identifier input field in the password recovery flow.
+{% endif %}
 
 Follow the steps below:
 
@@ -78,7 +82,11 @@ Follow the steps below:
     ![Input properties panel showing User Identifier selected in the Attribute field]({{base_path}}/assets/img/guides/flows/flow-password-recovery-user-identifier-selected.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
+        {% if product_name == "WSO2 Identity Server" %}
         The **User Identifier** option only appears in the **Attribute** dropdown after [alternative login identifiers]({{base_path}}/guides/authentication/multi-attribute-login/) have been enabled.
+        {% else %}
+        The **User Identifier** option only appears in the **Attribute** dropdown after [alternative login identifiers]({{base_path}}/guides/user-accounts/account-login/configure-login-identifiers/) have been enabled.
+        {% endif %}
 
 3. Click **Save Draft**, then publish the flow.
 
