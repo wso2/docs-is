@@ -354,6 +354,12 @@ extra:
               description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
               registry_url: https://registry.npmjs.org/@asgardeo/auth-node/latest
               source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
+            - name: Flutter SDK
+              artifact_id: asgardeo_flutter
+              icon: assets/img/logo/flutter-logo.svg
+              description: Official {{ product_name }} Flutter SDK. Currently supports push authentication.
+              documentation_link: sdks/flutter/overview
+              source_link: https://github.com/asgardeo/flutter/tree/main/packages/flutter
             - name: Tomcat OIDC Agent
               artifact_id: io.asgardeo.tomcat.oidc.agent
               icon: assets/img/logo/java-logo.svg

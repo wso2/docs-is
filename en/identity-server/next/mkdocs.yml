@@ -1217,6 +1217,21 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+    - Flutter:
+      - Overview: sdks/flutter/overview.md
+      - APIs:
+        - Registering the Device: sdks/flutter/apis/register-device.md
+        - Handling Push Notifications: sdks/flutter/apis/handle-push-notifications.md
+        - Sending the Auth Response: sdks/flutter/apis/send-auth-response.md
+        - Unregistering the Device: sdks/flutter/apis/unregister-device.md
+        - Managing Accounts: sdks/flutter/apis/account-management.md
+      - References:
+        - Builder Options: sdks/flutter/references/builder-options.md
+        - Custom Managers: sdks/flutter/references/custom-managers.md
+        - Error Handling: sdks/flutter/references/error-handling.md
+      - Guides:
+        - Setting Up Push Providers: sdks/flutter/guides/set-up-push-providers.md
+        - Configuring Notification Handlers: sdks/flutter/guides/configure-notification-handlers.md
   - Connectors:
     - Connectors: connectors/index.md
     - Sift:

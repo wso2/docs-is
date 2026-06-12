@@ -96,6 +96,12 @@ extra:
               description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
               registry_url: https://registry.npmjs.org/@asgardeo/auth-node/latest
               source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
+            - name: Flutter SDK
+              artifact_id: asgardeo_flutter
+              icon: assets/img/logo/flutter-logo.svg
+              description: Official {{ product_name }} Flutter SDK. Currently supports push authentication.
+              documentation_link: sdks/flutter/overview
+              source_link: https://github.com/asgardeo/flutter/tree/main/packages/flutter
             - name: Tomcat OIDC Agent
               artifact_id: io.asgardeo.tomcat.oidc.agent
               icon: assets/img/logo/java-logo.svg
@@ -837,6 +843,21 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+    - Flutter:
+      - Overview: sdks/flutter/overview.md
+      - APIs:
+        - Registering the Device: sdks/flutter/apis/register-device.md
+        - Handling Push Notifications: sdks/flutter/apis/handle-push-notifications.md
+        - Sending the Auth Response: sdks/flutter/apis/send-auth-response.md
+        - Unregistering the Device: sdks/flutter/apis/unregister-device.md
+        - Managing Accounts: sdks/flutter/apis/account-management.md
+      - References:
+        - Builder Options: sdks/flutter/references/builder-options.md
+        - Custom Managers: sdks/flutter/references/custom-managers.md
+        - Error Handling: sdks/flutter/references/error-handling.md
+      - Guides:
+        - Setting Up Push Providers: sdks/flutter/guides/set-up-push-providers.md
+        - Configuring Notification Handlers: sdks/flutter/guides/configure-notification-handlers.md
   - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
   - APIs:
     - APIs - Overview: apis/index.md
