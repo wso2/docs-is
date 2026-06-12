@@ -1,4 +1,4 @@
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 === "Classic Editor"
     To add concurrent session management-based access control using the classic editor:
 

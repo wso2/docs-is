@@ -108,7 +108,7 @@ To configure the MCP client, you need to register a new MCP client application i
 
 ##### Register a new MCP client application
 
-We need to have the Vet Assist AI application registered in Asgardeo, so that the registered MCP server can be authorized to the AI application and the application can securely access the MCP server on behalf of the authenticated user.
+We need to have the Vet Assist AI application registered in WSO2 Identity Platform, so that the registered MCP server can be authorized to the AI application and the application can securely access the MCP server on behalf of the authenticated user.
 
 To register the MCP client,
 

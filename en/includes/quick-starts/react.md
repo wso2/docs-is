@@ -14,7 +14,7 @@ Welcome to the React Quickstart guide! In this document, you will learn to build
 
     **Authorized redirect URL:** `http://localhost:5173`
 
-Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure Asgardeo React SDK.
+Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure WSO2 Identity Platform React SDK.
 
 - **Client ID** - The unique identifier for your application.
 - **Base URL** - The base URL of your {{ product_name }} organization. This typically follows the format `{{content.sdkconfig.baseUrl}}`
@@ -56,7 +56,7 @@ Create (scaffold) your new React app using [Vite](https://vite.dev/).
 
 ## Install `@asgardeo/react`
 
-Asgardeo React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo React SDK to the project. Make sure to stop the dev server you started in the previous step.
+WSO2 Identity Platform React SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the WSO2 Identity Platform React SDK to the project. Make sure to stop the dev server you started in the previous step.
 
 === "npm"
 
@@ -110,7 +110,7 @@ createRoot(document.getElementById('root')).render(
 
 ## Add sign-in and sign-out to your app
 
-Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
+WSO2 Identity Platform SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
 Replace the existing content of the `App.jsx` file with following content.
 

@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies a RESTful API for managing identity providers in Asgardeo. The APIs provide the capability to `add`, `update`, `delete`, and `patch` identity providers.
+    This document specifies a RESTful API for managing identity providers in WSO2 Identity Platform. The APIs provide the capability to `add`, `update`, `delete`, and `patch` identity providers.
   version: "v1"
-  title: Asgardeo - Identity Provider Management API definition
+  title: WSO2 Identity Platform - Identity Provider Management API definition
 security:
   - OAuth2: []
 servers:
@@ -257,7 +257,7 @@ paths:
         - Metadata
       summary: |
         List supported federated authenticators of IdPs
-      description: "This API provides the list of supported federated authenticators for an identity provider in Asgardeo. \n\n<b>Scope(Permission) required:</b> <br>`internal_idp_view`"
+      description: "This API provides the list of supported federated authenticators for an identity provider in WSO2 Identity Platform. \n\n<b>Scope(Permission) required:</b> <br>`internal_idp_view`"
       operationId: getMetaFederatedAuthenticators
       responses:
         '200':
@@ -303,7 +303,7 @@ paths:
         - Metadata
       summary: |
         Get metadata of a supported federated authenticator
-      description: "This API provides the details of a single supported federated authenticator for an identity provider in Asgardeo. \n\n<b>Scope(Permission) required:</b> `internal_idp_view`"
+      description: "This API provides the details of a single supported federated authenticator for an identity provider in WSO2 Identity Platform. \n\n<b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getMetaFederatedAuthenticator
       parameters:
         - name: federated-authenticator-id
@@ -354,7 +354,7 @@ paths:
         - Metadata
       summary: >
         List supported outbound provisioning connectors of IdPs
-      description: "This API provides the list of supported federated authenticators for an identity provider (IdP) in the Asgardeo. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
+      description: "This API provides the list of supported federated authenticators for an identity provider (IdP) in the WSO2 Identity Platform. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getMetaOutboundConnectors
       responses:
         '200':
@@ -400,7 +400,7 @@ paths:
         - Metadata
       summary: |
         Get metadata of a supported outbound provisioning connector
-      description: "This API provides the details of a single supported outbound provisioning connector for an identity provider (IdP) in the Asgardeo. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
+      description: "This API provides the details of a single supported outbound provisioning connector for an identity provider (IdP) in the WSO2 Identity Platform. \n\n <b>Scope(Permission) required:</b> `internal_idp_view`"
       operationId: getMetaOutboundConnector
       parameters:
         - name: outbound-provisioning-connector-id
@@ -2355,7 +2355,7 @@ components:
           example: "https://api.asgardeo.io/t/{org-name}/oauth2/jwks"
         samlMetadataUri:
           type: string
-          description: The SAML metadata endpoint URL of the external identity provider. When configured, Asgardeo fetches and caches the signing certificate from this URL to validate SAML response signatures and IdP-initiated logout request signatures.
+          description: The SAML metadata endpoint URL of the external identity provider. When configured, WSO2 Identity Platform fetches and caches the signing certificate from this URL to validate SAML response signatures and IdP-initiated logout request signatures.
           example: "https://idp.example.com/saml/metadata"
     IdentityProviderPOSTRequest:
       type: object
@@ -3065,7 +3065,7 @@ components:
                 example: http://wso2.org/claims/email
         attributeSyncMethod:
           description: "This variable specifies the method used for syncing attributes between the JIT-provisioned user account and the local user account. \n\n
-            Asgardeo allows the following syncing methods: \n\n
+            WSO2 Identity Platform allows the following syncing methods: \n\n
             <ul>
               <li><code>OVERRIDE_ALL</code>: All attributes of the local user account will be overridden by the attributes received from the external identity provider.</li>
               <li><code>NONE</code>: None of the attributes received from the identity provider will be synced with the local user account.</li>

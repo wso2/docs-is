@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: 'Asgardeo - Organization Management API Definition'
+  title: 'WSO2 Identity Platform - Organization Management API Definition'
   description: |
-    'This is the RESTful API for organization management in Asgardeo.
+    'This is the RESTful API for organization management in WSO2 Identity Platform.
     
     This API allows users to create, update, retrieve and delete organizations. 
     Other than that the API supports to share the application from the root organization to given organization, get the list of organizations that the application is shared to and delete the shared application from the organizations.'

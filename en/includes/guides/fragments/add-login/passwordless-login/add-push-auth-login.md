@@ -6,7 +6,7 @@ Follow the steps given below to enable **Push Notification** login for your appl
 
 3. Go to the **Login Flow** tab of the application and add Push Notification from your preferred editor:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
     
     {% else %}
     1. Click **+** to add a second step to the login flow.

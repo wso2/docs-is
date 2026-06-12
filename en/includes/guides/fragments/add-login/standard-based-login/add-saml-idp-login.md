@@ -7,7 +7,7 @@
     !!! note "Recommendations"
         {{ product_name }} recommends adding your social and enterprise connections to the first authentication step, as they are used for identifying the user.
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     === "Classic Editor"
         To add SAML identity provider login using the Classic Editor:
         
@@ -15,7 +15,7 @@
         
         2. Click **Add Authentication** on the step, select your SAML identity provider, and click **Add**.
 
-            ![Add SAML IdP login in Asgardeo]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/enable-saml-enterprise-login-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add SAML IdP login in WSO2 Identity Platform]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/enable-saml-enterprise-login-with-basic.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add SAML identity provider login using the Visual Editor:
@@ -24,7 +24,7 @@
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your SAML identity provider connection.
 
-            ![Add SAML IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/add-saml-idp-with-visual-editor.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add SAML IdP login in WSO2 Identity Platform with visual editor]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/add-saml-idp-with-visual-editor.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
     {% else %}

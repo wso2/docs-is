@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Notification Senders v2 API
-  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **Asgardeo**
+  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **WSO2 Identity Platform**
   version: "v2"
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v2'

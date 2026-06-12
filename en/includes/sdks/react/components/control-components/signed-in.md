@@ -1,4 +1,4 @@
-The `SignedIn` component conditionally renders its children only when the user is signed in using Asgardeo authentication. It provides a simple way to protect UI sections and display fallback content when the user is not authenticated.
+The `SignedIn` component conditionally renders its children only when the user is signed in using WSO2 Identity Platform authentication. It provides a simple way to protect UI sections and display fallback content when the user is not authenticated.
 
 ## Overview
 

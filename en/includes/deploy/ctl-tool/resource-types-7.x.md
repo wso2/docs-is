@@ -14,11 +14,11 @@ IAM-CTL provides support for propagating the following resource types among root
 - Validation Rules
 - Organizations
 - Branding
-{% if product_name == "Asgardeo" or server_version >= "7.1" %}
+{% if product_name == "WSO2 Identity Platform" or server_version >= "7.1" %}
 - SMS Templates
 - Actions
 {% endif %}
-{% if product_name == "Asgardeo" or server_version >= "7.2" %}
+{% if product_name == "WSO2 Identity Platform" or server_version >= "7.2" %}
 - Email Providers
 - SMS Providers
 - Workflows

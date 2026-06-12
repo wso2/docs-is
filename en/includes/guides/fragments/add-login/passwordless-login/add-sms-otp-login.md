@@ -6,7 +6,7 @@ Follow the steps given below to add **SMS OTP** login to the login flow of your 
 
 3. Go to the **Login Flow** tab of the application and add SMS OTP login as follows:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
     === "Visual Editor"
         To add passwordless login with SMS OTP using the Visual Editor:
 
@@ -16,7 +16,7 @@ Follow the steps given below to add **SMS OTP** login to the login flow of your 
 
         3. Click **Confirm** to add passwordless login with SMS OTP to the sign-in flow.
 
-            ![Configuring SMS OTP login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Configuring SMS OTP login in WSO2 Identity Platform using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/sms-otp/add-sms-otp-login-step-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
     === "Classic Editor"

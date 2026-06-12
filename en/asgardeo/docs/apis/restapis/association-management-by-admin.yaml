@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: User Account Association API
   description: |
-    This document specifies a **User Account Association Management RESTful API** for Asgardeo.
+    This document specifies a **User Account Association Management RESTful API** for WSO2 Identity Platform.
     The APIs provide the capability for privileged users to retrieve/delete associated local/federated accounts of other users.
   version: v1
 servers:

@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: 'Asgardeo - User Organization Management API Definition'
+  title: 'WSO2 Identity Platform - User Organization Management API Definition'
   description: | 
-    This document specifies an **User Organization Management RESTful API** for **Asgardeo**.
+    This document specifies an **User Organization Management RESTful API** for **WSO2 Identity Platform**.
     
     This API provides the capability to retrieve the resident organization of the authenticated user.
   license:

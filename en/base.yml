@@ -195,7 +195,7 @@ extra:
     Setup:
       icon: octicons/gear-16
       level: 1
-    Asgardeo MCP Server:
+    WSO2 Identity Platform MCP Server:
       icon: assets/libs/custom-icons/mcp.svg
       level: 1
     React SDK:

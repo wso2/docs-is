@@ -29,7 +29,7 @@ To request scopes for the user:
     2. Go to **Applications** and select your application.
     3. Copy the scopes listed at the end of the **API Authorization** section.
 
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/authorization/api-authorization/additional-scopes.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
         {% else %}
         ![Additional scopes to access the API resource]({{base_path}}/assets/img/guides/authorization/api-authorization/additional-scopes.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

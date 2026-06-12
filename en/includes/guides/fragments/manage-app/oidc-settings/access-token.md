@@ -6,7 +6,7 @@ Select the access token type to issue for this application. {{product_name}} sup
 !!! note
     Learn about [access token types and validation]({{base_path}}/references/tokens/access-tokens/#token-types) to understand how each type works at runtime.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 #### Access Token Attributes
 

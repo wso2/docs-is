@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies a RESTful API for identifying idle business user accounts in Asgardeo. The API provides the capability to retrieve a list of inactive users after a specified date.
+    This document specifies a RESTful API for identifying idle business user accounts in WSO2 Identity Platform. The API provides the capability to retrieve a list of inactive users after a specified date.
   version: "v1"
-  title: Asgardeo - Idle Account Identification Rest API
+  title: WSO2 Identity Platform - Idle Account Identification Rest API
 security:
   - OAuth2: []
 servers:

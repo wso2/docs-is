@@ -1,6 +1,6 @@
 # Rate limits
 
-Asgardeo endpoints are subjected to rate limits to maintain smooth and reliable processing of requests, preventing system failures and slowdowns. These rate limits are applied globally across all tiers of Asgardeo subscriptions.
+WSO2 Identity Platform endpoints are subjected to rate limits to maintain smooth and reliable processing of requests, preventing system failures and slowdowns. These rate limits are applied globally across all tiers of WSO2 Identity Platform subscriptions.
 
 Rate limits are calculated on a per IP address basis. For example, if the rate limit for an endpoint is 200, it means that the maximum number of requests you can make to this endpoint from a single IP address is 200 per minute.
 

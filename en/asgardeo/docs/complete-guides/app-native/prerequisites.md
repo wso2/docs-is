@@ -8,7 +8,7 @@ read_time: 30 secs
 
 * About 60 minutes
 * {{product_name}} account
-* Create [a test user in Asgardeo](https://wso2.com/asgardeo/docs/guides/users/manage-users/#onboard-users)
+* Create [a test user in WSO2 Identity Platform](https://wso2.com/asgardeo/docs/guides/users/manage-users/#onboard-users)
 * [Node.js](https://nodejs.org/en/download/package-manager){:target="_blank"} v20+ and npm
 * Access to the [Google Developer Console](https://console.developers.google.com/apis/credentials)
 * A favorite text editor or IDE

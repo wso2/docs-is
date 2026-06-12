@@ -8,11 +8,11 @@ This guide explains how you can integrate Sift fraud detection to prevent fraudu
 
 You need to have an already configured Sift environment and have access to the Sift console. Reach out to [Sift](https://sift.com/contact-us){target="_blank"} to get started.
 
-## Configure Fraud Detection with Sift in Asgardeo
+## Configure Fraud Detection with Sift in WSO2 Identity Platform
 
 Fraud detection and Sift integration related configurations can be accessed by navigating as follows.
 
-1. On the Asgardeo Console, go to **Login and Registration**.
+1. On the WSO2 Identity Platform Console, go to **Login and Registration**.
 2. Under **Login Security**, select **Fraud Detection**.
 
 ![Configure fraud detection with Sift]({{base_path}}/assets/img/guides/account-configurations/fraud-detection.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -23,7 +23,7 @@ After navigating to **Fraud Detection** section, provide the **Sift API key** re
 
 ### Configure Fraud Detection related configurations
 
-Asgardeo provides options to modify the event payloads sent to the Fraud Detection integration based on the requirements.
+WSO2 Identity Platform provides options to modify the event payloads sent to the Fraud Detection integration based on the requirements.
 
 #### Information to be included in the event payload
 
@@ -47,18 +47,18 @@ Following are the events that can be published to Sift for fraud detection.
 
 #### Diagnostic Logging
 
-Enable the `Log event payloads locally` option to log the event payloads sent to the Sift as diagnostic logs in Asgardeo.
+Enable the `Log event payloads locally` option to log the event payloads sent to the Sift as diagnostic logs in WSO2 Identity Platform.
 
 ## Fraud Detection invoking mechanisms
 
-Asgardeo allows you to invoke Sift fraud detection through the following mechanisms.
+WSO2 Identity Platform allows you to invoke Sift fraud detection through the following mechanisms.
 
 - **Event Publishing** - Event Publishing approach allows to publish other user events such as registration, credential update, profile update, logout, and user verification events to Sift for fraud detection.
 - **Conditional Authentication** - You can use Sift fraud detection in your conditional authentication scripts to make authentication decisions based on the risk score or workflow decision returned by Sift.
 
 ### Sift Fraud Detection through Event Publishing
 
-Asgardeo allows you to publish various user events to **Sift** for fraud detection using its **Event Publishing** mechanism. Once the fraud detection configurations are set up, the relevant events will be automatically published to Sift — no additional configuration steps are required.
+WSO2 Identity Platform allows you to publish various user events to **Sift** for fraud detection using its **Event Publishing** mechanism. Once the fraud detection configurations are set up, the relevant events will be automatically published to Sift — no additional configuration steps are required.
 
 #### User Data Published to Sift
 
@@ -89,11 +89,11 @@ Sift requires specific user information to perform fraud analysis. The following
 ### Sift Fraud Detection through Conditional Authentication
 
 !!! note "Before you begin"
-    You need to [register an application with Asgardeo]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
+    You need to [register an application with WSO2 Identity Platform]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 To enable Sift fraud detection:
 
-1. On the Asgardeo Console, go to **Applciations**.
+1. On the WSO2 Identity Platform Console, go to **Applciations**.
 2. Go to the **Login Flow** tab of the application and enable **Conditional Authentication**.
 3. Add a conditional authentication script. Refer to the [sample conditional authentication scripts](#sample-conditional-authentication-scripts).
 

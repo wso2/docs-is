@@ -1,11 +1,11 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: Asgardeo - SCIM 2.0 Group Management API
+  title: WSO2 Identity Platform - SCIM 2.0 Group Management API
   description:
-    "This is the RESTful API for SCIM 2.0 Group Management in Asgardeo organizations. 
+    "This is the RESTful API for SCIM 2.0 Group Management in WSO2 Identity Platform organizations. 
     This API allows creating, deleting, listing, and updating users. 
-    \n To access the SCIM 2.0 Group Management APIs in Asgardeo, you need to first get an access token from your organization."
+    \n To access the SCIM 2.0 Group Management APIs in WSO2 Identity Platform, you need to first get an access token from your organization."
 security:
   - OAuth2: []
 servers:

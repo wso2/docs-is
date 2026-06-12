@@ -3,7 +3,7 @@ info:
   version: 1.0.0
   title: "Agent Sharing API (v1)"
   description: |-
-    This document defines the **Agent Sharing REST API (v1)** for organizations in **Asgardeo**.
+    This document defines the **Agent Sharing REST API (v1)** for organizations in **WSO2 Identity Platform**.
 
     It enables organization administrators to:
     - Share agents (machine identities / service accounts) across child organizations.

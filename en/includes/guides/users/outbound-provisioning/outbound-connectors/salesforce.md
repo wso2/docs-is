@@ -117,7 +117,7 @@ Follow the steps below to learn how you can configure Salesforce for provisionin
 
 ## Configure the Salesforce outbound connector
 
-{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+{% if product_name == "WSO2 Identity Platform" or is_version > "7.2.0" %}
 [Set up outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) and enter the following details to configure the Salesforce outbound connector.
 {% else %}
 Create an [organization-level]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) outbound provisioning connection and enter the following details to configure the Salesforce outbound connector.

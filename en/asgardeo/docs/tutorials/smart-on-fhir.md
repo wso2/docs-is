@@ -1,6 +1,6 @@
-# Integrate Asgardeo with SMART on FHIR
+# Integrate WSO2 Identity Platform with SMART on FHIR
 
-Follow the tutorial below to learn how you can leverage Asgardeo as an identity provider, to implement a robust authentication and authorization mechanism for your healthcare applications built on SMART on FHIR.
+Follow the tutorial below to learn how you can leverage WSO2 Identity Platform as an identity provider, to implement a robust authentication and authorization mechanism for your healthcare applications built on SMART on FHIR.
 
 ## What is FHIR?
 
@@ -14,25 +14,25 @@ Follow the tutorial below to learn how you can leverage Asgardeo as an identity 
 
 - Security - The framework uses open standards such as OAuth2 and OpenID Connect for authorization and authentication to ensure EHR systems are accessed securely and in compliance with privacy regulations such as HIPAA.
 
-## How can Asgardeo help?
+## How can WSO2 Identity Platform help?
 
-Asgardeo, a cloud-native Identity and Access Management (IAM) solution, is equipped with support for open standards such as OpenID Connect and Oauth 2.0 that developers can simply integrate right into their SMART on FHIR applications. This helps developers to safeguard patient information, comply with privacy regulations, and manage access to FHIR resources based on user roles.
+WSO2 Identity Platform, a cloud-native Identity and Access Management (IAM) solution, is equipped with support for open standards such as OpenID Connect and Oauth 2.0 that developers can simply integrate right into their SMART on FHIR applications. This helps developers to safeguard patient information, comply with privacy regulations, and manage access to FHIR resources based on user roles.
 
-Asgardeo simplifies and automates identity and permission management, making it an ideal solution for integrating third-party applications securely within the healthcare ecosystem.
+WSO2 Identity Platform simplifies and automates identity and permission management, making it an ideal solution for integrating third-party applications securely within the healthcare ecosystem.
 
-## How do I integrate Asgardeo into my app?
+## How do I integrate WSO2 Identity Platform into my app?
 
-This guide outlines how Asgardeo can be integrated into your healthcare apps. We have created a Postman collection to automate this process so that it enhances efficiency and ensures consistency in configurations.
+This guide outlines how WSO2 Identity Platform can be integrated into your healthcare apps. We have created a Postman collection to automate this process so that it enhances efficiency and ensures consistency in configurations.
 
 ### Prerequisite
 
-You need to have an Asgardeo account. If you do not have one, create one for free in Asgardeo(https://asgardeo.io/signup){target="_blank"}. Follow the [documentation]({{base_path}}/get-started/) to learn how to get started.
+You need to have an WSO2 Identity Platform account. If you do not have one, create one for free in WSO2 Identity Platform(https://asgardeo.io/signup){target="_blank"}. Follow the [documentation]({{base_path}}/get-started/) to learn how to get started.
 
-### Step 1: Register an application in Asgardeo
+### Step 1: Register an application in WSO2 Identity Platform
 
-Follow the steps below to register an application in Asgardeo.
+Follow the steps below to register an application in WSO2 Identity Platform.
 
-1. Log in to the [Asgardeo Console](https://console.asgardeo.io/){target="_blank"} and go to **Applications**.
+1. Log in to the [WSO2 Identity Platform Console](https://console.asgardeo.io/){target="_blank"} and go to **Applications**.
 
 2. Click **New Application** and select **Standard-Based Application**.
 
@@ -46,7 +46,7 @@ Follow the steps below to register an application in Asgardeo.
 
 ### Step 2: Authorize application to access REST APIs
 
-Now that you have registered an application in Asgardeo, the next step is to provide it authorization to perform the following actions on the listed REST APIs,
+Now that you have registered an application in WSO2 Identity Platform, the next step is to provide it authorization to perform the following actions on the listed REST APIs,
 
 <table>
     <thead>
@@ -152,7 +152,7 @@ Now that you have registered an application in Asgardeo, the next step is to pro
 
 To do so,
 
-1. On the [Asgardeo Console](https://console.asgardeo.io/), go to **Applications**.
+1. On the [WSO2 Identity Platform Console](https://console.asgardeo.io/), go to **Applications**.
 
 2. Select the created application and go to its **API Authorization** tab.
 
@@ -174,13 +174,13 @@ To do so,
 
 ### Step 3: Configure the Postman collection
 
-Now that you have registered and configured an application in Asgardeo, you are able to use its credentials to obtain an access token and access Asgardeo's REST APIs.
+Now that you have registered and configured an application in WSO2 Identity Platform, you are able to use its credentials to obtain an access token and access WSO2 Identity Platform's REST APIs.
 
 !!! abstract ""
 
     We have created a Postman collection to automate the following process:
 
-    - Get a bearer token to access Asgardeo REST APIs.
+    - Get a bearer token to access WSO2 Identity Platform REST APIs.
 
     - Create the `fhirUser` user attribute. This will be used as the identity of a user accessing FHIR resources.
 
@@ -202,7 +202,7 @@ Follow the steps below to download and run the Postman collection:
 
 1. Download the Postman collection from [GitHub](https://github.com/wso2-enterprise/open-healthcare/blob/main/scripts/postman-collections/smartonfhir-asgardeo.postman_collection.json){target="_blank"} and import it to Postman.
 
-2. In the Postman collection named **Asgardeo**, go to the **Authorization** tab and do the following:
+2. In the Postman collection named **WSO2 Identity Platform**, go to the **Authorization** tab and do the following:
 
     1. Under **Auth Type**, select **Basic Auth**.
 
@@ -230,9 +230,9 @@ Follow the steps below to download and run the Postman collection:
 
 4. Once the Postman collection is configured, you are ready to run it. To do so,
 
-    1. Navigate to the **Asgardeo** > **Asgardeo-configs** folder.
+    1. Navigate to the **WSO2 Identity Platform** > **WSO2 Identity Platform-configs** folder.
 
-    2. Click the three dots corresponding to **Asgardeo-configs** and click **Run folder**.
+    2. Click the three dots corresponding to **WSO2 Identity Platform-configs** and click **Run folder**.
 
     3. Ensure no errors occur and troubleshoot any errors that arise.
 
@@ -240,11 +240,11 @@ Follow the steps below to download and run the Postman collection:
 
 ### Step 4: Verify that everything works
 
-Now that you have created the `fhirUser` user attribute and registered your SMART on FHIR app in Asgardeo, let's try to log into your application as the user and obtain the ID token. If everything has worked, the ID token should contain the `fhirUser` attribute.
+Now that you have created the `fhirUser` user attribute and registered your SMART on FHIR app in WSO2 Identity Platform, let's try to log into your application as the user and obtain the ID token. If everything has worked, the ID token should contain the `fhirUser` attribute.
 
 To do so,
 
-1. In the same Postman collection, navigate to the **Asgardeo** > **authorization-code-grant-flow** folder.
+1. In the same Postman collection, navigate to the **WSO2 Identity Platform** > **authorization-code-grant-flow** folder.
 
 2. Open the **get-token** request and go to its **Authorization** tab.
 
@@ -254,7 +254,7 @@ To do so,
 
     ![Get new access token]({{base_path}}/assets/img/tutorials/smart-on-fhir/fhir-get-new-access-token.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-5. You will be directed to the Asgardeo login page. Enter the user's credentials and click **Sign In**. If prompted, provide permission for the application to read the `fhirUser` attribute.
+5. You will be directed to the WSO2 Identity Platform login page. Enter the user's credentials and click **Sign In**. If prompted, provide permission for the application to read the `fhirUser` attribute.
 
 6. Once authenticated, you will be redirected back to Postman. Copy the `id_token` value and decode it to find the following data.
 

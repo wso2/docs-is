@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: 'Asgardeo Consent Management Rest API '
+  title: 'WSO2 Identity Platform Consent Management Rest API '
   description: |
-    This document specifies a **Consent Management RESTfulAPI** for Asgardeo.
+    This document specifies a **Consent Management RESTfulAPI** for WSO2 Identity Platform.
   version: 1.0.0
 servers:
 - url: https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v1.0

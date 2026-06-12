@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Install and configure Asgardeo SDK
+heading: Install and configure WSO2 Identity Platform SDK
 read_time: 2 min
 ---
 

@@ -58,7 +58,7 @@ Use the following sections to verify if your applications are ready for producti
 Verify authorized redirect URL and home page URL of social connections are updated with the production environment's values.
 
 ## Branding
-By default, Asgardeo interfaces presented to users are themed according to Asgardeo's default branding. Make sure to customize the UIs according to your organization's branding styles. The following is the list of branding changes required. [Learn more]({{base_path}}/guides/branding/configure-ui-branding/)
+By default, WSO2 Identity Platform interfaces presented to users are themed according to WSO2 Identity Platform's default branding. Make sure to customize the UIs according to your organization's branding styles. The following is the list of branding changes required. [Learn more]({{base_path}}/guides/branding/configure-ui-branding/)
 
 **General**
 To ensure the readiness of the general branding of your organizations:
@@ -72,7 +72,7 @@ To ensure the readiness of the design branding of your organizations:
 
 - Configure logo, favicon, and side images.
 - Configure the heading text.
-- Customize branding styles to UIs provided by Asgardeo provided according to your organization's branding guidelines.
+- Customize branding styles to UIs provided by WSO2 Identity Platform provided according to your organization's branding guidelines.
 
 **Advanced**
 To ensure the readiness of the advanced branding of your organizations:
@@ -83,17 +83,17 @@ To ensure the readiness of the advanced branding of your organizations:
 - Configure the Self Signup page.
 
 ### Using a custom domain
-By default, the interfaces provided by Asgardeo (such as the login page) are presented to your end users over Asgardeo domains. You can customize the URL domain to your organization-preferred host. [Learn more]({{base_path}}/guides/branding/configure-custom-domains/)
+By default, the interfaces provided by WSO2 Identity Platform (such as the login page) are presented to your end users over WSO2 Identity Platform domains. You can customize the URL domain to your organization-preferred host. [Learn more]({{base_path}}/guides/branding/configure-custom-domains/)
 
 !!! note
     The free-tier users do not have the capability to configure domain branding.
 
 ### Customize email template
-By default, all the emails triggered by Asgardeo for your end users have Asgardeo's default branding. If you wish to change the branding and content of the emails, you can customize them via the APIs. [Learn more]({{base_path}}/apis/email-template/#/operations/updateEmailTemplate)
+By default, all the emails triggered by WSO2 Identity Platform for your end users have WSO2 Identity Platform's default branding. If you wish to change the branding and content of the emails, you can customize them via the APIs. [Learn more]({{base_path}}/apis/email-template/#/operations/updateEmailTemplate)
 
 !!! note
-    Asgardeo rolled out this feature on Sep 20, 2022. Therefore this new feature is only applied to the Asgardeo organizations created after Sep 20, 2022.
-    If you wish to use that capability for older organizations, you can send a request to the Asgardeo team at `asgardeo-support@wso2.com`.
+    WSO2 Identity Platform rolled out this feature on Sep 20, 2022. Therefore this new feature is only applied to the WSO2 Identity Platform organizations created after Sep 20, 2022.
+    If you wish to use that capability for older organizations, you can send a request to the WSO2 Identity Platform team at `asgardeo-support@wso2.com`.
 
 ## Manage subscriptions
 Make sure to check the resource limits to verify the allowed Monthly Active User (MAU) limits, groups, etc., to ensure your scaling requirements are within the range of your subscription. [Learn more]({{base_path}}/guides/your-asgardeo/subscribe-to-asgardeo/)

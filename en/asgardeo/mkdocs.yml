@@ -17,17 +17,17 @@
 INHERIT: ../base.yml
 
 # Project information
-site_name: &site_name Asgardeo
-site_description: Asgardeo Learning Center
+site_name: &site_name WSO2 Identity Platform
+site_description: WSO2 Identity Platform Learning Center
 site_url: https://wso2.com/asgardeo/docs/
 edit_uri: https://github.com/wso2/docs-is/edit/master/en/asgardeo/docs/
 
 # Configuration
 theme:
   custom_dir: ../theme/material
-  logo: assets/images/asgardeo-docs-logo-dark.svg
-  logo_light: assets/images/asgardeo-docs-logo.svg
-  favicon: assets/images/asgardeo-favicon.svg
+  logo: assets/images/IP-docs-logo-dark.svg
+  logo_light: assets/images/IP-docs-logo-white.svg
+  favicon: assets/images/pulse.svg
 
 extra:
   base_path: /asgardeo/docs
@@ -52,7 +52,7 @@ extra:
             - name: React SDK
               artifact_id: '@asgardeo/react'
               icon: assets/img/logo/react-logo.svg
-              description: React implementation of Asgardeo JavaScript SDK.
+              description: React implementation of WSO2 Identity Platform JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/react/latest
               version: ''
               documentation_link: sdks/react/overview
@@ -61,7 +61,7 @@ extra:
               artifact_id: '@asgardeo/vue'
               icon: assets/img/logo/vuejs-logo.svg
               dark_icon: assets/img/logo/vuejs-logo-dark.svg
-              description: Vue implementation of Asgardeo JavaScript SDK.
+              description: Vue implementation of WSO2 Identity Platform JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/vue/latest
               version: ''
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/vue
@@ -69,14 +69,14 @@ extra:
               artifact_id: '@asgardeo/nuxt'
               icon: assets/img/logo/nuxtjs-logo.svg
               dark_icon: assets/img/logo/nuxtjs-logo-dark.svg
-              description: Nuxt implementation of Asgardeo JavaScript SDK.
+              description: Nuxt implementation of WSO2 Identity Platform JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/nuxt/latest
               version: ''
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/nuxt
             - name: Next.js SDK
               artifact_id: '@asgardeo/nextjs'
               icon: assets/img/logo/nextjs-logo-dark.svg
-              description: Next.js implementation of Asgardeo JavaScript SDK.
+              description: Next.js implementation of WSO2 Identity Platform JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/nextjs/latest
               version: ''
               documentation_link: sdks/nextjs/overview
@@ -213,7 +213,7 @@ extra:
           - title: Tutorials
             url: Tutorials|Tutorials - Overview
           - title: SDKs and Integrations
-            url: Developer Tools|SDKs|Integrate Asgardeo into your application
+            url: Developer Tools|SDKs|Integrate WSO2 Identity Platform into your application
       - title: Community and Support
         icon: octicons/light-bulb-16
         icon_color: icon-color-2
@@ -221,7 +221,7 @@ extra:
           - title: Community Help
             url: https://discord.com/invite/wso2
           - title: Enterprise Support
-            url: https://wso2.com/asgardeo/pricing/
+            url: https://wso2.com/identity-platform/pricing/
 
 watch:
   - ../theme/material
@@ -325,8 +325,8 @@ nav:
     - Create Account: get-started/create-asgardeo-account.md
     # TODO: Clean this once we revist the navigation structure again
     # - Try login with sample: get-started/try-it-application.md
-    # - Start integrating Asgardeo into apps:
-    #   - Start integrating Asgardeo into apps: get-started/start-integrating-apps/index.md
+    # - Start integrating WSO2 Identity Platform into apps:
+    #   - Start integrating WSO2 Identity Platform into apps: get-started/start-integrating-apps/index.md
     #   - Try for a sample app:
     #     - Try for a sample app: get-started/try-samples/index.md
     #     - Single Page apps:
@@ -549,8 +549,8 @@ nav:
           - Group-based provisioning: guides/users/outbound-provisioning/group-based-provisioning.md
           - Configure an outbound connector:
             - SCIM2: guides/users/outbound-provisioning/outbound-connectors/scim2.md
-        - Migrate users to Asgardeo:
-          - Migrate users to Asgardeo: guides/users/migrate-users/index.md
+        - Migrate users to WSO2 Identity Platform:
+          - Migrate users to WSO2 Identity Platform: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
           - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
         - Manage attributes and mappings:
@@ -702,7 +702,7 @@ nav:
             - Configure custom domains: guides/branding/configure-custom-domains.md
             - Customize email templates: guides/branding/customize-email-templates.md
             - Customize SMS templates: guides/branding/customize-sms-templates.md
-            - Localization in Asgardeo: guides/branding/localization.md
+            - Localization in WSO2 Identity Platform: guides/branding/localization.md
         - Extend with service extensions:
             - Understanding service extensions: guides/service-extensions/understanding-service-extensions.md
             - In-flow extensions:
@@ -717,8 +717,8 @@ nav:
             - Understanding webhooks: guides/webhooks/understanding-webhooks.md
             - Setup webhooks: guides/webhooks/setup-webhooks.md
             - Webhook events and payloads: guides/webhooks/webhook-events-and-payloads.md
-      - Your Asgardeo:
-        - Your Asgardeo: guides/your-asgardeo/index.md
+      - Your WSO2 Identity Platform:
+        - Your WSO2 Identity Platform: guides/your-asgardeo/index.md
         - Manage root organizations: guides/your-asgardeo/manage-root-organizations.md
         - Manage environments:
           - Manage environments: guides/your-asgardeo/manage-environments/index.md
@@ -726,12 +726,12 @@ nav:
         - Self-service: guides/your-asgardeo/asgardeo-self-service.md
         - Recover your password: guides/your-asgardeo/recover-password.md
         - Delete your user account: guides/your-asgardeo/delete-your-user-account.md
-        - Subscribe to Asgardeo:
-          - Subscribe to Asgardeo: guides/your-asgardeo/subscribe-to-asgardeo/index.md
+        - Subscribe to WSO2 Identity Platform:
+          - Subscribe to WSO2 Identity Platform: guides/your-asgardeo/subscribe-to-asgardeo/index.md
           - via Billing Portal: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal.md
           - via Azure Marketplace: guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-azure-marketplace.md
-      - Asgardeo logs:
-        - Asgardeo logs: guides/asgardeo-logs/index.md
+      - WSO2 Identity Platform logs:
+        - WSO2 Identity Platform logs: guides/asgardeo-logs/index.md
         - Diagnostic logs: guides/asgardeo-logs/diagnostic-logs.md
         - Audit logs:
           - Audit logs: guides/asgardeo-logs/audit-logs/index.md
@@ -739,8 +739,8 @@ nav:
         - Remote log publish: guides/asgardeo-logs/remote-log-publish.md
       - Monitoring:
         - Monitoring: guides/monitoring/index.md
-        - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
-        - Asgardeo events: guides/monitoring/asgardeo-events.md
+        - PII in WSO2 Identity Platform logs: guides/monitoring/pii-in-asgardeo-logs.md
+        - WSO2 Identity Platform events: guides/monitoring/asgardeo-events.md
         - Organization insights: guides/organization-insights.md
       - Agentic AI:
         - MCP Authorization:
@@ -760,18 +760,18 @@ nav:
     - Tutorials - Overview: tutorials/index.md
     - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
     - Authenticate users into Flutter applications: tutorials/auth-users-into-flutter-apps.md
-    - Connect Asgardeo as an OIDC attribute provider (with Microsoft Entra Verified ID): tutorials/connect-asgardeo-with-ms-entra.md
-    - Connect Asgardeo as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
-    - Secure Spring Boot API with Asgardeo: tutorials/secure-spring-boot-api.md
-    - Integrate Asgardeo with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
-    - Secure Agentic AI Systems with Asgardeo: tutorials/secure-agentic-ai-systems.md
+    - Connect WSO2 Identity Platform as an OIDC attribute provider (with Microsoft Entra Verified ID): tutorials/connect-asgardeo-with-ms-entra.md
+    - Connect WSO2 Identity Platform as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
+    - Secure Spring Boot API with WSO2 Identity Platform: tutorials/secure-spring-boot-api.md
+    - Integrate WSO2 Identity Platform with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
+    - Secure Agentic AI Systems with WSO2 Identity Platform: tutorials/secure-agentic-ai-systems.md
     - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
-    - Integrating Asgardeo With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
-    - Integrating Asgardeo With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
-    - Secure MCP servers with Asgardeo and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
+    - Integrating WSO2 Identity Platform With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
+    - Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
+    - Secure MCP servers with WSO2 Identity Platform and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
   - SDKs:
-    - Integrate Asgardeo into your application: sdks/index.md
+    - Integrate WSO2 Identity Platform into your application: sdks/index.md
   - SDK Documentation:
     - React SDK:
       - Overview: sdks/react/overview.md
@@ -837,7 +837,7 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
-  - Asgardeo MCP Server: sdks/asgardeo-mcp-server.md
+  - WSO2 Identity Platform MCP Server: sdks/asgardeo-mcp-server.md
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
@@ -946,8 +946,8 @@ nav:
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md
-    - Asgardeo outbound IP addresses: references/asgardeo-outbound-ip-addresses.md
-    - Asgardeo user roles: references/user-management/user-roles.md
+    - WSO2 Identity Platform outbound IP addresses: references/asgardeo-outbound-ip-addresses.md
+    - WSO2 Identity Platform user roles: references/user-management/user-roles.md
     - SCIM2 Custom User Schema Support: references/user-management/add-scim2-custom-user-schema-support.md
     - App configurations:
       - App configurations: references/app-settings/index.md
@@ -987,14 +987,14 @@ nav:
           - Version 1.x:
             - API v1.0 contract to implement: references/service-extensions/pre-flow-extensions/pre-update-profile-action/pre-update-profile-action-v1.0.md
     - Accessibility compliance: references/accessibility.md
-    - Data residency in Asgardeo: references/data-residency-in-asgardeo.md
+    - Data residency in WSO2 Identity Platform: references/data-residency-in-asgardeo.md
     - API resources and scopes required for MCP tools: references/mcp-tool-api-resource-access.md
     - Production checklist:
       - references/production-checklist/index.md
       - Readiness check: references/production-checklist/readiness-check.md
       - Security check: references/production-checklist/security-check.md
       - Best practices: references/production-checklist/best-practices.md
-    - Asgardeo rate limits: references/rate-limits.md
+    - WSO2 Identity Platform rate limits: references/rate-limits.md
     - Tutorials:
       - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
     - IAM concepts:
@@ -1033,7 +1033,7 @@ nav:
       - Prerequisite: complete-guides/react/prerequisite.md
       - Configure an application: complete-guides/react/register-an-application.md
       - Create a React app: complete-guides/react/create-a-react-app.md
-      - Configure Asgardeo SDK: complete-guides/react/install-asgardeo-sdk.md
+      - Configure WSO2 Identity Platform SDK: complete-guides/react/install-asgardeo-sdk.md
       - Add login and logout: complete-guides/react/add-login-and-logout.md
       - Display user details: complete-guides/react/display-logged-in-user-details.md
       - Securing Routes: complete-guides/react/securing-routes-within-the-app.md
@@ -1058,7 +1058,7 @@ nav:
         - Prerequisite: complete-guides/nextjs/prerequisite.md
         - Register an application: complete-guides/nextjs/register-an-application.md
         - Create a Next.js app: complete-guides/nextjs/create-app.md
-        - Configure Asgardeo SDK: complete-guides/nextjs/install-asgardeo-sdk.md
+        - Configure WSO2 Identity Platform SDK: complete-guides/nextjs/install-asgardeo-sdk.md
         - Add login and logout: complete-guides/nextjs/add-login-and-logout.md
         - Display user details: complete-guides/nextjs/display-logged-in-user-details.md
         - Securing Routes: complete-guides/nextjs/securing-routes-within-the-app.md
@@ -1070,7 +1070,7 @@ nav:
         - Prerequisites: complete-guides/app-native/prerequisites.md
         - Register an application: complete-guides/app-native/register-an-application.md
         - Create an app for app-native authentication: complete-guides/app-native/create-app.md
-        - Configure Asgardeo SDK: complete-guides/app-native/configure-provider.md
+        - Configure WSO2 Identity Platform SDK: complete-guides/app-native/configure-provider.md
         - Add login and logout: complete-guides/app-native/add-login-and-logout.md
         - Add MFA using app-native APIs: complete-guides/app-native/add-mfa.md
         - Add Social Login using app-native APIs: complete-guides/app-native/add-social-login.md
@@ -1081,7 +1081,7 @@ nav:
       - Prerequisite: complete-guides/expressjs/prerequisite.md
       - Configure an application: complete-guides/expressjs/register-an-application.md
       - Create an Express.js app: complete-guides/expressjs/create-an-expressjs-app.md
-      - Configure Passport Asgardeo: complete-guides/expressjs/install-passport-asgardeo.md
+      - Configure Passport WSO2 Identity Platform: complete-guides/expressjs/install-passport-asgardeo.md
       - Add login and logout: complete-guides/expressjs/add-login-and-logout.md
       - Persist user sessions: complete-guides/expressjs/persist-user-sessions.md
       - Display user details: complete-guides/expressjs/display-logged-in-user-details.md
@@ -1093,7 +1093,7 @@ nav:
       - Prerequisite: complete-guides/angular/prerequisite.md
       - Register an application: complete-guides/angular/register-an-application.md
       - Create an Angular app: complete-guides/angular/create-app.md
-      - Configure Asgardeo provider: complete-guides/angular/install-asgardeo-sdk.md
+      - Configure WSO2 Identity Platform provider: complete-guides/angular/install-asgardeo-sdk.md
       - Add login and logout: complete-guides/angular/add-login-and-logout.md
       - Display user details: complete-guides/angular/display-logged-in-user-details.md
       - Securing Routes: complete-guides/angular/securing-routes-within-the-app.md
@@ -1105,7 +1105,7 @@ nav:
       - Prerequisite: complete-guides/javascript/prerequisite.md
       - Register an application: complete-guides/javascript/register-an-application.md
       - Create a JavaScript app: complete-guides/javascript/create-app.md
-      - Configure Asgardeo SDK: complete-guides/javascript/install-asgardeo-sdk.md
+      - Configure WSO2 Identity Platform SDK: complete-guides/javascript/install-asgardeo-sdk.md
       - Add login and logout: complete-guides/javascript/add-login-and-logout.md
       - Display user details: complete-guides/javascript/display-logged-in-user-details.md
       - Accessing protected API : complete-guides/javascript/accessing-protected-api.md

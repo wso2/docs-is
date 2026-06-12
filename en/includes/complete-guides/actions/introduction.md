@@ -1,15 +1,15 @@
 WSO2 Identity Server (WSO2 IS) is widely recognized as a powerful, open-source identity and access management solution
-that offers a high degree of extensibility to meet diverse business requirements. Asgardeo, which is built on the same
+that offers a high degree of extensibility to meet diverse business requirements. WSO2 Identity Platform, which is built on the same
 robust core technology as WSO2 IS, inherits this extensibility, providing users the flexibility to adapt and extend the
 platform according to their specific needs.
 
-With the introduction of the new service-based extension model, both WSO2 IS and Asgardeo now offer a streamlined,
+With the introduction of the new service-based extension model, both WSO2 IS and WSO2 Identity Platform now offer a streamlined,
 service-oriented approach to extend core functionalities. This model allows developers to implement custom logic
 externally without modifying the core product, thereby ensuring maintainability, scalability, and ease of upgrades.
 
 In this guide, we provide sample Pre-Flow Extensions that demonstrate how to use the service-based extension model to
 customize the behavior of various authentication and user management actions. Whether you are working with WSO2 IS or
-Asgardeo, the samples and approaches detailed here will help you understand how to build and deploy your own service
+WSO2 Identity Platform, the samples and approaches detailed here will help you understand how to build and deploy your own service
 extensions effectively.
 
 We will cover the following extensions and use cases:
@@ -24,7 +24,7 @@ We will cover the following extensions and use cases:
 ## Learning Objectives
 
 By the end of this guide, you will have a clear understanding of how to implement service-based extensions in both WSO2
-Identity Server (WSO2 IS) and Asgardeo. You will be equipped to enhance and tailor your identity management workflows to
+Identity Server (WSO2 IS) and WSO2 Identity Platform. You will be equipped to enhance and tailor your identity management workflows to
 better suit your organization's requirements by integrating custom logic into key parts of the authentication and user
 management flows.
 Specifically, this guide will help you:

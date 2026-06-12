@@ -5,7 +5,7 @@
 
 2. Select your application, go to the **Login Flow** tab and add the custom connector from your preferred editor:
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     === "Classic Editor"
         To add custom connector using the Classic Editor:
 

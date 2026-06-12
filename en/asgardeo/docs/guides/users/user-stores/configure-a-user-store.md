@@ -1,14 +1,14 @@
 # Connect a remote user store
 
-Asgardeo allows you to connect a remote user store and onboard users and groups from it. The user store connection can either be with read-only or read/write permissions. Administrators can then start managing access to business applications in Asgardeo for these users and groups. This guide explains how you can set up a remote user store for your Asgardeo organization.
+WSO2 Identity Platform allows you to connect a remote user store and onboard users and groups from it. The user store connection can either be with read-only or read/write permissions. Administrators can then start managing access to business applications in WSO2 Identity Platform for these users and groups. This guide explains how you can set up a remote user store for your WSO2 Identity Platform organization.
 
 ## User store connections
 
-Asgardeo supports the following user store connections.
+WSO2 Identity Platform supports the following user store connections.
 
 ### Optimized user store connection (recommended)
 
-Asgardeo has introduced **optimized user store connections**, designed for high scalability and performance. At the moment, it supports **read-only** user stores and can be used to authenticate users and retrieve attributes. This connection is continuously evolving and will support a wide range of use cases in the future.
+WSO2 Identity Platform has introduced **optimized user store connections**, designed for high scalability and performance. At the moment, it supports **read-only** user stores and can be used to authenticate users and retrieve attributes. This connection is continuously evolving and will support a wide range of use cases in the future.
 
 If this connection's capabilities meet your organization's requirements, we highly recommend that you use the optimized connection instead of the classic connection.
 
@@ -26,21 +26,21 @@ The optimized user store connection is the recommended choice, though its capabi
 
 !!! note "Switch classic connections from read-only to read/write"
     
-    If you have connected a classic user store before 7th February 2023, you will only have **read-only** access for the user store. If you need **read/write** access for your user store in Asgardeo,
+    If you have connected a classic user store before 7th February 2023, you will only have **read-only** access for the user store. If you need **read/write** access for your user store in WSO2 Identity Platform,
 
     1. Delete the existing remote user store.
     2. [Register a classic user store](#register-a-remote-user-store) again with Read/Write access type. Make sure to select the classic user store path.
     3. [Set up the remote user store](#set-up-the-remote-user-store) with the latest user store agent.
 
-## Register and configure a user store in Asgardeo
+## Register and configure a user store in WSO2 Identity Platform
 
-The following guides explain how you can register and set up a remote user store for your Asgardeo organization.
+The following guides explain how you can register and set up a remote user store for your WSO2 Identity Platform organization.
 
 ### Prerequisites
 
 Ensure your system has the following before you proceed.
 
-- An on-premise user store. Currently, Asgardeo supports:
+- An on-premise user store. Currently, WSO2 Identity Platform supports:
 
     - Lightweight Directory Access Protocol (LDAP)
     - Active Directory (AD)
@@ -94,11 +94,11 @@ Ensure your system has the following before you proceed.
 
 To configure a remote user store for your organization:
 
-1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores**.
+1. On the WSO2 Identity Platform Console, go to **User Attributes & Stores** > **User Stores**.
 
 2. Click **Connect userstore** to open the following:
 
-    ![Register remote user store to Asgardeo]({{base_path}}/assets/img/guides/user-stores/register-user-store-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Register remote user store to WSO2 Identity Platform]({{base_path}}/assets/img/guides/user-stores/register-user-store-general.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. If the [optimized connection](#optimized-user-store-connection-recommended) supports your use case, this is the recommended choice. If not, click **Classic User Store Connection** instead.
 
@@ -246,7 +246,7 @@ After registering the user store, you'll be redirected to the **Setup Guide** of
 
                 Refer [remote agent properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) for the complete list of agent configurations.
 
-    4. Return to the Asgardeo Console and click **Generate Token** to create an installation token. The installation token is essential to run the user store agent. The token can be configured in one of the following ways.
+    4. Return to the WSO2 Identity Platform Console and click **Generate Token** to create an installation token. The installation token is essential to run the user store agent. The token can be configured in one of the following ways.
 
         1. Configure the token in the configuration file
 
@@ -324,7 +324,7 @@ After registering the user store, you'll be redirected to the **Setup Guide** of
 
                 Refer [remote agent properties]({{base_path}}/references/remote-user-store/remote-user-store-properties/) for the complete list of agent configurations.
 
-    3. Return to the Asgardeo Console and, click **Generate Token** to create an installation token. The installation token is essential to run the user store agent.
+    3. Return to the WSO2 Identity Platform Console and, click **Generate Token** to create an installation token. The installation token is essential to run the user store agent.
 
         !!! warning
             - Copy the installation token and save it in a safe location. You won't be able to see it again!
@@ -366,6 +366,6 @@ After registering the user store, you'll be redirected to the **Setup Guide** of
 ## What's Next
 
 - [Configure high availability for a remote user store]({{base_path}}/guides/users/user-stores/configure-high-availability/)
-- [Manage remote user stores in Asgardeo]({{base_path}}/guides/users/user-stores/update-user-stores/)
+- [Manage remote user stores in WSO2 Identity Platform]({{base_path}}/guides/users/user-stores/update-user-stores/)
 - [Deployment best practices for the remote agent]({{base_path}}/guides/users/user-stores/deployment-best-practices/)
 - [Advanced configuration for the remote agent]({{base_path}}/guides/users/user-stores/advanced-configurations-for-the-agent/)

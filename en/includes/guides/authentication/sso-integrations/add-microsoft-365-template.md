@@ -54,9 +54,9 @@ Get-InstalledModule Microsoft.Graph
     ```powershell
     $Domain="yourdomain.com"
     $DisplayName="Login with ${productName}"
-    {% if product_name == "Asgardeo" %}$LogOnUrl="https://api.asgardeo.io/t/{organization_name}/samlsso" {% else %} $LogOnUrl="https://localhost:9443/samlsso" {% endif %}
-    {% if product_name == "Asgardeo" %}$LogOffUrl="https://api.asgardeo.io/t/{organization_name}/samlsso"{% else %}$LogOffUrl="https://localhost:9443/samlsso"{% endif %}
-    {% if product_name == "Asgardeo" %}$IssuerName = "https://api.asgardeo.io/t/{organization_name}"{% else %}$IssuerName="https://localhost:9443"{% endif %}
+    {% if product_name == "WSO2 Identity Platform" %}$LogOnUrl="https://api.asgardeo.io/t/{organization_name}/samlsso" {% else %} $LogOnUrl="https://localhost:9443/samlsso" {% endif %}
+    {% if product_name == "WSO2 Identity Platform" %}$LogOffUrl="https://api.asgardeo.io/t/{organization_name}/samlsso"{% else %}$LogOffUrl="https://localhost:9443/samlsso"{% endif %}
+    {% if product_name == "WSO2 Identity Platform" %}$IssuerName = "https://api.asgardeo.io/t/{organization_name}"{% else %}$IssuerName="https://localhost:9443"{% endif %}
     $Protocol="saml"
     $MfaBehavior="rejectMfaByFederatedIdp"
     ```

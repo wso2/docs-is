@@ -3,7 +3,7 @@
 Organization administrators can create and mange applications directly within their organizations. These applications can access and consume the organization’s API resources. To create an application, it must meet the following conditions:
 
 - Use OAuth2.
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
 - Use only the following grant types: authorization code, client credentials, password, and refresh token.
 
@@ -15,7 +15,7 @@ Organization administrators can create and mange applications directly within th
 
 {% endif %}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
 !!! note
 
@@ -61,7 +61,7 @@ To create an application,
 
 You can find the created applications in the **Application** section of your organization's Console. You can use the Console to make the following changes to these applications.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
 - Protocol level configurations
 - User attributes related configurations

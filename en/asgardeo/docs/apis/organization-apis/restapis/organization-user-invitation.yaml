@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: "Asgardeo - Parent Organization's User Invitation API"
+  title: "WSO2 Identity Platform - Parent Organization's User Invitation API"
   description: |-
-    This document specifies an **Parent Organization's User Invitation RESTful API** for **Asgardeo**. This API allows organization administrators to invite users in parent organization, manage the invitations and invitees to accept the invitation.
+    This document specifies an **Parent Organization's User Invitation RESTful API** for **WSO2 Identity Platform**. This API allows organization administrators to invite users in parent organization, manage the invitations and invitees to accept the invitation.
 
 security:
   - OAuth2: []

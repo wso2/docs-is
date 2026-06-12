@@ -1,5 +1,5 @@
 <!-- 
-At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo SDK. The next step is to explore how to access and display logged-in user details within the app utilizing the callbacks provided by auth.js library. To retrieve user information from the ID token provided by {{product_name}}, the simplest approach is to use the JWT (JSON Web Token) returned during authentication. In auth.js, you can leverage the JWT callback function to access and manipulate this token. The JWT callback is triggered whenever a JWT is created or updated (e.g., at sign-in), making it a great place to include the user's information
+At this point, we’ve successfully implemented login and logout capabilities using the WSO2 Identity Platform SDK. The next step is to explore how to access and display logged-in user details within the app utilizing the callbacks provided by auth.js library. To retrieve user information from the ID token provided by {{product_name}}, the simplest approach is to use the JWT (JSON Web Token) returned during authentication. In auth.js, you can leverage the JWT callback function to access and manipulate this token. The JWT callback is triggered whenever a JWT is created or updated (e.g., at sign-in), making it a great place to include the user's information
 
 Modified the code as below to see logged in user details.
 
@@ -276,7 +276,7 @@ When a user is not logged in, it should look as follows:
 
 In this step, we further improved our Next.js app to display the user attributes. As the next step, we will try to secure routes within the app. -->
 
-At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo  SDK. The next step is to explore how to access and display logged-in user details within the app.
+At this point, we’ve successfully implemented login and logout capabilities using the WSO2 Identity Platform  SDK. The next step is to explore how to access and display logged-in user details within the app.
 
 The Next SDK has components can be used to display user information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
 

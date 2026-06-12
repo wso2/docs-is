@@ -92,7 +92,7 @@ The following guide shows you how to enable **Sign-In With Ethereum** in an appl
         
         3. From the list of connections that appear, select the **Sign-In With Ethereum** connection that you created and click **Add**.
 
-            ![Add Sign-In With Ethereum login in Asgardeo]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-federation-with-basic.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add Sign-In With Ethereum login in WSO2 Identity Platform]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-federation-with-basic.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add enable **Sign-In With Ethereum** using the Visual Editor:
@@ -101,7 +101,7 @@ The following guide shows you how to enable **Sign-In With Ethereum** in an appl
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select the **Sign-In With Ethereum** connection that you created
 
-            ![Enable sign-in with Ethereum in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-with-visual-editor.png){: width="450" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Enable sign-in with Ethereum in WSO2 Identity Platform using the Visual Editor]({{base_path}}/assets/img/guides/idp/siwe-idp/add-siwe-with-visual-editor.png){: width="450" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
 

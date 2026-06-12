@@ -14,7 +14,7 @@ Before we move further, let’s briefly look at two main options available for y
 
 In this guide, we assume you have integrated your frontend app with an IdP using the OIDC protocol for user login.  You can use a cloud IdP such as {{product_name}} as the IdP or any OIDC-supported IdP such as WSO2 Identity Server. Integrating your frontend app with an IdP typically involves two main steps:
 
-1. Add the OIDC SDK as a dependency to your app to simplify handling OIDC request-response flows and tokens. While you could implement OIDC flows on your own, using the SDK saves time and ensures you’re following the best practices. Although the security implications and solutions are common across all frontend technologies, this guide presents examples from [Asgardeo React SDK](https://wso2.com/identity-and-access-management/react/){:target="_blank"}.
+1. Add the OIDC SDK as a dependency to your app to simplify handling OIDC request-response flows and tokens. While you could implement OIDC flows on your own, using the SDK saves time and ensures you’re following the best practices. Although the security implications and solutions are common across all frontend technologies, this guide presents examples from [WSO2 Identity Platform React SDK](https://wso2.com/identity-and-access-management/react/){:target="_blank"}.
 
 2. Register your app with an Identity Provider (IdP) as a Relying Party (RP) and obtain the necessary credentials to integrate your app with the IdP. In {{product_name}} you can achieve this by creating an application in the console.
 

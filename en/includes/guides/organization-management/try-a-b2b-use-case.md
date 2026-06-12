@@ -19,7 +19,7 @@ The following guide is a complete end-to-end use case on how to manage B2B (Busi
 
 The following guides explain how a Guardio Insurance administrator can use {{product_name}} to implement the above scenario.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 ## Prerequisites
 
 You should [create a root organization]({{base_path}}/guides/{{root_org_description_path}}). For this example, we have created a root organization named `Guardio Insurance`.

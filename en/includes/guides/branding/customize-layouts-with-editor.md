@@ -1,6 +1,6 @@
 # Customize layouts using the Console editor
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 !!! note "Premium feature"
     Only customers on the enterprise tier can access this feature.
 {% endif %}
@@ -10,7 +10,7 @@
 <!--vale on -->
 You can use the Console editor to customize the branding and layout of user interfaces, such as login, registration and recovery pages, without manually updating server files. This guide walks you through enabling and using the Console editor.
 {% else %}
-You can use the Console editor to customize the branding and layout of user interfaces, such as login, registration and recovery pages. This eliminates the need to contact Asgardeo support for these changes. The following sections explain how to enable and use the Console editor.
+You can use the Console editor to customize the branding and layout of user interfaces, such as login, registration and recovery pages. This eliminates the need to contact WSO2 Identity Platform support for these changes. The following sections explain how to enable and use the Console editor.
 {% endif %}
 
 <!--vale off -->

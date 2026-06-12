@@ -10,7 +10,7 @@ This approach allows users in the root organization to create teams and onboard 
 In this step, let's see how to make Teamspace a self-service portal and implement the functionality to create new teams and assign the creator as the team administrator.
 
 !!! Info
-    Read more on the [self-service approach]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#self-service-approach){:target="\_blank"} and [maintaining admins in root organization]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-in-the-root-organization){:target="\_blank"} in the Asgardeo documentation.
+    Read more on the [self-service approach]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#self-service-approach){:target="\_blank"} and [maintaining admins in root organization]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-in-the-root-organization){:target="\_blank"} in the WSO2 Identity Platform documentation.
 
 ### Create route
 

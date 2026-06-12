@@ -6,9 +6,9 @@ When your application is wrapped with `AsgardeoProvider`, you can use the `useAs
 - Handles token refresh when tokens expire
 - Provides methods like `request()` and `requestAll()` for making API calls
 
-You can use the `http` module provided by the Asgardeo SDK to make HTTP requests to these endpoints. This function is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this function does it automatically.
+You can use the `http` module provided by the WSO2 Identity Platform SDK to make HTTP requests to these endpoints. This function is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this function does it automatically.
 
-The following is a simple example of how you might use the Asgardeo SDK’s `http` to call a protected API endpoint, such as `/scim2/Me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by {{product_name}} . {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
+The following is a simple example of how you might use the WSO2 Identity Platform SDK’s `http` to call a protected API endpoint, such as `/scim2/Me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by {{product_name}} . {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
 
 !!! note "Note"
 
@@ -65,7 +65,7 @@ export default function UserProfile() {
 
     You need to use the `<base-url>` value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
@@ -95,7 +95,7 @@ const response = await http.request({
 
     You need to use the `<base-url>` value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
@@ -166,7 +166,7 @@ export default function UserProfile() {
 
     You need to use the `<base-url>` value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
@@ -238,7 +238,7 @@ export default function UserProfile() {
 
     You need to construct the `<base-url>` value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 

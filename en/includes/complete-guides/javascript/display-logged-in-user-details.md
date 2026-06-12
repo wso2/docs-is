@@ -1,8 +1,8 @@
 
 
-At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo Javascript SDK. The next step is to explore how to access and display logged-in user details within the app. The Asgardeo Javascript SDK loads the basic user attribute details, so that you can directly access those from a variable(such as `user.username`) and use them in the application.
+At this point, we’ve successfully implemented login and logout capabilities using the WSO2 Identity Platform Javascript SDK. The next step is to explore how to access and display logged-in user details within the app. The WSO2 Identity Platform Javascript SDK loads the basic user attribute details, so that you can directly access those from a variable(such as `user.username`) and use them in the application.
 
-There may be instances where you’d need to retrieve user attributes outside Javascript components. Asgardeo Javascript SDK provides a [getBasicUserInfo](https://github.com/asgardeo/asgardeo-auth-spa-sdk?tab=readme-ov-file#getbasicuserinfo){:target="_blank"} method, which allows you to retrieve the authenticated user’s basic information. The code example in the following section demonstrates this process and can be adapted to fit your application with any necessary customizations.
+There may be instances where you’d need to retrieve user attributes outside Javascript components. WSO2 Identity Platform Javascript SDK provides a [getBasicUserInfo](https://github.com/asgardeo/asgardeo-auth-spa-sdk?tab=readme-ov-file#getbasicuserinfo){:target="_blank"} method, which allows you to retrieve the authenticated user’s basic information. The code example in the following section demonstrates this process and can be adapted to fit your application with any necessary customizations.
 
 Replace the existing code of `main.js` file with the following given code. Alternatively, you can add highlighted two lines into your existing code of `main.js`  file. 
 
@@ -68,7 +68,7 @@ If your JavaScript app is already running in the development mode, the home page
 ![Logout screen]({{base_path}}/assets/img/complete-guides/javascript/image18.png){: width="800" style="display: block; margin: 0;"}
 
 
-Similarly, you can access the other user attributes, such as email, display name, allowed scopes, etc as well. The following code snippet shows you how you can access them in your app.  Asgardeo Javascript SDK is responsible for processing the ID token and decoding these attributes. 
+Similarly, you can access the other user attributes, such as email, display name, allowed scopes, etc as well. The following code snippet shows you how you can access them in your app.  WSO2 Identity Platform Javascript SDK is responsible for processing the ID token and decoding these attributes. 
 
 ```javascript
     document.getElementById("scope").innerHTML = user.allowedScopes;
@@ -79,7 +79,7 @@ Similarly, you can access the other user attributes, such as email, display name
 
 ## Getting additional user attributes
 
-Other than the above attributes decoded and available to you by default, Asgardeo Javascript SDK provides [getDecodedIDToken](https://github.com/asgardeo/asgardeo-auth-spa-sdk?tab=readme-ov-file#getdecodedidtoken){:target="_blank"}  method to access any other user attributes that are not exposed by `getBasicUserInfo`. This method will decode the ID token in browser storage and return the output as a JSON object.
+Other than the above attributes decoded and available to you by default, WSO2 Identity Platform Javascript SDK provides [getDecodedIDToken](https://github.com/asgardeo/asgardeo-auth-spa-sdk?tab=readme-ov-file#getdecodedidtoken){:target="_blank"}  method to access any other user attributes that are not exposed by `getBasicUserInfo`. This method will decode the ID token in browser storage and return the output as a JSON object.
 
 To get additional user attributes to the ID token, the application should be configured to request the specific user attributes at the time of login. For example, if you want to retrieve a user's mobile number as an attribute, you need to configure the application to request the user’s mobile number as an attribute in the ID token.
 

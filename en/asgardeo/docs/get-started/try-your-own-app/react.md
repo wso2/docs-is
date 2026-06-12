@@ -1,16 +1,16 @@
-# Integrate Asgardeo with your React SPA
+# Integrate WSO2 Identity Platform with your React SPA
 
-Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [Asgardeo React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README.md).
+Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [WSO2 Identity Platform React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README.md).
 
 ## Prerequisites
 - [Install node.js and npm](https://nodejs.org) in your local environment.
-- [Register an application]({{base_path}}/guides/applications/register-single-page-app/) in Asgardeo.
+- [Register an application]({{base_path}}/guides/applications/register-single-page-app/) in WSO2 Identity Platform.
 
 !!! note
     In the tutorial,
 
     - your organization name is referred to as `{org_name}`.
-    - `{client_id}` refers to the client credential that you obtain once you register your application in Asgardeo.
+    - `{client_id}` refers to the client credential that you obtain once you register your application in WSO2 Identity Platform.
 
 ## Install the SDK
 
@@ -23,7 +23,7 @@ npm install @asgardeo/auth-react
 ## Configure the SDK
 
 SDK uses the [React Context API](https://react.dev/learn/passing-data-deeply-with-context) under the hood to share the data between components.
-You can easily integrate Asgardeo in your application by using `AuthProvider` as the wrapper element to inject configurations.
+You can easily integrate WSO2 Identity Platform in your application by using `AuthProvider` as the wrapper element to inject configurations.
 
 `AuthProvider` will provide the session state which contains information such as the authenticated user's display name, email address etc. as well as the methods required to implement authentication in the React app.
 
@@ -68,7 +68,7 @@ Details of the parameters are given below.
   </tr>
   <tr>
     <td><code>baseUrl</code></td>
-    <td>This is the Asgardeo server's host name along with your organization name.</td>
+    <td>This is the WSO2 Identity Platform server's host name along with your organization name.</td>
   </tr>
   <tr>
     <td><code>signInRedirectURL</code></td>
@@ -105,9 +105,9 @@ Few common methods that you can access with `useAuthContext()` are listed below.
 
 - `state` object - This will contain attributes such as whether a user is currently logged in, the username of the currently logged-in user etc.
 
-- `signIn` - Initiate a login request to Asgardeo, process the response to obtain authentication response.
+- `signIn` - Initiate a login request to WSO2 Identity Platform, process the response to obtain authentication response.
 
-- `signOut` - Logout the user from Asgardeo and clear any authentication data from the SDK storage.
+- `signOut` - Logout the user from WSO2 Identity Platform and clear any authentication data from the SDK storage.
 
 - `isAuthenticated` - Check whether there is an authenticated user session. Based on the result you can decide to change the application view/behaviour.
 
@@ -144,21 +144,21 @@ The `state` object contains attributes of a user. Its structure is as follows.
 }
 ```
 !!! note
-    The `isAuthenticated` attribute checks whether a user is currently logged in via Asgardeo or not.
+    The `isAuthenticated` attribute checks whether a user is currently logged in via WSO2 Identity Platform or not.
 
 ### Add login to your application
-You can use the `useAuthContext` hook from the Asgardeo React SDK to easily authenticate your React application.
+You can use the `useAuthContext` hook from the WSO2 Identity Platform React SDK to easily authenticate your React application.
 
 Implement a login button as follows using the `signIn()` function in the `useAuthContext` hook.
 
 ```js
 <button onClick={ () => signIn() }>Login</button>
 ```
-Clicking on the **Login** button will take the user to the Asgardeo login page. Once `signIn()` succeeds, the user will be redirected to the app (based on the `signInRedirectURL` specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `true`.
+Clicking on the **Login** button will take the user to the WSO2 Identity Platform login page. Once `signIn()` succeeds, the user will be redirected to the app (based on the `signInRedirectURL` specified in the [AuthProvider configuration](#configure-the-sdk)) and the `state.isAuthenticated` will be set to `true`.
 
 ### Get access token
 
-Once the user is logged in with Asgardeo, the application can get the access token issued by Asgardeo.
+Once the user is logged in with WSO2 Identity Platform, the application can get the access token issued by WSO2 Identity Platform.
 
 See the [SDK reference](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/API.md#getaccesstoken) for more information.
 
@@ -212,11 +212,11 @@ getBasicUserInfo().then((basicUserDetails) => {
 }
 ```
 
-You can get additional information from the user by [requesting user information from Asgardeo using scopes]({{base_path}}/guides/users/attributes/manage-scopes/#use-scopes-to-request-attributes)
+You can get additional information from the user by [requesting user information from WSO2 Identity Platform using scopes]({{base_path}}/guides/users/attributes/manage-scopes/#use-scopes-to-request-attributes)
 
 ### Get decoded ID token
 
-Once the user is logged in with Asgardeo, the application can get the ID token issued by Asgardeo.
+Once the user is logged in with WSO2 Identity Platform, the application can get the ID token issued by WSO2 Identity Platform.
 
 The SDK provides the `getDecodedIDToken()` API to get the decoded token. You can use this decoded token to obtain user claims as below.
 
@@ -290,4 +290,4 @@ If your application needs routing, you can use any router of your choice. You ca
 
 
 ## More Information
-If you want to learn in-depth about the Asgardeo React SDK, you can refer to the [Asgardeo React SDK documentation](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme).
+If you want to learn in-depth about the WSO2 Identity Platform React SDK, you can refer to the [WSO2 Identity Platform React SDK documentation](https://github.com/asgardeo/asgardeo-auth-react-sdk#readme).

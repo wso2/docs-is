@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Asgardeo Rule Metadata REST API
+  title: WSO2 Identity Platform Rule Metadata REST API
   description: "The Rule Metadata API provides the essential metadata required to configure rules dynamically based on the flow context. \nThe metadata retrieved by this API is designed to support rule configuration in the user interface (UI) by delivering information about each configurable field, the set of applicable comparison operators (e.g., equals, contains) for each field, and lists of possible values or options for fields.\n"
   contact:
     name: WSO2

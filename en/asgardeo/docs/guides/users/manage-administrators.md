@@ -3,7 +3,7 @@
 This guide walks you through the steps of managing an administrator account. If you are the owner or an existing administrator in the organization, you can onboard new administrators or delete existing administrator accounts.
 
 !!! note
-    You cannot manage the user profiles of other administrators or update their passwords from the Asgardeo Console. Administrators must manage their own profiles and passwords using the [My Account portal]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/).
+    You cannot manage the user profiles of other administrators or update their passwords from the WSO2 Identity Platform Console. Administrators must manage their own profiles and passwords using the [My Account portal]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/).
 
 ## Onboard an administrator
 
@@ -16,12 +16,12 @@ There are two ways to onboard an administrator:
 
 Existing administrators can onboard other administrators by sending them email invitations to join the organization. To do so,
 
-1. On the Asgardeo Console, go to **Console Settings** > **Administrators**.
+1. On the WSO2 Identity Platform Console, go to **Console Settings** > **Administrators**.
 
 2. Click **Add Administrator** and provide the following details.
 
     !!! note
-        If you have enabled the option to [assign admin privileges to users](#assign-admin-privileges-to-users), you may proceed to invite external admins by clicking *Add Administrator* > *Invite Admins to Asgardeo*.
+        If you have enabled the option to [assign admin privileges to users](#assign-admin-privileges-to-users), you may proceed to invite external admins by clicking *Add Administrator* > *Invite Admins to WSO2 Identity Platform*.
 
     {% if default_roles %}
 
@@ -32,7 +32,7 @@ Existing administrators can onboard other administrators by sending them email i
         </tr>
         <tr>
             <th>Role</th>
-            <td>Users can be assigned one or more default roles. For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
+            <td>Users can be assigned one or more default roles. For details on the available user roles and the permissions assigned to them, see [WSO2 Identity Platform User Roles]({{base_path}}/references/user-management/user-roles/).</td>
         </tr>
     </table>
 
@@ -45,7 +45,7 @@ Existing administrators can onboard other administrators by sending them email i
         </tr>
         <tr>
             <th>Role</th>
-            <td>The <b>Administrator</b> role is assigned by default. For details on the available user roles and the permissions assigned to them, see [Asgardeo User Roles]({{base_path}}/references/user-management/user-roles/).</td>
+            <td>The <b>Administrator</b> role is assigned by default. For details on the available user roles and the permissions assigned to them, see [WSO2 Identity Platform User Roles]({{base_path}}/references/user-management/user-roles/).</td>
         </tr>
     </table>
 
@@ -61,7 +61,7 @@ This option has to be enabled for the organization. If enabled, administrators c
 
 To enable this option,
 
-1. On the Asgardeo Console, go to **Console Settings** > **Administrators**.
+1. On the WSO2 Identity Platform Console, go to **Console Settings** > **Administrators**.
 
 2. Click the settings icon next to **Add Administrator** to open the **Administrator Settings** page.
 
@@ -76,24 +76,24 @@ To assign users the administrator role,
 1. On the **Console Settings** > **Administrators** page, click **+Add Administrator > Add Existing User**.
 2. Select the user's username and the **Administrator** role and click **Add**.
 
-The new administrator can now access the Asgardeo Console using the following URL:
+The new administrator can now access the WSO2 Identity Platform Console using the following URL:
 
 ```
 https://console.asgardeo.io/t/{organization_name}
 ```
 
 !!! note
-    Currently, only privileged users onboarded from the internal user store and remote user stores can log in to the Asgardeo Console.
+    Currently, only privileged users onboarded from the internal user store and remote user stores can log in to the WSO2 Identity Platform Console.
 
 ## View administrators
 To view the administrators of your organization:
 
-On the Asgardeo Console, go to **Console Settings > Administrators**. You will see the list of administrators presented in two tabs as follow.
+On the WSO2 Identity Platform Console, go to **Console Settings > Administrators**. You will see the list of administrators presented in two tabs as follow.
 
 <table>
     <tr>
-        <th>Asgardeo</th>
-        <td>This includes administrators whose identity is managed by Asgardeo.</td>
+        <th>WSO2 Identity Platform</th>
+        <td>This includes administrators whose identity is managed by WSO2 Identity Platform.</td>
     </tr>
     <tr>
         <th><i>{organization_name}</i> organization</th>
@@ -110,7 +110,7 @@ On the Asgardeo Console, go to **Console Settings > Administrators**. You will s
 
 To delete an administrator:
 
-1. On the Asgardeo Console, click **Console Settings** > **Administrators**.
+1. On the WSO2 Identity Platform Console, click **Console Settings** > **Administrators**.
 2. Click **Delete** for the administrator you want to remove.
 3. Select the checkbox to confirm your action.
 4. Click **Confirm**.

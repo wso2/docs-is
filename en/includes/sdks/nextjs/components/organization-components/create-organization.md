@@ -1,4 +1,4 @@
-The `CreateOrganization` component provides a complete organization creation form integrated with Asgardeo authentication and organization context. It supports default API calls, custom handlers, and fallback UI for unauthenticated users.
+The `CreateOrganization` component provides a complete organization creation form integrated with WSO2 Identity Platform authentication and organization context. It supports default API calls, custom handlers, and fallback UI for unauthenticated users.
 
 ## Overview
 

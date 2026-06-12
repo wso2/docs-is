@@ -179,7 +179,7 @@ If you wish to register your application manually using the Console, follow the 
 
 If you have applications that need to dynamically register with {{product_name}} during runtime, follow the steps below to make them FAPI-compliant.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 1. Configure DCR properties in {{product_name}}. To do so,
 

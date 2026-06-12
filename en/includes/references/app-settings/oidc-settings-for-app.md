@@ -242,7 +242,7 @@ Selecting the **Mandatory** option enforces the application to initiate an autho
 
 OAuth 2.0 authorization requests can either include the authorization parameters in URL query strings or in a request object. A request object is typically a JSON Web Token (JWT) which encapsulates the authorization parameters. It can be signed and encrypted to respectively ensure data integrity and data confidentiality.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
 - **Enable signature validation** - Select this to accept only signed request objects. {{ product_name }} will reject unsigned request objects when you enable this option.
 

@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: Asgardeo - Validation API
+  title: WSO2 Identity Platform - Validation API
   description: 
-    "This is the RESTful API for managing input validation configuration for an organization in WSO2 Asgardeo. 
+    "This is the RESTful API for managing input validation configuration for an organization in WSO2 WSO2 Identity Platform. 
     This API allows retrieving and updating the input validation configurations."
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'

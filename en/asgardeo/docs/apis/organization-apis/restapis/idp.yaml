@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies the **Identity Provider Management API** for organizations in Asgardeo. The APIs provide the capability to add/update/delete/patch identity providers.
+    This document specifies the **Identity Provider Management API** for organizations in WSO2 Identity Platform. The APIs provide the capability to add/update/delete/patch identity providers.
     In addition, APIs are available to retrieve metadata about federated authenticators and outbound provisioning connectors that can be configured for any given identity provider.
   version: "v1"
-  title: Asgardeo - Identity provider management API definition
+  title: WSO2 Identity Platform - Identity provider management API definition
 security:
   - OAuth2: []
 paths:
@@ -246,7 +246,7 @@ paths:
       summary: |
         Metadata about supported federated authenticators of identity providers
       description: >-
-        This API provides the list of supported federated authenticators for an identity provider in Asgardeo. <br>
+        This API provides the list of supported federated authenticators for an identity provider in WSO2 Identity Platform. <br>
         <b>Scope required:</b> `internal_org_idp_view`
       operationId: getMetaFederatedAuthenticators
       responses:
@@ -295,7 +295,7 @@ paths:
         Metadata about a supported federated authenticator
       description: >
         This API provides the details of a single supported federated
-        authenticator for an identity provider in Asgardeo. <br>
+        authenticator for an identity provider in WSO2 Identity Platform. <br>
         <b>Scope required:</b> `internal_org_idp_view`
       operationId: getMetaFederatedAuthenticator
       parameters:
@@ -346,10 +346,10 @@ paths:
       tags:
         - Metadata
       summary: >
-        Metadata about supported outbound provisioning connectors by identity providers in Asgardeo
+        Metadata about supported outbound provisioning connectors by identity providers in WSO2 Identity Platform
       description: >-
         This API provides the list of supported federated authenticators for an
-        IdP in Asgardeo. <br>
+        IdP in WSO2 Identity Platform. <br>
         <b>Scope required:</b> `internal_org_idp_view`
       operationId: getMetaOutboundConnectors
       responses:
@@ -398,7 +398,7 @@ paths:
         Metadata about supported outbound provisioning connectors
       description: >-
         This API provides the details of a single supported outbound
-        provisioning connector for an IdP in Asgardeo. <br>
+        provisioning connector for an IdP in WSO2 Identity Platform. <br>
         <b>Scope required:</b> `internal_org_idp_view`
       operationId: getMetaOutboundConnector
       parameters:

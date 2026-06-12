@@ -1,4 +1,4 @@
-Use the `SignIn` component to add a flexible, styled authentication flow for browser-based Next.js applications with Asgardeo authentication. The component manages the entire sign-in process, including API calls, error handling, and redirection. Customize it for your application's needs.
+Use the `SignIn` component to add a flexible, styled authentication flow for browser-based Next.js applications with WSO2 Identity Platform authentication. The component manages the entire sign-in process, including API calls, error handling, and redirection. Customize it for your application's needs.
 
 !!! info "Note"
 
@@ -125,4 +125,4 @@ If sign-in fails, the `onError` callback is invoked with a descriptive error obj
 
 - Automatically disables the UI and shows loading state during sign-in.
 - Handles all authentication steps, including passkey and federated flows, with minimal configuration.
-- Requires an Asgardeo context provider (`useAsgardeo`) to function.
+- Requires an WSO2 Identity Platform context provider (`useAsgardeo`) to function.

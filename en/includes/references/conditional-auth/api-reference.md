@@ -956,7 +956,7 @@ This utility function returns a masked value for the given input value. It can b
 
 `httpGet(url, headers, authConfig, eventHandlers)`
 
-The HTTP GET function enables sending HTTP GET requests to specified endpoints as part of the adaptive authentication scripts in Asgardeo. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
+The HTTP GET function enables sending HTTP GET requests to specified endpoints as part of the adaptive authentication scripts in WSO2 Identity Platform. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
 
 - **Parameters**
   
@@ -1020,7 +1020,7 @@ The HTTP GET function enables sending HTTP GET requests to specified endpoints a
 
 `httpPost(url, body, headers, authConfig, eventHandlers)`
 
-The HTTP POST function enables sending HTTP POST requests to specified endpoints as part of the adaptive authentication scripts in Asgardeo. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
+The HTTP POST function enables sending HTTP POST requests to specified endpoints as part of the adaptive authentication scripts in WSO2 Identity Platform. It's commonly used to interact with external systems or APIs to retrieve necessary data for authentication decisions.
 
 - **Parameters**
 
@@ -1089,9 +1089,9 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
     }
     ```
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 !!! note
-    Asgardeo uses the following default connection configurations for `httpPost` requests:
+    WSO2 Identity Platform uses the following default connection configurations for `httpPost` requests:
 
     <table>
         <thead>
@@ -1451,7 +1451,7 @@ documentation.
 
 ### AuthConfig
 
-When using httpGet or httpPost functions in Asgardeo adaptive authentication scripts, the table summarizes each
+When using httpGet or httpPost functions in WSO2 Identity Platform adaptive authentication scripts, the table summarizes each
 authentication type and its required properties:
 
 <table>

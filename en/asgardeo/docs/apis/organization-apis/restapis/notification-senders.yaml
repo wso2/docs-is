@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   title: Notification Senders API
-  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **Asgardeo** organizations.
-               To access the notification sender organization APIs in Asgardeo, you need to first get an access token from your organization.
+  description: This document specifies **Email, SMS and Push notification sender RESTful API** for **WSO2 Identity Platform** organizations.
+               To access the notification sender organization APIs in WSO2 Identity Platform, you need to first get an access token from your organization.
   version: "v1"
 servers:
   - url: https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1
