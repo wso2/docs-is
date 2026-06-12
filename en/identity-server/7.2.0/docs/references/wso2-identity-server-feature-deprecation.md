@@ -22,7 +22,7 @@ The following terms refer to the different phases of the feature deprecation lif
 
 2. **Deprecated**
 
-    In the deprecated phase, we no longer recommend using the feature. While deprecated classes and methods are still available, they are tagged deprecated and are disabled by default in the product, because they will be removed in future releases. This is done to facilitate the phasing-out for any existing user that still uses the deprecated features for their use-cases. It is not recommended to use them for implementing any new use cases/extensions. We encourage you to start upgrading any existing code written using the deprecated features during this phase.
+    In the deprecated phase, we no longer recommend using the feature. While deprecated classes and methods remain available, they are tagged as deprecated and disabled by default in the product, as they will be removed in future releases. This approach facilitates a smooth transition for existing users who still use the deprecated features. Avoid using them for new use cases or extensions. We encourage you to upgrade existing code written using deprecated features during this phase.
 
 3. **Retired**
 

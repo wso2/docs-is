@@ -189,7 +189,7 @@ Follow the steps given below to integrate your application with Asgardeo:
                   discoveryUrl
               </th>
               <td>
-                  This is the OpenID Connect Discovery endpoint in Asgardeo, which is used to discover Asgardeo's metadata required to interact with it.
+                  This is the OpenID Connect Discovery endpoint in Asgardeo. Use this endpoint to discover Asgardeo's metadata required to interact with it.
               </td>
           </tr>
           <tr>
@@ -197,7 +197,7 @@ Follow the steps given below to integrate your application with Asgardeo:
                   userInfoEndpoint
               </th>
               <td>
-                  This is the endpoint in Asgardeo that is used for retrieving user profile information from Asgardeo.
+                  This is the endpoint in Asgardeo for retrieving user profile information.
               </td>
           </tr>
       </table>

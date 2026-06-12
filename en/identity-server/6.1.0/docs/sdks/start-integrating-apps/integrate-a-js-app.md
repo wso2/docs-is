@@ -42,12 +42,12 @@ To add CORS configurations:
 5. Enter the **Callback URL** as `https://localhost:3000`.
 
     !!! note
-        The **Callback URL** is the exact location in the service provider's application to which an access token will be sent. This URL should be the landing page to which the user is redirected after successful authentication.
+        The **Callback URL** specifies the exact location in the service provider's application that receives the access token. This URL should be the landing page to which the user is redirected after successful authentication.
 
 6. Click **Add** to complete the configuration. 
 
     !!! note
-        Make a note of the **OAuth Client Key** and **OAuth Client Secret** that appear, as they will be used to configure the sample application.
+        Copy the **OAuth Client Key** and **OAuth Client Secret** values that appear. You will need these values to configure the sample application.
 
 ## Download the sample
 Download the latest release of the [sample JavaScript application](https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip).
@@ -55,7 +55,7 @@ Download the latest release of the [sample JavaScript application](https://githu
 ## Configure the sample
 1. Open the `index.html` file located at the root of the project.
 2. Scroll down to the `<script>` tag at the end of the body tag and find `authConfig` object and change the configurations with the relevant values.
-    - **clientID** - Add the client id of the registered application. The client ID can be copied from **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** section of your service provider.
+    - **clientID** - Add the client ID from the registered application. Copy the client ID from **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** in your service provider.
 
     - **serverOrigin** - `https://localhost:9443`
 

@@ -2,7 +2,7 @@
 
 [Microsoft Entra Verified ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-verified-id){:target="_blank"} is a verifiable credential issuance and verification service provided by Microsoft Azure. It allows users to generate, present, and verify their digital identities.
 
-Microsoft allows configuring an IDP (such as {{ product_name }}) as an OpenID Connect (OIDC) attribute provider for verifiable credentials using their `idTokens` attestation in which the claims provided through the OIDC id token is used to generate the verifiable credential.
+Microsoft allows configuring an IDP (such as {{ product_name }}) as an OpenID Connect (OIDC) attribute provider for verifiable credentials using their `idTokens` attestation. The claims from the OIDC id token generate the verifiable credential.
 
 #### Issuing verifiable credentials
 ![issue verifiable credentials]({{base_path}}/assets/img/tutorials/oidc-attribute-provider-ms/entra-issue-verifiable-credentials.png){: width="900" style="display: block; margin: 0;"}

@@ -265,7 +265,7 @@ Next, let’s explore how to call a protected backend HTTP API from your React a
 
 Since React is a client-side framework, your application is downloaded and runs entirely in the browser. Because of this, your app has to regularly make API calls to the backend API both to retrieve data and update state. As a React developer, this is one of the most common things you implement.
 
-The de-facto standard for securing these APIs is OAuth2 access tokens and that is the right security mechanism that you should use to secure your backend APIs. This also means your application must obtain an OAuth2 access token for the currently logged-in user and include it when making secure API calls.
+The de-facto standard for securing these APIs uses OAuth2 access tokens as the right security mechanism for your backend APIs. Your application must obtain an OAuth2 access token for the currently logged-in user and include it when making secure API calls.
 
 To give you a quick idea of what happens behind the scenes, although you don’t need to worry about it too much. The Asgardeo React SDK retrieves two tokens after a user successfully authenticates:
 
@@ -325,7 +325,7 @@ export default MyProfile;
 
 ```
 
-In the above code apart from `useState` hook we have imported `useAsgardeo` hook which is provided by the Asgardeo React SDK and gives us access to authentication state and a built-in HTTP client.
+In the above code, we import the `useAsgardeo` hook from the Asgardeo React SDK along with `useState`. This hook provides access to authentication state and a built-in HTTP client.
 
 Then we have received two important constants by calling the  `useAsgardeo` hook.
 
