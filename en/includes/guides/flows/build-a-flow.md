@@ -1,6 +1,6 @@
 # Get started with flows
 
-A **flow** defines the step by step journey a user takes during a specific interaction with your application, like signing up or resetting a password. This guide introduces the **Flow Builder**, a visual canvas where you can design and customize these journeys to meet your security and user experience goals without writing complex code.
+A **flow** defines the step-by-step journey a user takes during a specific interaction with your application, like signing up or resetting a password. This guide introduces the **Flow Builder**. It is a visual canvas where you can design and customize these journeys to meet your security and user experience goals without writing complex code.
 
 The Flow Builder allows full customization of the following user journeys. Click on a flow to view a sample scenario built using the flow builder.
 
@@ -24,7 +24,7 @@ To access the flow builder:
 
 The **Flow builder** provides all the building blocks you need to create user journeys. To start building, you can choose one of the following methods and use [flow elements](#flow-elements) to customize it.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 - **Generate with AI**
 
@@ -52,14 +52,14 @@ You can enable a flow using the toggle on the top right corner of the Flow Build
 
 - If disabled,
 
-    - You can build your flow and save it as a draft. The flow won't be active for users until you enable it.
-    - This is the default state for any new flow.
+  - You can build your flow and save it as a draft. The flow won't be active for users until you enable it.
+  - This is the default state for any new flow.
 
 - If enabled,
 
-    - The flow becomes immediately available for users.
-    - You can continue to make changes and improvements to the flow even after enabling it. Until you publish those changes, users will continue to experience the last published version.
-    - You can disable the flow at any time to remove it from user access temporarily.
+  - The flow becomes immediately available for users.
+  - You can continue to make changes and improvements to the flow even after enabling it. Until you publish those changes, users will continue to experience the last published version.
+  - You can disable the flow at any time to remove it from user access temporarily.
 
 ## Flow elements
 
@@ -67,13 +67,13 @@ The Flow Builder provides a library of reusable, no-code elements to create user
 
 ### Steps
 
-Steps function as the core building block and represent a distinct part of the login process. A flow can contain one or more steps.
+Steps function as the core building block and represent a distinct part of the flow. A flow can contain one or more steps.
 
 ![Steps]({{base_path}}/assets/img/guides/flows/flow-builder-steps.gif){: width="auto" style="display: block; margin: 0;"}
 
 ### Widgets
 
-Pre-built login and identity verification components that you can drag and drop into a step.
+Pre-built identity verification components that you can drag and drop into a step.
 
 ![Widgets]({{base_path}}/assets/img/guides/flows/flow-builder-widgets.gif){: width="auto" style="display: block; margin: 0;"}
 

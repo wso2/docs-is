@@ -1,4 +1,4 @@
-The `SignedOut` component conditionally renders its children only when the user is signed out using Asgardeo authentication. It provides a simple way to show UI sections for unauthenticated users and display fallback content when the user is signed in.
+The `SignedOut` component conditionally renders its children only when the user is signed out using WSO2 Identity Platform authentication. It provides a simple way to show UI sections for unauthenticated users and display fallback content when the user is signed in.
 
 ## Overview
 

@@ -1,15 +1,15 @@
-The `useAsgardeo` hook provides access to the Asgardeo authentication context in Next.js applications. It allows you to retrieve authentication state, user information, and other context values managed by the `AsgardeoProvider`.
+The `useAsgardeo` hook provides access to the WSO2 Identity Platform authentication context in Next.js applications. It allows you to retrieve authentication state, user information, and other context values managed by the `AsgardeoProvider`.
 
 ## Overview
 
-`useAsgardeo` is a custom hook that returns the current value of the Asgardeo context. It must be used within a component tree wrapped by `AsgardeoProvider`. If used outside the provider, it throws an error.
+`useAsgardeo` is a custom hook that returns the current value of the WSO2 Identity Platform context. It must be used within a component tree wrapped by `AsgardeoProvider`. If used outside the provider, it throws an error.
 
 ## Usage
 
 Import and use the hook in any functional component to access authentication data:
 
 ```typescript
-import useAsgardeo from '@asgardeo/nextjs';
+import { useAsgardeo } from '@asgardeo/nextjs';
 
 const MyComponent = () => {
   const { isSignedIn, user, signIn, signOut } = useAsgardeo();
@@ -51,7 +51,7 @@ The hook returns all properties and methods provided by `AsgardeoContextProps`:
 
 If `useAsgardeo` is called outside of an `AsgardeoProvider`, it throws:
 
-```
+```text
 Error: useAsgardeo must be used within an AsgardeoProvider
 ```
 

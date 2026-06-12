@@ -75,7 +75,7 @@ If you selected **Manual Configuration** in the previous step, follow the steps 
         </tr>
     </table>
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 2. (Optional) Provide the mode of certificate configuration.
 
@@ -128,7 +128,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
 
     ![Create SAML Enterprise IDP with Metadata file]({{base_path}}/assets/img/guides/idp/saml-enterprise-idp/register-saml-idp-with-metafile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 3. (Optional) Provide the mode of certificate configuration.
 
@@ -165,7 +165,7 @@ If you selected **File Based Configuration** in the previous step, follow the st
 !!! note
     Once the SAML identity provider is created, you can configure [additional SAML settings]({{base_path}}/references/idp-settings/saml-settings-for-idp/) from the **Settings** tab.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 ## Certificate validation with the SAML metadata endpoint
 

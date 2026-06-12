@@ -1,4 +1,4 @@
-{% set product_name = "Asgardeo" %}
+{% set product_name = "WSO2 Identity Platform" %}
 
 {% set my_account_link = "<code>https://myaccount.asgardeo.io/t/{organization_name}</code>
 

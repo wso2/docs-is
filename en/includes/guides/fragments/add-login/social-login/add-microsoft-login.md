@@ -6,7 +6,7 @@ To enable Microsoft login:
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application, go to the **Login Flow** tab and add Microsoft login from your preferred editor:
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     === "Classic Editor"
         To add Microsoft login using the Classic Editor:
 

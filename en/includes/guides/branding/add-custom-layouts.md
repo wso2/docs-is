@@ -138,7 +138,7 @@ To create the basic custom layout resources:
                 └── carbon.super
     ```
 
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
     !!! note "Application-specific layouts"
         To add application-specific custom layouts, create a folder called `apps` under the organization folder (carbon.super). Within the `apps` folder, create a folder for each application and name it with the UUID of the application.

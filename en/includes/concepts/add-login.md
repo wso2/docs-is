@@ -19,7 +19,7 @@ Add user login to your application by simply integrating the right {{product_nam
 
 Behind the scenes, {{product_name}} SDKs use the OpenID Connect protocol to handle login requests with {{product_name}}. When a user attempts to log in, they are redirected to {{product_name}} for login. Once the user is authenticated, the application receives an OpenID Connect ID token, which includes the user's information and metadata. {{product_name}} SDKs simplify the complexities of OpenID request-response flows and token processing, and enable security best practices such as token validation and the PKCE extension by default.
 
-![Asgardeo SDK]({{base_path}}/assets/img/concepts/asgardeo-sdk.png){: width="700"}
+![WSO2 Identity Platform SDK]({{base_path}}/assets/img/concepts/asgardeo-sdk.png){: width="700"}
 
 Explore all the supported application development technologies, SDKs and quick start guides in the [documentation]({{base_path}}/integrations/).
 

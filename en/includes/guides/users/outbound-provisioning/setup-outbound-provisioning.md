@@ -1,6 +1,6 @@
 # Set up outbound provisioning
 
-{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+{% if product_name == "WSO2 Identity Platform" or is_version > "7.2.0" %}
 To start provisioning users, you must first create a provisioning connection and configure an outbound connector, then enable it at the organization or application level.
 
 ## Step 1: Create a provisioning connection
@@ -11,7 +11,7 @@ To start provisioning users, you must first create a provisioning connection and
 
     ![Create an outbound provisioning connection]({{base_path}}/assets/img/guides/outbound-provisioning/create-connection.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Select a provisioning connector (e.g., {% if product_name == "Asgardeo" %}SCIM2{% else %}Salesforce, Google, or SCIM2{% endif %}).
+3. Select a provisioning connector (e.g., {% if product_name == "WSO2 Identity Platform" %}SCIM2{% else %}Salesforce, Google, or SCIM2{% endif %}).
 
     ![Select a provisioning connector]({{base_path}}/assets/img/guides/outbound-provisioning/select-connector-type.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -20,7 +20,7 @@ To start provisioning users, you must first create a provisioning connection and
     !!! note
         Learn about the required properties for each connector:
         <ul>
-        {% if product_name != "Asgardeo" %}<li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google">Google</a></li>
+        {% if product_name != "WSO2 Identity Platform" %}<li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/google">Google</a></li>
         <li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/salesforce">Salesforce</a></li>
         {% endif %}<li><a href="{{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2">SCIM2</a></li>
         </ul>

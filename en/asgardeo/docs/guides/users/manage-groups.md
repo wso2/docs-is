@@ -7,16 +7,16 @@ Applications can get details about groups a user belongs to as a user attribute 
 ## Onboard a group
 There are two ways to onboard a group:
 
-- An administrator can onboard users from an on-premise user store by [connecting a remote user store to Asgardeo]({{base_path}}/guides/users/user-stores/configure-a-user-store/).
+- An administrator can onboard users from an on-premise user store by [connecting a remote user store to WSO2 Identity Platform]({{base_path}}/guides/users/user-stores/configure-a-user-store/).
 
     !!! note
         If the remote user store access type is read-only, you cannot update the user groups onboarded from this read-only user store.
 
-- Administrators can add groups via the Asgardeo Console.
+- Administrators can add groups via the WSO2 Identity Platform Console.
 
-Let's look at how administrators can onboard groups from the Asgardeo Console.
+Let's look at how administrators can onboard groups from the WSO2 Identity Platform Console.
 
-1. On the Asgardeo Console, go to **User Management** > **Groups**.
+1. On the WSO2 Identity Platform Console, go to **User Management** > **Groups**.
 2. Click **New Group** and provide the following details.
 
     - **Group Name:** A unique name to identify the group.
@@ -31,7 +31,7 @@ Users can be assigned to groups. Admins can allow/restrict access to resources b
 
 To assign users to groups:
 
-1. On the Asgardeo Console, go to **User Management** > **Groups**.
+1. On the WSO2 Identity Platform Console, go to **User Management** > **Groups**.
 2. Select the group to assign the user.
 3. Click **Edit** and navigate to **Users**.
 
@@ -45,7 +45,7 @@ To assign users to groups:
 
 To remove users from groups:
 
-1. On the Asgardeo Console, go to **User Management** > **Groups**.
+1. On the WSO2 Identity Platform Console, go to **User Management** > **Groups**.
 2. Select the group to remove the user.
 3. Click the **Edit** icon and navigate to **Users**.
 
@@ -59,7 +59,7 @@ You can assign groups to application roles and grant permission for the group's 
 
 To assign a group to a role:
 
-1. On the Asgardeo Console, go to **User Management** > **Groups**.
+1. On the WSO2 Identity Platform Console, go to **User Management** > **Groups**.
 2. Go to the **Roles** tab and click **+ Assign Roles**.
 3. Expand the application to which the required roles belong.
 4. Select the application role/s you wish to add to the group.
@@ -69,19 +69,19 @@ To assign a group to a role:
 5. Click **Save** to assign the group to the selected application role.
 
 ## Delete a group
-An administrator can delete groups via the Asgardeo Console.
+An administrator can delete groups via the WSO2 Identity Platform Console.
 To delete a group:
 
-1. On the Asgardeo Console, go to **User Management** > **Groups**.
+1. On the WSO2 Identity Platform Console, go to **User Management** > **Groups**.
 2. Click the trash icon next to the group you wish to delete.
 3. Select the checkbox and confirm your action.
 
 ## View remote user store groups
-Once you connect a remote user store to Asgardeo, you can view the onboarded groups and the members of the groups.
+Once you connect a remote user store to WSO2 Identity Platform, you can view the onboarded groups and the members of the groups.
 To view the onboarded groups:
 
-1. On the Asgardeo Console, go to **User Management** >  **Groups**.
+1. On the WSO2 Identity Platform Console, go to **User Management** >  **Groups**.
 2. Select the preferred user store from the drop-down menu.
 
 !!! note
-    Remote groups are read-only in the Asgardeo console. Administrators can only view the group details and its members.
+    Remote groups are read-only in the WSO2 Identity Platform console. Administrators can only view the group details and its members.

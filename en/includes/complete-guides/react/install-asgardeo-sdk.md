@@ -1,11 +1,11 @@
 
 ## Install `@asgardeo/react`
 
-The Asgardeo React SDK is a production-ready SDK that simplifies integrating {{product_name}} as an Identity Provider in your React applications. It provides essential features like user authentication, retrieving user information, and an HTTP client for sending network requests with attached tokens. Additionally, it ensures best practices by being Secure by Design and Secure by Default.
+The WSO2 Identity Platform React SDK is a production-ready SDK that simplifies integrating {{product_name}} as an Identity Provider in your React applications. It provides essential features like user authentication, retrieving user information, and an HTTP client for sending network requests with attached tokens. Additionally, it ensures best practices by being Secure by Design and Secure by Default.
 
 !!! Info
 
-    Asgardeo React SDK has been developed on open standards such as OAuth2, OpenID Connect etc, therefore you can use the Asgardeo React SDK for adding authentication to your application with any other OpenID Connect  identity provider such as [WSO2 Identity Server (WSO2 IS)](https://wso2.com/identity-server/){:target="_blank"}  and WSO2 [Private Identity Cloud (WSO2 PIC)](https://wso2.com/private-identity-cloud/){:target="_blank"} .
+    WSO2 Identity Platform React SDK has been developed on open standards such as OAuth2, OpenID Connect etc, therefore you can use the WSO2 Identity Platform React SDK for adding authentication to your application with any other OpenID Connect  identity provider such as [WSO2 Identity Server (WSO2 IS)](https://wso2.com/identity-server/){:target="_blank"}  and WSO2 [Private Identity Cloud (WSO2 PIC)](https://wso2.com/private-identity-cloud/){:target="_blank"} .
 
 As the next step, run the following command to install the React SDK from the npm registry. Make sure to stop the dev server you started in the previous step.
 
@@ -29,7 +29,7 @@ As the next step, run the following command to install the React SDK from the np
 
 ## Add `<AsgardeoProvider />` to your app
 
-During the previous step, we have added Asgardeo React SDK as a dependency in our app.  Now we are going to use the `<AsgardeoProvider />` component from the Asgardeo React SDK which is  built on top of [React Context](https://react.dev/learn/passing-data-deeply-with-context){:target="_blank"}.  The `<AsgardeoProvider />` serves as a context provider for user login in the app. You can add the `<AsgardeoProvider />` to your app by  wrapping  the root component to access authentication-related capabilities throughout the component tree.
+During the previous step, we have added WSO2 Identity Platform React SDK as a dependency in our app.  Now we are going to use the `<AsgardeoProvider />` component from the WSO2 Identity Platform React SDK which is  built on top of [React Context](https://react.dev/learn/passing-data-deeply-with-context){:target="_blank"}.  The `<AsgardeoProvider />` serves as a context provider for user login in the app. You can add the `<AsgardeoProvider />` to your app by  wrapping  the root component to access authentication-related capabilities throughout the component tree.
 
 First, you need to open the project using an IDE such as VS Code. Then,  as shown below, you need to wrap the **<App/>** component in `main.jsx` with the `<AsgardeoProvider />` component. Make sure to replace the placeholders in this code from the configuration parameters that we generated in [step-3]({{base_path}}/complete-guides/react/register-an-application/) that are given below.
 

@@ -1,11 +1,11 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: Asgardeo - SCIM 2.0 User Management API
+  title: WSO2 Identity Platform - SCIM 2.0 User Management API
   description:
-    "This is the RESTful API for SCIM 2.0 User Management in Asgardeo organizations. 
+    "This is the RESTful API for SCIM 2.0 User Management in WSO2 Identity Platform organizations. 
     This API allows creating, deleting, listing, and updating users. 
-    \n To access the SCIM 2.0 User Management APIs in Asgardeo, you need to first get an access token from your organization."
+    \n To access the SCIM 2.0 User Management APIs in WSO2 Identity Platform, you need to first get an access token from your organization."
 security:
   - OAuth2: []
 servers:
@@ -524,7 +524,7 @@ components:
               example: Berry
         userName:
           type: string
-          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your Asgardeo organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
+          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your WSO2 Identity Platform organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
           example: DEFAULT/kim@gmail.com
         password:
           type: string
@@ -576,7 +576,7 @@ components:
               example: Berry
         userName:
           type: string
-          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your Asgardeo organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
+          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your WSO2 Identity Platform organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
           example: DEFAULT/kim@gmail.com
         emails:
           type: array

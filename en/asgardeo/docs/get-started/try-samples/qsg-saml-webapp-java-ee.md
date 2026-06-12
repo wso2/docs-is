@@ -8,19 +8,19 @@ By following this guide, you will be able to deploy a Java EE web application lo
 
     If you don't have it, install [Apache tomcat](https://tomcat.apache.org/tomcat-9.0-doc/setup.html){target="_blank"}.
 
-- **A user account in Asgardeo**
+- **A user account in WSO2 Identity Platform**
 
-    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in Asgardeo.
+    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in WSO2 Identity Platform.
 
 ## Register the app
 
-Follow these steps given below to register the sample Java EE web application in Asgardeo.
+Follow these steps given below to register the sample Java EE web application in WSO2 Identity Platform.
 
-1. On the [Asgardeo Console](https://console.asgardeo.io/login), go to **Applications**.
+1. On the [WSO2 Identity Platform Console](https://console.asgardeo.io/login), go to **Applications**.
 
 2. Click **New Application** and select **Traditional Web Application**.
 
-    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Select app type in WSO2 Identity Platform]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details:
 
@@ -110,8 +110,8 @@ Follow the steps given below to configure the sample app.
 
     !!! note
 
-        - Update the **SAML2.IdPEntityId** parameter with the Asgardeo issuer, which is `api.asgardeo.io/t/{organization_name}`.
-        - **SAML2.SPEntityId** should match the issuer name entered when registering the application in Asgardeo.
+        - Update the **SAML2.IdPEntityId** parameter with the WSO2 Identity Platform issuer, which is `api.asgardeo.io/t/{organization_name}`.
+        - **SAML2.SPEntityId** should match the issuer name entered when registering the application in WSO2 Identity Platform.
 
     ```saml
     SAML2.AssertionConsumerURL=http://localhost:8080/sample-app/home.jsp
@@ -153,20 +153,20 @@ Follow the steps given below to configure the sample app.
         <tr>
          <td><code>SAML2.SPEntityId</code></td>
          <td>
-            The SAML issuer that is used when registering your application with Asgardeo.
+            The SAML issuer that is used when registering your application with WSO2 Identity Platform.
           </td>
         </tr>
         <tr>
          <td><code>SAML2.IdPEntityId</code></td>
          <td>
-            The issuer name of Asgardeo.
+            The issuer name of WSO2 Identity Platform.
             <p><code>api.asgardeo.io/t/{organization_name}</code></p>
          </td>
         </tr>
         <tr>
           <td><code>SAML2.IdPURL</code></td>
           <td>
-            The endpoint of Asgardeo to which login and logout requests should be sent:
+            The endpoint of WSO2 Identity Platform to which login and logout requests should be sent:
             <p><code>https://api.asgardeo.io/t/{organization_name}/samlsso</code></p>
           </td>
         </tr>
@@ -223,8 +223,8 @@ Follow the steps given below to configure the sample app.
                 <code>SAML2.EnableResponseSigning</code>
               </td>
               <td>
-                If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. You also need to [enable response signing from Asgardeo]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
-                If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.
+                If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. You also need to [enable response signing from WSO2 Identity Platform]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
+                If this configuration is set to <code>false</code>, the application does not mandate response signing from WSO2 Identity Platform.
               </td>
           </tr>
           <tr>
@@ -232,8 +232,8 @@ Follow the steps given below to configure the sample app.
             <code>SAML2.EnableAssertionSigning</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. You also need to [enable response signing from Asgardeo]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
-              If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.
+              If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. You also need to [enable response signing from WSO2 Identity Platform]({{base_path}}/references/app-settings/saml-settings-for-app/#response-signing).
+              If this configuration is set to <code>false</code>, the application does not mandate response signing from WSO2 Identity Platform.
             </td>
           </tr>
           <tr>
@@ -241,7 +241,7 @@ Follow the steps given below to configure the sample app.
               <code>SAML2.EnableAssertionEncryption</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, the application expects an encrypted SAML assertion. You also need to [enable encryption for SAML assertions]({{base_path}}/references/app-settings/saml-settings-for-app/) from Asgardeo.
+              If this configuration is set to <code>true</code>, the application expects an encrypted SAML assertion. You also need to [enable encryption for SAML assertions]({{base_path}}/references/app-settings/saml-settings-for-app/) from WSO2 Identity Platform.
             </td>
           </tr>
           <tr>
@@ -249,7 +249,7 @@ Follow the steps given below to configure the sample app.
               <code>SAML2.EnableRequestSigning</code>
             </td>
             <td>
-              If this configuration is set to <code>true</code>, Asgardeo validates the SAML authentication request and logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from Asgardeo.
+              If this configuration is set to <code>true</code>, WSO2 Identity Platform validates the SAML authentication request and logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from WSO2 Identity Platform.
             </td>
           </tr>
           <tr>
@@ -300,9 +300,9 @@ Follow the steps given below to run the sample.
 
 1. Access the application using the following URL: `http://localhost:8080/sample-app/index.html`.
 
-2. Click **Login**. You will be redirected to the Asgardeo login page.
+2. Click **Login**. You will be redirected to the WSO2 Identity Platform login page.
 
-    ![Asgardeo Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![WSO2 Identity Platform Sign in page](../../assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter credentials of your user account and click **Sign In**.
 

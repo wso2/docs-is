@@ -1,6 +1,6 @@
 # Audit log catalog
 
-The audit log catalog provides detailed information about all audit log action keys used in Asgardeo. This guide helps you understand the structure and content of each audit log type along with sample audit logs for reference.
+The audit log catalog provides detailed information about all audit log action keys used in WSO2 Identity Platform. This guide helps you understand the structure and content of each audit log type along with sample audit logs for reference.
 
 ## Action management
 

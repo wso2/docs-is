@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Claim Management API
   description: |
-    This document specifies an **Organization level Claim Management RESTful API** for Asgardeo.
+    This document specifies an **Organization level Claim Management RESTful API** for WSO2 Identity Platform.
     
-    This API allows retrieving local/external claims and claim dialects. Organizations have the default claims/claim dialtect defined in Asgardeo and custom claims used by B2B shared apps.
+    This API allows retrieving local/external claims and claim dialects. Organizations have the default claims/claim dialtect defined in WSO2 Identity Platform and custom claims used by B2B shared apps.
   version: v1
 servers:
   - url: https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1

@@ -3,19 +3,19 @@
 !!! note
     The feature is in the Beta stage. We are working on adding more capabilities for this feature.
 
-You can now configure alternative login identifiers so that the users of your Asgardeo organization have the capability to use these identifiers to log in.
+You can now configure alternative login identifiers so that the users of your WSO2 Identity Platform organization have the capability to use these identifiers to log in.
 
 !!! note
     The primary login identifier is the attribute you configure as your username. Learn more about [configuring username validation]({{base_path}}/guides/user-accounts/account-login/username-validation/).
 
-Asgardeo allows admins to assign the following attributes as alternative login identifiers of the organization:
+WSO2 Identity Platform allows admins to assign the following attributes as alternative login identifiers of the organization:
 
 - `Email`
 - `Mobile`
 
 To configure alternative login identifiers for your organization:
 
-1. On the Asgardeo Console, go to **Login & Registration**.
+1. On the WSO2 Identity Platform Console, go to **Login & Registration**.
 
 2. Under **Login Identifier**, click on **Alternative Login Identifier**.
 
@@ -24,7 +24,7 @@ To configure alternative login identifiers for your organization:
     ![Configure alternative login identifiers]({{base_path}}/assets/img/guides/organization/account-login/configure-alternate-login-identifiers.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! note
-        - Ensure that every user within your organization has a unique value assigned to the chosen login identifiers. For new users, Asgardeo will ensure it's uniqueness.
+        - Ensure that every user within your organization has a unique value assigned to the chosen login identifiers. For new users, WSO2 Identity Platform will ensure it's uniqueness.
 
         - If you have chosen `Email` as the [username type]({{base_path}}/guides/user-accounts/account-login/username-validation/), it automatically becomes the primary login identifier. Therefore, configuring it as an alternative login identifier will be disabled.
 

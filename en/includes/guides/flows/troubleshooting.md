@@ -1,14 +1,14 @@
 # Troubleshooting
 
-**Flow Builder** uses validation rules to help you build logical, working flows. If a rule fails, an error appears. Fix all errors before publishing the flow.
+**Flow Builder** validates your flow to ensure it works correctly. If a validation rule fails, an error appears. Fix all errors before publishing the flow.
 
 ## How to find errors
 
-- Click the **bell icon** in the top-right corner of the builder. A red indicator will appear if there are any active errors.
+- Click the **bell icon** in the top-right corner of the builder. The bell icon displays a red indicator when errors exist.
 
     ![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-01.png){: width="auto" style="display: block; margin: 0;"}
 
-- Then, click the Show button (as shown in the screenshot above) to highlight the component that contains the error.
+- Click the **Show** button (as shown in the screenshot above) to highlight the component with the error.
 
     ![Flow Builder Error]({{base_path}}/assets/img/guides/flows/flow-error-02.png){: width="auto" style="display: block; margin: 0;"}
 

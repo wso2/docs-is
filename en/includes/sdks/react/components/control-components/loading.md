@@ -1,4 +1,4 @@
-The `Loading` component conditionally renders its children only when the Asgardeo authentication context is in a loading state. It provides a simple way to show loading indicators or fallback content while authentication or related operations are in progress.
+The `Loading` component conditionally renders its children only when the WSO2 Identity Platform authentication context is in a loading state. It provides a simple way to show loading indicators or fallback content while authentication or related operations are in progress.
 
 ## Overview
 

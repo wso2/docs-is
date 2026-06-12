@@ -1,15 +1,15 @@
-The `useAsgardeo` hook provides access to the Asgardeo authentication context in React applications. It allows you to retrieve authentication state, user information, and other context values managed by the `AsgardeoProvider`.
+The `useAsgardeo` hook provides access to the WSO2 Identity Platform authentication context in React applications. It allows you to retrieve authentication state, user information, and other context values managed by the `AsgardeoProvider`.
 
 ## Overview
 
-`useAsgardeo` is a custom React hook that returns the current value of the Asgardeo context. It must be used within a component tree wrapped by `AsgardeoProvider`. If used outside the provider, it throws an error.
+`useAsgardeo` is a custom React hook that returns the current value of the WSO2 Identity Platform context. It must be used within a component tree wrapped by `AsgardeoProvider`. If used outside the provider, it throws an error.
 
 ## Usage
 
 Import and use the hook in any functional component to access authentication data:
 
 ```typescript
-import useAsgardeo from '@asgardeo/react';
+import { useAsgardeo } from '@asgardeo/react';
 
 const MyComponent = () => {
   const { isSignedIn, user, signIn, signOut } = useAsgardeo();

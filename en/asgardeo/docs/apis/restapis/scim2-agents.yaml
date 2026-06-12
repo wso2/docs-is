@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: AI Agent Management API
   description: |
-    This document specifies the REST API for **AI Agent Management** in **Asgardeo**.
+    This document specifies the REST API for **AI Agent Management** in **WSO2 Identity Platform**.
     The Agent Management API allows to create, retrieve, update, and delete AI agent identities, allowing agents to be managed in the same way as human users while remaining clearly distinguishable from them.
   version: 1.0.0
 servers:

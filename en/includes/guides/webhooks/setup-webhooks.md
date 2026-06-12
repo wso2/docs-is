@@ -13,7 +13,7 @@ Ensure that you have:
 
 Your external web service should do the following to receive event notifications:
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 1. Expose an endpoint that accepts both HTTP GET and POST requests with JSON payloads.
     {{product_name}} sends GET requests for subscription and unsubscription verification.
@@ -34,14 +34,14 @@ Follow the steps below to configure a webhook.
 2. Click **Add Webhook** and provide the following:
     - **Name**: A descriptive name for the webhook.
     - **Endpoint**: The URL of your web service, where {{product_name}} will send event notifications.
-    - **Secret**: A unique string for HMAC signature {% if product_name == "Asgardeo" %} (<code>x-hub-signature</code>) {% else %} (<code>x-wso2-event-signature</code>) {% endif %} header to verify event security.
+    - **Secret**: A unique string for HMAC signature {% if product_name == "WSO2 Identity Platform" %} (<code>x-hub-signature</code>) {% else %} (<code>x-wso2-event-signature</code>) {% endif %} header to verify event security.
     - **Events to subscribe**: Select event types for notifications (for example choosing Logins notifies of successful and failed login attempts).
 
 3. Click **Create** to create the webhook.
 
 4. Webhooks are inactive by default. Toggle the switch to activate it during or after creation.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 5. {{product_name}} sends a verification call upon activation. Your endpoint must respond successfully for activation to complete. Refer to [Verify your webhook endpoint subscription](#verify-your-webhook-subscription) for detailed instructions.
 6. After creation, you can:
     - Deactivate or reactivate the webhook.
@@ -108,7 +108,7 @@ Webhook event payloads adhere to the [Security Event Token (SET) specification (
 
 **Example event payload for login success event**:
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```http
 POST /your-webhook-endpoint
@@ -224,7 +224,7 @@ x-wso2-event-signature: sha256=abcdef12345... (HMAC signature)
 
 ### Event signature using hash-based message authentication code
 
-To ensure the authenticity and integrity of events, {{product_name}} includes an {% if product_name == "Asgardeo" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header with each webhook payload. This header contains an hash-based message authentication code (HMAC) signature computed using the **Secret** you provided when configuring the webhook.
+To ensure the authenticity and integrity of events, {{product_name}} includes an {% if product_name == "WSO2 Identity Platform" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header with each webhook payload. This header contains an hash-based message authentication code (HMAC) signature computed using the **Secret** you provided when configuring the webhook.
 
 **Verifying the signature:**
 
@@ -232,7 +232,7 @@ Verify the signature to confirm that {{product_name}} sent the event and that no
 
 1. **Retrieve the secret:** Use the same secret string you configured in {{product_name}} for the webhook.  
 2. **Compute HMAC:** Generate an HMAC-SHA256 hash of the raw request body using your secret as the key.  
-3. **Compare Signatures:** Compare the computed HMAC with the value in the {% if product_name == "Asgardeo" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header. If they match, the event is authentic.
+3. **Compare Signatures:** Compare the computed HMAC with the value in the {% if product_name == "WSO2 Identity Platform" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header. If they match, the event is authentic.
 
 ## Test your webhook
 
@@ -253,7 +253,7 @@ Observe the requests received by your webhook endpoint to confirm that it succes
 
 If your webhook isn't functioning as expected, consider the following common issues and their solutions:
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 1. **Webhook verification failed**
 
@@ -330,7 +330,7 @@ To maintain the security and integrity of your webhook integration, follow these
 
 - **Verify signatures**:
 
-    Always validate the {% if product_name == "Asgardeo" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header for every incoming webhook event. This step protects you from spoofed or tampered events. Discard any events with invalid signatures.
+    Always validate the {% if product_name == "WSO2 Identity Platform" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header for every incoming webhook event. This step protects you from spoofed or tampered events. Discard any events with invalid signatures.
 
 - **Idempotency**:
 

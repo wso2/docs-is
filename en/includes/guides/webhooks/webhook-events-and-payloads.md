@@ -1,11 +1,11 @@
-# Webhook events and payloads {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
+# Webhook events and payloads {% if product_name == "WSO2 Identity Platform" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
 
 This guide details the webhook event types dispatched by {{product_name}}. For each event, you'll find JSON payload examples and descriptions of their properties.
 
 !!! Note
       In webhook event payloads, <code>initiatorIpAddress</code> (when present) represents the IP address of the initiator that triggered the event.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 !!! Note
       This feature is currently in **Preview**. Functionality and event payloads may change during development.  
       Expect updates without prior notice.
@@ -21,7 +21,7 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -172,7 +172,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -365,7 +365,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -536,7 +536,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -742,7 +742,7 @@ The table below explains how these properties differ based on each flow.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -912,7 +912,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1073,7 +1073,7 @@ This event triggers for every new session creation during the login process. It 
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1245,7 +1245,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1417,7 +1417,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1581,7 +1581,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1753,7 +1753,7 @@ The table below explains how these properties differ based on each flow.
 <td><p>Occurs when a user updates their password through profile settings in My Account app or via
 {% if product_name == "WSO2 Identity Server"%}
 <a href="{{base_path}}/apis/scim2-me-rest-apis/">SCIM 2.0 Me API</a>
-{% elif product_name == "Asgardeo" %}
+{% elif product_name == "WSO2 Identity Platform" %}
 <a href="{{base_path}}/apis/scim2-me/">SCIM 2.0 Me API</a>
 {% endif %}.</p></td>
 </tr>
@@ -1802,7 +1802,7 @@ This event triggers when administrators, applications, or users create accounts 
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1973,7 +1973,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2139,7 +2139,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2280,7 +2280,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2423,7 +2423,7 @@ This event triggers when accounts get locked due to failed login attempts, admin
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2554,7 +2554,7 @@ This event triggers when locked accounts get restored to normal status through a
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2683,7 +2683,7 @@ The table below explains each property in the event data.
 
 **Example Payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {

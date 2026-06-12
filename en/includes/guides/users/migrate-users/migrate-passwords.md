@@ -6,9 +6,9 @@ You may use one of the following two ways to migrate user passwords to {{ produc
 
 This method involves the least administrative effort but causes the most friction for users. With a password reset, users will receive an email prompting them to set a password for their new {{ product_name }} accounts. Until they set a password, their user accounts will remain locked to prevent unauthorized access. Additionally, this method allows you to immediately terminate operations on your previous IdP once the user accounts are successfully migrated to {{ product_name }}.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
-If you wish to migrate user passwords using this method, inform the Asgardeo team along with your request to [migrate users]({{base_path}}/guides/users/migrate-users/migrate-users/).
+If you wish to migrate user passwords using this method, inform the WSO2 Identity Platform team along with your request to [migrate users]({{base_path}}/guides/users/migrate-users/migrate-users/).
 
 {% endif %}
 
@@ -61,7 +61,7 @@ Let's look at the diagram in detail:
     - This API responds with a unique ID for the process called the `contextID`.
     - The user is redirected to a waiting page until external authentication completes.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
     !!! note
         
@@ -94,14 +94,14 @@ Before you begin, ensure the following are fulfilled.
 - [Migrate user accounts to {{ product_name }}]({{base_path}}/guides/users/migrate-users/migrate-users/).
 - Ensure your legacy IdP provides means to perform basic user authentication (i.e. username and password authentication). For example, a SCIM2/Me REST API endpoint that could be authenticated with username and password.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 - You need to have a GitHub repository to host the authentication service.
 - Download [Ballerina](https://ballerina.io/downloads/){target="_blank"}, the programming language used to define the external authentication service.
 
 {% endif %}
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 {% include "../../../guides/fragments/migrate-users/configure-choreo-for-password-migration.md" %}
 
@@ -132,7 +132,7 @@ Your service should expose the following REST API endpoints.
 
 {% endif %}
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ### Step 4: Configure an attribute in {{ product_name }} to hold the migration status
 
@@ -161,7 +161,7 @@ Your service should expose the following REST API endpoints.
 
 3. Click **Finish** to create the attribute.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ### Step 5: Configure the login flow of the {{ product_name }} application
 
@@ -177,7 +177,7 @@ You are now ready to configure your application for on-demand silent password mi
 
 2. Select the application and go to its **Login Flow** tab.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 3. Configure the login flow using your preferred editor:
 

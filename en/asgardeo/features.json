@@ -69,5 +69,18 @@
             "guides/webhooks/setup-webhooks.md",
             "guides/webhooks/webhook-events-and-payloads.md"
         ]
+    },
+
+    "customer_data_service": {
+        "enabled": true,
+        "page": [
+            "guides/customer-data/index.md",
+            "guides/customer-data/enable-customer-data-service.md",
+            "guides/customer-data/concepts/profiles.md",
+            "guides/customer-data/concepts/profile-attributes.md",
+            "guides/customer-data/concepts/unification-rules.md",
+            "guides/customer-data/guides/manage-profile-attributes.md",
+            "guides/customer-data/guides/manage-unification-rules.md"
+        ]
     }
 }

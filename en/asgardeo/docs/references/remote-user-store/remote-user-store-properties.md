@@ -4,7 +4,7 @@ The following table provides descriptions of the key properties to apply in <cod
 
 !!! tip
 
-    Asgardeo now offers an optimized remote user store connection designed for high scalability and performance. Currently this version only allows connecting a read-only user store with the remote user authentication and attribute retrieval.
+    WSO2 Identity Platform now offers an optimized remote user store connection designed for high scalability and performance. Currently this version only allows connecting a read-only user store with the remote user authentication and attribute retrieval.
 
     The new connection is continuously evolving to support more use cases in the future. For extended capabilities like read-write user stores, the classic remote user store remains available.
 

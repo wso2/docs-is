@@ -18,7 +18,7 @@ The workflows support the following types of operations:
 !!! note
     In the workflow creation page, you can select multiple operations if approval steps are common for those operations.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 By default, approval workflows trigger for all configured operations. You can optionally define rules to control when an approval workflow engages. This allows dynamic approval enforcement based on business requirements such as user attributes, roles, or user store domains.
 
@@ -27,7 +27,7 @@ To learn more on how to configure rules, see [Approval workflow rules]({{base_pa
 
 ### Configure workflow steps
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 The next step in creating a workflow is to configure its steps. You can add multiple steps to a workflow, and each step can have multiple approvers. Approvers can belong to a configured role or be defined as individual users.
 {% else %}
 The final step in creating a workflow is to configure its steps. You can add multiple steps to a workflow, and each step can have multiple approvers. Approvers can belong to a configured role or be defined as individual users.
@@ -39,7 +39,7 @@ The final step in creating a workflow is to configure its steps. You can add mul
     If you assign admin user in the first step of approval and if admin creates a user, still workflow will be triggered.
     Other participants in the first step will also receive the approval request.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 ### Configure notifications
 

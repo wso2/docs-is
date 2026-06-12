@@ -1,12 +1,12 @@
 # Integrate SAML with your Java EE webapp
 
-Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [Asgardeo Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent) which enables SAML-based login and logout.
+Follow the steps given below to authenticate users to your Java EE web application deployed on Tomcat using the [WSO2 Identity Platform Tomcat SAML Agent](https://github.com/asgardeo/asgardeo-tomcat-saml-agent) which enables SAML-based login and logout.
 
 ## Prerequisites
 
 - [Download](https://tomcat.apache.org/tomcat-9.0-doc/) Apache Tomcat 9.x or 8.x in your local environment.
 - [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) Apache Maven (3.6.x or higher) as the package manager if you already haven't.
-- You need to have an application already registered in Asgardeo. If you don't, see the instructions on [registering a SAML application]({{base_path}}/guides/applications/register-saml-web-app/).
+- You need to have an application already registered in WSO2 Identity Platform. If you don't, see the instructions on [registering a SAML application]({{base_path}}/guides/applications/register-saml-web-app/).
 
 ## Install the SDK
 
@@ -51,7 +51,7 @@ Follow the steps given below to initialize the SAML agent.
 
 ### Create the configuration file
 
-To initialize the SAML agent, you need a property file with the configurations such as the Asgardeo endpoints. The Asgardeo SAML agent reads the configurations from this file.
+To initialize the SAML agent, you need a property file with the configurations such as the WSO2 Identity Platform endpoints. The WSO2 Identity Platform SAML agent reads the configurations from this file.
 
 Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/resources** directory, using the content below.
 
@@ -60,7 +60,7 @@ Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/r
 SAML2.AssertionConsumerURL=<acs_url>
 SAML2.SPEntityId=<entity_id>
 
-#Asgardeo related configs
+#WSO2 Identity Platform related configs
 SAML2.IdPEntityId=accounts.asgardeo.io/t/{organization_nam}
 SAML2.IdPURL=https://api.asgardeo.io/t/{organization_name}samlsso 
 IdPPublicCert=<public_cert_of_asgardeo_organization>
@@ -87,7 +87,7 @@ PrivateKeyAlias=<app_private_key_alias>
 PrivateKeyPassword=<app_private_key_password>
 ```
 
-For advanced use cases such as SAML response signing, the Asgardeo SAML Agent uses a keystore with your private key. If your application doesn't have a keystore already, generate a keystore file and copy it to the **<APP_HOME>/src/main/resources** directory. Make sure to update KeyStorePassword, PrivateKeyAlias, and PrivateKeyPassword with relevant values.
+For advanced use cases such as SAML response signing, the WSO2 Identity Platform SAML Agent uses a keystore with your private key. If your application doesn't have a keystore already, generate a keystore file and copy it to the **<APP_HOME>/src/main/resources** directory. Make sure to update KeyStorePassword, PrivateKeyAlias, and PrivateKeyPassword with relevant values.
   
 Find the configuration information below:
 
@@ -105,19 +105,19 @@ Find the configuration information below:
       </tr>
       <tr>
          <td>SAML2.SPEntityId</td>
-         <td>This is the unique name of the application used when registering your application with Asgardeo. See [how to register a SAML app manually](../../guides/applications/register-saml-web-app/#register-app-using-manual-configurations) via the Asgardeo Console.</td>
+         <td>This is the unique name of the application used when registering your application with WSO2 Identity Platform. See [how to register a SAML app manually](../../guides/applications/register-saml-web-app/#register-app-using-manual-configurations) via the WSO2 Identity Platform Console.</td>
       </tr>
       <tr>
          <td>SAML2.IdPEntityId</td>
-         <td>This is the issuer of Asgardeo. This is always <code>accounts.asgardeo.io/t/{organization_name}</code>.</td>
+         <td>This is the issuer of WSO2 Identity Platform. This is always <code>accounts.asgardeo.io/t/{organization_name}</code>.</td>
       </tr>
      <tr>
           <td>SAML2.IdPURL</td>
-          <td>This specifies the endpoint of Asgardeo to which login and logout requests should be sent. Note that the organization name should be replaced in the URL with the correct value. <code>https://api.asgardeo.io/t/{organization_name}/samlsso</code>. </td>
+          <td>This specifies the endpoint of WSO2 Identity Platform to which login and logout requests should be sent. Note that the organization name should be replaced in the URL with the correct value. <code>https://api.asgardeo.io/t/{organization_name}/samlsso</code>. </td>
      </tr>
      <tr>
            <td>IdPPublicCert</td>
-           <td>This specifies the public certificate of Asgardeo. You can obtain the public certificate from the Asgardeo Console. See [how to get SAML configurations from the Asgardeo Console.](../../guides/authentication/saml/discover-saml-configs/#discover-saml-configurations-of-asgardeo)</td>
+           <td>This specifies the public certificate of WSO2 Identity Platform. You can obtain the public certificate from the WSO2 Identity Platform Console. See [how to get SAML configurations from the WSO2 Identity Platform Console.](../../guides/authentication/saml/discover-saml-configs/#discover-saml-configurations-of-asgardeo)</td>
        </tr>
        <tr>
            <td>EnableSAML2SSOLogin</td>
@@ -129,21 +129,21 @@ Find the configuration information below:
        </tr>
        <tr>
          <td>SAML2.EnableResponseSigning</td>
-         <td>If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. If this configuration is set to <code>true</code>, then [enable response signing from Asgardeo](../../references/app-settings/saml-settings-for-app/#response-signing).
-         If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.</td>
+         <td>If this configuration is set to <code>true</code>, the application validates the signature in the SAML response. If this configuration is set to <code>true</code>, then [enable response signing from WSO2 Identity Platform](../../references/app-settings/saml-settings-for-app/#response-signing).
+         If this configuration is set to <code>false</code>, the application does not mandate response signing from WSO2 Identity Platform.</td>
      </tr>
      <tr>
        <td>SAML2.EnableAssertionSigning</td>
-       <td>If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. If this configuration is set to <code>true</code>, then [enable response signing from Asgardeo](../../references/app-settings/saml-settings-for-app/#response-signing).
-       If this configuration is set to <code>false</code>, the application does not mandate response signing from Asgardeo.</td>
+       <td>If this configuration is set to <code>true</code>, the application validates the signature in the SAML assertion. If this configuration is set to <code>true</code>, then [enable response signing from WSO2 Identity Platform](../../references/app-settings/saml-settings-for-app/#response-signing).
+       If this configuration is set to <code>false</code>, the application does not mandate response signing from WSO2 Identity Platform.</td>
      </tr>
      <tr>
        <td>SAML2.EnableAssertionEncryption</td>
-       <td>If this configuration is set to <code>true</code>,the application expects an encrypted SAML assertion. If this configuration is set to <code>true</code>, then [enable encryption for SAML assertion](../../references/app-settings/saml-settings-for-app/) from Asgardeo.</td>
+       <td>If this configuration is set to <code>true</code>,the application expects an encrypted SAML assertion. If this configuration is set to <code>true</code>, then [enable encryption for SAML assertion](../../references/app-settings/saml-settings-for-app/) from WSO2 Identity Platform.</td>
      </tr>
      <tr>
        <td>SAML2.EnableRequestSigning</td>
-       <td>If this configuration is set to <code>true</code>, Asgardeo validates the SAML authentication request and logout request. If this configuration is set to <code>true</code>, then [enable request signing](../../references/app-settings/saml-settings-for-app/) from Asgardeo.</td>
+       <td>If this configuration is set to <code>true</code>, WSO2 Identity Platform validates the SAML authentication request and logout request. If this configuration is set to <code>true</code>, then [enable request signing](../../references/app-settings/saml-settings-for-app/) from WSO2 Identity Platform.</td>
      </tr>
      <tr>
        <td>SAML2.IsPassiveAuthn</td>
@@ -224,9 +224,9 @@ When the user clicks the button, the SAML agent intercepts the request and initi
 
 ## Add logout
 
-In the previous steps, you implemented login for your app. Now you need a way to log users out of your application and remove the user sessions from Asgardeo.
+In the previous steps, you implemented login for your app. Now you need a way to log users out of your application and remove the user sessions from WSO2 Identity Platform.
 
-When the user initiates the logout, the local authenticated application session is cleared and the session in Asgardeo is terminated.
+When the user initiates the logout, the local authenticated application session is cleared and the session in WSO2 Identity Platform is terminated.
 
 Add the following snippet to enable logout.
 
@@ -236,4 +236,4 @@ Add the following snippet to enable logout.
 </form>
 ```
 
-See the [Asgardeo Tomcat SAML Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-saml-agent#how-it-works) for more information.
+See the [WSO2 Identity Platform Tomcat SAML Agent documentation](https://github.com/asgardeo/asgardeo-tomcat-saml-agent#how-it-works) for more information.

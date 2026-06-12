@@ -48,9 +48,9 @@ To allow your agent (or user acting through the agent) to authenticate and conne
     Authorized redirect URL: http://localhost:6274/oauth/callback
 
 !!! Info
-    The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
+    The **authorized redirect URL** defines the location WSO2 Identity Platform sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:6274/oauth/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
-    {% if is_version == "next" or product_name == "Asgardeo" %}
+    {% if is_version == "next" or product_name == "WSO2 Identity Platform" %}
 
     While we're using the **MCP Client Application** template here for optimized MCP settings, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
     {% endif %}
@@ -134,7 +134,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     # Load environment variables from .env file
     load_dotenv()
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
@@ -154,7 +154,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     async def main():
         # Scenario 1: AI agent acting on its own using its own credentials to authenticate
-        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "WSO2 Identity Platform" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
 
@@ -215,7 +215,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     # Load environment variables from .env file
     load_dotenv()
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
@@ -234,7 +234,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     )
     
     async def build_toolset():
-        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "WSO2 Identity Platform" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
     
@@ -308,7 +308,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     # Load environment variables from .env file
     load_dotenv()
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
@@ -327,8 +327,8 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     )
     
     async def get_agent_token():
-        # Asynchronously fetches the agent token from Asgardeo.
-        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+        # Asynchronously fetches the agent token from WSO2 Identity Platform.
+        async with AgentAuthManager({% if product_name == "WSO2 Identity Platform" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             return await auth_manager.get_agent_token(["openid"])
     
     def main():
@@ -390,7 +390,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     # Load environment variables from .env file
     load_dotenv()
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
@@ -421,7 +421,7 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
     
     
     async def main():
-        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "WSO2 Identity Platform" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             agent_token = await auth_manager.get_agent_token(["openid"])
         
             google_key = os.getenv("GOOGLE_API_KEY", "")
@@ -457,13 +457,13 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
 ```properties title=".env"
-{% if product_name == "Asgardeo" %}
-# Asgardeo OAuth2 Configuration
+{% if product_name == "WSO2 Identity Platform" %}
+# WSO2 Identity Platform OAuth2 Configuration
 ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-tenant>
 CLIENT_ID=<your-client-id>
 REDIRECT_URI=http://localhost:6274/oauth/callback
 
-# Asgardeo Agent Credentials
+# WSO2 Identity Platform Agent Credentials
 AGENT_ID=<agent_id>
 AGENT_SECRET=<agent_secret>
 {% else %}
@@ -490,7 +490,7 @@ MODEL_NAME="gemini-2.5-flash"
 !!! Important
 
     - Replace `<your-tenant>`, `<your-client-id>`and the redirect URL with the values obtained from the {{ product_name }} console.
-      The tenant name is visible in the console URL path (e.g., {% if product_name == "Asgardeo" %}`https://console.asgardeo.io/t/<your-tenant>` {% else %}`https://localhost:9443/t/<your-tenant>`{% endif %}), and the `client ID` can be found in the application's **Protocol** tab.
+      The tenant name is visible in the console URL path (e.g., {% if product_name == "WSO2 Identity Platform" %}`https://console.asgardeo.io/t/<your-tenant>` {% else %}`https://localhost:9443/t/<your-tenant>`{% endif %}), and the `client ID` can be found in the application's **Protocol** tab.
 
     - Add the `Agent ID` and `Agent Secret` from the [Agent Registration](#register-an-ai-agent) step.
 
@@ -505,7 +505,7 @@ Your project folder should now look like this:
 
 ``` bash
 ├── main.py              # Your AI Agent
-└── .env                 # Your Asgardeo configs
+└── .env                 # Your WSO2 Identity Platform configs
 ```
 
 ## Run and Test with Authentication
@@ -703,7 +703,7 @@ Here is the updated implementation:
     
     # Load environment variables from .env file
     load_dotenv()
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
@@ -724,7 +724,7 @@ Here is the updated implementation:
     async def main():
     
         # Perform OBO flow (authenticating on behalf of the user)
-        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "WSO2 Identity Platform" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
     
@@ -811,7 +811,7 @@ Here is the updated implementation:
 
     # Load environment variables from .env file
     load_dotenv()
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
@@ -831,7 +831,7 @@ Here is the updated implementation:
     
     # Perform OBO flow (authenticating on behalf of the user)
     async def build_toolset():
-        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "WSO2 Identity Platform" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             # Get agent token
             agent_token = await auth_manager.get_agent_token(["openid"])
     
@@ -930,7 +930,7 @@ Here is the updated implementation:
     
     from pydantic import Field
     
-    # Asgardeo / Identity imports
+    # WSO2 Identity Platform / Identity imports
     from asgardeo import AsgardeoConfig
     from asgardeo_ai import AgentConfig, AgentAuthManager
     
@@ -946,7 +946,7 @@ Here is the updated implementation:
      
     async def get_obo_token():
         # Handles the OAuth/OBO flow to get the user token.
-        {% if product_name == "Asgardeo" %}       
+        {% if product_name == "WSO2 Identity Platform" %}       
         ASGARDEO_CONFIG = AsgardeoConfig(
             base_url=os.getenv("ASGARDEO_BASE_URL"),
             client_id=os.getenv("CLIENT_ID"),
@@ -964,7 +964,7 @@ Here is the updated implementation:
             agent_secret=os.getenv("AGENT_SECRET")
         )
     
-        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "WSO2 Identity Platform" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             agent_token = await auth_manager.get_agent_token(["openid", "email"])
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
     
@@ -1065,7 +1065,7 @@ Here is the updated implementation:
     
     # Load environment variables from .env file
     load_dotenv()
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     ASGARDEO_CONFIG = AsgardeoConfig(
         base_url=os.getenv("ASGARDEO_BASE_URL"),
         client_id=os.getenv("CLIENT_ID"),
@@ -1099,7 +1099,7 @@ Here is the updated implementation:
     
     
     async def main():
-        async with AgentAuthManager({% if product_name == "Asgardeo" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
+        async with AgentAuthManager({% if product_name == "WSO2 Identity Platform" %}ASGARDEO_CONFIG{% else %}IDENTITY_SERVER_CONFIG{% endif %}, AGENT_CONFIG) as auth_manager:
             agent_token = await auth_manager.get_agent_token(["openid", "email"])
     
             auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid", "email"])
@@ -1156,7 +1156,7 @@ After adding OBO support, your project should look like this:
 
 ``` bash
 ├── main.py              # AI agent with OBO authentication flow
-├── oauth_callback.py    # Captures OAuth redirect from Asgardeo
+├── oauth_callback.py    # Captures OAuth redirect from WSO2 Identity Platform
 └── .env                 # Environment configuration
 ```
 

@@ -38,7 +38,7 @@ To enable/disable user self-registration or to change the default configurations
         [Learn how to get verification status](#get-the-verification-status-of-user-accounts).
       </td>
     </tr>
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
     <tr>
       <td><b>Display message if username unavailable</b></td>
       <td>
@@ -131,7 +131,7 @@ This capability is especially useful when you have self-registered users. For ex
 
 You can get the account verification status of users through the [SCIM2 API]({{base_path}}/apis/scim2/scim2-users-rest-api/) as shown below.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 - To get your own information, invoke the `/scim2/Me` endpoint:
 
@@ -196,14 +196,14 @@ Note the following details in the response payload:
 
 Once you have identified the `emailVerified` status of the user and the method used to onboard the user (either through self-registration or by an administrator), you can enforce any access restrictions through your application logic.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 ## Resend account verification email
 
 !!! tip
 
     To implement this scenario, you must enforce account verification for self-registered users and activate accounts immediately without waiting for verification.</br></br> Learn more in [enable/disable self-registration](#enabledisable-self-registration).
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 - To resend the account verification email for the authenticated user, use the curl command shown below.
 {% else %}
 - To resend the account verification email for the authenticated user, use the [Self Resend Code API]({{base_path}}/apis/use-the-self-sign-up-rest-apis/#tag/Self-Register/paths/~1me~1resend-code/post) as shown below.
@@ -250,7 +250,7 @@ Once you have identified the `emailVerified` status of the user and the method u
     HTTP/1.1 201 Created
     ```
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 - To resend the account verification email for other users, use the curl command shown below.
 {% else %}
 - To resend the account verification email for other users, use the [Resend Code API]({{base_path}}/apis/use-the-self-sign-up-rest-apis/#tag/Self-Register/paths/~1resend-code/post) as shown below.

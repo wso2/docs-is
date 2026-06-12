@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: Asgardeo - Action Management Rest API
+  title: WSO2 Identity Platform - Action Management Rest API
   description: >
     The Action Management REST API provides a comprehensive interface to manage actions
-    within the Asgardeo. Actions enable the extension of product functionality
+    within the WSO2 Identity Platform. Actions enable the extension of product functionality
     across various workflows, such as password updates, and profile updates.
     This API helps developers and administrators to define and manage actions to meet specific
     business needs.

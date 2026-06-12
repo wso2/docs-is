@@ -85,7 +85,7 @@ From above response, information such as the **device ID**, **tenant domain**, *
 
 ### **Step 2**: Generate push authenticator app unique identifier
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 To send push notifications, {{product_name}} needs a unique identifier for each user's device. This identifier ensures that the notification reaches the correct app instance.
 
@@ -134,7 +134,7 @@ send it along with the registration request. The signature should be generated u
 4. Sign the concatenated string using the **RSA private key** that was generated during the registration process. Use **PKCS#1 v1.5 padding** and **SHA-256 hashing** before encryption.
 5. Encode the signature in **base64** format.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 ### **Step 5**: Build the provider object
 
@@ -245,7 +245,7 @@ As the final step of the registration process, the device should invoke the regi
        <td><code>signature</code></td>
        <td>Base64 encoded, hashed and encrypted string value signed by the private key from the registering device (From Step 4).</td>
      </tr>
-     {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+     {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
      <tr>
        <td><code>provider</code></td>
        <td>The object containing the push notification provider details for the device. Includes the provider <code>name</code> and any provider-specific <code>metadata</code> required for device registration (From Step 5).</td>
@@ -266,7 +266,7 @@ If response contains the **organization ID**, that means it is an **organization
 
 The below given is a sample request payload to be sent to the registration API.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 === "Sample new request"
 
@@ -336,7 +336,7 @@ The data sent through the push notification contains the following information:
        <td>Username of the user trying to authenticate.</td>
      </tr>
 
-     {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+     {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
      <tr>
        <td><code>relativePath</code></td>
@@ -407,7 +407,7 @@ The data sent through the push notification contains the following information:
      </tr>
 </table>
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 {% else %}
 
@@ -469,7 +469,7 @@ The JWT token should contain the following claims in the payload:
      </tr>
 </table>
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 Based on the notification data, the authentication API endpoint should be conditionally invoked with a **tenanted path**, an **organization path**, or a **tenant qualified organization aware path** by the push authenticator app. Either of the following methods can be used to build the authentication API endpoint.
 

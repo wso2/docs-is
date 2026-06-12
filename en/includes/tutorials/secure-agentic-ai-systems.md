@@ -29,7 +29,7 @@ The system consists of four main components:
 
 ## What you'll need
 
-* {% if product_name == "Asgardeo" %}An [**Asgardeo account**](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/){% else %}An [**Identity Server**](https://wso2.com/identity-server/){% endif %}
+* {% if product_name == "WSO2 Identity Platform" %}An [**WSO2 Identity Platform account**](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/){% else %}An [**Identity Server**](https://wso2.com/identity-server/){% endif %}
 * **Gemini API key** (free from [Google AI Studio](https://aistudio.google.com/))
 * **Python 3.10+**
 * **Node.js 16+**

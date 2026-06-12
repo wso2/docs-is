@@ -27,7 +27,7 @@ To deploy the sample web app on a web container:
 To configure additional properties for the sample application:
 
 1. Add the following configurations to the `web.xml` file in `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/PassiveSTSSampleApp/WEB-INF`.
-    - Specify Asgardeo Passive STS URL as `idpUrl`.
+    - Specify WSO2 Identity Platform Passive STS URL as `idpUrl`.
 
         ``` xml
         <init-param>
@@ -56,7 +56,7 @@ To configure additional properties for the sample application:
 
 2. Restart the tomcat server.
 
-## Configure the application in Asgardeo
+## Configure the application in WSO2 Identity Platform
 
 1. On the {{ product_name }} Console, go to **Applications**.
 

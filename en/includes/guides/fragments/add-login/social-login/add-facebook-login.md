@@ -4,7 +4,7 @@
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application, go to the **Login Flow** tab and add Facebook login as follows:
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     === "Classic Editor"
         To add Facebook login using the Classic Editor:
 
@@ -12,7 +12,7 @@
 
         2. Click **Add Authentication** on the step, select your Facebook identity provider, and click **Add**.
 
-            ![Add Facebook login in Asgardeo]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add Facebook login in WSO2 Identity Platform]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-federation-with-basic.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
     === "Visual Editor"
@@ -22,7 +22,7 @@
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your Facebook connection.
 
-            ![Add Facebook login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add Facebook login in WSO2 Identity Platform using the Visual Editor]({{base_path}}/assets/img/guides/idp/facebook-idp/add-facebook-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
     {% else %}

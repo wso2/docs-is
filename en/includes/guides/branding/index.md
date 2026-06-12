@@ -10,13 +10,13 @@ By default, your organization's business applications in {{ product_name }} are 
 
 {% endif %}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 
-- [Use the editor to customize layouts]({{base_path}}/guides/branding/customize-layouts-with-editor/) for user login, sign-up, and account recovery flows. {% if product_name == "Asgardeo" %} <sup>`Paid subscription required`</sup> {% endif %}
+- [Use the editor to customize layouts]({{base_path}}/guides/branding/customize-layouts-with-editor/) for user login, sign-up, and account recovery flows. {% if product_name == "WSO2 Identity Platform" %} <sup>`Paid subscription required`</sup> {% endif %}
 
 {% endif %}
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 - [Branding AI]({{base_path}}/guides/branding/branding-ai/)
 

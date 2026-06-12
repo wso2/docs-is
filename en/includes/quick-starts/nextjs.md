@@ -14,7 +14,7 @@ Welcome to the Next.js quickstart guide! In this document, you will learn to bui
 
     **Authorized redirect URL:** `http://localhost:3000`
 
-Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure Asgardeo Next.js SDK.
+Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure WSO2 Identity Platform Next.js SDK.
 
 - **Client ID** - The unique identifier for your application.
 - **Client Secret** - The secret key generated for your application.
@@ -54,7 +54,7 @@ Create your new Next.js app.
 
 ## Install `@asgardeo/nextjs`
 
-Asgardeo Next.js SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo Next.js SDK to the project. Make sure to stop the dev server started in the previous step.
+WSO2 Identity Platform Next.js SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the WSO2 Identity Platform Next.js SDK to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
@@ -76,7 +76,7 @@ Asgardeo Next.js SDK provides all the components and hooks you need to integrate
 
 ## Set up environment variables
 
-Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the Asgardeo Next.js SDK to function.
+Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the WSO2 Identity Platform Next.js SDK to function.
 
 ```bash title=".env"
 NEXT_PUBLIC_ASGARDEO_BASE_URL="{{content.sdkconfig.baseUrl}}"
@@ -91,7 +91,7 @@ ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
 
 ## Set up the middleware
 
-The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application and supports both the App and Pages routers.
+The `asgardeoMiddleware` helper integrates WSO2 Identity Platform authentication into your Next.js application and supports both the App and Pages routers.
 
 === "For Next.js 16 and later"
 
@@ -174,7 +174,7 @@ export default function RootLayout({
 
 ## Add sign-in and sign-out to your app
 
-Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
+WSO2 Identity Platform SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
 Replace the existing content of the `app/page.tsx` file with following content.
 

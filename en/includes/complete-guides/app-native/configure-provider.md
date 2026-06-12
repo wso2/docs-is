@@ -1,6 +1,6 @@
 ## Install `@asgardeo/nextjs`
 
-Asgardeo Next.js SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo Next.js SDK to the project. Make sure to stop the dev server started in the previous step.
+WSO2 Identity Platform Next.js SDK provides all the components and hooks you need to integrate {{ product_name }} into your app. To get started, simply add the WSO2 Identity Platform Next.js SDK to the project. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
@@ -22,7 +22,7 @@ Asgardeo Next.js SDK provides all the components and hooks you need to integrate
 
 ## Set up environment variables
 
-Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the Asgardeo Next.js SDK to function properly.
+Create a `.env` or an appropriate environment configuration file in the root of your Next.js project. This file will store all the configuration values required for the WSO2 Identity Platform Next.js SDK to function properly.
 
 ```bash title=".env"
 NEXT_PUBLIC_ASGARDEO_BASE_URL="{{content.sdkconfig.baseUrl}}"
@@ -32,7 +32,7 @@ ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
 
 !!! danger "Warning"
 
-    There is a Secret used for signing JWT session cookies. If this is not defined, it will use the default one configured in the Asgardeo SDK. However it is mandatory to change this in a production environment.
+    There is a Secret used for signing JWT session cookies. If this is not defined, it will use the default one configured in the WSO2 Identity Platform SDK. However it is mandatory to change this in a production environment.
 
     Please generate a random key with the following.
 
@@ -47,9 +47,9 @@ ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
 
 ## Setup the middleware
 
-Create a file called `middleware.ts` in the root of your Next.js project and integrate the `asgardeoMiddleware` from the Asgardeo Next.js SDK.
+Create a file called `middleware.ts` in the root of your Next.js project and integrate the `asgardeoMiddleware` from the WSO2 Identity Platform Next.js SDK.
 
-The `asgardeoMiddleware` helper integrates Asgardeo authentication into your Next.js application and supports both the App and Pages routers.
+The `asgardeoMiddleware` helper integrates WSO2 Identity Platform authentication into your Next.js application and supports both the App and Pages routers.
 
 ```bash title="middleware.ts"
 import {asgardeoMiddleware} from '@asgardeo/nextjs/middleware';

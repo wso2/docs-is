@@ -1,8 +1,8 @@
 # APIs - Overview
 
-Asgardeo exposes most of the features via REST APIs. Those APIs are categorized into the following categories based on the usage.
+WSO2 Identity Platform exposes most of the features via REST APIs. Those APIs are categorized into the following categories based on the usage.
 
- - Management APIs - APIs that are consumed by an application using Asgardeo as the Identity Provider.
+ - Management APIs - APIs that are consumed by an application using WSO2 Identity Platform as the Identity Provider.
 
  - Organization APIs - APIs that are consumed by the B2B SaaS applications for organization-level operations.
 
@@ -28,14 +28,14 @@ Applications, by default, do not have permission to consume API resources. There
 
 To authorize the application,
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the WSO2 Identity Platform Console, go to **Applications**.
 
 2. Select the created application and go to its **API Authorization** tab.
 
 3. Click **Authorize an API Resource** and provide the relevant details of the API resource. Repeat the step for the required APIs
 
     !!! tip
-        For Asgardeo REST APIs, find the relevant scopes from the API definition.
+        For WSO2 Identity Platform REST APIs, find the relevant scopes from the API definition.
 
 4. Click **Finish** to save the changes.
 

@@ -65,7 +65,7 @@ Once a user reaches either limit, the login flow blocks further retries or resen
 5. Click **Update** to save the script.
 
 !!! note "Account lock takes precedence"
-    If {{ product_name }} locks the user account (for example, due to too many failed login attempts at the tenant level) before the user reaches <code>maximumAllowedFailureAttempts</code>, the account lock ends the authentication flow immediately.
+    If {{ product_name }} locks the user account (for example, due to too many failed login attempts at the organization level) before the user reaches <code>maximumAllowedFailureAttempts</code>, the account lock ends the authentication flow immediately.
 
 !!! note "Connection-level resend block"
     You can also configure a resend block at the connection level using settings such as **Allowed OTP resend attempt count** and **Resend block duration**. If the connection-level block triggers before the application-level limit (<code>maximumAllowedResendAttempts</code>), the connection temporarily blocks resend requests for the configured duration.
@@ -111,7 +111,7 @@ If you omit these parameters, the OTP step uses its default behavior with no app
 
 When you use app-native authentication, reaching either limit returns an error response.
 
-{% if product_name != "Asgardeo" %}
+{% if product_name != "WSO2 Identity Platform" %}
 !!! note
     See the [App-native error codes]({{base_path}}/references/troubleshoot/app-native-error-codes/) catalog for the full list of error codes.
 {% endif %}

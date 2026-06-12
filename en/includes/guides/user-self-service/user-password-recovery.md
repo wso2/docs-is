@@ -19,7 +19,7 @@ To reset the password, the user should follow these steps.
 
 2. Click **Forgot password?**
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0" ) %}
 
 3. Follow one of the following methods based on the password recovery option configured for your organization.
 
@@ -28,7 +28,7 @@ To reset the password, the user should follow these steps.
         Enter your username and click **Send Reset Link**. An email notification will be sent to your email address.
         ![Forgot your password]({{base_path}}/assets/img/guides/organization/self-service/customer/password-recovery-option-email-only.png){: width="300" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
 
     === "Email OTP"
 
@@ -61,7 +61,7 @@ To reset the password, the user should follow these steps.
 
     
 
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
 
     === "Email OTP"
 

@@ -39,18 +39,18 @@ MFA, passwordless and social providers are configured in {{product_name}} as **c
 - {{product_name}} pre-configured with **Magic Link** and **Email OTP** as connections, so you can follow this guide without needing to modify the default settings. 
 
 - Configure **GitHub** as a **social login provider** by creating a connection in {{product_name}} console.  
-    1. Register a GitHub OAuth App or a GitHub App by following the [***Register Asgardeo on GitHub*** step in this guide]({{ base_path }}/guides/authentication/social-login/add-github-login/#register-asgardeo-on-github){:target="_blank"}. Once the GitHub app is registered you need to copy **`Client ID`** and **`Client secret`** for the next step. 
+    1. Register a GitHub OAuth App or a GitHub App by following the [***Register WSO2 Identity Platform on GitHub*** step in this guide]({{ base_path }}/guides/authentication/social-login/add-github-login/#register-wso2-identity-platform-on-github){:target="_blank"}. Once the GitHub app is registered you need to copy **`Client ID`** and **`Client secret`** for the next step. 
     
     2. Register GitHub connection in  {{product_name}} console by following the [***Register the GitHub IdP*** step in this guide]({{ base_path }}/guides/authentication/social-login/add-github-login/#register-the-github-idp){:target="_blank"}. 
 
 ## Create and configure a sample app
 
-You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-application/){:target="_blank"} hosted app without setting up a local app or create & run a sample app locally using the Asgardeo React template. 
+You can either use the WSO2 Identity Platform [Try-It]({{ base_path }}/get-started/try-it-application/){:target="_blank"} hosted app without setting up a local app or create & run a sample app locally using the WSO2 Identity Platform React template. 
 
 
 
 
-=== "Using Asgardeo Try-It hosted app"
+=== "Using WSO2 Identity Platform Try-It hosted app"
 
     1. On the  {{product_name}} Console, go to **Home** and click **Try login with the Try It app**.
     2. A dialog box appears prompting you to create a user account. Create a user account or if you already have one, click Continue to proceed.
@@ -60,9 +60,9 @@ You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-appl
 
     
 
-=== "Using  Asgardeo React template "
+=== "Using  WSO2 Identity Platform React template "
 
-    - Sign into Asgardeo console and navigate to **Applications > New Application**.
+    - Sign into WSO2 Identity Platform console and navigate to **Applications > New Application**.
 
     - Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
@@ -71,23 +71,23 @@ You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-appl
     
         **Authorized redirect URL:** http://localhost:5173
 
-    -  Note down the following values from the Protocol tab of the registered application. You will need them to configure Asgardeo React SDK.
+    -  Note down the following values from the Protocol tab of the registered application. You will need them to configure WSO2 Identity Platform React SDK.
         - **`client-id`** from the **Protocol** tab.
-        - The **name** of your Asgardeo organization
+        - The **name** of your WSO2 Identity Platform organization
 
 
-    - Use the Asgardeo React template to bootstrap your application by running the following command.  
+    - Use the WSO2 Identity Platform React template to bootstrap your application by running the following command.  
 
       ```bash
 
       npx tmplr --dir my-vite-react-app asgardeo/asgardeo-vite-react-template
 
       ```
-      The Asgardeo React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
+      The WSO2 Identity Platform React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
 
 ## Open the  **Login Flow AI** prompt 
 
-1.  On the {{product_name}} Console, go to **Applications**, and select the **Try It** application *(or select Asgardeo-react app in case if you have created and running an app locally in the previous step)*.
+1.  On the {{product_name}} Console, go to **Applications**, and select the **Try It** application *(or select WSO2 Identity Platform-react app in case if you have created and running an app locally in the previous step)*.
 
 2.  Go to the **Login Flow** tab of the application and click the **Try Login Flow AI** button to open the Login Flow AI prompt. 
 
@@ -223,7 +223,7 @@ If successful, the application won’t prompt you for the Email OTP. Instead, yo
  
 Next, Let's add our test user to the **manager role**. 
 
-1. On the Asgardeo Console, go to **User Management > Roles**.
+1. On the WSO2 Identity Platform Console, go to **User Management > Roles**.
 2. Click **New Role** > button. 
 3. In the New Role creation wizard, enter *manager* as the **Role Name** and select **Organization** as the role **audience**, then click next. 
 4. Skip the Permission Selection screen by clicking next. 

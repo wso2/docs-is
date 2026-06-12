@@ -1,6 +1,6 @@
-# Subscribe to Asgardeo
+# Subscribe to WSO2 Identity Platform
 
-Asgardeo is free to use for anyone who wants to integrate powerful identity and access management capabilities in their applications and continue to use it for free if it fits their requirements.
+WSO2 Identity Platform is free to use for anyone who wants to integrate powerful identity and access management capabilities in their applications and continue to use it for free if it fits their requirements.
 
 If you wish to subscribe to a higher-tier plan, follow the guides below.
 

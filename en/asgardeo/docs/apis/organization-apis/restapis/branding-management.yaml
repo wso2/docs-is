@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Branding Preferences API
   description: |
-    This document specifies a RESTful API for **Managing Branding Preferences of Organizations** in Asgardeo.
+    This document specifies a RESTful API for **Managing Branding Preferences of Organizations** in WSO2 Identity Platform.
   version: v1
 servers:
   - url: 'https://api.asgardeo.io/t/{root-organization-name}/o/api/server/v1'

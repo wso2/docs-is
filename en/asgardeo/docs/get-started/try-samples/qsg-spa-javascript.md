@@ -8,15 +8,15 @@ By following this guide, you will be able to deploy a Javascript single-page app
 
     If you don't have it, [install npm and node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){target="_blank"} in your local environment.
 
-- **A user account in Asgardeo**
+- **A user account in WSO2 Identity Platform**
 
-    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in Asgardeo.
+    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in WSO2 Identity Platform.
 
 ## Register the app
 
-Follow the steps given below to register the sample Javascript SPA in Asgardeo.
+Follow the steps given below to register the sample Javascript SPA in WSO2 Identity Platform.
 
-1. On the [Asgardeo Console](https://console.asgardeo.io/login), go to **Applications**.
+1. On the [WSO2 Identity Platform Console](https://console.asgardeo.io/login), go to **Applications**.
 
 2. Click **New Application** and select **Single-Page Application**.
 
@@ -107,7 +107,7 @@ Follow the steps given below to configure the sample app.
             <code>clientID</code>
         </td>
         <td>
-            The client id that you received when you registered the application in Asgardeo.
+            The client id that you received when you registered the application in WSO2 Identity Platform.
         </td>
       </tr>
       <tr>
@@ -115,7 +115,7 @@ Follow the steps given below to configure the sample app.
             <code>baseUrl</code>
         </td>
         <td>
-            <p>All authentication requests that the client application makes to Asgardeo will be appended to this base URL.:</p>
+            <p>All authentication requests that the client application makes to WSO2 Identity Platform will be appended to this base URL.:</p>
             <code>https://api.asgardeo.io/t/{organization_name}</code>
         </td>
       </tr>
@@ -126,7 +126,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <p>The list of OIDC scopes that are used for requesting user information. You can add OIDC scopes such as <code>profile</code> and <code>email</code> in a comma-separated list as follows: </p>
             <code>"scope": ["profile", "email"]</code>
-            <p>Learn more about [OIDC scopes in Asgardeo]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
+            <p>Learn more about [OIDC scopes in WSO2 Identity Platform]({{base_path}}/guides/users/attributes/manage-scopes/).</p>
         </td>
       </tr>
     </tbody>
@@ -144,9 +144,9 @@ Follow the steps given below to run the sample.
 
 2. Once the app is successfully compiled, it is accessible at `https://localhost:3000`.
 
-3. Click **Login**. You will be redirected to the Asgardeo login page.
+3. Click **Login**. You will be redirected to the WSO2 Identity Platform login page.
 
-    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![WSO2 Identity Platform Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter the credentials of your user account and click **Sign In**.
 

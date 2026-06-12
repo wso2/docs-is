@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Identity Verification Provider Management API
   description: |-
-    This document specifies an **Identity Verification Provider Management RESTful API** for **Asgardeo**. The APIs provide the capability to add/update/delete/update identity verification providers.
+    This document specifies an **Identity Verification Provider Management RESTful API** for **WSO2 Identity Platform**. The APIs provide the capability to add/update/delete/update identity verification providers.
   version: "v1"
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'

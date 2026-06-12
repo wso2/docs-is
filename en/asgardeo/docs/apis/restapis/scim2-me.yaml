@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: SCIM 2.0 Me API
   description: |
-    This document specifies **SCIM 2.0 Me RESTful API** for **Asgardeo**.
+    This document specifies **SCIM 2.0 Me RESTful API** for **WSO2 Identity Platform**.
   version: "v1"
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'
@@ -217,7 +217,7 @@ components:
               example: Berry
         userName:
           type: string
-          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your Asgardeo organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
+          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your WSO2 Identity Platform organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
           example: DEFAULT/kim@gmail.com 
         password:
           type: string
@@ -269,7 +269,7 @@ components:
               example: Berry
         userName:
           type: string
-          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your Asgardeo organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
+          description: By default, the username should be the email address and it will be stored in the `DEFAULT` user store. However, if username validation is changed to `Alphanumeric` in your WSO2 Identity Platform organization, you need to specify an alphanumeric value (a-z, A-Z, 0-9) as the username instead of the email.
           example: DEFAULT/kim@gmail.com
         emails:
           type: array

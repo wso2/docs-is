@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   description: >-
-    This is the RESTful API for identity governance configurations in Asgardeo.
+    This is the RESTful API for identity governance configurations in WSO2 Identity Platform.
   version: "v1"
-  title: Asgardeo - Governance Connectors Admin API
+  title: WSO2 Identity Platform - Governance Connectors Admin API
 tags:
   - name: Management
     description: Secured Admin-only calls

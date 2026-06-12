@@ -1,4 +1,4 @@
-The `Organization` component is a declarative way to access the current organization object from the Asgardeo organization context. It uses render props to expose organization data, making it easy to display organization information or conditionally render UI based on organization selection.
+The `Organization` component is a declarative way to access the current organization object from the WSO2 Identity Platform organization context. It uses render props to expose organization data, making it easy to display organization information or conditionally render UI based on organization selection.
 
 ## Overview
 

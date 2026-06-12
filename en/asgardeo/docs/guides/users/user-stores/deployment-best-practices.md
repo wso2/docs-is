@@ -1,6 +1,6 @@
 # Deployment best practices for the remote agent
 
-Deploying the remote agent efficiently is crucial for ensuring a stable and secure connection between Asgardeo and your on-premise user store. Follow these best practices to enhance security and monitoring.
+Deploying the remote agent efficiently is crucial for ensuring a stable and secure connection between WSO2 Identity Platform and your on-premise user store. Follow these best practices to enhance security and monitoring.
 
 ### Secure the installation token
 
@@ -12,11 +12,11 @@ Encrypt sensitive information such as user store credentials in the agent config
 
 ### Deploy in a local network
 
-Deploy the agent in a local network where the actual user store resides and allow only the outbound traffic to the Asgardeo server. If required, you can also configure secure communication between the agent and the user store by configuring ldap over ssl (i.e. ldaps).
+Deploy the agent in a local network where the actual user store resides and allow only the outbound traffic to the WSO2 Identity Platform server. If required, you can also configure secure communication between the agent and the user store by configuring ldap over ssl (i.e. ldaps).
 
 ### Monitor the agent
 
-Monitor the agent to ensure that it is running without any issues. You can configure a monitoring job by utilizing the Asgardeo remote user store API to check the status of the agent. Following is a sample curl command to check the agent status.
+Monitor the agent to ensure that it is running without any issues. You can configure a monitoring job by utilizing the WSO2 Identity Platform remote user store API to check the status of the agent. Following is a sample curl command to check the agent status.
 
 === "Optimized Agent"
 

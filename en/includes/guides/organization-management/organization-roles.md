@@ -13,7 +13,7 @@ Organizations have roles associated with their shared applications. Shared roles
 !!! note "Roles of an organization"
     The shared roles in organizations will inherit the permission to role assignments from the organization (root).
     Users and group assignment to the roles should be done separately for the organization, as the organization does not inherit the users or groups from the organization (root).
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     ![Roles inherited from the organization (root)]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-inherited-roles.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     {% else %}
     ![Roles inherited from the organization (root)]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-inherited-roles.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

@@ -1,5 +1,5 @@
 
-Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
+WSO2 Identity Platform SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
 First of all before moving into the implementation of the Login and Logout let's make sure you have given the user that is logging into the application the necessary permissions to manage teams via the 'TEAM_ADMIN' role we created using the adaptive scripts feature in {{product_name}}.
 

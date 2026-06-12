@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Install and configure Passport Asgardeo
+heading: Install and configure Passport WSO2 Identity Platform
 read_time: 2 min
 ---
 

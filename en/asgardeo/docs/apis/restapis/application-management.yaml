@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   description: >
-    This document explains the RESTful API for application management in Asgardeo.
+    This document explains the RESTful API for application management in WSO2 Identity Platform.
   version: "v1"
-  title: Asgardeo - Application Management Rest API
+  title: WSO2 Identity Platform - Application Management Rest API
 security:
   - OAuth2: []
 paths:
@@ -3786,7 +3786,7 @@ components:
                     - password
                   items:
                     type: string
-                  description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
+                  description: "The This will determine how the application communicates with the token service. WSO2 Identity Platform supports following grant types:
                   <ul>
                     <li>authorization_code</li>
                     <li>client_credentials</li>
@@ -4564,7 +4564,7 @@ components:
             - BACKCHANNEL
             - FRONTCHANNEL_HTTP_REDIRECT
             - FRONTCHANNEL_HTTP_POST
-          description: "Specifies the logout method that is supported by the application. \n Asgardeo supports below logout methods:
+          description: "Specifies the logout method that is supported by the application. \n WSO2 Identity Platform supports below logout methods:
             <ul>
               <li>Back Channel logout</li>
               <li>Front Channel HTTP Redirect</li>
@@ -4643,7 +4643,7 @@ components:
         enableSignatureValidation:
           type: boolean
           default: true
-          description: Specifies whether Asgardeo must validate the signature of the SAML authentication request and the SAML logout request that are sent by the application.
+          description: Specifies whether WSO2 Identity Platform must validate the signature of the SAML authentication request and the SAML logout request that are sent by the application.
         signatureValidationCertAlias:
           type: string
           description: Specifies the alias of the certificate that will be used to validate the signature of the SAML assertions.
@@ -4682,7 +4682,7 @@ components:
               - 'http://localhost:8080/travelocity_460.com/home.jsp'
               - 'http://localhost:8080/travelocity_460.com/home1.jsp'
           minItems: 1
-          description: The Assertion Consumer Service (ACS) URL determines where Asgardeo will send the SAML response.
+          description: The Assertion Consumer Service (ACS) URL determines where WSO2 Identity Platform will send the SAML response.
         defaultAssertionConsumerUrl:
           type: string
           description: If not provided, the first assertion consumer URL on the `assertionConsumerUrls` will be picked as the default assertion consumer URL.
@@ -4740,7 +4740,7 @@ components:
           items:
             type: string
           minItems: 1
-          description: "The This will determine how the application communicates with the token service. Asgardeo supports following grant types:
+          description: "The This will determine how the application communicates with the token service. WSO2 Identity Platform supports following grant types:
           <ul>
             <li>authorization_code</li>
             <li>client_credentials</li>
@@ -4912,7 +4912,7 @@ components:
           example: https://wstrust.endpoint.com
         certificateAlias:
           type: string
-          example: "Asgardeo"
+          example: "WSO2 Identity Platform"
     CustomInboundProtocolConfiguration:
       type: object
       required:

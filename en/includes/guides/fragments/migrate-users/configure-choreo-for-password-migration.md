@@ -2,7 +2,7 @@
 
 In this section, we will develop an authentication service that will communicate with the legacy IdP to authenticate users.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 !!! note
     You may find a sample Ballerina authentication service [here](https://github.com/wso2/samples-is/tree/master/user-migration-samples/asgardeo/external-authentication-service){target="_blank"}.
@@ -38,13 +38,13 @@ In this section, we will develop an authentication service that will communicate
 
 We will now deploy the developed authentication service in [Choreo](https://wso2.com/choreo/){target="_blank"}, WSO2's integration platform. To do so,
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
-1. Go to the [Choreo Console](https://console.choreo.dev/login){target="_blank"} and login with the SAME email address you used to create your Asgardeo organization.
+1. Go to the [Choreo Console](https://console.choreo.dev/login){target="_blank"} and login with the SAME email address you used to create your WSO2 Identity Platform organization.
 
     !!! note
 
-        An organization with the same name as your Asgardeo organization will be created for you in Choreo.
+        An organization with the same name as your WSO2 Identity Platform organization will be created for you in Choreo.
 
 {% else %}
 

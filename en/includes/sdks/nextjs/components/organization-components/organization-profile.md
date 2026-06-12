@@ -2,7 +2,7 @@ The `OrganizationProfile` component displays and manages organization informatio
 
 ## Overview
 
-The `OrganizationProfile` component retrieves organization data from the Asgardeo API and displays it with support for editing fields, custom layouts, and error/loading states. Updates are synced with the backend, and you can customize the fields, layout, and fallback UI.
+The `OrganizationProfile` component retrieves organization data from the WSO2 Identity Platform API and displays it with support for editing fields, custom layouts, and error/loading states. Updates are synced with the backend, and you can customize the fields, layout, and fallback UI.
 
 ## Usage
 

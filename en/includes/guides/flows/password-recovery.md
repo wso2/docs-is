@@ -1,6 +1,6 @@
 # Password recovery
 
-Password recovery allows users to securely reset their password if they forget it. The flow involves verifying user identity through a secure method, such as an email or SMS code, before letting them set a new password.
+Password recovery allows users to securely reset their password if they forget it. The user verifies their identity through a secure method, such as an email or SMS code, before setting a new password.
 
 In the **Flow Builder**, you can create the password recovery journey in two ways:
 
@@ -14,7 +14,7 @@ Imagine you want to verify the user’s identity via SMS OTP before allowing the
 
 - The user enters the **username**.
 - {{product_name}} sends a **one-time code** to the user's registered mobile number.
-- The user verifies the email address by entering the code.
+- The user verifies their identity by entering the code.
 - The user resets their password.
 
 This ensures that only users with access to the registered mobile number can reset the password, enhancing security.
@@ -41,7 +41,7 @@ To load the template,
 
 ### Step 2 – Configure the flow completion
 
-The End node determines what the user experiences after successfully resetting their password. You can configure actions like auto login or sending a notification email.
+The End node determines what the user experiences after successfully resetting their password. Configure actions like auto login or sending a notification email.
 
 1. Click on the green End node on the canvas (labeled "Password Reset Successfully").
 
@@ -65,6 +65,33 @@ Once the flow has been fully configured and is ready for users:
 
 Now that these changes are in place, you have built a secure and user-friendly password recovery flow using SMS OTP.
 
+## Configure for alternative login identifiers
+
+{% if product_name == "WSO2 Identity Server" %}
+If you have enabled [alternative login identifiers]({{base_path}}/guides/authentication/multi-attribute-login/), users can log in using configured attributes such as email address or mobile number as well as their username. To allow users to use these same identifiers when recovering their password, you need to update the identifier input field in the password recovery flow.
+{% else %}
+If you have enabled [alternative login identifiers]({{base_path}}/guides/user-accounts/account-login/configure-login-identifiers/), users can log in using configured attributes such as email address or mobile number as well as their username. To allow users to use these same identifiers when recovering their password, you need to update the identifier input field in the password recovery flow.
+{% endif %}
+
+Follow the steps below:
+
+1. On the **Edit Password Recovery Flow** canvas, hover over the **Username** input field and click the gear icon (⚙️) that appears to open the **Input Properties** panel.
+
+2. In the **Attribute** dropdown, select **User Identifier**.
+
+    ![Input properties panel showing User Identifier selected in the Attribute field]({{base_path}}/assets/img/guides/flows/flow-password-recovery-user-identifier-selected.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    !!! note
+        {% if product_name == "WSO2 Identity Server" %}
+        The **User Identifier** option only appears in the **Attribute** dropdown after [alternative login identifiers]({{base_path}}/guides/authentication/multi-attribute-login/) have been enabled.
+        {% else %}
+        The **User Identifier** option only appears in the **Attribute** dropdown after [alternative login identifiers]({{base_path}}/guides/user-accounts/account-login/configure-login-identifiers/) have been enabled.
+        {% endif %}
+
+3. Click **Save Draft**, then publish the flow.
+
+Users can now enter any of their configured alternative login identifiers (such as email address) on the **Forgot Password?** page to start password recovery.
+
 ## Reference
 
 This section provides details on the configuration options available in the Password Recovery Flow.
@@ -73,5 +100,5 @@ This section provides details on the configuration options available in the Pass
 
 The Flow Completion Properties, configured on the End node, define the final actions that occur after a user successfully sets their password.
 
-- **Auto Login**: If enabled, the user is automatically logged into their account immediately after successfully completing the registration flow.
+- **Auto Login**: If enabled, the user is automatically logged into their account immediately after successfully completing the password recovery flow.
 - **Send a notification email on flow completion:** When enabled, the user will receive an email confirming that their password recovery is complete and their account is ready to use.

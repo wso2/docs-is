@@ -905,6 +905,10 @@ nav:
           - Manage organization users:
             - Onboard users: guides/organization-management/onboard-users.md
             - Share users: guides/organization-management/share-user-profiles.md
+          - Manage organization agents:
+            - Share agents: guides/organization-management/share-agents.md
+          - Authorize MCP servers:
+            - Authorize access to MCP servers: guides/organization-management/mcp-server-inheritance.md
           - Customize organizations:
             - Organization settings:
               - Organization settings: guides/organization-management/inheritance-in-organizations/index.md
@@ -1239,6 +1243,7 @@ nav:
     - Management APIs:
       - Action Management API: apis/action-management-rest-api.md
       - Agent Management API: apis/scim2-agents-rest-apis.md
+      - Agent Sharing Management API: apis/agent-share-rest-api.md
       - API resource management: apis/api-resource-management-rest-api.md
       - Application management:
         - Application management API: apis/application-rest-api.md
@@ -1466,6 +1471,11 @@ nav:
         - Token binding: references/token-binding/index.md
         - Client-request: references/token-binding/client-request.md
         - DPoP: references/token-binding/dpop.md
+      - Tokens:
+        - Tokens: references/tokens/index.md
+        - Access tokens: references/tokens/access-tokens.md
+        - Refresh tokens: references/tokens/refresh-tokens.md
+        - ID tokens: references/tokens/id-tokens.md
       - Client Secret & Token hashing: references/client-secret-and-token-hashing.md
       - Financial-grade API: references/financial-grade-api.md
       - App-native authentication: references/app-native-authentication.md

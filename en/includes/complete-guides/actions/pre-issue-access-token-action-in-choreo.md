@@ -511,7 +511,7 @@ securely.
 
 ![Create Choreo API Key]({{base_path}}/assets/img/complete-guides/actions/image7.png)
 
-The API key will be generated along with an application in Asgardeo. Copy and save the key securely for later use in
+The API key will be generated along with an application in WSO2 Identity Platform. Copy and save the key securely for later use in
 your API calls.
 
 ### Test Deployed Service

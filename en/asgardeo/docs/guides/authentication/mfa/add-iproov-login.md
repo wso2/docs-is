@@ -3,7 +3,7 @@
 [iProov](https://www.iproov.com/) is a passwordless authentication method that allows users to log in to applications using facial biometrics.
 iProov's patented Flashmark biometric technology ensures that the user is a real person and not a spoof or a replay.
 
-This guide explains how you can use iProov to add passwordless login to applications registered in your Asgardeo organization.
+This guide explains how you can use iProov to add passwordless login to applications registered in your WSO2 Identity Platform organization.
 
 ## Prerequisites
 
@@ -32,11 +32,11 @@ Follow the steps below to register your service provider in the iPortal.
     - **API key**
     - **API secret**
 
-## Register iProov in Asgardeo as a connection
+## Register iProov in WSO2 Identity Platform as a connection
 
-Follow the steps below to register iProov as a connection in Asgardeo.
+Follow the steps below to register iProov as a connection in WSO2 Identity Platform.
 
-1. On the Asgardeo Console, go to **Connections**.
+1. On the WSO2 Identity Platform Console, go to **Connections**.
 
 2. Click **Create Connection** and select **iProov**.
 
@@ -78,11 +78,11 @@ Follow the steps below to register iProov as a connection in Asgardeo.
 ## Enable iProov login
 
 !!! note "Before you begin"
-    You need to [register an application with Asgardeo]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
+    You need to [register an application with WSO2 Identity Platform]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
 
 To enable iProov login for your application:
 
-1. On the Asgardeo Console, go to **Applications**.
+1. On the WSO2 Identity Platform Console, go to **Applications**.
 
 2. Go to the **Login Flow** tab of the application and add iProov login from your preferred editor:
 
@@ -113,7 +113,7 @@ Follow the steps given below:
 
 1. Access the application URL.
 
-2. Click **Login** to open the Asgardeo login page.
+2. Click **Login** to open the WSO2 Identity Platform login page.
 
 3. Complete the preceding authentication steps.
 

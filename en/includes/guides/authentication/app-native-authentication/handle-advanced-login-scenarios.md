@@ -189,7 +189,7 @@ Given below is a sample authorization request using the `isk` value as the `sess
 !!! note
     If both cookie-based SSO and SessionId-based SSO are used, cookie-based SSO takes precedence.
 
-{% if product_name == 'Asgardeo' or is_version >= "7.2.0" %}
+{% if product_name == 'WSO2 Identity Platform' or is_version >= "7.2.0" %}
 
 ## Handle device authorization flow
 

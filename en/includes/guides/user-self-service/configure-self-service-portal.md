@@ -28,7 +28,7 @@ Listed below are self-service features that are available for the user in the **
 - [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/)
 - [View and update the approvals]({{base_path}}/guides/user-self-service/manage-approvals/)
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
 
 ## Enable/Disable the My Account portal
 

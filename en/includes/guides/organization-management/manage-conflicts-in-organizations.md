@@ -40,7 +40,7 @@ organizations. One of the organizations has a role named as `Role Manager` insid
 an existing role which is associated with the application to `Role Manager`. Since there is a role with the same name in an 
 organization, this renaming will not propagate to that particular organization. If there are multiple organizations and if other organizations does not have this scenario, then the role name renaming will proceed in those organizations.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 If any of the above conflicting scenarios occurred, there will be a `AUDIT` log printed to the carbon log file mentioning the 
 conflict and other related details. There are several options that can be done to resolve this conflicts.
