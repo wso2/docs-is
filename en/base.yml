@@ -198,6 +198,10 @@ extra:
     Asgardeo MCP Server:
       icon: assets/libs/custom-icons/mcp.svg
       level: 1
+    # Uncomment after releasing the CLI.
+    # Asgardeo CLI:
+    #   icon: octicons/terminal-16
+    #   level: 1
     React SDK:
       icon: fontawesome/brands/react
       level: 2
