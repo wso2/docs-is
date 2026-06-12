@@ -742,6 +742,7 @@ nav:
         - PII in Asgardeo logs: guides/monitoring/pii-in-asgardeo-logs.md
         - Asgardeo events: guides/monitoring/asgardeo-events.md
         - Organization insights: guides/organization-insights.md
+        - Insights: guides/insights.md
       - Agentic AI:
         - MCP Authorization:
           - MCP Authorization: guides/agentic-ai/mcp/index.md
