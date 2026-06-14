@@ -1,47 +1,36 @@
-# Implement private key JWT client authentication for OIDC
+# Private key JWT client authentication
 
-See the instructions below to implement private key JWT (JSON Web Token) client authentication for your OIDC application. This method can be used for confidential client applications that are implemented on secure servers. These clients must identify themselves with the token endpoint of {{ product_name }} (authorization server) before acquiring an access token.
+Private Key JWT Client Authentication is a client authentication method for confidential clients when requesting access tokens from the authorization server. With this method, a client registers its public key with the authorization server and proves its identity by signing a JWT using the corresponding private key. Only clients that can present a valid signed JWT are successfully authenticated.
 
-Typically, when you implement a grant type using OIDC in an application, there are several ways to implement client authentication at the token endpoint. With private key JWT client authentication, the client application uses a JWT to identify itself to the token endpoint. Note that the following two parameters are sent in the token request for this purpose: `client_assertion_type = urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
-and the JWT that is set as the `client_assertion`.
+To use this authentication method, the token request must include the `client_assertion_type` parameter set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`, along with the signed JWT provided as the `client_assertion` parameter.
 
 !!! note
     See the list of client authentication methods in the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication){:target="_blank"}.
-
-Listed below are the high-level steps in the private key JWT client authentication process.
-
-1. Prepare a private key and public key pair for the client.
-2. Prepare the JSON payload and sign it using the client's private key.
-3. Share the public key with the authorization server ({{ product_name }}).
-4. Client application sends the JWT and the signature in the token request to the authorization server.
-5. The authorization server verifies the JWT using the public key.
-6. The authorization server extracts the signature using the public key and authenticates the client.
-7. The access token is granted if the client is successfully authenticated.
 
 Follow the steps given below to implement private key JWT client authentication.
 
 ## Register the client app in {{ product_name }}
 
-Register the client application in {{ product_name }} as follows:
+1. Sign into the {{ product_name }} Console
 
-1. Create an OIDC application:
+2. Create an OIDC application:
 
     - [Standard-based OIDC application]({{base_path}}/guides/applications/register-standard-based-app/)
     - [OIDC web application]({{base_path}}/guides/applications/register-oidc-web-app/)
 
 {% if is_version == "7.0.0" %}
 
-2. Go to the **Protocol** tab of the new application and configure the required grant type.
+3. Go to the **Protocol** tab of the new application and configure the required grant type.
 
     ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png)
 
 {% else %}
 
-2. Go to the **Protocol** tab of the new application and configure the required grant type.
+3. Go to the **Protocol** tab of the new application and configure the required grant type.
 
     ![oidc protocols]({{base_path}}/assets/img/guides/applications/oidc/oidc_protocols.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
-3. In the **Protocol** tab, go to the **Client Authentication** section and under **Client authentication method**, select **Private Key JWT** from the dropdown.
+4. In the **Protocol** tab, go to the **Client Authentication** section and under **Client authentication method**, select **Private Key JWT** from the dropdown.
 
     ![client authentication methods]({{base_path}}/assets/img/guides/applications/oidc/client_authentication_methods.png){: width="700" style="border: 0.3px solid lightgrey;"}
 
@@ -51,13 +40,7 @@ Register the client application in {{ product_name }} as follows:
 
 Generate a public key and private key for the client application. Follow the steps given below.
 
-1. Open a terminal and execute the following keytool command to create the client keystore.
-
-    !!! note
-        Replace the following values:
-
-        - `<clinet_ID>`: Specify the client ID generated when registering the client application in {{ product_name }}.
-        - `<keystore_name>`: Specify the name of the keystore you are creating.
+1. Open a terminal and run the following `keytool` command to create a client keystore. Replace `<Client_ID>` with the client ID of the application created in the previous step, and replace `<keystore_name>` with a name of your choice for the keystore.
 
     ``` bash
     keytool -genkey -alias <client_ID> -keyalg RSA -keystore <keystore_name>.jks
@@ -65,26 +48,17 @@ Generate a public key and private key for the client application. Follow the ste
 
 2. Convert the `.jks` keystore to `PKCS#12` format.
 
-    !!! note
-        Replace `<dest_keystore_name>` to specify a name for the new keystore in `PKCS#12` format.
-
     ``` bash
     keytool -importkeystore -srckeystore <keystore_name>.jks -destkeystore <dest_keystore_name>.p12 -deststoretype PKCS12
     ```
 
 3. Export the public key from the `.p12` keystore.
 
-    !!! note
-        Replace `<pub_key_name>` to specify a name for the public key certificate file.
-
     ``` bash
     openssl pkcs12 -in <dest_keystore_name>.p12 -nokeys -out <pub_key_name>.pem
     ```
 
 4. Export the private key from the `.p12` keystore.
-
-    !!! note
-        Replace `<private_key_name>` to specify a name for the private key certificate file.
 
     ``` bash
     openssl pkcs12 -in <dest_keystore_name>.p12 -nodes -nocerts -out <private_key_name>.pem
@@ -106,8 +80,8 @@ Prepare the JSON payload required by the authorization server for client authent
 
 ``` json
 {
-"iss": "RN0I55bldQftY97uNq9iIXQA21wa",
-"sub": "RN0I55bldQftY97uNq9iIXQA21wa",
+"iss": "<Client_ID>",
+"sub": "<Client_ID>",
 "exp": 1643650350,
 "iat": 1643650346,
 "jti": "10003",
@@ -115,19 +89,47 @@ Prepare the JSON payload required by the authorization server for client authent
 }
 ```
 
-Once you have created the payload, generate a signature for it using the client application's private key. This JWT is known as the **client_assertion**.
+Once you have created the payload, generate a signature for it using the client application's private key created in an above step. The resulting JWT is known as the **client_assertion**.
+
+```bash
+IAT=$(date +%s)
+EXP=$((IAT + 300))
+JTI=$(uuidgen)
+
+HEADER=$(echo -n '{"alg":"RS256","typ":"JWT"}' \
+  | openssl base64 -e -A | tr '+/' '-_' | tr -d '=')
+
+PAYLOAD=$(cat <<EOF | openssl base64 -e -A | tr '+/' '-_' | tr -d '='
+{
+  "iss": "<client_id>",
+  "sub": "<client_id>",
+  "exp": $EXP,
+  "iat": $IAT,
+  "jti": "$JTI",
+  "aud": "{{ product_url_format }}/oauth2/token"
+}
+EOF
+)
+
+SIGNATURE=$(echo -n "$HEADER.$PAYLOAD" \
+  | openssl dgst -sha256 -sign client.key \
+  | openssl base64 -e -A | tr '+/' '-_' | tr -d '=')
+
+CLIENT_ASSERTION="$HEADER.$PAYLOAD.$SIGNATURE"
+
+echo "$CLIENT_ASSERTION"
+```
 
 ## Get the access token
 
-Listed below are the main steps for invoking the token endpoint and acquiring an access token using the JWT.
+1. Send the JWT and the signature in the token request to the authorization server.
 
-1. Client application sends the JWT and the signature in the token request to the authorization server.
-
-    !!! note
-        Note the following two parameters that should be set in the token request:
-        
-        - `client_assertion`: The authentication token (JWT assertion) must be sent as the value of this parameter.
-        - `client_assertion_type`: The value of this parameter must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
+```
+curl --location '{{ product_url_format }}/oauth2/token' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'scope=SYSTEM' \
+  --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
+  --data-urlencode 'client_assertion=<SIGNED_JWT_ASSERTION>'
 
 2. The authorization server verifies the JWT using the public key.
 3. Authorization server extracts the signature using the public key and authenticates the client.
@@ -238,9 +240,9 @@ Be sure to replace the following values in the request:
     </tr>
 </table>
 
-{% if is_version == "7.0.0" %}
+## Reusing the access tokens obtained through private key JWT authentication (optional)
 
-## Reuse tokens (optional)
+{% if is_version == "7.0.0" %}
 
 The `jti` (JWT ID) claim is a unique identifier included in the JWT token, which controls the reuse of the access token. By default, token reuse is disabled in {{ product_name }}. If you enable token reuse, the `jti` can be reused within its expiration period.
 
@@ -252,8 +254,6 @@ To enable token reuse in {{ product_name }}.
     ![configure JWT reuse]({{base_path}}/assets/img/guides/applications/oidc/private-key-jwt-config.png)
 
 {% else %}
-
-## Private key JWT Reuse (optional)
 
 The `jti` (JWT ID) claim is a unique identifier included in the JWT token, which controls the reuse of the access token. 
 
