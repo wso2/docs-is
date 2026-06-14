@@ -34,7 +34,7 @@ Standard-based applications allow you to configure the application protocol sett
 {% if product_name == "WSO2 Identity Server" %}
 ### Machine-to-Machine (M2M) applications
 
-Machine-to-Machine (M2M) applications, are designed for automated communication and interaction between devices or services without direct human intervention. Unlike user-centric applications, M2M applications cater to non-interactive scenarios, including command-line tools, daemons, IoT (Internet of Things) devices, or services running on the backend. 
+Machine-to-Machine (M2M) applications are designed for automated communication and interaction between devices or services without direct human intervention. Unlike user-centric applications, M2M applications cater to non-interactive scenarios, including command-line tools, daemons, IoT (Internet of Things) devices, or services running on the backend. 
 
 - [Register a machine-to-machine application]({{base_path}}/guides/applications/register-machine-to-machine-app/)
 {% endif %}
