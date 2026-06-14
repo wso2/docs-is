@@ -124,12 +124,6 @@ echo "$CLIENT_ASSERTION"
 
 1. Send the JWT and the signature in the token request to the authorization server.
 
-```
-curl --location '{{ product_url_format }}/oauth2/token' \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'scope=SYSTEM' \
-  --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
-  --data-urlencode 'client_assertion=<SIGNED_JWT_ASSERTION>'
 
 2. The authorization server verifies the JWT using the public key.
 3. Authorization server extracts the signature using the public key and authenticates the client.
