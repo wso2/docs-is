@@ -1,4 +1,4 @@
-{% if product_name == 'Asgardeo' %}
+{% if product_name == 'WSO2 Identity Platform' %}
 When a user logs in with an external identity provider using the same email address registered in a local account, JIT-provisioning overrides the attributes of the local account with the attributes received from the external identity provider.
 
 {{product_name}}, by default, enables Just-In-Time (JIT) user provisioning for your external identity provider.

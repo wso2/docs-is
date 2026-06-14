@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Recovery API
   description: |
-    This document specifies a **Organization level Recovery related RESTful API** for Asgardeo.
+    This document specifies a **Organization level Recovery related RESTful API** for WSO2 Identity Platform.
   version: 0.9.0
 servers:
   - url: https://api.asgardeo.io/t/{root-organization-name}/o/api/identity/recovery/v0.9

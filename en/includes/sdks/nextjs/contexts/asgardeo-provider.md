@@ -2,7 +2,7 @@ The `AsgardeoProvider` is the root context provider component that configures th
 
 ## Overview
 
-The `AsgardeoProvider` initializes the Asgardeo authentication client, manages authentication state, and provides context to child components through React Context. It handles token management, user sessions, organization switching, and branding preferences automatically.
+The `AsgardeoProvider` initializes the WSO2 Identity Platform authentication client, manages authentication state, and provides context to child components through React Context. It handles token management, user sessions, organization switching, and branding preferences automatically.
 
 ## Usage
 
@@ -162,7 +162,7 @@ The `AsgardeoProvider` component accepts the following props:
 | Prop                     | Type                           | Required | Description | Environment Variable |
 |--------------------------|--------------------------------|----------|-------------|---------------------|
 | `clientId`               | `string`                       | ✅       | Client ID of your application | `NEXT_PUBLIC_ASGARDEO_CLIENT_ID` |
-| `baseUrl`                | `string`                       | ✅       | The base URL of the Asgardeo tenant (e.g., `https://api.asgardeo.io/t/abc-org`) | `NEXT_PUBLIC_ASGARDEO_BASE_URL` |
+| `baseUrl`                | `string`                       | ✅       | The base URL of the WSO2 Identity Platform tenant (e.g., `https://api.asgardeo.io/t/abc-org`) | `NEXT_PUBLIC_ASGARDEO_BASE_URL` |
 | `clientSecret`           | `string`                       | ✅       | Client secret of your application | `ASGARDEO_CLIENT_SECRET` |
 | `scopes`                 | `string | string[]`            | ❌       | OpenID Connect Scopes to request during the sign-in. Defaults to `'openid profile internal_login'` if not provided. | `NEXT_PUBLIC_ASGARDEO_SCOPES` |
 | `storage`                | `sessionStorage | localStorage | webWorker`            | ❌       | Storage mechanism to use for session management. Defaults to `sessionStorage` if not provided. |  |
@@ -201,7 +201,7 @@ The `AsgardeoProvider` component accepts the following props:
 
         | Property | Type | Default | Description |
         |----------|------|---------|-------------|
-        | `inheritFromBranding` | `boolean` | `true` | Whether to inherit theme from Asgardeo organization/application branding |
+        | `inheritFromBranding` | `boolean` | `true` | Whether to inherit theme from WSO2 Identity Platform organization/application branding |
         | `mode` | `light | dark | system` | `'system'` | Theme mode. `'system'` follows user's OS preference |
         | `overrides` | `ThemeConfig` | `{}` | Custom theme overrides for colors, typography, spacing, etc. |
 

@@ -1,4 +1,4 @@
-The `OrganizationList` component displays a paginated list of organizations available to the signed-in user, with built-in support for filtering, custom rendering, and popup mode. It integrates with the Asgardeo organization context and provides flexible configuration for organization selection and display.
+The `OrganizationList` component displays a paginated list of organizations available to the signed-in user, with built-in support for filtering, custom rendering, and popup mode. It integrates with the WSO2 Identity Platform organization context and provides flexible configuration for organization selection and display.
 
 ## Overview
 

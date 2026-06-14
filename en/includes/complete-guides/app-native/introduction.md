@@ -13,7 +13,7 @@ By the end of this guide, you will be able to:
 
 - Register an application in {{product_name}} to enable authentication.
 - Set up a Next.js application with authentication capabilities.
-- Install and configure the Asgardeo SDK, enabling seamless authentication.
+- Install and configure the WSO2 Identity Platform SDK, enabling seamless authentication.
 - Implement login and logout functionality to allow users to authenticate within the app using app native authentication.
 - Retrieve and display user details after a successful login.
 - Add Multi Factor Authentication with app native authentication

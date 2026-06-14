@@ -12,7 +12,7 @@ In this guide, you will:
 
 * Register an application in {{product_name}}
 * Create a React app
-* Install Asgardeo React SDK
+* Install WSO2 Identity Platform React SDK
 * Add login and logout  to your app
 * Display logged in user detail
 * Securing routes within the app
@@ -27,13 +27,13 @@ In this guide, you will:
 
 !!! tip "Tip"
     
-    If you are already familiar with the concepts discussed in the guide, you can use the Asgardeo React template to bootstrap your application by running the following command.  
+    If you are already familiar with the concepts discussed in the guide, you can use the WSO2 Identity Platform React template to bootstrap your application by running the following command.  
 
     ```bash
 
     npx tmplr --dir my-vite-react-app asgardeo/asgardeo-vite-react-template
 
     ```
-    The Asgardeo React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
+    The WSO2 Identity Platform React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
 
     All you need is a `client_id`, which you can obtain by registering a **Single Page Application** in {{product_name}}.

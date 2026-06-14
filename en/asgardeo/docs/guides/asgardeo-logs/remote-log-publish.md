@@ -6,7 +6,7 @@ Remote Log Publishing enables organizations to securely transmit and store both 
 
 Follow these steps to set up remote log publishing:
 
-1. On the Asgardeo Console, navigate to **Logs**.
+1. On the WSO2 Identity Platform Console, navigate to **Logs**.
 2. Click on the **Configure** button in **Remote Log Publishing**.
 3. You will see two sections for configuring remote publishers:
     * Diagnostic Logs Publisher

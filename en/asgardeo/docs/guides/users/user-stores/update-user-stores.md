@@ -1,11 +1,11 @@
-# Manage remote user stores in Asgardeo
-This guide walks you through the process of managing your remote user stores via the Asgardeo Console.
+# Manage remote user stores in WSO2 Identity Platform
+This guide walks you through the process of managing your remote user stores via the WSO2 Identity Platform Console.
 
 ## Update attribute mappings
 
-To update attribute mappings via the Asgardeo Console:
+To update attribute mappings via the WSO2 Identity Platform Console:
 
-1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores**.
+1. On the WSO2 Identity Platform Console, go to **User Attributes & Stores** > **User Stores**.
 2. Select your user store from the **User stores** list.
 3. Go to the **Configurations** tab and update the required information.
 
@@ -13,7 +13,7 @@ To update attribute mappings via the Asgardeo Console:
 
         - Update **User Attributes** and **Group Attributes** as per your user store.
         - Update **Custom Attributes** and **Local Attributes** mapped to your user store.
-        - Be sure to map Asgardeo attributes with the corresponding on-premise user store attributes.
+        - Be sure to map WSO2 Identity Platform attributes with the corresponding on-premise user store attributes.
 
 4. Click **Update** to save the configurations.
 
@@ -21,7 +21,7 @@ To update attribute mappings via the Asgardeo Console:
 
 To disconnect a user store agent:
 
-1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores**.
+1. On the WSO2 Identity Platform Console, go to **User Attributes & Stores** > **User Stores**.
 2. Select your user store from the **User stores** list.
 3. In the **User Store Agent Connection(s)** section, click **Disconnect** on the user store agent that you wish to disconnect.
 4. Select the checkbox to confirm your action and click **Confirm**.
@@ -39,7 +39,7 @@ In case you forget or lose this installation token, you can regenerate it.
 
 To regenerate an installation token:
 
-1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores**.
+1. On the WSO2 Identity Platform Console, go to **User Attributes & Stores** > **User Stores**.
 2. Select your user store from the **User Stores** list and go to the **General** tab.
 3. In the **User Store Agent Connection(s)** section, click **Regenerate Token** on the user store agent that you wish to regenerate the token for.
 
@@ -47,11 +47,11 @@ To regenerate an installation token:
 ## Disable a user store
 
 !!! warning
-    If you disable a user store, its users will lose access to Asgardeo applications and administrators can no longer view users or groups of that user store in the Asgardeo Console.
+    If you disable a user store, its users will lose access to WSO2 Identity Platform applications and administrators can no longer view users or groups of that user store in the WSO2 Identity Platform Console.
 
 To disable a user store:
 
-1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores** and select your user store.
+1. On the WSO2 Identity Platform Console, go to **User Attributes & Stores** > **User Stores** and select your user store.
 2. Turn on the **Disable User Store** toggle at the bottom of the page to disable the user store.
 
     ![Disable a user store]({{base_path}}/assets/img/guides/user-stores/disable-user-store.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -68,7 +68,7 @@ A user store can be deleted by an administrator. Once a user store is deleted, t
 
 To delete a user store:
 
-1. On the Asgardeo Console, go to **User Attributes & Stores** > **User Stores** and select your user store.
+1. On the WSO2 Identity Platform Console, go to **User Attributes & Stores** > **User Stores** and select your user store.
 2. Click **Delete User Store** at the bottom of the page.
 
     ![Disable a user store]({{base_path}}/assets/img/guides/user-stores/delete-user-store.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}

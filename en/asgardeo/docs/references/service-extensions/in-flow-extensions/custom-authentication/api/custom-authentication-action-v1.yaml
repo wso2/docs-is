@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: API contract for custom authentication action
-  description: This API defines the REST contract for a service that extends the authentication flow of Asgardeo with a custom authenticator.
+  description: This API defines the REST contract for a service that extends the authentication flow of WSO2 Identity Platform with a custom authenticator.
   version: v1
 security:
 - BasicAuth: []
@@ -276,7 +276,7 @@ components:
           example: 66af2e98-3c51-44da-8fc6-aa09283ff528
         requestId:
           type: string
-          description: A unique correlation identifier that associates with each request in the login flow received by Asgardeo.
+          description: A unique correlation identifier that associates with each request in the login flow received by WSO2 Identity Platform.
           example: c29a5e35-935a-4992-8f1b-a4680789493b
         actionType:
           type: string
@@ -406,7 +406,7 @@ components:
       properties:
         id:
           type: string
-          description: Unique identifier of the user. If the authenticator is of 'Internal User Authentication' type there should be a user identity managed for this defined identifier in Asgardeo.
+          description: Unique identifier of the user. If the authenticator is of 'Internal User Authentication' type there should be a user identity managed for this defined identifier in WSO2 Identity Platform.
         claims:
           type: array
           items:

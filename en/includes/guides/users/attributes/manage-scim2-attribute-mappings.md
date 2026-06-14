@@ -20,7 +20,7 @@ Attributes in your organization are mapped to the following SCIM 2.0 schema mapp
 
     Read about enterprise schema in the [SCIM2 specification](https://datatracker.ietf.org/doc/html/rfc7643#section-4.3){blank="_target"}.
 
-{% if (product_name == "WSO2 Identity Server" and is_version != "7.0.0") or product_name == "Asgardeo" %}
+{% if (product_name == "WSO2 Identity Server" and is_version != "7.0.0") or product_name == "WSO2 Identity Platform" %}
 
 ??? details "System schema"
 

@@ -6,7 +6,7 @@ Outbound provisioning automatically provisions user accounts from {{product_name
 
 {{product_name}} lets you configure outbound provisioning at the following levels:
 
-{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+{% if product_name == "WSO2 Identity Platform" or is_version > "7.2.0" %}
 - [Organization-level]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning): Organization-level outbound provisioning acts as the default provisioner for all applications. You can override this by configuring an **application-level** outbound provisioner. With organization-level outbound provisioning, users are automatically provisioned to external systems when:
     - a user is provisioned in {{product_name}} over an API.
     - an administrator onboards a user from the {{product_name}} Console.
@@ -24,7 +24,7 @@ Outbound provisioning automatically provisions user accounts from {{product_name
     - a user is JIT provisioned in {{product_name}}.
 {% endif %}
 
-{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+{% if product_name == "WSO2 Identity Platform" or is_version > "7.2.0" %}
 ## Group-based provisioning
 
 In addition to provisioning levels, you can refine your provisioning criteria by managing which users are provisioned based on their assigned groups. Group-based provisioning can be applied alongside both organization-level and application-level provisioning to further filter which users are provisioned based on group membership.
@@ -40,7 +40,7 @@ Learn more about [role-based provisioning]({{base_path}}/guides/users/outbound-p
 
 ## Outbound connectors
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 {{product_name}} supports provisioning users via [SCIM2]({{base_path}}/guides/users/outbound-provisioning/outbound-connectors/scim2).
 {% else %}
 {{product_name}} supports provisioning users via the following outbound connectors:

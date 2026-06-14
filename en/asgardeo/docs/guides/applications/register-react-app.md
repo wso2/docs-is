@@ -1,4 +1,4 @@
-{% set product_name = "Asgardeo" %}
+{% set product_name = "WSO2 Identity Platform" %}
 {% set technology = "React" %}
 {% set technology_quickstart = "react" %}
 

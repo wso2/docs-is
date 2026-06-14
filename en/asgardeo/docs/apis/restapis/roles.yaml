@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
-  title:  Asgardeo - SCIM 2.0 Roles V2 API
+  title:  WSO2 Identity Platform - SCIM 2.0 Roles V2 API
   version: v2
   description: |
-    This is the RESTful API for SCIM 2.0 Roles API in Asgardeo. 
+    This is the RESTful API for SCIM 2.0 Roles API in WSO2 Identity Platform. 
     This API allows creating, deleting, listing, roles and updating role name, permissions, users and groups of the roles.
     
-    To access the SCIM 2.0 Roles APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization.
+    To access the SCIM 2.0 Roles APIs in WSO2 Identity Platform, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization.
 servers:
   - url: https://api.asgardeo.io/t/{organization-name}/scim2/v2
 security:

@@ -1,5 +1,5 @@
 
-## Install Passport and Passport Asgardeo
+## Install Passport and Passport WSO2 Identity Platform
 
 For this integration, we are going to use Passport and the passport-asgardeo strategy. Install the dependencies using the following commands:
 
@@ -11,7 +11,7 @@ npm install dotenv
 
 !!! Info
 
-    [Passport](https://www.passportjs.org) is an authentication middleware for Node.js that is widely used in the Node.js community. It provides a simple way to authenticate requests and manage sessions. Passport strategies are used to authenticate requests. Passport Asgardeo strategy is a Passport strategy that allows you to authenticate with OIDC using {{product_name}}.
+    [Passport](https://www.passportjs.org) is an authentication middleware for Node.js that is widely used in the Node.js community. It provides a simple way to authenticate requests and manage sessions. Passport strategies are used to authenticate requests. Passport WSO2 Identity Platform strategy is a Passport strategy that allows you to authenticate with OIDC using {{product_name}}.
 
 ## Configure AsgardeoStrategy
 

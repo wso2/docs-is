@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Asgardeo - Organization Discovery Configuration Management API Definition
-  description: This document specifies a **RESTful API** for Organization Discovery Configuration Management in Asgardeo.
+  title: WSO2 Identity Platform - Organization Discovery Configuration Management API Definition
+  description: This document specifies a **RESTful API** for Organization Discovery Configuration Management in WSO2 Identity Platform.
   version: "v1"
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'

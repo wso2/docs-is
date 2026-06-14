@@ -8,7 +8,7 @@ Enhance the security of user logins through various settings that prevent unauth
 - [Password Validation]({{base_path}}/guides/account-configurations/login-security/password-validation/)
 - [Login Attempts]({{base_path}}/guides/account-configurations/login-security/login-attempts/)
 - [Bot Detection]({{base_path}}/guides/account-configurations/login-security/bot-detection/)
-{% if sift_fraud_detection and product_name == "Asgardeo" %}
+{% if sift_fraud_detection and product_name == "WSO2 Identity Platform" %}
 - [Fraud detection]({{base_path}}/guides/account-configurations/login-security/sift-fraud-detection/)
 {% endif %}
 {% if product_name == "WSO2 Identity Server" %}
@@ -32,7 +32,7 @@ Provide users with options to recover their access credentials, ensuring they ca
 - [Admin Initiated Password Reset]({{base_path}}/guides/account-configurations/account-recovery/admin-initiated-password-reset/)
 {% endif %}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
 ## Account management
 Enable additional options for managing user accounts.
 

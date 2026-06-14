@@ -1,10 +1,10 @@
-# Integrate Asgardeo with your JavaScript SPA
+# Integrate WSO2 Identity Platform with your JavaScript SPA
 
-Follow the steps given below to authenticate users to your JavaScript SPA with OpenID Connect using the [Asgardeo JavaScript SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk/blob/main/README/).
+Follow the steps given below to authenticate users to your JavaScript SPA with OpenID Connect using the [WSO2 Identity Platform JavaScript SDK](https://github.com/asgardeo/asgardeo-auth-spa-sdk/blob/main/README/).
 
 ## Prerequisites
 - [Install npm and node](https://www.npmjs.com/get-npm) in your local environment.
-- <a :href="$withBase('/guides/applications/register-single-page-app/')">Register an application</a> in Asgardeo.
+- <a :href="$withBase('/guides/applications/register-single-page-app/')">Register an application</a> in WSO2 Identity Platform.
 
 ## Install the SDK
 
@@ -41,7 +41,7 @@ To initialize the SDK, use the `getInstance()` function in the SDK and provide t
   </tr>
   <tr>
     <td><code>baseUrl</code></td>
-    <td>This is the Asgardeo server's host name along with your organization name.</td>
+    <td>This is the WSO2 Identity Platform server's host name along with your organization name.</td>
   </tr>
   <tr>
     <td><code>signInRedirectURL</code></td>
@@ -231,7 +231,7 @@ You can loop through the user info response(`userinfoResponse`), and get the fol
 
 ### Add logout
 
-In the previous steps, you implemented login for your app and enabled your app to get some information about the user that is logged in. Now you need a way to log users out of your application and remove the user sessions from Asgardeo.
+In the previous steps, you implemented login for your app and enabled your app to get some information about the user that is logged in. Now you need a way to log users out of your application and remove the user sessions from WSO2 Identity Platform.
 
 See the [signOut API reference](https://github.com/asgardeo/asgardeo-auth-spa-sdk#signout) for advanced usages.
 

@@ -1,8 +1,8 @@
-The `UserProfile` component displays the authenticated user's profile information in a structured and styled format. It automatically retrieves user data from the Asgardeo authentication context if not provided, and supports profile editing with error handling.
+The `UserProfile` component displays the authenticated user's profile information in a structured and styled format. It automatically retrieves user data from the WSO2 Identity Platform authentication context if not provided, and supports profile editing with error handling.
 
 ## Overview
 
-The `UserProfile` component shows user details such as display name, email, username, and other available profile information from Asgardeo. It supports both read-only and editable modes, and can be shown as a card, popup, or inline. Profile updates are handled with built-in error feedback.
+The `UserProfile` component shows user details such as display name, email, username, and other available profile information from WSO2 Identity Platform. It supports both read-only and editable modes, and can be shown as a card, popup, or inline. Profile updates are handled with built-in error feedback.
 
 ## Usage
 
@@ -10,7 +10,7 @@ You can use the `UserProfile` in several ways: with default behavior, explicit u
 
 ### Basic Usage
 
-Show the current user's profile using data from Asgardeo context.
+Show the current user's profile using data from WSO2 Identity Platform context.
 
 ```javascript title="UserProfile Example"
 import { UserProfile } from '@asgardeo/react'
@@ -50,7 +50,7 @@ Show the profile as a popup dialog:
 <!-- markdownlint-disable MD056 -->
 | Prop             | Type        | Required | Description                                         |
 |------------------|-------------|----------|-----------------------------------------------------|
-| `user`           | `any`       | ❌       | User object to display (defaults to Asgardeo user)  |
+| `user`           | `any`       | ❌       | User object to display (defaults to WSO2 Identity Platform user)  |
 | `cardLayout`     | `boolean`   | ❌       | Show profile in a card layout                       |
 | `fallback`       | `ReactNode` | ❌       | Content to show when no user is signed in           |
 | `mode`           | `'inline' | 'popup'` | ❌ | Display mode for the profile (inline or popup)      |
@@ -128,6 +128,6 @@ Customize which user profile fields are used for display:
 
 ## Notes
 
-- Automatically retrieves user data from Asgardeo context if not provided.
+- Automatically retrieves user data from WSO2 Identity Platform context if not provided.
 - Supports both read-only and editable modes.
 - Can be used inline, as a card, or as a popup dialog.

@@ -29,7 +29,7 @@ To use TOTP as a multi-factor authentication(MFA) option, application users need
 
 TOTP enrollment during the first login is enabled by default for all applications.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 {{ product_name }} provides two ways to control this enrollment behavior:
 

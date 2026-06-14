@@ -38,4 +38,4 @@ export default async function getUserProfile() {
 }
 ```
 
-In the above code, we first import the `asgardeo` module from the `@asgardeo/nextjs/server` package. We then create an asynchronous function `getUserProfile` that retrieves the session ID and access token using the Asgardeo client. Finally, we make a fetch request to the `scim2/Me` endpoint, passing the access token in the Authorization header.
+In the above code, we first import the `asgardeo` module from the `@asgardeo/nextjs/server` package. We then create an asynchronous function `getUserProfile` that retrieves the session ID and access token using the WSO2 Identity Platform client. Finally, we make a fetch request to the `scim2/Me` endpoint, passing the access token in the Authorization header.

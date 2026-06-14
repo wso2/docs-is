@@ -52,11 +52,11 @@ Follow the guide below to implement this. Once implemented, ensure that these lo
 
 {% endif %}
 
-{% elif product_name == "Asgardeo" %}
+{% elif product_name == "WSO2 Identity Platform" %}
 
-To learn how to implement this, follow the guide that is relevant to you based on whether you are a user of Asgardeo domains or custom domains.
+To learn how to implement this, follow the guide that is relevant to you based on whether you are a user of WSO2 Identity Platform domains or custom domains.
 
-### For Asgardeo domains
+### For WSO2 Identity Platform domains
 
 Validation services of [iOS](https://developer.apple.com/documentation/xcode/supporting-associated-domains){target="_blank"} and [Android](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal){target="_blank"} require details about applications to be available in the following publicly accessible URLs.
 
@@ -64,7 +64,7 @@ Validation services of [iOS](https://developer.apple.com/documentation/xcode/sup
 
 - For iOS - `{{base_url}}/.well-known/apple-app-site-association`
 
-As an Asgardeo domain user, follow the guide below to publish details about your app.
+As an WSO2 Identity Platform domain user, follow the guide below to publish details about your app.
 
 1. On the {{product_name}} Console, go to **Applications** and select your application.
 
@@ -86,7 +86,7 @@ As an Asgardeo domain user, follow the guide below to publish details about your
 
 !!! warning "Third-party data exposure"
     
-    Asgardeo publishes app details to URLs which are common to all organizations. This means your app details will reside together with the app details of other organizations. While this is not a security concern, it is important to note that other organization users may learn details about your applications through these URLs.
+    WSO2 Identity Platform publishes app details to URLs which are common to all organizations. This means your app details will reside together with the app details of other organizations. While this is not a security concern, it is important to note that other organization users may learn details about your applications through these URLs.
 
     If this is not desirable for your use case, you may use [custom domains]({{base_path}}/guides/branding/configure-custom-domains/) for your organization and publish app details to [custom endpoints](#for-custom-domains).
 

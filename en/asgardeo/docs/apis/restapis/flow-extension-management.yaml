@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies a **Flow Extension RESTful API** for **Asgardeo**.
+    This document specifies a **Flow Extension RESTful API** for **WSO2 Identity Platform**.
   version: '1.0'
-  title: Asgardeo - Flow Extension Rest API
+  title: WSO2 Identity Platform - Flow Extension Rest API
 
 security:
   - OAuth2: []

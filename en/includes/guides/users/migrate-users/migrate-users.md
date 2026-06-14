@@ -40,9 +40,9 @@ With a clear and concise plan in place, you are ready to move on to the implemen
 
 ## Migrate user accounts
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
-Contact the Asgardeo team at **asgardeo-help@wso2.com** for support on migrating your existing user base to Asgardeo. Additionally, inform the team how you would like to [migrate user passwords]({{base_path}}/guides/users/migrate-users/migrate-passwords/).
+Contact the WSO2 Identity Platform team at **asgardeo-help@wso2.com** for support on migrating your existing user base to WSO2 Identity Platform. Additionally, inform the team how you would like to [migrate user passwords]({{base_path}}/guides/users/migrate-users/migrate-passwords/).
 
 !!! note
     Make sure to request using the email address registered with an owner account or an administrator account.

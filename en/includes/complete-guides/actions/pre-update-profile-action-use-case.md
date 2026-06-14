@@ -25,7 +25,7 @@ improving data integrity and operational security.
 
 ## Request and Response Handling
 
-When a profile update request is made, Asgardeo or WSO2 Identity Server (WSO2 IS) will send a request to your configured
+When a profile update request is made, WSO2 Identity Platform or WSO2 Identity Server (WSO2 IS) will send a request to your configured
 extension service containing the updated attribute information.
 
 Your service will process this request and respond with an appropriate status:

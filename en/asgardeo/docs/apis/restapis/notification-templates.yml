@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: "Asgardeo - Notification Templates API"
+  title: "WSO2 Identity Platform - Notification Templates API"
   version: 1.0.0
   description: >-
     This is the RESTful API for managing notification templates in the WSO2 Identity

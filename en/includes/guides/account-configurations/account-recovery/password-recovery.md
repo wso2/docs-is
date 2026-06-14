@@ -28,7 +28,7 @@ To do so,
 
 {% else %}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 
 You may enable self-service password recovery for users so that they may reset their forgotten passwords right from the login page. Users can click the `Forgot password?` option and choose to receive either a Link or an OTP via Email or SMS to reset the password.
 
@@ -69,7 +69,7 @@ To configure password recovery options,
         </tbody>
     </table>
 
-{% elif product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version == "7.1.0" ) %}
+{% elif product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version == "7.1.0" ) %}
 
 You may enable self-service password recovery for users so that they may reset their forgotten passwords right from the login page. Users can click the `Forgot password?` option and either receive an email or a mobile OTP to reset the password.
 

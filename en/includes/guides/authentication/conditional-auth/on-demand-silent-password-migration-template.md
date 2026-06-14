@@ -13,7 +13,7 @@ Shown below is the conditional authentication template for on-demand silent pass
 
     Learn more about the conditional authentication functions and objects in its [API reference]({{base_path}}/references/conditional-auth/api-reference/).
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```js
 var user = null;
@@ -331,7 +331,7 @@ Replace the following parameters of the script with values relevant to your setu
     </tr>
     <tr>
         <th>asgardeo_token_endpoint</th>
-        <td>Token endpoint of your Asgardeo organization. For example: <code>https://api.asgardeo.io/t/{organization_name}/oauth2/token</code>
+        <td>Token endpoint of your WSO2 Identity Platform organization. For example: <code>https://api.asgardeo.io/t/{organization_name}/oauth2/token</code>
 </td>
     </tr>
 </table>
@@ -674,8 +674,8 @@ Let's look at how the above conditional authentication script works.
 
 4. The script calls for external authentication with the `authenticateExternally` function and it works as follows:
 
-    {% if product_name == "Asgardeo" %}
-    - The `connectionMetadata` object holds the start authentication endpoint URL, Choreo application credentials and the Asgardeo token endpoint.
+    {% if product_name == "WSO2 Identity Platform" %}
+    - The `connectionMetadata` object holds the start authentication endpoint URL, Choreo application credentials and the WSO2 Identity Platform token endpoint.
     - The script first calls the `callChoreo()` function along with the `connectionMetaData` and invokes the start authentication endpoint.
     {% else %}
     - The `requestAuthConfig` object holds the necessary authentication metadata to invoke the APIs.
@@ -684,7 +684,7 @@ Let's look at how the above conditional authentication script works.
 
     - If the API call is successful, the `onSuccess()` callback function is called which in turn calls the `prompt()` function.
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     - The `prompt()` function continuously polls the Choreo polling endpoint and redirects the user to a waiting page until the external authentication completes.
     {% else %}
     - The `prompt()` function continuously polls the external polling endpoint and redirects the user to a waiting page until the external authentication completes.
@@ -694,8 +694,8 @@ Let's look at how the above conditional authentication script works.
 
 5. The `updatePasswordAndReAuthenticate()` function is responsible for checking the status of the authentication and taking necessary actions as explained below.
 
-    {% if product_name == "Asgardeo" %}
-    - The `connectionMetadata` object hold the authentication status endpoint URL, Choreo application credentials and the Asgardeo token endpoint.
+    {% if product_name == "WSO2 Identity Platform" %}
+    - The `connectionMetadata` object hold the authentication status endpoint URL, Choreo application credentials and the WSO2 Identity Platform token endpoint.
     - The script first calls the `callChoreo()` function along with the `connectionMetaData` and invokes the authentication status endpoint.
     {% else %}
     - The `requestAuthConfig` object holds the necessary authentication metadata to invoke the APIs.

@@ -60,7 +60,7 @@ Starter templates give you a quick start with pre-defined flows that are easily 
 ![Self-register flow builder templates]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-flow-builder-templates.gif){: width="auto" style="display: block; margin: 0;"}
 
 - **Generate with AI ✨**  
-  Describe your ideal registration flow in natural language, and Asgardeo will automatically generate a customized flow for you.
+  Describe your ideal registration flow in natural language, and WSO2 Identity Platform will automatically generate a customized flow for you.
   
     ![Self-register flow builder AI]({{base_path}}/assets/img/guides/organization/self-registration/self-registration-flow-builder-generate-with-ai.png){: width="auto" style="display: block; margin: 0;"}
 

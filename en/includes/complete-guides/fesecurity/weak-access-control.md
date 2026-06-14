@@ -16,11 +16,11 @@ To implement secure access in your application, you need to implement an access 
 
 ![Obtaining the Roles from the IDP]({{base_path}}/assets/img/complete-guides/fesecurity/image8.png){: width="800" style="display: block; margin: 0;"}
 
-The Role Based Access Control which the access to the application based on the user roles or any other suitable access control such as attribute-based access control which defines the access to the application based on the user attributes - granular level access control must be defined in the application. Let’s again take an example of Asgardeo React SDK. 
+The Role Based Access Control which the access to the application based on the user roles or any other suitable access control such as attribute-based access control which defines the access to the application based on the user attributes - granular level access control must be defined in the application. Let’s again take an example of WSO2 Identity Platform React SDK. 
 
 1. Return Roles from the IdP: The IdP should return user roles in the ID token. In {{product_name}}, include ‘roles’ as a requested attribute via the user attributes section in the application configuration and define a scope called roles and add the roles attribute.
 
-2. Request Roles Using Asgardeo SDK: In your React app, configure the Asgardeo SDK to request the “roles” scope. This ensures the ID token returned by {{product_name}} includes the user's roles.
+2. Request Roles Using WSO2 Identity Platform SDK: In your React app, configure the WSO2 Identity Platform SDK to request the “roles” scope. This ensures the ID token returned by {{product_name}} includes the user's roles.
 
 
 ```javascript title="src/main.jsx" hl_lines="8"

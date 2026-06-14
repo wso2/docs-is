@@ -1,4 +1,4 @@
-The `SignOutButton` component provides a flexible sign-out button for browser-based Next.js applications using Asgardeo authentication. It supports both render props and traditional children, and can be customized with preferences such as internationalization (i18n).
+The `SignOutButton` component provides a flexible sign-out button for browser-based Next.js applications using WSO2 Identity Platform authentication. It supports both render props and traditional children, and can be customized with preferences such as internationalization (i18n).
 
 ## Overview
 

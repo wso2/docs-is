@@ -49,9 +49,9 @@ To allow your agent (or user acting through the agent) to authenticate and conne
     Authorized redirect URL: http://localhost:3001/callback
 
 !!! Info
-    The **authorized redirect URL** defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
+    The **authorized redirect URL** defines the location WSO2 Identity Platform sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     In this guide, the AI agent behaves as the client, which consists of a lightweight OAuth 2.1 callback server running at `http://localhost:3001/callback` to capture the authorization code. So, we will use this URL as the authorized redirect for this guide.
-    {% if is_version == "next" or product_name == "Asgardeo" %}
+    {% if is_version == "next" or product_name == "WSO2 Identity Platform" %}
 
     While we're using the **MCP Client Application** template here for optimized MCP settings, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
     {% endif %}
@@ -112,7 +112,7 @@ Pick your agent development framework and install the corresponding dependencies
 
 === "Vercel AI"
 
-    The Vercel AI SDK does not currently provide built-in support for MCP tool invocation. However, it can still be used for agent development by implementing custom logic that calls the MCP server using the agent’s access token obtained from Asgardeo.
+    The Vercel AI SDK does not currently provide built-in support for MCP tool invocation. However, it can still be used for agent development by implementing custom logic that calls the MCP server using the agent’s access token obtained from WSO2 Identity Platform.
      
     ```
     npm install @ai-sdk/google @asgardeo/javascript @modelcontextprotocol/sdk ai base64url dotenv fast-sha256 jose secure-random-bytes typescript
@@ -137,7 +137,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     
     // Load environment variables from .env file
     dotenv.config();
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
@@ -161,7 +161,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     });
     
     async function runAgent() {
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
         {% else %}
@@ -230,7 +230,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     
     // Load environment variables from .env file
     dotenv.config();
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI,
         clientId: process.env.CLIENT_ID,
@@ -252,7 +252,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     
     async function runAgent() {
         silenceADK();
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
         {% else %}
@@ -365,7 +365,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     
     // Load environment variables from .env file
     dotenv.config();
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
@@ -432,7 +432,7 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
     }
     
     async function runAgent() {
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const agentToken = await asgardeoJavaScriptClient.getAgentToken(agentConfig);
         {% else %}
@@ -495,13 +495,13 @@ Create `agent.ts` that implements an AI agent which first obtains a valid access
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
 ```properties title=".env"
-{% if product_name == "Asgardeo" %}
-# Asgardeo OAuth2 Configuration
+{% if product_name == "WSO2 Identity Platform" %}
+# WSO2 Identity Platform OAuth2 Configuration
 ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<organization-name>
 CLIENT_ID=<your-client-id>
 REDIRECT_URI=http://localhost:3001/callback
 
-# Asgardeo Agent Credentials
+# WSO2 Identity Platform Agent Credentials
 AGENT_ID=<agent_id>
 AGENT_SECRET=<agent_secret>
 {% else %}
@@ -526,7 +526,7 @@ MODEL_NAME="gemini-2.5-flash"
 ```
 
 !!! Important
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     - Replace `<organization-name>` and `<client-id>` with the values obtained from the {{ product_name }} console.
       The organization name is visible in the console URL path (e.g., `https://console.asgardeo.io/t/<organization-name>`), and the `client ID` can be found in the application's **Protocol** tab.
     {% else %}
@@ -642,7 +642,7 @@ Here is the updated implementation:
     
     // Load environment variables from .env file
     dotenv.config();
-    {% if product_name == "Asgardeo" %}   
+    {% if product_name == "WSO2 Identity Platform" %}   
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
@@ -666,7 +666,7 @@ Here is the updated implementation:
     });
     
     async function runAgent() {
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
         {% else %}
@@ -722,7 +722,7 @@ Here is the updated implementation:
             });
     
         authCodeResponse = await authCodePromise;
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         const oboToken = await asgardeoJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
         {% else %}
         const oboToken = await identityServerJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
@@ -803,7 +803,7 @@ Here is the updated implementation:
     
     // Load environment variables from .env file
     dotenv.config();
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
@@ -826,7 +826,7 @@ Here is the updated implementation:
     
     async function runAgent() {
         silenceADK();
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
         {% else %}
@@ -881,7 +881,7 @@ Here is the updated implementation:
             });
     
         authCodeResponse = await authCodePromise;
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         const oboToken = await asgardeoJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
         {% else %}
         const oboToken = await identityServerJavaScriptClient.getOBOToken(agentConfig, authCodeResponse);
@@ -1000,7 +1000,7 @@ Here is the updated implementation:
     const callbackPort = Number(
         redirectURL.port || (redirectURL.protocol === "https:" ? 443 : 80)
     );
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     const asgardeoConfig = {
         afterSignInUrl: process.env.REDIRECT_URI || "",
         clientId: process.env.CLIENT_ID || "",
@@ -1067,7 +1067,7 @@ Here is the updated implementation:
     }
     
     async function runAgent() {
-        {% if product_name == "Asgardeo" %}
+        {% if product_name == "WSO2 Identity Platform" %}
         const asgardeoJavaScriptClient = new AsgardeoJavaScriptClient(asgardeoConfig);
         const authURL = await asgardeoJavaScriptClient.getOBOSignInURL(agentConfig);
         {% else %}
@@ -1180,13 +1180,13 @@ Here is the updated implementation:
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
 ```properties title=".env"
-# Asgardeo OAuth2 Configuration
-{% if product_name == "Asgardeo" %}
+# WSO2 Identity Platform OAuth2 Configuration
+{% if product_name == "WSO2 Identity Platform" %}
 ASGARDEO_BASE_URL=https://api.asgardeo.io/t/<your-tenant>
 CLIENT_ID=<your-client-id>
 REDIRECT_URI=http://localhost:3001/callback
 
-# Asgardeo Agent Credentials
+# WSO2 Identity Platform Agent Credentials
 AGENT_ID=<agent_id>
 AGENT_SECRET=<agent_secret>
 {% else %}

@@ -10,7 +10,7 @@ This guide explains available discovery types and shows how to integrate them in
 
 {{ product_name }} supports the below organization discovery methods:
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 | Discovery Type                    | Use Case                                                  |
 |-----------------------------------|-----------------------------------------------------------|

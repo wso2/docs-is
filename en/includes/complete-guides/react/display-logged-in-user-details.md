@@ -1,5 +1,5 @@
 
-At this point, we’ve successfully implemented login and logout capabilities using the Asgardeo React SDK. The next step is to explore how to access and display logged-in user details within the app.
+At this point, we’ve successfully implemented login and logout capabilities using the WSO2 Identity Platform React SDK. The next step is to explore how to access and display logged-in user details within the app.
 
 The React SDK has components can be used to display user information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
 
@@ -116,7 +116,7 @@ function App() {
 export default App;
 ```
 
-Alternatively the Asgardeo React SDK webhook which is useAsgardeo() can be used to fetch user information, so that you can directly access those from the state (such as `user.username`) and use them in the application. First, let’s try to display the username using user.username. Replace the code in app.jsx with the following.
+Alternatively the WSO2 Identity Platform React SDK webhook which is useAsgardeo() can be used to fetch user information, so that you can directly access those from the state (such as `user.username`) and use them in the application. First, let’s try to display the username using user.username. Replace the code in app.jsx with the following.
 
 ```javascript
 import { useAsgardeo } from '@asgardeo/react';

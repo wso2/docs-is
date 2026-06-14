@@ -141,7 +141,7 @@ Add following configuration parameters to `application.properties` file, and mak
 
 ```properties
 
-spring.security.oauth2.client.registration.asgardeo.client-name=Asgardeo
+spring.security.oauth2.client.registration.asgardeo.client-name=WSO2 Identity Platform
 spring.security.oauth2.client.registration.asgardeo.client-id=<your-app-client-id>
 spring.security.oauth2.client.registration.asgardeo.client-secret=<your-app-client-secret>
 spring.security.oauth2.client.registration.asgardeo.redirect-uri=http://localhost:8080/login/oauth2/code/asgardeo

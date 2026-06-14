@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   description: >
-    This is the RESTful API for managing workflows in Asgardeo.
+    This is the RESTful API for managing workflows in WSO2 Identity Platform.
   version: v1
-  title: Asgardeo - Workflow Management Rest API
+  title: WSO2 Identity Platform - Workflow Management Rest API
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
 security:

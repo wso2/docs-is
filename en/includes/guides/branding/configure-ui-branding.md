@@ -2,7 +2,7 @@
 
 {{product_name}} allows you to customize the user interfaces (UIs) displayed to your users during login, sign-up, account recovery, and self-service.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 Customizations take effect at two levels:
 
@@ -35,7 +35,7 @@ By branding these interfaces, users will get a familiar and consistent user expe
 
 Follow the steps given below to configure branding preferences:
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 1. On the {{ product_name }}, go to **Branding** > **Styles & Text**.
 
@@ -95,7 +95,7 @@ When disabled, {{ product_name }}'s default branding will apply to the interface
 
 If you want to revert your branding preferences, scroll down to the **Danger Zone** and click **Revert to default**.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 !!! warning
     Note that this permanently removes all the branding options that you have saved and the branding of the next available level (such as organization branding or {{ product_name }} defaults) will be applied to your organization or application.
@@ -147,9 +147,9 @@ Listed below are the design changes you can apply to the user registration inter
 
 Select one of the available layouts for your user registration and login interfaces. {{ product_name }} uses the **Centered** layout by default.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 !!! note "Custom layout"
-    If you want to use the **Custom** layout from the list (shown below), contact Asgardeo support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"} or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
+    If you want to use the **Custom** layout from the list (shown below), contact WSO2 Identity Platform support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"} or send a request email to `asgardeo-help@wso2.com` and the team will get back to you with instructions.
 
     ![Select custom login layout]({{base_path}}/assets/img/guides/branding/select-custom-layout.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -741,7 +741,7 @@ Listed below are the text branding preferences you can apply to the screens in y
    </tr>
 </table>
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 !!! note
     - Adding custom fields to the text preferences is not supported.
     - Text branding is currently not available for application-specific branding.

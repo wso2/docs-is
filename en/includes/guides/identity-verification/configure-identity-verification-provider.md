@@ -16,7 +16,7 @@ Follow the steps below to add an IDVP to {{product_name}}:
 
 3. Select and set up your preferred IDVP:
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     - [Identity verification with Onfido]({{base_path}}/guides/identity-verification/add-identity-verification-with-onfido/)
     {% else %}
     - [Identity verification with Onfido](https://github.com/wso2-extensions/identity-verification-onfido/blob/main/docs/config.md)

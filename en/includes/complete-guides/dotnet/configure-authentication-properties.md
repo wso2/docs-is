@@ -42,7 +42,7 @@ An example configuration is shown below (placeholders have to be replaced with t
 
 ## Add authentication package
 
-As the next step we have to add `Microsoft.AspNetCore.Authentication.OpenIdConnect` package to our application. This package allows your .NET app to authenticate users using an OIDC identity providers such as Asgardeo and WSO2 Identity Server and also manage authentication tokens.
+As the next step we have to add `Microsoft.AspNetCore.Authentication.OpenIdConnect` package to our application. This package allows your .NET app to authenticate users using an OIDC identity providers such as WSO2 Identity Platform and WSO2 Identity Server and also manage authentication tokens.
 
 When adding `Microsoft.AspNetCore.Authentication.OpenIdConnect` package, make sure to pick the right version as per your .Net SDK installation.
 

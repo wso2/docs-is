@@ -25,9 +25,9 @@ To enable clients to sign in and safely connect to the MCP server, an applicatio
     Authorized redirect URL: http://localhost:6274/oauth/callback
 
 !!! Info
-    The authorized redirect URL defines the location Asgardeo sends users to after a successful login, typically the address of the client application that connects to the MCP server.
+    The authorized redirect URL defines the location WSO2 Identity Platform sends users to after a successful login, typically the address of the client application that connects to the MCP server.
     For this guide, we will use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we will use `http://localhost:6274/oauth/callback`, as the authorized redirect URL.
-    {% if is_version == "next" or product_name == "Asgardeo" %}
+    {% if is_version == "next" or product_name == "WSO2 Identity Platform" %}
 
     While we're using the **MCP Client Application** template here for optimized MCP settings, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
     {% endif %}
@@ -122,7 +122,7 @@ Stop the running server before continuing.
 
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```properties title=".env"
 AUTH_ISSUER=https://api.asgardeo.io/t/<your-tenant>/oauth2/token
@@ -143,7 +143,7 @@ JWKS_URL=https://localhost:9443/t/<your-tenant>/oauth2/jwks
 !!! Important
 
     Replace `<your-tenant>` and `<your-client-id>` with the values obtained from the {{ product_name }} console.
-    The tenant name is visible in the console URL path {% if product_name == "Asgardeo" %}(e.g., `https://console.asgardeo.io/t/<your-tenant>`) {% else %} (e.g., `https://localhost:9443/t/<your-tenant>`) {% endif %}, and the client ID is found in the application's **Protocol** tab.
+    The tenant name is visible in the console URL path {% if product_name == "WSO2 Identity Platform" %}(e.g., `https://console.asgardeo.io/t/<your-tenant>`) {% else %} (e.g., `https://localhost:9443/t/<your-tenant>`) {% endif %}, and the client ID is found in the application's **Protocol** tab.
 
 Create a `jwt_validator.py` file in the project directory using the implementation below.
 
@@ -320,7 +320,7 @@ logger = logging.getLogger(__name__)
 
 
 class JWTTokenVerifier(TokenVerifier):
-    """JWT token verifier using Asgardeo JWKS."""
+    """JWT token verifier using WSO2 Identity Platform JWKS."""
 
     def __init__(self, jwks_url: str, issuer: str, client_id: str):
         self.jwt_validator = JWTValidator(
@@ -375,7 +375,7 @@ if not all([AUTH_ISSUER, CLIENT_ID, JWKS_URL]):
 # Create FastMCP instance as a Resource Server
 mcp = FastMCP(
     "Addition Tool",
-    # Utilizing Asgardeo for Token Verification
+    # Utilizing WSO2 Identity Platform for Token Verification
     token_verifier=JWTTokenVerifier(JWKS_URL, AUTH_ISSUER, CLIENT_ID),
     # Auth settings for RFC 9728 Protected Resource Metadata
     auth=AuthSettings(
@@ -406,7 +406,7 @@ Your project folder should now look like this:
 ``` bash
 ├── main.py              # Main FastMCP server
 ├── jwt_validator.py     # JWT validation logic
-└── .env                 # Your Asgardeo configs
+└── .env                 # Your WSO2 Identity Platform configs
 ```
 
 ## Run the Server

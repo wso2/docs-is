@@ -1,4 +1,4 @@
-Using the Next Asgardeo SDK you can also secure routes. For example if you have a page you need to show only when the user is logged in, you can follow the below steps.
+Using the Next WSO2 Identity Platform SDK you can also secure routes. For example if you have a page you need to show only when the user is logged in, you can follow the below steps.
 
 Add the following to the middleware.ts file
 

@@ -9,9 +9,9 @@ For simplicity, let's assume that the APIs we’re calling are secured by the sa
 
 ## Using SDK Built-in HTTP client
 
-You can use the `httpRequest` API provided by the Asgardeo SDK to make HTTP requests to these endpoints. This method is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this method does it automatically.
+You can use the `httpRequest` API provided by the WSO2 Identity Platform SDK to make HTTP requests to these endpoints. This method is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this method does it automatically.
 
-The following is a simple example of how you might use the Asgardeo SDK’s `httpRequest` to call a protected API endpoint, such as `/scim2/Me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
+The following is a simple example of how you might use the WSO2 Identity Platform SDK’s `httpRequest` to call a protected API endpoint, such as `/scim2/Me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
 
 !!! note "Note"
 
@@ -43,7 +43,7 @@ auth.httpRequest(requestConfig).then((response) => {
 
     You need to construct the `<base-url>` value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
@@ -73,7 +73,7 @@ const requestConfig = {
 
     You need to construct the '<base-url>' value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 

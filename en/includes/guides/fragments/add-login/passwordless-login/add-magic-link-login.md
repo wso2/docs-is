@@ -6,7 +6,7 @@ Follow the steps given below to add **Magic link** login to the login flow of yo
 
 3. Go to the **Login Flow** tab of the application and add magic link login as follows:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
     === "Visual Editor"
         To add passwordless login with magic link using the Visual Editor:
 
@@ -16,7 +16,7 @@ Follow the steps given below to add **Magic link** login to the login flow of yo
 
         3. Click **Confirm** to add passwordless login with Magic Link to the sign-in flow.
 
-            ![Configuring magic link login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Configuring magic link login in WSO2 Identity Platform using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/magic-link/add-magic-link-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
     === "Classic Editor"

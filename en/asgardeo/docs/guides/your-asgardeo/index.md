@@ -1,7 +1,7 @@
-{% set product_name = "Asgardeo" %}
+{% set product_name = "WSO2 Identity Platform" %}
 {% set path = "your-asgardeo/asgardeo-self-service" %}
 {% set root_organization_creation_flow =
-"When you [create an account](../../get-started/create-asgardeo-account.md) in Asgardeo, you define your first organization (root), which functions as the root organization or tenant in your Asgardeo subscription. From thereon, you (the account owner) or other delegated administrators can create multiple root organizations via the Asgardeo Console and switch between them."
+"When you [create an account](../../get-started/create-asgardeo-account.md) in WSO2 Identity Platform, you define your first organization (root), which functions as the root organization or tenant in your WSO2 Identity Platform subscription. From thereon, you (the account owner) or other delegated administrators can create multiple root organizations via the WSO2 Identity Platform Console and switch between them."
 %}
 
 {% set resource_management_in_multiple_root_orgs =

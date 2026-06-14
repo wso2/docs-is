@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: "Asgardeo Verifiable Credential Template Management API"
+  title: "WSO2 Identity Platform Verifiable Credential Template Management API"
   version: "v1"
-  description: "Admin API for managing verifiable credential templates in Asgardeo."
+  description: "Admin API for managing verifiable credential templates in WSO2 Identity Platform."
   contact:
     name: WSO2
     url: 'https://wso2.com/asgardeo/'

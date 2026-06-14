@@ -22,7 +22,7 @@ Your external web service should have the following to successfully execute an a
     - Basic Authentication: Use HTTP Basic authentication to secure the endpoint.
     - OAuth 2.0 Bearer Tokens: Integrate OAuth 2.0 for token-based authentication.
     - API Key Header: Secure the endpoint using an API key sent in the request header.
-    {% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "Asgardeo" %}
+    {% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "WSO2 Identity Platform" %}
     - OAuth 2.0 Client Credentials Grant: {{product_name}} obtains an access token from your authorization server using the OAuth 2.0 client credentials grant and uses it to call the endpoint.
     - OAuth 2.0 Password Grant: {{product_name}} obtains an access token from your authorization server using the OAuth 2.0 resource owner password credentials grant and uses it to call the endpoint.
     {% endif %}
@@ -52,7 +52,7 @@ Follow the steps below to configure an action.
         - Basic - Provide a username and password.
         - Bearer - Provide a bearer token.
         - API Key - Provide the header name and the value.
-        {% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "Asgardeo" %}
+        {% if (product_name == "WSO2 Identity Server" and is_version > "7.3.0") or product_name == "WSO2 Identity Platform" %}
         - OAuth 2.0 Client Credentials - Provide the token endpoint, client ID, client secret, and optionally a space-separated list of scopes. {{product_name}} retrieves a fresh access token from the configured token endpoint using the OAuth 2.0 client credentials grant and uses it as a bearer token when invoking the action endpoint.
         - OAuth 2.0 Password Grant - Provide the token endpoint, client ID, client secret, username, password, and optionally a space-separated list of scopes. {{product_name}} retrieves a fresh access token from the configured token endpoint using the OAuth 2.0 resource owner password credentials grant and uses it as a bearer token when invoking the action endpoint.
 

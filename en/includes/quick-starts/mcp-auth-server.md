@@ -208,7 +208,7 @@ Use it to list available tools and invoke the “add” tool through the Inspect
 
 ## Add auth to the MCP server
 
-Stop the dev server and install the Asgardeo MCP Auth SDK.
+Stop the dev server and install the WSO2 Identity Platform MCP Auth SDK.
 
 === "npm"
 
@@ -229,7 +229,7 @@ Stop the dev server and install the Asgardeo MCP Auth SDK.
 
 Create '.env' file and add the base URL of your {{product_name}} organization as given below.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```env
 BASE_URL=https://api.asgardeo.io/t/<you-org-name>
@@ -243,7 +243,7 @@ BASE_URL=https://localhost:9443/t/<you-org-name>
 
 {% endif %}
 
-Update `server.ts` to integrate the Asgardeo middleware. This adds:
+Update `server.ts` to integrate the WSO2 Identity Platform middleware. This adds:
 
 - Initialization of `McpAuthServer`.
 - Registration of OAuth endpoints via `router()`.
@@ -309,7 +309,7 @@ Run the dev server by running the following command again.
 ## Test the MCP server with auth
 
 !!! Tip
-    In the previous step, the MCP server was secured with Asgardeo middleware and now requires a valid access token to access it. In this step, MCP Inspector is registered as an MCP client in {{product_name}} so it can obtain an access token.
+    In the previous step, the MCP server was secured with WSO2 Identity Platform middleware and now requires a valid access token to access it. In this step, MCP Inspector is registered as an MCP client in {{product_name}} so it can obtain an access token.
 
 To register MCP Inspector as a MCP client in {{product_name}}:
 
@@ -323,7 +323,7 @@ To register MCP Inspector as a MCP client in {{product_name}}:
 !!! Info
     The authorized redirect URL determines where users are sent after sign-in, typically where the client app connecting to the MCP server is running.
     For this guide, we'll use ["MCP Inspector"](https://modelcontextprotocol.io/docs/tools/inspector) to test the MCP server, so we'll use `http://localhost:6274/oauth/callback/debug`, as the authorized redirect URL.
-    {% if is_version == "next" or product_name == "Asgardeo" %}
+    {% if is_version == "next" or product_name == "WSO2 Identity Platform" %}
 
     While we're using the **MCP Client Application** template here for optimized MCP settings, you can also use other application types (Single Page App, Traditional Web App, Mobile App, or M2M App) to access MCP servers, except Digital Wallet applications.
     {% endif %}

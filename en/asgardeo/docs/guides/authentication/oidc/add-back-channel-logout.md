@@ -19,7 +19,7 @@ Follow the steps below to register the back-channel endpoint of your application
 
     [Register your OIDC application]({{base_path}}/guides/applications/) in {{product_name}}.
 
-1. On the Asgardeo Console, go to **Applications** and select your OIDC application.
+1. On the WSO2 Identity Platform Console, go to **Applications** and select your OIDC application.
 
 2. Go to the **Protocol** tab, and under **Logout URLs**, enter the **Back channel logout URL**.
 

@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Asgardeo - User Session Management API
-  description: "This is the RESTful API for managing user sessions in Asgardeo.
-  \n To access the session management APIs in Asgardeo, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
+  title: WSO2 Identity Platform - User Session Management API
+  description: "This is the RESTful API for managing user sessions in WSO2 Identity Platform.
+  \n To access the session management APIs in WSO2 Identity Platform, you need to first [get an access token](https://wso2.com/asgardeo/docs/apis/authentication/#get-an-access-token) from your organization."
   version: v1
 servers:
 - url: https://api.asgardeo.io/t/{organization-name}/api/users/v1

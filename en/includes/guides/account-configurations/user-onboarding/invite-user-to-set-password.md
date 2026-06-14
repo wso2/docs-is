@@ -6,7 +6,7 @@ Allow administrator to invite users to set their own passwords during the onboar
 
 For inviting users to set their password, follow these instructions:
 
-{% if (is_version is defined and is_version > "7.1.0") or product_name == "Asgardeo" %}
+{% if (is_version is defined and is_version > "7.1.0") or product_name == "WSO2 Identity Platform" %}
 1. On the {{product_name}} Console, go to **Login & Registration** > **User Onboarding** > **Invite User to Set Password**.
 2. Enable the **Invite User to Set Password** feature to invite user to set the password after user creation.
 3. From **Choose invitation method**, select Email Link to send an invitation link. Alternatively, select OTP (delivered via Email or SMS) to start the invitation flow.
@@ -35,7 +35,7 @@ This defines how long the password setup invitation email or OTP remains valid.
 
 ## Parameters
 
-{% if (is_version is defined and is_version > "7.1.0") or product_name == "Asgardeo" %}
+{% if (is_version is defined and is_version > "7.1.0") or product_name == "WSO2 Identity Platform" %}
 <table>
   <tr>
     <th>Parameter</th>

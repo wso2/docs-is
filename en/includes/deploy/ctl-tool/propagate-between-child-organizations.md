@@ -46,9 +46,9 @@ Take note of the **Client ID** and **Client Secret** of the application you crea
 
 Open the **serverConfig.json** file and provide the details of the application shared with the child organization and the child organization details, before running the tool.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 !!! note
-    `SERVER_VERSION` is only relevant for on-premise deployments. Leave this field empty ("") for Asgardeo.
+    `SERVER_VERSION` is only relevant for on-premise deployments. Leave this field empty ("") for WSO2 Identity Platform.
 {% endif %}
 
 === "serverConfig.json"

@@ -1,11 +1,11 @@
 
 ![Next.js SDK]({{base_path}}/assets/img/sdks/nextjs/banner.png){: width="auto" style="display: block; margin-bottom: 20px;"}
 
-The Asgardeo Next.js SDK (`@asgardeo/nextjs`) is a component-first library, offering a highly customizable set of components for authentication, user self-care, and organization management in Next.js applications.
+The WSO2 Identity Platform Next.js SDK (`@asgardeo/nextjs`) is a component-first library, offering a highly customizable set of components for authentication, user self-care, and organization management in Next.js applications.
 
 ## Installation
 
-Use one of the following options to install the Asgardeo Next.js SDK.
+Use one of the following options to install the WSO2 Identity Platform Next.js SDK.
 
 === "npm"
 
@@ -37,7 +37,7 @@ The SDK provides a context-based architecture, allowing you to easily manage aut
 
 ## Components
 
-The Asgardeo Next.js SDK provides a comprehensive set of components to handle authentication, user management, and organization features in your Next.js applications. The components are organized into different categories based on their functionality.
+The WSO2 Identity Platform Next.js SDK provides a comprehensive set of components to handle authentication, user management, and organization features in your Next.js applications. The components are organized into different categories based on their functionality.
 
 ### Action Components
 
@@ -87,6 +87,6 @@ Control components manage the conditional rendering of content based on authenti
 
 ## Next Steps
 
-- [Quick Start Guide]({{base_path}}/quick-starts/nextjs) – Get started with the Asgardeo Next.js SDK.
-- [Complete Guide]({{base_path}}/complete-guides/nextjs/introduction/) – Build a complete application using the Asgardeo Next.js SDK.
+- [Quick Start Guide]({{base_path}}/quick-starts/nextjs) – Get started with the WSO2 Identity Platform Next.js SDK.
+- [Complete Guide]({{base_path}}/complete-guides/nextjs/introduction/) – Build a complete application using the WSO2 Identity Platform Next.js SDK.
 - [AsgardeoProvider]({{base_path}}/sdks/nextjs/contexts/asgardeo-provider/) – Learn how to configure the root provider component.

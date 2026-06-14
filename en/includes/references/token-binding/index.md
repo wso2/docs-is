@@ -32,7 +32,7 @@ Device flow token binding method binds the token to the `device_code` sent in th
 
 [Client-request token binding method]({{base_path}}/references/token-binding/client-request) is introduced by {{product_name}} for back-channel grant types such as **token exchange** and **password**. It binds the token to the `tokenBindingId` sent in the authentication request.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0" ) %}
 
 ## DPoP
 

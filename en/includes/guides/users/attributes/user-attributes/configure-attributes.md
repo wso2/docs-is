@@ -186,7 +186,7 @@ Use the following settings to change details and behavior of an attribute. To co
             <td><b>Allow multiple values for this attribute</b></td>
             <td>Specify whether to support multiple values for this attribute.</td>
         </tr>
-        {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+        {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
         <tr>
             <td><b>Input Format</b></td>
             <td>Specify the kind of input it supports. Refer to <a href="{{base_path}}/guides/users/attributes/user-attributes/attribute-configurations-reference/">reference</a> for more details.</td>
@@ -196,7 +196,7 @@ Use the following settings to change details and behavior of an attribute. To co
             <td><b>Regular expression</b></td>
             <td>The attribute value will be validated against the regex pattern specified here.</td>
         </tr>
-        {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+        {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
         <tr>
             <td><b>Select Source for Attribute Value of Shared Users</b></td>
             <td>When a user's profile is shared across multiple organizations, the value of this attribute will be taken from the selected source.</br>
@@ -324,7 +324,7 @@ By default, {{product_name}} stores identity attributes internally in the user s
     - `http://wso2.org/claims/identity/failedLoginAttempts`: Tracks the number of consecutive failed login attempts. Account locking happens based on this value.
 {% endif %}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.1.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version >= "7.1.0") %}
 ### Select storage location for selected attributes
 
 {% if product_name == "WSO2 Identity Server" and is_version in ["7.1.0", "7.2.0"] %}

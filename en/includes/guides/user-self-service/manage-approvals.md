@@ -1,6 +1,6 @@
 To view the approvals, you can navigate to the **Approvals** section from the My Account Portal side menu.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 Depending on the type of administrator, approvals can be handled as follows:
 
 - **Privileged user** – These administrators have business user accounts and can manage approvals through the organization’s MyAccount portal.

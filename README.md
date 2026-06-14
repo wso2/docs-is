@@ -3,7 +3,7 @@
 This repository holds the source code and content for the following product documentation:
 
 - WSO2 Identity Server - [https://is.docs.wso2.com/](https://is.docs.wso2.com/)
-- Asgardeo - [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
+- WSO2 Identity Platform - [https://wso2.com/asgardeo/docs/](https://wso2.com/asgardeo/docs/)
 
 ## Table of content
 
@@ -27,7 +27,7 @@ Choose one of the following methods depending on your preference.
 
 ### With Python virtual environments
 
-You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python virtual environments as well.
+You can run the WSO2 Identity Platform docs and WSO2 Identity Server docs locally using Python virtual environments as well.
 
 #### Prerequisites
 >
@@ -58,7 +58,7 @@ You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python
 
 1. Switch to the documentation you want to run locally.
 
-   For Asgardeo:
+   For WSO2 Identity Platform:
 
    ```bash
    cd en/asgardeo
@@ -90,7 +90,7 @@ You can run the Asgardeo docs and WSO2 Identity Server docs locally using Python
     cd en/identity-server/{version} && pip3 install -r requirements.txt
     ```
 
-   - Asgardeo
+   - WSO2 Identity Platform
 
     ```bash
     cd en/asgardeo && pip3 install -r requirements.txt

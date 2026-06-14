@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Asgardeo - Workflow Approval API
+  title: WSO2 Identity Platform - Workflow Approval API
   description: |
-    This is the RESTful API for a user to manage pending approvals in Asgardeo. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
+    This is the RESTful API for a user to manage pending approvals in WSO2 Identity Platform. This API can be used to retrieve pending approvals and update the status of the approval tasks for the authenticated user.
   version: v2
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/users/v2'

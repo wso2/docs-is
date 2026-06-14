@@ -9,7 +9,7 @@ date: "March 2026"
 reading_time: "12 min read"
 
 seo:
-  description: "Learn how to add secure user authentication to a React app using Asgardeo — login, logout, user profile, protected routes, and API calls."
+  description: "Learn how to add secure user authentication to a React app using WSO2 Identity Platform — login, logout, user profile, protected routes, and API calls."
   keywords: "react authentication, oauth 2.0, openid connect, wso2, asgardeo, react sdk, passkeys, mfa, secure routes"
   author: "Sagara Gunathunga"
   robots: "index, follow"
@@ -99,7 +99,7 @@ If the setup completes successfully, access the application at [http://localhost
 
 ## Install the React SDK
 
-The next step is to install the React SDK, which provides the components and hooks required to integrate Asgardeo into your application. Make sure to stop the development server started in the previous step, then run the following command to add the React SDK to your project.
+The next step is to install the React SDK, which provides the components and hooks required to integrate WSO2 Identity Platform into your application. Make sure to stop the development server started in the previous step, then run the following command to add the React SDK to your project.
 
 === "npm"
     ```bash
@@ -114,13 +114,13 @@ The next step is to install the React SDK, which provides the components and hoo
     pnpm add @asgardeo/react
     ```
 
-## Connect React to Asgardeo
+## Connect React to WSO2 Identity Platform
 
-Now that we’ve installed the React SDK in our project, the next step is to connect the React application to Asgardeo. This involves two steps.
+Now that we’ve installed the React SDK in our project, the next step is to connect the React application to WSO2 Identity Platform. This involves two steps.
 
-First, create an application in Asgardeo that represents the React application we just built.
+First, create an application in WSO2 Identity Platform that represents the React application we just built.
 
-- In the Asgardeo Console, navigate to **Applications > New Application**.
+- In the WSO2 Identity Platform Console, navigate to **Applications > New Application**.
 
 - Select **React as** the template and complete the wizard by providing:
     1. A suitable **name**  ( *e.g - asgardeo-react*)
@@ -133,14 +133,14 @@ First, create an application in Asgardeo that represents the React application w
 
     **The authorized redirect URL determines where {{ product_name }} should send users after they successfully log in. Typically, this will be the web address where your app is hosted**. For this guide, we'll use `http://localhost:5173`, as the sample app will be accessible at this URL.
 
-Once you have created the application in Asgardeo console, copy the following values from the **Guide tab**. You will need them to configure the React SDK.
+Once you have created the application in WSO2 Identity Platform console, copy the following values from the **Guide tab**. You will need them to configure the React SDK.
 
-- **Client ID** – A unique ID for your application. Asgardeo uses this to identify login requests coming from your React application.
+- **Client ID** – A unique ID for your application. WSO2 Identity Platform uses this to identify login requests coming from your React application.
 
-- **Base URL** – The base URL of your Asgardeo organization. It usually looks like: `https://api.asgardeo.io/t/<your-organization-name>` . The React SDK uses this URL to send login requests to the correct organization.
+- **Base URL** – The base URL of your WSO2 Identity Platform organization. It usually looks like: `https://api.asgardeo.io/t/<your-organization-name>` . The React SDK uses this URL to send login requests to the correct organization.
 
 Next, configure the `<AsgardeoProvider />` for your application to act as the context provider for the React SDK. To integrate it, wrap your root component in the main.jsx file with `<AsgardeoProvider />`. This makes the context created by the provider available throughout your application, so any component can access authentication state and related functions.
-You also need to pass the Client ID and Base URL values you copied in the previous step to `<AsgardeoProvider />`, as shown in the code below. This completes the connection between your React application and the Asgardeo cloud.
+You also need to pass the Client ID and Base URL values you copied in the previous step to `<AsgardeoProvider />`, as shown in the code below. This completes the connection between your React application and the WSO2 Identity Platform cloud.
 
 ```javascript title="src/main.jsx"
 import { StrictMode } from 'react'
@@ -164,7 +164,7 @@ createRoot(document.getElementById('root')).render(
 
 ## Implement user login
 
-In this step, we use the drop-in components provided by the Asgardeo React SDK to add user login and logout functionality.
+In this step, we use the drop-in components provided by the WSO2 Identity Platform React SDK to add user login and logout functionality.
 
 Simply replace the contents of your `App.jsx` file with the following code.
 
@@ -191,11 +191,11 @@ export default App
 ```
 
 In the above code, we first import the drop-in components `<SignedIn>`, `<SignedOut>`
-, `<SignInButton />`, and  `<SignOutButton />` from the Asgardeo React SDK.
+, `<SignInButton />`, and  `<SignOutButton />` from the WSO2 Identity Platform React SDK.
 
-We then use the `<SignedIn>` control component to check whether the current user is authenticated. If the user is signed in, we render the `<SignOutButton />` component to display a logout button. When the user clicks it, the component automatically handles the logout process by sending the logout request to Asgardeo and removing the stored tokens behind the scenes.
+We then use the `<SignedIn>` control component to check whether the current user is authenticated. If the user is signed in, we render the `<SignOutButton />` component to display a logout button. When the user clicks it, the component automatically handles the logout process by sending the logout request to WSO2 Identity Platform and removing the stored tokens behind the scenes.
 
-Next, we use the `<SignedOut>` control component to check whether the user is not authenticated. If so, we render the `<SignInButton />` component. This component constructs the login request and redirects the user to Asgardeo using the configured Client ID and Base URL. Once authentication is successful, Asgardeo redirects the user back to your application with the required tokens, which the SDK processes automatically to establish the authenticated user context without any additional code from you.
+Next, we use the `<SignedOut>` control component to check whether the user is not authenticated. If so, we render the `<SignInButton />` component. This component constructs the login request and redirects the user to WSO2 Identity Platform using the configured Client ID and Base URL. Once authentication is successful, WSO2 Identity Platform redirects the user back to your application with the required tokens, which the SDK processes automatically to establish the authenticated user context without any additional code from you.
 
 Now you can understand what happens behind the scenes when using these components, but the key takeaway is that this is essentially all the code required to implement fully functional login and logout capabilities in your application
 
@@ -203,7 +203,7 @@ You’re completely free to style these components using Tailwind or any other C
 
 ## Display user profile
 
-Before we test our application, let’s also add some code to render the user profile of the logged-in user. Again, simply import and add `<UserProfile />` component from Asgardeo React SDK as highlighted in the following code.
+Before we test our application, let’s also add some code to render the user profile of the logged-in user. Again, simply import and add `<UserProfile />` component from WSO2 Identity Platform React SDK as highlighted in the following code.
 
 ```javascript title="src/App.jsx" hl_lines="1 15-17"
 
@@ -234,7 +234,7 @@ In the above code, we added the `<UserProfile />` component, which provides a de
 
 Alternatively, you can use `<UserDropdown />`, which shows a dropdown menu with built-in user details and sign-out functionality. The `<User />` component offers a render-prop pattern, allowing you to access user profile information programmatically.
 
-Now, we are ready to try-out our React application secured with Asgardeo. Let’s start the application again by running the following code.
+Now, we are ready to try-out our React application secured with WSO2 Identity Platform. Let’s start the application again by running the following code.
 
 === "npm"
     ```bash
@@ -251,7 +251,7 @@ Now, we are ready to try-out our React application secured with Asgardeo. Let’
 
 Now, if you visit [http://localhost:5173](http://localhost:5173) in your browser, you should see your application, which will look like the screenshot below. For simplicity, we haven’t added any CSS styles yet.
 
-Now, if you click the `Login` button, you will be redirected to the Asgardeo cloud, where you can sign in using a test user account. If you haven’t created a test user yet, you can follow [this guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user) to set one up.
+Now, if you click the `Login` button, you will be redirected to the WSO2 Identity Platform cloud, where you can sign in using a test user account. If you haven’t created a test user yet, you can follow [this guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user) to set one up.
 
 Once you authenticate with your test user credentials, you will be redirected back to the application, and your test user profile will be displayed, as shown in the screenshot below.
 
@@ -267,19 +267,19 @@ Since React is a client-side framework, your application is downloaded and runs 
 
 The de-facto standard for securing these APIs is OAuth2 access tokens and that is the right security mechanism that you should use to secure your backend APIs. This also means your application must obtain an OAuth2 access token for the currently logged-in user and include it when making secure API calls.
 
-To give you a quick idea of what happens behind the scenes, although you don’t need to worry about it too much. The Asgardeo React SDK retrieves two tokens after a user successfully authenticates:
+To give you a quick idea of what happens behind the scenes, although you don’t need to worry about it too much. The WSO2 Identity Platform React SDK retrieves two tokens after a user successfully authenticates:
 
 - **OpenID ID token** – Meant for the application. It helps determine authentication state and retrieve user attributes.
 
 - **OAuth2 access token** – This token is sent with API requests when your application calls protected resources on behalf of the user.
 
-As a React developer, you’re already familiar with the browser’s `fetch API` for calling HTTP endpoints. The Asgardeo React SDK allows you to access the OAuth2 access token and attach it as the Authorization header when making API calls.
+As a React developer, you’re already familiar with the browser’s `fetch API` for calling HTTP endpoints. The WSO2 Identity Platform React SDK allows you to access the OAuth2 access token and attach it as the Authorization header when making API calls.
 
 However, you don’t even need to handle this manually. The SDK provides a utility HTTP client that automatically attaches the current OAuth2 access token to outgoing requests. This way, token handling is managed securely by the SDK.
 
-Ideally, we would call a backend API that you created and secured with Asgardeo. To keep things simple, we’ll take a shortcut and call an endpoint exposed by Asgardeo itself.
+Ideally, we would call a backend API that you created and secured with WSO2 Identity Platform. To keep things simple, we’ll take a shortcut and call an endpoint exposed by WSO2 Identity Platform itself.
 
-In this section, we’ll use the SCIM 2.0 /Me endpoint, which returns the profile details of the logged-in user. The same approach applies when calling your own backend APIs, as long as they are secured with Asgardeo.
+In this section, we’ll use the SCIM 2.0 /Me endpoint, which returns the profile details of the logged-in user. The same approach applies when calling your own backend APIs, as long as they are secured with WSO2 Identity Platform.
 Following React best practices, let’s first create a new component called MyProfile.jsx and add the following code.
 
 ```javascript title="src/MyProfile.jsx"
@@ -325,7 +325,7 @@ export default MyProfile;
 
 ```
 
-In the above code apart from `useState` hook we have imported `useAsgardeo` hook which is provided by the Asgardeo React SDK and gives us access to authentication state and a built-in HTTP client.
+In the above code apart from `useState` hook we have imported `useAsgardeo` hook which is provided by the WSO2 Identity Platform React SDK and gives us access to authentication state and a built-in HTTP client.
 
 Then we have received two important constants by calling the  `useAsgardeo` hook.
 
@@ -370,7 +370,7 @@ After revisiting your application and logging in successfully, you should see th
 
 In real-world React applications, it’s common to secure certain routes while keeping others public. Some paths should only be accessible to authenticated users.
 
-The Asgardeo React SDK provides pluggable utilities that work with popular routing libraries such as React Router and TanStack Router. In this section, we’ll look at how to secure a route in our application using React Router.
+The WSO2 Identity Platform React SDK provides pluggable utilities that work with popular routing libraries such as React Router and TanStack Router. In this section, we’ll look at how to secure a route in our application using React Router.
 
 First, install the following additional packages in your application.
 
@@ -461,6 +461,6 @@ Once you authenticate, you’ll be redirected back, and clicking the “My Profi
 
 ## Conclusion
 
-This guide showed how to secure a React application using Asgardeo and its React SDK without building custom authentication from scratch. By using ready-to-use components like  `<SignInButton />`, `<SignOutButton />`, and `<UserProfile />`, you can quickly integrate authentication into any React project.
+This guide showed how to secure a React application using WSO2 Identity Platform and its React SDK without building custom authentication from scratch. By using ready-to-use components like  `<SignInButton />`, `<SignOutButton />`, and `<UserProfile />`, you can quickly integrate authentication into any React project.
 
 With the SDK, you can implement a complete authentication flow, securely call protected APIs via the `useAsgardeo` hook’s built-in HTTP client, and protect routes using `<ProtectedRoute />`. This approach delivers a production-ready authentication system while letting developers focus on building application features instead of dealing with security boilerplate.

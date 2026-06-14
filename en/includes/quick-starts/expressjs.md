@@ -67,7 +67,7 @@ Navigate to [http://localhost:3000](http://localhost:3000){:target="_blank"} and
 
 ## Install @asgardeo/passport-asgardeo
 
-Passport Asgardeo strategy is a Passport strategy that allows you to authenticate  using {{product_name}}. To get started, simply add the Passport Asgardeo strategy to the project together with the other required dependencies. Make sure to stop the dev server started in the previous step.
+Passport WSO2 Identity Platform strategy is a Passport strategy that allows you to authenticate  using {{product_name}}. To get started, simply add the Passport WSO2 Identity Platform strategy to the project together with the other required dependencies. Make sure to stop the dev server started in the previous step.
 
 === "npm"
 
@@ -90,7 +90,7 @@ Passport Asgardeo strategy is a Passport strategy that allows you to authenticat
 
     ```
 
-## Configure Passport Asgardeo
+## Configure Passport WSO2 Identity Platform
 
 Create `.env` environment properties file, and add the following  variables:
 

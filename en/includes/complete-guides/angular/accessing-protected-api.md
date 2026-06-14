@@ -39,7 +39,7 @@ export const appConfig: ApplicationConfig = {
 
     You need to construct the '<base-url>' value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
@@ -80,7 +80,7 @@ export class DashboardComponent {
 
     You need to construct the `<base-url>` value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 
@@ -125,7 +125,7 @@ export class DashboardComponent {
 
     You need to construct the `<base-url>` value as per the following instructions: 
 
-    For Asgardeo: 
+    For WSO2 Identity Platform: 
 
     `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
 

@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: Asgardeo - Event Configuration Management API
-  description: "This document specifies a RESTful API for managing event publisher configurations in Asgardeo."
+  title: WSO2 Identity Platform - Event Configuration Management API
+  description: "This document specifies a RESTful API for managing event publisher configurations in WSO2 Identity Platform."
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/event-configurations/v1'
 security:
@@ -14,7 +14,7 @@ paths:
         - Events Configurations
       summary: Retrieve all events.
       description: |
-        This API provides capability to retrieve all events of the Asgardeo event publisher. <br/>
+        This API provides capability to retrieve all events of the WSO2 Identity Platform event publisher. <br/>
         
         <b>Permissions required:</b> <br/>
           * /permission/admin/manage/identity/eventconfig/view
@@ -51,7 +51,7 @@ paths:
         - Events Configurations
       summary: Update multiple events.
       description: |
-        This API provides the capability to enable/ disable multiple events for the Asgardeo event publisher. <br/>
+        This API provides the capability to enable/ disable multiple events for the WSO2 Identity Platform event publisher. <br/>
         You need to send the complete list of events in order for it to be accepted as a valid request. <br/>
         
         <b>Permissions required:</b> <br/>
@@ -108,7 +108,7 @@ paths:
         - Event Configurations
       summary: Retrieve event publishing configuration by event name.
       description: |
-        This API provides the capability to retrieve Asgardeo event publisher configuration by event name. <br/>
+        This API provides the capability to retrieve WSO2 Identity Platform event publisher configuration by event name. <br/>
         
         <b>Permissions required:</b> <br/>
           * /permission/admin/manage/identity/eventconfig/view
@@ -153,7 +153,7 @@ paths:
         - Event Configurations
       summary: Configure event publishing configuration by event name.
       description: |
-        This API provides the capability to configure Asgardeo event publisher configuration by event name. <br/>
+        This API provides the capability to configure WSO2 Identity Platform event publisher configuration by event name. <br/>
         
         <b>Permissions required:</b> <br/>
           * /permission/admin/manage/identity/eventconfig/update

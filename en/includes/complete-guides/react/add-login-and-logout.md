@@ -1,7 +1,7 @@
 
 Next, let’s implement login and logout for our React app.
 
-Asgardeo SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
+WSO2 Identity Platform SDK provides `SignInButton`, `SignOutButton` components to handle user sign-in and sign-out. You can use these components along side `SignedIn` and `SignedOut` components to conditionally render content based on the user's logged in state.
 
 Replace the existing content of the `App.jsx` file with following content.
 
@@ -25,7 +25,7 @@ function App() {
 export default App;
 ```
 
-Alternatively a React hook can be used to perform this as well. React hooks are a special type of functions that let you access state and other React features in React functional components. Asgardeo SDK provides one such hook, `useAsgardeo()`, to conveniently access user authentication data such as the logged in user’s information, etc and utility functions, such as a function to validate user’s authentication status, and retrieve access tokens.
+Alternatively a React hook can be used to perform this as well. React hooks are a special type of functions that let you access state and other React features in React functional components. WSO2 Identity Platform SDK provides one such hook, `useAsgardeo()`, to conveniently access user authentication data such as the logged in user’s information, etc and utility functions, such as a function to validate user’s authentication status, and retrieve access tokens.
 
 `useAsgardeo` hook also provides us access with two key functions to perform sign in and sign out in your React application, `signIn` and `signOut` respectively. You can directly invoke the respective functions in our React application to trigger sign-in and sign-out requests as follows.
 
