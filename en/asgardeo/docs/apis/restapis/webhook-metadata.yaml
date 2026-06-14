@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   version: v1
-  title: Asgardeo - Webhook Metadata Rest API
+  title: WSO2 Identity Platform - Webhook Metadata Rest API
   description: >
     The Webhook Metadata REST API provides a standardized interface to retrieve
-    supported event profiles and the associated events within Asgardeo. This API
+    supported event profiles and the associated events within WSO2 Identity Platform. This API
     enables clients to dynamically fetch available events for webhook subscription based on the
     selected event profile, improving flexibility and profile-awareness in integrations.
 servers:
@@ -16,7 +16,7 @@ paths:
   /webhooks/metadata:
     get:
       summary: List Event Profiles
-      description: "This API returns the list of event profiles supported by Asgardeo.\n\n <b>Scope(Permission) required:</b> `internal_webhook_meta_view` \n\n"
+      description: "This API returns the list of event profiles supported by WSO2 Identity Platform.\n\n <b>Scope(Permission) required:</b> `internal_webhook_meta_view` \n\n"
       operationId: getEventProfiles
       tags:
         - Webhook Metadata

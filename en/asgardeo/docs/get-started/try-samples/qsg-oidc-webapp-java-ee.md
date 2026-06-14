@@ -8,19 +8,19 @@ By following this guide, you will be able to deploy a Java EE web application lo
 
     If you don't have it, install [Apache tomcat](https://tomcat.apache.org/tomcat-9.0-doc/setup.html){target="_blank"}.
 
-- **A user account in Asgardeo**
+- **A user account in WSO2 Identity Platform**
 
-    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in Asgardeo.
+    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in WSO2 Identity Platform.
 
 ## Register the app
 
-Follow the steps given below to register the sample Java EE web application in Asgardeo.
+Follow the steps given below to register the sample Java EE web application in WSO2 Identity Platform.
 
-1. On the [Asgardeo Console](https://console.asgardeo.io/login), go to **Applications**.
+1. On the [WSO2 Identity Platform Console](https://console.asgardeo.io/login), go to **Applications**.
 
 2. Click **New Application** and select **Traditional Web Application**:
 
-    ![Select app type in Asgardeo]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Select app type in WSO2 Identity Platform]({{base_path}}/assets/img/guides/applications/select-app-type.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the following details:
 
@@ -151,7 +151,7 @@ Follow the steps given below to configure the sample app.
             <code>issuer</code>
         </td>
         <td>
-            Issuer endpoint of Asgardeo used for id token validation:
+            Issuer endpoint of WSO2 Identity Platform used for id token validation:
             <code>https://api.asgardeo.io/t/{organization_name}/oauth2/token</code>
         </td>
       </tr>
@@ -159,7 +159,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <code>authorizeEndpoint</code>
         </td>
-        <td>The authorization endpoint of your Asgardeo organization:
+        <td>The authorization endpoint of your WSO2 Identity Platform organization:
             <code>https://api.asgardeo.io/t/{organization_name}/oauth2/authorize</code>
         </td>
       </tr>
@@ -167,7 +167,7 @@ Follow the steps given below to configure the sample app.
         <td>
           <code>logoutEndpoint</code>
         </td>
-        <td>The logout endpoint of your Asgardeo organization:
+        <td>The logout endpoint of your WSO2 Identity Platform organization:
           <code>https://api.asgardeo.io/t/{organization_name}/oidc/logout</code>
         </td>
       </tr>
@@ -175,7 +175,7 @@ Follow the steps given below to configure the sample app.
           <td>
             <code>tokenEndpoint</code>
           </td>
-          <td>The token endpoint of your Asgardeo organization:
+          <td>The token endpoint of your WSO2 Identity Platform organization:
             <code>https://api.asgardeo.io/t/{organization_name}/oauth2/token</code>
           </td>
       </tr>
@@ -183,7 +183,7 @@ Follow the steps given below to configure the sample app.
         <td>
             <code>jwksEndpoint</code>
         </td>
-        <td>The jwks endpoint of your Asgardeo organization:
+        <td>The jwks endpoint of your WSO2 Identity Platform organization:
             <code>https://api.asgardeo.io/t/{organization_name}/oauth2/jwks</code>
         </td>
     </tr>
@@ -202,8 +202,8 @@ Follow the steps given below to run the sample.
 
 1. Access the application using the following URL: `http://localhost:8080/oidc-sample-app/index.html`.
 
-2. Click **Login**. You will be redirected to the Asgardeo login page.
+2. Click **Login**. You will be redirected to the WSO2 Identity Platform login page.
 
-    ![Asgardeo Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![WSO2 Identity Platform Sign in page]({{base_path}}/assets/img/guides/applications/sign-in-asgardeo.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 3. Enter the credentials of your user account and click **Sign In**.

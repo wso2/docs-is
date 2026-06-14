@@ -2,9 +2,9 @@ openapi: 3.0.0
 
 info:
   description: |
-    This is the RESTful API for a user to manage backup codes in Asgardeo.
+    This is the RESTful API for a user to manage backup codes in WSO2 Identity Platform.
   version: "v1"
-  title: "Asgardeo - Backup Code API Definition"
+  title: "WSO2 Identity Platform - Backup Code API Definition"
 servers:
 - url: https://api.asgardeo.io/t/{organization-name}/api/users/v1
 

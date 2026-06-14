@@ -4,7 +4,7 @@
 
 API resources are created and authorized for applications on the organization (root). If the application consuming the API resources is shared with the organization, all application-specific configurations of API resources are inherited by the organization.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 ![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-api-authorization.png){: width="700" style="display: block; margin: 0;"}
 {% else %}
 ![The relationship between terms]({{base_path}}/assets/img/guides/authorization/api-authorization/b2b-api-authorization.png){: width="700" style="display: block; margin: 0;"}

@@ -2,14 +2,14 @@
 
 [Duo](https://duo.com/) is a multi-factor authentication option that offer multiple verification methods such as push notifications, SMS, phone calls, and hardware tokens.
 
-In this guide, you'll learn how to integrate Duo as a second-factor authentication provider for your Asgardeo application.
+In this guide, you'll learn how to integrate Duo as a second-factor authentication provider for your WSO2 Identity Platform application.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
 - [Duo Account](https://signup.duo.com/): A Duo administrator account to configure your Duo application.
-- [Asgardeo Account](https://asgardeo.io/signup): Access to your Asgardeo console with administrative privileges.
+- [WSO2 Identity Platform Account](https://asgardeo.io/signup): Access to your WSO2 Identity Platform console with administrative privileges.
 
 ## Configure Duo Security Application
 
@@ -24,11 +24,11 @@ Before you begin, ensure you have the following:
 
 4. Save the **Client ID**, **Client secret**, and **API hostname**  as you will need these later.
 
-## Add Duo as a Connection in Asgardeo
+## Add Duo as a Connection in WSO2 Identity Platform
 
-Next, you need to register Duo as a connection in Asgardeo. To do so, follow the steps below.
+Next, you need to register Duo as a connection in WSO2 Identity Platform. To do so, follow the steps below.
 
-1. Log in to the [Asgardeo Console](https://console.asgardeo.io/) as an administrator.
+1. Log in to the [WSO2 Identity Platform Console](https://console.asgardeo.io/) as an administrator.
 2. Navigate to **Connections** from the left-hand panel
 3. Click **New Connection** and select **Duo** from the listed templates.
 4. Provide a Name for the Duo connection (e.g., "Duo Security").
@@ -39,7 +39,7 @@ Next, you need to register Duo as a connection in Asgardeo. To do so, follow the
 
 The created Duo connection should be added as an MFA option to the login flow of an application. To do so, follow the steps below.
 
-1. On the [Asgardeo Console](https://console.asgardeo.io/), navigate to **Applications**.
+1. On the [WSO2 Identity Platform Console](https://console.asgardeo.io/), navigate to **Applications**.
 2. Select the application for which you want to enable Duo MFA.
 3. Go to the **Login Flow** section. Username and Password will be added as the default login method.
 4. Click on the **+ icon** to add a new step to the login flow.
@@ -66,4 +66,4 @@ Finally, you need to verify that Duo has been successfully integrated and is fun
 
 4. If your verification is successful, you will be logged into the app.
 
-You've successfully integrated Duo 2FA into your Asgardeo application. This additional security layer helps protect your users and sensitive data from unauthorized access.
+You've successfully integrated Duo 2FA into your WSO2 Identity Platform application. This additional security layer helps protect your users and sensitive data from unauthorized access.

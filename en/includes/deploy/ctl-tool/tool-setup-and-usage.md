@@ -44,9 +44,9 @@ Follow the steps below to learn how you can configure IAM-CTL.
 
     To propagate resources between root organizations, provide the details of the M2M application created in the root organization and the organization details.
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     !!! note
-        `SERVER_VERSION` is only relevant for on-premise deployments. Leave this field empty ("") for Asgardeo.
+        `SERVER_VERSION` is only relevant for on-premise deployments. Leave this field empty ("") for WSO2 Identity Platform.
     {% endif %}
 
     === "serverConfig.json"

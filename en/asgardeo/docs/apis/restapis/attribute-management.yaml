@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Asgardeo Attribute Management API
+  title: WSO2 Identity Platform Attribute Management API
   description: This is the RESTful API for attribute (claim) management related operations in
-    Asgardeo. This API allows adding, retrieving, updating, and deleting
+    WSO2 Identity Platform. This API allows adding, retrieving, updating, and deleting
     local/external claims and claim dialects.
   version: v1
 servers:

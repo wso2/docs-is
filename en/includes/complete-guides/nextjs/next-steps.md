@@ -3,7 +3,7 @@ Now that your Next application is secured with authentication features integrate
 
 - [Multi factor authentication]({{ base_path }}/guides/authentication/mfa/){:target="_blank"}
 - [Passwordless authentication]({{ base_path }}/guides/authentication/passwordless-login/){:target="_blank"}
-{% if product_name == 'Asgardeo' %}
+{% if product_name == 'WSO2 Identity Platform' %}
 - [Self registration]({{ base_path }}/guides/user-accounts/configure-self-registration/){:target="_blank"}
 {% else %}
 - [Self registration]({{ base_path }}/guides/account-configurations/user-onboarding/self-registration/){:target="_blank"}

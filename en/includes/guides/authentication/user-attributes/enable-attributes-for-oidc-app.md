@@ -44,7 +44,7 @@ To define a different attribute as the subject:
     !!! note
         According to the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes){target="_blank"}, is not recommended to change the default subject identifier.
 
-    ![Select subject attribute in Asgardeo]({{base_path}}/assets/img/guides/applications/attributes/oidc/select-sub-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Select subject attribute in WSO2 Identity Platform]({{base_path}}/assets/img/guides/applications/attributes/oidc/select-sub-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 2. Select an attribute as the subject from the **Subject attribute** list.
 
@@ -151,7 +151,7 @@ In a scenario where a user with a local account in {{product_name}}, logs in usi
 
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application and go to its **User Attributes** tab.
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 3. Scroll down and under **Linked Accounts**, select **Prioritize local account attributes**.
 {% else %}
 3. Scroll down and under **Linked Accounts**, select **Validate linked local account**.

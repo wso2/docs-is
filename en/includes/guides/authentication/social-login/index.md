@@ -32,7 +32,7 @@
       <span>X</span>
     </a>
     {% endif %}
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     <a href="{{base_path}}/guides/authentication/social-login/add-linkedin-login/" class="card square">
       <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/linkedin-logo.svg" alt="LinkedIn" />
       <span>LinkedIn</span>

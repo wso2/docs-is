@@ -2,9 +2,9 @@ openapi: 3.0.0
 
 info:
   description: |
-    This is the RESTful API for users to export their profile information stored in Asgardeo.
+    This is the RESTful API for users to export their profile information stored in WSO2 Identity Platform.
   version: "v1"
-  title: "Asgardeo - Export user profile information API"
+  title: "WSO2 Identity Platform - Export user profile information API"
 servers:
 - url: https://api.asgardeo.io/t/{organization-name}/api/identity/user/v1.0
 

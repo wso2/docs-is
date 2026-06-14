@@ -8,7 +8,7 @@ Follow the steps given below.
 
 3. Go to the **Login Flow** tab of the application and add the Email OTP authenticator as follows:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
     === "Visual Editor"
         To add Email OTP as a second-factor authenticator using the Visual Editor:
 

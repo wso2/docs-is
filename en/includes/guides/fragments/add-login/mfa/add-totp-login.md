@@ -6,7 +6,7 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
 
 3. Go to the **Login Flow** tab of the application and add the TOTP authenticator as follows:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
     === "Classic Editor"
         - If you don't have a customized login flow, you can click **Add TOTP as a second factor**.
 
@@ -27,7 +27,7 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
 
         3. Click **Confirm** to add TOTP as a second factor to the sign-in flow.
 
-            ![Configuring TOTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Configuring TOTP authenticator in WSO2 Identity Platform using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
     {% else %}
@@ -37,7 +37,7 @@ Follow the steps given below to enable **TOTP** as the second factor in the logi
 
     3. Click **Confirm** to add passwordless login with email OTP to the sign-in flow.
 
-          ![Configuring TOTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+          ![Configuring TOTP authenticator in WSO2 Identity Platform using the visual editor]({{base_path}}/assets/img/guides/mfa/totp/add-totp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     4. Select **Enable backup codes** if you wish to allow users to use backup codes to log in to the application. Learn more about [configuring backup codes for users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
     {% endif %}

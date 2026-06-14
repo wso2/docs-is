@@ -6,7 +6,7 @@ Follow the steps given below to enable **Passkey** login for your application.
 
 3. Go to the **Login Flow** tab of the application and add Passkey from your preferred editor:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
     === "Classic Editor"
         - If you haven't already built a login flow for your application, select **Start with default configuration** to build one.
 

@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Asgardeo - User session extension API
+  title: WSO2 Identity Platform - User session extension API
   description:
-    "You can use this API to extend the user's session at Asgardeo. \n
+    "You can use this API to extend the user's session at WSO2 Identity Platform. \n
     To identify the session that needs to be extended, this API requires one of the following: \n
     <ul>
       <li><b>Session identifier as a request parameter</b>: This method is ideal in cases where third-party cookies have been blocked. This can be obtained from the ID token.</li>
@@ -15,7 +15,7 @@ paths:
   /identity/extend-session:
     get:
       summary: Extend user sessions
-      description: "This API is used to extend the Asgardeo session of a user. To identify the session that needs to be extended, this API requires one of the following: \n
+      description: "This API is used to extend the WSO2 Identity Platform session of a user. To identify the session that needs to be extended, this API requires one of the following: \n
         <ul>
           <li><b>Session identifier as a request parameter</b>: If you are using this method, you need to include the session identifier as a query parameter in the request. You can obtain the session identifier from the ID token.</li>
           <li><b>Session identifier as a cookie</b>: If you are using this method, you need to include the session identifier as a cookie. This is the commonAuthId cookie.</li>

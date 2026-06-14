@@ -1,6 +1,6 @@
 # Session management
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 !!! note "Premium feature"
     Only customers on the enterprise tier can access this feature.
 {% endif %}
@@ -13,7 +13,7 @@ To adjust session management settings, follow these steps:
 
 1. On the {{product_name}} Console, go to **Login & Registration** > **Login Security** > **Session Management**.
 2. Configure the **Idle Session Timeout** and **Remember Me Period** to suit your security policies.
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 3. To enforce an absolute session lifetime, select **Enable Maximum Session Timeout** and configure the **Maximum Session Timeout**.
 4. Enable **Skip terminating current session and token on password update** to preserve the current session when users update their password.
 5. Click **Update** to save the changes.
@@ -38,7 +38,7 @@ To adjust session management settings, follow these steps:
     <td><code>Remember Me Period</code></td>
     <td>Duration in minutes that the system will remember a user's session.</td>
   </tr>
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
   <tr>
     <td><code>Enable Maximum Session Timeout</code></td>
     <td>
@@ -56,7 +56,7 @@ To adjust session management settings, follow these steps:
       <ul>
         <li><a href="{{base_path}}/guides/user-self-service/change-password">My Account</a> portal.</li>
         <li><a href="{{base_path}}/apis/self-password-update-rest-api">Self Password Update API</a> (using an OAuth2 access token).</li>
-        <li>{% if product_name == "WSO2 Identity Server" %}<a href="{{base_path}}/apis/scim2-me-rest-apis/#tag/Me-Endpoint/operation/patchUserMe">SCIM 2.0 Me API</a>{% elif product_name == "Asgardeo" %}<a href="{{base_path}}/apis/scim2-me/#tag/Me-Endpoint/operation/patchUserMe">SCIM 2.0 Me API</a>{% endif %} (using an OAuth2 access token).</li>
+        <li>{% if product_name == "WSO2 Identity Server" %}<a href="{{base_path}}/apis/scim2-me-rest-apis/#tag/Me-Endpoint/operation/patchUserMe">SCIM 2.0 Me API</a>{% elif product_name == "WSO2 Identity Platform" %}<a href="{{base_path}}/apis/scim2-me/#tag/Me-Endpoint/operation/patchUserMe">SCIM 2.0 Me API</a>{% endif %} (using an OAuth2 access token).</li>
       </ul>
       Password updates via the SCIM 2.0 Me endpoint using Basic Authentication bypass this configuration and terminate the active session and token.
       <br><br>
@@ -66,7 +66,7 @@ To adjust session management settings, follow these steps:
 {% endif %}
 </table>
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 ### Maximum session timeout
 

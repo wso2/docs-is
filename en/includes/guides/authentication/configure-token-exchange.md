@@ -130,7 +130,7 @@ After establishing account links, administrators can't delete them. Users can ma
 !!! note
     {{ product_name }} skips implicit account linking when **Require linked local account** is disabled, even if the implicit linking option remains enabled.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 To enable implicit account linking,
 
@@ -182,7 +182,7 @@ Follow the steps given below.
     !!! note
         {{ product_name }} only copies the `sub` claim from the token received from the trusted token issuer to the exchanged {{ product_name }} token.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
     !!! note
         To learn how token exchange can be invoked in organization applications, see [Generate tokens for organization applications]({{base_path}}/guides/organization-management/generate-tokens-for-organization-apps).
 {% endif %}

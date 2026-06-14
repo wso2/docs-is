@@ -3,7 +3,7 @@ info:
   version: "v1"
   title: 'Organization Discovery API'
   description: |
-    This document specifies an **Organization level Organization Discovery RESTful API** for Asgardeo.
+    This document specifies an **Organization level Organization Discovery RESTful API** for WSO2 Identity Platform.
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1'
     variables:

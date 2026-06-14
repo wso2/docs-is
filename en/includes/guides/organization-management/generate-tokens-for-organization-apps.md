@@ -2,7 +2,7 @@
 
 After you authorize applications to API resources and assign users to the appropriate roles, you can generate tokens to access the protected resources. Organization applications support the following OAuth 2.0 grant types to generate tokens and issue scopes.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0" ) %}
 
 ## Authorization code grant
 
@@ -136,7 +136,7 @@ Use the following steps to use the client credentials to get an access token.
     }
     ```
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 ## Token exchange grant
 

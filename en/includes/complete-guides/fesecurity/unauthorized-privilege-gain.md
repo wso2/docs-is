@@ -54,7 +54,7 @@ There can be scenarios where someone else’s user account can be accessed simpl
 ]({{base_path}}/assets/img/complete-guides/fesecurity/image9.png){: width="800" style="display: block; margin: 0;"}
 
 
-To prevent unauthorized access, every API request from the application should include the access token in the authorization header. The API server can then validate the access token and grant access based on the token's owner. You can use the httpRequest method in the Asgardeo SDK to make API calls, which automatically includes the access token in the authorization header. Below is a sample code segment that makes an API call to the SCIM2/Me endpoint in {{product_name}} to retrieve user details. {{product_name}} validates the access token and returns the details of the token's owner if the token is valid. You can also explore additional parameters available in httpRequest.
+To prevent unauthorized access, every API request from the application should include the access token in the authorization header. The API server can then validate the access token and grant access based on the token's owner. You can use the httpRequest method in the WSO2 Identity Platform SDK to make API calls, which automatically includes the access token in the authorization header. Below is a sample code segment that makes an API call to the SCIM2/Me endpoint in {{product_name}} to retrieve user details. {{product_name}} validates the access token and returns the details of the token's owner if the token is valid. You can also explore additional parameters available in httpRequest.
 
 ```javascript title="src/main.jsx" 
 

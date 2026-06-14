@@ -102,7 +102,7 @@ A Model Context Protocol server that exposes stock trading tools. Validates toke
 Before you begin, ensure you have:
 
 - **Python 3.12 or higher** installed on your system
-- {% if product_name == "Asgardeo" %}**Asgardeo Account**: Sign up for free at [https://console.asgardeo.io](https://console.asgardeo.io){% else %}**WSO2 Identity Server**: An instance of WSO2 Identity Server{% endif %}
+- {% if product_name == "WSO2 Identity Platform" %}**WSO2 Identity Platform Account**: Sign up for free at [https://console.asgardeo.io](https://console.asgardeo.io){% else %}**WSO2 Identity Server**: An instance of WSO2 Identity Server{% endif %}
 - **Google AI API Key**: Required for Gemini LLM integration. Obtain from [Google AI Studio](https://aistudio.google.com/app/apikey)
 - **Email Access**: You'll need a valid email address to receive CIBA approval notifications
 
@@ -258,7 +258,7 @@ At this point, you should have collected the following values:
 
 | Configuration Item | Value | Used In |
 |-------------------|-------|---------|
-| {% if product_name == "Asgardeo" %}Asgardeo Organization{% else %}Identity Server URL{% endif %} | `YOUR_ORG` | Both `.env` files |
+| {% if product_name == "WSO2 Identity Platform" %}WSO2 Identity Platform Organization{% else %}Identity Server URL{% endif %} | `YOUR_ORG` | Both `.env` files |
 | Client ID | `<aurelius-agent-client-id>` | Main `.env` |
 | Client Secret | `<aurelius-agent-client-secret>` | Main `.env` |
 | Agent ID | `<agent-id>` | Main `.env` |
@@ -304,9 +304,9 @@ Edit `mcp-stock-server/.env` with your configuration:
 
 ```bash
 # {{ product_name }} Configuration
-AUTH_ISSUER={% if product_name == "Asgardeo" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/token{% else %}https://localhost:9443/oauth2/token{% endif %}
+AUTH_ISSUER={% if product_name == "WSO2 Identity Platform" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/token{% else %}https://localhost:9443/oauth2/token{% endif %}
 CLIENT_ID=<aurelius-agent-client-id> # MCP Client Application
-JWKS_URL={% if product_name == "Asgardeo" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/jwks{% else %}https://localhost:9443/oauth2/jwks{% endif %}
+JWKS_URL={% if product_name == "WSO2 Identity Platform" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/jwks{% else %}https://localhost:9443/oauth2/jwks{% endif %}
 
 # MCP Server Configuration
 MCP_SERVER_PORT=8200
@@ -315,7 +315,7 @@ MCP_SERVER_PORT=8200
 
 **Configuration Notes:**
 
-- {% if product_name == "Asgardeo" %}Replace `YOUR_ORG` with your Asgardeo organization name{% else %}Update the URLs to match your Identity Server instance{% endif %}
+- {% if product_name == "WSO2 Identity Platform" %}Replace `YOUR_ORG` with your WSO2 Identity Platform organization name{% else %}Update the URLs to match your Identity Server instance{% endif %}
 - Use the **Client ID** from the Aurelius Trading Agent application
 - The `AUTH_ISSUER` must end with `/oauth2/token`
 - The `JWKS_URL` must end with `/oauth2/jwks`
@@ -334,7 +334,7 @@ Keep this terminal running. You should see output similar to:
 Stock Trading MCP Server
 ================================================================================
 Port: 8200
-Issuer: {% if product_name == "Asgardeo" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/token{% else %}https://localhost:9443/oauth2/token{% endif %}
+Issuer: {% if product_name == "WSO2 Identity Platform" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/token{% else %}https://localhost:9443/oauth2/token{% endif %}
 Client ID: <your-client-id>
 ================================================================================
 
@@ -378,7 +378,7 @@ Edit `.env` with your credentials:
 # ---------------------------------------
 # {{ product_name }} OAuth2 Configuration
 # ---------------------------------------
-{% if product_name == "Asgardeo" %}ASGARDEO_BASE_URL=https://api.asgardeo.io/t/YOUR_ORG{% else %}ASGARDEO_BASE_URL=https://localhost:9443{% endif %}
+{% if product_name == "WSO2 Identity Platform" %}ASGARDEO_BASE_URL=https://api.asgardeo.io/t/YOUR_ORG{% else %}ASGARDEO_BASE_URL=https://localhost:9443{% endif %}
 CLIENT_ID=<aurelius-agent-client-id>
 CLIENT_SECRET=<aurelius-agent-client-secret>
 REDIRECT_URI=http://localhost:5001/callback
@@ -432,7 +432,7 @@ FLASK_DEBUG=False
 - `AGENT_ID` and `AGENT_SECRET`: From the Aurelius Bot agent identity
 - `INVESTOR_EMAIL`: **Must match the verified email** of the user you created (Alice)
 - `GOOGLE_AI_API_KEY`: Your API key from Google AI Studio
-- {% if product_name == "Asgardeo" %}`ASGARDEO_BASE_URL`: Replace `YOUR_ORG` with your organization name{% else %}`ASGARDEO_BASE_URL`: Update to match your Identity Server instance{% endif %}
+- {% if product_name == "WSO2 Identity Platform" %}`ASGARDEO_BASE_URL`: Replace `YOUR_ORG` with your organization name{% else %}`ASGARDEO_BASE_URL`: Update to match your Identity Server instance{% endif %}
 
 ### Verify Prerequisites
 
@@ -696,7 +696,7 @@ When Aurelius detects a buying opportunity and attempts to execute a trade:
 The agent sends a backchannel authentication request to {{ product_name }} with the agent's token as the actor token:
 
 ```bash
-curl -v -k -X POST {% if product_name == "Asgardeo" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/ciba{% else %}https://localhost:9443/t/{root_organization_handle}/oauth2/ciba{% endif %} \
+curl -v -k -X POST {% if product_name == "WSO2 Identity Platform" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/ciba{% else %}https://localhost:9443/t/{root_organization_handle}/oauth2/ciba{% endif %} \
 --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
 --header "Content-Type: application/x-www-form-urlencoded" \
 --data-urlencode "scope=openid stock:read stock:trade" \
@@ -746,7 +746,7 @@ curl -v -k -X POST {% if product_name == "Asgardeo" %}https://api.asgardeo.io/t/
 While waiting for user approval, the agent continuously polls the token endpoint:
 
 ```bash
-curl -v -k -X POST {% if product_name == "Asgardeo" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/token{% else %}https://localhost:9443/t/{root_organization_handle}/oauth2/token{% endif %} \
+curl -v -k -X POST {% if product_name == "WSO2 Identity Platform" %}https://api.asgardeo.io/t/YOUR_ORG/oauth2/token{% else %}https://localhost:9443/t/{root_organization_handle}/oauth2/token{% endif %} \
 --header "Authorization: Basic <Base64Encoded(CLIENT_ID:CLIENT_SECRET)>" \
 --header "Content-Type: application/x-www-form-urlencoded" \
 --data-urlencode "grant_type=urn:openid:params:grant-type:ciba" \
@@ -902,7 +902,7 @@ Common issues and their solutions when running the Sleeping Guardian tutorial.
 
 1. Check spam/junk folder
 2. Verify email is confirmed in {{ product_name }} (User Management → Users → Alice → Email verified)
-3. Check {{ product_name }} email provider configuration {% if product_name == "Asgardeo" %}(Branding → Email Provider){% endif %}
+3. Check {{ product_name }} email provider configuration {% if product_name == "WSO2 Identity Platform" %}(Branding → Email Provider){% endif %}
 
 ### Scope Check Failed
 
@@ -992,7 +992,7 @@ Now that you've completed this tutorial, consider:
 
 ## Learn More
 
-- {% if product_name == "Asgardeo" %}[Asgardeo Documentation](https://wso2.com/asgardeo/docs/){% else %}[WSO2 Identity Server Documentation](https://is.docs.wso2.com){% endif %}
+- {% if product_name == "WSO2 Identity Platform" %}[WSO2 Identity Platform Documentation](https://wso2.com/asgardeo/docs/){% else %}[WSO2 Identity Server Documentation](https://is.docs.wso2.com){% endif %}
 - [CIBA Specification](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [OAuth 2.0 Security Best Practices](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics)

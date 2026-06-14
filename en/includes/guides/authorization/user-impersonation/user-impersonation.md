@@ -237,7 +237,7 @@ To allow impersonating organization users, share the business applications with 
 
 To troubleshoot issues and keep track of impersonators' actions, you can use {{product_name}} logs for user impersonation. Whenever a resource gets modified using an impersonated access token, an audit log prints with the relevant details of the impersonator.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 You can access these logs from the **Logs** section of the {{product_name}} Console.
 

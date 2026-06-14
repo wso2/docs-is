@@ -13,7 +13,7 @@ In this guide, you will:
 
 * Register an application in {{product_name}}
 * Create a sample Javascript app
-* Install Asgardeo JavaScript SDK
+* Install WSO2 Identity Platform JavaScript SDK
 * Add login and logout  to your app
 * Display logged in user detail
 * Securing routes within the app

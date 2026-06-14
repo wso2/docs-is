@@ -1,9 +1,9 @@
 
-In a React app, routes define the paths within the application that users can navigate to, linking URLs to specific components. Securing routes is essential to protect sensitive data, prevent unauthorized access, and ensure that only authenticated users can access certain parts of the application. In this section, let’s look at how we can secure routes using Asgardeo React SDK
+In a React app, routes define the paths within the application that users can navigate to, linking URLs to specific components. Securing routes is essential to protect sensitive data, prevent unauthorized access, and ensure that only authenticated users can access certain parts of the application. In this section, let’s look at how we can secure routes using WSO2 Identity Platform React SDK
 
-<!-- The Asgardeo SDK provides multiple approaches to secure routes in your application. Here we will demonstrate how to secure routes in a single-page React app using [React Router v6](https://reactrouter.com/en/main){:target="_blank"} , the most popular routing library for React. The same approach can be applied to other routing libraries such as [TanStack Router](https://tanstack.com/router/latest){:target="_blank"}  and [Wouter](https://github.com/molefrog/wouter){:target="_blank"}, etc. -->
+<!-- The WSO2 Identity Platform SDK provides multiple approaches to secure routes in your application. Here we will demonstrate how to secure routes in a single-page React app using [React Router v6](https://reactrouter.com/en/main){:target="_blank"} , the most popular routing library for React. The same approach can be applied to other routing libraries such as [TanStack Router](https://tanstack.com/router/latest){:target="_blank"}  and [Wouter](https://github.com/molefrog/wouter){:target="_blank"}, etc. -->
 
-The Asgardeo SDK provides multiple approaches to secure routes in your application. Here we will demonstrate how to secure routes in a single-page React app using [Asgardeo React Router](https://github.com/asgardeo/web-ui-sdks/tree/main/packages/react-router){:target="_blank"}
+The WSO2 Identity Platform SDK provides multiple approaches to secure routes in your application. Here we will demonstrate how to secure routes in a single-page React app using [WSO2 Identity Platform React Router](https://github.com/asgardeo/web-ui-sdks/tree/main/packages/react-router){:target="_blank"}
 
 @asgardeo/react-router is a supplementary package that provides seamless integration between {{product_name}} authentication and React Router. It offers components to easily protect routes and handle authentication flows in your React applications.
 
@@ -166,7 +166,7 @@ function App() {
 
 ## Bring your own implementation
 
-If you prefer to have full control over how the app routes should be secured—for example, if you want to run custom application logic before enabling or disabling a route—you can also build a completely custom logic using the primitives provided by the Asgardeo React SDK out of the box.
+If you prefer to have full control over how the app routes should be secured—for example, if you want to run custom application logic before enabling or disabling a route—you can also build a completely custom logic using the primitives provided by the WSO2 Identity Platform React SDK out of the box.
 
 ```javascript
 

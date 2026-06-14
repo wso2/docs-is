@@ -1,4 +1,4 @@
-The `SignUpButton` component provides a flexible sign-up button for browser-based React applications using Asgardeo authentication. It supports both render props and traditional children, and can be customized with preferences such as internationalization (i18n).
+The `SignUpButton` component provides a flexible sign-up button for browser-based React applications using WSO2 Identity Platform authentication. It supports both render props and traditional children, and can be customized with preferences such as internationalization (i18n).
 
 ## Overview
 

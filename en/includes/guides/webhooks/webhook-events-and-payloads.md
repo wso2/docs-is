@@ -1,8 +1,11 @@
-# Webhook events and payloads {% if product_name == "Asgardeo" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
+# Webhook events and payloads {% if product_name == "WSO2 Identity Platform" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
 
 This guide details the webhook event types dispatched by {{product_name}}. For each event, you'll find JSON payload examples and descriptions of their properties.
 
-{% if product_name == "Asgardeo" %}
+!!! Note
+      In webhook event payloads, <code>initiatorIpAddress</code> (when present) represents the IP address of the initiator that triggered the event.
+
+{% if product_name == "WSO2 Identity Platform" %}
 !!! Note
       This feature is currently in **Preview**. Functionality and event payloads may change during development.  
       Expect updates without prior notice.
@@ -18,7 +21,7 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -169,7 +172,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -362,7 +365,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -373,6 +376,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "3fae4858-4b26-4608-9df4-78ae75e3adda",
         "claims": [
@@ -432,6 +436,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "3fae4858-4b26-4608-9df4-78ae75e3adda",
         "claims": [
@@ -512,11 +517,15 @@ The table below explains each property in the event data.
 </tr>
 <tr class="odd">
 <td>initiatorType</td>
-<td><p>Indicates whether an administrator, user, or application initiated the registration. Refer to <a href="#initatorType-and-action">initiatorType and action properties</a> for details.</p></td>
+<td><p>Indicates whether an administrator, user, or application initiated the registration. Refer to <a href="#initiatorType-and-action-registration"><code>initiatorType</code> and <code>action</code> properties</a> for details.</p></td>
 </tr>
 <tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
 <td>action</td>
-<td><p>Indicates whether the registration uses direct admin registration, user self-registration, or admin invite flow. Refer to <a href="#initatorType-and-action">initiatorType and action properties</a> for details.</p></td>
+<td><p>Indicates whether the registration uses direct admin registration, user self-registration, or admin invite flow. Refer to <a href="#initiatorType-and-action-registration"><code>initiatorType</code> and <code>action</code> properties</a> for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -527,7 +536,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -538,6 +547,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed": {
       "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "claims": [
           {
@@ -590,6 +600,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed": {
       "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "claims": [
           {
@@ -659,11 +670,15 @@ The table below explains each property in the event data.
 </tr>
 <tr class="even">
 <td>initiatorType</td>
-<td><p>Indicates whether an administrator, user, or application initiated the registration. Refer to <a href="#initatorType-and-action">initiatorType and action properties</a> for details.</p></td>
+<td><p>Indicates whether an administrator, user, or application initiated the registration. Refer to <a href="#initiatorType-and-action-registration"><code>initiatorType</code> and <code>action</code> properties</a> for details.</p></td>
 </tr>
 <tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
 <td>action</td>
-<td><p>Indicates whether the registration uses direct admin registration, user self-registration, or admin invite flow. Refer to <a href="#initatorType-and-action">initiatorType and action properties</a> for details.</p></td>
+<td><p>Indicates whether the registration uses direct admin registration, user self-registration, or admin invite flow. Refer to <a href="#initiatorType-and-action-registration"><code>initiatorType</code> and <code>action</code> properties</a> for details.</p></td>
 </tr>
 <tr class="even">
 <td>reason</td>
@@ -672,9 +687,9 @@ The table below explains each property in the event data.
 </tbody>
 </table>
 
-<a name="initatorType-and-action"></a>
+<a name="initiatorType-and-action-registration"></a>
 
-### <code>initiatorType</code> and <code>action</code> properties
+### <code>initiatorType</code> and <code>action</code> properties for registration events
 
 The initiatorType and the action property together show which flow triggers a user registration.
 
@@ -727,7 +742,7 @@ The table below explains how these properties differ based on each flow.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -897,7 +912,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1058,7 +1073,7 @@ This event triggers for every new session creation during the login process. It 
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1230,7 +1245,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1402,7 +1417,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1566,7 +1581,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1577,6 +1592,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -1625,6 +1641,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -1698,18 +1715,22 @@ The table below explains each property in the event data.
 </tr>
 <tr class="even">
 <td>initiatorType</td>
-<td><p>Indicates whether an administrator, user, or application initiated the password update. Refer to initiatorType and action properties for details.</p></td>
+<td><p>Indicates whether an administrator, user, or application initiated the password update. Refer to <a href="#initiatorType-and-action-credential-update"><code>initiatorType</code> and <code>action</code> properties</a> for details.</p></td>
 </tr>
 <tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
 <td>action</td>
-<td><p>Indicates whether the password update uses a reset flow, update flow, or invite flow. Refer to initiatorType and action properties for details.</p></td>
+<td><p>Indicates whether the password update uses a reset flow, update flow, or invite flow. Refer to <a href="#initiatorType-and-action-credential-update"><code>initiatorType</code> and <code>action</code> properties</a> for details.</p></td>
 </tr>
 </tbody>
 </table>
 
-<a name="initatorType-and-action"></a>
+<a name="initiatorType-and-action-credential-update"></a>
 
-### <code>initiatorType</code> and <code>action</code> properties
+### <code>initiatorType</code> and <code>action</code> properties for credential update events
 
 The initiatorType and the action property together show which flow triggers a password update.
 
@@ -1732,7 +1753,7 @@ The table below explains how these properties differ based on each flow.
 <td><p>Occurs when a user updates their password through profile settings in My Account app or via
 {% if product_name == "WSO2 Identity Server"%}
 <a href="{{base_path}}/apis/scim2-me-rest-apis/">SCIM 2.0 Me API</a>
-{% elif product_name == "Asgardeo" %}
+{% elif product_name == "WSO2 Identity Platform" %}
 <a href="{{base_path}}/apis/scim2-me/">SCIM 2.0 Me API</a>
 {% endif %}.</p></td>
 </tr>
@@ -1781,7 +1802,7 @@ This event triggers when administrators, applications, or users create accounts 
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1792,6 +1813,7 @@ This event triggers when administrators, applications, or users create accounts 
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userCreated": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
         "claims": [
@@ -1851,6 +1873,7 @@ This event triggers when administrators, applications, or users create accounts 
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userCreated": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
         "claims": [
@@ -1934,6 +1957,10 @@ The table below explains each property in the event data.
 <td><p>Indicates whether an administrator, user, or application initiated the user creation.</p></td>
 </tr>
 <tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
 <td>action</td>
 <td><p>Shows the user creation flow type. Can have values like <code>REGISTER</code> for direct registration or <code>INVITE</code> for invitation-based creation.</p></td>
 </tr>
@@ -1946,7 +1973,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -1957,6 +1984,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "organization": {
@@ -2010,6 +2038,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "organization": {
@@ -2094,6 +2123,10 @@ The table below explains each property in the event data.
 <td><p>Indicates whether an administrator, user, or application initiated the profile update.</p></td>
 </tr>
 <tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
 <td>action</td>
 <td><p>Shows the profile update flow type. Currently has the value <code>UPDATE</code>, indicating a standard profile update flow.</p></td>
 </tr>
@@ -2106,7 +2139,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2117,6 +2150,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDisabled": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -2163,6 +2197,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDisabled": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -2232,6 +2267,10 @@ The table below explains each property in the event data.
 <td>initiatorType</td>
 <td><p>Indicates whether an administrator or application initiated the user disablement.</p></td>
 </tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -2241,7 +2280,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2252,6 +2291,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userEnabled": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -2298,6 +2338,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userEnabled": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -2367,6 +2408,10 @@ The table below explains each property in the event data.
 <td>initiatorType</td>
 <td><p>Indicates whether an administrator or application initiated the user enablement.</p></td>
 </tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -2378,7 +2423,7 @@ This event triggers when accounts get locked due to failed login attempts, admin
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2509,7 +2554,7 @@ This event triggers when locked accounts get restored to normal status through a
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2638,7 +2683,7 @@ The table below explains each property in the event data.
 
 **Example Payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -2649,6 +2694,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDeleted": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "0bd61ecd-e974-41e6-a962-8b712090240f",
         "claims": [
@@ -2695,6 +2741,7 @@ The table below explains each property in the event data.
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDeleted": {
       "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "0bd61ecd-e974-41e6-a962-8b712090240f",
         "claims": [
@@ -2763,6 +2810,10 @@ The table below explains each property in the event data.
 <tr class="odd">
 <td>initiatorType</td>
 <td><p>Indicates whether an administrator or application initiated the user deletion.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
 </tr>
 </tbody>
 </table>

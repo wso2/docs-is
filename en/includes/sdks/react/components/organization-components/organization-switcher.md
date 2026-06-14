@@ -1,4 +1,4 @@
-The `OrganizationSwitcher` component provides a dropdown menu for switching between organizations in your Asgardeo-enabled app. It automatically retrieves organizations and the current organization from context, and includes built-in dialogs for managing organizations, viewing organization profiles, and creating new organizations.
+The `OrganizationSwitcher` component provides a dropdown menu for switching between organizations in your WSO2 Identity Platform-enabled app. It automatically retrieves organizations and the current organization from context, and includes built-in dialogs for managing organizations, viewing organization profiles, and creating new organizations.
 
 ## Overview
 

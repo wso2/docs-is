@@ -5,7 +5,7 @@
 
 2. Select your application, go to the **Login Flow** tab and add WS-Federation from your preferred editor:
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     === "Classic Editor"
         To add WS-Federation login using the Classic Editor:
 
@@ -22,7 +22,7 @@
 
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your WS-Federation connection.
 
-            ![Add OIDC IdP login in Asgardeo with visual editor]({{base_path}}/assets/img/guides/idp/ws-fed-idp/add-ws-fed-idp-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add OIDC IdP login in WSO2 Identity Platform with visual editor]({{base_path}}/assets/img/guides/idp/ws-fed-idp/add-ws-fed-idp-with-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
     ---
     {% else %}
     1. Click **Add Sign In Option** to add a new authenticator to the first step.

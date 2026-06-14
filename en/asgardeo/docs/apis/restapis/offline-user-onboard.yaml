@@ -4,7 +4,7 @@ info:
   title:  Offline User Onboard Management API
   description: >-
     This document specifies an **Offline user onboard management RESTFull API** for
-    Asgardeo.
+    WSO2 Identity Platform.
 
 paths:
   '/offline-invite-link':

@@ -4,7 +4,7 @@ Group-based provisioning allows you to automatically provision users to external
 
 ## Prerequisites
 
-{% if product_name == "Asgardeo" or is_version > "7.2.0" %}
+{% if product_name == "WSO2 Identity Platform" or is_version > "7.2.0" %}
 Before you begin, ensure you have [set up outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) at the organization or application level.
 {% else %}
 Before you begin, ensure you have [set up outbound provisioning]({{base_path}}/guides/users/outbound-provisioning/setup-outbound-provisioning) at the organization level.

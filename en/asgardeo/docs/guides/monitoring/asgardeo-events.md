@@ -1,11 +1,11 @@
-# Asgardeo events
+# WSO2 Identity Platform events
 
-Asgardeo triggers events corresponding to the various user interactions in your Asgardeo organization. You can configure Asgardeo to publish these events to WSO2's integration platform, [Choreo](https://wso2.com/choreo/){:target="_blank"}. From there, you can define custom business logic that can be executed when an event occurs.
+WSO2 Identity Platform triggers events corresponding to the various user interactions in your WSO2 Identity Platform organization. You can configure WSO2 Identity Platform to publish these events to WSO2's integration platform, [Choreo](https://wso2.com/choreo/){:target="_blank"}. From there, you can define custom business logic that can be executed when an event occurs.
 
-Asgardeo publishes the following events under three main categories.
+WSO2 Identity Platform publishes the following events under three main categories.
 
 !!! Important
-    All events published by Asgardeo are end-to-end encrypted until Choreo processes and decrypts them.
+    All events published by WSO2 Identity Platform are end-to-end encrypted until Choreo processes and decrypts them.
 
 
 - <a href="#login-events">**Login events**</a> - Events related to login flows.
@@ -32,48 +32,48 @@ Asgardeo publishes the following events under three main categories.
 
     - **[Confirm self-signup event](#confirm-self-signup-event)**: Published when a user completes account verification during self-sign-up.
 
-## Configure Asgardeo to publish events
+## Configure WSO2 Identity Platform to publish events
 
-Follow the steps below to configure event publishing for Asgardeo.
+Follow the steps below to configure event publishing for WSO2 Identity Platform.
 
-1. On the Asgardeo Console, go to **Monitoring** > **Events**.
+1. On the WSO2 Identity Platform Console, go to **Monitoring** > **Events**.
 
 2. Select the events that you wish to publish to Choreo and click **Update**.
 
-    ![Asgardeo Console UI for events]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![WSO2 Identity Platform Console UI for events]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! info
         Alternatively, you can invoke the **Event Configuration Management** API to configure event publishing. See the <a :href="$withBase('/apis/event-configuration/')">API Documentation</a> to learn more.
 
-## Implement business use cases for Asgardeo events
+## Implement business use cases for WSO2 Identity Platform events
 
-Follow the steps below to define a business logic that will trigger when an Asgardeo event occurs.
+Follow the steps below to define a business logic that will trigger when an WSO2 Identity Platform event occurs.
 
 ### Prerequisite
 - You need to have a GitHub repository to host the business logic.
 
-- Download [Ballerina](https://ballerina.io/downloads/){:target="_blank"}, the programming language used to define business logic for Asgardeo events.
+- Download [Ballerina](https://ballerina.io/downloads/){:target="_blank"}, the programming language used to define business logic for WSO2 Identity Platform events.
 
 
 ### Define the business logic
 
-Let's set up a sample business use case such that whenever a <a href="#registration-events">registration event</a> is generated in Asgardeo, it gets logged in the Choreo console.
+Let's set up a sample business use case such that whenever a <a href="#registration-events">registration event</a> is generated in WSO2 Identity Platform, it gets logged in the Choreo console.
 
 Follow the steps below to programmatically define the business logic.
 
 1. Create a new Ballerina package. Learn how to do so in the [Ballerina documentation](https://ballerina.io/learn/get-started/){:target="_blank"}.
 
-2. Navigate to the **Ballerina.toml** file and rename the organization name to that of your Asgardeo organization.
+2. Navigate to the **Ballerina.toml** file and rename the organization name to that of your WSO2 Identity Platform organization.
 
 3. Navigate to your **main.bal** file and define the business logic.
 
     <div class="admonition note">
     <p class="admonition-title">New to Ballerina?</p>
-    <p>Learn more about the **Asgardeo trigger** module and how to program business logic for different types of events in the <a href="https://central.ballerina.io/ballerinax/trigger.asgardeo/latest" target="_blank">Ballerina documentation</a>.</p>
+    <p>Learn more about the **WSO2 Identity Platform trigger** module and how to program business logic for different types of events in the <a href="https://central.ballerina.io/ballerinax/trigger.asgardeo/latest" target="_blank">Ballerina documentation</a>.</p>
     </div>
 
 
-    The following is a sample code that logs the event in the Choreo console, when a registration event is generated in Asgardeo.
+    The following is a sample code that logs the event in the Choreo console, when a registration event is generated in WSO2 Identity Platform.
 
     ``` java
     import ballerinax/trigger.asgardeo;
@@ -114,10 +114,10 @@ Follow the steps below to programmatically define the business logic.
 
 Follow the steps below to create and deploy a webhook in Choreo.
 
-1. Navigate to [Choreo](https://console.choreo.dev/login){:target="_blank"} and if you don't have one already, create an organization with the same name and email address you used to create your Asgardeo organization.
+1. Navigate to [Choreo](https://console.choreo.dev/login){:target="_blank"} and if you don't have one already, create an organization with the same name and email address you used to create your WSO2 Identity Platform organization.
 
     !!! info
-        Organizations in Asgardeo and Choreo synchronize based on their names.
+        Organizations in WSO2 Identity Platform and Choreo synchronize based on their names.
 
 
 2. Select a project from the **Project** dropdown.
@@ -147,7 +147,7 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 Once the webhook is deployed in Choreo, follow the steps below to try it out.
 
-1. Login to the Asgardeo Console and go to **User Management** > **Users**.
+1. Login to the WSO2 Identity Platform Console and go to **User Management** > **Users**.
 
 2. Click **Add User** and create a new user.
 
@@ -158,13 +158,13 @@ Once the webhook is deployed in Choreo, follow the steps below to try it out.
 
 4. Find the **Logs** tab and filter for the logged add user event.
 
-    ![Choreo logs for Asgardeo events]({{base_path}}/assets/img/guides/asgardeo-events/choreo-logs-for-asgardeo-events.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Choreo logs for WSO2 Identity Platform events]({{base_path}}/assets/img/guides/asgardeo-events/choreo-logs-for-asgardeo-events.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
-## Payload of an Asgardeo event
+## Payload of an WSO2 Identity Platform event
 
-The payload of an Asgardeo event that is sent to Choreo consists of the following data objects:
-- **Security Data** object - The security data object is common to all Asgardeo events. This contains the following security metadata about the event.
+The payload of an WSO2 Identity Platform event that is sent to Choreo consists of the following data objects:
+- **Security Data** object - The security data object is common to all WSO2 Identity Platform events. This contains the following security metadata about the event.
 
   <table>
   <thead>
@@ -202,18 +202,18 @@ The payload of an Asgardeo event that is sent to Choreo consists of the followin
 
   ``` js
   {
-   "iss": "Asgardeo",
+   "iss": "WSO2 Identity Platform",
    "jti": "3b69b103-fa6c-424a-bbf4-a974d0c2d2a3",
    "iat": 1659732032884,
    "aud": "https://websubhub/topics/myorg/REGISTRATIONS"
   }
   ```
 
-- **Event Data** object - The event data object contains the details of the event (or the user action). Learn more about event data in the <a href="#event-data-of-asgardeo-events">Event data of Asgardeo events</a> section.
+- **Event Data** object - The event data object contains the details of the event (or the user action). Learn more about event data in the <a href="#event-data-of-wso2-identity-platform-events">Event data of WSO2 Identity Platform events</a> section.
 
-## Event data of Asgardeo events
+## Event data of WSO2 Identity Platform events
 
-This section describes all the Asgardeo events that can be published to Choreo and their respective event payloads.
+This section describes all the WSO2 Identity Platform events that can be published to Choreo and their respective event payloads.
 
 ### Login events
 

@@ -3,10 +3,10 @@
 Given below are the high-level steps for enabling conditional authentication in your applications.
 
 !!! note
-    {% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
     - **ECMAScript Compliance**: Adaptive scripts currently comply with ECMAScript 2022 (ES13). 
     {% endif %}
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     - **Limitations**: Adaptive scripts do not support loops, `Log.warn` logs, or stringifying Java objects using `JSON.stringify()`.
     {% else %}
     - **Limitations**: Adaptive scripts do not support `Log.warn` logs or stringifying Java objects using `JSON.stringify()`.
@@ -34,7 +34,7 @@ There are two ways to add a conditional authentication script:
 - Use a [predefined template]({{base_path}}/guides/authentication/conditional-auth/#script-templates).
 - Write a [new conditional auth script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 !!! warning "Before you proceed"
 
@@ -42,7 +42,7 @@ There are two ways to add a conditional authentication script:
 
 {% endif %}
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version >= "7.1.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version >= "7.1.0") %}
 
 ## Add a secret to the script
 Secrets securely store values associated with external APIs. These secret values are used in conditional authentication scripts when {{ product_name }} is required to interact with an external API (service endpoint) during the authentication process.

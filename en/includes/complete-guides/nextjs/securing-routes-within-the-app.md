@@ -142,7 +142,7 @@ Now verify that you cannot access http://localhost:3000/client-profile URL when 
 
 In this step, we looked into how to secure component routes within a Next.js app. Next, we will try to access a protected API from our Next.js app, which is a common requirement. -->
 
-Using the Next Asgardeo SDK you can also secure routes. For example if you have a page you need to show only when the user is logged in, you can follow the below steps.
+Using the Next WSO2 Identity Platform SDK you can also secure routes. For example if you have a page you need to show only when the user is logged in, you can follow the below steps.
 
 Add the following to the middleware.ts file
 

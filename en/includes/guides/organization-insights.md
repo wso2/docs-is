@@ -138,7 +138,7 @@ To filter insights,
         <tr>
           <td>Connection ID</td>
           <td>Filter logins based on the UUID of the connection used for login.<br></br>
-            (You can find the UUID of a connection from the URL that appears when you select the connection from the Connections section on the Asgardeo Console.)</br></br>
+            (You can find the UUID of a connection from the URL that appears when you select the connection from the Connections section on the WSO2 Identity Platform Console.)</br></br>
             For example, if you have multiple Google connections configured, you can filter based on one of them by entering its UUID.
             </br>
             </td>

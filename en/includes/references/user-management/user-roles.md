@@ -1,13 +1,13 @@
 
-{% if product_name == "Asgardeo" and default_roles == true %}
+{% if product_name == "WSO2 Identity Platform" and default_roles == true %}
 
-# Asgardeo user roles
+# WSO2 Identity Platform user roles
 
-Roles assigned to a group or user determine their permissions for accessing resources in the organization. Asgardeo offers a set of default roles that tailor the Console experience to privileged users. As the organization administrator/owner, you can assign these roles to privileged users.
+Roles assigned to a group or user determine their permissions for accessing resources in the organization. WSO2 Identity Platform offers a set of default roles that tailor the Console experience to privileged users. As the organization administrator/owner, you can assign these roles to privileged users.
 
 !!! note
 
-    The roles described here are only for the Asgardeo Console. To learn more about roles that govern access to REST APIs, refer to [manage roles]({{base_path}}/guides/users/manage-roles/).
+    The roles described here are only for the WSO2 Identity Platform Console. To learn more about roles that govern access to REST APIs, refer to [manage roles]({{base_path}}/guides/users/manage-roles/).
 
 <table>
   <tr>
@@ -16,11 +16,11 @@ Roles assigned to a group or user determine their permissions for accessing reso
   </tr>
   <tr>
     <td><b>Auditor</b></td>
-    <td>This role provides list and view permissions to Asgardeo resources. With read-only access to all resources in the Asgardeo Console, this role suits troubleshooting issues and supporting other users within the organization. </td>
+    <td>This role provides list and view permissions to WSO2 Identity Platform resources. With read-only access to all resources in the WSO2 Identity Platform Console, this role suits troubleshooting issues and supporting other users within the organization. </td>
   </tr>
   <tr>
     <td><b>Editor - Applications</b></td>
-    <td>This role provides permissions for registering and managing applications, ideal for privileged users who can integrate applications with Asgardeo.</td>
+    <td>This role provides permissions for registering and managing applications, ideal for privileged users who can integrate applications with WSO2 Identity Platform.</td>
   </tr>
   <tr>
     <td><b>Viewer - Applications</b></td>
@@ -44,11 +44,11 @@ The following sections outline the permissions for each role. Resources not expl
 
 ??? example "Administrator"
 
-    Administrator has read/write access to all the resources in the Asgardeo Console.
+    Administrator has read/write access to all the resources in the WSO2 Identity Platform Console.
 
 ??? example "Auditor"
 
-    Auditor has read-only access to all the resources in the Asgardeo Console.
+    Auditor has read-only access to all the resources in the WSO2 Identity Platform Console.
 
 ??? example "Editor - Applications"
 
@@ -806,7 +806,7 @@ The following list contains the permissions enabled for an {{ admin_role_name }}
 
 {% endif %}
 
-{% if product_name == "Asgardeo" or is_version >= "7.0.0" %}
+{% if product_name == "WSO2 Identity Platform" or is_version >= "7.0.0" %}
 
 ## Create custom console roles
 
@@ -835,7 +835,7 @@ You can assign users to roles using either of the following methods:
 2. On the **Console Settings** > **Roles** tab, click on the role you want to assign. In the **Role Settings** page, go to the **Users** tab and click **Assign User** to assign users to the role.
    ![assign-role-from-roles]({{base_path}}/assets/img/references/user-management/assign-console-role-from-roles-tab.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 !!! note
     To assign users within the organization, enable the **Enable users to manage the organization** from **Console Settings** > **Administrators** tab by clicking on the **Settings** icon.
 {% endif %}

@@ -1,7 +1,7 @@
 
 Now since Self Registration has been enabled in {{product_name}} let's move on to configuring this in the Next application. Once the user signs up we will be providing the permissions to manage teams via the 'TEAM_ADMIN' role we created using the adaptive scripts feature in {{product_name}}.
 
-Asgardeo SDK provides `SignUp`, `SignUpButton`components to handle user self sign up.
+WSO2 Identity Platform SDK provides `SignUp`, `SignUpButton`components to handle user self sign up.
 
 Replace the existing content of the `app/page.tsx` file with following content to add the Sign Up button.
 
@@ -43,7 +43,7 @@ export default function Home() {
 
 This code snippet adds a Sign Up button in the application.
 
-Now since we need to display a Sign Up Page, the following can be done to integrate the Asgardeo Next SDK with {{product_name}} and perform the Sign Up.
+Now since we need to display a Sign Up Page, the following can be done to integrate the WSO2 Identity Platform Next SDK with {{product_name}} and perform the Sign Up.
 
 First, create an app route for the sign-up page. Create a new file called `app/sign-up/page.tsx` and add the following code:
 
@@ -87,7 +87,7 @@ Once the application is started, you will see the homepage of the application wi
 
 ## Initiate Sign Up
 
-Clicking on the Sign Up button will display the Sign Up page from the Asgardeo SDK as follows.
+Clicking on the Sign Up button will display the Sign Up page from the WSO2 Identity Platform SDK as follows.
 
 ![Sign Up page]({{base_path}}/assets/img/complete-guides/nextjs-b2b/image18.png){: width="800" style="display: block; margin: 0;"}
 

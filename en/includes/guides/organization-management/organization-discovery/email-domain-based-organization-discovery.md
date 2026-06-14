@@ -95,7 +95,7 @@ When you map an email domain to an organization, the organization's behavior cha
 
 - A user can only onboard to the organization if the user's email domain matches one of the domains claimed by the organization.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version == "7.0.0") %}
 
 - Just-In-Time (JIT) provisioning during federated authentication only occurs if the user's email domain matches one of the domains claimed by the organization.
 

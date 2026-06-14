@@ -14,7 +14,7 @@ App-Native Authentication takes an API-based approach to let developers implemen
         - does not facilitate enrolling authenticators (e.g. TOTP authenticator).
         - only supports silent JIT provisioning.
 
-{% if product_name == 'Asgardeo' or is_version not in ["7.0.0", "7.1.0", "7.2.0"] %}
+{% if product_name == 'WSO2 Identity Platform' or is_version not in ["7.0.0", "7.1.0", "7.2.0"] %}
     - App-native authentication does not support all authentication options. If you configure an unsupported authentication option, the login flow proceeds until it reaches that option and fails during execution.
 {% else %}
     - App-native authentication does not support all authentication options. If you configure an unsupported authentication option, the login flow does not start.
@@ -115,7 +115,7 @@ Follow the steps below to enable app-native authentication for your application.
 
 Try out App-Native Authentication using Postman.
 
-{% if product_name=="Asgardeo"%}
+{% if product_name=="WSO2 Identity Platform"%}
 [![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-83f51f64-fe45-4ca4-88b0-f670562d6b44){: target="#"}
 {% else %}
 [![Run in Postman]({{base_path}}/assets/img/logo/postman.svg)](https://app.getpostman.com/run-collection/8657284-8d164672-61aa-4326-bc5e-30314c49f6d0){: target="#"}

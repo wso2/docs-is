@@ -11,7 +11,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>Asgardeo account</a>"
+      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>WSO2 Identity Platform account</a>"
     ],
     whats_next: [
       "Try out <a href='{{ base_path }}/quick-starts/loginflow-ai/' target='_blank'>Login Flow AI Quickstart</a>",
@@ -28,9 +28,9 @@ Welcome to the Quickstart Guide for <b>Branding AI</b>! In this guide, you’ll 
 
 ## Create and configure a sample app
 
-You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-application/){:target="_blank"} hosted app without setting up a local app or create and run a sample app locally using the Asgardeo React template. 
+You can either use the WSO2 Identity Platform [Try-It]({{ base_path }}/get-started/try-it-application/){:target="_blank"} hosted app without setting up a local app or create and run a sample app locally using the WSO2 Identity Platform React template. 
 
-=== "Using Asgardeo Try-It hosted app"
+=== "Using WSO2 Identity Platform Try-It hosted app"
 
     1. On the  {{product_name}} Console, navigate to **Home** and click **Try login with the Try It app**.
     2. A dialog box appears prompting you to create a user account. Create a user account or if you already have one, click Continue to proceed.
@@ -38,9 +38,9 @@ You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-appl
     !!! note "Note"
         {{product_name}} provides a hosted sample app called [Try-It]({{ base_path }}/get-started/try-it-application/){:target="_blank"} , which allows you to explore features like passwordless login, Multi-Factor Authentication (MFA), social logins, adaptive authentication, and user provisioning without the need to create or run a local app. Once you enable the {{product_name}} Try-It app, it will automatically register and configure an application in the {{product_name}} console, making it ready for you to use.
 
-=== "Using  Asgardeo React template "
+=== "Using  WSO2 Identity Platform React template "
 
-    - Sign into Asgardeo console and navigate to **Applications > New Application**.
+    - Sign into WSO2 Identity Platform console and navigate to **Applications > New Application**.
 
     - Select **Single Page Application** and complete the wizard popup by providing a suitable name and an authorized redirect URL.
 
@@ -49,19 +49,19 @@ You can either use the Asgardeo [Try-It]({{ base_path }}/get-started/try-it-appl
     
         **Authorized redirect URL:** http://localhost:5173
 
-    -  Note down the following values from the Protocol tab of the registered application. You will need them to configure Asgardeo React SDK.
+    -  Note down the following values from the Protocol tab of the registered application. You will need them to configure WSO2 Identity Platform React SDK.
         - **`client-id`** from the **Protocol** tab.
-        - The **name** of your Asgardeo organization
+        - The **name** of your WSO2 Identity Platform organization
 
 
-    - Use the Asgardeo React template to bootstrap your application by running the following command.  
+    - Use the WSO2 Identity Platform React template to bootstrap your application by running the following command.  
 
       ```bash
 
       npx tmplr --dir my-vite-react-app asgardeo/asgardeo-vite-react-template
 
       ```
-      The Asgardeo React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
+      The WSO2 Identity Platform React template generates a ready-made React sample app with pre-configured login and logout capabilities, helping you kick-start your project in just 2 minutes. 
 
 
 ## **Try out Branding AI** 

@@ -1,10 +1,10 @@
 ![React SDK]({{base_path}}/assets/img/sdks/react/banner.png){: width="auto" style="display: block; margin-bottom: 20px;"}
 
-The Asgardeo React SDK (`@asgardeo/react`) is a component-first library, offering a highly customizable set of components for authentication, user self-care, and organization management in React applications.
+The WSO2 Identity Platform React SDK (`@asgardeo/react`) is a component-first library, offering a highly customizable set of components for authentication, user self-care, and organization management in React applications.
 
 ## Installation
 
-Use one of the following options to install the Asgardeo React SDK.
+Use one of the following options to install the WSO2 Identity Platform React SDK.
 
 === "npm"
 
@@ -36,7 +36,7 @@ The SDK provides a context-based architecture, allowing you to easily manage aut
 
 ## Components
 
-The Asgardeo React SDK provides a comprehensive set of components to handle authentication, user management, and organization features in your React applications. The components are organized into different categories based on their functionality.
+The WSO2 Identity Platform React SDK provides a comprehensive set of components to handle authentication, user management, and organization features in your React applications. The components are organized into different categories based on their functionality.
 
 ### Action Components
 
@@ -86,6 +86,6 @@ Control components manage the conditional rendering of content based on authenti
 
 ## Next Steps
 
-- [Quick Start Guide]({{base_path}}/quick-starts/react) – Get started with the Asgardeo React SDK.
-- [Complete Guide]({{base_path}}/complete-guides/react/introduction/) – Build a complete application using the Asgardeo React SDK.
+- [Quick Start Guide]({{base_path}}/quick-starts/react) – Get started with the WSO2 Identity Platform React SDK.
+- [Complete Guide]({{base_path}}/complete-guides/react/introduction/) – Build a complete application using the WSO2 Identity Platform React SDK.
 - [AsgardeoProvider]({{base_path}}/sdks/react/contexts/asgardeo-provider/) – Learn how to configure the root provider component.

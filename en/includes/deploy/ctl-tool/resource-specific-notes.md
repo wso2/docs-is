@@ -25,7 +25,7 @@ When propagating applications, do not exclude roles. Excluding roles will preven
 
 Group-based password expiry rules of the password expiry connector are not exported by IAM-CTL. As a result, these rules will be removed from the connector on import, when **`ALLOW_DELETE`** is enabled.
 
-{% if product_name == "Asgardeo" or server_version >= "7.3" %}
+{% if product_name == "WSO2 Identity Platform" or server_version >= "7.3" %}
 
 ### Identity providers
 
@@ -35,13 +35,13 @@ Outbound provisioning groups of outbound provisioning connectors are not exporte
 
 ### Organizations
 
-{% if product_name != "Asgardeo" %}
+{% if product_name != "WSO2 Identity Platform" %}
 When referencing organizations in tool configurations such as **`EXCLUDE`** or keyword mappings, use the organization handle as the resource name.
 {% endif %}
 
 When IAM-CTL creates organizations using the management application credentials, no user is assigned as the creator. As a result, no user has access to the newly created organization after creation. You can [manually assign an organization admin]({{base_path}}/guides/organization-management/onboard-org-admins/self-service-approach/#maintain-admins-within-the-organization){:target="_blank"} after IAM-CTL creates the organization.
 
-{% if product_name != "Asgardeo" and server_version >= "7.0" and server_version < "7.3" %}
+{% if product_name != "WSO2 Identity Platform" and server_version >= "7.0" and server_version < "7.3" %}
 
 To assign a creator at import time, configure **`CREATOR_ID`** and **`CREATOR_USERNAME`** under `ORGANIZATIONS` in `toolConfig.json`.
 
@@ -73,7 +73,7 @@ Branding contains two sub-resource types: **Branding Preferences** and **Custom 
     }
     ```
 
-{% if product_name == "Asgardeo" or server_version >= "7.2" %}
+{% if product_name == "WSO2 Identity Platform" or server_version >= "7.2" %}
 
 ### Workflows
 

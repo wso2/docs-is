@@ -14,7 +14,7 @@ Welcome to the Vue quickstart guide! In this document, you will learn to build a
 
     **Authorized redirect URL:** `http://localhost:5173`
 
-Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure the Asgardeo Vue SDK.
+Once you finish creating the application, note down the following values from its **Guide** tab. You will need them to configure the WSO2 Identity Platform Vue SDK.
 
 - **Client ID** - The unique identifier for your application.
 - **Base URL** - The base URL of your {{ product_name }} organization. This typically follows the format `{{content.sdkconfig.baseUrl}}`
@@ -56,7 +56,7 @@ Create (scaffold) your new Vue app using [Vite](https://vite.dev/).
 
 ## Install `@asgardeo/vue`
 
-Asgardeo Vue SDK provides all the components and composables you need to integrate {{ product_name }} into your app. To get started, simply add the Asgardeo Vue SDK to the project. Make sure to stop the dev server you started in the previous step.
+WSO2 Identity Platform Vue SDK provides all the components and composables you need to integrate {{ product_name }} into your app. To get started, simply add the WSO2 Identity Platform Vue SDK to the project. Make sure to stop the dev server you started in the previous step.
 
 === "npm"
 
@@ -78,7 +78,7 @@ Asgardeo Vue SDK provides all the components and composables you need to integra
 
 ## Add `AsgardeoPlugin` and `<AsgardeoProvider />` to your app
 
-`AsgardeoPlugin` registers the Asgardeo Vue SDK globally with your Vue application. `<AsgardeoProvider />` wraps your app and makes authentication context available to all child components.
+`AsgardeoPlugin` registers the WSO2 Identity Platform Vue SDK globally with your Vue application. `<AsgardeoProvider />` wraps your app and makes authentication context available to all child components.
 
 Add the following changes to `main.js` to register the plugin.
 
@@ -115,7 +115,7 @@ Then replace the contents of `App.vue` with the following to wrap your app with 
 
 ## Add sign-in and sign-out to your app
 
-Asgardeo Vue SDK provides `SignInButton` and `SignOutButton` components to handle user sign-in and sign-out. Use these components alongside `SignedIn` and `SignedOut` to conditionally render content based on the user's sign-in state.
+WSO2 Identity Platform Vue SDK provides `SignInButton` and `SignOutButton` components to handle user sign-in and sign-out. Use these components alongside `SignedIn` and `SignedOut` to conditionally render content based on the user's sign-in state.
 
 Replace the contents of `App.vue` with the following.
 

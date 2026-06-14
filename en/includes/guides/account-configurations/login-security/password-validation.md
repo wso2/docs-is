@@ -38,7 +38,7 @@ To configure rule-based password expiration,
 
 1. Turn the **Password Expiration** toggle on to enable password expiration.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 2. Select the users that this policy should apply using the **Enforce password expiry for** field:
 
     - **All application login flows**: Applies to all users of an organization, regardless of the application they access. This is the default behavior.
@@ -72,13 +72,13 @@ To configure rule-based password expiration,
             ```
 {% endif %}
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 3. Set a default password expiry rule that applies to any user who does not meet the custom criteria.
 {% else %}
 2. Set a default password expiry rule that applies to any user who does not meet the custom criteria.
 {% endif %}
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 4. Click **Add Rule** and start defining custom rules. Each rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
 {% else %}
 3. Click **Add Rule** and start defining custom rules. Each rule you add will be added to the top of the list. You may use the arrows on the left to change their priorities.
@@ -116,7 +116,7 @@ Refer to the following table for more information on rule parameters.
     </tr>
 </table>
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 
 !!! abstract "Retrieve password expiry time of users"
 

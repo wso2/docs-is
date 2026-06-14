@@ -6,7 +6,7 @@ Follow the steps given below.
 2. Select the application to which you wish to add SMS OTP.
 3. Go to the **Login Flow** tab of the application and add the SMS OTP authenticator from your preferred editor:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
     === "Visual Editor"
         To add SMS OTP as a second-factor authenticator using the Visual Editor:
 
@@ -16,7 +16,7 @@ Follow the steps given below.
 
         3. Click **Confirm** to add SMS OTP as a second factor to the sign-in flow.
 
-            ![Configuring SMS OTP authenticator in Asgardeo using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Configuring SMS OTP authenticator in WSO2 Identity Platform using the visual editor]({{base_path}}/assets/img/guides/mfa/smsotp/add-sms-otp-authenticator-using-visual-editor.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
         
         4. Select **Enable backup codes** if you wish to allow users to use backup codes to log in to the application. Learn more about [configuring backup codes for users]({{base_path}}/guides/user-self-service/manage-backup-codes/).
 

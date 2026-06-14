@@ -54,7 +54,7 @@ Move into the project directory, and delete the `github-handler.ts`, `workers-oa
 
 ```
 
-Then copy the following Asgardeo handler files from the [Cloudflare MCP Asgardeo handler GitHub repository](https://github.com/sagara-gunathunga/cloudflare-mcp-asgardeo/tree/main/asgardeo-handler){:target="_blank"}.
+Then copy the following WSO2 Identity Platform handler files from the [Cloudflare MCP WSO2 Identity Platform handler GitHub repository](https://github.com/sagara-gunathunga/cloudflare-mcp-asgardeo/tree/main/asgardeo-handler){:target="_blank"}.
 
 - asgardeo-handler.ts
 - types.ts
@@ -75,7 +75,7 @@ import { Props } from "./types";
 
 export class MyMCP extends McpAgent<Env, {}, Props> {
   server = new McpServer({
-    name: "Asgardeo OAuth Proxy Demo",
+    name: "WSO2 Identity Platform OAuth Proxy Demo",
     version: "1.0.0",
   });
 
@@ -104,7 +104,7 @@ export class MyMCP extends McpAgent<Env, {}, Props> {
 }
 ```
 
-Then add the following code at the end of the file to exports a ready-to-use Asgardeo OAuth provider, pre-configured for handling authentication flows at specific endpoints in the Cloudflare serverless environment.
+Then add the following code at the end of the file to exports a ready-to-use WSO2 Identity Platform OAuth provider, pre-configured for handling authentication flows at specific endpoints in the Cloudflare serverless environment.
 
 ```typescript title="index.ts"
 
@@ -226,10 +226,10 @@ https://remote-mcp-asgardeo.<your-subdomain>.workers.dev/callback
 
 To set it up:
 
-1. Log in to the **Asgardeo Console**.
+1. Log in to the **WSO2 Identity Platform Console**.
 2. Navigate to the application you created.
 3. Go to the **Protocol** tab.
-4. Add above value into **Authorized redirect URLs**  so that Asgardeo can recognize it as a valid redirect URL.
+4. Add above value into **Authorized redirect URLs**  so that WSO2 Identity Platform can recognize it as a valid redirect URL.
 
 The connection URL of the MCP server that we deployed into Cloudflare take the following format.
 
@@ -242,7 +242,7 @@ https://remote-mcp-asgardeo.<your-subdomain>.workers.dev/sse
     You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login feature.
 
 You can test the MCP server using the [Cloudflare Workers AI LLM Playground](https://playground.ai.cloudflare.com/).
-Simply enter `https://remote-mcp-asgardeo.<your-subdomain>.workers.dev/sse` as the MCP server URL and click **Connect**. This will redirect you to the Asgardeo login page. Once you've completed the login process, you’ll be able to interact with the LLM in the Playground and use the tools defined in your MCP server.
+Simply enter `https://remote-mcp-asgardeo.<your-subdomain>.workers.dev/sse` as the MCP server URL and click **Connect**. This will redirect you to the WSO2 Identity Platform login page. Once you've completed the login process, you’ll be able to interact with the LLM in the Playground and use the tools defined in your MCP server.
 
 For example, try asking the LLM: **“Who am I?”**
 

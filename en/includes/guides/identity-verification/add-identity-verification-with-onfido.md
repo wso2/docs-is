@@ -109,7 +109,7 @@ Follow the steps below to create a webhook token:
 
 2. Click **Create webhook**.
 
-3. Once you [Add Onfido as a connection in {{product_name}}](#add-onfido-as-a-connection-in-asgardeo), a URL will be generated for the connection. Copy the URL from the **Setup Guide** tab of your Onfido connection in {{product_name}}.
+3. Once you [Add Onfido as a connection in {{product_name}}](#add-onfido-as-a-connection-in-wso2-identity-platform), a URL will be generated for the connection. Copy the URL from the **Setup Guide** tab of your Onfido connection in {{product_name}}.
 
 4. Paste the copied URL into the webhook URL field and select only the **workflow_run.completed** event.
 

@@ -1,22 +1,22 @@
 # User management
 
-The users in Asgardeo are the digital representations of the identities of physical users who interact with your
-organization. With Asgardeo, the identity lifecycle of each of these users can be easily managed by the admins of the
+The users in WSO2 Identity Platform are the digital representations of the identities of physical users who interact with your
+organization. With WSO2 Identity Platform, the identity lifecycle of each of these users can be easily managed by the admins of the
 organization.
 
-The admins can grant users access to resources in your organization and control user access. Admins can also manage various user operations via the Asgardeo Console and SCIM APIs.
+The admins can grant users access to resources in your organization and control user access. Admins can also manage various user operations via the WSO2 Identity Platform Console and SCIM APIs.
 
-Shown below are some main user management capabilities available in Asgardeo.
+Shown below are some main user management capabilities available in WSO2 Identity Platform.
 
 ![User management]({{base_path}}/assets/img/guides/users/user-management-overview.png){: width="800" style="display: block; margin: 0;"}
 
 ## User accounts
 
-Asgardeo supports the following types of user accounts based on their relationship to the organization.
+WSO2 Identity Platform supports the following types of user accounts based on their relationship to the organization.
 
 ### Owner
 
-The owner has all the administrative rights in the organization. The owner can access the Asgardeo console and manage the organization using the following actions:
+The owner has all the administrative rights in the organization. The owner can access the WSO2 Identity Platform console and manage the organization using the following actions:
   
 - Onboard users
 - Create organizations
@@ -43,14 +43,14 @@ Refer [Manage users]({{base_path}}/guides/users/manage-users/) for more informat
 
 ### Comparing User Accounts
 
-The following table compares the different user account types available in Asgardeo.
+The following table compares the different user account types available in WSO2 Identity Platform.
 
-Based on your requirements, you can choose user types and create them via the Asgardeo Console.
+Based on your requirements, you can choose user types and create them via the WSO2 Identity Platform Console.
 
 The source of the user account determines which entity manages the user's credentials and details.
 
-- **Accounts managed by Asgardeo** can persist across multiple organizations. That is, the same user account can be associated with other organizations as an owner or an administrator. When removed from one organization, these associations with other organizations continue to persist.
-- **Accounts managed by an organization** are confined to that organization. When removed from that organization, the account is completely deleted from Asgardeo.
+- **Accounts managed by WSO2 Identity Platform** can persist across multiple organizations. That is, the same user account can be associated with other organizations as an owner or an administrator. When removed from one organization, these associations with other organizations continue to persist.
+- **Accounts managed by an organization** are confined to that organization. When removed from that organization, the account is completely deleted from WSO2 Identity Platform.
 <br>
 
 <table>
@@ -60,8 +60,8 @@ The source of the user account determines which entity manages the user's creden
     <th>Capabilities</th>
   </tr>
   <tr>
-    <td>Owner<Badge text="Asgardeo User" type="optional"/></td>
-    <td>Asgardeo</td>
+    <td>Owner<Badge text="WSO2 Identity Platform User" type="optional"/></td>
+    <td>WSO2 Identity Platform</td>
     <td>
         <li>Onboard users</li>
         <li>Create organizations</li>
@@ -70,8 +70,8 @@ The source of the user account determines which entity manages the user's creden
     </td>
   </tr>
   <tr>
-    <td>Administrator<Badge text="Asgardeo User" type="optional"/></td>
-    <td>Asgardeo</td>
+    <td>Administrator<Badge text="WSO2 Identity Platform User" type="optional"/></td>
+    <td>WSO2 Identity Platform</td>
     <td>
     By default, administrators are assigned all administration capabilities:
       <li>Onboard users</li>

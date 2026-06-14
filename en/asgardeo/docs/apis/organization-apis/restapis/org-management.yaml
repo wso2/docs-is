@@ -1,13 +1,13 @@
 openapi: 3.0.0
 info:
   version: "v1"
-  title: 'Asgardeo - Organization Management API Definition'
+  title: 'WSO2 Identity Platform - Organization Management API Definition'
   description: |
-    'This is the RESTful API for organization management in Asgardeo. This API allows users 
+    'This is the RESTful API for organization management in WSO2 Identity Platform. This API allows users 
     to create, update, retrieve and delete organizations. <br><br>
     
     <b>Important</b>:<br>
-    You need a paid Asgardeo subscription to create hierarchical organizations. If you don't already have one, view the available [subscription plans](https://wso2.com/asgardeo/pricing/){:target="_blank"} and contact the Asgardeo sales team.'
+    You need a paid WSO2 Identity Platform subscription to create hierarchical organizations. If you don't already have one, view the available [subscription plans](https://wso2.com/identity-platform/pricing/){:target="_blank"} and contact the WSO2 Identity Platform sales team.'
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/o/api/server/v1'
     variables:

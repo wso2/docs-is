@@ -1,8 +1,8 @@
-The `User` component is a declarative way to access the authenticated user object from the Asgardeo authentication context. It uses render props to expose the user data, making it easy to display user information or conditionally render UI based on authentication state.
+The `User` component is a declarative way to access the authenticated user object from the WSO2 Identity Platform authentication context. It uses render props to expose the user data, making it easy to display user information or conditionally render UI based on authentication state.
 
 ## Overview
 
-The `User` component automatically retrieves the current user from Asgardeo and passes it to its children as a render prop. If no user is signed in, it renders the provided `fallback` content or nothing by default.
+The `User` component automatically retrieves the current user from WSO2 Identity Platform and passes it to its children as a render prop. If no user is signed in, it renders the provided `fallback` content or nothing by default.
 
 ## Usage
 

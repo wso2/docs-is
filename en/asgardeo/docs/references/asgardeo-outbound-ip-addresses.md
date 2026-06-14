@@ -1,6 +1,6 @@
-# Asgardeo outbound IP addresses
+# WSO2 Identity Platform outbound IP addresses
 
-Asgardeo uses the following outbound IP addresses for its production environments. If your network security settings require allowlisting specific IPs, refer to the corresponding IPs for your region.
+WSO2 Identity Platform uses the following outbound IP addresses for its production environments. If your network security settings require allowlisting specific IPs, refer to the corresponding IPs for your region.
 
 !!! warning "Note"
 
@@ -46,7 +46,7 @@ Asgardeo uses the following outbound IP addresses for its production environment
     </tr>
 </table>
 
-- These IP addresses facilitate outbound communication from Asgardeo's infrastructure.
+- These IP addresses facilitate outbound communication from WSO2 Identity Platform's infrastructure.
 
 - If you have firewalls or network security policies in place, ensure these IPs are allowlisted to maintain seamless connectivity.
 

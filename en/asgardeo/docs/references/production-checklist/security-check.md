@@ -4,7 +4,7 @@ Use the following list to ensure your organizations are secure in a production e
 ## Authentication
 To ensure the authentication is properly configured in your organizations:
 
-- (Recommended) Configure strong authentication for Asgardeo administrator users. [Learn more]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#enroll-totp-for-asgardeo-users)
+- (Recommended) Configure strong authentication for WSO2 Identity Platform administrator users. [Learn more]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#enroll-totp-for-wso2-identity-platform-users)
 - Configure strong authentication for your business applications based on the application's sensitivity. [Learn more]({{base_path}}/guides/authentication/mfa/)
 
 ## Account Security
@@ -12,7 +12,7 @@ To ensure the accounts are securely configured in your organizations:
 
 - Enable account lock to prevent brute force attacks.
 - When updating email templates, follow best practices related to `HTML`.
-- Disable preview features provided by asgardeo.
+- Disable preview features provided by WSO2 Identity Platform.
 
 ## Application and connection security
 To ensure the applications and connections are securely configured in your organizations:

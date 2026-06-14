@@ -6,7 +6,7 @@ Follow the steps given below to enable login with passkeys for your application.
 
 3. Go to the **Login Flow** tab of the application and add passkey login as follows:
 
-    {% if product_name == 'Asgardeo' %}
+    {% if product_name == 'WSO2 Identity Platform' %}
     === "Visual Editor"
         To add passwordless login with passkey using the Visual Editor:
 
@@ -16,7 +16,7 @@ Follow the steps given below to enable login with passkeys for your application.
 
         3. Click **Confirm** to add passwordless login with passkey to the sign-in flow.
 
-            ![Configuring passkey login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-passkey-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Configuring passkey login in WSO2 Identity Platform using the Visual Editor]({{base_path}}/assets/img/guides/passwordless/passkey/add-passkey-login-with-visual-editor.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
     === "Classic Editor"

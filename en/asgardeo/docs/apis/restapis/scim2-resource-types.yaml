@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: SCIM 2.0 Resource Types Retrieval API
   description: |
-    This document specifies **SCIM 2.0 Resource types RESTful API** for **Asgardeo**. 
+    This document specifies **SCIM 2.0 Resource types RESTful API** for **WSO2 Identity Platform**. 
   version: "v1"
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/scim2'

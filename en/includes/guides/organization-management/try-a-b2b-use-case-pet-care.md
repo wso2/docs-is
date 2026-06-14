@@ -17,7 +17,7 @@ The following guide is a complete end-to-end use case on how to manage B2B (Busi
 
 As an administrator of **Pet Care**, you are tasked with implementing this scenario. The following guides explain how you can use {{ product_name }} to achieve this.
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 ## Prerequisites
 
 You should [create a root organization]({{base_path}}/guides/{{root_org_description_path}}). For this example, we have created a root organization named `Pet Care`.

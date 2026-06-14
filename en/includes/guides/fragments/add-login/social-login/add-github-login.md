@@ -4,7 +4,7 @@
 1. On the {{ product_name }} Console, go to **Applications**.
 2. Select your application, go to the **Login Flow** tab and add GitHub login from your preferred editor:
 
-    {% if product_name == "Asgardeo" %}
+    {% if product_name == "WSO2 Identity Platform" %}
     === "Classic Editor"
         To add GitHub login using the Classic Editor:
 
@@ -12,7 +12,7 @@
   
         2. Click **Add Authentication** on the step, select your GitHub identity provider, and click **Add**.
 
-            ![Add GitHub login in Asgardeo]({{base_path}}/assets/img/guides/idp/github-idp/add-github-federation-with-basic.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add GitHub login in WSO2 Identity Platform]({{base_path}}/assets/img/guides/idp/github-idp/add-github-federation-with-basic.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     === "Visual Editor"
         To add GitHub login using the Visual Editor:
@@ -21,7 +21,7 @@
   
         2. Click on `+ Add Sign In Option` to add a new authenticator to the same step and select your GitHub connection.
 
-            ![Add GitHub login in Asgardeo using the Visual Editor]({{base_path}}/assets/img/guides/idp/github-idp/add-github-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+            ![Add GitHub login in WSO2 Identity Platform using the Visual Editor]({{base_path}}/assets/img/guides/idp/github-idp/add-github-login-with-visual-editor.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     ---
     {% else %}

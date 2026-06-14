@@ -1,4 +1,4 @@
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 === "Classic Editor"
     To add IP-based adaptive MFA using the classic editor:
 

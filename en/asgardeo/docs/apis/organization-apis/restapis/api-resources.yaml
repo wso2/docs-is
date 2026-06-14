@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   description: >
-    This document explains the RESTful API for API Resource Management in Asgardeo.
+    This document explains the RESTful API for API Resource Management in WSO2 Identity Platform.
   version: "v1"
-  title: Asgardeo - API Resource Management Rest API
+  title: WSO2 Identity Platform - API Resource Management Rest API
 
 security:
   - OAuth2: []

@@ -35,7 +35,7 @@ hygiene and strengthening overall account security.
 
 ## Request and Response Handling
 
-When a password update request is made, Asgardeo or WSO2 Identity Server (WSO2 IS) will send a request to your 
+When a password update request is made, WSO2 Identity Platform or WSO2 Identity Server (WSO2 IS) will send a request to your 
 configured extension service containing the updated password information.
 
 Your service will process this request and respond with an appropriate status:

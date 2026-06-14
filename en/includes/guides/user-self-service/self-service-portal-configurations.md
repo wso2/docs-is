@@ -2,7 +2,7 @@
 
 This section explains configurations available for the **My Account portal**, a self-service portal offered by {{product_name}} that allows users and administrators to manage their accounts and information.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0")%}
 
 ## Enable/Disable the My Account portal
 
@@ -163,7 +163,7 @@ The following section explains all the features available in the **My Account** 
 
     The applications feature has no sub-features.
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
 
 === "Approvals"
 
