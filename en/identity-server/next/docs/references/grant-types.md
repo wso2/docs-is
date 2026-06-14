@@ -19,7 +19,7 @@
     **Note:** You can not turn off the process of issuing ID tokens for the `authorization_code` grant type.
 
     By configuring the `<IsRefreshTokenAllowed>` property to `true` or `false` along with the above configuration, 
-    you can turn on or turn on the process of issuing refresh tokens. By default, `IsRefreshTokenAllowed` is set to 
+    you can turn on or turn off the process of issuing refresh tokens. By default, `IsRefreshTokenAllowed` is set to 
     `true`, and you can allow it to issue refresh tokens for all grant types. By configuring it to `false`, you can stop 
     issuing refresh tokens.  
     **Note:** By default, issuing ID token for `client_credentials` grant type is disabled as it is logically invalid.
