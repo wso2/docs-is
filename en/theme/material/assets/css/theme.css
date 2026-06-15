@@ -900,3 +900,111 @@ html .md-typeset .superfences-tabs > label:hover {
         width: 16px;
     }
 }
+
+/* ---------- Rebrand notice (Asgardeo → WSO2 Identity Platform) ---------- */
+.rebrand-notice {
+    background: #e8f1fb;
+    border-bottom: 1px solid #c7dcf2;
+    color: #1f3a5c;
+    font-size: 0.68rem;
+    line-height: 1.5;
+}
+
+.rebrand-notice[hidden] {
+    display: none;
+}
+
+.rebrand-notice__inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 2.25rem;
+    max-width: 100%;
+}
+
+.rebrand-notice__text {
+    flex: 1 1 auto;
+    margin: 0;
+}
+
+.rebrand-notice__text strong {
+    color: #11243d;
+}
+
+.rebrand-notice__link {
+    margin-left: 0.25rem;
+    color: #2962b8;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.rebrand-notice__link:hover {
+    color: #11243d;
+}
+
+.rebrand-notice__dismiss {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0.25rem;
+    color: #6a7a8d;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.rebrand-notice__dismiss svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+}
+
+.rebrand-notice__dismiss:hover,
+.rebrand-notice__dismiss:focus-visible {
+    background: rgba(31, 58, 92, 0.08);
+    color: #11243d;
+    outline: none;
+}
+
+[data-md-color-scheme="slate"] .rebrand-notice {
+    background: #1c2735;
+    border-bottom-color: #2c3a4d;
+    color: #c8d4e3;
+}
+
+[data-md-color-scheme="slate"] .rebrand-notice__text strong {
+    color: #eaf1fa;
+}
+
+[data-md-color-scheme="slate"] .rebrand-notice__link {
+    color: #6aa3f0;
+}
+
+[data-md-color-scheme="slate"] .rebrand-notice__link:hover {
+    color: #eaf1fa;
+}
+
+[data-md-color-scheme="slate"] .rebrand-notice__dismiss {
+    color: #8da3bd;
+}
+
+[data-md-color-scheme="slate"] .rebrand-notice__dismiss:hover,
+[data-md-color-scheme="slate"] .rebrand-notice__dismiss:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    color: #eaf1fa;
+}
+
+@media screen and (max-width: 44.9375em) {
+    .rebrand-notice__inner {
+        padding: 0.75rem 0.85rem;
+        gap: 0.5rem;
+    }
+    .rebrand-notice {
+        font-size: 0.72rem;
+    }
+}
