@@ -46,10 +46,83 @@ To customize login for the Console,
 
 3. Click **Update** to save the changes.
 
-
 ## Manage Console roles
 
 Roles are a collection of permissions. You can create roles and assign users and groups to them so that they gain limited access to Console features. Follow the sections below to learn about managing Console roles.
+
+### Console role permissions
+
+When you create a Console role, you grant it access to one or more **Console components** — features such as **Applications**, **Connections**, **Users**, **Groups**, and **Roles**. You assign these permissions at two levels:
+
+<table>
+    <tr>
+        <td><b>Tenant Permissions</b></td>
+        <td>The permissions the role has for the root organization.</td>
+    </tr>
+    <tr>
+        <td><b>Organization Permissions</b></td>
+        <td>The permissions the role has for the child organizations.</td>
+    </tr>
+</table>
+
+#### Permission levels
+
+By default, you can assign each Console component one of the following permission levels:
+
+<table>
+    <tr>
+        <td><b>View</b></td>
+        <td>Assigns read permissions for the component.</td>
+    </tr>
+    <tr>
+        <td><b>Edit</b></td>
+        <td>Assigns read, create, update, and delete permissions for the component.</td>
+    </tr>
+</table>
+
+!!! note
+
+    Selecting **View** or **Edit** for a given Console component assigns the role several scopes pertaining to it. For example, if you select **Applications** and assign the **View** permission, the role is assigned the following scopes.
+
+    ![Scopes assigned for a given permission for a Console component]({{base_path}}/assets/img/guides/organization/console/console-role-permissions.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+#### Granular Console permissions
+
+By default, Console roles use the combined **View** and **Edit** permission model described above, where **Edit** grants **Create**, **Update**, and **Delete** access together.
+
+You can optionally enable a more granular permission model that lets you assign **Create**, **Update**, and **Delete** permissions independently for each Console component. To enable it, add the following configuration to the `deployment.toml` file and restart the server.
+
+```toml
+[console_settings]
+use_granular_console_permissions = true
+```
+
+Once enabled, you can assign each Console component the following permission levels:
+
+<table>
+    <tr>
+        <td><b>View</b></td>
+        <td>Assigns read permissions for the component.</td>
+    </tr>
+    <tr>
+        <td><b>Create</b></td>
+        <td>Assigns read and create permissions for the component.</td>
+    </tr>
+    <tr>
+        <td><b>Update</b></td>
+        <td>Assigns read and update permissions for the component.</td>
+    </tr>
+    <tr>
+        <td><b>Delete</b></td>
+        <td>Assigns read and delete permissions for the component.</td>
+    </tr>
+</table>
+
+!!! note
+    **View** is required whenever **Create**, **Update**, or **Delete** is selected for a component, and it cannot be turned off while any of those write permissions remain active.
+
+!!! note "Compatibility with existing roles"
+    Console roles created earlier with the combined **Edit** permission continue to work when the granular model is enabled — **Edit** is equivalent to granting **Create**, **Update**, and **Delete** together.
 
 ### Create a role
 
@@ -65,37 +138,6 @@ To create a role for the Console,
 3. Provide the following details for the role.
 
     ![Create a role for the Console]({{base_path}}/assets/img/guides/organization/console/create-console-role.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-
-    <table>
-        <tr>
-           <td><b>Role Name</b></td>
-           <td>Provide a meaningful name that describes the level of access the role has to the Console <code>e.g. application:read</code></td>
-        </tr>
-        <tr>
-            <td><b>Tenant Permissions</b></td>
-            <td>Select the permissions the role has for the root organization. For each Console component,
-                <ul>
-                    <li>Select <b>View</b> if you wish to assign read permissions for the component.</li>
-                    <li>Select <b>Edit</b> if you wish to assign read, create, update and delete permissions for the component.</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><b>Organization Permissions</b></td>
-            <td>Select the permissions the role has for the child organizations. For each Console component,
-                <ul>
-                    <li>Select <b>View</b> if you wish to assign read permissions for the component.</li>
-                    <li>Select <b>Edit</b> if you wish to assign read, create, update and delete permissions for the component.</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-
-    !!! note
-
-        When choosing tenant and organization permissions, selecting **View** or **Edit** for a given Console component gives the role access to several scopes pertaining to it. For example, if you select `Applications` and assign the `View` permission, the role will be assigned the following scopes.
-
-        ![Scopes assigned for a given permission for a Conosle component]({{base_path}}/assets/img/guides/organization/console/console-role-permissions.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Add** to save the role.
 
