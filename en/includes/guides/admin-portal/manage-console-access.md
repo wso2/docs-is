@@ -86,11 +86,11 @@ By default, you can assign each Console component one of the following permissio
 
     ![Scopes assigned for a given permission for a Console component]({{base_path}}/assets/img/guides/organization/console/console-role-permissions.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-#### Granular Console permissions
+#### Granular console permissions
 
 By default, Console roles use the combined **View** and **Edit** permission model described above, where **Edit** grants **Create**, **Update**, and **Delete** access together.
 
-You can optionally enable a more granular permission model that lets you assign **Create**, **Update**, and **Delete** permissions independently for each Console component. To enable it, add the following configuration to the `deployment.toml` file and restart the server.
+You can optionally enable a more granular permission model that lets you assign **Create**, **Update**, and **Delete** permissions independently for each Console component. This is controlled by the `use_granular_console_permissions` setting, which is `false` by default. Enable it only when you need this level of control over Console permissions. To do so, add the following configuration to the `deployment.toml` file and restart the server.
 
 ```toml
 [console_settings]
@@ -122,7 +122,7 @@ Once enabled, you can assign each Console component the following permission lev
     **View** is required whenever **Create**, **Update**, or **Delete** is selected for a component, and it cannot be turned off while any of those write permissions remain active.
 
 !!! note "Compatibility with existing roles"
-    Console roles created earlier with the combined **Edit** permission continue to work when the granular model is enabled — **Edit** is equivalent to granting **Create**, **Update**, and **Delete** together.
+    Console roles created earlier with the combined **Edit** permission continue to work when the granular model is enabled. **Edit** grants **Create**, **Update**, and **Delete** together.
 
 ### Create a role
 
