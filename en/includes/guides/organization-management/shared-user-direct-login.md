@@ -18,6 +18,18 @@ This is useful when:
 
 To enable this behavior for an organization, the **Shared User Identifier** authenticator must be configured as the first step in the application’s login flow. This authenticator identifies whether the user attempting to sign in is a shared user for the target organization. If the user is identified as a shared user, it resolves their resident user profile before continuing with the remaining authentication steps in the flow.
 
+## Single sign-on across organizations
+
+Once a user logs into an organization, they can seamlessly access other shared organizations without re-authenticating. {{ product_name }} achieves this by reusing the active session and extending Single Sign-On (SSO) across all organizations the user is shared to.
+
+A user will skip the login prompt only if their active session was established using the exact authenticator required by the target organization. If no matching active session exists in any of the already authenticated organizations, the user will be prompted to authenticate with that specific authentication method before gaining access.
+
+!!! info
+    For this single sign-on to work:
+
+    - Enhanced organization login must be enabled.
+    - Each sub-organization the user wishes to single sign-on into must have the **Shared User Identifier** authenticator added as the first step of the login flow, as described in [Add the shared user identifier to the login flow](#add-the-shared-user-identifier-to-the-login-flow).
+
 ## Configure shared user login
 
 Follow the steps below to allow shared users to log in directly to an organization.
