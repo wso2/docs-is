@@ -16,7 +16,7 @@ WSO2 Identity Server supports the following types of user accounts based on thei
 
 ### Administrator
 
-An administrator can manage the organization and has access to the organization's administrative operations. Administrators can,
+An administrator can manage the organization and has access to the organization's administrative operations. Administrators can:
 
 * onboard users
 * manage users, roles and groups
