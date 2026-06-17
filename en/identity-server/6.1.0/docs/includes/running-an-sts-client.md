@@ -27,5 +27,5 @@ To run the STS client:
 
 You can see that the SAML token issued from the STS is being printed by the client.
 
-    !!! note
-        The `connection refused` error occurs when the STS client attempts to send the received SAML token to a service that is not running in this case.
+!!! note
+    The `connection refused` error occurs when the STS client attempts to send the received SAML token to a service that is not running in this case.
