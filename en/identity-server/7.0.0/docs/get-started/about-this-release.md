@@ -95,7 +95,7 @@ WSO2 Identity Server 7.0.0 introduces a range of new features and enhancements:
 
 - **HYPR for Passwordless and Biometric Authentication**
 
-    WSO2 Identity Server now offers the HYPR connector as an authentication option for applications, enabling passwordless and biometric authentication to enhance security and user experience. It is available as a IS 7.0.0 compatible connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/9fae98d3-26a6-4b1f-a356-f58b08d060ed){:target="_blank"}.
+    WSO2 Identity Server now offers the HYPR connector as an authentication option for applications, enabling passwordless and biometric authentication to enhance security and user experience. It is available as a IS 7.0.0 compatible connector in the [connector store](https://store.wso2.com/connector/identity-outbound-auth-hypr){:target="_blank"}.
   
     [Learn more](https://github.com/wso2-extensions/identity-outbound-auth-hypr){:target="_blank"}
 
@@ -175,7 +175,7 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
 
     With the trend in the industry in moving away from the challenge question based account recovery use cases, this feature is deprecated and removed from the default distribution as a connector.
 
-    **Recommendation**: Move to stronger account recovery options. The product capability is made available as a connector in the [connector store](https://store.wso2.com/store/assets/isconnector/details/1f79b51f-acae-4365-83ab-a2f1a6b690f9){:target="_blank"} for use during the transition.
+    **Recommendation**: Move to stronger account recovery options. The product capability is made available as a connector in the [connector store](https://store.wso2.com/connector/identity-challenge-questions){:target="_blank"} for use during the transition.
 
 - **Lite User Registration**
 
