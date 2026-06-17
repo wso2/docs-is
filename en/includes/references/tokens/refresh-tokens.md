@@ -7,6 +7,8 @@ Refresh tokens are only issued when the `Refresh Token` grant type is enabled fo
 !!! warning
     A valid refresh token can get new access tokens at any time. Store refresh tokens securely — treat them with the same care as passwords or other long-lived credentials.
 
+    Never send refresh tokens as URL query parameters in GET requests. Tokens in URLs can leak through server logs, browser history, and the `Referer` header. Always send them as form parameters in the body of the `POST` request to the token endpoint.
+
 ## Refresh token rotation
 
 By default, whenever the refresh token is exchanged for a new access token, {{product_name}} issues the same refresh token back, as long as it has not expired.

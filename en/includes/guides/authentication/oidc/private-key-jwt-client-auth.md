@@ -129,6 +129,9 @@ Listed below are the main steps for invoking the token endpoint and acquiring an
         - `client_assertion`: The authentication token (JWT assertion) must be sent as the value of this parameter.
         - `client_assertion_type`: The value of this parameter must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 
+    !!! warning
+        Send the `client_assertion` (and the client secret, if you use the `client_secret_basic` or `client_secret_post` method) as form parameters in the body of the `POST` request to the token endpoint. Never send these credentials in custom HTTP headers or as URL query parameters, where they can leak through server logs, browser history, and the `Referer` header.
+
 2. The authorization server verifies the JWT using the public key.
 3. Authorization server extracts the signature using the public key and authenticates the client.
 4. The access token is granted if the client is successfully authenticated.

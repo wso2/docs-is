@@ -4,6 +4,9 @@ An access token is a short-lived credential that a client presents to a resource
 
 Access tokens are sent in the HTTP `Authorization: Bearer` header when calling protected APIs. They represent delegated authorization — what the client is permitted to do — rather than who the user is.
 
+!!! warning
+    Never send access tokens as URL query parameters in GET requests. Tokens in URLs can leak through server logs, browser history, and the `Referer` header. Always send them in the `Authorization: Bearer` header.
+
 ## Token types
 
 {{product_name}} supports the following access token types.
