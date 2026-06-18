@@ -131,7 +131,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	``` toml
 	[database.identity_db.pool_options]
 	maxActive = "80"
-	maxWait = "360000"
+	maxWait = "60000"
 	minIdle ="5"
 	testOnBorrow = true
 	validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
@@ -145,7 +145,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 	```toml
 	[database.shared_db.pool_options]
 	maxActive = "80"
-	maxWait = "360000"
+	maxWait = "60000"
 	minIdle ="5"
 	testOnBorrow = true
 	validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
