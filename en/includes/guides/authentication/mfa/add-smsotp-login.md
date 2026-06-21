@@ -84,7 +84,7 @@ To update the default SMS OTP settings:
       <tr>
         <td><code>Notify users on OTP delivery failure</code></td>
         <td>
-            If enabled, users are notified when the SMS OTP fails to send due to a connectivity or provider error. If disabled, the failure occurs silently and users are still prompted to enter the OTP without any error indication. Note that actual delivery failures (e.g., the SMS reaching the recipient's device) may not be captured, depending on the provider used.
+            If enabled, users are notified when the SMS OTP fails to send due to a connectivity or provider error. If disabled, the failure occurs silently and users are still prompted to enter the OTP without any error indication. Note that actual delivery failures (e.g., the SMS not reaching the recipient's device) may not be captured, depending on the provider used.
             This is disabled by default.
         </td>
       </tr>

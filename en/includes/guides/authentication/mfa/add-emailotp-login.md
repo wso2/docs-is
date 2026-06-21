@@ -88,7 +88,7 @@ To update the default Email OTP settings:
       <tr>
         <td>Notify users on OTP delivery failure</td>
         <td>
-            If enabled, users are notified when the email OTP fails to send due to a connectivity or provider error. If disabled, the failure occurs silently and users are still prompted to enter the OTP without any error indication. Note that actual delivery failures (e.g., the email reaching the recipient's inbox) may not be captured, depending on the provider used.
+            If enabled, users are notified when the email OTP fails to send due to a connectivity or provider error. If disabled, the failure occurs silently and users are still prompted to enter the OTP without any error indication. Note that actual delivery failures (e.g., the email not reaching the recipient's inbox) may not be captured, depending on the provider used.
             This is disabled by default.
         </td>
       </tr>
