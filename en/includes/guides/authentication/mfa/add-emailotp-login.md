@@ -30,7 +30,11 @@ To update the default Email OTP settings:
 1. On the {{ product_name }} Console, go to **Connections** and select **Email OTP**.
 2. Update the following parameters in the **Settings** tab:
 
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+    ![Setup email OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/emailotp/setup-email-otp-v2.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    {% else %}
     ![Setup email OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/emailotp/setup-email-otp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    {% endif %}
     {% if product_name == "WSO2 Identity Server" and (is_version == "7.0.0" or is_version == "7.1.0" or is_version == "7.2.0") %}
     <table>
       <tr>
@@ -80,6 +84,15 @@ To update the default Email OTP settings:
         <td>Resend block duration</td>
         <td>Specifies the time duration to block OTP resend requests after reaching the maximum allowed resend attempts.</td>
       </tr>
+      {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+      <tr>
+        <td>Notify users on OTP delivery failure</td>
+        <td>
+            If enabled, users are notified when the email OTP fails to send due to a connectivity or provider error. If disabled, the failure occurs silently and users are still prompted to enter the OTP without any error indication. Note that actual delivery failures (e.g., the email reaching the recipient's inbox) may not be captured, depending on the provider used.
+            This is disabled by default.
+        </td>
+      </tr>
+      {% endif %}
     </table>
     {% endif %}
 3. Once you update the Email OTP settings, click **Update**.
