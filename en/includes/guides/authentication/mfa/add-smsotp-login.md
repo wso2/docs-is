@@ -23,59 +23,72 @@ To update the default SMS OTP settings:
 1. On the {{ product_name }} Console, go to **Connections** and select **SMS OTP**.
 2. Update the following parameters in the **Settings** tab:
 
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+    ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/setup-sms-otp-v2.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    {% else %}
     ![Setup SMS OTP in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/smsotp/setup-sms-otp.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    {% endif %}
 
     {% if product_name == "WSO2 Identity Server" and (is_version == "7.0.0" or is_version == "7.1.0") %}
     <table>
-         <tr>
-           <th style="width: 350px;">Field</th>
-           <th>Description</th>
-         </tr>
-         <tr>
-           <td><code>SMS OTP expiry time</code></td>
-           <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
-         </tr>
-         <tr>
-           <td><code>Use only numeric characters for OTP</code></td>
-           <td>
-               Specifies whether to use only numeric characters in the OTP. If this is selected, the generated OTP contains only digits (0-9).
-               If this option is not selected, the OTP will contain alphanumeric characters.
-           </td>
-         </tr>
-         <tr>
-           <td><code>SMS OTP length</code></td>
-           <td>Specifies the number of characters allowed in the OTP.</td>
-         </tr>
+      <tr>
+        <th style="width: 350px;">Field</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>SMS OTP expiry time</code></td>
+        <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
+      </tr>
+      <tr>
+        <td><code>Use only numeric characters for OTP</code></td>
+        <td>
+            Specifies whether to use only numeric characters in the OTP. If this is selected, the generated OTP contains only digits (0-9).
+            If this option is not selected, the OTP will contain alphanumeric characters.
+        </td>
+      </tr>
+      <tr>
+        <td><code>SMS OTP length</code></td>
+        <td>Specifies the number of characters allowed in the OTP.</td>
+      </tr>
     </table>
     {% else %}
     <table>
-         <tr>
-           <th style="width: 350px;">Field</th>
-           <th>Description</th>
-         </tr>
-         <tr>
-           <td><code>SMS OTP expiry time</code></td>
-           <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
-         </tr>
-         <tr>
-           <td><code>Use only numeric characters for OTP</code></td>
-           <td>
-               Specifies whether to use only numeric characters in the OTP. If this is selected, the generated OTP contains only digits (0-9).
-               If this option is not selected, the OTP will contain alphanumeric characters.
-           </td>
-         </tr>
-         <tr>
-           <td><code>SMS OTP length</code></td>
-           <td>Specifies the number of characters allowed in the OTP.</td>
-         </tr>
-         <tr>
-           <td><code>Allowed OTP resend attempt count</code></td>
-           <td>Specifies the number of allowed OTP resend attempts.</td>
-         </tr>
-         <tr>
-           <td><code>Resend OTP block time</code></td>
-           <td>Specifies the time duration to block OTP resend requests after reaching the maximum allowed resend attempts.</td>
-         </tr>
+      <tr>
+        <th style="width: 350px;">Field</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>SMS OTP expiry time</code></td>
+        <td>Specifies the expiry time of the OTP. The generated OTP will not be valid after this expiry time.</td>
+      </tr>
+      <tr>
+        <td><code>Use only numeric characters for OTP</code></td>
+        <td>
+            Specifies whether to use only numeric characters in the OTP. If this is selected, the generated OTP contains only digits (0-9).
+            If this option is not selected, the OTP will contain alphanumeric characters.
+        </td>
+      </tr>
+      <tr>
+        <td><code>SMS OTP length</code></td>
+        <td>Specifies the number of characters allowed in the OTP.</td>
+      </tr>
+      <tr>
+        <td><code>Allowed OTP resend attempt count</code></td>
+        <td>Specifies the number of allowed OTP resend attempts.</td>
+      </tr>
+      <tr>
+        <td><code>Resend OTP block time</code></td>
+        <td>Specifies the time duration to block OTP resend requests after reaching the maximum allowed resend attempts.</td>
+      </tr>
+      {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+      <tr>
+        <td><code>Notify users on OTP delivery failure</code></td>
+        <td>
+            If enabled, users are notified when the SMS OTP fails to send due to a connectivity or provider error. If disabled, the failure occurs silently and users are still prompted to enter the OTP without any error indication. Note that actual delivery failures (e.g., the SMS not reaching the recipient's device) may not be captured, depending on the provider used.
+            This is disabled by default.
+        </td>
+      </tr>
+      {% endif %}
     </table>
     {% endif %}
 
