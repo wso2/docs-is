@@ -670,8 +670,8 @@ nav:
           - Onboard users to organizations: guides/organization-management/onboard-users.md
           - Shared users:
             - Share users across organizations: guides/organization-management/share-user-profiles.md
-            - Allow shared users to log in to organizations: guides/organization-management/shared-user-direct-login.md
-            - Allow impersonation for shared users: guides/organization-management/shared-user-impersonation.md
+            - Organization login for shared users: guides/organization-management/shared-user-direct-login.md
+            - Impersonation for shared users: guides/organization-management/shared-user-impersonation.md
         - Manage organization agents:
           - Share agents: guides/organization-management/share-agents.md
         - Authorize MCP servers:
