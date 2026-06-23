@@ -1,4 +1,4 @@
-# Allow impersonation for shared users
+# Impersonation for shared users
 
 Shared users are users whose profiles are managed by a parent organization but [shared with child organizations]({{base_path}}/guides/organization-management/share-user-profiles/). This guide explains how to allow shared users to impersonate other users within those child organizations.
 

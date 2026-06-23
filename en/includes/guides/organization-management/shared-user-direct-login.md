@@ -1,4 +1,4 @@
-# Allow shared users to log in to organizations
+# Organization login for shared users
 
 An organization can include shared users, users who belong to the organization but whose profiles are managed by another organization. Shared users can sign in to the organization using one of the following methods.
 
@@ -66,4 +66,4 @@ Once configured, shared users will be prompted for their identifier (for example
     - Password recovery notifications are not triggered for shared user logins in organizations. Shared users must recover their passwords through their resident organization.
     - Password expiry policies configured in the user's **resident** organization apply for shared user logins. If a shared user's password has expired, login to all shared organizations are blocked, but the password reset flow is not initiated from the organization. The user must reset the password through their resident organization.
     - If the resident user profile is locked, login is blocked for all shared profiles of that user across organizations. Failed login attempts during shared user logins are counted against the resident user profile, and the account locking configuration of the **resident** organization determines limits such as the maximum number of failed attempts.
-    - For tokens issued through shared user login to an organizations, the `sub` claim contains the user ID of the user's **resident** profile rather than the user ID of the shared profile in the accessing organization.
+    - For tokens issued through shared user login to organizations, the `sub` claim contains the user ID of the user's **resident** profile rather than the user ID of the shared profile in the accessing organization.
