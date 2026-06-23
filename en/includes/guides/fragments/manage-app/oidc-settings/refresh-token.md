@@ -23,7 +23,7 @@ When you set this configuration to `false`, renewed refresh tokens carry the rem
 
 This option specifies the validity period of a refresh token in seconds. The default value is 86400 seconds.
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 #### Graceful refresh token rotation
 
