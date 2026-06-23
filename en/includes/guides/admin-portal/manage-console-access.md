@@ -118,6 +118,8 @@ Once enabled, you can assign each Console component the following permission lev
     </tr>
 </table>
 
+![Granular console permissions]({{base_path}}/assets/img/guides/organization/console/granular-console-role-permissions.png)
+
 !!! note
     **View** is required whenever **Create**, **Update**, or **Delete** is selected for a component, and it cannot be turned off while any of those write permissions remain active.
 
