@@ -35,6 +35,8 @@ extra:
   nav_chip:
     Customer Data:
       type: Preview
+    Flow Extensions:
+      type: Beta
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
@@ -623,8 +625,9 @@ nav:
         - Invited User Registration: guides/flows/invited-user-registration.md
         - Flow AI: guides/flows/flow-ai.md
         - Flow Extensions:
-            - Flow extension configuration: guides/flows/flow-extensions.md
-            - Implementing an external service: guides/flows/flow-extension-external-service.md
+            - Flow Extensions: guides/flows/flow-extensions/index.md
+            - Flow extension configuration: guides/flows/flow-extension-configuration.md
+            - Implement an external service for flow extension: guides/flows/flow-extension-external-service.md
         - Use the Flow Execution API: guides/flows/flow-execution-api.md
         - Understand Flow Execution Components: guides/flows/flow-execution-components.md
         - Troubleshooting: guides/flows/troubleshooting.md
@@ -970,6 +973,8 @@ nav:
       - In-flow extensions:
         - Custom authentication:
           - API contract to implement: references/service-extensions/in-flow-extensions/custom-authentication/api-contract.md
+        - Flow extension:
+          - API contract to implement: references/service-extensions/in-flow-extensions/flow-extension/api-contract.md
       - Pre-flow extensions (Actions):
         - Pre issue access token action:
           - Version 1.x:

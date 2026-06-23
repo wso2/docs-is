@@ -1,12 +1,6 @@
-# Flow extensions
+# Flow extension configuration
 
-A **flow extension** lets you call your own external service from within a flow. While a user moves through a flow, {{product_name}} can send the data collected so far to an endpoint you control, wait for the response, and use the values returned by that endpoint in the rest of the flow.
-
-This allows you to inject custom business logic, such as validation, enrichment, or risk evaluation, into a user journey. The logic runs in your own service, so you can use your existing systems and data without building it into the flow itself.
-
-!!! note
-
-    Flow extensions are currently supported only in the **Self Registration** flow.
+This guide walks you through registering an external service as a flow extension, creating the attributes it returns, configuring attribute access, and adding the extension to a flow.
 
 ## Sample use case
 
@@ -99,4 +93,4 @@ Add the extension to the Self Registration flow so that {{product_name}} invokes
 
 ![Add a flow extension to the flow]({{base_path}}/assets/img/guides/flows/flow-extension-add-to-flow.gif){: width="auto" style="display: block; margin: 0;"}
 
-New users who self-register now pass through the flow extension, and the values returned by your endpoint are written to their account before it is created.
+New users who self-register now pass through the flow extension, and the values returned by your endpoint are written to their account before the account is created.
