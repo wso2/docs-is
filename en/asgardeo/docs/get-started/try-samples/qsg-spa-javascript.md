@@ -56,7 +56,7 @@ Follow the steps given below to register the sample Javascript SPA in WSO2 Ident
     - to redirect the user back to the application in the following scenarios.
         - if the login page times out
         - after a password reset
-        - after the self sign-up verification
+        - after self-sign-up verification
     - to re-initiate the login flow if the login flow fails.
 
 ## Download the sample
