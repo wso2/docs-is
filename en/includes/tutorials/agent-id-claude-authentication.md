@@ -161,7 +161,6 @@ agent_config = AgentConfig(
     agent_secret="<your-agent-secret>",
 )
 
-
 class {{product_name}}TokenProvider:
     """Provides identity tokens from {{product_name}} for Anthropic WIF.
 
@@ -204,7 +203,6 @@ class {{product_name}}TokenProvider:
             )
             return self._cached_token
 
-
 # Initialize the token provider and Anthropic client
 token_provider = {{product_name}}TokenProvider(config, agent_config)
 
@@ -228,7 +226,6 @@ print(message.content[0].text)
 ```
 
 The `{{product_name}}TokenProvider` handles token caching and refresh with a 60-second buffer before expiry. The Anthropic SDK's `WorkloadIdentityCredentials` manages the Claude access token lifecycle independently, calling the provider whenever it needs a fresh identity token for the WIF exchange. Together, they allow long-running agents to operate continuously without manual token management.
-
 
 ## What's Next
 
