@@ -842,7 +842,7 @@ You can assign users to roles using either of the following methods:
 
 ### Try it out
 
-1. Copy the console url from **Console Settings** page.
+1. Copy the Console URL from the **Console Settings** page.
 2. Share it with the assigned users to log in to the {{ product_name }} Console.
 
 {% endif %}
