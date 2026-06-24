@@ -107,7 +107,7 @@ Follow the steps given below to configure the sample app.
             <code>clientID</code>
         </td>
         <td>
-            The client id that you received when you registered the application in WSO2 Identity Platform.
+            The Client ID that you received when you registered the application in WSO2 Identity Platform.
         </td>
       </tr>
       <tr>
