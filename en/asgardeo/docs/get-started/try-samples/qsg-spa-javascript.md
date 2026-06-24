@@ -6,7 +6,7 @@ By following this guide, you will be able to deploy a Javascript single-page app
 
 - **npm with Node.js**
 
-    If you don't have them, [install npm and node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){target="_blank"} in your local environment.
+    If you don't have them,[install npm and node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){target="_blank"} in your local environment.
 
 - **A user account in WSO2 Identity Platform**
 
