@@ -136,7 +136,7 @@ For production agents, use the Anthropic Python SDK with the {{product_name}} Py
 #### Install dependencies
 
 ```bash
-pip install anthropic {{product_name}} {{product_name}}-ai
+pip install anthropic asgardeo asgardeo-ai
 ```
 
 #### Complete example
@@ -144,12 +144,12 @@ pip install anthropic {{product_name}} {{product_name}}-ai
 ```python
 import asyncio
 import time
-from {{product_name}} import {{product_name}}Config
-from {{product_name}}_ai import AgentAuthManager, AgentConfig
+from asgardeo import AsgardeoConfig
+from asgardeo_ai import AgentAuthManager, AgentConfig
 from anthropic import Anthropic, WorkloadIdentityCredentials
 
 # {{product_name}} configuration
-config = {{product_name}}Config(
+config = AgentIDConfig(
     base_url="{{ api_base_path }}",
     client_id="<your-client-id>",
     redirect_uri="<your-redirect-uri>",
@@ -161,7 +161,7 @@ agent_config = AgentConfig(
     agent_secret="<your-agent-secret>",
 )
 
-class {{product_name}}TokenProvider:
+class AgentIDTokenProvider:
     """Provides identity tokens from {{product_name}} for Anthropic WIF.
 
     Caches the token and refreshes automatically when expired.
@@ -204,7 +204,7 @@ class {{product_name}}TokenProvider:
             return self._cached_token
 
 # Initialize the token provider and Anthropic client
-token_provider = {{product_name}}TokenProvider(config, agent_config)
+token_provider = AgentIDTokenProvider(config, agent_config)
 
 client = Anthropic(
     credentials=WorkloadIdentityCredentials(
@@ -225,9 +225,9 @@ message = client.messages.create(
 print(message.content[0].text)
 ```
 
-The `{{product_name}}TokenProvider` handles token caching and refresh with a 60-second buffer before expiry. The Anthropic SDK's `WorkloadIdentityCredentials` manages the Claude access token lifecycle independently, calling the provider whenever it needs a fresh identity token for the WIF exchange. Together, they allow long-running agents to operate continuously without manual token management.
+The `AsgardeoTokenProvider` handles token caching and refresh with a 60-second buffer before expiry. The Anthropic SDK's `WorkloadIdentityCredentials` manages the Claude access token lifecycle independently, calling the provider whenever it needs a fresh identity token for the WIF exchange. Together, they allow long-running agents to operate continuously without manual token management.
 
 ## What's Next
 
-- Learn more about [{{product_name}} Agent Identity]({{base_path}}/guides/agentic-ai/ai-agents/).
+- Learn more about [{{product_name}} Agent ID]({{base_path}}/guides/agentic-ai/ai-agents/).
 - Secure agents access to [MCP Servers]({{base_path}}/guides/agentic-ai/mcp/)
