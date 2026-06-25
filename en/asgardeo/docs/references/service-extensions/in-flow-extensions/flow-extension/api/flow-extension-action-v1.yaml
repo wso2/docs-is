@@ -1,0 +1,320 @@
+openapi: 3.0.1
+info:
+  title: API contract for flow extension
+  description: This API defines the REST API contract for an external service that extends a flow of WSO2 Identity Platform. At the flow extension step, WSO2 Identity Platform sends the collected flow state to the service, and the service responds with the operations to apply before the flow continues.
+  version: v1
+security:
+- BasicAuth: []
+- BearerAuth: []
+- ApiKeyAuth: []
+paths:
+  /:
+    post:
+      summary: handle flow extension events
+      description: |-
+        WSO2 Identity Platform sends an HTTP POST request with a JSON envelope to the service at the flow extension step. The service runs its logic and responds with an `actionStatus` that determines what happens next:
+
+        - `SUCCESS`: Apply the returned operations and continue the flow.
+        - `FAILED`: Stop the flow for a business or policy reason. The reason is surfaced to the end user as a flow error.
+        - `ERROR`: The service hit a processing or server-side error. Return HTTP 400, 401, or 500; WSO2 Identity Platform aborts the flow.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBody'
+            examples:
+              registrationRequest:
+                summary: Request sent during a self-registration flow.
+                value:
+                  actionType: FLOW_EXTENSION
+                  event:
+                    flow:
+                      flowType: REGISTRATION
+                      flowId: d6e02342-7c5b-40de-a3f9-403ae5d163a9
+                      portalUrl: https://accounts.asgardeo.io/t/<your-organization-name>/accounts/register
+                      user:
+                        claims:
+                        - uri: http://wso2.org/claims/givenname
+                          value: John
+                        - uri: http://wso2.org/claims/multiValuedClaim
+                          value:
+                          - value1
+                          - value2
+                        - uri: http://wso2.org/claims/customClaim
+                          value: customValue1
+                    application:
+                      id: application-id
+                  allowedOperations:
+                  - op: replace
+                    paths:
+                    - /user/claims[uri=http://wso2.org/claims/multiValuedClaim]
+                    - /user/claims[uri=http://wso2.org/claims/customClaim]
+                  requestId: 93c2fb70-6f8c-444b-8ff8-36ff580dabb7
+        required: true
+      responses:
+        "200":
+          description: Returned for both SUCCESS and FAILED outcomes. The `actionStatus` field in the body indicates which.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SuccessResponse'
+                - $ref: '#/components/schemas/FailedResponse'
+              examples:
+                successExample:
+                  summary: Success response
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                    - op: replace
+                      path: /user/claims[uri=http://wso2.org/claims/customClaim]
+                      value: new-value1
+                    - op: replace
+                      path: /user/claims[uri=http://wso2.org/claims/multiValuedClaim]
+                      value:
+                      - multi-value1
+                      - multi-value2
+                failedExample:
+                  summary: Failed response
+                  value:
+                    actionStatus: FAILED
+                    failureReason: User not allowed
+                    failureDescription: You are currently restricted from creating new accounts.
+        "400":
+          description: Bad request. WSO2 Identity Platform treats this as a failure to execute the action and aborts the flow.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                actionStatus: ERROR
+                errorMessage: External service failure
+                errorDescription: The external service met with an unexpected error.
+        "401":
+          description: Unauthorized. WSO2 Identity Platform treats this as a failure to execute the action and aborts the flow.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                actionStatus: ERROR
+                errorMessage: Authentication failed
+                errorDescription: The request could not be authenticated.
+        "500":
+          description: Internal server error. WSO2 Identity Platform treats this as a failure to execute the action and aborts the flow.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                actionStatus: ERROR
+                errorMessage: External service failure
+                errorDescription: The external service met with an unexpected error.
+components:
+  schemas:
+    RequestBody:
+      type: object
+      required:
+      - actionType
+      - event
+      - allowedOperations
+      - requestId
+      properties:
+        actionType:
+          type: string
+          enum:
+          - FLOW_EXTENSION
+          description: The action type being executed. Always `FLOW_EXTENSION` for this integration.
+          example: FLOW_EXTENSION
+        event:
+          $ref: '#/components/schemas/Event'
+        allowedOperations:
+          type: array
+          description: The whitelist of changes the service may emit. If the response references anything outside this whitelist, WSO2 Identity Platform rejects it.
+          items:
+            $ref: '#/components/schemas/AllowedOperation'
+        requestId:
+          type: string
+          description: A unique identifier for this invocation.
+          example: 93c2fb70-6f8c-444b-8ff8-36ff580dabb7
+      description: The request envelope sent to the external service.
+    Event:
+      type: object
+      properties:
+        flow:
+          $ref: '#/components/schemas/Flow'
+        application:
+          $ref: '#/components/schemas/Application'
+      description: A snapshot of the flow state, carrying context about the flow and the application.
+    Flow:
+      type: object
+      properties:
+        flowType:
+          type: string
+          description: The flow being executed.
+          example: REGISTRATION
+        flowId:
+          type: string
+          description: The identifier for this single flow execution.
+          example: d6e02342-7c5b-40de-a3f9-403ae5d163a9
+        portalUrl:
+          type: string
+          format: uri
+          description: The URL of the WSO2 Identity Platform portal page.
+          example: https://accounts.asgardeo.io/t/<your-organization-name>/accounts/register
+        user:
+          $ref: '#/components/schemas/User'
+      description: The flow being executed.
+    User:
+      type: object
+      properties:
+        claims:
+          type: array
+          description: The current claims of the user.
+          items:
+            $ref: '#/components/schemas/Claim'
+      description: The user being acted on.
+    Claim:
+      type: object
+      properties:
+        uri:
+          type: string
+          description: The claim URI.
+          example: http://wso2.org/claims/givenname
+        value:
+          description: The claim value. A single-valued claim carries a string; a multi-valued claim carries an array of strings.
+          oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
+          example: John
+      description: A single user claim, represented as a URI and value pair.
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The application UUID. Only available for flows initiated with the `applicationId` parameter.
+          example: application-id
+      description: The application context.
+    AllowedOperation:
+      type: object
+      required:
+      - op
+      - paths
+      properties:
+        op:
+          type: string
+          enum:
+          - replace
+          description: The permitted operation. The only operation in `FLOW_EXTENSION` is `replace`, which creates or replaces a claim at one of the listed paths.
+          example: replace
+        paths:
+          type: array
+          description: The paths the operation may target. The service may only target paths listed here.
+          items:
+            type: string
+          example:
+          - /user/claims[uri=http://wso2.org/claims/multiValuedClaim]
+          - /user/claims[uri=http://wso2.org/claims/customClaim]
+      description: An entry that defines a change the service is permitted to make.
+    SuccessResponse:
+      type: object
+      required:
+      - actionStatus
+      properties:
+        actionStatus:
+          type: string
+          enum:
+          - SUCCESS
+          description: Indicates that the operations should be applied and the flow should continue.
+          example: SUCCESS
+        operations:
+          type: array
+          description: The operations to apply to the flow. Optional; omit it when there is nothing to change but the flow should still proceed.
+          items:
+            $ref: '#/components/schemas/ReplaceOperation'
+      description: Returned when the service completes successfully.
+    ReplaceOperation:
+      type: object
+      required:
+      - op
+      - path
+      - value
+      properties:
+        op:
+          type: string
+          enum:
+          - replace
+          description: The operation to perform.
+          example: replace
+        path:
+          type: string
+          description: The claim path to create or replace. Must match one of the paths listed against the `replace` entry in `allowedOperations`.
+          example: /user/claims[uri=http://wso2.org/claims/customClaim]
+        value:
+          description: The value to set. The claim is created if absent and set to empty if the value is an empty string or null.
+          oneOf:
+          - type: string
+            nullable: true
+          - type: array
+            items:
+              type: string
+          example: new-value1
+      description: Creates or replaces a claim at the given path.
+    FailedResponse:
+      type: object
+      required:
+      - actionStatus
+      - failureReason
+      - failureDescription
+      properties:
+        actionStatus:
+          type: string
+          enum:
+          - FAILED
+          description: Indicates that the flow should stop for a business or policy reason.
+          example: FAILED
+        failureReason:
+          type: string
+          description: A short, user-facing reason for the failure. You can also send an i18n key to show a localized message to the user.
+          example: User not allowed
+        failureDescription:
+          type: string
+          description: A longer, user-facing description of the failure. You can also send an i18n key to show a localized message to the user.
+          example: You are currently restricted from creating new accounts.
+      description: Returned when the service decides, on business or policy grounds, that the flow should not continue.
+    ErrorResponse:
+      type: object
+      required:
+      - actionStatus
+      - errorMessage
+      - errorDescription
+      properties:
+        actionStatus:
+          type: string
+          enum:
+          - ERROR
+          description: Indicates that the service hit a processing or server-side error.
+          example: ERROR
+        errorMessage:
+          type: string
+          description: A short error message. Published to diagnostic logs.
+          example: External service failure
+        errorDescription:
+          type: string
+          description: A longer description of the error. Published to diagnostic logs.
+          example: The external service met with an unexpected error.
+      description: Returned with HTTP 400, 401, or 500 when the service itself fails to process the request.
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-Key
+      in: header
