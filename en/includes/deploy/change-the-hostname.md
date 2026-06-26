@@ -174,7 +174,7 @@ This section guides you through changing the hostname of the WSO2 Identity Serve
 
     The method you use depends on your deployment environment:
 
-    **For local machine setups**
+    **For testing environments**
 
     Open the `etc/hosts/` file and add the following entry to map the new hostname. `is.dev.wso2.com` is an example in the sample entry below.
 
