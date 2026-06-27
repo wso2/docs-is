@@ -97,7 +97,7 @@ curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
 ```
 
 !!! note
-    The sections below refers to the received access token as `<MATTR_BEARER_TOKEN>`.
+    The sections below refer to the received access token as `<MATTR_BEARER_TOKEN>`.
 
 ### Step 2.3: Configure MATTR authentication provider
 
