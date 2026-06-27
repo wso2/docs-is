@@ -9,7 +9,7 @@ The possibility to configure hostname verification is available for the WSO2 Ide
 
 In the WSO2 Identity Server, hostname verification is enabled by default. This is done using the `httpclient.hostnameVerifier` property in the startup script ( `wso2server.sh` for Linux and `wso2server.bat` for Windows) as shown below. The product startup script is stored in the `<IS_HOME>/bin` directory. This property will be effective during server startup.
 
-``` java
+```text
 -Dhttpclient.hostnameVerifier="DefaultAndLocalhost"
 ```
 
