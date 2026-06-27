@@ -39,7 +39,7 @@ Follow these steps given below to register the sample Java EE web application in
           <td>Select <b>SAML</b>.</td>
       </tr>
       <tr>
-          <td>Configruation type</td>
+          <td>Configuration type</td>
           <td>Select <b>Manual</b> (Learn more about [SAML configuration types]({{base_path}}/guides/applications/register-saml-web-app/))</td>
       </tr>
     <tr>
