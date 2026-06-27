@@ -2,7 +2,7 @@
 
 Entries in the `<IS_HOME>/repository/conf/security/identity_log_tokens.properties` file can determine whether tokens are added to system logs or not. By default, these are enabled in the file. The following are the entries in this file that represent different types of tokens. The tokens can be disabled from appearing in the logs by setting each token to `false`.
 
-``` c#
+```properties
 UserClaims=true
 UserIdToken=true
 XACML_Request=true
