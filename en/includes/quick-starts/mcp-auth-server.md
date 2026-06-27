@@ -232,7 +232,7 @@ Create '.env' file and add the base URL of your {{product_name}} organization as
 {% if product_name == "WSO2 Identity Platform" %}
 
 ```env
-BASE_URL=https://api.asgardeo.io/t/<you-org-name>
+BASE_URL=https://api.asgardeo.io/t/<your-org-name>
 ```
 
 {% else %}
