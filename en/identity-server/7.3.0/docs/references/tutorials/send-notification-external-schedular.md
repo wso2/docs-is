@@ -32,7 +32,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 ### Develop Azure Function with Visual Studio Code
 
-**Step 6:** First [Setup the Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} and [local environment](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} to develop a Azure Function with Visual Studio Code.
+**Step 6:** First [Setup the Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} and [local environment](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} to develop an Azure Function with Visual Studio Code.
 
 **Step 7:** Click the button below to download the sample Azure Function. You can also choose to view the source before doing so.
 
