@@ -57,14 +57,14 @@ This tutorial illustrates how to send email notifications daily for users whose 
     </tr>
     <tr>
         <td>client_id</td>
-        <td>Client ID of the OIDC application creatde in WSO2 IS Server.</td>
+        <td>Client ID of the OIDC application created in WSO2 IS Server.</td>
     </tr>
     <tr>
         <td>client_secret</td>
-        <td>Client secret of the OIDC application creatde in WSO2 IS Server.</td>
+        <td>Client secret of the OIDC application created in WSO2 IS Server.</td>
     </tr>
     <tr>
-        <td>oragnization</td>
+        <td>organization</td>
         <td>Name of the organization.</td>
     </tr>
     <tr>
@@ -95,7 +95,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
         <td>The SMTP server to connect to.</td>
     </tr>
     <tr>
-        <td><code>smtp_server</code></td>
+        <td><code>smtp_port</code></td>
         <td>The SMTP server port to connect.</td>
     </tr>
 </table>
@@ -139,6 +139,6 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 ### Deploy Function App to Azure
 
-**Step 12** Deploy the Azure Function App as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#republish-project-files){:target="_blank"}.
+**Step 12:** Deploy the Azure Function App as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#republish-project-files){:target="_blank"}.
 
 The Azure Function is now configured to send daily email notifications for users whose passwords will expire in 3 days.
