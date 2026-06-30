@@ -101,7 +101,7 @@ To view the details of the root organization, follow the steps given below.
     ![Root Organization Actions]({{base_path}}/assets/img/guides/multitenancy/root-organization-card-actions.png)
 
     - **Edit**: Click on the **Edit** button to navigate to the details page of the respective root organization.
-    - **More**: Click on the elipsis icon to view more actions.
+    - **More**: Click on the ellipsis icon to view more actions.
         - **Disable** / **Enable**: Depending on the current status of the root organization, you can disable or enable it.
 
 3. If you want to view details of a specific root organization, click on the **Edit** button of the respective root organization. Inside the root organization details page, you can perform the following actions:
