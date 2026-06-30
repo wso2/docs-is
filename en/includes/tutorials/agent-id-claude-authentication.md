@@ -90,7 +90,7 @@ The agent authenticates with {{product_name}} using the app-native authenticatio
 2. Authenticate with the Agent ID and Secret via the `/authn` endpoint.
 3. Exchange the resulting authorization code for a JWT access token.
 
-For the complete walkthrough of this flow, see the [{{product_name}} documentation on AI agent authentication](/guides/agentic-ai/ai-agents/agent-authentication/#ai-agent-acting-on-its-own/).
+For the complete walkthrough of this flow, see the [{{product_name}} documentation on AI agent authentication]({{base_path}}/guides/agentic-ai/ai-agents/agent-authentication/#ai-agent-acting-on-its-own/).
 
 The resulting `access_token` from {{product_name}} is a signed JWT that you will present to Claude's WIF.
 
