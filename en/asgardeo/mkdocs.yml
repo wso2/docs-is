@@ -772,6 +772,7 @@ nav:
     - Integrate WSO2 Identity Platform with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
     - Secure Agentic AI Systems with WSO2 Identity Platform: tutorials/secure-agentic-ai-systems.md
     - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
+    - Authenticate Agents with WSO2 Agent ID to Claude API Using Workload Identity Federation: tutorials/agent-id-claude-authentication.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
     - Integrating WSO2 Identity Platform With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
     - Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
