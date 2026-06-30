@@ -66,4 +66,4 @@ Finally, you need to verify that Duo has been successfully integrated and is fun
 
 4. If your verification is successful, you will be logged into the app.
 
-You've successfully integrated Duo 2FA into your WSO2 Identity Platform application. This additional security layer helps protect your users and sensitive data from unauthorized access.
+You've successfully integrated Duo 2FA into your application. This additional security layer helps protect your users and sensitive data from unauthorized access.
