@@ -17,7 +17,7 @@ When **Renew refresh token** is enabled, {{product_name}} invalidates the curren
 
 To configure rotation settings for your application, see [OIDC settings for apps]({{base_path}}/references/app-settings/oidc-settings-for-app/#refresh-token).
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 ## Graceful refresh token rotation
 
