@@ -82,7 +82,7 @@ To enable SAML artifact binding for your application,
 
 ### Configure artifact expiration time
 
-The [SAML 2.0 Binding specification](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf){: target="_blank"} specifies that the artifacts require a time of expiration. {{product_name}} resolves artifacts only when artifacts expiration period. Expired artifacts are rejected.
+The [SAML 2.0 Binding specification](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf){: target="_blank"} specifies that artifacts require an expiration time. {{product_name}} resolves artifacts only within the artifact expiration period. Expired artifacts are rejected.
 
 The default time limit is set for 4 minutes. To change it, set a custom time (in minutes) for the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
 

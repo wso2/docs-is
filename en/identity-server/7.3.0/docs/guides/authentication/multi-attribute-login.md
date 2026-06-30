@@ -11,7 +11,7 @@ Users can then log in using any of the configured attributes, giving flexibility
     -   Identifier first authenticator
     -   Username & password authenticator
     -   Authentication REST APIs
-    -   Oauth password grant
+    -   OAuth password grant
     -   Password recovery flow
 
 The following section explains how to configure WSO2 identity server for multi-attribute login.
