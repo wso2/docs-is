@@ -1,4 +1,4 @@
-# Authenticate Agents with their own Agent ID to Claude API Using Workload Identity Federation
+# Authenticate AI Agents with WSO2 Agent ID to Claude API Using Workload Identity Federation
 
 This tutorial walks you through connecting an AI agent registered in {{product_name}} to the Claude API using [Anthropic's Workload Identity Federation (WIF)](https://docs.anthropic.com/en/docs/build-with-claude/workload-identity-federation/). By the end of this tutorial, your agent will authenticate with {{product_name}}, obtain a signed JWT, exchange it for a short-lived Claude access token, and make API calls without any static API keys.
 
@@ -7,8 +7,8 @@ This tutorial walks you through connecting an AI agent registered in {{product_n
 The authentication flow works as follows:
 
 1. Your AI agent authenticates with {{product_name}} using its Agent ID and Secret.
-2. {{product_name}} issues a signed JWT (access token) to the agent.
-3. The agent presents this JWT to Anthropic's token endpoint.
+2. {{product_name}} issues a signed JWT access token to the AI agent.
+3. The AI agent presents this JWT token to Anthropic's token endpoint.
 4. Anthropic validates the JWT and returns a short-lived access token.
 5. The agent uses the access token to call the Claude API.
 
@@ -20,11 +20,11 @@ Before you begin, ensure you have the following:
 - `curl` and `jq` installed on your machine (for the shell-based approach).
 - Python 3.9+ (for the SDK-based approach).
 
-## Step 1: Register an Agent in {{product_name}}
+## Step 1: Register your AI Agent in {{product_name}}
 
 1. Log in to the {{product_name}} Console.
-2. Navigate to **Agentic AI**.
-3. Click **New Agent** and provide a descriptive name for your agent.
+2. Navigate to **Agents**.
+3. Click **New Agent** and provide a descriptive name for your AI agent.
 4. Assign the agent to appropriate groups and roles based on the resources it needs to access.
 5. Note down the **Agent ID** and **Agent Secret** that {{product_name}} generates.
 
