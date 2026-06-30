@@ -33,7 +33,7 @@ With JWT Secured Authorization Response Mode, clients can request authorization 
 
 ## Validate ID tokens
 
-This section explains how the signature and the claims are verifieed in the ID token that is sent by WSO2 Identity Server to an application.
+This section explains how the signature and the claims are verified in the ID token that is sent by WSO2 Identity Server to an application.
 
 [Validate ID tokens]({{base_path}}/guides/authentication/oidc/validate-id-tokens/) has detailed instructions on this.
 
