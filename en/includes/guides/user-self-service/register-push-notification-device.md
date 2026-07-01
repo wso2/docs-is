@@ -2,6 +2,11 @@
 
 Application users can use the My Account portal to register their device to receive push notifications. This guide explains how to register a push notification device using the My Account portal.
 
+## Prerequisites
+
+!!! note
+    Before users can enroll a push notification device, an administrator must configure a push provider for the organization.
+
 !!! note
     A user can only maintain one push notification device at a time.
 
