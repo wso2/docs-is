@@ -18,7 +18,7 @@ PBKDF2 is supported by [primary JDBC user stores]({{base_path}}/guides/users/use
     [user_store]
     type = "database_unique_id"
     password_digest="PBKDF2"
-    hash_algorithm_properties="{pbkdf2.iteration.count:10000, pbkdf2.dkLength:256, pbkdf2.prf:PBKDF2WithHmacSHA256}"
+    hash_algorithm_properties="{pbkdf2.iteration.count:600000, pbkdf2.dkLength:256, pbkdf2.prf:PBKDF2WithHmacSHA256}"
     ```
 
 ### PBKDF2 for secondary JDBC user stores
@@ -49,7 +49,7 @@ To configure PBKDF2 hashing on a JDBC user store:
         </tr>
         <tr>
             <td>UserStore Hashing Configurations</td>
-            <td><code>{pbkdf2.iteration.count:10000, pbkdf2.dkLength:256, pbkdf2.prf:PBKDF2WithHmacSHA256} </code></td>
+            <td><code>{pbkdf2.iteration.count:600000, pbkdf2.dkLength:256, pbkdf2.prf:PBKDF2WithHmacSHA256} </code></td>
             <td>Additional parameters required for password hashing algorithm. This should be given in JSON format. Learn more about these [configurations](#pbkdf2-parameters).</td>
         </tr>
     </table>
@@ -60,7 +60,7 @@ Successful update of these configurations will convert the password hashing algo
 
 ## PBKDF2 parameters
 
-When configuring the PBKDF2 hashing algorithm the following parameters must be specified in the configurations:
+When configuring the PBKDF2 hashing algorithm the following parameters must be specified in the configurations. See the latest [OWASP recommendations](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2) for reference.
 
 <table>
     <tr>
@@ -72,7 +72,7 @@ When configuring the PBKDF2 hashing algorithm the following parameters must be s
     <tr>
         <td><code>pbkdf2.iteration.count</code></td>
         <td>Iteration count</td>
-        <td><code>10000</code></td>
+        <td><code>600000</code></td>
         <td>Number of times hashing is performed.</td>
     </tr>
         <tr>
@@ -89,7 +89,7 @@ When configuring the PBKDF2 hashing algorithm the following parameters must be s
 </table>
 
 !!! Note
-    NIST recommends `PBKDF2WithHmacSHA256` as the pseudo-random function (prf) value, but the prf can also be changed. Some examples of possible prf values are as follows:
+    NIST and OWASP recommend `PBKDF2WithHmacSHA256` as the pseudo-random function (prf) value, but the prf can also be changed. Some examples of possible prf values are as follows:
 
     - `PBKDF2WithHmacSHA512`
     - `PBKDF2WithHmacSHA256`
