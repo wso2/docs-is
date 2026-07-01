@@ -13,15 +13,30 @@ This guide explains the organization discovery flow, the available discovery typ
 
 After the user clicks **Sign in with SSO**, they are redirected to the organization discovery page where they identify their organization.
 
+{% if product_name == "Asgardeo" %}
+By default, users are prompted to enter the **organization name**.
+
+![Organization discovery page - org name]({{base_path}}/assets/img/guides/organization/organization-login/discovery-page-org-name.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+{% else %}
 By default, users are prompted to enter the **organization handle** — a human-readable, unique identifier for the organization.
 
 ![Organization discovery page - org handle]({{base_path}}/assets/img/guides/organization/organization-login/discovery-page-org-handle.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% endif %}
 
 ### Available discovery types
 
 {{ product_name }} supports the following discovery types:
 
-{% if product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
+{% if product_name == "Asgardeo" %}
+
+| Discovery Type                    | Use Case                                                  |
+|-----------------------------------|-----------------------------------------------------------|
+| **Organization Name-Based**       | Route users using the organization name. |
+| **Organization ID-Based**         | Route users using the organization ID. Suitable for server-side integrations. |
+| **Email Domain-Based**            | Automatically identify organizations from email domains. Ideal for corporate email addresses. |
+
+{% elif product_name == "WSO2 Identity Server" and is_version > "7.1.0" %}
 
 | Discovery Type                    | Use Case                                                  |
 |-----------------------------------|-----------------------------------------------------------|
@@ -34,6 +49,8 @@ By default, users are prompted to enter the **organization handle** — a human-
 {% endif %}
 
 ---
+
+{% if product_name == "WSO2 Identity Server" %}
 
 ## Configure default parameter for organization discovery
 
@@ -98,12 +115,15 @@ When you enable email domain discovery, the UI shows the default prompt option a
 
 ![Email input for Single Sign-On (SSO) login]({{base_path}}/assets/img/guides/organization/manage-organizations/email-input-for-sso-login.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+{% endif %}
+
 ---
 
 ## Directly access the organization
 
 To route users directly to their organization's login page without showing the discovery page, include an organization discovery parameter in the initial authentication request. {{ product_name }} resolves the organization from the parameter and routes the user to that organization's login page automatically.
 
+{% if product_name != "Asgardeo" %}
 === "Organization Handle"
 
     Add `orgHandle=<organization_handle>` to the authentication request.
@@ -129,6 +149,7 @@ To route users directly to their organization's login page without showing the d
 
     **Example**: For an organization with handle `"abc.com"`, add `orgHandle=abc.com` to the request.
 
+{% endif %}
 === "Organization Name"
 
     Add `org=<organization_name>` to the authentication request.
