@@ -56,7 +56,7 @@ Follow the steps given below to initialize the SAML agent.
 
 ### Create the configuration file
 
-To initialize the SAML agent, you need a property file with the configurations such as the the {{ product_name }} endpoints. The {{ product_name }} SAML agent reads the configurations from this file.
+To initialize the SAML agent, you need a property file with the configurations such as the {{ product_name }} endpoints. The {{ product_name }} SAML agent reads the configurations from this file.
 
 Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/resources** directory, using the content below.
 
