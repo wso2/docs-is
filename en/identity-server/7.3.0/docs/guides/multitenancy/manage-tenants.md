@@ -82,7 +82,7 @@ Follow the steps given below to add a new root organization from the {{ product_
     !!! note
         Keep the **Organization Name** field blank to use the **Organization Handle** (tenant domain) as the name.
 
-5. Once a new root organization is created, it will be listed in the the **Root Organization** listing page as shown below.
+5. Once a new root organization is created, it will be listed in the **Root Organization** listing page as shown below.
 
     ![Root Organization Listing]({{base_path}}/assets/img/guides/multitenancy/root-organizaiton-listing.png)
 
