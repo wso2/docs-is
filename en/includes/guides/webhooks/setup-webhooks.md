@@ -23,7 +23,7 @@ Your external web service should do the following to receive event notifications
 {% endif %}
     {{product_name}} sends POST requests to deliver the actual event notifications. These requests contain the event payload in JSON format.  
 
-2. Deploy this endpoint on a server accessible to {{product_name}}.
+1. Deploy this endpoint on a server accessible to {{product_name}}.
 
 ## Configure a webhook in {{product_name}}
 
@@ -246,6 +246,10 @@ Here's how to test different event types:
 - **Session events**: Create, extend, or terminate a user session within the system.
 - **Credential events**: Update the password of an existing user.  
 - **User account management events**: Perform actions such as updating a user's profile or changing their account status (for example enabling or disabling a user).
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+- **Consent events**: Approve a consent purpose during registration or login, or revoke a consent purpose as a user or administrator.
+- **Consent purpose events**: Add a new version to an existing consent purpose as an administrator.
+{% endif %}
 
 Observe the requests received by your webhook endpoint to confirm that it successfully receives and processes the event notifications as expected.
 

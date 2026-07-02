@@ -578,6 +578,10 @@ nav:
           - Manage remote user stores: guides/users/user-stores/update-user-stores.md
           - Deployment best practices: guides/users/user-stores/deployment-best-practices.md
           - Advanced configuration for the agent: guides/users/user-stores/advanced-configurations-for-the-agent.md
+      - Consent management:
+        - Consent management: guides/consent-management/index.md
+        - Policy consent: guides/consent-management/policy-consent.md
+        - Preference management consent: guides/consent-management/preference-management-consent.md
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
@@ -856,7 +860,9 @@ nav:
       - Attribute management API: apis/attribute-management.md
       - Authenticators API: apis/authenticators.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
-      - Consent management API: apis/consent-management.md
+      - Consent management:
+        - Consent management API: apis/consent-management.md
+        - Consent management API v2: apis/consent-management-v2-api-definition.md
       - Email templates API: apis/email-template.md
       - Event configuration API: apis/event-configuration.md
       - Flow Extension Management API: apis/flow-extension-management-rest-api.md
@@ -949,6 +955,7 @@ nav:
       - Self password update API: apis/self-password-update-rest-api.md
       - Verification Code Management Me API: apis/verification-code-management-me-api.md
       - Approval API: apis/approvals-rest-api.md
+      - User consent API: apis/user-consent-rest-api.md
   - References:
     - References - Overview: references/index.md
     - Operational policies: references/operational-policies.md

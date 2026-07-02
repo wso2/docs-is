@@ -1,0 +1,660 @@
+swagger: '2.0'
+info:
+  description: >
+    This is the RESTful API for managing consents in WSO2 Identity Platform. The APIs provide the capability
+    for an authenticated user to create, retrieve, and revoke their own consents (self-service).
+  version: 'v1'
+  title: WSO2 Identity Platform - User Consent Management API Definition
+  contact:
+    name: 'WSO2 Identity Platform'
+    url: 'https://wso2.com/identity-platform/'
+    email: 'architecture@wso2.com'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+schemes:
+  - https
+
+host: https://api.asgardeo.io
+basePath: /t/{tenant-domain}/api/users/v1
+
+tags:
+  - name: me
+    description: Consent management operations for the authenticated user.
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /me/consents:
+    post:
+      tags:
+        - me
+      summary: Create a consent record
+      description: >
+        Record consent for specified purposes and elements.
+        The authenticated user creates and gives consent simultaneously. The consent is immediately recorded as `ACTIVE` or `REJECTED` based on the provided state. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      operationId: addConsentOfLoggedInUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: consent
+          description: Consent to be created.
+          required: true
+          schema:
+            $ref: '#/definitions/ConsentInput'
+      responses:
+        201:
+          description: Consent created successfully.
+          schema:
+            $ref: '#/definitions/ConsentCreateResponse'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        409:
+          $ref: '#/responses/Conflict'
+        500:
+          $ref: '#/responses/ServerError'
+
+    get:
+      tags:
+        - me
+      summary: List consent records
+      description: >
+        Retrieve consent records with optional filtering.
+        Returns only the authenticated user's own consents. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      operationId: listConsentsOfLoggedInUser
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/serviceIdQueryParam'
+        - $ref: '#/parameters/stateQueryParam'
+        - $ref: '#/parameters/purposeIdQueryParam'
+        - $ref: '#/parameters/purposeVersionIdQueryParam'
+        - $ref: '#/parameters/filterQueryParam'
+        - $ref: '#/parameters/limitQueryParam'
+        - $ref: '#/parameters/afterQueryParam'
+        - $ref: '#/parameters/beforeQueryParam'
+      responses:
+        200:
+          description: Consents retrieved successfully.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ConsentSummary'
+        401:
+          $ref: '#/responses/Unauthorized'
+        500:
+          $ref: '#/responses/ServerError'
+
+  /me/consents/{consent-id}:
+    get:
+      tags:
+        - me
+      summary: Get a consent record
+      description: >
+        Retrieve a specific consent record by consent ID.
+        Only the consent subject may retrieve the record. Returns 403 if the authenticated user is not the consent subject. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      operationId: getConsentOfLoggedInUser
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consentIdPathParam'
+      responses:
+        200:
+          description: Consent retrieved successfully.
+          schema:
+            $ref: '#/definitions/ConsentResponse'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+
+  /me/consents/{consent-id}/revoke:
+    post:
+      tags:
+        - me
+      summary: Revoke a consent
+      description: >
+        Revokes the consent. The authenticated user must be the consent subject, returns 403 otherwise.
+        Idempotent — if the consent is already revoked, returns 200 with no error. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      operationId: revokeConsentOfLoggedInUser
+      parameters:
+        - $ref: '#/parameters/consentIdPathParam'
+      responses:
+        200:
+          $ref: '#/responses/OK'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+
+  /me/consents/{consent-id}/authorize:
+    post:
+      tags:
+        - me
+      summary: Authorize a consent
+      description: >
+        Authorizes a PENDING consent. The authenticated user must either be the subject  of the consent,
+        or be listed in the consent's authorization list; returns 403 otherwise.
+        When all required users have approved, the consent transitions to ACTIVE state.
+        If any user rejects, the consent transitions to REJECTED state. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      operationId: authorizeConsentOfLoggedInUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consentIdPathParam'
+        - in: body
+          name: authorization
+          description: Authorization decision.
+          required: true
+          schema:
+            $ref: '#/definitions/AuthorizationRequest'
+      responses:
+        200:
+          description: Authorization recorded successfully.
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        409:
+          $ref: '#/responses/Conflict'
+        500:
+          $ref: '#/responses/ServerError'
+
+  /me/consents/{consent-id}/validate:
+    get:
+      tags:
+        - me
+      summary: Get the current state of a consent object
+      description: >
+        Returns the current state of a consent record, performing a lazy expiry check.
+        The authenticated user must be the consent subject, returns 403 otherwise. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      operationId: validateConsentOfLoggedInUser
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/consentIdPathParam'
+      responses:
+        200:
+          description: Consent status retrieved successfully.
+          schema:
+            $ref: '#/definitions/ConsentValidationResponse'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+
+#-----------------------------------------------------
+# Descriptions of common responses
+#-----------------------------------------------------
+responses:
+  NotFound:
+    description: Resource Not Found
+    schema:
+      $ref: '#/definitions/Error'
+  Unauthorized:
+    description: Unauthorized
+  ServerError:
+    description: Internal Server Error
+    schema:
+      $ref: '#/definitions/Error'
+  InvalidInput:
+    description: Invalid input request
+    schema:
+      $ref: '#/definitions/Error'
+  Forbidden:
+    description: Resource Forbidden
+    schema:
+      $ref: '#/definitions/Error'
+  Conflict:
+    description: Conflict
+    schema:
+      $ref: '#/definitions/Error'
+  OK:
+    description: OK
+  NoContent:
+    description: No Content
+
+definitions:
+  ConsentInput:
+    type: object
+    required:
+      - serviceId
+      - purposes
+    properties:
+      serviceId:
+        type: string
+        minLength: 1
+        maxLength: 255
+        description: Identifier of the service the consent is given for.
+        example: 'sampleApp'
+      language:
+        type: string
+        minLength: 1
+        maxLength: 20
+        description: Language code for the consent.
+        example: 'en'
+      purposes:
+        type: array
+        minItems: 1
+        description: List of purposes the user is consenting to.
+        items:
+          $ref: '#/definitions/ConsentPurposeInput'
+      state:
+        type: string
+        enum:
+          - ACTIVE
+          - REJECTED
+        default: ACTIVE
+        description: >
+          Initial state of the consent. Use ACTIVE when the user accepts (default).
+          Use REJECTED when the user explicitly declines an optional policy — this records
+          that the user saw and skipped this version so it is not shown again until a new
+          version is published.
+        example: 'ACTIVE'
+      expiryTime:
+        type: integer
+        format: int64
+        x-nullable: true
+        description: Milliseconds since epoch until which the consent is valid. If omitted, the consent does not expire.
+        example: 1766383796000
+      properties:
+        type: object
+        description: Optional free-form key-value properties for this consent.
+        additionalProperties:
+          type: string
+        example:
+          source: 'onboarding-flow'
+
+  ConsentPurposeInput:
+    type: object
+    required:
+      - id
+      - elements
+    properties:
+      id:
+        type: string
+        description: UUID of the purpose.
+        example: 'a43f8d09-2e1f-4b3a-9f6e-3a1b2c4d5e6f'
+      elements:
+        type: array
+        minItems: 1
+        description: Consent elements (PII categories) included in this consent purpose.
+        items:
+          $ref: '#/definitions/ElementRef'
+        example:
+          - id: 'c64h0f21-4g3h-6d5c-1h8g-5c3d4e6f7g8h'
+
+  ElementRef:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+        description: UUID of the consent element.
+        example: 'c64h0f21-4g3h-6d5c-1h8g-5c3d4e6f7g8h'
+
+  ConsentSummary:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier of the consent.
+        example: 'd75i1g32-5h4i-7e6d-2i9h-6d4e5f7g8h9i'
+      serviceId:
+        type: string
+        description: Identifier of the service the consent was given for.
+        example: 'sampleApp'
+      state:
+        type: string
+        description: Current state of the consent.
+        enum:
+          - PENDING
+          - ACTIVE
+          - REJECTED
+          - REVOKED
+          - EXPIRED
+        example: 'ACTIVE'
+      timestamp:
+        type: integer
+        format: int64
+        description: Milliseconds since epoch when the consent was created.
+        example: 1750156200000
+
+  ConsentCreateResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier of the created consent.
+        example: 'd75i1g32-5h4i-7e6d-2i9h-6d4e5f7g8h9i'
+      subjectId:
+        type: string
+        description: Identifier of the user who gave consent.
+        example: 'john'
+      serviceId:
+        type: string
+        description: Identifier of the service the consent was given for.
+        example: 'sampleApp'
+
+  ConsentResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier of the consent.
+        example: 'd75i1g32-5h4i-7e6d-2i9h-6d4e5f7g8h9i'
+      subjectId:
+        type: string
+        description: Identifier of the user who gave consent.
+        example: 'john'
+      serviceId:
+        type: string
+        description: Identifier of the service the consent was given for.
+        example: 'sampleApp'
+      state:
+        type: string
+        description: Current state of the consent.
+        enum:
+          - PENDING
+          - ACTIVE
+          - REJECTED
+          - REVOKED
+          - EXPIRED
+        example: 'ACTIVE'
+      language:
+        type: string
+        description: Language code for the consent.
+        example: 'en'
+      timestamp:
+        type: integer
+        format: int64
+        description: Milliseconds since epoch when the consent was created.
+        example: 1750156200000
+      expiryTime:
+        type: integer
+        format: int64
+        x-nullable: true
+        description: Milliseconds since epoch until which the consent is valid. Null if no expiry.
+        example: 1766383796000
+      purposes:
+        type: array
+        description: List of purposes included in the consent.
+        items:
+          $ref: '#/definitions/ConsentPurposeResponse'
+      authorizations:
+        type: array
+        description: Authorization records associated with this consent.
+        items:
+          $ref: '#/definitions/AuthorizationResponse'
+      properties:
+        type: object
+        x-nullable: true
+        description: Properties associated with this consent.
+        additionalProperties:
+          type: string
+
+  ConsentPurposeResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        description: UUID of the purpose.
+        example: 'a43f8d09-2e1f-4b3a-9f6e-3a1b2c4d5e6f'
+      name:
+        type: string
+        description: Name of the purpose.
+        example: 'Marketing communications'
+      type:
+        type: string
+        description: Purpose type classification.
+        example: 'Policy'
+      versionId:
+        type: string
+        description: UUID of the purpose version consented to.
+        example: 'b53g9e10-3f2g-5c4b-0g7f-4b2c3d5e6f7g'
+      version:
+        type: string
+        x-nullable: true
+        description: Human-readable version label.
+        example: '2'
+      elements:
+        type: array
+        description: Consent elements included in this purpose.
+        items:
+          $ref: '#/definitions/ConsentedElement'
+      properties:
+        type: object
+        x-nullable: true
+        description: Key-value properties from the consented purpose version.
+        additionalProperties:
+          type: string
+
+  ConsentedElement:
+    type: object
+    properties:
+      id:
+        type: string
+        description: UUID of the consent element.
+        example: 'c64h0f21-4g3h-6d5c-1h8g-5c3d4e6f7g8h'
+      name:
+        type: string
+        description: Name of the consent element.
+        example: 'Email Address'
+      displayName:
+        type: string
+        description: Display name of the consent element.
+        example: 'Email Address'
+
+  ConsentValidationResponse:
+    type: object
+    properties:
+      state:
+        type: string
+        description: Current state of the consent.
+        enum:
+          - PENDING
+          - ACTIVE
+          - REJECTED
+          - REVOKED
+          - EXPIRED
+        example: 'ACTIVE'
+      expiryTime:
+        type: integer
+        format: int64
+        x-nullable: true
+        description: Milliseconds since epoch until which the consent is valid. Null if no expiry.
+        example: 1766383796000
+
+  AuthorizationRequest:
+    type: object
+    properties:
+      state:
+        type: string
+        enum:
+          - APPROVED
+          - REJECTED
+        default: APPROVED
+        description: Authorization decision.
+        example: 'APPROVED'
+
+  AuthorizationResponse:
+    type: object
+    properties:
+      userId:
+        type: string
+        description: Username of the user who performed this authorization.
+        example: 'john'
+      state:
+        type: string
+        enum:
+          - APPROVED
+          - REJECTED
+          - REVOKED
+          - EXPIRED
+        description: Current state of this authorization.
+        example: 'APPROVED'
+      updatedTime:
+        type: integer
+        format: int64
+        description: Milliseconds since epoch when this authorization was last updated.
+        example: 1750156200000
+
+  Error:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: string
+        example: 'CMT-00000'
+      message:
+        type: string
+        example: 'Some Error Message'
+      description:
+        type: string
+        example: 'Some Error Description'
+      traceId:
+        type: string
+        example: 'e0fbcfeb-3617-43c4-8dd0-7b7d38e13047'
+
+#--------------------
+# Parameters
+#--------------------
+parameters:
+  consentIdPathParam:
+    in: path
+    name: consent-id
+    description: UUID of the consent receipt.
+    required: true
+    type: string
+  limitQueryParam:
+    in: query
+    name: limit
+    required: false
+    description: Maximum number of records to return. Default is 10.
+    type: integer
+    format: int32
+    default: 10
+    minimum: 1
+  serviceIdQueryParam:
+    in: query
+    name: serviceId
+    required: false
+    description: Filter consents by service identifier.
+    type: string
+  stateQueryParam:
+    in: query
+    name: state
+    required: false
+    description: Filter consents by state.
+    type: string
+    enum:
+      - PENDING
+      - ACTIVE
+      - REJECTED
+      - REVOKED
+      - EXPIRED
+  purposeIdQueryParam:
+    in: query
+    name: purposeId
+    required: false
+    description: Filter consents by purpose UUID.
+    type: string
+  purposeVersionIdQueryParam:
+    in: query
+    name: purposeVersionId
+    required: false
+    description: Filter consents by specific purpose version UUID.
+    type: string
+  afterQueryParam:
+    in: query
+    name: after
+    required: false
+    description: >
+      Cursor for forward pagination. Pass the base64-encoded UUID of the last item
+      received from the previous page to retrieve the next page of results.
+    type: string
+  beforeQueryParam:
+    in: query
+    name: before
+    required: false
+    description: >
+      Cursor for backward pagination. Pass the base64-encoded UUID of the first item
+      received from the current page to retrieve the previous page of results.
+    type: string
+  filterQueryParam:
+    in: query
+    name: filter
+    required: false
+    description: >
+      Filter consents by custom properties using dot notation `properties.<key>`.
+      Supports 'sw' (starts with), 'co' (contains), 'ew' (ends with), and 'eq' (equals) operations.
+      Combine multiple conditions with 'and', 'or' logical operators.
+      Examples: filter=properties.region eq EU
+    type: string
+
+#---------------------
+# Security Definitions
+#---------------------
+securityDefinitions:
+  BasicAuth:
+    type: basic
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/authorize
+    tokenUrl: https://api.asgardeo.io/t/{organization-name}/oauth2/token
+    scopes:
+      internal_login: Grants access to self-service operations for the authenticated user
