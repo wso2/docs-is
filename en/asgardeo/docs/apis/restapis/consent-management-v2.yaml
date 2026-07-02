@@ -995,7 +995,7 @@ components:
           type: string
           minLength: 1
           maxLength: 255
-          description: Username of the user giving consent.
+          description: Username of the user to whom the consent applies.
           example: "alice@wso2.com"
         serviceId:
           type: string
@@ -1467,7 +1467,7 @@ components:
           example: "en"
         subjectId:
           type: string
-          description: Username of the user giving consent
+          description: Username of the user to whom the consent applies
           example: "alice@wso2.com"
         tenantDomain:
           type: string
@@ -1515,7 +1515,7 @@ components:
           example: "f83aa1a3-5d4d-4c0e-84db-c3a4f1e6c8b2"
         subjectId:
           type: string
-          description: Username of the user giving consent.
+          description: Username of the user to whom the consent applies.
           example: "alice@wso2.com"
         serviceId:
           type: string
@@ -1555,7 +1555,7 @@ components:
           example: "en"
         subjectId:
           type: string
-          description: Username of the user giving consent
+          description: Username of the user to whom the consent applies
           example: "alice@wso2.com"
         serviceId:
           type: string
