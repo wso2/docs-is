@@ -23,7 +23,7 @@ The v1 API is based on the ISO/IEC 29184 standard for online privacy notices and
 
 Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-``` 
+```toml
 [authentication.pii_controller]
 name = "Kim"
 contact = "Kim"

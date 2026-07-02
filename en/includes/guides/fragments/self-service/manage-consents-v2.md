@@ -1,5 +1,7 @@
 <!-- markdownlint-disable-next-line -->
-# Manage consents given to applications
+# Manage consents
+
+## Manage consents given to applications
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
 !!! note "Prerequisite"

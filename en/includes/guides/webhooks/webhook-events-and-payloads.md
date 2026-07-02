@@ -2818,7 +2818,7 @@ The table below explains each property in the event data.
 </tbody>
 </table>
 
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
 !!! note "Enable consent webhook events"
@@ -2844,7 +2844,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -3031,7 +3031,7 @@ The table below explains each property in the event data.
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {
@@ -3280,7 +3280,7 @@ The <code>initiatorType</code> and <code>action</code> properties together ident
 
 **Example payload:**
 
-{% if product_name == "Asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" %}
 
 ```json
 {

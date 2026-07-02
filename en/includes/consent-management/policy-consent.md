@@ -3,6 +3,7 @@
 Policy consent allows you to present users with legal agreements, such as a Privacy Policy or Terms of Service, and capture their explicit acceptance during registration and login flows.
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+
 ## Prerequisites
 
 Add the following to your `deployment.toml` to enable the consent management v2 API required for this feature:
@@ -11,6 +12,7 @@ Add the following to your `deployment.toml` to enable the consent management v2 
 [consent_mgt]
 enable_v2_api = true
 ```
+
 {% endif %}
 
 ## Overview
@@ -81,7 +83,7 @@ To collect policy consent during registration or ask-password, add the **Policy 
     | Property | Description |
     |----------|-------------|
     | **Select Policies** | Choose which policies to display in this widget. You can select one or more policies from the list. |
-    | **Description** | The header text shown to users above the policy checkboxes. Supports [i18n keys](#localize-the-policy-description). |
+    | **Description** | The header text shown to users above the policy checkboxes. Supports i18n keys. |
 
 ![Policy consent widget in Flow Builder]({{base_path}}/assets/img/guides/consent-management/policy-consent/flow-builder-widget.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

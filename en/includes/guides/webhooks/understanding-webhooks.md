@@ -43,7 +43,7 @@ When an identity-related event (for example user registration, login success, pr
 - **User Account Management events**
       - User profile updates
       - User account status changes (lock/unlock, enable/disable, delete)
-{% if product_name == "Asgardeo" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 - **Consent events**
       - Consent added
       - Consent revoked
