@@ -1,4 +1,4 @@
-<!-- markdownlint-disable-next-line -->
+# Manage consents given to applications
 
 When a user logs into an application, {{ product_name }} prompts the user to provide consent to the application to access user attributes.
 

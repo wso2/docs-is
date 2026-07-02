@@ -1294,6 +1294,146 @@ paths:
             'https://localhost:9443/api/server/v1/configs/authentication/inbound/oauth2' \
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /configs/consent/purposes/{purpose-id}/applications:
+    get:
+      tags:
+        - Purpose Application Mappings
+      summary: Retrieve applications mapped to a consent purpose.
+      operationId: getApplicationsForPurpose
+      description: |
+        Retrieves the list of applications associated with the given consent purpose.
+        <b>Scope(Permission) required:</b> `internal_config_mgt_view`
+      parameters:
+        - name: purpose-id
+          in: path
+          description: UUID of the consent purpose.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApplicationObject'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found - the consent purpose does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Purpose Application Mappings
+      summary: Map an application to a consent purpose.
+      operationId: addApplicationToPurpose
+      description: |
+        Associates an application with the given consent purpose so that consent is enforced during login.
+        <b>Scope(Permission) required:</b> `internal_config_mgt_update`
+      parameters:
+        - name: purpose-id
+          in: path
+          description: UUID of the consent purpose.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationObject'
+      responses:
+        '201':
+          description: Mapping created.
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found - the consent purpose does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict - application already mapped.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/consent/purposes/{purpose-id}/applications/{application-id}:
+    delete:
+      tags:
+        - Purpose Application Mappings
+      summary: Remove an application from a consent purpose mapping.
+      operationId: removeApplicationFromPurpose
+      description: |
+        Removes the association between the given application and consent purpose.
+        <b>Scope(Permission) required:</b> `internal_config_mgt_update`
+      parameters:
+        - name: purpose-id
+          in: path
+          description: UUID of the consent purpose.
+          required: true
+          schema:
+            type: string
+        - name: application-id
+          in: path
+          description: Resource ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Mapping deleted.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found - the consent purpose or the application mapping does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 servers:
   - url: 'https://{serverUrl}/t/{tenantDomain}/api/server/v1'
     variables:
@@ -1835,3 +1975,12 @@ components:
           type: boolean
           description: "Enable formatting scope claim in JWT access tokens as a JSON array instead of a space-separated string."
           example: false
+    ApplicationObject:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The application resource ID.
+          example: "74070bae-df8c-42bf-8754-5173c237c936"
