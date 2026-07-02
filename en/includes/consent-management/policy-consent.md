@@ -2,6 +2,17 @@
 
 Policy consent allows you to present users with legal agreements, such as a Privacy Policy or Terms of Service, and capture their explicit acceptance during registration and login flows.
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+## Prerequisites
+
+Add the following to your `deployment.toml` to enable the consent management v2 API required for this feature:
+
+```toml
+[consent_mgt]
+enable_v2_api = true
+```
+{% endif %}
+
 ## Overview
 
 In {{ product_name }}, policies are configured globally and apply across all applications in the organization.

@@ -61,6 +61,14 @@ street_address = "1600"
 
 ## Consent management API v2
 
+!!! note "Prerequisites"
+    Add the following to your `deployment.toml` to enable the v2 API:
+
+    ```toml
+    [consent_mgt]
+    enable_v2_api = true
+    ```
+
 The v2 API provides a simplified consent management model. Key concepts:
 
 - **Purpose**: A consent use case (e.g., "Privacy Policy", "Marketing"). Supports versioning.

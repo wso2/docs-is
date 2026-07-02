@@ -2,6 +2,17 @@
 
 Preference management consent allows you to request user consent during registration for specific uses of their data, such as marketing communications, analytics, or third-party data sharing.
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+## Prerequisites
+
+Add the following to your `deployment.toml` to enable the consent management v2 API required for this feature:
+
+```toml
+[consent_mgt]
+enable_v2_api = true
+```
+{% endif %}
+
 ## Overview
 
 In {{ product_name }}, preferences are configured globally and apply across all applications in the organization.
