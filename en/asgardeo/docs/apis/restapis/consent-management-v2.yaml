@@ -30,6 +30,8 @@ tags:
     description: Consent data elements
   - name: Consents
     description: User consent records
+  - name: Purpose Application Mappings
+    description: Application associations for consent purposes
 
 security:
   - OAuth2: []
@@ -607,6 +609,97 @@ paths:
                 $ref: '#/components/schemas/ConsentValidateResponse'
         '400':
           $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /purposes/{purposeId}/applications:
+    get:
+      tags:
+        - Purpose Application Mappings
+      summary: Retrieve applications mapped to a consent purpose.
+      operationId: getApplicationsForPurpose
+      description: |
+        Retrieves the list of applications associated with the given consent purpose.
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_purpose_view`
+      parameters:
+        - $ref: '#/components/parameters/purposeId'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApplicationObject'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Purpose Application Mappings
+      summary: Map an application to a consent purpose.
+      operationId: addApplicationToPurpose
+      description: |
+        Associates an application with the given consent purpose so that consent is enforced during login.
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_purpose_update`
+      parameters:
+        - $ref: '#/components/parameters/purposeId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationObject'
+      responses:
+        '201':
+          description: Mapping created.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /purposes/{purposeId}/applications/{applicationId}:
+    delete:
+      tags:
+        - Purpose Application Mappings
+      summary: Remove an application from a consent purpose mapping.
+      operationId: removeApplicationFromPurpose
+      description: |
+        Removes the association between the given application and consent purpose.
+        <b>Scope(Permission) required:</b> `internal_consent_mgt_purpose_update`
+      parameters:
+        - $ref: '#/components/parameters/purposeId'
+        - name: applicationId
+          in: path
+          description: Resource ID of the application.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Mapping deleted.
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -1746,6 +1839,16 @@ components:
           type: string
           description: Trace ID for correlating errors in server logs
           example: "abc123def456"
+
+    ApplicationObject:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The application resource ID.
+          example: "74070bae-df8c-42bf-8754-5173c237c936"
 
   securitySchemes:
     BasicAuth:
