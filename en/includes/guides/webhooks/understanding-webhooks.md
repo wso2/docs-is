@@ -43,5 +43,12 @@ When an identity-related event (for example user registration, login success, pr
 - **User Account Management events**
       - User profile updates
       - User account status changes (lock/unlock, enable/disable, delete)
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+- **Consent events**
+      - Consent added
+      - Consent revoked
+- **Consent purpose events**
+      - Purpose version added
+{% endif %}
 
 Each webhook event payload includes structured details compliant with the [Security Event Token (SET) specification (RFC 8417)](https://datatracker.ietf.org/doc/html/rfc8417), containing issuer information, timestamp, unique identifiers, user and organization context, and event-specific metadata.

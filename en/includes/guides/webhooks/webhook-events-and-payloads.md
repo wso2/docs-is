@@ -2817,3 +2817,605 @@ The table below explains each property in the event data.
 </tr>
 </tbody>
 </table>
+
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+!!! note "Enable consent webhook events"
+    Consent webhook events are disabled by default. Add the following to your `deployment.toml` to enable them:
+
+    ```toml
+    [identity_mgt.events.schemes]
+    ConsentEventHook.properties.enable = true
+    ConsentPurposeEventHook.properties.enable = true
+
+    [webhooks.event_profiles]
+    disabled_channels = []
+    ```
+{% endif %}
+
+## Consent events
+
+{{product_name}} dispatches webhook events when users add or revoke consents for purposes. These events allow third-party providers (TPPs) and downstream systems to react to consent state changes in real time.
+
+### Consent added event
+
+{{product_name}} sends a <code>consentAdded</code> event when a user approves a consent for a purpose. This can occur during user registration or during the login flow.
+
+**Example payload:**
+
+{% if product_name == "WSO2 Identity Platform" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "8c695b00-d165-466d-ab20-770aa43ec4da",
+  "iat": 1782900901608,
+  "rci": "8cccc58f-ecb1-46da-a825-707f6740b8ea",
+  "events": {
+    "https://schemas.identity.wso2.org/events/consent/event-type/consentAdded": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "127.0.0.1",
+      "user": {
+        "id": "60ed468b-a357-405c-aad2-2ce6960ec2aa",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "peter@aol.com"
+          }
+        ],
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/60ed468b-a357-405c-aad2-2ce6960ec2aa"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "action": "REGISTER",
+      "consent": {
+        "id": "501a6ba7-0b15-4ae6-9642-03b5267ab996",
+        "subjectId": "peter",
+        "state": "APPROVED",
+        "serviceId": "Resident IDP",
+        "purpose": {
+          "id": "909eea3e-5bf1-4106-a5b8-44580fc4ae74",
+          "name": "Marketing Consent",
+          "version": "12a53d28-4536-4201-939e-5e5c00eadf7b",
+          "elements": [
+            {
+              "name": "Policy"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "8c695b00-d165-466d-ab20-770aa43ec4da",
+  "iat": 1782900901608,
+  "rci": "8cccc58f-ecb1-46da-a825-707f6740b8ea",
+  "events": {
+    "https://schemas.identity.wso2.org/events/consent/event-type/consentAdded": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "127.0.0.1",
+      "user": {
+        "id": "60ed468b-a357-405c-aad2-2ce6960ec2aa",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "peter@aol.com"
+          }
+        ],
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/60ed468b-a357-405c-aad2-2ce6960ec2aa"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "action": "REGISTER",
+      "consent": {
+        "id": "501a6ba7-0b15-4ae6-9642-03b5267ab996",
+        "subjectId": "peter",
+        "state": "APPROVED",
+        "serviceId": "Resident IDP",
+        "purpose": {
+          "id": "909eea3e-5bf1-4106-a5b8-44580fc4ae74",
+          "name": "Marketing Consent",
+          "version": "12a53d28-4536-4201-939e-5e5c00eadf7b",
+          "elements": [
+            {
+              "name": "Policy"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a consent addition, identified by the URI <code>https://schemas.identity.wso2.org/events/consent/event-type/consentAdded</code>. This URI signifies a user consent approval event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether a user or an administrator initiated the consent approval.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>The IP address of the client that triggered the consent approval.</p></td>
+</tr>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user who approved the consent.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the consent gets approved.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization under which the consent gets approved.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the consent approval. Refer to <a href="#consent-initiatortype-and-action">initiatorType and action properties</a> for details.</p></td>
+</tr>
+<tr class="even">
+<td>consent</td>
+<td>
+<p>Contains details about the approved consent including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier for the consent record</li>
+<li><strong>subjectId</strong>: Username of the user to whom the consent applies</li>
+<li><strong>state</strong>: Current state of the consent (for example <code>APPROVED</code>)</li>
+<li><strong>serviceId</strong>: The service or application for which the consent is granted</li>
+<li><strong>purpose</strong>: Details of the consent purpose including:
+<ul>
+<li><strong>id</strong>: Unique identifier of the consent purpose</li>
+<li><strong>name</strong>: Human-readable name of the consent purpose</li>
+<li><strong>version</strong>: The UUID of the specific purpose version the user consented to</li>
+<li><strong>elements</strong>: Array of PII categories covered by the consent, each with a <strong>name</strong></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Consent revoked event
+
+{{product_name}} sends a <code>consentRevoked</code> event when a user revokes an approved consent for a purpose.
+
+**Example payload:**
+
+{% if product_name == "WSO2 Identity Platform" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "6d43b40a-18f6-48ee-8592-d85d9f005452",
+  "iat": 1782901275789,
+  "rci": "7dadc7c2-9584-48e1-92e5-afa64a2630a6",
+  "events": {
+    "https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "127.0.0.1",
+      "user": {
+        "id": "60ed468b-a357-405c-aad2-2ce6960ec2aa",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "peter@aol.com"
+          }
+        ],
+        "ref": "https://api.asgardeo.io/t/myorg/scim2/Users/60ed468b-a357-405c-aad2-2ce6960ec2aa"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "action": "CONSENT_REVOKE",
+      "consent": {
+        "id": "501a6ba7-0b15-4ae6-9642-03b5267ab996",
+        "subjectId": "peter",
+        "state": "REVOKED",
+        "serviceId": "Resident IDP",
+        "purpose": {
+          "id": "909eea3e-5bf1-4106-a5b8-44580fc4ae74",
+          "name": "Marketing Consent",
+          "version": "12a53d28-4536-4201-939e-5e5c00eadf7b",
+          "elements": [
+            {
+              "name": "Policy"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "6d43b40a-18f6-48ee-8592-d85d9f005452",
+  "iat": 1782901275789,
+  "rci": "7dadc7c2-9584-48e1-92e5-afa64a2630a6",
+  "events": {
+    "https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "127.0.0.1",
+      "user": {
+        "id": "60ed468b-a357-405c-aad2-2ce6960ec2aa",
+        "claims": [
+          {
+            "uri": "http://wso2.org/claims/emailaddress",
+            "value": "peter@aol.com"
+          }
+        ],
+        "ref": "https://localhost:9443/t/myorg.com/scim2/Users/60ed468b-a357-405c-aad2-2ce6960ec2aa"
+      },
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "userStore": {
+        "id": "UFJJTUFSWQ==",
+        "name": "PRIMARY"
+      },
+      "action": "CONSENT_REVOKE",
+      "consent": {
+        "id": "501a6ba7-0b15-4ae6-9642-03b5267ab996",
+        "subjectId": "peter",
+        "state": "REVOKED",
+        "serviceId": "Resident IDP",
+        "purpose": {
+          "id": "909eea3e-5bf1-4106-a5b8-44580fc4ae74",
+          "name": "Marketing Consent",
+          "version": "12a53d28-4536-4201-939e-5e5c00eadf7b",
+          "elements": [
+            {
+              "name": "Policy"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a consent revocation, identified by the URI <code>https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked</code>. This URI signifies a user consent revocation event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether a user or an administrator initiated the consent revocation.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>The IP address of the client that triggered the consent revocation.</p></td>
+</tr>
+<tr class="odd">
+<td>user</td>
+<td><p>Contains information about the user whose consent gets revoked.</p></td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the consent gets revoked.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization under which the consent gets revoked.</p></td>
+</tr>
+<tr class="even">
+<td>userStore</td>
+<td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the consent revocation. Refer to <a href="#consent-initiatortype-and-action">initiatorType and action properties</a> for details.</p></td>
+</tr>
+<tr class="even">
+<td>consent</td>
+<td>
+<p>Contains details about the revoked consent including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier for the consent record</li>
+<li><strong>subjectId</strong>: Username of the user to whom the consent applies</li>
+<li><strong>state</strong>: Current state of the consent (for example <code>REVOKED</code>)</li>
+<li><strong>serviceId</strong>: The service or application for which the consent was granted</li>
+<li><strong>purpose</strong>: Details of the consent purpose including:
+<ul>
+<li><strong>id</strong>: Unique identifier of the consent purpose</li>
+<li><strong>name</strong>: Human-readable name of the consent purpose</li>
+<li><strong>version</strong>: The UUID of the specific purpose version the user had consented to</li>
+<li><strong>elements</strong>: Array of PII categories covered by the consent, each with a <strong>name</strong></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+<a name="consent-initiatortype-and-action"></a>
+
+### <code>initiatorType</code> and <code>action</code> properties
+
+The <code>initiatorType</code> and <code>action</code> properties together identify the flow that triggered a consent event.
+
+<table>
+<thead>
+<tr class="header">
+<th>Webhook event</th>
+<th>Flow</th>
+<th>Value of <code>initiatorType</code></th>
+<th>Value of <code>action</code></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="4">Consent added</td>
+<td>Self-registration flow</td>
+<td>USER</td>
+<td>REGISTER</td>
+<td><p>Occurs when a user approves a consent purpose during the self-registration flow.</p></td>
+</tr>
+<tr class="even">
+<td>Login flow</td>
+<td>USER</td>
+<td>LOGIN</td>
+<td><p>Occurs when a user approves a consent purpose during the login flow (for example, when a new consent version requires re-approval at login).</p></td>
+</tr>
+<tr class="odd">
+<td>User consent via Consent API</td>
+<td>USER</td>
+<td>CONSENT_GRANT</td>
+<td><p>Occurs when a user grants or authorizes a consent directly through the Consent API.</p></td>
+</tr>
+<tr class="even">
+<td>Administrator consent creation via Consent API</td>
+<td>ADMIN</td>
+<td>CONSENT_CREATE</td>
+<td><p>Occurs when an administrator creates a consent on behalf of a user through the Consent API.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">Consent revoked</td>
+<td>User consent revocation via Consent API</td>
+<td>USER</td>
+<td>CONSENT_REVOKE</td>
+<td><p>Occurs when a user revokes their own consent through the Consent API (for example, from the My Account portal).</p></td>
+</tr>
+<tr class="even">
+<td>Administrator consent revocation via Consent API</td>
+<td>ADMIN</td>
+<td>CONSENT_REVOKE</td>
+<td><p>Occurs when an administrator revokes a consent on behalf of a user through the Consent API.</p></td>
+</tr>
+</tbody>
+</table>
+
+## Consent purpose events
+
+{{product_name}} dispatches webhook events when a new version gets added to an existing consent purpose. These events let you notify users who have already approved a purpose that they need to review and re-approve the updated version.
+
+### Purpose version added event
+
+{{product_name}} sends a <code>purposeVersionAdded</code> event when an administrator adds a new version to an existing consent purpose.
+
+**Example payload:**
+
+{% if product_name == "WSO2 Identity Platform" %}
+
+```json
+{
+  "iss": "https://api.asgardeo.io/t/myorg",
+  "jti": "8745b363-ed05-4c24-a202-3d2c062bec6b",
+  "iat": 1782900735216,
+  "rci": "5e62a3ec-96ac-472b-824c-3def154c5edc",
+  "events": {
+    "https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "myorg"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg",
+        "depth": 0
+      },
+      "action": "PURPOSE_UPDATE",
+      "purpose": {
+        "id": "909eea3e-5bf1-4106-a5b8-44580fc4ae74",
+        "name": "Marketing Consent",
+        "version": {
+          "version": "2",
+          "setAsLatest": true,
+          "elements": [
+            {
+              "name": "Policy",
+              "mandatory": false
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+{% else %}
+
+```json
+{
+  "iss": "https://localhost:9443/t/myorg.com",
+  "jti": "8745b363-ed05-4c24-a202-3d2c062bec6b",
+  "iat": 1782900735216,
+  "rci": "5e62a3ec-96ac-472b-824c-3def154c5edc",
+  "events": {
+    "https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "myorg.com"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "myorg.com",
+        "depth": 0
+      },
+      "action": "PURPOSE_UPDATE",
+      "purpose": {
+        "id": "909eea3e-5bf1-4106-a5b8-44580fc4ae74",
+        "name": "Marketing Consent",
+        "version": {
+          "version": "2",
+          "setAsLatest": true,
+          "elements": [
+            {
+              "name": "Policy",
+              "mandatory": false
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+{% endif %}
+
+The <code>events</code> object contains the actual event data for a purpose version addition, identified by the URI <code>https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded</code>. This URI signifies that a new version has been added to a consent purpose.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the purpose update occurs.</p></td>
+</tr>
+<tr class="even">
+<td>organization</td>
+<td><p>Represents the organization under which the purpose update occurs.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates who initiated the purpose update. Currently <code>ADMIN</code> for purpose version additions.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>The IP address of the administrator client that triggered the purpose update.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>The action that triggered the event. Value is <code>PURPOSE_UPDATE</code> for purpose version additions.</p></td>
+</tr>
+<tr class="even">
+<td>purpose</td>
+<td>
+<p>Contains details about the updated consent purpose including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier for the consent purpose</li>
+<li><strong>name</strong>: Human-readable name of the consent purpose</li>
+<li><strong>version</strong>: Details of the newly added version including:
+<ul>
+<li><strong>version</strong>: The version number of the new version</li>
+<li><strong>setAsLatest</strong>: Whether this version becomes the active version for new consents</li>
+<li><strong>elements</strong>: Array of attributes (elements) included in this version, each with a <strong>name</strong> and <strong>mandatory</strong> flag</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+{% endif %}
