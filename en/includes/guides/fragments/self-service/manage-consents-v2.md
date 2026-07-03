@@ -1,6 +1,8 @@
 <!-- markdownlint-disable-next-line -->
 # Manage consents
 
+The My Account portal lets users review and revoke the consents they have given, organized into application consents, policy consents, and communication preferences.
+
 ## Manage consents given to applications
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}

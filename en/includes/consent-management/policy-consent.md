@@ -122,16 +122,16 @@ To remove an application, click the delete icon next to it in the list.
 
 **During registration or ask-password:**
 
-The consent screen appearance depends on how the **Policy Consent** widget is configured in the Flow Builder, including which policies are shown and the header description displayed to the user. The following is a sample consent screen:
+The consent screen appearance depends on how you configure the **Policy Consent** widget in the Flow Builder. This includes which policies are shown and the header description displayed to the user. The following is a sample consent screen:
 
 ![Sample policy consent screen during registration]({{base_path}}/assets/img/guides/consent-management/policy-consent/user-consent-screen.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 **During login:**
 
-When a user logs in to a configured application and has not yet accepted a policy version marked with **Prompt at next login**, the policy consent screen is displayed before completing login. Policies are grouped into:
+When a user logs in to a configured application, {{product_name}} checks for policy versions marked with **Prompt at next login**. If the user has not yet accepted such a version, the policy consent screen appears before login completes. Policies are grouped into:
 
 - **New policies** – policies the user has never consented to.
-- **Updated policies** – policies the user previously accepted but has a newer version requiring consent.
+- **Updated policies** – policies the user already accepted but that have a newer version requiring consent.
 
 ![Policy consent screen during login]({{base_path}}/assets/img/guides/consent-management/policy-consent/user-login-consent-screen.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 

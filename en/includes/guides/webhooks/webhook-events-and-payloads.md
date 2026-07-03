@@ -3027,7 +3027,7 @@ The table below explains each property in the event data.
 
 ### Consent revoked event
 
-{{product_name}} sends a <code>consentRevoked</code> event when a user revokes a previously approved consent for a purpose.
+{{product_name}} sends a <code>consentRevoked</code> event when a user revokes an approved consent for a purpose.
 
 **Example payload:**
 
@@ -3272,7 +3272,7 @@ The <code>initiatorType</code> and <code>action</code> properties together ident
 
 ## Consent purpose events
 
-{{product_name}} dispatches webhook events when a new version gets added to an existing consent purpose. These events let you notify users who have previously approved a purpose that they need to review and re-approve the updated version.
+{{product_name}} dispatches webhook events when a new version gets added to an existing consent purpose. These events let you notify users who have already approved a purpose that they need to review and re-approve the updated version.
 
 ### Purpose version added event
 
