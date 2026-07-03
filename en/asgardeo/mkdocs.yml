@@ -879,7 +879,7 @@ nav:
       - Role management: 
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
-      - User credential management API: apis/end-user-credential-management-rest-api.md
+      - User credential management API (deprecated): apis/end-user-credential-management-rest-api.md
       - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md
       - User management:
         - SCIM 2.0 API:
@@ -930,7 +930,8 @@ nav:
       - Organization management API: apis/organization-apis/org-management.md
       - Role management API: apis/organization-apis/org-role-mgt.md
       - Rule Metadata API: apis/organization-apis/rule-metadata-rest-api.md
-      - User credential management API: apis/organization-apis/end-user-credential-management-rest-api.md
+      - User credential management API (deprecated): apis/organization-apis/end-user-credential-management-rest-api.md
+      - User credential management API: apis/organization-apis/end-user-credential-management-v2-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
@@ -949,6 +950,7 @@ nav:
       - TOTP API: apis/register-mfa/totp.md
       - Push Notification Device API: apis/push-notification-device-rest-api.md
       - User account associations API: apis/association-management-by-user.md
+      - User credential management API: apis/end-user-credential-management-v2-rest-api.md
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
       - Organization Me API: apis/user-organization-api.md

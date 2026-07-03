@@ -1305,7 +1305,7 @@ nav:
         - CORS API: apis/cors-rest-api.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
-      - User credential management API: apis/end-user-credential-management-rest-api.md
+      - User credential management v1 API (deprecated): apis/end-user-credential-management-rest-api.md
       - User Functionality management API: apis/user-functionality-mgt-rest-api.md
       - User management:
         - SCIM 2.0 API:
@@ -1367,7 +1367,9 @@ nav:
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
       - Server configuration API: apis/organization-apis/configs.md
-      - User credential management API: apis/organization-apis/end-user-credential-management-rest-api.md
+      - User credential management API: 
+         - User credential management v1 API (deprecated): apis/organization-apis/end-user-credential-management-rest-api.md
+         - User credential management v2 API: apis/organization-apis/end-user-credential-management-v2-rest-api.md
       - User management:
         - User management: apis/organization-apis/scim2/index.md
         - SCIM 2.0 Users API: apis/organization-apis/scim2/scim2-org-user-mgt.md
@@ -1387,6 +1389,7 @@ nav:
         - TOTP API: apis/totp-rest-api.md
         - Push Notification Device API: apis/push-notification-device-rest-api.md
         - User account association API: apis/me-association-rest-api.md
+        - User credential management v2 API: apis/end-user-credential-management-v2-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
         - Identity Verification: apis/user-identity-verification.md
         - Self password update API: apis/self-password-update-rest-api.md
