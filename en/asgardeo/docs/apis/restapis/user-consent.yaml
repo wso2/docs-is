@@ -16,7 +16,6 @@ info:
 schemes:
   - https
 
-host: https://api.asgardeo.io
 basePath: /t/{tenant-domain}/api/users/v1
 
 tags:

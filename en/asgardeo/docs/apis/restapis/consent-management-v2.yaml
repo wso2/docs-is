@@ -18,7 +18,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 servers:
-  - url: https://api.asgardeo.io/t/{organization-name}/api/identity/consent-mgt/v2.0
+  - url: https://api.asgardeo.io/t/{tenant-domain}/api/identity/consent-mgt/v2.0
     variables:
       tenant-domain:
         default: carbon.super

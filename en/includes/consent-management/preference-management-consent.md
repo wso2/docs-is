@@ -51,11 +51,13 @@ To collect preference consent during registration or ask-password, add the **Pre
 
 1. On the {{ product_name }} Console, navigate to your application and go to **Login Flow**.
 2. Select the **Registration** or **Ask Password** flow.
-3. Add the **Preference Management** widget either as a component inside an existing view or as a new step in the flow.
+3. Add the **Preference Management** widget to the flow:
 
-    To add as a component, drag the widget from the **Components** panel into an existing view:
+    - To add as a component, drag the widget from the **Components** panel into an existing view:
 
-    ![Preference Management widget added as a component]({{base_path}}/assets/img/guides/consent-management/preference-management/flow-builder-widget.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+        ![Preference Management widget added as a component]({{base_path}}/assets/img/guides/consent-management/preference-management/flow-builder-widget.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - To add as a step, click **Add Step** in the flow and select the **Preference Management** widget from the list.
 
 4. In the widget's properties panel, configure the following:
 
