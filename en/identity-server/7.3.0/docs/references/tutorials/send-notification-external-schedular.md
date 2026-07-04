@@ -32,7 +32,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 ### Develop Azure Function with Visual Studio Code
 
-**Step 6:** First [Setup the Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} and [local environment](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} to develop a Azure Function with Visual Studio Code.
+**Step 6:** First [Setup the Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} and [local environment](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} to develop an Azure Function with Visual Studio Code.
 
 **Step 7:** Click the button below to download the sample Azure Function. You can also choose to view the source before doing so.
 
@@ -95,7 +95,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
         <td>The SMTP server to connect to.</td>
     </tr>
     <tr>
-        <td><code>smtp_server</code></td>
+        <td><code>smtp_port</code></td>
         <td>The SMTP server port to connect.</td>
     </tr>
 </table>
@@ -139,6 +139,6 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 ### Deploy Function App to Azure
 
-**Step 12** Deploy the Azure Function App as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#republish-project-files){:target="_blank"}.
+**Step 12:** Deploy the Azure Function App as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#republish-project-files){:target="_blank"}.
 
 The Azure Function is now configured to send daily email notifications for users whose passwords will expire in 3 days.
