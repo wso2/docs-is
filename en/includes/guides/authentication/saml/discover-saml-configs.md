@@ -25,7 +25,7 @@ There are two options for a SAML application to get the SAML IdP configurations 
 
 ### Use SAML metadata
 
-[SAML metadata](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf){:target="_blank"} is an XML document which contains information necessary to integrate a SAML application with a with SAML supported identity provider.
+[SAML metadata](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf){:target="_blank"} is an XML document that contains information necessary to integrate a SAML application with a SAML-supported identity provider.
 
 The SAML IdP metadata document contains:
 
