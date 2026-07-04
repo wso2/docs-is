@@ -135,7 +135,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 **Step 10:** Copy and replace the files from the sample Azure Function into the directory created in the previous step.
 
-**Step 11:** You can test the Function App locally as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&tabs=isolated-process#run-the-function-locally){:target="_blank"} befor deploying it to Azure.
+**Step 11:** You can test the Function App locally as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&tabs=isolated-process#run-the-function-locally){:target="_blank"} before deploying it to Azure.
 
 ### Deploy Function App to Azure
 
