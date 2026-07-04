@@ -5,12 +5,12 @@ Application can dynamically discover the OpenID Connect identity provider metada
  `<issuer>/.well-known/openid-configuration`.  
 
 **Issuer of {{ product_name }}:**
-``` 
+```text
 {{ product_url_format }}/oauth2/token
 ```
 
 **Discovery endpoint of {{ product_name }}:**
-``` 
+```text
 {{ product_url_format }}/oauth2/token/.well-known/openid-configuration
 ```
 

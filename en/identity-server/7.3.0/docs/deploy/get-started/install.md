@@ -292,7 +292,7 @@ The `JAVA_HOME` variable is now set and will apply to any subsequent command pro
 
 To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and click **Enter** ) and execute the following command.
 
-```java
+```bat
 set JAVA_HOME
 ```
 

@@ -97,11 +97,11 @@ curl -i -X POST "<MATTR_AUTH_URL>/oauth/token" \
 ```
 
 !!! note
-    The sections below refers to the received access token as `<MATTR_BEARER_TOKEN>`.
+    The sections below refer to the received access token as `<MATTR_BEARER_TOKEN>`.
 
 ### Step 2.3: Configure MATTR authentication provider
 
-Set up a authentication provider in MATTR VII to connect with {{ product_name }}. See the MATTR documentation on [authentication providers](https://learn.mattr.global/docs/issuance/authorization-code/authentication-provider/overview){: target="_blank"} for more details.
+Set up an authentication provider in MATTR VII to connect with {{ product_name }}. See the MATTR documentation on [authentication providers](https://learn.mattr.global/docs/issuance/authorization-code/authentication-provider/overview){: target="_blank"} for more details.
 
 ```bash
 curl -i -X POST "<MATTR_TENANT_URL>/v1/users/authentication-providers" \

@@ -59,11 +59,11 @@ consumerSecret=<consumerSecret>
 callBackURL=<YOUR_APP_PATH>/oauth2client
 scope=openid
 logoutURL=logout
-authorizeEndpoint=https://localhst:9443/localhost:9443/oauth2/authorize
-logoutEndpoint=https://localhst:9443/oidc/logout
-tokenEndpoint=https://localhst:9443/oauth2/token
-issuer=https://localhst:9443//oauth2/token
-jwksEndpoint=https://localhst:9443/oauth2/jwks
+authorizeEndpoint=https://localhost:9443/oauth2/authorize
+logoutEndpoint=https://localhost:9443/oidc/logout
+tokenEndpoint=https://localhost:9443/oauth2/token
+issuer=https://localhost:9443/oauth2/token
+jwksEndpoint=https://localhost:9443/oauth2/jwks
 skipURIs=<YOUR_APP_PATH>/index.html
 ```
 

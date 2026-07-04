@@ -238,7 +238,7 @@ BASE_URL=https://api.asgardeo.io/t/<your-org-name>
 {% else %}
 
 ```env
-BASE_URL=https://localhost:9443/t/<you-org-name>
+BASE_URL=https://localhost:9443/t/<your-org-name>
 ```
 
 {% endif %}
