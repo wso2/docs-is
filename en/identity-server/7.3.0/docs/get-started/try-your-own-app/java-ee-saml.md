@@ -173,7 +173,7 @@ Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/r
         <code>SAML2.EnableRequestSigning</code>
       </td>
       <td>
-        If this configuration is set to <code>true</code>, {{ product_name }} validates the SAML authentication requeand logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from {{ product_name }}.
+        If this configuration is set to <code>true</code>, {{ product_name }} validates the SAML authentication request and logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from {{ product_name }}.
       </td>
     </tr>
     <tr>

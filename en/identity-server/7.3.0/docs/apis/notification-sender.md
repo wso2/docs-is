@@ -2,7 +2,7 @@
 
 The RESTful API for managing notification sender configurations in WSO2 Identity Server supports Email and SMS as the notification channels.
 
-The following section provides the instructions to contruct requests for each notification sender type.<br>
+The following section provides the instructions to construct requests for each notification sender type.<br>
 
 !!! warning "Important"
 

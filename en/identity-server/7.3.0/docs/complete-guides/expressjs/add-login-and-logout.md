@@ -10,7 +10,7 @@ read_time: 2 min
 
     In WSO2 Identity Server, the default certificate is a self signed certificate. This certificate needs to be added to the runtime path in order to avoid SSL errors.
 
-    Excute the below commands before running `npm start`
+    Execute the below commands before running `npm start`
 
     Naviate to the <IS_HOME>/repository/resources/security directory and execute the following
 

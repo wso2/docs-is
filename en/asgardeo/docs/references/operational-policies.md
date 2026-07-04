@@ -249,7 +249,7 @@ Refer this guideline below for more on [subscription](https://wso2.com/asgardeo/
 
 ### 7.3 Subscription Upgrade
 
-WSO2 Identity Platform organization owners can upgrade the curent tier of their organizations using the billing portal accessible from the **WSO2 Identity Platform Console**. This [document](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/){target="_blank"} provides more insight on how to upgrade tiers. 
+WSO2 Identity Platform organization owners can upgrade the current tier of their organizations using the billing portal accessible from the **WSO2 Identity Platform Console**. This [document](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/){target="_blank"} provides more insight on how to upgrade tiers. 
 
 ### 7.4 Subscription Downgrade
 
@@ -316,7 +316,7 @@ WSO2 Identity Platform, as a cloud offering, adheres to agile principles and emp
 
 ### 10.2 New Features
 
-Asgaardeo thrives to introduce new features and explicitly adds ‘New’ tag to those features so that interested parties can try those new features.
+WSO2 Identity Platform thrives to introduce new features and explicitly adds ‘New’ tag to those features so that interested parties can try those new features.
 
 ### 10.3 Beta Features
 

@@ -28,7 +28,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 **Step 4:** Sign in to [Azure portal](https://portal.azure.com/#home){:target="_blank"} with your Azure subscription.
 
-**Step 5:** Create a function app in Azure as discribed [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-python#create-a-function-app){:target="_blank"}. Select `Python` as the `Runtime stack` and `Linux` as the `Operating System`.
+**Step 5:** Create a function app in Azure as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-python#create-a-function-app){:target="_blank"}. Select `Python` as the `Runtime stack` and `Linux` as the `Operating System`.
 
 ### Develop Azure Function with Visual Studio Code
 
@@ -57,14 +57,14 @@ This tutorial illustrates how to send email notifications daily for users whose 
     </tr>
     <tr>
         <td>client_id</td>
-        <td>Client ID of the OIDC application creatde in WSO2 IS Server.</td>
+        <td>Client ID of the OIDC application created in WSO2 IS Server.</td>
     </tr>
     <tr>
         <td>client_secret</td>
-        <td>Client secret of the OIDC application creatde in WSO2 IS Server.</td>
+        <td>Client secret of the OIDC application created in WSO2 IS Server.</td>
     </tr>
     <tr>
-        <td>oragnization</td>
+        <td>organization</td>
         <td>Name of the organization.</td>
     </tr>
     <tr>
@@ -109,7 +109,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
     </tr>
     <tr>
         <td>Directory location</td>
-        <td>Preferred empty file directory loaction</td>
+        <td>Preferred empty file directory location</td>
     </tr>
     <tr>
         <td>Language</td>
