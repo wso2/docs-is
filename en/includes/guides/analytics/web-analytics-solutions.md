@@ -16,7 +16,7 @@ Follow the steps below to configure a web analytics solution for {{product_name}
 
     - For Mixpanel:
       
-        1. Follow the Mixpanel [documentation](https://docs.mixpanel.com/docs/what-is-mixpanel){taget="_blank"} and create an analytics project.
+        1. Follow the Mixpanel [documentation](https://docs.mixpanel.com/docs/what-is-mixpanel){target="_blank"} and create an analytics project.
       
         2. Navigate to **Settings** > **Set up Mixpanel**, and look for the token of your project in `mixpanel.init("<TOKEN>");`.
 
