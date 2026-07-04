@@ -19,7 +19,7 @@ Any efficient IAM solution supports anonymization to remove PII data from datase
 
 WSO2 Identity Server (WSO2 IS) is designed based on privacy best practices and is fully compliant with GDPR. GDPR compliance in IAM and API security spaces can be completely fulfilled with WSO2 IS.
 
-WSO2 IS has been designed and architectured based on well-known *Secure by Design* and *Privacy by Design* principles.  With the formalization of GDPR in 2016, the product architecture of the WSO2 Identity Server has been reviewed and fine-tuned accordingly to support privacy principles efficiently, with less overhead for product performance and user experience.
+WSO2 IS has been designed and architected based on well-known *Secure by Design* and *Privacy by Design* principles.  With the formalization of GDPR in 2016, the product architecture of the WSO2 Identity Server has been reviewed and fine-tuned accordingly to support privacy principles efficiently, with less overhead for product performance and user experience.
 
 WSO2 IS provides all privacy features enabled in the product as default options, and uses up-to-date algorithms and frameworks for all cryptographic operations such as data encryption, signing, and hashing.
 
