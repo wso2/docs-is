@@ -1,6 +1,6 @@
 # Add MFA based on ELK-risk
 
-The following guide shows you how to prepare the WSO2 Identity server for adaptive authentication using ELK analytics.
+The following guide shows you how to prepare WSO2 Identity Server for adaptive authentication using ELK analytics.
 
 ## Prerequisite
 
@@ -14,9 +14,9 @@ Follow the steps below to configure the analytics engine in WSO2 Identity Server
 
 2. Select the relevant application and go to its **Login Flow** tab.
 
-5. In the **Predefined Flows** > **Conditional Login Flows** section, click on the **`settings`** icon in the **ELK-Risk-Based** template.
+3. In the **Predefined Flows** > **Conditional Login Flows** section, click on the **`settings`** icon in the **ELK-Risk-Based** template.
 
-2. Configure the following properties.
+4. Configure the following properties.
    ![elk-analytics-engine-properties]({{base_path}}/assets/img/elk-analytics/risk-based-adaptive-authentication/risk-based-adaptive-authentication-4.png){: width="800" style="display: block; margin-left: 0;"}
   
       <table>
@@ -63,7 +63,7 @@ Follow the steps below to configure the analytics engine in WSO2 Identity Server
       </tbody>
       </table>
 
-3. Click **Update** to save the changes.
+5. Click **Update** to save the changes.
 
 ## Add Elasticsearch certificate to WSO2 Identity Server
 
@@ -80,4 +80,4 @@ To import the certificate, open a terminal window and run the following command.
 
 ## What's Next?
 
-Now that you have prepared WSO2 Identity server for adaptive authentication using ELK analytics, [try an ELK-based adaptive authentication scenario]({{base_path}}/guides/authentication/conditional-auth/elk-risk-based-template).
+Now that you have prepared WSO2 Identity Server for adaptive authentication using ELK analytics, [try an ELK-based adaptive authentication scenario]({{base_path}}/guides/authentication/conditional-auth/elk-risk-based-template).
