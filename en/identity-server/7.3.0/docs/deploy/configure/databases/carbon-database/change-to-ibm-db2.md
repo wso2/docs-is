@@ -49,7 +49,7 @@ A sample configuration is given below.
 		- `<IS_HOME>/dbscripts/consent/db2.sql`
 
 		!!! info 
-			While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimeter "/" since the default delimiter script for DB2 is ";". 
+			While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimiter "/" since the default delimiter script for DB2 is ";". 
 			```xml
 			db2 -td/ -f db2.sql
 			```		
