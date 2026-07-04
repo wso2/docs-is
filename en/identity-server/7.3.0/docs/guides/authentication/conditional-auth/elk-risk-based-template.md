@@ -31,7 +31,7 @@ works to assess the risk of the user.
 
 ## Prerequisites
 
-- See the [general prerequisites]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#prerequisites) for all adaptive authenticaiton scenarios.
+- See the [general prerequisites]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#prerequisites) for all adaptive authentication scenarios.
 
 - [Configure ELK analytics for adaptive authentication]({{base_path}}/deploy/elk-analytics-for-adaptive-authentication), and run the following command to create an index named `transaction` to store transaction data.
 

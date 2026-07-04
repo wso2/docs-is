@@ -147,7 +147,7 @@ var onLoginRequest = function(context) {
 
 !!! info "Access ACR Values from the authentication script"
 
-    The authentiaction script is protocol-agnostic, i.e. it works for both OIDC and SAML SSO requests.
+    The authenticaction script is protocol-agnostic, i.e. it works for both OIDC and SAML SSO requests.
 
     - For OIDC requests the `acr_values` parameter is available as `context.requestedAcr`.
     
@@ -201,7 +201,7 @@ Follow the steps given below to try out ACR-based adaptive authentication with t
     !!! note
         Authentication Method Reference (AMR) value found in the access token provides information about the authentication methods that are used to assert the authenticity of the user.
 
-        The AMR values for the relevant request are `BasicAuthenticator` and `totp` which were the methods used for authenticaion.
+        The AMR values for the relevant request are `BasicAuthenticator` and `totp` which were the methods used for authentication.
 
 8. Logout from the application and try this flow with different ACR values.
 
