@@ -316,7 +316,7 @@ WSO2 Identity Platform, as a cloud offering, adheres to agile principles and emp
 
 ### 10.2 New Features
 
-Asgardeo thrives to introduce new features and explicitly adds ‘New’ tag to those features so that interested parties can try those new features.
+WSO2 Identity Platform thrives to introduce new features and explicitly adds ‘New’ tag to those features so that interested parties can try those new features.
 
 ### 10.3 Beta Features
 
