@@ -2,7 +2,7 @@
 
 If there are dynamic pages in your application, which also include sensitive information, you need to prevent caching. This can be done by making sure that the applications return the following HTTP security headers in HTTP responses.
 
-```
+```http
 Expires:0
 Pragma:no-cache
 Cache-Control:no-store, no-cache, must-revalidate
