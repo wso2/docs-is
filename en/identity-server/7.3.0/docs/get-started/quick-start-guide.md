@@ -38,6 +38,6 @@ Are you new to **{{ product_name }}**? Learn how you can get started.
 
 - **Secure ever-growing APIs** - {{ product_name }} plays a key role as the authorization server that supports several OAuth related standards or profiles. It supports open standards such as OAuth, OpenID Connect and SAML 2.0. It also enables high availability, failover, and performance for a smooth operation.
 
-- **To safeguard user data and give them control over it** - {{ product_name }} enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards imposed by GDPR and similar privacy laws such as CCPA and LGDP.
+- **To safeguard user data and give them control over it** - {{ product_name }} enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards imposed by GDPR and similar privacy laws such as CCPA and LGPD.
 
 ---
