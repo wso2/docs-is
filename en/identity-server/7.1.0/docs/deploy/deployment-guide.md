@@ -160,7 +160,7 @@ The following configurations need to be done in both the WSO2 Identity Server no
    `<IS_HOME>/repository/conf/deployment.toml` file.
 
     !!! info
-        The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes]({{base_path}}/deploy/clustering-overview/#about-membership-schemes).-->
+        The simplest is the well-known address (WKA) based clustering method. It only suits deployments where all the nodes are deployed on machines having static IP addresses. <!--For more information, see [About Membership Schemes]({{base_path}}/deploy/clustering-overview/#about-membership-schemes).-->
         Configurations for each membership scheme are listed below.
 
         ??? tip "Click to see the instructions for the WKA scheme"
