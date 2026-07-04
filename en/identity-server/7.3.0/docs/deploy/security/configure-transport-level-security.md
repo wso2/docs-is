@@ -70,7 +70,6 @@ Follow the instructions given below to enable SSL protocols and ciphers in `Thri
 
     If you wish to remove `TLSv1` or `TLSv1.1`, you can do so by removing them as values from the `<SSLEnabledProtocols>` property.
 
-
 2. Restart the server.
   
 ## Change the server name in HTTP response headers
@@ -80,7 +79,7 @@ By default, the WSO2 Identity Server passes `WSO2 IS server` as the server value
 1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 2. Add a new server name by adding the following property under the relevant Tomcat connector configuration.
 
-    ```
+    ```toml
     [transport.https.properties]
     server="WSO2 IS server"
     [transport.http.properties]
@@ -89,7 +88,7 @@ By default, the WSO2 Identity Server passes `WSO2 IS server` as the server value
 
 ## Enable/disable http/https transport
 
-By default, both the `http` and `https` connectors are enabled. To disable either the `http` or `https` connector, add the corresponding configuration to `<IS_HOME>/repository/conf/deployment.toml` as shown below. 
+By default, both the `http` and `https` connectors are enabled. To disable either the `http` or `https` connector, add the corresponding configuration to `<IS_HOME>/repository/conf/deployment.toml` as shown below.
 
 ```toml
 [transport]
