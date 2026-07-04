@@ -26,19 +26,19 @@ Are you new to **{{ product_name }}**? Let's get to know what we are all about!
 
 ![IAM functionality]({{base_path}}/assets/img/get-started/iam-functionality.png)
 
-- **Unify sign-ins** -  WSO2 IS facilitates single sign-on (SSO) that eliminates the need to maintain multiple credentials for each application making life easier for your users.
+- **Unify sign-ins** - WSO2 IS facilitates single sign-on (SSO) that eliminates the need to maintain multiple credentials for each application, making life easier for your users.
 
 - **Give the right access to the right people** - Control access to applications based on permission levels of users or groups.
 
-- **Enforce strong authentication** - {{ product_name }} offers multi-factor capabilities such as Email OTP, SMS OTP, FIDO Passkeys etc. It also enables adaptive authentication which means you can define the level of authentication based on user device, location, and usage context.
+- **Enforce strong authentication** - {{ product_name }} offers multi-factor capabilities such as Email OTP, SMS OTP, FIDO Passkeys etc. It also enables adaptive authentication, which means you can define the level of authentication based on user's device, location, and usage context.
 
-- **Empower users to manage their own accounts** - Enable self-registration to applications and let users view, and manage their own profiles.
+- **Empower users to manage their own accounts** - Enable self-registration to applications and let users view and manage their own profiles.
 
-- **Manage users and their accounts** - Take control of the entire identity lifecycle management of your organization. Provision users to or from trusted identity providers and integrate heterogeneous userstores such as LDAP, Active Directory, and JDBC.
+- **Manage users and their accounts** - Take control of the entire identity lifecycle management of your organization. Provision users to or from trusted identity providers and integrate heterogeneous user stores such as LDAP, Active Directory, and JDBC.
 
-- **Secure ever-growing APIs** - {{ product_name }} plays a key role as the authorization server that supports several OAuth related standards or profiles. It supports open standards such as OAuth, OpenID Connect and SAML 2.0. It also enables high availability, failover, and performance for a smooth operation.
+- **Secure ever-growing APIs** - {{ product_name }} plays a key role as the authorization server that supports several OAuth-related standards or profiles. It supports open standards such as OAuth, OpenID Connect and SAML 2.0. It also enables high availability, failover, and performance for smooth operation.
 
 
-- **To safeguard user data and give them control over it** - {{ product_name }} enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards imposed by GDPR and similar privacy laws such as CCPA and LGDP.
+- **To safeguard user data and give them control over it** - {{ product_name }} enables recording, reviewing, and revoking user consents by adhering to privacy by design principles and industry standards imposed by GDPR and similar privacy laws such as CCPA and LGPD.
 
 ---
