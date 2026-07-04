@@ -31,7 +31,7 @@ This authentication method uses the user's credentials to invoke the APIs. If th
 
 This is a sample cURL command template for the request.
 
-``` curl
+```bash
 curl -X GET "https://localhost:9443/api/server/v1/applications?limit=30&offset=0" -H "accept: application/json" -H "Authorization: Basic <Base64(username:password)>"
 ```
 
