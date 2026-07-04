@@ -70,12 +70,11 @@ Follow the instructions given below to enable SSL protocols and ciphers in `Thri
 
     If you wish to remove `TLSv1` or `TLSv1.1`, you can do so by removing them as values from the `<SSLEnabledProtocols>` property.
 
-
 2. Restart the server.
   
 ## Change the server name in HTTP response headers
 
-By default, the WSO2 Identity Server passes `WSO2 WSO2 IS server` as the server value in HTTP headers when sending HTTP responses. This means that information about the WSO2 Identity Server stack will be exposed through HTTP responses. It is recommended to change this by configuring the server name in the `deployment.toml` file.
+By default, the WSO2 Identity Server passes `WSO2 IS server` as the server value in HTTP headers when sending HTTP responses. This means that information about the WSO2 Identity Server stack will be exposed through HTTP responses. We recommend changing this by configuring the server name in the `deployment.toml` file.
 
 1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 2. Add a new server name by adding the following property under the relevant Tomcat connector configuration.
