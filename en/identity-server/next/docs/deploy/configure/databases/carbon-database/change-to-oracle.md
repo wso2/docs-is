@@ -118,7 +118,7 @@ When the database owner is not the user used to connect to the database, specify
 	parentSchema = "<parent_schema_name>"
 	```
 
-!!! note "Database user priviledges"
+!!! note "Database user privileges"
 
     When a custom database user is created, please note that the following privildges should be granted according to the purpose of the user.
 
