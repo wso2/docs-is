@@ -1,6 +1,6 @@
 # Add Duo login
 
-[Duo](https://duo.com/) is a multi-factor authentication option that offer multiple verification methods such as push notifications, SMS, phone calls, and hardware tokens.
+[Duo](https://duo.com/) is a multi-factor authentication option that offers multiple verification methods such as push notifications, SMS, phone calls, and hardware tokens.
 
 In this guide, you'll learn how to integrate Duo as a second-factor authentication provider for your WSO2 Identity Platform application.
 
@@ -66,4 +66,4 @@ Finally, you need to verify that Duo has been successfully integrated and is fun
 
 4. If your verification is successful, you will be logged into the app.
 
-You've successfully integrated Duo 2FA into your WSO2 Identity Platform application. This additional security layer helps protect your users and sensitive data from unauthorized access.
+You've successfully integrated Duo 2FA into your application. This additional security layer helps protect your users and sensitive data from unauthorized access.

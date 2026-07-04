@@ -6,7 +6,7 @@ By following this guide, you will be able to deploy a Javascript single-page app
 
 - **npm with Node.js**
 
-    If you don't have it, [install npm and node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){target="_blank"} in your local environment.
+    If you don't have them,[install npm and Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm){target="_blank"} in your local environment.
 
 - **A user account in WSO2 Identity Platform**
 
@@ -56,7 +56,7 @@ Follow the steps given below to register the sample Javascript SPA in WSO2 Ident
     - to redirect the user back to the application in the following scenarios.
         - if the login page times out
         - after a password reset
-        - after the self sign-up verification
+        - after self-sign-up verification
     - to re-initiate the login flow if the login flow fails.
 
 ## Download the sample
@@ -107,7 +107,7 @@ Follow the steps given below to configure the sample app.
             <code>clientID</code>
         </td>
         <td>
-            The client id that you received when you registered the application in WSO2 Identity Platform.
+            The client ID that you received when you registered the application in WSO2 Identity Platform.
         </td>
       </tr>
       <tr>
@@ -151,4 +151,4 @@ Follow the steps given below to run the sample.
 4. Enter the credentials of your user account and click **Sign In**.
 
     !!! note "Extend your login session"
-        By default, the user login session is active for only `15 minutes`. You can extend the session to `14 days` by selecting the **Remember me on this computer** option provided at the login screen of your application.
+        By default, the user session is active for only `15 minutes`. You can extend the session to `14 days` by selecting the **Remember me on this computer** option provided at the login screen of your application.

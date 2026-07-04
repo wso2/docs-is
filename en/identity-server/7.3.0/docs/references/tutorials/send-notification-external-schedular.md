@@ -28,13 +28,13 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 **Step 4:** Sign in to [Azure portal](https://portal.azure.com/#home){:target="_blank"} with your Azure subscription.
 
-**Step 5:** Create a function app in Azure as discribed [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-python#create-a-function-app){:target="_blank"}. Select `Python` as the `Runtime stack` and `Linux` as the `Operating System`.
+**Step 5:** Create a function app in Azure as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-python#create-a-function-app){:target="_blank"}. Select `Python` as the `Runtime stack` and `Linux` as the `Operating System`.
 
 ### Develop Azure Function with Visual Studio Code
 
 **Step 6:** First [Setup the Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} and [local environment](https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v3%2Cpython-v2%2Cisolated-process&pivots=programming-language-python#prerequisites){:target="_blank"} to develop a Azure Function with Visual Studio Code.
 
-**Step 7:** Click the button below to download the sample Azure Funtion. You can also choose to view the source before doing so.
+**Step 7:** Click the button below to download the sample Azure Function. You can also choose to view the source before doing so.
 
 <div class="centered-container">
   <div class="border-text">
@@ -57,14 +57,14 @@ This tutorial illustrates how to send email notifications daily for users whose 
     </tr>
     <tr>
         <td>client_id</td>
-        <td>Client ID of the OIDC application creatde in WSO2 IS Server.</td>
+        <td>Client ID of the OIDC application created in WSO2 IS Server.</td>
     </tr>
     <tr>
         <td>client_secret</td>
-        <td>Client secret of the OIDC application creatde in WSO2 IS Server.</td>
+        <td>Client secret of the OIDC application created in WSO2 IS Server.</td>
     </tr>
     <tr>
-        <td>oragnization</td>
+        <td>organization</td>
         <td>Name of the organization.</td>
     </tr>
     <tr>
@@ -109,7 +109,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
     </tr>
     <tr>
         <td>Directory location</td>
-        <td>Preferred empty file directory loaction</td>
+        <td>Preferred empty file directory location</td>
     </tr>
     <tr>
         <td>Language</td>
@@ -135,7 +135,7 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 **Step 10:** Copy and replace the files from the sample Azure Function into the directory created in the previous step.
 
-**Step 11:** You can test the Funtion App locally as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&tabs=isolated-process#run-the-function-locally){:target="_blank"} befor deploying it to Azure.
+**Step 11:** You can test the Function App locally as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&tabs=isolated-process#run-the-function-locally){:target="_blank"} before deploying it to Azure.
 
 ### Deploy Function App to Azure
 

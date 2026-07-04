@@ -4,7 +4,7 @@ This document provides a list of error codes for the [authentication API]({{base
 
 | Error Code | HTTP status code  | Error message | Possible cause |
 |------------|-------------------|---------------|----------------|
-|401|401|Unauthorzed|Client authentication failure or client attestation failure.|
+|401|401|Unauthorized|Client authentication failure or client attestation failure.|
 |60001|400|Invalid authentication request.|Received authentication request is invalid.|
 |60002|400|Authentication failure.|Authentication flow has concluded with a failure.|
 |60003|400|Authentication failure.|Authentication failure please retry.|

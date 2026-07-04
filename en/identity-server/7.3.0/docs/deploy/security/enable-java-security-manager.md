@@ -247,7 +247,7 @@ To enable the Java Security Manager:
 		// MyFaces has a fix https://issues.apache.org/jira/browse/MYFACES-3590  
 		permission java.io.FilePermission "/META-INF", "read";
 		permission java.io.FilePermission "/META-INF/-", "read";
-		// OSGi permissions are requied to resolve bundles. Required by JSF
+		// OSGi permissions are required to resolve bundles. Required by JSF
 		permission org.osgi.framework.AdminPermission "*", "resolve,resource";
 
 		};

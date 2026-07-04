@@ -56,7 +56,7 @@ Follow the steps given below to initialize the SAML agent.
 
 ### Create the configuration file
 
-To initialize the SAML agent, you need a property file with the configurations such as the the {{ product_name }} endpoints. The {{ product_name }} SAML agent reads the configurations from this file.
+To initialize the SAML agent, you need a property file with the configurations such as the {{ product_name }} endpoints. The {{ product_name }} SAML agent reads the configurations from this file.
 
 Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/resources** directory, using the content below.
 
@@ -173,7 +173,7 @@ Create a file named **sample-app.properties** inside the **<YOUR_APP>/src/main/r
         <code>SAML2.EnableRequestSigning</code>
       </td>
       <td>
-        If this configuration is set to <code>true</code>, {{ product_name }} validates the SAML authentication requeand logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from {{ product_name }}.
+        If this configuration is set to <code>true</code>, {{ product_name }} validates the SAML authentication request and logout request. You also need to [enable request signing]({{base_path}}/references/app-settings/saml-settings-for-app/) from {{ product_name }}.
       </td>
     </tr>
     <tr>
