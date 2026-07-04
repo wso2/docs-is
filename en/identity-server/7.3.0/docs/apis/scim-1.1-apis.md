@@ -275,7 +275,7 @@ exchanged and also protected with Basic Auth Authentication.
     curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Groups?filter=displayNameEqengineer
     ```
 
-    ```java tab="Reponse"
+    ```java tab="Response"
     {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":1,"Resources":[{"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","displayName":"PRIMARY/engineer","meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}]}
     ```
 
