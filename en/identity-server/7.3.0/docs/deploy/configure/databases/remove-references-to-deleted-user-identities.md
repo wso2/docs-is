@@ -23,7 +23,7 @@ log files in WSO2 IS.
         to remove references to a user who has not been deleted from the
         system. Although it is practically possible to run the tool to
         remove references to a user who has not been deleted from the
-        system, a ttempting to do so can cause unexpected system errors.
+        system, attempting to do so can cause unexpected system errors.
     
     -   This tool is designed to replace all occurrences of a deleted user’s
         identity with either a randomly generated UUID value, or a pseudonym
