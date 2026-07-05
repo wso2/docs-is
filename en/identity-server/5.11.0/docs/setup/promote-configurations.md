@@ -192,13 +192,13 @@ Dry-run mode lets you preview what `importAll` or `exportAll` would do without a
 
 Pass the `--dryRun` (`-d`) flag to either command:
 
-**importAll**
+#### Import
 
 ```bash
 iamctl importAll --config ./env --dryRun
 ```
 
-**exportAll**
+#### Export
 
 ```bash
 iamctl exportAll --config ./env --dryRun
