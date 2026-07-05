@@ -1,6 +1,6 @@
 ## Dry-run mode
 
-Dry-run mode lets you preview what `importAll` or `exportAll` would do without applying any destructive changes. No resources are created, updated, or deleted on the server in import, and no local files are removed in export.
+Dry-run mode lets you preview what `importAll` or `exportAll` would do without modifying the server or deleting any local files.
 
 ### Usage
 
@@ -26,7 +26,4 @@ In dry-run mode, all mutating operations (POST, PUT, PATCH, DELETE) are skipped 
 [DRY RUN] Would POST https://localhost:9443/api/server/v1/applications
 ```
 
-Local file and directory deletions are skipped in the same way. The end-of-run summary reports `Would Import`, `Would Update`, and `Would Delete` counts in place of the applied counts.
-
-!!! note
-    Dry-run mode only skips mutating operations. List and detail `GET` requests are still sent to the server so that the tool can diff local files against the current server state.
+During import, no resources are created, updated, or deleted on the server. During export, resources are still fetched and written to disk, but stale local files and directories are left in place. The end-of-run summary reports `Would Import`, `Would Update`, and `Would Delete` counts in place of the applied counts.
