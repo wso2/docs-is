@@ -314,7 +314,7 @@ function MyProfile() {
             {userData && (
                 <div>
                     <p> Given Name : {userData.name.givenName}</p>
-                    <p> Family Name Name : {userData.name.familyName}</p>
+                    <p> Family Name : {userData.name.familyName}</p>
                 </div>
             )}
         </div>
