@@ -261,6 +261,8 @@ nav:
         - Python: quick-starts/mcp-auth-server-py.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
     - Secure Your AI Agents:
+        - LangChain:
+          - Python Quickstart: quick-starts/langchain-py.md
         - Python: quick-starts/agent-auth-py.md
         - TypeScript: quick-starts/agent-auth-ts.md
     
