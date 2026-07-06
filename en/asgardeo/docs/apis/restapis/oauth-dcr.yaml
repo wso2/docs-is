@@ -405,7 +405,7 @@ components:
             type: string
           description: >
             The redirect URIs registered for the application.
-            For organizations created on or after August 1, 2026, this is returned as an array of individual URI strings when multiple redirect URIs are registered.
+            For organizations created on or after August 1, 2026, when multiple redirect URIs are registered, the response returns each URI as a separate string in an array.
         grant_types:
           type: array
           example:
