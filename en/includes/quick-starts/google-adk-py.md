@@ -1,6 +1,6 @@
-# LangChain Quickstart (Python)
+# Google ADK Quickstart (Python)
 
-This quickstart shows you how to create AI agent identities in {{ product_name }}, authenticate agents using their credentials, and securely connect them to MCP servers with LangChain.
+This quickstart shows you how to create AI agent identities in {{ product_name }}, authenticate agents using their credentials, and securely connect them to MCP servers with Google ADK.
 
 [//] STEPS_START
 
@@ -69,7 +69,7 @@ Install the following dependencies.
 
 ```bash
 
-pip install asgardeo asgardeo_ai langchain langchain-google-genai langchain-mcp-adapters python-dotenv
+pip install asgardeo asgardeo_ai python-dotenv google-adk==1.20.0 google-genai==1.54.0
 
 ```
 
@@ -77,74 +77,91 @@ Create `main.py` that implements an AI agent which first obtains a valid access 
 
 ```python title="main.py"
 
-    import os
-    import asyncio
+import os
+import asyncio
+from pathlib import Path
+from dotenv import load_dotenv
 
-    from dotenv import load_dotenv
-    from pathlib import Path
+from asgardeo import AsgardeoConfig
+from asgardeo_ai import AgentConfig, AgentAuthManager
 
-    from asgardeo import AsgardeoConfig, AsgardeoNativeAuthClient
-    from asgardeo_ai import AgentConfig, AgentAuthManager
+from google.adk.agents.llm_agent import LlmAgent
+from google.adk.runners import InMemoryRunner
+from google.adk.tools.mcp_tool import McpToolset
+from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
+from google.genai import types
 
-    from langchain_mcp_adapters.client import MultiServerMCPClient
-    from langchain.agents import create_agent
-    from langchain_google_genai import ChatGoogleGenerativeAI
+# Load environment variables from .env file
+load_dotenv()
 
-    # Load environment variables from .env file
-    load_dotenv()
+ASGARDEO_CONFIG = AsgardeoConfig(
+    base_url=os.getenv("ASGARDEO_BASE_URL"),
+    client_id=os.getenv("CLIENT_ID"),
+    redirect_uri=os.getenv("REDIRECT_URI")
+)
 
-    ASGARDEO_CONFIG = AsgardeoConfig(
-        base_url=os.getenv("ASGARDEO_BASE_URL"),
-        client_id=os.getenv("CLIENT_ID"),
-        redirect_uri=os.getenv("REDIRECT_URI")
+AGENT_CONFIG = AgentConfig(
+    agent_id=os.getenv("AGENT_ID"),
+    agent_secret=os.getenv("AGENT_SECRET")
+)
+
+async def build_toolset():
+    async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        # Get agent token
+        agent_token = await auth_manager.get_agent_token(["openid"])
+
+    # Connect to MCP Server with Auth Header
+    return McpToolset(
+        connection_params=StreamableHTTPConnectionParams(
+            url= os.getenv("MCP_SERVER_URL"),
+            headers={"Authorization": f"Bearer {agent_token.access_token}"}
+        )
     )
 
-    AGENT_CONFIG = AgentConfig(
-        agent_id=os.getenv("AGENT_ID"),
-        agent_secret=os.getenv("AGENT_SECRET")
+async def main():
+
+    mcp_toolset = await build_toolset()
+
+    # Define LLM Agent (Gemini)
+    agent = LlmAgent(
+        model="gemini-2.0-flash",
+        name="add_agent",
+        description="Adds two numbers using an MCP server.",
+        instruction="When the user asks to add numbers, call the MCP tool `add(a, b)`.",
+        tools=[mcp_toolset],
     )
 
-    async def main():
-        # Scenario 1: AI agent acting on its own using its own credentials to authenticate
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-            # Get agent token
-            agent_token = await auth_manager.get_agent_token(["openid"])
+    # Setup runner + session
+    runner = InMemoryRunner(agent, app_name="add_numbers_app")
 
-        # Connect to MCP Server with Authorization Header
-        client = MultiServerMCPClient(
-            {
-                "mcp_server": {
-                    "transport": "streamable_http",
-                    "url": os.getenv("MCP_SERVER_URL"),
-                    "headers": {
-                        "Authorization": f"Bearer {agent_token.access_token}"
-                    }
-                }
-            }
-        )
+    session = await runner.session_service.create_session(
+        app_name="add_numbers_app",
+        user_id="user"
+    )
 
-        # LLM (Gemini) + LangChain Agent
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash",
-            temperature=0.9
-        )
+    question = input("Enter your question: ")
 
-        tools = await client.get_tools()
-        agent = create_agent(llm, tools)
+    try:
+        async for event in runner.run_async(
+                user_id="user",
+                session_id=session.id,
+                new_message=types.Content(
+                    role="user",
+                    parts=[types.Part(text=question)]
+                ),
+        ):
+            if event.content and event.content.parts:
+                text = event.content.parts[0].text
+                if text:
+                    print(text)
 
-        user_input = input("Enter your question: ")
+    finally:
+        await mcp_toolset.close()
+        await runner.close()
 
-        # Invoke the agent
-        response = await agent.ainvoke(
-            {"messages": [{"role": "user", "content": user_input}]}
-        )
+if __name__ == "__main__":
+    asyncio.run(main())
 
-        print("Agent Response:", response["messages"][-1].content)
-
-
-    # Run app
-    if __name__ == "__main__":
-        asyncio.run(main())
 ```
 
 Add environment configuration by creating a `.env` file at the project root to hold the {{ product_name }} configuration:
@@ -219,16 +236,13 @@ httpx.HTTPStatusError: Client error '401 Unauthorized'
 To test the setup without authentication, simply remove the `Authorization` header from your client configuration, as shown below:
 
 ```python
-    ...
-    client = MultiServerMCPClient(
-        {
-            "mcp_server": {
-                "transport": "streamable_http",
-                "url": os.getenv("MCP_SERVER_URL")
-            }
-        }
+...
+return McpToolset(
+        connection_params=StreamableHTTPConnectionParams(
+            url= os.getenv("MCP_SERVER_URL")
+        )
     )
-    ...
+...
 ```
 
 ## Test the On-Behalf-Of Flow
@@ -336,103 +350,119 @@ Here is the updated implementation:
 
 ```python title="main.py"
 
-    import os
-    import webbrowser
-    import asyncio
+import os
+import webbrowser
+import asyncio
+from pathlib import Path
+from dotenv import load_dotenv
 
-    from dotenv import load_dotenv
-    from pathlib import Path
+from asgardeo import AsgardeoConfig
+from asgardeo_ai import AgentConfig, AgentAuthManager
 
-    from asgardeo import AsgardeoConfig, AsgardeoNativeAuthClient
-    from asgardeo_ai import AgentConfig, AgentAuthManager
+from google.adk.agents.llm_agent import LlmAgent
+from google.adk.runners import InMemoryRunner
+from google.adk.tools.mcp_tool import McpToolset
+from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
+from google.genai import types
 
-    from langchain_mcp_adapters.client import MultiServerMCPClient
-    from langchain.agents import create_agent
-    from langchain_google_genai import ChatGoogleGenerativeAI
+from oauth_callback import OAuthCallbackServer
 
-    from oauth_callback import OAuthCallbackServer
+# Load environment variables from .env file
+load_dotenv()
 
+ASGARDEO_CONFIG = AsgardeoConfig(
+    base_url=os.getenv("ASGARDEO_BASE_URL"),
+    client_id=os.getenv("CLIENT_ID"),
+    redirect_uri=os.getenv("REDIRECT_URI")
+)
 
-    # Load environment variables from .env file
-    load_dotenv()
+AGENT_CONFIG = AgentConfig(
+    agent_id=os.getenv("AGENT_ID"),
+    agent_secret=os.getenv("AGENT_SECRET")
+)
 
-    ASGARDEO_CONFIG = AsgardeoConfig(
-        base_url=os.getenv("ASGARDEO_BASE_URL"),
-        client_id=os.getenv("CLIENT_ID"),
-        redirect_uri=os.getenv("REDIRECT_URI")
+# Perform OBO flow (authenticating on behalf of the user)
+async def build_toolset():
+    async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
+        # Get agent token
+        agent_token = await auth_manager.get_agent_token(["openid"])
+
+        # Generate user authorization URL
+        auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid"])
+
+        callback = OAuthCallbackServer(port=6274)
+        callback.start()
+
+        print(f"\nOpening browser for authentication...")
+        webbrowser.open(auth_url)
+
+        # Wait for redirect
+        auth_code, returned_state, error = await callback.wait_for_code()
+        callback.stop()
+
+        if auth_code is None:
+            print(f"Authorization failed or cancelled. Error: {error}")
+            return None
+
+        print(f"Received auth_code={auth_code}")
+
+        # Exchange auth code for user token (OBO flow)
+        obo_token = await auth_manager.get_obo_token(auth_code, agent_token=agent_token, code_verifier=code_verifier)
+
+    # Connect to MCP Server with Auth Header
+    return McpToolset(
+        connection_params=StreamableHTTPConnectionParams(
+            url= "<mcp_server_url>",
+            headers={"Authorization": f"Bearer {obo_token.access_token}"}
+        )
     )
 
-    AGENT_CONFIG = AgentConfig(
-        agent_id=os.getenv("AGENT_ID"),
-        agent_secret=os.getenv("AGENT_SECRET")
+async def main():
+
+    mcp_toolset = await build_toolset()
+
+    if mcp_toolset is None:
+        return
+
+    # Define LLM Agent (Gemini)
+    agent = LlmAgent(
+        model="gemini-2.0-flash",
+        name="add_agent",
+        description="Adds two numbers using an MCP server.",
+        instruction="When the user asks to add numbers, call the MCP tool `add(a, b)`.",
+        tools=[mcp_toolset],
     )
 
+    # Setup runner + session
+    runner = InMemoryRunner(agent, app_name="add_numbers_app")
 
-    async def main():
+    session = await runner.session_service.create_session(
+        app_name="add_numbers_app",
+        user_id="user"
+    )
 
-        # Perform OBO flow (authenticating on behalf of the user)
-        async with AgentAuthManager(ASGARDEO_CONFIG, AGENT_CONFIG) as auth_manager:
-            # Get agent token
-            agent_token = await auth_manager.get_agent_token(["openid"])
+    question = input("\nEnter your question (e.g., 'Add 45 and 99') or type 'exit' to quit: ")
 
-            # Generate user authorization URL
-            auth_url, state, code_verifier = auth_manager.get_authorization_url_with_pkce(["openid"])
+    try:
+        async for event in runner.run_async(
+                user_id="user",
+                session_id=session.id,
+                new_message=types.Content(
+                    role="user",
+                    parts=[types.Part(text=question)]
+                ),
+        ):
+            if event.content and event.content.parts:
+                text = event.content.parts[0].text
+                if text:
+                    print(text)
 
-            callback = OAuthCallbackServer(port=6274)
-            callback.start()
+    finally:
+        await mcp_toolset.close()
+        await runner.close()
 
-            print(f"\nOpening browser for authentication...")
-            webbrowser.open(auth_url)
-
-            # Wait for redirect
-            auth_code, returned_state, error = await callback.wait_for_code()
-            callback.stop()
-
-            if auth_code is None:
-                print(f"Authorization failed or cancelled. Error: {error}")
-                return
-
-            print(f"Received auth_code={auth_code}")
-
-            # Exchange auth code for user token (OBO flow)
-            obo_token = await auth_manager.get_obo_token(auth_code, agent_token=agent_token, code_verifier=code_verifier)
-
-
-        # Connect to MCP Server with Authorization Header
-        client = MultiServerMCPClient(
-            {
-                "mcp_server": {
-                    "transport": "streamable_http",
-                    "url": "<mcp_server_url>",
-                    "headers": {
-                        "Authorization": f"Bearer {obo_token.access_token}",
-                    }
-                }
-            }
-        )
-
-        # LLM (Gemini) + LangChain Agent
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-2.0-flash",
-            temperature=0.9
-        )
-
-        tools = await client.get_tools()
-        agent = create_agent(llm, tools)
-
-        user_input = input("Enter your question: ")
-
-        # Invoke the agent
-        response = await agent.ainvoke(
-            {"messages": [{"role": "user", "content": user_input}]}
-        )
-
-        print("Agent Response:", response["messages"][-1].content)
-
-
-    # Run app
-    if __name__ == "__main__":
-        asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
 
  ```
 
@@ -447,9 +477,7 @@ After adding OBO support, your project should look like this:
 Start your agent:
 
 ```bash
-
   python main.py
-
 ```
 
 You will see an output similar to this and your default browser will open, prompting you to log in:
@@ -457,7 +485,6 @@ You will see an output similar to this and your default browser will open, promp
 ```bash
 
     Opening browser for authentication...
-
 ```
 
 !!! Info
@@ -470,7 +497,6 @@ After successful login, return to the terminal. Your agent will automatically re
     Successfully obtained OBO Token.
 
     Enter your question (e.g., 'Add 45 and 99') or type 'exit' to quit:
-    
 ```
 
 Your AI agent has now successfully performed an authenticated, user-authorized, On-Behalf-Of request to your MCP server.
