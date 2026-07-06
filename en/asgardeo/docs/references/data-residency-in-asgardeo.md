@@ -77,6 +77,35 @@ The profile information of organization administrators includes all the data tha
 
 Data of your end users are only stored in the regional datacenter you selected when onboarding to WSO2 Identity Platform.
 
+## Analytics data
+
+WSO2 Identity Platform uses [Moesif](https://www.moesif.com/){:target="_blank"} — an analytics platform in the WSO2 product family — to power the identity [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} available in the Console and to support WSO2's product, onboarding, subscription, and usage analytics. To do this, WSO2 Identity Platform publishes both end-user and administrator data to Moesif for the purposes described below.
+
+Analytics data is published to the Moesif workspace in the **same region you selected during onboarding** — data from US organizations is published to Moesif US, and data from EU organizations is published to Moesif EU. Your analytics data therefore remains within your selected regional boundary. By default, analytics data is retained for **3 months**.
+
+### End-user data published for analytics
+
+WSO2 Identity Platform's built-in [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} publishes your organization's identity events to Moesif to build the analytics dashboards shown in the **Insights** section of the Console.
+
+**Purpose:** to provide you with identity analytics for your organization — such as logins, sessions, token issuance, registrations, registration/recovery funnels, and organization switches.
+
+**Types of data published:** identity events and their contextual attributes, which may include personal data of your end users such as their **email address, login identifiers** (for example, mobile number or NIC where used as login attributes), **IP address,** and **user agent,** in addition to identifiers such as user ID, organization, application, and connection.
+
+### Administrator data published for analytics
+
+In addition to end-user data, WSO2 Identity Platform publishes certain administrator and organization data to Moesif for WSO2's own product and business analytics.
+
+**Purpose:** to help WSO2 understand organization onboarding and administrator adoption, track subscription and tier changes for billing and business analytics, and measure product usage across organizations.
+
+**Types of data published:**
+
+- **Organization details** — organization ID, organization name/handle, region, activation status, and current subscription tier.
+- **Administrator and owner identity** — administrator/owner user ID, email address, and name, along with organization ownership and association details.
+- **Subscription data** — current subscription tier and subscription/tier-change activity.
+- **Usage data** — aggregated identity activity per organization (such as counts of authentications, registrations, and token issuance) used for usage and metering analytics.
+
+When an organization or an administrator is deleted from WSO2 Identity Platform, the corresponding profile and analytics records are removed from Moesif as part of the deletion process.
+
 ## Data sharing
 
 Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities (currently includes the USA, Sri Lanka, and Brazil) can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional
