@@ -403,6 +403,9 @@ components:
           type: array
           items:
             type: string
+          description: >
+            The redirect URIs registered for the application.
+            For organizations created on or after August 1, 2026, this is returned as an array of individual URI strings when multiple redirect URIs are registered.
         grant_types:
           type: array
           example:
