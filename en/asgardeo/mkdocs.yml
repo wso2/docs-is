@@ -384,8 +384,17 @@ nav:
         - Python: quick-starts/mcp-auth-server-py.md
         - Cloudflare Quickstart: quick-starts/cloudflare-mcp-server.md
     - Secure Your AI Agents:
-        - Python: quick-starts/agent-auth-py.md
-        - TypeScript: quick-starts/agent-auth-ts.md
+        - LangChain:
+          - Python Quickstart: quick-starts/langchain-py.md
+          - TypeScript Quickstart: quick-starts/langchain-ts.md
+        - Google ADK:
+          - Python Quickstart: quick-starts/google-adk-py.md
+          - TypeScript Quickstart: quick-starts/google-adk-ts.md
+        - Crew AI:
+          - Python Quickstart: quick-starts/crew-ai-py.md
+        - Vercel AI:
+          - Python Quickstart: quick-starts/vercel-ai-py.md
+          - TypeScript Quickstart: quick-starts/vercel-ai-ts.md                              
     
   # TODO: Enable the following sections after the preoper content is added
   # - Design login flow:
