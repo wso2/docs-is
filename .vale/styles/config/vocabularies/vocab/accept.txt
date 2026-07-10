@@ -70,3 +70,5 @@ source_code
 whats_next
 const
 base_url
+MAUs
+Entra

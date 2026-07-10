@@ -23,3 +23,7 @@ See the topics in this section for references that will help you while working w
 - [Data residency]({{base_path}}/references/data-residency-in-asgardeo/) in WSO2 Identity Platform.
 
 - [API resources and scopes required for MCP tools]({{base_path}}/references/mcp-tool-api-resource-access/) in WSO2 Identity Platform.
+
+- [Rate limits]({{base_path}}/references/rate-limits/) applied to WSO2 Identity Platform endpoints.
+
+- [Usage metrics]({{base_path}}/references/usage-metrics/) used for WSO2 Identity Platform subscription quotas and pricing.
