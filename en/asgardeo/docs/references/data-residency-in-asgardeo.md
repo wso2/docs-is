@@ -83,7 +83,7 @@ WSO2 Identity Platform uses [Moesif](https://www.moesif.com/){:target="_blank"},
 
 Analytics data is published to the Moesif workspace in the **same region you selected during onboarding**. Data from US organizations is published to Moesif US, and data from EU organizations is published to Moesif EU. Your analytics data therefore remains within your selected regional boundary. By default, analytics data is retained for **3 months**.
 
-### End-user data published for analytics
+### End-user data used for analytics
 
 WSO2 Identity Platform's built-in [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} publishes your organization's identity events to Moesif to build the analytics dashboards shown in the **Insights** section of the Console.
 
