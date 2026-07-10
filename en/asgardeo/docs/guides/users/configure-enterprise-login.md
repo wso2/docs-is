@@ -1,6 +1,6 @@
 # Configure enterprise login for the Asgardeo Console
 
-Enterprise login allows administrators to sign in to the Asgardeo Console using credentials from an external identity provider (IdP). Instead of maintaining separate Asgardeo accounts, your administrators can authenticate through your organization's existing SAML or OIDC-based enterprise IdP.
+Enterprise login allows administrators to sign in to the {{product_name}} Console using credentials from an external Identity Provider (IdP). Instead of maintaining separate {{product_name}} accounts, your administrators can authenticate through your organization's existing SAML or OIDC-based enterprise IdP.
 
 This guide walks you through configuring enterprise login for the Asgardeo Console by setting up an enterprise connection and mapping external IdP groups to Asgardeo Console roles.
 
