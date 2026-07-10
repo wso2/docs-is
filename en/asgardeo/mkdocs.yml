@@ -1021,6 +1021,7 @@ nav:
       - Security check: references/production-checklist/security-check.md
       - Best practices: references/production-checklist/best-practices.md
     - WSO2 Identity Platform rate limits: references/rate-limits.md
+    - Usage metrics: references/usage-metrics.md
     - Tutorials:
       - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
     - IAM concepts:
