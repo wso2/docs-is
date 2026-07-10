@@ -86,7 +86,7 @@ After you save the configuration, users who belong to the mapped IdP groups can 
 
 After you configure enterprise login, users can sign in to the Asgardeo Console through the enterprise IdP from the standard Asgardeo login page.
 
-### Direct console access
+### Direct Console access
 
 If you want users to access the console directly through the enterprise IdP without going through the standard login page, configure a **Home Realm Identifier** for your enterprise connection.
 
