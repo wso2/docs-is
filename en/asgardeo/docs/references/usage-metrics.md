@@ -1,12 +1,12 @@
 # Usage metrics
 
-WSO2 Identity Platform measures your subscription usage against a set of metrics that reflect how your organization consumes the platform. These metrics determine your consumption against the quotas defined for your subscription tier, and they form the basis for pricing.
+{{ product_name }} measures your subscription usage against a set of metrics that reflect how your organization consumes the platform. These metrics determine your consumption against the quotas defined for your subscription tier, and they form the basis for pricing.
 
 The definitions below explain how each usage metric is calculated.
 
 ## Monthly Active Users (MAUs)
 
-Monthly Active Users (MAUs) are the number of unique users who successfully log in to or interact with an application within a billing cycle. WSO2 Identity Platform considers the following factors when calculating MAUs:
+Monthly Active Users (MAUs) are the number of unique users who successfully log in to or interact with an application within a billing cycle. {{ product_name }} considers the following factors when calculating MAUs:
 
 - The number of unique users who log in or obtain an access token for a particular application during a billing cycle. A subsequent login by the same user is not considered in the MAU count.
 - The number of unique users who obtain a new access token via a valid refresh token during a billing cycle. Subsequent refresh tokens issued to the same user during the same billing cycle are not considered in the MAU count.
@@ -24,7 +24,7 @@ The total number of M2M tokens issued for a given organization is accounted for 
 
 ## AgentID tokens
 
-An AgentID token is a token issued for an AI agent in the WSO2 Identity Platform. An agent can authenticate using its own credentials, and it can also obtain On-Behalf-Of (OBO) tokens that allow it to act on behalf of a user with that user's explicit authorization. Both categories count toward an organization's total AgentID tokens. The following factors apply:
+An AgentID token is a token issued for an AI agent in the {{ product_name }}. An agent can authenticate using its own credentials, and it can also obtain On-Behalf-Of (OBO) tokens that allow it to act on behalf of a user with that user's explicit authorization. Both categories count toward an organization's total AgentID tokens. The following factors apply:
 
 - An access token that an agent obtains by authenticating during a billing cycle counts toward that month's AgentID token quota.
 - An On-Behalf-Of (OBO) token issued to an agent so that it can act for a user during a billing cycle counts toward that month's AgentID token quota.
@@ -33,7 +33,7 @@ An AgentID token is a token issued for an AI agent in the WSO2 Identity Platform
 
 ## Organizations
 
-An organization is a dedicated workspace within the WSO2 Identity Platform that provides its own management space under a given root organization. An organization can use resources and configurations shared or inherited from its root or parent organizations, including applications, roles, and branding, while independently managing its own users, organization-specific applications, roles, and configurations.
+An organization is a dedicated workspace within the {{ product_name }} that provides its own management space under a given root organization. An organization can use resources and configurations shared or inherited from its root or parent organizations, including applications, roles, and branding, while independently managing its own users, organization-specific applications, roles, and configurations.
 
 Each organization, including those created at any level within the organization hierarchy under the root organization, counts toward the organization metric. The following factors apply:
 
