@@ -91,7 +91,7 @@ WSO2 Identity Platform's built-in [Insights](https://wso2.com/identity-platform/
 
 **Types of data published:** identity events and their contextual attributes, which may include personal data of your end users such as their **email address, login identifiers** (for example, mobile number or NIC where used as login attributes), **IP address,** and **user agent,** in addition to identifiers such as user ID, organization, application, and connection.
 
-### Administrator data published for analytics
+### Administrator data used for analytics
 
 In addition to end-user data, WSO2 Identity Platform publishes certain administrator and organization data to Moesif for WSO2's own product and business analytics.
 
