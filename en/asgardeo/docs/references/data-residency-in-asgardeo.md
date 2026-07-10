@@ -79,7 +79,7 @@ Data of your end users are only stored in the regional datacenter you selected w
 
 ## Analytics data
 
-WSO2 Identity Platform uses [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family, to power the identity [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} available in the Console and to support WSO2's product, onboarding, subscription, and usage analytics. To do this, WSO2 Identity Platform publishes both end-user and administrator data to Moesif for the purposes described below.
+{{product_name}} uses [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family, to power the identity [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} available in the Console and to support WSO2's product, onboarding, subscription, and usage analytics. To do this, WSO2 Identity Platform publishes both end-user and administrator data to Moesif for the purposes described below.
 
 Analytics data is published to the Moesif workspace in the **same region you selected during onboarding**. Data from US organizations is published to Moesif US, and data from EU organizations is published to Moesif EU. Your analytics data therefore remains within your selected regional boundary. By default, analytics data is retained for **3 months**.
 
