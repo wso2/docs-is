@@ -79,13 +79,13 @@ Data of your end users are only stored in the regional datacenter you selected w
 
 ## Analytics data
 
-{{product_name}} uses [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family, to power the identity [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} available in the Console and to support WSO2's product, onboarding, subscription, and usage analytics. To do this, WSO2 Identity Platform publishes both end-user and administrator data to Moesif for the purposes described below.
+{{product_name}} uses [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family, to power the identity [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} available in the Console and to support WSO2's product, onboarding, subscription, and usage analytics. To do this, {{product_name}} publishes both end-user and administrator data to Moesif for the purposes described below.
 
 Analytics data is published to the Moesif workspace in the **same region you selected during onboarding**. Data from US organizations is published to Moesif US, and data from EU organizations is published to Moesif EU. Your analytics data therefore remains within your selected regional boundary. By default, analytics data is retained for **3 months**.
 
 ### End-user data used for analytics
 
-WSO2 Identity Platform's built-in [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} publishes your organization's identity events to Moesif to build the analytics dashboards shown in the **Insights** section of the Console.
+{{product_name}}'s built-in [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} publishes your organization's identity events to Moesif to build the analytics dashboards shown in the **Insights** section of the Console.
 
 **Purpose:** to provide you with identity analytics for your organization, such as logins, sessions, token issuance, registrations, registration/recovery funnels, and organization switches.
 
@@ -93,7 +93,7 @@ WSO2 Identity Platform's built-in [Insights](https://wso2.com/identity-platform/
 
 ### Administrator data used for analytics
 
-In addition to end-user data, WSO2 Identity Platform publishes certain administrator and organization data to Moesif for WSO2's own product and business analytics.
+In addition to end-user data, {{product_name}} publishes certain administrator and organization data to Moesif for WSO2's own product and business analytics.
 
 **Purpose:** to help WSO2 understand organization onboarding and administrator adoption, track subscription and tier changes for billing and business analytics, and measure product usage across organizations.
 
@@ -104,7 +104,7 @@ In addition to end-user data, WSO2 Identity Platform publishes certain administr
 - **Subscription data:** current subscription tier and subscription/tier-change activity.
 - **Usage data:** aggregated identity activity per organization (such as counts of authentications, registrations, and token issuance) used for usage and metering analytics.
 
-When an organization or an administrator is deleted from WSO2 Identity Platform, the corresponding profile and analytics records are removed from Moesif as part of the deletion process.
+When an organization or an administrator is deleted from {{product_name}}, the corresponding profile and analytics records are removed from Moesif as part of the deletion process.
 
 ## Data sharing
 
