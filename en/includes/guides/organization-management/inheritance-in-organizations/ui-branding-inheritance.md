@@ -38,6 +38,14 @@ Application-specific branding settings apply to a single application. For a give
 
 - Organizations can also revert their application-specific branding settings, restoring either their organization-wide settings or the inherited values.
 
+!!! note "Reverting applies to the whole configuration, not individual fields"
+    Reverting restores inherited values for the **entire** branding customization saved at
+    that level — an individual setting (for example, just the logo) cannot be reverted on
+    its own. Clearing the value of a single field and saving does not cause that field to
+    inherit from the parent level; the level's customization remains in effect with that
+    field left empty. To restore inheritance, use **Revert to default**, as described in
+    [Configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/#revert-branding).
+
 The following diagram explains how inheritance works for UI branding when your organization hierarchy has a combination of organization-wide branding and application-specific branding.
 
 ![{{ product_name }} branding path resolver]({{base_path}}/assets/img/guides/branding/generic-app-branding-resolver-path.png)
