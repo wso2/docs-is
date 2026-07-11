@@ -1,4 +1,4 @@
-# Understanding webhooks {% if product_name == "WSO2 Identity Platform" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
+# Understanding webhooks
 
 Webhooks enable your applications to receive instant notifications from {{product_name}}, allowing you to respond immediately to important identity-related events. Common use cases for {{product_name}} webhooks include:
 
