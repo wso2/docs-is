@@ -28,7 +28,8 @@ You can use WSO2 Identity Server as the email OTP provider or you can
 configure Gmail or SendGrid as the email OTP provider using Gmail or
 SendGrid APIs. Follow the instructions in **one** of **Option1** or
 **Option2** to set up the email OTP provider.
-
+!!! note
+    Before you begin, ensure that you have configured the email server. For instructions on how to do this using SMTP, see [Configuring the Email Sending Module](../../setup/configuring-email-sending/).
 #### Option1: Configure WSO2 IS as the email OTP provider 
 
 ??? abstract "Expand this section to follow the steps to configure WSO2 IS to send emails once the Email OTP is enabled."
@@ -401,22 +402,23 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         !!! Note "Sample configuration when using Identity Server as Email OTP Provider"
             ``` toml
             [authentication.authenticator.email_otp]
-            name = "EmailOTP"
-            enable= true
-            [authentication.authenticator.email_otp.parameters]
-            EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
-            EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
-            EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
-            usecase = "association"
-            secondaryUserstore = "primary"
-            EMAILOTPMandatory = false
-            sendOTPToFederatedEmailAttribute = false
-            federatedEmailAttributeKey = "email"
-            EmailOTPEnableByUserClaim = true
-            CaptureAndUpdateEmailAddress = true
-            showEmailAddressInUI = true
-            useEventHandlerBasedEmailSender = true
-            emailAddressRegex = '(?&lt;=.{1}).(?=.*@)'
+    name = "EmailOTP"
+    enable = true
+
+    [[authentication.authenticator.email_otp.parameters]]
+    name = "EmailOTPAuthenticationEndpointURL"
+    value = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
+
+    [[authentication.authenticator.email_otp.parameters]]
+    name = "EmailOTPAuthenticationEndpointErrorPage"
+    value = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
+
+    [[authentication.authenticator.email_otp.parameters]]
+    name = "EmailAddressRequestPage"
+    value = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
+
+    [output_event_adapter.email]
+    default_from_address = "your_email@gmail.com"
             ```
             
         ??? Tip
