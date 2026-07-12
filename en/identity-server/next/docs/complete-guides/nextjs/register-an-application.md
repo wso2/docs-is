@@ -29,6 +29,6 @@ Make a note of the following values from the **Protocol** and **Info** tabs of t
 
 * **`client-id`** from the **Protocol** tab.
 * **`client-secret`** from the **Protocol** tab.
-* **`issuer`** from from the **Info** tab.
+* **`issuer`** from the **Info** tab.
 
 {% include "../../../../../includes/complete-guides/nextjs/register-an-application.md" %}
