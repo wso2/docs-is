@@ -10,9 +10,9 @@ Listed below are the WSO2 Identity Platform offerings on the Azure marketplace.
 - [WSO2 Identity Platform for B2B](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wso2inc1602241248883.asgardeo_b2b?tab=Overview) - Manage business customers and partners and secure access to your B2B applications.
 - [WSO2 Identity Platform for B2E](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wso2inc1602241248883.asgardeo_b2e_enterprise?tab=Overview) - Manage your organization employees and secure access to critical internal applications and services.
 
-## Purchase an WSO2 Identity Platform subscription
+## Purchase a WSO2 Identity Platform subscription
 
-Follow the steps below to purchase an WSO2 Identity Platform subscription via the Azure Marketplace.
+Follow the steps below to purchase a WSO2 Identity Platform subscription via the Azure Marketplace.
 
 1. Navigate to one of the following WSO2 Identity Platform offerings on the Azure marketplace.
 
@@ -43,7 +43,7 @@ Follow the steps below to purchase an WSO2 Identity Platform subscription via th
 
 ## Link your subscription
 
-Once you purchase an WSO2 Identity Platform subscription via the Azure Marketplace, you will be redirected to WSO2 Identity Platform to link your subscription to an organization where your applications reside.
+Once you purchase a WSO2 Identity Platform subscription via the Azure Marketplace, you will be redirected to WSO2 Identity Platform to link your subscription to an organization where your applications reside.
 
 To do so, follow the steps below.
 
@@ -54,8 +54,8 @@ To do so, follow the steps below.
     !!! note
         You can only link an organization that you own. If you wish to upgrade an organization that you do not own, contact the relevant organization owner.
 
-    ![Link subscription to an WSO2 Identity Platform organization]({{base_path}}/assets/img/guides/subscriptions/link-asgardeo-subscription-with-organization.png){: width="400" border: 0.3px solid lightgrey;"}
+    ![Link subscription to a WSO2 Identity Platform organization]({{base_path}}/assets/img/guides/subscriptions/link-asgardeo-subscription-with-organization.png){: width="400" border: 0.3px solid lightgrey;"}
 
 3. Once the linking is successful, the following prompt appears. Click **Sign In** to access your organization and enjoy your subscription!
 
-    ![Successfully linked subscription to an WSO2 Identity Platform organization]({{base_path}}/assets/img/guides/subscriptions/subscription-link-successful.png){: width="700" border: 0.3px solid lightgrey;"}
+    ![Successfully linked subscription to a WSO2 Identity Platform organization]({{base_path}}/assets/img/guides/subscriptions/subscription-link-successful.png){: width="700" border: 0.3px solid lightgrey;"}

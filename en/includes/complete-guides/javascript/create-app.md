@@ -28,4 +28,4 @@ Confirm that the dev server is up and running by verifying the output in the ter
 
 ![Navigate to localhost]({{base_path}}/assets/img/complete-guides/javascript/image6.png){: width="800" style="display: block; margin: 0;"}
 
-At this point, you have a simple yet fully functional JavaScript app. In the next step, let’s try to integrate an WSO2 Identity Platform JavaScript SDK with the app. 
+At this point, you have a simple yet fully functional JavaScript app. In the next step, let’s try to integrate a WSO2 Identity Platform JavaScript SDK with the app. 

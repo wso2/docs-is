@@ -148,7 +148,7 @@ In this step, you'll set up everything needed in WSO2 Identity Platform to secur
 
 ### 1. Obtain a Bearer Token for WSO2 Identity Platform Manage App
 
-You will need a Client ID and Client Secret from an WSO2 Identity Platform application that is authorized to invoke WSO2 Identity Platform management APIs. You can use an existing application or create a new application in the WSO2 Identity Platform console with the Client Credentials grant enabled. Make sure the application has the scope `internal_application_mgt_create` (this scope is required to create a new application via the API).
+You will need a Client ID and Client Secret from a WSO2 Identity Platform application that is authorized to invoke WSO2 Identity Platform management APIs. You can use an existing application or create a new application in the WSO2 Identity Platform console with the Client Credentials grant enabled. Make sure the application has the scope `internal_application_mgt_create` (this scope is required to create a new application via the API).
 
 ```bash
 curl -X POST "https://api.asgardeo.io/t/<YOUR_ASGARDEO_ORG_NAME>/oauth2/token" \
