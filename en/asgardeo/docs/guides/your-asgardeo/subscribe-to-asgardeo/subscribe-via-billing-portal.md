@@ -1,6 +1,6 @@
 # Subscribe via Billing Portal
 
-Start your WSO2 Identity Platform journey with the free plan and use it for as long as you want if it fits your requirements. When you're ready to grow, you can upgrade to the **Growth** plan and pay only for the resources you use, or move to an **Enterprise** plan for custom needs. You can also adjust your resource commitments or cancel your subscription at any time, as explained below.
+Start your WSO2 Identity Platform journey with the free plan and use it for as long as you want if it fits your requirements. When you're ready to grow, you can upgrade to the **Growth** plan and pay only for the resources you use. For custom needs, you can move to an **Enterprise** plan. You can also adjust your resource commitments or cancel your subscription at any time, as explained below.
 
 See the [pricing details](https://wso2.com/identity-platform/pricing/) and the available resource limits for each subscription plan.
 
@@ -8,7 +8,7 @@ See the [pricing details](https://wso2.com/identity-platform/pricing/) and the a
 
 To upgrade your subscription:
 
-1. Sign in to the WSO2 Identity Platform Console.
+1. Log in to the WSO2 Identity Platform Console.
 2. Click **Upgrade** on the upper menu or go to the profile menu and select **Billing Portal** to open the portal.
 
     ![open the billing portal]({{base_path}}/assets/img/guides/select-upgrade-biling-portal.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -79,7 +79,7 @@ WSO2 Identity Platform offers three tiers:
 
 ### Resource commitments
 
-On the **Growth** plan, you set an upfront monthly commitment for each of the following resources. Committing to a higher volume locks in a better per-unit rate. Usage beyond your commitment is not throttled; instead, it is billed as overage at the end of the billing cycle.
+On the **Growth** plan, you set an upfront monthly commitment for each of the following resources. Committing to a higher volume locks in a better per-unit rate. Usage beyond your commitment is not throttled; instead, the excess usage is billed as overage at the end of the billing cycle.
 
 - **Monthly Active Users (MAUs)**
 - **Machine-to-Machine (M2M) tokens**
@@ -113,7 +113,7 @@ Once you have upgraded to a paid plan, you can find and download your invoice fr
 
 ## Adjust or cancel your subscription
 
-To change your resource commitments or support plan on the Growth plan, go to the **Overview** page and click **Adjust Commitments** (under Usage) or the **Upgrade** option on the support card. This reopens the subscription wizard at the relevant step.
+On the Growth plan, you can change your resource commitments or support plan from the **Overview** page. Click **Adjust Commitments** (under Usage) or the **Upgrade** option on the support card. This reopens the subscription wizard at the relevant step.
 
 ![subscription overview]({{base_path}}/assets/img/guides/billing/overview.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -129,4 +129,4 @@ To cancel your subscription:
     !!! warning
         Cancelling this subscription will immediately deactivate the organization, including all applications, authentication flows, and related services. You will no longer be able to access or use this organization after cancellation.
 
-For any other subscription changes, or if you need assistance, contact the WSO2 Identity Platform support team at **asgardeo-help@wso2.com**.
+For any other subscription changes or help, contact the WSO2 Identity Platform support team at **asgardeo-help@wso2.com**.
