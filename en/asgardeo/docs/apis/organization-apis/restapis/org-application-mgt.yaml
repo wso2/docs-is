@@ -2087,7 +2087,7 @@ components:
           type: string
           description: "
             <ul>
-              <li> <b>DEFAULT</b> type indicates that the application will use the default authentication sequence specified at the organization level. When the DEFAULT type is used, the information given in the other fields of the `AuthenticationSequence` will be ignored and overriden with values defined at the organization level.</li>
+              <li> <b>DEFAULT</b> type indicates that the application will use the default authentication sequence specified at the organization level. When the DEFAULT type is used, the information given in the other fields of the `AuthenticationSequence` will be ignored and overridden with values defined at the organization level.</li>
               <li> <b>USER_DEFINED</b> type indicates that the application will use a user-defined authentication sequence.</li>
             </ul>"
           enum:

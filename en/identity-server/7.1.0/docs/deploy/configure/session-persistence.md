@@ -102,7 +102,7 @@ The `[session_data.cleanup]` section is related to the cleaning up of session da
 ## Importance of correct `Deletechunksize`
 
 In the world of the World Wide Web, sessions are the simplest way to store data for individual users against a unique session ID. These can be used to persist state information between page requests. When all
-the requests ad responses that come to a page per day are considered, that is a large amount. Due to this reason, the session data stored in the “IDN\_AUTH\_SESSION\_STORE ” table in the WSO2CARBON\_DB of WSO2 IS is high. This table fills up quickly if your system receives too many loads of requests.
+the requests and responses that come to a page per day are considered, that is a large amount. Due to this reason, the session data stored in the “IDN\_AUTH\_SESSION\_STORE ” table in the WSO2CARBON\_DB of WSO2 IS is high. This table fills up quickly if your system receives too many loads of requests.
 
 After a certain period, these session data are not necessary. To stop the exponential table growth, a Session Clean Up Task in predefined time intervals is run via a script. If this storing session data is huge, the data that need to be deleted also will come in bulk.
 
