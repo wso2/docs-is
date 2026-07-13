@@ -26,7 +26,7 @@ This guide outlines how WSO2 Identity Platform can be integrated into your healt
 
 ### Prerequisite
 
-You need to have an WSO2 Identity Platform account. If you do not have one, create one for free in WSO2 Identity Platform(https://asgardeo.io/signup){target="_blank"}. Follow the [documentation]({{base_path}}/get-started/) to learn how to get started.
+You need to have an WSO2 Identity Platform account. If you do not have one, create one for free in [WSO2 Identity Platform](https://asgardeo.io/signup){: target="_blank"}. Follow the [documentation]({{base_path}}/get-started/) to learn how to get started.
 
 ### Step 1: Register an application in WSO2 Identity Platform
 
