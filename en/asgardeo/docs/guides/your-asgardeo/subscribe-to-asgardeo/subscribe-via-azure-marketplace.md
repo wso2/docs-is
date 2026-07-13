@@ -12,7 +12,7 @@ Listed below are the WSO2 Identity Platform offerings on the Azure marketplace.
 
 ## Purchase a WSO2 Identity Platform subscription
 
-Follow the steps below to purchase a WSO2 Identity Platform subscription via the Azure Marketplace.
+Follow the steps below to purchase a subscription to WSO2 Identity Platform via the Azure Marketplace.
 
 1. Navigate to one of the following WSO2 Identity Platform offerings on the Azure marketplace.
 
@@ -43,7 +43,7 @@ Follow the steps below to purchase a WSO2 Identity Platform subscription via the
 
 ## Link your subscription
 
-Once you purchase a WSO2 Identity Platform subscription via the Azure Marketplace, you will be redirected to WSO2 Identity Platform to link your subscription to an organization where your applications reside.
+Once you purchase a subscription to WSO2 Identity Platform via the Azure Marketplace, you will be redirected to WSO2 Identity Platform to link your subscription to an organization where your applications reside.
 
 To do so, follow the steps below.
 

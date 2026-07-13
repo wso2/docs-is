@@ -125,4 +125,4 @@ If sign-in fails, the `onError` callback is invoked with a descriptive error obj
 
 - Automatically disables the UI and shows loading state during sign-in.
 - Handles all authentication steps, including passkey and federated flows, with minimal configuration.
-- Requires a WSO2 Identity Platform context provider (`useAsgardeo`) to function.
+- Requires a context provider (`useAsgardeo`) to function.
