@@ -4,7 +4,7 @@ Design and customize key user journeys in your application with Flows. A flow de
 
 {{product_name}} lets you build fully customizable flows for the following user interactions.
 
-- **Self registration** - Create seamless registration experiences for new users, with support for multi-step forms, data validation, and identity verification checks.
+- **Self registration** - Create seamless registration experiences for new users, with support for multi-step forms, data validation, and identity verification checks. Users can also sign up through a supported connection such as Google, Apple, Facebook, Microsoft, or GitHub.
 
 - **Password recovery** - Build secure recovery processes to help users regain access, using steps such as email verification or one-time passwords (OTP).
 

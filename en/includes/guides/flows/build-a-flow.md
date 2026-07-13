@@ -95,6 +95,52 @@ Components are the individual UI elements placed inside a step, such as input fi
 
 ![Components]({{base_path}}/assets/img/guides/flows/flow-builder-components.gif){: width="auto" style="display: block; margin: 0;"}
 
+## Customize flow text
+
+Every editable label, hint, heading, and button on a flow screen can be swapped for a translation key, so the same flow can render in different languages and use organization-specific wording.
+
+### Prerequisites
+
+Branding must be enabled for the organization before flow translations take effect. In the {{product_name}} Console, go to **Branding** and click **Save & Publish** once to activate the default configuration.
+
+For related configuration, see [Configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/) and [Localization support]({{base_path}}/guides/branding/localization/).
+
+### Open the Translations panel
+
+On any flow screen (for example, Sign Up, Email OTP, or Password Reset), select the element you want to change and click the translate icon next to the attribute in the properties panel on the right (for example, the **Hint** attribute of an Input).
+
+### Assign an existing translation key
+
+![Select an existing translation key]({{base_path}}/assets/img/guides/flows/flow-customize-text-select-key.png){: width="auto" style="display: block; margin: 0;"}
+
+1. Open the Translations panel on the target attribute.
+2. From the **Translation key** dropdown, select a key. Keys are grouped into two categories:
+    - **Flow-specific keys** – Prefixed by the current flow (for example, `sign.up.heading`, `sign.up.button`, `sign.up.username.validation.error.message`).
+    - **Common keys** – Shared across every flow, including `site.title`, `copyright`, `privacy.policy`, `terms.of.service`, `email.link.expiry.message`, `email.otp.heading`, and `sms.otp.heading`.
+
+### Create a new translation key
+
+![Create a new translation key]({{base_path}}/assets/img/guides/flows/flow-customize-text-create-key.png){: width="auto" style="display: block; margin: 0;"}
+
+1. In the Translations panel, select **+ New**.
+2. Enter the key suffix. The key is auto-prefixed by the current flow (for example, `sign.up.` for the Sign Up flow), so entering `username.hint` produces `sign.up.username.hint`.
+3. Select the **Language**.
+4. Enter the **Translation** text and click **Create**.
+
+### Edit an assigned key
+
+Once a key is assigned to an attribute, the Translations panel shows it with an **Edit** action.
+
+![Translations panel with an assigned key]({{base_path}}/assets/img/guides/flows/flow-customize-text-assigned-key.png){: width="auto" style="display: block; margin: 0;"}
+
+Click **Edit** to open **Update Translations**, select the **Language** you want to change, adjust the text, and click **Update**.
+
+![Update an existing translation]({{base_path}}/assets/img/guides/flows/flow-customize-text-update-key.png){: width="auto" style="display: block; margin: 0;"}
+
+### Publish the changes
+
+Click **Save Draft** and then toggle **Enable** at the top-right of the Flow Builder to publish the updated flow. Users see the localized text on their next visit, resolved against the user's preferred locale.
+
 {% if product_name == "WSO2 Identity Server" %}
 
 ## Manage flow context data
