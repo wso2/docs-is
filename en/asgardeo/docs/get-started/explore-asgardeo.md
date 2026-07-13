@@ -25,7 +25,7 @@ WSO2 Identity Platform is an identity as a service (IDaaS) solution that provide
 
 ## Self-service portals (My Account)
 
-The **My Account** portal is the self-service portal for WSO2 Identity Platform users. If you are an owner of a WSO2 Identity Platform of one or multiple WSO2 Identity Platform organization, you can manage your personal profile from this portal.
+The **My Account** portal is the self-service portal for WSO2 Identity Platform users. If you own one or multiple WSO2 Identity Platform organizations, you can manage your personal profile from this portal.
 
 Customers of your organizations will have their own **My Account** portal to manage their personal accounts.
 

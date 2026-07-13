@@ -126,4 +126,4 @@ If sign-up fails, the `onError` callback is invoked with a descriptive error obj
 
 - Automatically disables the UI and shows loading state during sign-up.
 - Handles all registration steps, including social sign-up and federated flows, with minimal configuration.
-- Requires a WSO2 Identity Platform context provider (`useAsgardeo`) to function.
+- Requires a context provider (`useAsgardeo`) to function.

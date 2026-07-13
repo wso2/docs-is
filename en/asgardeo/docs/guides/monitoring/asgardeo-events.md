@@ -47,7 +47,7 @@ Follow the steps below to configure event publishing for WSO2 Identity Platform.
 
 ## Implement business use cases for WSO2 Identity Platform events
 
-Follow the steps below to define a business logic that will trigger when a WSO2 Identity Platform event occurs.
+Follow the steps below to define a business logic that will trigger when an event occurs in WSO2 Identity Platform.
 
 ### Prerequisite
 - You need to have a GitHub repository to host the business logic.
