@@ -188,3 +188,53 @@ Content-Type: application/json;charset=UTF-8
  ]
 }
 ```
+
+## Adding a custom field to the token endpoint response
+
+To add a custom top level field to the token endpoint response, use the <code>/response/fields/</code> path in the <code>event.response</code> request. This path includes an array of fields.
+
+When adding a new field, you need to specify the index where the field should be inserted. The specified index must not be greater than the number of elements currently in the array. If you want to add the field to the end of the array, you can use the <code>-</code> character as the index.
+
+Only string, number, boolean, and string type arrays are allowed as field values, and the field name must not collide with a standard field name, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, <code>refresh_token</code>, or an already added custom field.
+
+Refer to the example response below, which demonstrates adding a custom field to the last position of the token endpoint response:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+
+{
+  "actionStatus": "SUCCESS",
+  "operations": [
+    {
+      "op": "add",
+      "path": "/response/fields/-",
+      "value": {
+        "name": "custom_param",
+        "value": "custom_value"
+      }
+    }
+  ]
+}
+```
+
+## Removing an optional field from the token endpoint response
+
+You can suppress optional standard fields, such as <code>refresh_token</code> or <code>id_token</code>, from the token endpoint response. To do this, use the <code>/response/fields/</code> path followed by the name of the field you want to remove, in the <code>event.response</code> request. Standard fields that are always present in the response, such as <code>access_token</code>, <code>scope</code>, and <code>expires_in</code>, can't be removed.
+
+Refer to the example response below, which demonstrates suppressing the refresh token from the token endpoint response:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+
+{
+  "actionStatus": "SUCCESS",
+  "operations": [
+    {
+      "op": "remove",
+      "path": "/response/fields/refresh_token"
+    }
+  ]
+}
+```
