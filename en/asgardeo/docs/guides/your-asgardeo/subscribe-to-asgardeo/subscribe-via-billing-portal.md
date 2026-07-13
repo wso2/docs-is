@@ -113,7 +113,7 @@ Once you have upgraded to a paid plan, you can find and download your invoice fr
 
 ## Adjust or cancel your subscription
 
-On the Growth plan, you can change your resource commitments or support plan from the **Overview** page. Click **Adjust Commitments** (under Usage) or the **Upgrade** option on the support card. This reopens the subscription wizard at the relevant step.
+On the **Growth** plan, you can change your resource commitments or support plan from the **Overview** page. Click **Adjust Commitments** (under Usage) or the **Upgrade** option on the support card. This reopens the subscription wizard at the relevant step.
 
 ![subscription overview]({{base_path}}/assets/img/guides/billing/overview.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
