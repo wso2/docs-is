@@ -117,7 +117,6 @@ On any flow screen (for example, Sign Up, Email OTP, or Password Reset), select 
 2. From the **Translation key** dropdown, select a key. Keys are grouped into two categories:
     - **Flow-specific keys** – Prefixed by the current flow (for example, `sign.up.heading`, `sign.up.button`, `sign.up.username.validation.error.message`).
     - **Common keys** – Shared across every flow, including `site.title`, `copyright`, `privacy.policy`, `terms.of.service`, `email.link.expiry.message`, `email.otp.heading`, and `sms.otp.heading`.
-3. The attribute now renders the value bound to that key for each user's locale.
 
 ### Create a new translation key
 
@@ -140,7 +139,7 @@ Click **Edit** to open **Update Translations**, select the **Language** you want
 
 ### Publish the changes
 
-Click **Save Draft** and then toggle **Enable** at the top-right of the Flow Builder to publish the updated flow. Users see the localized text on their next visit, resolved against the user's preferred locale, with a fallback to the default language.
+Click **Save Draft** and then toggle **Enable** at the top-right of the Flow Builder to publish the updated flow. Users see the localized text on their next visit, resolved against the user's preferred locale.
 
 {% if product_name == "WSO2 Identity Server" %}
 
