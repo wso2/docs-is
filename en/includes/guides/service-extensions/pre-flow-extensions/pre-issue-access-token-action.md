@@ -11,6 +11,8 @@ You can use this functionality to:
 - Change or remove user attributes incorporated into the access token.
 - Add custom claims. You can use string, number, boolean, and string type arrays.
 - Update the validity period of the access token.
+- Add custom parameters to the token endpoint response.
+- Suppress optional standard parameters, such as <code>refresh_token</code> or <code>id_token</code>, from the token endpoint response.
 
 When your external service modifies an access token, {{product_name}} saves the changes as transactional data for the token's active period.
 In later flows, {{product_name}} provides the updated access token to applications, resource servers, and any actions.
