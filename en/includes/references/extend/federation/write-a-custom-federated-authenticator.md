@@ -295,7 +295,7 @@ To configure the custom federated authenticator for the application:
 
 3. Select the sign in option configured.
 
-4. Enter the credentials of the the new user created in the partner identity server.
+4. Enter the credentials of the new user created in the partner identity server.
 
 The user is successfully authenticated by the partner Identity Server.
 
