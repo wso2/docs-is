@@ -11,6 +11,16 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
       Expect updates without prior notice.
 {% endif %}
 
+{% if product_name == "WSO2 Identity Platform" %}
+{% set server_url = "https://api.asgardeo.io/t/myorg" %}
+{% set host_url = "https://api.asgardeo.io" %}
+{% set tenant_domain = "myorg" %}
+{% else %}
+{% set server_url = "https://localhost:9443/t/myorg.com" %}
+{% set host_url = "https://localhost:9443" %}
+{% set tenant_domain = "myorg.com" %}
+{% endif %}
+
 ## Login events
 
 {{product_name}} dispatches webhook events for both successful and failed login attempts, providing detailed context for each.
@@ -2817,6 +2827,716 @@ The table below explains each property in the event data.
 </tr>
 </tbody>
 </table>
+
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+
+## Role management events
+
+{{product_name}} dispatches webhook events for role lifecycle changes and role assignment updates. Each event provides detailed context, helping you keep external systems in sync with your role definitions, memberships, and permissions.
+
+### Role created event
+
+{{product_name}} sends a <code>roleCreated</code> event when a new role gets created.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "9befa02f-6977-472a-8450-09c391b6ba45",
+  "iat": 1783322160021,
+  "rci": "accdbb61-d005-41ab-8760-58fd7a539bf9",
+  "events": {
+    "https://schemas.identity.wso2.org/events/role/event-type/roleCreated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ROLE_CREATE",
+      "role": {
+        "id": "1fad5996-3418-4883-925d-a319e3bb8e72",
+        "name": "ROLE",
+        "audience": {
+          "type": "application",
+          "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
+          "display": "SB"
+        },
+        "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
+        "users": [
+          {
+            "id": "6c7f23d9-8083-4bf7-ab2c-885aa9faa186",
+            "userStoreDomain": "PRIMARY",
+            "claims": [
+              {
+                "uri": "http://wso2.org/claims/username",
+                "value": "abcuser"
+              }
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
+            "groupName": "imp",
+            "userStoreDomain": "PRIMARY"
+          }
+        ],
+        "permissions": [
+          "internal_session_view"
+        ]
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for a role creation, identified by the URI <code>https://schemas.identity.wso2.org/events/role/event-type/roleCreated</code>. This URI signifies a successful role creation event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>role</td>
+<td>
+<p>Contains details about the created role including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the role</li>
+<li><strong>name</strong>: Display name of the role</li>
+<li><strong>audience</strong>: The audience the role is scoped to (<code>type</code>, <code>value</code>, <code>display</code>). For an application-scoped role, <code>type</code> is <code>application</code>, <code>value</code> is the application id, and <code>display</code> is the application name.</li>
+<li><strong>ref</strong>: SCIM v2 reference URL for the role</li>
+<li><strong>users</strong>: Array of users initially assigned to the role. Each entry contains the user <code>id</code>, <code>userStoreDomain</code>, and <code>claims</code>.</li>
+<li><strong>groups</strong>: Array of local groups initially assigned to the role. Each entry contains the group <code>id</code>, <code>groupName</code>, and <code>userStoreDomain</code>.</li>
+<li><strong>permissions</strong>: Array of permission names initially granted to the role.</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the role gets created.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization under which the role gets created.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the role creation.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ROLE_CREATE</code> for a role creation.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Role metadata updated event
+
+{{product_name}} sends a <code>roleMetaUpdated</code> event when role metadata (for example the role name) gets updated.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "cead6c7f-a38c-4752-9485-56af37c1db5f",
+  "iat": 1783322212811,
+  "rci": "ad969f38-830c-41e7-b4c1-6f5544544921",
+  "events": {
+    "https://schemas.identity.wso2.org/events/role/event-type/roleMetaUpdated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ROLE_UPDATE",
+      "role": {
+        "id": "1fad5996-3418-4883-925d-a319e3bb8e72",
+        "name": "ROLE-updated",
+        "audience": {
+          "type": "application",
+          "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
+          "display": "SB"
+        },
+        "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72"
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for a role metadata update, identified by the URI <code>https://schemas.identity.wso2.org/events/role/event-type/roleMetaUpdated</code>. This URI signifies a role metadata update event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>role</td>
+<td>
+<p>Contains details about the updated role including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the role</li>
+<li><strong>name</strong>: Current display name of the role after the update</li>
+<li><strong>audience</strong>: The audience the role is scoped to (<code>type</code>, <code>value</code>, <code>display</code>).</li>
+<li><strong>ref</strong>: SCIM v2 reference URL for the role</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the role metadata update.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the role metadata update.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the role metadata update.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ROLE_UPDATE</code> for a role update.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Role deleted event
+
+{{product_name}} sends a <code>roleDeleted</code> event when a role gets deleted.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "361f4c4c-e35e-43bb-a52d-864a4b659f2f",
+  "iat": 1783322224574,
+  "rci": "90b7008c-50f5-411e-b2fe-f67b1b632d77",
+  "events": {
+    "https://schemas.identity.wso2.org/events/role/event-type/roleDeleted": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "APPLICATION_UPDATE",
+      "role": {
+        "id": "1fad5996-3418-4883-925d-a319e3bb8e72"
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for a role deletion, identified by the URI <code>https://schemas.identity.wso2.org/events/role/event-type/roleDeleted</code>. This URI signifies a role deletion event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>role</td>
+<td>
+<p>Contains details about the deleted role including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the deleted role</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the role deletion.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the role deletion.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the role deletion.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates what triggered the role deletion. The value is <code>APPLICATION_UPDATE</code> when a role is removed from an application's Roles section, and <code>APPLICATION_DELETE</code> when the role is deleted as part of application deletion.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Role users updated event
+
+{{product_name}} sends a <code>roleUsersUpdated</code> event when users get assigned to or unassigned from a role.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "09a24bef-04f2-407a-a061-e851d0a8d581",
+  "iat": 1783322202677,
+  "rci": "1bab73e8-d1fe-4469-89fc-41488aa718fb",
+  "events": {
+    "https://schemas.identity.wso2.org/events/role/event-type/roleUsersUpdated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ROLE_UPDATE",
+      "role": {
+        "id": "1fad5996-3418-4883-925d-a319e3bb8e72",
+        "name": "ROLE",
+        "audience": {
+          "type": "application",
+          "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
+          "display": "SB"
+        },
+        "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
+        "removedUsers": [
+          {
+            "id": "6c7f23d9-8083-4bf7-ab2c-885aa9faa186",
+            "userStoreDomain": "PRIMARY",
+            "claims": [
+              {
+                "uri": "http://wso2.org/claims/username",
+                "value": "abcuser"
+              }
+            ]
+          }
+        ],
+        "addedUsers": [
+          {
+            "id": "311b60cf-da6f-4378-8cd1-31e3e7026f4d",
+            "userStoreDomain": "AGENT",
+            "claims": [
+              {
+                "uri": "http://wso2.org/claims/username",
+                "value": "311b60cf-da6f-4378-8cd1-31e3e7026f4d"
+              },
+              {
+                "uri": "http://wso2.org/claims/agent/Name",
+                "value": "NewAgenthnnn"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for a role user assignment update, identified by the URI <code>https://schemas.identity.wso2.org/events/role/event-type/roleUsersUpdated</code>. This URI signifies a role user assignment update event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>role</td>
+<td>
+<p>Contains details about the role whose user assignments got updated, including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the role</li>
+<li><strong>name</strong>: Display name of the role</li>
+<li><strong>audience</strong>: The audience the role is scoped to (<code>type</code>, <code>value</code>, <code>display</code>).</li>
+<li><strong>ref</strong>: SCIM v2 reference URL for the role</li>
+<li><strong>addedUsers</strong>: Array of users assigned to the role in this update. Each entry contains the user <code>id</code>, <code>userStoreDomain</code>, and <code>claims</code>.</li>
+<li><strong>removedUsers</strong>: Array of users unassigned from the role in this update. Each entry contains the user <code>id</code>, <code>userStoreDomain</code>, and <code>claims</code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the role user assignment update.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the role user assignment update.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the role user assignment update.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ROLE_UPDATE</code> for a role update.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Role groups updated event
+
+{{product_name}} sends a <code>roleGroupsUpdated</code> event when local groups get assigned to or unassigned from a role.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "be85978e-5ac6-48a1-ae54-24c292f1f3c3",
+  "iat": 1783322195097,
+  "rci": "fd338a56-569b-4b1f-a9e3-9bffade3b481",
+  "events": {
+    "https://schemas.identity.wso2.org/events/role/event-type/roleGroupsUpdated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ROLE_UPDATE",
+      "role": {
+        "id": "1fad5996-3418-4883-925d-a319e3bb8e72",
+        "name": "ROLE",
+        "audience": {
+          "type": "application",
+          "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
+          "display": "SB"
+        },
+        "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
+        "removedGroups": [
+          {
+            "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
+            "groupName": "imp",
+            "userStoreDomain": "PRIMARY"
+          }
+        ],
+        "addedGroups": [
+          {
+            "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
+            "groupName": "imp",
+            "userStoreDomain": "PRIMARY"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for a role group assignment update, identified by the URI <code>https://schemas.identity.wso2.org/events/role/event-type/roleGroupsUpdated</code>. This URI signifies a role group assignment update event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>role</td>
+<td>
+<p>Contains details about the role whose group assignments got updated, including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the role</li>
+<li><strong>name</strong>: Display name of the role</li>
+<li><strong>audience</strong>: The audience the role is scoped to (<code>type</code>, <code>value</code>, <code>display</code>).</li>
+<li><strong>ref</strong>: SCIM v2 reference URL for the role</li>
+<li><strong>addedGroups</strong>: Array of local groups assigned to the role in this update. Each entry contains the group <code>id</code>, <code>groupName</code>, and <code>userStoreDomain</code>.</li>
+<li><strong>removedGroups</strong>: Array of local groups unassigned from the role in this update. Each entry contains the group <code>id</code>, <code>groupName</code>, and <code>userStoreDomain</code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the role group assignment update.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the role group assignment update.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the role group assignment update.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ROLE_UPDATE</code> for a role update.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Role IdP groups updated event
+
+{{product_name}} sends a <code>roleIdpGroupsUpdated</code> event when federated identity provider (IdP) groups get assigned to or unassigned from a role.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "d443cbd9-82c5-4397-8d2d-b1b143f13905",
+  "iat": 1783322195104,
+  "rci": "fd338a56-569b-4b1f-a9e3-9bffade3b481",
+  "events": {
+    "https://schemas.identity.wso2.org/events/role/event-type/roleIdpGroupsUpdated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ROLE_UPDATE",
+      "role": {
+        "id": "1fad5996-3418-4883-925d-a319e3bb8e72",
+        "name": "ROLE",
+        "audience": {
+          "type": "application",
+          "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
+          "display": "SB"
+        },
+        "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
+        "addedIdpGroups": [
+          {
+            "groupId": "7ae41d10-e4a1-4ed8-adc2-8644872b8783",
+            "groupName": "idpgroup1",
+            "idpId": "8ef35e33-b4dc-444f-8d71-3ff32e44cca9",
+            "idpName": "IDP"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for a role IdP group assignment update, identified by the URI <code>https://schemas.identity.wso2.org/events/role/event-type/roleIdpGroupsUpdated</code>. This URI signifies a role IdP group assignment update event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>role</td>
+<td>
+<p>Contains details about the role whose IdP group assignments got updated, including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the role</li>
+<li><strong>name</strong>: Display name of the role</li>
+<li><strong>audience</strong>: The audience the role is scoped to (<code>type</code>, <code>value</code>, <code>display</code>).</li>
+<li><strong>ref</strong>: SCIM v2 reference URL for the role</li>
+<li><strong>addedIdpGroups</strong>: Array of federated IdP groups assigned to the role. Each entry contains <code>groupId</code>, <code>groupName</code>, <code>idpId</code>, and <code>idpName</code>.</li>
+<li><strong>removedIdpGroups</strong>: Array of federated IdP groups unassigned from the role. Each entry contains <code>groupId</code>, <code>groupName</code>, <code>idpId</code>, and <code>idpName</code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the role IdP group assignment update.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the role IdP group assignment update.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the role IdP group assignment update.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ROLE_UPDATE</code> for a role update.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Role permissions updated event
+
+{{product_name}} sends a <code>rolePermissionsUpdated</code> event when permissions get granted to or revoked from a role.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "99ea2226-328e-4b60-bc8d-4d72028267e8",
+  "iat": 1783322187274,
+  "rci": "c607ec61-8bcc-4f2c-8b21-064f3774fdd4",
+  "events": {
+    "https://schemas.identity.wso2.org/events/role/event-type/rolePermissionsUpdated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ROLE_UPDATE",
+      "role": {
+        "id": "1fad5996-3418-4883-925d-a319e3bb8e72",
+        "name": "ROLE",
+        "audience": {
+          "type": "application",
+          "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
+          "display": "SB"
+        },
+        "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
+        "addedPermissions": [
+          "internal_session_delete"
+        ],
+        "removedPermissions": [
+          "internal_session_view"
+        ]
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for a role permission update, identified by the URI <code>https://schemas.identity.wso2.org/events/role/event-type/rolePermissionsUpdated</code>. This URI signifies a role permission update event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>role</td>
+<td>
+<p>Contains details about the role whose permissions got updated, including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the role</li>
+<li><strong>name</strong>: Display name of the role</li>
+<li><strong>audience</strong>: The audience the role is scoped to (<code>type</code>, <code>value</code>, <code>display</code>).</li>
+<li><strong>ref</strong>: SCIM v2 reference URL for the role</li>
+<li><strong>addedPermissions</strong>: Array of permission names granted to the role in this update.</li>
+<li><strong>removedPermissions</strong>: Array of permission names revoked from the role in this update.</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) that processed the role permission update.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization that processed the role permission update.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the role permission update.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ROLE_UPDATE</code> for a role update.</p></td>
+</tr>
+</tbody>
+</table>
+
+{% endif %}
 
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 

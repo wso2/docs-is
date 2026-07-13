@@ -44,6 +44,14 @@ When an identity-related event (for example user registration, login success, pr
       - User profile updates
       - User account status changes (lock/unlock, enable/disable, delete)
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+- **Role management events**
+      - Role created
+      - Role metadata updated
+      - Role deleted
+      - Role users updated
+      - Role groups updated
+      - Role IdP groups updated
+      - Role permissions updated
 - **Consent events**
       - Consent added
       - Consent revoked
