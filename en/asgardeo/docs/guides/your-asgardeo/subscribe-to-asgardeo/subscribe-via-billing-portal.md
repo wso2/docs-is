@@ -1,6 +1,6 @@
 # Subscribe via Billing Portal
 
-Start your WSO2 Identity Platform journey with the free plan and use it for as long as you want if it fits your requirements. When you're ready to grow, you can upgrade to the **Growth** plan and pay only for the resources you use. For custom needs, you can move to an **Enterprise** plan. You can also adjust your resource commitments or cancel your subscription at any time, as explained below.
+Start your WSO2 Identity Platform journey with the free plan and use it for as long as you want if it fits your requirements. When you're ready, you can upgrade to the **Growth** plan and pay only for the resources you use. For custom needs, you can move to an **Enterprise** plan. You can also adjust your resource commitments or cancel your subscription at any time, as explained below.
 
 See the [pricing details](https://wso2.com/identity-platform/pricing/) and the available resource limits for each subscription plan.
 
