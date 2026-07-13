@@ -286,7 +286,7 @@ using the respective permalinks. Following are the columns of the table.
 
 ## UM_SYSTEM_USER_ROLE
 
-Storing the system roles assigned to the the system users is done with
+Storing the system roles assigned to the system users is done with
 this table. `UM_USER_NAME` contains the username of the system user.
 `UM_ROLE_ID` contains the ID of the system role which points to the `UM_ID` column of the `UM_SYSTEM_ROLE` table. The `wso2.anonymous.role`
 system role is by default assigned to the `wso2.anonymous.user` system

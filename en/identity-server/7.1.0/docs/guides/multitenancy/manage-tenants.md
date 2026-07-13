@@ -75,7 +75,7 @@ Follow the steps given below to add a new root organization from the {{ product_
       </tbody>
     </table>
 
-5. Once a new root organization is created, it will be listed in the the **Root Organization** listing page as shown below.
+5. Once a new root organization is created, it will be listed in the **Root Organization** listing page as shown below.
 
     ![Root Organization Listing]({{base_path}}/assets/img/guides/multitenancy/root-organizaiton-listing.png)
 
