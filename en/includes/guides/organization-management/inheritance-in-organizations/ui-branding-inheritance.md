@@ -36,15 +36,17 @@ Application-specific branding settings apply to a single application. For a give
 
 - Organizations can customize their own application-specific branding settings, overriding either their organization-wide settings or the inherited settings. These overridden settings then pass down to the organization’s descendants.
 
-- Organizations can also revert their application-specific branding settings, restoring either their organization-wide settings or the inherited values.
+- Organizations can also revert application-specific branding settings. When reverted, the application uses the organization’s custom branding settings. If the organization has no custom branding, it inherits the branding from the nearest parent organization in the hierarchy that has custom settings.
 
-!!! note "Reverting applies to the whole configuration, not individual fields"
-    Reverting restores inherited values for the **entire** branding customization saved at
-    that level — an individual setting (for example, just the logo) cannot be reverted on
-    its own. Clearing the value of a single field and saving does not cause that field to
-    inherit from the parent level; the level's customization remains in effect with that
-    field left empty. To restore inheritance, use **Revert to default**, as described in
-    [Configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/#revert-branding).
+    !!! note "Reverting affects the entire branding configuration"
+        Reverting removes **all** branding customizations saved at that level and restores
+        inherited values. You cannot revert an individual setting, such as only the logo.
+
+        Clearing a field and saving does not restore inheritance for that field. The
+        customization at that level remains active, and the cleared field is saved as empty.
+
+        To restore inherited branding, select **Revert to default**. For more information,
+        see [Configure UI branding]({{base_path}}/guides/branding/configure-ui-branding/#revert-branding).
 
 The following diagram explains how inheritance works for UI branding when your organization hierarchy has a combination of organization-wide branding and application-specific branding.
 
