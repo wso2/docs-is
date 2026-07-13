@@ -13,7 +13,7 @@ This guide outlines two strategies to achieve this in {{product_name}}:
 
 The most robust security model involves physically or logically separating the infrastructure into two planes: a **Control Plane** for administration and a **Data Plane** for runtime operations.
 
-![data-plane-control-plane-seperation]({{base_path}}/assets/img/deploy/data-plane-control-plane-seperation.png)
+![data-plane-control-plane-separation]({{base_path}}/assets/img/deploy/data-plane-control-plane-seperation.png)
 
 ### 1. Control plane (internal)
 
