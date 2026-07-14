@@ -287,7 +287,7 @@ Note that, you need to encode the URLs before calling the single logout service.
 
 ### Certificate
 
-The certificate is used to validate signatures when authentication requests or logout requests from the application are signed, and to encrypt the SAML assertion sent to the application. Note that request signature validation should be [enabled](#enable-request-signature-validation) for signature validation, and [assertion encryption](#enable-encryption) should be enabled for encryption.
+{{ product_name }} uses the certificate to validate signatures on signed authentication and logout requests from the application, and to encrypt the SAML assertion sent to the application. Make sure to [enable request signature validation](#enable-request-signature-validation) for signature validation, and [enable assertion encryption](#enable-encryption) for assertion encryption.
 <br>
 You can either upload your certificate file or copy the contents. Follow the steps given below.
 

@@ -267,7 +267,7 @@ The following configurations are related to the ID token.
 {% include "../../guides/fragments/manage-app/oidc-settings/refresh-token.md" %}
 
 ### Certificate
-Certificates play a critical role in validating signatures on signed requests from the application and encrypting sensitive information (such as ID tokens) sent to the application. To add a certificate, you can either upload one or provide a JWKS endpoint.
+Certificates play a critical role in validating signatures on signed requests from the application and encrypting the ID token sent to the application when [ID token encryption](#enable-encryption) is enabled. To add a certificate, you can either upload one or provide a JWKS endpoint.
 
 To upload a certificate, select **Provide certificate** and upload a certificate in the `.pem` format.
 
