@@ -56,6 +56,6 @@ To do so, follow the steps below.
 
     ![Link subscription to a WSO2 Identity Platform organization]({{base_path}}/assets/img/guides/subscriptions/link-asgardeo-subscription-with-organization.png){: width="400" border: 0.3px solid lightgrey;"}
 
-3. Once the linking is successful, the following prompt appears. Click **Sign In** to access your organization and enjoy your subscription!
+3. Once the linking is successful, the following prompt appears. Click **Sign In** to access your organization.
 
     ![Successfully linked subscription to a WSO2 Identity Platform organization]({{base_path}}/assets/img/guides/subscriptions/subscription-link-successful.png){: width="700" border: 0.3px solid lightgrey;"}
