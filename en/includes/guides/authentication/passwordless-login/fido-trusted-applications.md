@@ -64,7 +64,7 @@ Validation services of [iOS](https://developer.apple.com/documentation/xcode/sup
 
 - For iOS - `{{base_url}}/.well-known/apple-app-site-association`
 
-As an WSO2 Identity Platform domain user, follow the guide below to publish details about your app.
+As a WSO2 Identity Platform domain user, follow the guide below to publish details about your app.
 
 1. On the {{product_name}} Console, go to **Applications** and select your application.
 

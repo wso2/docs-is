@@ -47,7 +47,7 @@ Follow the steps below to configure event publishing for WSO2 Identity Platform.
 
 ## Implement business use cases for WSO2 Identity Platform events
 
-Follow the steps below to define a business logic that will trigger when an WSO2 Identity Platform event occurs.
+Follow the steps below to define business logic that responds to events in your WSO2 Identity Platform organization.
 
 ### Prerequisite
 - You need to have a GitHub repository to host the business logic.
@@ -161,9 +161,9 @@ Once the webhook is deployed in Choreo, follow the steps below to try it out.
     ![Choreo logs for WSO2 Identity Platform events]({{base_path}}/assets/img/guides/asgardeo-events/choreo-logs-for-asgardeo-events.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
-## Payload of an WSO2 Identity Platform event
+## Payload of a WSO2 Identity Platform event
 
-The payload of an WSO2 Identity Platform event that is sent to Choreo consists of the following data objects:
+The payload of a WSO2 Identity Platform event that is sent to Choreo consists of the following data objects:
 - **Security Data** object - The security data object is common to all WSO2 Identity Platform events. This contains the following security metadata about the event.
 
   <table>
