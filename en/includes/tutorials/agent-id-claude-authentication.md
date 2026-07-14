@@ -22,6 +22,8 @@ Before you begin, ensure you have the following:
 
 ## Step 1: Register an Agent in {{product_name}}
 
+This is what replaces the shared static API key. Each agent gets its own Agent ID and Secret, so it's a distinct principal your security model can reason about, not just a possessor of a key.
+
 1. Log in to the {{product_name}} Console.
 2. Navigate to **Agentic AI**.
 3. Click **New Agent** and provide a descriptive name for your agent.
@@ -31,6 +33,8 @@ Before you begin, ensure you have the following:
 ## Step 2: Create an Application in {{product_name}}
 
 Your agent needs an OAuth application to obtain tokens through the app-native authentication flow.
+
+The application is the channel the agent authenticates through. It's what issues the JWT that Claude will later validate, so its protocol settings (grant type, token type, audience) need to line up with what Claude's federation rule expects in Step 5.
 
 1. Go to **Applications** and click **New Application**.
 2. Select **Standard-Based Application**.
@@ -45,6 +49,8 @@ Your agent needs an OAuth application to obtain tokens through the app-native au
 
 ## Step 3: Configure {{product_name}} as a Federation Issuer in Claude Console
 
+From this point on, Claude will accept identity assertions signed by {{product_name}}. Registering the issuer and JWKS URL is what lets Claude verify the JWT's signature without you managing any shared secret between the two systems.
+
 1. In the Claude Console, go to **Settings > Workload Identity**.
 2. Under **Issuers**, click **Add Issuer** and enter:
    - **Issuer URL**: `{{ api_base_path }}/oauth2/token`
@@ -54,12 +60,16 @@ Your agent needs an OAuth application to obtain tokens through the app-native au
 
 ## Step 4: Create a Service Account in Claude
 
+The service account is the identity the agent acts as on the Claude side. It's the counterpart to the Agent ID in {{product_name}}: one named, workspace-scoped principal in Claude that a federation rule will map the agent to.
+
 1. In the Claude Console, go to **Settings > Service Accounts**.
 2. Click **Create Service Account** and give it a descriptive name (e.g., `booking-agent`).
 3. Add the service account to the workspace where it needs API access.
 4. Note down the **Service Account ID** (format: `svac_...`).
 
 ## Step 5: Create a Federation Rule
+
+This is where the policy actually lives. The rule binds a JWT's issuer and subject claim to a specific service account, so pinning on issuer alone isn't enough: any agent under that issuer could assume any service account. Pinning iss + sub together ensures one agent can't impersonate another, even within the same federation.
 
 1. In the Claude Console, go to **Settings > Workload Identity > Federation Rules**.
 2. Click **Create Rule** and configure:
