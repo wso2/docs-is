@@ -287,7 +287,7 @@ Note that, you need to encode the URLs before calling the single logout service.
 
 ### Certificate
 
-The certificate is used to validate signatures when authentication requests or logout requests from the application are signed. Note that request signature validation should be [enabled](#enable-request-signature-validation).
+The certificate is used to validate signatures when authentication requests or logout requests from the application are signed, and to encrypt the SAML assertion sent to the application. Note that request signature validation should be [enabled](#enable-request-signature-validation) for signature validation, and [assertion encryption](#enable-encryption) should be enabled for encryption.
 <br>
 You can either upload your certificate file or copy the contents. Follow the steps given below.
 
