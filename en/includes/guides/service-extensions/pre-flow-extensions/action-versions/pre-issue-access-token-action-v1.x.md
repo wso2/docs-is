@@ -204,8 +204,8 @@ Sensitive parameters like client secret, username, and password don't appear.</t
 <table>
 <tbody>
 <tr>
-<td>fields</td>
-<td>An array of the top level field names that will be present on the token endpoint's response, based on the current token request, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, and, if applicable, <code>refresh_token</code> and <code>id_token</code>. Your external service can use this list to add new custom fields to the response without a name collision, or to remove the optional <code>refresh_token</code> or <code>id_token</code> fields from the response.</td>
+<td>parameters</td>
+<td>An array of the top level parameter names that will be present on the token endpoint's response, based on the current token request, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, and, if applicable, <code>refresh_token</code> and <code>id_token</code>. Your external service can use this list to add new custom parameters to the response without a name collision, or to remove the optional <code>refresh_token</code> or <code>id_token</code> parameters from the response.</td>
 </tr>
 </tbody>
 </table>
@@ -226,7 +226,9 @@ But other standard access token claims, such as the issuer (iss) and token bindi
 
 Additionally, your external service can change any OIDC claims incorporated into the access token.
 
-Your external service can also add custom top level fields to the token endpoint response, or suppress optional standard fields, such as <code>refresh_token</code> or <code>id_token</code>, from it. These operations use the <code>/response/fields/</code> path, which relates to the <code>event.response</code> property.
+Your external service can also add custom top level parameters to the token endpoint response, or suppress optional standard parameters, such as <code>refresh_token</code> or <code>id_token</code>, from it. These operations use the <code>/response/parameters/</code> path, which relates to the <code>event.response</code> property.
+
+Unlike access token and refresh token claims, which only accept string, number, boolean, and string array values, a custom parameter added to the token endpoint response can also be a JSON object or an array containing any combination of these value types, including nested objects and nested arrays. JSON objects, and arrays containing anything other than strings, can't be added to access token or refresh token claims.
 
 Here is the example of an allowedOperations object in a request formatted as a JSON payload:
 
@@ -588,7 +590,7 @@ This example illustrates a request sent to an external service configured as a p
                 ]
             },
             "response": {
-                "fields": [
+                "parameters": [
                     "access_token",
                     "scope",
                     "expires_in",
@@ -603,7 +605,7 @@ This example illustrates a request sent to an external service configured as a p
                     "/accessToken/claims/",
                     "/accessToken/scopes/",
                     "/accessToken/claims/aud/",
-                    "/response/fields/"
+                    "/response/parameters/"
                 ]
             },
             {
@@ -611,7 +613,7 @@ This example illustrates a request sent to an external service configured as a p
                 "paths": [
                     "/accessToken/scopes/",
                     "/accessToken/claims/aud/",
-                    "/response/fields/refresh_token"
+                    "/response/parameters/refresh_token"
                 ]
             },
             {
