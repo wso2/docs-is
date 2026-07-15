@@ -46,23 +46,36 @@ paths:
                       - op: replace
                         path: /refreshToken/claims/expires_in
                         value: 42000
-                successExampleForResponseFieldAdd:
-                  summary: Successful response for adding a custom field to the token endpoint response
+                successExampleForResponseParameterAdd:
+                  summary: Successful response for adding a custom parameter to the token endpoint response
                   value:
                     actionStatus: SUCCESS
                     operations:
                       - op: add
-                        path: /response/fields/-
+                        path: /response/parameters/-
                         value:
                           name: custom_param
                           value: "custom_value"
-                successExampleForResponseFieldRemove:
-                  summary: Successful response for suppressing an optional field from the token endpoint response
+                successExampleForResponseParameterAddComplexValue:
+                  summary: Successful response for adding a custom parameter with a nested JSON object value to the token endpoint response
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                      - op: add
+                        path: /response/parameters/-
+                        value:
+                          name: custom_object
+                          value:
+                            context:
+                              a: b
+                            nested: {}
+                successExampleForResponseParameterRemove:
+                  summary: Successful response for suppressing an optional parameter from the token endpoint response
                   value:
                     actionStatus: SUCCESS
                     operations:
                       - op: remove
-                        path: /response/fields/refresh_token
+                        path: /response/parameters/refresh_token
                 failedExample:
                   summary: Failed response
                   value:
@@ -303,14 +316,14 @@ components:
     TokenResponse:
       type: object
       properties:
-        fields:
+        parameters:
           type: array
           items:
             type: string
           description: |
-            An array of the top level field names that will be present on the token endpoint's response, based on the current token request. Your external service can use this list to discover the standard fields present on the response, so it can add new custom fields to the response without a name collision, or remove optional standard fields from the response.
+            An array of the top level parameter names that will be present on the token endpoint's response, based on the current token request. Your external service can use this list to discover the standard parameters present on the response, so it can add new custom parameters to the response without a name collision, or remove optional standard parameters from the response.
 
-            Standard fields:
+            Standard parameters:
 
             - **access_token**: The issued access token. Cannot be added, replaced, or removed.
             - **scope**: The scopes granted for the access token. Cannot be added, replaced, or removed.
@@ -322,7 +335,7 @@ components:
             - scope
             - expires_in
             - refresh_token
-      description: Represents the token endpoint response that is about to be sent to the client for the current token request. Your external service can add custom fields to this response, or suppress optional standard fields from it, based on the logic implemented in the pre-issue access token action.
+      description: Represents the token endpoint response that is about to be sent to the client for the current token request. Your external service can add custom parameters to this response, including JSON objects with nested properties, or suppress optional standard parameters from it, based on the logic implemented in the pre-issue access token action.
     AllowedOperations:
       type: array
       description: Defines the set of operations that your external service is permitted to perform on the access token's claims and scopes, and on the token endpoint response.
@@ -346,7 +359,7 @@ components:
           example:
           - /accessToken/claims
           - /accessToken/scopes
-          - /response/fields
+          - /response/parameters
           items:
             type: string
       description: Defines the add operation.
@@ -386,7 +399,7 @@ components:
             example:
             - /accessToken/claims
             - /accessToken/scopes
-            - /response/fields/refresh_token
+            - /response/parameters/refresh_token
       description: Defines the remove operation.
     SuccessResponse:
       type: object
@@ -535,7 +548,7 @@ components:
           example:
             - /accessToken/claims/-
             - /accessToken/scopes/0
-            - /response/fields/-
+            - /response/parameters/-
           description: Defines the path for the add operation. Should be one from the allowed paths of `add` operation in the allowedOperations.
         value:
           oneOf:
@@ -580,7 +593,7 @@ components:
           example:
             - /accessToken/claims/0
             - /accessToken/scopes/1
-            - /response/fields/refresh_token
+            - /response/parameters/refresh_token
           description: Defines the path for the remove operation. Should be one from the allowed paths of `remove` operation in the allowedOperations.
       description: Defines the remove operation.
     CustomValue:
@@ -597,8 +610,11 @@ components:
             - type: integer
             - type: boolean
             - type: array
-              items:
-                type: string
+              items: {}
+            - type: object
+              additionalProperties: true
+      description: |
+        Defines a custom name-value pair to add. JSON object values, and array values containing anything other than strings (including nested objects and nested arrays), are only supported when adding a custom parameter to the token endpoint response, using the `/response/parameters/` path. Access token and refresh token claims only support string, number, boolean, and string array values; object values, and array values with non-string elements, submitted for these claims are rejected.
   securitySchemes:
     BasicAuth:
       type: http
