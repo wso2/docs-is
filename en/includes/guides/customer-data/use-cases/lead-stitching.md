@@ -2,8 +2,6 @@
 
 # Stitch user profiles across websites
 
-## Overview
-
 Lead stitching brings a person's anonymous activity together across **separate applications or domains**, before they ever create an account. It works by matching on a shared identifier such as their email address.
 
 A prospective customer interacts anonymously with one of your applications and provides an identifier. For example, an email address in a download form, without signing up. Later they do the same on a different application or domain, providing the same identifier. Because both applications feed the same Customer Data Service tenant, a **unification rule** recognizes the shared identifier and merges the separate anonymous profiles into a single lead profile.

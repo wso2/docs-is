@@ -2,8 +2,6 @@
 
 # Unify anonymous and registered profiles
 
-## Overview
-
 This use case keeps a visitor's activity attached to them as they go from an anonymous visitor to a registered user.
 
 A visitor interacts with your application anonymously, so their activity is collected against a **temporary profile**. Later they self register and sign in. The Customer Data Service associates that temporary profile with the new user. Because the profiles now share a `user_id`, they are merged into the one **permanent profile**, so the activity captured before registration stays attached to the account.
