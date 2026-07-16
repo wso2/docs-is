@@ -17,6 +17,8 @@ paths:
         - `SUCCESS`: Apply the returned operations and continue the flow.
         - `FAILED`: Stop the flow for a business or policy reason. The reason is surfaced to the end user as a flow error.
         - `ERROR`: The service hit a processing or server-side error. Return HTTP 400, 401, or 500; WSO2 Identity Server aborts the flow.
+
+        Values of attributes marked as encrypted in the extension's access configuration travel as JWE compact strings (RSA-OAEP-256 key encryption with A256GCM content encryption): WSO2 Identity Server encrypts exposed values with the certificate uploaded for the extension, and the service must encrypt returned values for WSO2 Identity Server.
       requestBody:
         content:
           application/json:
@@ -50,6 +52,39 @@ paths:
                     - /user/claims[uri=http://wso2.org/claims/multiValuedClaim]
                     - /user/claims[uri=http://wso2.org/claims/customClaim]
                   requestId: 93c2fb70-6f8c-444b-8ff8-36ff580dabb7
+              encryptedRegistrationRequest:
+                summary: Request with encrypted values and extended context.
+                value:
+                  actionType: FLOW_EXTENSION
+                  event:
+                    tenant:
+                      domain: example.com
+                    organization:
+                      id: 77084a9d-b745-4386-a44d-8dc0d44d0232
+                      name: Example Organization
+                      orgHandle: exampleorg
+                      depth: 0
+                    flow:
+                      flowType: REGISTRATION
+                      flowId: d6e02342-7c5b-40de-a3f9-403ae5d163a9
+                      portalUrl: https://localhost:9443/t/<your-organization-name>/accounts/register
+                      user:
+                        id: e5b1b0e8-0f3b-4d7a-9b6a-2f1c1a1b2c3d
+                        username: john
+                        userStoreDomain: ""
+                        claims:
+                        - uri: http://wso2.org/claims/emailaddress
+                          value: <JWE compact string>
+                        credentials:
+                          password: <JWE compact string of the typed credential object>
+                    application:
+                      id: application-id
+                  allowedOperations:
+                  - op: replace
+                    paths:
+                    - /user/claims[uri=http://wso2.org/claims/tier]
+                    - /user/credentials/password
+                  requestId: 93c2fb70-6f8c-444b-8ff8-36ff580dabb7
         required: true
       responses:
         "200":
@@ -74,6 +109,18 @@ paths:
                       value:
                       - multi-value1
                       - multi-value2
+                encryptedSuccessExample:
+                  summary: Success response with encrypted values
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                    - op: replace
+                      path: /user/claims[uri=http://wso2.org/claims/customClaim]
+                      value: <JWE compact string>
+                    - op: replace
+                      path: /user/claims[uri=http://wso2.org/claims/multiValuedClaim]
+                      value:
+                      - <JWE compact string of the comma-joined values>
                 failedExample:
                   summary: Failed response
                   value:
@@ -145,7 +192,11 @@ components:
           $ref: '#/components/schemas/Flow'
         application:
           $ref: '#/components/schemas/Application'
-      description: A snapshot of the flow state, carrying context about the flow and the application.
+        tenant:
+          $ref: '#/components/schemas/Tenant'
+        organization:
+          $ref: '#/components/schemas/Organization'
+      description: A snapshot of the flow state, carrying context about the flow and the organization. Each field appears only when the corresponding attribute is marked as readable in the extension's access configuration; fields with empty values are omitted.
     Flow:
       type: object
       properties:
@@ -168,12 +219,73 @@ components:
     User:
       type: object
       properties:
+        id:
+          type: string
+          description: The user's unique identifier.
+          example: e5b1b0e8-0f3b-4d7a-9b6a-2f1c1a1b2c3d
+        username:
+          type: string
+          description: The username, without the user store domain prefix.
+          example: john
+        userStoreDomain:
+          type: string
+          description: The user store the user belongs to. An empty string ("") denotes the primary user store.
+          example: ""
         claims:
           type: array
           description: The current claims of the user.
           items:
             $ref: '#/components/schemas/Claim'
+        credentials:
+          type: object
+          description: The user's credentials, keyed by credential name (for example, `password`). Each value is a typed credential object, or its JWE compact string when the credential is marked as encrypted.
+          additionalProperties:
+            oneOf:
+            - $ref: '#/components/schemas/Credential'
+            - type: string
+              description: The JWE compact string of the typed credential object, sent when the credential is marked as encrypted.
       description: The user being acted on.
+    Credential:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - PLAIN_TEXT
+          description: The format of the credential value.
+          example: PLAIN_TEXT
+        value:
+          type: string
+          description: The credential value.
+      description: A typed credential value.
+    Tenant:
+      type: object
+      properties:
+        domain:
+          type: string
+          description: The domain of the root organization.
+          example: example.com
+      description: The root organization context.
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The organization UUID.
+          example: 77084a9d-b745-4386-a44d-8dc0d44d0232
+        name:
+          type: string
+          description: The organization name.
+          example: Example Organization
+        orgHandle:
+          type: string
+          description: The organization handle.
+          example: exampleorg
+        depth:
+          type: integer
+          description: The depth of the organization in the organization hierarchy.
+          example: 0
+      description: The organization context.
     Claim:
       type: object
       properties:
@@ -182,7 +294,7 @@ components:
           description: The claim URI.
           example: http://wso2.org/claims/givenname
         value:
-          description: The claim value. A single-valued claim carries a string; a multi-valued claim carries an array of strings.
+          description: The claim value. A single-valued claim carries a string; a multi-valued claim carries an array of strings. When the claim is marked as encrypted, the value is a JWE compact string; an encrypted multi-valued claim carries a single-element array holding one JWE compact string of the comma-joined values.
           oneOf:
           - type: string
           - type: array
@@ -202,13 +314,12 @@ components:
       type: object
       required:
       - op
-      - paths
       properties:
         op:
           type: string
           enum:
           - replace
-          description: The permitted operation. The only operation in `FLOW_EXTENSION` is `replace`, which creates or replaces a claim at one of the listed paths.
+          description: The permitted operation. `replace` creates or replaces a value at one of the listed paths.
           example: replace
         paths:
           type: array
@@ -251,10 +362,10 @@ components:
           example: replace
         path:
           type: string
-          description: The claim path to create or replace. Must match one of the paths listed against the `replace` entry in `allowedOperations`.
+          description: The path to create or replace, targeting a claim or a credential. Must match one of the paths listed against the `replace` entry in `allowedOperations`.
           example: /user/claims[uri=http://wso2.org/claims/customClaim]
         value:
-          description: The value to set. The claim is created if absent and set to empty if the value is an empty string or null.
+          description: The value to set. The claim is created if absent and set to empty if the value is an empty string. When the path is marked as encrypted, the value must be a JWE compact string encrypted for WSO2 Identity Server; an encrypted multi-valued claim must be a single-element array holding one JWE compact string of the comma-joined values.
           oneOf:
           - type: string
             nullable: true
@@ -262,7 +373,7 @@ components:
             items:
               type: string
           example: new-value1
-      description: Creates or replaces a claim at the given path.
+      description: Creates or replaces a value at the given path.
     FailedResponse:
       type: object
       required:
