@@ -1,7 +1,9 @@
 # Login Flow AI
 
+{% if product_name == "WSO2 Identity Server" and is_version in ["7.1.0", "7.2.0"] %}
 !!! warning "Beta feature"
     The **AI Login Flow Generation** feature is currently in **Beta**. We are actively working to enhance its capabilities and improve performance.
+{% endif %}
 
 AI-powered login flow generation simplifies the setup of authentication sequences in {{product_name}} by using an AI-driven approach. This tool allows users to efficiently create tailored authentication sequences without needing in-depth knowledge of the underlying authenticators or scripting languages.
 

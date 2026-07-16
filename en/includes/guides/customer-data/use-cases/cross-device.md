@@ -2,10 +2,6 @@
 
 # Accumulate data across multiple devices
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
 ## Overview
 
 This use case keeps a single user's activity together even when they reach your application from more than one device.

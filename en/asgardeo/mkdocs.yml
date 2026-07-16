@@ -32,11 +32,6 @@ theme:
 extra:
   base_path: /asgardeo/docs
   product: asgardeo
-  nav_chip:
-    Customer Data:
-      type: Preview
-    Flow Extensions:
-      type: Beta
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"

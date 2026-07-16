@@ -86,7 +86,6 @@ The following table lists the currently supported extensions and those in the ro
 <tr class="header">
 <th>Flow</th>
 <th>Trigger</th>
-<th>Availability</th>
 <th>Example use cases</th>
 </tr>
 </thead>
@@ -94,7 +93,6 @@ The following table lists the currently supported extensions and those in the ro
 <tr class="odd">
 <td>Login</td>
 <td>Authenticate</td>
-<td>Early access (beta)</td>
 <td>
 <ul>
 <li><p>Call an external service to authenticate the user.</p></li>
@@ -104,7 +102,6 @@ The following table lists the currently supported extensions and those in the ro
 <tr class="even">
 <td>Token management</td>
 <td>Pre issue access token</td>
-<td>Early access (beta)</td>
 <td>
 <ul>
 <li><p>Prevent tokens from being issued based on policy or change permissions, scopes.</p></li>
@@ -114,32 +111,17 @@ The following table lists the currently supported extensions and those in the ro
 </td>
 </tr>
 <tr class="odd">
-<td>Registration</td>
-<td>Pre registration</td>
-<td>Early May 2025</td>
-<td>
-<ul>
-<li><p>Deny registration by location.</p></li>
-<li><p>Set additional data in the user profile.</p></li>
-<li><p>Initiate an external service to trigger a verification such as an approval, biometrics, allowed lists, etc.</p></li>
-<li><p>Verify for sanctioned countries, initiate screening processes.</p></li>
-</ul>
-</td>
-</tr>
-<tr class="even">
 <td>Password update</td>
 <td>Pre password update</td>
-<td>Early access (beta)</td>
 <td>
 <ul>
 <li><p>Integrate with credential intelligence services to verify the security of password, or check against allowed lists.</p></li>
 </ul>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Profile update</td>
 <td>Pre profile update</td>
-<td>Early access (beta)</td>
 <td>
 <ul>
 <li><p>Automated verification of user attributes.</p></li>

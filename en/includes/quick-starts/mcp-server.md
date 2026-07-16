@@ -1,12 +1,8 @@
-# WSO2 Identity Platform MCP Server <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>
+# WSO2 Identity Platform MCP Server
 
 The **WSO2 Identity Platform MCP Server** helps you manage identity and access management tasks using natural language prompts. It connects your code editor or AI tool to WSO2 Identity Platform’s Management APIs, letting you automate common identity management operations—such as listing applications, updating application settings, or managing users—without going through UI interfaces or needing to write API calls.
 
 You can use the WSO2 Identity Platform MCP Server with popular editors and tools like **VS Code, Claude Desktop, Cursor, Windsurf**, and others. The MCP server acts as a bridge between your editor and WSO2 Identity Platform, handling authentication and API requests for you. This quickstart explains how to set up the server, connect it to your WSO2 Identity Platform organization, and verify your setup.
-
-!!! Note
-
-    The WSO2 Identity Platform MCP Server is currently in **Preview**. Some features may be subject to changes in future releases.
 
 ## On WSO2 Identity Platform
 
