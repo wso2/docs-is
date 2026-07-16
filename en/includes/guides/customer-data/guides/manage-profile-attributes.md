@@ -2,10 +2,6 @@
 
 # Manage profile attributes
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
 Profile attributes control which fields can be stored on a profile and how they behave. Manage them from **Customer Data** → **Profile Attributes** in the console.
 
 For a conceptual overview of attribute types, mutability, and merge strategies see [Profile attributes]({{base_path}}/guides/customer-data/concepts/profile-attributes).

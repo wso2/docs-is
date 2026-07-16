@@ -5,7 +5,7 @@
 The Customer Data Service (CDS) collects and unifies data about your end users across every interaction with your applications. It gives each user a single profile that represents who they are and what they have done across your applications.
 
 !!! note
-    Customer Data Service is currently in **Preview**. You need to enable it from **Feature Preview** before the **Customer Data** section appears in the console. See [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service).
+    You need to enable Customer Data Service from **Feature Preview** before the **Customer Data** section appears in the console. See [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service).
 
 ## What you can do with it
 

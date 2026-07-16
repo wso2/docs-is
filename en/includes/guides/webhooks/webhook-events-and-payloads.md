@@ -1,15 +1,9 @@
-# Webhook events and payloads {% if product_name == "WSO2 Identity Platform" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
+# Webhook events and payloads
 
 This guide details the webhook event types dispatched by {{product_name}}. For each event, you'll find JSON payload examples and descriptions of their properties.
 
 !!! Note
       In webhook event payloads, <code>initiatorIpAddress</code> (when present) represents the IP address of the initiator that triggered the event.
-
-{% if product_name == "WSO2 Identity Platform" %}
-!!! Note
-      This feature is currently in **Preview**. Functionality and event payloads may change during development.  
-      Expect updates without prior notice.
-{% endif %}
 
 ## Login events
 

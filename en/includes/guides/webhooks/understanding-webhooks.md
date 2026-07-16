@@ -11,10 +11,6 @@ Using webhooks, you can seamlessly integrate external systems with {{product_nam
 
 {% if product_name == "WSO2 Identity Platform" %}
 {{product_name}} webhooks use the [WebSubHub](https://websubhub.com/) protocol for secure and reliable event delivery.
-
-!!! Note
-      This feature is currently in **Preview**. Functionality and event payloads may change during development.  
-      Expect updates without prior notice.
 {% endif %}
 
 ## How webhooks work

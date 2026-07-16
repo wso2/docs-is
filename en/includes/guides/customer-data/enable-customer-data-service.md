@@ -1,12 +1,8 @@
 {% if product == "asgardeo" %}
 
-<h1>Enable customer data service <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
+<h1>Enable customer data service</h1>
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
-The Customer Data Service is hidden behind Feature Preview while in Preview. Once you enable it for your organization, a new **Customer Data** entry appears in the left navigation pane.
+The Customer Data Service is hidden behind Feature Preview. Once you enable it for your organization, a new **Customer Data** entry appears in the left navigation pane.
 
 ## Enable from Feature Preview
 

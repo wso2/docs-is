@@ -2,10 +2,6 @@
 
 # Stitch user profiles across websites
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
 ## Overview
 
 Lead stitching brings a person's anonymous activity together across **separate applications or domains**, before they ever create an account. It works by matching on a shared identifier such as their email address.

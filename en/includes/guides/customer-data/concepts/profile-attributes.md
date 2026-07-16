@@ -2,10 +2,6 @@
 
 # Profile attributes
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
 **Profile attributes** define the shape of data that can be stored on a profile for your organization. They control attribute names, types, mutability, and how values are resolved when two profiles are merged.
 
 Together, the set of profile attributes defined for your organization makes up the **profile attribute schema**.

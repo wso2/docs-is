@@ -1,12 +1,8 @@
 {% if product == "asgardeo" %}
 
-<h1>Customer data service use cases <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
+<h1>Customer data service use cases</h1>
 
 These guides show common patterns for integrating with the Customer Data Service from your application. They capture visitor activity even before an account is created, and unify it into a single profile that follows the user across sessions, devices, and applications.
-
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
 
 ---
 

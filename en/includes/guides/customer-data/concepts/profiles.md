@@ -2,10 +2,6 @@
 
 # Profiles
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
 A **profile** is the central entity in the Customer Data Service. It represents a single person's collected data, their identity attributes, behavioral traits, and per application data unified across all interactions.
 
 ![Profile List]({{base_path}}/assets/img/guides/customer-data/temporary-profiles-list.png){: width="auto" style="display: block; margin: 0;"}

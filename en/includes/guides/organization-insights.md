@@ -1,8 +1,5 @@
 # Organization Insights
 
-!!! note
-    The feature is in the **Beta** stage. We are working on adding more capabilities for this feature.
-
 {{ product_name }} allows administrators and organization owners to view insights of the organizations they manage.
 
 To check insights of your organization:

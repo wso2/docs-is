@@ -2,10 +2,6 @@
 
 # Unify anonymous and registered profiles
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
 ## Overview
 
 This use case keeps a visitor's activity attached to them as they go from an anonymous visitor to a registered user.
