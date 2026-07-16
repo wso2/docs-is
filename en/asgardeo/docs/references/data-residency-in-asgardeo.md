@@ -108,7 +108,7 @@ When an organization or an administrator is deleted from {{product_name}}, the c
 
 ## Data sharing
 
-Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities (currently includes the USA, Sri Lanka, and Brazil) can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional
+Some of your data, such as logs, will be accessible outside your selected region to ensure that WSO2's global entities (currently includes the USA, Sri Lanka, India, and Brazil) can provide technical support and other services. For example, technical support teams outside the region will need access to this data for various support and troubleshooting purposes. However, this data is stored only in the regional
 datacenter that you have selected.
 
 Therefore, note that your organization–level logs may include personal information (such as the IP addresses and email addresses) of your end users.
