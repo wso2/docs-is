@@ -21,10 +21,10 @@ For a conceptual overview see [Unification rules]({{base_path}}/guides/customer-
 
 1. Click **Add Unification Rule**.
 2. Fill in:
-    - **Rule name** — human readable name.
+    - **Rule name** — human-readable name.
     - **Attribute** — the profile attribute to match on. Select the scope (e.g. `Identity Attributes`) and the attribute (e.g. `emailaddress`).
     - **Priority** — lower numbers are evaluated first.
-    - **Enable this rule immediately** — whether the rule takes effect as soon as it is created.
+    - **Enable this rule immediately** — select this option to apply the rule when you create it.
 3. Click **Create Rule**.
 
 ![Unification Rules]({{base_path}}/assets/img/guides/customer-data/unification-rules.png){: width="auto" style="display: block; margin: 0;"}

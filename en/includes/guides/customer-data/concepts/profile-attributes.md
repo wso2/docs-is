@@ -32,7 +32,7 @@ Profile attributes are organized into three scopes:
 | `multi_valued` | no | If `true`, the attribute holds an array of the declared type |
 | `canonical_values` | no | Enumerated allowed values (for string attributes) |
 | `sub_attributes` | no | Child attributes when `value_type` is `complex` |
-| `application_identifier` | no | The ID of the application the attribute is scoped to (for `application_data`) |
+| `application_identifier` | yes, for `application_data` | The ID of the application the attribute is scoped to |
 
 ---
 

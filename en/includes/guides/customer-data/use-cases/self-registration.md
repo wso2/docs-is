@@ -21,7 +21,7 @@ The activity captured is stored in [profile attributes]({{base_path}}/guides/cus
 
 1. Go to **Customer Data**, select **Profile Attributes**, and click **Add Profile Attribute**.
 2. Choose the **Scope** and set the **Attribute name**.
-3. Choose the **Value type** and the **Merge strategy**, which controls what happens to the value when the temporary profile merges into the permanent one. Use `Combine` with **Allow multiple values** if the value should keep accumulating as the user continues to browse.
+3. Choose the **Value type** and the **Merge strategy**, which controls what happens to the value when the temporary profile merges into the permanent one. Use `Combine` with **Allow multiple values** to retain the values captured before registration alongside those added after.
 4. Click **Finish**.
 
 For the full field reference, see [Manage profile attributes]({{base_path}}/guides/customer-data/guides/manage-profile-attributes).
