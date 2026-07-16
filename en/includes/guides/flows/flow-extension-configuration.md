@@ -45,8 +45,6 @@ To register your external service as a flow extension:
 
 7. (Optional) Under **Encryption Certificate**, upload a certificate to encrypt field values exchanged with the extension endpoint. {{product_name}} uses this certificate to encrypt the values it sends to your endpoint. To learn how encryption works, see [configure field encryption](#step-4-configure-field-encryption).
 
-    
-
 <video autoplay loop muted playsinline width="auto" style="display: block; margin: 0; max-width: 100%; border: 0.3px solid lightgrey;">
     <source src="{{base_path}}/assets/img/guides/flows/flow-extension-encryption-certificate.mp4" type="video/mp4">
     Your browser does not support this content.
