@@ -43,7 +43,12 @@ To register your external service as a flow extension:
 
 6. Under **Authentication**, select the **Authentication Scheme** (required) that {{product_name}} uses to authenticate to your endpoint, and provide the required credentials. The supported schemes are **None**, **Basic**, **Bearer**, **API Key**, and **Client Credential**.
 
-![Create a flow extension]({{base_path}}/assets/img/guides/flows/flow-extension-create.gif){: width="auto" style="display: block; margin: 0;"}
+7. (Optional) Under **Encryption Certificate**, upload a certificate to encrypt field values exchanged with the extension endpoint. {{product_name}} uses this certificate to encrypt the values it sends to your endpoint. To learn how encryption works, see [configure field encryption]({{base_path}}/guides/flows/flow-extension-configuration/#step-4-configure-field-encryption).
+
+<video autoplay loop muted playsinline width="auto" style="display: block; margin: 0; max-width: 100%; border: 0.3px solid lightgrey;">
+    <source src="{{base_path}}/assets/img/guides/flows/flow-extension-encryption-certificate.mp4" type="video/mp4">
+    Your browser does not support this content.
+</video>
 
 ### Step 2 – Create the attributes returned by your endpoint
 
@@ -75,7 +80,36 @@ Once the extension and its attributes exist, configure which attributes {{produc
 
 The flow extension is now ready to be invoked from the **Self Registration** flow.
 
-### Step 4 – Add the flow extension to the flow
+### Step 4 – Configure field encryption
+
+For sensitive attributes, you can encrypt the values exchanged with your endpoint on a per field basis.
+
+- **Read (sent to your endpoint):** {{product_name}} encrypts the values it sends using an encryption certificate. If you didn't upload one when creating the extension, see [manage the encryption certificate](#manage-the-encryption-certificate).
+- **Write (returned by your endpoint):** your endpoint encrypts the values it returns and {{product_name}} decrypts them. No certificate is required.
+
+For the wire format your endpoint must handle, see [work with encrypted values]({{base_path}}/guides/flows/flow-extension-external-service/#work-with-encrypted-values).
+
+To mark a field as encrypted:
+
+1. On the **Access Configuration** tab, select the field you want to encrypt. The **Field Configuration** panel opens.
+
+2. Under **Encryption**, turn on the toggles you need:
+
+    - **Read encrypted**: {{product_name}} sends this field to your endpoint encrypted. Available once the field is marked as **Read**.
+    - **Write encrypted**: Your endpoint returns this field's value encrypted. Available once the field is marked as **Write**.
+
+3. Click **Update** to save the configuration.
+
+Fields marked as encrypted show a lock icon on their **Read** and **Write** indicators.
+
+<!-- TODO: capture image - Field Configuration panel showing the Read encrypted and Write encrypted toggles with the lock icon in the tree -->
+![Configure field encryption]({{base_path}}/assets/img/guides/flows/flow-extension-encryption-toggles.png){: width="auto" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! note
+
+    If you remove a field's **Read** or **Write** access, its corresponding encryption setting clears automatically.
+
+### Step 5 – Add the flow extension to the flow
 
 Add the extension to the Self Registration flow so that {{product_name}} invokes it while a user registers.
 
@@ -94,3 +128,25 @@ Add the extension to the Self Registration flow so that {{product_name}} invokes
 ![Add a flow extension to the flow]({{base_path}}/assets/img/guides/flows/flow-extension-add-to-flow.gif){: width="auto" style="display: block; margin: 0;"}
 
 New users who self-register now pass through the flow extension, and the values returned by your endpoint are written to their account before the account is created.
+
+## Manage the encryption certificate
+
+You can add, replace, or remove the encryption certificate of an existing flow extension:
+
+1. On the {{product_name}} Console, go to **Connections** and select the flow extension.
+
+2. Click **Set Up** and go to the **Settings** tab.
+
+3. Under **Encryption Certificate**:
+
+    - If no certificate is configured, upload one using the certificate form.
+    - If a certificate is already configured, click **Clear** to remove it. To replace it, upload a new certificate after clearing the existing one.
+
+4. Click **Update** to save the changes.
+
+<!-- TODO: capture image - Settings tab showing the configured Encryption Certificate with the Clear action -->
+![Manage the encryption certificate]({{base_path}}/assets/img/guides/flows/flow-extension-encryption-settings.png){: width="auto" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! note
+
+    For security reasons, {{product_name}} never displays a certificate after you upload it. The Console only indicates whether a certificate is configured.
