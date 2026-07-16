@@ -716,6 +716,7 @@ nav:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
             - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
+          - Login Flow Builder: guides/authentication/login-flow-builder.md
           - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
