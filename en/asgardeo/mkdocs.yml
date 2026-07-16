@@ -46,6 +46,59 @@ extra:
     org_resources_created: "Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts"
     org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes"
   product_name: *site_name
+  tutorials:
+    - name: Authenticate users into Android applications
+      description: Authenticate users into Android applications using {{ product_name }}.
+      category: mobile-authentication
+      documentation_link: tutorials/auth-users-into-android-apps
+    - name: Authenticate users into Flutter applications
+      description: Authenticate users into Flutter applications using {{ product_name }}.
+      category: mobile-authentication
+      documentation_link: tutorials/auth-users-into-flutter-apps
+    - name: Connect WSO2 Identity Platform as an OIDC attribute provider (with Microsoft Entra Verified ID)
+      description: Issue and verify verifiable credentials using Microsoft Entra Verified ID and {{ product_name }}.
+      category: verifiable-credentials
+      documentation_link: tutorials/connect-asgardeo-with-ms-entra
+    - name: Connect WSO2 Identity Platform as an OIDC attribute provider (with MATTR)
+      description: Issue and verify verifiable credentials using MATTR and {{ product_name }}.
+      category: verifiable-credentials
+      documentation_link: tutorials/connect-asgardeo-with-mattr
+    - name: Secure Spring Boot API with WSO2 Identity Platform
+      description: Enhance API security by integrating {{ product_name }} with Spring Security.
+      category: api-security
+      documentation_link: tutorials/secure-spring-boot-api
+    - name: Integrate WSO2 Identity Platform with Smart on FHIR healthcare apps
+      description: Implement authentication and authorization for healthcare apps built on SMART on FHIR using {{ product_name }}.
+      category: healthcare
+      documentation_link: tutorials/smart-on-fhir
+    - name: Secure Agentic AI Systems with WSO2 Identity Platform
+      description: Secure agentic AI systems with {{ product_name }} using OAuth2 and JWT.
+      category: agentic-ai
+      documentation_link: tutorials/secure-agentic-ai-systems
+    - name: Access Control for Ambient Agents
+      description: Implement fine-grained access control for ambient agents using CIBA with {{ product_name }}.
+      category: agentic-ai
+      documentation_link: tutorials/ciba-for-ai-agents
+    - name: Authenticate AI Agents to the Claude API with WSO2 Agent ID
+      description: Authenticate AI agents to the Claude API using their own Agent ID and Workload Identity Federation.
+      category: agentic-ai
+      documentation_link: tutorials/agent-id-claude-authentication
+    - name: Implement End-to-End Authorization for MCP servers
+      description: Implement comprehensive, fine-grained authorization for a remote MCP server using {{ product_name }}.
+      category: agentic-ai
+      documentation_link: tutorials/end-to-end-mcp-authorization-with-asgardeo
+    - name: Integrating WSO2 Identity Platform With WSO2 AI Gateway
+      description: Integrate {{ product_name }} with WSO2 AI Gateway for agent identity-aware access control.
+      category: agentic-ai
+      documentation_link: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control
+    - name: Integrating WSO2 Identity Platform With Kong AI Gateway
+      description: Integrate {{ product_name }} with Kong AI Gateway for agent identity-aware access control.
+      category: agentic-ai
+      documentation_link: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control
+    - name: Secure MCP servers and integrate them with n8n agentic flows
+      description: Secure MCP servers with {{ product_name }} and integrate them with n8n agentic flows.
+      category: agentic-ai
+      documentation_link: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows
   integrations:
     - official:
         - heading: Official SDKs
@@ -777,21 +830,7 @@ nav:
       - Verifiable Credentials:
         - Overview: guides/verifiable-credentials/index.md
         - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
-  - Tutorials:
-    - Tutorials - Overview: tutorials/index.md
-    - Authenticate users into Android applications: tutorials/auth-users-into-android-apps.md
-    - Authenticate users into Flutter applications: tutorials/auth-users-into-flutter-apps.md
-    - Connect WSO2 Identity Platform as an OIDC attribute provider (with Microsoft Entra Verified ID): tutorials/connect-asgardeo-with-ms-entra.md
-    - Connect WSO2 Identity Platform as an OIDC attribute provider (with MATTR): tutorials/connect-asgardeo-with-mattr.md
-    - Secure Spring Boot API with WSO2 Identity Platform: tutorials/secure-spring-boot-api.md
-    - Integrate WSO2 Identity Platform with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
-    - Secure Agentic AI Systems with WSO2 Identity Platform: tutorials/secure-agentic-ai-systems.md
-    - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
-    - Authenticate AI Agents to the Claude API with WSO2 Agent ID: tutorials/agent-id-claude-authentication.md
-    - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
-    - Integrating WSO2 Identity Platform With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
-    - Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
-    - Secure MCP servers with WSO2 Identity Platform and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
+  - Tutorials: tutorials/index.md
   - SDKs:
     - Integrate WSO2 Identity Platform into your application: sdks/index.md
   - SDK Documentation:
