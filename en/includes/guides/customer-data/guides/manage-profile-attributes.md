@@ -32,7 +32,7 @@ Attributes sourced from {{ product_name }} claims appear in the **Identity Attri
     - **Value type** — see [supported value types]({{base_path}}/guides/customer-data/concepts/profile-attributes#supported-value-types).
     - **Mutability** — controls whether the value can be changed once set.
     - **Allow multiple values** — select if the attribute holds an array of values. Required when the merge strategy is `Combine`.
-    - **Merge strategy** — `Overwrite` or `Combine`. Choose `Combine` for attributes where both pre- and post-merge values should be retained (e.g. interest tags).
+    - **Merge strategy** — `Overwrite` or `Combine`. Choose `Combine` for attributes where both pre- and post-merge values should be kept (e.g. interest tags).
 4. Click **Finish**.
 
 ![Scopes]({{base_path}}/assets/img/guides/customer-data/scopes.gif){: width="auto" style="display: block; margin: 0;"}

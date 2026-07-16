@@ -4,7 +4,7 @@
 
 The Customer Data Service is disabled by default. Enable it for your organization from the **Customer Data** page in the console.
 
-## Enable Customer Data Service
+## Enable customer data service
 
 1. On the console, go to **Customer Data** in the left navigation pane.
 2. Turn on the **Enable Customer Data Service** toggle.
@@ -13,7 +13,7 @@ Once enabled, the page shows the profiles collected for your organization, along
 
 ![Enable Customer Data Service]({{base_path}}/assets/img/guides/customer-data/enable-cds-toggle.png){: width="auto" style="display: block; margin: 0;"}
 
-## Disable Customer Data Service
+## Disable customer data service
 
 To turn the feature off again,
 
