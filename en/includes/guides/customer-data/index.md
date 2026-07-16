@@ -5,7 +5,7 @@
 The Customer Data Service (CDS) collects and unifies data about your end users across every interaction with your applications. It gives each user a single profile that represents who they are and what they have done across your applications.
 
 !!! note
-    You need to enable Customer Data Service from **Feature Preview** before the **Customer Data** section appears in the console. See [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service).
+    You need to enable the Customer Data Service for your organization before you start. See [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service).
 
 ## What you can do with it
 
@@ -18,7 +18,7 @@ The Customer Data Service (CDS) collects and unifies data about your end users a
 
 | Read | What it covers |
 |---|---|
-| [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service) | Turn the feature on from Feature Preview. |
+| [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service) | Turn the feature on from the **Customer Data** page. |
 | [Profiles]({{base_path}}/guides/customer-data/concepts/profiles) | The shape of a profile and how anonymous and permanent profiles relate. |
 | [Profile attributes]({{base_path}}/guides/customer-data/concepts/profile-attributes) | Attribute types, mutability, and merge strategies. |
 | [Unification rules]({{base_path}}/guides/customer-data/concepts/unification-rules) | When two records get merged into one. |
