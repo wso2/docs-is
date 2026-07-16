@@ -34,7 +34,7 @@ Profiles are either **temporary** (anonymous) or **permanent** (identified).
 | `user_id` | The user's ID from {{ product_name }}. Empty on anonymous profiles. |
 | `identity_attributes` | Attributes sourced from the identity system (e.g. email, phone, name). Keyed by attribute name. |
 | `traits` | Behavioral or preference data (e.g. download count, segment tags). |
-| `application_data` | Per-application data, keyed by application identifier. |
+| `application_data` | Per-application data, keyed by the application's ID. |
 | `meta.created_at` | When the profile was created. Read-only. |
 | `meta.updated_at` | When the profile was last modified. Read-only. |
 | `merged_from` | References to profiles that were unified into this one. |

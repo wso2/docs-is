@@ -21,18 +21,18 @@ The activity accumulated are stored in [profile attributes]({{base_path}}/guides
 
 Add each attribute that should accumulate across devices from the console:
 
-1. Go to **Customer Data** → **Profile Attributes** and click **New attribute**.
-2. Set the **Attribute name** with its scope — for example `traits`, or an `application_data` attribute with the **Application identifier** set to your application's client ID.
+1. Go to **Customer Data**, select **Profile Attributes**, and click **Add Profile Attribute**.
+2. Choose the **Scope** — for example `Traits`, or `Application Data` with the **Application** set to your application — and set the **Attribute name**.
 3. Choose the **Value type**.
-4. Set the **Merge strategy** to `combine`.
-5. Mark the attribute **Multi-valued** (required for `combine`).
-6. Click **Save**.
+4. Set the **Merge strategy** to `Combine`.
+5. Select **Allow multiple values** (required for `Combine`).
+6. Click **Finish**.
 
 For the full field reference, see [Manage profile attributes]({{base_path}}/guides/customer-data/guides/manage-profile-attributes).
 
 !!! warning
 
-    If the merge strategy is `overwrite`, the value from the most recently merged device replaces the value captured earlier on another device, and the user appears to lose the activity from their other device. Use `combine` with **multi-valued** marked for any attribute that should accumulate across devices. See [Manage profile attributes]({{base_path}}/guides/customer-data/guides/manage-profile-attributes).
+    If the merge strategy is `overwrite`, the value from the most recently merged device replaces the value captured earlier on another device, and the user appears to lose the activity from their other device. Use `combine` with **Allow multiple values** selected for any attribute that should accumulate across devices. See [Manage profile attributes]({{base_path}}/guides/customer-data/guides/manage-profile-attributes).
 
 ## Implement
 
@@ -82,7 +82,7 @@ This is the mechanism from the overview applied **once per device**. Get an acce
 Where you write the value depends on the attribute's **scope**, and you must target the same scope the attribute was defined in:
 
 - **`traits`** — profile-wide data, shared across all your applications. Use this when the activity isn't tied to one application.
-- **`application_data`** — data scoped to a single application, keyed by that application's client ID. Use this when the value is meaningful only within one application.
+- **`application_data`** — data scoped to a single application, keyed by that application's ID. Use this when the value is meaningful only within one application.
 
 === "Trait (shared across apps)"
 
@@ -105,7 +105,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
     -H 'Content-Type: application/json' \
     -d '{
       "application_data": {
-        "<application_client_id>": {
+        "<application_id>": {
           "<attribute>": ["<value>"]
         }
       }

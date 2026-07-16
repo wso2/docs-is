@@ -15,18 +15,14 @@ A visitor interacts with your application anonymously, so their activity is coll
 
 Registration is the deterministic signal that ties the activity to the user, so **no unification rule is required** for this scenario.
 
-!!! note
-
-    This linking currently only works with [legacy self-registration]({{base_path}}/guides/account-configurations/user-onboarding/self-registration). It is **not** supported for self registration built with [Flows]({{base_path}}/guides/flows/self-registration).
-
 ## Configure
 
 The activity captured is stored in [profile attributes]({{base_path}}/guides/customer-data/concepts/profile-attributes). Add the attributes your anonymous activity maps to from the console:
 
-1. Go to **Customer Data** → **Profile Attributes** and click **New attribute**.
-2. Set the **Attribute name** and choose its **Value type**.
-3. Choose the **Merge strategy**, which controls what happens to the value when the temporary profile merges into the permanent one. Use `combine` with **Multi-valued** if the value should keep accumulating as the user continues to browse.
-4. Click **Save**.
+1. Go to **Customer Data**, select **Profile Attributes**, and click **Add Profile Attribute**.
+2. Choose the **Scope** and set the **Attribute name**.
+3. Choose the **Value type** and the **Merge strategy**, which controls what happens to the value when the temporary profile merges into the permanent one. Use `Combine` with **Allow multiple values** if the value should keep accumulating as the user continues to browse.
+4. Click **Finish**.
 
 For the full field reference, see [Manage profile attributes]({{base_path}}/guides/customer-data/guides/manage-profile-attributes).
 
@@ -78,7 +74,7 @@ No unification rule is needed as the temporary and permanent profiles are matche
 Where you write the value depends on the attribute's **scope**, and you must target the same scope the attribute was defined in:
 
 - **`traits`** — profile-wide data, shared across all your applications. Use this when the activity isn't tied to one application.
-- **`application_data`** — data scoped to a single application, keyed by that application's client ID. Use this when the value is meaningful only within one application.
+- **`application_data`** — data scoped to a single application, keyed by that application's ID. Use this when the value is meaningful only within one application.
 
 === "Trait (shared across apps)"
 
@@ -101,7 +97,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
     -H 'Content-Type: application/json' \
     -d '{
       "application_data": {
-        "<application_client_id>": {
+        "<application_id>": {
           "<attribute>": ["<value>"]
         }
       }

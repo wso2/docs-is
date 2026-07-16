@@ -11,7 +11,7 @@
 | Field | Description |
 |---|---|
 | `rule_name` | Human-readable name. Also recorded as the reason on a merge. |
-| `property_name` | The attribute name to match on (e.g. `identity_attributes.email`) |
+| `property_name` | The attribute name to match on (e.g. `identity_attributes.emailaddress`) |
 | `priority` | Lower number = evaluated first. Rules are sorted ascending by priority. |
 | `is_active` | Only active rules are evaluated during unification |
 
@@ -31,7 +31,7 @@ Rules are evaluated **after** the system level `userId` match. If two profiles s
 
 ## Priority guidance
 
-- Assign **lower** priority numbers to high-confidence identifiers (e.g. `identity_attributes.email` at priority 1).
+- Assign **lower** priority numbers to high-confidence identifiers (e.g. `identity_attributes.emailaddress` at priority 1).
 - Assign **higher** priority numbers to weaker signals (e.g. `traits.phone` at priority 10).
 - Leave gaps between priorities (e.g. 10, 20, 30) so new rules can be inserted without reordering.
 
