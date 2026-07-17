@@ -60,6 +60,8 @@ To enable/disable user self-registration or to change the default configurations
   </tbody>
 </table>
 
+{% if product_name == "WSO2 Identity Server" %}
+
 ## Configure callback URL validation
 
 When running {{ product_name }} behind a proxy or with a different port configuration, you may encounter callback URL validation errors during the self-registration flow. To resolve this, you need to configure a regex pattern to validate the callback URL.
@@ -83,6 +85,8 @@ To configure the callback URL validation:
         - For production deployments, ensure the regex pattern matches your actual deployment URLs.
 
 3. Save the file and restart {{ product_name }} for the changes to take effect.
+
+{% endif %}
 
 ## Configure self-registration methods
 
