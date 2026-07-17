@@ -961,6 +961,7 @@ nav:
       - Push Notification Device API: apis/push-notification-device-rest-api.md
       - User account associations API: apis/association-management-by-user.md
       - User credential management API: apis/end-user-credential-management-v2-rest-api.md
+      - User discoverable application API: apis/user-discoverable-applications.md
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
       - Organization Me API: apis/user-organization-api.md
