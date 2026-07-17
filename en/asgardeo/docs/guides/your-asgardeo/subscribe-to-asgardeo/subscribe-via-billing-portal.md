@@ -8,7 +8,7 @@ See the [pricing details](https://wso2.com/identity-platform/pricing/) and the a
 
 To upgrade your subscription:
 
-1. Log in to the WSO2 Identity Platform Console.
+1. Sign in to the WSO2 Identity Platform Console.
 2. Click **Upgrade** on the upper menu or go to the profile menu and select **Billing Portal** to open the portal.
 
     ![open the billing portal]({{base_path}}/assets/img/guides/select-upgrade-biling-portal.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
