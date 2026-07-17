@@ -1026,6 +1026,11 @@ nav:
     - Usage metrics: references/usage-metrics.md
     - Tutorials:
       - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
+      - Use WSO2 Identity Platform with identity gateways:
+        - Overview: references/tutorials/protect-apps-with-identity-gateway/index.md
+        - Integrate OAuth2 Proxy: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-oauth2proxy.md
+        - Integrate Ory Oathkeeper: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-oathkeeper.md
+        - Integrate Mod Auth OpenIDC: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-mod-auth-openidc.md
     - IAM concepts:
       - OAuth2 grant types: references/grant-types.md
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
