@@ -119,7 +119,7 @@ Learn about WSO2 Identity Platform's [privacy policy](https://wso2.com/identity-
 
 ## Extended data residency with InCountry
 
-If you need identity data to remain within a specific country's borders—beyond the US and EU regional data centers described above—{{product_name}} integrates with [InCountry](https://incountry.com/){:target="_blank"}, a data residency platform. This integration lets you localize and mask identity data (such as profile fields used in registration, login, and tokens) so that it is stored and processed within your required jurisdiction.
+If you need identity data to remain within a specific country's borders beyond the US and EU regional data centers described above, {{product_name}} integrates with [InCountry](https://incountry.com/){:target="_blank"}, a data residency platform. This integration lets you localize and mask identity data (such as profile fields used in registration, login, and tokens) so that it is stored and processed within your required jurisdiction.
 
 For setup details, see the [WSO2 Asgardeo + InCountry integration guide](https://incountry.com/integrations/wso2-asgardeo/){:target="_blank"}.
 
