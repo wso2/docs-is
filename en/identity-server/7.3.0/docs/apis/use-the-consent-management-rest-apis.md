@@ -62,12 +62,9 @@ street_address = "1600"
 ## Consent management API v2
 
 !!! note "Prerequisites"
-    Add the following to your `deployment.toml` to enable the v2 API:
+    This API is available from **update level 7.3.0.5** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
-    ```toml
-    [consent_mgt]
-    enable_v2_api = true
-    ```
+    This API requires the consent management v2 API to be enabled. See [Prerequisites]({{base_path}}/guides/consent-management/#prerequisites) for the required `deployment.toml` configurations.
 
 The v2 API introduces a simplified consent management model. The key concepts are:
 
