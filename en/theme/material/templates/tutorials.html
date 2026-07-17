@@ -1,0 +1,145 @@
+<!--
+ * Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/css/integrations.css' | url }}">
+  <link rel="stylesheet" href="{{ 'assets/css/tutorial-cards.css' | url }}">
+{% endblock %}
+
+{% block container %}
+  <div class="md-content">
+    <article class="md-content__inner md-typeset">
+    <h1 class="md-typeset">Tutorials</h1>
+    <p class="md-typeset">Explore step-by-step tutorials to learn how to use {{config.extra.product_name}} with different technologies and for various use cases.</p>
+    <div class="search-container">
+      {% include "/assets/images/icons/magnifying-glass.svg" %}
+      <input class="search-bar" type="text" id="tutorial-search-input" placeholder="Search tutorials..." onkeyup="searchTutorials()" />
+    </div>
+    <div class="filters" id="tutorial-filters">
+    {% for group in config.extra.tutorials | groupby("category") %}
+    {% set tutorial = group.list[0] %}
+      <button data-filter="{{ tutorial.category }}">
+        {{ tutorial.category | replace("-", " ") | title }}
+      </button>
+    {% endfor %}
+    </div>
+    <div class="tutorial-cards-container">
+      <div class="tutorial-cards-grid">
+        {% for tutorial in config.extra.tutorials %}
+          {% set link = tutorial.documentation_link %}
+          {% set is_external = link.startswith('http') %}
+          {% set doc_url = link if is_external else (config.extra.base_path ~ '/' ~ link ~ '/') %}
+          {% set category = tutorial.category %}
+          <a class="tutorial-card" data-filter="{{ category }}" href="{{ doc_url }}" {% if is_external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+            <div class="tutorial-card-banner tutorial-banner--{{ category }}">
+              {% if tutorial.icon %}
+                <span class="tutorial-card-icon"><img src="{{ tutorial.icon | url }}" alt="" /></span>
+              {% elif category == "verifiable-credentials" %}
+                <svg class="tutorial-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              {% elif category == "notifications" %}
+                <svg class="tutorial-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+              {% elif category == "migration" %}
+                <svg class="tutorial-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 11a9 9 0 0115-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 13a9 9 0 01-15 6.7L3 16"/></svg>
+              {% elif category == "authenticators" %}
+                <svg class="tutorial-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11a4 4 0 100-8 4 4 0 000 8z"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/><path d="M12 11v5"/></svg>
+              {% elif category == "agentic-ai" %}
+                <svg class="tutorial-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.2 7.3L10 16"/><path d="M16.8 7.3L14 16"/></svg>
+              {% elif category == "mobile-authentication" %}
+                <svg class="tutorial-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+              {% elif category == "api-security" %}
+                <svg class="tutorial-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+              {% elif category == "healthcare" %}
+                <svg class="tutorial-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>
+              {% else %}
+                <span class="tutorial-card-icon">{% include "/assets/images/icons/book-16.svg" %}</span>
+              {% endif %}
+            </div>
+            <div class="tutorial-card-body">
+              <p class="tutorial-card-title">{{ tutorial.name }}</p>
+              {% set description = tutorial.description %}
+              {% set description = description.replace('{{ product_name }}', config.extra.product_name).replace('{{product_name}}', config.extra.product_name) %}
+              <p class="tutorial-card-description">{{ description }}</p>
+              <div class="tutorial-card-footer">
+                <span class="tutorial-card-tag">{{ category | replace("-", " ") | title }}</span>
+                <span class="tutorial-card-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+    {{ page.content }}
+    </article>
+  </div>
+
+<script>
+
+const tutorialFilterButtons = document.querySelectorAll("#tutorial-filters > button");
+const tutorialCards = document.querySelectorAll(".tutorial-card");
+const activeTutorialFilters = [];
+
+tutorialFilterButtons.forEach((btn) => {
+
+  btn.addEventListener("click", () => {
+
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active")
+      const index = activeTutorialFilters.indexOf(btn.dataset.filter);
+      if (index !== -1) {
+        activeTutorialFilters.splice(index, 1);
+      }
+    }
+
+    else {
+      btn.classList.add("active");
+      activeTutorialFilters.push(btn.dataset.filter);
+    }
+
+    searchTutorials();
+  })
+})
+
+function searchTutorials() {
+
+  const input = document.getElementById("tutorial-search-input");
+  const filter = input.value.toLowerCase();
+
+  tutorialCards.forEach(card => {
+
+    const name = card.querySelector(".tutorial-card-title").textContent.toLowerCase();
+    const matchesSearch = name.includes(filter);
+
+    const cardFilter = card.dataset.filter;
+    const matchesFilter = activeTutorialFilters.length === 0 || activeTutorialFilters.includes(cardFilter);
+
+    if (matchesSearch && matchesFilter) {
+      card.classList.remove("hidden");
+    } else {
+      card.classList.add("hidden");
+    }
+  });
+}
+
+</script>
+
+{% endblock %}

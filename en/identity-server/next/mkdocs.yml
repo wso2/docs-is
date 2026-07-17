@@ -36,6 +36,51 @@ extra:
     org_resources_shared: "Applications, Roles (with shared apps), Users"
     org_resources_created: "Connections (IdPs), Users, Applications, Groups, Roles, Branding, Templates, Workflows, Userstores, User attributes, Flows, Login and registration customizations, Actions, Adaptive scripts"
     org_resources_inherited: "API resources, Parent branding (when the organization doesn't configure branding), Login and registration settings, Custom claims and OIDC scopes"
+  tutorials:
+    - name: Verifiable credentials with Microsoft Entra Verified ID
+      description: Issue and verify verifiable credentials using Microsoft Entra Verified ID and {{ product_name }}.
+      category: verifiable-credentials
+      documentation_link: references/tutorials/connect-with-ms-entra
+    - name: Verifiable credentials with MATTR
+      description: Issue and verify verifiable credentials using MATTR and {{ product_name }}.
+      category: verifiable-credentials
+      documentation_link: references/tutorials/connect-with-mattr
+    - name: Send notifications through an external scheduled task
+      description: Learn how to send user notifications using an external scheduled task with {{ product_name }}.
+      category: notifications
+      documentation_link: references/tutorials/send-notification-external-schedular
+    - name: Configure Choreo for silent password migration
+      description: Configure {{ product_name }} with Choreo to enable silent password migration.
+      category: migration
+      documentation_link: references/tutorials/configure-choreo-for-password-migration
+    - name: Build your own push authenticator app
+      description: Build and integrate a custom push authenticator app with {{ product_name }}.
+      category: authenticators
+      documentation_link: references/tutorials/build-your-own-push-authenticator-app
+    - name: Secure Agentic AI Systems with WSO2 Identity Server
+      description: Secure agentic AI systems with {{ product_name }} using OAuth2 and JWT.
+      category: agentic-ai
+      documentation_link: tutorials/secure-agentic-ai-systems
+    - name: Access Control for Ambient Agents
+      description: Implement fine-grained access control for ambient agents using CIBA with {{ product_name }}.
+      category: agentic-ai
+      documentation_link: tutorials/ciba-for-ai-agents
+    - name: Integrating WSO2 Identity Server With WSO2 AI Gateway
+      description: Integrate {{ product_name }} with WSO2 AI Gateway for agent identity-aware access control.
+      category: agentic-ai
+      documentation_link: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control
+    - name: Integrating WSO2 Identity Server With Kong AI Gateway
+      description: Integrate {{ product_name }} with Kong AI Gateway for agent identity-aware access control.
+      category: agentic-ai
+      documentation_link: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control
+    - name: Secure MCP servers and integrate them with n8n agentic flows
+      description: Secure MCP servers with {{ product_name }} and integrate them with n8n agentic flows.
+      category: agentic-ai
+      documentation_link: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows
+    - name: Authenticate AI Agents to the Claude API with WSO2 Agent ID
+      description: Authenticate AI agents to the Claude API using their own Agent ID and Workload Identity Federation.
+      category: agentic-ai
+      documentation_link: tutorials/agent-id-claude-authentication
   connectors:
     - name: Sift
       icon: assets/img/logo/sift-logo.svg
@@ -1003,20 +1048,7 @@ nav:
         - Self-service: guides/your-is/is-self-service.md
         - Recover your username: guides/your-is/recover-username.md
         - Recover super admin account: guides/your-is/recover-super-admin-account.md
-  - Tutorials:
-    - Tutorials - Overview: tutorials/index.md
-    - Verifiable credentials with Microsoft Entra Verified ID: references/tutorials/connect-with-ms-entra.md
-    - Verifiable credentials with MATTR: references/tutorials/connect-with-mattr.md
-    - Send notifications through an external scheduled task: references/tutorials/send-notification-external-schedular.md
-    - Configure Choreo for silent password migration: references/tutorials/configure-choreo-for-password-migration.md
-    - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
-    - Secure Agentic AI Systems with WSO2 Identity Server: tutorials/secure-agentic-ai-systems.md
-    - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
-    - Integrating WSO2 Identity Server With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
-    - Integrating WSO2 Identity Server With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
-    - Secure MCP servers with WSO2 Identity Server and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
-    - Authenticate AI Agents to the Claude API with WSO2 Agent ID: tutorials/agent-id-claude-authentication.md
-    
+  - Tutorials: tutorials/index.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
