@@ -483,6 +483,7 @@ nav:
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
               - ACR and AMR: guides/authentication/conditional-auth/acr-and-amr.md
+              - Configure ACR-based adaptive authentication: guides/authentication/conditional-auth/acr-based-adaptive-auth.md
             - Specialized scenarios:
               - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
               - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
