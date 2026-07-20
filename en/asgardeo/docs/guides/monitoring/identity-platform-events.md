@@ -1,11 +1,11 @@
 # WSO2 Identity Platform events
 
-WSO2 Identity Platform triggers events corresponding to the various user interactions in your WSO2 Identity Platform organization. You can configure WSO2 Identity Platform to publish these events to WSO2's integration platform, [Choreo](https://wso2.com/choreo/){:target="_blank"}. From there, you can define custom business logic that can be executed when an event occurs.
+WSO2 Identity Platform triggers events corresponding to the various user interactions in your WSO2 Identity Platform organization. You can configure WSO2 Identity Platform to publish these events to WSO2's integration platform, [WSO2 Developer Platform](https://wso2.com/engineering-platform/developer-platform/){:target="_blank"}. From there, you can define custom business logic that can be executed when an event occurs.
 
 WSO2 Identity Platform publishes the following events under three main categories.
 
 !!! Important
-    All events published by WSO2 Identity Platform are end-to-end encrypted until Choreo processes and decrypts them.
+    All events published by WSO2 Identity Platform are end-to-end encrypted until WSO2 Developer Platform processes and decrypts them.
 
 
 - <a href="#login-events">**Login events**</a> - Events related to login flows.
@@ -38,7 +38,7 @@ Follow the steps below to configure event publishing for WSO2 Identity Platform.
 
 1. On the WSO2 Identity Platform Console, go to **Monitoring** > **Events**.
 
-2. Select the events that you wish to publish to Choreo and click **Update**.
+2. Select the events that you wish to publish to WSO2 Developer Platform and click **Update**.
 
     ![WSO2 Identity Platform Console UI for events]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-ui.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -57,7 +57,7 @@ Follow the steps below to define business logic that responds to events in your 
 
 ### Define the business logic
 
-Let's set up a sample business use case such that whenever a <a href="#registration-events">registration event</a> is generated in WSO2 Identity Platform, it gets logged in the Choreo console.
+Let's set up a sample business use case such that whenever a <a href="#registration-events">registration event</a> is generated in WSO2 Identity Platform, it gets logged in the WSO2 Developer Platform console.
 
 Follow the steps below to programmatically define the business logic.
 
@@ -73,7 +73,7 @@ Follow the steps below to programmatically define the business logic.
     </div>
 
 
-    The following is a sample code that logs the event in the Choreo console, when a registration event is generated in WSO2 Identity Platform.
+    The following is a sample code that logs the event in the WSO2 Developer Platform console, when a registration event is generated in WSO2 Identity Platform.
 
     ``` java
     import ballerinax/trigger.asgardeo;
@@ -110,23 +110,23 @@ Follow the steps below to programmatically define the business logic.
 4. Commit your changes and push the code to your remote GitHub repository.
 
 
-### Create a webhook in Choreo
+### Create a webhook in WSO2 Developer Platform
 
-Follow the steps below to create and deploy a webhook in Choreo.
+Follow the steps below to create and deploy a webhook in WSO2 Developer Platform.
 
-1. Navigate to [Choreo](https://console.choreo.dev/login){:target="_blank"} and if you don't have one already, create an organization with the same name and email address you used to create your WSO2 Identity Platform organization.
+1. Navigate to [WSO2 Developer Platform](https://console.choreo.dev/login){:target="_blank"} and if you don't have one already, create an organization with the same name and email address you used to create your WSO2 Identity Platform organization.
 
     !!! info
-        Organizations in WSO2 Identity Platform and Choreo synchronize based on their names.
+        Organizations in WSO2 Identity Platform and WSO2 Developer Platform synchronize based on their names.
 
 
 2. Select a project from the **Project** dropdown.
 
 3. Go to **Components**, and click **Create**.
 
-4. Under the **Select a Type** tab, select **Webhook**. Learn more about webhooks in the Choreo [documentation](https://wso2.com/choreo/docs/develop/components/webhook/#develop-a-webhook){:target="_blank"}.
+4. Under the **Select a Type** tab, select **Webhook**. Learn more about webhooks in the WSO2 Developer Platform [documentation](https://wso2.com/engineering-platform/developer-platform/docs/develop-components/develop-a-webhook/#develop-a-webhook){:target="_blank"}.
 
-    ![Create a Webhook in Choreo]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Create a Webhook in WSO2 Developer Platform]({{base_path}}/assets/img/guides/asgardeo-events/asgardeo-events-create-webhook-in-choreo.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Enter a name and a description for your webhook.
 
@@ -136,16 +136,16 @@ Follow the steps below to create and deploy a webhook in Choreo.
 
 7. Select the **Access Mode** as External and click **Create**.
 
-    ![Connect GitHub repository to Choreo]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Connect GitHub repository to WSO2 Developer Platform]({{base_path}}/assets/img/guides/asgardeo-events/choreo-webhook-authorize-github.png){: style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-8. Follow the Choreo documentation and [deploy your webhook](https://wso2.com/choreo/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
+8. Follow the WSO2 Developer Platform documentation and [deploy your webhook](https://wso2.com/engineering-platform/developer-platform/docs/develop-components/develop-a-webhook/#step-2-deploy){:target="_blank"}.
 
     !!! note
         If the callback URL fails to populate, it is advised to manually copy the invoke URL and paste it into the designated field. This step ensures seamless continuity in the process.
 
 ### Try it out
 
-Once the webhook is deployed in Choreo, follow the steps below to try it out.
+Once the webhook is deployed in WSO2 Developer Platform, follow the steps below to try it out.
 
 1. Login to the WSO2 Identity Platform Console and go to **User Management** > **Users**.
 
@@ -154,16 +154,16 @@ Once the webhook is deployed in Choreo, follow the steps below to try it out.
     !!! info
         Creating a new user triggers an **add user** event.
 
-3. Go to the Choreo Console, and click **Observability** on the left navigation menu.
+3. Go to the WSO2 Developer Platform Console, and click **Observability** on the left navigation menu.
 
 4. Find the **Logs** tab and filter for the logged add user event.
 
-    ![Choreo logs for WSO2 Identity Platform events]({{base_path}}/assets/img/guides/asgardeo-events/choreo-logs-for-asgardeo-events.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![WSO2 Developer Platform logs for WSO2 Identity Platform events]({{base_path}}/assets/img/guides/asgardeo-events/choreo-logs-for-asgardeo-events.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 
 ## Payload of a WSO2 Identity Platform event
 
-The payload of a WSO2 Identity Platform event that is sent to Choreo consists of the following data objects:
+The payload of a WSO2 Identity Platform event that is sent to WSO2 Developer Platform consists of the following data objects:
 - **Security Data** object - The security data object is common to all WSO2 Identity Platform events. This contains the following security metadata about the event.
 
   <table>
@@ -213,7 +213,7 @@ The payload of a WSO2 Identity Platform event that is sent to Choreo consists of
 
 ## Event data of WSO2 Identity Platform events
 
-This section describes all the WSO2 Identity Platform events that can be published to Choreo and their respective event payloads.
+This section describes all the WSO2 Identity Platform events that can be published to WSO2 Developer Platform and their respective event payloads.
 
 ### Login events
 
