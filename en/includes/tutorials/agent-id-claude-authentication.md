@@ -18,7 +18,7 @@ Before you begin, ensure you have the following:
 
 - An [Anthropic](https://console.anthropic.com/) account with access to the Claude Console.
 {% if product_name == "WSO2 Identity Server" %}
-- A deployed instance of {{product_name}} that is accessible via a public URL.
+- A deployed instance of {{product_name}} that is accessible via a public URL `{{api_base_path}}`.
 {% endif %}
 - `curl` and `jq` installed on your machine (for the shell-based approach).
 - Python 3.9+ (for the SDK-based approach).
