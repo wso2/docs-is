@@ -700,9 +700,9 @@ This function sends an email to the specified user.
     sendEmail(user, 'myTemplate', {'firstName':firstName});
     ```
 
-### Call a Choreo API
+### Call a WSO2 Developer Platform API
 
-This function invokes an API hosted in [Choreo](https://wso2.com/choreo/){:target="_blank"}.
+This function invokes an API hosted in [WSO2 Developer Platform](https://wso2.com/engineering-platform/developer-platform/){:target="_blank"}.
 
 !!! note "Important"
     Note that to use the `callChoreo` function, the API should,
@@ -733,28 +733,28 @@ This function invokes an API hosted in [Choreo](https://wso2.com/choreo/){:targe
 
     ``` js
     var connectionMetadata = {
-    "url": "<Choreo API URL>",
-    "consumerKey": "<Consumer key of the Choreo Application>",
-    "consumerSecret": "<Consumer secret of the Choreo Application>"
+    "url": "<CWSO2 Developer Platform API URL>",
+    "consumerKey": "<Consumer key of the WSO2 Developer Platform Application>",
+    "consumerSecret": "<Consumer secret of the WSO2 Developer Platform Application>"
     };
     
     var requestPayload = {"example-key": "example-value"};
     
     callChoreo(connectionMetadata, requestPayload, {
       onSuccess: function(context, data) {
-          Log.info("Successfully invoked the Choreo API.");
+          Log.info("Successfully invoked the WSO2 Developer Platform API.");
       },
       onFail: function(context, data) {
-          Log.info("Error occurred while invoking the Choreo API.");
+          Log.info("Error occurred while invoking the WSO2 Developer Platform API.");
       },
       onTimeout: function(context, data) {
-          Log.info("Invoking Choreo API timed out.");
+          Log.info("Invoking WSO2 Developer Platform API timed out.");
       }
     });
     ```
 
     ??? note "Using {{ product_name }} as the key manager"
-        If you are using {{ product_name }} as the key manager in your Choreo organization, append  the `asgardeoTokenEndpoint` parameter to the `connectionMetadata` variable as follows:
+        If you are using {{ product_name }} as the key manager in your WSO2 Developer Platform organization, append  the `asgardeoTokenEndpoint` parameter to the `connectionMetadata` variable as follows:
             ``` js
             var connectionMetadata = {
               "asgardeoTokenEndpoint": "{{ product_url_format }}/oauth2/token"
@@ -1415,15 +1415,15 @@ It contains the necessary metadata for invoking the API when calling the callCho
 <table>
   <tr>
     <td><code>connectionMetadata.url</code></td>
-    <td>URL of the Choreo hosted API.</td>
+    <td>URL of the WSO2 Developer Platform hosted API.</td>
   </tr>
   <tr>
     <td><code>connectionMetadata.consumerKey</code></td>
-    <td>The consumer key of the Choreo application.</td>
+    <td>The consumer key of the WSO2 Developer Platform application.</td>
   </tr>
   <tr>
     <td><code>connectionMetadata.consumerSecret</code></td>
-    <td>The consumer secret of the Choreo application.</td>
+    <td>The consumer secret of the WSO2 Developer Platform application.</td>
   </tr>
 </table>
 

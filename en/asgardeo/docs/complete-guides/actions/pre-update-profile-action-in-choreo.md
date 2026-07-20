@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Configure Pre-Update Profile Action with Choreo
+heading: Configure Pre-Update Profile Action with WSO2 Developer Platform
 read_time: 5 mins
 ---
 

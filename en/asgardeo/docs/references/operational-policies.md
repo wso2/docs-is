@@ -306,7 +306,7 @@ And diagnostic logs will help admins to monitor what has happened during authent
 
 Similarly WSO2 Identity Platform provides capability to check on organization insights on the user registration and logins. Refer to [https://wso2.com/asgardeo/docs/guides/organization-insights/](https://wso2.com/asgardeo/docs/guides/organization-insights/){target="_blank"}.
 
-WSO2 Identity Platform generates events for various user activities. You can publish these events to WSO2's Choreo platform and trigger custom use cases. Learn more in the [WSO2 Identity Platform events documentation](https://wso2.com/asgardeo/docs/guides/monitoring/asgardeo-events/){target="_blank"}.
+WSO2 Identity Platform generates events for various user activities. You can publish these events to WSO2 Developer Platform and trigger custom use cases. Learn more in the [WSO2 Identity Platform events documentation](https://wso2.com/asgardeo/docs/guides/monitoring/asgardeo-events/){target="_blank"}.
 
 ## 10. Product life cycle & Migrations
 
