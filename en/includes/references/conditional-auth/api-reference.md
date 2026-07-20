@@ -20,7 +20,7 @@
     - [`getUserSessions()`](#get-user-sessions)
     - [`terminateUserSession()`](#terminate-user-session)
     - [`sendEmail()`](#send-email)
-    - [`callChoreo`](#call-a-choreo-api)
+    - [`callChoreo`](#call-a-wso2-developer-platform-api)
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
     - [`getUsersWithClaimValues()`](#get-multiple-users)
