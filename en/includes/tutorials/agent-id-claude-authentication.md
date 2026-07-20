@@ -17,8 +17,16 @@ The authentication flow works as follows:
 Before you begin, ensure you have the following:
 
 - An [Anthropic](https://console.anthropic.com/) account with access to the Claude Console.
+{% if product_name == "WSO2 Identity Server" %}
+- A deployed instance of {{product_name}} that is accessible via a public URL.
+{% endif %}
 - `curl` and `jq` installed on your machine (for the shell-based approach).
 - Python 3.9+ (for the SDK-based approach).
+
+{% if product_name == "WSO2 Identity Server" %}
+!!! note
+    To configure Anthropic to work with {{product_name}}, your {{product_name}} instance must be publicly accessible over HTTPS and serve traffic on port 443. Anthropic retrieves the JWKS endpoint only from a publicly accessible HTTPS endpoint.
+{% endif %}
 
 ## Step 1: Register an Agent in {{product_name}}
 
@@ -159,9 +167,10 @@ from asgardeo_ai import AgentAuthManager, AgentConfig
 from anthropic import Anthropic, WorkloadIdentityCredentials
 
 # {{product_name}} configuration
-config = AgentIDConfig(
+config = AsgardeoConfig(
     base_url="{{ api_base_path }}",
     client_id="<your-client-id>",
+    client_secret="<your-client-secret>",
     redirect_uri="<your-redirect-uri>",
 )
 
@@ -181,8 +190,8 @@ class AgentIDTokenProvider:
 
     EXPIRY_BUFFER_SECONDS = 60
 
-    def __init__(self, {{product_name}}_config, agent_cfg, scopes=None):
-        self.{{product_name}}_config = {{product_name}}_config
+    def __init__(self, identity_provider_config, agent_cfg, scopes=None):
+        self.identity_provider_config = identity_provider_config
         self.agent_cfg = agent_cfg
         self.scopes = scopes or ["openid", "profile"]
         self._cached_token = None
@@ -202,7 +211,7 @@ class AgentIDTokenProvider:
 
     async def _refresh_token(self):
         async with AgentAuthManager(
-            self.{{product_name}}_config, self.agent_cfg
+            self.identity_provider_config, self.agent_cfg
         ) as auth_manager:
             agent_token = await auth_manager.get_agent_token(
                 self.scopes
@@ -235,7 +244,7 @@ message = client.messages.create(
 print(message.content[0].text)
 ```
 
-The `AsgardeoTokenProvider` handles token caching and refresh with a 60-second buffer before expiry. The Anthropic SDK's `WorkloadIdentityCredentials` manages the Claude access token lifecycle independently, calling the provider whenever it needs a fresh identity token for the WIF exchange. Together, they allow long-running agents to operate continuously without manual token management.
+The `AgentIDTokenProvider` handles token caching and refresh with a 60-second buffer before expiry. The Anthropic SDK's `WorkloadIdentityCredentials` manages the Claude access token lifecycle independently, calling the provider whenever it needs a fresh identity token for the WIF exchange. Together, they allow long-running agents to operate continuously without manual token management.
 
 ## What's Next
 

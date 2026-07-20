@@ -1001,6 +1001,7 @@ nav:
     - Secure Agentic AI Systems with WSO2 Identity Server: tutorials/secure-agentic-ai-systems.md
     - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
     - Authenticate AI Agents to the Claude API with WSO2 Agent ID: tutorials/agent-id-claude-authentication.md
+    - Authenticate AI Agents to the OpenAI API with WSO2 Agent ID: tutorials/agent-id-openai-authentication.md
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
