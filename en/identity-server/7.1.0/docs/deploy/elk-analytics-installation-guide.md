@@ -6,7 +6,7 @@ This guide shows you how to configure ELK-based Analytics for WSO2 Identity Serv
 
 Follow the steps below to enable ELK-based analytics in WSO2 Identity Server.
 
-1. Download and install WSO2 Identity Server.
+1. Download and install {{product_name}}.
 
     !!! note
         For detailed information, see [Install WSO2 Identity Server]({{base_path}}/deploy/get-started/install/).
@@ -128,7 +128,7 @@ Follow the guides mentioned below to install the ELK components.
 
 4. Under **Stack Management** > **Data**, click **Index Management** and go to its **Index Templates** tab.
 
-4. Under the **Index patterns** column, if you have any index patterns created under the following names, delete them before moving to the next step.
+5. Under the **Index patterns** column, if you have any index patterns created under the following names, delete them before moving to the next step.
 
      - wso2-iam-alert-auth*
      - wso2-iam-alert-session*
@@ -136,12 +136,12 @@ Follow the guides mentioned below to install the ELK components.
      - wso2-iam-session-raw*
      - wso2-iam-session-time-series*
 
-5. Download the artifact file [here](https://github.com/wso2-extensions/identity-elk-integration/blob/main/kibana/saved-objects/kibana-8-x-auth-and-session.ndjson){: target="_blank"}.
+6. Download the artifact file [here](https://github.com/wso2-extensions/identity-elk-integration/blob/main/kibana/saved-objects/kibana-8-x-auth-and-session.ndjson){: target="_blank"}.
 
-6. Under **Stack Management** > **Kibana**, click **Saved Objects**.
+7. Under **Stack Management** > **Kibana**, click **Saved Objects**.
 
-7. Click **Import**, add the downloaded artifact file as an import object, and click **Import**.
+8. Click **Import**, add the downloaded artifact file as an import object, and click **Import**.
 
-8. Once import is complete, click **Done**.
+9. Once import is complete, click **Done**.
 
-9. On the left navigation panel, under **Analytics**, click **Dashboards** to view the created **Auth** and **Session** dashboards.
+10. On the left navigation panel, under **Analytics**, click **Dashboards** to view the created **Auth** and **Session** dashboards.
