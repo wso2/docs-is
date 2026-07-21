@@ -2816,16 +2816,7 @@ The table below explains each property in the event data.
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
 !!! note "Enable consent webhook events"
-    Consent webhook events are disabled by default. Add the following to your `deployment.toml` to enable them:
-
-    ```toml
-    [identity_mgt.events.schemes]
-    ConsentEventHook.properties.enable = true
-    ConsentPurposeEventHook.properties.enable = true
-
-    [webhooks.event_profiles]
-    disabled_channels = []
-    ```
+    Consent webhook events are disabled by default. See [Prerequisites]({{base_path}}/guides/consent-management/#prerequisites) for the required `deployment.toml` configurations to enable them.
 {% endif %}
 
 ## Consent events

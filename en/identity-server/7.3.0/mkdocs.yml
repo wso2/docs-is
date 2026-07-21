@@ -834,6 +834,10 @@ nav:
           - Migrate users to WSO2 Identity Server: guides/users/migrate-users/index.md
           - Migrate user accounts: guides/users/migrate-users/migrate-users.md
           - Migrate user passwords: guides/users/migrate-users/migrate-passwords.md
+      - Consent management:
+        - Consent management: guides/consent-management/index.md
+        - Policy consent: guides/consent-management/policy-consent.md
+        - Preference management consent: guides/consent-management/preference-management-consent.md
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
@@ -1253,6 +1257,10 @@ nav:
       - Certificate Validation Management API: apis/certificate-validation-management-rest-api.md
       - Branding Preferences API: apis/branding-preference-rest-api.md
       - Claim management API: apis/claim-management-rest-api.md
+      - Consent management:
+        - Overview: apis/use-the-consent-management-rest-apis.md
+        - Consent management API: apis/consent-management-api-definition.md
+        - Consent management API v2: apis/consent-management-v2-api-definition.md
       - Email templates APIs:
         - Email templates v1 API: apis/email-templates-rest-api.md
         - Email templates v2 API: apis/email-templates-v2-rest-api.md
@@ -1284,9 +1292,6 @@ nav:
         - Keystore management API: apis/keystore-rest-api.md
         - User store management API: apis/user-store-rest-api.md
         - CORS API: apis/cors-rest-api.md
-        - Consent management:
-          - Overview: apis/use-the-consent-management-rest-apis.md
-          - Consent management API: apis/consent-management-api-definition.md
       - Session management API: apis/session-mgt-rest-api.md
       - Server configuration API: apis/configs-rest-api.md
       - User credential management API: apis/end-user-credential-management-rest-api.md
@@ -1376,6 +1381,7 @@ nav:
         - Self password update API: apis/self-password-update-rest-api.md
         - Verification Code Management Me API: apis/verification-code-management-me-api.md
         - Approval API: apis/approvals-rest-api.md
+        - User consent API: apis/user-consent-rest-api.md
   - References:
     - References: references/index.md
     - Feature deprecation: references/wso2-identity-server-feature-deprecation.md

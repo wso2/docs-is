@@ -6,12 +6,10 @@ Policy consent allows you to present users with legal agreements, such as a Priv
 
 ## Prerequisites
 
-Add the following to your `deployment.toml` to enable the consent management v2 API required for this feature:
+!!! note
+    This feature is available from **update level 7.3.0.5** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
-```toml
-[consent_mgt]
-enable_v2_api = true
-```
+This feature requires the consent management v2 API to be enabled. See [Prerequisites]({{base_path}}/guides/consent-management/#prerequisites) for the required `deployment.toml` configurations.
 
 {% endif %}
 

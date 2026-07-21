@@ -250,6 +250,21 @@ This addresses scaling and performance challenges in high-traffic environments w
 
 Learn more about [optimizing JWT access token persistence]({{base_path}}/deploy/token-persistence/#optimizing-jwt-access-token-persistence).
 
+### Consent and preference management
+
+!!! note
+    This feature is available from **update level 7.3.0.5** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+
+WSO2 Identity Server introduces a simplified consent management v2 API and two new consent capabilities built on top of it.
+
+Key capabilities include:
+
+- **[Consent management v2 API]({{base_path}}/apis/use-the-consent-management-rest-apis/)**: A simplified consent model built around purposes, elements, and consents, with webhook events for consent changes so downstream systems can react to consent state changes in real time.
+- **[Policy consent]({{base_path}}/guides/consent-management/policy-consent/)**: Presents users with legal agreements, such as a Privacy Policy or Terms of Service, and captures their explicit acceptance during registration and login flows using a dedicated Flow Builder widget.
+- **[Preference management consent]({{base_path}}/guides/consent-management/preference-management-consent/)**: Requests user consent during registration for specific uses of their data, such as marketing communications, analytics, or third-party data sharing, using a dedicated Flow Builder widget.
+
+Users can review and revoke these consents, alongside their existing application consents, from the My Account portal.
+
 ## Improvements
 
 WSO2 Identity Server 7.3.0 improves these existing features:
