@@ -1,8 +1,8 @@
 # Subscribe via Billing Portal
 
-Start your WSO2 Identity Platform journey with the free plan and use it for as long as you want if it fits your requirements. You can also upgrade to a paid plan, downgrade to a lower plan, or cancel your subscription, as explained below.
+Start your WSO2 Identity Platform journey with the free plan and use it for as long as you want if it fits your requirements. When you're ready, you can upgrade to the **Growth** plan and pay only for the resources you use. For custom needs, you can move to an **Enterprise** plan. You can also adjust your resource commitments or cancel your subscription at any time, as explained below.
 
-See the [pricing details](https://wso2.com/identity-platform/pricing/) and the available resource limits and usage limits for each subscription plan.
+See the [pricing details](https://wso2.com/identity-platform/pricing/) and the available resource limits for each subscription plan.
 
 ## Upgrade the subscription plan
 
@@ -13,112 +13,120 @@ To upgrade your subscription:
 
     ![open the billing portal]({{base_path}}/assets/img/guides/select-upgrade-biling-portal.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. On the **Subscriptions** page, select your preferred billing cycle, your business use case, the number of monthly active users (MAUs), the subscription plan, and the support plan.
+3. On the **Subscriptions** page, complete the guided steps shown in the progress bar: **Subscription → Usage → Support → Review → Done**.
 
     !!! note
-        Find detailed information about subscription plans in [Plan details](#plan-details)
+        Find detailed information about each option in [Plan details](#plan-details).
 
-4. Once you have evaluated the subscription details, you can do one of the following:
+    1. **Subscription** — Select the plan you want:
 
-    - **Subscribe to an Essentials or a Professional plan** by following the steps below:
+        - **Growth** — A self-service, Pay-As-You-Go plan. Click **Upgrade** (or **Configure**, if you're already on Growth and only want to adjust your options) to continue.
+        - **Enterprise** — Click **Contact Us** and submit your information. The WSO2 Identity Platform team will get back to you with the next steps.
 
-        1. Once you have decided on an appropriate plan, click **Upgrade**.
-        2. Enter your billing and payment details and agree to our [terms of fees and payment](https://wso2.com/identity-platform/terms-of-use/#fees-and-payment)
+        ![select subscription plan]({{base_path}}/assets/img/guides/billing/step-select-tier.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-            ![enter billing details]({{base_path}}/assets/img/guides/self-service-billing-payment.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    2. **Usage** — Set your monthly commitments for [Monthly Active Users (MAUs)](#resource-commitments), [Machine-to-Machine (M2M) tokens](#resource-commitments), and [AgentID tokens](#resource-commitments) using the sliders.
 
-        3. Click **Upgrade** to complete your subscription.
+        ![set resource commitments]({{base_path}}/assets/img/guides/billing/step-usage-commitments.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    - **Upgrade an existing paid subscription** by selecting a higher tier plan and following the same steps mentioned above.
+        Review the included [pay-per-use resources](#pay-per-use-resources) and their overage rates, then click **Next**.
 
-    - **Subscribe to an Enterprise plan** by clicking Contact Us, and submitting your information. The WSO2 Identity Platform team will get back to you with the next steps.
+        ![review pay-per-use resources]({{base_path}}/assets/img/guides/billing/step-usage-ppu.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+    3. **Support** — Select a [support plan](#support-plan) (Community, Standard, or Enterprise), then click **Review**.
+
+        ![select support plan]({{base_path}}/assets/img/guides/billing/step-support.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    4. **Review** — Review the subscription summary and the estimated bill. Select or add a payment method, agree to the [terms of payment](https://wso2.com/asgardeo/terms-of-use/), and click **Confirm**.
+
+        ![review and pay]({{base_path}}/assets/img/guides/billing/step-review.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+        In the confirmation dialog, click **Confirm** to apply the changes. Your new plan takes effect immediately.
+
+    5. **Done** — A confirmation screen appears once your subscription is active. Click **Done** to return to the Overview page.
 
 ## Plan details
 
-The topics below explain about the options available to you when selecting a plan that is right for you.
-
-### Billing cycle
-
-You can choose to be billed monthly or annually for your subscription. However, note that the [monthly active users (MAUs)](#monthly-active-users-maus) count that exceeds the allowed limit is always charged monthly.
+The topics below explain the options available to you when selecting a plan that is right for you.
 
 !!! note
-    Billing cycles start on the 1st day of every month. Depending on the day of the month on which you subscribe, you will be charged a prorated fee for the first month. <br/><br/>
+    All subscriptions are billed **monthly**. To compare the different subscription plans, go to [WSO2 Identity Platform pricing](https://wso2.com/identity-platform/pricing/).
 
-### Business use case
+### Subscription tiers
 
-Choose your business use case from the available options:
+WSO2 Identity Platform offers three tiers:
 
 <table>
     <tr>
-        <th>
-          <b>B2C</b> (Business-to-Consumer)
-        </th>
+        <th><b>Free</b></th>
         <td>
-          Your organization focuses on providing digital services directly to individual consumers.
+          A no-cost plan with capped resource limits, ideal for getting started and evaluation. Usage is capped at the free-tier limits.
         </td>
     </tr>
     <tr>
-        <th>
-          <b>B2B</b> (Business-to-Business)
-        </th>
+        <th><b>Growth</b></th>
         <td>
-          Your organization focuses on providing digital products and services to other businesses that will enable those services for their business users.
+          A self-service, Pay-As-You-Go (PAYG) plan with uncapped resource quotas. You set monthly commitments for each resource to lock in better rates, and any usage above your commitment is billed as overage.
         </td>
     </tr>
     <tr>
-        <th>
-          <b>B2E</b> (Business-to-Employee)
-        </th>
+        <th><b>Enterprise</b></th>
         <td>
-          Your organization focuses on providing products or services directly to its employees.
+          A custom plan for larger needs, including everything in Growth plus custom resource allocation, a 99.99% uptime SLA and more. Available by contacting the WSO2 Identity Platform team.
         </td>
     </tr>
 </table>
 
-Note that the price for each subscription plan varies depending on the business use case.
+### Resource commitments
 
+On the **Growth** plan, you set an upfront monthly commitment for each of the following resources. Committing to a higher volume locks in a better per-unit rate. Usage beyond your commitment is not throttled; instead, the excess usage is billed as overage at the end of the billing cycle.
 
-### Monthly Active Users (MAUs)
-
-This value indicates the total number of users that can be authenticated into your system using WSO2 Identity Platform within a month. Use the slider to select the number of monthly active users (MAU) you expect to have. Note that the price for each subscription plan varies depending on the MAU.
-
-If you are on the free subscription, the MAU count will be throttled when the limit is exceeded. However, for higher subscription plans, additional MAUs will not be throttled but charged as specified in the [WSO2 Identity Platform pricing](https://wso2.com/identity-platform/pricing/) page.
-
-### Subscription plan
-
-Depending on your selected use case, the available subscription plans will change. You can customize the subscription plan by changing your selected options such as  MAUs, support plan, etc.
+- **Monthly Active Users (MAUs)**
+- **Machine-to-Machine (M2M) tokens**
+- **AgentID tokens**
 
 !!! note
-    To compare the different subscription plans, go to [WSO2 Identity Platform pricing](https://wso2.com/identity-platform/pricing/).
+    The maximum upfront commitment on the Growth plan is **$2,000/month**. If you need more, click **Contact Us** to discuss a custom plan.
 
-![select subscription plan]({{base_path}}/assets/img/guides/select-subscription-plan.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+### Pay-per-use resources
+
+Your Growth subscription includes a set number of the following resources out of the box, with any additional usage billed monthly:
+
+- **Organizations** — 2 included; each additional organization is billed at $35/month. (Each extra organization includes 1 enterprise connection free of charge.)
+- **Enterprise connections** — 2 included; each additional connection is billed at $35/month.
 
 ### Support plan
 
-The support plan you select determines the availability of support services from the WSO2 Identity Platform team. Select the support plan you want using the drop-down list available for the subscription plan, as shown in the following example.
-
-Available support packages for each plan are as follows:
-
-- **Essentials plan**: Optional Basic(12/5 SLA) support
-- **Professional plan**: Optional Basic(12/5 SLA) or Enterprise(24/7 SLA) support
-- **Enterprise plan**: Enterprise(24/7 SLA) support included.
-
-
-![select support plan]({{base_path}}/assets/img/guides/select-support-plan.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+The support plan you select determines the availability of support services from the WSO2 Identity Platform team. For more information, see [SaaS support plans](https://wso2.com/saas-support-plans).
 
 ## Manage billing and payment
 
-Your billing and payment information will be saved in the **Billing Details** tab. You can use this tab to edit your billing details or to add or delete a payment method.
+Your billing and payment information is saved in the **Billing Details** tab. You can use this tab to edit your billing details or to add or delete a payment method. You can also add a payment method during the **Review** step when subscribing.
 
 ![Manage billing and payment]({{base_path}}/assets/img/guides/billing-and-payment-information.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 ## Manage invoices
 
-Once you have upgraded to a paid plan, you can find and download your invoice from the **Invoices** tab that appear.
+Once you have upgraded to a paid plan, you can find and download your invoice from the **Invoices** tab that appears.
 
 ![Manage invoices]({{base_path}}/assets/img/guides/billing-invoices-tab.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-## Downgrade/Cancel your subscription
+## Adjust or cancel your subscription
 
-Contact the WSO2 Identity Platform support team at **asgardeo-help@wso2.com** for subscription downgrades and cancellations.
+On the **Growth** plan, you can change your resource commitments or support plan from the **Overview** page. Click **Adjust Commitments** (under Usage) or the **Upgrade** option on the support card. This reopens the subscription wizard at the relevant step.
+
+![subscription overview]({{base_path}}/assets/img/guides/billing/overview.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+To cancel your subscription:
+
+1. Go to the **Overview** page.
+2. In the **Cancellation** section, click **Cancel Subscription**.
+
+    ![cancel subscription]({{base_path}}/assets/img/guides/billing/cancel.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Confirm in the dialog that appears.
+
+    !!! warning
+        Cancelling this subscription will immediately deactivate the organization, including all applications, authentication flows, and related services. You will no longer be able to access or use this organization after cancellation.
+
+For any other subscription changes or help, contact the WSO2 Identity Platform support team at **asgardeo-help@wso2.com**.
