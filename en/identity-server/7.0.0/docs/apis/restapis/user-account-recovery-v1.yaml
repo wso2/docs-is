@@ -27,7 +27,7 @@ paths:
         notifications.
 
         - Use the returned __recoveryCode__ and the __channelId__ with
-        __username recover api__ to confirm the the username recovery and to
+        __username recover api__ to confirm the username recovery and to
         receive recovery notifications via the channel specified by the user.
         
         <b>Scope(Permission) required:</b> `internal_user_recovery_create`

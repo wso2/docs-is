@@ -2,10 +2,6 @@
 
 # Profile attributes
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
 **Profile attributes** define the shape of data that can be stored on a profile for your organization. They control attribute names, types, mutability, and how values are resolved when two profiles are merged.
 
 Together, the set of profile attributes defined for your organization makes up the **profile attribute schema**.
@@ -20,7 +16,7 @@ Profile attributes are organized into three scopes:
 |---|---|
 | `identity_attributes` | Attributes sourced from the identity system (e.g. email, phone, name from {{ product_name }} claims) |
 | `traits` | Behavioral or preference data managed by the application (e.g. language, segments) |
-| `application_data` | Per-application attributes, scoped by application identifier |
+| `application_data` | Per-application attributes, scoped by the application's ID |
 
 ---
 
@@ -36,7 +32,7 @@ Profile attributes are organized into three scopes:
 | `multi_valued` | no | If `true`, the attribute holds an array of the declared type |
 | `canonical_values` | no | Enumerated allowed values (for string attributes) |
 | `sub_attributes` | no | Child attributes when `value_type` is `complex` |
-| `application_identifier` | no | Scopes the attribute to a specific application (for `application_data`) |
+| `application_identifier` | yes, for `application_data` | The ID of the application the attribute is scoped to |
 
 ---
 

@@ -93,17 +93,29 @@ New users will now go through the simplified registration process with mandatory
 
 With these changes, new users will only provide the essentials **Email** and **password** and must verify their email via Magic Link before completing registration.
 
-{% if product_name == "WSO2 Identity Platform" %}
+## Add a connection-based sign-up option
 
-!!! Note
-    When using a connection-based sign-up option (such as Google or Microsoft), configure the authorized redirect URL in the connection settings as: `https://accounts.asgardeo.io/t/{tenant-domain}/accounts/register`
+You can let users register through an external identity provider by adding a connection widget to the flow. The following connections are supported:
 
-{% else %}
+- [Google]({{base_path}}/guides/authentication/social-login/add-google-login/)
+- [Apple]({{base_path}}/guides/authentication/social-login/add-apple-login/)
+- [Facebook]({{base_path}}/guides/authentication/social-login/add-facebook-login/)
+- [Microsoft]({{base_path}}/guides/authentication/social-login/add-microsoft-login/)
+- [GitHub]({{base_path}}/guides/authentication/social-login/add-github-login/)
 
-!!! Note
-    When using a connection-based sign-up option (such as Google or Microsoft), configure the authorized redirect URL in the connection settings as: `https://{is_host}/t/{tenant-domain}/accounts/register`
+To add a connection to the self-registration flow:
 
-{% endif %}
+1. Register the connection under **Console** > **Connections** by following the setup guide linked above for the provider you want to use.
+
+2. {% if product_name == "WSO2 Identity Platform" %}In the connection settings, set the authorized redirect URL to: `https://accounts.asgardeo.io/t/{tenant-domain}/accounts/register`{% else %}In the connection settings, set the authorized redirect URL to: `https://{is_host}/t/{tenant-domain}/accounts/register`{% endif %}
+
+3. Open the **Self Registration** flow in the Flow Builder.
+
+4. From the **Widgets** panel, drag the `Continue with {Provider}` widget onto the canvas.
+
+5. Draw a connection from the widget's button to the next step (for example, the End node for immediate completion, or a follow-up step such as profile completion).
+
+6. Save and enable the flow.
 
 ## Reference
 

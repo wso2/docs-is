@@ -1,4 +1,4 @@
-# Webhook events and payloads {% if product_name == "WSO2 Identity Platform" %}<div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div>{% endif %}
+# Webhook events and payloads
 
 This guide details the webhook event types dispatched by {{product_name}}. For each event, you'll find JSON payload examples and descriptions of their properties.
 
@@ -3599,16 +3599,7 @@ The table below explains how these properties differ based on each flow.
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
 !!! note "Enable consent webhook events"
-    Consent webhook events are disabled by default. Add the following to your `deployment.toml` to enable them:
-
-    ```toml
-    [identity_mgt.events.schemes]
-    ConsentEventHook.properties.enable = true
-    ConsentPurposeEventHook.properties.enable = true
-
-    [webhooks.event_profiles]
-    disabled_channels = []
-    ```
+    Consent webhook events are disabled by default. See [Prerequisites]({{base_path}}/guides/consent-management/#prerequisites) for the required `deployment.toml` configurations to enable them.
 {% endif %}
 
 ## Consent events

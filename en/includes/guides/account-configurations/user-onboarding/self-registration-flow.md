@@ -1,10 +1,6 @@
-<h1>Self-register Flow Builder <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
+<h1>Self-register Flow Builder</h1>
 
 ![Self register flow banner]({{base_path}}/assets/img/guides/organization/self-registration/self-register-flow-banner.png){: width="auto" style="display: block; margin: 0;"}
-
-!!! Note
-
-    The self-registration Flow Builder is currently in **Preview**. Some features may be subject to changes in future releases.
 
 The self-registration Flow Builder provides administrators with a powerful tool to create fully customizable user registration experiences. Whether you're building a simple registration form or a complex, multi-step flow, the builder gives you complete control over the design and process.
 

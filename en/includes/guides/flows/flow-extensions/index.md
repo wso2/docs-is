@@ -17,6 +17,8 @@ A flow extension follows a simple request-response cycle:
 
 Because the logic runs entirely in your own service, you control the data sources and business rules without embedding them into the flow itself.
 
+You can also encrypt individual field values exchanged with your endpoint, so sensitive data such as credentials never travels in plain text. To learn more, see [configure field encryption]({{base_path}}/guides/flows/flow-extension-configuration/#step-4-configure-field-encryption).
+
 ## What's next
 
 - [Flow extension configuration]({{base_path}}/guides/flows/flow-extension-configuration/) - Register your external service as a flow extension, map the attributes it reads and writes, and add it to a flow.

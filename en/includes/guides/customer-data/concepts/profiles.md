@@ -2,10 +2,6 @@
 
 # Profiles
 
-!!! note
-
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
-
 A **profile** is the central entity in the Customer Data Service. It represents a single person's collected data, their identity attributes, behavioral traits, and per application data unified across all interactions.
 
 ![Profile List]({{base_path}}/assets/img/guides/customer-data/temporary-profiles-list.png){: width="auto" style="display: block; margin: 0;"}
@@ -38,7 +34,7 @@ Profiles are either **temporary** (anonymous) or **permanent** (identified).
 | `user_id` | The user's ID from {{ product_name }}. Empty on anonymous profiles. |
 | `identity_attributes` | Attributes sourced from the identity system (e.g. email, phone, name). Keyed by attribute name. |
 | `traits` | Behavioral or preference data (e.g. download count, segment tags). |
-| `application_data` | Per-application data, keyed by application identifier. |
+| `application_data` | Per-application data, keyed by the application's ID. |
 | `meta.created_at` | When the profile was created. Read-only. |
 | `meta.updated_at` | When the profile was last modified. Read-only. |
 | `merged_from` | References to profiles that were unified into this one. |

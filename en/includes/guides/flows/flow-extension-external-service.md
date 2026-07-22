@@ -56,6 +56,12 @@ The `event` object carries context about the flow and the organization.
 | ----- | ---- | ----------- |
 | `flow` | object | The flow being executed. See [flow object](#flow-object). |
 | `application` | object | The application context. See [application object](#application-object). |
+| `tenant` | object | The root organization context. See [tenant object](#tenant-object). |
+| `organization` | object | The organization context. See [organization object](#organization-object). |
+
+!!! note
+
+    Each field in the request appears only when you mark the corresponding attribute as **Read** in the extension's [access configuration]({{base_path}}/guides/flows/flow-extension-configuration/#step-3-configure-the-flow-extension). Fields with empty values are omitted from the request.
 
 #### Flow object
 
@@ -79,10 +85,17 @@ The `event` object carries context about the flow and the organization.
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
+| `id` | string | The user's unique identifier. |
+| `username` | string | The username, without the user store domain prefix. |
+| `userStoreDomain` | string | The user store the user belongs to. An empty string (`""`) denotes the primary user store. |
 | `claims` | array | The current claims, each as `{ uri, value }`. |
+| `credentials` | object | The user's credentials, keyed by credential name (for example, `password`). See [credentials](#credentials). |
 
 ```json
 {
+   "id":"e5b1b0e8-0f3b-4d7a-9b6a-2f1c1a1b2c3d",
+   "username":"john",
+   "userStoreDomain":"",
    "claims":[
       {
          "uri":"http://wso2.org/claims/givenname",
@@ -92,9 +105,30 @@ The `event` object carries context about the flow and the organization.
          "uri":"http://wso2.org/claims/mobile",
          "value":"0123456789"
       }
-   ]
+   ],
+   "credentials":{
+      "password":{
+         "type":"PLAIN_TEXT",
+         "value":"<user's password>"
+      }
+   }
 }
 ```
+
+##### Credentials
+
+Each credential value is a typed object:
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `type` | string | The format of the credential value. Currently `PLAIN_TEXT`. |
+| `value` | string | The credential value. |
+
+If you mark a credential as encrypted, {{product_name}} sends the JWE-encrypted form of the entire typed object instead. See [work with encrypted values](#work-with-encrypted-values).
+
+!!! warning
+
+    Credentials are highly sensitive. Only expose them to your endpoint when your use case requires it, and strongly consider [marking them as encrypted]({{base_path}}/guides/flows/flow-extension-configuration/#step-4-configure-field-encryption).
 
 #### Application object
 
@@ -112,15 +146,45 @@ The `event` object carries context about the flow and the organization.
 
     The `application.id` value is only available for flows initiated with the `applicationId` parameter.
 
+#### Tenant object
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `domain` | string | The domain of the root organization. |
+
+```json
+{
+  "domain": "example.com"
+}
+```
+
+#### Organization object
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `id` | string | The organization UUID. |
+| `name` | string | The organization name. |
+| `orgHandle` | string | The organization handle. |
+| `depth` | integer | The depth of the organization in the organization hierarchy. |
+
+```json
+{
+  "id": "77084a9d-b745-4386-a44d-8dc0d44d0232",
+  "name": "Example Organization",
+  "orgHandle": "exampleorg",
+  "depth": 0
+}
+```
+
 ### Allowed operations
 
 Each entry defines a change your service is permitted to make. If your response references anything outside this whitelist, {{product_name}} rejects it.
 
-The only operation in `FLOW_EXTENSION` is **`replace`**, which creates or replaces a claim at one of the listed paths:
+`FLOW_EXTENSION` supports the `replace` operation, which creates or replaces a value at one of the listed paths:
 
 - If the value already exists in the flow, its value is replaced.
 - If no value exists in the flow, {{product_name}} adds the given value.
-- If the supplied value is an empty string (`""`) or `null`, the claim value is set to empty.
+- If the supplied value is an empty string (`""`), the claim value is set to empty.
 
 You may only target paths listed in `paths`.
 
@@ -133,6 +197,45 @@ You may only target paths listed in `paths`.
   ]
 }
 ```
+
+## Work with encrypted values
+
+When an attribute is [marked as encrypted]({{base_path}}/guides/flows/flow-extension-configuration/#step-4-configure-field-encryption) in the extension's access configuration, its value travels as a [JWE](https://datatracker.ietf.org/doc/html/rfc7516) compact string instead of plain text. {{product_name}} uses **RSA-OAEP-256** key encryption and **A256GCM** content encryption.
+
+### Encrypted values in the request
+
+{{product_name}} encrypts each **Read** attribute marked as encrypted using the encryption certificate uploaded for the extension. Your service decrypts these values with the private key of that certificate.
+
+- For claims and other string fields, the JWE payload is the field's string value.
+- For credentials, the JWE payload is the full typed credential object (for example, `{"type": "PLAIN_TEXT", "value": "<secret>"}`).
+
+```json
+{
+   "credentials":{
+      "password":"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiY3R5IjoiYXBwbGljYXRpb24vanNvbiJ9.<encrypted-key>.<iv>.<ciphertext>.<tag>"
+   }
+}
+```
+
+!!! note
+
+    If an attribute is marked as encrypted but the extension has no encryption certificate, {{product_name}} omits that attribute from the request instead of sending it in plain text.
+
+### Encrypted values in the response
+
+For each **Write** attribute marked as encrypted, your service must return the value as a JWE compact string encrypted with the public key of your {{product_name}} organization. You can download the public certificate of your organization from the `{{api_base_path}}/api/server/v1/keystores/certs/public` endpoint, which requires no authentication{% if product_name == "WSO2 Identity Server" %} (see the [Keystore Management API]({{base_path}}/apis/keystore-rest-api/#tag/Certificates/operation/getPublicCertificate)){% endif %}. {{product_name}} decrypts the value with its private key before applying the operation. Returning a plain-text value, or a value that {{product_name}} cannot decrypt, on an encrypted path aborts the flow.
+
+For **multi-valued claims** on an encrypted path, join the values with commas, encrypt the joined string, and return it as a single-element array:
+
+```json
+{
+  "op": "replace",
+  "path": "/user/claims[uri=http://wso2.org/claims/multiValuedClaim]",
+  "value": ["<JWE of \"value1,value2\">"]
+}
+```
+
+{{product_name}} decrypts the string and splits it on commas to restore the individual values. Any other array shape on an encrypted multi-valued path aborts the flow.
 
 ## Response reference
 
@@ -161,6 +264,8 @@ The `path` must match one of the paths listed against the `replace` entry in `al
   "value": "new-value"
 }
 ```
+
+Besides claims, your service can also replace user credentials (for example, `/user/credentials/password`) when the corresponding path is marked as **Write** in the extension's access configuration.
 
 ### Success response
 
@@ -227,6 +332,25 @@ Use `ERROR` when your service itself hits a processing or server error (a downst
 !!! warning "Avoid exposing personal data in error messages"
 
     Don't include personally identifiable information (PII) in `failureReason`, `failureDescription`, `errorMessage`, or `errorDescription`. If you must include such data, mask it.
+
+## How operations are validated
+
+{{product_name}} validates every operation in a `SUCCESS` response before applying it. Validation problems fall into two groups.
+
+**Problems that abort the flow.** Any of the following causes the whole response to be rejected and the flow to fail:
+
+- A value returned on an encrypted path isn't a string, isn't a valid JWE, or can't be decrypted.
+- An encrypted multi-valued claim isn't returned as a single-element array holding one JWE string.
+
+**Problems that skip the operation.** The following cause {{product_name}} to skip the offending operation and apply the rest, so a single invalid operation doesn't fail the user's flow:
+
+- The path is empty, unknown, or read-only (everything under `/flow/`).
+- The claim URI isn't in the `http://wso2.org/claims/` dialect, refers to an identity claim (`http://wso2.org/claims/identity/*`), or doesn't resolve to an attribute registered in your organization.
+- The value is `null` or has the wrong type, for example, a plain string for a multi-valued claim, or an array for a single-valued claim.
+
+!!! note
+
+    Single-valued claims take a string value, and multi-valued claims take an array of strings.
 
 ## Example
 

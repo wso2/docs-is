@@ -1,7 +1,9 @@
 # Flow AI
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
 !!! warning "Beta feature"
     The **AI Flow Builder** feature is currently in **Beta**. We are actively working to enhance its capabilities and improve performance.
+{% endif %}
 
 AI-powered flow building simplifies the process of creating complex user journeys by using AI to translate your requirements into functional flows. This automates the setup of registration and recovery flows based on plain language descriptions, reducing manual configuration effort.
 

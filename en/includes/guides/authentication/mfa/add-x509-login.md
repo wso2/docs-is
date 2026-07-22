@@ -6,6 +6,11 @@ This page guides you through configuring the X509 certificate authenticator with
     You need to create the necessary certificates and truststores before you start configuring the x509 
     authenticator on {{ product_name }}.
 
+!!!note
+    The X509 authenticator uses standard mutual-TLS client authentication. This means a valid client certificate that the browser or operating system can present during the TLS handshake will work. In addition to software-based certificates imported into the browser, this includes certificates stored on smartcards, USB security keys such as YubiKey, or other PKCS#11-compatible hardware tokens.
+
+    Setting up the browser or operating system to use a hardware-backed certificate, including any required drivers or PKCS#11 middleware, depends on your token vendor and is not covered in this guide.
+
 X509 authentication requires the client to possess a Public Key Certificate (PKC). To create a sample certificate 
 and create your own Certificate Authority to sign the certificates, follow the give steps below: 
 

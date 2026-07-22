@@ -1,31 +1,26 @@
 {% if product == "asgardeo" %}
 
-<h1>Enable customer data service <div class="md-chip md-chip--preview"><span class="md-chip__label">Preview</span></div></h1>
+<h1>Enable customer data service</h1>
 
-!!! note
+The Customer Data Service is disabled by default. Enable it for your organization from the **Customer Data** page in the console.
 
-    The Customer Data Service is currently in **Preview**. Some features may be subject to changes in future releases.
+## Enable customer data service
 
-The Customer Data Service is hidden behind Feature Preview while in Preview. Once you enable it for your organization, a new **Customer Data** entry appears in the left navigation pane.
+1. On the console, go to **Customer Data** in the left navigation pane.
+2. Turn on the **Enable Customer Data Service** toggle.
 
-## Enable from Feature Preview
+Once enabled, the page shows the profiles collected for your organization, along with the **Profile Attributes** and **Unification Rules** configurations.
 
-1. Click on the user dropdown in the top right corner.
-2. Select **Feature Preview**.
-3. In the feature preview dialog, toggle **Customer Data Service** to **Enabled** and close the dialog.
-4. **Customer Data** now appears in the left navigation pane.
+![Enable Customer Data Service]({{base_path}}/assets/img/guides/customer-data/enable-cds-toggle.png){: width="auto" style="display: block; margin: 0;"}
 
-![Enable Customer Data Service from Feature Preview]({{base_path}}/assets/img/guides/customer-data/feature-preview-cds-on.png){: width="auto" style="display: block; margin: 0;"}
+## Disable customer data service
 
-## Disable Customer Data Service
+To turn the feature off again,
 
-To turn the feature off again
+1. On the console, go to **Customer Data** in the left navigation pane.
+2. Turn off the **Enable Customer Data Service** toggle.
 
-1. Click on the user dropdown in the top right corner.
-2. Select **Feature Preview**.
-3. Toggle **Customer Data Service** to **Disabled** and close the dialog.
-
-The **Customer Data** entry is removed from the left navigation pane. Existing profile, attribute, and unification rule data is preserved while the feature is Disabled.
+Existing profile, attribute, and unification rule data is preserved while the feature is disabled.
 
 ## Next steps
 

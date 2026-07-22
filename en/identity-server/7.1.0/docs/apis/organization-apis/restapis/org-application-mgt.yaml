@@ -2105,7 +2105,7 @@ components:
         type:
           type: string
           description: "
-          - DEFAULT type indicates that the application will use the default authentication sequence specified at the tenant level. When the DEFAULT type is used, the information given in the other fields of the AuthenticationSequence will be ignored and overriden with values defined at the tenant level.
+          - DEFAULT type indicates that the application will use the default authentication sequence specified at the tenant level. When the DEFAULT type is used, the information given in the other fields of the AuthenticationSequence will be ignored and overridden with values defined at the tenant level.
 
            - USER_DEFINED type indicates that the application will use a user-defined authentication sequence."
           enum:

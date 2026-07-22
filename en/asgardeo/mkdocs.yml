@@ -32,11 +32,6 @@ theme:
 extra:
   base_path: /asgardeo/docs
   product: asgardeo
-  nav_chip:
-    Customer Data:
-      type: Preview
-    Flow Extensions:
-      type: Beta
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
@@ -487,6 +482,8 @@ nav:
               - MFA based on user device: guides/authentication/conditional-auth/new-device-based-template.md
               - MFA based on IP address: guides/authentication/conditional-auth/ip-based-template.md
               - MFA based on advanced conditions (using WSO2 Choreo): guides/authentication/conditional-auth/add-authentications-based-on-api-calls.md
+              - ACR and AMR: guides/authentication/conditional-auth/acr-and-amr.md
+              - Configure ACR-based adaptive authentication: guides/authentication/conditional-auth/acr-based-adaptive-auth.md
             - Specialized scenarios:
               - Add passkey progressive enrollment: guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template.md
               - Add push notification device progressive enrollment: guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template.md
@@ -498,6 +495,7 @@ nav:
             - Add app-native authentication: guides/authentication/app-native-authentication/add-app-native-authentication.md
             - Secure app-native authentication flows: guides/authentication/app-native-authentication/secure-app-native-authentication-flows.md
             - Handle advanced login scenarios: guides/authentication/app-native-authentication/handle-advanced-login-scenarios.md
+          - Login Flow Builder: guides/authentication/login-flow-builder.md
           - Login Flow AI: guides/authentication/login-flow-ai.md
           - Configure OIDC flows:
             - Configure OIDC flows: guides/authentication/oidc/index.md
@@ -547,7 +545,9 @@ nav:
         - Identity Verification with Onfido: guides/identity-verification/add-identity-verification-with-onfido.md
       - User management:
         - User management: guides/users/index.md
-        - Manage administrators: guides/users/manage-administrators.md
+        - Administrators:
+          - Manage administrators: guides/users/manage-administrators.md
+          - Admin SSO: guides/users/configure-enterprise-login.md
         - Users: 
           - Onboard users: guides/users/onboard-users.md
           - Manage users: guides/users/manage-users.md
@@ -785,6 +785,7 @@ nav:
     - Integrate WSO2 Identity Platform with Smart on FHIR healthcare apps: tutorials/smart-on-fhir.md
     - Secure Agentic AI Systems with WSO2 Identity Platform: tutorials/secure-agentic-ai-systems.md
     - Access Control for Ambient Agents: tutorials/ciba-for-ai-agents.md
+    - Authenticate AI Agents to the Claude API with WSO2 Agent ID: tutorials/agent-id-claude-authentication.md
     - Implement End-to-End Authorization for MCP servers: tutorials/end-to-end-mcp-authorization-with-asgardeo.md
     - Integrating WSO2 Identity Platform With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
     - Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
@@ -960,6 +961,7 @@ nav:
       - Push Notification Device API: apis/push-notification-device-rest-api.md
       - User account associations API: apis/association-management-by-user.md
       - User credential management API: apis/end-user-credential-management-v2-rest-api.md
+      - User discoverable application API: apis/user-discoverable-applications.md
       - Export user information API: apis/export-user-info.md
       - Identity Verification: apis/user-identity-verification.md
       - Organization Me API: apis/user-organization-api.md
@@ -1021,8 +1023,14 @@ nav:
       - Security check: references/production-checklist/security-check.md
       - Best practices: references/production-checklist/best-practices.md
     - WSO2 Identity Platform rate limits: references/rate-limits.md
+    - Usage metrics: references/usage-metrics.md
     - Tutorials:
       - Build your own push authenticator app: references/tutorials/build-your-own-push-authenticator-app.md
+      - Use WSO2 Identity Platform with identity gateways:
+        - Overview: references/tutorials/protect-apps-with-identity-gateway/index.md
+        - Integrate OAuth2 Proxy: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-oauth2proxy.md
+        - Integrate Ory Oathkeeper: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-oathkeeper.md
+        - Integrate Mod Auth OpenIDC: references/tutorials/protect-apps-with-identity-gateway/protect-apps-with-mod-auth-openidc.md
     - IAM concepts:
       - OAuth2 grant types: references/grant-types.md
       - OAuth2 Pushed Authorization Requests: references/pushed-authorization-requests.md
