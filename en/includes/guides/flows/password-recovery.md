@@ -92,6 +92,31 @@ Follow the steps below:
 
 Users can now enter any of their configured alternative login identifiers (such as email address) on the **Forgot Password?** page to start password recovery.
 
+## Control account information disclosure
+
+The **Resolve User** step (the first step, where the user submits their identifier) has two settings that control how much the recovery flow reveals about an account:
+
+- **Notify User Existence**: Reveals whether the submitted identifier matches an existing account.
+- **Notify User Account Status**: Reveals whether the account is locked or disabled.
+
+Both settings are **disabled by default** to prevent user enumeration. For the full behavior of each option, see [Resolve user properties](#resolve-user-properties).
+
+!!! warning
+    Enabling these notifications reveals account information (whether an account exists and its lock/disable status) and may lead to **user enumeration**. Keep them disabled unless immediate user feedback (such as catching a mistyped identifier) outweighs that risk.
+
+To enable the notifications:
+
+1. On the **Edit Password Recovery Flow** canvas, in the first step (where the user is resolved), hover over the action button (for example, **Continue**) and click the pencil icon that appears to open the button's **Properties** panel.
+
+    ![Resolve User properties showing the Notify User Existence and Notify User Account Status checkboxes]({{base_path}}/assets/img/guides/flows/flow-password-recovery-resolve-user-properties.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+2. Under **Resolve User**, enable the required checkboxes:
+
+    - **Notify User Existence**
+    - **Notify User Account Status**
+
+3. Click **Save Draft**, then publish the flow.
+
 ## Reference
 
 This section provides details on the configuration options available in the Password Recovery Flow.
@@ -102,3 +127,10 @@ The Flow Completion Properties, configured on the End node, define the final act
 
 - **Auto Login**: If enabled, the user is automatically logged into their account immediately after successfully completing the password recovery flow.
 - **Send a notification email on flow completion:** When enabled, the user will receive an email confirming that their password recovery is complete and their account is ready to use.
+
+### Resolve user properties
+
+The Resolve User properties, configured on the action button of the first step, control what the recovery flow reveals when a user submits an identifier. Both are **disabled by default** — the secure posture, where every identifier (valid, non-existent, locked, or disabled) produces the same response, protecting the recovery form against user enumeration attacks. These controls apply regardless of whether the user starts recovery with a username or an [alternative login identifier](#configure-for-alternative-login-identifiers) such as an email address or mobile number.
+
+- **Notify User Existence**: When enabled, submitting an identifier that doesn't match any account shows a *"User does not exist"* error. When disabled, the flow continues to the next step (for example, the OTP screen) exactly as it would for a valid user, so it isn't possible to tell whether an account exists.
+- **Notify User Account Status**: When enabled, a user with a locked or disabled account sees a specific error (for example, *"The account is locked"*, with reason-specific variants). When disabled, the account status is not revealed and the flow continues.
