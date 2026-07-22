@@ -2885,7 +2885,7 @@ The table below explains each property in the event data.
         "groups": [
           {
             "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
-            "groupName": "imp",
+            "groupName": "sales",
             "userStoreDomain": "PRIMARY"
           }
         ],
@@ -3175,7 +3175,7 @@ The table below explains each property in the event data.
               },
               {
                 "uri": "http://wso2.org/claims/agent/Name",
-                "value": "NewAgenthnnn"
+                "value": "Sales Agent"
               }
             ]
           }
@@ -3274,14 +3274,14 @@ The table below explains each property in the event data.
         "removedGroups": [
           {
             "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
-            "groupName": "imp",
+            "groupName": "sales",
             "userStoreDomain": "PRIMARY"
           }
         ],
         "addedGroups": [
           {
             "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
-            "groupName": "imp",
+            "groupName": "sales",
             "userStoreDomain": "PRIMARY"
           }
         ]
@@ -3532,6 +3532,63 @@ The table below explains each property in the event data.
 <tr class="even">
 <td>action</td>
 <td><p>Indicates the flow that triggered the event. The value is <code>ROLE_UPDATE</code> for a role update.</p></td>
+</tr>
+</tbody>
+</table>
+
+<a name="initiatorType-and-action-role"></a>
+
+### <code>initiatorType</code> and <code>action</code> properties for role management events
+
+The initiatorType and the action property together show which flow triggered a role management event.
+
+The table below explains how these properties differ based on each flow.
+
+<table>
+<thead>
+<tr class="header">
+<th>Flow</th>
+<th>Value of <code>initiatorType</code></th>
+<th>Value of <code>action</code></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Admin initiated role creation</td>
+<td>ADMIN</td>
+<td>ROLE_CREATE</td>
+<td><p>Occurs when an administrator creates a role via the console or SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated role creation</td>
+<td>APPLICATION</td>
+<td>ROLE_CREATE</td>
+<td><p>Occurs when an application with appropriate permissions creates a role via the SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="odd">
+<td>Admin initiated role update</td>
+<td>ADMIN</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an administrator updates a role's metadata, users, groups, IdP groups, or permissions via the console or SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated role update</td>
+<td>APPLICATION</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an application with appropriate permissions updates a role via the SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="odd">
+<td>Role removed from an application</td>
+<td>ADMIN</td>
+<td>APPLICATION_UPDATE</td>
+<td><p>Occurs when a role is removed from an application's Roles section.</p></td>
+</tr>
+<tr class="even">
+<td>Role deleted with its application</td>
+<td>ADMIN</td>
+<td>APPLICATION_DELETE</td>
+<td><p>Occurs when a role is deleted as part of application deletion.</p></td>
 </tr>
 </tbody>
 </table>
