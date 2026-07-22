@@ -9,7 +9,8 @@ WS-Trust authentication is no longer supported by default from IS 5.11.0 upwards
 
 To download and install the WS-Trust connector:
 
-1. Download the [WS-Trust Authenticator](https://store.wso2.com/connector/identity-inbound-auth-sts) from the WSO2 connector store.
+
+1. Download the [WS-Trust Authenticator](https://store.wso2.com/connector) from the WSO2 connector store.
 2. Copy and paste the downloaded `.zip` file to the home directory of your WSO2 Identity Server and extract the `.zip` file.
 3. Open a terminal, navigate to the home of the extracted directory and execute the following commands.
     ```bash
