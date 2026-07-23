@@ -13,6 +13,8 @@ Ensure that you have:
 
 Your external web service should do the following to receive event notifications:
 
+1. Implement the service according to the [webhook event payload contract]({{base_path}}/references/webhooks/api-contract/), which defines the structure of every event payload {{product_name}} delivers to your endpoint.
+
 {% if product_name == "WSO2 Identity Platform" %}
 
 1. Expose an endpoint that accepts both HTTP GET and POST requests with JSON payloads.
