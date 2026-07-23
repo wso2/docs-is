@@ -15,10 +15,12 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
 {% set server_url = "https://api.asgardeo.io/t/myorg" %}
 {% set host_url = "https://api.asgardeo.io" %}
 {% set tenant_domain = "myorg" %}
+{% set userstore_domain = "DEFAULT" %}
 {% else %}
 {% set server_url = "https://localhost:9443/t/myorg.com" %}
 {% set host_url = "https://localhost:9443" %}
 {% set tenant_domain = "myorg.com" %}
+{% set userstore_domain = "PRIMARY" %}
 {% endif %}
 
 ## Login events
@@ -2867,13 +2869,13 @@ The table below explains each property in the event data.
         "audience": {
           "type": "application",
           "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
-          "display": "SB"
+          "display": "Sample Application"
         },
         "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
         "users": [
           {
             "id": "6c7f23d9-8083-4bf7-ab2c-885aa9faa186",
-            "userStoreDomain": "PRIMARY",
+            "userStoreDomain": "{{userstore_domain}}",
             "claims": [
               {
                 "uri": "http://wso2.org/claims/username",
@@ -2886,7 +2888,7 @@ The table below explains each property in the event data.
           {
             "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
             "groupName": "sales",
-            "userStoreDomain": "PRIMARY"
+            "userStoreDomain": "{{userstore_domain}}"
           }
         ],
         "permissions": [
@@ -2917,11 +2919,11 @@ The table below explains each property in the event data.
 <ul>
 <li><strong>id</strong>: Unique identifier of the role</li>
 <li><strong>name</strong>: Display name of the role</li>
-<li><strong>audience</strong>: The audience the role is scoped to (<code>type</code>, <code>value</code>, <code>display</code>). For an application-scoped role, <code>type</code> is <code>application</code>, <code>value</code> is the application id, and <code>display</code> is the application name.</li>
+<li><strong>audience</strong>: The audience the role is scoped to. Contains <code>type</code>, <code>value</code>, and <code>display</code>, where <code>type</code> is either <code>organization</code> or <code>application</code>. For an organization-scoped role, <code>value</code> is the organization id and <code>display</code> is the organization name. For an application-scoped role, <code>value</code> is the application id and <code>display</code> is the application name.</li>
 <li><strong>ref</strong>: SCIM v2 reference URL for the role</li>
-<li><strong>users</strong>: Array of users initially assigned to the role. Each entry contains the user <code>id</code>, <code>userStoreDomain</code>, and <code>claims</code>.</li>
-<li><strong>groups</strong>: Array of local groups initially assigned to the role. Each entry contains the group <code>id</code>, <code>groupName</code>, and <code>userStoreDomain</code>.</li>
-<li><strong>permissions</strong>: Array of permission names initially granted to the role.</li>
+<li><strong>users</strong>: Array of users assigned to the role at creation. Present only when the role is created with users. Each entry contains the user <code>id</code>, <code>userStoreDomain</code>, and <code>claims</code>.</li>
+<li><strong>groups</strong>: Array of local groups assigned to the role at creation. Present only when the role is created with groups. Each entry contains the group <code>id</code>, <code>groupName</code>, and <code>userStoreDomain</code>.</li>
+<li><strong>permissions</strong>: Array of permission names granted to the role at creation. Present only when the role is created with permissions.</li>
 </ul>
 </td>
 </tr>
@@ -2981,7 +2983,7 @@ The table below explains each property in the event data.
         "audience": {
           "type": "application",
           "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
-          "display": "SB"
+          "display": "Sample Application"
         },
         "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72"
       }
@@ -3065,7 +3067,13 @@ The table below explains each property in the event data.
       },
       "action": "APPLICATION_UPDATE",
       "role": {
-        "id": "1fad5996-3418-4883-925d-a319e3bb8e72"
+        "id": "1fad5996-3418-4883-925d-a319e3bb8e72",
+        "name": "ROLE",
+        "audience": {
+          "type": "application",
+          "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
+          "display": "Sample Application"
+        }
       }
     }
   }
@@ -3090,6 +3098,8 @@ The table below explains each property in the event data.
 <p>Contains details about the deleted role including:</p>
 <ul>
 <li><strong>id</strong>: Unique identifier of the deleted role</li>
+<li><strong>name</strong>: Display name of the deleted role</li>
+<li><strong>audience</strong>: The audience the role is scoped to (<code>type</code>, <code>value</code>, <code>display</code>).</li>
 </ul>
 </td>
 </tr>
@@ -3111,7 +3121,7 @@ The table below explains each property in the event data.
 </tr>
 <tr class="even">
 <td>action</td>
-<td><p>Indicates what triggered the role deletion. The value is <code>APPLICATION_UPDATE</code> when a role is removed from an application's Roles section, and <code>APPLICATION_DELETE</code> when the role is deleted as part of application deletion.</p></td>
+<td><p>Indicates what triggered the role deletion. The value is <code>ROLE_DELETE</code> when an administrator deletes a role directly, <code>APPLICATION_UPDATE</code> when a role is removed from an application's Roles section, and <code>APPLICATION_DELETE</code> when the role is deleted as part of application deletion. Refer to <a href="#initiatorType-and-action-role"><code>initiatorType</code> and <code>action</code> properties</a> for details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3149,13 +3159,13 @@ The table below explains each property in the event data.
         "audience": {
           "type": "application",
           "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
-          "display": "SB"
+          "display": "Sample Application"
         },
         "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
         "removedUsers": [
           {
             "id": "6c7f23d9-8083-4bf7-ab2c-885aa9faa186",
-            "userStoreDomain": "PRIMARY",
+            "userStoreDomain": "{{userstore_domain}}",
             "claims": [
               {
                 "uri": "http://wso2.org/claims/username",
@@ -3175,7 +3185,7 @@ The table below explains each property in the event data.
               },
               {
                 "uri": "http://wso2.org/claims/agent/Name",
-                "value": "Sales Agent"
+                "value": "NewAgent"
               }
             ]
           }
@@ -3268,21 +3278,21 @@ The table below explains each property in the event data.
         "audience": {
           "type": "application",
           "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
-          "display": "SB"
+          "display": "Sample Application"
         },
         "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
         "removedGroups": [
           {
             "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
             "groupName": "sales",
-            "userStoreDomain": "PRIMARY"
+            "userStoreDomain": "{{userstore_domain}}"
           }
         ],
         "addedGroups": [
           {
             "id": "da2aeb94-aebf-4846-b611-1865cf85aea5",
             "groupName": "sales",
-            "userStoreDomain": "PRIMARY"
+            "userStoreDomain": "{{userstore_domain}}"
           }
         ]
       }
@@ -3373,7 +3383,7 @@ The table below explains each property in the event data.
         "audience": {
           "type": "application",
           "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
-          "display": "SB"
+          "display": "Sample Application"
         },
         "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
         "addedIdpGroups": [
@@ -3472,7 +3482,7 @@ The table below explains each property in the event data.
         "audience": {
           "type": "application",
           "value": "6db0975b-9f7c-42d1-a8b4-895a77d23cff",
-          "display": "SB"
+          "display": "Sample Application"
         },
         "ref": "{{host_url}}/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72",
         "addedPermissions": [
@@ -3547,6 +3557,7 @@ The table below explains how these properties differ based on each flow.
 <table>
 <thead>
 <tr class="header">
+<th>Event</th>
 <th>Flow</th>
 <th>Value of <code>initiatorType</code></th>
 <th>Value of <code>action</code></th>
@@ -3555,36 +3566,63 @@ The table below explains how these properties differ based on each flow.
 </thead>
 <tbody>
 <tr class="odd">
+<td><code>roleCreated</code></td>
 <td>Admin initiated role creation</td>
 <td>ADMIN</td>
 <td>ROLE_CREATE</td>
 <td><p>Occurs when an administrator creates a role via the console or SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="even">
+<td><code>roleCreated</code></td>
 <td>Application initiated role creation</td>
 <td>APPLICATION</td>
 <td>ROLE_CREATE</td>
 <td><p>Occurs when an application with appropriate permissions creates a role via the SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="odd">
+<td><code>roleMetaUpdated</code>, <code>roleUsersUpdated</code>, <code>roleGroupsUpdated</code>, <code>roleIdpGroupsUpdated</code>, <code>rolePermissionsUpdated</code></td>
 <td>Admin initiated role update</td>
 <td>ADMIN</td>
 <td>ROLE_UPDATE</td>
 <td><p>Occurs when an administrator updates a role's metadata, users, groups, IdP groups, or permissions via the console or SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="even">
+<td><code>roleMetaUpdated</code>, <code>roleUsersUpdated</code>, <code>roleGroupsUpdated</code>, <code>roleIdpGroupsUpdated</code>, <code>rolePermissionsUpdated</code></td>
 <td>Application initiated role update</td>
 <td>APPLICATION</td>
 <td>ROLE_UPDATE</td>
 <td><p>Occurs when an application with appropriate permissions updates a role via the SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="odd">
+<td><code>roleUsersUpdated</code></td>
+<td>Role user update via an adaptive authentication script</td>
+<td>USER</td>
+<td>LOGIN</td>
+<td><p>Occurs when an adaptive authentication script updates a user's role assignments during the login flow.</p></td>
+</tr>
+<tr class="even">
+<td><code>roleUsersUpdated</code></td>
+<td>Role user assignment during self-registration</td>
+<td>USER</td>
+<td>REGISTER</td>
+<td><p>Occurs when a user's role assignments change during the self-registration flow.</p></td>
+</tr>
+<tr class="odd">
+<td><code>roleDeleted</code></td>
+<td>Direct role deletion</td>
+<td>ADMIN</td>
+<td>ROLE_DELETE</td>
+<td><p>Occurs when an administrator deletes a role directly via the console or SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="even">
+<td><code>roleDeleted</code></td>
 <td>Role removed from an application</td>
 <td>ADMIN</td>
 <td>APPLICATION_UPDATE</td>
 <td><p>Occurs when a role is removed from an application's Roles section.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
+<td><code>roleDeleted</code></td>
 <td>Role deleted with its application</td>
 <td>ADMIN</td>
 <td>APPLICATION_DELETE</td>
