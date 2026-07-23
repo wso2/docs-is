@@ -1,0 +1,857 @@
+openapi: 3.1.0
+info:
+  title: WSO2 Identity Platform Webhook Event Payloads
+  version: 1.0.0
+  description: |
+    Contract for the webhook event payloads emitted by the WSO2 Identity Platform.
+
+    Every payload is a single Security Event Token (SET)-style envelope (RFC 8417
+    shaped). The envelope is identical for every event; only the entry inside
+    `events` changes. `events` holds exactly one key — the event-type URI — and
+    that key maps to the event's data object.
+
+    Each event type is modelled as one variant under `events.oneOf`. A variant is
+    an object whose single property IS its event-type URI, so the URI both
+    identifies the event and discriminates the variant (variants that are
+    otherwise structurally identical, e.g. userEnabled vs userDisabled, stay
+    unambiguous because their required URI key differs).
+
+    Consumers should:
+      * Treat the single key of `events` as the event discriminator (a URI).
+      * Use `jti` for idempotency/dedup and `rci` to correlate events from one request.
+      * Tolerate unknown/new fields and event types (blocks are intentionally open).
+
+    Footguns baked into the source payloads:
+      * `iat` in the envelope is a number (epoch MILLISECONDS); `AccessToken.iat`
+        is a STRING (epoch seconds).
+      * `Consent.purpose.version` is a STRING (UUID), whereas
+        `PurposeVersion.version` is an OBJECT. Same name, different types.
+
+# OpenAPI 3.1 `webhooks`: the Identity Platform is the sender; the consumer implements
+# this endpoint. A single payload shape carries every event type.
+webhooks:
+  identityEvent:
+    post:
+      summary: An identity event delivered to the subscribed webhook endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookEvent'
+      responses:
+        '200':
+          description: Event acknowledged by the consumer.
+
+components:
+  schemas:
+
+    # ------------------------------------------------------------------
+    # The single event envelope. Identical for every event; only the entry
+    # inside `events` varies (see the EventData_* variants under oneOf).
+    # ------------------------------------------------------------------
+    WebhookEvent:
+      type: object
+      required: [iss, jti, rci, iat, events]
+      additionalProperties: false
+      properties:
+        iss:
+          type: string
+          format: uri
+          description: Identifies the WSO2 Identity Platform instance that issued the event.
+          example: https://api.asgardeo.io/t/myorg
+        jti:
+          type: string
+          description: A unique identifier for the event.
+          example: 051f0c37-b689-44d4-b7d2-29b980ece273
+        iat:
+          type: integer
+          format: int64
+          description: Timestamp showing when WSO2 Identity Platform issues the event. Epoch milliseconds.
+          example: 1751705149662
+        rci:
+          type: string
+          description: A unique identifier that correlates the event with the original request that triggered it.
+          example: 05268edb-9a87-4656-87c0-0fb674dd03b1
+        events:
+          type: object
+          description: >-
+            This object holds the actual event data. Its internal structure
+            changes depending on the specific event types you've subscribed to.
+          minProperties: 1
+          maxProperties: 1
+          oneOf:
+            - $ref: '#/components/schemas/EventData_LoginSuccess'
+            - $ref: '#/components/schemas/EventData_LoginFailed'
+            - $ref: '#/components/schemas/EventData_RegistrationSuccess'
+            - $ref: '#/components/schemas/EventData_RegistrationFailed'
+            - $ref: '#/components/schemas/EventData_AccessTokenIssued'
+            - $ref: '#/components/schemas/EventData_AccessTokenRevoked'
+            - $ref: '#/components/schemas/EventData_SessionEstablished'
+            - $ref: '#/components/schemas/EventData_SessionPresented'
+            - $ref: '#/components/schemas/EventData_SessionRevoked'
+            - $ref: '#/components/schemas/EventData_CredentialUpdated'
+            - $ref: '#/components/schemas/EventData_UserCreated'
+            - $ref: '#/components/schemas/EventData_UserProfileUpdated'
+            - $ref: '#/components/schemas/EventData_UserDisabled'
+            - $ref: '#/components/schemas/EventData_UserEnabled'
+            - $ref: '#/components/schemas/EventData_UserAccountLocked'
+            - $ref: '#/components/schemas/EventData_UserAccountUnlocked'
+            - $ref: '#/components/schemas/EventData_UserDeleted'
+            - $ref: '#/components/schemas/EventData_ConsentAdded'
+            - $ref: '#/components/schemas/EventData_ConsentRevoked'
+            - $ref: '#/components/schemas/EventData_PurposeVersionAdded'
+
+    # ------------------------------------------------------------------
+    # Reusable building blocks
+    # ------------------------------------------------------------------
+    InitiatorType:
+      type: string
+      description: Indicates the persona who initiates the identity flow.
+
+    Action:
+      type: string
+      description: Indicates the related identity flow.
+
+    InitiatorIpAddress:
+      type: string
+      description: Indicates the IP address of the initiator that triggered the event.
+      example: 203.0.113.10
+
+    Claim:
+      type: object
+      required: [uri, value]
+      additionalProperties: false
+      properties:
+        uri:
+          type: string
+          description: Local claim uri name. E.g., http://wso2.org/claims/username
+          example: http://wso2.org/claims/username
+        value:
+          description: >-
+            Claim value. Either a single value or an array of values for
+            multi-valued claims.
+          oneOf:
+            - type: string
+            - type: array
+              items: { type: string }
+          example: peter@aol.com
+
+    User:
+      type: object
+      description: Information of the user interacting in the related event.
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the user.
+          example: d4002616-f00c-49d5-b9b7-63b063819049
+        claims:
+          type: array
+          description: Claim values of the user.
+          items: { $ref: '#/components/schemas/Claim' }
+        organization: 
+          description: The organization the user belongs to (the user's resident organization).
+          allOf:
+            - $ref: '#/components/schemas/Organization'
+        ref:
+          type: string
+          format: uri
+          description: SCIM 2.0 resource URL for the user.
+
+    ProfileUpdatedUser:
+      description: Contains information about the user whose profile updated.
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the user.
+          example: d4002616-f00c-49d5-b9b7-63b063819049
+        organization: 
+          description: The organization the user belongs to (the user's resident organization).
+          allOf:
+            - $ref: '#/components/schemas/Organization'
+        addedClaims:
+          type: array
+          description: Claims added to the user's profile during the update.
+          items: { $ref: '#/components/schemas/Claim' }
+        updatedClaims:
+          type: array
+          description: Claims whose values changed during the update.
+          items: { $ref: '#/components/schemas/Claim' }
+        removedClaims:
+          type: array
+          description: Claims removed from the user's profile during the update.
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              uri:
+                type: string
+                description: Local claim uri name. E.g., http://wso2.org/claims/username
+                example: http://wso2.org/claims/username
+        ref:
+          type: string
+          format: uri
+          description: SCIM 2.0 resource URL for the user.
+
+    Tenant:
+      type: object
+      description: Root organization (tenant).
+      required: [id, name]
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: The unique numeric identifier of the tenant.
+          example: '12402'
+        name:
+          type: string
+          description: The domain name of the tenant.
+          example: myorg
+
+    Organization:
+      type: object
+      description: The organization under which the event is processed.
+      required: [id, name, orgHandle, depth]
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the organization.
+          example: 6f8d17ae-1ad5-441b-b9e0-c7731e739e94
+        name:
+          type: string
+          description: Name of the organization.
+          example: myorg
+        orgHandle:
+          type: string
+          description: Unique, human-readable handle of the organization.
+          example: myorg
+        depth:
+          type: integer
+          description: The depth of the organization in the hierarchy.
+          example: 0
+
+    UserStore:
+      type: object
+      description: User store managing the user's data.
+      required: [id, name]
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the user store.
+          example: UFJJTUFSWQ==
+        name:
+          type: string
+          description: >-
+            User store name used to identify the user store in configuration
+            settings, user interfaces, and administrative tasks.
+          example: PRIMARY
+
+    Application:
+      type: object
+      description: Information about an application.
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the application.
+          example: 40d982e5-23be-4ee1-8540-9cb696d8c321
+        name:
+          type: string
+          description: Name of the application.
+          example: MyApp
+
+    Session:
+      type: object
+      description: Information about the session.
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the session
+          example: 68d1f2861461c69d8e821d91839bbf8e23ef04fb96c1ac655f452d94d1fd6e4d
+        loginTime:
+          type: integer
+          format: int64
+          description: Timestamp when the session originally started.
+          example: 1755541960025
+        applications:
+          type: array
+          description: Array of applications associated with this session.
+          items: { $ref: '#/components/schemas/Application' }
+
+    AccessToken:
+      type: object
+      description: Details about the issued token.
+      additionalProperties: false
+      properties:
+        tokenType:
+          type: string
+          description: e.g. `Opaque` or `jwt`.
+          example: Opaque
+        iat:
+          type: string
+          description: Token issued at timestamp.
+          example: '1755541962069'
+        grantType:
+          type: string
+          description: OAuth2 grant type used for token issuance (e.g., `authorization_code`)
+          example: authorization_code
+
+    Reason:
+      type: object
+      description: Context information for the failure.
+      properties:
+        description:
+          type: string
+          description: Human-readable explanation of the failure.
+          example: User authentication failed due to invalid credentials
+        context:
+          type: object
+          description: Details about the failure point in the related identity flow.
+          properties:
+            failedStep:
+              type: object
+              description: Details about the failure step in the authentication flow.
+              properties:
+                step: { type: integer, example: 1, description: Step number where the failure occurred }
+                idp: { type: string, example: LOCAL, description: Identity Provider (IdP) involved in the failure }
+                authenticator: { type: string, example: BasicAuthenticator, description: Authenticator used. }
+
+    Consent:
+      type: object
+      description: Contains details about the consent.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the consent record.
+          example: 501a6ba7-0b15-4ae6-9642-03b5267ab996
+        subjectId:
+          type: string
+          description: Username of the user to whom the consent applies.
+          example: peter
+        state:
+          type: string
+          description: Current state of the consent.
+          example: APPROVED
+        serviceId:
+          type: string
+          description: The service or application for which the consent is granted.
+          example: Resident IDP
+        purpose:
+          type: object
+          description: Details of the consent purpose.
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the consent purpose.
+              example: 909eea3e-5bf1-4106-a5b8-44580fc4ae74
+            name:
+              type: string
+              description: Human-readable name of the consent purpose.
+              example: Marketing Consent
+            version:
+              type: string
+              description: The UUID of the specific purpose version the user consented to.
+              example: 12a53d28-4536-4201-939e-5e5c00eadf7b
+            elements:
+              type: array
+              description: Array of PII categories covered by the consent, each with a name.
+              items:
+                type: object
+                properties:
+                  name: { type: string, example: Policy }
+
+    PurposeVersion:
+      type: object
+      description: Contains details about the updated consent purpose.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the consent purpose.
+          example: 909eea3e-5bf1-4106-a5b8-44580fc4ae74
+        name:
+          type: string
+          description: Human-readable name of the consent purpose.
+          example: Marketing Consent
+        version:
+          type: object
+          description: Details of the newly added version.
+          properties:
+            version:
+              type: string
+              description: The version number of the new version.
+              example: '2'
+            setAsLatest:
+              type: boolean
+              description: Whether this version becomes the active version for new consents.
+              example: true
+            elements:
+              type: array
+              description: Array of attributes (elements) included in this version, each with a name and mandatory flag.
+              items:
+                type: object
+                properties:
+                  name: { type: string, example: Policy }
+                  mandatory: { type: boolean, example: false }
+
+    # ------------------------------------------------------------------
+    # Per-event variants. Each is the `events` object for one event type:
+    # a single property whose name is that event's event-type URI and whose
+    # value is the event data. The required URI key discriminates the oneOf.
+    # ------------------------------------------------------------------
+    EventData_LoginSuccess:
+      title: Login success
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/login/event-type/loginSuccess']
+      properties:
+        'https://schemas.identity.wso2.org/events/login/event-type/loginSuccess':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType:
+              type: string
+              description: Indicates the persona who initiates the identity flow. E.g., `USER`
+            action:
+              type: string
+              description: Indicates the related identity flow. E.g., `LOGIN`
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            application:
+              description: Information about the application that initiated the login.
+              allOf:
+                - $ref: '#/components/schemas/Application'
+            authenticationMethods:
+              type: array
+              description: An array of authentication methods used for the successful login (for example `BasicAuthenticator`).
+              items: { type: string }
+              example: [BasicAuthenticator]
+
+    EventData_LoginFailed:
+      title: Login failed
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/login/event-type/loginFailed']
+      properties:
+        'https://schemas.identity.wso2.org/events/login/event-type/loginFailed':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType:
+              type: string
+              description: Indicates the persona who initiates the identity flow. E.g., `USER`
+            action:
+              type: string
+              description: Indicates the related identity flow. E.g., `LOGIN`
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            application:
+              description: Information about the application that initiated the login.
+              allOf:
+                - $ref: '#/components/schemas/Application'
+            reason: { $ref: '#/components/schemas/Reason' }
+
+    EventData_RegistrationSuccess:
+      title: Registration success
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess']
+      properties:
+        'https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            action: { $ref: '#/components/schemas/Action' }
+
+    EventData_RegistrationFailed:
+      title: Registration failed
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed']
+      properties:
+        'https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            reason: { $ref: '#/components/schemas/Reason' }
+
+    EventData_AccessTokenIssued:
+      title: Access token issued
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued']
+      properties:
+        'https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            action: { $ref: '#/components/schemas/Action' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            application:
+              type: object
+              description: Information about the application that requested the token.
+              additionalProperties: false
+              properties:
+                name:
+                  type: string
+                  description: Name of the application.
+                  example: Test App
+                consumerKey:
+                  type: string
+                  description: Consumer key of the application.
+                  example: eaSbhGeDL7ek2ypVrb0h4ZYMSN0a
+            accessToken: { $ref: '#/components/schemas/AccessToken' }
+
+    EventData_AccessTokenRevoked:
+      title: Access token revoked
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked']
+      properties:
+        'https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            action: { $ref: '#/components/schemas/Action' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            applications:
+              type: array
+              description: Applications associated with the revoked token.
+              items:
+                type: object
+                additionalProperties: false
+                properties:
+                  id:
+                    type: string
+                    description: Unique identifier of the application.
+                    example: eb395ddd-1280-46e9-98fb-810948c1dab4
+                  name:
+                    type: string
+                    description: Name of the application.
+                    example: Test App
+                  consumerKey:
+                    type: string
+                    description: Consumer key of the application.
+                    example: eaSbhGeDL7ek2ypVrb0h4ZYMSN0a
+
+    EventData_SessionEstablished:
+      title: Session established
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished']
+      properties:
+        'https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            action: { $ref: '#/components/schemas/Action' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            application: 
+              description: Information about the application through which the session gets established.
+              allOf:
+                - $ref: '#/components/schemas/Application'
+            session: { $ref: '#/components/schemas/Session' }
+
+    EventData_SessionPresented:
+      title: Session presented
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionPresented']
+      properties:
+        'https://schemas.identity.wso2.org/events/session/event-type/sessionPresented':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            action: { $ref: '#/components/schemas/Action' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            application: 
+              description: Information about the application that requested the session presentation.
+              allOf:
+                - $ref: '#/components/schemas/Application'
+            session: { $ref: '#/components/schemas/Session' }
+
+    EventData_SessionRevoked:
+      title: Session revoked
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked']
+      properties:
+        'https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            action: { $ref: '#/components/schemas/Action' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            sessions:
+              type: array
+              description: Array of revoked sessions.
+              items: { $ref: '#/components/schemas/Session' }
+
+    EventData_CredentialUpdated:
+      title: Credential updated
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated']
+      properties:
+        'https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            credentialType:
+              type: string
+              description: Indicates which credential the user updates (e.g., `PASSWORD`).
+            action: { $ref: '#/components/schemas/Action' }
+
+    EventData_UserCreated:
+      title: User created
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/user/event-type/userCreated']
+      properties:
+        'https://schemas.identity.wso2.org/events/user/event-type/userCreated':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            action: { $ref: '#/components/schemas/Action' }
+
+    EventData_UserProfileUpdated:
+      title: User profile updated
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated']
+      properties:
+        'https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/ProfileUpdatedUser' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            action: { $ref: '#/components/schemas/Action' }
+
+    EventData_UserDisabled:
+      title: User disabled
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/user/event-type/userDisabled']
+      properties:
+        'https://schemas.identity.wso2.org/events/user/event-type/userDisabled':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            action: { $ref: '#/components/schemas/Action' }
+
+    EventData_UserEnabled:
+      title: User enabled
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/user/event-type/userEnabled']
+      properties:
+        'https://schemas.identity.wso2.org/events/user/event-type/userEnabled':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            action: { $ref: '#/components/schemas/Action' }
+
+    EventData_UserAccountLocked:
+      title: User account locked
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked']
+      properties:
+        'https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            action: { $ref: '#/components/schemas/Action' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+
+    EventData_UserAccountUnlocked:
+      title: User account unlocked
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked']
+      properties:
+        'https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            action: { $ref: '#/components/schemas/Action' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+
+    EventData_UserDeleted:
+      title: User deleted
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/user/event-type/userDeleted']
+      properties:
+        'https://schemas.identity.wso2.org/events/user/event-type/userDeleted':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            action: { $ref: '#/components/schemas/Action' }
+
+    EventData_ConsentAdded:
+      title: Consent added
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/consent/event-type/consentAdded']
+      properties:
+        'https://schemas.identity.wso2.org/events/consent/event-type/consentAdded':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            action: { $ref: '#/components/schemas/Action' }
+            consent: { $ref: '#/components/schemas/Consent' }
+
+    EventData_ConsentRevoked:
+      title: Consent revoked
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked']
+      properties:
+        'https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            user: { $ref: '#/components/schemas/User' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            userStore: { $ref: '#/components/schemas/UserStore' }
+            action: { $ref: '#/components/schemas/Action' }
+            consent: { $ref: '#/components/schemas/Consent' }
+
+    EventData_PurposeVersionAdded:
+      title: Purpose version added
+      type: object
+      additionalProperties: false
+      required: ['https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded']
+      properties:
+        'https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded':
+          type: object
+          required: [tenant, organization]
+          additionalProperties: false
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            purpose: { $ref: '#/components/schemas/PurposeVersion' }

@@ -1349,6 +1349,8 @@ nav:
     - Notification templates:
       - Email templates: references/email-templates.md
       - SMS templates: references/sms-templates.md
+    - Webhooks:
+      - API contract to implement: references/webhooks/api-contract.md
     - Service extensions:
       - In-flow extensions:
         - Custom authentication:
