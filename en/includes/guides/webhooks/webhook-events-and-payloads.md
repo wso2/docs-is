@@ -181,6 +181,18 @@ The table below explains each property in the event data.
 <td>authenticationMethods</td>
 <td><p>An array of authentication methods used for the successful login (for example <code>BasicAuthenticator</code>).</p></td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>LOGIN</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -375,6 +387,18 @@ The table below explains each property in the event data.
 </li>
 </ul>
 </td>
+</tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>LOGIN</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -933,6 +957,18 @@ The table below explains each property in the event data.
 </ul>
 </td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>TOKEN_ISSUE</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -1093,6 +1129,18 @@ The table below explains each property in the event data.
 <tr class="odd">
 <td>applications</td>
 <td><p>Contains information about applications associated with the revoked token. This appears as an array because token revocation can affect multiple applications.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>TOKEN_REVOKE</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1278,6 +1326,18 @@ The table below explains each property in the event data.
 </ul>
 </td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>LOGIN</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -1455,6 +1515,18 @@ The table below explains each property in the event data.
 <li><strong>applications</strong>: Array of applications associated with this session</li>
 </ul>
 </td>
+</tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>LOGIN</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2327,6 +2399,10 @@ The table below explains each property in the event data.
 <td>initiatorIpAddress</td>
 <td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
 </tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_DISABLE</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -2470,6 +2546,10 @@ The table below explains each property in the event data.
 <td>initiatorIpAddress</td>
 <td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
 </tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_ENABLE</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -2607,6 +2687,18 @@ The table below explains each property in the event data.
 <td>userStore</td>
 <td><p>Indicates the user store that manages the user's data.</p></td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_LOCK</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -2743,6 +2835,18 @@ The table below explains each property in the event data.
 <tr class="even">
 <td>userStore</td>
 <td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_UNLOCK</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2886,6 +2990,10 @@ The table below explains each property in the event data.
 <tr class="even">
 <td>initiatorIpAddress</td>
 <td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_DELETE</code>.</p></td>
 </tr>
 </tbody>
 </table>

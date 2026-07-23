@@ -1,6 +1,7 @@
 openapi: 3.1.0
 info:
   title: API contract for Webhook Events
+  version: 1.0.0
   description: |
     Contract for the webhook event payloads emitted by the WSO2 Identity Platform.
 
@@ -1455,30 +1456,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/login/event-type/loginSuccess']
       properties:
         'https://schemas.identity.wso2.org/events/login/event-type/loginSuccess':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType:
-              type: string
-              description: Indicates the persona who initiates the identity flow. E.g., `USER`
-            action:
-              type: string
-              description: Indicates the related identity flow. E.g., `LOGIN`
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            application:
-              description: Information about the application that initiated the login.
-              allOf:
-                - $ref: '#/components/schemas/Application'
-            authenticationMethods:
-              type: array
-              description: An array of authentication methods used for the successful login (for example `BasicAuthenticator`).
-              items: { type: string }
-              example: [BasicAuthenticator]
+          $ref: '#/components/schemas/LoginSuccessPayload'
 
     EventData_LoginFailed:
       title: Login failed
@@ -1487,26 +1465,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/login/event-type/loginFailed']
       properties:
         'https://schemas.identity.wso2.org/events/login/event-type/loginFailed':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType:
-              type: string
-              description: Indicates the persona who initiates the identity flow. E.g., `USER`
-            action:
-              type: string
-              description: Indicates the related identity flow. E.g., `LOGIN`
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            application:
-              description: Information about the application that initiated the login.
-              allOf:
-                - $ref: '#/components/schemas/Application'
-            reason: { $ref: '#/components/schemas/Reason' }
+          $ref: '#/components/schemas/LoginFailedPayload'
 
     EventData_RegistrationSuccess:
       title: Registration success
@@ -1515,17 +1474,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess']
       properties:
         'https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            action: { $ref: '#/components/schemas/Action' }
+          $ref: '#/components/schemas/RegistrationSuccessPayload'
 
     EventData_RegistrationFailed:
       title: Registration failed
@@ -1534,17 +1483,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed']
       properties:
         'https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            reason: { $ref: '#/components/schemas/Reason' }
+          $ref: '#/components/schemas/RegistrationFailedPayload'
 
     EventData_AccessTokenIssued:
       title: Access token issued
@@ -1553,31 +1492,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued']
       properties:
         'https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            action: { $ref: '#/components/schemas/Action' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            application:
-              type: object
-              description: Information about the application that requested the token.
-              additionalProperties: false
-              properties:
-                name:
-                  type: string
-                  description: Name of the application.
-                  example: Test App
-                consumerKey:
-                  type: string
-                  description: Consumer key of the application.
-                  example: eaSbhGeDL7ek2ypVrb0h4ZYMSN0a
-            accessToken: { $ref: '#/components/schemas/AccessToken' }
+          $ref: '#/components/schemas/AccessTokenIssuedPayload'
 
     EventData_AccessTokenRevoked:
       title: Access token revoked
@@ -1586,36 +1501,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked']
       properties:
         'https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            action: { $ref: '#/components/schemas/Action' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            applications:
-              type: array
-              description: Applications associated with the revoked token.
-              items:
-                type: object
-                additionalProperties: false
-                properties:
-                  id:
-                    type: string
-                    description: Unique identifier of the application.
-                    example: eb395ddd-1280-46e9-98fb-810948c1dab4
-                  name:
-                    type: string
-                    description: Name of the application.
-                    example: Test App
-                  consumerKey:
-                    type: string
-                    description: Consumer key of the application.
-                    example: eaSbhGeDL7ek2ypVrb0h4ZYMSN0a
+          $ref: '#/components/schemas/AccessTokenRevokedPayload'
 
     EventData_SessionEstablished:
       title: Session established
@@ -1624,22 +1510,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished']
       properties:
         'https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            action: { $ref: '#/components/schemas/Action' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            application: 
-              description: Information about the application through which the session gets established.
-              allOf:
-                - $ref: '#/components/schemas/Application'
-            session: { $ref: '#/components/schemas/Session' }
+          $ref: '#/components/schemas/SessionEstablishedPayload'
 
     EventData_SessionPresented:
       title: Session presented
@@ -1648,22 +1519,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionPresented']
       properties:
         'https://schemas.identity.wso2.org/events/session/event-type/sessionPresented':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            action: { $ref: '#/components/schemas/Action' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            application: 
-              description: Information about the application that requested the session presentation.
-              allOf:
-                - $ref: '#/components/schemas/Application'
-            session: { $ref: '#/components/schemas/Session' }
+          $ref: '#/components/schemas/SessionPresentedPayload'
 
     EventData_SessionRevoked:
       title: Session revoked
@@ -1672,21 +1528,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked']
       properties:
         'https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            action: { $ref: '#/components/schemas/Action' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            sessions:
-              type: array
-              description: Array of revoked sessions.
-              items: { $ref: '#/components/schemas/Session' }
+          $ref: '#/components/schemas/SessionRevokedPayload'
 
     EventData_CredentialUpdated:
       title: Credential updated
@@ -1695,20 +1537,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            credentialType:
-              type: string
-              description: Indicates which credential the user updates (e.g., `PASSWORD`).
-            action: { $ref: '#/components/schemas/Action' }
+          $ref: '#/components/schemas/CredentialUpdatedPayload'
 
     EventData_UserCreated:
       title: User created
@@ -1717,17 +1546,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userCreated']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userCreated':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            action: { $ref: '#/components/schemas/Action' }
+          $ref: '#/components/schemas/UserCreatedPayload'
 
     EventData_UserProfileUpdated:
       title: User profile updated
@@ -1736,17 +1555,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/ProfileUpdatedUser' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            action: { $ref: '#/components/schemas/Action' }
+          $ref: '#/components/schemas/UserProfileUpdatedPayload'
 
     EventData_UserDisabled:
       title: User disabled
@@ -1755,17 +1564,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userDisabled']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userDisabled':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            action: { $ref: '#/components/schemas/Action' }
+          $ref: '#/components/schemas/UserDisabledPayload'
 
     EventData_UserEnabled:
       title: User enabled
@@ -1774,17 +1573,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userEnabled']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userEnabled':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            action: { $ref: '#/components/schemas/Action' }
+          $ref: '#/components/schemas/UserEnabledPayload'
 
     EventData_UserAccountLocked:
       title: User account locked
@@ -1793,17 +1582,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            action: { $ref: '#/components/schemas/Action' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
+          $ref: '#/components/schemas/UserAccountLockedPayload'
 
     EventData_UserAccountUnlocked:
       title: User account unlocked
@@ -1812,17 +1591,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            action: { $ref: '#/components/schemas/Action' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
+          $ref: '#/components/schemas/UserAccountUnlockedPayload'
 
     EventData_UserDeleted:
       title: User deleted
@@ -1831,17 +1600,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userDeleted']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userDeleted':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            action: { $ref: '#/components/schemas/Action' }
+          $ref: '#/components/schemas/UserDeletedPayload'
 
     EventData_ConsentAdded:
       title: Consent added
@@ -1850,18 +1609,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/consent/event-type/consentAdded']
       properties:
         'https://schemas.identity.wso2.org/events/consent/event-type/consentAdded':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            action: { $ref: '#/components/schemas/Action' }
-            consent: { $ref: '#/components/schemas/Consent' }
+          $ref: '#/components/schemas/ConsentAddedPayload'
 
     EventData_ConsentRevoked:
       title: Consent revoked
@@ -1870,18 +1618,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked']
       properties:
         'https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            user: { $ref: '#/components/schemas/User' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            userStore: { $ref: '#/components/schemas/UserStore' }
-            action: { $ref: '#/components/schemas/Action' }
-            consent: { $ref: '#/components/schemas/Consent' }
+          $ref: '#/components/schemas/ConsentRevokedPayload'
 
     EventData_PurposeVersionAdded:
       title: Purpose version added
@@ -1890,16 +1627,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded']
       properties:
         'https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded':
-          type: object
-          required: [tenant, organization]
-          additionalProperties: false
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            purpose: { $ref: '#/components/schemas/PurposeVersion' }
+          $ref: '#/components/schemas/PurposeVersionAddedPayload'
 
     RoleAudience:
       type: object
@@ -1979,44 +1707,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/role/event-type/roleCreated']
       properties:
         'https://schemas.identity.wso2.org/events/role/event-type/roleCreated':
-          type: object
-          required: [tenant, organization]
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            role:
-              type: object
-              description: Contains details about the created role.
-              properties:
-                id:
-                  type: string
-                  description: Unique identifier of the role.
-                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
-                name:
-                  type: string
-                  description: Display name of the role.
-                  example: ROLE
-                audience: { $ref: '#/components/schemas/RoleAudience' }
-                ref:
-                  type: string
-                  description: SCIM v2 reference URL for the role.
-                users:
-                  type: array
-                  description: Users assigned to the role at creation. Present only when the role is created with users.
-                  items: { $ref: '#/components/schemas/RoleUser' }
-                groups:
-                  type: array
-                  description: Local groups assigned to the role at creation. Present only when the role is created with groups.
-                  items: { $ref: '#/components/schemas/RoleGroup' }
-                permissions:
-                  type: array
-                  description: Permission names granted to the role at creation. Present only when the role is created with permissions.
-                  items:
-                    type: string
-                    example: internal_session_view
+          $ref: '#/components/schemas/RoleCreatedPayload'
 
     EventData_RoleMetaUpdated:
       title: Role metadata updated
@@ -2024,30 +1715,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/role/event-type/roleMetaUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/role/event-type/roleMetaUpdated':
-          type: object
-          required: [tenant, organization]
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            role:
-              type: object
-              description: Contains details about the updated role.
-              properties:
-                id:
-                  type: string
-                  description: Unique identifier of the role.
-                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
-                name:
-                  type: string
-                  description: Display name of the role.
-                  example: ROLE
-                audience: { $ref: '#/components/schemas/RoleAudience' }
-                ref:
-                  type: string
-                  description: SCIM v2 reference URL for the role.
+          $ref: '#/components/schemas/RoleMetaUpdatedPayload'
 
     EventData_RoleDeleted:
       title: Role deleted
@@ -2055,27 +1723,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/role/event-type/roleDeleted']
       properties:
         'https://schemas.identity.wso2.org/events/role/event-type/roleDeleted':
-          type: object
-          required: [tenant, organization]
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            role:
-              type: object
-              description: Contains details about the deleted role.
-              properties:
-                id:
-                  type: string
-                  description: Unique identifier of the role.
-                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
-                name:
-                  type: string
-                  description: Display name of the role.
-                  example: ROLE
-                audience: { $ref: '#/components/schemas/RoleAudience' }
+          $ref: '#/components/schemas/RoleDeletedPayload'
 
     EventData_RoleUsersUpdated:
       title: Role users updated
@@ -2083,38 +1731,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/role/event-type/roleUsersUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/role/event-type/roleUsersUpdated':
-          type: object
-          required: [tenant, organization]
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            role:
-              type: object
-              description: Contains details about the role whose user assignments got updated.
-              properties:
-                id:
-                  type: string
-                  description: Unique identifier of the role.
-                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
-                name:
-                  type: string
-                  description: Display name of the role.
-                  example: ROLE
-                audience: { $ref: '#/components/schemas/RoleAudience' }
-                ref:
-                  type: string
-                  description: SCIM v2 reference URL for the role.
-                addedUsers:
-                  type: array
-                  description: Users assigned to the role in this update.
-                  items: { $ref: '#/components/schemas/RoleUser' }
-                removedUsers:
-                  type: array
-                  description: Users unassigned from the role in this update.
-                  items: { $ref: '#/components/schemas/RoleUser' }
+          $ref: '#/components/schemas/RoleUsersUpdatedPayload'
 
     EventData_RoleGroupsUpdated:
       title: Role groups updated
@@ -2122,38 +1739,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/role/event-type/roleGroupsUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/role/event-type/roleGroupsUpdated':
-          type: object
-          required: [tenant, organization]
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            role:
-              type: object
-              description: Contains details about the role whose group assignments got updated.
-              properties:
-                id:
-                  type: string
-                  description: Unique identifier of the role.
-                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
-                name:
-                  type: string
-                  description: Display name of the role.
-                  example: ROLE
-                audience: { $ref: '#/components/schemas/RoleAudience' }
-                ref:
-                  type: string
-                  description: SCIM v2 reference URL for the role.
-                addedGroups:
-                  type: array
-                  description: Local groups assigned to the role in this update.
-                  items: { $ref: '#/components/schemas/RoleGroup' }
-                removedGroups:
-                  type: array
-                  description: Local groups unassigned from the role in this update.
-                  items: { $ref: '#/components/schemas/RoleGroup' }
+          $ref: '#/components/schemas/RoleGroupsUpdatedPayload'
 
     EventData_RoleIdpGroupsUpdated:
       title: Role IdP groups updated
@@ -2161,38 +1747,7 @@ components:
       required: ['https://schemas.identity.wso2.org/events/role/event-type/roleIdpGroupsUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/role/event-type/roleIdpGroupsUpdated':
-          type: object
-          required: [tenant, organization]
-          properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            role:
-              type: object
-              description: Contains details about the role whose IdP group assignments got updated.
-              properties:
-                id:
-                  type: string
-                  description: Unique identifier of the role.
-                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
-                name:
-                  type: string
-                  description: Display name of the role.
-                  example: ROLE
-                audience: { $ref: '#/components/schemas/RoleAudience' }
-                ref:
-                  type: string
-                  description: SCIM v2 reference URL for the role.
-                addedIdpGroups:
-                  type: array
-                  description: Federated IdP groups assigned to the role in this update.
-                  items: { $ref: '#/components/schemas/RoleIdpGroup' }
-                removedIdpGroups:
-                  type: array
-                  description: Federated IdP groups unassigned from the role in this update.
-                  items: { $ref: '#/components/schemas/RoleIdpGroup' }
+          $ref: '#/components/schemas/RoleIdpGroupsUpdatedPayload'
 
     EventData_RolePermissionsUpdated:
       title: Role permissions updated
@@ -2200,39 +1755,571 @@ components:
       required: ['https://schemas.identity.wso2.org/events/role/event-type/rolePermissionsUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/role/event-type/rolePermissionsUpdated':
+          $ref: '#/components/schemas/RolePermissionsUpdatedPayload'
+
+    # ------------------------------------------------------------------
+    # Per-event payload objects (extracted from the inline oneOf members
+    # so the OpenAPI-to-Ballerina generator resolves them by name).
+    # ------------------------------------------------------------------
+
+    LoginSuccessPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType:
+          type: string
+          description: Indicates the persona who initiates the identity flow. E.g., `USER`
+        action:
+          type: string
+          description: Indicates the related identity flow. E.g., `LOGIN`
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        application:
+          description: Information about the application that initiated the login.
+          allOf:
+            - $ref: '#/components/schemas/Application'
+        authenticationMethods:
+          type: array
+          description: An array of authentication methods used for the successful login (for example `BasicAuthenticator`).
+          items: { type: string }
+          example: [BasicAuthenticator]
+
+    LoginFailedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType:
+          type: string
+          description: Indicates the persona who initiates the identity flow. E.g., `USER`
+        action:
+          type: string
+          description: Indicates the related identity flow. E.g., `LOGIN`
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        application:
+          description: Information about the application that initiated the login.
+          allOf:
+            - $ref: '#/components/schemas/Application'
+        reason: { $ref: '#/components/schemas/Reason' }
+
+    RegistrationSuccessPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        action: { $ref: '#/components/schemas/Action' }
+
+    RegistrationFailedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        reason: { $ref: '#/components/schemas/Reason' }
+
+    AccessTokenIssuedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        action: { $ref: '#/components/schemas/Action' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        application:
           type: object
-          required: [tenant, organization]
+          description: Information about the application that requested the token.
+          additionalProperties: false
           properties:
-            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
-            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
-            tenant: { $ref: '#/components/schemas/Tenant' }
-            organization: { $ref: '#/components/schemas/Organization' }
-            action: { $ref: '#/components/schemas/Action' }
-            role:
-              type: object
-              description: Contains details about the role whose permissions got updated.
-              properties:
-                id:
-                  type: string
-                  description: Unique identifier of the role.
-                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
-                name:
-                  type: string
-                  description: Display name of the role.
-                  example: ROLE
-                audience: { $ref: '#/components/schemas/RoleAudience' }
-                ref:
-                  type: string
-                  description: SCIM v2 reference URL for the role.
-                addedPermissions:
-                  type: array
-                  description: Permission names granted to the role in this update.
-                  items:
-                    type: string
-                    example: internal_session_view
-                removedPermissions:
-                  type: array
-                  description: Permission names revoked from the role in this update.
-                  items:
-                    type: string
-                    example: internal_session_view
+            name:
+              type: string
+              description: Name of the application.
+              example: Test App
+            consumerKey:
+              type: string
+              description: Consumer key of the application.
+              example: eaSbhGeDL7ek2ypVrb0h4ZYMSN0a
+        accessToken: { $ref: '#/components/schemas/AccessToken' }
+
+    AccessTokenRevokedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        action: { $ref: '#/components/schemas/Action' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        applications:
+          type: array
+          description: Applications associated with the revoked token.
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              id:
+                type: string
+                description: Unique identifier of the application.
+                example: eb395ddd-1280-46e9-98fb-810948c1dab4
+              name:
+                type: string
+                description: Name of the application.
+                example: Test App
+              consumerKey:
+                type: string
+                description: Consumer key of the application.
+                example: eaSbhGeDL7ek2ypVrb0h4ZYMSN0a
+
+    SessionEstablishedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        action: { $ref: '#/components/schemas/Action' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        application: 
+          description: Information about the application through which the session gets established.
+          allOf:
+            - $ref: '#/components/schemas/Application'
+        session: { $ref: '#/components/schemas/Session' }
+
+    SessionPresentedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        action: { $ref: '#/components/schemas/Action' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        application: 
+          description: Information about the application that requested the session presentation.
+          allOf:
+            - $ref: '#/components/schemas/Application'
+        session: { $ref: '#/components/schemas/Session' }
+
+    SessionRevokedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        action: { $ref: '#/components/schemas/Action' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        sessions:
+          type: array
+          description: Array of revoked sessions.
+          items: { $ref: '#/components/schemas/Session' }
+
+    CredentialUpdatedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        credentialType:
+          type: string
+          description: Indicates which credential the user updates (e.g., `PASSWORD`).
+        action: { $ref: '#/components/schemas/Action' }
+
+    UserCreatedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        action: { $ref: '#/components/schemas/Action' }
+
+    UserProfileUpdatedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/ProfileUpdatedUser' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        action: { $ref: '#/components/schemas/Action' }
+
+    UserDisabledPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        action: { $ref: '#/components/schemas/Action' }
+
+    UserEnabledPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        action: { $ref: '#/components/schemas/Action' }
+
+    UserAccountLockedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        action: { $ref: '#/components/schemas/Action' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+
+    UserAccountUnlockedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        action: { $ref: '#/components/schemas/Action' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+
+    UserDeletedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        action: { $ref: '#/components/schemas/Action' }
+
+    ConsentAddedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        action: { $ref: '#/components/schemas/Action' }
+        consent: { $ref: '#/components/schemas/Consent' }
+
+    ConsentRevokedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        user: { $ref: '#/components/schemas/User' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        userStore: { $ref: '#/components/schemas/UserStore' }
+        action: { $ref: '#/components/schemas/Action' }
+        consent: { $ref: '#/components/schemas/Consent' }
+
+    PurposeVersionAddedPayload:
+      type: object
+      required: [tenant, organization]
+      additionalProperties: false
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        purpose: { $ref: '#/components/schemas/PurposeVersion' }
+
+    RoleCreatedPayload:
+      type: object
+      required: [tenant, organization]
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        role:
+          type: object
+          description: Contains details about the created role.
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the role.
+              example: 1fad5996-3418-4883-925d-a319e3bb8e72
+            name:
+              type: string
+              description: Display name of the role.
+              example: ROLE
+            audience: { $ref: '#/components/schemas/RoleAudience' }
+            ref:
+              type: string
+              description: SCIM v2 reference URL for the role.
+            users:
+              type: array
+              description: Users assigned to the role at creation. Present only when the role is created with users.
+              items: { $ref: '#/components/schemas/RoleUser' }
+            groups:
+              type: array
+              description: Local groups assigned to the role at creation. Present only when the role is created with groups.
+              items: { $ref: '#/components/schemas/RoleGroup' }
+            permissions:
+              type: array
+              description: Permission names granted to the role at creation. Present only when the role is created with permissions.
+              items:
+                type: string
+                example: internal_session_view
+
+    RoleMetaUpdatedPayload:
+      type: object
+      required: [tenant, organization]
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        role:
+          type: object
+          description: Contains details about the updated role.
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the role.
+              example: 1fad5996-3418-4883-925d-a319e3bb8e72
+            name:
+              type: string
+              description: Display name of the role.
+              example: ROLE
+            audience: { $ref: '#/components/schemas/RoleAudience' }
+            ref:
+              type: string
+              description: SCIM v2 reference URL for the role.
+
+    RoleDeletedPayload:
+      type: object
+      required: [tenant, organization]
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        role:
+          type: object
+          description: Contains details about the deleted role.
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the role.
+              example: 1fad5996-3418-4883-925d-a319e3bb8e72
+            name:
+              type: string
+              description: Display name of the role.
+              example: ROLE
+            audience: { $ref: '#/components/schemas/RoleAudience' }
+
+    RoleUsersUpdatedPayload:
+      type: object
+      required: [tenant, organization]
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        role:
+          type: object
+          description: Contains details about the role whose user assignments got updated.
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the role.
+              example: 1fad5996-3418-4883-925d-a319e3bb8e72
+            name:
+              type: string
+              description: Display name of the role.
+              example: ROLE
+            audience: { $ref: '#/components/schemas/RoleAudience' }
+            ref:
+              type: string
+              description: SCIM v2 reference URL for the role.
+            addedUsers:
+              type: array
+              description: Users assigned to the role in this update.
+              items: { $ref: '#/components/schemas/RoleUser' }
+            removedUsers:
+              type: array
+              description: Users unassigned from the role in this update.
+              items: { $ref: '#/components/schemas/RoleUser' }
+
+    RoleGroupsUpdatedPayload:
+      type: object
+      required: [tenant, organization]
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        role:
+          type: object
+          description: Contains details about the role whose group assignments got updated.
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the role.
+              example: 1fad5996-3418-4883-925d-a319e3bb8e72
+            name:
+              type: string
+              description: Display name of the role.
+              example: ROLE
+            audience: { $ref: '#/components/schemas/RoleAudience' }
+            ref:
+              type: string
+              description: SCIM v2 reference URL for the role.
+            addedGroups:
+              type: array
+              description: Local groups assigned to the role in this update.
+              items: { $ref: '#/components/schemas/RoleGroup' }
+            removedGroups:
+              type: array
+              description: Local groups unassigned from the role in this update.
+              items: { $ref: '#/components/schemas/RoleGroup' }
+
+    RoleIdpGroupsUpdatedPayload:
+      type: object
+      required: [tenant, organization]
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        role:
+          type: object
+          description: Contains details about the role whose IdP group assignments got updated.
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the role.
+              example: 1fad5996-3418-4883-925d-a319e3bb8e72
+            name:
+              type: string
+              description: Display name of the role.
+              example: ROLE
+            audience: { $ref: '#/components/schemas/RoleAudience' }
+            ref:
+              type: string
+              description: SCIM v2 reference URL for the role.
+            addedIdpGroups:
+              type: array
+              description: Federated IdP groups assigned to the role in this update.
+              items: { $ref: '#/components/schemas/RoleIdpGroup' }
+            removedIdpGroups:
+              type: array
+              description: Federated IdP groups unassigned from the role in this update.
+              items: { $ref: '#/components/schemas/RoleIdpGroup' }
+
+    RolePermissionsUpdatedPayload:
+      type: object
+      required: [tenant, organization]
+      properties:
+        initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+        initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+        tenant: { $ref: '#/components/schemas/Tenant' }
+        organization: { $ref: '#/components/schemas/Organization' }
+        action: { $ref: '#/components/schemas/Action' }
+        role:
+          type: object
+          description: Contains details about the role whose permissions got updated.
+          properties:
+            id:
+              type: string
+              description: Unique identifier of the role.
+              example: 1fad5996-3418-4883-925d-a319e3bb8e72
+            name:
+              type: string
+              description: Display name of the role.
+              example: ROLE
+            audience: { $ref: '#/components/schemas/RoleAudience' }
+            ref:
+              type: string
+              description: SCIM v2 reference URL for the role.
+            addedPermissions:
+              type: array
+              description: Permission names granted to the role in this update.
+              items:
+                type: string
+                example: internal_session_view
+            removedPermissions:
+              type: array
+              description: Permission names revoked from the role in this update.
+              items:
+                type: string
+                example: internal_session_view
