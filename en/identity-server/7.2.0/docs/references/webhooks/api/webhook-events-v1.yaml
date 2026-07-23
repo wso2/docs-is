@@ -1,7 +1,6 @@
 openapi: 3.1.0
 info:
-  title: WSO2 Identity Server Webhook Event Payloads
-  version: 1.0.0
+  title: API contract for Webhook Events
   description: |
     Contract for the webhook event payloads emitted by the WSO2 Identity Server.
 
@@ -12,8 +11,8 @@ info:
 
 # OpenAPI 3.1 `webhooks`: the Identity Server is the sender; the consumer implements
 # this endpoint. A single payload shape carries every event type.
-webhooks:
-  identityEvent:
+paths:
+  /:
     post:
       summary: An identity event delivered to the subscribed webhook endpoint.
       requestBody:
