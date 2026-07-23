@@ -2,7 +2,9 @@ The following API contracts defines the request and response structures that you
 
 - [pre-issue access token API contract v1.0]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.0/)
 - [pre-issue access token API contract v1.1]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.1/)
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0" ) %}- [pre-issue access token API contract v1.2]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.2/){% endif %}
+{% if product_name == "WSO2 Identity Platform" %}- [pre-issue access token API contract v1.2]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.2/){% endif %}
+{% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %}- [pre-issue access token API contract v1.2]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.2/){% endif %}
+{% if product_name == "WSO2 Identity Platform" %}- [pre-issue access token API contract v1.3]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.3/){% endif %}
 
 ### Request from {{product_name}}
 
@@ -196,6 +198,19 @@ Sensitive parameters like client secret, username, and password don't appear.</t
 </table>
 </td>
 </tr>
+<tr class="odd">
+<td>event.response</td>
+<td><p>This property represents the token endpoint response that {{product_name}} is about to send to the client for the current token request.</p>
+<table>
+<tbody>
+<tr>
+<td>parameters</td>
+<td>An array of the top-level parameter names that will be present on the token endpoint's response, based on the current token request, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, and, if applicable, <code>refresh_token</code> and <code>id_token</code>. Your external service can use this list to add new custom parameters to the response without a name collision, or to remove the optional <code>refresh_token</code> or <code>id_token</code> parameters from the response.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -210,6 +225,10 @@ In the context of the pre-issue access token action, your external service can c
 But other standard access token claims, such as the issuer (iss) and token bindings (binding_type), represent the authorization server and play a critical role in authorization decisions. These properties aren't allowed for modification through the action. Use application and organization-level configurations to change these properties and their behaviors.
 
 Additionally, your external service can change any OIDC claims incorporated into the access token.
+
+Your external service can also add custom top-level parameters to the token endpoint response, or suppress optional standard parameters, such as <code>refresh_token</code> or <code>id_token</code>, from it. These operations use the <code>/response/parameters/</code> path, which relates to the <code>event.response</code> property.
+
+Unlike access token and refresh token claims, which only accept string, integer, boolean, and string array values, a custom parameter added to the token endpoint response can also be a JSON object or an array containing any combination of these value types, including nested objects and nested arrays. JSON objects, and arrays containing anything other than strings, can't be added to access token or refresh token claims.
 
 Here is the example of an allowedOperations object in a request formatted as a JSON payload:
 
@@ -464,6 +483,137 @@ This example illustrates a request sent to an external service configured as a p
                 "paths": [
                     "/accessToken/scopes/",
                     "/accessToken/claims/aud/"
+                ]
+            },
+            {
+                "op": "replace",
+                "paths": [
+                    "/accessToken/scopes/",
+                    "/accessToken/claims/aud/",
+                    "/accessToken/claims/expires_in",
+                    "/refreshToken/claims/expires_in"
+                ]
+            }
+        ]
+    }
+    ```
+
+=== "{% if product_name == "WSO2 Identity Platform" %}v1.3{% else %}v1.2{% endif %}"
+    ```http
+    POST /token HTTP/1.1
+    Host: localhost
+    Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+    Content-Type: application/json
+
+    {
+        "actionType": "PRE_ISSUE_ACCESS_TOKEN",
+        "event": {
+            "request": {
+                "additionalHeaders": {
+                    "host": [
+                        "localhost:9443"
+                    ],
+                    "user-agent": [
+                        "curl/7.79.1"
+                    ]
+                },
+                "clientId": "1u31N7of6gCNR9FqkG1neSlsF_Qa",
+                "grantType": "authorization_code"
+            },
+            "tenant": {
+                "id": "-1234",
+                "name": "carbon.super"
+            },
+            "organization": {
+                "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d",
+                "name": "carbon.super"
+            },
+            "user": {
+                "id": "e204849c-4ec2-41f1-8ff7-ec1ebff02821",
+                "organization": {
+                    "id": "f2604b90-e2e5-4a6c-bc83-0f942e34d20d",
+                    "name": "carbon.super"
+                }
+            },
+            "userStore": {
+                "id": "UFJJTUFSWQ==",
+                "name": "PRIMARY"
+            },
+            "accessToken": {
+                "tokenType": "JWT",
+                "scopes": [
+                    "email",
+                    "groups",
+                    "openid",
+                    "profile",
+                    "roles"
+                ],
+                "claims": [
+                    {
+                        "name": "iss",
+                        "value": "https://localhost:9443/oauth2/token"
+                    },
+                    {
+                        "name": "client_id",
+                        "value": "1u31N7of6gCNR9FqkG1neSlsF_Qa"
+                    },
+                    {
+                        "name": "aut",
+                        "value": "APPLICATION_USER"
+                    },
+                    {
+                        "name": "expires_in",
+                        "value": 3600
+                    },
+                    {
+                        "name": "aud",
+                        "value": [
+                            "1u31N7of6gCNR9FqkG1neSlsF_Qa"
+                        ]
+                    },
+                    {
+                        "name": "subject_type",
+                        "value": "public"
+                    },
+                    {
+                        "name": "sub",
+                        "value": "e204849c-4ec2-41f1-8ff7-ec1ebff02821"
+                    }
+                ]
+            },
+            "refreshToken": {
+                "claims": [
+                    {
+                        "name": "expires_in",
+                        "value": 86400
+                    }
+                ]
+            },
+            "response": {
+                "parameters": [
+                    "access_token",
+                    "scope",
+                    "expires_in",
+                    "refresh_token"
+                ]
+            }
+        },
+        "allowedOperations": [
+            {
+                "op": "add",
+                "paths": [
+                    "/accessToken/claims/",
+                    "/accessToken/scopes/",
+                    "/accessToken/claims/aud/",
+                    "/response/parameters/"
+                ]
+            },
+            {
+                "op": "remove",
+                "paths": [
+                    "/accessToken/scopes/",
+                    "/accessToken/claims/aud/",
+                    "/response/parameters/refresh_token"
                 ]
             },
             {
