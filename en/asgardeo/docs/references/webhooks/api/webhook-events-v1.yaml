@@ -839,6 +839,244 @@ paths:
                           elements:
                           - name: Policy
                             mandatory: false
+              roleCreated:
+                summary: Role created
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: 9befa02f-6977-472a-8450-09c391b6ba45
+                  iat: 1783322160021
+                  rci: accdbb61-d005-41ab-8760-58fd7a539bf9
+                  events:
+                    https://schemas.identity.wso2.org/events/role/event-type/roleCreated:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ROLE_CREATE
+                      role:
+                        id: 1fad5996-3418-4883-925d-a319e3bb8e72
+                        name: ROLE
+                        audience:
+                          type: application
+                          value: 6db0975b-9f7c-42d1-a8b4-895a77d23cff
+                          display: Sample Application
+                        ref: https://api.asgardeo.io/t/myorg/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72
+                        users:
+                        - id: 6c7f23d9-8083-4bf7-ab2c-885aa9faa186
+                          userStoreDomain: PRIMARY
+                          claims:
+                          - uri: http://wso2.org/claims/username
+                            value: abcuser
+                        groups:
+                        - id: da2aeb94-aebf-4846-b611-1865cf85aea5
+                          groupName: sales
+                          userStoreDomain: PRIMARY
+                        permissions:
+                        - internal_session_view
+              roleMetaUpdated:
+                summary: Role metadata updated
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: cead6c7f-a38c-4752-9485-56af37c1db5f
+                  iat: 1783322212811
+                  rci: ad969f38-830c-41e7-b4c1-6f5544544921
+                  events:
+                    https://schemas.identity.wso2.org/events/role/event-type/roleMetaUpdated:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ROLE_UPDATE
+                      role:
+                        id: 1fad5996-3418-4883-925d-a319e3bb8e72
+                        name: ROLE-updated
+                        audience:
+                          type: application
+                          value: 6db0975b-9f7c-42d1-a8b4-895a77d23cff
+                          display: Sample Application
+                        ref: https://api.asgardeo.io/t/myorg/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72
+              roleDeleted:
+                summary: Role deleted
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: 361f4c4c-e35e-43bb-a52d-864a4b659f2f
+                  iat: 1783322224574
+                  rci: 90b7008c-50f5-411e-b2fe-f67b1b632d77
+                  events:
+                    https://schemas.identity.wso2.org/events/role/event-type/roleDeleted:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: APPLICATION_UPDATE
+                      role:
+                        id: 1fad5996-3418-4883-925d-a319e3bb8e72
+                        name: ROLE
+                        audience:
+                          type: application
+                          value: 6db0975b-9f7c-42d1-a8b4-895a77d23cff
+                          display: Sample Application
+              roleUsersUpdated:
+                summary: Role users updated
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: 09a24bef-04f2-407a-a061-e851d0a8d581
+                  iat: 1783322202677
+                  rci: 1bab73e8-d1fe-4469-89fc-41488aa718fb
+                  events:
+                    https://schemas.identity.wso2.org/events/role/event-type/roleUsersUpdated:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ROLE_UPDATE
+                      role:
+                        id: 1fad5996-3418-4883-925d-a319e3bb8e72
+                        name: ROLE
+                        audience:
+                          type: application
+                          value: 6db0975b-9f7c-42d1-a8b4-895a77d23cff
+                          display: Sample Application
+                        ref: https://api.asgardeo.io/t/myorg/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72
+                        removedUsers:
+                        - id: 6c7f23d9-8083-4bf7-ab2c-885aa9faa186
+                          userStoreDomain: PRIMARY
+                          claims:
+                          - uri: http://wso2.org/claims/username
+                            value: abcuser
+                        addedUsers:
+                        - id: 311b60cf-da6f-4378-8cd1-31e3e7026f4d
+                          userStoreDomain: AGENT
+                          claims:
+                          - uri: http://wso2.org/claims/username
+                            value: 311b60cf-da6f-4378-8cd1-31e3e7026f4d
+                          - uri: http://wso2.org/claims/agent/Name
+                            value: NewAgent
+              roleGroupsUpdated:
+                summary: Role groups updated
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: be85978e-5ac6-48a1-ae54-24c292f1f3c3
+                  iat: 1783322195097
+                  rci: fd338a56-569b-4b1f-a9e3-9bffade3b481
+                  events:
+                    https://schemas.identity.wso2.org/events/role/event-type/roleGroupsUpdated:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ROLE_UPDATE
+                      role:
+                        id: 1fad5996-3418-4883-925d-a319e3bb8e72
+                        name: ROLE
+                        audience:
+                          type: application
+                          value: 6db0975b-9f7c-42d1-a8b4-895a77d23cff
+                          display: Sample Application
+                        ref: https://api.asgardeo.io/t/myorg/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72
+                        removedGroups:
+                        - id: da2aeb94-aebf-4846-b611-1865cf85aea5
+                          groupName: sales
+                          userStoreDomain: PRIMARY
+                        addedGroups:
+                        - id: da2aeb94-aebf-4846-b611-1865cf85aea5
+                          groupName: sales
+                          userStoreDomain: PRIMARY
+              roleIdpGroupsUpdated:
+                summary: Role IdP groups updated
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: d443cbd9-82c5-4397-8d2d-b1b143f13905
+                  iat: 1783322195104
+                  rci: fd338a56-569b-4b1f-a9e3-9bffade3b481
+                  events:
+                    https://schemas.identity.wso2.org/events/role/event-type/roleIdpGroupsUpdated:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ROLE_UPDATE
+                      role:
+                        id: 1fad5996-3418-4883-925d-a319e3bb8e72
+                        name: ROLE
+                        audience:
+                          type: application
+                          value: 6db0975b-9f7c-42d1-a8b4-895a77d23cff
+                          display: Sample Application
+                        ref: https://api.asgardeo.io/t/myorg/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72
+                        addedIdpGroups:
+                        - groupId: 7ae41d10-e4a1-4ed8-adc2-8644872b8783
+                          groupName: idpgroup1
+                          idpId: 8ef35e33-b4dc-444f-8d71-3ff32e44cca9
+                          idpName: IDP
+              rolePermissionsUpdated:
+                summary: Role permissions updated
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: 99ea2226-328e-4b60-bc8d-4d72028267e8
+                  iat: 1783322187274
+                  rci: c607ec61-8bcc-4f2c-8b21-064f3774fdd4
+                  events:
+                    https://schemas.identity.wso2.org/events/role/event-type/rolePermissionsUpdated:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ROLE_UPDATE
+                      role:
+                        id: 1fad5996-3418-4883-925d-a319e3bb8e72
+                        name: ROLE
+                        audience:
+                          type: application
+                          value: 6db0975b-9f7c-42d1-a8b4-895a77d23cff
+                          display: Sample Application
+                        ref: https://api.asgardeo.io/t/myorg/scim2/v2/Roles/1fad5996-3418-4883-925d-a319e3bb8e72
+                        addedPermissions:
+                        - internal_session_delete
+                        removedPermissions:
+                        - internal_session_view
       responses:
         '200':
           description: Event acknowledged by the consumer.
@@ -901,6 +1139,13 @@ components:
             - $ref: '#/components/schemas/EventData_ConsentAdded'
             - $ref: '#/components/schemas/EventData_ConsentRevoked'
             - $ref: '#/components/schemas/EventData_PurposeVersionAdded'
+            - $ref: '#/components/schemas/EventData_RoleCreated'
+            - $ref: '#/components/schemas/EventData_RoleMetaUpdated'
+            - $ref: '#/components/schemas/EventData_RoleDeleted'
+            - $ref: '#/components/schemas/EventData_RoleUsersUpdated'
+            - $ref: '#/components/schemas/EventData_RoleGroupsUpdated'
+            - $ref: '#/components/schemas/EventData_RoleIdpGroupsUpdated'
+            - $ref: '#/components/schemas/EventData_RolePermissionsUpdated'
 
     # ------------------------------------------------------------------
     # Reusable building blocks
@@ -1655,3 +1900,339 @@ components:
             organization: { $ref: '#/components/schemas/Organization' }
             action: { $ref: '#/components/schemas/Action' }
             purpose: { $ref: '#/components/schemas/PurposeVersion' }
+
+    RoleAudience:
+      type: object
+      description: The audience the role is scoped to.
+      properties:
+        type:
+          type: string
+          description: The audience type. Either `organization` or `application`.
+          example: application
+        value:
+          type: string
+          description: Identifier of the audience. The organization id for an organization-scoped role, or the application id for an application-scoped role.
+          example: 6db0975b-9f7c-42d1-a8b4-895a77d23cff
+        display:
+          type: string
+          description: Display name of the audience. The organization name for an organization-scoped role, or the application name for an application-scoped role.
+          example: Sample Application
+
+    RoleUser:
+      type: object
+      description: A user assigned to or unassigned from the role.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the user.
+          example: 6c7f23d9-8083-4bf7-ab2c-885aa9faa186
+        userStoreDomain:
+          type: string
+          description: The user store domain the user belongs to.
+          example: PRIMARY
+        claims:
+          type: array
+          description: Claim values of the user.
+          items: { $ref: '#/components/schemas/Claim' }
+
+    RoleGroup:
+      type: object
+      description: A local group assigned to or unassigned from the role.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the group.
+          example: da2aeb94-aebf-4846-b611-1865cf85aea5
+        groupName:
+          type: string
+          description: Name of the group.
+          example: sales
+        userStoreDomain:
+          type: string
+          description: The user store domain the group belongs to.
+          example: PRIMARY
+
+    RoleIdpGroup:
+      type: object
+      description: A federated identity provider (IdP) group assigned to or unassigned from the role.
+      properties:
+        groupId:
+          type: string
+          description: Unique identifier of the IdP group.
+          example: 7ae41d10-e4a1-4ed8-adc2-8644872b8783
+        groupName:
+          type: string
+          description: Name of the IdP group.
+          example: idpgroup1
+        idpId:
+          type: string
+          description: Unique identifier of the identity provider.
+          example: 8ef35e33-b4dc-444f-8d71-3ff32e44cca9
+        idpName:
+          type: string
+          description: Name of the identity provider.
+          example: IDP
+
+    EventData_RoleCreated:
+      title: Role created
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/role/event-type/roleCreated']
+      properties:
+        'https://schemas.identity.wso2.org/events/role/event-type/roleCreated':
+          type: object
+          required: [tenant, organization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            role:
+              type: object
+              description: Contains details about the created role.
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the role.
+                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
+                name:
+                  type: string
+                  description: Display name of the role.
+                  example: ROLE
+                audience: { $ref: '#/components/schemas/RoleAudience' }
+                ref:
+                  type: string
+                  description: SCIM v2 reference URL for the role.
+                users:
+                  type: array
+                  description: Users assigned to the role at creation. Present only when the role is created with users.
+                  items: { $ref: '#/components/schemas/RoleUser' }
+                groups:
+                  type: array
+                  description: Local groups assigned to the role at creation. Present only when the role is created with groups.
+                  items: { $ref: '#/components/schemas/RoleGroup' }
+                permissions:
+                  type: array
+                  description: Permission names granted to the role at creation. Present only when the role is created with permissions.
+                  items:
+                    type: string
+                    example: internal_session_view
+
+    EventData_RoleMetaUpdated:
+      title: Role metadata updated
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/role/event-type/roleMetaUpdated']
+      properties:
+        'https://schemas.identity.wso2.org/events/role/event-type/roleMetaUpdated':
+          type: object
+          required: [tenant, organization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            role:
+              type: object
+              description: Contains details about the updated role.
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the role.
+                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
+                name:
+                  type: string
+                  description: Display name of the role.
+                  example: ROLE
+                audience: { $ref: '#/components/schemas/RoleAudience' }
+                ref:
+                  type: string
+                  description: SCIM v2 reference URL for the role.
+
+    EventData_RoleDeleted:
+      title: Role deleted
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/role/event-type/roleDeleted']
+      properties:
+        'https://schemas.identity.wso2.org/events/role/event-type/roleDeleted':
+          type: object
+          required: [tenant, organization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            role:
+              type: object
+              description: Contains details about the deleted role.
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the role.
+                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
+                name:
+                  type: string
+                  description: Display name of the role.
+                  example: ROLE
+                audience: { $ref: '#/components/schemas/RoleAudience' }
+
+    EventData_RoleUsersUpdated:
+      title: Role users updated
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/role/event-type/roleUsersUpdated']
+      properties:
+        'https://schemas.identity.wso2.org/events/role/event-type/roleUsersUpdated':
+          type: object
+          required: [tenant, organization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            role:
+              type: object
+              description: Contains details about the role whose user assignments got updated.
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the role.
+                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
+                name:
+                  type: string
+                  description: Display name of the role.
+                  example: ROLE
+                audience: { $ref: '#/components/schemas/RoleAudience' }
+                ref:
+                  type: string
+                  description: SCIM v2 reference URL for the role.
+                addedUsers:
+                  type: array
+                  description: Users assigned to the role in this update.
+                  items: { $ref: '#/components/schemas/RoleUser' }
+                removedUsers:
+                  type: array
+                  description: Users unassigned from the role in this update.
+                  items: { $ref: '#/components/schemas/RoleUser' }
+
+    EventData_RoleGroupsUpdated:
+      title: Role groups updated
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/role/event-type/roleGroupsUpdated']
+      properties:
+        'https://schemas.identity.wso2.org/events/role/event-type/roleGroupsUpdated':
+          type: object
+          required: [tenant, organization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            role:
+              type: object
+              description: Contains details about the role whose group assignments got updated.
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the role.
+                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
+                name:
+                  type: string
+                  description: Display name of the role.
+                  example: ROLE
+                audience: { $ref: '#/components/schemas/RoleAudience' }
+                ref:
+                  type: string
+                  description: SCIM v2 reference URL for the role.
+                addedGroups:
+                  type: array
+                  description: Local groups assigned to the role in this update.
+                  items: { $ref: '#/components/schemas/RoleGroup' }
+                removedGroups:
+                  type: array
+                  description: Local groups unassigned from the role in this update.
+                  items: { $ref: '#/components/schemas/RoleGroup' }
+
+    EventData_RoleIdpGroupsUpdated:
+      title: Role IdP groups updated
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/role/event-type/roleIdpGroupsUpdated']
+      properties:
+        'https://schemas.identity.wso2.org/events/role/event-type/roleIdpGroupsUpdated':
+          type: object
+          required: [tenant, organization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            role:
+              type: object
+              description: Contains details about the role whose IdP group assignments got updated.
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the role.
+                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
+                name:
+                  type: string
+                  description: Display name of the role.
+                  example: ROLE
+                audience: { $ref: '#/components/schemas/RoleAudience' }
+                ref:
+                  type: string
+                  description: SCIM v2 reference URL for the role.
+                addedIdpGroups:
+                  type: array
+                  description: Federated IdP groups assigned to the role in this update.
+                  items: { $ref: '#/components/schemas/RoleIdpGroup' }
+                removedIdpGroups:
+                  type: array
+                  description: Federated IdP groups unassigned from the role in this update.
+                  items: { $ref: '#/components/schemas/RoleIdpGroup' }
+
+    EventData_RolePermissionsUpdated:
+      title: Role permissions updated
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/role/event-type/rolePermissionsUpdated']
+      properties:
+        'https://schemas.identity.wso2.org/events/role/event-type/rolePermissionsUpdated':
+          type: object
+          required: [tenant, organization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            role:
+              type: object
+              description: Contains details about the role whose permissions got updated.
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the role.
+                  example: 1fad5996-3418-4883-925d-a319e3bb8e72
+                name:
+                  type: string
+                  description: Display name of the role.
+                  example: ROLE
+                audience: { $ref: '#/components/schemas/RoleAudience' }
+                ref:
+                  type: string
+                  description: SCIM v2 reference URL for the role.
+                addedPermissions:
+                  type: array
+                  description: Permission names granted to the role in this update.
+                  items:
+                    type: string
+                    example: internal_session_view
+                removedPermissions:
+                  type: array
+                  description: Permission names revoked from the role in this update.
+                  items:
+                    type: string
+                    example: internal_session_view
