@@ -72,3 +72,7 @@ const
 base_url
 MAUs
 Entra
+access_token
+expires_in
+refresh_token
+id_token
