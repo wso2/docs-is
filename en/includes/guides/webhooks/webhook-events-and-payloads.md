@@ -3557,7 +3557,7 @@ The table below explains how these properties differ based on each flow.
 <table>
 <thead>
 <tr class="header">
-<th>Event</th>
+<th>Webhook event</th>
 <th>Flow</th>
 <th>Value of <code>initiatorType</code></th>
 <th>Value of <code>action</code></th>
@@ -3566,63 +3566,109 @@ The table below explains how these properties differ based on each flow.
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>roleCreated</code></td>
+<td rowspan="2">Role created</td>
 <td>Admin initiated role creation</td>
 <td>ADMIN</td>
 <td>ROLE_CREATE</td>
 <td><p>Occurs when an administrator creates a role via the console or SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="even">
-<td><code>roleCreated</code></td>
 <td>Application initiated role creation</td>
 <td>APPLICATION</td>
 <td>ROLE_CREATE</td>
 <td><p>Occurs when an application with appropriate permissions creates a role via the SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="odd">
-<td><code>roleMetaUpdated</code>, <code>roleUsersUpdated</code>, <code>roleGroupsUpdated</code>, <code>roleIdpGroupsUpdated</code>, <code>rolePermissionsUpdated</code></td>
-<td>Admin initiated role update</td>
+<td rowspan="2">Role metadata updated</td>
+<td>Admin initiated role metadata update</td>
 <td>ADMIN</td>
 <td>ROLE_UPDATE</td>
-<td><p>Occurs when an administrator updates a role's metadata, users, groups, IdP groups, or permissions via the console or SCIM 2.0 Roles API.</p></td>
+<td><p>Occurs when an administrator updates a role's metadata via the console or SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="even">
-<td><code>roleMetaUpdated</code>, <code>roleUsersUpdated</code>, <code>roleGroupsUpdated</code>, <code>roleIdpGroupsUpdated</code>, <code>rolePermissionsUpdated</code></td>
-<td>Application initiated role update</td>
+<td>Application initiated role metadata update</td>
 <td>APPLICATION</td>
 <td>ROLE_UPDATE</td>
-<td><p>Occurs when an application with appropriate permissions updates a role via the SCIM 2.0 Roles API.</p></td>
+<td><p>Occurs when an application with appropriate permissions updates a role's metadata via the SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="odd">
-<td><code>roleUsersUpdated</code></td>
-<td>Role user update via an adaptive authentication script</td>
+<td rowspan="4">Role users updated</td>
+<td>Admin initiated user assignment update</td>
+<td>ADMIN</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an administrator assigns users to or unassigns users from a role via the console or SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated user assignment update</td>
+<td>APPLICATION</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an application with appropriate permissions updates a role's user assignments via the SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="odd">
+<td>User assignment via an adaptive authentication script</td>
 <td>USER</td>
 <td>LOGIN</td>
 <td><p>Occurs when an adaptive authentication script updates a user's role assignments during the login flow.</p></td>
 </tr>
 <tr class="even">
-<td><code>roleUsersUpdated</code></td>
-<td>Role user assignment during self-registration</td>
+<td>User assignment during self-registration</td>
 <td>USER</td>
 <td>REGISTER</td>
 <td><p>Occurs when a user's role assignments change during the self-registration flow.</p></td>
 </tr>
 <tr class="odd">
-<td><code>roleDeleted</code></td>
+<td rowspan="2">Role groups updated</td>
+<td>Admin initiated group assignment update</td>
+<td>ADMIN</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an administrator assigns groups to or unassigns groups from a role via the console or SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated group assignment update</td>
+<td>APPLICATION</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an application with appropriate permissions updates a role's group assignments via the SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">Role IdP groups updated</td>
+<td>Admin initiated IdP group assignment update</td>
+<td>ADMIN</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an administrator assigns federated IdP groups to or unassigns them from a role via the console or SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated IdP group assignment update</td>
+<td>APPLICATION</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an application with appropriate permissions updates a role's federated IdP group assignments via the SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">Role permissions updated</td>
+<td>Admin initiated permission update</td>
+<td>ADMIN</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an administrator grants permissions to or revokes permissions from a role via the console or SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated permission update</td>
+<td>APPLICATION</td>
+<td>ROLE_UPDATE</td>
+<td><p>Occurs when an application with appropriate permissions updates a role's permissions via the SCIM 2.0 Roles API.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="3">Role deleted</td>
 <td>Direct role deletion</td>
 <td>ADMIN</td>
 <td>ROLE_DELETE</td>
 <td><p>Occurs when an administrator deletes a role directly via the console or SCIM 2.0 Roles API.</p></td>
 </tr>
 <tr class="even">
-<td><code>roleDeleted</code></td>
 <td>Role removed from an application</td>
 <td>ADMIN</td>
 <td>APPLICATION_UPDATE</td>
 <td><p>Occurs when a role is removed from an application's Roles section.</p></td>
 </tr>
 <tr class="odd">
-<td><code>roleDeleted</code></td>
 <td>Role deleted with its application</td>
 <td>ADMIN</td>
 <td>APPLICATION_DELETE</td>
