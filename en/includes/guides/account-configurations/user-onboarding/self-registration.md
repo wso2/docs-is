@@ -1,5 +1,12 @@
 # Self registration
 
+{% if product_name == "WSO2 Identity Platform" %}
+
+!!!note
+    For organizations created after 08th March 2026, use the new flow-based self-registration experience. Refer to [Self Registration]({{base_path}}/guides/flows/self-registration/) for more details.
+
+{% endif %}
+
 You can enable users to self-register to your organization from the login page of the application. This creates a new user account for the user.
 
 ## Enable/Disable self-registration
