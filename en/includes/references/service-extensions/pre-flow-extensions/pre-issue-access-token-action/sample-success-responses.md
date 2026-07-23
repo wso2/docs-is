@@ -8,7 +8,7 @@ To add a custom claim to the access token, use the <code>/accessToken/claims/</c
 
 When adding a new claim, you need to specify the index where the claim should be inserted. The specified index must not be greater than the number of elements currently in the array. If you want to add the claim to the end of the array, you can use the <code>-</code> character as the index.
 
-Only string, number, boolean, and string type arrays are allowed to be added to the access token claims.
+Only string, integer, boolean, and string type arrays are allowed to be added to the access token claims.
 
 Refer to the example response below, which demonstrates adding a custom claim to the last position of access token claims:
 
@@ -191,12 +191,12 @@ Content-Type: application/json;charset=UTF-8
 
 ## Adding a custom parameter to the token endpoint response
 
-To add a custom top level parameter to the token endpoint response, use the <code>/response/parameters/-</code> path in the <code>event.response</code> request.
+To add a custom top-level parameter to the token endpoint response, use the <code>/response/parameters/-</code> path in the <code>event.response</code> request.
 
-String, number, boolean, JSON objects, and arrays are allowed as parameter values. Unlike access token and refresh token claims, arrays aren't limited to string elements — they can hold any combination of these value types, including nested objects and nested arrays. The parameter name must not collide with a standard parameter name, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, <code>refresh_token</code>, or an already added custom parameter.
+String, integer, boolean, JSON objects, and arrays are allowed as parameter values. Unlike access token and refresh token claims, arrays aren't limited to string elements — they can hold any combination of these value types, including nested objects and nested arrays. The parameter name must not collide with a standard parameter name, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, <code>refresh_token</code>, or an already added custom parameter.
 
 !!! note
-    Unlike token endpoint response parameters, access token and refresh token claims only accept string, number, boolean, and string type array values. JSON objects, and arrays containing anything other than strings, aren't allowed as claim values, so they can't be injected into the access token or the ID token.
+    Unlike token endpoint response parameters, access token and refresh token claims only accept string, integer, boolean, and string type array values. JSON objects, and arrays containing anything other than strings, aren't allowed as claim values, so they can't be injected into the access token or the refresh token.
 
 Refer to the example response below, which demonstrates adding a custom parameter to the token endpoint response:
 

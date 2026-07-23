@@ -28,7 +28,7 @@ paths:
                   - $ref: '#/components/schemas/SuccessResponse'
                   - $ref: '#/components/schemas/FailedResponse'
               examples:
-                successExampleForAsscessTokenClaims:
+                successExampleForAccessTokenClaims:
                   summary: Success response for access token claims add
                   value:
                     actionStatus: SUCCESS
@@ -89,7 +89,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               example:
-              - actionStatus: ERROR
+                actionStatus: ERROR
                 errorMessage: invalid_request
                 errorDescription: SID claim is missing
         "500":
@@ -99,7 +99,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               example:
-              - actionStatus: ERROR
+                actionStatus: ERROR
                 errorMessage: server_error
                 errorDescription: Failed to process the response
 components:
@@ -164,8 +164,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RequestParams'
-      description: Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows.
-        All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc..
+          description: Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows.
+            All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc..
+      description: Represents the access token request received by WSO2 Identity Platform.
     Tenant:
       type: object
       required:
@@ -375,12 +376,12 @@ components:
             - replace
         paths:
           type: array
+          example:
+          - /accessToken/claims
+          - /accessToken/scopes
+          - /refreshToken/claims/expires_in
           items:
             type: string
-            example:
-            - /accessToken/claims
-            - /accessToken/scopes
-            - /refreshToken/claims/expires_in
       description: Defines the replace operation.
     removeOperation:
       type: object
@@ -394,12 +395,12 @@ components:
             - remove
         paths:
           type: array
+          example:
+          - /accessToken/claims
+          - /accessToken/scopes
+          - /response/parameters/refresh_token
           items:
             type: string
-            example:
-            - /accessToken/claims
-            - /accessToken/scopes
-            - /response/parameters/refresh_token
       description: Defines the remove operation.
     SuccessResponse:
       type: object
@@ -545,10 +546,7 @@ components:
             - add
         path:
           type: string
-          example:
-            - /accessToken/claims/-
-            - /accessToken/scopes/0
-            - /response/parameters/-
+          example: /accessToken/claims/-
           description: Defines the path for the add operation. Should be one from the allowed paths of `add` operation in the allowedOperations.
         value:
           oneOf:
@@ -569,13 +567,16 @@ components:
             - replace
         path:
           type: string
-          example:
-            - /accessToken/claims/1
-            - /accessToken/scopes/-
-            - /refreshToken/claims/expires_in
+          example: /refreshToken/claims/expires_in
           description: Defines the path for the replace operation. Should be one from the allowed paths of `replace` operation in the allowedOperations.
         value:
-          type: string
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string
           description: Defines the value for the replace operation.
       description: Defines the replace operation.
     removeOperationResponse:
@@ -590,10 +591,7 @@ components:
             - remove
         path:
           type: string
-          example:
-            - /accessToken/claims/0
-            - /accessToken/scopes/1
-            - /response/parameters/refresh_token
+          example: /response/parameters/refresh_token
           description: Defines the path for the remove operation. Should be one from the allowed paths of `remove` operation in the allowedOperations.
       description: Defines the remove operation.
     CustomValue:
