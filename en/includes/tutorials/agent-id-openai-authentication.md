@@ -179,7 +179,7 @@ def token_provider(
     """
 
     EXPIRY_BUFFER_SECONDS = 60
-    cached_token : str | None = None
+    cached_token = None
     token_expiry : float = 0
 
     def is_token_valid():
