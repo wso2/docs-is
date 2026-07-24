@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: API contract for Webhook Events
-  version: 1.0.0
+  version: v1.0.0
   description: |
     Contract for the webhook event payloads emitted by the WSO2 Identity Platform.
 
@@ -18,12 +18,12 @@ info:
 paths:
   /:
     get:
-      summary: Subscription / unsubscription verification (WebSub intent verification).
+      summary: Event Subscription / Unsubscription Verification
       description: >-
         Before delivering events, the WSO2 Identity Platform verifies your endpoint for
         each subscribed event type by sending an HTTP GET request, following the
         [WebSub specification](https://www.w3.org/TR/2018/REC-websub-20180123/#hub-verifies-intent).
-        Your endpoint must respond with a 2xx status code and echo the exact `hub.challenge`
+        Your endpoint must respond with a 2xx status code and return the exact `hub.challenge`
         value in the response body.
       parameters:
         - name: hub.mode
@@ -73,7 +73,7 @@ paths:
               example: 500c4833-91c6-4556-b9a9-1b8e5e00d48b
 
     post:
-      summary: An identity event delivered to the subscribed webhook endpoint.
+      summary: Receive an identity webhook event
       requestBody:
         required: true
         content:
@@ -1092,11 +1092,9 @@ components:
     WebhookEvent:
       type: object
       required: [iss, jti, rci, iat, events]
-      additionalProperties: false
       properties:
         iss:
           type: string
-          format: uri
           description: Identifies the WSO2 Identity Platform instance that issued the event.
           example: https://api.asgardeo.io/t/myorg
         jti:
@@ -1105,7 +1103,6 @@ components:
           example: 051f0c37-b689-44d4-b7d2-29b980ece273
         iat:
           type: integer
-          format: int64
           description: Timestamp showing when WSO2 Identity Platform issues the event. Epoch milliseconds.
           example: 1751705149662
         rci:
@@ -1167,7 +1164,6 @@ components:
     Claim:
       type: object
       required: [uri, value]
-      additionalProperties: false
       properties:
         uri:
           type: string
@@ -1186,7 +1182,6 @@ components:
     User:
       type: object
       description: Information of the user interacting in the related event.
-      additionalProperties: false
       properties:
         id:
           type: string
@@ -1202,7 +1197,6 @@ components:
             - $ref: '#/components/schemas/Organization'
         ref:
           type: string
-          format: uri
           description: SCIM 2.0 resource URL for the user.
 
     ProfileUpdatedUser:
@@ -1230,7 +1224,6 @@ components:
           description: Claims removed from the user's profile during the update.
           items:
             type: object
-            additionalProperties: false
             properties:
               uri:
                 type: string
@@ -1238,14 +1231,11 @@ components:
                 example: http://wso2.org/claims/username
         ref:
           type: string
-          format: uri
           description: SCIM 2.0 resource URL for the user.
 
     Tenant:
       type: object
       description: Root organization (tenant).
-      required: [id, name]
-      additionalProperties: false
       properties:
         id:
           type: string
@@ -1259,8 +1249,6 @@ components:
     Organization:
       type: object
       description: The organization under which the event is processed.
-      required: [id, name, orgHandle, depth]
-      additionalProperties: false
       properties:
         id:
           type: string
@@ -1282,8 +1270,6 @@ components:
     UserStore:
       type: object
       description: User store managing the user's data.
-      required: [id, name]
-      additionalProperties: false
       properties:
         id:
           type: string
@@ -1299,7 +1285,6 @@ components:
     Application:
       type: object
       description: Information about an application.
-      additionalProperties: false
       properties:
         id:
           type: string
@@ -1313,7 +1298,6 @@ components:
     Session:
       type: object
       description: Information about the session.
-      additionalProperties: false
       properties:
         id:
           type: string
@@ -1321,7 +1305,6 @@ components:
           example: 68d1f2861461c69d8e821d91839bbf8e23ef04fb96c1ac655f452d94d1fd6e4d
         loginTime:
           type: integer
-          format: int64
           description: Timestamp when the session originally started.
           example: 1755541960025
         applications:
@@ -1332,7 +1315,6 @@ components:
     AccessToken:
       type: object
       description: Details about the issued token.
-      additionalProperties: false
       properties:
         tokenType:
           type: string
@@ -1452,7 +1434,6 @@ components:
     EventData_LoginSuccess:
       title: Login success
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/login/event-type/loginSuccess']
       properties:
         'https://schemas.identity.wso2.org/events/login/event-type/loginSuccess':
@@ -1461,7 +1442,6 @@ components:
     EventData_LoginFailed:
       title: Login failed
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/login/event-type/loginFailed']
       properties:
         'https://schemas.identity.wso2.org/events/login/event-type/loginFailed':
@@ -1470,7 +1450,6 @@ components:
     EventData_RegistrationSuccess:
       title: Registration success
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess']
       properties:
         'https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess':
@@ -1479,7 +1458,6 @@ components:
     EventData_RegistrationFailed:
       title: Registration failed
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed']
       properties:
         'https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed':
@@ -1488,7 +1466,6 @@ components:
     EventData_AccessTokenIssued:
       title: Access token issued
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued']
       properties:
         'https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued':
@@ -1497,7 +1474,6 @@ components:
     EventData_AccessTokenRevoked:
       title: Access token revoked
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked']
       properties:
         'https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked':
@@ -1506,7 +1482,6 @@ components:
     EventData_SessionEstablished:
       title: Session established
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished']
       properties:
         'https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished':
@@ -1515,7 +1490,6 @@ components:
     EventData_SessionPresented:
       title: Session presented
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionPresented']
       properties:
         'https://schemas.identity.wso2.org/events/session/event-type/sessionPresented':
@@ -1524,7 +1498,6 @@ components:
     EventData_SessionRevoked:
       title: Session revoked
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked']
       properties:
         'https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked':
@@ -1533,7 +1506,6 @@ components:
     EventData_CredentialUpdated:
       title: Credential updated
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated':
@@ -1542,7 +1514,6 @@ components:
     EventData_UserCreated:
       title: User created
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userCreated']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userCreated':
@@ -1551,7 +1522,6 @@ components:
     EventData_UserProfileUpdated:
       title: User profile updated
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated':
@@ -1560,7 +1530,6 @@ components:
     EventData_UserDisabled:
       title: User disabled
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userDisabled']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userDisabled':
@@ -1569,7 +1538,6 @@ components:
     EventData_UserEnabled:
       title: User enabled
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userEnabled']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userEnabled':
@@ -1578,7 +1546,6 @@ components:
     EventData_UserAccountLocked:
       title: User account locked
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked':
@@ -1587,7 +1554,6 @@ components:
     EventData_UserAccountUnlocked:
       title: User account unlocked
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked':
@@ -1596,7 +1562,6 @@ components:
     EventData_UserDeleted:
       title: User deleted
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/user/event-type/userDeleted']
       properties:
         'https://schemas.identity.wso2.org/events/user/event-type/userDeleted':
@@ -1605,7 +1570,6 @@ components:
     EventData_ConsentAdded:
       title: Consent added
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/consent/event-type/consentAdded']
       properties:
         'https://schemas.identity.wso2.org/events/consent/event-type/consentAdded':
@@ -1614,7 +1578,6 @@ components:
     EventData_ConsentRevoked:
       title: Consent revoked
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked']
       properties:
         'https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked':
@@ -1623,7 +1586,6 @@ components:
     EventData_PurposeVersionAdded:
       title: Purpose version added
       type: object
-      additionalProperties: false
       required: ['https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded']
       properties:
         'https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded':
@@ -1764,8 +1726,6 @@ components:
 
     LoginSuccessPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType:
           type: string
@@ -1790,8 +1750,6 @@ components:
 
     LoginFailedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType:
           type: string
@@ -1812,8 +1770,6 @@ components:
 
     RegistrationSuccessPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -1825,8 +1781,6 @@ components:
 
     RegistrationFailedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -1838,8 +1792,6 @@ components:
 
     AccessTokenIssuedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         action: { $ref: '#/components/schemas/Action' }
@@ -1851,7 +1803,6 @@ components:
         application:
           type: object
           description: Information about the application that requested the token.
-          additionalProperties: false
           properties:
             name:
               type: string
@@ -1865,8 +1816,6 @@ components:
 
     AccessTokenRevokedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         action: { $ref: '#/components/schemas/Action' }
@@ -1880,7 +1829,6 @@ components:
           description: Applications associated with the revoked token.
           items:
             type: object
-            additionalProperties: false
             properties:
               id:
                 type: string
@@ -1897,8 +1845,6 @@ components:
 
     SessionEstablishedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         action: { $ref: '#/components/schemas/Action' }
@@ -1915,8 +1861,6 @@ components:
 
     SessionPresentedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         action: { $ref: '#/components/schemas/Action' }
@@ -1933,8 +1877,6 @@ components:
 
     SessionRevokedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         action: { $ref: '#/components/schemas/Action' }
@@ -1950,8 +1892,6 @@ components:
 
     CredentialUpdatedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -1966,8 +1906,6 @@ components:
 
     UserCreatedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -1979,8 +1917,6 @@ components:
 
     UserProfileUpdatedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -1992,8 +1928,6 @@ components:
 
     UserDisabledPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2005,8 +1939,6 @@ components:
 
     UserEnabledPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2018,8 +1950,6 @@ components:
 
     UserAccountLockedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         action: { $ref: '#/components/schemas/Action' }
@@ -2031,8 +1961,6 @@ components:
 
     UserAccountUnlockedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         action: { $ref: '#/components/schemas/Action' }
@@ -2044,8 +1972,6 @@ components:
 
     UserDeletedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2057,8 +1983,6 @@ components:
 
     ConsentAddedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2071,8 +1995,6 @@ components:
 
     ConsentRevokedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2085,8 +2007,6 @@ components:
 
     PurposeVersionAddedPayload:
       type: object
-      required: [tenant, organization]
-      additionalProperties: false
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2097,7 +2017,6 @@ components:
 
     RoleCreatedPayload:
       type: object
-      required: [tenant, organization]
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2137,7 +2056,6 @@ components:
 
     RoleMetaUpdatedPayload:
       type: object
-      required: [tenant, organization]
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2163,7 +2081,6 @@ components:
 
     RoleDeletedPayload:
       type: object
-      required: [tenant, organization]
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2186,7 +2103,6 @@ components:
 
     RoleUsersUpdatedPayload:
       type: object
-      required: [tenant, organization]
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2220,7 +2136,6 @@ components:
 
     RoleGroupsUpdatedPayload:
       type: object
-      required: [tenant, organization]
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2254,7 +2169,6 @@ components:
 
     RoleIdpGroupsUpdatedPayload:
       type: object
-      required: [tenant, organization]
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
@@ -2288,7 +2202,6 @@ components:
 
     RolePermissionsUpdatedPayload:
       type: object
-      required: [tenant, organization]
       properties:
         initiatorType: { $ref: '#/components/schemas/InitiatorType' }
         initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
