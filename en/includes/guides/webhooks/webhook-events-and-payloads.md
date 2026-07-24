@@ -43,6 +43,8 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
         "claims": [
@@ -77,6 +79,7 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
         "id": "40d982e5-23be-4ee1-8540-9cb696d8c321",
         "name": "MyApp"
       },
+      "action": "LOGIN",
       "authenticationMethods": [
         "BasicAuthenticator"
       ]
@@ -95,6 +98,8 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginSuccess": {
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "d4002616-f00c-49d5-b9b7-63b063819049",
         "claims": [
@@ -129,6 +134,7 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
         "id": "40d982e5-23be-4ee1-8540-9cb696d8c321",
         "name": "MyApp"
       },
+      "action": "LOGIN",
       "authenticationMethods": [
         "BasicAuthenticator"
       ]
@@ -175,6 +181,18 @@ The table below explains each property in the event data.
 <td>authenticationMethods</td>
 <td><p>An array of authentication methods used for the successful login (for example <code>BasicAuthenticator</code>).</p></td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>LOGIN</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -194,6 +212,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginFailed": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "claims": [
           {
@@ -243,7 +263,8 @@ The table below explains each property in the event data.
             "authenticator": "BasicAuthenticator"
           }
         }
-      }
+      },
+      "action": "LOGIN"
     }
   }
 }
@@ -259,6 +280,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/login/event-type/loginFailed": {
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "claims": [
           {
@@ -308,7 +331,8 @@ The table below explains each property in the event data.
             "authenticator": "BasicAuthenticator"
           }
         }
-      }
+      },
+      "action": "LOGIN"
     }
   }
 }
@@ -363,6 +387,18 @@ The table below explains each property in the event data.
 </li>
 </ul>
 </td>
+</tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>LOGIN</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -447,8 +483,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationSuccess": {
-      "initiatorType": "ADMIN",
-      "initiatorIpAddress": "203.0.113.10",
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "3fae4858-4b26-4608-9df4-78ae75e3adda",
         "claims": [
@@ -611,8 +647,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/registration/event-type/registrationFailed": {
-      "initiatorType": "USER",
-      "initiatorIpAddress": "203.0.113.10",
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "claims": [
           {
@@ -764,6 +800,8 @@ The table below explains how these properties differ based on each flow.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -806,7 +844,8 @@ The table below explains how these properties differ based on each flow.
         "tokenType": "Opaque",
         "iat": "1755541962069",
         "grantType": "authorization_code"
-      }
+      },
+      "action": "TOKEN_ISSUE"
     }
   }
 }
@@ -822,6 +861,8 @@ The table below explains how these properties differ based on each flow.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/token/event-type/accessTokenIssued": {
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -864,7 +905,8 @@ The table below explains how these properties differ based on each flow.
         "tokenType": "Opaque",
         "iat": "1755541962069",
         "grantType": "authorization_code"
-      }
+      },
+      "action": "TOKEN_ISSUE"
     }
   }
 }
@@ -915,6 +957,18 @@ The table below explains each property in the event data.
 </ul>
 </td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>TOKEN_ISSUE</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -934,6 +988,8 @@ The table below explains each property in the event data.
   "rci": "48eaeb32-76c0-4af8-b04e-9ce0c00cb61f",
   "events": {
     "https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -974,7 +1030,8 @@ The table below explains each property in the event data.
           "name": "Test App",
           "consumerKey": "eaSbhGeDL7ek2ypVrb0h4ZYMSN0a"
         }
-      ]
+      ],
+      "action": "TOKEN_REVOKE"
     }
   }
 }
@@ -990,6 +1047,8 @@ The table below explains each property in the event data.
   "rci": "48eaeb32-76c0-4af8-b04e-9ce0c00cb61f",
   "events": {
     "https://schemas.identity.wso2.org/events/token/event-type/accessTokenRevoked": {
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -1030,7 +1089,8 @@ The table below explains each property in the event data.
           "name": "Test App",
           "consumerKey": "eaSbhGeDL7ek2ypVrb0h4ZYMSN0a"
         }
-      ]
+      ],
+      "action": "TOKEN_REVOKE"
     }
   }
 }
@@ -1070,6 +1130,18 @@ The table below explains each property in the event data.
 <td>applications</td>
 <td><p>Contains information about applications associated with the revoked token. This appears as an array because token revocation can affect multiple applications.</p></td>
 </tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>TOKEN_REVOKE</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -1095,6 +1167,8 @@ This event triggers for every new session creation during the login process. It 
   "rci": "b8b6ccbd-69b0-47d3-b0ae-b2b0df085f7c",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -1138,7 +1212,8 @@ This event triggers for every new session creation during the login process. It 
             "name": "Test App"
           }
         ]
-      }
+      },
+      "action": "LOGIN"
     }
   }
 }
@@ -1154,6 +1229,8 @@ This event triggers for every new session creation during the login process. It 
   "rci": "b8b6ccbd-69b0-47d3-b0ae-b2b0df085f7c",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionEstablished": {
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -1197,7 +1274,8 @@ This event triggers for every new session creation during the login process. It 
             "name": "Test App"
           }
         ]
-      }
+      },
+      "action": "LOGIN"
     }
   }
 }
@@ -1248,6 +1326,18 @@ The table below explains each property in the event data.
 </ul>
 </td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>LOGIN</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -1267,6 +1357,8 @@ The table below explains each property in the event data.
   "rci": "60f7dd4f-a791-4135-94d6-d26795629361",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionPresented": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -1310,7 +1402,8 @@ The table below explains each property in the event data.
             "name": "Test App"
           }
         ]
-      }
+      },
+      "action": "LOGIN"
     }
   }
 }
@@ -1326,6 +1419,8 @@ The table below explains each property in the event data.
   "rci": "60f7dd4f-a791-4135-94d6-d26795629361",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionPresented": {
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -1369,7 +1464,8 @@ The table below explains each property in the event data.
             "name": "Test App"
           }
         ]
-      }
+      },
+      "action": "LOGIN"
     }
   }
 }
@@ -1420,6 +1516,18 @@ The table below explains each property in the event data.
 </ul>
 </td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>LOGIN</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -1439,6 +1547,8 @@ The table below explains each property in the event data.
   "rci": "48eaeb32-76c0-4af8-b04e-9ce0c00cb61f",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked": {
+      "initiatorType": "USER",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -1480,7 +1590,8 @@ The table below explains each property in the event data.
             }
           ]
         }
-      ]
+      ],
+      "action": "LOGOUT"
     }
   }
 }
@@ -1496,6 +1607,8 @@ The table below explains each property in the event data.
   "rci": "48eaeb32-76c0-4af8-b04e-9ce0c00cb61f",
   "events": {
     "https://schemas.identity.wso2.org/events/session/event-type/sessionRevoked": {
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "1801d35e-1339-4c16-9c53-61321cf37fb9",
         "claims": [
@@ -1537,7 +1650,8 @@ The table below explains each property in the event data.
             }
           ]
         }
-      ]
+      ],
+      "action": "LOGOUT"
     }
   }
 }
@@ -1652,8 +1766,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/credential/event-type/credentialUpdated": {
-      "initiatorType": "ADMIN",
-      "initiatorIpAddress": "203.0.113.10",
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -1884,8 +1998,8 @@ This event triggers when administrators, applications, or users create accounts 
   "rci": "dca8d1d5-5a8f-4141-aac6-2abcb27fd168",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userCreated": {
-      "initiatorType": "ADMIN",
-      "initiatorIpAddress": "203.0.113.10",
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
         "claims": [
@@ -2049,8 +2163,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userProfileUpdated": {
-      "initiatorType": "ADMIN",
-      "initiatorIpAddress": "203.0.113.10",
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "organization": {
@@ -2192,7 +2306,8 @@ The table below explains each property in the event data.
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_DISABLE"
     }
   }
 }
@@ -2208,8 +2323,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDisabled": {
-      "initiatorType": "ADMIN",
-      "initiatorIpAddress": "203.0.113.10",
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -2239,7 +2354,8 @@ The table below explains each property in the event data.
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_DISABLE"
     }
   }
 }
@@ -2282,6 +2398,10 @@ The table below explains each property in the event data.
 <tr class="even">
 <td>initiatorIpAddress</td>
 <td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_DISABLE</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2333,7 +2453,8 @@ The table below explains each property in the event data.
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_ENABLE"
     }
   }
 }
@@ -2349,8 +2470,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userEnabled": {
-      "initiatorType": "ADMIN",
-      "initiatorIpAddress": "203.0.113.10",
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "85071750-3d1f-4ba4-b58f-991532e2742b",
         "claims": [
@@ -2380,7 +2501,8 @@ The table below explains each property in the event data.
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_ENABLE"
     }
   }
 }
@@ -2424,6 +2546,10 @@ The table below explains each property in the event data.
 <td>initiatorIpAddress</td>
 <td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
 </tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_ENABLE</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -2445,6 +2571,8 @@ This event triggers when accounts get locked due to failed login attempts, admin
   "rci": "24b22c09-ae39-4942-896f-5c14fd18b4e0",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
         "claims": [
@@ -2474,7 +2602,8 @@ This event triggers when accounts get locked due to failed login attempts, admin
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_LOCK"
     }
   }
 }
@@ -2490,6 +2619,8 @@ This event triggers when accounts get locked due to failed login attempts, admin
   "rci": "24b22c09-ae39-4942-896f-5c14fd18b4e0",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userAccountLocked": {
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
         "claims": [
@@ -2519,7 +2650,8 @@ This event triggers when accounts get locked due to failed login attempts, admin
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_LOCK"
     }
   }
 }
@@ -2555,6 +2687,18 @@ The table below explains each property in the event data.
 <td>userStore</td>
 <td><p>Indicates the user store that manages the user's data.</p></td>
 </tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_LOCK</code>.</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -2576,6 +2720,8 @@ This event triggers when locked accounts get restored to normal status through a
   "rci": "e26aade5-ad74-4e5f-a98b-762bd218197e",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "203.0.113.10",
       "user": {
         "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
         "claims": [
@@ -2605,7 +2751,8 @@ This event triggers when locked accounts get restored to normal status through a
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_UNLOCK"
     }
   }
 }
@@ -2621,6 +2768,8 @@ This event triggers when locked accounts get restored to normal status through a
   "rci": "e26aade5-ad74-4e5f-a98b-762bd218197e",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userAccountUnlocked": {
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "3987d74e-8432-4f4d-b1a8-cad463af843d",
         "claims": [
@@ -2650,7 +2799,8 @@ This event triggers when locked accounts get restored to normal status through a
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_UNLOCK"
     }
   }
 }
@@ -2685,6 +2835,18 @@ The table below explains each property in the event data.
 <tr class="even">
 <td>userStore</td>
 <td><p>Indicates the user store that manages the user's data.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator, user, or application initiated the event.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_UNLOCK</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2736,7 +2898,8 @@ The table below explains each property in the event data.
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_DELETE"
     }
   }
 }
@@ -2752,8 +2915,8 @@ The table below explains each property in the event data.
   "rci": "05268edb-9a87-4656-87c0-0fb674dd03b1",
   "events": {
     "https://schemas.identity.wso2.org/events/user/event-type/userDeleted": {
-      "initiatorType": "ADMIN",
-      "initiatorIpAddress": "203.0.113.10",
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "203.0.113.10",{% endif %}
       "user": {
         "id": "0bd61ecd-e974-41e6-a962-8b712090240f",
         "claims": [
@@ -2783,7 +2946,8 @@ The table below explains each property in the event data.
       "userStore": {
         "id": "UFJJTUFSWQ==",
         "name": "PRIMARY"
-      }
+      },
+      "action": "USER_ACCOUNT_DELETE"
     }
   }
 }
@@ -2826,6 +2990,10 @@ The table below explains each property in the event data.
 <tr class="even">
 <td>initiatorIpAddress</td>
 <td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>USER_ACCOUNT_DELETE</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3764,8 +3932,8 @@ The table below explains how these properties differ based on each flow.
   "rci": "8cccc58f-ecb1-46da-a825-707f6740b8ea",
   "events": {
     "https://schemas.identity.wso2.org/events/consent/event-type/consentAdded": {
-      "initiatorType": "USER",
-      "initiatorIpAddress": "127.0.0.1",
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "127.0.0.1",{% endif %}
       "user": {
         "id": "60ed468b-a357-405c-aad2-2ce6960ec2aa",
         "claims": [
@@ -3951,8 +4119,8 @@ The table below explains each property in the event data.
   "rci": "7dadc7c2-9584-48e1-92e5-afa64a2630a6",
   "events": {
     "https://schemas.identity.wso2.org/events/consent/event-type/consentRevoked": {
-      "initiatorType": "USER",
-      "initiatorIpAddress": "127.0.0.1",
+      "initiatorType": "USER",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "127.0.0.1",{% endif %}
       "user": {
         "id": "60ed468b-a357-405c-aad2-2ce6960ec2aa",
         "claims": [
@@ -4184,8 +4352,8 @@ The <code>initiatorType</code> and <code>action</code> properties together ident
   "rci": "5e62a3ec-96ac-472b-824c-3def154c5edc",
   "events": {
     "https://schemas.identity.wso2.org/events/consent-purpose/event-type/purposeVersionAdded": {
-      "initiatorType": "ADMIN",
-      "initiatorIpAddress": "127.0.0.1",
+      "initiatorType": "ADMIN",{% if is_version > "7.3.0" %}
+      "initiatorIpAddress": "127.0.0.1",{% endif %}
       "tenant": {
         "id": "12402",
         "name": "myorg.com"

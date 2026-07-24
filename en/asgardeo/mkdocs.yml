@@ -989,6 +989,8 @@ nav:
     - Authorization policies for apps: references/authorization-policies-for-apps.md
     - Email templates: references/email-templates.md
     - SMS templates: references/sms-templates.md
+    - Webhooks:
+      - API contract to implement: references/webhooks/api-contract.md
     - Service extensions:
       - In-flow extensions:
         - Custom authentication:
