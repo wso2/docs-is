@@ -18,11 +18,11 @@ Let's consider an API hosted on Developer Platform that reads an IP address from
 
 To define the MFA conditions with Developer Platform, you need to:
 
-1. [Design your MFA condition in a REST API](#desgin-the-rest-api)
+1. [Design your MFA condition in a REST API](#design-the-rest-api)
 
 2. [Integrate your REST API with Developer Platform](#integrate-the-rest-api-with-developer-platform)
 
-### Desgin the REST API
+### Design the REST API
 You need to implement your REST API in [Ballerina](https://ballerina.io/){:target="_blank"} or any other language and containerize it. You can use the [Ballerina VS code extension](https://ballerina.io/downloads/){:target="_blank"} to develop the REST API in Ballerina. [Learn more](https://wso2.com/ballerina/vscode/docs/){:target="_blank"}.
 
 To implement your REST API to fit the explained scenario:
@@ -230,10 +230,7 @@ Let's look at how this script works.
 
 3. `onSuccess` callback function calls the `callChoreo()` function, which sends an API call to the API hosted on Developer Platform.
 
-4. If the API call is successful, the `onSuccess` callback function passed as an argument to the `callChoreo( )` function is called.
-
-   1. If the `hasRisk` value in the response is `true`, step two of the authentication flow is executed.
-   2. If the API call fails or times out, step 2 of the authentication flow will be executed by default.
+4. If the API call succeeds, the script invokes the `onSuccess` callback. If the call fails or times out, the script executes step 2 by default.
 
 
 ## Try it out
