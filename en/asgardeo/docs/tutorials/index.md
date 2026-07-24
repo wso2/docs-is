@@ -14,6 +14,7 @@ See the topics listed below for end-to-end tutorials on how to use WSO2 Identity
 - [Integrate WSO2 Identity Platform with SMART on FHIR healthcare apps]({{base_path}}/tutorials/smart-on-fhir/)
 - [Secure Agentic AI Systems with WSO2 Identity Platform]({{base_path}}/tutorials/secure-agentic-ai-systems/)
 - [Authenticate AI Agents to the Claude API with WSO2 Agent ID]({{base_path}}/tutorials/agent-id-claude-authentication/)
+- [Authenticate AI Agents to the OpenAI API with WSO2 Agent ID]({{base_path}}/tutorials/agent-id-openai-authentication/)
 - [Integrating WSO2 Identity Platform With WSO2 AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control/)
 - [Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control]({{base_path}}/tutorials/kong-ai-gateway-with-agent-identity-aware-access-control/)
 - [Secure MCP servers with WSO2 Identity Platform and integrate them with n8n agentic flows]({{base_path}}/tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows/)
