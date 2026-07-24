@@ -65,13 +65,13 @@ Let's look at the diagram in detail:
 
     !!! note
         
-        This API is part of an authentication service deployed in [Choreo](https://wso2.com/choreo/){target="_blank"}, WSO2's integration platform. The service is designed to facilitate authentication against the legacy IdP.
+        This API is part of an authentication service deployed in [WSO2 Developer Platform](https://wso2.com/engineering-platform/developer-platform/){target="_blank"}, WSO2's integration platform. The service is designed to facilitate authentication against the legacy IdP.
 
 {% else %}
 
     !!! note
         
-        This API is part of an authentication service that should be deployed in an external system such as [Choreo](https://wso2.com/choreo/){target="_blank"}, WSO2's integration platform. The service is designed to facilitate authentication against the legacy IdP.
+        This API is part of an authentication service that should be deployed in an external system such as [WSO2 Developer Platform](https://wso2.com/engineering-platform/developer-platform/){target="_blank"}, WSO2's integration platform. The service is designed to facilitate authentication against the legacy IdP.
 
 {% endif %}
 
@@ -109,7 +109,7 @@ Before you begin, ensure the following are fulfilled.
 
 ### Step 1: Develop and deploy the external authentication service
 
-On-demand silent password migration requires an external authentication service that communicates with the legacy IdP to authenticate users. This service can be developed using any programming language and can be deployed in an external system such as [Choreo](https://wso2.com/choreo/){target="_blank"}, WSO2's integration platform.
+On-demand silent password migration requires an external authentication service that communicates with the legacy IdP to authenticate users. This service can be developed using any programming language and can be deployed in an external system such as [WSO2 Developer Platform](https://wso2.com/engineering-platform/developer-platform/){target="_blank"}, WSO2's integration platform.
 
 Your service should expose the following REST API endpoints.
 
@@ -128,7 +128,7 @@ Your service should expose the following REST API endpoints.
     We highly recommend adding sufficient logging when developing the external authentication service. However, ensure no sensitive information or Personally Identifiable Information (PII) are included in the logs.
 
 !!! note
-    Learn how to [configure the external authentication service in Choreo]({{base_path}}/references/tutorials/configure-choreo-for-password-migration/).
+    Learn how to [configure the external authentication service in WSO2 Developer Platform]({{base_path}}/references/tutorials/configure-choreo-for-password-migration/).
 
 {% endif %}
 

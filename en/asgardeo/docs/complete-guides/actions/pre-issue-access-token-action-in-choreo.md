@@ -1,6 +1,6 @@
 ---
 template: templates/complete-guide.html
-heading: Configure Pre-Issue Access Token Action with Choreo
+heading: Configure Pre-Issue Access Token Action with WSO2 Developer Platform
 read_time: 5 mins
 ---
 
