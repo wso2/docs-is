@@ -193,4 +193,57 @@ When `showEmailAddressInUI` is enabled, it provides the capability to define the
 
 #### tokenExpirationTime
 
-This parameter helps to define a custom Email OTP expiry time. The default expiration time is 300000 milliseconds.
+This parameter helps to define a custom email OTP expiry time. The default expiration time is 300000 milliseconds.
+
+----
+
+## Configure OTP character composition
+
+!!! note
+    The UI options for **Include uppercase characters in OTP** and **Include lowercase characters in OTP** have been removed. To configure the character composition of email OTP codes, use the configuration parameters described below.
+
+To configure whether the email OTP should include uppercase characters, lowercase characters, or only numeric characters, add the following parameters to the `deployment.toml` file under the `[authentication.authenticator.email_otp.parameters]` section.
+
+### Use numeric characters only
+
+To generate OTP codes with only numeric characters (default behavior):
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = true
+```
+
+### Use alphanumeric characters with uppercase and lowercase
+
+To generate OTP codes with alphanumeric characters including both uppercase and lowercase letters:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = true
+UseLowercaseCharacters = true
+```
+
+### Use alphanumeric characters with only uppercase
+
+To generate OTP codes with numbers and uppercase letters only:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = true
+UseLowercaseCharacters = false
+```
+
+### Use alphanumeric characters with only lowercase
+
+To generate OTP codes with numbers and lowercase letters only:
+
+```toml
+[authentication.authenticator.email_otp.parameters]
+UseNumericChars = false
+UseUppercaseCharacters = false
+UseLowercaseCharacters = true
+```
+
+You can also configure these settings using the [Identity Governance REST API]({{base_path}}/apis/identity-governance-rest-api/). Use the API to retrieve and update the email OTP authenticator connector properties programmatically.
