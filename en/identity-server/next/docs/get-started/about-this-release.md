@@ -349,9 +349,9 @@ Learn more about [WSO2 Identity Server feature deprecation]({{base_path}}/refere
 
 ### Support for TLS 1.1 and 1.0
 
-TLS 1.0 and TLS 1.1 have known security vulnerabilities (for example, POODLE, BEAST, and CRIME) and have been deprecated across major vendors and browsers. These protocol versions are no longer considered secure and are widely unsupported.
+TLS 1.0 and TLS 1.1 have known security vulnerabilities and have been deprecated across major vendors and browsers. As per [RFC 9325](https://www.rfc-editor.org/rfc/rfc9325){:target="_blank"}, the IETF's current TLS recommendations, TLS 1.0 and TLS 1.1 must not be negotiated.
 
-To align with current security standards and Java 21 defaults, {{ product_name }} has deprecated support for TLS 1.0 and TLS 1.1 and enables TLS 1.3 by default. This change improves the security posture, helps prevent downgrade attacks, and ensures compatibility with modern platforms and ecosystem standards.
+To align with these standards and Java 21 defaults, {{ product_name }} has deprecated support for TLS 1.0 and TLS 1.1 and enables TLS 1.3 by default, helping prevent downgrade attacks and ensuring compatibility with modern platforms.
 
 **Recommended action**: Upgrade to TLS 1.3 and use it for all connections. It provides stronger security, improved performance, and aligns with current industry standards and platform defaults.
 
