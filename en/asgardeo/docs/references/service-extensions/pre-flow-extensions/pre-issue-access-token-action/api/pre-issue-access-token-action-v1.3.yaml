@@ -329,6 +329,7 @@ components:
             - **access_token**: The issued access token. Cannot be added, replaced, or removed.
             - **scope**: The scopes granted for the access token. Cannot be added, replaced, or removed.
             - **expires_in**: The validity period (in seconds) of the access token. Cannot be added, replaced, or removed.
+            - **token_type**: The type of the issued token, which is always `Bearer`. Cannot be added, replaced, or removed.
             - **refresh_token**: The issued refresh token. Only present when the application supports the refresh token grant. Can be removed from the response.
             - **id_token**: The issued ID token. Only present for OIDC requests. Can be removed from the response.
           example:
