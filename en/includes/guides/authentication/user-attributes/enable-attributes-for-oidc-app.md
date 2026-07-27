@@ -50,6 +50,7 @@ To define a different attribute as the subject:
 
 3. Click **Update**.
 
+{% if is_version == "next" %}
 !!! note "UserInfo `sub` and token reissue, for alternate subject identifiers"
 
     When an alternate subject identifier is configured, the `sub` value returned by the [userinfo endpoint](#userinfo-response) is set when the access token is issued and does not change for the lifetime of that specific token. If the underlying attribute's value changes afterwards (for example, the user's email is updated) and the same still-valid access token is reused, the ID token issued alongside the reused token will reflect the new value, but the userinfo response's `sub` will continue to return the value that was set when the access token was originally issued.
@@ -62,6 +63,7 @@ To define a different attribute as the subject:
     ```
 
     This is disabled by default. When enabled, a client that needs an ID token and a userinfo response with matching `sub` values must request a new token after any change to the attribute used as the subject — an ID token already issued to the client is not retroactively updated, since it is a signed, immutable token. This setting only affects applications with an alternate subject identifier configured; it has no effect otherwise.
+{% endif %}
 
 !!! warning "Deprecated `sub` attribute behavior in application access tokens"
 
