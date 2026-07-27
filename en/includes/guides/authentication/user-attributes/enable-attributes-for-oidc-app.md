@@ -50,7 +50,7 @@ To define a different attribute as the subject:
 
 3. Click **Update**.
 
-{% if is_version == "next" %}
+{% if is_version == "next" or (product_name == "WSO2 Identity Server" and is_version >= "7.4.0") %}
 !!! note "UserInfo `sub` and token reissue, for alternate subject identifiers"
 
     When an alternate subject identifier is configured, the `sub` value returned by the [userinfo endpoint](#userinfo-response) is set when the access token is issued and does not change for the lifetime of that specific token. If the underlying attribute's value changes afterwards (for example, the user's email is updated) and the same still-valid access token is reused, the ID token issued alongside the reused token will reflect the new value, but the userinfo response's `sub` will continue to return the value that was set when the access token was originally issued.
