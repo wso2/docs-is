@@ -48,13 +48,43 @@ Customize the dropdown appearance and fallback content:
 
 ## Props
 
-The `UserDropdown` component accepts all props from `BaseUserDropdown`, except `user` and `onManageProfile` (handled internally):
+The `UserDropdown` component accepts the following props:
 
 | Prop             | Type                           | Required | Description |
 |------------------|-------------------------------|----------|-------------|
+| `attributeMapping`    | `object`                  | ❌       | Mapping of component attribute names to identity provider field names. Supports `firstName`, `lastName`, `picture`, and `username` fields |
+| `className`           | `string`                  | ❌       | CSS class name for the dropdown container |
 | `menuItems`      | `MenuItem[]`                  | ❌       | Custom menu items for the dropdown |
 | `showTriggerLabel` | `boolean`                    | ❌       | Show user's name next to avatar |
-| `avatarSize`     | `number`                      | ❌       | Size of the avatar |
+| `avatarSize`     | `number`                      | ❌       | Size of the avatar in pixels |
 | `fallback`       | `ReactElement`                | ❌       | Content to show when no user is signed in |
 | `children`       | `function`                    | ❌       | Render prop for full customization |
 | `renderTrigger`  | `function`                    | ❌       | Custom trigger button renderer |
+| `isLoading`           | `boolean`                 | ❌       | Whether the user data is currently loading. Automatically managed by `UserDropdown` |
+| `onSignOut`           | `function`                | ❌       | Callback function for sign out action |
+| `portalId`            | `string`                  | ❌       | The HTML element ID where the portal should be mounted |
+| `showDropdownHeader`  | `boolean`                 | ❌       | Show dropdown header with user information |
+
+### Render prop arguments
+
+When using the `children` or `renderTrigger` render props, the following arguments are provided:
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `user` | `object` | The authenticated user object. Note that `user.name` is a nested object with `givenName` and `familyName` fields rather than a flat string |
+| `isLoading` | `boolean` | Whether the user data is currently loading |
+| `isProfileOpen` | `boolean` | Whether the profile dialog is currently open |
+| `openProfile` | `function` | Opens the user profile dialog |
+| `closeProfile` | `function` | Closes the user profile dialog |
+| `signOut` | `function` | Triggers the sign-out flow |
+
+#### MenuItem interface
+
+Each menu item in the `menuItems` array can have the following properties:
+
+| Property  | Type          | Required | Description |
+|-----------|---------------|----------|-------------|
+| `label`   | `ReactNode`   | ✅       | The label to display for the menu item |
+| `onClick` | `function`    | ❌       | Callback function when the menu item is clicked |
+| `href`    | `string`      | ❌       | URL to navigate to when the menu item is clicked |
+| `icon`    | `ReactNode`   | ❌       | Icon to display next to the label |
