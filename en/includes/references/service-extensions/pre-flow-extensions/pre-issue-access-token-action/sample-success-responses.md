@@ -193,7 +193,7 @@ Content-Type: application/json;charset=UTF-8
 
 To add a custom top-level parameter to the token endpoint response, use the <code>/response/parameters/-</code> path in the <code>event.response</code> request.
 
-String, integer, boolean, JSON objects, and arrays are allowed as parameter values. Unlike access token and refresh token claims, arrays aren't limited to string elements — they can hold any combination of these value types, including nested objects and nested arrays. The parameter name must not collide with a standard parameter name, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, <code>refresh_token</code>, or an already added custom parameter.
+String, integer, boolean, JSON objects, and arrays are allowed as parameter values. Unlike access token and refresh token claims, arrays aren't limited to string elements — they can hold any combination of these value types, including nested objects and nested arrays. The parameter name must not collide with a standard parameter name, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, <code>token_type</code>, <code>refresh_token</code>, <code>id_token</code>, or an already added custom parameter.
 
 !!! note
     Unlike token endpoint response parameters, access token and refresh token claims only accept string, integer, boolean, and string type array values. JSON objects, and arrays containing anything other than strings, aren't allowed as claim values, so they can't be injected into the access token or the refresh token.
@@ -277,7 +277,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## Removing an optional parameter from the token endpoint response
 
-You can suppress optional standard parameters, such as <code>refresh_token</code> or <code>id_token</code>, from the token endpoint response. To do this, use the <code>/response/parameters/</code> path followed by the name of the parameter you want to remove, in the <code>event.response</code> request. Standard parameters that are always present in the response, such as <code>access_token</code>, <code>scope</code>, and <code>expires_in</code>, can't be removed.
+You can suppress optional standard parameters, such as <code>refresh_token</code> or <code>id_token</code>, from the token endpoint response. To do this, use the <code>/response/parameters/</code> path followed by the name of the parameter you want to remove, in the <code>event.response</code> request. Standard parameters that are always present in the response, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, and <code>token_type</code>, can't be removed.
 
 Refer to the example response below, which demonstrates suppressing the refresh token from the token endpoint response:
 

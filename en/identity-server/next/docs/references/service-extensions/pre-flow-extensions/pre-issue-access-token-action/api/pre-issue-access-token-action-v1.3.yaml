@@ -162,16 +162,14 @@ components:
             - write
         additionalHeaders:
           type: array
-          description: Any additional HTTP headers included in the access token request. These may contain custom information or metadata that the client has sent.
-            All headers in request are not incorporated specially sensitive headers like ‘Authorization’, ‘Cookie’, etc.
+          description: Any additional HTTP headers included in the access token request. These may contain custom information or metadata that the client has sent. Sensitive headers, such as ‘Authorization’ and ‘Cookie’, are excluded.
           items:
             $ref: '#/components/schemas/RequestHeaders'
         additionalParams:
           type: array
           items:
             $ref: '#/components/schemas/RequestParams'
-          description: Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows.
-            All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc..
+          description: Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows. Sensitive parameters, such as client secret, username, and password, are excluded.
       description: Represents the access token request received by WSO2 Identity Server.
     Tenant:
       type: object
@@ -182,8 +180,7 @@ components:
         id:
           type: string
           description: The unique numeric identifier of the tenant.
-          example:
-            2
+          example: "2"
         name:
           type: string
           description: The domain name of the tenant.
@@ -316,7 +313,7 @@ components:
       properties:
         sessionDataKeyConsent:
           type: string
-          description: This is the sessionDataKeyConsent provided to the consent page in authorization_code grant flow.
+          description: The session data key consent value provided to the consent page during the authorization_code grant flow.
           example:
             "785a520d-3bd5-41c1-830d-8e053714ded9"
       description: This property contains the details related to the current auth session.
@@ -522,6 +519,9 @@ components:
             - 003ef4a768182ba1ece32cb
     AccessTokenClaims:
       type: object
+      required:
+        - name
+        - value
       properties:
         name:
           type: string
@@ -535,6 +535,9 @@ components:
                 type: string
     RefreshTokenClaims:
       type: object
+      required:
+        - name
+        - value
       properties:
         name:
           type: string
@@ -624,6 +627,7 @@ components:
     BasicAuth:
       type: http
       scheme: basic
+      description: Implementers should serve this endpoint over HTTPS to protect credentials in transit.
     BearerAuth:
       type: http
       scheme: bearer
