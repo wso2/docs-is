@@ -5,6 +5,7 @@ The following API contracts defines the request and response structures that you
 {% if product_name == "WSO2 Identity Platform" %}- [pre-issue access token API contract v1.2]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.2/){% endif %}
 {% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %}- [pre-issue access token API contract v1.2]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.2/){% endif %}
 {% if product_name == "WSO2 Identity Platform" %}- [pre-issue access token API contract v1.3]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.3/){% endif %}
+{% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %}- [pre-issue access token API contract v1.3]({{base_path}}/references/service-extensions/pre-flow-extensions/pre-issue-access-token-action/pre-issue-access-token-action-v1.3/){% endif %}
 
 ### Request from {{product_name}}
 
@@ -498,7 +499,7 @@ This example illustrates a request sent to an external service configured as a p
     }
     ```
 
-=== "{% if product_name == "WSO2 Identity Platform" %}v1.3{% else %}v1.2{% endif %}"
+=== "{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}v1.3{% else %}v1.2{% endif %}"
     ```http
     POST /token HTTP/1.1
     Host: localhost

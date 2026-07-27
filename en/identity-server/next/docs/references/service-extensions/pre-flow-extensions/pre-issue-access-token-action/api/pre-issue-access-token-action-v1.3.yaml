@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: API contract for pre-issue access token action
   description: This API defines the REST API contract for a service that implements logic to extend the access token issuance flow of WSO2 Identity Server.
-  version: v1.2
+  version: v1.3
   contact:
     name: WSO2
     url: 'https://wso2.com/identity-server/'
@@ -34,7 +34,7 @@ paths:
                   - $ref: '#/components/schemas/SuccessResponse'
                   - $ref: '#/components/schemas/FailedResponse'
               examples:
-                successExampleForAsscessTokenClaims:
+                successExampleForAccessTokenClaims:
                   summary: Success response for access token claims add
                   value:
                     actionStatus: SUCCESS
@@ -52,6 +52,36 @@ paths:
                       - op: replace
                         path: /refreshToken/claims/expires_in
                         value: 42000
+                successExampleForResponseParameterAdd:
+                  summary: Successful response for adding a custom parameter to the token endpoint response
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                      - op: add
+                        path: /response/parameters/-
+                        value:
+                          name: custom_param
+                          value: "custom_value"
+                successExampleForResponseParameterAddComplexValue:
+                  summary: Successful response for adding a custom parameter with a nested JSON object value to the token endpoint response
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                      - op: add
+                        path: /response/parameters/-
+                        value:
+                          name: custom_object
+                          value:
+                            context:
+                              a: b
+                            nested: {}
+                successExampleForResponseParameterRemove:
+                  summary: Successful response for suppressing an optional parameter from the token endpoint response
+                  value:
+                    actionStatus: SUCCESS
+                    operations:
+                      - op: remove
+                        path: /response/parameters/refresh_token
                 failedExample:
                   summary: Failed response
                   value:
@@ -65,7 +95,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               example:
-              - actionStatus: ERROR
+                actionStatus: ERROR
                 errorMessage: invalid_request
                 errorDescription: SID claim is missing
         "500":
@@ -75,7 +105,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               example:
-              - actionStatus: ERROR
+                actionStatus: ERROR
                 errorMessage: server_error
                 errorDescription: Failed to process the response
 components:
@@ -103,6 +133,8 @@ components:
           $ref: '#/components/schemas/RefreshToken'
         session:
           $ref: '#/components/schemas/Session'
+        response:
+          $ref: '#/components/schemas/TokenResponse'
       description: Defines the context data related to the pre issue access token event that needs to be shared with the custom service to process and execute.
     Request:
       type: object
@@ -117,7 +149,7 @@ components:
             authorization_code
         clientId:
           type: string
-          description: The unique identifier of the client (application) that is requesting the access token. 
+          description: The unique identifier of the client (application) that is requesting the access token.
           example:
             1u31N7of6gCNR9FqkG1neSlsF_Qa
         scopes:
@@ -138,8 +170,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RequestParams'
-      description: Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows.
-        All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc..
+          description: Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows.
+            All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc..
+      description: Represents the access token request received by WSO2 Identity Server.
     Tenant:
       type: object
       required:
@@ -149,12 +182,12 @@ components:
         id:
           type: string
           description: The unique numeric identifier of the tenant.
-          example: 
+          example:
             2
         name:
           type: string
           description: The domain name of the tenant.
-          example: 
+          example:
             bar.com
       description: This property represents the tenant under which the token request is being processed.
     Organization:
@@ -204,7 +237,7 @@ components:
           type: string
           description: User store name used to identify the user store in configuration settings, user interfaces, and administrative tasks.
           example: PRIMARY
-      description: Indicates the user store in which the user's data is being managed. 
+      description: Indicates the user store in which the user's data is being managed.
     AccessToken:
       type: object
       required:
@@ -223,25 +256,25 @@ components:
             $ref: '#/components/schemas/AccessTokenClaims'
           description: |
             An array that contains both standard access token claims and any OpenID Connect (OIDC) claims configured to be included in the access token.
-            
+
             Standard claims:
-            
+
             - **sub**: The subject identifier for the token, typically representing the user. In M2M apps that use client credentials this represents the application.
             - **iss**: The issuer of the token, which is the tenant of WSO2 Identity Server that acts as the authorization server.
             - **aud**: The audience for the token.
             - **client_id**: The identifier of the client (application) that requested the token.
             - **aut**: The authorized user type associated with the token.
-            
+
               Can have the following values:
               - **APPLICATION**: Indicates that the token is authorized for an application.
               - **APPLICATION_USER**: Indicates that the token is authorized for a user.
-            
+
             - **expires_in**: The duration (in seconds) for which the token is valid.
             - **binding_type**: Indicates the type of binding associated with the token, if applicable.
             - **binding_ref**: A reference identifier for the binding, if applicable.
             - **subject_type**: Specifies the type of subject (e.g., public or pairwise) as per OIDC specifications.
-            
-              OIDC claims are any additional claims configured in the application to be included in the access token. These claims are based on the OIDC standard and may include user profile information such as email, given-name, or custom claims specific to the application. 
+
+              OIDC claims are any additional claims configured in the application to be included in the access token. These claims are based on the OIDC standard and may include user profile information such as email, given-name, or custom claims specific to the application.
           example:
             - name: sub
               value: e204849c-4ec2-41f1-8ff7-ec1ebff02821
@@ -287,9 +320,33 @@ components:
           example:
             "785a520d-3bd5-41c1-830d-8e053714ded9"
       description: This property contains the details related to the current auth session.
+    TokenResponse:
+      type: object
+      properties:
+        parameters:
+          type: array
+          items:
+            type: string
+          description: |
+            An array of the top level parameter names that will be present on the token endpoint's response, based on the current token request. Your external service can use this list to discover the standard parameters present on the response, so it can add new custom parameters to the response without a name collision, or remove optional standard parameters from the response.
+
+            Standard parameters:
+
+            - **access_token**: The issued access token. Cannot be added, replaced, or removed.
+            - **scope**: The scopes granted for the access token. Cannot be added, replaced, or removed.
+            - **expires_in**: The validity period (in seconds) of the access token. Cannot be added, replaced, or removed.
+            - **token_type**: The type of the issued token, which is always `Bearer`. Cannot be added, replaced, or removed.
+            - **refresh_token**: The issued refresh token. Only present when the application supports the refresh token grant. Can be removed from the response.
+            - **id_token**: The issued ID token. Only present for OIDC requests. Can be removed from the response.
+          example:
+            - access_token
+            - scope
+            - expires_in
+            - refresh_token
+      description: Represents the token endpoint response that is about to be sent to the client for the current token request. Your external service can add custom parameters to this response, including JSON objects with nested properties, or suppress optional standard parameters from it, based on the logic implemented in the pre-issue access token action.
     AllowedOperations:
       type: array
-      description: Defines the set of operations that your external service is permitted to perform on the access token's claims and scopes.
+      description: Defines the set of operations that your external service is permitted to perform on the access token's claims and scopes, and on the token endpoint response.
       items:
         anyOf:
         - $ref: '#/components/schemas/addOperation'
@@ -310,6 +367,7 @@ components:
           example:
           - /accessToken/claims
           - /accessToken/scopes
+          - /response/parameters
           items:
             type: string
       description: Defines the add operation.
@@ -325,12 +383,12 @@ components:
             - replace
         paths:
           type: array
+          example:
+          - /accessToken/claims
+          - /accessToken/scopes
+          - /refreshToken/claims/expires_in
           items:
             type: string
-            example: 
-            - /accessToken/claims
-            - /accessToken/scopes
-            - /refreshToken/claims/expires_in
       description: Defines the replace operation.
     removeOperation:
       type: object
@@ -344,11 +402,12 @@ components:
             - remove
         paths:
           type: array
+          example:
+          - /accessToken/claims
+          - /accessToken/scopes
+          - /response/parameters/refresh_token
           items:
             type: string
-            example: 
-            - /accessToken/claims
-            - /accessToken/scopes
       description: Defines the remove operation.
     SuccessResponse:
       type: object
@@ -361,7 +420,7 @@ components:
           - SUCCESS
         operations:
           type: array
-          description: Defines the set of operations that your external service is requesting to perform on the access token's claims and scopes.
+          description: Defines the set of operations that your external service is requesting to perform on the access token's claims and scopes, and on the token endpoint response.
           items:
             anyOf:
             - $ref: '#/components/schemas/addOperationResponse'
@@ -405,7 +464,7 @@ components:
           type: string
           description: A detailed description of the error.
       description: |
-        When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request. 
+        When the external service responds with an ERROR state, it can return an HTTP status code of 400, 401, or 500, indicating either a validation failure or an issue processing the request.
     RequestBody:
       type: object
       required:
@@ -453,7 +512,7 @@ components:
       properties:
         name:
           type: string
-          example: 
+          example:
             device
         value:
           type: array
@@ -494,9 +553,7 @@ components:
             - add
         path:
           type: string
-          example:
-            - /accessToken/claims/-
-            - /accessToken/scopes/0
+          example: /accessToken/claims/-
           description: Defines the path for the add operation. Should be one from the allowed paths of `add` operation in the allowedOperations.
         value:
           oneOf:
@@ -517,13 +574,16 @@ components:
             - replace
         path:
           type: string
-          example: 
-            - /accessToken/claims/1
-            - /accessToken/scopes/-
-            - /refreshToken/claims/expires_in
+          example: /refreshToken/claims/expires_in
           description: Defines the path for the replace operation. Should be one from the allowed paths of `replace` operation in the allowedOperations.
         value:
-          type: string
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: array
+              items:
+                type: string
           description: Defines the value for the replace operation.
       description: Defines the replace operation.
     removeOperationResponse:
@@ -538,9 +598,7 @@ components:
             - remove
         path:
           type: string
-          example: 
-            - /accessToken/claims/0
-            - /accessToken/scopes/1
+          example: /response/parameters/refresh_token
           description: Defines the path for the remove operation. Should be one from the allowed paths of `remove` operation in the allowedOperations.
       description: Defines the remove operation.
     CustomValue:
@@ -557,8 +615,11 @@ components:
             - type: integer
             - type: boolean
             - type: array
-              items:
-                type: string  
+              items: {}
+            - type: object
+              additionalProperties: true
+      description: |
+        Defines a custom name-value pair to add. JSON object values, and array values containing anything other than strings (including nested objects and nested arrays), are only supported when adding a custom parameter to the token endpoint response, using the `/response/parameters/` path. Access token and refresh token claims only support string, number, boolean, and string array values; object values, and array values with non-string elements, submitted for these claims are rejected.
   securitySchemes:
     BasicAuth:
       type: http
