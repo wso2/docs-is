@@ -50,10 +50,12 @@ To define a different attribute as the subject:
 
 3. Click **Update**.
 
-{% if is_version == "next" or is_version >= "7.4.0" %}
+{% if is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"] %}
 !!! note "UserInfo `sub` and token reissue, for alternate subject identifiers"
 
-    When an alternate subject identifier is configured, the `sub` value returned by the [userinfo endpoint](#userinfo-response) is set when the access token is issued and does not change for the lifetime of that specific token. If the underlying attribute's value changes afterwards (for example, the user's email is updated) and the same still-valid access token is reused, the ID token issued alongside the reused token will reflect the new value, but the userinfo response's `sub` will continue to return the value that was set when the access token was originally issued.
+    When an alternate subject identifier is configured, the `sub` value returned by the [userinfo endpoint](#userinfo-response) is determined when the access token is issued and remains unchanged for the lifetime of that token.
+
+    If the underlying attribute changes later, for example, if the user updates their email address, and the same valid access token is reused, the newly issued ID token reflects the updated value. However, the userinfo response continues to return the sub value associated with the access token when it was originally issued.
 
     To have the userinfo endpoint recompute `sub` from the attribute's current value on every request, enable the following `deployment.toml` configuration and restart the server:
 
@@ -62,7 +64,11 @@ To define a different attribute as the subject:
     recompute_subject_claim_for_alternate_subject_identifier = true
     ```
 
-    This is disabled by default. When enabled, a client that needs an ID token and a userinfo response with matching `sub` values must request a new token after any change to the attribute used as the subject — an ID token already issued to the client is not retroactively updated, since it is a signed, immutable token. This setting only affects applications with an alternate subject identifier configured; it has no effect otherwise.
+    This setting is disabled by default. When enabled, a client that requires matching sub values in the ID token and userinfo response must request a new access token after the attribute used as the subject changes.
+
+    Previously issued ID tokens are not updated retroactively because they are signed and immutable.
+
+    This setting applies only to applications configured with an alternate subject identifier. It has no effect on other applications.
 {% endif %}
 
 !!! warning "Deprecated `sub` attribute behavior in application access tokens"
