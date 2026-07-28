@@ -50,6 +50,27 @@ To define a different attribute as the subject:
 
 3. Click **Update**.
 
+{% if is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"] %}
+!!! note "UserInfo `sub` and token reissue, for alternate subject identifiers"
+
+    When an alternate subject identifier is configured, the `sub` value returned by the [userinfo endpoint](#userinfo-response) is determined when the access token is issued and remains unchanged for the lifetime of that token.
+
+    If the underlying attribute changes later, for example, if the user updates their email address, and the same valid access token is reused, the newly issued ID token reflects the updated value. However, the userinfo response continues to return the sub value associated with the access token when it was originally issued.
+
+    To have the userinfo endpoint recompute `sub` from the attribute's current value on every request, enable the following `deployment.toml` configuration and restart the server:
+
+    ```toml
+    [oauth.userinfo]
+    recompute_subject_claim_for_alternate_subject_identifier = true
+    ```
+
+    This setting is disabled by default. When enabled, a client that requires matching sub values in the ID token and userinfo response must request a new access token after the attribute used as the subject changes.
+
+    Previously issued ID tokens are not updated retroactively because they are signed and immutable.
+
+    This setting applies only to applications configured with an alternate subject identifier. It has no effect on other applications.
+{% endif %}
+
 !!! warning "Deprecated `sub` attribute behavior in application access tokens"
 
     Application access tokens are tokens generated to represent the application rather than an individual user. Such tokens are generated during grant types such as [client_credential]({{base_path}}/references/grant-types/#client-credentials-grant).
