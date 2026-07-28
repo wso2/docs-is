@@ -168,6 +168,8 @@ Content-Type: application/json;charset=UTF-8
  ]
 }
 ```
+
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version >= "7.2.0") %}
 ## Changing the refresh token validity period
 
 The duration for which the refresh token is valid can be changed in seconds.
@@ -188,6 +190,7 @@ Content-Type: application/json;charset=UTF-8
  ]
 }
 ```
+{% endif %}
 
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
 ## Adding a custom parameter to the token endpoint response
