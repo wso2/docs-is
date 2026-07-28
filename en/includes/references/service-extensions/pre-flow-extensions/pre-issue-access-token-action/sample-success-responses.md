@@ -189,11 +189,12 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
 ## Adding a custom parameter to the token endpoint response
 
 To add a custom top-level parameter to the token endpoint response, use the <code>/response/parameters/-</code> path in the <code>event.response</code> request.
 
-String, integer, boolean, JSON objects, and arrays are allowed as parameter values. Unlike access token and refresh token claims, arrays aren't limited to string elements — they can hold any combination of these value types, including nested objects and nested arrays. The parameter name must not collide with a standard parameter name, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, <code>token_type</code>, <code>refresh_token</code>, <code>id_token</code>, or an already added custom parameter.
+String, integer, boolean, JSON objects, and arrays are allowed as parameter values. The parameter name must not collide with a standard parameter name, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, <code>token_type</code>, <code>refresh_token</code>, <code>id_token</code>, or an already added custom parameter.
 
 !!! note
     Unlike token endpoint response parameters, access token and refresh token claims only accept string, integer, boolean, and string type array values. JSON objects, and arrays containing anything other than strings, aren't allowed as claim values, so they can't be injected into the access token or the refresh token.
@@ -245,36 +246,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-Refer to the example response below, which demonstrates adding a custom parameter with an array value containing non-string elements, including nested JSON objects:
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-
-{
-  "actionStatus": "SUCCESS",
-  "operations": [
-    {
-      "op": "add",
-      "path": "/response/parameters/-",
-      "value": {
-        "name": "entitlements",
-        "value": [
-          {
-            "resource": "reports",
-            "level": 2
-          },
-          {
-            "resource": "billing",
-            "level": 1
-          }
-        ]
-      }
-    }
-  ]
-}
-```
-
 ## Removing an optional parameter from the token endpoint response
 
 You can suppress optional standard parameters, such as <code>refresh_token</code> or <code>id_token</code>, from the token endpoint response. To do this, use the <code>/response/parameters/</code> path followed by the name of the parameter you want to remove, in the <code>event.response</code> request. Standard parameters that are always present in the response, such as <code>access_token</code>, <code>scope</code>, <code>expires_in</code>, and <code>token_type</code>, can't be removed.
@@ -295,3 +266,4 @@ Content-Type: application/json;charset=UTF-8
   ]
 }
 ```
+{% endif %}
