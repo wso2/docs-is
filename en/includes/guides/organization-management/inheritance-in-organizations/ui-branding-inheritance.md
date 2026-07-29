@@ -16,6 +16,9 @@ Organization-wide branding settings apply to all applications within the organiz
 
 - Organizations can customize their own branding settings, overriding the inherited settings. These overridden settings then pass down to the organization’s descendants.
 
+    !!! note "Customized branding does not track later ancestor changes"
+        Once an organization customizes its branding, it stops inheriting from its ancestors. Any branding changes made later at an ancestor level are **not** propagated to it; the organization keeps using its own customized settings independently. This continues until the organization reverts its branding, at which point it resumes inheriting from the nearest ancestor with custom settings.
+
 - Organizations can also revert their branding settings, restoring the inherited values.
 
 ### Application-specific branding
@@ -35,6 +38,9 @@ Application-specific branding settings apply to a single application. For a give
 - If the organization has its own organization-wide branding, that applies to the application.
 
 - Organizations can customize their own application-specific branding settings, overriding either their organization-wide settings or the inherited settings. These overridden settings then pass down to the organization’s descendants.
+
+    !!! note "Customized branding does not track later ancestor changes"
+        Once an organization customizes its application-specific branding, it stops inheriting from its ancestors for that application. Any branding changes made later at an ancestor level are **not** propagated to it; the organization keeps using its own customized settings independently. This continues until the organization reverts its branding, at which point it resumes inheriting from the nearest ancestor with custom settings.
 
 - Organizations can also revert application-specific branding settings. When reverted, the application uses the organization’s custom branding settings. If the organization has no custom branding, it inherits the branding from the nearest parent organization in the hierarchy that has custom settings.
 
