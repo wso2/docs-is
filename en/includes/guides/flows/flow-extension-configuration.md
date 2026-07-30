@@ -78,7 +78,25 @@ Once the extension and its attributes exist, configure which attributes {{produc
 
 ![Configure a flow extension]({{base_path}}/assets/img/guides/flows/flow-extension-configure.gif){: width="auto" style="display: block; margin: 0;"}
 
-The flow extension is now ready to be invoked from the **Self Registration** flow.
+The flow extension is now ready to be added to a flow.
+
+#### Attribute access levels
+
+Most attributes accept both **Read** and **Write**. The following are the exceptions:
+
+| Attribute | Available access | Notes |
+| --------- | ---------------- | ----- |
+| Attributes marked with a **Read-Only** badge | Read | {{product_name}} owns these values, so their **Write** control is disabled. |
+| Username | Read and Write | Applied in the **Self Registration** flow only. In **Password Recovery** and **Invited User Registration**, {{product_name}} omits the username from the request and ignores any change your endpoint returns. |
+| Identity attributes | Read and Write | {{product_name}} maintains these itself, so writing one can cause unexpected behavior. |
+
+{% if product_name == "WSO2 Identity Server" %}
+
+!!! note
+
+    The read-only attributes are set by the `actions.types.flow_extension.non_modifiable_paths` property. See [Flow extension action]({{base_path}}/references/configuration-catalog/#flow-extension-action) in the configuration catalog.
+
+{% endif %}
 
 ### Step 4 – Configure field encryption
 
@@ -102,7 +120,6 @@ To mark a field as encrypted:
 
 Fields marked as encrypted show a lock icon on their **Read** and **Write** indicators.
 
-<!-- TODO: capture image - Field Configuration panel showing the Read encrypted and Write encrypted toggles with the lock icon in the tree -->
 ![Configure field encryption]({{base_path}}/assets/img/guides/flows/flow-extension-encryption-toggles.png){: width="auto" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! note

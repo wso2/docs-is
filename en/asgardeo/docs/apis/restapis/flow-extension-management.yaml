@@ -583,6 +583,7 @@ components:
             $ref: '#/components/schemas/ContextPath'
         modify:
           type: array
+          description: The paths the extension may write. Paths configured as non-modifiable are rejected with a 400 response.
           items:
             $ref: '#/components/schemas/ContextPath'
 
