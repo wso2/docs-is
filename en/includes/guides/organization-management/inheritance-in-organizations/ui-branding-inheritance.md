@@ -40,7 +40,7 @@ Application-specific branding settings apply to a single application. For a give
 - Organizations can customize their own application-specific branding settings, overriding either their organization-wide settings or the inherited settings. These overridden settings then pass down to the organization’s descendants.
 
     !!! note "Customized branding does not track later ancestor changes"
-        Once an organization customizes its application-specific branding, it stops inheriting from its ancestors for that application. Any branding changes made later at an ancestor level are **not** propagated to it; the organization keeps using its own customized settings independently. This continues until the organization reverts its branding, at which point it resumes inheriting from the nearest ancestor with custom settings.
+        Once an organization customizes its application-specific branding, it stops inheriting from its ancestors for that application. Any branding changes made later at an ancestor level are **not** propagated to it; the application keeps using its own customized settings independently. This continues until the application-specific branding is reverted, at which point it resumes using the organization’s own organization-wide branding if available, or otherwise inherits from the nearest ancestor.
 
 - Organizations can also revert application-specific branding settings. When reverted, the application uses the organization’s custom branding settings. If the organization has no custom branding, it inherits the branding from the nearest parent organization in the hierarchy that has custom settings.
 
