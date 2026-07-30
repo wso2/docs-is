@@ -11,6 +11,7 @@ Monthly Active Users (MAUs) are the number of unique users who successfully log 
 - The number of unique users who log in or obtain an access token for a particular application during a billing cycle. A subsequent login by the same user is not considered in the MAU count.
 - The number of unique users who obtain a new access token via a valid refresh token during a billing cycle. Subsequent refresh tokens issued to the same user during the same billing cycle are not considered in the MAU count.
 - If long-lived tokens are issued and such token validity goes into subsequent months, the number of unique users who have obtained such a long-lived token are counted as MAUs during each month.
+- If a single user logs in to (or obtains an access token for) multiple applications within the same WSO2 Identity Platform organization during a billing cycle, they are counted as only one MAU.
 
 ## Machine-to-Machine tokens (M2M tokens)
 
@@ -30,6 +31,7 @@ An AgentID token is a token issued for an AI agent in the {{ product_name }}. An
 - An On-Behalf-Of (OBO) token issued to an agent so that it can act for a user during a billing cycle counts toward that month's AgentID token quota.
 - A new agent token or OBO token obtained in exchange for a valid refresh token through the refresh token grant during a billing cycle counts toward that month's AgentID token quota.
 - An agent token that is valid for a longer time and overlaps two or more billing cycles counts as a single token in its issue month, unless renewed, in which case the renewal counts toward the month in which it occurs.
+- Registering, updating, or deleting an agent identity does not count toward the AgentID token quota. Only issued tokens are counted.
 
 ## Organizations
 
