@@ -126,7 +126,4 @@ To cancel your subscription:
 
 3. Confirm in the dialog that appears.
 
-    !!! warning
-        Cancelling this subscription will immediately deactivate the organization, including all applications, authentication flows, and related services. You will no longer be able to access or use this organization after cancellation.
-
 For any other subscription changes or help, contact the WSO2 Identity Platform support team at **asgardeo-help@wso2.com**.
