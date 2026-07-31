@@ -79,9 +79,9 @@ Data of your end users are only stored in the regional datacenter you selected w
 
 ## Analytics data
 
-{{product_name}} uses [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family, to power the identity [Insights]({{base_path}}/guides/insights/) available in the Console and to support WSO2's product, onboarding, subscription, and usage analytics. To do this, {{product_name}} publishes both end-user and administrator data to Moesif for the purposes described below.
+{{product_name}} uses [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family. Moesif powers the identity [Insights]({{base_path}}/guides/insights/) available in the Console. It also supports WSO2's product, onboarding, subscription, and usage analytics. To do this, {{product_name}} publishes both end-user and administrator data to Moesif for the purposes described below.
 
-Analytics data is published to the Moesif workspace in the **same region you selected during onboarding**. Data from US organizations is published to Moesif US, and data from EU organizations is published to Moesif EU. Your analytics data therefore remains within your selected regional boundary. By default, analytics data is retained for **1 to 3 months**.
+Analytics data is published to the Moesif workspace in the **same region you selected during onboarding**. Data from US organizations is published to Moesif US, and data from EU organizations is published to Moesif EU. Your analytics data stays within your selected regional boundary. By default, analytics data is retained for **1 to 3 months**.
 
 ### End-user data used for analytics
 
