@@ -63,14 +63,14 @@ These events describe real people, so they carry personal data. Across the event
 
 A few things are deliberately **not** sent:
 
-- No passwords, no one-time passcodes (OTPs), and no credentials of any kind.
+- No passwords, no one-time passwords, and no credentials of any kind.
 - No token values. Tokens are identified by an ID only, never by their contents.
 - No user profile attributes other than those listed above. Nothing else is read from the user's profile.
 
 {% if is_version is defined %}
 You decide which of these events are published. If a category is not useful to you, leave its publisher off. See [Set up Moesif analytics]({{base_path}}/guides/analytics/moesif/).
 {% else %}
-For where this data is stored and how long it is kept, see [Data residency]({{base_path}}/references/data-residency-in-asgardeo/#analytics-data).
+For where this data is stored and how long it stays there, see [Data residency]({{base_path}}/references/data-residency-in-asgardeo/#analytics-data).
 {% endif %}
 
 ## How an event is shaped
@@ -92,19 +92,19 @@ Every event arrives in Moesif in the same envelope, sent to the Moesif [Actions 
 }
 ```
 
-- `actionName` tells you which kind of event it is. Filter on this in Moesif to isolate one event type.
+- `actionName` names the kind of event. Filter on this in Moesif to isolate one event type.
 - `userId` and `companyId` are how Moesif groups activity by user and by organization. `userId` is left out when the event happens before a user can be identified, such as a login that fails at the username step.
 - Everything else lives under `metadata` - that is where the attributes listed below appear.
 - The user agent travels as the `User-Agent` header of the request, not in the body.
 
 Two conventions are worth knowing when you build charts:
 
-- An attribute that could not be resolved for a particular event carries the literal value `NOT_AVAILABLE` rather than being dropped, so exclude that value when you aggregate.
+- An attribute that could not be resolved for a particular event carries the literal value `NOT_AVAILABLE` rather than being dropped, so exclude that value when you total the results.
 - Most timestamps are ISO-8601 strings. The exceptions are epoch milliseconds: `_timestamp` on login and session events, and `createdTimestamp`, `updatedTimestamp`, and `terminationTimestamp` on session events. Each row below states the unit.
 
 ## Logins
 
-Login events are the busiest stream. One event is published for each **step** of a login flow, and one for the **overall outcome**, so a two-factor login produces several events that share the same `contextId`.
+Login events are the busiest stream. One event is published for each **step** of a login flow, and one for the **final outcome**, so a two-factor login produces multiple events that share the same `contextId`.
 
 **`actionName`:** `User-Authentication`
 
@@ -121,8 +121,8 @@ The attributes you will reach for most often are `authenticationSuccess` (did th
       <tbody>
         <tr><td><code>contextId</code></td><td>Correlates every step of a single login attempt. Group by this to reconstruct one user's login journey.</td></tr>
         <tr><td><code>eventId</code></td><td>Unique ID of this event.</td></tr>
-        <tr><td><code>eventType</code></td><td>Whether this event reports a single step or the overall authentication outcome.</td></tr>
-        <tr><td><code>authenticationSuccess</code></td><td>Whether the overall login succeeded.</td></tr>
+        <tr><td><code>eventType</code></td><td>Whether this event reports a single step or the final authentication outcome.</td></tr>
+        <tr><td><code>authenticationSuccess</code></td><td>Whether the login as a whole succeeded.</td></tr>
         <tr><td><code>authStepSuccess</code></td><td>Whether this individual step succeeded.</td></tr>
         <tr><td><code>authenticationStep</code></td><td>Step number in the login flow that this event reports on.</td></tr>
         <tr><td><code>stepAuthenticator</code></td><td>Authenticator used at this step, such as username and password, or an MFA authenticator.</td></tr>
@@ -184,7 +184,7 @@ One event per account created, whichever way the account came into existence.
 
 ## Sessions
 
-Three events per session: one when it is created, one each time it is updated, and one when it ends.
+Three events per session: one at creation, one for each update, and one when the session ends.
 
 **`actionName`:** `User-Session`
 
@@ -288,11 +288,11 @@ Group by `flowId` to follow one user through a flow, and by `currentNodeId` and 
       <tbody>
         <tr><td><code>flowType</code></td><td>Which flow this is, such as registration or password recovery.</td></tr>
         <tr><td><code>flowId</code></td><td>Correlates every step of a single flow execution.</td></tr>
-        <tr><td><code>stepType</code></td><td>Type of the step that was executed.</td></tr>
+        <tr><td><code>stepType</code></td><td>Which kind of step was executed.</td></tr>
         <tr><td><code>currentNodeId</code></td><td>ID of the node that was executed.</td></tr>
-        <tr><td><code>currentNodeType</code></td><td>Type of the node that was executed.</td></tr>
+        <tr><td><code>currentNodeType</code></td><td>Which kind of node was executed.</td></tr>
         <tr><td><code>nodeResponseStatus</code></td><td>Outcome of the node execution.</td></tr>
-        <tr><td><code>nodeResponseType</code></td><td>Type of response the node produced.</td></tr>
+        <tr><td><code>nodeResponseType</code></td><td>Which kind of response the node produced.</td></tr>
         <tr><td><code>executorName</code></td><td>Executor that ran the step, for example the executor for a particular verification method.</td></tr>
         <tr><td><code>applicationId</code></td><td>Application the flow was started from.</td></tr>
         <tr><td><code>tenantDomain</code></td><td>Organization the flow belongs to.</td></tr>
@@ -331,7 +331,8 @@ In a B2B setup, a user who belongs to one organization can access another. Each 
     </table>
 
 {% if is_version is defined %}
+
 ## A note on sub-organizations
 
-Activity inside a sub-organization is published against the **root organization**, so everything lands in one place rather than being scattered across workspaces. The sub-organization is not lost: it is preserved in attributes such as `userResidingOrgId` and `userAccessingOrgId`, so you can still filter or break down any chart by sub-organization.
+Activity inside a sub-organization is published against the **root organization**, so everything lands in one place rather than being scattered across workspaces. The sub-organization is not lost, but preserved in attributes such as `userResidingOrgId` and `userAccessingOrgId`, so you can still filter or break down any chart by sub-organization.
 {% endif %}

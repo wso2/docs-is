@@ -165,7 +165,7 @@ Repeat this step for each tenant you want to publish analytics for.
 !!! note
     This configuration is per tenant. Each tenant uses its own collector API key, so pointing two tenants at two different Moesif workspaces keeps their analytics fully separate.
 
-All six publishers are always listed here. Selecting one takes effect only if it is also enabled in `deployment.toml` (Step 4).
+All six publishers are always listed here. Selecting one takes effect only when the same publisher is enabled in `deployment.toml` (Step 4).
 
 To change the key later, enter the new value and click **Update**. The stored key is never displayed back to you, so leave the field blank to keep the current key while changing which publishers are selected.
 

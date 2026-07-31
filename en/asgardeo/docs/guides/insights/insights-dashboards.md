@@ -44,6 +44,8 @@ To move to a higher tier, see [Subscribe to {{ product_name }}]({{base_path}}/gu
 
 ## The dashboards
 
+Each dashboard below answers a different set of questions. The charts you see depend on your tier, as listed above.
+
 ### Overview
 
 The starting point: a single page that answers "how is my organization doing right now?"
@@ -53,21 +55,21 @@ Every tier shows these:
 - **Active Users** - how many distinct users were active in the selected period.
 - **M2M Tokens** - machine-to-machine (M2M) token issuance.
 - **New Agents** and **Agent Tokens** - agent activity in your organization.
-- **Login Success vs Failure Over Time** - the login health trend line. A rising failure share is usually the first sign of a problem.
+- **Login Success vs Failure Over Time** - the login health trend line. A rising failure share is often the first sign of a problem.
 - **Registrations Over Time** - your growth curve.
 - **Agent Tokens Over Time** - agent token issuance trend.
 
 Essentials and above add two more:
 
 - **New Users** and **Self Sign-Ups** - how many accounts were created, and how many of those came from self sign-up.
-- **Total Tokens** - overall token issuance, alongside the M2M share.
+- **Total Tokens** - total token issuance, alongside the M2M share.
 
 ### Authentication
 
 Everything about how people log in.
 
 - **Active Users** - distinct users who logged in.
-- **Login Success vs Failure** - the overall split for the period.
+- **Login Success vs Failure** - the split for the period.
 - **MFA Usage** - how much of your login traffic goes through multi-factor authentication (MFA), that is, a second factor.
 - **Login Success vs Failure Over Time** and **Successful Logins Over Time** - trends, useful for spotting the moment something changed.
 - **Logins by Device** - which devices and browsers your users actually use.
@@ -92,7 +94,7 @@ How your user base grows, and through which door.
 
 What your applications are consuming.
 
-- **Total Tokens** and **M2M Tokens** - overall issuance and the machine-to-machine portion.
+- **Total Tokens** and **M2M Tokens** - total issuance and the machine-to-machine share.
 - **Tokens by User Type** - end-user tokens versus application tokens.
 - **Tokens by Application** - which clients consume the most.
 - **Tokens by Grant Type** - which OAuth2 grants are in use.

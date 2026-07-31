@@ -4,13 +4,13 @@
 
 **Insights** is the analytics section of the {{ product_name }} Console. It shows you what is actually happening in your organization: who is logging in, how many people are signing up, how often logins fail, how many tokens your applications are consuming, and more.
 
-There is nothing to install and no analytics platform to run. {{ product_name }} already collects the identity activity of your organization; Insights turns it into dashboards.
+Nothing needs to be installed, and you do not run an analytics platform yourself. {{ product_name }} already collects the identity activity of your organization; Insights turns it into dashboards.
 
 ## Two levels of Insights
 
 Every organization starts with a basic set of charts in the **Insights** section. Turning on **Advanced Analytics** replaces them with a much richer set of interactive dashboards, powered by [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family.
 
-Advanced Analytics is a one-time switch that an administrator makes for the whole organization. Once it is on, the dashboards appear directly in the Console - there is no separate account to create, no key to configure, and no billing to set up.
+Advanced Analytics is a one-time switch that an administrator makes for the whole organization. Once enabled, the dashboards appear directly in the Console - there is no separate account to create, no key to configure, and no billing to set up.
 
 <table>
   <thead>
@@ -46,7 +46,7 @@ Four things are worth knowing, because the switch applies to your whole organiza
 - **Your analytics history starts fresh.** Data collected before the switch does not carry over. The dashboards begin filling from the moment you enable Advanced Analytics.
 - **It applies to everyone in your organization**, not just to you.
 - **You cannot switch back from the Console.** Take a moment to be sure before you enable it.
-- **Some end-user personal data is shared with Moesif** to generate the insights, including user identifiers and IP addresses. Moesif is a WSO2-owned company, and your data is published to the Moesif workspace in the same region you selected when you onboarded. See [Data published to Moesif]({{base_path}}/guides/insights/data-published-to-moesif/) for the full list, and [Data residency]({{base_path}}/references/data-residency-in-asgardeo/#analytics-data) for where it is stored.
+- **Some end-user personal data is shared with Moesif** to generate the insights, including user identifiers and IP addresses. Moesif is a WSO2-owned company, and your data is published to the Moesif workspace in the same region you selected when you onboarded. See [Data published to Moesif]({{base_path}}/guides/insights/data-published-to-moesif/) for the full list, and [Data residency]({{base_path}}/references/data-residency-in-asgardeo/#analytics-data) for where the data resides.
 
 ## Turn on Advanced Analytics
 
