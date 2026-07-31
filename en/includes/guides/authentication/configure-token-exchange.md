@@ -1,6 +1,6 @@
 # Configure token exchange
 
-You can exchange a token that an application already has for a new {{ product_name }} token. Learn how to configure the OAuth 2.0 token exchange flow in your {{ product_name }} organization. Refer [Token exchange grant]({{base_path}}/references/grant-types/#token-exchange-grant) for more information on how the flow works.
+You can exchange a token that an application already has for a new {{ product_name }} token. Learn how to configure the OAuth 2.0 token exchange flow in your {{ product_name }} organization. Refer to [Token exchange grant]({{base_path}}/references/grant-types/#token-exchange-grant) for more information on how the flow works.
 
 Follow this guide for instructions.
 
@@ -50,7 +50,7 @@ To enable token exchange in your application:
 
 #### Register a trusted token issuer
 
-To exchange a federated token for an {{ product_name }}  token, you need to register the third-party token issuer as a trusted token issuer in your {{ product_name }}  organization.
+To exchange a federated token for a token issued by {{ product_name }}, you need to register the third-party token issuer as a trusted token issuer in your {{ product_name }} organization.
 
 To register a trusted token issuer:
 
