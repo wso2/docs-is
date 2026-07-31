@@ -2,7 +2,9 @@
 # Token Exchange for AI Agents
 <!-- vale on -->
 
-This guide walks you through how an AI agent can act on behalf of a user by exchanging a token that the user already holds, using the [token exchange grant]({{base_path}}/guides/authentication/configure-token-exchange/), as defined in the [OAuth 2.0 Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693). The issued token identifies the user in the `sub` claim and records the agent as the acting party in the `act` claim, so resource servers can see both identities in a single token.
+This guide walks you through how an AI agent can act on behalf of a user by exchanging a token that the user already holds. The flow uses the [token exchange grant]({{base_path}}/guides/authentication/configure-token-exchange/), as defined in the [OAuth 2.0 Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693).
+
+The issued token identifies the user in the `sub` claim and records the agent as the acting party in the `act` claim. A resource server can then see both identities in a single token.
 
 !!! note "Agent friendly delegation mechanism"
     - This flow does **not use redirects** and needs **no new user interaction**.
@@ -93,15 +95,15 @@ The request contains the following delegation parameters:
         <th>Description</th>
     </tr>
     <tr>
-        <td>subject_token</td>
+        <td><code>subject_token</code></td>
         <td>A JWT token that identifies the user on whose behalf the agent acts.</td>
     </tr>
     <tr>
-        <td>actor_token</td>
+        <td><code>actor_token</code></td>
         <td>A JWT token issued by {{ product_name }} for the agent.</td>
     </tr>
     <tr>
-        <td>actor_token_type</td>
+        <td><code>actor_token_type</code></td>
         <td>Should be <code>urn:ietf:params:oauth:token-type:access_token</code> or
         <code>urn:ietf:params:oauth:token-type:jwt</code>.</td>
     </tr>
@@ -140,6 +142,6 @@ When an agent hands a task to another agent, the second agent exchanges the dele
 }
 ```
 
-The most recent agent appears at the top level of the chain. {{ product_name }} carries the existing chain forward unchanged when the request presents no actor token, so an agent that re-exchanges a token it received can't alter the chain behind it.
+The most recent agent appears at the top level of the chain. When the request presents no actor token, {{ product_name }} carries the existing chain forward unchanged. An agent that re-exchanges a token it received can't alter the chain behind it.
 
 To learn more about the delegation model and the `act` claim, see [Delegation]({{base_path}}/guides/authorization/delegation/).

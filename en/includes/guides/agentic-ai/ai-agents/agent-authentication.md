@@ -242,7 +242,7 @@ The flow proceeds as follows:
 
 ### Using token exchange for on-behalf-of delegation
 
-When an agent obtains a token issued for the user, the [token exchange grant]({{base_path}}/guides/authentication/configure-token-exchange/) can add the agent as the acting party without any new user interaction. The agent presents the token it obtained through its own authentication flow as an `actor_token` alongside the user's token, and {{ product_name }} issues a token that carries the user in `sub` and the agent in the `act` claim. Successive exchanges nest the `act` claim, so a chain of agents remains traceable in a single token.
+When an agent receives a token issued for the user, the [token exchange grant]({{base_path}}/guides/authentication/configure-token-exchange/) can add the agent as the acting party without any new user interaction. The agent presents its own `actor_token` alongside the user's token, and {{ product_name }} issues a token that carries the user in `sub` and the agent in the `act` claim. Successive exchanges nest the `act` claim, so a chain of agents remains traceable in a single token.
 
 For instructions, see [Token exchange for AI agents]({{base_path}}/guides/agentic-ai/ai-agents/token-exchange-for-agents/).
 

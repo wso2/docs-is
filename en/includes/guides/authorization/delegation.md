@@ -1,6 +1,6 @@
 # Delegation
 
-Delegation lets an application obtain a token for a user while preserving the identity of the party that acts on the user's behalf. {{ product_name }} implements delegation with the [token exchange grant]({{base_path}}/guides/authentication/configure-token-exchange/), as defined in the [OAuth 2.0 Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693){:target="_blank"}.
+Delegation lets an application get a token for a user while preserving the identity of the party that acts on the user's behalf. {{ product_name }} implements delegation with the [token exchange grant]({{base_path}}/guides/authentication/configure-token-exchange/), as defined in the [OAuth 2.0 Token Exchange specification (RFC 8693)](https://datatracker.ietf.org/doc/html/rfc8693){:target="_blank"}.
 
 The exchanged token identifies the user in the `sub` claim and the acting party in the `act` claim. When a delegated token is exchanged again, {{ product_name }} nests the previous `act` claim under the new one, so a single token carries the full delegation chain.
 
@@ -10,9 +10,9 @@ Before you request a delegated token:
 
 - Enable the token exchange grant for the application that requests the token, as described in [Enable token exchange in your app]({{base_path}}/guides/authentication/configure-token-exchange/#enable-token-exchange-in-your-app).
 
-- Obtain the subject token, as described in [Token exchange flows]({{base_path}}/guides/authentication/configure-token-exchange/#token-exchange-flows). The subject token identifies the user on whose behalf the new token is issued.
+- Get the subject token, as described in [Token exchange flows]({{base_path}}/guides/authentication/configure-token-exchange/#token-exchange-flows). The subject token identifies the user on whose behalf the new token is issued.
 
-- Obtain a JWT token for the acting user from {{ product_name }}. This is the actor token.
+- Get a JWT token for the acting user from {{ product_name }}. This is the actor token.
 
 To request a delegated token, send both tokens to the token endpoint.
 
@@ -35,11 +35,11 @@ The request contains the following delegation parameters:
 
 <table>
     <tr>
-        <td>actor_token</td>
+        <td><code>actor_token</code></td>
         <td>A JWT token issued by {{ product_name }} for the acting user.</td>
     </tr>
     <tr>
-        <td>actor_token_type</td>
+        <td><code>actor_token_type</code></td>
         <td>Should be <code>urn:ietf:params:oauth:token-type:access_token</code> or
         <code>urn:ietf:params:oauth:token-type:jwt</code>.</td>
     </tr>
