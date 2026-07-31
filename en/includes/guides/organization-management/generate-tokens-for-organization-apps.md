@@ -149,7 +149,7 @@ Use the following request to exchange a subject token for an access token.
     -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
     -d "requested_token_type=urn:ietf:params:oauth:token-type:access_token"
     -d "subject_token_type=urn:ietf:params:oauth:token-type:jwt"
-    -d "subject_token=<jwt_issued_from_a_trusted_token_issuer>"
+    -d "subject_token=<subject_token>"
     -d "scope=<desired scopes>"
     -H "Content-Type: application/x-www-form-urlencoded"
     {{ root_org_url }}/o/<ORG_ID>/oauth2/token
@@ -162,7 +162,7 @@ Use the following request to exchange a subject token for an access token.
     -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange"
     -d "requested_token_type=urn:ietf:params:oauth:token-type:access_token"
     -d "subject_token_type=urn:ietf:params:oauth:token-type:jwt"
-    -d "subject_token=<jwt_issued_from_a_trusted_token_issuer>"
+    -d "subject_token=<subject_token>"
     -d "scope=openid internal_org_user_mgt_list read_stores"
     -H "Content-Type: application/x-www-form-urlencoded" 
     {{ root_org_url }}/o/12d1c4d2-2bb1-443b-aa4a-68f98a40d7c6/oauth2/token
