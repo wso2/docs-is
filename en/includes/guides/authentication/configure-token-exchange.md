@@ -119,7 +119,9 @@ To register a trusted token issuer:
 
 You can use the following properties to customize how token exchange occurs for identities with local user accounts.
 
+<!-- vale WSO2-IAM.TooWordy = NO -->
 ##### Prioritize local account attributes
+<!-- vale WSO2-IAM.TooWordy = YES -->
 
 After enabling this configuration, {{ product_name }} includes the local user profile information in the exchanged token if the federated identity has a linked local user account. Otherwise, {{ product_name }} returns the profile information received directly from the federated identity.
 
@@ -136,7 +138,7 @@ To prioritize linked local account attributes:
 
 ##### Implicit account linking
 
-You can use implicit account linking capability in the registered trusted token issuer to automatically create an account link between a local user account in {{ product_name }} and a federated identity during token exchange.
+You can use implicit account linking in the registered trusted token issuer to create an account link automatically. The link connects a local user account in {{ product_name }} with a federated identity during token exchange.
 
 You can configure lookup attributes to search for a matching local user account. If the system finds a matching account, {{ product_name }} automatically links the local user account to the federated identity.
 
@@ -183,7 +185,7 @@ You can configure implicit account linking using the
 
 Follow the steps given below.
 
-1. Obtain the JWT token received from the third-party token issuer.
+1. Get the JWT token received from the third-party token issuer.
 2. Execute the following cURL command to exchange the federated token for an {{ product_name }} token.
 
     ``` bash
@@ -240,7 +242,7 @@ To configure the subject token application:
 
 Follow the steps given below.
 
-1. Obtain a JWT access token for the subject token application.
+1. Get a JWT access token for the subject token application.
 2. Execute the following cURL command to exchange the token for a new {{ product_name }} token.
 
     ``` bash

@@ -80,3 +80,7 @@ Moesif
 multiple_client_secrets
 multiple_client_secrets_enabled
 Expiration
+subject_token
+actor_token
+actor_token_type
+api_base_path
