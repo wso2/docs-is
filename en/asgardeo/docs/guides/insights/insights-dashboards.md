@@ -116,7 +116,7 @@ Your analytics data is retained for **1 to 3 months** by default. The dashboards
 
 ## Going beyond the built-in dashboards
 
-The built-in dashboards cover the questions most organizations ask. When you need something they do not answer - a chart shaped around your own business, a longer view of history, or analytics data pulled into your own tools - you can move to a dedicated [Moesif](https://www.moesif.com/){:target="_blank"} subscription for your organization.
+The built-in dashboards cover the questions most organizations ask. Sometimes you need more: a chart shaped around your own business, a longer view of history, or analytics data pulled into your own tools. For those cases, move to a dedicated [Moesif](https://www.moesif.com/){:target="_blank"} subscription for your organization.
 
 With your own Moesif subscription you get:
 

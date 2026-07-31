@@ -91,7 +91,11 @@ Once Advanced Analytics is enabled, {{product_name}} publishes your organization
 
 **Purpose:** to provide you with identity analytics for your organization, such as logins, sessions, token issuance, registrations, registration/recovery funnels, and organization switches.
 
-**Types of data published:** identity events and their contextual attributes, which may include personal data of your end users such as their **email address, login identifiers** (for example, mobile number or NIC where used as login attributes), **IP address,** and **user agent,** in addition to identifiers such as user ID, organization, application, and connection. See [Data published to Moesif]({{base_path}}/guides/insights/data-published-to-moesif/) for the complete list of events and attributes.
+**Types of data published:** identity events and their contextual attributes.
+
+These may include personal data of your end users. Examples are the **email address, login identifiers** (such as a mobile number or NIC used as a login attribute), **IP address,** and **user agent.** They also include identifiers such as user ID, organization, application, and connection.
+
+See [Data published to Moesif]({{base_path}}/guides/insights/data-published-to-moesif/) for the complete list.
 
 ### Administrator data used for analytics
 

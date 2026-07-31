@@ -2,7 +2,7 @@
 
 # Insights
 
-**Insights** is the analytics section of the {{ product_name }} Console. It shows you what is actually happening in your organization: who is logging in, how many people are signing up, how often logins fail, how many tokens your applications are consuming, and more.
+**Insights** is the analytics section of the {{ product_name }} Console. It shows what is happening in your organization: who is logging in, how many people are signing up, and how often logins fail. It also covers token consumption and more.
 
 Nothing needs to be installed, and you do not run an analytics platform yourself. {{ product_name }} already collects the identity activity of your organization; Insights turns it into dashboards.
 
@@ -39,7 +39,7 @@ Advanced Analytics is a one-time switch that an administrator makes for the whol
   </tbody>
 </table>
 
-## Before you turn on Advanced Analytics
+## Before you turn on advanced analytics
 
 Four things are worth knowing, because the switch applies to your whole organization:
 
@@ -48,7 +48,7 @@ Four things are worth knowing, because the switch applies to your whole organiza
 - **You cannot switch back from the Console.** Take a moment to be sure before you enable it.
 - **Some end-user personal data is shared with Moesif** to generate the insights, including user identifiers and IP addresses. Moesif is a WSO2-owned company, and your data is published to the Moesif workspace in the same region you selected when you onboarded. See [Data published to Moesif]({{base_path}}/guides/insights/data-published-to-moesif/) for the full list, and [Data residency]({{base_path}}/references/data-residency-in-asgardeo/#analytics-data) for where the data resides.
 
-## Turn on Advanced Analytics
+## Turn on advanced analytics
 
 1. On the {{ product_name }} Console, go to **Insights**.
 

@@ -2,7 +2,7 @@
 
 {{ product_name }} can publish identity events - logins, sign-ups, sessions, tokens, and more - to [Moesif](https://www.moesif.com/){:target="_blank"}, a software-as-a-service (SaaS) analytics platform in the WSO2 product family. Once the events are flowing, you build the charts and dashboards you want in Moesif on top of them.
 
-You bring your own Moesif subscription and you stay in control of it: you own the account, you decide how long data is retained, and you decide who can see it. Each {{ product_name }} tenant connects to Moesif separately, so you can keep each tenant's analytics in its own workspace.
+You bring your own Moesif subscription and stay in control of it. You own the account, set the retention period, and decide who can see the data. Each {{ product_name }} tenant connects to Moesif separately, so every tenant can keep its analytics in its own workspace.
 
 !!! note "About pre-built dashboards"
     {{ product_name }} does not yet ship sample dashboards for Moesif. They are planned for a future release. For now you create the dashboards you need in Moesif, using the events described in [Data published to Moesif]({{base_path}}/guides/analytics/moesif/data-published-to-moesif/).

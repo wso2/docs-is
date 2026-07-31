@@ -2,7 +2,7 @@
 
 To build your analytics dashboards, {{ product_name }} sends a record of identity activity - logins, sign-ups, sessions, tokens, and more - to [Moesif](https://www.moesif.com/){:target="_blank"}.
 
-This page tells you exactly what is sent. Use it to understand what your dashboards can show you, to answer privacy and compliance questions about your users' data, and, if you are building your own charts in Moesif, to find the attribute you need to filter or group by.
+This page tells you exactly what is sent. Use it to understand what your dashboards can show, and to answer privacy and compliance questions about your users' data. If you build your own charts in Moesif, it also names the attribute you need to filter or group by.
 
 !!! note
     This page evolves. Each time a new dashboard or insight is added, the events behind it are added here too.
@@ -224,7 +224,7 @@ One event per token request, successful or not. Machine-to-machine (M2M) tokens 
 
 **`actionName`:** `OAuth-Token-Issuance`
 
-`grantType`, `clientId`, and `userType` are what most token dashboards are built on. `existingTokenUsed` is worth knowing about: it tells you the request was served from an existing valid token rather than issuing a new one, which is why token counts and login counts do not line up.
+`grantType`, `clientId`, and `userType` are what most token dashboards are built on. `existingTokenUsed` is worth knowing about. It marks a request served from an existing valid token rather than a newly issued one, which is why token counts and login counts do not line up.
 
 !!! warning "No token values are published"
     Only `tokenId`, an opaque identifier, is sent. The access token, refresh token, and ID token contents never leave {{ product_name }}.
@@ -258,7 +258,7 @@ One event per token request, successful or not. Machine-to-machine (M2M) tokens 
         <tr><td><code>accessingOrganizationId</code></td><td>Organization the token grants access to.</td></tr>
         <tr><td><code>appResidentTenantId</code></td><td>Tenant the application is resident in.</td></tr>
         <tr><td><code>appResidentOrgUuid</code></td><td>Organization the application is resident in.</td></tr>
-        <tr><td><code>subOrgRequest</code></td><td>Whether the request came from a sub-organization.</td></tr>
+        <tr><td><code>subOrgRequest</code></td><td>Whether the request came from one of your sub-organizations.</td></tr>
         <tr><td><code>remoteIp</code></td><td>IP address the request came from.</td></tr>
         <tr><td><code>errorCode</code></td><td>Error code, when the request failed.</td></tr>
         <tr><td><code>errorMsg</code></td><td>Error message, when the request failed.</td></tr>
@@ -275,7 +275,9 @@ Self-registration, password recovery, and invited-user registration are multi-st
 Group by `flowId` to follow one user through a flow, and by `currentNodeId` and `nodeResponseStatus` to find the step where people drop out.
 
 !!! note "How anonymous steps are linked to users"
-    The first steps of a sign-up happen before the user account exists, so there is no user ID to attach them to. Those steps are published against an anonymous identifier instead. When the flow completes and the account is created, a small **user link** event is sent to the Moesif [Users API](https://www.moesif.com/docs/api?openapi_version=2#users){:target="_blank"} that ties the anonymous identifier to the new user ID, so the funnel joins up end to end. The link event carries nothing but those two identifiers.
+    Early sign-up steps run before the user account exists. No user ID can be attached to them, so they are published against an anonymous identifier.
+
+    When the flow completes, a **user link** event goes to the Moesif [Users API](https://www.moesif.com/docs/api?openapi_version=2#users){:target="_blank"}. It ties that anonymous identifier to the new user ID, so the funnel joins up end to end. The link event carries only those two identifiers.
 
 ??? note "All flow attributes"
     <table>
@@ -334,5 +336,5 @@ In a B2B setup, a user who belongs to one organization can access another. Each 
 
 ## A note on sub-organizations
 
-Activity inside a sub-organization is published against the **root organization**, so everything lands in one place rather than being scattered across workspaces. The sub-organization is not lost, but preserved in attributes such as `userResidingOrgId` and `userAccessingOrgId`, so you can still filter or break down any chart by sub-organization.
+Activity inside your sub-organizations is published against the **root organization**, so everything lands in one place rather than being scattered across workspaces. The originating organization is preserved in attributes such as `userResidingOrgId` and `userAccessingOrgId`, so you can still filter or break down any chart by it.
 {% endif %}
