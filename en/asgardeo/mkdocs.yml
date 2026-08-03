@@ -761,6 +761,10 @@ nav:
         - PII in WSO2 Identity Platform logs: guides/monitoring/pii-in-asgardeo-logs.md
         - WSO2 Identity Platform events: guides/monitoring/asgardeo-events.md
         - Organization insights: guides/organization-insights.md
+        - Insights:
+          - Insights: guides/insights/index.md
+          - Insights dashboards: guides/insights/insights-dashboards.md
+          - Data published to Moesif: guides/insights/data-published-to-moesif.md
       - Agentic AI:
         - MCP Authorization:
           - MCP Authorization: guides/agentic-ai/mcp/index.md

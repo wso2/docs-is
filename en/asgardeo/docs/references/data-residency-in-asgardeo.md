@@ -79,17 +79,23 @@ Data of your end users are only stored in the regional datacenter you selected w
 
 ## Analytics data
 
-{{product_name}} uses [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family, to power the identity [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} available in the Console and to support WSO2's product, onboarding, subscription, and usage analytics. To do this, {{product_name}} publishes both end-user and administrator data to Moesif for the purposes described below.
+{{product_name}} uses [Moesif](https://www.moesif.com/){:target="_blank"}, an analytics platform in the WSO2 product family. Moesif powers the identity [Insights]({{base_path}}/guides/insights/) available in the Console. It also supports WSO2's product, onboarding, subscription, and usage analytics. To do this, {{product_name}} publishes both end-user and administrator data to Moesif for the purposes described below.
 
-Analytics data is published to the Moesif workspace in the **same region you selected during onboarding**. Data from US organizations is published to Moesif US, and data from EU organizations is published to Moesif EU. Your analytics data therefore remains within your selected regional boundary. By default, analytics data is retained for **3 months**.
+Analytics data is published to the Moesif workspace in the **same region you selected during onboarding**. Data from US organizations is published to Moesif US, and data from EU organizations is published to Moesif EU. Your analytics data stays within your selected regional boundary. By default, analytics data is retained for **1 to 3 months**.
 
 ### End-user data used for analytics
 
-{{product_name}}'s built-in [Insights](https://wso2.com/identity-platform/docs/guides/insights/){:target="_blank"} publishes your organization's identity events to Moesif to build the analytics dashboards shown in the **Insights** section of the Console.
+End-user identity events are published to Moesif only after an administrator turns on [Advanced Analytics]({{base_path}}/guides/insights/) for the organization. Until then, no end-user analytics data is shared with Moesif.
+
+Once Advanced Analytics is enabled, {{product_name}} publishes your organization's identity events to Moesif to build the dashboards shown in the **Insights** section of the Console.
 
 **Purpose:** to provide you with identity analytics for your organization, such as logins, sessions, token issuance, registrations, registration/recovery funnels, and organization switches.
 
-**Types of data published:** identity events and their contextual attributes, which may include personal data of your end users such as their **email address, login identifiers** (for example, mobile number or NIC where used as login attributes), **IP address,** and **user agent,** in addition to identifiers such as user ID, organization, application, and connection.
+**Types of data published:** identity events and their contextual attributes.
+
+These may include personal data of your end users. Examples are the **email address, login identifiers** (such as a mobile number or NIC used as a login attribute), **IP address,** and **user agent.** They also include identifiers such as user ID, organization, application, and connection.
+
+See [Data published to Moesif]({{base_path}}/guides/insights/data-published-to-moesif/) for the complete list.
 
 ### Administrator data used for analytics
 
