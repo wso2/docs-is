@@ -30,7 +30,7 @@ To enable token exchange in your application:
 
 4. Click **Update** to save the configurations.
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %}
 
 !!! note
     To learn how token exchange can be invoked in organization applications, see [Generate tokens for organization applications]({{base_path}}/guides/organization-management/generate-tokens-for-organization-apps).
@@ -150,7 +150,7 @@ After establishing account links, administrators can't delete them. Users can ma
 !!! note
     {{ product_name }} skips implicit account linking when **Require linked local account** is disabled, even if the implicit linking option remains enabled.
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %}
 
 To enable implicit account linking,
 
@@ -215,7 +215,7 @@ Two applications take part in this flow.
 
 The same application can play both roles.
 
-{% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %}
+{% if product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"] %}
 
 !!! note
     {{ product_name }} limits the scopes of the exchanged token to the scopes approved in the subject token. If the request contains the `scope` parameter, the exchanged token receives only the scopes that are common to the request and the subject token.
@@ -258,7 +258,7 @@ Follow the steps given below.
 
 Upon successful execution, you will receive the exchanged token.
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 
 ## Delegation
 
@@ -268,7 +268,7 @@ For instructions, see [Delegation]({{base_path}}/guides/authorization/delegation
 
 {% endif %}
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 
 ## Request a specific audience
 
