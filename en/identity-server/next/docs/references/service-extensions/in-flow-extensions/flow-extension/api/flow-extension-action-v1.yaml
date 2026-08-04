@@ -203,6 +203,10 @@ components:
         flowType:
           type: string
           description: The flow being executed.
+          enum:
+          - REGISTRATION
+          - PASSWORD_RECOVERY
+          - INVITED_USER_REGISTRATION
           example: REGISTRATION
         flowId:
           type: string
