@@ -86,6 +86,40 @@ This feature allows users to enroll their push notification devices seamlessly d
 !!! note
     Push notification device progressive enrollment can only be configured at the organizational level and cannot be modified at the application level.
 
+{% if product_name == "WSO2 Identity Platform" or (is_version is defined and is_version >= "7.3.0") %}
+## Enable progressive enrollment for multiple devices
+
+Push notification device progressive enrollment applies only to users who have no device registered yet. A user who already has a device goes straight to the push notification page and cannot add another device from there.
+
+Progressive enrollment for multiple devices extends this to users who already have a device. When enabled, the push notification page also offers to register another device, so users can add one without leaving the login flow.
+
+!!! warning
+    A user who has the primary credentials can register a new push device during sign-in. If an attacker obtains those credentials, the attacker could enroll their own device and use it for future authentication attempts. Enable this option only if your use case requires it.
+
+To enable progressive enrollment for multiple devices:
+
+1. On the {{ product_name }} Console, go to **Connections** and select the **Push Notification** connection.
+
+2. Go to the **Settings** tab of the connection.
+
+3. Make sure that **Enable push notification device progressive enrollment** and **Allow users to register multiple devices** are both enabled. **Allow progressive enrollment for multiple devices** appears only when both of these options are enabled.
+
+4. Select **Allow progressive enrollment for multiple devices**.
+
+    {{ product_name }} prompts you to confirm the security risk. Select **I understand the security risk and want to enable this feature** and click **Confirm**.
+
+    ![Enable progressive enrollment for multiple devices in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/push/push-multiple-device-progressive-enrollment.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+5. Click **Update** to save your changes.
+
+A user who already has a registered device now sees a **Register a new device** button on the push notification page during sign-in. The button takes the user to the QR code page, where **Cancel Registration** returns the user to the pending authentication request.
+
+![Register a new device from the push notification page in {{ product_name }}]({{base_path}}/assets/img/guides/mfa/push/push-auth-wait-page-register-new-device.png){: width="400" style="border: 0.3px solid lightgrey;"}
+
+!!! note
+    To let users keep more than one device registered, see [Register multiple devices for push notifications]({{base_path}}/tutorials/register-multiple-devices-for-push-notifications/).
+{% endif %}
+
 ## Try out Push Notification passwordless login flow with a user already enrolled with a device
 
 In this section, we will guide you through the steps to authenticate using Push Notification passwordless login with a user who has already enrolled a push notification device.

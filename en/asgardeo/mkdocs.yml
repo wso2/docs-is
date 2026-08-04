@@ -794,6 +794,7 @@ nav:
     - Integrating WSO2 Identity Platform With WSO2 AI Gateway for Agent Identity-Aware Access Control: tutorials/wso2-ai-gateway-with-agent-identity-aware-access-control.md
     - Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
     - Secure MCP servers with WSO2 Identity Platform and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
+    - Register multiple devices for push notifications: tutorials/register-multiple-devices-for-push-notifications.md
   - SDKs:
     - Integrate WSO2 Identity Platform into your application: sdks/index.md
   - SDK Documentation:
