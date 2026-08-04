@@ -8,4 +8,5 @@
 {% include "../../../../includes/deploy/ctl-tool/propagate-between-child-organizations.md" %}
 {% include "../../../../includes/deploy/ctl-tool/customization-options.md" %}
 {% include "../../../../includes/deploy/ctl-tool/logging.md" %}
+{% include "../../../../includes/deploy/ctl-tool/dryRun-mode.md" %}
 {% include "../../../../includes/deploy/ctl-tool/resource-specific-notes.md" %}
