@@ -90,7 +90,9 @@ By default, you can assign each Console component one of the following permissio
 
 By default, Console roles use the combined **View** and **Edit** permission model described above, where **Edit** grants **Create**, **Update**, and **Delete** access together.
 
-You can optionally enable a more granular permission model that lets you assign **Create**, **Update**, and **Delete** permissions independently for each Console component. This is controlled by the `use_granular_console_permissions` setting, which is `false` by default. Enable it only when you need this level of control over Console permissions. To do so, add the following configuration to the `deployment.toml` file and restart the server.
+You can optionally enable a more granular permission model that lets you assign **Create**, **Update**, and **Delete** permissions independently for each Console component in both tenant and organization permissions. For example, you can allow a role to create users without allowing it to update or delete existing users.
+
+This model assigns the corresponding granular Console scopes for the selected actions. It is controlled by the `use_granular_console_permissions` setting, which is `false` by default. Enable it only when you need this level of control over Console permissions. To do so, add the following configuration to the `deployment.toml` file and restart the server.
 
 ```toml
 [console_settings]
@@ -118,13 +120,16 @@ Once enabled, you can assign each Console component the following permission lev
     </tr>
 </table>
 
-![Granular console permissions]({{base_path}}/assets/img/guides/organization/console/granular-console-role-permissions.png)
+![Granular console permissions]({{base_path}}/assets/img/guides/organization/console/granular-console-role-permissions.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! note
     **View** is required whenever **Create**, **Update**, or **Delete** is selected for a component, and it cannot be turned off while any of those write permissions remain active.
 
 !!! note "Compatibility with existing roles"
     Console roles created earlier with the combined **Edit** permission continue to work when the granular model is enabled. **Edit** grants **Create**, **Update**, and **Delete** together.
+
+!!! warning "Switching back to the default model"
+    If you enable granular Console permissions and create roles with granular **Create**, **Update**, or **Delete** permissions, those role permissions will not work after you switch back to the default **View** and **Edit** permission model. Keep granular Console permissions enabled for roles created with the granular model, or review and update those roles before disabling it.
 
 ### Create a role
 
@@ -188,5 +193,3 @@ To delete a role:
 ## Manage administrators
 
 Users who are assigned to one or more Console roles created [above](#create-a-role), are listed under the **Administrators** tab in **Console Settings**. For instructions on managing administrators, refer to [manage administrators]({{base_path}}/guides/users/manage-administrators/).
-
-
