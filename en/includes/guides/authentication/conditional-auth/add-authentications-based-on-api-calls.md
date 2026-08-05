@@ -1,10 +1,10 @@
-# Add MFA based on advanced conditions (using WSO2 Choreo)
-You can secure your applications' login flow based on data from an API hosted on [WSO2 Choreo](https://wso2.com/choreo/){:target="_blank"}. Choreo by WSO2 is an integration platform as a service (iPaaS) for innovation, productivity, and simplicity—designed in the cloud for the cloud.
+# Add MFA based on advanced conditions (using WSO2 Developer Platform)
+You can secure your applications' login flow based on data from an API hosted on [WSO2 Developer Platform](https://wso2.com/engineering-platform/developer-platform/){:target="_blank"}. WSO2 Developer Platform is an integration platform as a service (iPaaS) for innovation, productivity, and simplicity, designed in the cloud for the cloud.
 
 ## Scenario
-Consider a scenario where the login flow of the application should be stepped up after an API call to a service endpoint hosted on Choreo. The API call should be executed after the first authentication step is successfully completed. The second authentication step should be prompted based on the decision made by the service during the API call.
+Consider a scenario where the login flow of the application should be stepped up after an API call to an external service endpoint. The API call should be executed after the first authentication step is successfully completed. The second authentication step should be prompted based on the decision made by the service during the API call.
 
-Let's consider an API hosted on Choreo that reads an IP address from the request body, retrieves geolocation from the IP address, evaluates the risk of the login attempt, and sends back the result in the `hasRisk` parameter in the response. And the second authentication step should be prompted if the `hasRisk` is `true`.
+Let's consider an API hosted on WSO2 Developer Platform that reads an IP address from the request body, retrieves geolocation from the IP address, evaluates the risk of the login attempt, and sends back the result in the `hasRisk` parameter in the response. And the second authentication step should be prompted if the `hasRisk` is `true`.
 
 ![API calls based adaptive authentication]({{base_path}}/assets/img/guides/conditional-auth/api-calls-callchoreo.png)
 
@@ -16,11 +16,11 @@ Let's consider an API hosted on Choreo that reads an IP address from the request
 
 ## Define the MFA conditions
 
-To define the MFA conditions with Choreo, you need to:
+To define the MFA conditions with WSO2 Developer Platform, you need to:
 
 1. [Design your MFA condition in a REST API](#desgin-the-rest-api)
 
-2. [Integrate your REST API with Choreo](#integrate-the-rest-api-with-choreo)
+2. [Integrate your REST API with WSO2 Developer Platform](#integrate-the-rest-api-with-wso2-developer-platform)
 
 ### Desgin the REST API
 You need to implement your REST API in [Ballerina](https://ballerina.io/){:target="_blank"} or any other language and containerize it. You can use the [Ballerina VS code extension](https://ballerina.io/downloads/){:target="_blank"} to develop the REST API in Ballerina. [Learn more](https://wso2.com/ballerina/vscode/docs/){:target="_blank"}.
@@ -84,23 +84,23 @@ To implement your REST API to fit the explained scenario:
 
 3. Upload the file to your GitHub repository.
 
-### Integrate the REST API with Choreo
+### Integrate the REST API with WSO2 Developer Platform
 
 To create the REST API component and integrate it with your REST API:
 
-1. [Create an application](https://wso2.com/choreo/docs/developer-portal/manage-application/#create-an-application){:target="_blank"} on WSO2 Choreo to integrate your REST API with your {{ product_name }} app.
+1. [Create an application](https://wso2.com/engineering-platform/developer-platform/docs/consuming-services/manage-application/#create-an-application){:target="_blank"} on WSO2 Developer Platform to integrate your REST API with your {{ product_name }} app.
 
     !!! note
         Note the **Consumer Key** and **Consumer Secret**.
 
-2. Create a [REST API component on Choreo](https://wso2.com/choreo/docs/get-started/tutorials/create-your-first-rest-api/#step-1-create){:target="_blank"}.
+2. Create a [REST API component on WSO2 Developer Platform](https://wso2.com/engineering-platform/developer-platform/docs/quick-start-guides/deploy-a-web-application-that-consumes-a-backend-service/#step-1-create){:target="_blank"}.
 
-3. [Deploy](https://wso2.com/choreo/docs/get-started/quick-start-guide/#step-12-deploy-the-rest-api){:target="_blank"} and [publish](https://wso2.com/choreo/docs/get-started/quick-start-guide/#step-14-publish-the-rest-api){:target="_blank"} the REST API.
+3. [Deploy](https://wso2.com/engineering-platform/developer-platform/docs/quick-start-guides/deploy-a-web-application-that-consumes-a-backend-service/#step-12-deploy-the-rest-api){:target="_blank"} and [publish](https://wso2.com/engineering-platform/developer-platform/docs/quick-start-guides/deploy-a-web-application-that-consumes-a-backend-service/#step-14-publish-the-rest-api){:target="_blank"} the REST API.
 
-4. [Subscribe](https://wso2.com/choreo/docs/developer-portal/manage-subscription/#subscribe-to-an-api){:target="_blank"} the application you created on Choreo to the REST API.
+4. [Subscribe](https://wso2.com/engineering-platform/developer-platform/docs/consuming-services/manage-subscription/#subscribe-to-an-api){:target="_blank"} the application you created on WSO2 Developer Platform to the REST API.
 
     !!! note
-        The Choreo application exposes the REST API to external clients. Therefore, you can connect to this application from {{ product_name }} and invoke the REST API.
+        The WSO2 Developer Platform application exposes the REST API to external clients. Therefore, you can connect to this application from {{ product_name }} and invoke the REST API.
 
 ## Configure the login flow
 
@@ -122,7 +122,7 @@ Follow the steps given below.
 
         1. Switch to the **Visual Editor** tab and go to **Predefined Flows** > **Basic Flows** > **Add Multi-factor login**.
         2. Select `Username + Password -> TOTP` and click **Confirm**.
-        3. Expand the **Script Editor** to add the script for MFA based on advanced conditions using Choreo.
+        3. Expand the **Script Editor** to add the script for MFA based on advanced conditions using WSO2 Developer Platform.
 
     ---
 
@@ -136,9 +136,9 @@ Follow the steps given below.
 
     ```js
     var connectionMetadata = {
-    "url": "<Choreo API URL>",
-    "consumerKey": "<Consumer key of the Choreo application>",
-    "consumerSecret": "<Consumer secret of the Choreo application>",
+    "url": "<Developer Platform API URL>",
+    "consumerKey": "<Consumer key of the WSO2 Developer Platform>",
+    "consumerSecret": "<Consumer secret of the WSO2 Developer Platform>",
     "asgardeoTokenEndpoint": "<Token endpoint of the tenant in WSO2 Identity Platform>"
     };    
     var onLoginRequest = function(context) {
@@ -148,7 +148,7 @@ Follow the steps given below.
               var requestPayload = {
                    "ip": context.request.ip
               };
-              Log.info("Calling the API hosted in Choreo!");
+              Log.info("Calling the API hosted in WSO2 Identity Platform!");
               callChoreo(connectionMetadata, requestPayload, {
                    onSuccess: function(context, data) {
                         Log.info('Received risk:' + data.hasRisk);
@@ -158,11 +158,11 @@ Follow the steps given below.
                         }
                    },
                    onFail: function(context, data) {
-                        Log.info('Failed to call Choreo API. Stepping up authentication by    default.');
+                        Log.info('Failed to call WSO2 Developer Platform API. Stepping up authentication by    default.');
                         executeStep(2);
                    },
                    onTimeout: function(context, data) {
-                        Log.info('Call to Choreo API timed out. Stepping up authentication by default.');
+                        Log.info('Call to WSO2 Developer Platform API timed out. Stepping up authentication by default.');
                         executeStep(2);
                    }
               });
@@ -179,15 +179,15 @@ Follow the steps given below.
           </tr>
           <tr>
                <td><code>url</code></td>
-               <td>The URL of the Choreo API.</td>
+               <td>The URL of the WSO2 Developer Platform API.</td>
           </tr>
           <tr>
                <td><code>consumerKey</code></td>
-               <td>The consumer key of the Choreo application.</td>
+               <td>The consumer key of the WSO2 Developer Platform.</td>
           </tr>
           <tr>
                <td><code>consumerSecret</code></td>
-               <td>The consumer secret of the Choreo application.</td>
+               <td>The consumer secret of the WSO2 Developer Platform application.</td>
           </tr>
           <tr>
                <td><code>asgardeoTokenEndpoint</code></td>
@@ -196,16 +196,16 @@ Follow the steps given below.
      </table>
 
     ??? note "Use a stored `Secret`"
-        If you don't want to enter the `consumerkey` and `consumerSecret` obtained from the Choreo application every time you use the conditional authentication script, you can store them as **Secret**s on WSO2 Identity Platform.
+        If you don't want to enter the `consumerkey` and `consumerSecret` obtained from the WSO2 Developer Platform every time you use the conditional authentication script, you can store them as **Secret**s on WSO2 Identity Platform.
 
         - **Using a stored `consumer key` and `consumer secret` in the conditional authentication script.**
 
              If you are using a stored `consumerSecret`, replace the `connectionMetadata` object of the conditional authentication script as follows:
              ```js
              var connectionMetadata = {
-                  "url": "<Choreo API URL>",
-                  "consumerKeyAlias": "<The name of the secret that stores the consumer key of Choreo application>",
-                  "consumerSecretAlias": "<The name of the secret that stores the consumer secret of Choreo application>"
+                  "url": "<WSO2 Developer Platform API URL>",
+                  "consumerKeyAlias": "<The name of the secret that stores the consumer key of WSO2 Developer Platform>",
+                  "consumerSecretAlias": "<The name of the secret that stores the consumer secret of WSO2 Developer Platform>"
              };
              ```
 
@@ -224,11 +224,11 @@ Follow the steps given below.
 ## How it works
 Let's look at how this script works.
 
-1. The `connectionMetadata` object specifies the required values obtained from the WSO2 Choreo application.
+1. The `connectionMetadata` object specifies the required values obtained from the WSO2 Developer Platform.
 
 2. On successful completion of the authentication step one, `onSuccess()` callback function is called.
 
-3. `onSuccess` callback function calls the `callChoreo()` function, which sends an API call to the API hosted on Choreo.
+3. `onSuccess` callback function calls the `callChoreo()` function, which sends an API call to the API hosted on WSO2 Developer Platform.
 
 4. If the API call is successful, the `onSuccess` callback function passed as an argument to the `callChoreo( )` function is called.
 

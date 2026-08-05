@@ -185,7 +185,7 @@ In the latest release of WSO2 Identity Server 7.0.0, we have deprecated several 
 
     This feature is recommended to be managed with an external scheduler due to its complexity in a multi-node setup.
   
-    **Recommendation**: Integrate with an external scheduler like [Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows){:target="_blank"} or [Choreo scheduled integration](https://wso2.com/choreo/docs/develop-components/develop-integrations/develop-a-scheduled-task/){:target="_blank"}.
+    **Recommendation**: Integrate with an external scheduler like [Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows){:target="_blank"} or [WSO2 Developer Platform scheduled integration](https://wso2.com/engineering-platform/developer-platform/docs/develop-components/develop-integrations/develop-a-scheduled-task/){:target="_blank"}.
 
 - **User Account Recovery v1 API**
 

@@ -84,13 +84,13 @@ https://choreo.dev
 
 ```
 
-The **Branding AI** extracts branding information from [https://choreo.dev/](https://choreo.dev/){:target="_blank"} and applies it to the login flow UIs such as login, SMS and Email OTP, TOTP and sign-up pages. 
+The **Branding AI** extracts branding information from [https://console.choreo.dev/](https://console.choreo.dev/login){:target="_blank"} and applies it to the login flow UIs such as login, SMS and Email OTP, TOTP and sign-up pages. 
 
 Make sure to click **Save and Publish** save the generated branding design and apply it. 
 
 ![Branding]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image9.png){: width="800" style="display: block; margin: 0;"}
 
-When you revisit the **Try It** application, you will notice that the login and user sign-up screens have been updated with [https://choreo.dev/](https://choreo.dev/){:target="_blank"} branding. Try entering your organization's website URL to see how accurately Branding AI can generate the branding for you.
+When you revisit the **Try It** application, you will notice that the login and user sign-up screens have been updated with [https://console.choreo.dev/](https://console.choreo.dev/login){:target="_blank"} branding. Try entering your organization's website URL to see how accurately Branding AI can generate the branding for you.
 
 ![Branding options]({{base_path}}/assets/img/quick-starts/login-and-branding-ai/image10.png){: width="800" style="display: block; margin: 0;"}
 
