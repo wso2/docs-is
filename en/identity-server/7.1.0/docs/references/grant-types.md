@@ -16,7 +16,7 @@
     you can turn on or turn off the process of issuing ID tokens for the grant types that have the `openid` scope. 
     By default, `IdTokenAllowed` is set to `true`, you can allow it to issue `id_tokens` for all grant types that have 
     the `openid` scope. By configuring it to false, you can stop issuing ID tokens.  
-    **Note:** You can not turn off the process of issuing ID tokens for the `authorization_code` grant type.
+    **Note:** You cannot turn off the process of issuing ID tokens for the `authorization_code` grant type.
 
     By configuring the `<IsRefreshTokenAllowed>` property to `true` or `false` along with the above configuration, 
     you can turn on or turn on the process of issuing refresh tokens. By default, `IsRefreshTokenAllowed` is set to 
