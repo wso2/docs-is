@@ -32,7 +32,7 @@ Follow the steps given below to register the sample React SPA in WSO2 Identity P
         <tr>
             <td>Authorized redirect URLs</td>
             <td>
-                <p>The URL to which the user is redirect to after a successful login. Use the following URL for this sample app:</p>
+                <p>The URL to which the user is redirected after a successful login. Use the following URL for this sample app:</p>
                 <code>https://localhost:3000</code>
             </td>
         </tr>
@@ -119,7 +119,7 @@ Follow the steps given below to configure the sample app.
             <code>baseUrl</code>
         </td>
         <td>
-            <p>All authentication requests that the client application makes to WSO2 Identity Platform will be appended to this base URL.:</p>
+            <p>All authentication requests that the client application makes to WSO2 Identity Platform will be appended to this base URL:</p>
             <code>https://api.asgardeo.io/t/{organization_name}</code>
         </td>
       </tr>
