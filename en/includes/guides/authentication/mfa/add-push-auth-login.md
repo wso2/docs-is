@@ -79,6 +79,23 @@ This feature allows users to enroll their push notification devices seamlessly d
 !!! note
     Push notification device progressive enrollment can only be configured at the organizational level and cannot be modified at the application level.
 
+{% if product_name == "WSO2 Identity Platform" or (is_version is defined and is_version >= "7.3.0") %}
+## Enable progressive enrollment for multiple devices
+
+When multiple device registration is enabled, you can also let a user who already has a registered device add another one during sign-in.
+
+!!! warning
+    Anyone who gets past the earlier authentication step can register their own device during sign-in. Enable this option only if your use case requires it.
+
+1. On the {{ product_name }} Console, go to **Connections** > **Push Notification** and open the **Settings** tab.
+
+2. With **Enable push notification device progressive enrollment** and **Allow users to register multiple devices** both enabled, select **Allow progressive enrollment for multiple devices** and confirm the security prompt.
+
+3. Click **Update**.
+
+!!! note
+    For the full walkthrough — enabling multiple device registration, registering additional devices, and device registration notifications — see [Register multiple devices for push notifications]({{base_path}}/tutorials/register-multiple-devices-for-push-notifications/).
+{% endif %}
 
 ## Try out Push Notification MFA flow with a user already enrolled with a device
 
