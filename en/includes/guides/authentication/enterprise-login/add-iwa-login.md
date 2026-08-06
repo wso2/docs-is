@@ -70,6 +70,90 @@ Follow the steps below to configure {{product_name}} for IWA.
     };
     ```
 
+3. Open the `krb5.conf` file found in the `<IS_HOME>/repository/conf/identity` folder. By default, it contains the following configuration:
+
+    {% if is_version in ["7.0.0", "7.1.0", "7.2.0"] %}
+    ``` java
+    [libdefaults]
+            default_realm = WSO2.COM
+            default_tkt_enctypes = rc4-hmac
+            default_tgs_enctypes = rc4-hmac
+            dns_lookup_kdc = true
+            dns_lookup_realm = false
+
+    [realms]
+            WSO2.COM = {
+                kdc = 127.0.0.1
+       }
+    ```
+
+    The default configuration uses `rc4-hmac`, which is considered weak and is disabled by default in newer JDKs. Update `default_tkt_enctypes` and `default_tgs_enctypes` to use AES enctypes that are also permitted for the SPN account on your KDC. For most Active Directory environments, the following is a safe replacement:
+
+    ``` java
+    default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96
+    default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96
+    ```
+    {% else %}
+    ``` java
+    [libdefaults]
+            default_realm = WSO2.COM
+            default_tkt_enctypes = aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96
+            default_tgs_enctypes = aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96
+            dns_lookup_kdc = true
+            dns_lookup_realm = false
+
+    [realms]
+            WSO2.COM = {
+                kdc = 127.0.0.1
+       }
+    ```
+    {% endif %}
+
+    Update the properties to match your Kerberos environment.
+
+    **Properties under `[libdefaults]`**
+
+    - `default_realm`: Identifies the default Kerberos realm for the client. Set this to your Active Directory (AD) Kerberos realm — typically the AD domain in uppercase (for example, `WSO2.COM`). If unset, a realm must be specified with every Kerberos principal.
+    - `default_tkt_enctypes`: The list of session key encryption types the client requests when making an `AS-REQ` (the initial exchange used to obtain a Ticket-Granting Ticket), in order of preference from highest to lowest.
+    - `default_tgs_enctypes`: The list of session key encryption types the client requests when making a `TGS-REQ` (the exchange used to obtain service tickets), in order of preference from highest to lowest.
+    - `dns_lookup_kdc`: Indicates whether DNS SRV records should be used to locate the KDC (and other servers) for a realm, if they are not listed explicitly under `[realms]` in `krb5.conf`.
+    - `dns_lookup_realm`: Indicates whether the realm of a host should be resolved via DNS TXT records. Typically left `false`, since the realm is normally derived from the principal or from `default_realm`.
+
+    **Properties under `[realms]`**
+
+    - `kdc`: The name or address of a host running a KDC for that realm. An optional port number can be appended after a colon (for example, `kdc.example.com:88`). Each realm subsection must either set this property or rely on DNS SRV records.
+
+    !!! note "About `default_tkt_enctypes` and `default_tgs_enctypes`"
+        When the IWA Kerberos authenticator processes a login, {{product_name}} first performs a Kerberos AS-Exchange with the KDC using the configured Service Principal (SPN) credentials. The KDC responds with the encryption type, salt, and key-derivation parameters it has on file for that SPN account, and {{product_name}} uses those to derive the long-term key needed to decrypt the user's SPNEGO ticket.
+
+        - `default_tkt_enctypes` lists the enctypes {{product_name}} is willing to use for that AS-Exchange (the ticket-granting ticket request).
+        - `default_tgs_enctypes` covers subsequent service ticket requests.
+
+        The enctype list configured here must overlap with the enctypes permitted for the SPN account on the KDC.
+
+    **Additional property: `permitted_enctypes`**
+
+    Not included in the default `krb5.conf` shipped with {{product_name}}; add it under `[libdefaults]` when you need to constrain the algorithms used overall.
+
+    - `permitted_enctypes`: Identifies all encryption types that are permitted for use in session key encryption.
+
+    For example, to restrict the client to AES enctypes only:
+
+    ``` java
+    [libdefaults]
+            permitted_enctypes = aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96
+    ```
+
+{% if is_version in ["7.0.0", "7.1.0", "7.2.0"] %}
+4. Set the Kerberos configuration file location as a JVM system property.
+
+    Open `<IS_HOME>/bin/wso2server.sh` and add the following parameter to the JVM startup arguments so that {{product_name}} loads the updated `krb5.conf` file at startup:
+
+    ``` bash
+    -Djava.security.krb5.conf="$CARBON_HOME/repository/conf/identity/krb5.conf"
+    ```
+{% endif %}
+
 ## Register the IWA IdP
 
 Now, let's register IWA as an authenticator in {{product_name}}.
