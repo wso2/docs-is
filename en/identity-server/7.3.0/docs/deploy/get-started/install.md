@@ -356,7 +356,7 @@ Extract the WSO2 product that you want to run as a Linux service and set the env
     ``` bash
     #!/bin/bash
      
-    case "$1″ in
+    case "$1" in
     start)
        echo "Starting Service"
     ;;
