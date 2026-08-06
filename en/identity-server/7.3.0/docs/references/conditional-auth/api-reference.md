@@ -1196,7 +1196,7 @@ Contains the authentication step information. It may be a null or invalid step n
   </tr>
   <tr>
     <td><code>step.authenticator</code></td>
-    <td>Give the name of the authenticator that is used for authenticating te user. You can find the authenticator names from the <a href="#authenticatorNames">connection names table</a>.</td>
+    <td>Give the name of the authenticator that is used for authenticating the user. You can find the authenticator names from the <a href="#authenticatorNames">connection names table</a>.</td>
   </tr>
 </table>
 
