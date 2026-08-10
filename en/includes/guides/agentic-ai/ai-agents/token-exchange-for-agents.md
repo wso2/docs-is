@@ -8,34 +8,10 @@ The issued token identifies the user in the `sub` claim and records the agent as
 
 !!! note "Agent friendly delegation mechanism"
     - This flow does **not use redirects** and needs **no new user interaction**.
+    - It is suited to bringing an agent into work the user has already authorized.
     - The agent reuses the token it already obtained through its own [authentication flow]({{base_path}}/guides/agentic-ai/ai-agents/agent-authentication/#ai-agent-acting-on-its-own).
 
 ---
-
-## When to use token exchange for delegation
-
-{{ product_name }} supports three ways for an agent to act on behalf of a user. Choose based on whether a user token already exists and whether the user is available to give consent.
-
-<table>
-    <tr>
-        <th>Approach</th>
-        <th>Use when</th>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/guides/agentic-ai/ai-agents/agent-authentication/#ai-agent-acting-on-behalf-of-a-user">On-behalf-of with authorization code</a></td>
-        <td>The user is present in a browser and delegation should be established with explicit consent.</td>
-    </tr>
-    <tr>
-        <td><a href="{{base_path}}/guides/agentic-ai/ai-agents/agent-authentication/#using-ciba-for-on-behalf-of-delegation">On-behalf-of with CIBA</a></td>
-        <td>The agent runs in the background and the user approves the delegation asynchronously on a separate device.</td>
-    </tr>
-    <tr>
-        <td>Token exchange</td>
-        <td>The agent already holds a token issued for the user, and you need a token that additionally identifies the agent acting on their behalf.</td>
-    </tr>
-</table>
-
-Token exchange collects no consent of its own. It re-scopes and re-attributes authority the user has already granted, which makes it suited to bringing an agent into work the user has already authorized.
 
 ## How the flow works
 
