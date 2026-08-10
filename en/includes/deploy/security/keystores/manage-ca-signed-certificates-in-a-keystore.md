@@ -50,15 +50,31 @@ Follow the steps given below to import the CA-signed certificate to your keystor
 
     === "JKS"
         ``` bash
-        keytool -importcert -v -trustcacerts -alias certalias -file full-chain.pem -keystore newkeystore.jks -storepass mypassword
+        keytool -importcert -v -trustcacerts -alias certalias -file full-chain.pem -keystore newkeystore.jks -storetype JKS
         ```
 
     === "PKCS12"
         ``` bash
-        keytool -importcert -v -trustcacerts -alias certalias -file full-chain.pem -keystore newkeystore.p12 -storetype PKCS12 -storepass mypassword
+        keytool -importcert -v -trustcacerts -alias certalias -file full-chain.pem -keystore newkeystore.p12 -storetype PKCS12
         ```
 
-    If your ACME client provides separate certificate files instead of a full-chain file, import the root and intermediate certificates from the certificate authority in root-to-leaf order. Then import the signed server certificate by using the private-key alias.
+    The command prompts for the keystore password and, if it differs, the private-key password.
+
+    If your ACME client provides separate certificate files instead of a full-chain file, import the root and intermediate certificates under distinct trusted aliases in root-to-leaf order. Then import the signed server certificate by using the private-key alias.
+
+    === "JKS"
+        ``` bash
+        keytool -importcert -v -trustcacerts -alias root-ca -file <root-ca.pem> -keystore newkeystore.jks -storetype JKS
+        keytool -importcert -v -trustcacerts -alias intermediate-ca -file <intermediate-ca.pem> -keystore newkeystore.jks -storetype JKS
+        keytool -importcert -v -trustcacerts -alias certalias -file server-certificate.pem -keystore newkeystore.jks -storetype JKS
+        ```
+
+    === "PKCS12"
+        ``` bash
+        keytool -importcert -v -trustcacerts -alias root-ca -file <root-ca.pem> -keystore newkeystore.p12 -storetype PKCS12
+        keytool -importcert -v -trustcacerts -alias intermediate-ca -file <intermediate-ca.pem> -keystore newkeystore.p12 -storetype PKCS12
+        keytool -importcert -v -trustcacerts -alias certalias -file server-certificate.pem -keystore newkeystore.p12 -storetype PKCS12
+        ```
 
 Now you have a Java keystore, which includes a CA-signed public key certificate that can be used for SSL in a production environment. Next, you may need to add the same CA-signed public key certificate to the `client-truststore.{{content.default_keystore_ext}}` file. This will provide security and trust for backend communication/inter-system communication of WSO2 Identity Server via SSL.
 
@@ -74,7 +90,7 @@ Follow the steps given below to import the same CA-signed public key certificate
 
     === "JKS"
         ``` bash
-        keytool -export -alias certalias -keystore newkeystore.jks -file <public key name>.pem
+        keytool -export -alias certalias -keystore newkeystore.jks -storetype JKS -file <public key name>.pem
         ```
 
     === "PKCS12"
@@ -168,7 +184,16 @@ Depending on the type of keystore you have, follow one of the steps below to gen
     openssl x509 -x509toreq -in <cert_name.crt> -out <CSR.csr> -signkey <private_key.key>
     ```
 
-Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. <!--For testing purposes, you can go to <http://www.getacert.com/signacert.html> and submit your CSR to obtain a new CA-signed certificate for free.-->
+Once you generate the CSR, you need to submit the CSR to your certificate authority to get a new CA-signed certificate. If you use the Certbot CSR workflow described earlier on this page, repeat the `certonly` command with the new CSR and the same output paths:
+
+``` bash
+sudo certbot certonly --manual --csr <CSR.csr> \
+  --cert-path server-certificate.pem \
+  --chain-path ca-chain.pem \
+  --fullchain-path full-chain.pem
+```
+
+The Certbot `--csr` option works only with the `certonly` subcommand. Perform this CSR-based issuance before the certificate expires, and automate the manual domain-validation step with authentication hooks if you require unattended renewal. See the [Certbot renewal guidance](https://eff-certbot.readthedocs.io/en/stable/using.html#renewing-certificates){:target="_blank"}.
 
 After you obtain a new certificate, you have to import the new certificate to a keystore if you are using a Java keystore.
 
@@ -176,8 +201,8 @@ After you obtain a new certificate, you have to import the new certificate to a 
 
 To import a new certificate to a keystore, execute the following command:
 
-``` java
-keytool -import -v -trustcacerts -alias <current_alias> -file <ca_signed_cert.cer> -keystore <keystore_name.{{content.default_keystore_ext}}> -storetype {{content.default_keystore_type}}
+``` bash
+keytool -importcert -v -trustcacerts -alias <current_alias> -file full-chain.pem -keystore <keystore_name.{{content.default_keystore_ext}}> -storetype {{content.default_keystore_type}}
 ```
 
 !!! tip
