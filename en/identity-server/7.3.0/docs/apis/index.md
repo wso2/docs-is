@@ -3,7 +3,7 @@
 WSO2 Identity Server exposes most of the features via REST APIs. Those APIs are categorized into four main categories based on the usage.
 
  - System APIs - APIs that are used to manage the WSO2 Identity Server system.
- - Management APIs - APIs that are consumed by an application as WSO2 Identity Server as the Identity Provider.
+ - Management APIs - APIs that are consumed by an application with WSO2 Identity Server as the Identity Provider.
  - Organization APIs - APIs that are consumed by the B2B SaaS applications for organization-level operations.
  - End User APIs - APIs that are used for all operations on the currently authenticated user.
 

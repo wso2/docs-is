@@ -10,7 +10,7 @@ FIPS 140-2-compliant mode is turned off by default on the Identity Server.
 To enable FIPS 140-2 compliant mode on the Identity Server:
 
 1. Shut down the Identity Server instance if it's running.
-2. Open a terminal, navigate to `<IS_HOME>/bin/` folder,  and execute the following one of the following commands:
+2. Open a terminal, navigate to `<IS_HOME>/bin/` folder,  and execute one of the following commands:
     
     === "Linux/macOS"
         ```

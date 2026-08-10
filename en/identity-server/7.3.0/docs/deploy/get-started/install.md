@@ -290,7 +290,7 @@ prompt](#java-home).
 
 The `JAVA_HOME` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the JAVA_HOME variable to take effect, or manually set the JAVA_HOME variable in those command prompt windows as described in the next section.
 
-To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and click **Enter** ) and execute the following command.
+To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and press **Enter** ) and execute the following command.
 
 ```bat
 set JAVA_HOME
@@ -356,7 +356,7 @@ Extract the WSO2 product that you want to run as a Linux service and set the env
     ``` bash
     #!/bin/bash
      
-    case "$1″ in
+    case "$1" in
     start)
        echo "Starting Service"
     ;;
