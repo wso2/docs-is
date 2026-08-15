@@ -164,6 +164,45 @@ Navigate to `<IS_HOME>/repository/resources/security/` and run one of the follow
 
 {% endif %}
 
+After creating the internal keystore, you need to configure it in the `deployment.toml` file located in the `<IS_HOME>/repository/conf/` directory.
+
+Add the following configuration based on your keystore type:
+
+=== "PKCS12"
+
+    ```toml
+    [keystore.internal]
+    file_name = "<internal-keystore-name>.p12"
+    type = "PKCS12"
+    alias = "<internal-key-alias>"
+    password = "$secret{keystore_password}"
+    key_password = "$secret{keystore_password}"
+    ```
+
+    Replace the placeholders with the values you used when creating the keystore:
+    
+    - `<internal-keystore-name>`: The name of your internal keystore file (without the `.p12` extension in the file name, but include it in the `file_name` parameter)
+    - `<internal-key-alias>`: The alias you specified when creating the keystore
+
+=== "JKS"
+
+    ```toml
+    [keystore.internal]
+    file_name = "<internal-keystore-name>.jks"
+    type = "JKS"
+    alias = "<internal-key-alias>"
+    password = "$secret{keystore_password}"
+    key_password = "$secret{keystore_password}"
+    ```
+
+    Replace the placeholders with the values you used when creating the keystore:
+    
+    - `<internal-keystore-name>`: The name of your internal keystore file (without the `.jks` extension in the file name, but include it in the `file_name` parameter)
+    - `<internal-key-alias>`: The alias you specified when creating the keystore
+
+!!! note
+    The password values use the `$secret{}` syntax, which references encrypted passwords. You should encrypt the actual keystore password using the [Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool) and use the encrypted value.
+
 !!! warning
     Adding an internal keystore to an existing deployment will make already encrypted data unusable. This should be done during initial setup only.
 
