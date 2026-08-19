@@ -47,9 +47,6 @@ The request contains the following delegation parameters:
 
 {{ product_name }} resolves the actor from the `sub` claim of the actor token. The request fails if the actor doesn't resolve to a user in the organization, or if the actor account is locked or disabled.
 
-!!! note
-    {{ product_name }} limits the scopes of a delegated token to the scopes approved in the subject token. If the request contains the `scope` parameter, the delegated token receives only the scopes that are common to the request and the subject token.
-
 ## The act claim
 
 The delegated token identifies the user in the `sub` claim and the acting party in the `act.sub` claim.

@@ -37,9 +37,6 @@ As shown in the above sequence diagram, the flow proceeds as follows.
 6. **Authorized Request**
    The agent calls the protected resource with the delegated token. The resource server can authorize the request against the user's identity while attributing the action to the agent.
 
-!!! note
-    {{ product_name }} limits the scopes of the delegated token to the scopes approved in the subject token. If the request contains the `scope` parameter, the delegated token receives only the scopes that are common to the request and the subject token.
-
 ## Requesting a delegated token
 
 !!! note "Before you begin"

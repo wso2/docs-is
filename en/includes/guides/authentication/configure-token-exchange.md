@@ -215,13 +215,6 @@ Two applications take part in this flow.
 
 The same application can play both roles.
 
-{% if product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"] %}
-
-!!! note
-    {{ product_name }} limits the scopes of the exchanged token to the scopes approved in the subject token. If the request contains the `scope` parameter, the exchanged token receives only the scopes that are common to the request and the subject token.
-
-{% endif %}
-
 #### Configure the subject token application
 
 The subject token should be a JWT access token that includes the token issuer of your organization in its `aud` claim.
@@ -258,7 +251,7 @@ Follow the steps given below.
 
 Upon successful execution, you will receive the exchanged token.
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0"]) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 
 ## Delegation
 
@@ -268,7 +261,7 @@ For instructions, see [Delegation]({{base_path}}/guides/authorization/delegation
 
 {% endif %}
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0"]) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 
 ## Request a specific audience
 
