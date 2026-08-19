@@ -217,6 +217,20 @@ The same application can play both roles.
 
 #### Configure the subject token application
 
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
+
+To configure the subject token application:
+
+1. On the {{ product_name }} Console, go to **Applications**.
+
+2. Open the subject token application from the list and go to the **Protocol** tab.
+
+3. Under **Access Token**, select `JWT` as the **Token type**.
+
+4. Click **Update** to save the configurations.
+
+{% else %}
+
 The subject token should be a JWT access token that includes the token issuer of your organization in its `aud` claim.
 
 To configure the subject token application:
@@ -230,6 +244,8 @@ To configure the subject token application:
 4. Under **ID Token**, add `{{ product_url_format }}/oauth2/token` as an **Audience**.
 
 5. Click **Update** to save the configurations.
+
+{% endif %}
 
 #### Try out locally issued token exchange
 
