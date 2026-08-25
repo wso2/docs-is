@@ -58,7 +58,7 @@ After successful login, you'll receive an access token and an ID token in respon
 
 A sample response is provided below for your reference.
 
-A sample response is provided below for your reference.
+
 
 ```json
 {
