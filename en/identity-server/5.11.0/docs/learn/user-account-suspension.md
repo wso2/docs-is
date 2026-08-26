@@ -105,7 +105,28 @@ task that checks for idle accounts is common to all tenants.
         For more information on how to edit and customize the email
         templates, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
-    
+
+5.  Optionally, configure the date format used to render the
+    `{{suspension-date}}` placeholder in the **idleAccountReminder** email
+    template. By default, the suspension date is rendered using the
+    `dd-MM-yyyy` pattern (e.g. `04-05-2026`). To use a different pattern
+    (e.g. US-locale `MM-dd-yyyy`), add the following property in
+    `<IS_HOME>/repository/conf/deployment.toml`.
+
+    ``` toml
+    [identity_mgt.inactive_account_suspension]
+    date_format = "MM-dd-yyyy"
+    ```
+
+    The value accepts any pattern supported by
+    [`java.text.SimpleDateFormat`](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html).
+    If the property is unset, blank, or contains an invalid pattern, the
+    server falls back to `dd-MM-yyyy` and logs a warning.
+
+    !!! info
+        This capability is available as an update in WSO2 IS 5.11.0 from
+        update level **5.11.0.<TBD>** onwards (Updates 2.0 model). See the
+        instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
 ## Configuring account suspension settings
 
