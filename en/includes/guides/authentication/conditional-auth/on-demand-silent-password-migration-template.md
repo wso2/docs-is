@@ -106,9 +106,9 @@ var authenticateExternally = function() {
         password: password
     };
 
-    Log.info("Invoking the Choreo API to start authentication for the user: " + userId + ".");
+    Log.info("Invoking the WSO2 Developer Platform API to start authentication for the user: " + userId + ".");
 
-    // Invoke the start authentication service hosted in Choreo.
+    // Invoke the start authentication service hosted in WSO2 Developer Platform.
     callChoreo(connectionMetadata, requestPayload, {
         onSuccess: function(context, data) {
             if (data !== null && data.message !== null) {
@@ -163,7 +163,7 @@ var authenticateExternally = function() {
             }
         },
         onFail: function(context, data) {
-            Log.info("Error occurred while invoking the Choreo API to start authentication.");
+            Log.info("Error occurred while invoking the WSO2 Developer Platform API to start authentication.");
 
             sendError(null, {
                 'status': 'Authentication failed',
@@ -172,7 +172,7 @@ var authenticateExternally = function() {
             });
         },
         onTimeout: function(context, data) {
-            Log.info("Connection timed out while invoking the Choreo API to start authentication.");
+            Log.info("Connection timed out while invoking the WSO2 Developer Platform API to start authentication.");
 
             sendError(null, {
                 'status': 'Authentication failed',
@@ -202,9 +202,9 @@ var updatePasswordAndReAuthenticate = function() {
         username: username
     };
 
-    Log.info("Invoking the Choreo API to check auth status for the user: " + userId + " with context ID: " + choreoContextId + ".");
+    Log.info("Invoking the WSO2 Developer Platform API to check auth status for the user: " + userId + " with context ID: " + choreoContextId + ".");
 
-    // Invoke the external authentication API hosted in Choreo.
+    // Invoke the external authentication API hosted in WSO2 Developer Platform.
     callChoreo(connectionMetadata, requestPayload, {
         onSuccess: function(context, data) {
             if (data.status !== null && data.status === "SUCCESS") {
@@ -253,7 +253,7 @@ var updatePasswordAndReAuthenticate = function() {
             }
         },
         onFail: function(context, data) {
-            Log.info("Error occurred while invoking the Choreo API to check auth status.");
+            Log.info("Error occurred while invoking the WSO2 Developer Platform API to check auth status.");
 
             sendError(null, {
                 'status': 'Authentication failed',
@@ -262,7 +262,7 @@ var updatePasswordAndReAuthenticate = function() {
             });
         },
         onTimeout: function(context, data) {
-            Log.info("Connection timed out while invoking the Choreo API to check auth status.");
+            Log.info("Connection timed out while invoking the WSO2 Developer Platform API to check auth status.");
 
             sendError(null, {
                 'status': 'Authentication failed',
@@ -311,23 +311,23 @@ Replace the following parameters of the script with values relevant to your setu
 <table>
     <tr>
         <th>start_authentication_endpoint</th>
-        <td>URL of the start authentication endpoint deployed in Choreo</td>
+        <td>URL of the start authentication endpoint deployed in WSO2 Developer Platform</td>
     </tr>
     <tr>
         <th>polling_endpoint</th>
-        <td>URL of the polling endpoint deployed in Choreo</td>
+        <td>URL of the polling endpoint deployed in WSO2 Developer Platform</td>
     </tr>
     <tr>
         <th>authentication_status_endpoint</th>
-        <td>URL of the authentication status endpoint deployed in Choreo</td>
+        <td>URL of the authentication status endpoint deployed in WSO2 Developer Platform</td>
     </tr>
     <tr>
         <th>consumer_key</th>
-        <td>The consumer key of your Choreo application</td>
+        <td>The consumer key of your WSO2 Developer Platform application</td>
     </tr>
     <tr>
         <th>consumer_secret</th>
-        <td>The consumer secret of your Choreo application</td>
+        <td>The consumer secret of your WSO2 Developer Platform application</td>
     </tr>
     <tr>
         <th>asgardeo_token_endpoint</th>
@@ -675,7 +675,7 @@ Let's look at how the above conditional authentication script works.
 4. The script calls for external authentication with the `authenticateExternally` function and it works as follows:
 
     {% if product_name == "WSO2 Identity Platform" %}
-    - The `connectionMetadata` object holds the start authentication endpoint URL, Choreo application credentials and the WSO2 Identity Platform token endpoint.
+    - The `connectionMetadata` object holds the start authentication endpoint URL, WSO2 Developer Platform application credentials and the WSO2 Identity Platform token endpoint.
     - The script first calls the `callChoreo()` function along with the `connectionMetaData` and invokes the start authentication endpoint.
     {% else %}
     - The `requestAuthConfig` object holds the necessary authentication metadata to invoke the APIs.
@@ -685,7 +685,7 @@ Let's look at how the above conditional authentication script works.
     - If the API call is successful, the `onSuccess()` callback function is called which in turn calls the `prompt()` function.
 
     {% if product_name == "WSO2 Identity Platform" %}
-    - The `prompt()` function continuously polls the Choreo polling endpoint and redirects the user to a waiting page until the external authentication completes.
+    - The `prompt()` function continuously polls the WSO2 Developer Platform polling endpoint and redirects the user to a waiting page until the external authentication completes.
     {% else %}
     - The `prompt()` function continuously polls the external polling endpoint and redirects the user to a waiting page until the external authentication completes.
     {% endif %}
@@ -695,7 +695,7 @@ Let's look at how the above conditional authentication script works.
 5. The `updatePasswordAndReAuthenticate()` function is responsible for checking the status of the authentication and taking necessary actions as explained below.
 
     {% if product_name == "WSO2 Identity Platform" %}
-    - The `connectionMetadata` object hold the authentication status endpoint URL, Choreo application credentials and the WSO2 Identity Platform token endpoint.
+    - The `connectionMetadata` object hold the authentication status endpoint URL, WSO2 Developer Platform application credentials and the WSO2 Identity Platform token endpoint.
     - The script first calls the `callChoreo()` function along with the `connectionMetaData` and invokes the authentication status endpoint.
     {% else %}
     - The `requestAuthConfig` object holds the necessary authentication metadata to invoke the APIs.
