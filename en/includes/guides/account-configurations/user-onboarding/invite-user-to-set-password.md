@@ -80,33 +80,166 @@ This defines how long the password setup invitation email or OTP remains valid.
   </tr>
 </table>
 
-## Try out Invite user to set password
+## Try out invite user to set password
 
-1. On the {{product_name}} Console, go to **User Management**.
+This section demonstrates how to use the invite user to set password feature, including how administrators can invite users and how end users experience the password setup process.
 
-2. Go to **Users**.
+### Invite a user to set password
 
-3. Click **Add User** > **Single User**.
+Follow these steps to invite a user to set their password:
 
-4. Fill in the user's details.
+1. On the {{product_name}} Console, go to **User Management** > **Users**.
 
-5. Select the **Invite the user to set their own password** option.
+2. Click **Add User** > **Single User**.
 
-6. Click **Next** and **Finish**.
+3. Enter the required user details such as username, first name, and last name.
 
-7. You will receive an **email link**, **email OTP**, or **SMS OTP** based on your configuration.
+4. In the **Password setup method** section, select **Invite the user to set their own password**.
 
-   - **Click the email link** to start the password setup flow.
-   - **If you receive an OTP**, enter it to begin the password setup flow.
+5. Click **Next** and then **Finish** to create the user.
 
-  This step verifies the user's identity and starts the password creation process.
+The user receives an invitation based on your configured method:
 
-   **Tip:**
-   
-   - You can redirect users to the password recovery endpoint with the OTP to initiate setup.
+- **Email link**: The user receives an email with a link to set their password.
+- **Email OTP**: The user receives an email containing an OTP code.
+- **SMS OTP**: The user receives an SMS containing an OTP code.
 
-   - Otherwise you can try your application's basic authentication with the username and OTP as the password. This triggers the password setup flow if the OTP is valid.
-   
+### Resend password setup invitation
+
+If the user doesn't receive the invitation or the invitation expires, you can resend it using one of the following methods:
+
+#### Resend via console
+
+1. On the {{product_name}} Console, go to **User Management** > **Users**.
+
+2. Locate the user in the users list.
+
+3. Click the **Edit** icon (pencil icon) next to the user.
+
+4. In the user profile view, click **Resend Invite** or **Reset Password** (depending on your version).
+
+5. Confirm the action to send a new invitation to the user.
+
+#### Resend via API
+
+You can also resend the password setup invitation programmatically using the API.
+
+{% if product_name == "Asgardeo" %}
+To resend the password setup invitation, use the following curl command:
+{% else %}
+To resend the password setup invitation, use the [Resend Code API]({{base_path}}/apis/use-the-self-sign-up-rest-apis/#tag/Self-Register/paths/~1resend-code/post) as shown below:
+{% endif %}
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X 'POST' \
+        'https://{{ host_name }}/api/identity/user/v1.0/resend-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "<USERNAME>",
+                "realm": "<REALM>"
+            },
+            "properties": [{
+                "key": "RecoveryScenario",
+                "value": "ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK"
+                }]
+            }'
+        ```
+
+    === "Sample request"
+
+        ```curl
+        curl -X 'POST' \
+        'https://{{ host_name_example }}/api/identity/user/v1.0/resend-code' \
+        -H 'Authorization: Bearer <access_token>' \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "user": {
+                "username": "alex",
+                "realm": "PRIMARY"
+            },
+            "properties": [{
+                "key": "RecoveryScenario",
+                "value": "ADMIN_FORCED_PASSWORD_RESET_VIA_EMAIL_LINK"
+                }]
+            }'
+        ```
+
+    ---
+    **Response**
+    ```
+    HTTP/1.1 201 Created
+    ```
+
+    !!! note
+        Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
+
+### User experience flow
+
+This section describes the complete password setup experience from the end user's perspective.
+
+#### Setup password using email link
+
+If you configured the email link invitation method, users receive an email with a password setup link. The user experience is as follows:
+
+1. The user receives an email invitation with the subject **Set your password**.
+
+2. The user opens the email and clicks the **Set Password** link.
+
+3. The system opens the password setup page in the browser.
+
+4. The user enters their new password and confirms it by entering it again.
+
+5. The user clicks **Submit** to complete the password setup.
+
+6. The system displays a success message confirming that the password has been set.
+
+7. If the **Send account activation notification** option is enabled, the user receives a confirmation email.
+
+8. The user can now sign in to the application using their username and the newly created password.
+
+#### Setup password using OTP
+
+If you configured the OTP invitation method (via email or SMS), users receive an OTP code. The user experience is as follows:
+
+1. The user receives the OTP code through email or SMS.
+
+2. The user has two options to complete the password setup:
+
+    **Option 1: Using the password recovery endpoint**
+
+    - The user navigates to the password recovery page of the application.
+    - The user enters their username.
+    - The user selects the option to use the OTP.
+    - The user enters the OTP code received.
+    - The system validates the OTP and displays the password setup page.
+    - The user enters and confirms their new password.
+    - The user submits the form to complete the password setup.
+
+    **Option 2: Using basic authentication**
+
+    - The user navigates to the application login page.
+    - The user enters their username and uses the OTP code as the password.
+    - The system validates the OTP and automatically redirects the user to the password setup page.
+    - The user enters and confirms their new password.
+    - The user submits the form to complete the password setup.
+
+3. After successfully setting the password, the system displays a success message.
+
+4. If the **Send account activation notification** option is enabled, the user receives a confirmation email.
+
+5. The user can now sign in to the application using their username and the newly created password.
+
+!!! note
+    - The invitation link or OTP is valid only for the duration specified in the **Invitation link/OTP expiry time** configuration.
+    - If the invitation expires, users should contact an administrator to resend the invitation.
+    - If the **Lock account until password is set** option is enabled, the user account remains locked until the user completes the password setup.
+
 {% else %}
 <table>
   <tr>
