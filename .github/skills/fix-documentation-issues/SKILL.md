@@ -34,7 +34,7 @@ Follow this process to handle the documentation issues:
 
 1. Version detection:
    - If the related Github issue explicitly mentions a version (in title/body/labels):
-     * FIRST: Fix that specific version mentioned in the issue(from "en/identity-server/" can find the all version availables)
+     * FIRST: Fix that specific version mentioned in the issue(from "en/identity-server/" can find the all version available versions)
      * THEN: Check ALL other versions to see if they have the same issue
      * If other versions have the same issue, fix them ALL in the same PR
    - If NO version is mentioned in the issue:
