@@ -631,6 +631,7 @@ nav:
         - Manage login identifiers:
           - Configure username validation: guides/account-configurations/account-login/username-validation.md
           - Configure alternative login identifiers: guides/user-accounts/account-login/configure-login-identifiers.md
+        - Notification settings: guides/account-configurations/notification-settings.md
         - Account disabling: guides/account-configurations/account-disabling.md
       - Flows:
         - Flows: guides/flows/index.md
