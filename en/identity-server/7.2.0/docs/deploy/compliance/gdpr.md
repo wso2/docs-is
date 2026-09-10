@@ -153,4 +153,4 @@ It also supports the following features.
     -   Part 4 - [GDPR Compliant Consent
         Design](https://wso2.com/library/articles/2018/03/creating-a-winning-gdpr-strategypart-4-gdpr-compliant-consent-design/){:target="_blank"}
 
-    For more resources on GDPR, see the white papers, case studies, solution briefs, webinars, and talks published on the [WSO2 GDPR homepage](https://wso2.com/solutions/regulatory-compliance/gdpr/){:target="_blank"}. See the original GDPR legal text [here](http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32016R0679){:target="_blank"}.
+    For more resources on GDPR, see the white papers, case studies, solution briefs, webinars, and talks published on the [WSO2 GDPR homepage](https://web.archive.org/web/20251128065028/https://wso2.com/solutions/regulatory-compliance/gdpr/){:target="_blank"}. See the original GDPR legal text [here](http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32016R0679){:target="_blank"}.
