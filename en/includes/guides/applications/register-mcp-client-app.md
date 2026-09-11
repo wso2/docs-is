@@ -57,7 +57,7 @@ To regiser an MCP Client application,
 
 - [Obtain an M2M token using client credential grant]({{base_path}}/references/grant-types/#client-credentials-grant)
 {% if product_name == "WSO2 Identity Platform" %}
-- [End-to-end MCP Authorization with WSO2 Identity Platform]({{base_path}}/tutorials/end-to-end-mcp-authorization-with-asgardeo/)
+- [End-to-end MCP Authorization with WSO2 Identity Platform]({{base_path}}/tutorials/end-to-end-mcp-authorization-with-identity-platform/)
 {% else %}
 - [Implement authorization code flow with PKCE]({{base_path}}/guides/authentication/oidc/implement-auth-code-with-pkce/)
 {% endif %}

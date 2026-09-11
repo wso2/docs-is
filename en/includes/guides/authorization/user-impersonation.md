@@ -369,7 +369,7 @@ You may access these logs from the **Logs** section of the {{product_name}} Cons
 
 !!! note
 
-    Learn more about [audit logs]({{base_path}}/guides/asgardeo-logs/audit-logs/).
+    Learn more about [audit logs]({{base_path}}/guides/identity-platform-logs/audit-logs/).
 
 {% else %}
 

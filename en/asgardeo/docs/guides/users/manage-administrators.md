@@ -3,7 +3,7 @@
 This guide walks you through the steps of managing an administrator account. If you are the owner or an existing administrator in the organization, you can onboard new administrators or delete existing administrator accounts.
 
 !!! note
-    You cannot manage the user profiles of other administrators or update their passwords from the WSO2 Identity Platform Console. Administrators must manage their own profiles and passwords using the [My Account portal]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/).
+    You cannot manage the user profiles of other administrators or update their passwords from the WSO2 Identity Platform Console. Administrators must manage their own profiles and passwords using the [My Account portal]({{base_path}}/guides/your-identity-platform/identity-platform-self-service/).
 
 ## Onboard an administrator
 

@@ -70,7 +70,7 @@ A few things are deliberately **not** sent:
 {% if is_version is defined %}
 You decide which of these events are published. If a category is not useful to you, leave its publisher off. See [Set up Moesif analytics]({{base_path}}/guides/analytics/moesif/).
 {% else %}
-For where this data is stored and how long it stays there, see [Data residency]({{base_path}}/references/data-residency-in-asgardeo/#analytics-data).
+For where this data is stored and how long it stays there, see [Data residency]({{base_path}}/references/data-residency-in-identity-platform/#analytics-data).
 {% endif %}
 
 ## How an event is shaped

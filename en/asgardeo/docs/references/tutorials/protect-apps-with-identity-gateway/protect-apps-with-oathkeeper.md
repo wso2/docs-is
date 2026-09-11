@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-- A {{product_name}} organization. If you don't have one, [create a free account]({{base_path}}/get-started/create-asgardeo-account/).
+- A {{product_name}} organization. If you don't have one, [create a free account]({{base_path}}/get-started/create-identity-platform-account/).
 
 - **Go 1.16 or later**. To install Go, follow the steps in the [Go documentation](https://go.dev/doc/install){:target="_blank"}.
 

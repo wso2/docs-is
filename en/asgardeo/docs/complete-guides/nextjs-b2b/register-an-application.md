@@ -6,7 +6,7 @@ read_time: 2 min
 
 First unless you already have done that, you need to create an organization in {{product_name}} and register your Teamspace application as a Next Application.
 
-1. Sign up for a [free {{product_name}} account]({{ base_path }}/get-started/create-asgardeo-account/){:target="_blank"}
+1. Sign up for a [free {{product_name}} account]({{ base_path }}/get-started/create-identity-platform-account/){:target="_blank"}
 2. Sign into {{product_name}} console and navigate to **Applications > New Application.**
 3. Select **Next.js**
 

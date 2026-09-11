@@ -12,7 +12,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>{{ product_name }} account</a>",
+      "<a href='{{ base_path }}/get-started/create-identity-platform-account/'>{{ product_name }} account</a>",
       "Install Node.js on your system",
       "Make sure you have a JavaScript package manager like npm, yarn, or pnpm",
       "A favorite text editor or IDE"

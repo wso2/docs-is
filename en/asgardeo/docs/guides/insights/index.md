@@ -46,7 +46,7 @@ Four things are worth knowing, because the switch applies to your whole organiza
 - **Your analytics history starts fresh.** Data collected before the switch does not carry over. The dashboards begin filling from the moment you enable Advanced Analytics.
 - **It applies to everyone in your organization**, not just to you.
 - **You cannot switch back from the Console.** Take a moment to be sure before you enable it.
-- **Some end-user personal data is shared with Moesif** to generate the insights, including user identifiers and IP addresses. Moesif is a WSO2-owned company, and your data is published to the Moesif workspace in the same region you selected when you onboarded. See [Data published to Moesif]({{base_path}}/guides/insights/data-published-to-moesif/) for the full list, and [Data residency]({{base_path}}/references/data-residency-in-asgardeo/#analytics-data) for where the data resides.
+- **Some end-user personal data is shared with Moesif** to generate the insights, including user identifiers and IP addresses. Moesif is a WSO2-owned company, and your data is published to the Moesif workspace in the same region you selected when you onboarded. See [Data published to Moesif]({{base_path}}/guides/insights/data-published-to-moesif/) for the full list, and [Data residency]({{base_path}}/references/data-residency-in-identity-platform/#analytics-data) for where the data resides.
 
 ## Turn on advanced analytics
 

@@ -12,7 +12,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "An <a href='{{ base_path }}/get-started/create-asgardeo-account/'>{{ product_name }} account</a>",
+      "An <a href='{{ base_path }}/get-started/create-identity-platform-account/'>{{ product_name }} account</a>",
       "Python 3.10 or later installed on your system",
       "pip or another Python package manager",
       "A favorite text editor or IDE",

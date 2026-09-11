@@ -5,7 +5,7 @@ As a B2B (Business-to-Business) service provider, you can use {{product_name}} o
 !!! note "Before you begin"
 
     {% if product_name == "WSO2 Identity Platform" %}
-    - [Define your primary business organization]({{base_path}}/guides/your-asgardeo/manage-root-organizations/).
+    - [Define your primary business organization]({{base_path}}/guides/your-identity-platform/manage-root-organizations/).
     - Ensure you have organization management privileges in the organization (root).
     {% else %}
     Ensure you have organization management privileges in the organization (root).
