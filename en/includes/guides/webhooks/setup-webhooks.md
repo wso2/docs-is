@@ -277,7 +277,7 @@ If your webhook isn't functioning as expected, consider the following common iss
       - **Solution**:  
           - Verify that your webhook endpoint is online, running, and publicly accessible to {{product_name}}. Tools like <code>curl</code> or online HTTP testing services can help check external reachability.  
           - Check your endpoint's server logs for incoming GET requests from {{product_name}}. Configure your endpoint to read the <code>hub.challenge</code> query parameter and respond with a <code>2xx</code> HTTP status code, returning the exact <code>hub.challenge</code> string in the response body. {{product_name}} delivers events only after a successful subscription.  
-          - Ensure that no firewalls, security groups, or network ACLs are blocking incoming connections from [{{product_name}}'s IP ranges]({{base_path}}/references/asgardeo-outbound-ip-addresses/).  
+          - Ensure that no firewalls, security groups, or network ACLs are blocking incoming connections from [{{product_name}}'s IP ranges]({{base_path}}/references/identity-platform-outbound-ip-addresses/).  
           - If your endpoint receives the request but doesn't process it, there might be an issue with your code parsing the JSON payload or handling the <code>x-hub-signature</code> header. Review your application logs for errors.  
           - {{product_name}} retries failed deliveries. Consistent failures show a persistent issue with your endpoint. Look at addressing them.
 

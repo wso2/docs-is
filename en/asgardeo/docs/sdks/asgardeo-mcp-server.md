@@ -11,7 +11,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>WSO2 Identity Platform account</a>",
+      "<a href='{{ base_path }}/get-started/create-identity-platform-account/'>WSO2 Identity Platform account</a>",
       "Install <a href='https://go.dev/doc/install' target='_blank' rel='noopener noreferrer'>Go</a> on your system.",
       "You need to have one of the following tools installed: <a href='https://code.visualstudio.com/download' target='_blank' rel='noopener noreferrer'>VS Code</a>, <a href='https://claude.ai/download' target='_blank' rel='noopener noreferrer'>Claude Desktop</a>, <a href='https://www.cursor.com/en/downloads' target='_blank' rel='noopener noreferrer'>Cursor</a>,  <a href='https://windsurf.com/download' target='_blank' rel='noopener noreferrer'>Windsurf</a> or any other MCP-compatible client"
     ],

@@ -37,7 +37,7 @@ The dashboards you see depend on your {{ product_name }} subscription tier. High
   </tbody>
 </table>
 
-To move to a higher tier, see [Subscribe to {{ product_name }}]({{base_path}}/guides/your-asgardeo/subscribe-to-asgardeo/).
+To move to a higher tier, see [Subscribe to {{ product_name }}]({{base_path}}/guides/your-identity-platform/subscribe-to-identity-platform/).
 
 !!! note
     The dashboard set grows over time as new insights are added. This page is updated as that happens.

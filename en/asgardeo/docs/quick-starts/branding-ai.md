@@ -11,7 +11,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>WSO2 Identity Platform account</a>"
+      "<a href='{{ base_path }}/get-started/create-identity-platform-account/'>WSO2 Identity Platform account</a>"
     ],
     whats_next: [
       "Try out <a href='{{ base_path }}/quick-starts/loginflow-ai/' target='_blank'>Login Flow AI Quickstart</a>",

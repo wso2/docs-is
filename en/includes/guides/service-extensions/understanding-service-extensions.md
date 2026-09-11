@@ -359,7 +359,7 @@ loggers = org-wso2-carbon-identity-action-execution
     It is highly recommended to disable both diagnostic logs and system debug logs once troubleshooting is completed as it may expose sensitive information included in responses and requests.
 
 {%else %}
-You may view the diagnostics logs under the logs tab in WSO2 Identity Platform. [Refer here]({{base_path}}/guides/asgardeo-logs/diagnostic-logs/) to learn more about diagnostic logs in WSO2 Identity Platform.
+You may view the diagnostics logs under the logs tab in WSO2 Identity Platform. [Refer here]({{base_path}}/guides/identity-platform-logs/diagnostic-logs/) to learn more about diagnostic logs in WSO2 Identity Platform.
 {%endif %}
 
 
