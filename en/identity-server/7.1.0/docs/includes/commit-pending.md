@@ -21,6 +21,3 @@
         defaultAutoCommit="false"
         commitOnReturn="true"
         ```
-
-!!! note
-    The connection pool no longer rolls back pending transactions on connection return by default, so no JVM option is required to disable that behavior. If you are upgrading from a release older than WSO2 Identity Server 5.10.0, you can safely remove `-Dndatasource.disable.rollbackOnReturn=true` from `wso2server.sh`/`wso2server.bat`; it has had no effect since then.
