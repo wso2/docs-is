@@ -218,11 +218,13 @@ Also note the distinction:
 
 > **Note:** The `PoolExhaustedException` warning log is logged only when `maxWait` expires ([source](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741){: target="_blank"}). It does **not** cover delays inside the driver’s connection or read operations. Driver-level timeouts are required to handle those cases.
 
+> **Note:** The config parser writes `deployment.toml` values into `<IS_HOME>/repository/conf/datasources/master-datasources.xml` verbatim, and a bare `&` starts an entity reference in XML. Write every `&` that separates JDBC URL parameters as `&amp;` in `deployment.toml`. A bare `&` leaves the generated XML malformed, and the server fails to initialize any datasource at startup. The escaped form is parsed back to a plain `&`, so the driver receives the parameters as intended.
+
 ### Example: Oracle RAC database
 
 ```toml
 [database.identity_db]
-url = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST2)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=WSO2_IDENTITY_DB)))?oracle.net.CONNECT_TIMEOUT=10000&oracle.jdbc.ReadTimeout=60000"
+url = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST2)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=WSO2_IDENTITY_DB)))?oracle.net.CONNECT_TIMEOUT=10000&amp;oracle.jdbc.ReadTimeout=60000"
 username = "..."
 password = "..."
 driver = "oracle.jdbc.OracleDriver"

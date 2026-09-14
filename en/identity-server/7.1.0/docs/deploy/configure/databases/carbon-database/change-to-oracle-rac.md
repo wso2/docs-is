@@ -131,7 +131,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 
 ```toml
 [database.identity_db]
-url = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST2)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=WSO2_IDENTITY_DB)))?oracle.net.CONNECT_TIMEOUT=10000&oracle.jdbc.ReadTimeout=60000"
+url = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=DB_HOST2)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=WSO2_IDENTITY_DB)))?oracle.net.CONNECT_TIMEOUT=10000&amp;oracle.jdbc.ReadTimeout=60000"
 username = "..."
 password = "..."
 driver = "oracle.jdbc.OracleDriver"

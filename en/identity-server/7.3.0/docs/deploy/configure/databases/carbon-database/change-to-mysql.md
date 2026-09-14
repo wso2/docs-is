@@ -127,7 +127,7 @@ A sample configuration is given below.
 
 ```toml
 [database.identity_db]
-url = "jdbc:mysql://DB_HOST:3306/WSO2_IDENTITY_DB?connectTimeout=10000&socketTimeout=60000&tcpKeepAlive=true"
+url = "jdbc:mysql://DB_HOST:3306/WSO2_IDENTITY_DB?connectTimeout=10000&amp;socketTimeout=60000&amp;tcpKeepAlive=true"
 username = "..."
 password = "..."
 driver = "com.mysql.cj.jdbc.Driver"

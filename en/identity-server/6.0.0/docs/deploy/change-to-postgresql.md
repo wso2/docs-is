@@ -128,7 +128,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
 
 ```toml
 [database.identity_db]
-url = "jdbc:postgresql://DB_HOST:5432/WSO2_IDENTITY_DB?connectTimeout=10&socketTimeout=60&tcpKeepAlive=true"
+url = "jdbc:postgresql://DB_HOST:5432/WSO2_IDENTITY_DB?connectTimeout=10&amp;socketTimeout=60&amp;tcpKeepAlive=true"
 username = "..."
 password = "..."
 driver = "org.postgresql.Driver"

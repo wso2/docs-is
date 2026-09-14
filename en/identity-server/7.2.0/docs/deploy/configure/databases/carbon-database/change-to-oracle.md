@@ -158,7 +158,7 @@ When the database owner is not the user used to connect to the database, specify
 
 ```toml
 [database.identity_db]
-url = "jdbc:oracle:thin:@//DB_HOST:1521/WSO2_IDENTITY_DB?oracle.net.CONNECT_TIMEOUT=10000&oracle.jdbc.ReadTimeout=60000"
+url = "jdbc:oracle:thin:@//DB_HOST:1521/WSO2_IDENTITY_DB?oracle.net.CONNECT_TIMEOUT=10000&amp;oracle.jdbc.ReadTimeout=60000"
 username = "..."
 password = "..."
 driver = "oracle.jdbc.OracleDriver"

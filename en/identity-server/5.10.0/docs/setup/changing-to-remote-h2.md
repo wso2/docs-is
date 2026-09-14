@@ -211,23 +211,12 @@ However, if required, you can disable the latter mentioned default behavior by d
 
 **Configure the connection pool to commit pending transactions on connection return**  
         
-  1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/macOS:
-            `                 <IS_HOME>/bin/wso2server.sh/                `
-        -   On Windows:
-            `                 <IS_HOME>\bin\wso2server.bat                `
-  2.  Add the following JVM option:
-
-       ``` java
-       -Dndatasource.disable.rollbackOnReturn=true \
-       ```
-
-  3.  Navigate to the
+  1.  Navigate to the
         `               <IS_HOME>/repository/conf/deployment.toml              `
         file.
-  4.  Disable the `               defaultAutoCommit              ` property
+  2.  Disable the `               defaultAutoCommit              ` property
         by defining it as `false`.
-  5.  Add the `                commitOnReturn               `
+  3.  Add the `                commitOnReturn               `
         property and set it to true.
                          
     - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
@@ -245,7 +234,10 @@ However, if required, you can disable the latter mentioned default behavior by d
         defaultAutoCommit="false"
         commitOnReturn="true"
        ```    
-            
+
+!!! note
+    The `-Dndatasource.disable.rollbackOnReturn=true` JVM option, required in earlier releases, has no effect from WSO2 Identity Server 5.10.0 onwards. The connection pool no longer rolls back pending transactions on connection return by default, so the option is no longer needed.
+
 **Configure the connection pool to rollback pending transactions on connection return**
 
   1.  Navigate to the
@@ -302,6 +294,8 @@ Also note the distinction:
 - **`connectTimeout` / `socketTimeout`** (driver) → how long to connect/read at the DB level.
 
 > **Note:** The `PoolExhaustedException` warning log is logged only when `maxWait` expires ([source](https://github.com/apache/tomcat/blob/9.0.82/modules/jdbc-pool/src/main/java/org/apache/tomcat/jdbc/pool/ConnectionPool.java#L739-L741){: target="_blank"}). It does **not** cover delays inside the driver’s connection or read operations. Driver-level timeouts are required to handle those cases.
+
+> **Note:** The config parser writes `deployment.toml` values into `<IS_HOME>/repository/conf/datasources/master-datasources.xml` verbatim, and a bare `&` starts an entity reference in XML. Write every `&` that separates JDBC URL parameters as `&amp;` in `deployment.toml`. A bare `&` leaves the generated XML malformed, and the server fails to initialize any datasource at startup. The escaped form is parsed back to a plain `&`, so the driver receives the parameters as intended.
 
 ### Example: Remote H2 database
 
