@@ -351,7 +351,8 @@ The following configurations need to be done in both the WSO2 Identity Server no
         [server]
         force_local_cache = true
         ```
-        Cache invalidation uses Hazelcast messaging to distribute the invalidation message over the cluster and invalidate the caches properly. This is used to minimize the coherence problem in a multi-node setup.
+
+        Cache invalidation uses messaging to distribute cache eviction notifications across the cluster and maintain coherence in a multi-node setup. By default, WSO2 Identity Server uses **Hazelcast messaging** for intra-cluster invalidation. Alternatively, in cloud-native or containerized environments where Hazelcast is disabled (or across multiple active-active clusters), cache invalidation can be performed using a **central Message Broker** (such as ActiveMQ, RabbitMQ, or IBM MQ) via the `carbon-cache-sync-manager` connector.
 
         **Typical clustered deployment cache scenarios**
 
@@ -436,6 +437,36 @@ The following configurations need to be done in both the WSO2 Identity Server no
                         <ul>
                             <li>This scenario is only recommended if the network has tight tolerance where the network infrastructure is capable of handling high bandwidth with very low latency.</li>
                             <li>Typically, this applies only when you deploy <b>all the nodes in a single server rack having fiber-optic cables</b>. In any other environment, this implementation will cause cache losses. Thus, this implementation is <b>not recommended for general use</b>.
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6. Local caches with Message Broker-based invalidation (Hazelcast disabled)</td>
+                    <td>Enabled</td>
+                    <td>Not<br> Applicable</td>
+                    <td>Disabled</td>
+                    <td>Enabled<br>(via Message Broker)</td>
+                    <td>
+                        <ul>
+                            <li><b>Recommended for modern containerized and cloud-native deployments</b> (e.g., Kubernetes, AWS ECS).</li>
+                            <li>Eliminates Hazelcast networking overhead and split-brain risks.</li>
+                            <li>A central Message Broker (ActiveMQ, RabbitMQ, IBM MQ) coordinates cache invalidation events across all nodes using pub/sub topics.</li>
+                            <li><b>Mandatory:</b> Requires configuring <code>[server.cache] invalidation_impl = "org.wso2.carbon.cache.sync.jms.manager.JMSProducer"</code> in <code>deployment.toml</code>. Omitting this causes invalidation events to be silently dropped.</li>
+                            <li>For setup instructions, see <a href="{{base_path}}/deploy/configure-message-broker-cache-invalidation">Configure message broker cache invalidation</a>.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7. Hybrid invalidation (Hazelcast within cluster + Message Broker across clusters)</td>
+                    <td>Enabled</td>
+                    <td>Not<br> Applicable</td>
+                    <td>Enabled</td>
+                    <td>Enabled<br>(Hazelcast + Broker)</td>
+                    <td>
+                        <ul>
+                            <li>Designed for multi-datacenter / active-active cluster deployments.</li>
+                            <li>Intra-cluster invalidations use Hazelcast messaging; inter-cluster invalidations are propagated by the cluster coordinator node via a Message Broker topic.</li>
+                            <li>Requires <code>[cache_invalidator.mb] hybrid_mode_enabled = true</code> and <code>[server.cache] propagation_enabled = true</code>.</li>
                         </ul>
                     </td>
                 </tr>

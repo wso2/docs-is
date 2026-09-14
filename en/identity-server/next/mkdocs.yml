@@ -1125,6 +1125,7 @@ nav:
           - WSO2 Clusters with Nginx: deploy/front-with-the-nginx-load-balancer.md
           - Databases for Clustering: deploy/set-up-separate-databases-for-clustering.md
           - Configure Hazelcast: deploy/configure-hazelcast.md
+          - Configure message broker cache invalidation: deploy/configure-message-broker-cache-invalidation.md
         - Containerized deployments:
           - Kubernetes: deploy/deploy-is-on-kubernetes.md
           - OpenShift: deploy/deploy-is-on-openshift.md
