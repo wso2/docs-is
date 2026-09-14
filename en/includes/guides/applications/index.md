@@ -59,7 +59,7 @@ To enable application discovery:
 
 To learn how users can discover applications through the **My Account** portal, see [Discover applications]({{base_path}}/guides/user-self-service/discover-applications/).
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.0.0") %}
 ## Enable/Disable an application
 
 If your application is undergoing maintenance or should be made temporarily unavailable for any reason, you can disable it and re-enable it when ready.
