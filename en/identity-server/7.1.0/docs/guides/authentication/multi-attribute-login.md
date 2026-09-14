@@ -51,7 +51,7 @@ Here are a few examples of regex patterns.
   </tr>
   <tr>
     <td>http://wso2.org/claims/emailaddress</td>
-    <td>^([a-zA-Z0–9_\.\-])+\@(([a-zA-Z0–9\-])+\.)+([a-zA-Z0–9]{2,4})+$</td>
+    <td>^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$</td>
   </tr>
   <tr>
     <td>http://wso2.org/claims/mobile</td>
@@ -59,7 +59,7 @@ Here are a few examples of regex patterns.
   </tr>
   <tr>
     <td>http://wso2.org/claims/username</td>
-    <td>^[a-zA-Z0–9._-]{3,}$</td>
+    <td>^[a-zA-Z0-9._-]{3,}$</td>
   </tr>
 </table>
 
