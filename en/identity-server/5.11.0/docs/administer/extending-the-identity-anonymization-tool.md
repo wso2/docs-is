@@ -159,7 +159,7 @@ remove references to deleted user identities:
                       <url>jdbc:mysql://localhost:3306/userdb</url>
                       <username>root</username>
                       <password>root</password>
-                      <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                      <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
                       <maxActive>50</maxActive>
                       <maxWait>60000</maxWait>
                       <testOnBorrow>true</testOnBorrow>
