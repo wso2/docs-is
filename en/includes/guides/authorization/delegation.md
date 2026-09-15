@@ -4,6 +4,11 @@ Delegation lets an application get a token for a user while preserving the ident
 
 The exchanged token identifies the user in the `sub` claim and the acting party in the `act` claim. When a delegated token is exchanged again, {{ product_name }} nests the previous `act` claim under the new one, so a single token carries the full delegation chain.
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
+!!! note
+    This feature is available from **update level 7.2.0.44** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
+
 ## Request a delegated token
 
 Before you request a delegated token:
