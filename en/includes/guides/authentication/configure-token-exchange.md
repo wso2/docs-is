@@ -243,10 +243,10 @@ To configure the subject token application:
 
 4. Under **ID Token**, add `{{ product_url_format }}/oauth2/token` as an **Audience**.
 
-{% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
+    {% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
     !!! note
         This step is not required from **update level 7.2.0.44** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
-{% endif %}
+    {% endif %}
 
 5. Click **Update** to save the configurations.
 
