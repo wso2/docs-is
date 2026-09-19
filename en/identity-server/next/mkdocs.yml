@@ -1374,7 +1374,6 @@ nav:
       - SCIM 2.0 Bulk API: apis/organization-apis/org-scim2-bulk-mgt.md
       - SCIM 2.0 Group management API: apis/organization-apis/org-group-mgt.md
       - SCIM 2.0 Role management API: apis/organization-apis/org-role-mgt.md
-      - Self password update API: apis/organization-apis/org-self-password-update-rest-api.md
       - Server configuration API: apis/organization-apis/configs.md
       - User credential management API: 
          - User credential management v1 API (deprecated): apis/organization-apis/end-user-credential-management-rest-api.md
@@ -1402,6 +1401,7 @@ nav:
         - User discoverable application API: apis/user-discoverable-applications.md
         - Identity Verification: apis/user-identity-verification.md
         - Self password update API: apis/self-password-update-rest-api.md
+        - Organization self password update API: apis/organization-apis/org-self-password-update-rest-api.md
         - Verification Code Management Me API: apis/verification-code-management-me-api.md
         - Approval API: apis/approvals-rest-api.md
         - User consent API: apis/user-consent-rest-api.md
