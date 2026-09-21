@@ -764,6 +764,7 @@ nav:
           - User impersonation: guides/authorization/user-impersonation/index.md
           - via Console: guides/authorization/user-impersonation/via-console.md
           - via business application (advanced): guides/authorization/user-impersonation/via-business-application.md
+        - Delegation: guides/authorization/delegation.md
         - Rich Authorization Requests: guides/authorization/rich-authorization-requests.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
@@ -997,6 +998,7 @@ nav:
           - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
           - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
           - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
+          - Token exchange for agents: guides/agentic-ai/ai-agents/token-exchange-for-agents.md
       - Verifiable Credentials:
         - Overview: guides/verifiable-credentials/index.md
         - Issue verifiable credentials to a digital wallet: guides/verifiable-credentials/issue-vc.md
@@ -1019,7 +1021,8 @@ nav:
     - Integrating WSO2 Identity Server With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
     - Secure MCP servers with WSO2 Identity Server and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
     - Authenticate AI Agents to the Claude API with WSO2 Agent ID: tutorials/agent-id-claude-authentication.md
-    
+    - Register multiple devices for push notifications: tutorials/register-multiple-devices-for-push-notifications.md
+
   - Setup:
       - Install:
         - Install: deploy/get-started/install.md
@@ -1398,6 +1401,7 @@ nav:
         - User discoverable application API: apis/user-discoverable-applications.md
         - Identity Verification: apis/user-identity-verification.md
         - Self password update API: apis/self-password-update-rest-api.md
+        - Organization self password update API: apis/organization-apis/org-self-password-update-rest-api.md
         - Verification Code Management Me API: apis/verification-code-management-me-api.md
         - Approval API: apis/approvals-rest-api.md
         - User consent API: apis/user-consent-rest-api.md

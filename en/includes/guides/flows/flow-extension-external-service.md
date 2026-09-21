@@ -2,6 +2,8 @@
 
 A flow extension calls an external HTTP service that you build and host. This service is where your custom logic runs. Use it to enrich user claims during registration, validate input against an external system, derive computed claims, or stop a flow with a business-rule failure.
 
+One service can be used in more than one flow. {{product_name}} sends the flow type on every request, so you can write your endpoint to branch on it.
+
 This guide explains the contract your service must implement so that {{product_name}} can integrate with it. You can build the service in any language or framework you prefer.
 
 ## How it works
@@ -345,7 +347,8 @@ Use `ERROR` when your service itself hits a processing or server error (a downst
 **Problems that skip the operation.** The following cause {{product_name}} to skip the offending operation and apply the rest, so a single invalid operation doesn't fail the user's flow:
 
 - The path is empty, unknown, or read-only (everything under `/flow/`).
-- The claim URI isn't in the `http://wso2.org/claims/` dialect, refers to an identity claim (`http://wso2.org/claims/identity/*`), or doesn't resolve to an attribute registered in your organization.
+- The path is one the extension may not write, either because {{product_name}} owns the attribute or because the current flow withholds it. See [attribute access levels]({{base_path}}/guides/flows/flow-extension-configuration/#attribute-access-levels).
+- The claim URI isn't in the `http://wso2.org/claims/` dialect, or doesn't resolve to an attribute registered in your organization.
 - The value is `null` or has the wrong type, for example, a plain string for a multi-valued claim, or an array for a single-valued claim.
 
 !!! note

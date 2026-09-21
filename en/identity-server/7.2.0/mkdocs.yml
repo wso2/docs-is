@@ -736,6 +736,7 @@ nav:
           - User impersonation: guides/authorization/user-impersonation/index.md
           - via Console: guides/authorization/user-impersonation/via-console.md
           - via business application (advanced): guides/authorization/user-impersonation/via-business-application.md
+        - Delegation: guides/authorization/delegation.md
         - Rich Authorization Requests: guides/authorization/rich-authorization-requests.md
       - Identity Verification:
         - Identity Verification: guides/identity-verification/index.md
@@ -944,6 +945,7 @@ nav:
           - Agent credentials: guides/agentic-ai/ai-agents/agent-credentials.md
           - Access control for agents: guides/agentic-ai/ai-agents/access-control-for-agents.md
           - Agent authentication: guides/agentic-ai/ai-agents/agent-authentication.md
+          - Token exchange for agents: guides/agentic-ai/ai-agents/token-exchange-for-agents.md
       - Your WSO2 Identity Server:
         - Your WSO2 Identity Server: guides/your-is/index.md
         - Manage Console access: guides/your-is/manage-console-access.md
@@ -1325,6 +1327,8 @@ nav:
         - User account association API: apis/me-association-rest-api.md
         - User discoverable application API: apis/user-discoverable-applications.md
         - Identity Verification: apis/user-identity-verification.md
+        - Self password update API: apis/self-password-update-rest-api.md
+        - Organization self password update API: apis/organization-apis/org-self-password-update-rest-api.md
         - Verification Code Management Me API: apis/verification-code-management-me-api.md
   - References:
     - References: references/index.md

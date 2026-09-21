@@ -50,7 +50,7 @@ The applications and other artifacts you develop should be migrated between envi
 
 For example, once applications and artifacts are developed and tested in the **BifrostDev** environment, they need to be migrated to the **BifrostPreprod** environment for further testing and then moved to the live business environment.
 
-To streamline this workflow, we recommend using the [IAM-CTL tool]({{base_path}}/guides/your-asgardeo/manage-environments/promote-configurations).
+To streamline this workflow, we recommend using the [IAM-CTL tool]({{base_path}}/guides/your-identity-platform/manage-environments/promote-configurations).
 
 !!! note "Important"
     Some configurations, such as client IDs, secrets, URLs, and connection configurations, will be specific to the business environment, while other functional attributes, such as adaptive authentication scripts, remain the same in all environments. The IAM-CTL tool accommodates this by providing environment-specific keyword mapping.

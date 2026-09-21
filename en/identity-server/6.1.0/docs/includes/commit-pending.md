@@ -1,26 +1,10 @@
-1.	Navigate to either one of the following locations based on your OS.
-
-    ```tab="Linux/macOS"
-    <IS_HOME>/bin/wso2server.sh/ 
-    ```
-
-    ```tab="Windows"
-    <IS_HOME>\bin\wso2server.bat 
-    ```
-
-2.	Add the following JVM option:
-
-    ``` java
-    -Dndatasource.disable.rollbackOnReturn=true \
-    ```
-
-3. 	Navigate to the
+1. 	Navigate to the
     `               <IS_HOME>/repository/conf/deployment.toml              `
     file.
 
-4.	Disable the `               defaultAutoCommit              ` property by defining it as `false`.
+2.	Disable the `               defaultAutoCommit              ` property by defining it as `false`.
 
-5. 	Add the `                commitOnReturn               ` property and set it to `true`.
+3. 	Add the `                commitOnReturn               ` property and set it to `true`.
                         
     - `WSO2_IDENTITY_DB` related configurations that should be added to the `<IS_HOME>/repository/conf/deployment.toml` file.
         
@@ -36,5 +20,4 @@
         [database.shared_db.pool_options]
         defaultAutoCommit="false"
         commitOnReturn="true"
-        ```    
-            
+        ```

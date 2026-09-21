@@ -22,7 +22,7 @@ In a B2B scenario,
 
 - administrators of each subordinate organization manage the respective organization's user base and define login experiences for applications according to the organization's requirements.
 
-If you have a B2C (Business-to-Consumer) platform offering services to direct consumers, you can use an {{ product_name }} organization (root) to manage the identities and access requirements of your users. Note that your first organization on {{ product_name }} is created when you [sign up to {{ product_name }}]({{base_path}}/get-started/create-asgardeo-account/).
+If you have a B2C (Business-to-Consumer) platform offering services to direct consumers, you can use an {{ product_name }} organization (root) to manage the identities and access requirements of your users. Note that your first organization on {{ product_name }} is created when you [sign up to {{ product_name }}]({{base_path}}/get-started/create-identity-platform-account/).
 
 !!! note
     If you have a B2B platform, this will also be the organization (root) of your platform. Your root organization will work with other businesses to make your applications available to their users. Such businesses should be defined as [organizations]({{base_path}}/guides/organization-management/manage-organizations/) in your organization (root).

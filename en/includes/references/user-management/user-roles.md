@@ -826,6 +826,47 @@ Follow the steps below to configure a custom console role in {{ product_name }}.
     ![role-wizard]({{base_path}}/assets/img/references/user-management/custom-console-role-create-wizard.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 3. Click **Add** to create the custom role.
 
+{% if is_version == "7.1.0" or is_version == "next" or product_name == "WSO2 Identity Platform" %}
+
+### Granular console permissions
+
+{% if is_version == "7.1.0" %}
+!!! note
+    Granular console permissions are available from **update level 7.1.0.73** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
+
+{% if product_name == "WSO2 Identity Platform" %}
+{{ product_name }} lets you assign **Create**, **Update**, and **Delete** permissions to roles, independently for each feature component. For example, you can allow a role to create users without allowing it to update or delete existing users.
+{% else %}
+By default, Console roles use the combined **View** and **Edit** permission model, where **Edit** grants create, update, and delete access together.
+
+You can optionally enable a more granular permission model that lets you assign **Create**, **Update**, and **Delete** permissions independently for each Console component. For example, you can allow a role to create users without allowing it to update or delete existing users.
+
+This model is controlled by the `use_granular_console_permissions` setting, which is `false` by default. To enable it, add the following configuration to the `deployment.toml` file and restart the server.
+
+```toml
+[console_settings]
+use_granular_console_permissions = true
+```
+
+{% endif %}
+
+You can assign each Console component the following permission levels{% if product_name != "WSO2 Identity Platform" %} instead of **View**/**Edit**{% endif %}: **View**, **Create**, **Update**, and **Delete**.
+
+![granular-console-permissions]({{base_path}}/assets/img/references/user-management/granular-console-role-permissions.png){: width="650" style="display: block; margin: 0; border: 0px;"}
+
+!!! note
+    **View** is required whenever **Create**, **Update**, or **Delete** is selected for a component, and it cannot be turned off while any of those write permissions remain active.
+
+{% if product_name != "WSO2 Identity Platform" %}
+!!! note "Compatibility with existing roles"
+    Console roles created earlier with the combined **Edit** permission continue to work when the granular model is enabled. **Edit** grants **Create**, **Update**, and **Delete** together.
+
+!!! warning "Switching back to the default model"
+    If you enable granular Console permissions and create roles with granular **Create**, **Update**, or **Delete** permissions, those role permissions will not work after you switch back to the default **View** and **Edit** permission model. Keep granular Console permissions enabled for roles created with the granular model, or review and update those roles before disabling it.
+{% endif %}
+{% endif %}
+
 ### Assign users to console role
 
 You can assign users to roles using either of the following methods:

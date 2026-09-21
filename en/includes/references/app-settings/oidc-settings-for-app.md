@@ -13,9 +13,83 @@ The following are the minimum configurations that are required for OIDC applicat
 
 ### Client credentials
 
+{% set multiple_client_secrets_enabled = (product_name == "WSO2 Identity Platform" and multiple_client_secrets) or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+
 When your application is registered in {{ product_name }}, a client ID is generated as the identifier of the application. If your application is not a public client, a client secret is generated in addition to the client ID as shown below.
 
+{% if multiple_client_secrets_enabled %}
+![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/client-secret-latest.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% else %}
 ![Get client ID and secret of webapp]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+{% endif %}
+
+{% if multiple_client_secrets_enabled %}
+
+#### Rotate client secrets gracefully
+
+To prevent application downtime during a secret update, {{ product_name }} allows an application to hold multiple active client secrets at the same time. This enables a seamless migration: you can generate a new secret, update your connecting applications to use it, and delete the old secret once the transition is complete.
+
+By default, an application can hold up to **2** client secrets at a time. Once the limit is reached, delete an existing secret to create a new one.
+
+{% if product_name == "WSO2 Identity Server" %}
+??? info "Configure the client secret limit"
+    The maximum number of client secrets an application can hold is controlled by the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+    ```toml
+    [oauth.multiple_client_secrets]
+    max_secret_count = 2
+    ```
+
+    If you set `max_secret_count` to `1`, applications are restricted to a single client secret and graceful rotation does not apply. The Console then:
+
+    - Replaces the rotation controls with a single **Regenerate** button under **Client secret**.
+    - Removes the **Revoke all & generate a new client secret** option from the **Danger Zone**.
+
+    ![Regenerate the client secret]({{base_path}}/assets/img/guides/applications/get-client-id-and-secret.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    Clicking **Regenerate** in this mode immediately replaces the existing client secret and revokes the tokens issued with it. Authentication flows fail until you update your application with the new client secret.
+{% endif %}
+
+To rotate the client secret of your application,
+
+1. Go to the **Protocol** tab of your application and, under **Client secret**, click **Generate New Secret**.
+
+2. Select an **Expiration** for the new secret. You can choose one of the preset durations (**30**, **60**, **90**, or **180 days**), enter a custom number of days with **Custom**, or select **Never expires**.
+
+    !!! warning
+        Choose carefully. You cannot change a client secret's expiry time after it's generated.
+
+    ![Generate a new client secret]({{base_path}}/assets/img/guides/applications/generate-client-secret.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+3. Click **Generate**. The new secret becomes the application's latest client secret. The previous secret remains active and is moved under **View Previous Client Secret**.
+
+4. Update your client applications and services to use the newly generated secret. Both secrets remain valid during this transition.
+
+5. Once all clients are successfully using the new secret, click **View Previous Client Secret**, click the delete icon next to the old secret, and confirm the action.
+
+    ![View and delete previous client secrets]({{base_path}}/assets/img/guides/applications/client-secrets-delete.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    !!! warning
+        Having more than one active secret increases security risks. Delete the old secret as soon as you have verified that your applications have successfully migrated to the new one.
+
+        *Note: Deleting a secret only invalidates that specific secret. Active tokens are not revoked, and the application's latest client secret cannot be deleted.*
+
+If an active secret is nearing expiry, a warning banner appears on the application in the Console. Rotate the secret before authentication fails.
+
+#### Revoke all client secrets
+
+To force an immediate rotation, for example if a secret is compromised, go to the **Danger Zone** of the **Protocol** tab. Click **Revoke All** under **Revoke all & generate a new client secret**.
+
+![Revoke all client secrets]({{base_path}}/assets/img/guides/applications/client-secrets-danger-zone.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+!!! warning
+    This action is irreversible. All existing client secrets and their associated tokens are permanently revoked, and a single new client secret is generated. Authentication flows fail until your applications are updated with the new secret.
+
+#### Manage client secrets using APIs
+
+You can programmatically manage client secrets using the `/applications/{applicationId}/inbound-protocols/oidc/secrets` endpoints of the [Application Management API]({{base_path}}/apis/{% if product_name == "WSO2 Identity Platform" %}application-management{% else %}application-rest-api{% endif %}/#tag/Inbound-Protocols-OAuth-OIDC). For applications in sub organizations, use the corresponding endpoints of the [Application Management API - Organization APIs]({{base_path}}/apis/organization-apis/organization-application-mgt/#tag/Inbound-Protocols-OAuth-OIDC).
+
+{% endif %}
 
 ### Allowed grant types
 

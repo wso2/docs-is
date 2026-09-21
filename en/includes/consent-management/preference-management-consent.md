@@ -7,7 +7,7 @@ Preference management consent allows you to request user consent during registra
 ## Prerequisites
 
 !!! note
-    This feature is available from **update level 7.3.0.5** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+    This feature is available from **update level 7.3.0.12** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
 This feature requires the consent management v2 API to be enabled. See [Prerequisites]({{base_path}}/guides/consent-management/#prerequisites) for the required `deployment.toml` configurations.
 

@@ -12,7 +12,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>{{ product_name }} account</a>",
+      "<a href='{{ base_path }}/get-started/create-identity-platform-account/'>{{ product_name }} account</a>",
       "Java 17 or later",
       "Maven 3.5+ or Gradle 7.5+",
       "A favorite text editor or IDE"

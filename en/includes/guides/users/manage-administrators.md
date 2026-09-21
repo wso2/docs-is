@@ -3,7 +3,7 @@
 This guide walks you through the steps of managing an administrator account. If you are the owner or an existing administrator in the organization, you can onboard new administrators or delete existing administrator accounts.
 
 !!! note
-    You cannot manage the user profiles of other administrators or update their passwords from the {{ product_name }} Console. Administrators must [manage their own profiles and passwords]({{base_path}}/guides/your-asgardeo/asgardeo-self-service/#change-password) using the **My Account** portal.
+    You cannot manage the user profiles of other administrators or update their passwords from the {{ product_name }} Console. Administrators must [manage their own profiles and passwords]({{base_path}}/guides/your-identity-platform/identity-platform-self-service/#change-password) using the **My Account** portal.
 
 ## Onboard an administrator
 

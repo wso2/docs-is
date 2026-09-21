@@ -72,7 +72,8 @@ paths:
       summary: List consent records
       description: >
         Retrieve consent records with optional filtering.
-        Returns only the authenticated user's own consents. <br>
+        Returns the authenticated user's own consents, or those the user authorizes, based on
+        the `relation` parameter. <br>
         <b>Permission required:</b> <br>
         * None <br>
         <b>Scope required:</b> <br>
@@ -81,11 +82,13 @@ paths:
       produces:
         - application/json
       parameters:
+        - $ref: '#/parameters/relationQueryParam'
         - $ref: '#/parameters/serviceIdQueryParam'
         - $ref: '#/parameters/stateQueryParam'
         - $ref: '#/parameters/purposeIdQueryParam'
         - $ref: '#/parameters/purposeVersionIdQueryParam'
         - $ref: '#/parameters/filterQueryParam'
+        - $ref: '#/parameters/attributesQueryParam'
         - $ref: '#/parameters/limitQueryParam'
         - $ref: '#/parameters/afterQueryParam'
         - $ref: '#/parameters/beforeQueryParam'
@@ -96,6 +99,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/ConsentSummary'
+        400:
+          $ref: '#/responses/InvalidInput'
         401:
           $ref: '#/responses/Unauthorized'
         500:
@@ -108,7 +113,8 @@ paths:
       summary: Get a consent record
       description: >
         Retrieve a specific consent record by consent ID.
-        Only the consent subject may retrieve the record. Returns 403 if the authenticated user is not the consent subject. <br>
+        The authenticated user must either be the subject of the consent,
+        or be listed in the consent's authorization list; returns 403 otherwise. <br>
         <b>Permission required:</b> <br>
         * None <br>
         <b>Scope required:</b> <br>
@@ -138,7 +144,8 @@ paths:
         - me
       summary: Revoke a consent
       description: >
-        Revokes the consent. The authenticated user must be the consent subject, returns 403 otherwise.
+        Revokes the consent. The authenticated user must either be the subject of the consent,
+        or be listed in the consent's authorization list; returns 403 otherwise.
         Idempotent — if the consent is already revoked, returns 200 with no error. <br>
         <b>Permission required:</b> <br>
         * None <br>
@@ -165,7 +172,7 @@ paths:
         - me
       summary: Authorize a consent
       description: >
-        Authorizes a PENDING consent. The authenticated user must either be the subject  of the consent,
+        Authorizes a PENDING consent. The authenticated user must either be the subject of the consent,
         or be listed in the consent's authorization list; returns 403 otherwise.
         When all required users have approved, the consent transitions to ACTIVE state.
         If any user rejects, the consent transitions to REJECTED state. <br>
@@ -209,7 +216,8 @@ paths:
       summary: Get the current state of a consent object
       description: >
         Returns the current state of a consent record, performing a lazy expiry check.
-        The authenticated user must be the consent subject, returns 403 otherwise. <br>
+        The authenticated user must either be the subject of the consent,
+        or be listed in the consent's authorization list; returns 403 otherwise. <br>
         <b>Permission required:</b> <br>
         * None <br>
         <b>Scope required:</b> <br>
@@ -351,6 +359,10 @@ definitions:
         type: string
         description: Unique identifier of the consent.
         example: 'd75i1g32-5h4i-7e6d-2i9h-6d4e5f7g8h9i'
+      subjectId:
+        type: string
+        description: Identifier of the user who gave consent.
+        example: 'john'
       serviceId:
         type: string
         description: Identifier of the service the consent was given for.
@@ -370,6 +382,22 @@ definitions:
         format: int64
         description: Milliseconds since epoch when the consent was created.
         example: 1750156200000
+      purposes:
+        type: array
+        description: List of purposes included in the consent. Returned only when requested via `attributes`.
+        items:
+          $ref: '#/definitions/ConsentPurposeSummary'
+      authorizations:
+        type: array
+        description: Authorization records associated with this consent. Returned only when requested via `attributes`.
+        items:
+          $ref: '#/definitions/AuthorizationResponse'
+      properties:
+        type: object
+        x-nullable: true
+        description: Properties associated with this consent. Returned only when requested via `attributes`.
+        additionalProperties:
+          type: string
 
   ConsentCreateResponse:
     type: object
@@ -480,6 +508,32 @@ definitions:
         additionalProperties:
           type: string
 
+  ConsentPurposeSummary:
+    type: object
+    description: Minimal consented purpose information for list responses.
+    properties:
+      id:
+        type: string
+        description: UUID of the purpose.
+        example: 'a43f8d09-2e1f-4b3a-9f6e-3a1b2c4d5e6f'
+      name:
+        type: string
+        description: Name of the purpose.
+        example: 'Marketing communications'
+      type:
+        type: string
+        description: Purpose type classification.
+        example: 'Policy'
+      versionId:
+        type: string
+        description: UUID of the purpose version consented to.
+        example: 'b53g9e10-3f2g-5c4b-0g7f-4b2c3d5e6f7g'
+      version:
+        type: string
+        x-nullable: true
+        description: Human-readable version label.
+        example: '2'
+
   ConsentedElement:
     type: object
     properties:
@@ -588,6 +642,19 @@ parameters:
     format: int32
     default: 10
     minimum: 1
+  relationQueryParam:
+    in: query
+    name: relation
+    required: false
+    description: >
+      Relation of the authenticated user to the retrieved consents. SUBJECT returns consents given
+      by the user, AUTHORIZER returns consents the user is listed as an authorizer of, ANY returns both.
+    type: string
+    default: SUBJECT
+    enum:
+      - SUBJECT
+      - AUTHORIZER
+      - ANY
   serviceIdQueryParam:
     in: query
     name: serviceId
@@ -639,10 +706,22 @@ parameters:
     name: filter
     required: false
     description: >
-      Filter consents by custom properties using dot notation `properties.<key>`.
-      Supports 'sw' (starts with), 'co' (contains), 'ew' (ends with), and 'eq' (equals) operations.
-      Combine multiple conditions with 'and', 'or' logical operators.
-      Examples: filter=properties.region eq EU
+      Filter consents by custom properties using dot notation `properties.<key>`, and by
+      `timestamp` (milliseconds since epoch).
+      Properties support 'sw' (starts with), 'co' (contains), 'ew' (ends with), and 'eq' (equals) operations.
+      `timestamp` supports 'ge' (greater than or equals) and 'le' (less than or equals) operations.
+      Combine multiple conditions with the 'and' logical operator.
+      Examples: filter=properties.region eq EU,
+      filter=timestamp ge 1744000000000 and timestamp le 1766383796000
+    type: string
+  attributesQueryParam:
+    in: query
+    name: attributes
+    required: false
+    description: >
+      Specifies the required attributes in the response as a comma-separated string.
+      Supported values: `purposes`, `authorizations`, `properties`.
+      Example: attributes=purposes,properties
     type: string
 
 #---------------------

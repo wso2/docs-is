@@ -472,12 +472,14 @@ paths:
         <b>Scope(Permission) required:</b> `internal_consent_mgt_consent_view`
       operationId: consentsList
       parameters:
-        - $ref: '#/components/parameters/subjectId'
+        - $ref: '#/components/parameters/userId'
+        - $ref: '#/components/parameters/relation'
         - $ref: '#/components/parameters/serviceId'
         - $ref: '#/components/parameters/consentState'
         - $ref: '#/components/parameters/purposeIdQuery'
         - $ref: '#/components/parameters/purposeVersionIdQuery'
         - $ref: '#/components/parameters/filterConsents'
+        - $ref: '#/components/parameters/consentAttributes'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/after'
         - $ref: '#/components/parameters/before'
@@ -698,7 +700,7 @@ components:
       description: |
         Filter purposes by supported attributes: name, type.
         Supports 'sw' (starts with), 'co' (contains), 'ew' (ends with), and 'eq' (equals) operations.
-        Combine multiple conditions with 'and', 'or' logical operators.
+        Combine multiple conditions with the 'and' logical operator.
         Examples:
         - filter=name eq Marketing
         - filter=type co Policy
@@ -713,7 +715,7 @@ components:
       description: |
         Filter elements by supported attributes: name.
         Supports 'sw' (starts with), 'co' (contains), 'ew' (ends with), and 'eq' (equals) operations.
-        Combine multiple conditions with 'and', 'or' logical operators.
+        Combine multiple conditions with the 'and' logical operator.
         Examples:
         - filter=name eq email_address
         - filter=name co email
@@ -755,14 +757,26 @@ components:
         maxLength: 255
       description: ID of the consent.
 
-    subjectId:
-      name: subjectId
+    userId:
+      name: userId
       in: query
       required: false
       schema:
         type: string
         maxLength: 255
-      description: Filter by subject username.
+      description: Username whose consents are retrieved. Involvement is set by `relation`. Requires `relation`.
+
+    relation:
+      name: relation
+      in: query
+      required: false
+      schema:
+        type: string
+        enum: [SUBJECT, AUTHORIZER, ANY]
+      description: |
+        Relation of `userId` to the retrieved consents. SUBJECT returns consents given by the user,
+        AUTHORIZER returns consents the user is listed as an authorizer of, ANY returns both.
+        Requires `userId`.
 
     serviceId:
       name: serviceId
@@ -830,13 +844,26 @@ components:
       name: filter
       required: false
       description: |
-        Filter consents by custom properties using dot notation `properties.<key>`.
-        Supports 'sw' (starts with), 'co' (contains), 'ew' (ends with), and 'eq' (equals) operations.
-        Combine multiple conditions with 'and', 'or' logical operators.
+        Filter consents by custom properties using dot notation `properties.<key>`, and by
+        `timestamp` (milliseconds since epoch).
+        Properties support 'sw' (starts with), 'co' (contains), 'ew' (ends with), and 'eq' (equals) operations.
+        `timestamp` supports 'ge' (greater than or equals) and 'le' (less than or equals) operations.
+        Combine multiple conditions with the 'and' logical operator.
         Examples:
         - filter=properties.dataCategory eq personal
-        - filter=properties.region eq EU
         - filter=properties.region eq EU and properties.dataCategory eq personal
+        - filter=timestamp ge 1744000000000 and timestamp le 1766383796000
+      schema:
+        type: string
+
+    consentAttributes:
+      in: query
+      name: attributes
+      required: false
+      description: |
+        Specifies the required attributes in the response as a comma-separated string.
+        Supported values: `purposes`, `authorizations`, `properties`.
+        Example: attributes=purposes,properties
       schema:
         type: string
 
@@ -1535,6 +1562,22 @@ components:
           nullable: true
           description: Milliseconds since epoch until which the consent is valid. Null if no expiry.
           example: 1766383796000
+        purposes:
+          type: array
+          description: Purposes in this consent. Returned only when requested via `attributes`.
+          items:
+            $ref: '#/components/schemas/ConsentedPurposeSummaryDTO'
+        authorizations:
+          type: array
+          description: Authorization records associated with this consent. Returned only when requested via `attributes`.
+          items:
+            $ref: '#/components/schemas/AuthorizationDTO'
+        properties:
+          type: object
+          nullable: true
+          description: Properties associated with this consent. Returned only when requested via `attributes`.
+          additionalProperties:
+            type: string
 
     ConsentDTO:
       type: object
@@ -1626,6 +1669,30 @@ components:
           additionalProperties:
             type: string
 
+    ConsentedPurposeSummaryDTO:
+      type: object
+      description: Minimal consented purpose information for list responses
+      properties:
+        name:
+          type: string
+          example: "Privacy Policy"
+        id:
+          type: string
+          example: "f83aa1a3-5d4d-4c0e-84db-c3a4f1e6c8b2"
+        type:
+          type: string
+          description: Purpose type classification
+          example: "Policy"
+        versionId:
+          type: string
+          description: UUID of the purpose version that was consented
+          example: "f83aa1a3-5d4d-4c0e-84db-c3a4f1e6c8b2"
+        version:
+          type: string
+          nullable: true
+          description: Human-readable version label (e.g. "2"). Null for pre-versioning consents.
+          example: "2"
+
     ConsentedElementDTO:
       type: object
       description: Element information within a consented purpose
@@ -1682,7 +1749,7 @@ components:
           example: "alice@wso2.com"
         state:
           type: string
-          enum: [APPROVED, REJECTED, REVOKED, EXPIRED]
+          enum: [PENDING, APPROVED, REJECTED, REVOKED, EXPIRED]
           description: Current state of this authorization
           example: "APPROVED"
         updatedTime:

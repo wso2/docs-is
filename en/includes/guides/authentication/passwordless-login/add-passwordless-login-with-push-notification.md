@@ -1,13 +1,11 @@
 
 # Add Passwordless login with Push Notifications
 
-
 Push notifications enable a secure and seamless passwordless authentication mechanism by allowing users to verify their identity with a simple tap on their registered mobile device. Instead of relying on traditional passwords or one-time passcodes, authentication requests are securely delivered via push notifications, ensuring real-time, user-friendly login.
 
 This method enhances security by reducing the risk of phishing and credential-based attacks while offering a frictionless login experience. Users can authenticate from any trusted device with internet access, eliminating the need to remember or enter passwords.
 
 To configure push notifications as a passwordless authentication mechanism in {{ product_name }}, follow the instructions below.
-
 
 ## Prerequisites
 
@@ -20,7 +18,6 @@ To configure push notifications as a passwordless authentication mechanism in {{
 - A push authenticator application is required for the purpose of receiving push notifications. Learn how to [build your own push authenticator app.]({{base_path}}/references/tutorials/build-your-own-push-authenticator-app)
 
 - If push notification device progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-users/#onboard-a-user) need to register their push notification devices via the My Account app prior to using push notification based login. Be sure to educate your users on how to [enroll push notification devices via My Account.]({{base_path}}/guides/user-self-service/register-push-notification-device/)
-
 
 ## Set up Push Notifications
 
@@ -82,9 +79,27 @@ This feature allows users to enroll their push notification devices seamlessly d
 
 6. [Add the push notification device progressive enrollment adaptive script]({{base_path}}/guides/authentication/conditional-auth/push-device-progressive-enrollment-based-template) to the login flow of the application.
 
-
 !!! note
     Push notification device progressive enrollment can only be configured at the organizational level and cannot be modified at the application level.
+
+{% if is_version is defined and is_version >= "7.3.0" %}
+
+## Enable progressive enrollment for multiple devices
+
+When multiple device registration is enabled, you can also let a user who already has a registered device add another one during sign-in.
+
+!!! warning
+    Anyone who gets past the earlier authentication step can register their own device during sign-in. Enable this option only if your use case requires it.
+
+1. On the {{ product_name }} Console, go to **Connections** > **Push Notification** and open the **Settings** tab.
+
+2. With **Enable push notification device progressive enrollment** and **Allow users to register multiple devices** both enabled, select **Allow progressive enrollment for multiple devices** and confirm the security prompt.
+
+3. Click **Update**.
+
+!!! note
+    For the full walkthrough — enabling multiple device registration, registering additional devices, and device registration notifications — see [Register multiple devices for push notifications]({{base_path}}/tutorials/register-multiple-devices-for-push-notifications/).
+{% endif %}
 
 ## Try out Push Notification passwordless login flow with a user already enrolled with a device
 
@@ -105,7 +120,6 @@ In this section, we will guide you through the steps to authenticate using Push 
 4. You will receive a push notification on your registered device. Approve the authentication request from the registered device. Below shown page will be displayed and will be polling for the user's response.
 
 5. Once you approve the authentication request, you will be successfully logged in to the application.
-
 
 ## Try out Push Notification passwordless login flow with a user not enrolled with a device
 
@@ -134,4 +148,3 @@ In this section, we will guide you through the steps to authenticate using Push 
 8. You will receive a push notification on your registered device. Approve the authentication request from the registered device.
 
 9. Once you approve the authentication request, you will be successfully logged in to the application.
-

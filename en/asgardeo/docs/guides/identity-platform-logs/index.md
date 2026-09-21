@@ -2,9 +2,9 @@
 
 Logging is essential for maintaining system integrity and security. Two main types of logs are utilized:
 
-- [Diagnostic logs]({{base_path}}/guides/asgardeo-logs/diagnostic-logs/) help developers troubleshoot issues related to application onboarding and authentication flow configurations,
+- [Diagnostic logs]({{base_path}}/guides/identity-platform-logs/diagnostic-logs/) help developers troubleshoot issues related to application onboarding and authentication flow configurations,
 
-- [Audit logs]({{base_path}}/guides/asgardeo-logs/audit-logs/) track critical state changes within WSO2 Identity Platform resources for security enhancement and incident investigation purposes.
+- [Audit logs]({{base_path}}/guides/identity-platform-logs/audit-logs/) track critical state changes within WSO2 Identity Platform resources for security enhancement and incident investigation purposes.
 
 ## Analyze logs
 
@@ -46,4 +46,4 @@ For example, if you would like to view logs related to a request, click the filt
 
 ## Remote Log Publishing
 
-WSO2 Identity Platform allows you to securely publish both audit and diagnostic logs to external servers for long-term storage and analysis. You can configure separate publishers for audit and diagnostic logs with custom settings for each. Learn more about setting up [Remote Log Publishing]({{base_path}}/guides/asgardeo-logs/remote-log-publish).
+WSO2 Identity Platform allows you to securely publish both audit and diagnostic logs to external servers for long-term storage and analysis. You can configure separate publishers for audit and diagnostic logs with custom settings for each. Learn more about setting up [Remote Log Publishing]({{base_path}}/guides/identity-platform-logs/remote-log-publish).

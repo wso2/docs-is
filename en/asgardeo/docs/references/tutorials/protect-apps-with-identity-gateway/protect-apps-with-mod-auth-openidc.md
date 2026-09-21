@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-- A {{product_name}} organization. If you don't have one, [create a free account]({{base_path}}/get-started/create-asgardeo-account/).
+- A {{product_name}} organization. If you don't have one, [create a free account]({{base_path}}/get-started/create-identity-platform-account/).
 
 - A package manager (for example apt, yum, Homebrew) to install Apache HTTPD.
 

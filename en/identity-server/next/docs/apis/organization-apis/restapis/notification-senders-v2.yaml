@@ -46,6 +46,8 @@ paths:
                   $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypeListResponseExample'
                 httpNoneAuthResponseExample:
                   $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypeListResponseExample'
+                httpPasswordCredentialResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithPasswordCredentialAuthTypeListResponseExample'
         "400":
           description: Bad Request
           content:
@@ -86,7 +88,7 @@ paths:
         - Email Senders
       summary: Create an email sender
       description: |
-        This API provides the capability to create an email sender.\n\nIf the 'name' is not defined, 'EmailPublisher' is taken as the default name. For SMTP-based providers, Basic and Client Credential authentication types are supported. For HTTP-based providers, Basic, Client Credential, Bearer Token, API Key, and None authentication types are supported. <br>
+        This API provides the capability to create an email sender.\n\nIf the 'name' is not defined, 'EmailPublisher' is taken as the default name. For SMTP-based providers, Basic and Client Credential authentication types are supported. For HTTP-based providers, Basic, Client Credential, Bearer Token, API Key, Password Credential, and None authentication types are supported. <br>
 
         <b>Scope(Permission) required:</b> `internal_org_notification_senders_create`
       operationId: createEmailSender
@@ -112,6 +114,8 @@ paths:
                 $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypePOSTRequestExample'
               httpNoneAuthPOSTExample:
                 $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypePOSTRequestExample'
+              httpPasswordCredentialPOSTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithPasswordCredentialAuthTypePOSTRequestExample'
       responses:
         "201":
           description: Successful Response
@@ -136,6 +140,8 @@ paths:
                   $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypeResponseExample'
                 httpNoneAuthResponseExample:
                   $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypeResponseExample'
+                httpPasswordCredentialResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithPasswordCredentialAuthTypeResponseExample'
         "400":
           description: Bad Request
           content:
@@ -238,6 +244,8 @@ paths:
                   $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypeResponseExample'
                 httpNoneAuthResponseExample:
                   $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypeResponseExample'
+                httpPasswordCredentialResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithPasswordCredentialAuthTypeResponseExample'
         "400":
           description: Bad Request
           content:
@@ -314,6 +322,8 @@ paths:
                 $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypePUTRequestExample'
               httpNoneAuthPUTExample:
                 $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypePUTRequestExample'
+              httpPasswordCredentialPUTExample:
+                $ref: '#/components/examples/HTTPBasedEmailSenderWithPasswordCredentialAuthTypePUTRequestExample'
 
         required: true
       responses:
@@ -338,6 +348,8 @@ paths:
                   $ref: '#/components/examples/HTTPBasedEmailSenderWithAPIKeyAuthTypeResponseExample'
                 httpNoneAuthResponseExample:
                   $ref: '#/components/examples/HTTPBasedEmailSenderWithNoneAuthTypeResponseExample'
+                httpPasswordCredentialResponseExample:
+                  $ref: '#/components/examples/HTTPBasedEmailSenderWithPasswordCredentialAuthTypeResponseExample'
         "400":
           description: Bad Request
           content:
@@ -1589,6 +1601,18 @@ components:
               "value": "123ert45"
             }
           }``
+        - PASSWORD_CREDENTIAL: OAuth 2.0 resource owner password credentials authentication.<br>
+          ``{
+            "type": "PASSWORD_CREDENTIAL",
+            "properties": {
+              "clientId": "3e172dd2-901b-43a9-a26a-728466795f01",
+              "clientSecret": "83cdc120-ccf6-4163-a4a8-c1ba3e872daa",
+              "username": "admin",
+              "password": "admin123",
+              "tokenEndpoint": "https://custom.sms.provider/auth/token",
+              "scopes": "send_scope"
+            }
+          }``
         - NONE: No authentication is required.<br>
       required:
         - type
@@ -1600,6 +1624,7 @@ components:
             - BASIC
             - BEARER
             - API_KEY
+            - PASSWORD_CREDENTIAL
             - NONE
           example: CLIENT_CREDENTIAL
         properties:
@@ -1712,6 +1737,34 @@ components:
             value: "client-id-123"
           - key: "clientSecret"
             value: "client-secret-abc"
+          - key: "tokenEndpoint"
+            value: "https://example.com/oauth2/token"
+          - key: "scopes"
+            value: "send_scope"
+    HTTPBasedEmailSenderWithPasswordCredentialAuthTypePOSTRequestExample:
+      summary: "Post request for HTTP based email providers with password credential authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "PASSWORD_CREDENTIAL"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "clientId"
+            value: "client-id-123"
+          - key: "clientSecret"
+            value: "client-secret-abc"
+          - key: "username"
+            value: "admin"
+          - key: "password"
+            value: "admin123"
           - key: "tokenEndpoint"
             value: "https://example.com/oauth2/token"
           - key: "scopes"
@@ -1846,6 +1899,33 @@ components:
             value: "https://example.com/oauth2/token"
           - key: "scopes"
             value: "send_scope"
+    HTTPBasedEmailSenderWithPasswordCredentialAuthTypePUTRequestExample:
+      summary: "Put request for HTTP based email providers with password credential authentication"
+      value:
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "PASSWORD_CREDENTIAL"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "clientId"
+            value: "client-id-123"
+          - key: "clientSecret"
+            value: "client-secret-abc"
+          - key: "username"
+            value: "admin"
+          - key: "password"
+            value: "admin123"
+          - key: "tokenEndpoint"
+            value: "https://example.com/oauth2/token"
+          - key: "scopes"
+            value: "send_scope"
     HTTPBasedEmailSenderWithBearerTokenAuthTypePUTRequestExample:
       summary: "Put request for HTTP based email providers with bearer token authentication"
       value:
@@ -1969,6 +2049,30 @@ components:
             value: "https://example.com/oauth2/token"
           - key: "scopes"
             value: "send_scope"
+    HTTPBasedEmailSenderWithPasswordCredentialAuthTypeResponseExample:
+      summary: "Response for HTTP based email providers with password credential authentication"
+      value:
+        name: "EmailPublisher"
+        provider: "HTTP"
+        providerURL: "https://api.example.com/api/v1"
+        authType: "PASSWORD_CREDENTIAL"
+        properties:
+          - key: "http.client.method"
+            value: "POST"
+          - key: contentType
+            value: "JSON"
+          - key: "http.headers"
+            value: "X-Version: 1, Custom-Header: value"
+          - key: "body"
+            value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+          - key: "clientId"
+            value: "client-id-123"
+          - key: "username"
+            value: "admin"
+          - key: "tokenEndpoint"
+            value: "https://example.com/oauth2/token"
+          - key: "scopes"
+            value: "send_scope"
     HTTPBasedEmailSenderWithBearerTokenAuthTypeResponseExample:
       summary: "Response for HTTP based email providers with bearer token authentication"
       value:
@@ -2087,6 +2191,30 @@ components:
               value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
             - key: "clientId"
               value: "client-id-123"
+            - key: "tokenEndpoint"
+              value: "https://example.com/oauth2/token"
+            - key: "scopes"
+              value: "send_scope"
+    HTTPBasedEmailSenderWithPasswordCredentialAuthTypeListResponseExample:
+      summary: "List response containing an HTTP-based email provider with password credential authentication"
+      value:
+        - name: "EmailPublisher"
+          provider: "HTTP"
+          providerURL: "https://api.example.com/api/v1"
+          authType: "PASSWORD_CREDENTIAL"
+          properties:
+            - key: "http.client.method"
+              value: "POST"
+            - key: contentType
+              value: "JSON"
+            - key: "http.headers"
+              value: "X-Version: 1, Custom-Header: value"
+            - key: "body"
+              value: "{\"subject\": \"{{subject}}\", \"body\": \"{{body}}\", \"footer\": \"{{footer}}\", \"to\": \"{{send-to}}\"}"
+            - key: "clientId"
+              value: "client-id-123"
+            - key: "username"
+              value: "admin"
             - key: "tokenEndpoint"
               value: "https://example.com/oauth2/token"
             - key: "scopes"

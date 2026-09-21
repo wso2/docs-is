@@ -7,7 +7,7 @@ The My Account portal lets users review and revoke the consents they have given,
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
 !!! note "Prerequisite"
-    This feature is available from **update level 7.3.0.5** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+    This feature is available from **update level 7.3.0.12** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
     The consent view in My Account depends on the consent management v2 API being enabled. See [Prerequisites]({{base_path}}/guides/consent-management/#prerequisites) for the required `deployment.toml` configurations.
 

@@ -2020,7 +2020,7 @@ paths:
       summary: |
         Regenerate the OAuth2/OIDC client secret.
       description: |
-        This API regenerates the OAuth2/OIDC client secret. <br>
+        This API regenerates a new client secret. Existing secrets and tokens are revoked. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_client_secret_create`
       operationId: regenerateOAuthClientSecret
       parameters:
@@ -2067,6 +2067,244 @@ paths:
             -H 'accept: application/json' \
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -d ''
+  /applications/{applicationId}/inbound-protocols/oidc/secrets:
+    post:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: Create a new OAuth2/OIDC client secret.
+      description: |
+        This API creates a new client secret for the application. Existing secrets and tokens
+        remain valid. <br>
+          <b>Scope(Permission) required:</b> `internal_application_mgt_client_secret_create`
+      operationId: createOAuthClientSecret
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientSecretCreationRequest'
+      responses:
+        '201':
+          description: Client secret created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientSecretResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict — client secret limit reached for the application.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc/secrets' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -d '{
+              "expiresAt": 2082758400
+            }'
+    get:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: List client secrets of the application.
+      description: |
+        This API returns metadata of all client secrets attached to the application. <br>
+          <b>Scope(Permission) required:</b> `internal_application_mgt_client_secret_view`
+      operationId: getOAuthClientSecrets
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientSecretList'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc/secrets' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /applications/{applicationId}/inbound-protocols/oidc/secrets/{secretId}:
+    get:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: Get a specific client secret's metadata.
+      description: |
+        This API returns the metadata of the client secret identified by `secretId`. <br>
+          <b>Scope(Permission) required:</b> `internal_application_mgt_client_secret_view`
+      operationId: getOAuthClientSecret
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+        - name: secretId
+          in: path
+          description: ID of the client secret
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientSecretResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'GET' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc/secrets/{secret-id}' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    delete:
+      tags:
+        - Inbound Protocols - OAuth / OIDC
+      summary: Delete a specific OAuth2/OIDC client secret.
+      description: |
+        This API deletes the client secret identified by `secretId`. The application's latest client
+        secret cannot be deleted — at least one client secret must remain per application. <br>
+          <b>Scope(Permission) required:</b> `internal_application_mgt_client_secret_delete`
+      operationId: deleteOAuthClientSecret
+      parameters:
+        - name: applicationId
+          in: path
+          description: ID of the application
+          required: true
+          schema:
+            type: string
+        - name: secretId
+          in: path
+          description: ID of the client secret to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Client secret deleted.
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict — cannot delete the last active client secret.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'DELETE' \
+            'https://localhost:9443/api/server/v1/applications/{application-id}/inbound-protocols/oidc/secrets/{secret-id}' \
+            -H 'accept: */*' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
   /applications/{applicationId}/inbound-protocols/oidc/revoke:
     post:
       tags:
@@ -2074,8 +2312,8 @@ paths:
       summary: |
         Revoke the OAuth2/OIDC client of application.
       description: |
-        This API revokes the OAuth2/OIDC client secret. 
-        To re-activate the client, the client secret needs to be regenerated. <br>
+        This API revokes the OAuth2/OIDC client of application and all the client secrets.
+        To re-activate the client, a client secret needs to be regenerated. <br>
           <b>Scope(Permission) required:</b> `internal_application_mgt_create`
       operationId: revokeOAuthClient
       parameters:
@@ -5510,6 +5748,16 @@ components:
           type: string
         clientSecret:
           type: string
+        clientSecretExpiresAt:
+          type: integer
+          format: int64
+          description: The expiration time of the latest client secret, expressed in Unix epoch seconds. A value of 0 indicates that the secret never expires.
+          example: 2082758400
+        multipleClientSecretsConfigured:
+          type: boolean
+          readOnly: true
+          description: Indicates if the application has more than one client secret.
+          example: true
         state:
           type: string
           enum:
@@ -5693,6 +5941,65 @@ components:
         method:
           type: string
           example: A128CBC+HS256
+    ClientSecretCreationRequest:
+      type: object
+      description: Request payload for creating a new client secret.
+      properties:
+        expiresAt:
+          type: integer
+          format: int64
+          description: Expiry time as Unix epoch seconds; must be a future time. 0 or omitted for a non-expiring secret.
+          example: 2082758400
+    ClientSecretResponse:
+      type: object
+      description: Client secret details.
+      required:
+        - secretId
+        - expiresAt
+        - status
+        - latest
+      properties:
+        secretId:
+          type: string
+          description: Identifier of the secret.
+          example: "4a7f9b23-c1e0-4d86-b5fa-28c93a71b4ef"
+        secretValue:
+          type: string
+          description: The client secret value, as maintained in the configured client secret persistence mode.
+          example: "AbCd1234EfGh5678IjKlMnOp"
+        expiresAt:
+          type: integer
+          format: int64
+          description: Expiry time as Unix epoch seconds; 0 if the secret never expires.
+          example: 2082758400
+        createdAt:
+          type: integer
+          format: int64
+          description: Creation time as Unix epoch seconds.
+          example: 1761568483
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - EXPIRED
+          description: Status of the secret.
+          example: ACTIVE
+        latest:
+          type: boolean
+          description: Whether this is the latest client secret of the application. The latest client secret cannot be deleted.
+          example: true
+    ClientSecretList:
+      type: object
+      description: List of client secrets attached to an application.
+      properties:
+        count:
+          type: integer
+          description: Number of client secrets returned.
+          example: 2
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientSecretResponse'
     ClientAuthenticationConfiguration:
       type: object
       properties:

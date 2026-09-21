@@ -7,7 +7,6 @@
     - You can customize all available email templates to match your organization's preferences using the [Email Templates API]({{base_path}}/apis/{{ api_path }}/).
     - You can also use the Console to change some of the most frequently used email templates in {{ product_name }}. Learn how to [customize email content from the Console]({{base_path}}/guides/branding/customize-email-templates/#customize-email-content).
 
-
 ## Email templates in {{ product_name }}
 
 The following is a comprehensive list of email templates that are available in {{ product_name }}.
@@ -117,10 +116,24 @@ The following is a comprehensive list of email templates that are available in {
             <td>This email is generated when a user logs in with a magic link. The application name and the expiry time of the link can be accessed by the literals {{"{{ application-name }}"}}, and {{"{{ expiry-time }}"}} respectively.</td>
         </tr>
         <tr>
+            <td>magicLinkSignUp
+            </td>
+            <td>This email is generated when a user signs up and has to verify the account using a magic link.</td>
+        </tr>
+        <tr>
+            <td>magicLinkPasswordRecovery
+            </td>
+            <td>This email is generated when a user initiates a password recovery and has to verify the account using a magic link before resetting the password.</td>
+        </tr>
+        <tr>
             <td>AskPassword<br/><br/>
                 resendAskPassword<br/><br/>
             </td>
             <td>These emails are generated when a user is asked to create a password for the newly created account. </td>
+        </tr>
+        <tr>
+            <td>OrchestratedResendAskPassword</td>
+            <td>This email is generated when the organization administrator reinitiates the request for the user to set up their password, as part of an orchestrated flow.</td>
         </tr>
         <tr>
             <td>selfSignUpNotify<br/><br/>
@@ -148,6 +161,7 @@ Some email templates in {{ product_name }} should contain URLs which users can c
     ```ts
     {{ "{{ account.recovery.endpoint-url }}"}}/confirmregistration.do?confirmation={{ "{{ confirmation-code }}"}}&userstoredomain={{ "{{ userstore-domain }}"}}&username={{ "{{ url:user-name }}" }}
     ```
+
     This URL is used in the <code>EmailConfirm</code> template.
 
 - URL to confirm a user account
@@ -155,6 +169,7 @@ Some email templates in {{ product_name }} should contain URLs which users can c
     ```ts
     {{ "{{ account.recovery.endpoint-url }}"}}/confirmregistration.do?confirmation={{ "{{ confirmation-code }}"}}&userstoredomain={{ "{{ userstore-domain }}"}}&username={{ "{{ url:user-name }}"}}&spId={{ "{{ spId }}" }}
     ```
+
     This URL is used in the <code>AccountConfirmation</code> and <code>ResendAccountConfirmation</code>.
 
 - URL to verify an updated email address.
@@ -162,6 +177,7 @@ Some email templates in {{ product_name }} should contain URLs which users can c
     ```ts
     {{ "{{ account.recovery.endpoint-url }}"}}/confirmregistration.do?confirmation={{ "{{ confirmation-code }}"}}&userstoredomain={{ "{{ userstore-domain }}"}}&amp;username={{ "{{ url:user-name }}" }}
     ```
+
     This URL is used in the <code>VerifyEmailOnUpdate</code> template.
 
 - URL to reset a password

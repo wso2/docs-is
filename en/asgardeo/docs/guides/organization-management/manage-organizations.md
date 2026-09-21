@@ -1,5 +1,5 @@
 {% set admin_role_name = "`Administrator`" %}
-{% set root_org_description_path = "your-asgardeo" %}
+{% set root_org_description_path = "your-identity-platform" %}
 
 {% set organization_search_content %}
 {% include "../../../../includes/guides/organization-management/organization-advance-search.md" %}

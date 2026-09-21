@@ -87,7 +87,7 @@ The {{product_name}} {{is_version}} runtime has been tested with the following d
 	</tr>
 	<tr>
 		<td>DB2</td>
-		<td>11.5</td>
+		<td>11.5,12.1.4</td>
 	</tr>
 </table>
 

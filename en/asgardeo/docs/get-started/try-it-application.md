@@ -6,7 +6,7 @@ The following guide explains how you can quickly test login with WSO2 Identity P
     - Create an account in WSO2 Identity Platform.
     - Create a user in WSO2 Identity Platform (only users can login to applications created in WSO2 Identity Platform). </b>
 
-    Refer [create your WSO2 Identity Platform account]({{base_path}}/get-started/create-asgardeo-account/) to learn more.
+    Refer [create your WSO2 Identity Platform account]({{base_path}}/get-started/create-identity-platform-account/) to learn more.
 
 ## WSO2 Identity Platform Try It app
 

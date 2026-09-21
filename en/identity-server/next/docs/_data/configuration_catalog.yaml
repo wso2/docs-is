@@ -2761,6 +2761,22 @@ sections:
         description: >
           The number of times the HTTP client retries a failed request to an action endpoint.
 
+  - id: actions.types.flow_extension
+    hyperlink: flow-extension-action
+    title: Flow extension action
+    tasks: [configure-actions]
+    description: >
+      Settings for the flow extension action type, which calls an external service from within a flow.
+
+    configs:
+      - key: non_modifiable_paths
+        type: array
+        required: false
+        default: '["/user/claims[uri=http://wso2.org/claims/userid]", "/user/claims[uri=http://wso2.org/claims/created]"]'
+        description: >
+          The flow context paths that a flow extension can never write, given as a list of context paths.
+          Attributes take the form /user/claims[uri=&lt;claim URI&gt;].
+
   # ─────────────────────────── IDENTITY MANAGEMENT ───────────────────────────
 
   - id: identity_mgt.user_self_registration

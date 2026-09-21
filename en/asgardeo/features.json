@@ -82,5 +82,10 @@
             "guides/customer-data/guides/manage-profile-attributes.md",
             "guides/customer-data/guides/manage-unification-rules.md"
         ]
+    },
+
+    "multiple_client_secrets": {
+        "enabled": false,
+        "page": []
     }
 }

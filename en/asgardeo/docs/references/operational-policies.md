@@ -245,11 +245,11 @@ WSO2 Identity Platform organization owners can choose to be billed monthly or an
 
 WSO2 Identity Platform is available to use for free, however, it comes with certain limitations like the number of applications, the MAU count, and the connections that can be created. For higher limits on resources, it is necessary to subscribe to a higher-tier plan. Subscribing to a higher-tier plan can be done either through the WSO2 Identity Platform billing portal or through Azure marketplace. 
 
-Refer this guideline below for more on [subscription](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/){target="_blank"}.
+Refer this guideline below for more on [subscription](https://wso2.com/asgardeo/docs/guides/your-identity-platform/subscribe-to-identity-platform/){target="_blank"}.
 
 ### 7.3 Subscription Upgrade
 
-WSO2 Identity Platform organization owners can upgrade the current tier of their organizations using the billing portal accessible from the **WSO2 Identity Platform Console**. This [document](https://wso2.com/asgardeo/docs/guides/your-asgardeo/subscribe-to-asgardeo/subscribe-via-billing-portal/){target="_blank"} provides more insight on how to upgrade tiers. 
+WSO2 Identity Platform organization owners can upgrade the current tier of their organizations using the billing portal accessible from the **WSO2 Identity Platform Console**. This [document](https://wso2.com/asgardeo/docs/guides/your-identity-platform/subscribe-to-identity-platform/subscribe-via-billing-portal/){target="_blank"} provides more insight on how to upgrade tiers. 
 
 ### 7.4 Subscription Downgrade
 
@@ -300,13 +300,13 @@ Our infrastructure, application, and security monitoring ensure early detection 
 
 ### 9.2 Organization Monitoring
 
-WSO2 Identity Platform provides support to monitor organization for any of the changes done in their organization through audit logs. Refer to the [documentation](https://wso2.com/asgardeo/docs/guides/asgardeo-logs/audit-logs/) for more information.
+WSO2 Identity Platform provides support to monitor organization for any of the changes done in their organization through audit logs. Refer to the [documentation](https://wso2.com/asgardeo/docs/guides/identity-platform-logs/audit-logs/) for more information.
 
-And diagnostic logs will help admins to monitor what has happened during authentication flows  [https://wso2.com/asgardeo/docs/guides/asgardeo-logs/diagnostic-logs/](https://wso2.com/asgardeo/docs/guides/asgardeo-logs/diagnostic-logs/){target="_blank"}.
+And diagnostic logs will help admins to monitor what has happened during authentication flows  [https://wso2.com/asgardeo/docs/guides/identity-platform-logs/diagnostic-logs/](https://wso2.com/asgardeo/docs/guides/identity-platform-logs/diagnostic-logs/){target="_blank"}.
 
 Similarly WSO2 Identity Platform provides capability to check on organization insights on the user registration and logins. Refer to [https://wso2.com/asgardeo/docs/guides/organization-insights/](https://wso2.com/asgardeo/docs/guides/organization-insights/){target="_blank"}.
 
-WSO2 Identity Platform generates events for various user activities. You can publish these events to WSO2's Choreo platform and trigger custom use cases. Learn more in the [WSO2 Identity Platform events documentation](https://wso2.com/asgardeo/docs/guides/monitoring/asgardeo-events/){target="_blank"}.
+WSO2 Identity Platform generates events for various user activities. You can publish these events to WSO2's Choreo platform and trigger custom use cases. Learn more in the [WSO2 Identity Platform events documentation](https://wso2.com/asgardeo/docs/guides/monitoring/identity-platform-events/){target="_blank"}.
 
 ## 10. Product life cycle & Migrations
 

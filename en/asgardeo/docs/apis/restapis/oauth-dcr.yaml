@@ -117,6 +117,7 @@ paths:
             "url": "string",
             "ext_param_client_id": "string",
             "ext_param_client_secret": "string",
+            "ext_param_client_secret_expires_at": 2082758400,
             "contacts": [
               "string"
             ],
@@ -310,6 +311,10 @@ components:
         ext_param_client_secret:
           type: string
           description: The secret corresponding to the `clientId` of the application. This is confidential and will be used to make requests and authenticate into your application.
+        ext_param_client_secret_expires_at:
+          type: integer
+          format: int64
+          description: The expiration time of the client secret, expressed in Unix epoch seconds. A non-zero value must be a future time. 0 or omitted for a non-expiring secret.
         grant_types:
           type: array
           example:
@@ -396,9 +401,10 @@ components:
           example: "ZJYCqe3GGRvdrudKyZS0XhGv_Z45DuKhCUk0gBR1vZk"
           description: The secret corresponding to the `clientId` of the application. This is confidential and will be used to make requests and authenticate into your application.
         client_secret_expires_at:
-          type: string
-          example: "1577858400"
-          description: The remaining time for expiry of the `client_secret`.
+          type: integer
+          format: int64
+          example: 2082758400
+          description: The expiration time of the client secret, expressed in Unix epoch seconds. A value of 0 indicates that the secret never expires.
         redirect_uris:
           type: array
           items:

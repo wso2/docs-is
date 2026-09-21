@@ -12,7 +12,7 @@ template: templates/quick-start.html
     ],
     prerequisites: [
       "About 15 minutes",
-      "<a href='{{ base_path }}/get-started/create-asgardeo-account/'>{{ product_name }} account</a>"
+      "<a href='{{ base_path }}/get-started/create-identity-platform-account/'>{{ product_name }} account</a>"
     ],
     whats_next: [
       "Try out <a href='{{ base_path }}/quick-starts/branding-ai/' target='_blank'>Branding AI Quickstart</a>",

@@ -793,6 +793,9 @@ This function returns a string containing the parameter's value in a decoded Jso
     var state = getValueFromDecodedAssertion(context.request.params.request[0],"state",true);
     ```
 
+!!! note
+    This function only decodes the JWT - it does not verify the signature, issuer, audience, or expiry.
+
 ### Get unique user
 
 `getUniqueUserWithClaimValues(claimMap, context)`

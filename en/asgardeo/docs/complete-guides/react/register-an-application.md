@@ -6,7 +6,7 @@ read_time: 2 min
 
 First unless you already have done that, you need to create an organization in {{product_name}} and register your application as a single page application.
 
-* Sign up for a [free WSO2 Identity Platform account](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/){:target="_blank"}
+* Sign up for a [free WSO2 Identity Platform account](https://wso2.com/asgardeo/docs/get-started/create-identity-platform-account/){:target="_blank"}
 
 * Sign into the WSO2 Identity Platform console and navigate to **Applications > New Application.**
 * Select React Application

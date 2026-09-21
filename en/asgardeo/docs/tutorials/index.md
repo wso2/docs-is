@@ -8,8 +8,8 @@ See the topics listed below for end-to-end tutorials on how to use WSO2 Identity
 
 - [Authenticate users into Android applications using WSO2 Identity Platform]({{base_path}}/tutorials/auth-users-into-android-apps/)
 - [Authenticate users into Flutter applications using WSO2 Identity Platform]({{base_path}}/tutorials/auth-users-into-flutter-apps/)
-- [Connect WSO2 Identity Platform as an OIDC attribute provider for verifiable credentials (VC) with Microsoft Entra Verified ID]({{base_path}}/tutorials/connect-asgardeo-with-ms-entra/)
-- [Connect WSO2 Identity Platform as an OIDC attribute provider for verifiable credentials (VC) with MATTR]({{base_path}}/tutorials/connect-asgardeo-with-mattr/)
+- [Connect WSO2 Identity Platform as an OIDC attribute provider for verifiable credentials (VC) with Microsoft Entra Verified ID]({{base_path}}/tutorials/connect-identity-platform-with-ms-entra/)
+- [Connect WSO2 Identity Platform as an OIDC attribute provider for verifiable credentials (VC) with MATTR]({{base_path}}/tutorials/connect-identity-platform-with-mattr/)
 - [Secure Spring Boot API with WSO2 Identity Platform]({{base_path}}/tutorials/secure-spring-boot-api/)
 - [Integrate WSO2 Identity Platform with SMART on FHIR healthcare apps]({{base_path}}/tutorials/smart-on-fhir/)
 - [Secure Agentic AI Systems with WSO2 Identity Platform]({{base_path}}/tutorials/secure-agentic-ai-systems/)

@@ -6,7 +6,7 @@ read_time: 2 min
 
 First unless you already have done that, you need to create an organization in {{product_name}} and register your application as a Next Application.
 
-* Sign up for a [free {{product_name}} account]({{ base_path }}/get-started/create-asgardeo-account/){:target="_blank"}
+* Sign up for a [free {{product_name}} account]({{ base_path }}/get-started/create-identity-platform-account/){:target="_blank"}
 * Sign into {{product_name}} console and navigate to **Applications > New Application.**
 * Select **Next.js**
 

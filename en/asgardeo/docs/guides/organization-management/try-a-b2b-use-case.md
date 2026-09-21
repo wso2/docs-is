@@ -1,5 +1,5 @@
 {% set host_name = "api.asgardeo.io" %}
-{% set root_org_description_path = "your-asgardeo" %}
+{% set root_org_description_path = "your-identity-platform" %}
 {% set organization_name = "{organization-name}" %}
 {% set userstore_name = "DEFAULT" %}
 {% set user_details ="

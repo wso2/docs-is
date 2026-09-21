@@ -20,7 +20,7 @@ See the topics in this section for references that will help you while working w
 
 - [Accessibility compliance]({{base_path}}/references/accessibility/) in WSO2 Identity Platform.
 
-- [Data residency]({{base_path}}/references/data-residency-in-asgardeo/) in WSO2 Identity Platform.
+- [Data residency]({{base_path}}/references/data-residency-in-identity-platform/) in WSO2 Identity Platform.
 
 - [API resources and scopes required for MCP tools]({{base_path}}/references/mcp-tool-api-resource-access/) in WSO2 Identity Platform.
 
