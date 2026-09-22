@@ -181,6 +181,29 @@ You can configure implicit account linking using the
 
 {% endif %}
 
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %}
+
+#### Restrict scope issuance for federated tokens
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+!!! note
+    This feature is available from **update level 7.3.0.16** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
+
+You can restrict scope issuance for a token obtained by exchanging a federated token. After enabling this configuration, {{ product_name }} issues the exchanged token with no scopes.
+
+To restrict scope issuance for federated tokens:
+
+1. On the {{ product_name }} Console, go to **Applications**.
+
+2. Open your application from the list and go to the **Protocol** tab.
+
+3. Under **Token Exchange**, select **Restrict scope issuance for federated tokens**.
+
+4. Click **Update** to save the configurations.
+
+{% endif %}
+
 #### Try out federated token exchange
 
 Follow the steps given below.
@@ -214,6 +237,20 @@ Two applications take part in this flow.
 - **Requesting application**: The application that requests the new token. {{ product_name }} issues the exchanged token to this application.
 
 The same application can play both roles.
+
+{% if product_name == "WSO2 Identity Platform" %}
+
+!!! note "Scopes of the exchanged token"
+    For organizations created after **15th October 2026**, {{ product_name }} limits the scopes of the exchanged token to the scopes granted to the subject token.
+
+{% endif %}
+
+{% if product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"] %}
+
+!!! note "Scopes of the exchanged token"
+    {{ product_name }} limits the scopes of the exchanged token to the scopes granted to the subject token.
+
+{% endif %}
 
 #### Configure the subject token application
 
