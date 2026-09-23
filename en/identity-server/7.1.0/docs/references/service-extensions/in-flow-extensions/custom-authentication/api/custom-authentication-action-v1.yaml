@@ -157,8 +157,6 @@ components:
       - tenant
       type: object
       properties:
-        request:
-          $ref: '#/components/schemas/Request'
         currentStepIndex:
           type: integer
           description: Indicates the current authentication step executing that invokes the custom authenticator
@@ -178,23 +176,6 @@ components:
         userStore:
           $ref: '#/components/schemas/UserStoreInEvent'
       description: Contains authentication event details required for processing.
-      
-    Request:
-      type: object
-      properties:
-        additionalHeaders:
-          type: array
-          description: Any additional HTTP headers included in the authentication request. These may contain custom information or metadata that the client has sent.
-            As of now headers in request are not incorporated in the request.
-          items:
-            $ref: '#/components/schemas/RequestParams'
-        additionalParameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/RequestParams'
-          description: Any additional parameters included in the authentication request. These may be custom parameters defined by the client.
-            As of now these parameters are not incorporated in the request.
-      description: Details of the incoming authentication request.
       
     Tenant:
       type: object
@@ -294,17 +275,6 @@ components:
         allowedOperations:
           $ref: '#/components/schemas/AllowedOperations'
           
-    RequestParams:
-      type: object
-      properties:
-        name:
-          type: string
-        values:
-          type: array
-          items:
-            type: string
-      description: Parameters included in the authentication request.
-      
     AuthenticationStep:
       type: object
       properties:
