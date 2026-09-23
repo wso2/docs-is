@@ -52,7 +52,9 @@ When {{ product_name }} sends the ID token to an application, there is user info
 
 {{ product_name }} provides the '/oauth2/introspect' endpoint to perform token validation. Using this, the resource server can verify the access token before authorizing the access.
 
+{% if product_name == "WSO2 Identity Server" %}
 [Token validation by resource servers]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/) has detailed instructions on this.
+{% endif %}
 
 ## Revoke access tokens
 
