@@ -169,3 +169,34 @@ For a provided application token, the response looks like the following:
     If your application's access tokens still return the response, it is likely that your application is out-of-date. If so, update your application through the WSO2 Identity Server Console by navigating to the relevant application under the Applications section.
 
     Once updated, the username attribute will no longer be included in the introspection response. Therefore, before updating, ensure that your application does not rely on the username attribute and remove any such dependencies.
+
+
+## Customize the username format in the introspection response
+
+By default, the OAuth2 introspection response (`/oauth2/introspect`) returns the `username` field for local users in the fully-qualified format (e.g., `john@carbon.super`), regardless of any per-application Subject configurations set in the Console.
+
+To customize the format of the `username` field in the introspection response based on an application's Subject settings, you must configure both the server-level deployment setting and the application settings in the Console:
+
+### 1. Enable server-wide Subject Identifier resolution
+
+Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
+
+```toml
+[oauth]
+build_subject_identifier_from_sp_config = true
+```
+
+!!! note "Important Server-Wide Impact"
+* The build_subject_identifier_from_sp_config parameter defaults to false.
+* This setting is server-wide and impacts the introspection response for all applications hosted on the server.
+* Once enabled, any application that has not explicitly configured its Subject settings will return the username without the userstore or tenant domain by default. Ensure administrators review and configure Subject settings for all active applications before enabling this parameter.
+### 2. Configure Subject settings in the Console
+
+After enabling the server-level property, customize the username behavior for each application:
+
+1. Log in to the WSO2 Identity Server Console.
+2. Go to **Applications**, select your application, and navigate to **User Attributes > Subject**.
+3. Configure the following fields as needed:
+    * **Assign alternate subject identifier:** Select a specific attribute (e.g., `email`) to be used as the subject identifier instead of the default user ID.
+    * **Include userstore domain:** Enable this to append the userstore domain (e.g., `SECONDARY/john`).
+    * **Include tenant domain:** Enable this to append the tenant domain (e.g., `john@carbon.super`).
