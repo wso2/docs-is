@@ -76,7 +76,9 @@ How a resource server validates an access token depends on the token type.
 
 If the access token has expired or is otherwise invalid, the resource server returns `HTTP 401 Unauthorized`. The client should then get a new access token using a refresh token, or restart the authorization flow.
 
+{% if product_name == "WSO2 Identity Server" %}
 Learn how to implement token validation at a resource server in [Validate access tokens at a resource server]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/).
+{% endif %}
 
 ## Token binding
 

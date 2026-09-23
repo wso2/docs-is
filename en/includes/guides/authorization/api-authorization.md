@@ -175,7 +175,7 @@ You can implement access control for business APIs by following the steps below:
 
 1. Extract the access token issued by {{product_name}} in your application or API gateway.
 
-2. Validate opaque tokens through [introspection]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens) or JWTs (JSON Web Tokens) through [JWT validation]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-jwt-tokens).
+2. {% if product_name == "WSO2 Identity Server" %}Validate opaque tokens through [introspection]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-opaque-tokens) or JWTs (JSON Web Tokens) through [JWT validation]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#validate-jwt-tokens).{% else %}Validate opaque tokens through introspection or JWTs (JSON Web Tokens) through [JWT validation]({{base_path}}/guides/authentication/oidc/validate-jwt-with-jwks/).{% endif %}
 
 3. Extract the scopes from the token and check if the scopes match the required permissions.
 
