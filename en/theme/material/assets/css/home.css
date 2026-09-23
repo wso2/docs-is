@@ -34,9 +34,13 @@
     max-width: 100%;
     top: -500px;
     position: absolute;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .md-home-search-container {
+    position: relative;
+    isolation: isolate;
     margin: 0 auto 10px;
 }
 
@@ -47,7 +51,110 @@
 .md-home-search-input-description {
     display: block;
     max-width: 800px;
-    margin: 2em 0 5em;
+    margin: 2em 0 1.75em;
+}
+
+.wso2-alt-product-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 0 2.5rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 25%, var(--md-default-fg-color--lightest));
+    border-radius: 0.7rem;
+    background: color-mix(in srgb, var(--md-primary-fg-color) 5%, transparent);
+    color: var(--md-default-fg-color);
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wso2-alt-product-banner:hover {
+    border-color: color-mix(in srgb, var(--md-primary-fg-color) 45%, var(--md-default-fg-color--lightest));
+    background: color-mix(in srgb, var(--md-primary-fg-color) 8%, transparent);
+    box-shadow: 0 12px 28px -18px color-mix(in srgb, var(--md-primary-fg-color) 55%, transparent);
+}
+
+.wso2-alt-product-banner-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--md-primary-fg-color) 14%, transparent);
+    color: var(--md-primary-fg-color);
+}
+
+.wso2-alt-product-banner-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.wso2-alt-product-banner-text {
+    flex: 1 1 auto;
+    font-size: 0.7rem;
+    line-height: 1.35;
+    color: var(--md-default-fg-color--light);
+}
+
+.wso2-alt-product-banner-text strong {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--md-default-fg-color);
+    margin-bottom: 0.1rem;
+}
+
+.wso2-alt-product-banner-cta {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 0.3rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background-color: var(--md-default-bg-color);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--md-primary-fg-color) 25%, var(--md-default-fg-color--lightest));
+    color: var(--md-primary-fg-color);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.wso2-alt-product-banner-cta svg {
+    width: 11px;
+    height: 11px;
+    transition: transform 0.2s ease;
+}
+
+.wso2-alt-product-banner-cta:hover {
+    background-color: color-mix(in srgb, var(--md-primary-fg-color) 16%, var(--md-default-bg-color));
+    color: var(--md-primary-fg-color);
+    transform: translateY(-1px);
+}
+
+.wso2-alt-product-banner-cta:hover svg {
+    transform: translateX(2px);
+}
+
+@media screen and (max-width: 44.9375em) {
+    .wso2-alt-product-banner {
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: none;
+        padding: 1.25rem;
+    }
+
+    .wso2-alt-product-banner-text {
+        max-width: none;
+    }
+
+    .wso2-alt-product-banner-cta {
+        margin-left: calc(30px + 0.85rem);
+    }
 }
 
 .md-home-sections {

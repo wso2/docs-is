@@ -105,6 +105,7 @@ extra_css:
 extra_javascript:
   - assets/js/theme.js
   - assets/js/copy-page.js
+  - assets/js/product-toggle.js
 
 extra:
   material:

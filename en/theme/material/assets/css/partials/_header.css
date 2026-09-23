@@ -120,6 +120,13 @@
   max-width: none;
 }
 
+/* The search box expands a lot when focused — give it the room by hiding
+   the Get Help/CTA cluster while search is active, rather than letting it
+   get crushed into wrapped, unreadable text. */
+[data-md-toggle=search]:checked~.md-header .md-header__extra {
+  display: none;
+}
+
 /* Header Extras */
 
 .md-header__extra {
@@ -217,4 +224,132 @@
 
 .md-header__version-select-dropdown.open .dropdown-content li:hover a {
   background-color: var(--md-default-fg-color--lightest);
+}
+
+/* Header layout: logo/title on the left, the icon cluster (theme toggle,
+   search, Get Help, CTA) grouped closely together and pushed flush to the
+   right edge via its own auto margin. */
+.md-header__start,
+.md-header__end {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.md-header__end {
+  justify-content: flex-end;
+  margin-left: auto;
+  gap: .15rem;
+}
+
+/* Product switch (SaaS / Self-Managed), next to the logo. Sized in px
+   rather than rem so it stays a constant size regardless of mkdocs-material's
+   responsive root-font-size scaling on wide/high-density screens. */
+.wso2-header-product-switch {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  flex: 0 0 auto;
+  padding: 2px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--md-default-fg-color) 6%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+}
+
+.wso2-product-switch-thumb {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--md-primary-fg-color) 92%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 25%, transparent),
+    0 2px 8px -3px color-mix(in srgb, var(--md-primary-fg-color) 55%, transparent);
+  pointer-events: none;
+}
+
+/* The slide transition is opt-in, turned on by JS only for the moment a user
+   actively clicks to switch products. Every other page load positions the
+   thumb once on render, with no transition, so it doesn't visibly slide in
+   from the left on ordinary navigation between pages. */
+.wso2-product-switch-thumb--animate {
+  transition: left .32s cubic-bezier(.4, 0, .2, 1), width .32s cubic-bezier(.4, 0, .2, 1);
+}
+
+.wso2-product-switch-option {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 6px 11px;
+  white-space: nowrap;
+  color: var(--md-default-fg-color);
+  opacity: .75;
+  background-color: transparent;
+  transition: color .25s ease, opacity .25s ease, transform .15s ease;
+}
+
+.wso2-product-switch-icon {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+}
+
+.wso2-product-switch-option:hover {
+  opacity: 1;
+}
+
+.wso2-product-switch-option:active {
+  transform: scale(.97);
+}
+
+.wso2-product-switch-option[aria-pressed="true"] {
+  color: var(--md-primary-bg-color);
+  opacity: 1;
+}
+
+.wso2-product-switch-status {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 230px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  box-shadow: 0 2px 8px #0003;
+  font-size: 12px;
+  line-height: 1.4;
+  z-index: 2;
+}
+
+/* Below this width the header gets tight (mobile drawer icon appears, tabs
+   wrap, etc.) — drop the labels and keep just the icons so the switch stays
+   out of the way of the logo and the search/help/CTA cluster. */
+@media screen and (max-width: 76.1875em) {
+  .wso2-product-switch-option span {
+    display: none;
+  }
+
+  .wso2-product-switch-option {
+    padding: 6px 9px;
+  }
+}
+
+[data-md-toggle=search]:checked~.md-header .wso2-header-product-switch {
+  display: none;
 }

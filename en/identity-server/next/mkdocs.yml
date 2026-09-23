@@ -25,6 +25,9 @@ edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/next/do
 extra:
   base_path: /en/next
   is_version: next
+  product_toggle:
+    enabled: true
+    target_url: !ENV [DOCS_PRODUCT_TOGGLE_TARGET_URL, 'https://wso2.com/asgardeo/docs/']
   content:
     default_keystore_type: PKCS12
     default_keystore_ext: p12
