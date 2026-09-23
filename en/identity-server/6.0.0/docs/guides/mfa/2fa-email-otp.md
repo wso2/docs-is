@@ -99,43 +99,12 @@ Setting up email OTP required the following two configurations to be made on the
 
             2. Save the configurations and restart the server.
 
-- **Add the email template**
-
-    After configuring the email OTP provider of your choice, you need to add an email template for email OTP.
-
-    To configure the email template:
-
-    1. Add the following email template to the `email-admin-config.xml` file found in the `<IS_HOME>/repository/conf/email`.
-        ```xml
-        <configuration type="EmailOTP" display="EmailOTP" locale="en_US" emailContentType="text/html">
-            <targetEpr></targetEpr>
-            <subject>WSO2 IS Email OTP</subject>
-            <body>
-                Hi,
-                Please use this one-time password {OTPCode} to sign in to your application.
-            </body>
-            <footer>
-                Best Regards,
-                WSO2 Identity Server Team
-                http://www.wso2.com
-            </footer>
-            <redirectPath></redirectPath>
-        </configuration>
-        ```
-
-    2. Save the configurations and restart the server.
-
 ## Enable email OTP for an SP
 
 To enable email OTP for MFA, you need to configure the email OTP as an authenticator and add it to the authentication flow of the application.
 
 ### Prerequisites
-- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application
-- You need to [configure local claims]({{base_path}}/guides/applications/configure-claims-for-sp/#use-local-claim-dialect) for the application:
-    1. On the management console, go to the application you created and click **Edit**
-    2. Expand **Claim configuration**.
-    3. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**.
-    4. Click **Update** to save the configurations.
+- You need to [set up the sample]({{base_path}}/guides/adaptive-auth/adaptive-auth-overview/#set-up-the-sample) application.
 - You need to [update the User Profile]({{base_path}}/guides/identity-lifecycles/update-profile) of the users with an email address to which the user will receive the OTP.
 - You need to [register an Identity Provider]({{base_path}}/guides/identity-federation/add-idp/) named `emailOTP`.
 
