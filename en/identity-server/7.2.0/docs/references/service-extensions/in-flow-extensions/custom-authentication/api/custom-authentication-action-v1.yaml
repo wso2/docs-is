@@ -184,16 +184,14 @@ components:
       properties:
         additionalHeaders:
           type: array
-          description: Any additional HTTP headers included in the authentication request. These may contain custom information or metadata that the client has sent.
-            As of now headers in request are not incorporated in the request.
+          description: HTTP headers of the authentication request being processed, limited to the header names listed as allowed headers in the custom authenticator configuration. The field is omitted when no header matches.
           items:
             $ref: '#/components/schemas/RequestParams'
-        additionalParameters:
+        additionalParams:
           type: array
           items:
             $ref: '#/components/schemas/RequestParams'
-          description: Any additional parameters included in the authentication request. These may be custom parameters defined by the client.
-            As of now these parameters are not incorporated in the request.
+          description: Request parameters of the authentication request being processed, limited to the parameter names listed as allowed parameters in the custom authenticator configuration. The field is omitted when no parameter matches. An authenticator that is the only option in the first authentication step receives the parameters of the original authorization request on its first invocation. When the step offers several login options, that invocation carries the parameters of the request that selected the authenticator. Later invocations receive the parameters of the request that returned the user from the external service.
       description: Details of the incoming authentication request.
       
     Tenant:
@@ -299,7 +297,7 @@ components:
       properties:
         name:
           type: string
-        values:
+        value:
           type: array
           items:
             type: string

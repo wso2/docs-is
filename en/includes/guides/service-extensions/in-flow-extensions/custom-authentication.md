@@ -124,8 +124,15 @@ Follow the steps below to configure a custom authenticator.
 
 6. If you select **External (Federated) User Authentication**, configure [JIT-User Provisioning]({{base_path}}/guides/authentication/jit-user-provisioning) according to your requirements. Additionally, review and set up [role assignments for user groups]({{base_path}}/guides/users/manage-roles/#assign-external-groups-to-a-role) to ensure seamless integration.
 
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
 !!! note
-    If you want to send extra HTTP request headers or extra parameters to your external service, you can add them in **Allowed headers** and **Allowed parameters** under the **Settings** tab in custom authenticator configuration.
+    By default, {{product_name}} does not send the HTTP headers or the request parameters of the login flow to your external service. To forward them, add their names in **Allowed headers** and **Allowed parameters** under the **Settings** tab in custom authenticator configuration. See [Request headers and parameters](#request-headers-and-parameters) for what your service receives and when.
+{% endif %}
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.1.0" %}
+!!! note
+    This version does not send the HTTP headers or the request parameters of the login flow to your external service. The `request` object is not part of the request payload.
+{% endif %}
 
 ### Add the custom authenticator to an application login flow
 
@@ -338,6 +345,51 @@ for example
 </tbody>
 </table>
 
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+
+#### Request headers and parameters
+
+<a name="request-headers-and-parameters"></a>
+
+The `event.request` property carries HTTP headers and request parameters of the login flow. {{product_name}} sends only the names you list in **Allowed headers** and **Allowed parameters** of the custom authenticator configuration, and omits the corresponding field when no name matches.
+
+``` json
+"request": {
+  "additionalHeaders": [
+    { "name": "x-device-id", "value": [ "6f2b41c8" ] }
+  ],
+  "additionalParams": [
+    { "name": "campaign", "value": [ "summer" ] }
+  ]
+}
+```
+
+{{product_name}} can invoke your service more than once during a single login. The first invocation happens when the authentication step begins, or when the user selects your authenticator if the step offers more than one login option. A further invocation happens each time the user returns to {{product_name}}, for example after your service redirects them back with the `flowId`. Which values are available depends on the invocation.
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
+
+- Your service receives only the parameters of the request {{product_name}} is processing at that moment.
+- An authenticator that is the only option in the first authentication step receives the parameters of the original authorization request on its first invocation. If the step offers more than one login option, that invocation follows the user's choice on the login page instead, and carries the parameters of that request.
+- On an invocation that follows a redirect from your service, only the parameters of that request are available. The parameters of the original authorization request are not.
+- An authenticator in the second or a later step does not receive the parameters of the original authorization request on any invocation.
+
+To make a value available on a later invocation, add it as a query parameter when your service redirects the user back. Remember to list its name in **Allowed parameters**.
+{% else %}
+
+- The parameters of the original authorization request are available on every invocation. This includes invocations that follow a redirect from your service, and invocations of an authenticator in the second or a later step.
+- {{product_name}} URL-encodes these values using form encoding rather than copying them from the query string. For example, a value of `hello world` is sent as `hello+world` and a value of `a@b` is sent as `a%40b`, so your service must decode them.
+- {{product_name}} sends them as separate entries. If the request being processed carries a parameter of the same name, `additionalParams` holds an entry for each. The entry from the request being processed comes first and holds the decoded value, and the entry from the original authorization request follows and holds the encoded value.
+- The same set carries parameters that {{product_name}} adds internally, such as `relyingParty` and `sessionDataKey`. They reach your service only if you list them in **Allowed parameters**.
+{% endif %}
+
+!!! warning
+    A name you list is matched against the headers and parameters of the request being processed, which can be the login form submission of an earlier authentication step. Do not list credential or session names such as `password`, `cookie` or `authorization`, or {{product_name}} will send them to your external service.
+
+!!! note
+    Values passed through the `authenticatorParams` option of the [`executeStep()`]({{base_path}}/references/conditional-auth/api-reference/#execute-a-step) function in a conditional authentication script are not sent to a custom authenticator service. That option configures the authenticators that {{product_name}} provides.
+
+{% endif %}
+
 #### Example requests from {{product_name}}
 
 The following examples show requests sent from {{product_name}} to external services. Each example highlights a different authentication type.
@@ -354,7 +406,9 @@ Content-Type: application/json
   "flowId": "75919d4d-026b-4b7b-87e1-3f32986f6d97",
   "requestId": "20250709T163958Z-159c6956d75ltm28hC1SINpsqs00000000p00000000009s4",
   "event": {
+{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
     "request": {},
+{%- endif %}
     "tenant": {
       "id": "12",
       "name": "example.com"
@@ -385,7 +439,9 @@ Content-Type: application/json
   "flowId": "8f5f25a8-1fb7-4c93-9e86-2c328beac833",
   "requestId": "20250709T163958Z-159c6956d75ltm28hC1SINpsqs00000000p00000000009s4",
   "event": {
+{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
     "request": {},
+{%- endif %}
     "tenant": {
       "id": "12",
       "name": "example.com"

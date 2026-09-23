@@ -38,7 +38,6 @@
     - [`session`](#session)
     - [`application`](#application)
     - [`userAgent`](#user-agent)
-    - [`connectionMetadata`](#connectionmetadata)
     - [`authConfig`](#authconfig)
 
 ---
@@ -64,10 +63,9 @@ This function is called when {{ product_name }} receives the initial login reque
 
 - **Example**
 
-    ```bash 
+    ```bash
     onLoginRequest(context)
     ```
-
 
 ### Execute a step
 
@@ -113,6 +111,7 @@ executeStep(<stepId>,
 ```
 
 #### Parameters
+
 This section describes the **options** you can use to configure the `executeStep()` function, and the values you can use as **local authenticators** and **federated IdPs** in the function.
 
 - <b>Options</b>
@@ -149,6 +148,9 @@ This section describes the **options** you can use to configure the `executeStep
         <td>The name of the federated identity provider used in the application. The configurations passed here will be available for that federated identity provider.</td>
       </tr>
     </table>
+
+    !!! note
+        `authenticatorParams` configure the authenticators that {{product_name}} provides. They are not sent to the external service of a [custom authenticator]({{base_path}}/guides/service-extensions/in-flow-extensions/custom-authentication/).
 
 - <b> Connections: Local authenticators and federated IdPs </b>
 
@@ -188,25 +190,27 @@ This section describes the **options** you can use to configure the `executeStep
       </tbody>
     </table>
 
-
     The **external identity providers** are represented by the `idp` parameter. The federated connection names are generated based on the name you assign to the connection at registration.
 
     !!! tip "Example"
         If you add a [federated google connection]({{base_path}}/guides/authentication/social-login/add-google-login/) with the name **bifrost google**, the value you can use in your authentication scripts is `bifrost_google`.
 
 #### Examples
+
 Shown below are ways to define a login flow using the core functions.
 
 - <b>Example 1: Use <code>stepId</code></b>
   
     This example uses only the `stepId`.
-    ``` js 
+
+    ``` js
     executeStep(1)
     ```
 
 - <b>Example 2: Use <code>stepId</code> and <code>eventCallbacks</code></b>
   
     This example uses only the `stepId` and `eventCallbacks`.
+
     ``` js
     executeStep(1, {
         onSuccess: function(context) {
@@ -217,8 +221,8 @@ Shown below are ways to define a login flow using the core functions.
 
 - <b>Example 3: Use all parameters</b>
 
-    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be 
-    defined by the `options` object, such as `authenticationOptions`, `authenticatorParams` and `stepOptions`. However, you cannot write a script with only the `stepId` and `options`. 
+    This example uses the `stepId`, `options`, and an empty `eventCallbacks` object. Different properties can be
+    defined by the `options` object, such as `authenticationOptions`, `authenticatorParams` and `stepOptions`. However, you cannot write a script with only the `stepId` and `options`.
 
     See the following examples:
 
@@ -229,6 +233,7 @@ Shown below are ways to define a login flow using the core functions.
         }]}, {}
      );
     ```
+
     ``` js
     executeStep(1, {
         authenticatorParams: {
@@ -240,6 +245,7 @@ Shown below are ways to define a login flow using the core functions.
         }, {}
     );
     ```
+
     ``` js
      executeStep(1, {
          stepOptions: {
@@ -264,9 +270,9 @@ Shown below are ways to define a login flow using the core functions.
     ```
   
 - <b>Example 5: Force authentication with <code>stepOptions</code></b>
-   
-     The `stepOptions` is an optional property that can be defined in the `executeStep`. This allows the addition of 
-     the `forceAuth` authentication option, which can prompt the authenticator in the steps to re-authenticate, even 
+
+     The `stepOptions` is an optional property that can be defined in the `executeStep`. This allows the addition of
+     the `forceAuth` authentication option, which can prompt the authenticator in the steps to re-authenticate, even
      if it was already authenticated.
 
     ``` js
@@ -560,7 +566,7 @@ This function gets the plain-text cookie value for the cookie name if it is pres
 
 - **Example**
 
-    ``` js 
+    ``` js
     getCookieValue(context.request,"name", {"decrypt" : true,"validateSignature" : true })
     ```
 
@@ -906,7 +912,7 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
 
 - **Example**
 
-    ```
+    ``` js
     var authConfig = {
         type: "clientcredential",
         properties: {
@@ -937,7 +943,7 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
     }
     ```
 
-!!! note     
+!!! note
     To restrict HTTP GET requests to certain domains, for `httpGet` and `httpPost` functions in adaptive authentication scripts, update the `deployment.toml` file as follows:
 
     ```toml
@@ -991,6 +997,8 @@ The HTTP POST function enables sending HTTP POST requests to specified endpoints
 
 ## Object reference
 
+You can use the following objects in a conditional authentication script to read information about the login attempt and to set attributes on it.
+
 ### Context
 
 Contains the authentication context information. The information can be accessed as follows:
@@ -1018,8 +1026,6 @@ The step number is the one configured at the step configuration, not the actual 
     <td>Get the application name.</td>
   </tr>
 </table>
-
-
 
 ### Step
 
@@ -1168,10 +1174,12 @@ Contains the authentication step information. It may be a null or invalid step n
 
 You can securely store consumer keys and secrets as **secrets** in conditional authentication scripts and refer to
 them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you may use:
+
 ```angular2html
 var consumerSecret = secrets.clientSecret;
 ```
-For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the 
+
+For more information on adding secrets, refer to the [Add a secret to the script]({{base_path}}/guides/authentication/conditional-auth/configure-conditional-auth/#add-a-secret-to-the-script) section in the
 documentation.
 
 ### AuthConfig
@@ -1212,6 +1220,7 @@ authentication type and its required properties:
 </table>
 
 You can securely store sensitive values of properties like username, password, consumerKey, consumerSecret as secrets in conditional authentication scripts and refer to them in your conditional authentication scripts using the `secrets.{secret name}` syntax. For example, to retrieve a secret value, you can use:
+
 ```angular2html
 var consumerSecret = secrets.clientSecret;
 ```
