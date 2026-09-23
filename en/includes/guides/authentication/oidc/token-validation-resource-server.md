@@ -198,5 +198,5 @@ After enabling the server-level property, customize the username behavior for ea
 2. Go to **Applications**, select your application, and navigate to **User Attributes > Subject**.
 3. Configure the following fields as needed:
     * **Assign alternate subject identifier:** Select a specific attribute (e.g., `email`) to be used as the subject identifier instead of the default user ID.
-    * **Include userstore domain:** Enable this to append the userstore domain (e.g., `PRIMARY/john`).
+    * **Include userstore domain:** Enable this to append the userstore domain (e.g., `SECONDARY/john`).
     * **Include tenant domain:** Enable this to append the tenant domain (e.g., `john@carbon.super`).
