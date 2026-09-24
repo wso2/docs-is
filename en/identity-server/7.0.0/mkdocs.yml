@@ -25,6 +25,9 @@ edit_uri: https://github.com/wso2/docs-is/edit/master/en/identity-server/7.0.0/d
 extra:
   base_path: /en/7.0.0
   is_version: 7.0.0
+  product_toggle:
+    enabled: true
+    target_url: !ENV [DOCS_PRODUCT_TOGGLE_TARGET_URL, 'https://wso2.com/asgardeo/docs/']
   content:
     default_keystore_type: JKS
     default_keystore_ext: jks

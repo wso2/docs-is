@@ -109,6 +109,38 @@ mkdocs serve
 > python3 -m mkdocs serve
 > ```
 
+#### Test the SaaS / Self-Managed switch locally
+
+The switch reads `page-manifest.js` from the destination site to check whether
+the current page exists there. A local build generates only its own manifest;
+it does not update the production site. To test both directions before deployment,
+run both sites locally in separate terminals, using each site's Python environment.
+Start each terminal at the repository root.
+
+Identity Server:
+
+```bash
+cd en/identity-server/7.3.0
+DOCS_PRODUCT_TOGGLE_TARGET_URL=http://localhost:8001/asgardeo/docs/ mkdocs serve -a localhost:8000
+```
+
+SaaS:
+
+```bash
+cd en/asgardeo
+DOCS_PRODUCT_TOGGLE_TARGET_URL=http://localhost:8000/en/7.3.0/ mkdocs serve -a localhost:8001
+```
+
+Open `http://localhost:8000/en/7.3.0/` or
+`http://localhost:8001/asgardeo/docs/` after both builds finish. Stop any existing
+server on those ports before restarting with these commands. To test another IS
+version, update both the IS directory and the version in the SaaS target URL.
+
+The override changes the switch's destination and manifest URL; `site_url` stays
+unchanged. Without the environment variable, the switch uses the production URLs.
+Both production sites must publish their generated `page-manifest.js` files before
+switching between them can be tested against production.
+
 ### With dev containers
 
 This repository supports the VS Code dev containers feature, which allows you to create a consistent and isolated development environment inside a Docker container. To use this feature, you need to have the following prerequisites:

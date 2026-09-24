@@ -18,12 +18,22 @@ def parse_json(file_path):
 
 files_to_remove = parse_json(os.path.join(os.getcwd(), 'features.json'))
 
+_page_manifest = []
+
 def on_files(files, config):
     if os.getenv("ENABLE_HOOKS") == "true":
         for file in list(files):
             if file.src_uri in files_to_remove['page']:
                 files.remove(file)
-        return files
+
+    global _page_manifest
+    _page_manifest = [file.url for file in files.documentation_pages()]
+    return files
+
+def on_post_build(config):
+    manifest_path = os.path.join(config['site_dir'], 'page-manifest.js')
+    with open(manifest_path, 'w') as manifest_file:
+        manifest_file.write('window.__WSO2_DOCS_MANIFEST__=' + json.dumps(sorted(set(_page_manifest))) + ';')
 
 def remove_nav_item(nav_items):
     filtered_items = []

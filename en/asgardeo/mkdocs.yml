@@ -32,6 +32,9 @@ theme:
 extra:
   base_path: /asgardeo/docs
   product: asgardeo
+  product_toggle:
+    enabled: true
+    target_url: !ENV [DOCS_PRODUCT_TOGGLE_TARGET_URL, 'https://is.docs.wso2.com/en/latest/']
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"

@@ -42,10 +42,35 @@
         {% include "partials/search.html" %}
 
         <p class="md-home-search-input-description">
-          Welcome to {{ config.extra.product_name }} documentation! Within these pages, 
-          you will learn how to build a seamless login experience for your applications using 
+          Welcome to {{ config.extra.product_name }} documentation! Within these pages,
+          you will learn how to build a seamless login experience for your applications using
           {{ config.extra.product_name }}.
         </p>
+
+        {% if config.extra.product_toggle and config.extra.product_toggle.enabled %}
+          <div class="wso2-alt-product-banner">
+            <span class="wso2-alt-product-banner-icon" aria-hidden="true">
+              {% if config.extra.product == "asgardeo" %}
+                <svg viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M4 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4Zm0 10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6Z"/></svg>
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4a7.49 7.49 0 0 0-7.35 6.04A5.5 5.5 0 0 0 6 20h13a5 5 0 0 0 .35-9.96Z"/></svg>
+              {% endif %}
+            </span>
+            <span class="wso2-alt-product-banner-text">
+              {% if config.extra.product == "asgardeo" %}
+                <strong>Need a self-managed deployment?</strong>
+                Explore WSO2 Identity Server for teams that need more control and flexible deployment options.
+              {% else %}
+                <strong>Prefer a managed SaaS?</strong>
+                Explore WSO2 Identity Platform SaaS for a fully managed deployment with less operational overhead.
+              {% endif %}
+            </span>
+            <a class="wso2-alt-product-banner-cta" href="{{ config.extra.product_toggle.target_url }}">
+              Learn more
+              <svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-7 7 7-7 7"/></svg>
+            </a>
+          </div>
+        {% endif %}
       </div>
 
       {{ page.content }}
