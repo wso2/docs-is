@@ -34,21 +34,21 @@ In this section, we will develop an authentication service that will communicate
 
 3. Commit your changes and push the code to your remote GitHub repository.
 
-### Step 2: Create and deploy the RESTful service in Choreo
+### Step 2: Create and deploy the RESTful service in WSO2 Developer Platform
 
-We will now deploy the developed authentication service in [Choreo](https://wso2.com/choreo/){target="_blank"}, WSO2's integration platform. To do so,
+We will now deploy the developed authentication service in [WSO2 Developer Platform](https://console.choreo.dev/){target="_blank"}, WSO2's integration platform. To do so,
 
 {% if product_name == "WSO2 Identity Platform" %}
 
-1. Go to the [Choreo Console](https://console.choreo.dev/login){target="_blank"} and login with the SAME email address you used to create your WSO2 Identity Platform organization.
+1. Go to the [WSO2 Developer Platform Console](https://console.choreo.dev/login){target="_blank"} and login with the SAME email address you used to create your WSO2 Identity Platform organization.
 
     !!! note
 
-        An organization with the same name as your WSO2 Identity Platform organization will be created for you in Choreo.
+        An organization with the same name as your WSO2 Identity Platform organization will be created for you in WSO2 Developer Platform.
 
 {% else %}
 
-1. Go to the [Choreo Console](https://console.choreo.dev/login){target="_blank"} and login to your account or create an account if you don't have one already.
+1. Go to the [WSO2 Developer Platform Console](https://console.choreo.dev/login){target="_blank"} and login to your account or create an account if you don't have one already.
 
 {% endif %}
 
@@ -62,7 +62,7 @@ We will now deploy the developed authentication service in [Choreo](https://wso2
 
     !!! note
 
-        Learn more about service components in the [Choreo documentation](https://wso2.com/choreo/docs/develop-components/develop-services/service-component-overview/){target="_blank"}
+        Learn more about service components in the [WSO2 Developer Platform documentation](https://wso2.com/engineering-platform/developer-platform/docs/develop-components/develop-services/service-component-overview/){target="_blank"}
 
 5. Enter a name and description for your service.
 
@@ -74,7 +74,7 @@ We will now deploy the developed authentication service in [Choreo](https://wso2
 
 8. Click **Create**.
 
-9. Build and deploy the service. See [Choreo documentation](https://wso2.com/choreo/docs/develop-components/develop-services/develop-a-service/#step-2-build-and-deploy){target="_blank"} for instructions.
+9. Build and deploy the service. See [WSO2 Developer Platform documentation](https://wso2.com/engineering-platform/developer-platform/docs/develop-components/develop-services/develop-a-service/#step-2-build-and-deploy){target="_blank"} for instructions.
 
     !!! note
 
@@ -92,11 +92,11 @@ We will now deploy the developed authentication service in [Choreo](https://wso2
 
 11. On the left navigation, go to **Manage** > **Lifecycle** and click **Publish**.
 
-### Step 3: Create a Choreo application to consume the APIs
+### Step 3: Create a WSO2 Developer Platform application to consume the APIs
 
-After the RESTful service is deployed, follow the steps below to create an application in Choreo and subscribe it to the REST API. This application will later be used to integrate the REST APIs with the {{ product_name }} application.
+After the RESTful service is deployed, follow the steps below to create an application in WSO2 Developer Platform and subscribe it to the REST API. This application will later be used to integrate the REST APIs with the {{ product_name }} application.
 
-1. Sign in to the [Choreo Developer Portal](https://devportal.choreo.dev/){target="_blank"} with the same email address you used to log in to the Choreo Console in step 2.
+1. Sign in to the [WSO2 Developer Platform Developer Portal](https://devportal.choreo.dev/login){target="_blank"} with the same email address you used to log in to the WSO2 Developer Platform Console in step 2.
 
 2. On the top navigation, go to **Applications** and click **Create Application**.
 
@@ -112,4 +112,4 @@ After the RESTful service is deployed, follow the steps below to create an appli
 
 !!! note
 
-    To learn more about applications in Choreo, refer to the [Choreo documentation](https://wso2.com/choreo/docs/consuming-services/manage-application/#create-an-application){target="_blank"}.
+    To learn more about applications in WSO2 Developer Platform, refer to the [WSO2 Developer Platform documentation](https://wso2.com/engineering-platform/developer-platform/docs/consuming-services/manage-application/#create-an-application){target="_blank"}.
