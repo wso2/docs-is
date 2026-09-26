@@ -185,6 +185,12 @@ To enable this, select the corresponding checkbox and configure the following op
     </tr>
 </table>
 
+{% if product_name == "WSO2 Identity Server" %}
+!!! tip
+
+    If you need password history rules beyond the default behavior, see [Write a custom password history policy]({{base_path}}/references/extend/user-mgt/write-a-custom-password-history-policy/).
+{% endif %}
+
 ### Password input validation
 
 The **Password Input Validation** feature enables you to set password complexity requirements which include minimum password length and required character types.
