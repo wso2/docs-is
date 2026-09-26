@@ -44,7 +44,7 @@ Following are the sample configuration for each database type.
         url = "jdbc:mysql://localhost:3306/IAMtest?useSSL=false"
         username = "root"
         password = "root"
-        driver = "com.mysql.jdbc.Driver"
+        driver = "com.mysql.cj.jdbc.Driver"
         jmx_enable=false
         ```
         
