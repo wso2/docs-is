@@ -87,6 +87,13 @@ The request contains the following delegation parameters:
     </tr>
 </table>
 
+!!! note "Scopes of the delegated token"
+    When {{ product_name }} issues the subject token, it limits the scopes of the delegated token to the scopes granted to the subject token. An agent can narrow the scopes it receives, but it can't widen them beyond what the user already approved.
+
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %}
+    To prevent {{ product_name }} from issuing scopes when a trusted token issuer issues the subject token, see [Restrict scope issuance for federated tokens]({{base_path}}/guides/authentication/configure-token-exchange/#restrict-scope-issuance-for-federated-tokens).
+    {% endif %}
+
 ## The delegated token
 
 The decoded token identifies the user in `sub` and the agent in `act.sub`.
