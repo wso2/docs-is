@@ -136,9 +136,9 @@ Follow the steps given below.
 
     ```js
     var connectionMetadata = {
-    "url": "<Developer Platform API URL>",
-    "consumerKey": "<Consumer key of the WSO2 Developer Platform>",
-    "consumerSecret": "<Consumer secret of the WSO2 Developer Platform>",
+    "url": "<WSO2 Developer Platform API URL>",
+    "consumerKey": "<Consumer key of the application created on WSO2 Developer Platform>",
+    "consumerSecret": "<Consumer secret of the application created on WSO2 Developer Platform>",
     "asgardeoTokenEndpoint": "<Token endpoint of the tenant in WSO2 Identity Platform>"
     };    
     var onLoginRequest = function(context) {
@@ -148,7 +148,7 @@ Follow the steps given below.
               var requestPayload = {
                    "ip": context.request.ip
               };
-              Log.info("Calling the API hosted in WSO2 Identity Platform!");
+              Log.info("Calling the API hosted in WSO2 Developer Platform!");
               callChoreo(connectionMetadata, requestPayload, {
                    onSuccess: function(context, data) {
                         Log.info('Received risk:' + data.hasRisk);
@@ -183,7 +183,7 @@ Follow the steps given below.
           </tr>
           <tr>
                <td><code>consumerKey</code></td>
-               <td>The consumer key of the WSO2 Developer Platform.</td>
+               <td>The consumer key of the WSO2 Developer Platform application.</td>
           </tr>
           <tr>
                <td><code>consumerSecret</code></td>
@@ -196,7 +196,7 @@ Follow the steps given below.
      </table>
 
     ??? note "Use a stored `Secret`"
-        If you don't want to enter the `consumerkey` and `consumerSecret` obtained from the WSO2 Developer Platform every time you use the conditional authentication script, you can store them as **Secret**s on WSO2 Identity Platform.
+        If you don't want to enter the `consumerKey` and `consumerSecret` obtained from the WSO2 Developer Platform application every time you use the conditional authentication script, you can store them as **Secret**s on WSO2 Identity Platform.
 
         - **Using a stored `consumer key` and `consumer secret` in the conditional authentication script.**
 
@@ -204,8 +204,8 @@ Follow the steps given below.
              ```js
              var connectionMetadata = {
                   "url": "<WSO2 Developer Platform API URL>",
-                  "consumerKeyAlias": "<The name of the secret that stores the consumer key of WSO2 Developer Platform>",
-                  "consumerSecretAlias": "<The name of the secret that stores the consumer secret of WSO2 Developer Platform>"
+                  "consumerKeyAlias": "<The name of the secret that stores the consumer key of the WSO2 Developer Platform application>",
+                  "consumerSecretAlias": "<The name of the secret that stores the consumer secret of the WSO2 Developer Platform application>"
              };
              ```
 
@@ -224,7 +224,7 @@ Follow the steps given below.
 ## How it works
 Let's look at how this script works.
 
-1. The `connectionMetadata` object specifies the required values obtained from the WSO2 Developer Platform.
+1. The `connectionMetadata` object specifies the required values. The `url`, `consumerKey`, and `consumerSecret` values are obtained from the WSO2 Developer Platform application, and the `asgardeoTokenEndpoint` value is the token endpoint of your organization in {{ product_name }}.
 
 2. On successful completion of the authentication step one, `onSuccess()` callback function is called.
 
