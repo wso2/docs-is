@@ -95,7 +95,7 @@ The following diagram shows how the authorization code flow works.
         "access_token":"131d4094-b94c-3714-9e73-672aa433248d",
         "refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07",
         "token_type":"Bearer",
-        "scope": "internal_application_mgt_view internal_user_mgt_list"
+        "scope": "internal_application_mgt_view internal_user_mgt_list",
         "expires_in":3600
     }
     ```
