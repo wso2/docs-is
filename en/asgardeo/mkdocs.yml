@@ -325,6 +325,7 @@ plugins:
         'tutorials/connect-asgardeo-with-mattr.md': 'tutorials/connect-identity-platform-with-mattr.md'
         'tutorials/connect-asgardeo-with-ms-entra.md': 'tutorials/connect-identity-platform-with-ms-entra.md'
         'tutorials/end-to-end-mcp-authorization-with-asgardeo.md': 'tutorials/end-to-end-mcp-authorization-with-identity-platform.md'
+        'guides/authentication/oidc/token-validation-resource-server.md': 'guides/authentication/oidc/validate-jwt-with-jwks.md'
 
         
 
