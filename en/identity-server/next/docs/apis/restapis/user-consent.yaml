@@ -90,8 +90,6 @@ paths:
         - $ref: '#/parameters/filterQueryParam'
         - $ref: '#/parameters/attributesQueryParam'
         - $ref: '#/parameters/limitQueryParam'
-        - $ref: '#/parameters/afterQueryParam'
-        - $ref: '#/parameters/beforeQueryParam'
       responses:
         200:
           description: Consents retrieved successfully.
@@ -684,22 +682,6 @@ parameters:
     name: purposeVersionId
     required: false
     description: Filter consents by specific purpose version UUID.
-    type: string
-  afterQueryParam:
-    in: query
-    name: after
-    required: false
-    description: >
-      Cursor for forward pagination. Pass the base64-encoded UUID of the last item
-      received from the previous page to retrieve the next page of results.
-    type: string
-  beforeQueryParam:
-    in: query
-    name: before
-    required: false
-    description: >
-      Cursor for backward pagination. Pass the base64-encoded UUID of the first item
-      received from the current page to retrieve the previous page of results.
     type: string
   filterQueryParam:
     in: query
