@@ -110,7 +110,7 @@ To retrieve the offer URI:
     | Parameter | Value |
     | :-------- | :---- |
     | **Client ID** | `9c481dc3-2ad0-4fe0-881d-c32ad02fe0fc` |
-    | **Redirect URI** | `https://oob.lissi.io/vci-cb` |
+    | **Redirect URI** | `https://wallet.lissi.io/lite/vci-cb` |
 
     {% if product_name == "WSO2 Identity Server" %}
     ??? note "Prerequisite: Register the `openid_credential` authorization type"
