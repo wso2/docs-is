@@ -145,6 +145,7 @@ For a provided user token, the response looks like the following:
     ```
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ### Username format
 
 By default, the `username` field for a local user is returned in the fully qualified format, for example, `admin@carbon.super`. For a user in a secondary user store, the user store domain is included as well, for example, `SECONDARY/john@carbon.super`.
