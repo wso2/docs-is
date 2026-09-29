@@ -144,6 +144,42 @@ For a provided user token, the response looks like the following:
     {"active":false}
     ```
 
+{% if product_name == "WSO2 Identity Server" %}
+### Username format
+
+By default, the `username` field for a local user is returned in the fully qualified format, for example, `admin@carbon.super`. For a user in a secondary user store, the user store domain is included as well, for example, `SECONDARY/john@carbon.super`.
+
+To control this format from the application's **Subject** settings, add the following to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server:
+
+```toml
+[oauth]
+build_subject_identifier_from_sp_config = true
+```
+
+!!! warning "This setting applies to the entire server"
+
+    - `build_subject_identifier_from_sp_config` is `false` by default. While it is `false`, the **Subject** settings of an application have no effect, and `username` is always returned in the fully qualified format shown above.
+    - The setting applies to every application on the server, not only the one you are configuring.
+    - **Include user domain** and **Include organization name** are disabled by default, so an application whose **Subject** settings were never configured also starts returning a shortened `username` as soon as you enable this setting. Review those settings on your other applications first.
+
+To configure the format for an application, go to **Applications**, select the application, and open the **User Attributes** tab. For details on the available options, see [Include the user store and organization domains in the subject]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/#include-the-user-store-and-organization-domains-in-the-subject).
+
+The following table shows the `username` returned for the user `john` in the `SECONDARY` user store, with `build_subject_identifier_from_sp_config` enabled:
+
+| Include user domain | Include organization name | `username` |
+| ------------------- | ------------------------- | ---------- |
+| Disabled | Disabled | `john` |
+| Enabled | Disabled | `SECONDARY/john` |
+| Disabled | Enabled | `john@carbon.super` |
+| Enabled | Enabled | `SECONDARY/john@carbon.super` |
+
+!!! note
+
+    - The `PRIMARY` user store domain is never added to the subject identifier, so **Include user domain** has no visible effect for users in the primary user store.
+    - When both options are enabled, the result is the same as the default fully qualified format. For the user above, `username` is `SECONDARY/john@carbon.super` both with and without `build_subject_identifier_from_sp_config`, so enabling the setting produces no visible change.
+    - **Assign alternate subject identifier** does not change the `username` field of the introspection response for local users.
+{% endif %}
+
 ### Application tokens
 
 Applications receive application tokens through grant types like the client credentials grant, which don't involve any user interaction. These tokens represent the application itself rather than an individual user.
@@ -169,34 +205,3 @@ For a provided application token, the response looks like the following:
     If your application's access tokens still return the response, it is likely that your application is out-of-date. If so, update your application through the WSO2 Identity Server Console by navigating to the relevant application under the Applications section.
 
     Once updated, the username attribute will no longer be included in the introspection response. Therefore, before updating, ensure that your application does not rely on the username attribute and remove any such dependencies.
-
-
-## Customize the username format in the introspection response
-
-By default, the OAuth2 introspection response (`/oauth2/introspect`) returns the `username` field for local users in the fully-qualified format (e.g., `john@carbon.super`), regardless of any per-application Subject configurations set in the Console.
-
-To customize the format of the `username` field in the introspection response based on an application's Subject settings, you must configure both the server-level deployment setting and the application settings in the Console:
-
-### 1. Enable server-wide Subject Identifier resolution
-
-Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file:
-
-```toml
-[oauth]
-build_subject_identifier_from_sp_config = true
-```
-
-!!! note "Important Server-Wide Impact"
-* The build_subject_identifier_from_sp_config parameter defaults to false.
-* This setting is server-wide and impacts the introspection response for all applications hosted on the server.
-* Once enabled, any application that has not explicitly configured its Subject settings will return the username without the userstore or tenant domain by default. Ensure administrators review and configure Subject settings for all active applications before enabling this parameter.
-### 2. Configure Subject settings in the Console
-
-After enabling the server-level property, customize the username behavior for each application:
-
-1. Log in to the WSO2 Identity Server Console.
-2. Go to **Applications**, select your application, and navigate to **User Attributes > Subject**.
-3. Configure the following fields as needed:
-    * **Assign alternate subject identifier:** Select a specific attribute (e.g., `email`) to be used as the subject identifier instead of the default user ID.
-    * **Include userstore domain:** Enable this to append the userstore domain (e.g., `SECONDARY/john`).
-    * **Include tenant domain:** Enable this to append the tenant domain (e.g., `john@carbon.super`).
