@@ -38,9 +38,10 @@ To initiate an offline password reset for a user:
 
 1. Set the `http://wso2.org/claims/identity/adminForcedPasswordReset` claim to `true` for the required user.
 2. The system generates an OTP and stores it in the user's `http://wso2.org/claims/oneTimePassword` claim.
-3. The user can use the generated OTP to log in to the My Account application.
-4. After logging in with the OTP, the user is prompted to set a new password.
-5. After setting the new password, the user can log in using the new password.
+3. Open the user's profile in the Management Console and copy the value of the **One Time Password** claim.
+4. Provide the OTP to the user. The user can use it to log in to the My Account application.
+5. After logging in with the OTP, the user is prompted to set a new password.
+6. After setting the new password, the user can log in using the new password.
 
 !!! note
     Offline Password Reset does not require an email notification to deliver the OTP.
