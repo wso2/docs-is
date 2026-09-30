@@ -23,6 +23,28 @@ To configure admin-initiated password reset:
 
 4. Click **Update** to save the changes.
 
+## Offline Password Reset
+
+Offline Password Reset allows administrators to initiate a password reset without sending a password reset link or OTP to the user. An OTP is generated and stored in the user's claims.
+
+To configure Offline Password Reset:
+
+1. On the {{product_name}} Console, go to **Login & Registration**.
+2. Under **Account Recovery**, click on **Admin Initiated Password Reset**.
+3. Select **Enable Password Reset Offline**.
+4. Click **Update** to save the changes.
+
+To initiate an offline password reset for a user:
+
+1. Set the `http://wso2.org/claims/identity/adminForcedPasswordReset` claim to `true` for the required user.
+2. The system generates an OTP and stores it in the user's `http://wso2.org/claims/oneTimePassword` claim.
+3. The user can use the generated OTP to log in to the My Account application.
+4. After logging in with the OTP, the user is prompted to set a new password.
+5. After setting the new password, the user can log in using the new password.
+
+!!! note
+    Offline Password Reset does not require an email notification to deliver the OTP.
+
 ![Admin Initiated Password Reset Configuration]({{base_path}}/assets/img/guides/account-configurations/admin-initiated-password-reset.png){: width="600" style="display: block; margin: 0;"}
 
 !!! info
