@@ -79,6 +79,30 @@ To define a different attribute as the subject:
 
     Once updated, the `sub` attribute will return the `client_id`. Therefore, before updating, ensure that your application does not rely on the `sub` attribute and remove any such dependencies.
 
+{% if product_name == "WSO2 Identity Server" %}
+
+### Include the user store and organization domains in the subject
+
+The **Subject** section of the **User Attributes** tab has two options that add domain information to the subject identifier. Both options decorate whichever attribute is configured as the subject, including the default user ID.
+
+Assuming the subject identifier is the user ID `e46ffa67-100d-4329-9460-b8251d446518`:
+
+- **Include user domain** - prepends the user store domain of the user, for example, `SECONDARY/e46ffa67-100d-4329-9460-b8251d446518`.
+
+    !!! note
+        The `PRIMARY` user store domain is never added to the subject identifier. This option has no visible effect for users in the primary user store.
+
+- **Include organization name** - appends the organization name of the user, for example, `e46ffa67-100d-4329-9460-b8251d446518@carbon.super`.
+
+For OpenID Connect applications, these two options appear only after you enable **Assign alternate subject identifier**.{% if is_version != "7.0.0" %} They also remain hidden until at least one user attribute is selected for the application.{% endif %}
+
+!!! warning "These options change the `sub` claim"
+
+    These options apply to the subject identifier itself, so an option that takes effect changes the `sub` claim of the ID token on every login to the application. As noted above, **Include user domain** has no effect for users in the primary user store. Make sure the application can handle the new `sub` value before you enable either option.
+
+These options also control the `username` field of the OAuth2 introspection response, but only when `build_subject_identifier_from_sp_config` is enabled at the server level. In the introspection response, the value is built from the user's username rather than from the subject attribute. For details, see [Validate tokens at a resource server]({{base_path}}/guides/authentication/oidc/token-validation-resource-server/#username-format).
+{% endif %}
+
 ### Define mandatory user attributes
 
 {% include "../../fragments/manage-app/manage-user-attributes/select-mandatory-attributes.md" %}
