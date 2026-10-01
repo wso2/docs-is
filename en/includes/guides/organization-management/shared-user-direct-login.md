@@ -12,7 +12,11 @@ This is useful when:
 - You want shared users to authenticate directly into an organization instead of first logging in to their resident organization and then exchanging tokens using the `organization_switch` grant type.
 
 !!! warning
+    {% if product_name == "WSO2 Identity Server" %}
+    If the [alternative login identifiers]({{base_path}}/guides/authentication/multi-attribute-login/) feature is enabled, shared users will not be able to log in to organizations.
+    {% else %}
     If the [alternative login identifiers]({{base_path}}/guides/account-configurations/account-login/configure-login-identifiers/) feature is enabled, shared users will not be able to log in to organizations.
+    {% endif %}
 
 ## How it works
 

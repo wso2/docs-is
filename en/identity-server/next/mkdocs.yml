@@ -917,7 +917,10 @@ nav:
             - Generate tokens for organization applications: guides/organization-management/generate-tokens-for-organization-apps.md
           - Manage organization users:
             - Onboard users: guides/organization-management/onboard-users.md
-            - Share users: guides/organization-management/share-user-profiles.md
+            - Shared users:
+              - Share users across organizations: guides/organization-management/share-user-profiles.md
+              - Organization login for shared users: guides/organization-management/shared-user-direct-login.md
+              - Impersonation for shared users: guides/organization-management/shared-user-impersonation.md
           - Manage organization agents:
             - Share agents: guides/organization-management/share-agents.md
           - Authorize MCP servers:
