@@ -283,6 +283,9 @@ The decoded subject token may looks as follows:
 In addition to the usual properties of an ID token, the subject token contains the `may_act` property. This property states that the user, 
 whose ID is in `may_act.sub` property, is authorized to impersonate the user, whose ID is in the `sub` property.
 
+!!! note
+    `internal_login` is automatically granted to any application regardless of authorization, so it is always present in the `scope` claim.
+
 ### Acquire an impersonated access token
 
 Once a subject token is received, it can then be exchanged for an access token which represents the permissions of the impersonated user. 
