@@ -236,7 +236,7 @@ The same application can play both roles.
 {% if product_name == "WSO2 Identity Platform" %}
 
 !!! note "Scopes of the exchanged token"
-    For organizations created after **November 1, 2026**, {{ product_name }} limits the scopes of the exchanged token to the scopes granted to the subject token.
+    For organizations created after **November 20, 2026**, {{ product_name }} limits the scopes of the exchanged token to the scopes granted to the subject token.
 
 {% endif %}
 
