@@ -181,9 +181,14 @@ You can configure implicit account linking using the
 
 {% endif %}
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %}
 
 #### Restrict scope issuance for federated tokens
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+!!! note
+    This feature is available from **update level 7.3.0.18** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
 
 You can restrict scope issuance for a token obtained by exchanging a federated token. After enabling this configuration, {{ product_name }} issues the exchanged token with no scopes.
 
@@ -280,6 +285,11 @@ To configure the subject token application:
         This step is not required from **update level 7.2.0.44** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
     {% endif %}
 
+    {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+    !!! note
+        This step is not required from **update level 7.3.0.18** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+    {% endif %}
+
 5. Click **Update** to save the configurations.
 
 {% endif %}
@@ -304,9 +314,14 @@ Follow the steps given below.
 
 Upon successful execution, you will receive the exchanged token.
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.3.0"]) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0"]) %}
 
 ## Delegation
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+!!! note
+    This feature is available from **update level 7.3.0.18** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
 !!! note
@@ -319,9 +334,14 @@ For instructions, see [Delegation]({{base_path}}/guides/authorization/delegation
 
 {% endif %}
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.3.0"]) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0"]) %}
 
 ## Request a specific audience
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+!!! note
+    This feature is available from **update level 7.3.0.18** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
 !!! note
