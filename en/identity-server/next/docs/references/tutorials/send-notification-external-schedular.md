@@ -16,13 +16,18 @@ This tutorial illustrates how to send email notifications daily for users whose 
 
 **Step 2:** [Activate the Password Expiration]({{base_path}}/guides/account-configurations/login-security/password-validation/#password-validation) checkbox and set the value to 3 days for the purpose of this example.
 
-**Step 3:** Configure the application in the WSO2 Identity Server to obtain an access token for invoking [Password Expiring User Identification API]({{base_path}}/apis/password-expiring-users-identification-rest-api/)
+**Step 3:** Configure an application in WSO2 Identity Server to obtain an access token for invoking the [Password Expiring User Identification API]({{base_path}}/apis/password-expiring-users-identification-rest-api/).
 
-- [Register a standard OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/#register-an-openid-connect-web-app).
+- [Register a standard OIDC application]({{base_path}}/guides/applications/register-oidc-web-app/#register-an-openid-connect-web-app) (or a [Machine-to-Machine application]({{base_path}}/guides/applications/register-machine-to-machine-app/)).
 
-- Navigate to `API Authorization` tab, and add the 
+- Navigate to the **API Authorization** tab of the application, click **Authorize an API Resource**, and authorize the following API resources with their required scopes:
 
-- Take note of the client ID and secret as you will require them later in this guide.
+    | API Resource | Scope | Description / Purpose |
+    |---|---|---|
+    | **Password Expired User Identification API** | `internal_password_expired_user_view` | Allows the application to query users whose passwords will expire within the configured period. |
+    | **SCIM2 Users API** | `internal_user_mgt_view` | Required by the sample script to retrieve each user's email address using their user ID. |
+
+- Take note of the **Client ID** and **Client Secret** (from the **Protocol** tab), as you will require them when configuring the Azure Function app later in this guide.
 
 ### Setup Azure Function App
 
