@@ -212,7 +212,7 @@ When the user selects the **SSO** option, send the organization selection respon
         "selectedAuthenticator": {
             "authenticatorId": "T3JnYW5pemF0aW9uSWRlbnRpZmllckhhbmRsZXI6TE9DQUw",
             "params": {
-                "orgHandle": "<org_handle>"
+                "orgId": "<org_id>"
             }
         }
     }'
@@ -223,12 +223,14 @@ You can identify the organization using any of the following parameters:
 | Parameter | Description |
 |-----------|-------------|
 | `orgId` | The organization's ID. |
-| `orgHandle` | The organization's handle. |
+<!-- markdownlint-disable MD056 -->
+{% if product_name != "Asgardeo" %}| `orgHandle` | The organization's handle. |{% endif %}
+<!-- markdownlint-enable MD056 -->
 | `org` | The organization's name. |
 | `login_hint` | An email address used to discover the organization by its email domain. |
 | `orgDiscoveryType` | The discovery mechanism to use (for example, `emailDomain`). |
 
-See [Organization discovery]({{base_path}}/guides/organization-management/organization-discovery/) for more on these parameters.
+See [Organization discovery]({{base_path}}/guides/organization-management/organization-discovery/organization-discovery/) for more on these parameters.
 
 Once the user's organization is identified, {{ product_name }} scopes the remaining authentication steps to that organization. For example, the next authentication step — such as a username and password prompt — would be sent to the organization-scoped Authentication API endpoint:
 
