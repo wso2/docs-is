@@ -46,7 +46,7 @@ This feature allows you to create a separate keystore for encrypting data in in
         -   XACML policy publisher subscriber passwords.
         -   Kerberos service principal passwords of secured services.
 
-        Signing (SAML, OIDC ID tokens, JWT, WS-Trust) uses the primary keystore and is not affected.
+        Signing (SAML, OIDC ID tokens, JWT, WS-Trust) uses the primary keystore and is not affected, unless the primary keystore is also used as the internal keystore.
     
 
 1.  Configure the new keystore by adding the following configuration block inside the `keystore.internal` tag of the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
