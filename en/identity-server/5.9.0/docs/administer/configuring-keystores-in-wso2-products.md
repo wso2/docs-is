@@ -32,6 +32,21 @@ This feature allows you to create a separate keystore for encrypting data in in
 
 !!! warning
     Using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
+
+    ??? info "Data encrypted using the internal keystore"
+        If `[keystore.internal]` is not configured, the primary keystore is used as the internal keystore. The following data must be re-encrypted after the internal keystore is changed:
+
+        -   Secondary user store passwords.
+        -   Tenant keystore passwords and keystores added via the management console.
+        -   Values encrypted with the Cipher Tool.
+        -   Encrypted datasource passwords and event publisher properties.
+        -   OAuth2 tokens and client secrets, if `EncryptionDecryptionPersistenceProcessor` is enabled.
+        -   TOTP secret keys.
+        -   Workflow BPS profile passwords and pending user creation requests.
+        -   XACML policy publisher subscriber passwords.
+        -   Kerberos service principal passwords of secured services.
+
+        Signing (SAML, OIDC ID tokens, JWT, WS-Trust) uses the primary keystore and is not affected, unless the primary keystore is also used as the internal keystore.
     
 
 1.  Configure the new keystore by adding the following configuration block inside the `keystore.internal` tag of the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
