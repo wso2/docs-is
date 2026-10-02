@@ -52,6 +52,13 @@ The request contains the following delegation parameters:
 
 {{ product_name }} resolves the actor from the `sub` claim of the actor token. The request fails if the actor doesn't resolve to a user in the organization, or if the actor account is locked or disabled.
 
+!!! note "Scopes of the delegated token"
+    When {{ product_name }} issues the subject token, it limits the scopes of the delegated token to the scopes granted to the subject token.
+
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %}
+    To prevent {{ product_name }} from issuing scopes when a trusted token issuer issues the subject token, see [Restrict scope issuance for federated tokens]({{base_path}}/guides/authentication/configure-token-exchange/#restrict-scope-issuance-for-federated-tokens).
+    {% endif %}
+
 ## The act claim
 
 The delegated token identifies the user in the `sub` claim and the acting party in the `act.sub` claim.
