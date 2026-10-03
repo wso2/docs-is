@@ -24,7 +24,7 @@ In the legacy approach, routing users to their organization required both `fidp=
     &scope=<scopes>
     &response_type=code
     &fidp=OrganizationSSO
-    &orgHandle=<organization_handle>
+    &orgId=<organization_id>
     ```
 
 === "After"
@@ -35,7 +35,7 @@ In the legacy approach, routing users to their organization required both `fidp=
     &redirect_uri=<redirect_url>
     &scope=<scopes>
     &response_type=code
-    &orgHandle=<organization_handle>
+    &orgId=<organization_id>
     ```
 
 ### Conditional authentication scripts

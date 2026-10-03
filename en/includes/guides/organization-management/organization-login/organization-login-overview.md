@@ -43,7 +43,11 @@ Send the authentication request to the root organization's endpoint. {{ product_
     ```
 
 !!! tip
+    {% if product_name == "Asgardeo" %}
+    You can route users directly to their organization by including an organization discovery parameter in the request — such as `org` (organization name), `orgId` (organization ID), or an email domain hint. See [Organization discovery]({{base_path}}/guides/organization-management/organization-discovery/organization-discovery/).
+    {% else %}
     You can route users directly to their organization by including an organization discovery parameter in the request — such as `orgHandle`, `org` (organization name), `orgId` (organization ID), or an email domain hint. See [Organization discovery]({{base_path}}/guides/organization-management/organization-discovery/organization-discovery/).
+    {% endif %}
 
 ### Method 2: Start from the direct organization path
 
