@@ -29,6 +29,8 @@ exceptions:
   - WSO2 Identity Server
   - Python
   - API
+  - OAuth
+  - TLS
   - OpenTelemetry
   - Datadog
   - Java
