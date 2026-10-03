@@ -758,6 +758,14 @@ nav:
             - SAML artifact binding: guides/authentication/saml/saml-artifact-binding.md
             - Implement SAML federated IdP-initiated SSO: guides/authentication/saml/saml-federated-idp-initiated-sso.md
             - SAML back-channel logout: guides/authentication/saml/saml-back-channel-logout.md
+      - Device management:
+          - Device management: guides/device-management/index.md
+          - Device assurance policies: guides/device-management/device-assurance-policies.md
+          - Device attributes: guides/device-management/device-attributes.md
+          - Device attestation: guides/device-management/device-attestation.md
+          - Enforce a device policy at login: guides/device-management/enforce-device-policy-at-login.md
+          - Configure device registration: guides/device-management/configure-device-registration.md
+          - View the devices of a user: guides/device-management/view-user-devices.md
       - Authorization:
         - Authorization: guides/authorization/index.md
         - API authorization:
