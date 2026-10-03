@@ -7,6 +7,13 @@
 
 {% endif %}
 
+{% if product_name == "WSO2 Identity Server" and is_version >= "7.3.0" %}
+
+!!!warning
+    The Console steps on this page apply to {{ product_name }} 7.2.0 and earlier. From 7.3.0 onwards, self-registration is configured under **Flows** > **Self Registration**. Refer to [Self Registration]({{base_path}}/guides/flows/self-registration/) for the current instructions.
+
+{% endif %}
+
 You can enable users to self-register to your organization from the login page of the application. This creates a new user account for the user.
 
 ## Enable/Disable self-registration
