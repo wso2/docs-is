@@ -41,6 +41,9 @@ Once branding is enabled, follow these steps to customize a layout:
 
 5. Start customizing the layout and once you finish, click **Save & Publish** to apply the changes.
 
+!!! warning
+    If you only need to override the styling of existing components through CSS, copy and paste the default HTML content in the HTML tab before making CSS modifications. This ensures the structure remains intact while allowing you to customize the appearance.
+
 Continue reading the guide to learn more about,
 
 - [Syntax for custom layouts](#syntax-for-custom-layouts)
