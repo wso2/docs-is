@@ -1,7 +1,7 @@
 # Organization login - legacy approach
 
 !!! warning "Legacy approach"
-    This guide describes the **federation-based organization login** approach used in older versions of {{ product_name }}. For new implementations, use the [enhanced organization authentication]({{base_path}}/guides/organization-management/organization-login/) approach instead.
+    This guide describes the **federation-based organization login** approach used in older versions of {{ product_name }}. For new implementations, use the [enhanced organization authentication]({{base_path}}/guides/organization-management/organization-login/organization-login-overview/) approach instead.
 
 Before enhanced organization authentication, B2B organization login in {{ product_name }} was implemented using a built-in **Organization SSO** federated identity provider. The root organization exposed this federated IdP as an authentication option. Users selected it from the login page to identify their organization and authenticate against that organization.
 
@@ -182,4 +182,4 @@ param1=value1&param2=def&param3=xyz
 ```
 
 !!! note
-    Under **enhanced organization authentication**, this script is no longer required. Custom parameters on the initial authorize request are forwarded automatically. See [Organization-based login]({{base_path}}/guides/organization-management/organization-login/).
+    Under **enhanced organization authentication**, this script is no longer required. Custom parameters on the initial authorize request are forwarded automatically. See [Organization-based login]({{base_path}}/guides/organization-management/organization-login/organization-login-overview/).
