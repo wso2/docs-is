@@ -82,7 +82,7 @@ This feature allows users to enroll their push notification devices seamlessly d
 !!! note
     Push notification device progressive enrollment can only be configured at the organizational level and cannot be modified at the application level.
 
-{% if is_version is defined and is_version >= "7.3.0" %}
+{% if product_name == "WSO2 Identity Platform" or (is_version is defined and is_version >= "7.3.0") %}
 
 ## Enable progressive enrollment for multiple devices
 
