@@ -11,6 +11,11 @@ The issued token identifies the user in the `sub` claim and records the agent as
     This feature is available from **update level 7.2.0.44** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 {% endif %}
 
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+!!! note
+    This feature is available from **update level 7.3.0.18** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
+
 !!! note "Agent friendly delegation mechanism"
     - This flow does **not use redirects** and needs **no new user interaction**.
     - It is suited to bringing an agent into work the user has already authorized.

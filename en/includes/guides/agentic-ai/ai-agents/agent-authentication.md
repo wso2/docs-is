@@ -238,9 +238,14 @@ The flow proceeds as follows:
 
 {% endif %}
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.3.0"]) %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0"]) %}
 
 ### Using token exchange for on-behalf-of delegation
+
+{% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+!!! note
+    This feature is available from **update level 7.3.0.18** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
 !!! note
