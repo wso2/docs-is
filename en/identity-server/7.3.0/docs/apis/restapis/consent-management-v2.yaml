@@ -680,8 +680,7 @@ components:
       schema:
         type: string
       description: |
-        Cursor for forward pagination. Pass the base64-encoded UUID of the last item
-        received from the previous page to retrieve the next page of results.
+        Base64 encoded cursor value for forward pagination.
 
     before:
       name: before
@@ -690,8 +689,7 @@ components:
       schema:
         type: string
       description: |
-        Cursor for backward pagination. Pass the base64-encoded UUID of the first item
-        received from the current page to retrieve the previous page of results.
+        Base64 encoded cursor value for backward pagination.
 
     filterPurposes:
       in: query
