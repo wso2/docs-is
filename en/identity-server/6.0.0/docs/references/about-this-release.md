@@ -108,8 +108,11 @@ WSO2 IS 6.0.0 contains the following new features and enhancements:
 
 If you are moving to WSO2 Identity Server 6.0.0 from a previous version, note that several capabilities that existed previously are now improved in WSO2 IS 6.0.0.
 
-Learn moe about [upgrading to WSO2 IS 6.0.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
+- **ISK attribute included in SAML responses by default**
 
+    Starting from WSO2 Identity Server 6.0.0, the ISK attribute is included by default in SAML responses. If an application migrated from a version prior to WSO2 Identity Server 6.0.0 has strict or hardcoded validation of the attributes included in the SAML response, authentication may fail after the migration.
+
+Learn moe about [upgrading to WSO2 IS 6.0.0]({{base_path}}/deploy/upgrade/upgrade-wso2-is/) for details.
 ## Beta features
 
 -   **React-based console application** 
