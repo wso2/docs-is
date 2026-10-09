@@ -1113,6 +1113,7 @@ nav:
         - Write a custom federated authenticator: references/extend/federation/write-a-custom-federated-authenticator.md
       - User Management:
         - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
+        - Write a custom password history policy: references/extend/user-mgt/write-a-custom-password-history-policy.md
         - User provisioning:
           - Extend SCIM 2.0 user schemas: references/extend/user-mgt/provisioning/extend-scim2-user-schemas.md
       - User Stores:

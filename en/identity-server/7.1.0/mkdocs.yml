@@ -1224,6 +1224,7 @@ nav:
           - User Management:
               - SCIM2 Custom User Schema Support: references/extend/user-mgt/provisioning/add-scim2-custom-user-schema-support.md
               - Write a custom event handler: references/extend/user-mgt/write-a-custom-event-handler.md
+              - Write a custom password history policy: references/extend/user-mgt/write-a-custom-password-history-policy.md
           - User Stores:
               - Write a custom user store manager: references/extend/user-stores/write-a-custom-user-store-manager.md
       - Default ports: references/default-ports.md
