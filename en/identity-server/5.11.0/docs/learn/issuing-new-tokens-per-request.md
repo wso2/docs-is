@@ -50,7 +50,9 @@ call.
 
 Given below are the responses to the first and the second requests.
 
-``` java tab="Response to the first call"
+**Response to the first call**
+
+``` java
 {
 "access_token": "ed074839-7efc-3c07-a5a0-a06382eba5ac",
 "refresh_token": "faecb739-b065-305e-8233-fa2e9d94c10e",
@@ -60,7 +62,9 @@ Given below are the responses to the first and the second requests.
 }
 ```
 
-``` java tab="Response to the second call"
+**Response to the second call**
+
+``` java
 {
 "access_token": "1f00293e-278e-3326-89e3-eef2fcbf8b6b",
 "refresh_token": "c9deea6f-a440-35bf-8fac-e0a6043df2b1",
@@ -73,10 +77,14 @@ Given below are the responses to the first and the second requests.
 You can also introspect the old access token using the following cURL
 command. You can see that it is inactive now.
 
-``` java tab="Request"
-curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access token from 1st token API call>'https://localhost:9443/oauth2/introspect
+**Request**
+
+``` java
+curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access token from 1st token API call>' https://localhost:9443/oauth2/introspect
 ```
 
-``` java tab="Response"
+**Response**
+
+``` java
 {'active':false}
 ```
