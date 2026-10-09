@@ -203,8 +203,8 @@ To add a custom layout to the login page:
 5. To enable custom branding, go to **Branding** > **Styles & Text** > **Design** in the WSO2 Identity Server Console.
 Select **Custom** layout as the **Login Layout** and click **Save & Publish** to apply the branding configurations.
 
-   !!! tip
-   If the server stops working after the changes are added, restart the server before verifying the changes.
+    !!! tip
+        If the server stops working after the changes are added, restart the server before verifying the changes.
 
 6. Refresh the browser and check out the added custom layout.
 
