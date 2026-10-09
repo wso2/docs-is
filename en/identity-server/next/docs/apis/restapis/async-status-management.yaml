@@ -1,0 +1,437 @@
+openapi: 3.0.0
+info:
+  description: >-
+    This document specifies an **API Async Operation Status RESTful API** for **WSO2
+    Identity Server**.
+  version: "v1"
+  title: Asynchronous Operation Status API
+    
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: "carbon.super"
+      server-url:
+        default: "localhost:9443"
+
+paths:
+  /async-operations:
+    get:
+      tags:
+        - Asynchronous Operations
+      summary: List all Asynchronous Operations
+      description: |
+        This API returns the list of asynchronous operations.
+        
+        <b>Scope(Permission) required:</b> `internal_async_operation_status_view`
+      parameters:
+        - $ref: '#/components/parameters/afterQueryParam'
+        - $ref: '#/components/parameters/beforeQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - in: query
+          name: filter
+          required: false
+          description: "Can be filtered by correlationId, operationType, subjectType, initiatedOrgId, and initiatedUserId.\n\nSupports operators such as 'eq', 'sw', 'ge', 'le', 'gt', 'lt', and combines them using 'and'."
+          schema:
+            type: string
+          example: operationType+eq+B2B_APPLICATION_SHARE
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operations'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/async-operations' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /async-operations/{operationId}:
+    get:
+      tags:
+        - Asynchronous Operations
+      summary: Get Asynchronous Operation by the id
+      description: "This API returns the list of unit operation statuses for a given unique ID.\n\n
+        <b>Scope (Permission) required:</b> ``internal_async_operation_status_view``\n\n"
+      parameters:
+        - in: path
+          name: operationId
+          required: true
+          schema:
+            type: string
+            example: b60dd1f8-b774-49ee-94e2-55008d31a64b
+          description: The unique identifier of the operation.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/async-operations/{operationId}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /async-operations/{operationId}/unit-operations:
+    get:
+      tags:
+        - Asynchronous Unit Operations
+      summary: List all Asynchronous Unit Operations by id
+      description: |
+        This API returns the list of unit operation statuses for a given operation ID.
+        
+        <b>Scope(Permission) required:</b> `internal_async_operation_status_view`
+      parameters:
+        - in: path
+          name: operationId
+          required: true
+          schema:
+            type: string
+            example: b60dd1f8-b774-49ee-94e2-55008d31a64b
+          description: The unique identifier of the operation.
+        - $ref: '#/components/parameters/afterQueryParam'
+        - $ref: '#/components/parameters/beforeQueryParam'
+        - $ref: '#/components/parameters/limitQueryParam'
+        - in: query
+          name: filter
+          required: false
+          description: "Can be filtered by residentResourceId, targetOrgId, and status.\n\nSupports operators such as 'eq', 'sw', 'ge', 'le', 'gt', 'lt', and combines them using 'and'."
+          schema:
+            type: string
+          example: status+eq+FAIL
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnitOperations'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/async-operations/{operationId}/unit-operations' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+  /async-operations/{operationId}/unit-operations/{unitOperationId}:
+    get:
+      tags:
+        - Asynchronous Unit Operations
+      summary: Get Asynchronous Unit Operation by unique ID
+      description: "This API returns the unit operation status for a given unit operation ID.\n\n
+        <b>Scope (Permission) required:</b> ``internal_async_operation_status_view``\n\n"
+      parameters:
+        - in: path
+          name: operationId
+          required: true
+          schema:
+            type: string
+            example: b60dd1f8-b774-49ee-94e2-55008d31a64b
+          description: The unique identifier of the operation.
+        - in: path
+          name: unitOperationId
+          required: true
+          schema:
+            type: string
+            example: b60dd1f8-b774-49ee-94e2-55008d31a64b
+          description: The unique identifier of the unit operation.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnitOperation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/api/server/v1/async-operations/{operationId}/unit-operations/{unitOperationId}' \
+            -H 'Accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4='
+components:
+  securitySchemes:
+      BasicAuth:
+        type: http
+        scheme: basic
+      OAuth2:
+        type: oauth2
+        flows:
+          authorizationCode:
+            authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+            tokenUrl: 'http://localhost:9443/oauth2/token'
+            scopes:
+              read: internal_async_operation_status_view
+  parameters:
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+        minimum: 0
+      example: 10
+    beforeQueryParam:
+      in: query
+      name: before
+      required: false
+      description: Base64 encoded cursor value for backward pagination.
+      schema:
+        type: string
+      example: Ng==
+    afterQueryParam:
+      in: query
+      name: after
+      required: false
+      description: Base64 encoded cursor value for forward pagination.
+      schema:
+        type: string
+      example: Ng==
+  schemas:
+    Operation:
+      type: object
+      required:
+        - operationId
+        - correlationId
+        - operationType
+        - subjectType
+        - subjectId
+        - initiatedOrgId
+        - initiatedUserId
+        - status
+        - createdTime
+      properties:
+        operationId:
+          type: string
+          example: b60dd1f8-b774-49ee-94e2-55008d31a64b
+        correlationId:
+          type: string
+          example: 241f4aa0-86bc-44e4-a5de-af7eded9f176
+        operationType:
+          type: string
+          example: B2B_APPLICATION_SHARE
+        subjectType:
+          type: string
+          example: B2B_APPLICATION
+        subjectId:
+          type: string
+          example: 23d7ab3f-023e-43ba-980b-c0fd59aeacf9
+        initiatedOrgId:
+          type: string
+          example: 10084a8d-113f-4211-a0d5-efe36b082211
+        initiatedUserId:
+          type: string
+          example: 53c191dd-3f9f-454b-8a56-9ad72b5e4f30
+        status:
+          type: string
+          enum:
+            - SUCCESS
+            - FAILED
+            - PARTIALLY_COMPLETED
+            - IN_PROGRESS
+          example: SUCCESS
+        policy:
+          type: string
+          example: SHARE_WITH_ALL
+        createdTime:
+          type: string
+          example: '2021-10-25T12:31:53.406Z'
+        modifiedTime:
+          type: string
+          example: '2021-10-25T12:33:53.406Z'
+        unitOperationDetail:
+          type: object
+          properties:
+            ref:
+              type: string
+              format: uri
+              description: Reference that will return the corresponsing unitoperations.
+              example: /api/server/v1/async-operations/8a92bb92-c754-4dfe-8563-15ba930de75e/unit-operations?limit=10
+            summary:
+              type: object
+              properties:
+                success:
+                  type: integer
+                  example: '10'
+                failed:
+                  type: integer
+                  example: '10'
+                partiallyCompleted:
+                  type: integer
+                  example: '10'
+    UnitOperation:
+      required:
+        - unitOperationId
+        - operationId
+        - residentResourceId
+        - targetOrgId
+        - targetOrgName
+        - status
+        - statusMessage
+        - createdTime
+      type: object
+      properties:
+        unitOperationId:
+          type: string
+          example: '0cad98fa-16a7-430f-9e94-763bb57bbfbc'
+        operationId:
+          type: string
+          example: 'f0880ebf-9634-498f-9213-614953563aa9'
+        residentResourceId:
+          type: string
+          example: '9e810e28-b9cd-4ae2-bdb2-4de95846c46e'
+        targetOrgId:
+          type: string
+          example: 'c87d873c-fe76-42a2-b1ce-c90475e13b82'
+        targetOrgName:
+          type: string
+          example: 'org-1'
+        status:
+          type: string
+          enum:
+            - SUCCESS
+            - FAILED
+            - PARTIALLY_COMPLETED
+          example: SUCCESS
+        statusMessage:
+          type: string
+          example: Unit operation is pending execution.
+        createdTime:
+          type: string
+          example: '2024-10-27T10:00:00Z'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: ASYNC-STATUS-00000
+        message:
+          type: string
+          example: Some error message.
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+          description: Endpoint that will return the next or previous page of data.
+        rel:
+          type: string
+          description: >-
+            Describes whether the provided link is to access the next or
+            previous page of data.
+      readOnly: true
+    Operations:
+      type: object
+      properties:
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            - href: >-
+                /api/server/v1/async-operations/?limit=1&after=MjAyNS0wNC0yMSAxMDo1MDoxOC40NDc=
+              rel: next
+            - href: >-
+                /api/server/v1/async-operations/?limit=1&before=MjAyNS0wNC0xMiAxOTozNzo1OS4zODU=
+              rel: previous
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+    UnitOperations:
+      type: object
+      properties:
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          example:
+            - href: >-
+                /api/server/v1/async-operations/f4485783-20c9-4acb-9598-a61d5206ece7/unit-operations?limit=1&after=MjAyNS0wNC0yMSAxMDo1MDoyMi41MTU=
+              rel: next
+            - href: >-
+                /api/server/v1/async-operations/f4485783-20c9-4acb-9598-a61d5206ece7/unit-operations?limit=1&after=MjAyNS0wNC0yMSAxMDo1MDoyMi41MTU=
+              rel: previous
+        unitOperations:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnitOperation'
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+    Forbidden:
+      description: Forbidden
+    ServerError:
+      description: Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotImplemented:
+      description: Not Implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
