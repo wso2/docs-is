@@ -56,3 +56,12 @@ For example, let’s assume there are two WSO2 IS nodes deployed, and node A iss
 Now the old access token will still be valid according to node A even though it is already revoked by node B until the access token cache object in node A expires.
 
 If there are multiple WSO2 IS nodes in the deployment, the cache coherence problem is inevitable. One could think of disabling all the cache layers. But it is a huge sacrifice of performance. It is not only about access tokens, but there are multiple cache layers [Configuring Cache Layers]({{base_path}}/deploy/performance/configure-cache-layers/), and it could lead to unexpected scenarios with any of them.
+
+!!! note "Alternative: Message broker-based cache invalidation without Hazelcast"
+    In cloud-native, containerized environments (such as Kubernetes or AWS ECS) or multi-datacenter deployments, configuring and maintaining Hazelcast clustering across nodes may introduce operational complexity.
+
+    WSO2 Identity Server supports using an external message broker (such as Apache ActiveMQ, RabbitMQ, or IBM MQ) through the `carbon-cache-sync-manager` connector for cross-node cache invalidation with Hazelcast disabled.
+
+    When running in broker-only mode (Hazelcast disabled), you **must** configure `[server.cache] invalidation_impl = "org.wso2.carbon.cache.sync.jms.manager.JMSProducer"` in `deployment.toml` to prevent cache invalidations from being silently dropped.
+
+    For full configuration instructions, see [Configure message broker cache invalidation]({{base_path}}/deploy/configure-message-broker-cache-invalidation).
