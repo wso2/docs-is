@@ -89,7 +89,7 @@ A sample configuration is given below.
 3. If you have a requirement in using workflow feature follow, 
     [Change the default database of BPS database]({{base_path}}/deploy/change-datasource-bpsds)
     
-4.  Download the MySQL JDBC driver for the version you are using. Extract the downloaded file and copy all required JAR files from the driver package to the `<IS_HOME>/repository/components/lib` folder.
+4.  Download the [MySQL JDBC driver](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j) and copy the JAR (mysql-connector-j-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder. Use Connector/J 8.2.0 or later; earlier versions include the `autoDeserialize` connection property that Oracle removed in 8.2.0. If your MySQL server is 5.7, use Connector/J 8.2.0, which is the last version that supports MySQL 5.7.
 
     
            

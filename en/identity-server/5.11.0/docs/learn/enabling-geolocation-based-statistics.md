@@ -116,7 +116,7 @@ the regions of the users authenticated though WSO2 Identity Server.
         e.g, `            wso2carbon           ` .
     4.  `            driverClassName           ` : This is the package
         name of the JDBC driver of your mysql connector, e.g.,
-        `            com.mysql.jdbc.Driver           ` .
+        `            com.mysql.cj.jdbc.Driver           ` .
 
 7.  Open the
     `          <IS_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files/IS_ANALYTICS_AUTHENTICATION_COMMON.sidddhi         `
