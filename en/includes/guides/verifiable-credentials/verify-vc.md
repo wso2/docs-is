@@ -71,8 +71,6 @@ To create a presentation definition:
 
 With the presentation definition and trusted issuers in place, you can now use it in one of the following scenarios.
 
----
-
 ## Use case 1: Authenticate with a Digital Wallet
 
 In this scenario, users log in to your application by presenting a credential from their digital wallet instead of entering a username and password. {{ product_name }} verifies the presented credential and uses the verified claims to authenticate the user.
@@ -143,8 +141,6 @@ The **subject attribute** tells {{ product_name }} which claim to use to look up
 
 Users can now select the wallet sign-in option on your application's login page. When selected, {{ product_name }} generates a QR code. The user scans it with their wallet, reviews the requested claims, consents to sharing them, and {{ product_name }} verifies the presentation and authenticates the user.
 
----
-
 ## Use case 2: Self-registration with a Digital Wallet
 
 In this scenario, new users create an account by presenting a credential from their digital wallet instead of filling in a registration form. {{ product_name }} verifies the credential and uses the disclosed claims to populate the user's profile during registration.
@@ -169,8 +165,6 @@ In this scenario, new users create an account by presenting a credential from th
 6. Click **Publish** to activate the registration flow.
 
 Users can now register by selecting **Register with Digital Wallet** on the registration page, scanning the QR code with their wallet, and consenting to share the requested claims. {{ product_name }} verifies the presentation and creates the user account using the disclosed attributes.
-
----
 
 ## Tested wallets
 
