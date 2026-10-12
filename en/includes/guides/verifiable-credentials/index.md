@@ -25,9 +25,9 @@ Verifiable credentials enable a wide range of real-world identity and trust scen
 
 The verifiable credentials model involves three parties:
 
-- **Issuer** — The organization that creates and signs the credential. {{ product_name }} can act as the issuer.
+- **Issuer** — The organization that creates and signs the credential. {{ product_name }} acts as the issuer.
 - **Holder** — The user who receives the credential in their digital wallet and presents it when needed.
-- **Verifier** — The party that checks the credential's authenticity and reads its claims. {{ product_name }} can also act as the verifier.
+- **Verifier** — The party that checks the credential's authenticity and reads its claims.
 
 ![Verifiable credentials trust triangle showing the Issuer, Holder, and Verifier roles]({{base_path}}/assets/img/guides/verifiable-credentials/vc-trust-triangle.png){: width="600" style="display: block; margin: 0 auto;"}
 
@@ -42,3 +42,4 @@ Use the guides in this section to issue verifiable credentials from {{ product_n
 - [OpenID for verifiable credential issuance (OID4VCI)]({{base_path}}/{{content.oid4vci_reference_path}}/) — Understand how OID4VCI works, the supported credential formats, key endpoints, and cryptographic binding.
 
 - [Verify credentials from a Digital Wallet]({{base_path}}/guides/verifiable-credentials/verify-vc/) — Step-by-step guide to configure {{ product_name }} as a verifier and authenticate or register users with credentials presented from an OID4VP-compatible digital wallet that supports the `dc+sd-jwt` credential format.
+
