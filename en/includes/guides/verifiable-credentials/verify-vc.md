@@ -191,3 +191,4 @@ Users can now register by selecting **Register with Digital Wallet** on the regi
 4. Review the requested information and confirm sharing the credential (for example, by tapping **SHARE INFOS** in Heidi).
 
 5. {{ product_name }} verifies the presentation and completes the flow.
+
