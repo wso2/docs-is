@@ -1,12 +1,12 @@
 # Verify credentials from a Digital Wallet
 
-This guide walks you through configuring {{ product_name }} to act as a verifier in an OpenID4VP flow. Users can present credentials stored in an OID4VP-compatible digital wallet to authenticate or register with your application. Any wallet that supports the [OID4VP specification](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html){:target="_blank"} can present credentials to {{ product_name }}.
+This guide walks you through configuring {{ product_name }} to act as a verifier in an OpenID4VP flow. Users can present credentials stored in an OID4VP-compatible digital wallet to authenticate or register with your application. Any wallet that supports the [OID4VP specification](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html){:target="_blank"} and the `dc+sd-jwt` credential format can present credentials to {{ product_name }}.
 
 ## Prerequisites
 
 Before you begin, ensure the following:
 
-- An OID4VP-compatible digital wallet is installed on your device.
+- An OID4VP-compatible digital wallet that supports the `dc+sd-jwt` credential format is installed on your device.
 - The wallet contains at least one verifiable credential issued by a trusted issuer.
 
 ## Step 1: Create a presentation definition
@@ -26,7 +26,7 @@ To create a presentation definition:
     | **Display Name** | A human-readable name. | `Employee ID` |
     | **Identifier** | A unique, URL-safe identifier for this definition. | `employee-id` |
     | **Description** | A brief description of what this presentation definition is used for. | `Presentation definition for verifying employee ID credentials` |
-    | **Credential Type** | The type of credential to request from the wallet. | `EmployeeCredential` |
+    | **Credential Type** | The type of credential to request from the wallet. | `employee-identity` |
     | **Format** | The credential format the wallet must present. | `dc+sd-jwt` |
 
     ![Create Presentation Definition dialog filled in for Employee ID]({{base_path}}/assets/img/guides/verifiable-credentials/create-presentation-definition.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
@@ -39,7 +39,7 @@ To create a presentation definition:
 
     ![Add Attribute dialog]({{base_path}}/assets/img/guides/verifiable-credentials/pd-add-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    Repeat this for each of the following claims from the `EmployeeCredential`:
+    Repeat this for each of the following claims from the `employee-identity`:
 
     | Claim Name | Required |
     | :--------- | :------- |
@@ -182,7 +182,7 @@ Users can now register by selecting **Register with Digital Wallet** on the regi
 | Lissi | iOS, Android |
 
 !!! note
-    Any digital wallet that implements the [OID4VP specification](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html){:target="_blank"} should be able to present credentials. {{ product_name }} currently supports verifying credentials in the `dc+sd-jwt` format.
+    Any digital wallet that implements the [OID4VP specification](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html){:target="_blank"} and supports the `dc+sd-jwt` format should be able to present credentials. {{ product_name }} currently supports verifying credentials in this format only.
 
 **Presenting a credential:**
 

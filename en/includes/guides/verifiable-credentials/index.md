@@ -41,4 +41,4 @@ Use the guides in this section to issue verifiable credentials from {{ product_n
 
 - [OpenID for verifiable credential issuance (OID4VCI)]({{base_path}}/{{content.oid4vci_reference_path}}/) — Understand how OID4VCI works, the supported credential formats, key endpoints, and cryptographic binding.
 
-- [Verify credentials from a Digital Wallet]({{base_path}}/guides/verifiable-credentials/verify-vc/) — Step-by-step guide to configure {{ product_name }} as a verifier and authenticate or register users with credentials presented from any OID4VP-compatible digital wallet.
+- [Verify credentials from a Digital Wallet]({{base_path}}/guides/verifiable-credentials/verify-vc/) — Step-by-step guide to configure {{ product_name }} as a verifier and authenticate or register users with credentials presented from an OID4VP-compatible digital wallet that supports the `dc+sd-jwt` credential format.
