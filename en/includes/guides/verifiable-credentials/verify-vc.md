@@ -2,16 +2,6 @@
 
 This guide walks you through configuring {{ product_name }} to act as a verifier in an OpenID4VP flow. Users can present credentials stored in an OID4VP-compatible digital wallet to authenticate or register with your application. Any wallet that supports the [OID4VP specification](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html){:target="_blank"} can present credentials to {{ product_name }}.
 
-## Scenario
-
-- **Nimbus Corp** issues a digital employee ID credential (`NimbusEmployeeID`) to its staff using {{ product_name }}'s OID4VCI support (see [Issue verifiable credentials to a Digital Wallet]({{base_path}}/guides/verifiable-credentials/issue-vc/)). Every employee holds this credential in a digital wallet on their phone.
-
-- Nimbus Corp now wants to let employees use this same credential to access its internal **HR Portal**, instead of signing in with a username and password:
-    - **Existing employees** should be able to **sign in** to the HR Portal by presenting their employee ID credential from their wallet.
-    - **New hires** who already received their employee ID credential during onboarding should be able to **self-register** an HR Portal account the same way, without filling out a registration form.
-
-- As the Nimbus Corp administrator configuring {{ product_name }}, you will create a presentation definition and trusted issuer for the `NimbusEmployeeID`, then use it to enable both sign-in and self-registration on the HR Portal application.
-
 ## Prerequisites
 
 Before you begin, ensure the following:
@@ -33,13 +23,13 @@ To create a presentation definition:
 
     | Field | Description | Example |
     | :---- | :---------- | :------ |
-    | **Display Name** | A human-readable name. | `Nimbus Employee ID` |
-    | **Identifier** | A unique, URL-safe identifier for this definition. | `nimbus-employee-id` |
-    | **Description** | A brief description of what this presentation definition is used for. | `Presentation definition for verifying Nimbus Corp employee ID credentials` |
-    | **Credential Type** | The type of credential to request from the wallet. | `NimbusEmployeeID` |
+    | **Display Name** | A human-readable name. | `Employee ID` |
+    | **Identifier** | A unique, URL-safe identifier for this definition. | `employee-id` |
+    | **Description** | A brief description of what this presentation definition is used for. | `Presentation definition for verifying employee ID credentials` |
+    | **Credential Type** | The type of credential to request from the wallet. | `EmployeeCredential` |
     | **Format** | The credential format the wallet must present. | `dc+sd-jwt` |
 
-    ![Create Presentation Definition dialog filled in for Nimbus Employee ID]({{base_path}}/assets/img/guides/verifiable-credentials/create-presentation-definition.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Create Presentation Definition dialog filled in for Employee ID]({{base_path}}/assets/img/guides/verifiable-credentials/create-presentation-definition.png){: width="500" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Create**.
 
@@ -49,7 +39,7 @@ To create a presentation definition:
 
     ![Add Attribute dialog]({{base_path}}/assets/img/guides/verifiable-credentials/pd-add-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-    Repeat this for each of the following claims from the `NimbusEmployeeID`:
+    Repeat this for each of the following claims from the `EmployeeCredential`:
 
     | Claim Name | Required |
     | :--------- | :------- |
@@ -68,12 +58,12 @@ To create a presentation definition:
     !!! note
         Three trust methods are supported: **JWKS Endpoint** (recommended for remote issuers), **PEM** (for issuers that share a public key directly), and **x5c** (for certificate chain validation). Select the method that matches how your credential issuer publishes its signing keys.
 
-2. Select **JWKS Endpoint**, since Nimbus Corp's issuer publishes its signing keys at a JWKS endpoint, then fill in the issuer details:
+2. Select **JWKS Endpoint**, then fill in the issuer details:
 
     | Field | Description | Example |
     | :---- | :---------- | :------ |
-    | **Issuer URL** | The `iss` claim value in credentials issued by this issuer. | `https://issuer.nimbuscorp.com/oid4vci` |
-    | **JWKS URI** | URL of the issuer's JSON Web Key Set. | `https://issuer.nimbuscorp.com/.well-known/jwks.json` |
+    | **Issuer URL** | The `iss` claim value in credentials issued by this issuer. | `https://issuer.example.com/oid4vci` |
+    | **JWKS URI** | URL of the issuer's JSON Web Key Set. | `https://issuer.example.com/.well-known/jwks.json` |
 
     ![Add Trusted Issuer dialog]({{base_path}}/assets/img/guides/verifiable-credentials/pd-add-trusted-issuer.png){: width="550" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -99,10 +89,10 @@ A **Digital Wallet connection** links the presentation definition to an authenti
 
     | Field | Description | Example |
     | :---- | :---------- | :------ |
-    | **Name** | A descriptive name for the connection. | `Nimbus Wallet` |
-    | **Presentation Definition** | The presentation definition that defines what credentials to request. | `Nimbus Employee ID` |
+    | **Name** | A descriptive name for the connection. | `Employee Wallet` |
+    | **Presentation Definition** | The presentation definition that defines what credentials to request. | `Employee ID` |
 
-    ![Digital Wallet connection details filled in for Nimbus Wallet]({{base_path}}/assets/img/guides/verifiable-credentials/vp-connection-details.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Digital Wallet connection details filled in for Employee Wallet]({{base_path}}/assets/img/guides/verifiable-credentials/vp-connection-details.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 4. Click **Create**.
 
@@ -131,7 +121,7 @@ Map the credential claims to the corresponding local claims in {{ product_name }
 The **subject attribute** tells {{ product_name }} which claim to use to look up the authenticated user.
 
 1. Under **Subject**, open the **Subject Attribute** dropdown.
-2. Select `email` as the subject attribute. Nimbus Corp uses the employee's email address to look up their user account during authentication.
+2. Select `email` as the subject attribute. {{ product_name }} uses this claim to look up the user's account during authentication.
 3. Click **Update**.
 
 !!! note
@@ -139,25 +129,25 @@ The **subject attribute** tells {{ product_name }} which claim to use to look up
 
 ### Add the connection to your application
 
-1. On the {{ product_name }} Console, go to **Applications** and open your application (e.g., the **Nimbus HR Portal** application).
+1. On the {{ product_name }} Console, go to **Applications** and open your application.
 
 2. Go to the **Login Flow** tab.
 
 3. In the login flow canvas, click **Add Sign-in Option**.
 
-4. Select the Digital Wallet connection you created (e.g., **Nimbus Wallet**).
+4. Select the Digital Wallet connection you created (e.g., **Employee Wallet**).
 
 5. Click **Add**, then click **Update** to save the login flow.
 
     ![Login flow with Digital Wallet sign-in option added]({{base_path}}/assets/img/guides/verifiable-credentials/vp-login-flow.png){: width="350" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-Employees can now select the wallet sign-in option on the HR Portal's login page. When selected, {{ product_name }} generates a QR code. The employee scans it with their wallet, reviews the requested claims, consents to sharing them, and {{ product_name }} verifies the presentation and authenticates them.
+Users can now select the wallet sign-in option on your application's login page. When selected, {{ product_name }} generates a QR code. The user scans it with their wallet, reviews the requested claims, consents to sharing them, and {{ product_name }} verifies the presentation and authenticates the user.
 
 ---
 
 ## Use case 2: Self-registration with a Digital Wallet
 
-In this scenario, new hires at Nimbus Corp create their HR Portal account by presenting their employee ID credential from their digital wallet instead of filling in a registration form. {{ product_name }} verifies the credential and uses the disclosed claims to populate the user's profile during registration.
+In this scenario, new users create an account by presenting a credential from their digital wallet instead of filling in a registration form. {{ product_name }} verifies the credential and uses the disclosed claims to populate the user's profile during registration.
 
 !!! note
     The Digital Wallet connection and its attribute mappings configured in [Use case 1](#use-case-1-authenticate-with-a-digital-wallet) are reused for this flow. Complete that setup before continuing.
@@ -170,15 +160,15 @@ In this scenario, new hires at Nimbus Corp create their HR Portal account by pre
 
 3. Click **+** to apply the template. The registration flow now includes a **Digital Wallet** step.
 
-4. Click the **gear icon** on the **Digital Wallet** step and select your Digital Wallet connection from the **Connection** dropdown.
+4. Click the **gear icon** on the **Digital Wallet** step and select your Digital Wallet connection (e.g., **Employee Wallet**) from the **Connection** dropdown.
 
-    ![Digital Wallet step configured with the Nimbus Wallet connection]({{base_path}}/assets/img/guides/verifiable-credentials/vp-registration-wallet-step.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Digital Wallet step configured with the Employee Wallet connection]({{base_path}}/assets/img/guides/verifiable-credentials/vp-registration-wallet-step.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Optionally, in the **Flow Completion Properties** panel, enable **Auto Login** to sign the user in immediately after registration.
 
 6. Click **Publish** to activate the registration flow.
 
-New hires can now register by selecting **Register with Digital Wallet** on the HR Portal's registration page, scanning the QR code with their wallet, and consenting to share the requested claims. {{ product_name }} verifies the presentation and creates the HR Portal account using the disclosed attributes.
+Users can now register by selecting **Register with Digital Wallet** on the registration page, scanning the QR code with their wallet, and consenting to share the requested claims. {{ product_name }} verifies the presentation and creates the user account using the disclosed attributes.
 
 ---
 
