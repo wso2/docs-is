@@ -37,7 +37,7 @@ To create a presentation definition:
 
     For example, add the `email` claim as shown below:
 
-    ![Add Attribute dialog]({{base_path}}/assets/img/guides/verifiable-credentials/pd-add-attribute.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Add Attribute dialog]({{base_path}}/assets/img/guides/verifiable-credentials/pd-add-attribute.png){: width="400" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     Repeat this for each of the following claims from the `employee-identity`:
 
@@ -162,7 +162,7 @@ In this scenario, new users create an account by presenting a credential from th
 
 4. Click the **gear icon** on the **Digital Wallet** step and select your Digital Wallet connection (e.g., **Employee Wallet**) from the **Connection** dropdown.
 
-    ![Digital Wallet step configured with the Employee Wallet connection]({{base_path}}/assets/img/guides/verifiable-credentials/vp-registration-wallet-step.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Digital Wallet step configured with the Employee Wallet connection]({{base_path}}/assets/img/guides/verifiable-credentials/vp-registration-wallet-step.png){: width="320" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 5. Optionally, in the **Flow Completion Properties** panel, enable **Auto Login** to sign the user in immediately after registration.
 
