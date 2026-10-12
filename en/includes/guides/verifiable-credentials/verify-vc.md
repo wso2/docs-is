@@ -33,7 +33,7 @@ To create a presentation definition:
 
 4. Click **Create**.
 
-5. Open the **Attributes** tab and click **Add Attribute** to specify which claims to request. For each attribute, provide the **Claim Name** (the claim key as it appears inside the credential) and mark whether it is **Required** — if a required claim is absent, the credential cannot satisfy the request.
+5. Open the **Attributes** tab and click **Add Attribute** to specify which claims to request. For each attribute, provide the **Claim Name** (the claim key as it appears inside the credential) and mark whether it is **Required**. If a required claim is absent, the credential cannot satisfy the request.
 
     For example, add the `email` claim as shown below:
 
