@@ -11,7 +11,7 @@ WSO2 Identity Platform uses two regional data centers to store data:
 <table>
     <tr>
         <th>
-            Country
+            Region
         </th>
         <th>
             Regional Data center
