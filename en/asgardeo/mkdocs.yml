@@ -484,6 +484,8 @@ nav:
               - Add standard-based login: guides/authentication/standard-based-login/index.md
               - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
               - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
+            - Add enterprise login:
+              - Add Amazon Cognito login: guides/authentication/enterprise-login/add-aws-cognito-login.md
           - Add identifier first login: guides/authentication/add-identifier-first-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
