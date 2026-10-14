@@ -11,13 +11,19 @@ WSO2 Identity Platform uses two regional data centers to store data:
 <table>
     <tr>
         <th>
-            Country
+            Region
         </th>
         <th>
-            Regional Data center
+            Primary data center
         </th>
         <th>
             Location
+        </th>
+        <th>
+            Disaster recovery (DR) data center
+        </th>
+        <th>
+            DR location
         </th>
     </tr>
     <tr>
@@ -25,10 +31,16 @@ WSO2 Identity Platform uses two regional data centers to store data:
             United States (US)
         </td>
         <td>
-            East US
+            East US2
         </td>
         <td>
             Virginia
+        </td>
+        <td>
+            Central US
+        </td>
+        <td>
+            Iowa
         </td>
     </tr>
     <tr>
@@ -40,6 +52,12 @@ WSO2 Identity Platform uses two regional data centers to store data:
         </td>
         <td>
             Ireland
+        </td>
+        <td>
+            West Europe
+        </td>
+        <td>
+            Netherlands
         </td>
     </tr>
 </table>
