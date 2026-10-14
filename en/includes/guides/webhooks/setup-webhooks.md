@@ -314,7 +314,7 @@ If your webhook isn't functioning as expected, consider the following common iss
       - **Cause**: Your endpoint responded with a status code that {{product_name}} doesn't retry or discard, or delivery failed for 24 hours. {{product_name}} then stops delivering events of that event type. See [Event delivery and retries](#event-delivery-and-retries).  
       - **Solution**:  
           - Check your endpoint's server logs for the status codes it returned, and fix the cause of the failures.  
-          - Resend the subscription request from the {{product_name}} Console (within the webhook's details page). {{product_name}} then resumes delivery for the event type and delivers the pending events in their original order.
+          - Resend the subscription request from the webhook details page in the {{product_name}} Console. {{product_name}} then resumes delivery for the event type and delivers the pending events in their original order.
 
 4. **Event signature (HMAC) mismatch**
 
