@@ -84,3 +84,4 @@ subject_token
 actor_token
 actor_token_type
 api_base_path
+jti
