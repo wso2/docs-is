@@ -637,6 +637,7 @@ nav:
             - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
             - Zoom: guides/authentication/sso-integrations/add-zoom-template.md
             - Slack: guides/authentication/sso-integrations/add-slack-template.md
+            - AWS IAM Identity Center: guides/authentication/sso-integrations/add-aws-iam-identity-center.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
@@ -674,7 +675,7 @@ nav:
               - Add IWA login: guides/authentication/enterprise-login/add-iwa-login.md
               - Add Microsoft 365 login: guides/authentication/enterprise-login/add-microsoft-365-login.md
               - Add AD FS login: guides/authentication/enterprise-login/add-ad-fs-login.md
-              - Add Amazon Cognito login: guides/authentication/enterprise-login/add-aws-cognito-login.md
+              - Add AWS Cognito login: guides/authentication/enterprise-login/add-aws-cognito-login.md
             - Add eID login:
               - Add Signicat login: guides/authentication/eid-login/add-signicat-login.md
               - Add FranceConnect login: guides/authentication/eid-login/add-franceconnect-login.md

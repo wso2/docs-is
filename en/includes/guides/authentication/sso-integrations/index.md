@@ -14,6 +14,10 @@
       <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/microsoft-logo.svg" alt="Microsoft" />
       <span>Microsoft</span>
     </a>
+    <a href="{{base_path}}/guides/authentication/sso-integrations/add-aws-iam-identity-center" class="card square">
+      <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/amazon-logo.png" alt="AWS IAM Identity Center" />
+      <span style="display: block;">AWS IAM Identity Center</span>
+    </a>
     {% if product_name == "WSO2 Identity Server" or (product_name == "WSO2 Identity Platform" and sso_integrations_zoom_slack) %}
     <a href="{{base_path}}/guides/authentication/sso-integrations/add-zoom-template" class="card square">
       <img class="skip-glightbox" src="{{base_path}}/assets/img/logo/zoom.svg" alt="Zoom" />

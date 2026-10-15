@@ -450,6 +450,7 @@ nav:
               - Microsoft 365: guides/authentication/sso-integrations/add-microsoft-365-template.md
               - Zoom: guides/authentication/sso-integrations/add-zoom-template.md
               - Slack: guides/authentication/sso-integrations/add-slack-template.md
+              - AWS IAM Identity Center: guides/authentication/sso-integrations/add-aws-iam-identity-center.md
           - Add passwordless login:
             - Add passwordless login: guides/authentication/passwordless-login/index.md
             - Add login with Magic link: guides/authentication/passwordless-login/add-passwordless-login-with-magic-link.md
@@ -485,7 +486,7 @@ nav:
               - Add login with OIDC IdP: guides/authentication/standard-based-login/add-oidc-idp-login.md
               - Add login with SAML IdP: guides/authentication/standard-based-login/add-saml-idp-login.md
             - Add enterprise login:
-              - Add Amazon Cognito login: guides/authentication/enterprise-login/add-aws-cognito-login.md
+              - Add AWS Cognito login: guides/authentication/enterprise-login/add-aws-cognito-login.md
           - Add identifier first login: guides/authentication/add-identifier-first-login.md
           - Add multi-factor authentication:
             - Add multi-factor authentication: guides/authentication/mfa/index.md
