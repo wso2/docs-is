@@ -83,7 +83,7 @@ Identity Server. This sample project can be downloaded
     `          <IS_HOME>/repository/components/lib         ` directory.
     This includes the JDBC driver .jar file that helps to create the
     JDBC connection (e.g.,
-    `          mysql-connector-java-5.1.10-bin.jar         ` ).
+    `          mysql-connector-j-x.x.x.jar         ` ).
 
 6.  Optionally, you can configure new datasources using
     **deployment.toml** file found in the

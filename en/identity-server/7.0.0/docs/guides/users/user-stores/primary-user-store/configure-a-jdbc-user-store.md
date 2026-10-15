@@ -58,7 +58,7 @@ as the user store. Refer the following topic for further instructions.
 			url = "jdbc:mysql://localhost:3306/userdb?useSSL=false"
 			username = "root"
 			password = "root"
-			driver = "com.mysql.jdbc.Driver"
+			driver = "com.mysql.cj.jdbc.Driver"
 			
 			[realm_manager]
 			data_source = "WSO2USER_DB"
@@ -66,7 +66,7 @@ as the user store. Refer the following topic for further instructions.
 		
 		2.	Execute the scripts of [User Management Related Tables]({{base_path}}/deploy/configure/databases/data-dictionary/user-management-related-tables) in the `<IS_HOME>/dbscripts/mysql.sql` file against the database created.        
 
-		3.  Download the [MySQL JDBC driver](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j) and copy the JAR (mysql-connector-j-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder.          
+		3.  Download the [MySQL JDBC driver](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j) and copy the JAR (mysql-connector-j-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder. Use Connector/J 8.2.0 or later; earlier versions include the `autoDeserialize` connection property that Oracle removed in 8.2.0. If your MySQL server is 5.7, use Connector/J 8.2.0, which is the last version that supports MySQL 5.7.
 
 	??? example "DB2"
 
