@@ -4439,3 +4439,583 @@ The table below explains each property in the event data.
 </table>
 
 {% endif %}
+
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version >= "7.4.0") %}
+
+## Organization management events
+
+{{product_name}} dispatches webhook events for organization lifecycle changes and organization status changes. Each event provides detailed context, helping you keep external systems in sync with your organization hierarchy.
+
+!!! note
+      Organization management events are dispatched for sub-organizations only. These are the organizations created and managed through the organization management API or the **Organizations** section of the {{product_name}} Console. Each event is dispatched in the context of the organization in which the operation is performed, so register the webhook in that organization.
+
+In every organization management event payload, the <code>organization</code> property represents the organization in whose context the operation was performed, while the <code>targetOrganization</code> property represents the organization the operation acted on. For example, when an administrator of the root organization creates a sub-organization, <code>organization</code> is the root organization and <code>targetOrganization</code> is the newly created sub-organization.
+
+### Organization created event
+
+{{product_name}} sends an <code>organizationCreated</code> event when a new organization gets created.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "6194f397-a86a-48bf-8eb4-b43703528748",
+  "iat": 1790244475257,
+  "rci": "c76fb19b-088e-4e05-b024-871cf3d51af6",
+  "events": {
+    "https://schemas.identity.wso2.org/events/organization/event-type/organizationCreated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ORGANIZATION_CREATE",
+      "targetOrganization": {
+        "id": "b537b54f-ec3d-452b-a20d-fc99f90a351a",
+        "name": "ABC Builders",
+        "orgHandle": "b537b54f-ec3d-452b-a20d-fc99f90a351a",
+        "depth": 1,
+        "ref": "{{server_url}}/api/server/v1/organizations/b537b54f-ec3d-452b-a20d-fc99f90a351a",
+        "attributes": {
+          "added": [
+            {
+              "name": "Country",
+              "value": "USA"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for an organization creation, identified by the URI <code>https://schemas.identity.wso2.org/events/organization/event-type/organizationCreated</code>. This URI signifies a successful organization creation event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>targetOrganization</td>
+<td>
+<p>Contains details about the created organization including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the organization</li>
+<li><strong>name</strong>: Display name of the organization</li>
+<li><strong>orgHandle</strong>: Handle of the organization</li>
+<li><strong>depth</strong>: Depth of the organization in the organization hierarchy</li>
+<li><strong>ref</strong>: Organization management API reference URL for the organization</li>
+<li><strong>attributes</strong>: Attributes the organization was created with, listed under <code>added</code>. Each entry contains the attribute <code>name</code> and <code>value</code>. Present only when the organization is created with attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the organization gets created.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization in whose context the organization gets created.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the organization creation.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ORGANIZATION_CREATE</code> for an organization creation.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Organization updated event
+
+{{product_name}} sends an <code>organizationUpdated</code> event when the values of an organization get updated.
+
+!!! note
+      An update that changed the status of the organization alone does not dispatch this event. Such a change is dispatched as an [organization activated](#organization-activated-event) or an [organization disabled](#organization-disabled-event) event instead. When the same request changed other values as well, both events are dispatched, and they share the same <code>rci</code> value.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "1a7c2c8a-9d40-4d79-99e3-bfb2744c5baa",
+  "iat": 1790247025906,
+  "rci": "c9317ee4-407a-4f19-ad2c-ff95f69a973a",
+  "events": {
+    "https://schemas.identity.wso2.org/events/organization/event-type/organizationUpdated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ORGANIZATION_UPDATE",
+      "targetOrganization": {
+        "id": "8df67d89-82bf-4ab0-802d-c9ae9a57c5f6",
+        "name": "ABC Builders updated",
+        "orgHandle": "8df67d89-82bf-4ab0-802d-c9ae9a57c5f6",
+        "depth": 1,
+        "ref": "{{server_url}}/api/server/v1/organizations/8df67d89-82bf-4ab0-802d-c9ae9a57c5f6",
+        "updatedValues": {
+          "name": "ABC Builders updated",
+          "description": "Building constructions",
+          "attributes": {
+            "added": [
+              {
+                "name": "Region",
+                "value": "EMEA"
+              }
+            ],
+            "removed": [
+              {
+                "name": "Industry"
+              }
+            ],
+            "updated": [
+              {
+                "name": "Country",
+                "value": "UK"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for an organization update, identified by the URI <code>https://schemas.identity.wso2.org/events/organization/event-type/organizationUpdated</code>. This URI signifies a successful organization update event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>targetOrganization</td>
+<td>
+<p>Contains details about the updated organization including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the organization</li>
+<li><strong>name</strong>: Display name of the organization</li>
+<li><strong>orgHandle</strong>: Handle of the organization</li>
+<li><strong>depth</strong>: Depth of the organization in the organization hierarchy</li>
+<li><strong>ref</strong>: Organization management API reference URL for the organization</li>
+<li><strong>updatedValues</strong>: The values the update changed. Contains <code>name</code>, <code>description</code>, <code>version</code> and <code>attributes</code>, where each property is present only when the update changed it. A value the update cleared is reported as an empty string.</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>updatedValues.attributes</td>
+<td>
+<p>The attribute changes the update carried, grouped by the change applied:</p>
+<ul>
+<li><strong>added</strong>: Attributes the update added. Each entry contains the attribute <code>name</code> and <code>value</code>.</li>
+<li><strong>removed</strong>: Attributes the update removed. Each entry contains the attribute <code>name</code> only.</li>
+<li><strong>updated</strong>: Attributes whose value the update changed. Each entry contains the attribute <code>name</code> and the new <code>value</code>.</li>
+</ul>
+<p>Each group is present only when the update carried a change of that kind.</p>
+</td>
+</tr>
+<tr class="odd">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the organization gets updated.</p></td>
+</tr>
+<tr class="even">
+<td>organization</td>
+<td><p>Represents the organization in whose context the organization gets updated.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the organization update.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="odd">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ORGANIZATION_UPDATE</code> for an organization update.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Organization activated event
+
+{{product_name}} sends an <code>organizationActivated</code> event when the status of an organization gets changed to <code>ACTIVE</code>.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "fdd4196b-729a-4735-a477-aa641a799192",
+  "iat": 1791451419327,
+  "rci": "621e1c90-061a-425e-aef4-26e31435a105",
+  "events": {
+    "https://schemas.identity.wso2.org/events/organization/event-type/organizationActivated": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ORGANIZATION_ACTIVATE",
+      "targetOrganization": {
+        "id": "5f837960-52e0-4b43-9501-3a00c0a50378",
+        "name": "ABC Builders",
+        "orgHandle": "abcbuilders",
+        "depth": 1,
+        "ref": "{{server_url}}/api/server/v1/organizations/5f837960-52e0-4b43-9501-3a00c0a50378"
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for an organization activation, identified by the URI <code>https://schemas.identity.wso2.org/events/organization/event-type/organizationActivated</code>. This URI signifies a successful organization activation event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>targetOrganization</td>
+<td>
+<p>Contains details about the activated organization including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the organization</li>
+<li><strong>name</strong>: Display name of the organization</li>
+<li><strong>orgHandle</strong>: Handle of the organization</li>
+<li><strong>depth</strong>: Depth of the organization in the organization hierarchy</li>
+<li><strong>ref</strong>: Organization management API reference URL for the organization</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the organization gets activated.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization in whose context the organization gets activated.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the organization activation.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ORGANIZATION_ACTIVATE</code> for an organization activation.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Organization disabled event
+
+{{product_name}} sends an <code>organizationDisabled</code> event when the status of an organization gets changed to <code>DISABLED</code>.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "435f23a4-a337-4ab8-908b-79f6ad5e1939",
+  "iat": 1791451604391,
+  "rci": "a52ab72b-366a-49d2-9e03-97cf5d74492a",
+  "events": {
+    "https://schemas.identity.wso2.org/events/organization/event-type/organizationDisabled": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ORGANIZATION_DISABLE",
+      "targetOrganization": {
+        "id": "5f837960-52e0-4b43-9501-3a00c0a50378",
+        "name": "ABC Builders",
+        "orgHandle": "abcbuilders",
+        "depth": 1,
+        "ref": "{{server_url}}/api/server/v1/organizations/5f837960-52e0-4b43-9501-3a00c0a50378"
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for an organization being disabled, identified by the URI <code>https://schemas.identity.wso2.org/events/organization/event-type/organizationDisabled</code>. This URI signifies a successful organization disabling event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>targetOrganization</td>
+<td>
+<p>Contains details about the disabled organization including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the organization</li>
+<li><strong>name</strong>: Display name of the organization</li>
+<li><strong>orgHandle</strong>: Handle of the organization</li>
+<li><strong>depth</strong>: Depth of the organization in the organization hierarchy</li>
+<li><strong>ref</strong>: Organization management API reference URL for the organization</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the organization gets disabled.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization in whose context the organization gets disabled.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the organization disabling.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ORGANIZATION_DISABLE</code> for an organization being disabled.</p></td>
+</tr>
+</tbody>
+</table>
+
+### Organization deleted event
+
+{{product_name}} sends an <code>organizationDeleted</code> event when an organization gets deleted.
+
+**Example payload:**
+
+```json
+{
+  "iss": "{{server_url}}",
+  "jti": "7a3d92ed-da08-48c3-a0a9-7cbd98fbecf0",
+  "iat": 1790250489357,
+  "rci": "10f7f917-4625-4066-af8a-a3b6cf160134",
+  "events": {
+    "https://schemas.identity.wso2.org/events/organization/event-type/organizationDeleted": {
+      "initiatorType": "ADMIN",
+      "initiatorIpAddress": "127.0.0.1",
+      "tenant": {
+        "id": "12402",
+        "name": "{{tenant_domain}}"
+      },
+      "organization": {
+        "id": "10084a8d-113f-4211-a0d5-efe36b082211",
+        "name": "myorg",
+        "orgHandle": "{{tenant_domain}}",
+        "depth": 0
+      },
+      "action": "ORGANIZATION_DELETE",
+      "targetOrganization": {
+        "id": "15e7b839-6af4-4f94-b7c8-9e63b22c74ac",
+        "name": "ABC Builders",
+        "orgHandle": "abcbuilders",
+        "depth": 1
+      }
+    }
+  }
+}
+```
+
+The <code>events</code> object contains the actual event data for an organization deletion, identified by the URI <code>https://schemas.identity.wso2.org/events/organization/event-type/organizationDeleted</code>. This URI signifies a successful organization deletion event.
+
+The table below explains each property in the event data.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>targetOrganization</td>
+<td>
+<p>Contains details about the deleted organization including:</p>
+<ul>
+<li><strong>id</strong>: Unique identifier of the organization</li>
+<li><strong>name</strong>: Display name of the organization, as it was before the deletion</li>
+<li><strong>orgHandle</strong>: Handle of the organization, as it was before the deletion</li>
+<li><strong>depth</strong>: Depth the organization held in the organization hierarchy before the deletion</li>
+</ul>
+<p>The organization management API reference URL is not included, since the organization is no longer retrievable.</p>
+</td>
+</tr>
+<tr class="even">
+<td>tenant</td>
+<td><p>Represents the root organization (tenant) under which the organization gets deleted.</p></td>
+</tr>
+<tr class="odd">
+<td>organization</td>
+<td><p>Represents the organization in whose context the organization gets deleted.</p></td>
+</tr>
+<tr class="even">
+<td>initiatorType</td>
+<td><p>Indicates whether an administrator or application initiated the organization deletion.</p></td>
+</tr>
+<tr class="odd">
+<td>initiatorIpAddress</td>
+<td><p>Indicates the IP address of the initiator that triggered the event.</p></td>
+</tr>
+<tr class="even">
+<td>action</td>
+<td><p>Indicates the flow that triggered the event. The value is <code>ORGANIZATION_DELETE</code> for an organization deletion.</p></td>
+</tr>
+</tbody>
+</table>
+
+### <code>initiatorType</code> and <code>action</code> properties for organization management events
+
+The initiatorType and the action property together show which flow triggered an organization management event.
+
+The table below explains how these properties differ based on each flow.
+
+<table>
+<thead>
+<tr class="header">
+<th>Webhook event</th>
+<th>Flow</th>
+<th>Value of <code>initiatorType</code></th>
+<th>Value of <code>action</code></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="2">Organization created</td>
+<td>Admin initiated organization creation</td>
+<td>ADMIN</td>
+<td>ORGANIZATION_CREATE</td>
+<td><p>Occurs when an administrator creates an organization via the console or the organization management API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated organization creation</td>
+<td>APPLICATION</td>
+<td>ORGANIZATION_CREATE</td>
+<td><p>Occurs when an application with appropriate permissions creates an organization via the organization management API.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">Organization updated</td>
+<td>Admin initiated organization update</td>
+<td>ADMIN</td>
+<td>ORGANIZATION_UPDATE</td>
+<td><p>Occurs when an administrator updates an organization via the console or the organization management API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated organization update</td>
+<td>APPLICATION</td>
+<td>ORGANIZATION_UPDATE</td>
+<td><p>Occurs when an application with appropriate permissions updates an organization via the organization management API.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">Organization activated</td>
+<td>Admin initiated organization activation</td>
+<td>ADMIN</td>
+<td>ORGANIZATION_ACTIVATE</td>
+<td><p>Occurs when an administrator changes the status of an organization to <code>ACTIVE</code> via the console or the organization management API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated organization activation</td>
+<td>APPLICATION</td>
+<td>ORGANIZATION_ACTIVATE</td>
+<td><p>Occurs when an application with appropriate permissions changes the status of an organization to <code>ACTIVE</code> via the organization management API.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">Organization disabled</td>
+<td>Admin initiated organization disabling</td>
+<td>ADMIN</td>
+<td>ORGANIZATION_DISABLE</td>
+<td><p>Occurs when an administrator changes the status of an organization to <code>DISABLED</code> via the console or the organization management API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated organization disabling</td>
+<td>APPLICATION</td>
+<td>ORGANIZATION_DISABLE</td>
+<td><p>Occurs when an application with appropriate permissions changes the status of an organization to <code>DISABLED</code> via the organization management API.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="2">Organization deleted</td>
+<td>Admin initiated organization deletion</td>
+<td>ADMIN</td>
+<td>ORGANIZATION_DELETE</td>
+<td><p>Occurs when an administrator deletes an organization via the console or the organization management API.</p></td>
+</tr>
+<tr class="even">
+<td>Application initiated organization deletion</td>
+<td>APPLICATION</td>
+<td>ORGANIZATION_DELETE</td>
+<td><p>Occurs when an application with appropriate permissions deletes an organization via the organization management API.</p></td>
+</tr>
+</tbody>
+</table>
+
+{% endif %}
