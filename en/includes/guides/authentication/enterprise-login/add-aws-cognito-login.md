@@ -151,7 +151,6 @@ Amazon Cognito creates the user with the **Force change password** status. The u
 !!! tip
     Instead of creating users manually, you can let users create their own accounts. To do so, go to **Authentication** > **Sign-up** on your user pool and enable **Self-registration**. Users can then sign up from the Amazon Cognito managed login page.
 
-
 ## Register the Amazon Cognito IdP
 
 Now, let's register Amazon Cognito as a connection in {{ product_name }}.
