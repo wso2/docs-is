@@ -7,6 +7,13 @@
 
 {% endif %}
 
+{% if product_name == "WSO2 Identity Server" and is_version >= "7.3.0" %}
+
+!!!warning
+    The Console steps on this page apply to {{ product_name }} 7.2.0 and earlier. From 7.3.0 onwards, self-registration is configured under **Flows** > **Self Registration**. Refer to [Self Registration]({{base_path}}/guides/flows/self-registration/) for the current instructions.
+
+{% endif %}
+
 You can enable users to self-register to your organization from the login page of the application. This creates a new user account for the user.
 
 ## Enable/Disable self-registration
@@ -29,7 +36,7 @@ To enable/disable user self-registration or to change the default configurations
       <td><b>Account verification</b></td>
       <td>
         If enabled, an email will be sent to the user's specified email address requesting account confirmation.<br><br>
-        If this option is enabled along with the <b>Activate account immediately</b> option, users will be signed into the application without waiting for verification. However, you may leverage the account verification status to control the user experience and the level of access granted for the user. 
+        If this option is enabled along with the <b>Activate account immediately</b> option, users will be signed into the application without waiting for verification. However, you may leverage the account verification status to control the user experience and the level of access granted for the user.
         [Learn how to get verification status](#get-the-verification-status-of-user-accounts).
       </td>
     </tr>
@@ -41,7 +48,7 @@ To enable/disable user self-registration or to change the default configurations
       <td><b>Activate account immediately</b></td>
       <td>
         Activates the account without waiting for account verification.<br><br>
-        However, you may leverage the account verification status to control the user experience and the level of access granted for the user. 
+        However, you may leverage the account verification status to control the user experience and the level of access granted for the user.
         [Learn how to get verification status](#get-the-verification-status-of-user-accounts).
       </td>
     </tr>
@@ -137,7 +144,7 @@ The verification status of a user account indicates whether or not the user has 
 This capability is especially useful when you have self-registered users. For example, you may want self-registered users with unverified accounts to only have read access to your application, whereas verified users may get complete access.
 
 !!! tip
-    
+
     To implement this scenario, you must enforce account verification for self-registered users and activate accounts immediately without waiting for verification.</br></br> Learn more in [enable/disable self-registration](#enabledisable-self-registration).
 
 You can get the account verification status of users through the [SCIM2 API]({{base_path}}/apis/scim2/scim2-users-rest-api/) as shown below.
@@ -146,13 +153,13 @@ You can get the account verification status of users through the [SCIM2 API]({{b
 
 - To get your own information, invoke the `/scim2/Me` endpoint:
 
-    ```bash 
+    ```bash
     https://api.asgardeo.io/t/{organization_name}/scim2/Me
     ```
 
 - To get information about other users in your organization, invoke the `/scim2/Users/<user_id>` endpoint:
 
-    ```bash 
+    ```bash
     https://api.asgardeo.io/t/{organization_name}/scim2/Users/{user_id}
     ```
 
@@ -160,13 +167,13 @@ You can get the account verification status of users through the [SCIM2 API]({{b
 
 - To get your own information, invoke the `/scim2/Me` endpoint:
 
-    ```bash 
+    ```bash
     https://localhost:9443/scim2/Me
     ```
 
 - To get information about other users in your organization, invoke the `/scim2/Users/<user_id>` endpoint:
 
-    ```bash 
+    ```bash
     https://localhost:9443/scim2/Users/{user_id}
     ```
 
@@ -307,7 +314,7 @@ Once you have identified the `emailVerified` status of the user and the method u
         ```
 
     Ensure that the username provided is without the user store domain prefix, and the realm parameter specifies the relevant user store domain name.
-    
+
     ---
     **Response**
     ```
