@@ -2,24 +2,24 @@
 
 This document guides you to configure a separate database for storing session related information.
 
-WSO2 Identity Server is shipped with an embedded H2 database for storing data. 
-These default databases are located in the `<IS_HOME>/repository/database` directory 
+WSO2 Identity Server is shipped with an embedded H2 database for storing data.
+These default databases are located in the `<IS_HOME>/repository/database` directory
 of the pack.
 
-By default, session data is stored in the identity database (IDENTITY_DB) with 
-Identity data. However, you can separate session specific data into a separate 
+By default, session data is stored in the identity database (IDENTITY_DB) with
+Identity data. However, you can separate session specific data into a separate
 datasource to any database type that is supported by WSO2 Identity Server.
 
 !!! note
-    For more information about databases, see 
+    For more information about databases, see
     [Work with Databases]({{base_path}}/deploy/configure/databases) and [Set Up Separate Databases for Clustering]({{base_path}}/deploy/set-up-separate-databases-for-clustering).
 
 Following are the sample configuration for each database type.
 
 ??? Example "PostgreSQL"
-    
+
     1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
-        
+
         ```
         [datasource.WSO2SessionDB]
         id = "WSO2SessionDB"
@@ -29,9 +29,9 @@ Following are the sample configuration for each database type.
         driver = "org.postgresql.Driver"
         jmxEnabled = false
         ```
-        
-    2.  Execute the following scripts against the created database.    
-    
+
+    2.  Execute the following scripts against the created database.
+
         ```
         DROP TABLE IF EXISTS IDN_AUTH_SESSION_STORE;
         CREATE TABLE IDN_AUTH_SESSION_STORE (
@@ -95,7 +95,7 @@ Following are the sample configuration for each database type.
             PRIMARY KEY (USER_ID),
             CONSTRAINT USER_STORE_CONSTRAINT UNIQUE (USER_NAME, TENANT_ID, DOMAIN_NAME, IDP_ID)
         );
-    
+
         DROP TABLE IF EXISTS IDN_AUTH_WAIT_STATUS;
         DROP SEQUENCE IF EXISTS IDN_AUTH_WAIT_STATUS_SEQ;
         CREATE SEQUENCE IDN_AUTH_WAIT_STATUS_SEQ;
@@ -114,10 +114,10 @@ Following are the sample configuration for each database type.
         CREATE INDEX IDX_IDN_AUTH_SESSION_TIME ON IDN_AUTH_SESSION_STORE (TIME_CREATED);
         CREATE INDEX IDX_IDN_AUTH_SSTR_ST_OP_ID_TM ON IDN_AUTH_SESSION_STORE (OPERATION, SESSION_TYPE, SESSION_ID, TIME_CREATED);
         CREATE INDEX IDX_IDN_AUTH_SSTR_ET_ID ON IDN_AUTH_SESSION_STORE (EXPIRY_TIME, SESSION_ID);
-        
+
         -- IDN_AUTH_TEMP_SESSION_STORE --
         CREATE INDEX IDX_IDN_AUTH_TMP_SESSION_TIME ON IDN_AUTH_TEMP_SESSION_STORE (TIME_CREATED);
-        
+
         -- IDN_AUTH_USER --
         CREATE INDEX IDX_AUTH_USER_UN_TID_DN ON IDN_AUTH_USER (LOWER(USER_NAME), TENANT_ID, DOMAIN_NAME);
         CREATE INDEX IDX_AUTH_USER_DN_TOD ON IDN_AUTH_USER (DOMAIN_NAME, TENANT_ID);
@@ -129,11 +129,11 @@ Following are the sample configuration for each database type.
         -- IDN_AUTH_SESSION_APP_INFO --
         CREATE INDEX IDX_AUTH_SAI_UN_AID_SID ON IDN_AUTH_SESSION_APP_INFO (APP_ID, LOWER(SUBJECT), SESSION_ID);
         ```
-          
+
 ??? Example "MySQL"
 
     1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
-        
+
         ```
         [datasource.WSO2SessionDB]
         id = "WSO2SessionDB"
@@ -143,15 +143,15 @@ Following are the sample configuration for each database type.
         driver = "com.mysql.cj.jdbc.Driver"
         jmxEnabled = false
         ```
-        
-    2.  Execute the following scripts against the created database.    
+
+    2.  Execute the following scripts against the created database.
 
         ```
         CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_STORE (
             SESSION_ID VARCHAR (100) NOT NULL,
             SESSION_TYPE VARCHAR(100) NOT NULL,
             OPERATION VARCHAR(10) NOT NULL,
-            SESSION_OBJECT BLOB,
+            SESSION_OBJECT MEDIUMBLOB,
             TIME_CREATED BIGINT,
             TENANT_ID INTEGER DEFAULT -1,
             EXPIRY_TIME BIGINT,
@@ -162,7 +162,7 @@ Following are the sample configuration for each database type.
             SESSION_ID VARCHAR (100) NOT NULL,
             SESSION_TYPE VARCHAR(100) NOT NULL,
             OPERATION VARCHAR(10) NOT NULL,
-            SESSION_OBJECT BLOB,
+            SESSION_OBJECT MEDIUMBLOB,
             TIME_CREATED BIGINT,
             TENANT_ID INTEGER DEFAULT -1,
             EXPIRY_TIME BIGINT,
@@ -183,14 +183,14 @@ Following are the sample configuration for each database type.
             INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
             PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
         )DEFAULT CHARACTER SET latin1 ENGINE INNODB;
-        
+
         CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_META_DATA (
             SESSION_ID VARCHAR (100) NOT NULL,
             PROPERTY_TYPE VARCHAR (100) NOT NULL,
             VALUE VARCHAR (255) NOT NULL,
             PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
         )DEFAULT CHARACTER SET latin1 ENGINE INNODB;
-        
+
         CREATE TABLE IF NOT EXISTS IDN_AUTH_USER (
             USER_ID VARCHAR(255) NOT NULL,
             USER_NAME VARCHAR(255) NOT NULL,
@@ -200,7 +200,7 @@ Following are the sample configuration for each database type.
             PRIMARY KEY (USER_ID),
             CONSTRAINT USER_STORE_CONSTRAINT UNIQUE (USER_NAME, TENANT_ID, DOMAIN_NAME, IDP_ID)
         )DEFAULT CHARACTER SET latin1;
-        
+
         CREATE TABLE IF NOT EXISTS IDN_AUTH_WAIT_STATUS (
             ID              INTEGER AUTO_INCREMENT NOT NULL,
             TENANT_ID       INTEGER                NOT NULL,
@@ -216,23 +216,24 @@ Following are the sample configuration for each database type.
         CREATE INDEX IDX_IDN_AUTH_SESSION_TIME ON IDN_AUTH_SESSION_STORE (TIME_CREATED);
         CREATE INDEX IDX_IDN_AUTH_SSTR_ST_OP_ID_TM ON IDN_AUTH_SESSION_STORE (OPERATION, SESSION_TYPE, SESSION_ID, TIME_CREATED);
         CREATE INDEX IDX_IDN_AUTH_SSTR_ET_ID ON IDN_AUTH_SESSION_STORE (EXPIRY_TIME, SESSION_ID);
-        
+
         -- IDN_AUTH_TEMP_SESSION_STORE --
         CREATE INDEX IDX_IDN_AUTH_TMP_SESSION_TIME ON IDN_AUTH_TEMP_SESSION_STORE (TIME_CREATED);
 
         -- IDN_AUTH_USER --
         CREATE INDEX IDX_AUTH_USER_UN_TID_DN ON IDN_AUTH_USER (USER_NAME, TENANT_ID, DOMAIN_NAME);
         CREATE INDEX IDX_AUTH_USER_DN_TOD ON IDN_AUTH_USER (DOMAIN_NAME, TENANT_ID);
-        
+
         -- IDN_AUTH_USER_SESSION_MAPPING --
         CREATE INDEX IDX_USER_ID ON IDN_AUTH_USER_SESSION_MAPPING (USER_ID);
         CREATE INDEX IDX_SESSION_ID ON IDN_AUTH_USER_SESSION_MAPPING (SESSION_ID);
-        
+
         -- IDN_AUTH_SESSION_APP_INFO --
         CREATE INDEX IDX_AUTH_SAI_UN_AID_SID ON IDN_AUTH_SESSION_APP_INFO (APP_ID, SUBJECT, SESSION_ID);
         ```
-            
+
 ??? Example "DB2"
+
     1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.WSO2SessionDB]
@@ -244,8 +245,8 @@ Following are the sample configuration for each database type.
         jmxEnabled = false
         ```
 
-    2.  Execute the following scripts against the created database.    
-    
+    2.  Execute the following scripts against the created database.
+
         ```
         CREATE TABLE IDN_AUTH_SESSION_STORE (
             SESSION_ID VARCHAR (100) NOT NULL,
@@ -337,7 +338,7 @@ Following are the sample configuration for each database type.
         /
         CREATE INDEX IDX_IDN_AUTH_SSTR_ET_ID ON IDN_AUTH_SESSION_STORE (EXPIRY_TIME, SESSION_ID)
         /
-        
+
         -- IDN_AUTH_TEMP_SESSION_STORE --
         CREATE INDEX IDX_IDN_AUTH_TMP_SESSION_TIME ON IDN_AUTH_TEMP_SESSION_STORE (TIME_CREATED)
         /
@@ -347,20 +348,20 @@ Following are the sample configuration for each database type.
         /
         CREATE INDEX IDX_AUTH_USER_DN_TOD ON IDN_AUTH_USER (DOMAIN_NAME, TENANT_ID)
         /
-        
+
         -- IDN_AUTH_USER_SESSION_MAPPING --
         CREATE INDEX IDX_USER_ID ON IDN_AUTH_USER_SESSION_MAPPING (USER_ID)
         /
         CREATE INDEX IDX_SESSION_ID ON IDN_AUTH_USER_SESSION_MAPPING (SESSION_ID)
         /
-        
+
         -- IDN_AUTH_SESSION_APP_INFO --
         CREATE INDEX IDX_AUTH_SAI_UN_AID_SID ON IDN_AUTH_SESSION_APP_INFO (APP_ID, LOWER(SUBJECT), SESSION_ID)
         /
-        ```   
-
+        ```
 
 ??? Example "MSSQL"
+
     1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.WSO2SessionDB]
@@ -372,8 +373,8 @@ Following are the sample configuration for each database type.
         jmxEnabled = false
         ```
 
-    2.  Execute the following scripts against the created database.    
-    
+    2.  Execute the following scripts against the created database.
+
         ```
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_AUTH_SESSION_STORE]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_AUTH_SESSION_STORE (
@@ -452,23 +453,24 @@ Following are the sample configuration for each database type.
         CREATE INDEX IDX_IDN_AUTH_SESSION_TIME ON IDN_AUTH_SESSION_STORE (TIME_CREATED);
         CREATE INDEX IDX_IDN_AUTH_SSTR_ST_OP_ID_TM ON IDN_AUTH_SESSION_STORE (OPERATION, SESSION_TYPE, SESSION_ID, TIME_CREATED);
         CREATE INDEX IDX_IDN_AUTH_SSTR_ET_ID ON IDN_AUTH_SESSION_STORE (EXPIRY_TIME, SESSION_ID);
-        
+
         -- IDN_AUTH_TEMP_SESSION_STORE --
         CREATE INDEX IDX_IDN_AUTH_TMP_SESSION_TIME ON IDN_AUTH_TEMP_SESSION_STORE (TIME_CREATED);
 
         -- IDN_AUTH_USER --
         CREATE INDEX IDX_AUTH_USER_UN_TID_DN ON IDN_AUTH_USER (USER_NAME, TENANT_ID, DOMAIN_NAME);
         CREATE INDEX IDX_AUTH_USER_DN_TOD ON IDN_AUTH_USER (DOMAIN_NAME, TENANT_ID);
-        
+
         -- IDN_AUTH_USER_SESSION_MAPPING --
         CREATE INDEX IDX_USER_ID ON IDN_AUTH_USER_SESSION_MAPPING (USER_ID);
         CREATE INDEX IDX_SESSION_ID ON IDN_AUTH_USER_SESSION_MAPPING (SESSION_ID);
 
         -- IDN_AUTH_SESSION_APP_INFO --
         CREATE INDEX IDX_AUTH_SAI_UN_AID_SID ON IDN_AUTH_SESSION_APP_INFO (APP_ID, SUBJECT, SESSION_ID);
-        ```   
+        ```
 
 ??? Example "Oracle"
+
     1.  Configure the `<IS_HOME>/repository/conf/deployment.toml` file.
         ```
         [datasource.WSO2SessionDB]
@@ -480,8 +482,8 @@ Following are the sample configuration for each database type.
         jmxEnabled = false
         ```
 
-    2.  Execute the following scripts against the created database.    
-    
+    2.  Execute the following scripts against the created database.
+
         ```
         CREATE TABLE IDN_AUTH_SESSION_STORE (
             SESSION_ID VARCHAR (100) NOT NULL,
@@ -564,7 +566,7 @@ Following are the sample configuration for each database type.
             EXPIRE_TIME     TIMESTAMP,
             PRIMARY KEY (ID),
             CONSTRAINT IDN_AUTH_WAIT_STATUS_KEY UNIQUE (LONG_WAIT_KEY)
-        )   
+        )
         /
         CREATE SEQUENCE IDN_AUTH_WAIT_STATUS_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
@@ -587,7 +589,7 @@ Following are the sample configuration for each database type.
         /
         CREATE INDEX IDX_IDN_AUTH_SSTR_ET_ID ON IDN_AUTH_SESSION_STORE (EXPIRY_TIME, SESSION_ID)
         /
-        
+
         -- IDN_AUTH_TEMP_SESSION_STORE --
         CREATE INDEX IDX_IDN_AUTH_TMP_SESSION_TIME ON IDN_AUTH_TEMP_SESSION_STORE (TIME_CREATED)
         /
@@ -597,23 +599,23 @@ Following are the sample configuration for each database type.
         /
         CREATE INDEX IDX_AUTH_USER_DN_TOD ON IDN_AUTH_USER (DOMAIN_NAME, TENANT_ID)
         /
-        
+
         -- IDN_AUTH_USER_SESSION_MAPPING --
         CREATE INDEX IDX_USER_ID ON IDN_AUTH_USER_SESSION_MAPPING (USER_ID)
         /
         CREATE INDEX IDX_SESSION_ID ON IDN_AUTH_USER_SESSION_MAPPING (SESSION_ID)
         /
-        
+
         -- IDN_AUTH_SESSION_APP_INFO --
         CREATE INDEX IDX_AUTH_SAI_UN_AID_SID ON IDN_AUTH_SESSION_APP_INFO (APP_ID, LOWER(SUBJECT), SESSION_ID)
         /
-        ``` 
+        ```
 
 ---
 
 ## Advanced database configurations
 
-Apart from above basic configurations, WSO2 Identity Server supports advanced database 
+Apart from above basic configurations, WSO2 Identity Server supports advanced database
 configurations. Add the following configurations to the `<IS_HOME>/repository/conf/
 deployment.toml` file under the `[datasource.WSO2SessionDB.pool_options]` tag.
 
@@ -674,22 +676,22 @@ deployment.toml` file under the `[datasource.WSO2SessionDB.pool_options]` tag.
 
 {% include "../../../../includes/db-config-table.md" %}
 
-Once when we separate out the session database from `WSO2IdentityDB`, we need to add the 
-following configuration to the `deployment.toml` file to specify WSO2 Identity Server to 
+Once when we separate out the session database from `WSO2IdentityDB`, we need to add the
+following configuration to the `deployment.toml` file to specify WSO2 Identity Server to
 use a separate datasource instead of the default `IDENTITY_DB`.
 
-```
+```toml
 [session]
 data_source="jdbc/WSO2SessionDB"
-```  
+```
 
 !!! note "Sample Config"
-    If you have correctly configured, the `deployment.toml` file should have an entry 
-    similar to the following config. 
-    
-    The following sample configuration is for a separate **PostgreSQL** consent 
+    If you have correctly configured, the `deployment.toml` file should have an entry
+    similar to the following config.
+
+    The following sample configuration is for a separate **PostgreSQL** consent
     management database.
-    
+
     ```
     [datasource.WSO2SessionDB]
     id = "WSO2SessionDB"
@@ -707,7 +709,7 @@ data_source="jdbc/WSO2SessionDB"
     minIdle = 5
     validationInterval="30000"
     defaultAutoCommit=false
-    
+
     [session]
     data_source="jdbc/WSO2SessionDB"
-    ``` 
+    ```
