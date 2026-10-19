@@ -265,6 +265,13 @@ Make sure that the permission for signing in to the WSO2 Identity Server Managem
 
 Do not use the super admin or any high-privileged user credentials when invoking WSO2 Identity Server APIs. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
 
+### Service providers that use the client credentials grant
+
+Access tokens issued to a service provider with the client credentials grant can get any management API scope that the user who created the service provider can use. This applies if the service provider is marked as **Management Application**. To limit this:
+
+- Create such service providers with a dedicated user that has only the required permissions, not with the super admin.
+- Regularly review service providers that use the client credentials grant. Disable the grant on those that do not need it.
+
 ---
 
 ## Log rotation and monitoring
