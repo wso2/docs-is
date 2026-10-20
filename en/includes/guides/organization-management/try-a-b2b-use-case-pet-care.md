@@ -183,7 +183,10 @@ The following configurations are essential for the application to work seamlessl
         </tr>
     </table>
 
-2. Click **Update** and take note of the `client_id` and `client_secret` generated for your application.
+2. Click **Update** and take note of the `client_id` generated for your application.
+
+    !!! note
+        Since the application is configured as a **public client**, no client secret is generated. Public clients are applications that cannot securely store credentials, such as single-page applications (SPAs) or mobile apps.
 
 #### User Attribute Configurations
 
@@ -503,9 +506,11 @@ To set up the frontend application,
     HOSTED_URL=http://localhost:3002
     SHARED_APP_NAME="Pet Care App"
     CLIENT_ID=<CLIENT_ID_OF_PET_CARE_APP>
-    CLIENT_SECRET=<CLIENT_SECRET_OF_PET_CARE_APP>
     NODE_TLS_REJECT_UNAUTHORIZED=0
     ```
+
+    !!! note
+        The `CLIENT_SECRET` is not required in the `.env` file since the application is configured as a **public client**.
 
 ### Step 4: Start the Application
 
