@@ -701,7 +701,7 @@ paths:
                     uri: https://myextension.com/external/token
                     authentication:
                       properties:
-                        token: 346dfbb5-6a8c-447a-9aaa-88fa2dd95962
+                        accessToken: 346dfbb5-6a8c-447a-9aaa-88fa2dd95962
                       type: BEARER
                     allowedHeaders:
                       - x-geo-location
