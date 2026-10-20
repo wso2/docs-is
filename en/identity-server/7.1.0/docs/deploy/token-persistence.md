@@ -16,7 +16,7 @@ The flow of synchronous token persistence is as follows:
 4. Alternatively, if an existing access token is not found, the OAuth2 component creates a new access token and persists it in the database using the same thread. Once it is persisted, the new token is returned to the client.
 
 !!! note "Synchronous token persistence configurations"
-    By default synchronous token persistence is enabled in WSO2 Identity Server 5.9.0 onwards. To indicate the number of times to retry in the event of a `CONN_APP_KEY` violation when storing the access token, navigate to file `<IS_HOME>/repository/conf/deployment.toml` and add the following configuration.
+    By default, synchronous token persistence is enabled in WSO2 Identity Server 5.9.0 onwards. To indicate the number of times to retry in the event of a `CONN_APP_KEY` violation when storing the access token, navigate to file `<IS_HOME>/repository/conf/deployment.toml` and add the following configuration.
 
     ```
     [oauth.token_generation]
