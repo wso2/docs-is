@@ -17,9 +17,9 @@ authenticate users with their Microsoft accounts.
 You need to register WSO2 Identity Server as an OAuth2.0 application on Microsoft Entra ID.
 
 !!! note
-    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app){:target="_blank"}.
+    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/){:target="_blank"} using an account with administrator permission.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) using an account with administrator permission.
 
     !!! note
         You must use an account in the same Microsoft 365 subscription (tenant) with which you intend to register the app.
@@ -30,7 +30,7 @@ You need to register WSO2 Identity Server as an OAuth2.0 application on Microsof
 
 4. Provide the required information for app registration.
 
-   ![Register an application on the Microsoft Entra admin center]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Register an application on the Microsoft Entra admin center](../assets/img/guides/idp/microsoft-idp/register-an-application.png)
 
     <table>
         <tr>
@@ -47,7 +47,7 @@ You need to register WSO2 Identity Server as an OAuth2.0 application on Microsof
         </tr>
         <tr>
             <td>Redirect URI</td>
-            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>{{product_url_format}}/commonauth</code></td>
+            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>https://localhost:9443/commonauth</code></td>
         </tr>
     </table>
 
