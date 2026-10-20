@@ -69,14 +69,15 @@ Both templates detect agents that identify themselves with [Web Bot Auth](#web-b
 
 ## How it works
 
-Both templates call `detectAgent(context)` in `onLoginRequest`. The default `detectAgent()` returns `true` when the request has a `Signature-Agent` header, or a `Signature-Input` header that contains `web-bot-auth`:
+Both templates call `detectAgent(context)` in `onLoginRequest`. The default `detectAgent()` returns `true` when the request has a `Signature-Agent` header, or a `Signature-Input` header with the `tag="web-bot-auth"` parameter:
 
 ```js
 var detectAgent = function (context) {
     // Header names are lower-case.
     var headers = context.request.headers;
     var signatureInput = String(headers['signature-input'] || '');
-    return !!headers['signature-agent'] || signatureInput.indexOf('web-bot-auth') >= 0;
+    // Match the tag parameter exactly, e.g. sig1=(...);tag="web-bot-auth".
+    return !!headers['signature-agent'] || /;\s*tag="web-bot-auth"\s*(;|,|$)/.test(signatureInput);
 };
 ```
 
