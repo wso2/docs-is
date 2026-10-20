@@ -63,9 +63,9 @@ Both templates detect agents that identify themselves with [Web Bot Auth](#web-b
     3. Click **Confirm** to replace any existing script with the selected predefined script.
     {% endif %}
 
-{{asgardeo_auth_script_warning}}
-
 4. Extend `detectAgent()` if needed, and click **Update** to confirm.
+
+{{asgardeo_auth_script_warning}}
 
 ## How it works
 
