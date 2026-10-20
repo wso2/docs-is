@@ -17,9 +17,9 @@ authenticate users with their Microsoft accounts.
 You need to register WSO2 Identity Server as an OAuth2.0 application on Microsoft Entra ID.
 
 !!! note
-    For detailed instructions, you can follow the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
+    For detailed instructions, you can follow the <a href="https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app" target="_blank">Microsoft documentation</a>.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) using an account with administrator permission.
+1. Sign in to the <a href="https://entra.microsoft.com/" target="_blank">Microsoft Entra admin center</a> using an account with administrator permission.
 
     !!! note
         You must use an account in the same Microsoft 365 subscription (tenant) with which you intend to register the app.
