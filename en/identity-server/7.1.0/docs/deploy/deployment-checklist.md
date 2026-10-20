@@ -18,7 +18,9 @@
                          <li>Network-level security</li>
                     </ul>
                     <b> Related Topics </b>
+                    <ul>
                     <li><a href="{{base_path}}/deploy/security/security-guidelines/">Security Guidelines for Production Deployment</a></li>
+                    </ul>
                </td>
           </tr>
           <tr class="even">
@@ -26,7 +28,9 @@
                <td>
                     By default, WSO2 Identity Server identifies the hostname of the current machine through the Java API. However, this value sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname by setting the relevant parameter in the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file. <br />
                     <b> Related Topics </b>
+                    <ul>
                     <li><a href="{{base_path}}/deploy/change-the-hostname">Change the hostname</a></li>
+                    </ul>
                </td>
           </tr>
           <tr class="even">
@@ -56,7 +60,9 @@
                <td>
                     WSO2 Identity Server has additional guidelines for optimizing the performance of product-specific features. <br />
                     <b>Related Topics</b>
+                    <ul>
                     <li><a href="{{base_path}}/deploy/performance/performance-tuning-recommendations">Performance Tuning Recommendations</a> </li>
+                    </ul>
                </td>
           </tr>
           <tr class="odd">
