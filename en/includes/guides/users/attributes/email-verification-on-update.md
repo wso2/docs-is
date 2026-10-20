@@ -225,7 +225,58 @@ the verified email address will also be set as the primary email.
 
 ## Resend email verification
 
-Run the following curl command in case you want to resend the email verification.
+{% if product_name == "WSO2 Identity Server" %}
+### By a non-privileged user
+
+Users can resend the email verification by executing the following API request.
+{% endif %}
+
+!!! abstract ""
+
+    === "Request format"
+
+        ```curl
+        curl -X POST https://{{ host_name }}/api/identity/user/v1.0/me/resend-code
+        -H "Authorization: Bearer <access_token>"
+        -H "Content-Type: application/json" \
+        -d '{
+            "properties": [{
+                "key":"RecoveryScenario",
+                "value": <recovery_scenario>
+                }]
+            }'
+        ```
+    === "Sample request"
+
+        ```curl
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/me/resend-code
+        -H "Authorization: Bearer <access_token>"
+        -H "Content-Type: application/json" \
+        -d '{
+            "properties": [{
+                "key":"RecoveryScenario",
+                "value":"EMAIL_VERIFICATION_ON_UPDATE"
+                }]
+            }'
+        ```
+    The verification scenario should be specified in the properties parameter of the request body as follows :
+    ```
+    "properties": [{"key": "RecoveryScenario", "value": "EMAIL_VERIFICATION_ON_UPDATE"}]
+    ```
+    - `EMAIL_VERIFICATION_ON_UPDATE`: Used when verifying a newly updated email address for a user. </br>
+    - `EMAIL_VERIFICATION_ON_VERIFIED_LIST_UPDATE`: Used when updating the list of verified email addresses for a
+    user.
+    ---
+
+    **Response**
+    ```curl
+    HTTP/1.1 201 Created
+    ```
+
+{% if product_name == "WSO2 Identity Server" %}
+### By a privileged user
+
+Privileged users can resend the email verification on behalf of a user by executing the following API request.
 
 !!! abstract ""
 
@@ -248,8 +299,8 @@ Run the following curl command in case you want to resend the email verification
         ```
     === "Sample request"
 
-        ```
-        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/resend-code 
+        ```curl
+        curl -X POST https://{{ host_name_example }}/api/identity/user/v1.0/resend-code
         -H "Authorization: Bearer <access_token>"
         -H "Content-Type: application/json" \
         -d '{
@@ -268,12 +319,16 @@ Run the following curl command in case you want to resend the email verification
     "properties": [{"key": "RecoveryScenario", "value": "EMAIL_VERIFICATION_ON_UPDATE"}]
     ```
     - `EMAIL_VERIFICATION_ON_UPDATE`: Used when verifying a newly updated email address for a user. </br>
-    - `EMAIL_VERIFICATION_ON_VERIFIED_LIST_UPDATE`: Used when updating the list of verified email addresses for a 
+    - `EMAIL_VERIFICATION_ON_VERIFIED_LIST_UPDATE`: Used when updating the list of verified email addresses for a
     user.
     ---
-    
+
     **Response**
     ```curl
     HTTP/1.1 201 Created
     ```
+{% if is_version >= "7.2.0" %}
+For more details, see the [Verification Code Management API]({{base_path}}/apis/verification-code-management-rest-api/).
+{% endif %}
+{% endif %}
 
