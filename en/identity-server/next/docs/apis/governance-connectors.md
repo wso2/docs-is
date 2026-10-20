@@ -135,6 +135,14 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | Suspend idle user accounts   | suspension.notification.enable   | Lock user account after a given idle period. |
     | Allowed idle time span in days   | suspension.notification.account.disable.delay   | Time period in days before locking the user account. |
     | Alert sending time periods in days   | suspension.notification.delays   | Send warning alerts to users before locking the account after each period. Comma-separated multiple values accepted. |
+    | Alert date format   | suspension.notification.date.format   | Date format of the suspension date in the idle account reminder email. Examples: dd-MM-yyyy, MM-dd-yyyy, yyyy/MM/dd. |
+
+    {% if is_version == "7.3.0" %}
+    !!! info
+        The `suspension.notification.date.format` property is available
+        in WSO2 Identity Server 7.3.0 from update level **7.3.0.<TBD>**
+        onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+    {% endif %}
 
     **Account Disable**
     
