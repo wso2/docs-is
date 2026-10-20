@@ -133,7 +133,7 @@ To register an API resource,
 Applications, by default, do not have permissions to use APIs. Administrators can selectively grant authorization for applications to use selected APIs and their scopes. Hence, users logging into the application will have access to that API resource provided they are assigned to a role that grants the necessary permissions.
 
 !!! note
-    `internal_login` is an exception to this rule and is automatically granted to any application that requests it, without explicit authorization.
+    `internal_login` is an exception to this rule. {{ product_name }} automatically grants `internal_login` to any application that requests it, without explicit authorization.
 
 To authorize an application to consume an API resource:
 

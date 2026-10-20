@@ -1,6 +1,6 @@
 # User Impersonation
 
-User impersonation is a feature that allows an authorized user to act as another user. This may be useful in instances where an admin or a support personnel 
+User impersonation is a feature that allows an authorized user to act as another user. This may be useful in instances where an admin or a support personnel
 wishes to perform actions on behalf of a user without requiring the credentials of the user.
 
 This guide explains how you can implement user impersonation in {{product_name}}.
@@ -20,19 +20,19 @@ You can go through the following steps to prepare your application for user impe
     name= "subject_token"
     class= "org.wso2.carbon.identity.oauth2.authz.handlers.SubjectTokenResponseTypeHandler"
     validator= "org.wso2.carbon.identity.oauth.common.SubjectTokenResponseValidator"
-        
+
     [[oauth.custom_response_type]]
     name= "id_token subject_token"
     class= "org.wso2.carbon.identity.oauth2.authz.handlers.SubjectTokenResponseTypeHandler"
     validator= "org.wso2.carbon.identity.oauth.common.SubjectTokenResponseValidator"
-        
+
     [[api_resources]]
     name= "User Impersonation"
     identifier= "system:impersonation"
     requiresAuthorization= true
     description= "Resource representation of the User Impersonation"
     type= "TENANT"
-        
+
     [[api_resources.scopes]]
     displayName = "User Impersonation Scope"
     name = "internal_user_impersonate"
@@ -42,49 +42,49 @@ You can go through the following steps to prepare your application for user impe
 - Insert a new configuration type into the `IDN_CONFIG_TYPE` table of your database. The relevant DB scripts are shown  below.
 
     ??? Example "DB2"
-    
+
         ```sql
         INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07', 'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
         ```
 
     ??? Example "H2"
-    
+
         ```sql
         INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
         ```
 
     ??? Example "MsSQL"
-    
+
         ```sql
         INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
         ```
 
     ??? Example "MYSQL"
-    
+
         ```sql
         INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
         ```
 
     ??? Example "MYSQL-Cluster"
-    
+
         ```sql
         INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
         ```
 
     ??? Example "Oracle"
-    
+
         ```sql
         INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
         ```
 
     ??? Example "OracleRac"
-    
+
         ```sql
         INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
         ```
 
     ??? Example "Postgres"
-    
+
         ```sql
         INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES ('3e5b1f91-72d8-4fbc-94d1-1b9a4f8c3b07',     'IMPERSONATION_CONFIGURATION', 'A resource type to keep the tenant impersonation preferences.');
         ```
@@ -167,7 +167,6 @@ The subject token contains information about the impersonated user and can be ex
 
     ![Subject-Token-Config]({{base_path}}/assets/img/guides/authorization/impersonation/subject-token-config.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-
 ### Step 4: Skip consent pages of applications
 
 Since the user is pre-approved to impersonate another user, we can bypass the consent prompts during both login and logout processes. To do so,
@@ -209,7 +208,7 @@ Subject token is a JWT token that contains information on both the impersonated 
     ```
 
 === "Sample Request"
-    
+
     ``` bash
     {{base_url_sample}}/oauth2/authorize?
       client_id=jVcW4oLn1Jjb2T94H4gtPV9z5Y0a
@@ -280,15 +279,15 @@ The decoded subject token may looks as follows:
 }
 ```
 
-In addition to the usual properties of an ID token, the subject token contains the `may_act` property. This property states that the user, 
+In addition to the usual properties of an ID token, the subject token contains the `may_act` property. This property states that the user,
 whose ID is in `may_act.sub` property, is authorized to impersonate the user, whose ID is in the `sub` property.
 
 !!! note
-    `internal_login` is automatically granted to any application regardless of authorization, so it is always present in the `scope` claim.
+    {{ product_name }} automatically grants `internal_login` to any application, regardless of API authorization. As a result, the `scope` claim of the subject token always includes `internal_login`.
 
 ### Acquire an impersonated access token
 
-Once a subject token is received, it can then be exchanged for an access token which represents the permissions of the impersonated user. 
+Once a subject token is received, it can then be exchanged for an access token which represents the permissions of the impersonated user.
 
 === "Request Format"
 
@@ -355,14 +354,14 @@ The decoded access token may looks as follows:
 ```
 
 Apart from the generic claims, the impersonated access token has the `act` property which clients may use to detect impersonation.
-The `act.sub` property holds the userid of the impersonator. 
+The `act.sub` property holds the userid of the impersonator.
 
 In the example above, the `sub` property holds the value of `32bc4697-ed0f-4546-8387-dcd6403e7caa`, which is the userid of the impersonated user. The `act.sub` property
 holds the value of `2d931c9d-876e-46c0-9aba-f34501879dfc`, which is the userid of the impersonator.
 
 ## Access logs related to user impersonation
 
-In order to troubleshoot issues and keep track of the actions performed by impersonators, {{product_name}} supports logs for user impersonation. Whenever a resource gets modified using an impersonated access token, an audit log is printed with the relevant details of the impersonator. 
+In order to troubleshoot issues and keep track of the actions performed by impersonators, {{product_name}} supports logs for user impersonation. Whenever a resource gets modified using an impersonated access token, an audit log is printed with the relevant details of the impersonator.
 
 {% if product_name == "WSO2 Identity Platform" %}
 
@@ -413,7 +412,7 @@ Outcome=Success | Impersonator : 0fa51985-d36d-4492-9ebd-298f9d68861f
 
 ## Notify users on impersonation
 
-When an impersonated access token is issued on behalf of a user, {{product_name}} allows you to send a notification email to the affected user. 
+When an impersonated access token is issued on behalf of a user, {{product_name}} allows you to send a notification email to the affected user.
 This enhances transparency by keeping the user informed of any actions performed on their behalf.
 
 Follow the steps below to enable/disable email notifications:
@@ -429,17 +428,17 @@ The following is the default email notification that will be sent to a user upon
 ![Impersonation-Email-Notification]({{base_path}}/assets/img/guides/authorization/impersonation/impersonation-email-notification.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 !!! note
-    
+
     If you wish to customize this email template, you may do so by navigating to **Branding** > **Email Templates**. For more information, refer to the [Customize email templates]({{base_path}}/guides/branding/customize-email-templates/) documentation.
-    
+
 ## Access organizations as an impersonator
 
 If the user is also a member of a child [organization]({{base_path}}/guides/organization-management/), the impersonator can exchange the impersonated access token to an organization access token.
 This authorizes the impersonator to access child organizations with the same permission level as the impersonated user.
 
 !!! note
-    
-    The impersonator can only access organizations in which the impersonated user is an invited member. 
+
+    The impersonator can only access organizations in which the impersonated user is an invited member.
     Learn more about [inviting users from the parent organization]({{base_path}}/guides/organization-management/invite-parent-organization-users/).
 
 The following diagram shows the detailed steps involved in receiving an impersonated organization access token.
