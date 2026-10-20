@@ -189,7 +189,6 @@ Note the following about this flow:
 - The user is a federated user.
 - The user already has a mobile number in their profile.
 - The user account is locked.
-- The user belongs to a read-only user store.
 
 ### Configure the mobile number format
 
