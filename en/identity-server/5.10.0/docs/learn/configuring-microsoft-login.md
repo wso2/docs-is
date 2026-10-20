@@ -30,7 +30,7 @@ You need to register WSO2 Identity Server as an OAuth2.0 application on Microsof
 
 4. Provide the required information for app registration.
 
-   ![Register an application on the Microsoft Entra admin center]({{base_path}}/assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Register an application on the Microsoft Entra admin center](../assets/img/guides/idp/microsoft-idp/register-an-application.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     <table>
         <tr>
@@ -47,7 +47,7 @@ You need to register WSO2 Identity Server as an OAuth2.0 application on Microsof
         </tr>
         <tr>
             <td>Redirect URI</td>
-            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>{{product_url_format}}/commonauth</code></td>
+            <td>Select <b>Web</b> as the platform and provide the URL to redirect after the login is completed.<br><b>Value:</b> <code>https://localhost:9443/commonauth</code></td>
         </tr>
     </table>
 

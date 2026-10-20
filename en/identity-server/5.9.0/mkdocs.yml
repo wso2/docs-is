@@ -741,6 +741,7 @@ nav:
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
+  - markdown.extensions.attr_list
   - markdown.extensions.codehilite:
       linenums: true
       use_pygments: false
