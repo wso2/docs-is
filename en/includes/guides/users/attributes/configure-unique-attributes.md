@@ -1,6 +1,6 @@
 # Configure unique attributes
 
-Attributes are pieces of user information. While users can have the same value for a given user attribute (e.g. Country), there can be attributes (e.g. employee ID) for which user must have a unique values. This guide explains how you can set a uniqueness check for attributes to prevent duplicate values.
+Attributes are pieces of user information. While users can have the same value for a given user attribute (e.g. Country), there can be attributes (e.g. employee ID) for which users must have unique values. This guide explains how you can set a uniqueness check for attributes to prevent duplicate values.
 
 Follow the steps below to set the uniqueness for a user attribute:
 
