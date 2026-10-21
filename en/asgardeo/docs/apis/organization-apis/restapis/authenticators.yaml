@@ -351,6 +351,12 @@ components:
         isEnabled:
           type: boolean
           example: true
+        isShared:
+          type: boolean
+          example: true
+          description: Whether this authenticator belongs to a shared connection resolved from a parent organization.
+            Present (and true) only for shared connections; omitted otherwise.
+          readOnly: true
         definedBy:
           type: string
           enum:
