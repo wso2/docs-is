@@ -93,7 +93,7 @@ To update the default SMS OTP settings:
       <tr>
         <td><code>Allow mobile number enrollment during login</code></td>
         <td>
-            If enabled, users who don't have a mobile number in their profile can add and verify one during login. This applies only when the user has already signed in with another authenticator in the same login flow. Learn more in <a href="#allow-mobile-number-enrollment-during-login">Allow mobile number enrollment during login</a>.
+            If enabled, users who don't have a mobile number can add and verify one during login. Learn more in <a href="#allow-mobile-number-enrollment-during-login">Allow mobile number enrollment during login</a>.
             This is disabled by default.
         </td>
       </tr>
@@ -124,155 +124,55 @@ When SMS OTP is enabled in the login flow of your application, the application u
 
 ## Allow mobile number enrollment during login
 
-A user who doesn't have a mobile number in their profile can add and verify one during login. This applies when SMS OTP runs as a later step, after the user has already signed in with another authenticator in the same login flow. For example, the user signs in with a username and password in the first step and SMS OTP runs in the second step.
+Users who don't have a mobile number in their profile can add and verify one during login. {{ product_name }} prompts for a mobile number only when SMS OTP comes after a step that verifies the user's credentials, such as **Username & Password**, and saves the number only after the user enters the OTP sent to it.
 
-{{ product_name }} saves the mobile number to the user's profile only after the user enters the correct OTP sent to that number.
+### Configure at organization level
 
-### Before you begin
+Mobile number enrollment is disabled by default. To enable it for all applications in your organization:
 
-- [Configure the SMS provider](../../notification-channels/configure-sms-provider.md) in {{ product_name }}.
-- Add SMS OTP to the login flow of the application as a step that comes after an authenticator that verifies the user's credentials, such as **Username & Password**. Learn how to do so in [Enable SMS OTP for an app](#enable-sms-otp-for-an-app).
+1. On the {{ product_name }} Console, go to **Connections**.
 
-### Enable mobile number enrollment
+2. Click on **SMS OTP** and go to the **Settings** tab.
 
-Mobile number enrollment during login is disabled by default. To enable it for your organization:
+3. Select the **Allow mobile number enrollment during login** checkbox.
 
-1. On the {{ product_name }} Console, go to **Connections** and select **SMS OTP**.
-2. Go to the **Settings** tab and select the **Allow mobile number enrollment during login** checkbox.
-3. Click **Update** to save your changes.
+4. Click **Update** to save your changes.
 
-!!! note
-    You can also enable this setting using the [identity governance REST API]({{base_path}}/apis/identity-governance-rest-api/). Set the `SmsOTP.EnrollUserInAuthenticationFlow` property to `true` as shown below.
+### Configure at application level
 
-    ```bash
-    curl -X PATCH \
-    '{{base_url}}/api/server/v1/identity-governance/TXVsdGkgRmFjdG9yIEF1dGhlbnRpY2F0b3Jz/connectors/c21zLW90cC1hdXRoZW50aWNhdG9y' \
-    -H 'Authorization: Bearer <access_token>' \
-    -H 'Content-Type: application/json' \
-    -d '{
-        "operation": "UPDATE",
-        "properties": [
-            {
-                "name": "SmsOTP.EnrollUserInAuthenticationFlow",
-                "value": "true"
+To turn off mobile number enrollment for a specific application when it's enabled for the organization:
+
+1. On the {{ product_name }} Console, [enable SMS OTP](#enable-sms-otp-for-an-app) for a selected application.
+2. Turn on **Conditional Authentication** by switching the toggle.
+3. Add the following authentication script.
+
+    !!! note
+        The `authenticatorParams` method has been added to `executeStep(2)`, assuming that SMS OTP is configured in step 2 of the authentication process. If you have configured SMS OTP in a different step, add the `authenticatorParams` method to the relevant step.
+
+    ``` js
+    var onLoginRequest = function (context) {
+      executeStep(1);
+      executeStep(2, {
+          authenticatorParams: {
+            local: {
+                'sms-otp-authenticator': {
+                    'enrollUserInAuthenticationFlow': 'false'
+                }
             }
-        ]
-    }'
+          }
+      }, {});
+    };
     ```
 
-### How mobile number enrollment works
+4. Click **Update** to save your changes.
 
-When mobile number enrollment is enabled, the SMS OTP step works as follows for a user who doesn't have a mobile number:
+### Configure the enrollment limit
 
-1. The user completes the earlier authentication step, for example, by entering their username and password.
-2. {{ product_name }} prompts the user to enter a mobile number.
-3. The user enters a mobile number. {{ product_name }} removes spaces and hyphens from the number and validates the number against the [mobile number format](#configure-the-mobile-number-format).
-
-    If the number isn't valid, {{ product_name }} doesn't send an OTP and shows the message `The mobile number is not valid. Enter a valid mobile number.`
-
-4. {{ product_name }} sends an OTP to the mobile number and prompts the user to enter the OTP.
-5. The user enters the OTP. If the OTP is correct, {{ product_name }} saves the number to the user's profile as the mobile number, marks the number as verified, and completes the SMS OTP step.
-
-Note the following about this flow:
-
-- {{ product_name }} doesn't save the mobile number if the user enters an incorrect OTP.
-- If {{ product_name }} can't save the mobile number to the user's profile, the SMS OTP step fails and {{ product_name }} prompts the user to enter the mobile number again with the message `The mobile number could not be added to your profile. Enter the mobile number again.` For example, this happens if the mobile number attribute is [configured as a unique attribute]({{base_path}}/guides/users/attributes/configure-unique-attributes/) and another user already has the same mobile number.
-- If the user enters the same mobile number again, {{ product_name }} treats the request as an OTP resend. The **Allowed OTP resend attempt count** setting of the SMS OTP connection applies.
-- A user can enter up to 3 different mobile numbers during a single login. Numbers that fail validation don't count towards this limit. When the user exceeds the limit, {{ product_name }} shows the message `You have entered too many mobile numbers. Restart the login to try again.` To change the limit, see [Configure the mobile number enrollment limit](#configure-the-mobile-number-enrollment-limit).
-- The login page shows these messages in the languages that the login page supports.
-
-{{ product_name }} doesn't prompt for a mobile number and the SMS OTP step works as usual in the following cases:
-
-- Mobile number enrollment is disabled for the organization or [turned off for the application](#turn-off-mobile-number-enrollment-for-an-application).
-- SMS OTP is the first authentication step.
-- The earlier steps only identified the user without verifying the user's credentials, for example, with **Identifier First**.
-- The user is a federated user.
-- The user already has a mobile number in their profile.
-- The user account is locked.
-
-### Configure the mobile number format
-
-By default, a mobile number must match the regular expression `^\+?[0-9]{7,15}$`, which accepts an optional leading `+` followed by 7 to 15 digits. {{ product_name }} validates the number after removing spaces and hyphens.
-
-To use a different format for your organization, set the `SmsOTP.MobileNumberRegex` property using the [identity governance REST API]({{base_path}}/apis/identity-governance-rest-api/). You can't configure this property from the {{ product_name }} Console.
-
-```bash
-curl -X PATCH \
-'{{base_url}}/api/server/v1/identity-governance/TXVsdGkgRmFjdG9yIEF1dGhlbnRpY2F0b3Jz/connectors/c21zLW90cC1hdXRoZW50aWNhdG9y' \
--H 'Authorization: Bearer <access_token>' \
--H 'Content-Type: application/json' \
--d '{
-    "operation": "UPDATE",
-    "properties": [
-        {
-            "name": "SmsOTP.MobileNumberRegex",
-            "value": "<regex>"
-        }
-    ]
-}'
-```
-
-!!! note
-    - If you leave `SmsOTP.MobileNumberRegex` empty, {{ product_name }} uses the default format.
-    - If the value isn't a valid regular expression, {{ product_name }} rejects all mobile numbers that users enter during login.
-    - {{ product_name }} rejects mobile numbers longer than 32 characters regardless of the configured format.
-
-### Configure the mobile number enrollment limit
-
-You can configure the following server-wide parameters of the SMS OTP authenticator in the `<IS_HOME>/repository/conf/deployment.toml` file.
-
-<table>
-  <tr>
-    <th style="width: 350px;">Parameter</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>MobileNumberEnrollmentMaxAttempts</code></td>
-    <td>
-        The maximum number of different mobile numbers that a user can enter during a single login. The value must be a positive integer. If the value isn't a positive integer, {{ product_name }} uses the default value.
-        The default value is <code>3</code>.
-    </td>
-  </tr>
-  <tr>
-    <td><code>SMSOTPMobileNumberRequestPageURL</code></td>
-    <td>
-        The path of the page that prompts users to enter a mobile number, relative to the server URL. Change this value only if you use a custom page.
-        The default value is <code>authenticationendpoint/mobile.jsp</code>.
-    </td>
-  </tr>
-</table>
-
-For example, to allow users to enter up to 5 different mobile numbers during a single login, add the following configuration and restart the server.
+By default, a user can enter up to three different mobile numbers during a single login. To change this limit, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```toml
 [authentication.authenticator.sms_otp_local.parameters]
 MobileNumberEnrollmentMaxAttempts = 5
 ```
-
-### Turn off mobile number enrollment for an application
-
-When mobile number enrollment is enabled for the organization, you can turn it off for the login flow of a specific application using a [conditional authentication]({{base_path}}/guides/authentication/conditional-auth/) script. To do so, pass the `enrollUserInAuthenticationFlow` parameter to the SMS OTP authenticator in the step that runs SMS OTP.
-
-```js
-var onLoginRequest = function(context) {
-    executeStep(1);
-    executeStep(2, {
-        authenticatorParams: {
-            local: {
-                "sms-otp-authenticator": {
-                    "enrollUserInAuthenticationFlow": "false"
-                }
-            }
-        }
-    }, {});
-};
-```
-
-!!! note
-    An application can only turn off mobile number enrollment. If mobile number enrollment is disabled for the organization, setting `enrollUserInAuthenticationFlow` to `true` in the script doesn't enable it.
-
-### Mobile number enrollment with app-native authentication
-
-If your application uses [app-native authentication]({{base_path}}/references/app-native-authentication/), the response for the SMS OTP step contains `MOBILE_NUMBER` in `requiredParams` when {{ product_name }} expects the user to enter a mobile number. Send the mobile number in the `params` of the request, the same way you send other authenticator parameters. {{ product_name }} then sends the OTP, and you send the OTP in the `OTPcode` parameter as usual.
 
 {% endif %}
