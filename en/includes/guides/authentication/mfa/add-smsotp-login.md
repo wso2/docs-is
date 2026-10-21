@@ -16,6 +16,7 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
     You can use SMS OTP for multi-factor authentication only if a previous authentication step is configured with **username and password** or another factor that can validate user credentials.
   
 ## Set up SMS OTP
+
 {{ product_name }} has some default settings for SMS OTP, which are sufficient for most cases. If required, you can change the default settings, as explained below.
 
 To update the default SMS OTP settings:
