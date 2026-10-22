@@ -140,4 +140,4 @@ Use the following **best practices** when creating a custom layout:
 
 - Add a prefix for the new CSS classes so that the newly added classes will not conflict with existing classes.
 
-- Set `cache="false"` when developing a custom layout. Be sure to remove the `cache="false"` in production code.
+- Set `compile="true"` when developing a custom layout. Be sure to remove the `compile="true"` in production code.
