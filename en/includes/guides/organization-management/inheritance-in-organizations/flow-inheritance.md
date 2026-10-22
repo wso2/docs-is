@@ -11,7 +11,7 @@ Organization administrators open the Flow Builder in the {{product_name}} Consol
 - **Revert to parent**: A child organization can revert its customizations and restore the inherited parent flow.
 
 !!! Note
-    [Connections]({{base_path}}/guides/authentication/#manage-connections) used in flows aren't inherited by child organizations.
+    [Connections]({{base_path}}/guides/authentication/#manage-connections) used in flows aren't inherited by child organizations.{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %} To make an identity provider available to child organizations, [share the identity provider]({{base_path}}/guides/organization-management/share-connections/).{% endif %}
 
 ## Customize a flow
 

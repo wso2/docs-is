@@ -912,6 +912,8 @@ nav:
               - Create application: guides/organization-management/organization-applications.md
               - Select token issuer: guides/organization-management/select-token-issuer-for-organization-apps.md
             - Manage conflicts in organizations: guides/organization-management/manage-conflicts-in-organizations.md
+          - Manage organization connections:
+            - Share identity providers: guides/organization-management/share-connections.md
           - Authorize API resources:
             - Overview: guides/organization-management/api-authorization-overview.md
             - Authorize applications to API resources: guides/organization-management/api-authorization-for-b2b.md
