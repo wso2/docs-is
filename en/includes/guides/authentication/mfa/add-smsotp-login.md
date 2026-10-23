@@ -9,13 +9,14 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 ## Prerequisites
 
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
-- [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with a mobile number to which the user will receive the OTP.
+- [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with a mobile number to which the user will receive the OTP.{% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %} Alternatively, [allow mobile number enrollment during login](#allow-mobile-number-enrollment-during-login) so that users without a mobile number can add one when they sign in.{% endif %}
 - [Configure the SMS provider](../../notification-channels/configure-sms-provider.md) in {{product_name}}.
 
 !!! note "Info"
     You can use SMS OTP for multi-factor authentication only if a previous authentication step is configured with **username and password** or another factor that can validate user credentials.
   
 ## Set up SMS OTP
+
 {{ product_name }} has some default settings for SMS OTP, which are sufficient for most cases. If required, you can change the default settings, as explained below.
 
 To update the default SMS OTP settings:
@@ -89,6 +90,15 @@ To update the default SMS OTP settings:
         </td>
       </tr>
       {% endif %}
+      {% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %}
+      <tr>
+        <td><code>Allow mobile number enrollment during login</code></td>
+        <td>
+            If enabled, users who don't have a mobile number can add and verify one during login. Learn more in <a href="#allow-mobile-number-enrollment-during-login">Allow mobile number enrollment during login</a>.
+            This is disabled by default.
+        </td>
+      </tr>
+      {% endif %}
     </table>
     {% endif %}
 
@@ -110,3 +120,60 @@ When SMS OTP is enabled in the login flow of your application, the application u
 3. If required, the user can request {{ product_name }} to resend the OTP. The new OTP invalidates the previously sent OTP.
 4. The user enters the OTP and clicks **Continue**.
 5. If the authentication is successful, the user can access the application.
+
+{% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %}
+
+## Allow mobile number enrollment during login
+
+Users who don't have a mobile number in their profile can add and verify one during login. {{ product_name }} prompts for a mobile number only when SMS OTP comes after a step that verifies the user's credentials, such as **Username & Password**, and saves the number only after the user enters the OTP sent to it.
+
+### Configure at organization level
+
+Mobile number enrollment is disabled by default. To enable it for all applications in your organization:
+
+1. On the {{ product_name }} Console, go to **Connections**.
+
+2. Click on **SMS OTP** and go to the **Settings** tab.
+
+3. Select the **Allow mobile number enrollment during login** checkbox.
+
+4. Click **Update** to save your changes.
+
+### Configure at application level
+
+To turn off mobile number enrollment for a specific application when it's enabled for the organization:
+
+1. On the {{ product_name }} Console, [enable SMS OTP](#enable-sms-otp-for-an-app) for a selected application.
+2. Turn on **Conditional Authentication** by switching the toggle.
+3. Add the following authentication script.
+
+    !!! note
+        The `authenticatorParams` method has been added to `executeStep(2)`, assuming that SMS OTP is configured in step 2 of the authentication process. If you have configured SMS OTP in a different step, add the `authenticatorParams` method to the relevant step.
+
+    ``` js
+    var onLoginRequest = function (context) {
+      executeStep(1);
+      executeStep(2, {
+          authenticatorParams: {
+            local: {
+                'sms-otp-authenticator': {
+                    'enrollUserInAuthenticationFlow': 'false'
+                }
+            }
+          }
+      }, {});
+    };
+    ```
+
+4. Click **Update** to save your changes.
+
+### Configure the enrollment limit
+
+By default, a user can enter up to three different mobile numbers during a single login. To change this limit, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+```toml
+[authentication.authenticator.sms_otp_local.parameters]
+MobileNumberEnrollmentMaxAttempts = 5
+```
+
+{% endif %}
