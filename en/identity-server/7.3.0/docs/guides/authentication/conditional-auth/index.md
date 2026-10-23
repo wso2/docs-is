@@ -63,6 +63,7 @@ The available templates are categorized as follows:
 - Environment
 - Analytics
 - IdP
+- AI Agents
 
 The pre-defined templates are listed below.
 
@@ -77,6 +78,7 @@ The pre-defined templates are listed below.
 | [New-Device-Based]({{base_path}}/guides/authentication/conditional-auth/new-device-based-template/) | This login flow sends an email notification and/or prompts two-factor authentication for users who are logged in from a previously unused device. |
 | [IP-Based]({{base_path}}/guides/authentication/conditional-auth/ip-based-template/) | This login flow prompts two-factor authentication for users who log in from outside the given IP range. |
 | [OTP Retry and Resend Limits]({{base_path}}/guides/authentication/conditional-auth/otp-retry-resend-limits/) | Limit how many times users can resend an OTP or enter a wrong OTP per application using the conditional authentication script. |
+| [Detect AI agents]({{base_path}}/guides/authentication/conditional-auth/detect-ai-agents/) | Block AI agents or require a human-only verification step when a sign-in request is identified as coming from an AI agent. |
 | [Passkey-Progressive-Enrollment-Based]({{base_path}}/guides/authentication/conditional-auth/passkey-progressive-enrollment-based-template/) | This login flow permits users to seamlessly enroll their passkey on-the-fly, when Passkey is designated as the first authentication factor. |
 
 If required, you can also use the script editor to introduce new functions and fields to an authentication script based on your requirement. See the instructions on [writing a custom authentication script]({{base_path}}/guides/authentication/conditional-auth/write-your-first-script/).
