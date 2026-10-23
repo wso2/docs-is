@@ -36,11 +36,14 @@ To create them,
 
 5. Take note of the **client ID** and **client secret** of each client, and the **authorization endpoint** and **token endpoint** URLs of your Incode environment.
 
-{% if product_name == "WSO2 Identity Platform" %}
 !!! note
 
-    If your organization uses a [custom domain]({{base_path}}/guides/branding/configure-custom-domains/), use it in the redirect URIs in place of the default host.
-{% endif %}
+    {% if product_name == "WSO2 Identity Platform" %}If your organization uses a [custom domain]({{base_path}}/guides/branding/configure-custom-domains/), use it in the redirect URIs in place of the default host.{% endif %}
+
+    If you configured custom **Self Signup** or **Recovery Portal** URLs in the [advanced branding preferences]({{base_path}}/guides/branding/configure-ui-branding/#advanced-preferences), the flows redirect to those URLs instead. Register them in place of the `/accounts/register` and `/accounts/recovery` redirect URIs:
+
+    - The onboarding client needs the **Self Signup** URL for self-registration and the **Recovery Portal** URL for invited user registration.
+    - The authentication client needs the **Recovery Portal** URL for password recovery.
 
 ## Create the Incode attributes in {{ product_name }}
 
