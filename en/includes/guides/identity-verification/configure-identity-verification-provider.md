@@ -23,7 +23,6 @@ Follow the steps below to add an IDVP to {{product_name}}:
     - [Identity verification with Onfido](https://github.com/wso2-extensions/identity-verification-onfido/blob/main/docs/config.md)
     {% endif %}
 
-
 ## Manage your Identity Verification Provider
 
 This section provides instructions on how to manage the created IDVPs.
@@ -84,6 +83,3 @@ To delete an IDVP:
     ![idvp-delete]({{base_path}}/assets/img/guides/identity-verification/delete-idvp.png)
 
 4. Click **Confirm**.
-
-
-
