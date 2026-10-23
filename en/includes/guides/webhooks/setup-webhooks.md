@@ -236,6 +236,33 @@ Verify the signature to confirm that {{product_name}} sent the event and that no
 2. **Compute HMAC:** Generate an HMAC-SHA256 hash of the raw request body using your secret as the key.  
 3. **Compare Signatures:** Compare the computed HMAC with the value in the {% if product_name == "WSO2 Identity Platform" %} <code>x-hub-signature</code> {% else %} <code>x-wso2-event-signature</code> {% endif %} header. If they match, the event is authentic.
 
+{% if product_name == "WSO2 Identity Platform" %}
+
+## Event delivery and retries
+
+{{product_name}} delivers the events of each event type to your endpoint in the order they occur. Your endpoint must respond within 10 seconds. {{product_name}} treats a slower response as a failed delivery.
+
+The HTTP status code of your endpoint's response decides what {{product_name}} does next:
+
+| Response from your endpoint | Action by {{product_name}} |
+| --- | --- |
+| <code>2xx</code> | Marks the event as delivered and sends the next event. |
+| <code>429</code>, <code>500</code>, <code>502</code>, <code>503</code>, <code>504</code>, or no response within 10 seconds | Retries the same event. See [Retry schedule](#retry-schedule). |
+| <code>400</code>, <code>401</code>, <code>403</code>, <code>404</code>, <code>405</code>, <code>406</code>, <code>408</code>, <code>409</code>, <code>410</code>, <code>413</code>, <code>414</code>, <code>415</code>, <code>421</code>, <code>422</code> | Discards the event without retrying and sends the next event. |
+| Any other status code | Stops delivering events of that event type to your endpoint. See [Troubleshoot issues](#troubleshoot-issues) to resume delivery. |
+
+### Retry schedule
+
+{{product_name}} waits 3 seconds before the first retry and doubles the wait after each failed attempt (3, 6, 12, 24 seconds, and so on). The wait stops growing at 1 hour. Each wait varies randomly by up to 10%.
+
+{{product_name}} retries an event for up to 24 hours. If delivery still fails after 24 hours, {{product_name}} stops delivering events of that event type to your endpoint.
+
+While {{product_name}} retries an event, later events of the same event type wait until the retried event succeeds or the retry period ends. Events of other event types continue to reach your endpoint.
+
+Each retry carries the same <code>jti</code> value as the original attempt. Your endpoint can receive the same event more than once, for example when your endpoint processes an event but responds after 10 seconds. Use the <code>jti</code> value to detect duplicate events.
+
+{% endif %}
+
 ## Test your webhook
 
 After you configure and activate your webhook, test it by triggering the specific flow for the event type you subscribed to. This step confirms that your webhook endpoint correctly receives notifications in real-world scenarios.
@@ -279,9 +306,17 @@ If your webhook isn't functioning as expected, consider the following common iss
           - Check your endpoint's server logs for incoming GET requests from {{product_name}}. Configure your endpoint to read the <code>hub.challenge</code> query parameter and respond with a <code>2xx</code> HTTP status code, returning the exact <code>hub.challenge</code> string in the response body. {{product_name}} delivers events only after a successful subscription.  
           - Ensure that no firewalls, security groups, or network ACLs are blocking incoming connections from [{{product_name}}'s IP ranges]({{base_path}}/references/identity-platform-outbound-ip-addresses/).  
           - If your endpoint receives the request but doesn't process it, there might be an issue with your code parsing the JSON payload or handling the <code>x-hub-signature</code> header. Review your application logs for errors.  
-          - {{product_name}} retries failed deliveries. Consistent failures show a persistent issue with your endpoint. Look at addressing them.
+          - {{product_name}} retries failed deliveries for up to 24 hours. See [Event delivery and retries](#event-delivery-and-retries) for the responses that {{product_name}} retries. Consistent failures show a persistent issue with your endpoint.
 
-3. **Event signature (HMAC) mismatch**
+3. **Events stop arriving for an event type**
+
+      - **Problem**: Your webhook is active and shows no errors, but your endpoint stops receiving events of one event type. Events of other event types still arrive.  
+      - **Cause**: Your endpoint may have responded with a status code that {{product_name}} doesn't retry or discard, or delivery may have failed for 24 hours. In both cases, {{product_name}} stops delivering events of that event type. See [Event delivery and retries](#event-delivery-and-retries).  
+      - **Solution**:  
+          - Check your endpoint's server logs for the status codes it returned, and fix the cause of the failures.  
+          - Resend the subscription request from the webhook details page in the {{product_name}} Console. {{product_name}} then resumes delivery for the event type and delivers the pending events in their original order.
+
+4. **Event signature (HMAC) mismatch**
 
       - **Problem**: Your endpoint receives events, but the <code>x-hub-signature</code> verification fails.  
       - **Cause**: You may use an incorrect secret key for HMAC computation, or you may calculate the HMAC incorrectly in your endpoint.  
@@ -290,7 +325,7 @@ If your webhook isn't functioning as expected, consider the following common iss
           - Ensure you are computing the HMAC on the raw, unmodified request body received by your endpoint, not a parsed or formatted version. Encoding issues (for example UTF-8) can also cause     mismatches.
           - Confirm you are using HMAC-SHA256, as specified by {{product_name}}.
 
-4. **Webhook unsubscription failed**
+5. **Webhook unsubscription failed**
 
       - **Problem**: Your webhook is inactive, but you observe an *unsubscription request error* next to certain event types.  
       - **Cause**: Your endpoint may not have successfully received or responded to the unsubscription verification requests for the selected event types.
@@ -299,7 +334,7 @@ If your webhook isn't functioning as expected, consider the following common iss
           - Resend the unsubscription request from the {{product_name}} Console (within the webhook's details page) and verify if your endpoint received these requests.  
           - Check your endpoint's server logs for any errors during the verification request process. Confirm that your endpoint responds with a <code>2xx</code> HTTP status code and returns the exact <code>hub.challenge</code> string in the response body.
 
-5. **Webhook receives events even if it's inactive or deleted**
+6. **Webhook receives events even if it's inactive or deleted**
 
       - **Problem**: Your webhook is inactive or deleted, but your endpoint still receives event notifications for the subscribed event types.  
       - **Cause**: Your endpoint may not have successfully received or responded to the unsubscription verification requests for the selected event types.
@@ -340,7 +375,7 @@ To maintain the security and integrity of your webhook integration, follow these
 
 - **Idempotency**:
 
-    Design your webhook endpoint to be idempotent. Processing the same event multiple times (due to retries) should have the same effect as processing it once. This approach prevents unintended side effects.
+    Design your webhook endpoint to be idempotent. Processing the same event multiple times (due to retries) should have the same effect as processing it once. This approach prevents unintended side effects. {% if product_name == "WSO2 Identity Platform" %}Use the <code>jti</code> value to detect events your endpoint already processed.{% endif %}
 
 ## Implementing webhooks for forward compatibility
 
