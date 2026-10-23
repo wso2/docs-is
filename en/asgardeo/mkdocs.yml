@@ -606,6 +606,8 @@ nav:
         - Manage:
           - Manage profile attributes: guides/customer-data/guides/manage-profile-attributes.md
           - Manage unification rules: guides/customer-data/guides/manage-unification-rules.md
+          - Configure matching confidence: guides/customer-data/guides/configure-matching-confidence.md
+          - Review profile matches: guides/customer-data/guides/review-profile-matches.md
         - Use cases:
           - Use cases: guides/customer-data/use-cases/index.md
           - Unify anonymous and registered profiles: guides/customer-data/use-cases/self-registration.md
