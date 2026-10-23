@@ -85,7 +85,7 @@
     },
 
     "multiple_client_secrets": {
-        "enabled": false,
+        "enabled": true,
         "page": []
     }
 }
