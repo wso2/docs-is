@@ -59,7 +59,7 @@ Given below is an example request payload to manage users in bulk. This request 
                "password": "smith123",
                "emails": [
                    {
-                       "value": "smith@gmail.com",
+                       "value": "smith@gmail.com"
                    },
                    {
                        "type": "work",
