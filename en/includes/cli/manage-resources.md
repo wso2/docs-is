@@ -30,6 +30,8 @@ asg apps list --format json -N
 
 ## Manage applications
 
+Use `asg apps` to create, update, export and configure applications.
+
 ### Create an application
 
 ```bash
@@ -76,6 +78,8 @@ asg apps claims --name web-portal --add http://wso2.org/claims/roles -y
 ```
 
 ## Manage API resources and MCP servers
+
+Use `asg apis` to register API resources and MCP servers, and to manage their scopes.
 
 ### Register an API resource
 
