@@ -23,7 +23,7 @@ To create them,
 
 1. On the Incode Dashboard, create the workflow or flow you want to use for onboarding. It must create an identity for the verified person, so that Incode returns the `identity_id` and `auth_overall_status` claims.
 
-2. In the left menu, under **Manage**, go to **Configurations** and open the **Authorization** tab.
+2. On the Incode Dashboard, go to **Manage** > **Configurations** and open the **Authorization** tab.
 
 3. Create a new OIDC authorization client for onboarding. Select the onboarding workflow or flow you created, and add the following redirect URI:
 
