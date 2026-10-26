@@ -96,7 +96,7 @@ A sample configuration is given below.
         <Property name="UseCaseSensitiveUsernameForCacheKeys">false</Property>
         ```
     
-3.  Download the [MySQL JDBC driver](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j) and copy the JAR (mysql-connector-j-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder.
+3.  Download the [MySQL JDBC driver](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j) and copy the JAR (mysql-connector-j-x.x.x.jar) to the `<IS_HOME>/repository/components/lib` folder. Use Connector/J 8.2.0 or later; earlier versions include the `autoDeserialize` connection property that Oracle removed in 8.2.0. If your MySQL server is 5.7, use Connector/J 8.2.0, which is the last version that supports MySQL 5.7.
           
 ---
 
