@@ -4,7 +4,7 @@ WSO2 Identity Server does not persist data in the file systems or retain or gene
 
 ## What you should back up?
 
-WSO2 Identity server recommends you to back up the following:
+WSO2 Identity Server recommends that you back up the following:
 
 - **Database backups** :
     Back up of all the databases defined in `<IS_HOME>/repository/conf/deployment.toml`.
