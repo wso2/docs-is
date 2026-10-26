@@ -9,7 +9,7 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 ## Prerequisites
 
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You can register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) provided.
-- [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with a mobile number to which the user will receive the OTP.{% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %} Alternatively, [allow mobile number enrollment during login](#allow-mobile-number-enrollment-during-login) so that users without a mobile number can add one when they sign in.{% endif %}
+- [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with a mobile number to which the user will receive the OTP.{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %} Alternatively, [allow mobile number enrollment during login](#allow-mobile-number-enrollment-during-login) so that users without a mobile number can add one when they sign in.{% endif %}
 - [Configure the SMS provider](../../notification-channels/configure-sms-provider.md) in {{product_name}}.
 
 !!! note "Info"
@@ -90,7 +90,7 @@ To update the default SMS OTP settings:
         </td>
       </tr>
       {% endif %}
-      {% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %}
+      {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %}
       <tr>
         <td><code>Allow mobile number enrollment during login</code></td>
         <td>
@@ -121,7 +121,7 @@ When SMS OTP is enabled in the login flow of your application, the application u
 4. The user enters the OTP and clicks **Continue**.
 5. If the authentication is successful, the user can access the application.
 
-{% if product_name == "WSO2 Identity Server" and is_version > "7.3.0" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0"]) %}
 
 ## Allow mobile number enrollment during login
 
@@ -167,6 +167,8 @@ To turn off mobile number enrollment for a specific application when it's enable
 
 4. Click **Update** to save your changes.
 
+{% if product_name == "WSO2 Identity Server" %}
+
 ### Configure the enrollment limit
 
 By default, a user can enter up to three different mobile numbers during a single login. To change this limit, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
@@ -175,5 +177,7 @@ By default, a user can enter up to three different mobile numbers during a singl
 [authentication.authenticator.sms_otp_local.parameters]
 MobileNumberEnrollmentMaxAttempts = 5
 ```
+
+{% endif %}
 
 {% endif %}
