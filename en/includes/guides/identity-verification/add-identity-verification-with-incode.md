@@ -143,7 +143,7 @@ The following table summarizes where to add each connection.
 | Application login | Authentication connection | A step after the first step that identifies the user, for example, step 2. |
 | Password recovery | Authentication connection | After the step that identifies the user. |
 
-In the flow builder, Incode appears as the **Incode** step under **Steps**.
+In the flow builder, Incode appears as the **Incode Verification** step under **Steps**.
 
 !!! note "Only accounts created with Incode are linked"
 
@@ -159,9 +159,9 @@ To configure the flow,
 
 1. On the {{ product_name }} Console, go to **Flows** and select **Self Registration**.
 
-2. From **Steps**, add the **Incode** step before or after the step that collects the user's username and password.
+2. From **Steps**, add the **Incode Verification** step before or after the step that collects the user's username and password.
 
-3. Select the **Incode** step, and under **Execution Properties**, select your onboarding connection as the **Connection**.
+3. Select the **Incode Verification** step, and under **Execution Properties**, select your onboarding connection as the **Connection**.
 
     ![Self-registration flow with the Incode step]({{base_path}}/assets/img/guides/identity-verification/incode/incode-self-registration-flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -185,7 +185,7 @@ The following table lists the possible outcomes.
 | Verification needs a manual review | Registration fails with the `INCODE-60004` error. |
 | Verification failed | Registration fails with the `INCODE-60003` error. |
 | The identity is already linked to an account | Registration fails with the `INCODE-60009` error before the account gets created. |
-| The user cancelled the verification | Registration fails with the `INCODE-60002` error. |
+| The user cancelled, or Incode didn't complete the verification | Registration fails with the `INCODE-60002` error. |
 
 !!! note
 
@@ -199,9 +199,9 @@ To configure the flow,
 
 1. On the {{ product_name }} Console, go to **Flows** and select **Invited User Registration**.
 
-2. From **Steps**, add the **Incode** step before the step that sets the password.
+2. From **Steps**, add the **Incode Verification** step before the step that sets the password.
 
-3. Select the **Incode** step, and under **Execution Properties**, select your onboarding connection as the **Connection**.
+3. Select the **Incode Verification** step, and under **Execution Properties**, select your onboarding connection as the **Connection**.
 
     ![Invited user registration flow with the Incode step]({{base_path}}/assets/img/guides/identity-verification/incode/incode-invited-user-registration-flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -251,7 +251,7 @@ When a user signs in, the following happens:
 
     - The Incode step must come after a step that identifies the user, and the user identifier must come from that earlier step. Otherwise, login fails with the `INCODE-65001` or `INCODE-60010` error.
     - The login step doesn't link accounts. Users whose accounts aren't linked fail with the `INCODE-60001` error.
-    - If the user cancels, fails face authentication, or Incode verifies a different identity, the application receives the `INCODE-60002`, `INCODE-60003`, or `INCODE-60008` error. If the login flow has a conditional authentication script, it can handle the failure in `onFail`.
+    - If the user cancels or Incode doesn't verify the user, the application receives the `INCODE-60002` error. If Incode reports a failed verification or verifies a different identity, it receives the `INCODE-60003` or `INCODE-60008` error. If the login flow has a conditional authentication script, it can handle the failure in `onFail`.
     - You don't need a conditional authentication script for this flow.
 
 ### Password recovery
@@ -262,9 +262,9 @@ To configure the flow,
 
 1. On the {{ product_name }} Console, go to **Flows** and select **Password Recovery**.
 
-2. From **Steps**, add the **Incode** step after the step that identifies the user.
+2. From **Steps**, add the **Incode Verification** step after the step that identifies the user.
 
-3. Select the **Incode** step, and under **Execution Properties**, select your authentication connection as the **Connection**.
+3. Select the **Incode Verification** step, and under **Execution Properties**, select your authentication connection as the **Connection**.
 
     ![Password recovery flow with the Incode step]({{base_path}}/assets/img/guides/identity-verification/incode/incode-password-recovery-flow.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -327,11 +327,13 @@ At login and during password recovery, {{ product_name }} extends the standard O
 
 ### Limitations
 
-- **Linking only for newly created accounts.** Accounts get linked only during self-registration or invited user registration. Existing accounts can't be linked later.
+- **Linking through registration.** Accounts get linked during self-registration or invited user registration. Existing accounts can't be linked through a flow; an administrator can add the link through the user federated associations API.
 
-- **Supported flow types.** The **Incode** step is only available in the self-registration, invited user registration, and password recovery flows. For login, add the authentication connection to the application's login flow.
+- **Supported flow types.** The **Incode Verification** step is only available in the self-registration, invited user registration, and password recovery flows. For login, add the authentication connection to the application's login flow.
 
-- **One onboarding connection.** {{ product_name }} checks for an identity that is already registered within the onboarding connection that runs the step. Use one onboarding connection per organization.
+- **Duplicate check per organization.** {{ product_name }} refuses an identity that is already linked through any Incode connection of the organization. The same identity can register once in each organization.
+
+- **Sub-organizations.** Registration and password recovery in a sub-organization redirect to the sub-organization's own `/accounts/register` and `/accounts/recovery` URLs, for example `.../t/{root-organization}/o/{sub-organization-id}/accounts/register`. If you share the Incode connections with sub-organizations, register these URLs on the Incode clients as well. Login doesn't need an extra redirect URI.
 
 - **App-native authentication.** The Incode login step doesn't support app-native authentication.
 
@@ -355,7 +357,7 @@ The following are the common errors you may encounter.
         </tr>
         <tr>
             <td style="white-space: nowrap;"><code>INCODE-60002</code></td>
-            <td>The user cancelled the verification.</td>
+            <td>The user cancelled the verification, or Incode didn't complete it. Incode reports both the same way.</td>
         </tr>
         <tr>
             <td style="white-space: nowrap;"><code>INCODE-60003</code></td>
