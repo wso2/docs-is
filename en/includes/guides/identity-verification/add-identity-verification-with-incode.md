@@ -247,11 +247,24 @@ When a user signs in, the following happens:
 
 3. {{ product_name }} confirms that Incode verified the same identity. This prevents a user from passing the step with another person's face.
 
+The following table lists the possible outcomes.
+
+| Result | Outcome |
+|---|---|
+| Incode verified the linked identity | The user signs in. |
+| The user cancelled, or Incode didn't verify the user | The application receives the `INCODE-60002` error. |
+| Incode returned another error, for example, because the session expired | The application receives the `INCODE-60005` error. |
+| Verification failed, or Incode didn't return a result | The application receives the `INCODE-60003` error. |
+| Incode verified a different identity | The application receives the `INCODE-60008` error. |
+| The request to Incode failed, for example, because of a wrong client secret | The application receives the standard `login_required` error. |
+| The account isn't linked to an Incode identity | Login stops on an error page with the `INCODE-60001` error, before the user goes to Incode. |
+
+The application receives these errors at its redirect URL as a standard OAuth 2.0 error response. The `error` parameter carries the error code and the `error_description` parameter carries a message that you can show to the user, for example, with an option to sign in again. If the login flow has a conditional authentication script, it can handle the failure in `onFail`.
+
 !!! note
 
-    - The Incode step must come after a step that identifies the user, and the user identifier must come from that earlier step. Otherwise, login fails with the `INCODE-65001` or `INCODE-60010` error.
-    - The login step doesn't link accounts. Users whose accounts aren't linked fail with the `INCODE-60001` error.
-    - If the user cancels or Incode doesn't verify the user, the application receives the `INCODE-60002` error. If Incode reports a failed verification or verifies a different identity, it receives the `INCODE-60003` or `INCODE-60008` error. If the login flow has a conditional authentication script, it can handle the failure in `onFail`.
+    - The Incode step must come after a step that identifies the user, and the user identifier must come from that earlier step. Otherwise, login stops on an error page with the `INCODE-65001` or `INCODE-60010` error.
+    - The login step doesn't link accounts.
     - You don't need a conditional authentication script for this flow.
 
 ### Password recovery
@@ -393,11 +406,15 @@ The following are the common errors you may encounter.
         </tr>
         <tr>
             <td style="white-space: nowrap;"><code>INCODE-65004</code></td>
-            <td>The OpenID Connect exchange with Incode failed.</td>
+            <td>The OpenID Connect exchange with Incode failed during registration or password recovery.</td>
         </tr>
         <tr>
             <td style="white-space: nowrap;"><code>INCODE-65009</code></td>
             <td>The Incode response doesn't include an identity or a verification result.</td>
+        </tr>
+        <tr>
+            <td style="white-space: nowrap;"><code>INCODE-65010</code></td>
+            <td>The Incode identity linked to the account couldn't be read.</td>
         </tr>
         <tr>
             <td style="white-space: nowrap;"><code>INCODE-65011</code></td>
