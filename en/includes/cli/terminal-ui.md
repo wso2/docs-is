@@ -4,11 +4,13 @@ The {{ product_name }} CLI includes a terminal dashboard where you can browse an
 
 ## Launch the terminal UI
 
-[Sign in]({{base_path}}/cli/authenticate/) and run the following command.
+1. [Sign in]({{base_path}}/cli/authenticate/) to the CLI.
 
-```bash
-asg tui
-```
+2. Run the following command.
+
+    ```bash
+    asg tui
+    ```
 
 Select one of the following resource areas and press `Enter`.
 
