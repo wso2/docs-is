@@ -26,7 +26,7 @@ Open it from the **Customer Data** page in the console, under **Review Tasks**.
 
 A rejection is a statement about identity, not about the data at the time. Two different people do not become the same person because one of them changed a phone number, so an attribute changing is not by itself a reason to ask again.
 
-A rejected pair is put back in front of an administrator only when a later evaluation is materially stronger than the one that was rejected. A score that is the same, lower, or drifts up slightly leaves the rejection standing.
+A rejected pair is put back in front of an administrator only when a later evaluation is materially stronger than the one that was rejected, or when a rule now agrees that did not agree when the pair was rejected — new evidence the administrator has not seen. A score that is the same, lower, or drifts up slightly leaves the rejection standing.
 
 Rejections follow their profiles: unifying a profile moves its rejections onto the surviving profile, and deleting a profile removes them.
 

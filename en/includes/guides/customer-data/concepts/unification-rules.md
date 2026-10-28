@@ -26,8 +26,8 @@ The kind of value matters even when matching is exact, because it decides how mu
 | Kind | Agreement | Disagreement |
 |---|---|---|
 | Unique identifier | Merges profiles on its own | Blocks a merge |
-| Email address | Merges profiles on its own | Counts for little — people have several |
-| Phone number | Merges profiles on its own | Counts for little |
+| Email address | Merges profiles on its own | Doesn't block a merge, but counts against it — people have several |
+| Phone number | Merges profiles on its own | Doesn't block a merge, but counts against it |
 | Date (e.g. date of birth) | Counts for little — birthdays collide | Blocks a merge |
 | Name | Counts for little on its own | Counts against the match |
 | Location / address | Counts for little on its own | Counts for little |
@@ -47,6 +47,8 @@ When a profile is created or updated, the service queues it for unification. Eve
 2. Walking the rules in priority order, the first rule whose score is high enough to count as agreeing sets the match score for the pair.
 3. The remaining rules may object. A disagreement on an attribute that blocks a merge — a different date of birth, a different unique identifier — holds the pair back for review even when another rule agrees.
 4. A single agreeing rule merges profiles on its own only where that attribute identifies a person by itself. A shared name alone is sent for review rather than merged.
+
+Steps 3 and 4 do not apply when a unique identifier matches exactly, or when any **Exact** rule agrees while **An exact match is final** is on (the default). The profiles are then unified straight away, without the other rules being consulted.
 
 The match score is then compared against the thresholds described in [Configure matching confidence]({{base_path}}/guides/customer-data/guides/configure-matching-confidence) to decide between merging automatically, sending the pair for review, or doing nothing.
 
