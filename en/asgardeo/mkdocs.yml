@@ -258,6 +258,7 @@ plugins:
   - redirects:
       redirect_maps:
         'references/grant-types-in-asgardeo.md': 'references/grant-types.md'
+        'guides/authentication/configure-jwt-bearer-grant.md': 'references/grant-types.md'
         'guides/users/manage-collaborators.md': 'guides/users/manage-administrators.md'
         'guides/users/manage-customers.md': 'guides/users/manage-users.md'
         'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey.md'
@@ -539,7 +540,6 @@ nav:
               - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Grant types:
-              - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
               - CIBA Grant: guides/authentication/configure-ciba-grant.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
