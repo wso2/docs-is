@@ -909,6 +909,11 @@ nav:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
   - WSO2 Identity Platform MCP Server: sdks/asgardeo-mcp-server.md
+  - WSO2 Identity Platform CLI:
+    - Get started with the CLI: cli/index.md
+    - Authenticate the CLI: cli/authenticate.md
+    - Manage resources with the CLI: cli/manage-resources.md
+    - Terminal UI: cli/terminal-ui.md
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
