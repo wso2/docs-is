@@ -2,7 +2,7 @@
 
 Organization onboarding allows new users to register an organization and create a user account through the **Self Registration** flow. In the **Flow Builder**, you can collect user and organization details, choose where to create the user, and configure roles to assign in the new organization.
 
-The organization where the flow runs becomes the parent of the new organization. This can be the root organization or an existing child organization.
+The organization where the flow runs becomes the parent of the newly created organization. This can be the root organization or any existing organization in the hierarchy.
 
 You can create the user using one of the following approaches:
 
@@ -12,6 +12,8 @@ You can create the user using one of the following approaches:
 !!! note
 
     Organization onboarding currently supports username and password registration. Federated sign-up and built-in KYB provider integrations are not currently supported. You can integrate a KYB service using a [flow extension]({{base_path}}/guides/flows/flow-extension-configuration/).
+
+    To send custom organization attributes to the service, place the flow extension after the organization details step and before the **End** node. In the extension's access configuration, grant **Read** access to each custom organization attribute the service needs. The values are sent in `event.organization.attributes`, using the attribute identifiers as keys. Attributes without Read access are not sent.
 
 ## Sample use case
 
@@ -32,9 +34,9 @@ The flow works as follows:
 
 Before you build the flow:
 
-- Sign in to the organization that should become the parent of the new organizations. This can be the root organization or an existing child organization.
+- Sign in to the organization that should become the parent of the new organizations.
 - [Configure an email provider]({{base_path}}/guides/notification-channels/configure-email-provider/) to send the OTP used in this example.
-- If you plan to assign roles, [share the application and its roles with all existing and future organizations]({{base_path}}/guides/organization-management/share-applications/#share-application-with-all-organizations). The role picker only offers roles available through these sharing settings. You need permission to read roles to configure this selection.
+- If you plan to assign roles, [share the application and its roles with all existing and future organizations]({{base_path}}/guides/organization-management/share-applications/#share-application-with-all-organizations). Only roles shared this way are available for selection from the role picker. You also need permission to read roles to configure role assignments.
 
 Include an **Organization Name** field in the flow. Collecting other organization attributes without an organization name does not create an organization.
 
@@ -94,9 +96,22 @@ The following image shows the option to create the user directly in the new orga
 
 ![Organization settings with the new organization selected as the user-provisioning target]({{base_path}}/assets/img/guides/organization/organization-onboarding/organization-onboarding-provisioning-options.png){: width="700" style="display: block; margin: 0;"}
 
+!!! note "If provisioning fails"
+
+    The flow attempts to undo completed provisioning steps if user or organization creation fails:
+
+    - If the user is created in the parent organization first and organization creation fails, the flow attempts to delete the user it created.
+    - If the organization is created first and user creation fails, the flow attempts to delete the new organization.
+
+    Cleanup failures are logged. A user or organization may remain if cleanup fails, so check the server logs when troubleshooting an incomplete registration. Role assignment failures do not roll back successful provisioning.
+
 ### Configure roles
 
 You can assign roles to the user in the new organization with either provisioning mode.
+
+!!! warning
+
+    Users who complete self-registration receive the roles selected here. Select only roles that grant the permissions intended for newly registered users. Assign privileged application or Console roles only if all users allowed to register through this flow should receive those permissions.
 
 1. In the **Organization** section, open **Assign roles in the new organization**.
 2. Search for and select the shared roles the user needs. You can select more than one role.
