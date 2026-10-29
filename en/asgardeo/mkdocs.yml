@@ -709,6 +709,7 @@ nav:
           - Discover applications: guides/user-self-service/discover-applications.md
           - Manage approvals: guides/user-self-service/manage-approvals.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+        - Self-service MCP server: guides/user-self-service/self-service-mcp-server.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
         - Getting started:

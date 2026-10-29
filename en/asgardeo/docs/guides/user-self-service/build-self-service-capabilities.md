@@ -28,6 +28,7 @@ Here are some capabilities you may want to enable when you implement self-servic
 Once the user logs in to the business application, you can make these capabilities available to the user from the business application itself.
 
 ## Self-service APIs
+
 You can use the following {{ product_name }} APIs to enable self-service capabilities in your business application.
 
 - SCIM/Me Endpoint
@@ -63,6 +64,9 @@ You can use the following {{ product_name }} APIs to enable self-service capabil
 - [Export user profile]({{base_path}}/apis/{{ export_user_prof }}/)
 - [Manage consent of users]({{base_path}}/apis/{{ manage_consent }}/)
 
+!!! tip
+    To let users manage their accounts through an AI agent, use the [Self-service MCP server]({{base_path}}/guides/user-self-service/self-service-mcp-server/).
+
 ## Prerequisites
 
 You need an application that [integrates login with {{ product_name }}]({{base_path}}/guides/authentication/add-login-to-apps/) over OpenID connect standards.
@@ -72,7 +76,6 @@ Learn more about registering OIDC applications on {{ product_name }}.
 - [SPA]({{base_path}}/guides/applications/register-single-page-app/)
 - [Traditional Web application]({{base_path}}/guides/applications/register-oidc-web-app/)
 - [Mobile appliction]({{base_path}}/guides/applications/register-mobile-app/)
-
 
 ## Invoke the self-service APIs
 
