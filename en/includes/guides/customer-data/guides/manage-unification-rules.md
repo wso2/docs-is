@@ -34,7 +34,6 @@ For a conceptual overview see [Unification rules]({{base_path}}/guides/customer-
 
 ![Unification Rules]({{base_path}}/assets/img/guides/customer-data/unification-rules.png){: width="auto" style="display: block; margin: 0;"}
 
----
 
 ## Reorder a rule
 
