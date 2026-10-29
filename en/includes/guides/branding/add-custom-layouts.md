@@ -215,4 +215,7 @@ Use the following best practices when creating a custom layout:
 
 - Add a prefix for the new CSS classes so that the newly added classes will not conflict with existing classes.
 
-- In your development environment, be sure to add the `cache="false"` flag as a parameter in the `<layout:main>` tag of all pages that require testing with the custom layout. With this flag in place, the layouts will compile at runtime eliminating the need to manually recompile layouts. Remember to remove this flag in the production environment.
+- The `<layout:main>` tag accepts an optional `compile` parameter, which defaults to `false`. During local development, you can set `compile="true"` on the pages you are testing to have the layout compile from `body.html` at runtime, so changes are picked up without manually recompiling. Remove this flag before deploying to production.
+
+    !!! note
+        Even with `compile="true"`, the login flow resolver still checks for a `body.ser` file in the custom layout directory and falls back to the default layout if it is missing. When developing locally, add an empty placeholder `body.ser` file alongside the `body.html` file so that the resolver proceeds with the custom layout and compiles the `body.html` at runtime.

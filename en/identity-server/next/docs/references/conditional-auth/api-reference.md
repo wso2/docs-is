@@ -20,6 +20,7 @@
     - [`prompt()`](#prompt-for-user-input)
     - [`getUserSessions()`](#get-user-sessions)
     - [`terminateUserSession()`](#terminate-user-session)
+    - [`evaluateDevicePolicy()`](#evaluate-device-policy)
     - [`sendEmail()`](#send-email)
     - [`getValueFromDecodedAssertion()`](#get-parameter-value-from-jwt)
     - [`getUniqueUserWithClaimValues()`](#get-unique-user)
@@ -680,6 +681,65 @@ array if there are no sessions). It includes the parameters listed below.
     }
     ```
 
+### Evaluate device policy
+
+`evaluateDevicePolicy()`
+
+This function evaluates a [device assurance policy]({{base_path}}/guides/device-management/device-assurance-policies/) against the registered device that is making the login request, and returns the result. The device presents itself with a device token. See [Enforce a device policy at login]({{base_path}}/guides/device-management/enforce-device-policy-at-login/).
+
+- **Parameters**
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>context</code></td>
+          <td>The authentication context.</td>
+        </tr>
+        <tr>
+          <td><code>policyName</code></td>
+          <td>The name of the device assurance policy to evaluate.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Return value**
+
+    An object with the following properties:
+
+    <table>
+      <tbody>
+        <tr>
+          <td><code>compliant</code></td>
+          <td><code>true</code> if the device complies with the policy, and <code>false</code> otherwise.</td>
+        </tr>
+        <tr>
+          <td><code>status</code></td>
+          <td>One of <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, <code>INCOMPLETE_DEVICE_DATA</code>, or <code>ERROR</code>.</td>
+        </tr>
+        <tr>
+          <td><code>failedFields</code></td>
+          <td>The device attributes that don't meet the policy.</td>
+        </tr>
+        <tr>
+          <td><code>missingFields</code></td>
+          <td>The device attributes that the policy needs but the device didn't report.</td>
+        </tr>
+        <tr>
+          <td><code>errorCode</code></td>
+          <td>Set when the status is <code>ERROR</code>. One of <code>device_data_unavailable</code>, <code>policy_not_found</code>, <code>policy_error</code>, or <code>evaluation_error</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+- **Example**
+
+    ``` js
+    var result = evaluateDevicePolicy(context, "Corporate Device Policy");
+    if (!result.compliant) {
+        fail({"errorCode": "device_non_compliant", "errorMessage": "Device does not meet the policy."});
+    }
+    ```
+
 ### Send email
 
 `sendEmail()`
@@ -1187,6 +1247,10 @@ The step number is the one configured at the step configuration, not the actual 
   <tr>
     <td><code>context.tenantDomain</code></td>
     <td>The tenant domain of the application that initiated the authentication request.</td>
+  </tr>
+  <tr>
+    <td><code>context.deviceData</code></td>
+    <td>The attributes reported by the registered device that sent a valid device token with the login request, for example <code>context.deviceData.platform</code>. Not available if the request had no valid device token. See <a href="{{base_path}}/guides/device-management/enforce-device-policy-at-login/">Enforce a device policy at login</a>.</td>
   </tr>
 </table>
 

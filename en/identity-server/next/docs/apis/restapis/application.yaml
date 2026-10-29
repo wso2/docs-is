@@ -538,6 +538,77 @@ paths:
             -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
             -H 'Content-Type: multipart/form-data' \
             -F 'file=@application.xml;type=text/xml'
+  /applications/cimd/preview:
+    post:
+      tags:
+        - Applications
+      summary: Preview a Client ID Metadata Document
+      description: >
+        This API retrieves and validates the Client ID Metadata Document at a Client Identifier URL, and returns
+        the values to register. It stores nothing.
+        <br>
+        <b>Scope(Permission) required:</b> `internal_application_mgt_create`
+        <br><br>
+        <b>Error codes:</b> Errors return HTTP status 400 unless stated otherwise.
+
+          | Code | Description |
+          |---------|--------|
+          | `CIMD-60001` | The client ID is not a valid Client Identifier URL. |
+          | `CIMD-60002` | The document could not be retrieved. |
+          | `CIMD-60003` | A redirect URI in the document is not allowed. |
+          | `CIMD-60004` | The client authentication method in the document is not allowed. |
+          | `CIMD-60005` | A grant type in the document is not allowed. |
+          | `CIMD-60006` | A value in the document is too long. |
+          | `CIMD-60007` | Client ID Metadata Document support is not enabled for the organization. |
+      operationId: previewClientIdMetadataDocument
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CimdPreviewRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CimdPreviewResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl -X 'POST' \
+            'https://localhost:9443/api/server/v1/applications/cimd/preview' \
+            -H 'accept: application/json' \
+            -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "clientId": "https://vscode.dev/oauth/client-metadata.json"
+            }'
   /applications/{applicationId}:
     get:
       tags:
@@ -6794,6 +6865,51 @@ components:
         details:
           type: string
           example: "Application sharing process triggered successfully."
+    CimdPreviewRequest:
+      type: object
+      description: Client ID Metadata Document to preview.
+      required:
+        - clientId
+      properties:
+        clientId:
+          type: string
+          description: Client Identifier URL of the client metadata document.
+          example: 'https://vscode.dev/oauth/client-metadata.json'
+    CimdPreviewResponse:
+      type: object
+      description: Values taken from a validated Client ID Metadata Document.
+      required:
+        - clientId
+        - clientName
+        - redirectUris
+        - tokenEndpointAuthMethod
+        - grantTypes
+      properties:
+        clientId:
+          type: string
+          description: Client Identifier URL.
+        clientName:
+          type: string
+          description: Client name from the document, or the URL host.
+        clientUri:
+          type: string
+          description: Client home page, when the document declares an https one.
+        redirectUris:
+          type: array
+          description: Redirect URIs from the document.
+          items:
+            type: string
+        tokenEndpointAuthMethod:
+          type: string
+          description: none or private_key_jwt.
+        jwksUri:
+          type: string
+          description: JWKS URI, for private_key_jwt.
+        grantTypes:
+          type: array
+          description: Grants from the document, limited to authorization_code and refresh_token.
+          items:
+            type: string
     DiscoverableGroup:
       type: object
       required:

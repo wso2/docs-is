@@ -1,6 +1,14 @@
 # Self registration
 
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version == "next") %}
+Self-registration allows new users to create an account or onboard an organization without needing admin intervention. You can configure the flow for the following use cases:
+
+- **User registration:** Collect user details, verify identity, and set credentials before the account becomes active.
+- **Organization onboarding:** Collect user and organization details to create an organization together with a user. The user can be created in the parent organization and shared with the new organization, or created directly in the new organization. Learn how to [onboard an organization]({{base_path}}/guides/organization-management/organization-onboarding/).
+
+{% else %}
 Self-registration allows new users to create an account within an organization without needing admin intervention. The flow can include steps to collect user details, verify identity, and set credentials before the account becomes active.
+{% endif %}
 
 In the **Flow Builder**, you can create a self-registration journey in two ways:
 
@@ -95,6 +103,12 @@ With these changes, new users will only provide the essentials **Email** and **p
 
 ## Add a connection-based sign-up option
 
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version == "next") %}
+!!! note
+
+    Connection-based sign-up is currently supported for user registration only. Organization onboarding supports username and password registration.
+
+{% endif %}
 You can let users register through an external identity provider by adding a connection widget to the flow. The following connections are supported:
 
 - [Google]({{base_path}}/guides/authentication/social-login/add-google-login/)
@@ -117,6 +131,14 @@ To add a connection to the self-registration flow:
 
 6. Save and enable the flow.
 
+{% if (product_name == "WSO2 Identity Platform" and device_management) or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+## Register the user's device
+
+You can register the user's device as part of self-registration by adding a **Device Registration** step to the flow, or by starting from the **Basic + Device Registration** template. The step must come after an authentication step, such as an **Email OTP View**. You can also select a device assurance policy on the step, so that only compliant devices can be registered.
+
+To learn more, see [Configure device registration]({{base_path}}/guides/device-management/configure-device-registration/).
+
+{% endif %}
 ## Reference
 
 This section provides details on the configuration options available in the Self Registration flow.
@@ -135,3 +157,14 @@ The Flow Completion Properties, configured on the End node, define the final act
 - **Auto Login:** If enabled, the user is automatically logged into their account immediately after successfully completing the registration flow.
 
 - **Send a notification email on flow completion:** When enabled, the user will receive an email confirming that their account has been successfully created.
+
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version == "next") %}
+The **Organization** section contains the following options when the flow onboards an organization:
+
+- **Create the user in:** Select **The organization this flow creates** to create the user directly in the new organization. Select **The organization this flow runs in** to create the user in the current organization and share the user with the new organization.
+
+- **Assign roles in the new organization (optional):** Select additional roles to assign to the user in the new organization. This applies to both user provisioning options. Only roles shared with all existing and future organizations are available for selection. The locked `selfsignup · Default` entry is fixed in the picker. Unavailable roles and failed assignments are skipped and logged without interrupting registration. You need permission to read roles to configure this selection.
+
+For configuration steps, see [Organization onboarding]({{base_path}}/guides/organization-management/organization-onboarding/).
+
+{% endif %}

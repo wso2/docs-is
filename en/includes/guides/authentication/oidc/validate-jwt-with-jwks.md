@@ -166,9 +166,13 @@ size_limit_bytes= 51200
 
 ### Exchange signed JWT to a {{product_name}} token
 
-{% endif %}
-
 You can see JWT validation in action by following the guide and implementing the [JWT Bearer Grant type]({{base_path}}/guides/authentication/configure-jwt-bearer-grant/) for your application.
+
+{% else %}
+
+To exchange a JWT issued by an external IdP for a {{product_name}} token, register the external IdP as a trusted token issuer with its JWKS endpoint and use the token exchange grant. See [configure the token exchange flow]({{base_path}}/guides/authentication/configure-token-exchange/#exchange-a-federated-token) for instructions.
+
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
 

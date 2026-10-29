@@ -16,7 +16,7 @@ To add a new service provider on WSO2 Identity Server:
     |-------|---------------|
     | Service Provider Name | A name for your service provider. This field is required to register an SP.  |
     | Description   | A short description of the service provider    |
-    | Management Application    | Select this checkbox if the application is used to access the management APIs.    |
+    | Management Application    | Select this checkbox if the application is used to access the management APIs. If the service provider uses the client credentials grant, its access tokens can get the management API permissions of the user who creates it. See [Product-level security guidelines]({{base_path}}/deploy/security/product-level-security-guidelines/#service-providers-that-use-the-client-credentials-grant).    |
 
     ![sp-details]({{base_path}}/assets/img/guides/register-a-sp.png)
 

@@ -85,7 +85,25 @@
     },
 
     "multiple_client_secrets": {
-        "enabled": false,
+        "enabled": true,
         "page": []
+    },
+
+    "device_management": {
+        "enabled": true,
+        "page": [
+            "guides/device-management/index.md",
+            "guides/device-management/device-assurance-policies.md",
+            "guides/device-management/device-attributes.md",
+            "guides/device-management/device-attestation.md",
+            "guides/device-management/configure-device-registration.md",
+            "guides/device-management/enforce-device-policy-at-login.md",
+            "guides/device-management/view-user-devices.md",
+            "guides/device-management/integrate-device-management-in-your-app.md",
+            "guides/user-self-service/manage-registered-devices.md",
+            "apis/device-management-rest-api.md",
+            "apis/device-management-by-user-rest-api.md",
+            "apis/policy-management-rest-api.md"
+        ]
     }
 }

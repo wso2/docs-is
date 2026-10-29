@@ -202,6 +202,9 @@ extra:
     WSO2 Identity Platform MCP Server:
       icon: assets/libs/custom-icons/mcp.svg
       level: 1
+    WSO2 Identity Platform CLI:
+      icon: octicons/terminal-16
+      level: 1
     React SDK:
       icon: fontawesome/brands/react
       level: 2
