@@ -158,6 +158,7 @@ extra:
     - Get Started
     - Guides
     - Tutorials
+    - AI Tools
     - Integrations
     - APIs
     - References
@@ -298,7 +299,8 @@ plugins:
         'apis/organization-apis/notification-sender-rest-api.md':  'apis/organization-apis/notification-sender-rest-api.md'
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
-        'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
+        'quick-starts/mcp-server.md': 'ai-tools/asgardeo-mcp-server.md'
+        'sdks/asgardeo-mcp-server.md': 'ai-tools/asgardeo-mcp-server.md'
         'guides/user-self-service/self-register-flow.md': 'guides/flows/build-a-flow.md'
         'guides/users/attributes/manage-attributes.md': 'guides/users/attributes/user-attributes/manage-attributes.md'
         'get-started/create-asgardeo-account.md': 'get-started/create-identity-platform-account.md'
@@ -841,6 +843,9 @@ nav:
     - Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
     - Secure MCP servers with WSO2 Identity Platform and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
     - Register multiple devices for push notifications: tutorials/register-multiple-devices-for-push-notifications.md
+  - AI Tools:
+    - AI Copilot: ai-tools/copilot.md
+    - WSO2 Identity Platform MCP Server: ai-tools/asgardeo-mcp-server.md
   - SDKs:
     - Integrate WSO2 Identity Platform into your application: sdks/index.md
   - SDK Documentation:
@@ -908,7 +913,6 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
-  - WSO2 Identity Platform MCP Server: sdks/asgardeo-mcp-server.md
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
