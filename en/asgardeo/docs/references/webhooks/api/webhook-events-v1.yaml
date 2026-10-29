@@ -1078,6 +1078,151 @@ paths:
                         - internal_session_delete
                         removedPermissions:
                         - internal_session_view
+              organizationCreated:
+                summary: Organization created
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: 6194f397-a86a-48bf-8eb4-b43703528748
+                  iat: 1790244475257
+                  rci: c76fb19b-088e-4e05-b024-871cf3d51af6
+                  events:
+                    https://schemas.identity.wso2.org/events/organization/event-type/organizationCreated:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ORGANIZATION_CREATE
+                      targetOrganization:
+                        id: b537b54f-ec3d-452b-a20d-fc99f90a351a
+                        name: ABC Builders
+                        orgHandle: b537b54f-ec3d-452b-a20d-fc99f90a351a
+                        depth: 1
+                        ref: https://api.asgardeo.io/t/myorg/api/server/v1/organizations/b537b54f-ec3d-452b-a20d-fc99f90a351a
+                        attributes:
+                          added:
+                          - name: Country
+                            value: USA
+              organizationUpdated:
+                summary: Organization updated
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: 1a7c2c8a-9d40-4d79-99e3-bfb2744c5baa
+                  iat: 1790247025906
+                  rci: c9317ee4-407a-4f19-ad2c-ff95f69a973a
+                  events:
+                    https://schemas.identity.wso2.org/events/organization/event-type/organizationUpdated:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ORGANIZATION_UPDATE
+                      targetOrganization:
+                        id: 8df67d89-82bf-4ab0-802d-c9ae9a57c5f6
+                        name: ABC Builders updated
+                        orgHandle: 8df67d89-82bf-4ab0-802d-c9ae9a57c5f6
+                        depth: 1
+                        ref: https://api.asgardeo.io/t/myorg/api/server/v1/organizations/8df67d89-82bf-4ab0-802d-c9ae9a57c5f6
+                        updatedValues:
+                          name: ABC Builders updated
+                          description: Building constructions
+                          attributes:
+                            added:
+                            - name: Region
+                              value: EMEA
+                            removed:
+                            - name: Industry
+                            updated:
+                            - name: Country
+                              value: UK
+              organizationEnabled:
+                summary: Organization enabled
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: fdd4196b-729a-4735-a477-aa641a799192
+                  iat: 1791451419327
+                  rci: 621e1c90-061a-425e-aef4-26e31435a105
+                  events:
+                    https://schemas.identity.wso2.org/events/organization/event-type/organizationEnabled:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ORGANIZATION_ENABLE
+                      targetOrganization:
+                        id: 5f837960-52e0-4b43-9501-3a00c0a50378
+                        name: ABC Builders
+                        orgHandle: abcbuilders
+                        depth: 1
+                        ref: https://api.asgardeo.io/t/myorg/api/server/v1/organizations/5f837960-52e0-4b43-9501-3a00c0a50378
+              organizationDisabled:
+                summary: Organization disabled
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: 435f23a4-a337-4ab8-908b-79f6ad5e1939
+                  iat: 1791451604391
+                  rci: a52ab72b-366a-49d2-9e03-97cf5d74492a
+                  events:
+                    https://schemas.identity.wso2.org/events/organization/event-type/organizationDisabled:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ORGANIZATION_DISABLE
+                      targetOrganization:
+                        id: 5f837960-52e0-4b43-9501-3a00c0a50378
+                        name: ABC Builders
+                        orgHandle: abcbuilders
+                        depth: 1
+                        ref: https://api.asgardeo.io/t/myorg/api/server/v1/organizations/5f837960-52e0-4b43-9501-3a00c0a50378
+              organizationDeleted:
+                summary: Organization deleted
+                value:
+                  iss: https://api.asgardeo.io/t/myorg
+                  jti: 7a3d92ed-da08-48c3-a0a9-7cbd98fbecf0
+                  iat: 1790250489357
+                  rci: 10f7f917-4625-4066-af8a-a3b6cf160134
+                  events:
+                    https://schemas.identity.wso2.org/events/organization/event-type/organizationDeleted:
+                      initiatorType: ADMIN
+                      initiatorIpAddress: 127.0.0.1
+                      tenant:
+                        id: '12402'
+                        name: myorg
+                      organization:
+                        id: 10084a8d-113f-4211-a0d5-efe36b082211
+                        name: myorg
+                        orgHandle: myorg
+                        depth: 0
+                      action: ORGANIZATION_DELETE
+                      targetOrganization:
+                        id: 15e7b839-6af4-4f94-b7c8-9e63b22c74ac
+                        name: ABC Builders
+                        orgHandle: abcbuilders
+                        depth: 1
       responses:
         '200':
           description: Event acknowledged by the consumer.
@@ -1144,6 +1289,11 @@ components:
             - $ref: '#/components/schemas/EventData_RoleGroupsUpdated'
             - $ref: '#/components/schemas/EventData_RoleIdpGroupsUpdated'
             - $ref: '#/components/schemas/EventData_RolePermissionsUpdated'
+            - $ref: '#/components/schemas/EventData_OrganizationCreated'
+            - $ref: '#/components/schemas/EventData_OrganizationUpdated'
+            - $ref: '#/components/schemas/EventData_OrganizationEnabled'
+            - $ref: '#/components/schemas/EventData_OrganizationDisabled'
+            - $ref: '#/components/schemas/EventData_OrganizationDeleted'
 
     # ------------------------------------------------------------------
     # Reusable building blocks
@@ -2236,3 +2386,260 @@ components:
               items:
                 type: string
                 example: internal_session_view
+
+    OrganizationAttribute:
+      type: object
+      description: An attribute of the organization.
+      properties:
+        name:
+          type: string
+          description: Name of the attribute.
+          example: Country
+        value:
+          type: string
+          description: Value of the attribute.
+          example: USA
+
+    OrganizationAttributeChanges:
+      type: object
+      description: Attribute changes of the organization, grouped by the change applied.
+      properties:
+        added:
+          type: array
+          description: Attributes added to the organization.
+          items: { $ref: '#/components/schemas/OrganizationAttribute' }
+        removed:
+          type: array
+          description: Attributes removed from the organization. Each entry contains the attribute name only.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of the attribute.
+                example: Industry
+        updated:
+          type: array
+          description: Attributes whose value changed. Each entry contains the attribute name and the new value.
+          items: { $ref: '#/components/schemas/OrganizationAttribute' }
+
+    OrganizationUpdatedValues:
+      type: object
+      description: >-
+        The values the update changed. Each property is present only when the update changed it.
+        A value the update cleared is reported as an empty string.
+      properties:
+        name:
+          type: string
+          description: New display name of the organization.
+          example: ABC Builders updated
+        description:
+          type: string
+          description: New description of the organization.
+          example: Building constructions
+        version:
+          type: string
+          description: New version of the organization.
+          example: v1.0.0
+        attributes: { $ref: '#/components/schemas/OrganizationAttributeChanges' }
+
+    EventData_OrganizationCreated:
+      title: Organization created
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/organization/event-type/organizationCreated']
+      properties:
+        'https://schemas.identity.wso2.org/events/organization/event-type/organizationCreated':
+          type: object
+          required: [tenant, organization, targetOrganization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            targetOrganization:
+              type: object
+              description: Contains details about the created organization.
+              required: [id]
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the organization.
+                  example: b537b54f-ec3d-452b-a20d-fc99f90a351a
+                name:
+                  type: string
+                  description: Display name of the organization.
+                  example: ABC Builders
+                orgHandle:
+                  type: string
+                  description: Handle of the organization.
+                  example: b537b54f-ec3d-452b-a20d-fc99f90a351a
+                depth:
+                  type: integer
+                  description: Depth of the organization in the organization hierarchy.
+                  example: 1
+                ref:
+                  type: string
+                  description: Organization management API reference URL for the organization.
+                attributes:
+                  description: >-
+                    Attributes the organization was created with, listed under `added`. Present only
+                    when the organization is created with attributes.
+                  allOf:
+                    - $ref: '#/components/schemas/OrganizationAttributeChanges'
+
+    EventData_OrganizationUpdated:
+      title: Organization updated
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/organization/event-type/organizationUpdated']
+      properties:
+        'https://schemas.identity.wso2.org/events/organization/event-type/organizationUpdated':
+          type: object
+          required: [tenant, organization, targetOrganization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            targetOrganization:
+              type: object
+              description: Contains details about the updated organization.
+              required: [id]
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the organization.
+                  example: 8df67d89-82bf-4ab0-802d-c9ae9a57c5f6
+                name:
+                  type: string
+                  description: Display name of the organization.
+                  example: ABC Builders updated
+                orgHandle:
+                  type: string
+                  description: Handle of the organization.
+                  example: 8df67d89-82bf-4ab0-802d-c9ae9a57c5f6
+                depth:
+                  type: integer
+                  description: Depth of the organization in the organization hierarchy.
+                  example: 1
+                ref:
+                  type: string
+                  description: Organization management API reference URL for the organization.
+                updatedValues: { $ref: '#/components/schemas/OrganizationUpdatedValues' }
+
+    EventData_OrganizationEnabled:
+      title: Organization enabled
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/organization/event-type/organizationEnabled']
+      properties:
+        'https://schemas.identity.wso2.org/events/organization/event-type/organizationEnabled':
+          type: object
+          required: [tenant, organization, targetOrganization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            targetOrganization:
+              type: object
+              description: Contains details about the enabled organization.
+              required: [id]
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the organization.
+                  example: 5f837960-52e0-4b43-9501-3a00c0a50378
+                name:
+                  type: string
+                  description: Display name of the organization.
+                  example: ABC Builders
+                orgHandle:
+                  type: string
+                  description: Handle of the organization.
+                  example: abcbuilders
+                depth:
+                  type: integer
+                  description: Depth of the organization in the organization hierarchy.
+                  example: 1
+                ref:
+                  type: string
+                  description: Organization management API reference URL for the organization.
+
+    EventData_OrganizationDisabled:
+      title: Organization disabled
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/organization/event-type/organizationDisabled']
+      properties:
+        'https://schemas.identity.wso2.org/events/organization/event-type/organizationDisabled':
+          type: object
+          required: [tenant, organization, targetOrganization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            targetOrganization:
+              type: object
+              description: Contains details about the disabled organization.
+              required: [id]
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the organization.
+                  example: 5f837960-52e0-4b43-9501-3a00c0a50378
+                name:
+                  type: string
+                  description: Display name of the organization.
+                  example: ABC Builders
+                orgHandle:
+                  type: string
+                  description: Handle of the organization.
+                  example: abcbuilders
+                depth:
+                  type: integer
+                  description: Depth of the organization in the organization hierarchy.
+                  example: 1
+                ref:
+                  type: string
+                  description: Organization management API reference URL for the organization.
+
+    EventData_OrganizationDeleted:
+      title: Organization deleted
+      type: object
+      required: ['https://schemas.identity.wso2.org/events/organization/event-type/organizationDeleted']
+      properties:
+        'https://schemas.identity.wso2.org/events/organization/event-type/organizationDeleted':
+          type: object
+          required: [tenant, organization, targetOrganization]
+          properties:
+            initiatorType: { $ref: '#/components/schemas/InitiatorType' }
+            initiatorIpAddress: { $ref: '#/components/schemas/InitiatorIpAddress' }
+            tenant: { $ref: '#/components/schemas/Tenant' }
+            organization: { $ref: '#/components/schemas/Organization' }
+            action: { $ref: '#/components/schemas/Action' }
+            targetOrganization:
+              type: object
+              description: >-
+                Contains details about the deleted organization. The organization management API reference URL
+                is not included, since the organization is no longer retrievable.
+              required: [id]
+              properties:
+                id:
+                  type: string
+                  description: Unique identifier of the organization.
+                  example: 15e7b839-6af4-4f94-b7c8-9e63b22c74ac
+                name:
+                  type: string
+                  description: Display name of the organization before deletion.
+                  example: ABC Builders
+                orgHandle:
+                  type: string
+                  description: Handle of the organization before deletion.
+                  example: abcbuilders
+                depth:
+                  type: integer
+                  description: Depth the organization held in the organization hierarchy before the deletion.
+                  example: 1
