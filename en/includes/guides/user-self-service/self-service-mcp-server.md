@@ -21,43 +21,22 @@ You can host the server over HTTP for the users of your application.
     - [Traditional Web application]({{base_path}}/guides/applications/register-oidc-web-app/)
     - [Mobile application]({{base_path}}/guides/applications/register-mobile-app/)
 
-- **Go 1.23 or later**. To install Go, follow the steps in the [Go documentation](https://go.dev/doc/install){:target="_blank"}.
-
 !!! note
     The application must request the `internal_login` scope when users sign in.
-
-## Build the server
-
-Before hosting the server, you need to build the Self-service MCP server executable.
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/asgardeo/asgardeo-mcp-server.git
-    ```
-
-2. Navigate to the cloned directory and install dependencies:
-
-    ```bash
-    cd asgardeo-mcp-server
-    go mod tidy
-    ```
-
-3. Build the executable:
-
-    ```bash
-    go build -o self-service-mcp ./cmd/self-service-mcp
-    ```
-
-This creates the `self-service-mcp` binary in the current directory.
 
 ## Host the server
 
 You can run a single server for all users of your application. The server uses the MCP Streamable HTTP transport and serves requests at `/mcp`.
 
-```bash
-PORT=8000 BASE_URL={{ base_url }} CLIENT_ID=<client_id> ./self-service-mcp
-```
+1. Download the latest Self-service MCP server release from [releases](https://github.com/asgardeo/asgardeo-mcp-server/releases?q=self-service-mcp&expanded=true){:target="_blank"} based on your Operating System.
+
+2. Extract the release.
+
+3. Navigate to the extracted directory and start the server:
+
+    ```bash
+    PORT=8000 BASE_URL={{ base_url }} CLIENT_ID=<client_id> ./self-service-mcp
+    ```
 
 Note the following when you host the server:
 
