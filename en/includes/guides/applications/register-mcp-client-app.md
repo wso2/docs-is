@@ -72,6 +72,7 @@ To regiser an MCP Client application,
 3. Click **Create** to complete the registration.
 
 {% if is_version == "next" or product_name == "WSO2 Identity Platform" %}
+
 ## Enable Client ID Metadata Documents
 
 {% if product_name == "WSO2 Identity Platform" %}
@@ -83,6 +84,7 @@ curl --location --request PATCH 'https://api.asgardeo.io/t/<organization_name>/a
 --header 'Content-Type: application/json' \
 --data '{ "enableClientIdMetadataDocument": true }'
 ```
+
 {% else %}
 Enable CIMD for the organization with the [Server Configuration API]({{base_path}}/apis/configs-rest-api/#tag/Inbound-Authentication-Configurations/operation/updateOAuth2InboundAuthConfig):
 
@@ -92,6 +94,7 @@ curl --location --request PATCH 'https://localhost:9443/api/server/v1/configs/au
 --header 'Content-Type: application/json' \
 --data '{ "enableClientIdMetadataDocument": true }'
 ```
+
 {% endif %}
 {% endif %}
 
