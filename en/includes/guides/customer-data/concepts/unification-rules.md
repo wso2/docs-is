@@ -4,7 +4,6 @@
 
 **Unification rules** tell the Customer Data Service when two separate profiles should be recognized as the same person. Each rule names a profile attribute to compare, what kind of value that attribute holds, and how closely the two values have to agree.
 
----
 
 ## Rule structure
 
