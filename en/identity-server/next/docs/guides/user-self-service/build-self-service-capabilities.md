@@ -50,6 +50,9 @@ You can use the following {{ product_name }} APIs to enable self-service capabil
 
 - [Manage consent of users]({{base_path}}/apis/consent-management-api-definition/)
 
+!!! tip
+    To let users manage their accounts through an AI agent, use the [Self-service MCP server]({{base_path}}/guides/user-self-service/self-service-mcp-server/).
+
 ## Prerequisites
 
 You need an application that [integrates login with {{ product_name }}]({{base_path}}/guides/authentication/add-login-to-apps/) over OpenID connect standards.

@@ -62,7 +62,7 @@ Before configuring your code editor, you need to build the WSO2 Identity Platfor
 3. Build the executable:
 
     ```bash
-    go build -o asgardeo-mcp
+    go build -o asgardeo-mcp ./cmd/asgardeo-mcp
     ```
 
 This creates the `asgardeo-mcp` binary in the current directory. The absolute path to this binary (e.g., `/Users/<username>/asgardeo-mcp-server/asgardeo-mcp`) is what you will use as `<ABSOLUTE-PATH>` in the next step.
