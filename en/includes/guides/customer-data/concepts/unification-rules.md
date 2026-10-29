@@ -16,7 +16,6 @@
 | `priority` | Lower number = evaluated first. Rules are sorted ascending by priority. |
 | `is_active` | Only active rules are evaluated during unification |
 
----
 
 ## What the attribute holds
 
