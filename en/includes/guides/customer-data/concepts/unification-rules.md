@@ -13,7 +13,7 @@
 | `rule_name` | Human-readable name. Also recorded as the reason on a merge. |
 | `property_name` | The attribute to compare (e.g. `identity_attributes.emailaddress`) |
 | **What this attribute holds** | The kind of value the attribute carries. This decides how values are compared and how much a result counts. |
-| **How it is matched** | **Exact** — only identical values match. **Tolerant** — typos and spelling variations also match. |
+| **How it is matched** | **Exact** — only the same value matches, once dates, phone numbers and identifiers are put in a standard form. **Tolerant** — typos and spelling variations also match. |
 | `priority` | Lower number = evaluated first. Rules are sorted ascending by priority. |
 | `is_active` | Only active rules are evaluated during unification |
 
@@ -26,13 +26,13 @@ The kind of value matters even when matching is exact, because it decides how mu
 | Kind | Agreement | Disagreement |
 |---|---|---|
 | Unique identifier | Merges profiles on its own | Blocks a merge |
-| Email address | Merges profiles on its own | Doesn't block a merge, but counts against it — people have several |
+| Email address | Merges profiles on its own | Doesn't block a merge, but counts against it — people can have more than one email address |
 | Phone number | Merges profiles on its own | Doesn't block a merge, but counts against it |
 | Date (e.g. date of birth) | Counts for little — birthdays collide | Blocks a merge |
 | Name | Counts for little on its own | Counts against the match |
 | Location / address | Counts for little on its own | Counts for little |
 
-Dates and identifiers are also tidied into a standard form before comparison, so the same date written two ways still matches.
+Dates, phone numbers and identifiers are also tidied into a standard form before comparison, so the same date written two ways still matches, and `ABC123` and `abc123` match as unique identifiers. Names, email addresses and locations matched exactly must be identical character for character.
 
 !!! note
     **Tolerant** matching is available for names, email addresses, phone numbers, locations and other free text. Unique identifiers and dates are always compared exactly, because a difference there means a different person.
@@ -48,7 +48,7 @@ When a profile is created or updated, the service queues it for unification. Eve
 3. The remaining rules may object. A disagreement on an attribute that blocks a merge — a different date of birth, a different unique identifier — holds the pair back for review even when another rule agrees.
 4. A single agreeing rule merges profiles on its own only where that attribute identifies a person by itself. A shared name alone is sent for review rather than merged.
 
-Steps 3 and 4 do not apply when a unique identifier matches exactly, or when any **Exact** rule agrees while **Automatically unify exact-rule matches** is selected (the default). The profiles are then unified straight away, without the other rules being consulted.
+Steps 3 and 4 do not apply when the rule from step 2 is a unique identifier that matches exactly, or when any **Exact** rule agrees while **Automatically unify exact-rule matches** is selected (the default). The profiles are then unified straight away, without the other rules being consulted.
 
 The match score is then compared against the thresholds described in [Configure matching confidence]({{base_path}}/guides/customer-data/guides/configure-matching-confidence) to decide between merging automatically, sending the pair for review, or doing nothing.
 

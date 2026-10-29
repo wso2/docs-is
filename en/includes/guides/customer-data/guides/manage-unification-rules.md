@@ -24,7 +24,7 @@ For a conceptual overview see [Unification rules]({{base_path}}/guides/customer-
     - **Rule name** — human-readable name.
     - **Attribute** — the profile attribute to match on. Select the scope (e.g. `Identity Attributes`) and the attribute (e.g. `emailaddress`).
     - **What this attribute holds** — the kind of value the attribute carries, such as **Email address** or **Name**. This decides how values are compared and how much a match counts. See [what the attribute holds]({{base_path}}/guides/customer-data/concepts/unification-rules).
-    - **How it is matched** — **Exact** compares values character for character. **Tolerant** also matches typos and spelling variations, so it finds duplicates exact matching misses, and sends more matches for an administrator to confirm.
+    - **How it is matched** — **Exact** matches only the same value. Dates, phone numbers and unique identifiers are put in a standard form first, so `ABC123` and `abc123` match as unique identifiers; names, email addresses and locations must be identical character for character. **Tolerant** also matches typos and spelling variations, so it finds duplicates exact matching misses, and sends more matches for an administrator to confirm.
     - **Priority** — lower numbers are evaluated first.
     - **Enable this rule immediately** — select this option to apply the rule when you create it.
 3. Click **Create Rule**.
