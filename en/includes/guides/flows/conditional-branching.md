@@ -14,16 +14,15 @@ Conditional branching is available in the [Self registration]({{base_path}}/guid
 
 3. Click the **Decision** step, select **Branch 1**, and set its conditions. For example, **Application** **equals** `Partner Portal`.
 
+    ![Decision step]({{base_path}}/assets/img/guides/flows/flow-conditional-branching-decision-step.png){: width="auto" style="display: block; margin: 0;"}
+
 4. To add more branches, click **Add another branch**.
 
 5. Connect each branch, including **Default**, to the step it leads to.
 
 6. Click **Save Draft** and turn the toggle **ON** to publish the flow.
 
-Branches are checked from top to bottom, and the first match wins. Users take the **Default** branch when no other branch matches. Drag branches to change their order.
-
-!!! note
-    Use **And** to add a condition that must also be true, and **Or** to add an alternative.
+Branches are checked from top to bottom, and the flow continues with the first branch matches the rule. Users take the **Default** branch when no other branch matches. You can drag branches to change their order.
 
 ## Use flow variables
 
@@ -32,7 +31,7 @@ Flow variables let a decision use values that don't come from the user. Define t
 - **Runtime values** – Values that start from an initial value you set, such as a `promotionActive` switch. Select **Allow app to set this value** to let your application set the value when it starts the flow through the [Flow Execution API]({{base_path}}/guides/flows/flow-execution-api/#pass-runtime-values).
 - **Request headers** – Headers that the flow reads from each request, such as `x-channel`. Headers such as `authorization` and `cookie` can't be used.
 
-In a decision step, select **Runtime values** or **Request headers** as the field and enter the variable name.
+In a decision step, select **Runtime values** or **Request headers** as the field and select the variable name to define conditions.
 
 !!! warning
     Users can change values sent from their browser or device. Don't use app-set runtime values or request headers to skip security steps.
@@ -55,7 +54,7 @@ To test more versions, add a branch for each range, ordered from the lowest rang
 
 ## Reference
 
-This section lists the fields, limits and settings available for conditional branching.
+This section lists the fields and settings available for conditional branching.
 
 ### Fields
 
@@ -68,16 +67,6 @@ This section lists the fields, limits and settings available for conditional bra
 | Groups, Roles | No | Yes | Yes |
 | Runtime values | Yes | Yes | Yes |
 | Request headers | Yes | Yes | Yes |
-
-### Limits
-
-| Item | Limit |
-| ------ | ------- |
-| Decision steps in a flow | 20 |
-| Conditions in a branch | 10 groups combined with **Or**, 5 conditions combined with **And** in each |
-| Request headers in a flow | 10 |
-| Runtime values in a flow | 20, not counting `abTestingKey` |
-| Length of a value | 255 characters |
 
 ### abTestingKey
 

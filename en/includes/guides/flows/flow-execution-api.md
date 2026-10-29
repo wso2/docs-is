@@ -127,15 +127,14 @@ If the flow defines [runtime values]({{base_path}}/guides/flows/conditional-bran
 | Integer | `"42"` |
 | Decimal | `"12.5"` |
 | Boolean | `"true"` or `"false"` |
-| Array of strings | `"[\"gold\", \"silver\"]"` |
-| Array of numbers | `"[10, 20]"` |
+| Array of strings | `["gold", "silver"]` |
+| Array of numbers | `[10, 20]` |
 
 Keep the following in mind when you pass runtime values:
 
 - {{product_name}} accepts runtime values only in the request that starts the flow, and ignores them in later requests.
 - {{product_name}} ignores values for runtime values that don't allow the app to set them, values that don't match the data type, and values longer than 255 characters. In these cases, the flow uses the initial value.
 - Values can't contain the characters `<`, `>`, `"`, `'`, `` ` ``, `\`, `{`, `}`, `$`, or control characters.
-- An `Array of numbers` value is compared as text in conditions. Send numbers the way the flow's conditions write them, for example `18`, not `18.0`.
 
 If the flow reads [request headers]({{base_path}}/guides/flows/conditional-branching/#use-flow-variables), {{product_name}} reads them from every request your application sends. Each occurrence of a header becomes one entry in the header's value.
 

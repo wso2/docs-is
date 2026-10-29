@@ -35,10 +35,10 @@ The following table lists errors you may encounter while building flows with [co
 | Add at least one branch with a rule to the decision. A decision with only the default branch has nothing to decide. | Common (All flows) | A **Decision** step has only the default branch. | Select the **Decision** step and click **Add another branch**, or remove the **Decision** step. |
 | Complete the rules of the decision branches: [branches]. Each condition needs a field, an operator and a value. | Common (All flows) | A condition in the listed branches is missing a field, an operator or a value. | Open each listed branch and complete its conditions, or remove the incomplete ones. |
 | Connect the decision branches to the step they lead to: [branches]. | Common (All flows) | A branch of a **Decision** step doesn't lead to any step. | On the canvas, connect the port of each listed branch to the next step. |
-| Decision Step Limit Reached | Common (All flows) | The flow already has 20 **Decision** steps. | Combine decisions where you can. A single **Decision** step can hold several branches. |
+| Decision Step Limit Reached | Common (All flows) | The flow already has [limit] **Decision** steps. | Combine decisions where you can. A single **Decision** step can hold several branches. |
 | Fix the flow variables on the Start step before saving: [names]. | Common (All flows) | A variable on the **Start** step has an invalid name, a duplicate name or an invalid initial value. | Click **Configure flow variables** on the **Start** step and fix the listed variables. |
-| The flow reads more headers than this server allows. Keep up to 10. | Common (All flows) | The flow defines more than 10 request headers. | Remove the headers that the flow's decision steps don't use. |
-| The flow defines more runtime values than this server allows. Keep up to 20. | Common (All flows) | The flow defines more than 20 runtime values, not counting `abTestingKey`. | Remove the runtime values that the flow's decision steps don't use. |
+| The flow reads more headers than this server allows. Keep up to [limit]. | Common (All flows) | The flow defines more than [limit] request headers. | Remove the headers that the flow's decision steps don't use. |
+| The flow defines more runtime values than this server allows. Keep up to [limit]. | Common (All flows) | The flow defines more than [limit] runtime values, not counting `abTestingKey`. | Remove the runtime values that the flow's decision steps don't use. |
 
 !!! tip
     {{product_name}} doesn't fail a flow when it ignores the value of a flow variable. If a decision step doesn't take the branch you expect, see [Invalid values]({{base_path}}/guides/flows/conditional-branching/#invalid-values).
