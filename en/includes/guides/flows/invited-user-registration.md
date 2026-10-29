@@ -57,6 +57,14 @@ Once the flow has been fully configured and is ready for users:
 
 Now that these changes are in place, you have built a secure invited user registration flow that uses Email OTP for identity verification.
 
+{% if (product_name == "WSO2 Identity Platform" and device_management) or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+## Register the user's device
+
+You can register the user's device while they accept the invitation by adding a **Device Registration** step to the flow. The step must come after an authentication step, such as an **Email OTP View**. You can also select a device assurance policy on the step, so that only compliant devices can be registered.
+
+To learn more, see [Configure device registration]({{base_path}}/guides/device-management/configure-device-registration/).
+
+{% endif %}
 ## Reference
 
 This section provides details on the configuration options available in the Invited User Registration flow.

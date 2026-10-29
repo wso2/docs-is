@@ -1,0 +1,284 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: 'WSO2 Identity Server - User Device Management API'
+  description: 'This is the RESTful API for the authenticated user to manage the devices registered to the user in
+    WSO2 Identity Server.'
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/users/v1'
+    variables:
+      server-url:
+        default: "localhost:9443"
+      tenant-domain:
+        default: carbon.super
+security:
+  - OAuth2: []
+  - BasicAuth: []
+tags:
+  - name: me
+    description: Operations for the authenticated user.
+paths:
+  /me/devices:
+    get:
+      tags:
+        - me
+      summary: List the devices registered to the authenticated user.
+      operationId: listMyDevices
+      description: "This API provides the capability to list a paginated set of the devices registered to the
+        authenticated user. Returns devices of any status (ACTIVE or INACTIVE).\n\n<b>Scope (Permission) required:</b> ``internal_login``\n\n"
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of records to return.
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 30
+        - name: offset
+          in: query
+          description: Number of records to skip for pagination.
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /me/devices/{device-id}:
+    get:
+      tags:
+        - me
+      summary: Get a device registered to the authenticated user.
+      operationId: getMyDevice
+      description: "This API provides the capability to retrieve a device registered to the authenticated user by its
+        ID.\n\n<b>Scope (Permission) required:</b> ``internal_login``\n\n"
+      parameters:
+        - $ref: '#/components/parameters/deviceIdPathParam'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    patch:
+      tags:
+        - me
+      summary: Update a device registered to the authenticated user.
+      operationId: updateMyDevice
+      description: "This API provides the capability to rename, activate or deactivate a device registered to the
+        authenticated user. At least one of 'deviceName' or 'status' must be provided.\n\n<b>Scope (Permission) required:</b> ``internal_login``\n\n"
+      parameters:
+        - $ref: '#/components/parameters/deviceIdPathParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DevicePatchRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - me
+      summary: Delete a device registered to the authenticated user.
+      operationId: deleteMyDevice
+      description: "This API provides the capability to delete a device registered to the authenticated user.\n\n<b>Scope (Permission) required:</b> ``internal_login``\n\n"
+      parameters:
+        - $ref: '#/components/parameters/deviceIdPathParam'
+      responses:
+        '204':
+          description: Successfully Deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  parameters:
+    deviceIdPathParam:
+      name: device-id
+      in: path
+      description: ID of the registered device.
+      required: true
+      schema:
+        type: string
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+    Forbidden:
+      description: Forbidden
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
+  schemas:
+    DeviceListResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          description: Number of results that match the listing operation.
+          example: 2
+        startIndex:
+          type: integer
+          description: Index of the first element of the page, which will be equal to offset + 1.
+          example: 1
+        count:
+          type: integer
+          description: Number of elements in the returned page.
+          example: 2
+        devices:
+          type: array
+          description: Page of devices registered to the authenticated user.
+          items:
+            $ref: '#/components/schemas/DeviceResponse'
+        links:
+          type: array
+          description: Pagination links (next/previous).
+          items:
+            $ref: '#/components/schemas/DeviceListLink'
+    DeviceListLink:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Relative URL to the linked page.
+          example: "/t/carbon.super/api/users/v1/me/devices?offset=10&limit=10"
+        rel:
+          type: string
+          description: Relation to the current page.
+          example: "next"
+    DeviceResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The device ID.
+          example: "74070bae-df8c-42bf-8754-5173c237c936"
+        deviceName:
+          type: string
+          description: The display name of the device.
+          example: "My iPhone"
+        deviceModel:
+          type: string
+          description: The hardware model of the device.
+          example: "iPhone 15 Pro"
+        status:
+          type: string
+          description: The current device status (ACTIVE or INACTIVE).
+          example: "ACTIVE"
+        registeredAt:
+          type: string
+          description: The timestamp when the device was registered, in ISO-8601 format.
+          example: "2026-04-27T10:00:00Z"
+    DevicePatchRequest:
+      type: object
+      description: Fields to update. At least one of 'deviceName' or 'status' must be provided.
+      properties:
+        deviceName:
+          type: string
+          minLength: 1
+          maxLength: 255
+          description: The new display name for the device.
+          example: "My Work Phone"
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+          description: The new status of the device. An inactive device cannot be used for device-based login checks.
+          example: "INACTIVE"
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          example: DM-60001
+        message:
+          type: string
+          example: Some Error Message.
+        description:
+          type: string
+          example: Some Error Description.
+        traceId:
+          type: string
+          example: "e0fbcfeb-3617-43c4-8dd0-7b7d38e13047"

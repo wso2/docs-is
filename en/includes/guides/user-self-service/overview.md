@@ -24,4 +24,7 @@ You can access the following features from the **My Account portal**.
 - [Manage password recovery]({{base_path}}/guides/user-self-service/user-password-recovery/)
 - [Discover and maintain applications]({{base_path}}/guides/user-self-service/discover-applications/)
 - [Register passkeys]({{base_path}}/guides/user-self-service/register-passkey/)
+{%- if (product_name == "WSO2 Identity Platform" and device_management) or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+- [Manage registered devices]({{base_path}}/guides/user-self-service/manage-registered-devices/)
+{%- endif %}
 - [View and update the approvals]({{base_path}}/guides/user-self-service/manage-approvals/)

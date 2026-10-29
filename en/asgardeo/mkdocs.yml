@@ -623,6 +623,15 @@ nav:
         - Consent management: guides/consent-management/index.md
         - Policy consent: guides/consent-management/policy-consent.md
         - Preference management consent: guides/consent-management/preference-management-consent.md
+      - Device management:
+          - Device management: guides/device-management/index.md
+          - Device assurance policies: guides/device-management/device-assurance-policies.md
+          - Device attributes: guides/device-management/device-attributes.md
+          - Device attestation: guides/device-management/device-attestation.md
+          - Configure device registration: guides/device-management/configure-device-registration.md
+          - Enforce a device policy at login: guides/device-management/enforce-device-policy-at-login.md
+          - Manage the devices of a user: guides/device-management/view-user-devices.md
+          - Integrate device management in your app: guides/device-management/integrate-device-management-in-your-app.md
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
@@ -693,6 +702,7 @@ nav:
           - Self-register: guides/user-self-service/self-register.md
           - Register passkeys: guides/user-self-service/register-passkey.md
           - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
+          - Manage registered devices: guides/user-self-service/manage-registered-devices.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
@@ -934,6 +944,7 @@ nav:
       - Consent management:
         - Consent management API: apis/consent-management.md
         - Consent management API v2: apis/consent-management-v2-api-definition.md
+      - Device management API: apis/device-management-rest-api.md
       - Email templates API: apis/email-template.md
       - Event configuration API: apis/event-configuration.md
       - Flow Extension Management API: apis/flow-extension-management-rest-api.md
@@ -947,6 +958,7 @@ nav:
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
+      - Policy management API: apis/policy-management-rest-api.md
       - Role management: 
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
@@ -1019,6 +1031,7 @@ nav:
       - Export user information API: apis/register-mfa/export-user-info.md
       - Password recovery API: apis/register-mfa/password-recovery.md
       - TOTP API: apis/register-mfa/totp.md
+      - Device management API by user: apis/device-management-by-user-rest-api.md
       - Push Notification Device API: apis/push-notification-device-rest-api.md
       - User account associations API: apis/association-management-by-user.md
       - User credential management API: apis/end-user-credential-management-v2-rest-api.md

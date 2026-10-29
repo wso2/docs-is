@@ -844,6 +844,15 @@ nav:
         - Consent management: guides/consent-management/index.md
         - Policy consent: guides/consent-management/policy-consent.md
         - Preference management consent: guides/consent-management/preference-management-consent.md
+      - Device management:
+          - Device management: guides/device-management/index.md
+          - Device assurance policies: guides/device-management/device-assurance-policies.md
+          - Device attributes: guides/device-management/device-attributes.md
+          - Device attestation: guides/device-management/device-attestation.md
+          - Configure device registration: guides/device-management/configure-device-registration.md
+          - Enforce a device policy at login: guides/device-management/enforce-device-policy-at-login.md
+          - Manage the devices of a user: guides/device-management/view-user-devices.md
+          - Integrate device management in your app: guides/device-management/integrate-device-management-in-your-app.md
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
@@ -889,6 +898,7 @@ nav:
             - Manage login sessions: guides/user-self-service/manage-login-sessions.md
             - Register passkeys: guides/user-self-service/register-passkey.md
             - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
+            - Manage registered devices: guides/user-self-service/manage-registered-devices.md
             - Username recovery: guides/user-self-service/user-username-recovery.md
             - Enroll TOTP: guides/user-self-service/enable-totp.md
             - Manage backup codes: guides/user-self-service/manage-backup-codes.md
@@ -1293,6 +1303,7 @@ nav:
         - Overview: apis/use-the-consent-management-rest-apis.md
         - Consent management API: apis/consent-management-api-definition.md
         - Consent management API v2: apis/consent-management-v2-api-definition.md
+      - Device management API: apis/device-management-rest-api.md
       - Email templates APIs:
         - Email templates v1 API: apis/email-templates-rest-api.md
         - Email templates v2 API: apis/email-templates-v2-rest-api.md
@@ -1310,6 +1321,7 @@ nav:
       - Organization discovery API: apis/organization-discovery-rest-api.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-mgt-rest-api.md
+      - Policy management API: apis/policy-management-rest-api.md
       - Role management:
           - Roles v2 API: apis/role-management/roles-v2-rest-api.md
           - Roles v1 API (deprecated): apis/role-management/roles-v1-rest-api.md
@@ -1403,6 +1415,7 @@ nav:
       - User store management API: apis/organization-apis/user-store.md
       - Validation rules API: apis/organization-apis/validation-rules.md
     - End User APIs:
+        - Device management API by user: apis/device-management-by-user-rest-api.md
         - FIDO API: apis/fido-rest-api.md
         - Organization Me API: apis/user-organization-api.md
         - Session management API: apis/session-mgt-by-user-rest-api.md
