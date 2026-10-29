@@ -860,7 +860,7 @@ nav:
     - Secure MCP servers with WSO2 Identity Platform and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
     - Register multiple devices for push notifications: tutorials/register-multiple-devices-for-push-notifications.md
   - AI Tools:
-    - AI Copilot: ai-tools/copilot.md
+    - Ask AI: ai-tools/ask-ai.md
     - WSO2 Identity Platform MCP Server: ai-tools/asgardeo-mcp-server.md
   - SDKs:
     - Integrate WSO2 Identity Platform into your application: sdks/index.md
