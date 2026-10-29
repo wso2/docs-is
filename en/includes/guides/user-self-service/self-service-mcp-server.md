@@ -6,7 +6,7 @@ Users can ask the agent to do the following:
 
 - **Profile**: View and update their profile. Add or remove email addresses and mobile numbers, or set a primary one.
 - **Sessions**: See where they are signed in. Sign out of one device or all devices.
-- **Sign-in security**: View their MFA options, passkeys, push devices, authenticator app and backup codes. Rename or remove them.
+- **Sign-in security**: View their MFA options, passkeys, push devices, authenticator app and backup codes. Rename passkeys, and remove passkeys, push devices, the authenticator app and backup codes.
 - **Linked accounts**: List and unlink linked local accounts and social logins.
 - **Applications**: List their applications. See which applications have access to their account and revoke access.
 - **Consents**: View and withdraw application consents and accepted policies. Unsubscribe from communication preferences.
@@ -28,20 +28,28 @@ You can run the server locally with an MCP client such as VS Code, Claude Deskto
 
 ## Build the server
 
-1. Clone the repository.
+Before configuring your MCP client, you need to build the Self-service MCP server executable locally.
+
+1. Clone the repository:
 
     ```bash
     git clone https://github.com/asgardeo/asgardeo-mcp-server.git
     ```
 
-2. Navigate to the cloned directory and build the executable.
+2. Navigate to the cloned directory and install dependencies:
 
     ```bash
     cd asgardeo-mcp-server
+    go mod tidy
+    ```
+
+3. Build the executable:
+
+    ```bash
     go build -o self-service-mcp ./cmd/self-service-mcp
     ```
 
-This creates the `self-service-mcp` binary in the current directory. Use its absolute path as `<ABSOLUTE-PATH>` in the next steps.
+This creates the `self-service-mcp` binary in the current directory. The absolute path to the directory containing this binary (e.g., `/Users/<username>/asgardeo-mcp-server`) is what you will use as `<ABSOLUTE-PATH>` in the next step.
 
 ## Run the server locally
 
@@ -234,4 +242,4 @@ Where am I signed in?
 You should see a list of your active sessions.
 
 !!! note
-    Before making a change to the user's account, the agent confirms the change with the user. Your MCP client may also prompt you to give **explicit consent** for the action. It's recommended to approve actions with the "Approve Once" option rather than the "Approve Always" option so that you retain full control over the changes made to your account.
+    The server instructs the agent to confirm each change with the user before making it. Your MCP client may also prompt you to give **explicit consent** for the action. It's recommended to approve actions with the "Approve Once" option rather than the "Approve Always" option so that you retain full control over the changes made to your account.
