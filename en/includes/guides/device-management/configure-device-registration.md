@@ -1,48 +1,125 @@
 # Configure device registration
 
-Before {{product_name}} can assert anything about a device, the device has to be registered. Registration links a device to a user account and establishes the credential the device uses to identify itself afterwards.
+Before {{product_name}} can assert anything about a device, the device has to be registered. Registration links a device to a user account and establishes the key the device uses to identify itself afterwards.
 
-## App-native authentication is required
+Devices are registered through the **Device Registration** step of a flow you design in the [Flow Builder]({{base_path}}/guides/flows/build-a-flow/). The step is available in the following flows:
 
-Registration requires the device to generate a cryptographic key pair, hold the private key in the secure hardware of the device, and sign a challenge with it. Only a native mobile or desktop application can do that. A browser-based redirect sign-in has no access to the key store of the device, so device registration cannot be offered in that case.
+- [Self registration]({{base_path}}/guides/flows/self-registration/) - The user signs themselves up and registers their device as part of creating the account, so the user has a registered device from their first sign-in.
 
-In practice, your application must be a native application using [app-native authentication]({{base_path}}/guides/authentication/app-native-authentication/) before any of this applies. Users who sign in through a standard browser redirect do not see a device registration step and cannot be enrolled.
+- [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/) - An administrator invites the user, and the user registers their device while accepting the invitation and setting up the account.
 
-## Registration flows
+## Before you begin
 
-A device can be registered through three different flows. Which one you use depends on when in the lifecycle of the user you want the device enrolled. All three run inside app-native authentication.
+{% if product_name == "WSO2 Identity Server" %}
+- [Enable device management]({{base_path}}/guides/device-management/#enable-device-management). The **Device Registration** step and the **Basic + Device Registration** template appear in the Flow Builder only when the registration executor is enabled.
 
-### Self-registration
+{% endif %}
 
-The user signs themselves up and registers their device as part of creating their account. Registration happens at the same moment the account is created, so the user has a trusted device from their first sign-in.
+- If you want to allow only compliant devices, [create a device assurance policy]({{base_path}}/guides/device-management/device-assurance-policies/#create-a-policy).
 
-Use this when users onboard themselves through a public sign-up page. See [Self registration]({{base_path}}/guides/flows/self-registration/).
+- Make sure your application can register a device. A native application registers the device directly while it runs the flow. See [Integrate device management in your app]({{base_path}}/guides/device-management/integrate-device-management-in-your-app/).
 
-### Invited user registration
+## How the step works
 
-An administrator invites the user, the user accepts the invitation, and the device is registered as part of accepting it. The account already exists, and the invitation flow completes the setup, including enrolling the device.
+When the flow reaches the **Device Registration** step, {{product_name}} issues a one-time challenge. The application on the device signs the challenge with a key that it generates and keeps on the device, and sends the public key and the signature back. {{product_name}} verifies the signature and, if a policy is set on the step, evaluates the policy against the device attributes the application reports. A device that doesn't comply with the policy is refused, and the user sees which conditions failed.
 
-Use this when access is granted by an administrator rather than requested by the user, which is the usual pattern inside an organization. See [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
+The device is registered to the user only when the whole flow completes successfully.
 
-### Dedicated device registration flow
+!!! note "An authentication step must come first"
+    The **Device Registration** step must come after a step that authenticates the user, such as an **Email OTP View**, **SMS OTP View**, **Magic Link View**, or **Passkey View**, or a sign-up with a social connection. This makes sure the device is linked to a user who has proven control of the account. The Flow Builder shows the following error when you save a flow that doesn't meet this requirement: `Device registration needs an authentication step, such as Email OTP, SMS OTP or Passkey, before it in the flow.`
 
-A standalone flow whose only purpose is registering a device against an account that already exists. The user authenticates as they normally would, then goes through device registration on its own.
+## Add device registration to self-registration
 
-Use this for the cases the other two flows do not cover, which in practice is most of the ongoing work:
+You can start from the **Basic + Device Registration** template, or add the step to an existing flow.
 
-- A user who already had an account before device assurance was introduced.
+### Use the template
 
-- A user who has replaced their phone.
+The **Basic + Device Registration** template collects the user's details, verifies the email address, and registers the user's device.
 
-- A user who needs a second device, such as a tablet alongside a phone, or a work laptop alongside both.
+1. On the {{product_name}} Console, go to **Flows**.
 
-Most organizations end up using this flow far more than the other two once the initial rollout is done.
+2. Click the **Self Registration** card.
 
-## Attach a policy to registration
+3. Under **Starter Templates**, click the `+` icon next to **Basic + Device Registration** to load it onto the canvas.
 
-Any of the three flows can optionally enforce a [device assurance policy]({{base_path}}/guides/device-management/device-assurance-policies/) at registration time. Set the policy name on the device registration step in the flow, and non-compliant devices are refused at the point of registration rather than allowed in and blocked later.
+    <!-- TODO: add screenshot - Basic + Device Registration template on the Flow Builder canvas -->
 
-If you leave the policy name unset, the device is registered without any posture check. The device is identified, but nothing is asserted about how secure it is.
+4. Optionally, [attach a device assurance policy](#attach-a-device-assurance-policy) to the **Device Registration** step.
+
+5. Click **Save Draft**, and turn the toggle on the top-right corner **ON** to publish the flow.
+
+### Add the step to an existing flow
+
+1. On the {{product_name}} Console, go to **Flows** and click the **Self Registration** card.
+
+2. From the **Steps** panel, drag and drop a **Device Registration** step onto the canvas.
+
+3. Connect the step after an authentication step. For example, delete the connection from the **Email OTP View** to the **End** node, draw a connection from the **Email OTP View** to the **Device Registration** step, and then from the **Device Registration** step to the **End** node.
+
+4. Optionally, [attach a device assurance policy](#attach-a-device-assurance-policy) to the step.
+
+5. Click **Save Draft**, and turn the toggle on the top-right corner **ON** to publish the flow.
+
+## Add device registration to invited user registration
+
+1. On the {{product_name}} Console, go to **Flows** and click the **Invited User Registration** card.
+
+2. From the **Steps** panel, drag and drop a **Device Registration** step onto the canvas.
+
+3. Connect the step after an authentication step, such as an **Email OTP View**, **SMS OTP View**, or **Passkey View**. If the flow doesn't have one yet, add it from the **Steps** panel and place it before the **Device Registration** step.
+
+4. Optionally, [attach a device assurance policy](#attach-a-device-assurance-policy) to the step.
+
+5. Click **Save Draft**, and turn the toggle on the top-right corner **ON** to publish the flow.
+
+## Attach a device assurance policy
+
+Any flow can optionally enforce a [device assurance policy]({{base_path}}/guides/device-management/device-assurance-policies/) at registration time, so that non-compliant devices are refused at the point of registration rather than allowed in and blocked later.
+
+1. In the Flow Builder, click the **Device Registration** step on the canvas.
+
+2. In the properties panel on the right, select a policy from the **Device policy** list.
+
+    <!-- TODO: add screenshot - Device Registration step properties with the Device policy list -->
+
+3. Click **Save Draft**.
+
+If you leave **Device policy** empty, any device can be registered. The device is identified, but nothing is asserted about how secure it is.
 
 !!! tip
-    Enforcing at registration is worth doing even when you also [enforce at login]({{base_path}}/guides/device-management/enforce-device-policy-at-login/). It gives the user a clear failure at a moment when they are already setting something up and expecting to follow instructions, rather than at the start of a working day when they are trying to get to work.
+    Enforcing at registration is worth doing even when you also [enforce at login]({{base_path}}/guides/device-management/enforce-device-policy-at-login/). It gives the user a clear failure at a moment when they are already setting something up and expecting to follow instructions, rather than when they are trying to sign in to get work done.
+
+## Troubleshooting
+
+The following errors can occur at the **Device Registration** step.
+
+<table>
+    <thead>
+        <tr>
+            <th>Error code</th>
+            <th>Cause</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>DR-60002</code></td>
+            <td>The device signature is invalid. The application must sign the challenge from the current step with the private key that matches the public key it sends.</td>
+        </tr>
+        <tr>
+            <td><code>DR-60004</code></td>
+            <td>The device doesn't comply with the policy set on the step. The error lists the attributes that failed.</td>
+        </tr>
+        <tr>
+            <td><code>DR-60005</code></td>
+            <td>A policy is set on the step, but the application didn't send device data.</td>
+        </tr>
+        <tr>
+            <td><code>DR-60006</code></td>
+            <td>The user wasn't verified by an authentication step before the <b>Device Registration</b> step. Add an authentication step before it.</td>
+        </tr>
+        <tr>
+            <td><code>DPM-60010</code></td>
+            <td>The policy set on the step doesn't exist, for example because it was deleted. Select another policy on the step.</td>
+        </tr>
+    </tbody>
+</table>
