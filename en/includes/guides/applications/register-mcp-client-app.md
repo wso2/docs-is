@@ -19,7 +19,25 @@ To regiser an MCP Client application,
 
     ![Select MCP client application template]({{base_path}}/assets/img/guides/applications/select-mcp-client-app-template.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
+{% if is_version == "next" or product_name == "WSO2 Identity Platform" %}
+2. Select **MCP Client Application**.
+
+    If [Client ID Metadata Documents (CIMD)](#enable-client-id-metadata-documents) are enabled for the organization, the wizard asks **Which MCP client are you connecting?** MCP clients such as Claude and Visual Studio Code identify themselves with a CIMD, an HTTPS URL that serves the client's name, redirect URIs, and sign-in details.
+
+    ![Select the MCP client to connect]({{base_path}}/assets/img/guides/applications/mcp-client-cimd-select-client.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    Choose how to register the client:
+
+    - **Known clients**: Select the client, for example **Claude**. {{ product_name }} creates the application from the client's metadata document.
+    - **Another client with a Client ID Metadata Document**: Select **Continue**, enter the **Metadata document URL**, and select **Fetch document**. Review the client details, edit **Application name** if needed, and select **Create**.
+
+        ![Enter the client's metadata document URL]({{base_path}}/assets/img/guides/applications/mcp-client-cimd-enter-url.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
+    - **I'll configure it myself**: Select **Continue** and fill in the application creation wizard as described below.
+
+{% else %}
 2. Select **MCP Client Application**. The application creation wizard will appear.
+{% endif %}
 
     ![Create an MCP client application]({{base_path}}/assets/img/guides/applications/create-mcp-client-application.png){: width="700" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -52,6 +70,30 @@ To regiser an MCP Client application,
         MCP Authorization specification recommends that MCP clients should be public clients with authorization code grant flow enabled. However, if your MCP client runs on a server side environment where you can keep a secret, you can untick the *public client* option.
 
 3. Click **Create** to complete the registration.
+
+{% if is_version == "next" or product_name == "WSO2 Identity Platform" %}
+## Enable Client ID Metadata Documents
+
+{% if product_name == "WSO2 Identity Platform" %}
+Enable CIMD for the organization with the following API:
+
+```curl
+curl --location --request PATCH 'https://api.asgardeo.io/t/<organization_name>/api/server/v1/configs/authentication/inbound/oauth2' \
+--header 'Authorization: Bearer <access_token>' \
+--header 'Content-Type: application/json' \
+--data '{ "enableClientIdMetadataDocument": true }'
+```
+{% else %}
+Enable CIMD for the organization with the [Server Configuration API]({{base_path}}/apis/configs-rest-api/#tag/Inbound-Authentication-Configurations/operation/updateOAuth2InboundAuthConfig):
+
+```curl
+curl --location --request PATCH 'https://localhost:9443/api/server/v1/configs/authentication/inbound/oauth2' \
+--header 'Authorization: Bearer <access_token>' \
+--header 'Content-Type: application/json' \
+--data '{ "enableClientIdMetadataDocument": true }'
+```
+{% endif %}
+{% endif %}
 
 ## What's next?
 
