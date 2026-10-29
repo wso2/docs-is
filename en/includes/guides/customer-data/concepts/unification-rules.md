@@ -61,7 +61,6 @@ Rules are evaluated **after** the system level `userId` match. If two profiles s
 - Leave gaps between priorities (e.g. 10, 20, 30) so new rules can be inserted without reordering.
 - Priority decides which signal is preferred among several. It does not make a weak signal strong: an organization whose only rule is a tolerant name match still sends those pairs for review.
 
----
 
 ## Related
 
