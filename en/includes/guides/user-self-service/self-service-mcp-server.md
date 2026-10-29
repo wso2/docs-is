@@ -1,6 +1,6 @@
 # Self-service MCP server
 
-The [Self-service MCP server](https://github.com/asgardeo/asgardeo-mcp-server/blob/main/docs/self-service-mcp.md){:target="_blank"} lets an AI agent manage the signed-in user's own account in {{ product_name }}. The agent calls the [self-service APIs]({{base_path}}/guides/user-self-service/build-self-service-capabilities/) with the user's access token, so every action applies only to the user that the token belongs to.
+The [Self-service MCP server](https://github.com/asgardeo/asgardeo-mcp-server/blob/main/docs/self-service-mcp.md){:target="_blank"} lets an AI agent manage the signed-in user's own account in {{ product_name }}. The MCP server calls the [self-service APIs]({{base_path}}/guides/user-self-service/build-self-service-capabilities/) with the user's access token, so every action applies only to the user that the token belongs to.
 
 Users can ask the agent to do the following:
 
@@ -11,22 +11,11 @@ Users can ask the agent to do the following:
 - **Applications**: List their applications. See which applications have access to their account and revoke access.
 - **Consents**: View and withdraw application consents and accepted policies. Unsubscribe from communication preferences.
 
-You can host the server over HTTP for the users of your application.
+You can host the server over HTTP and connect your AI agents to it.
 
-## Prerequisites
+## Set up the server
 
-- An application that [integrates login with {{ product_name }}]({{base_path}}/guides/authentication/add-login-to-apps/) over OpenID Connect standards. Learn more about registering OIDC applications on {{ product_name }}.
-
-    - [SPA]({{base_path}}/guides/applications/register-single-page-app/)
-    - [Traditional Web application]({{base_path}}/guides/applications/register-oidc-web-app/)
-    - [Mobile application]({{base_path}}/guides/applications/register-mobile-app/)
-
-!!! note
-    The application must request the `internal_login` scope when users sign in.
-
-## Host the server
-
-You can run a single server for all users of your application. The server uses the MCP Streamable HTTP transport and serves requests at `/mcp`.
+You can run a single server for all users. The server uses the MCP Streamable HTTP transport and serves requests at `/mcp`.
 
 1. Download the latest Self-service MCP server release from [releases](https://github.com/asgardeo/asgardeo-mcp-server/releases?q=self-service-mcp&expanded=true){:target="_blank"} based on your Operating System.
 
@@ -38,9 +27,9 @@ You can run a single server for all users of your application. The server uses t
     PORT=8000 BASE_URL={{ base_url }} CLIENT_ID=<client_id> ./self-service-mcp
     ```
 
-Note the following when you host the server:
+Note the following when you set up the server:
 
-- Your MCP client must send the access token that the user receives when signing in to your application. Include it as a bearer token in the `Authorization` header of each request (`Authorization: Bearer <access_token>`). The server uses this token for its calls to {{ product_name }}, so each call acts as the user who sent it.
+- Your MCP client must send the user's access token as a bearer token in the `Authorization` header of each request (`Authorization: Bearer <access_token>`). The token must contain the `internal_login` scope. The server uses this token for its calls to {{ product_name }}, so each call acts as the user who sent it.
 
 - The server doesn't store sessions or tokens. {{ product_name }} validates the token on every call.
 
