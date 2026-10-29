@@ -38,6 +38,8 @@ MCP servers can be registered as protected resources in {{ product_name }}. This
 An MCP client is a connection component that host applications use to interface with MCP servers through dedicated, stateful sessions. When connecting to an MCP server, you can register the client application in {{ product_name }}, which also creates an OAuth 2.1 client meeting the necessary standards. Applications can be authorized with specific scopes that define their permitted access to MCP servers, ensuring they operate only within authorized boundaries and maintain a secure ecosystem for model interactions.
 
 {{ product_name }} provides a specialized **MCP Client Application** template for quickly setting up applications optimized for MCP connections. However, MCP servers can also be accessed by most other application types (such as Single Page Applications, Traditional Web Applications, and Mobile Applications), with the exception of Digital Wallet applications.
+
+To register MCP clients that identify themselves with a Client ID Metadata Document (CIMD), such as Claude and Visual Studio Code, see [Setting up MCP Clients]({{base_path}}/guides/agentic-ai/mcp/register-mcp-client-app/).
 {% else %}
 An MCP client is a connection component that host applications use to interface with MCP servers through dedicated, stateful sessions. When connecting to an MCP server, you can register the client in {{ product_name }}, which also creates an OAuth 2.1 client meeting the necessary standards. Clients can be authorized with specific scopes that define their permitted access to MCP servers, ensuring they operate only within authorized boundaries and maintain a secure ecosystem for model interactions.
 
