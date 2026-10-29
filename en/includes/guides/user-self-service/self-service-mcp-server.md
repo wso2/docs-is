@@ -1,6 +1,6 @@
 # Self-service MCP server
 
-The [Self-service MCP server](https://github.com/asgardeo/asgardeo-mcp-server){:target="_blank"} lets an AI agent manage the signed-in user's own account in {{ product_name }}. The agent calls the [self-service APIs]({{base_path}}/guides/user-self-service/build-self-service-capabilities/) with the user's access token, so every action applies only to the user that the token belongs to.
+The [Self-service MCP server](https://github.com/asgardeo/asgardeo-mcp-server/blob/main/docs/self-service-mcp.md){:target="_blank"} lets an AI agent manage the signed-in user's own account in {{ product_name }}. The agent calls the [self-service APIs]({{base_path}}/guides/user-self-service/build-self-service-capabilities/) with the user's access token, so every action applies only to the user that the token belongs to.
 
 Users can ask the agent to do the following:
 
@@ -49,13 +49,11 @@ Note the following when you host the server:
 
 ## Configurations
 
-The following environment variables configure the server. `BASE_URL` is required. `ACCESS_TOKEN` is required when `TRANSPORT` is `stdio`.
+The following environment variables configure the server. `BASE_URL` is required.
 
 | <div style="width: 130px;">Parameter</div> | Description | Default |
 |---|---|---|
 | `BASE_URL` | The URL of your organization. For example, `{{ base_url }}`. | - |
-| `ACCESS_TOKEN` | The access token of the user. Used when `TRANSPORT` is `stdio`. | - |
-| `TRANSPORT` | The transport of the server. Set to `http` or `stdio`. | `http` |
 | `PORT` | The HTTP port of the server. | `8000` |
 | `CLIENT_ID` | The client ID of the application that issued the token. You can find it in the **Protocol** tab of the application. Setting this is recommended. It prevents the agent from revoking this application's access, which would require the user to sign in again. | - |
 | `PORTAL_NAME` | The name the agent uses for your self-service portal when it asks users to complete an action there. | `self-service portal` |
