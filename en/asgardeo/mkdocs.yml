@@ -702,6 +702,7 @@ nav:
         - Getting started:
             - Overview: guides/organization-management/organizations-overview.md
         - Set up organizations: guides/organization-management/manage-organizations.md
+        - Organization onboarding: guides/organization-management/organization-onboarding.md
         - Delegate administration:
           - Set up administration portal: guides/organization-management/manage-b2b-administration.md
           - Onboard administrators:
