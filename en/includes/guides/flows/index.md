@@ -12,6 +12,10 @@ Design and customize key user journeys in your application with Flows. A flow de
 
 Use starter templates, widgets, and other components to control how users interact with your application. No complex coding required.
 
+{% if product_name == "WSO2 Identity Platform" %}
+Use [conditional branching]({{base_path}}/guides/flows/conditional-branching/) to send users down different paths, and [A/B testing]({{base_path}}/guides/flows/conditional-branching/#ab-testing) to try a new version of a flow on a share of your users.
+{% endif %}
+
 ## Start building flows
 
 For specific examples of building flows, refer to [Self-registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/), and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).

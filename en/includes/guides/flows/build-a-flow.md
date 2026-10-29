@@ -95,6 +95,18 @@ Components are the individual UI elements placed inside a step, such as input fi
 
 ![Components]({{base_path}}/assets/img/guides/flows/flow-builder-components.gif){: width="auto" style="display: block; margin: 0;"}
 
+{% if product_name == "WSO2 Identity Platform" %}
+
+### Decisions
+
+A **Decision** step sends users down different paths based on rules, such as an attribute the user entered or a value your application passes. Decision steps run without user interaction. Learn how to [add conditional branching]({{base_path}}/guides/flows/conditional-branching/).
+
+### Flow variables
+
+Flow variables bring request headers and values from your application into a flow, so that decision steps can use them. Define them on the **Start** step. Learn how to [use flow variables]({{base_path}}/guides/flows/conditional-branching/#use-flow-variables).
+
+{% endif %}
+
 ## Customize flow text
 
 Every editable label, hint, heading, and button on a flow screen can be swapped for a translation key, so the same flow can render in different languages and use organization-specific wording.
