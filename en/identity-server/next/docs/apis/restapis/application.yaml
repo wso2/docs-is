@@ -560,7 +560,6 @@ paths:
           | `CIMD-60005` | A grant type in the document is not allowed. |
           | `CIMD-60006` | A value in the document is too long. |
           | `CIMD-60007` | Client ID Metadata Document support is not enabled for the organization. |
-          | `CIMD-60008` | Too many previews are in progress. Returned with HTTP status 429. |
       operationId: previewClientIdMetadataDocument
       requestBody:
         required: true
@@ -589,12 +588,6 @@ paths:
                 $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '429':
-          description: Too Many Requests
           content:
             application/json:
               schema:
