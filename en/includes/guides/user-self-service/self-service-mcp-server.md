@@ -209,6 +209,7 @@ To connect an MCP client to the hosted server, add the following configuration t
 
 The following environment variables configure the server. `BASE_URL` is required. `ACCESS_TOKEN` is required when you run the server locally.
 
+<!-- markdownlint-disable MD056 -->
 | <div style="width: 130px;">Parameter</div> | Description | Default |
 |---|---|---|
 | `BASE_URL` | The URL of your organization. For example, `{{ base_url }}`. | - |
@@ -217,7 +218,10 @@ The following environment variables configure the server. `BASE_URL` is required
 | `PORT` | The HTTP port of the server. | `8000` |
 | `CLIENT_ID` | The client ID of the application that issued the token. You can find it in the **Protocol** tab of the application. Setting this is recommended. It prevents the agent from revoking this application's access, which would require the user to sign in again. | - |
 | `PORTAL_NAME` | The name the agent uses for your self-service portal when it asks users to complete an action there. | `self-service portal` |
-{% if product_name == "WSO2 Identity Server" %}| `CERT_PATH` | The path to a CA certificate file, if {{ product_name }} uses a self-signed or an internal certificate. | - |{% endif %}
+{%- if product_name == "WSO2 Identity Server" %}
+| `CERT_PATH` | The path to a CA certificate file, if {{ product_name }} uses a self-signed or an internal certificate. | - |
+{%- endif %}
+<!-- markdownlint-enable MD056 -->
 
 ## Try it out
 
