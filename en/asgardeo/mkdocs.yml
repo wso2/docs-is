@@ -672,6 +672,7 @@ nav:
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
         - Flow AI: guides/flows/flow-ai.md
+        - Conditional Branching: guides/flows/conditional-branching.md
         - Flow Extensions:
             - Flow Extensions: guides/flows/flow-extensions/index.md
             - Flow extension configuration: guides/flows/flow-extension-configuration.md
