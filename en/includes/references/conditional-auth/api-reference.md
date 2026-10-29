@@ -694,8 +694,8 @@ This function evaluates a [device assurance policy]({{base_path}}/guides/device-
           <td>The authentication context.</td>
         </tr>
         <tr>
-          <td><code>policyName</code></td>
-          <td>The name of the device assurance policy to evaluate.</td>
+          <td><code>policyId</code></td>
+          <td>The ID of the device assurance policy to evaluate.</td>
         </tr>
       </tbody>
     </table>
@@ -732,7 +732,7 @@ This function evaluates a [device assurance policy]({{base_path}}/guides/device-
 - **Example**
 
     ``` js
-    var result = evaluateDevicePolicy(context, "Corporate Device Policy");
+    var result = evaluateDevicePolicy(context, "<policy-id>");
     if (!result.compliant) {
         fail({"errorCode": "device_non_compliant", "errorMessage": "Device does not meet the policy."});
     }
