@@ -1,0 +1,691 @@
+openapi: 3.0.0
+info:
+  version: v1
+  title: 'WSO2 Identity Platform - Policy API Definition'
+  description: 'This document specifies a RESTful API for WSO2 Identity Platform Policy Management'
+  contact:
+    name: WSO2
+    url: 'https://wso2.com/identity-and-access-management/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v1'
+security:
+  - OAuth2: []
+paths:
+  /policies:
+    get:
+      tags:
+        - Policy Management
+      summary: List policies.
+      operationId: getPolicies
+      description: |
+        This API provides the capability to retrieve a paginated list of policies of a given type for the organization, optionally filtered by name.
+
+        <b>Scope (Permission) required:</b> `internal_policy_mgt_view`
+      parameters:
+        - name: type
+          in: query
+          description: Type of the policies to list, for example DEVICE.
+          required: true
+          schema:
+            type: string
+            example: "DEVICE"
+        - name: limit
+          in: query
+          description: Maximum number of records to return.
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 30
+        - name: offset
+          in: query
+          description: Number of records to skip for pagination.
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: filter
+          in: query
+          description: Filter policies whose name contains the given value (case-insensitive). If omitted, all policies of the type are returned.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Policy Management
+      summary: Create a policy.
+      operationId: addPolicy
+      description: |
+        This API provides the capability to create a new policy.
+
+        <b>Scope (Permission) required:</b> `internal_policy_mgt_create`
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolicyRequest'
+      responses:
+        '201':
+          description: Successfully Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /policies/metadata/rule:
+    get:
+      tags:
+        - Policy Management
+      summary: Get rule metadata for a policy type.
+      operationId: getRuleMetadata
+      description: |
+        This API provides the fields, operators and values that rule resources of a policy type can use for a target. For device policies, the target is the device platform, and only the fields that apply to that platform are returned.
+
+        <b>Scope (Permission) required:</b> `internal_policy_mgt_view`
+      parameters:
+        - name: type
+          in: query
+          description: Policy type, for example DEVICE.
+          required: true
+          schema:
+            type: string
+            example: "DEVICE"
+        - name: target
+          in: query
+          description: Resource target, for example a device platform such as android.
+          required: true
+          schema:
+            type: string
+            example: "android"
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleMetadata'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /policies/{policy-id}:
+    get:
+      tags:
+        - Policy Management
+      summary: Get a policy by ID.
+      operationId: getPolicyById
+      description: |
+        This API provides the capability to retrieve a policy by ID.
+
+        <b>Scope (Permission) required:</b> `internal_policy_mgt_view`
+      parameters:
+        - name: policy-id
+          in: path
+          description: ID of the policy
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Policy Management
+      summary: Update a policy.
+      operationId: updatePolicy
+      description: |
+        This API provides the capability to update an existing policy.
+
+        <b>Scope (Permission) required:</b> `internal_policy_mgt_update`
+      parameters:
+        - name: policy-id
+          in: path
+          description: ID of the policy
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolicyUpdateRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - Policy Management
+      summary: Delete a policy.
+      operationId: deletePolicy
+      description: |
+        This API provides the capability to delete a policy by ID.
+
+        <b>Scope (Permission) required:</b> `internal_policy_mgt_delete`
+      parameters:
+        - name: policy-id
+          in: path
+          description: ID of the policy
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/authorize'
+          tokenUrl: 'https://api.asgardeo.io/t/{org-name}/oauth2/token'
+          scopes:
+            read: internal_policy_mgt_view
+            write: internal_policy_mgt_create
+            update: internal_policy_mgt_update
+            delete: internal_policy_mgt_delete
+  schemas:
+    PolicyRequest:
+      type: object
+      required:
+        - name
+        - type
+        - resources
+      example:
+        name: "Corporate Policy"
+        type: "DEVICE"
+        resources:
+          - target: "ios"
+            resourceType: "RULE"
+            rule:
+              condition: "OR"
+              rules:
+                - condition: "AND"
+                  expressions:
+                    - field: "osVersion"
+                      operator: "equals"
+                      value: "16.0"
+                    - field: "jailbreak"
+                      operator: "equals"
+                      value: "false"
+      properties:
+        name:
+          type: string
+          description: The name of the policy.
+          example: "Corporate Policy"
+        type:
+          type: string
+          description: The type of the policy, for example DEVICE. Policy names are unique within a type. The type cannot be changed after the policy is created.
+          example: "DEVICE"
+        resources:
+          type: array
+          description: Resources attached to the policy. Each target may have at most one resource of each type.
+          items:
+            $ref: '#/components/schemas/PolicyResourceRequest'
+    PolicyUpdateRequest:
+      type: object
+      required:
+        - resources
+      properties:
+        resources:
+          type: array
+          description: Resources attached to the policy. Each target may have at most one resource of each type.
+          items:
+            $ref: '#/components/schemas/PolicyResourceRequest'
+    PolicyResourceRequest:
+      type: object
+      required:
+        - target
+        - resourceType
+        - rule
+      properties:
+        target:
+          type: string
+          description: The selector value this resource applies to (e.g. platform - android, ios, macos, windows).
+          example: "ios"
+        resourceType:
+          type: string
+          enum: [RULE, ACTION]
+          description: The type of resource. Only RULE is currently supported.
+          example: "RULE"
+        rule:
+          $ref: '#/components/schemas/RuleRequest'
+    RuleRequest:
+      type: object
+      description: A rule that combines one or more AND-grouped sub-rules with an OR condition;
+        the rule is satisfied when any sub-rule is satisfied.
+      required:
+        - rules
+      properties:
+        condition:
+          type: string
+          enum: ["OR"]
+          description: The logical operator combining the sub-rules. Always "OR".
+          example: "OR"
+        rules:
+          type: array
+          minItems: 1
+          description: The AND-grouped sub-rules combined with OR.
+          items:
+            $ref: '#/components/schemas/ANDRuleRequest'
+    ANDRuleRequest:
+      type: object
+      description: A sub-rule that combines expressions with an AND condition; satisfied only
+        when all of its expressions evaluate to true.
+      required:
+        - condition
+        - expressions
+      properties:
+        condition:
+          type: string
+          enum: ["AND"]
+          description: The logical operator combining the expressions. Always "AND".
+          example: "AND"
+        expressions:
+          type: array
+          minItems: 1
+          description: The list of expressions combined with AND.
+          items:
+            $ref: '#/components/schemas/ExpressionRequest'
+    ExpressionRequest:
+      type: object
+      required:
+        - field
+        - operator
+        - value
+      properties:
+        field:
+          type: string
+          description: The field to evaluate.
+          example: "device.platform"
+        operator:
+          type: string
+          description: The operator to apply.
+          example: "equals"
+        value:
+          type: string
+          description: The value to compare against.
+          example: "Android"
+    PolicyListResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          description: Number of results that match the listing operation.
+          example: 42
+        startIndex:
+          type: integer
+          description: Index of the first element of the page, which will be equal to offset + 1.
+          example: 1
+        count:
+          type: integer
+          description: Number of elements in the returned page.
+          example: 10
+        policies:
+          type: array
+          description: Page of policy summaries.
+          items:
+            $ref: '#/components/schemas/PolicyListItem'
+        links:
+          type: array
+          description: Pagination links (next/previous).
+          items:
+            $ref: '#/components/schemas/PolicyListLink'
+    PolicyListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The policy resource ID.
+          example: "74070bae-df8c-42bf-8754-5173c237c936"
+        name:
+          type: string
+          description: The name of the policy.
+          example: "Corporate Device Policy"
+        type:
+          type: string
+          description: The type of the policy.
+          example: "DEVICE"
+        self:
+          type: string
+          description: Location of the policy resource.
+          example: "/t/{organization-name}/api/server/v1/policies/74070bae-df8c-42bf-8754-5173c237c936"
+    PolicyListLink:
+      type: object
+      properties:
+        href:
+          type: string
+          description: Relative URL to the linked page.
+          example: "/t/{organization-name}/api/server/v1/policies?offset=10&limit=10"
+        rel:
+          type: string
+          description: Relation to the current page.
+          example: "next"
+    PolicyResponse:
+      type: object
+      required:
+        - id
+        - name
+        - type
+      properties:
+        id:
+          type: string
+          description: The policy resource ID.
+          example: "74070bae-df8c-42bf-8754-5173c237c936"
+        name:
+          type: string
+          description: The name of the policy.
+          example: "Corporate Device Policy"
+        type:
+          type: string
+          description: The type of the policy.
+          example: "DEVICE"
+        resources:
+          type: array
+          description: Resources associated with the policy.
+          items:
+            $ref: '#/components/schemas/PolicyResourceResponse'
+    PolicyResourceResponse:
+      type: object
+      properties:
+        target:
+          type: string
+          description: The selector value this resource applies to (e.g. device platform).
+          example: "ios"
+        resourceType:
+          type: string
+          enum: [RULE, ACTION]
+          description: The type of resource.
+          example: "RULE"
+        rule:
+          $ref: '#/components/schemas/RuleResponse'
+    RuleResponse:
+      type: object
+      properties:
+        rules:
+          type: array
+          description: List of AND-combined expression groups, OR'd together.
+          items:
+            $ref: '#/components/schemas/ANDRuleResponse'
+    ANDRuleResponse:
+      type: object
+      properties:
+        expressions:
+          type: array
+          description: Expressions combined with AND logic.
+          items:
+            $ref: '#/components/schemas/ExpressionResponse'
+    ExpressionResponse:
+      type: object
+      properties:
+        field:
+          type: string
+          description: The field to evaluate.
+          example: "platform"
+        operator:
+          type: string
+          description: The operator to apply.
+          example: "equals"
+        value:
+          $ref: '#/components/schemas/ExpressionValue'
+    ExpressionValue:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [STRING, NUMBER, BOOLEAN, DATE_TIME, REFERENCE, RAW]
+          description: The value type.
+          example: "STRING"
+        value:
+          type: string
+          description: The value to compare against.
+          example: "ios"
+    RuleMetadata:
+      type: array
+      description: Fields that rule resources of a policy type can use for a target.
+      items:
+        $ref: '#/components/schemas/RuleFieldMetadata'
+    RuleFieldMetadata:
+      type: object
+      properties:
+        field:
+          $ref: '#/components/schemas/RuleField'
+        operators:
+          type: array
+          description: Operators that can be applied to the field in rule expressions.
+          items:
+            $ref: '#/components/schemas/RuleOperator'
+        value:
+          $ref: '#/components/schemas/RuleFieldValue'
+    RuleField:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the field, used in rule expressions.
+          example: "androidOsVersion"
+        displayName:
+          type: string
+          description: User friendly label of the field.
+          example: "Android OS Version"
+    RuleOperator:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the operator, used in rule expressions.
+          example: "greaterThan"
+        displayName:
+          type: string
+          description: User friendly label of the operator.
+          example: "greater than"
+    RuleFieldValue:
+      type: object
+      properties:
+        inputType:
+          type: string
+          description: Whether the value is entered directly or selected from options.
+          enum:
+            - input
+            - options
+        valueType:
+          type: string
+          description: Data type of the value.
+          enum:
+            - string
+            - number
+            - boolean
+            - date
+            - reference
+        valueReferenceAttribute:
+          type: string
+          description: Attribute of the options data used as the value. Only available when 'valueType' is 'reference'.
+          example: "id"
+        valueDisplayAttribute:
+          type: string
+          description: Attribute of the options data shown as the label. Only available when 'valueType' is 'reference'.
+          example: "name"
+        links:
+          type: array
+          description: Endpoints to retrieve or search for options. Only available when 'valueType' is 'reference'.
+          items:
+            $ref: '#/components/schemas/RuleFieldValueLink'
+        values:
+          type: array
+          description: Selectable values of an options field.
+          items:
+            $ref: '#/components/schemas/RuleFieldValueOption'
+    RuleFieldValueOption:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Value used in rule expressions.
+          example: "14"
+        displayName:
+          type: string
+          description: User friendly label of the value.
+          example: "14"
+    RuleFieldValueLink:
+      type: object
+      properties:
+        href:
+          type: string
+          description: URL of the endpoint.
+        method:
+          type: string
+          description: HTTP method.
+          enum:
+            - GET
+        rel:
+          type: string
+          description: Relation of the endpoint to retrieving or filtering the values.
+          enum:
+            - values
+            - filter
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: PM-60001
+        message:
+          type: string
+          example: Some Error Message.
+        description:
+          type: string
+          example: Some Error Description.
+        traceId:
+          type: string
+          example: "e0fbcfeb-3617-43c4-8dd0-7b7d38e13047"

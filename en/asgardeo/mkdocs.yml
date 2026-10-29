@@ -158,6 +158,7 @@ extra:
     - Get Started
     - Guides
     - Tutorials
+    - AI Tools
     - Integrations
     - APIs
     - References
@@ -258,6 +259,7 @@ plugins:
   - redirects:
       redirect_maps:
         'references/grant-types-in-asgardeo.md': 'references/grant-types.md'
+        'guides/authentication/configure-jwt-bearer-grant.md': 'references/grant-types.md'
         'guides/users/manage-collaborators.md': 'guides/users/manage-administrators.md'
         'guides/users/manage-customers.md': 'guides/users/manage-users.md'
         'guides/user-self-service/register-security-key.md': 'guides/user-self-service/register-passkey.md'
@@ -298,7 +300,8 @@ plugins:
         'apis/organization-apis/notification-sender-rest-api.md':  'apis/organization-apis/notification-sender-rest-api.md'
         'guides/applications/register-mcp-client-app.md': 'guides/agentic-ai/mcp/register-mcp-client-app.md'
         'guides/authorization/mcp-server-authorization.md': 'guides/agentic-ai/mcp/mcp-server-authorization.md'
-        'quick-starts/mcp-server.md': 'sdks/asgardeo-mcp-server.md'
+        'quick-starts/mcp-server.md': 'ai-tools/asgardeo-mcp-server.md'
+        'sdks/asgardeo-mcp-server.md': 'ai-tools/asgardeo-mcp-server.md'
         'guides/user-self-service/self-register-flow.md': 'guides/flows/build-a-flow.md'
         'guides/users/attributes/manage-attributes.md': 'guides/users/attributes/user-attributes/manage-attributes.md'
         'get-started/create-asgardeo-account.md': 'get-started/create-identity-platform-account.md'
@@ -539,7 +542,6 @@ nav:
               - Pushed Authorization Requests (PAR): guides/authentication/oidc/implement-login-with-par.md
               - JWT Secured Authorization Response Mode (JARM) for OAuth 2.0: guides/authentication/oidc/jarm.md
             - Grant types:
-              - JWT Bearer Grant: guides/authentication/configure-jwt-bearer-grant.md
               - CIBA Grant: guides/authentication/configure-ciba-grant.md
             - Client authentication methods:
               - Private key JWT: guides/authentication/oidc/private-key-jwt-client-auth.md
@@ -575,6 +577,7 @@ nav:
         - Configure an Identity Verification Provider: guides/identity-verification/configure-identity-verification-provider.md
         - Identity Verification with Onfido: guides/identity-verification/add-identity-verification-with-onfido.md
         - Identity Verification with Daon TrustX: guides/identity-verification/add-identity-verification-with-daon.md
+        - Identity Verification with Incode: guides/identity-verification/add-identity-verification-with-incode.md
       - User management:
         - User management: guides/users/index.md
         - Administrators:
@@ -623,6 +626,15 @@ nav:
         - Consent management: guides/consent-management/index.md
         - Policy consent: guides/consent-management/policy-consent.md
         - Preference management consent: guides/consent-management/preference-management-consent.md
+      - Device management:
+          - Device management: guides/device-management/index.md
+          - Device assurance policies: guides/device-management/device-assurance-policies.md
+          - Device attributes: guides/device-management/device-attributes.md
+          - Device attestation: guides/device-management/device-attestation.md
+          - Configure device registration: guides/device-management/configure-device-registration.md
+          - Enforce a device policy at login: guides/device-management/enforce-device-policy-at-login.md
+          - Manage the devices of a user: guides/device-management/view-user-devices.md
+          - Integrate device management in your app: guides/device-management/integrate-device-management-in-your-app.md
       - Workflows:
         - Workflows: guides/workflows/index.md
         - Approval workflows: guides/workflows/approval-workflows.md
@@ -638,6 +650,8 @@ nav:
         - Manage:
           - Manage profile attributes: guides/customer-data/guides/manage-profile-attributes.md
           - Manage unification rules: guides/customer-data/guides/manage-unification-rules.md
+          - Configure matching confidence: guides/customer-data/guides/configure-matching-confidence.md
+          - Review profile matches: guides/customer-data/guides/review-profile-matches.md
         - Use cases:
           - Use cases: guides/customer-data/use-cases/index.md
           - Unify anonymous and registered profiles: guides/customer-data/use-cases/self-registration.md
@@ -670,6 +684,7 @@ nav:
         - Password Recovery: guides/flows/password-recovery.md
         - Invited User Registration: guides/flows/invited-user-registration.md
         - Flow AI: guides/flows/flow-ai.md
+        - Conditional Branching: guides/flows/conditional-branching.md
         - Flow Extensions:
             - Flow Extensions: guides/flows/flow-extensions/index.md
             - Flow extension configuration: guides/flows/flow-extension-configuration.md
@@ -690,17 +705,20 @@ nav:
           - Self-register: guides/user-self-service/self-register.md
           - Register passkeys: guides/user-self-service/register-passkey.md
           - Register Push Notification Device: guides/user-self-service/register-push-notification-device.md
+          - Manage registered devices: guides/user-self-service/manage-registered-devices.md
           - Password recovery: guides/user-self-service/user-password-recovery.md
           - Enroll TOTP: guides/user-self-service/enable-totp.md
           - Manage backup codes: guides/user-self-service/manage-backup-codes.md
           - Discover applications: guides/user-self-service/discover-applications.md
           - Manage approvals: guides/user-self-service/manage-approvals.md
         - Build self-service capabilities: guides/user-self-service/build-self-service-capabilities.md
+        - Self-service MCP server: guides/user-self-service/self-service-mcp-server.md
       - Organizations:
         - Organizations: guides/organization-management/index.md
         - Getting started:
             - Overview: guides/organization-management/organizations-overview.md
         - Set up organizations: guides/organization-management/manage-organizations.md
+        - Organization onboarding: guides/organization-management/organization-onboarding.md
         - Delegate administration:
           - Set up administration portal: guides/organization-management/manage-b2b-administration.md
           - Onboard administrators:
@@ -842,6 +860,9 @@ nav:
     - Integrating WSO2 Identity Platform With Kong AI Gateway for Agent Identity-Aware Access Control: tutorials/kong-ai-gateway-with-agent-identity-aware-access-control.md
     - Secure MCP servers with WSO2 Identity Platform and integrate them with n8n agentic flows: tutorials/secure-mcp-servers-and-integrate-them-with-n8n-agentic-flows.md
     - Register multiple devices for push notifications: tutorials/register-multiple-devices-for-push-notifications.md
+  - AI Tools:
+    - Ask AI: ai-tools/ask-ai.md
+    - WSO2 Identity Platform MCP Server: ai-tools/asgardeo-mcp-server.md
   - SDKs:
     - Integrate WSO2 Identity Platform into your application: sdks/index.md
   - SDK Documentation:
@@ -909,7 +930,11 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
-  - WSO2 Identity Platform MCP Server: sdks/asgardeo-mcp-server.md
+  - WSO2 Identity Platform CLI:
+    - Get started with the CLI: cli/index.md
+    - Authenticate the CLI: cli/authenticate.md
+    - Manage resources with the CLI: cli/manage-resources.md
+    - Terminal UI: cli/terminal-ui.md
   - APIs:
     - APIs - Overview: apis/index.md
     - Management APIs:
@@ -925,6 +950,7 @@ nav:
       - Consent management:
         - Consent management API: apis/consent-management.md
         - Consent management API v2: apis/consent-management-v2-api-definition.md
+      - Device management API: apis/device-management-rest-api.md
       - Email templates API: apis/email-template.md
       - Event configuration API: apis/event-configuration.md
       - Flow Extension Management API: apis/flow-extension-management-rest-api.md
@@ -938,6 +964,7 @@ nav:
       - Organization discovery API: apis/organization-discovery.md
       - Organization discovery configuration management API: apis/organization-discovery-config-mgt-rest-api.md
       - Organization management API: apis/organization-management.md
+      - Policy management API: apis/policy-management-rest-api.md
       - Role management: 
         - Role management (SCIM 2.0) API: apis/role-management/roles.md
       - Rule Metadata API: apis/rule-metadata-rest-api.md
@@ -1010,6 +1037,7 @@ nav:
       - Export user information API: apis/register-mfa/export-user-info.md
       - Password recovery API: apis/register-mfa/password-recovery.md
       - TOTP API: apis/register-mfa/totp.md
+      - Device management API by user: apis/device-management-by-user-rest-api.md
       - Push Notification Device API: apis/push-notification-device-rest-api.md
       - User account associations API: apis/association-management-by-user.md
       - User credential management API: apis/end-user-credential-management-v2-rest-api.md

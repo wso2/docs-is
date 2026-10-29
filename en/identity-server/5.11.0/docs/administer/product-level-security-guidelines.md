@@ -262,6 +262,13 @@ Make sure that the permission for signing in to the Management Console is grante
 
 Do not use the super admin or any high-privileged user credentials when invoking WSO2 Identity Server APIs. Instead, create a user with the least privileges required to invoke the API and use that user's credentials.
 
+### Service providers that use the client credentials grant
+
+Access tokens issued to a service provider with the client credentials grant can get any internal scope that the user who created the service provider can use. To limit this:
+
+- Create such service providers with a dedicated user that has only the required permissions, not with the super admin.
+- Regularly review service providers that use the client credentials grant. Disable the grant on those that do not need it.
+
 ## Log rotation and monitoring
 
 Ensure that you have a relevant log rotation scheme to manage logs. Log4J properties for WSO2 Identity Server can be configured in the `log4j.properties` file in the `<IS_HOME>/repository/conf` file. 

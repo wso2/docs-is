@@ -100,6 +100,46 @@ The value for `flowType` depends on the flow you want to execute. Refer to the t
 | `WEBAUTHN` | Initiate webAuthn ceremony with the information in `data.webAuthn`, then submit the encoded response. | `webAuthn` |
 | `INTERNAL_PROMPT` | Submit the requested parameters to server. | `requiredParams` |
 
+{% if product_name == "WSO2 Identity Platform" %}
+
+### Pass runtime values
+
+If the flow defines [runtime values]({{base_path}}/guides/flows/conditional-branching/#use-flow-variables) that the app is allowed to set, send them in the `inputs` object of the request that starts the flow. Use the name of each runtime value as the key, and send each value as a string.
+
+```json
+{
+  "flowType": "REGISTRATION",
+  "inputs": {
+    "abTestingKey": "42",
+    "plan": "pro"
+  }
+}
+```
+
+- `abTestingKey` is a whole number from `0` to `99` that decides which [A/B testing]({{base_path}}/guides/flows/conditional-branching/#ab-testing) branch the user takes. Keep the key stable for each user or device, so that a returning user sees the same version of the flow.
+- `plan` is a runtime value that the flow defines and allows the app to set.
+
+{{product_name}} reads each value as the data type of the runtime value:
+
+| Data type | Example value |
+| ----------- | --------------- |
+| String | `"pro"` |
+| Integer | `"42"` |
+| Decimal | `"12.5"` |
+| Boolean | `"true"` or `"false"` |
+| Array of strings | `["gold", "silver"]` |
+| Array of numbers | `[10, 20]` |
+
+Keep the following in mind when you pass runtime values:
+
+- {{product_name}} accepts runtime values only in the request that starts the flow, and ignores them in later requests.
+- {{product_name}} ignores values for runtime values that don't allow the app to set them, values that don't match the data type, and values longer than 255 characters. In these cases, the flow uses the initial value.
+- Values can't contain the characters `<`, `>`, `"`, `'`, `` ` ``, `\`, `{`, `}`, `$`, or control characters.
+
+If the flow reads [request headers]({{base_path}}/guides/flows/conditional-branching/#use-flow-variables), {{product_name}} reads them from every request your application sends. Each occurrence of a header becomes one entry in the header's value.
+
+{% endif %}
+
 ## Continue a flow execution
 
 After the client action, call the previous `execute` endpoint with the `flowId` and the data that corresponds to the current step.

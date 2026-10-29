@@ -190,6 +190,9 @@ extra:
     Tutorials:
       icon: octicons/mortar-board-16
       level: 1
+    AI Tools:
+      icon: octicons/zap-16
+      level: 1
     SDKs:
       icon: octicons/package-16
       level: 1
@@ -198,6 +201,9 @@ extra:
       level: 1
     WSO2 Identity Platform MCP Server:
       icon: assets/libs/custom-icons/mcp.svg
+      level: 1
+    WSO2 Identity Platform CLI:
+      icon: octicons/terminal-16
       level: 1
     React SDK:
       icon: fontawesome/brands/react
