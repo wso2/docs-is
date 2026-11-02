@@ -20,6 +20,18 @@ Follow these steps to enable DPoP for your application:
 
 3. Click **Update** to save your changes.
 
+!!! note
+    When you select **DPoP** as the token binding type in the Console, {{product_name}} automatically enables **Validate token bindings** for the application. This ensures that requests made with the access token must include a valid DPoP proof signed by the key the token is bound to.
+
+    If you configure the application using the applications REST API instead, set `validateTokenBinding` to `true` along with `bindingType` set to `DPoP` under `accessToken` in the OIDC inbound protocol configuration.
+
+    ```json
+    "accessToken": {
+        "bindingType": "DPoP",
+        "validateTokenBinding": true
+    }
+    ```
+
 ## Try it out
 
 You can test DPoP support in {{product_name}} using either the [Client Credentials]({{base_path}}/references/grant-types/#client-credentials-grant) or [Authorization Code grant]({{base_path}}/references/grant-types/#authorization-code-grant). Follow the steps below to generate a DPoP proof and use it in token requests.

@@ -77,6 +77,12 @@ Token binding securely links authentication tokens to client devices to prevent 
         </br>
         Generally for applications that involve multiple instances and use back-channel grant types such as <b>token exchange</b> or <b>password</b>.</td>
         </tr>
+    {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
+    <tr>
+      <td>DPoP</td>
+      <td>Binds the token to the client's private key. The client proves possession of the key by sending a signed DPoP proof in the <code>DPoP</code> header with each request. Supported with <b>all</b> grant types. <b>Validate token bindings</b> is automatically enabled when this binding type is selected. Learn more about <a href="{{base_path}}/references/token-binding/dpop/">DPoP</a>.</td>
+    </tr>
+    {% endif %}
   </tbody>
 </table>
 
@@ -84,7 +90,7 @@ Token binding securely links authentication tokens to client devices to prevent 
 
     You can configure the following properties related to token binding:
 
-    - **Validate token bindings** - When enabled, {{product_name}} uses the selected binding type to validate the access token based on the binding information sent in the cookie.
+    - **Validate token bindings** - When enabled, {{product_name}} uses the selected binding type to validate the access token based on the binding information sent with the request (for example, the cookie for the cookie binding type or the DPoP proof for the DPoP binding type).
     
     - **Revoke token upon user logout** - When enabled, a user logout from a session causes access tokens to be revoked provided the logout request contains either `client_id` or `id_token_hint`. Learn more about [logout requests]({{base_path}}/guides/authentication/oidc/add-logout/).
 
