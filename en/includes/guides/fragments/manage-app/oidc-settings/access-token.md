@@ -80,7 +80,7 @@ Token binding securely links authentication tokens to client devices to prevent 
     {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.1.0") %}
     <tr>
       <td>DPoP</td>
-      <td>Binds the token to the client's private key. The client proves possession of the key by sending a signed DPoP proof in the <code>DPoP</code> header with each request. Supported with <b>all</b> grant types. <b>Validate token bindings</b> is automatically enabled when this binding type is selected. Learn more about <a href="{{base_path}}/references/token-binding/dpop/">DPoP</a>.</td>
+      <td>Binds the token to the client's public key. The client proves possession of the corresponding private key by signing a DPoP proof with it and sending the proof in the <code>DPoP</code> header with each request. Supported with <b>all</b> grant types. <b>Validate token bindings</b> is automatically enabled when this binding type is selected. Learn more about <a href="{{base_path}}/references/token-binding/dpop/">DPoP</a>.</td>
     </tr>
     {% endif %}
   </tbody>

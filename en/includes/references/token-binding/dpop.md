@@ -1,6 +1,6 @@
 # Demonstrating Proof of Possession (DPoP)
 
-Demonstrating Proof of Possession (DPoP) [(RFC 9449)](https://datatracker.ietf.org/doc/rfc9449/) defines a binding mechanism that ties an access token to the client’s private key. To prove possession of the key, the client includes a signed DPoP proof in the `DPoP` header of each request. This ensures that only the legitimate client holding the corresponding private key can use the access token.
+Demonstrating Proof of Possession (DPoP) [(RFC 9449)](https://datatracker.ietf.org/doc/rfc9449/) defines a binding mechanism that ties an access token to the client’s public key. To prove possession of the corresponding private key, the client includes a DPoP proof signed with that private key in the `DPoP` header of each request. This ensures that only the legitimate client holding the corresponding private key can use the access token.
 
 DPoP enhances security by preventing token misuse and replay attacks, making it a robust solution for securing access tokens across all OAuth 2.0 grant types.
 
@@ -26,9 +26,11 @@ Follow these steps to enable DPoP for your application:
     If you configure the application using the applications REST API instead, set `validateTokenBinding` to `true` along with `bindingType` set to `DPoP` under `accessToken` in the OIDC inbound protocol configuration.
 
     ```json
-    "accessToken": {
-        "bindingType": "DPoP",
-        "validateTokenBinding": true
+    {
+        "accessToken": {
+            "bindingType": "DPoP",
+            "validateTokenBinding": true
+        }
     }
     ```
 
