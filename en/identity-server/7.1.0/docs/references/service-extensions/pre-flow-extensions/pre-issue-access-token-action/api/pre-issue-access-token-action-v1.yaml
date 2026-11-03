@@ -117,7 +117,7 @@ components:
         additionalHeaders:
           type: array
           description: Any additional HTTP headers included in the access token request. These may contain custom information or metadata that the client has sent.
-            All headers in request are not incorporated specially sensitive headers like ‘Authorization’, ‘Cookie’, etc.
+            All headers in the request are forwarded, including sensitive headers like ‘Authorization’ and ‘Cookie’. Use the excluded headers server configuration to stop specific headers from being forwarded.
           items:
             $ref: '#/components/schemas/RequestHeaders'
         additionalParams:
@@ -125,7 +125,7 @@ components:
           items:
             $ref: '#/components/schemas/RequestParams'
       description: Any additional parameters included in the access token request. These may be custom parameters defined by the client or necessary for specific flows.
-        All request parameters are not incorporated, specially sensitive parameters like client secret, username and password, etc..
+        All parameters in the request are forwarded, including sensitive parameters like client secret, username, and password. Use the excluded parameters server configuration to stop specific parameters from being forwarded.
     Tenant:
       type: object
       required:

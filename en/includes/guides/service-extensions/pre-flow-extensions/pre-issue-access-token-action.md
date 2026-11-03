@@ -30,3 +30,25 @@ Upon receiving the response, {{product_name}} applies any modifications to the a
 
 === "v1.x"
     {% include "./action-versions/pre-issue-access-token-action-v1.x.md" %}
+
+{% if product_name == "WSO2 Identity Server" %}
+
+## Restrict request headers and parameters
+
+{% if is_version == "7.1.0" %}
+The pre-issue access token action forwards all HTTP headers and parameters of the access token request to your external service.
+{% else %}
+By default, the pre-issue access token action forwards all HTTP headers and parameters of the access token request to your external service. This happens when you don't configure **Allowed headers** or **Allowed parameters** for the action. This preserves backward compatibility with actions created before allowed headers and parameters were introduced.
+{% endif %}
+The forwarded values can include credentials, such as the `Authorization` header that carries the application's client ID and client secret, or the `client_secret` and `password` parameters.
+
+To exclude headers and parameters only for the pre-issue access token action, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
+
+```toml
+[actions.types.pre_issue_access_token.action_request]
+excluded_headers = ["authorization", "cookie"]
+excluded_parameters = ["client_secret", "password"]
+```
+
+{{product_name}} also excludes the headers and parameters configured for all action types. See [Restrict request headers and parameters]({{base_path}}/guides/service-extensions/pre-flow-extensions/setting-up-actions/#restrict-request-headers-and-parameters).
+{% endif %}

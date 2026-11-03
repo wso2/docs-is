@@ -127,6 +127,28 @@ The following example illustrates a rule configuration in pre-issue access token
 
 ![action-rule-configuration]({{base_path}}/assets/img/guides/actions/action-rule-configuration-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
+{% if product_name == "WSO2 Identity Server" %}
+
+## Restrict request headers and parameters
+
+Actions can forward HTTP headers and parameters of the incoming request to your external service. These can include credentials, such as the `Authorization` header or the `client_secret` and `password` parameters.
+
+To stop specific headers and parameters from reaching the external services of all action types, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
+
+```toml
+[actions.action_request]
+excluded_headers = ["authorization", "cookie"]
+excluded_parameters = ["client_secret", "password"]
+```
+
+{% if not is_version == "7.1.0" %}
+Once excluded, you can't add these headers and parameters to the **Allowed headers** or **Allowed parameters** of an action.
+{% endif %}
+
+!!! tip
+    Exclude credentials such as `authorization`, `cookie`, `client_secret`, and `password` unless your external service needs them.
+{% endif %}
+
 ## Test your action
 
 Follow the steps below to try out the created action.
