@@ -75,8 +75,18 @@ To regiser an MCP Client application,
 
 ## Enable Client ID Metadata Documents
 
+To enable CIMD for the organization,
+
+1. On the {{ product_name }} Console, go to **Applications**.
+
+2. Click the gear icon at the top to open **Application Settings**.
+
+3. Under **Client ID Metadata Documents**, select **Enable**.
+
+4. Click **Update** to save the changes.
+
 {% if product_name == "WSO2 Identity Platform" %}
-Enable CIMD for the organization with the following API:
+Alternatively, enable CIMD with the following API:
 
 ```curl
 curl --location --request PATCH 'https://api.asgardeo.io/t/<organization_name>/api/server/v1/configs/authentication/inbound/oauth2' \
@@ -86,7 +96,7 @@ curl --location --request PATCH 'https://api.asgardeo.io/t/<organization_name>/a
 ```
 
 {% else %}
-Enable CIMD for the organization with the [Server Configuration API]({{base_path}}/apis/configs-rest-api/#tag/Inbound-Authentication-Configurations/operation/updateOAuth2InboundAuthConfig):
+Alternatively, enable CIMD with the [Server Configuration API]({{base_path}}/apis/configs-rest-api/#tag/Inbound-Authentication-Configurations/operation/updateOAuth2InboundAuthConfig):
 
 ```curl
 curl --location --request PATCH 'https://localhost:9443/api/server/v1/configs/authentication/inbound/oauth2' \
