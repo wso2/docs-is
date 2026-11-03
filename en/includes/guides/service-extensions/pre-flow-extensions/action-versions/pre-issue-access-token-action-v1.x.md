@@ -79,7 +79,12 @@ The following API contracts defines the request and response structures that you
 <td>additionalHeaders</td>
 <td>Extra HTTP headers in the access token request. These may contain custom information or metadata sent by the client.
 {% if product_name == "WSO2 Identity Server" %}
-{% if is_version == "7.1.0" %}{{product_name}} forwards all headers of the access token request{% else %}If you don't configure allowed headers for the action, {{product_name}} forwards all headers of the access token request{% endif %}, including sensitive headers like ‘Authorization’ and ‘Cookie’. To stop specific headers from reaching your external service, see <a href="{{base_path}}/guides/service-extensions/pre-flow-extensions/setting-up-actions/#restrict-request-headers-and-parameters">Restrict request headers and parameters</a>.
+{% if is_version == "7.1.0" %}
+{{product_name}} forwards all headers of the access token request, including sensitive headers like ‘Authorization’ and ‘Cookie’.
+{% else %}
+If you don't configure allowed headers for the action, {{product_name}} forwards all headers of the access token request, including sensitive headers like ‘Authorization’ and ‘Cookie’.
+{% endif %}
+To stop specific headers from reaching your external service, see <a href="{{base_path}}/guides/service-extensions/pre-flow-extensions/setting-up-actions/#restrict-request-headers-and-parameters">Restrict request headers and parameters</a>.
 {% else %}
 Sensitive headers like ‘Authorization’ and ‘Cookie’ don't appear in the request.
 {% endif %}</td>
@@ -88,7 +93,12 @@ Sensitive headers like ‘Authorization’ and ‘Cookie’ don't appear in the 
 <td>additionalParams</td>
 <td>Extra parameters in the access token request. These may contain custom information or metadata sent by the client.
 {% if product_name == "WSO2 Identity Server" %}
-{% if is_version == "7.1.0" %}{{product_name}} forwards all parameters of the access token request{% else %}If you don't configure allowed parameters for the action, {{product_name}} forwards all parameters of the access token request{% endif %}, including sensitive parameters like client secret, username, and password. To stop specific parameters from reaching your external service, see <a href="{{base_path}}/guides/service-extensions/pre-flow-extensions/setting-up-actions/#restrict-request-headers-and-parameters">Restrict request headers and parameters</a>.
+{% if is_version == "7.1.0" %}
+{{product_name}} forwards all parameters of the access token request, including sensitive parameters like client secret, username, and password.
+{% else %}
+If you don't configure allowed parameters for the action, {{product_name}} forwards all parameters of the access token request, including sensitive parameters like client secret, username, and password.
+{% endif %}
+To stop specific parameters from reaching your external service, see <a href="{{base_path}}/guides/service-extensions/pre-flow-extensions/setting-up-actions/#restrict-request-headers-and-parameters">Restrict request headers and parameters</a>.
 {% else %}
 Sensitive parameters like client secret, username, and password don't appear.
 {% endif %}</td>

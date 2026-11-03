@@ -130,9 +130,17 @@ The following example illustrates a rule configuration in pre-issue access token
 {% if product_name == "WSO2 Identity Server" %}
 ## Restrict request headers and parameters
 
-{% if is_version == "7.1.0" %}The Pre-Issue Access Token action forwards all HTTP headers and parameters of the access token request to your external service.{% else %}If you don't configure **Allowed headers** or **Allowed parameters** for a Pre-Issue Access Token action, {{product_name}} forwards all HTTP headers and parameters of the access token request to your external service. This preserves backward compatibility with actions created before allowed headers and parameters were introduced.{% endif %} The forwarded values can include credentials, such as the `Authorization` header that carries the application's client ID and client secret, or the `client_secret` and `password` parameters.
+{% if is_version == "7.1.0" %}
+The Pre-Issue Access Token action forwards all HTTP headers and parameters of the access token request to your external service.
+{% else %}
+If you don't configure **Allowed headers** or **Allowed parameters** for a Pre-Issue Access Token action, {{product_name}} forwards all HTTP headers and parameters of the access token request to your external service. This preserves backward compatibility with actions created before allowed headers and parameters were introduced.
+{% endif %}
+The forwarded values can include credentials, such as the `Authorization` header that carries the application's client ID and client secret, or the `client_secret` and `password` parameters.
 
-To stop specific headers and parameters from reaching your external services, add them to an exclusion list in the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.{% if not is_version == "7.1.0" %} Once excluded, you can't add these headers and parameters to the **Allowed headers** or **Allowed parameters** of an action.{% endif %}
+To stop specific headers and parameters from reaching your external services, add them to an exclusion list in the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
+{% if not is_version == "7.1.0" %}
+Once excluded, you can't add these headers and parameters to the **Allowed headers** or **Allowed parameters** of an action.
+{% endif %}
 
 - To exclude headers and parameters for all action types, use the following configuration.
 
