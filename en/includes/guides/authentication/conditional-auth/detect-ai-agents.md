@@ -176,9 +176,3 @@ if (isCorporateIP(context.request.ip, agentIpRanges)) {
 
 !!! note
     The helper functions handle IPv4 only. `context.request.ip` honors the `X-Forwarded-For` header, so configure your load balancer to overwrite this header with the real client address.
-
-## Limitations
-
-- Request signals such as headers and IP addresses can be spoofed. Verify cryptographic signals at the edge.
-
-- Agents that operate the user's own browser send normal browser headers and can't be told apart from the user by request signals.
