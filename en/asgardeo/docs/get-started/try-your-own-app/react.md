@@ -3,7 +3,7 @@
 Follow the steps given below to authenticate users to your React SPA with OpenID Connect using the [WSO2 Identity Platform React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk/blob/main/README.md).
 
 ## Prerequisites
-- [Install node.js and npm](https://nodejs.org) in your local environment.
+- [Install Node.js and npm](https://nodejs.org) in your local environment.
 - [Register an application]({{base_path}}/guides/applications/register-single-page-app/) in WSO2 Identity Platform.
 
 !!! note
@@ -33,7 +33,7 @@ import { AuthProvider } from "@asgardeo/auth-react";
 `AuthProvider` takes a config object as a [prop](https://react.dev/learn/passing-props-to-a-component) which is used to initialize the SDK instance. Copy and use the following code within your root component to configure `AuthProvider` for your application.
 
 !!! note
-    Typically, the root component of a react app is defined in the `index.*` file.
+    Typically, the root component of a React app is defined in the `index.*` file.
 
 ``` js
 import React from "react";
