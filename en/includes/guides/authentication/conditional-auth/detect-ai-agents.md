@@ -76,7 +76,7 @@ var detectAgent = function (context) {
     // Header names are lower-case.
     var headers = context.request.headers;
     var signatureInput = String(headers['signature-input'] || '');
-    // Match the tag parameter exactly, e.g. sig1=(...);tag="web-bot-auth".
+    // Match the tag parameter exactly, e.g. sig1=("@authority");tag="web-bot-auth".
     return !!headers['signature-agent'] || /;\s*tag="web-bot-auth"\s*(;|,|$)/.test(signatureInput);
 };
 ```
