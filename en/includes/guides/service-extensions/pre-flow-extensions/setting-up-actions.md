@@ -127,6 +127,35 @@ The following example illustrates a rule configuration in pre-issue access token
 
 ![action-rule-configuration]({{base_path}}/assets/img/guides/actions/action-rule-configuration-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
+{% if product_name == "WSO2 Identity Server" %}
+## Restrict request headers and parameters
+
+{% if is_version == "7.1.0" %}The Pre-Issue Access Token action forwards all HTTP headers and parameters of the access token request to your external service.{% else %}If you don't configure **Allowed headers** or **Allowed parameters** for a Pre-Issue Access Token action, {{product_name}} forwards all HTTP headers and parameters of the access token request to your external service. This preserves backward compatibility with actions created before allowed headers and parameters were introduced.{% endif %} The forwarded values can include credentials, such as the `Authorization` header that carries the application's client ID and client secret, or the `client_secret` and `password` parameters.
+
+To stop specific headers and parameters from reaching your external services, add them to an exclusion list in the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.{% if not is_version == "7.1.0" %} Once excluded, you can't add these headers and parameters to the **Allowed headers** or **Allowed parameters** of an action.{% endif %}
+
+- To exclude headers and parameters for all action types, use the following configuration.
+
+    ```toml
+    [actions.action_request]
+    excluded_headers = ["authorization", "cookie"]
+    excluded_parameters = ["client_secret", "password"]
+    ```
+
+- To exclude headers and parameters only for the Pre-Issue Access Token action, use the following configuration.
+
+    ```toml
+    [actions.types.pre_issue_access_token.action_request]
+    excluded_headers = ["authorization", "cookie"]
+    excluded_parameters = ["client_secret", "password"]
+    ```
+
+If you configure both, {{product_name}} excludes the headers and parameters listed in either configuration.
+
+!!! tip
+    Exclude credentials such as `authorization`, `cookie`, `client_secret`, and `password` unless your external service needs them.
+{% endif %}
+
 ## Test your action
 
 Follow the steps below to try out the created action.
