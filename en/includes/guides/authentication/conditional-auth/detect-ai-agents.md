@@ -120,7 +120,7 @@ Step 1 is your application's usual sign-in, and an agent may complete it. Step 2
 
 ## Ways to identify AI agents
 
-No single signal identifies every AI agent. Add the checks that fit your application inside `detectAgent()`, above the final `return` statement. Header names in `context.request.headers` are lower-case.
+No single signal identifies every AI agent. Add the checks that fit your application inside `detectAgent()`, above the final `return` statement.
 
 ### Web Bot Auth
 
