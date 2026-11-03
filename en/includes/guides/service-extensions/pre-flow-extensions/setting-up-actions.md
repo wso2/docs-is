@@ -128,6 +128,7 @@ The following example illustrates a rule configuration in pre-issue access token
 ![action-rule-configuration]({{base_path}}/assets/img/guides/actions/action-rule-configuration-ui.png){: width="650" style="display: block; margin: 0; border: 0px;"}
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ## Restrict request headers and parameters
 
 Actions can forward HTTP headers and parameters of the incoming request to your external service. These can include credentials, such as the `Authorization` header or the `client_secret` and `password` parameters.

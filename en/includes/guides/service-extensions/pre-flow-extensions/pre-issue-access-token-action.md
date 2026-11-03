@@ -32,6 +32,7 @@ Upon receiving the response, {{product_name}} applies any modifications to the a
     {% include "./action-versions/pre-issue-access-token-action-v1.x.md" %}
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ## Restrict request headers and parameters
 
 {% if is_version == "7.1.0" %}
