@@ -471,6 +471,7 @@ nav:
         - Change the hostname: deploy/change-the-hostname.md
         - Enable adaptive authentication: deploy/enable-adaptive-authentication.md
         - Configure Hazelcast: deploy/configure-hazelcast.md
+        - Configure message broker cache invalidation: deploy/configure-message-broker-cache-invalidation.md
         - Deployment Checklist: deploy/deployment-checklist.md
         - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
         - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
