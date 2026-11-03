@@ -148,14 +148,12 @@ Known agents and browser automation tools often put a marker in the `User-Agent`
 
 ```js
 // Add near the other top-level variables.
-var agentUserAgents = ['HeadlessChrome', 'ChatGPT', 'Claude', 'Google-Agent', 'Perplexity', 'Playwright', 'Puppeteer', 'Selenium'];
+var agentUserAgentPattern = /HeadlessChrome|ChatGPT|Claude|Google-Agent|Perplexity|Playwright|Puppeteer|Selenium/;
 
 // Add inside detectAgent().
 var userAgent = String(context.request.headers['user-agent'] || '');
-for (var i = 0; i < agentUserAgents.length; i++) {
-    if (userAgent.indexOf(agentUserAgents[i]) >= 0) {
-        return true;
-    }
+if (agentUserAgentPattern.test(userAgent)) {
+    return true;
 }
 ```
 
