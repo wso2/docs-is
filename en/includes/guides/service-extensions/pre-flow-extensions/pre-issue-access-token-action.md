@@ -38,7 +38,7 @@ Upon receiving the response, {{product_name}} applies any modifications to the a
 {% if is_version == "7.1.0" %}
 The pre-issue access token action forwards all HTTP headers and parameters of the access token request to your external service.
 {% else %}
-If you don't configure **Allowed headers** or **Allowed parameters** for a pre-issue access token action, {{product_name}} forwards all HTTP headers and parameters of the access token request to your external service. This preserves backward compatibility with actions created before allowed headers and parameters were introduced.
+By default, the pre-issue access token action forwards all HTTP headers and parameters of the access token request to your external service. This happens when you don't configure **Allowed headers** or **Allowed parameters** for the action. This preserves backward compatibility with actions created before allowed headers and parameters were introduced.
 {% endif %}
 The forwarded values can include credentials, such as the `Authorization` header that carries the application's client ID and client secret, or the `client_secret` and `password` parameters.
 
