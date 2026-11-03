@@ -101,13 +101,13 @@ And then inside your components, you can access the context as follows.
 ```js
 const { state, signIn, signOut } = useAuthContext();
 ```
-Few common methods that you can access with `useAuthContext()` are listed below. These will be helpful when implementing authentication capabilities in your application.
+A few common methods that you can access with `useAuthContext()` are listed below. These will be helpful when implementing authentication capabilities in your application.
 
 - `state` object - This will contain attributes such as whether a user is currently logged in, the username of the currently logged-in user etc.
 
 - `signIn` - Initiate a login request to WSO2 Identity Platform, process the response to obtain authentication response.
 
-- `signOut` - Logout the user from WSO2 Identity Platform and clear any authentication data from the SDK storage.
+- `signOut` - Log out the user from WSO2 Identity Platform and clear any authentication data from the SDK storage.
 
 - `isAuthenticated` - Check whether there is an authenticated user session. Based on the result you can decide to change the application view/behaviour.
 
@@ -123,7 +123,7 @@ Few common methods that you can access with `useAuthContext()` are listed below.
 
 !!! note
     Methods related to the token such as `getIDToken`, `getDecodedIDToken`, `getAccessToken` and `refreshAccessToken` are only available if the storage mechanism is set to `sessionStorage` or `localStorage` in the SDK configuration.
-    If it is set to `webWorker`, an error is thrown since the token is stored inside the web worker and cannot be accessed by outside party.
+    If it is set to `webWorker`, an error is thrown since the token is stored inside the web worker and cannot be accessed by an outside party.
 
 ## Use the API
 
