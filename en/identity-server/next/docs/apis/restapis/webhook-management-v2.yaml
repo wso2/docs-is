@@ -1,0 +1,1538 @@
+openapi: 3.0.0
+info:
+  version: v2
+  title: WSO2 Identity Server - Webhook Management Rest API
+  description: >
+    The Webhook Management REST API provides a standardized interface to manage webhooks within WSO2 Identity Server. Webhooks allow external systems to receive real-time notifications for various events, such as login successes or failures, enabling seamless integration and automation across external applications and services.
+
+    This API empowers developers and administrators to create, update, delete, and retrieve webhook configurations tailored to their specific business needs and event-driven workflows.
+
+
+    <b>Changes from v1</b>
+
+
+    v1 remains available and unchanged at `/api/server/v1`. v2 is a separate version
+    because the following changes are not backward compatible:
+
+
+    - `subscribedChannels` is a list of objects rather than a list of channel URI strings.
+      Each entry carries its own organization fanout under `childOrgSubscription`, so
+      channels and their policies are configured together instead of in parallel lists.
+      A v1 request body sending `["uri", "uri"]` is rejected by v2.
+
+    - The update operation no longer accepts `status`. It is accepted on create, and
+      changed afterwards through the activate and deactivate sub-resources; the value
+      returned on read is the derived aggregate, which may also be `PARTIALLY_ACTIVE` or
+      `PARTIALLY_INACTIVE`.
+
+
+    Omitting `secret` on update preserves the stored secret. This is unchanged from v1 —
+    v2 documents the existing behaviour rather than altering it.
+
+
+    Added in v2, none of which affect a v1 client: pagination on the webhook list, a
+    `PATCH` operation accepting a JSON Merge Patch document
+    (`application/merge-patch+json`) for partial updates, organization-level fanout per
+    channel, and the channel resource described below.
+
+
+    <b>Resource model</b>
+
+
+    A webhook owns a set of subscribed channels, each with an organization fanout policy.
+    Both can be written together through the webhook resource — create, replace and patch
+    all accept per-channel `childOrgSubscription` — so a single call can save an
+    entire edit form atomically.
+
+
+    Reads navigate one level at a time. Each channel in the webhook representation carries
+    a `self` link to `/webhooks/{webhookId}/channels/{channelId}`; that channel resource
+    carries `childOrgSubscription.organizationsRef`, the link to the child organizations
+    receiving events at
+    `/webhooks/{webhookId}/channels/{channelId}/organizations`.
+
+
+    Organizations are never embedded, because the collection is unbounded under
+    `ALL_EXISTING_AND_FUTURE_ORGS`. Keeping its link one level down also keeps the webhook
+    response from carrying two long URLs per channel.
+
+
+    Fanout is written only through the webhook resource, so there is exactly one write path
+    for every field.
+
+
+    `subscriptionPolicy` round-trips between request and response everywhere it appears.
+    Only two properties are write-only, and both are preserved when omitted rather than
+    cleared: `secret`, and a channel's `organizations` list.
+servers:
+  - url: "https://{server-url}/t/{tenant-domain}/api/server/v2"
+    variables:
+      server-url:
+        default: "localhost:9443"
+      tenant-domain:
+        default: carbon.super
+
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
+paths:
+  /webhooks:
+    get:
+      summary: List Webhooks
+      description: "This API returns the detailed summary of the webhooks.\n\n
+        Results are paginated. Use `limit` and `offset` to page through the collection;
+        `totalResults` reports the full size and `links` carries the next and previous
+        pages where applicable.\n\n
+        <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+      operationId: getWebhooks
+      tags:
+        - Webhooks
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of records to return.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 25
+        - name: offset
+          in: query
+          required: false
+          description: Number of records to skip for pagination.
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookList'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks?limit=25&offset=0' \
+            -H 'Authorization: Bearer {bearer_token}'
+
+    post:
+      summary: Add Webhook
+      description: "Create a new webhook. \n\n
+        `subscribedChannels` is a list of channel objects. Each channel may carry its
+        organization fanout configuration inline under `childOrgSubscription`, so the
+        webhook and its fanout are created together in one atomic call. A channel that
+        omits it defaults to `subscriptionPolicy: NONE`.\n\n
+        Fanout is changed later through the webhook replace and patch operations, which
+        accept the same per-channel `childOrgSubscription`.\n\n
+        <b>Scope(Permission) required:</b> `internal_webhook_create` \n\n"
+      operationId: createWebhook
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookCreateRequest'
+      responses:
+        '201':
+          description: Webhook Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+              examples:
+                created:
+                  summary: >
+                    Created with `status: ACTIVE`. Subscription against the event publisher
+                    is asynchronous, so every channel is still `SUBSCRIPTION_PENDING` and
+                    the webhook reports `PARTIALLY_ACTIVE`. Retrieve the webhook again to
+                    observe the channels settling to `SUBSCRIPTION_ACCEPTED`, or to
+                    `SUBSCRIPTION_ERROR` if the publisher rejected one.
+                  value:
+                    id: eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c
+                    createdAt: '2026-09-03T09:15:00Z'
+                    updatedAt: '2026-09-03T09:15:00Z'
+                    endpoint: https://example.com/webhook
+                    name: Login Webhook
+                    eventProfile:
+                      name: WSO2
+                      uri: https://schemas.identity.wso2.org/events
+                    status: PARTIALLY_ACTIVE
+                    subscribedChannels:
+                      - channelUri: https://schemas.identity.wso2.org/events/login
+                        channelId: 9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
+                        self: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
+                        status: SUBSCRIPTION_PENDING
+                        childOrgSubscription:
+                          subscriptionPolicy: "NONE"
+                      - channelUri: https://schemas.identity.wso2.org/events/registration
+                        channelId: 4d81e0c7-6f52-4a19-b3ce-118d9f27a604
+                        self: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/4d81e0c7-6f52-4a19-b3ce-118d9f27a604
+                        status: SUBSCRIPTION_PENDING
+                        childOrgSubscription:
+                          subscriptionPolicy: "ALL_EXISTING_AND_FUTURE_ORGS"
+                      - channelUri: https://schemas.identity.wso2.org/events/token
+                        channelId: 2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219
+                        self: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219
+                        status: SUBSCRIPTION_PENDING
+                        childOrgSubscription:
+                          subscriptionPolicy: "SELECTED_ORGS_ONLY"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "endpoint": "https://example.com/webhook",
+              "name": "Login Webhook",
+              "secret": "my-secret",
+              "eventProfile": {
+                "name": "WSO2",
+                "uri": "https://schemas.identity.wso2.org/events"
+              },
+              "subscribedChannels": [
+                {
+                  "channelUri": "https://schemas.identity.wso2.org/events/login",
+                  "childOrgSubscription": {
+                    "subscriptionPolicy": "NONE"
+                  }
+                },
+                {
+                  "channelUri": "https://schemas.identity.wso2.org/events/registration",
+                  "childOrgSubscription": {
+                    "subscriptionPolicy": "ALL_EXISTING_AND_FUTURE_ORGS"
+                  }
+                },
+                {
+                  "channelUri": "https://schemas.identity.wso2.org/events/token",
+                  "childOrgSubscription": {
+                    "subscriptionPolicy": "SELECTED_ORGS_ONLY",
+                    "organizations": [
+                      { "orgId": "b028ca17-8f89-449c-ae27-fa955e66465d" },
+                      { "orgId": "a17b28ca-9f89-449c-ae27-fa955e66465f" }
+                    ]
+                  }
+                },
+                {
+                  "channelUri": "https://schemas.identity.wso2.org/events/user"
+                }
+              ],
+              "status": "ACTIVE"
+            }'
+
+  /webhooks/{webhookId}:
+    get:
+      summary: Retrieve Webhook by ID
+      description: "This API returns the webhook details along with the webhook unique ID. \n\n
+        Each entry in `subscribedChannels` reports the channel URI, its identifier, its
+        subscription status, its child organization fanout policy and a `self` link. The
+        organizations themselves are not included — follow
+        `childOrgSubscription.organizationsRef` to retrieve them, paginated and resolved
+        with names and parent references.\n\n
+        This representation is exactly what the replace operation accepts, so it can be
+        modified and sent back without reshaping.\n\n
+        <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+      operationId: getWebhookByWebhookId
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}' \
+            -H 'Authorization: Bearer {bearer_token}'
+
+    put:
+      summary: Update Webhook
+      description: "This API updates a webhook and return the updated webhook. \n\n
+        The request body is exactly the representation returned by the retrieval API,
+        minus the read-only properties — which are ignored rather than rejected if
+        supplied. A webhook can therefore be retrieved, modified and sent back unchanged
+        otherwise.\n\n
+        This is a full replacement: a writable property omitted from the body is cleared.
+        The two write-only properties are the exception — `secret` and
+        `subscribedChannels[].childOrgSubscription.organizations` are never returned,
+        so a client cannot resend what it did not receive, and omitting either preserves
+        the stored value.\n\n
+        <b>Channels</b>\n\n
+        `subscribedChannels` is replaced wholesale: channels stored but absent from the
+        array are unsubscribed, and channels present but not stored are subscribed.\n\n
+        Each channel may carry its `childOrgSubscription`, so a single call can change
+        the webhook, its channel set and its per-channel fanout together. For a channel
+        that omits `childOrgSubscription`, an existing subscription keeps its current
+        policy and a new one defaults to `NONE`. Within a supplied
+        `childOrgSubscription`, omitting `organizations` preserves the channel's
+        current organization subscriptions; supplying it replaces them. To stop
+        organization fanout for a channel, set its `subscriptionPolicy` to `NONE` — an
+        empty `organizations` array is rejected, since `SELECTED_ORGS_ONLY` with nothing
+        selected is the same state as `NONE`.\n\n
+        Removing a channel and adding it back in the same request resets its fanout,
+        because the subscription is recreated.\n\n
+        <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      operationId: updateWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookUpdateRequest'
+      responses:
+        '200':
+          description: Webhook Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PUT 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "endpoint": "https://example.com/webhook",
+              "name": "Login webhook",
+              "eventProfile": {
+                "name": "WSO2",
+                "uri": "https://schemas.identity.wso2.org/events"
+              },
+              "subscribedChannels": [
+                {
+                  "channelUri": "https://schemas.identity.wso2.org/events/login",
+                  "childOrgSubscription": {
+                    "subscriptionPolicy": "SELECTED_ORGS_ONLY",
+                    "organizations": [
+                      { "orgId": "b028ca17-8f89-449c-ae27-fa955e66465d" }
+                    ]
+                  }
+                },
+                {
+                  "channelUri": "https://schemas.identity.wso2.org/events/registration",
+                  "childOrgSubscription": {
+                    "subscriptionPolicy": "ALL_EXISTING_AND_FUTURE_ORGS"
+                  }
+                }
+              ]
+            }'
+
+    patch:
+      summary: Patch Webhook by ID
+      description: "This API partially updates a webhook and returns the updated webhook. \n\n
+        Only the properties present in the request body are modified; every omitted
+        property is left unchanged. This avoids the full-replacement behaviour of `PUT`,
+        which clears any writable property the client does not resend.\n\n
+        Arrays are replaced wholesale rather than merged. Supplying `subscribedChannels`
+        therefore replaces the entire channel set, with the same semantics as `PUT`,
+        including per-channel `childOrgSubscription`. Because the retrieval API returns
+        every channel with its policy, a client can read the webhook, adjust one channel
+        in the array and send the whole set back.\n\n
+        `status` cannot be patched; use the activate and deactivate sub-resources.\n\n
+        <b>JSON Merge Patch</b>\n\n
+        The request body is a JSON Merge Patch document (RFC 7386), sent as
+        `application/merge-patch+json`. It is not JSON Patch (RFC 6902) — there is no
+        operation list; the body is a partial representation of the webhook itself.\n\n
+        Two deviations from RFC 7386 apply, both of which fail loudly rather than
+        silently:\n\n
+        - A `null` member is <b>rejected with 400</b> rather than removing the property.
+          No webhook property has a valid removed state: `endpoint`, `name`,
+          `eventProfile` and `subscribedChannels` are required; a channel's organization
+          fanout is cleared by setting `subscriptionPolicy` to `NONE` rather than by
+          removal; and `secret` must never be removed, since a webhook that cannot sign
+          its payloads delivers events no receiver can verify. Nulls are rejected instead
+          of ignored so that a client assuming removal is told, rather than receiving
+          `200` for a change that did not happen.
+
+        - An empty document `{}` is <b>rejected with 400</b>, although RFC 7386 defines it
+          as a valid no-op. An empty patch is almost always a client error and is worth
+          reporting.\n\n
+        Should a property that can validly be removed be introduced later, it will be
+        marked `nullable` and accept `null` as a removal directive; the rejection above
+        applies only to properties for which removal has no valid result.\n\n
+        <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      operationId: patchWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      requestBody:
+        required: true
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/WebhookPatchRequest'
+            examples:
+              renameOnly:
+                summary: Rename a webhook, leaving everything else untouched
+                value:
+                  name: Login and registration webhook
+              changeEndpoint:
+                summary: Repoint the webhook
+                value:
+                  endpoint: https://example.com/webhook/v2
+              rotateSecret:
+                summary: Replace the signing secret
+                value:
+                  secret: my-new-secret
+              changeChannels:
+                summary: >
+                  Replace the channel set. `login` omits `childOrgSubscription`, so
+                  it keeps whatever policy it already had; `token` sets its policy and
+                  organization list explicitly.
+                value:
+                  subscribedChannels:
+                    - channelUri: https://schemas.identity.wso2.org/events/login
+                    - channelUri: https://schemas.identity.wso2.org/events/token
+                      childOrgSubscription:
+                        subscriptionPolicy: SELECTED_ORGS_ONLY
+                        organizations:
+                          - orgId: b028ca17-8f89-449c-ae27-fa955e66465d
+      responses:
+        '200':
+          description: Webhook Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: >
+            Bad Request. Also returned when a member is `null` — no webhook property
+            has a valid removed state, so `null` is rejected rather than treated as a
+            removal directive — and when the document is empty.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request PATCH 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}' \
+            -H 'Authorization: Bearer {bearer_token}' \
+            -H 'Content-Type: application/merge-patch+json' \
+            -d '{
+              "name": "Login and registration webhook"
+            }'
+
+    delete:
+      summary: Delete Webhook
+      description: "This API deletes a webhook using the webhook unique ID. \n\n <b>Scope(Permission) required:</b> `internal_webhook_delete` \n\n"
+      operationId: deleteWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '204':
+          description: Webhook Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request DELETE 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}' \
+            -H 'Authorization: Bearer {bearer_token}'
+
+  /webhooks/{webhookId}/channels/{channelId}:
+    get:
+      summary: Retrieve Subscribed Channel by ID
+      description: "This API returns a single subscribed channel of a webhook, with its
+        subscription status and child organization fanout policy.\n\n
+        The `channelId` is the unique identifier of the subscribed channel, returned as
+        `channelId` on each entry in `subscribedChannels` by the webhook retrieval API,
+        which also carries the `self` link to this resource.\n\n
+        This response carries `childOrgSubscription.organizationsRef`, the link to the
+        child organizations receiving events for the channel. That link is present here
+        and not in the webhook representation, so each representation links exactly one
+        level down and the webhook response stays free of nested organization links.\n\n
+        <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+      operationId: getWebhookChannel
+      tags:
+        - Webhook Channels
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/ChannelId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelResponse'
+              examples:
+                selectedOrgs:
+                  summary: Channel delivered to explicitly selected child organizations
+                  value:
+                    channelId: 2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219
+                    channelUri: https://schemas.identity.wso2.org/events/token
+                    status: SUBSCRIPTION_ACCEPTED
+                    childOrgSubscription:
+                      subscriptionPolicy: SELECTED_ORGS_ONLY
+                      organizationsRef: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219/organizations
+                allOrgs:
+                  summary: Channel fanned out to every child organization
+                  value:
+                    channelId: 4d81e0c7-6f52-4a19-b3ce-118d9f27a604
+                    channelUri: https://schemas.identity.wso2.org/events/registration
+                    status: SUBSCRIPTION_ACCEPTED
+                    childOrgSubscription:
+                      subscriptionPolicy: ALL_EXISTING_AND_FUTURE_ORGS
+                      organizationsRef: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/4d81e0c7-6f52-4a19-b3ce-118d9f27a604/organizations
+                noFanout:
+                  summary: >
+                    Channel with no child organization fanout. `organizationsRef` is still
+                    present; the referenced resource returns an empty list.
+                  value:
+                    channelId: 9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
+                    channelUri: https://schemas.identity.wso2.org/events/login
+                    status: SUBSCRIPTION_ACCEPTED
+                    childOrgSubscription:
+                      subscriptionPolicy: NONE
+                      organizationsRef: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88/organizations
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook or channel not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}/channels/{channelId}' \
+            -H 'Authorization: Bearer {bearer_token}'
+  /webhooks/{webhookId}/channels/{channelId}/organizations:
+    get:
+      summary: List Child Organizations Subscribed to a Channel
+      description: "This API returns the child organizations currently receiving events for
+        the given channel, resolved with names and parent references.\n\n
+        For `SELECTED_ORGS_ONLY` this is the configured set; for
+        `ALL_EXISTING_AND_FUTURE_ORGS` it is every child organization currently
+        subscribed, which grows as organizations are created; for `NONE` the list is
+        empty.\n\n
+        This is the only representation of the subscribed organizations. The webhook and
+        channel retrieval APIs report the policy and link here, because the collection is
+        paginated and cannot be embedded in either representation.\n\n
+        Results are ordered parents before children, so the hierarchy can be
+        reconstructed from `parentOrgId` in a single pass.\n\n
+        <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+      operationId: getChannelSubscribedOrganizations
+      tags:
+        - Webhook Channels
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/ChannelId'
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of records to return.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 500
+            default: 50
+        - name: offset
+          in: query
+          required: false
+          description: Number of records to skip for pagination.
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscribedOrganizationList'
+              examples:
+                allOrgsPolicy:
+                  summary: >
+                    Channel fanned out to every child organization. `totalResults` grows
+                    as organizations are created, so it can change between pages.
+                  value:
+                    channelUri: https://schemas.identity.wso2.org/events/registration
+                    subscriptionPolicy: ALL_EXISTING_AND_FUTURE_ORGS
+                    totalResults: 142
+                    startIndex: 0
+                    count: 2
+                    organizations:
+                      - orgId: dd8e0455-29a1-4c73-8d6b-60f88c607d38
+                        orgName: sub001
+                        parentOrgId: 0e4a3c92-1f7b-4d58-9a06-b3e5c1d78f24
+                      - orgId: 7c1f9a83-5b2e-41d7-9f30-2ac4e8b16d55
+                        orgName: sub002
+                        parentOrgId: dd8e0455-29a1-4c73-8d6b-60f88c607d38
+                selectedOrgsPolicy:
+                  summary: >
+                    Channel delivered to explicitly selected child organizations, resolved
+                    with names and parents.
+                  value:
+                    channelUri: https://schemas.identity.wso2.org/events/token
+                    subscriptionPolicy: SELECTED_ORGS_ONLY
+                    totalResults: 2
+                    startIndex: 0
+                    count: 2
+                    organizations:
+                      - orgId: b028ca17-8f89-449c-ae27-fa955e66465d
+                        orgName: sub003
+                        parentOrgId: 7c1f9a83-5b2e-41d7-9f30-2ac4e8b16d55
+                      - orgId: a17b28ca-9f89-449c-ae27-fa955e66465f
+                        orgName: sub004
+                        parentOrgId: b028ca17-8f89-449c-ae27-fa955e66465d
+                noFanout:
+                  summary: Channel with no child organization fanout
+                  value:
+                    channelUri: https://schemas.identity.wso2.org/events/login
+                    subscriptionPolicy: NONE
+                    totalResults: 0
+                    startIndex: 0
+                    count: 0
+                    organizations: []
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook or channel not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}/channels/{channelId}/organizations?limit=50&offset=0' \
+            -H 'Authorization: Bearer {bearer_token}'
+  /webhooks/{webhookId}/activate:
+    post:
+      summary: Activate Webhook
+      description: "Activate a webhook by its unique ID.\n\n <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      operationId: activateWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '200':
+          description: Webhook Activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}/activate' \
+            -H 'Authorization: Bearer {bearer_token}'
+
+  /webhooks/{webhookId}/deactivate:
+    post:
+      summary: Deactivate Webhook
+      description: "Deactivate a webhook by its unique ID.\n\n <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      operationId: deactivateWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '200':
+          description: Webhook Deactivated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}/deactivate' \
+            -H 'Authorization: Bearer {bearer_token}'
+
+  /webhooks/{webhookId}/retry:
+    post:
+      summary: Retry Webhook Subscription or Unsubscription
+      description: "Retry a webhook subscription or unsubscription by its unique ID.\n\n
+        Every channel currently in `SUBSCRIPTION_ERROR` or `UNSUBSCRIPTION_ERROR` is
+        retried in the direction its status indicates. Channels in any other state are
+        left untouched.\n\n
+        <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      operationId: retryWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '200':
+          description: Webhook Retried
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Webhook not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codeSamples:
+        - lang: Curl
+          source: |
+            curl --location --request POST 'https://localhost:9443/t/{tenant-domain}/api/server/v2/webhooks/{webhookId}/retry' \
+            -H 'Authorization: Bearer {bearer_token}'
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes:
+            internal_webhook_view: View webhooks
+            internal_webhook_create: Create webhooks
+            internal_webhook_update: Update webhooks
+            internal_webhook_delete: Delete webhooks
+
+  parameters:
+    WebhookId:
+      name: webhookId
+      in: path
+      required: true
+      description: Unique identifier of the webhook.
+      schema:
+        type: string
+
+    ChannelId:
+      name: channelId
+      in: path
+      required: true
+      description: >
+        Unique identifier of the subscribed channel, returned as `channelId` on each entry
+        in `subscribedChannels`.
+      schema:
+        type: string
+
+  schemas:
+    # =========================================================================
+    # Webhook — create
+    # =========================================================================
+    WebhookCreateRequest:
+      type: object
+      required:
+        - endpoint
+        - eventProfile
+        - name
+        - subscribedChannels
+      description: >
+        Webhook to create. Organization fanout may be supplied inline per channel so that
+        the webhook and its fanout are created atomically; afterwards it is managed
+        through the channel resource.
+      properties:
+        endpoint:
+          type: string
+          description: Webhook URL.
+          example: https://example.com/webhook
+        eventProfile:
+          $ref: '#/components/schemas/EventProfile'
+        name:
+          type: string
+          description: Webhook name.
+          example: Login Webhook.
+        secret:
+          type: string
+          writeOnly: true
+          description: >
+            Secret used to sign webhook payloads, so the receiver can verify them. Never
+            returned by any operation.
+
+
+            Whether it applies depends on the event profile, which determines how payloads
+            are signed. Profiles that sign with a shared secret require it; profiles that
+            sign with a key pair do not.
+          example: my-secret
+        subscribedChannels:
+          type: array
+          minItems: 1
+          description: Channels to subscribe to, each with optional organization fanout.
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+          example:
+            - channelUri: "https://schemas.identity.wso2.org/events/login"
+              childOrgSubscription:
+                subscriptionPolicy: "NONE"
+            - channelUri: "https://schemas.identity.wso2.org/events/registration"
+              childOrgSubscription:
+                subscriptionPolicy: "ALL_EXISTING_AND_FUTURE_ORGS"
+            - channelUri: "https://schemas.identity.wso2.org/events/token"
+              childOrgSubscription:
+                subscriptionPolicy: "SELECTED_ORGS_ONLY"
+                organizations:
+                  - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
+                  - orgId: "a17b28ca-9f89-449c-ae27-fa955e66465f"
+            - channelUri: "https://schemas.identity.wso2.org/events/user"
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+          description: >
+            Desired webhook status on create. The retrieval response reports the derived
+            aggregate status, which may also be `PARTIALLY_ACTIVE` or
+            `PARTIALLY_INACTIVE` while channels settle.
+          example: "ACTIVE"
+
+    # =========================================================================
+    # Webhook — update
+    # =========================================================================
+    WebhookUpdateRequest:
+      type: object
+      required:
+        - endpoint
+        - eventProfile
+        - name
+        - subscribedChannels
+      description: >
+        Full replacement of a webhook, including per-channel organization fanout. This is
+        the retrieval representation minus the read-only properties, so a retrieved
+        webhook can be modified and sent back as-is.
+
+
+        The two write-only properties — `secret` and
+        `subscribedChannels[].childOrgSubscription.organizations` — are never returned
+        and are therefore preserved when omitted rather than cleared.
+      properties:
+        endpoint:
+          type: string
+          description: Webhook URL.
+          example: https://example.com/webhook
+        eventProfile:
+          $ref: '#/components/schemas/EventProfile'
+        name:
+          type: string
+          description: Webhook name.
+          example: Login Webhook.
+        secret:
+          type: string
+          writeOnly: true
+          description: >
+            Secret for validating webhook payloads. Never returned by any operation, so
+            omitting it preserves the stored secret rather than clearing it.
+          example: my-secret
+        subscribedChannels:
+          type: array
+          minItems: 1
+          description: >
+            The channels this webhook should be subscribed to, with their organization
+            fanout. Replaced wholesale: channels absent from the array are unsubscribed,
+            and channels present but not stored are subscribed.
+
+
+            A channel that omits `childOrgSubscription` entirely keeps its current
+            policy if it is already subscribed, or defaults to `NONE` if it is new.
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+          example:
+            - channelUri: "https://schemas.identity.wso2.org/events/login"
+              childOrgSubscription:
+                subscriptionPolicy: "NONE"
+            - channelUri: "https://schemas.identity.wso2.org/events/registration"
+              childOrgSubscription:
+                subscriptionPolicy: "SELECTED_ORGS_ONLY"
+                organizations:
+                  - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
+
+    WebhookPatchRequest:
+      type: object
+      minProperties: 1
+      description: >
+        JSON Merge Patch document (RFC 7386) describing the properties to change. Every
+        property is optional and an omitted property is left unchanged. `status` is not
+        patchable — use the activate and deactivate sub-resources.
+
+
+        No property is `nullable`: a `null` member is rejected with `400` rather than
+        removing the property, because no webhook property has a valid removed state.
+        `minProperties` likewise rejects an empty document, which RFC 7386 would otherwise
+        treat as a no-op. Both deviations are deliberate and documented on the operation.
+      properties:
+        endpoint:
+          type: string
+          description: Replaces the webhook URL.
+          example: https://example.com/webhook
+        name:
+          type: string
+          description: Replaces the webhook name.
+          example: Login Webhook.
+        secret:
+          type: string
+          writeOnly: true
+          description: Replaces the secret used to validate webhook payloads. Omit to keep the current secret.
+          example: my-new-secret
+        subscribedChannels:
+          type: array
+          minItems: 1
+          description: >
+            Replaces the entire channel set, with the same semantics as the replace
+            operation. Omit the property to leave subscriptions untouched.
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+          example:
+            - channelUri: "https://schemas.identity.wso2.org/events/login"
+              childOrgSubscription:
+                subscriptionPolicy: "ALL_EXISTING_AND_FUTURE_ORGS"
+            - channelUri: "https://schemas.identity.wso2.org/events/token"
+              childOrgSubscription:
+                subscriptionPolicy: "SELECTED_ORGS_ONLY"
+                organizations:
+                  - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
+
+    # =========================================================================
+    # Webhook — response
+    # =========================================================================
+    WebhookResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: 'eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c'
+        createdAt:
+          type: string
+          readOnly: true
+          example: '2024-05-01T12:00:00Z'
+        updatedAt:
+          type: string
+          readOnly: true
+          example: '2024-05-02T12:00:00Z'
+        endpoint:
+          type: string
+          description: Webhook URL.
+          example: https://example.com/webhook
+        eventProfile:
+          $ref: '#/components/schemas/EventProfile'
+        name:
+          type: string
+          description: Webhook name.
+          example: Login webhook.
+        subscribedChannels:
+          type: array
+          description: >
+            List of subscribed channels with their subscription status and child
+            organization fanout policy. The organizations themselves are not included —
+            follow each channel's `childOrgSubscription.organizationsRef` to retrieve
+            them, paginated and resolved with names and parent references.
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+          example:
+            - channelUri: https://schemas.identity.wso2.org/events/login
+              channelId: 9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
+              self: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
+              status: SUBSCRIPTION_ACCEPTED
+              childOrgSubscription:
+                subscriptionPolicy: "NONE"
+            - channelUri: https://schemas.identity.wso2.org/events/registration
+              channelId: 4d81e0c7-6f52-4a19-b3ce-118d9f27a604
+              self: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/4d81e0c7-6f52-4a19-b3ce-118d9f27a604
+              status: SUBSCRIPTION_ACCEPTED
+              childOrgSubscription:
+                subscriptionPolicy: "ALL_EXISTING_AND_FUTURE_ORGS"
+            - channelUri: https://schemas.identity.wso2.org/events/token
+              channelId: 2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219
+              self: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219
+              status: SUBSCRIPTION_ACCEPTED
+              childOrgSubscription:
+                subscriptionPolicy: "SELECTED_ORGS_ONLY"
+        status:
+          type: string
+          readOnly: true
+          enum:
+            - ACTIVE
+            - PARTIALLY_ACTIVE
+            - INACTIVE
+            - PARTIALLY_INACTIVE
+          description: >
+            Aggregate webhook status derived from the per-channel subscription statuses.
+            Changed through the activate and deactivate sub-resources.
+          example: "ACTIVE"
+
+    WebhookSubscription:
+      type: object
+      required:
+        - channelUri
+      description: >
+        A subscribed channel as it appears on the webhook resource. Used by the create,
+        replace, patch and retrieval operations.
+
+
+        `channelUri` and `childOrgSubscription.subscriptionPolicy` round-trip between
+        request and response. `childOrgSubscription.organizations` is write-only —
+        the organization list is a paginated collection read from the channel resource
+        linked by `self`. The remaining properties are observed state, ignored if
+        supplied in a request.
+      properties:
+        channelUri:
+          type: string
+          description: Channel URI to subscribe to.
+          example: https://schemas.identity.wso2.org/events/login
+        childOrgSubscription:
+          $ref: '#/components/schemas/ChildOrgSubscription'
+        channelId:
+          type: string
+          readOnly: true
+          description: >
+            Unique identifier of this subscribed channel, used to address the channel
+            resource.
+          example: 9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
+        self:
+          type: string
+          readOnly: true
+          description: >
+            Link to this subscribed channel. Follow it to reach the channel resource,
+            which carries `childOrgSubscription.organizationsRef` — the link to the child
+            organizations receiving events. Each representation links one level down, so
+            the webhook response stays free of nested organization links.
+          example: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
+        status:
+          type: string
+          readOnly: true
+          enum:
+            - SUBSCRIPTION_ACCEPTED
+            - SUBSCRIPTION_PENDING
+            - SUBSCRIPTION_ERROR
+            - UNSUBSCRIPTION_ACCEPTED
+            - UNSUBSCRIPTION_PENDING
+            - UNSUBSCRIPTION_ERROR
+          description: Status of the subscription.
+          example: SUBSCRIPTION_PENDING
+
+    # =========================================================================
+    # Channel
+    # =========================================================================
+    ChildOrgSubscription:
+      type: object
+      required:
+        - subscriptionPolicy
+      description: >
+        Fanout configuration controlling which <b>child</b> organizations of the webhook's
+        own organization receive events for a channel. Supplied inline per channel on the
+        webhook create, replace and patch operations.
+
+
+        Named `childOrgSubscription` rather than `organizationSubscription` because the
+        organization owning the webhook is itself an organization. Sub-organizations can
+        own webhooks too, and at that level the owner subscribes to events from
+        organizations below it — so an unqualified "organization" would not say whose
+        events are meant. This names the direction explicitly: downward, into descendants.
+
+
+        `subscriptionPolicy` round-trips: it is returned by every operation that returns a
+        channel, and accepted by every operation that writes one. `organizations` is
+        write-only, because the subscribed organizations are a paginated collection — read
+        them from the resource linked as `organizationsRef`.
+      properties:
+        subscriptionPolicy:
+          type: string
+          default: NONE
+          enum:
+            - NONE
+            - ALL_EXISTING_AND_FUTURE_ORGS
+            - SELECTED_ORGS_ONLY
+          description: >
+            Organization-level fanout policy for this channel.
+            `NONE` – no organization-level fanout.
+            `ALL_EXISTING_AND_FUTURE_ORGS` – events fanned out to every organization, including ones created in the future.
+            `SELECTED_ORGS_ONLY` – events delivered only to the organizations listed in the `organizations` array.
+            Selected organizations do not include their children.
+          example: SELECTED_ORGS_ONLY
+        organizations:
+          type: array
+          writeOnly: true
+          minItems: 1
+          maxItems: 100
+          description: >
+            Explicit list of organizations to receive events. Accepted only when
+            `subscriptionPolicy` is `SELECTED_ORGS_ONLY`; rejected under any other policy.
+
+
+            Must be non-empty. `SELECTED_ORGS_ONLY` with nothing selected is the same
+            state as `NONE`, so it is not a second way to express it — to stop
+            organization fanout, set `subscriptionPolicy` to `NONE`.
+
+
+            <b>Write-only, and preserved when omitted.</b> This is the only
+            preserve-on-omit rule besides `secret`, and it exists for the same reason —
+            the list is never returned, so a client performing a read-modify-write cycle
+            cannot resend it. Concretely:
+
+
+            - **omitted** — the channel's current organization subscriptions are left
+              exactly as they are, whatever else the request changes.
+
+            - **supplied** — replaced wholesale against the organizations currently
+              subscribed: those present are subscribed, those absent are unsubscribed.
+
+
+            Required when a channel is *first* set to `SELECTED_ORGS_ONLY`, since there is
+            nothing to preserve.
+
+
+            Only `orgId` is supplied; the organizations resource returns the same objects
+            with `orgName` and `parentOrgId` resolved.
+          items:
+            $ref: '#/components/schemas/Organization'
+          example:
+            - orgId: "b028ca17-8f89-449c-ae27-fa955e66465d"
+            - orgId: "a17b28ca-9f89-449c-ae27-fa955e66465f"
+        organizationsRef:
+          type: string
+          readOnly: true
+          description: >
+            Link to the child organizations currently receiving events for this channel,
+            resolved with names and parent references and paginated.
+
+
+            <b>Returned by the channel resource only.</b> It is omitted from the webhook
+            representation, which offers `self` on each channel instead — so each
+            representation links one level down and the webhook response does not carry
+            two URLs per channel. Where it is returned it is always present, including
+            under `NONE`, where the referenced resource yields an empty list.
+          example: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219/organizations
+
+    ChannelResponse:
+      type: object
+      description: >
+        A single subscribed channel of a webhook, with its subscription status and child
+        organization fanout policy.
+
+
+        Carries `childOrgSubscription.organizationsRef` — the link to the paginated
+        collection of child organizations receiving events. The webhook representation
+        omits that link and offers `self` on each channel instead, so navigation proceeds
+        one level at a time: webhook, then channel, then organizations.
+      properties:
+        channelId:
+          type: string
+          readOnly: true
+          description: Unique identifier of this subscribed channel.
+          example: 2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219
+        channelUri:
+          type: string
+          readOnly: true
+          description: Channel URI.
+          example: https://schemas.identity.wso2.org/events/token
+        status:
+          type: string
+          readOnly: true
+          enum:
+            - SUBSCRIPTION_ACCEPTED
+            - SUBSCRIPTION_PENDING
+            - SUBSCRIPTION_ERROR
+            - UNSUBSCRIPTION_ACCEPTED
+            - UNSUBSCRIPTION_PENDING
+            - UNSUBSCRIPTION_ERROR
+          description: Status of the subscription.
+          example: SUBSCRIPTION_ACCEPTED
+        childOrgSubscription:
+          $ref: '#/components/schemas/ChildOrgSubscription'
+    Organization:
+      type: object
+      required:
+        - orgId
+      description: >
+        A child organization receiving events for a channel. Requests supply `orgId` only;
+        responses add the resolved name and parent.
+      properties:
+        orgId:
+          type: string
+          description: >
+            Organization ID. Only this organization is subscribed — its own child
+            organizations are not included, and children created later are not added.
+          example: b028ca17-8f89-449c-ae27-fa955e66465d
+        orgName:
+          type: string
+          readOnly: true
+          description: Organization name.
+          example: sub003
+        parentOrgId:
+          type: string
+          readOnly: true
+          description: >
+            Immediate parent organization, for reconstructing the hierarchy.
+            **May reference an organization that is not present in this response** —
+            because it is not itself subscribed, or because it falls on another page.
+            Results are ordered parents-before-children, so a client building the tree
+            in order can treat an unresolved parent as the root of a rendered subtree.
+          example: 7c1f9a83-5b2e-41d7-9f30-2ac4e8b16d55
+
+    SubscribedOrganizationList:
+      type: object
+      description: >
+        Paginated list of the child organizations currently receiving events for a
+        channel, with the context needed to interpret it.
+
+
+        This is a paginated view of a sub-collection, not a value that can be sent back —
+        `organizations` holds only the current page, so echoing it into a webhook write
+        would unsubscribe everything outside that page. Writes take the plain array under
+        `childOrgSubscription.organizations`.
+      properties:
+        channelUri:
+          type: string
+          readOnly: true
+          description: Channel URI this list belongs to.
+          example: https://schemas.identity.wso2.org/events/registration
+        subscriptionPolicy:
+          type: string
+          readOnly: true
+          enum:
+            - NONE
+            - ALL_EXISTING_AND_FUTURE_ORGS
+            - SELECTED_ORGS_ONLY
+          description: >
+            Child organization fanout policy configured for this channel, included so the
+            list can be interpreted without a second call. `NONE` always yields an empty
+            list.
+          example: ALL_EXISTING_AND_FUTURE_ORGS
+        totalResults:
+          type: integer
+          description: >
+            Total number of child organizations subscribed to this channel. Under
+            `ALL_EXISTING_AND_FUTURE_ORGS` this can change between pages as organizations
+            are created.
+          example: 142
+        startIndex:
+          type: integer
+          description: Index of the first record in this response.
+          example: 0
+        count:
+          type: integer
+          description: Number of records returned in this response.
+          example: 2
+        organizations:
+          type: array
+          description: >
+            The child organizations on this page, ordered parents before children.
+          items:
+            $ref: '#/components/schemas/Organization'
+
+    # =========================================================================
+    # Shared
+    # =========================================================================
+    EventProfile:
+      type: object
+      required:
+        - name
+        - uri
+      properties:
+        name:
+          type: string
+          description: Webhook Event Profile.
+          example: WSO2
+        uri:
+          type: string
+          description: Webhook Event Profile URI.
+          example: https://schemas.identity.wso2.org/events
+
+    WebhookSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 'eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c'
+        createdAt:
+          type: string
+          example: '2024-05-01T12:00:00Z'
+        updatedAt:
+          type: string
+          example: '2024-05-02T12:00:00Z'
+        endpoint:
+          type: string
+          description: Webhook URL.
+          example: https://example.com/webhook
+        name:
+          type: string
+          description: Webhook name.
+          example: Login webhook.
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - PARTIALLY_ACTIVE
+            - INACTIVE
+            - PARTIALLY_INACTIVE
+          description: Webhook Status.
+          example: "ACTIVE"
+        self:
+          type: string
+          example: /t/{tenant-domain}/api/server/v2/webhooks/123e4567-e89b-12d3-a456-556642440000
+
+    WebhookList:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          description: Total number of webhooks available.
+          example: 12
+        startIndex:
+          type: integer
+          description: Index of the first record in this response.
+          example: 0
+        count:
+          type: integer
+          description: Number of records returned in this response.
+          example: 12
+        links:
+          type: array
+          description: Navigation links. Contains `next` and `previous` where applicable.
+          items:
+            $ref: '#/components/schemas/Link'
+        webhooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSummary'
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          example: /t/{tenant-domain}/api/server/v2/webhooks?limit=25&offset=25
+        rel:
+          type: string
+          example: next
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: WEBHOOK-00001
+        message:
+          type: string
+          example: Some error message.
+        description:
+          type: string
+          example: Some error description.
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
