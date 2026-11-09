@@ -96,7 +96,7 @@
                The <code>https.proxyHost</code> and <code>https.proxyPort</code> properties apply to HTTPS endpoints, and the <code>http.proxyHost</code> and <code>http.proxyPort</code> properties apply to HTTP endpoints.
                <br /><br />
                <b>Reverse proxy (inbound traffic)</b><br />
-               If users access WSO2 Identity Server through a reverse proxy such as Apache HTTPD or NGINX, add the following configurations to the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file. Tomcat then uses the proxy hostname and port when it builds redirect URLs.<br /><br />
+               If users access WSO2 Identity Server through a reverse proxy such as Apache HTTPD or NGINX that forwards requests to the HTTPS port of WSO2 Identity Server, add the following configurations to the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file. Tomcat then uses the proxy hostname and port when it builds redirect URLs.<br /><br />
                <code>
                [transport.https.properties]<br>
                proxyName = "your.proxy.host"<br>
