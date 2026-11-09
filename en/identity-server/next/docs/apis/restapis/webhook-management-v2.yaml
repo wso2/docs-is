@@ -32,31 +32,15 @@ info:
     <b>Resource model</b>
 
 
-    A webhook owns a set of subscribed channels, each with an organization fanout policy.
-    Both can be written together through the webhook resource — create, replace and patch
-    all accept per-channel `childOrgSubscription` — so a single call can save an
-    entire edit form atomically.
+    - A webhook has a set of subscribed channels. Each channel has a child organization subscription policy (`childOrgSubscription`).
 
+    - Channels and their policies are written only through the webhook resource (create, update and patch).
 
-    Reads navigate one level at a time. Each channel in the webhook representation carries
-    a `self` link to `/webhooks/{webhookId}/channels/{channelId}`; that channel resource
-    carries `childOrgSubscription.organizationsRef`, the link to the child organizations
-    receiving events at
-    `/webhooks/{webhookId}/channels/{channelId}/organizations`.
+    - Each channel in the webhook response has a `self` link to the channel resource.
 
+    - The channel resource has an `organizationsRef` link to the paginated list of child organizations that receive events.
 
-    Organizations are never embedded, because the collection is unbounded under
-    `ALL_EXISTING_AND_FUTURE_ORGS`. Keeping its link one level down also keeps the webhook
-    response from carrying two long URLs per channel.
-
-
-    Fanout is written only through the webhook resource, so there is exactly one write path
-    for every field.
-
-
-    `subscriptionPolicy` round-trips between request and response everywhere it appears.
-    Only two properties are write-only, and both are preserved when omitted rather than
-    cleared: `secret`, and a channel's `organizations` list.
+    - `secret` and a channel's `organizations` list are write-only. If they are omitted on update, the stored values are kept.
 servers:
   - url: "https://{server-url}/t/{tenant-domain}/api/server/v2"
     variables:
