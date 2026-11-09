@@ -24,7 +24,7 @@ info:
 
     - New `PATCH` operation for partial updates.
 
-    - Events can be fanned out to child organizations for each channel.
+    - Each channel can also subscribe to events fired from child organizations.
 
     - New channel and subscribed organizations resources.
 
@@ -38,7 +38,7 @@ info:
 
     - Each channel in the webhook response has a `self` link to the channel resource.
 
-    - The channel resource has an `organizationsRef` link to the paginated list of child organizations that receive events.
+    - The channel resource has an `organizationsRef` link to the paginated list of child organizations the channel is subscribed to.
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v2'
 
@@ -272,7 +272,7 @@ paths:
         - Properties omitted from the request are cleared, except `secret` and `childOrgSubscription.organizations`, which keep their stored values.
         - `subscribedChannels` replaces the existing channels. Channels not in the list are unsubscribed, and new channels are subscribed.
         - If a channel omits `childOrgSubscription`, an existing channel keeps its policy and a new channel uses `NONE`.
-        - To stop sending a channel's events to child organizations, set `subscriptionPolicy` to `NONE`.
+        - To stop subscribing to a channel's events from child organizations, set `subscriptionPolicy` to `NONE`.
         - `status` can't be updated. Use the activate and deactivate APIs.
 
         <b>Scope(Permission) required:</b> `internal_webhook_mgt_update`
@@ -479,7 +479,7 @@ paths:
         This API returns a subscribed channel of a webhook, with its subscription status and child organization subscription policy.
 
         - Get the `channelId` from `subscribedChannels` in the webhook response.
-        - Use `childOrgSubscription.organizationsRef` to get the child organizations that receive the channel's events.
+        - Use `childOrgSubscription.organizationsRef` to get the child organizations the channel is subscribed to.
 
         <b>Scope(Permission) required:</b> `internal_webhook_mgt_view`
       operationId: getWebhookChannel
@@ -497,7 +497,7 @@ paths:
                 $ref: '#/components/schemas/ChannelResponse'
               examples:
                 selectedOrgs:
-                  summary: Channel delivered to explicitly selected child organizations
+                  summary: Channel subscribed to events from selected child organizations
                   value:
                     channelId: 2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219
                     channelUri: https://schemas.identity.wso2.org/events/token
@@ -506,7 +506,7 @@ paths:
                       subscriptionPolicy: SELECTED_ORGS_ONLY
                       organizationsRef: /t/{organization-name}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219/organizations
                 allOrgs:
-                  summary: Channel fanned out to every child organization
+                  summary: Channel subscribed to events from all child organizations
                   value:
                     channelId: 4d81e0c7-6f52-4a19-b3ce-118d9f27a604
                     channelUri: https://schemas.identity.wso2.org/events/registration
@@ -516,7 +516,7 @@ paths:
                       organizationsRef: /t/{organization-name}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/4d81e0c7-6f52-4a19-b3ce-118d9f27a604/organizations
                 noFanout:
                   summary: >
-                    Channel with no child organization fanout. `organizationsRef` is still
+                    Channel not subscribed to events from child organizations. `organizationsRef` is still
                     present; the referenced resource returns an empty list.
                   value:
                     channelId: 9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
@@ -556,7 +556,7 @@ paths:
     get:
       summary: List Child Organizations Subscribed to a Channel
       description: |
-        This API returns a paginated list of the child organizations that receive a channel's events. The list depends on the channel's `subscriptionPolicy`:
+        This API returns a paginated list of the child organizations a channel is subscribed to. The list depends on the channel's `subscriptionPolicy`:
 
         - `SELECTED_ORGS_ONLY`: the selected organizations.
         - `ALL_EXISTING_AND_FUTURE_ORGS`: all child organizations, including ones created later.
@@ -598,7 +598,7 @@ paths:
               examples:
                 allOrgsPolicy:
                   summary: >
-                    Channel fanned out to every child organization. `totalResults` grows
+                    Channel subscribed to events from all child organizations. `totalResults` grows
                     as organizations are created, so it can change between pages.
                   value:
                     channelUri: https://schemas.identity.wso2.org/events/registration
@@ -615,7 +615,7 @@ paths:
                         parentOrgId: dd8e0455-29a1-4c73-8d6b-60f88c607d38
                 selectedOrgsPolicy:
                   summary: >
-                    Channel delivered to explicitly selected child organizations, resolved
+                    Channel subscribed to events from selected child organizations, resolved
                     with names and parents.
                   value:
                     channelUri: https://schemas.identity.wso2.org/events/token
@@ -631,7 +631,7 @@ paths:
                         orgName: sub004
                         parentOrgId: b028ca17-8f89-449c-ae27-fa955e66465d
                 noFanout:
-                  summary: Channel with no child organization fanout
+                  summary: Channel not subscribed to events from child organizations
                   value:
                     channelUri: https://schemas.identity.wso2.org/events/login
                     subscriptionPolicy: NONE
@@ -866,7 +866,7 @@ components:
         subscribedChannels:
           type: array
           minItems: 1
-          description: Channels to subscribe to, each with optional organization fanout.
+          description: Channels to subscribe to, each with an optional child organization subscription.
           items:
             $ref: '#/components/schemas/WebhookSubscription'
           example:
@@ -1074,7 +1074,7 @@ components:
       required:
         - subscriptionPolicy
       description: |
-        Controls which child organizations of the webhook's organization receive the channel's events.
+        Controls which child organizations of the webhook's organization the channel subscribes to events from.
 
         - `subscriptionPolicy` is returned in responses.
         - `organizations` is write-only. Use `organizationsRef` to get the subscribed organizations.
@@ -1089,9 +1089,9 @@ components:
           description: |
             Child organization subscription policy for the channel.
 
-            - `NONE`: events are not sent to child organizations.
-            - `ALL_EXISTING_AND_FUTURE_ORGS`: events are sent to all child organizations, including ones created later.
-            - `SELECTED_ORGS_ONLY`: events are sent only to the organizations in `organizations`. Their child organizations are not included.
+            - `NONE`: Not subscribed to events fired from child organizations.
+            - `ALL_EXISTING_AND_FUTURE_ORGS`: Subscribed to events fired from existing child organizations and child organizations created later.
+            - `SELECTED_ORGS_ONLY`: Subscribed to events fired only from the organizations in `organizations`. Events from their child organizations are not included.
           example: SELECTED_ORGS_ONLY
         organizations:
           type: array
@@ -1099,11 +1099,11 @@ components:
           minItems: 1
           maxItems: 100
           description: |
-            Organizations that receive the channel's events. Allowed only when `subscriptionPolicy` is `SELECTED_ORGS_ONLY`.
+            Child organizations to subscribe to events from. Allowed only when `subscriptionPolicy` is `SELECTED_ORGS_ONLY`.
 
             - Required when a channel is first set to `SELECTED_ORGS_ONLY`.
             - If supplied, replaces the current list. If omitted, the current list is kept.
-            - Can't be empty. To stop sending events to child organizations, set `subscriptionPolicy` to `NONE`.
+            - Can't be empty. To stop subscribing to events from child organizations, set `subscriptionPolicy` to `NONE`.
             - Write-only, so it is never returned in responses.
           items:
             $ref: '#/components/schemas/Organization'
@@ -1113,7 +1113,7 @@ components:
         organizationsRef:
           type: string
           readOnly: true
-          description: "Link to the paginated list of child organizations that receive the channel's events. Returned only by the channel API."
+          description: "Link to the paginated list of child organizations the channel is subscribed to. Returned only by the channel API."
           example: /t/{organization-name}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219/organizations
 
     ChannelResponse:
@@ -1167,7 +1167,7 @@ components:
 
     SubscribedOrganizationList:
       type: object
-      description: "Paginated list of the child organizations that receive a channel's events."
+      description: "Paginated list of the child organizations a channel is subscribed to."
       properties:
         channelUri:
           type: string
