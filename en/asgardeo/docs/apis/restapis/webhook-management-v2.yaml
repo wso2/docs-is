@@ -39,8 +39,6 @@ info:
     - Each channel in the webhook response has a `self` link to the channel resource.
 
     - The channel resource has an `organizationsRef` link to the paginated list of child organizations that receive events.
-
-    - `secret` and a channel's `organizations` list are write-only. If they are omitted on update, the stored values are kept.
 servers:
   - url: 'https://api.asgardeo.io/t/{organization-name}/api/server/v2'
 
