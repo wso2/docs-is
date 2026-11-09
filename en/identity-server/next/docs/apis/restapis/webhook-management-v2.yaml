@@ -59,7 +59,7 @@ paths:
         Results are paginated. Use `limit` and `offset` to page through the collection;
         `totalResults` reports the full size and `links` carries the next and previous
         pages where applicable.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view` \n\n"
       operationId: getWebhooks
       tags:
         - Webhooks
@@ -119,7 +119,7 @@ paths:
         omits it defaults to `subscriptionPolicy: NONE`.\n\n
         Fanout is changed later through the webhook replace and patch operations, which
         accept the same per-channel `childOrgSubscription`.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_create` \n\n"
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_create` \n\n"
       operationId: createWebhook
       tags:
         - Webhooks
@@ -244,7 +244,7 @@ paths:
         with names and parent references.\n\n
         This representation is exactly what the replace operation accepts, so it can be
         modified and sent back without reshaping.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view` \n\n"
       operationId: getWebhookByWebhookId
       tags:
         - Webhooks
@@ -311,7 +311,7 @@ paths:
         selected is the same state as `NONE`.\n\n
         Removing a channel and adding it back in the same request resets its fanout,
         because the subscription is recreated.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update` \n\n"
       operationId: updateWebhook
       tags:
         - Webhooks
@@ -417,7 +417,7 @@ paths:
         Should a property that can validly be removed be introduced later, it will be
         marked `nullable` and accept `null` as a removal directive; the rejection above
         applies only to properties for which removal has no valid result.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update` \n\n"
       operationId: patchWebhook
       tags:
         - Webhooks
@@ -499,7 +499,7 @@ paths:
 
     delete:
       summary: Delete Webhook
-      description: "This API deletes a webhook using the webhook unique ID. \n\n <b>Scope(Permission) required:</b> `internal_webhook_delete` \n\n"
+      description: "This API deletes a webhook using the webhook unique ID. \n\n <b>Scope(Permission) required:</b> `internal_webhook_mgt_delete` \n\n"
       operationId: deleteWebhook
       tags:
         - Webhooks
@@ -548,7 +548,7 @@ paths:
         child organizations receiving events for the channel. That link is present here
         and not in the webhook representation, so each representation links exactly one
         level down and the webhook response stays free of nested organization links.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view` \n\n"
       operationId: getWebhookChannel
       tags:
         - Webhook Channels
@@ -633,7 +633,7 @@ paths:
         paginated and cannot be embedded in either representation.\n\n
         Results are ordered parents before children, so the hierarchy can be
         reconstructed from `parentOrgId` in a single pass.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_view` \n\n"
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view` \n\n"
       operationId: getChannelSubscribedOrganizations
       tags:
         - Webhook Channels
@@ -738,7 +738,7 @@ paths:
   /webhooks/{webhookId}/activate:
     post:
       summary: Activate Webhook
-      description: "Activate a webhook by its unique ID.\n\n <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      description: "Activate a webhook by its unique ID.\n\n <b>Scope(Permission) required:</b> `internal_webhook_mgt_update` \n\n"
       operationId: activateWebhook
       tags:
         - Webhooks
@@ -782,7 +782,7 @@ paths:
   /webhooks/{webhookId}/deactivate:
     post:
       summary: Deactivate Webhook
-      description: "Deactivate a webhook by its unique ID.\n\n <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+      description: "Deactivate a webhook by its unique ID.\n\n <b>Scope(Permission) required:</b> `internal_webhook_mgt_update` \n\n"
       operationId: deactivateWebhook
       tags:
         - Webhooks
@@ -830,7 +830,7 @@ paths:
         Every channel currently in `SUBSCRIPTION_ERROR` or `UNSUBSCRIPTION_ERROR` is
         retried in the direction its status indicates. Channels in any other state are
         left untouched.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_update` \n\n"
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update` \n\n"
       operationId: retryWebhook
       tags:
         - Webhooks
@@ -883,10 +883,10 @@ components:
           authorizationUrl: 'https://localhost:9443/oauth2/authorize'
           tokenUrl: 'https://localhost:9443/oauth2/token'
           scopes:
-            internal_webhook_view: View webhooks
-            internal_webhook_create: Create webhooks
-            internal_webhook_update: Update webhooks
-            internal_webhook_delete: Delete webhooks
+            internal_webhook_mgt_view: View webhooks
+            internal_webhook_mgt_create: Create webhooks
+            internal_webhook_mgt_update: Update webhooks
+            internal_webhook_mgt_delete: Delete webhooks
 
   parameters:
     WebhookId:
