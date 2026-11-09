@@ -11,29 +11,22 @@ info:
     <b>Changes from v1</b>
 
 
-    v1 remains available and unchanged at `/api/server/v1`. v2 is a separate version
-    because the following changes are not backward compatible:
+    v1 remains available at `/api/server/v1`.
 
 
-    - `subscribedChannels` is a list of objects rather than a list of channel URI strings.
-      Each entry carries its own organization fanout under `childOrgSubscription`, so
-      channels and their policies are configured together instead of in parallel lists.
-      A v1 request body sending `["uri", "uri"]` is rejected by v2.
+    - `subscribedChannels` is a list of objects (`channelUri` and `childOrgSubscription`) instead of a list of channel URI strings.
 
-    - The update operation no longer accepts `status`. It is accepted on create, and
-      changed afterwards through the activate and deactivate sub-resources; the value
-      returned on read is the derived aggregate, which may also be `PARTIALLY_ACTIVE` or
-      `PARTIALLY_INACTIVE`.
+    - The update operation no longer accepts `status`. Use the activate and deactivate operations instead.
 
+    - Webhook status can also be `PARTIALLY_ACTIVE` or `PARTIALLY_INACTIVE`.
 
-    Omitting `secret` on update preserves the stored secret. This is unchanged from v1 —
-    v2 documents the existing behaviour rather than altering it.
+    - The webhook list is paginated.
 
+    - New `PATCH` operation for partial updates.
 
-    Added in v2, none of which affect a v1 client: pagination on the webhook list, a
-    `PATCH` operation accepting a JSON Merge Patch document
-    (`application/merge-patch+json`) for partial updates, organization-level fanout per
-    channel, and the channel resource described below.
+    - Events can be fanned out to child organizations for each channel.
+
+    - New channel and subscribed organizations resources.
 
 
     <b>Resource model</b>
