@@ -82,18 +82,29 @@
           <td>Proxy servers</td>
           <td>
                <div class="content-wrapper">
-               If the product is hosted behind a proxy such as ApacheHTTPD, users can configure products to use the proxy server by providing the following system properties at the start-up.<br /><br />
+               WSO2 Identity Server can work with two types of proxy servers. They serve different purposes and are configured independently.
+               <br /><br />
+               <b>Forward proxy (outbound traffic)</b><br />
+               If WSO2 Identity Server must connect to external endpoints through a forward proxy, provide the following system properties at server start-up.<br /><br />
                <code>
-               -Dhttp.proxyHost=xxxx<br>
-               -Dhttp.proxyPort=xxxx
+               -Dhttps.proxyHost=your.proxy.host<br>
+               -Dhttps.proxyPort=your.proxy.port<br>
+               -Dhttp.proxyHost=your.proxy.host<br>
+               -Dhttp.proxyPort=your.proxy.port
                </code>
                <br /><br />
-               Alternatively, this can be done by adding the following configurations in the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file.<br /><br />
+               The <code>https.proxyHost</code> and <code>https.proxyPort</code> properties apply to HTTPS endpoints, and the <code>http.proxyHost</code> and <code>http.proxyPort</code> properties apply to HTTP endpoints.
+               <br /><br />
+               <b>Reverse proxy (inbound traffic)</b><br />
+               If users access WSO2 Identity Server through a reverse proxy such as Apache HTTPD or NGINX, add the following configurations to the <code>&lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file. Tomcat then uses the proxy hostname and port when it builds redirect URLs.<br /><br />
                <code>
                [transport.https.properties]<br>
-               proxyhost : "you.proxy.host"<br>
-               proxyPort : "your.proxy.port"<br>
+               proxyName = "your.proxy.host"<br>
+               proxyPort = "your.proxy.port"<br>
                </code>
+               <br />
+               WSO2 Identity Server uses the hostname configured under <code>[server]</code> in the URLs it generates. To set it to the proxy hostname, see <a href="{{base_path}}/deploy/change-the-hostname">Change the hostname</a>.
+               </div>
           </td>
           </tr>
           <tr class="odd">
