@@ -55,11 +55,10 @@ paths:
   /webhooks:
     get:
       summary: List Webhooks
-      description: "This API returns the detailed summary of the webhooks.\n\n
-        Results are paginated. Use `limit` and `offset` to page through the collection;
-        `totalResults` reports the full size and `links` carries the next and previous
-        pages where applicable.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view` \n\n"
+      description: |
+        This API returns a paginated list of webhooks.
+
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view`
       operationId: getWebhooks
       tags:
         - Webhooks
@@ -112,11 +111,7 @@ paths:
 
     post:
       summary: Add Webhook
-      description: "Create a new webhook.
-
- <b>Scope(Permission) required:</b> `internal_webhook_mgt_create` 
-
-"
+      description: "Create a new webhook.\n\n <b>Scope(Permission) required:</b> `internal_webhook_mgt_create` \n\n"
       operationId: createWebhook
       tags:
         - Webhooks
@@ -135,12 +130,7 @@ paths:
                 $ref: '#/components/schemas/WebhookResponse'
               examples:
                 created:
-                  summary: >
-                    Created with `status: ACTIVE`. Subscription against the event publisher
-                    is asynchronous, so every channel is still `SUBSCRIPTION_PENDING` and
-                    the webhook reports `PARTIALLY_ACTIVE`. Retrieve the webhook again to
-                    observe the channels settling to `SUBSCRIPTION_ACCEPTED`, or to
-                    `SUBSCRIPTION_ERROR` if the publisher rejected one.
+                  summary: "Webhook created. Channels are subscribed asynchronously, so they start as `SUBSCRIPTION_PENDING`."
                   value:
                     id: eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c
                     createdAt: '2026-09-03T09:15:00Z'
@@ -233,15 +223,13 @@ paths:
   /webhooks/{webhookId}:
     get:
       summary: Retrieve Webhook by ID
-      description: "This API returns the webhook details along with the webhook unique ID. \n\n
-        Each entry in `subscribedChannels` reports the channel URI, its identifier, its
-        subscription status, its child organization fanout policy and a `self` link. The
-        organizations themselves are not included — follow
-        `childOrgSubscription.organizationsRef` to retrieve them, paginated and resolved
-        with names and parent references.\n\n
-        This representation is exactly what the replace operation accepts, so it can be
-        modified and sent back without reshaping.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view` \n\n"
+      description: |
+        This API returns the details of a webhook.
+
+        - Each channel in `subscribedChannels` has a `self` link to the channel API.
+        - Child organizations subscribed to a channel are not included. Use the channel organizations API to get them.
+
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view`
       operationId: getWebhookByWebhookId
       tags:
         - Webhooks
@@ -284,31 +272,16 @@ paths:
 
     put:
       summary: Update Webhook
-      description: "This API updates a webhook and return the updated webhook. \n\n
-        The request body is exactly the representation returned by the retrieval API,
-        minus the read-only properties — which are ignored rather than rejected if
-        supplied. A webhook can therefore be retrieved, modified and sent back unchanged
-        otherwise.\n\n
-        This is a full replacement: a writable property omitted from the body is cleared.
-        The two write-only properties are the exception — `secret` and
-        `subscribedChannels[].childOrgSubscription.organizations` are never returned,
-        so a client cannot resend what it did not receive, and omitting either preserves
-        the stored value.\n\n
-        <b>Channels</b>\n\n
-        `subscribedChannels` is replaced wholesale: channels stored but absent from the
-        array are unsubscribed, and channels present but not stored are subscribed.\n\n
-        Each channel may carry its `childOrgSubscription`, so a single call can change
-        the webhook, its channel set and its per-channel fanout together. For a channel
-        that omits `childOrgSubscription`, an existing subscription keeps its current
-        policy and a new one defaults to `NONE`. Within a supplied
-        `childOrgSubscription`, omitting `organizations` preserves the channel's
-        current organization subscriptions; supplying it replaces them. To stop
-        organization fanout for a channel, set its `subscriptionPolicy` to `NONE` — an
-        empty `organizations` array is rejected, since `SELECTED_ORGS_ONLY` with nothing
-        selected is the same state as `NONE`.\n\n
-        Removing a channel and adding it back in the same request resets its fanout,
-        because the subscription is recreated.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update` \n\n"
+      description: |
+        This API replaces a webhook and returns the updated webhook.
+
+        - Properties omitted from the request are cleared, except `secret` and `childOrgSubscription.organizations`, which keep their stored values.
+        - `subscribedChannels` replaces the existing channels. Channels not in the list are unsubscribed, and new channels are subscribed.
+        - If a channel omits `childOrgSubscription`, an existing channel keeps its policy and a new channel uses `NONE`.
+        - To stop sending a channel's events to child organizations, set `subscriptionPolicy` to `NONE`.
+        - `status` can't be updated. Use the activate and deactivate APIs.
+
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update`
       operationId: updateWebhook
       tags:
         - Webhooks
@@ -383,38 +356,16 @@ paths:
 
     patch:
       summary: Patch Webhook by ID
-      description: "This API partially updates a webhook and returns the updated webhook. \n\n
-        Only the properties present in the request body are modified; every omitted
-        property is left unchanged. This avoids the full-replacement behaviour of `PUT`,
-        which clears any writable property the client does not resend.\n\n
-        Arrays are replaced wholesale rather than merged. Supplying `subscribedChannels`
-        therefore replaces the entire channel set, with the same semantics as `PUT`,
-        including per-channel `childOrgSubscription`. Because the retrieval API returns
-        every channel with its policy, a client can read the webhook, adjust one channel
-        in the array and send the whole set back.\n\n
-        `status` cannot be patched; use the activate and deactivate sub-resources.\n\n
-        <b>JSON Merge Patch</b>\n\n
-        The request body is a JSON Merge Patch document (RFC 7386), sent as
-        `application/merge-patch+json`. It is not JSON Patch (RFC 6902) — there is no
-        operation list; the body is a partial representation of the webhook itself.\n\n
-        Two deviations from RFC 7386 apply, both of which fail loudly rather than
-        silently:\n\n
-        - A `null` member is <b>rejected with 400</b> rather than removing the property.
-          No webhook property has a valid removed state: `endpoint`, `name`,
-          `eventProfile` and `subscribedChannels` are required; a channel's organization
-          fanout is cleared by setting `subscriptionPolicy` to `NONE` rather than by
-          removal; and `secret` must never be removed, since a webhook that cannot sign
-          its payloads delivers events no receiver can verify. Nulls are rejected instead
-          of ignored so that a client assuming removal is told, rather than receiving
-          `200` for a change that did not happen.
+      description: |
+        This API partially updates a webhook and returns the updated webhook.
 
-        - An empty document `{}` is <b>rejected with 400</b>, although RFC 7386 defines it
-          as a valid no-op. An empty patch is almost always a client error and is worth
-          reporting.\n\n
-        Should a property that can validly be removed be introduced later, it will be
-        marked `nullable` and accept `null` as a removal directive; the rejection above
-        applies only to properties for which removal has no valid result.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update` \n\n"
+        - The request body is a JSON Merge Patch document (RFC 7386) sent as `application/merge-patch+json`.
+        - Only the properties in the request are updated. Omitted properties are unchanged.
+        - Arrays are replaced, not merged. `subscribedChannels` replaces the existing channels, as in the update API.
+        - `null` values and an empty body (`{}`) are rejected with `400`.
+        - `status` can't be patched. Use the activate and deactivate APIs.
+
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update`
       operationId: patchWebhook
       tags:
         - Webhooks
@@ -440,10 +391,7 @@ paths:
                 value:
                   secret: my-new-secret
               changeChannels:
-                summary: >
-                  Replace the channel set. `login` omits `childOrgSubscription`, so
-                  it keeps whatever policy it already had; `token` sets its policy and
-                  organization list explicitly.
+                summary: "Replace the channel set. `login` keeps its current policy and `token` sets a new one."
                 value:
                   subscribedChannels:
                     - channelUri: https://schemas.identity.wso2.org/events/login
@@ -460,10 +408,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookResponse'
         '400':
-          description: >
-            Bad Request. Also returned when a member is `null` — no webhook property
-            has a valid removed state, so `null` is rejected rather than treated as a
-            removal directive — and when the document is empty.
+          description: "Bad Request. Also returned when a property is `null` or the request body is empty."
           content:
             application/json:
               schema:
@@ -536,16 +481,13 @@ paths:
   /webhooks/{webhookId}/channels/{channelId}:
     get:
       summary: Retrieve Subscribed Channel by ID
-      description: "This API returns a single subscribed channel of a webhook, with its
-        subscription status and child organization fanout policy.\n\n
-        The `channelId` is the unique identifier of the subscribed channel, returned as
-        `channelId` on each entry in `subscribedChannels` by the webhook retrieval API,
-        which also carries the `self` link to this resource.\n\n
-        This response carries `childOrgSubscription.organizationsRef`, the link to the
-        child organizations receiving events for the channel. That link is present here
-        and not in the webhook representation, so each representation links exactly one
-        level down and the webhook response stays free of nested organization links.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view` \n\n"
+      description: |
+        This API returns a subscribed channel of a webhook, with its subscription status and child organization subscription policy.
+
+        - Get the `channelId` from `subscribedChannels` in the webhook response.
+        - Use `childOrgSubscription.organizationsRef` to get the child organizations that receive the channel's events.
+
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view`
       operationId: getWebhookChannel
       tags:
         - Webhook Channels
@@ -619,18 +561,16 @@ paths:
   /webhooks/{webhookId}/channels/{channelId}/organizations:
     get:
       summary: List Child Organizations Subscribed to a Channel
-      description: "This API returns the child organizations currently receiving events for
-        the given channel, resolved with names and parent references.\n\n
-        For `SELECTED_ORGS_ONLY` this is the configured set; for
-        `ALL_EXISTING_AND_FUTURE_ORGS` it is every child organization currently
-        subscribed, which grows as organizations are created; for `NONE` the list is
-        empty.\n\n
-        This is the only representation of the subscribed organizations. The webhook and
-        channel retrieval APIs report the policy and link here, because the collection is
-        paginated and cannot be embedded in either representation.\n\n
-        Results are ordered parents before children, so the hierarchy can be
-        reconstructed from `parentOrgId` in a single pass.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view` \n\n"
+      description: |
+        This API returns a paginated list of the child organizations that receive a channel's events. The list depends on the channel's `subscriptionPolicy`:
+
+        - `SELECTED_ORGS_ONLY`: the selected organizations.
+        - `ALL_EXISTING_AND_FUTURE_ORGS`: all child organizations, including ones created later.
+        - `NONE`: an empty list.
+
+        Parent organizations are listed before their child organizations.
+
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_view`
       operationId: getChannelSubscribedOrganizations
       tags:
         - Webhook Channels
@@ -823,11 +763,10 @@ paths:
   /webhooks/{webhookId}/retry:
     post:
       summary: Retry Webhook Subscription or Unsubscription
-      description: "Retry a webhook subscription or unsubscription by its unique ID.\n\n
-        Every channel currently in `SUBSCRIPTION_ERROR` or `UNSUBSCRIPTION_ERROR` is
-        retried in the direction its status indicates. Channels in any other state are
-        left untouched.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update` \n\n"
+      description: |
+        This API retries the failed subscriptions and unsubscriptions of a webhook. Only channels in `SUBSCRIPTION_ERROR` or `UNSUBSCRIPTION_ERROR` are retried.
+
+        <b>Scope(Permission) required:</b> `internal_webhook_mgt_update`
       operationId: retryWebhook
       tags:
         - Webhooks
@@ -898,9 +837,7 @@ components:
       name: channelId
       in: path
       required: true
-      description: >
-        Unique identifier of the subscribed channel, returned as `channelId` on each entry
-        in `subscribedChannels`.
+      description: "Unique identifier of the subscribed channel."
       schema:
         type: string
 
@@ -915,10 +852,7 @@ components:
         - eventProfile
         - name
         - subscribedChannels
-      description: >
-        Webhook to create. Organization fanout may be supplied inline per channel so that
-        the webhook and its fanout are created atomically; afterwards it is managed
-        through the channel resource.
+      description: "Webhook to create."
       properties:
         endpoint:
           type: string
@@ -933,14 +867,7 @@ components:
         secret:
           type: string
           writeOnly: true
-          description: >
-            Secret used to sign webhook payloads, so the receiver can verify them. Never
-            returned by any operation.
-
-
-            Whether it applies depends on the event profile, which determines how payloads
-            are signed. Profiles that sign with a shared secret require it; profiles that
-            sign with a key pair do not.
+          description: "Secret used to sign webhook payloads. Required for event profiles that sign payloads with a shared secret. Never returned in responses."
           example: my-secret
         subscribedChannels:
           type: array
@@ -967,10 +894,7 @@ components:
           enum:
             - ACTIVE
             - INACTIVE
-          description: >
-            Desired webhook status on create. The retrieval response reports the derived
-            aggregate status, which may also be `PARTIALLY_ACTIVE` or
-            `PARTIALLY_INACTIVE` while channels settle.
+          description: "Initial webhook status."
           example: "ACTIVE"
 
     # =========================================================================
@@ -983,15 +907,7 @@ components:
         - eventProfile
         - name
         - subscribedChannels
-      description: >
-        Full replacement of a webhook, including per-channel organization fanout. This is
-        the retrieval representation minus the read-only properties, so a retrieved
-        webhook can be modified and sent back as-is.
-
-
-        The two write-only properties — `secret` and
-        `subscribedChannels[].childOrgSubscription.organizations` — are never returned
-        and are therefore preserved when omitted rather than cleared.
+      description: "Webhook to replace. If `secret` or `childOrgSubscription.organizations` is omitted, the stored value is kept."
       properties:
         endpoint:
           type: string
@@ -1006,21 +922,12 @@ components:
         secret:
           type: string
           writeOnly: true
-          description: >
-            Secret for validating webhook payloads. Never returned by any operation, so
-            omitting it preserves the stored secret rather than clearing it.
+          description: "Secret used to sign webhook payloads. If omitted, the stored secret is kept."
           example: my-secret
         subscribedChannels:
           type: array
           minItems: 1
-          description: >
-            The channels this webhook should be subscribed to, with their organization
-            fanout. Replaced wholesale: channels absent from the array are unsubscribed,
-            and channels present but not stored are subscribed.
-
-
-            A channel that omits `childOrgSubscription` entirely keeps its current
-            policy if it is already subscribed, or defaults to `NONE` if it is new.
+          description: "Channels to subscribe to. Replaces the existing channels. A channel that omits `childOrgSubscription` keeps its current policy, or uses `NONE` if it is new."
           items:
             $ref: '#/components/schemas/WebhookSubscription'
           example:
@@ -1036,16 +943,7 @@ components:
     WebhookPatchRequest:
       type: object
       minProperties: 1
-      description: >
-        JSON Merge Patch document (RFC 7386) describing the properties to change. Every
-        property is optional and an omitted property is left unchanged. `status` is not
-        patchable — use the activate and deactivate sub-resources.
-
-
-        No property is `nullable`: a `null` member is rejected with `400` rather than
-        removing the property, because no webhook property has a valid removed state.
-        `minProperties` likewise rejects an empty document, which RFC 7386 would otherwise
-        treat as a no-op. Both deviations are deliberate and documented on the operation.
+      description: "JSON Merge Patch document with the properties to update. `null` values and an empty document are rejected. `status` can't be patched."
       properties:
         endpoint:
           type: string
@@ -1063,9 +961,7 @@ components:
         subscribedChannels:
           type: array
           minItems: 1
-          description: >
-            Replaces the entire channel set, with the same semantics as the replace
-            operation. Omit the property to leave subscriptions untouched.
+          description: "Replaces the existing channels, as in the update API. Omit it to keep the current channels."
           items:
             $ref: '#/components/schemas/WebhookSubscription'
           example:
@@ -1108,11 +1004,7 @@ components:
           example: Login webhook.
         subscribedChannels:
           type: array
-          description: >
-            List of subscribed channels with their subscription status and child
-            organization fanout policy. The organizations themselves are not included —
-            follow each channel's `childOrgSubscription.organizationsRef` to retrieve
-            them, paginated and resolved with names and parent references.
+          description: "Subscribed channels with their subscription status and child organization subscription policy."
           items:
             $ref: '#/components/schemas/WebhookSubscription'
           example:
@@ -1142,25 +1034,14 @@ components:
             - PARTIALLY_ACTIVE
             - INACTIVE
             - PARTIALLY_INACTIVE
-          description: >
-            Aggregate webhook status derived from the per-channel subscription statuses.
-            Changed through the activate and deactivate sub-resources.
+          description: "Webhook status, based on the subscription status of its channels. Changed through the activate and deactivate APIs."
           example: "ACTIVE"
 
     WebhookSubscription:
       type: object
       required:
         - channelUri
-      description: >
-        A subscribed channel as it appears on the webhook resource. Used by the create,
-        replace, patch and retrieval operations.
-
-
-        `channelUri` and `childOrgSubscription.subscriptionPolicy` round-trip between
-        request and response. `childOrgSubscription.organizations` is write-only —
-        the organization list is a paginated collection read from the channel resource
-        linked by `self`. The remaining properties are observed state, ignored if
-        supplied in a request.
+      description: "A channel the webhook subscribes to. `channelId`, `self` and `status` are read-only."
       properties:
         channelUri:
           type: string
@@ -1171,18 +1052,12 @@ components:
         channelId:
           type: string
           readOnly: true
-          description: >
-            Unique identifier of this subscribed channel, used to address the channel
-            resource.
+          description: "Unique identifier of the subscribed channel."
           example: 9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
         self:
           type: string
           readOnly: true
-          description: >
-            Link to this subscribed channel. Follow it to reach the channel resource,
-            which carries `childOrgSubscription.organizationsRef` — the link to the child
-            organizations receiving events. Each representation links one level down, so
-            the webhook response stays free of nested organization links.
+          description: "Link to the channel API."
           example: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/9f2c7b31-0a4e-4d8f-9c11-2b6e5a7d4c88
         status:
           type: string
@@ -1204,23 +1079,11 @@ components:
       type: object
       required:
         - subscriptionPolicy
-      description: >
-        Fanout configuration controlling which <b>child</b> organizations of the webhook's
-        own organization receive events for a channel. Supplied inline per channel on the
-        webhook create, replace and patch operations.
+      description: |
+        Controls which child organizations of the webhook's organization receive the channel's events.
 
-
-        Named `childOrgSubscription` rather than `organizationSubscription` because the
-        organization owning the webhook is itself an organization. Sub-organizations can
-        own webhooks too, and at that level the owner subscribes to events from
-        organizations below it — so an unqualified "organization" would not say whose
-        events are meant. This names the direction explicitly: downward, into descendants.
-
-
-        `subscriptionPolicy` round-trips: it is returned by every operation that returns a
-        channel, and accepted by every operation that writes one. `organizations` is
-        write-only, because the subscribed organizations are a paginated collection — read
-        them from the resource linked as `organizationsRef`.
+        - `subscriptionPolicy` is returned in responses.
+        - `organizations` is write-only. Use `organizationsRef` to get the subscribed organizations.
       properties:
         subscriptionPolicy:
           type: string
@@ -1229,47 +1092,25 @@ components:
             - NONE
             - ALL_EXISTING_AND_FUTURE_ORGS
             - SELECTED_ORGS_ONLY
-          description: >
-            Organization-level fanout policy for this channel.
-            `NONE` – no organization-level fanout.
-            `ALL_EXISTING_AND_FUTURE_ORGS` – events fanned out to every organization, including ones created in the future.
-            `SELECTED_ORGS_ONLY` – events delivered only to the organizations listed in the `organizations` array.
-            Selected organizations do not include their children.
+          description: |
+            Child organization subscription policy for the channel.
+
+            - `NONE`: events are not sent to child organizations.
+            - `ALL_EXISTING_AND_FUTURE_ORGS`: events are sent to all child organizations, including ones created later.
+            - `SELECTED_ORGS_ONLY`: events are sent only to the organizations in `organizations`. Their child organizations are not included.
           example: SELECTED_ORGS_ONLY
         organizations:
           type: array
           writeOnly: true
           minItems: 1
           maxItems: 100
-          description: >
-            Explicit list of organizations to receive events. Accepted only when
-            `subscriptionPolicy` is `SELECTED_ORGS_ONLY`; rejected under any other policy.
+          description: |
+            Organizations that receive the channel's events. Allowed only when `subscriptionPolicy` is `SELECTED_ORGS_ONLY`.
 
-
-            Must be non-empty. `SELECTED_ORGS_ONLY` with nothing selected is the same
-            state as `NONE`, so it is not a second way to express it — to stop
-            organization fanout, set `subscriptionPolicy` to `NONE`.
-
-
-            <b>Write-only, and preserved when omitted.</b> This is the only
-            preserve-on-omit rule besides `secret`, and it exists for the same reason —
-            the list is never returned, so a client performing a read-modify-write cycle
-            cannot resend it. Concretely:
-
-
-            - **omitted** — the channel's current organization subscriptions are left
-              exactly as they are, whatever else the request changes.
-
-            - **supplied** — replaced wholesale against the organizations currently
-              subscribed: those present are subscribed, those absent are unsubscribed.
-
-
-            Required when a channel is *first* set to `SELECTED_ORGS_ONLY`, since there is
-            nothing to preserve.
-
-
-            Only `orgId` is supplied; the organizations resource returns the same objects
-            with `orgName` and `parentOrgId` resolved.
+            - Required when a channel is first set to `SELECTED_ORGS_ONLY`.
+            - If supplied, replaces the current list. If omitted, the current list is kept.
+            - Can't be empty. To stop sending events to child organizations, set `subscriptionPolicy` to `NONE`.
+            - Write-only, so it is never returned in responses.
           items:
             $ref: '#/components/schemas/Organization'
           example:
@@ -1278,29 +1119,12 @@ components:
         organizationsRef:
           type: string
           readOnly: true
-          description: >
-            Link to the child organizations currently receiving events for this channel,
-            resolved with names and parent references and paginated.
-
-
-            <b>Returned by the channel resource only.</b> It is omitted from the webhook
-            representation, which offers `self` on each channel instead — so each
-            representation links one level down and the webhook response does not carry
-            two URLs per channel. Where it is returned it is always present, including
-            under `NONE`, where the referenced resource yields an empty list.
+          description: "Link to the paginated list of child organizations that receive the channel's events. Returned only by the channel API."
           example: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c/channels/2b6e5a7d-4c88-4e01-9a73-0f5cb8e3d219/organizations
 
     ChannelResponse:
       type: object
-      description: >
-        A single subscribed channel of a webhook, with its subscription status and child
-        organization fanout policy.
-
-
-        Carries `childOrgSubscription.organizationsRef` — the link to the paginated
-        collection of child organizations receiving events. The webhook representation
-        omits that link and offers `self` on each channel instead, so navigation proceeds
-        one level at a time: webhook, then channel, then organizations.
+      description: "A subscribed channel of a webhook, with its subscription status and child organization subscription policy."
       properties:
         channelId:
           type: string
@@ -1330,15 +1154,11 @@ components:
       type: object
       required:
         - orgId
-      description: >
-        A child organization receiving events for a channel. Requests supply `orgId` only;
-        responses add the resolved name and parent.
+      description: "A child organization. Requests only need `orgId`."
       properties:
         orgId:
           type: string
-          description: >
-            Organization ID. Only this organization is subscribed — its own child
-            organizations are not included, and children created later are not added.
+          description: "Organization ID. Child organizations of this organization are not included."
           example: b028ca17-8f89-449c-ae27-fa955e66465d
         orgName:
           type: string
@@ -1348,25 +1168,12 @@ components:
         parentOrgId:
           type: string
           readOnly: true
-          description: >
-            Immediate parent organization, for reconstructing the hierarchy.
-            **May reference an organization that is not present in this response** —
-            because it is not itself subscribed, or because it falls on another page.
-            Results are ordered parents-before-children, so a client building the tree
-            in order can treat an unresolved parent as the root of a rendered subtree.
+          description: "ID of the parent organization. The parent might not be in the response if it isn't subscribed or is on another page."
           example: 7c1f9a83-5b2e-41d7-9f30-2ac4e8b16d55
 
     SubscribedOrganizationList:
       type: object
-      description: >
-        Paginated list of the child organizations currently receiving events for a
-        channel, with the context needed to interpret it.
-
-
-        This is a paginated view of a sub-collection, not a value that can be sent back —
-        `organizations` holds only the current page, so echoing it into a webhook write
-        would unsubscribe everything outside that page. Writes take the plain array under
-        `childOrgSubscription.organizations`.
+      description: "Paginated list of the child organizations that receive a channel's events."
       properties:
         channelUri:
           type: string
@@ -1380,17 +1187,11 @@ components:
             - NONE
             - ALL_EXISTING_AND_FUTURE_ORGS
             - SELECTED_ORGS_ONLY
-          description: >
-            Child organization fanout policy configured for this channel, included so the
-            list can be interpreted without a second call. `NONE` always yields an empty
-            list.
+          description: "Child organization subscription policy for the channel."
           example: ALL_EXISTING_AND_FUTURE_ORGS
         totalResults:
           type: integer
-          description: >
-            Total number of child organizations subscribed to this channel. Under
-            `ALL_EXISTING_AND_FUTURE_ORGS` this can change between pages as organizations
-            are created.
+          description: "Total number of child organizations subscribed to the channel."
           example: 142
         startIndex:
           type: integer
@@ -1402,8 +1203,7 @@ components:
           example: 2
         organizations:
           type: array
-          description: >
-            The child organizations on this page, ordered parents before children.
+          description: "Child organizations on this page."
           items:
             $ref: '#/components/schemas/Organization'
 
