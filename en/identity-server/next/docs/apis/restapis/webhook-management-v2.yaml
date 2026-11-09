@@ -112,14 +112,11 @@ paths:
 
     post:
       summary: Add Webhook
-      description: "Create a new webhook. \n\n
-        `subscribedChannels` is a list of channel objects. Each channel may carry its
-        organization fanout configuration inline under `childOrgSubscription`, so the
-        webhook and its fanout are created together in one atomic call. A channel that
-        omits it defaults to `subscriptionPolicy: NONE`.\n\n
-        Fanout is changed later through the webhook replace and patch operations, which
-        accept the same per-channel `childOrgSubscription`.\n\n
-        <b>Scope(Permission) required:</b> `internal_webhook_mgt_create` \n\n"
+      description: "Create a new webhook.
+
+ <b>Scope(Permission) required:</b> `internal_webhook_mgt_create` 
+
+"
       operationId: createWebhook
       tags:
         - Webhooks
