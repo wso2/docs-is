@@ -1459,7 +1459,7 @@ components:
           example: "ACTIVE"
         self:
           type: string
-          example: /t/{tenant-domain}/api/server/v2/webhooks/123e4567-e89b-12d3-a456-556642440000
+          example: /t/{tenant-domain}/api/server/v2/webhooks/eeb8c1a2-3f4d-4e5b-8c6f-7d8e9f0a1b2c
 
     WebhookList:
       type: object
