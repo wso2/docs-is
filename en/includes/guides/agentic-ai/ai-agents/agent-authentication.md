@@ -49,8 +49,6 @@ curl --location '{{api_base_path}}/oauth2/authorize' \
     --data-urlencode 'auth_entity=agent'
     ```
 
-    An agent's **Agent ID** is a system-generated identifier rather than an email address. This parameter marks the request as an AI agent self-authentication flow, so that {{ product_name }} skips the email-format username validation for the agent and does not return the `ABA-60003` error at the `/authn` endpoint.
-
 The agent receives the following response that contains key components like the **flowId** parameter that uniquely identifies the login flow and the authenticators array that contains the authentication options available for the first step.
 
 ```js
