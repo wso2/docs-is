@@ -93,14 +93,23 @@ jobs:
           path: broken_links_report_Asgardeo.html
 
       - name: Notify Google Chat
+        # Notify only when broken links are found or a previous step failed.
+        if: ${{ !cancelled() && (failure() || env.broken_links_count != '0') }}
         env:
           WEBHOOK_URL: ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
           SITE_URL: ${{ github.event.inputs.siteUrl || env.DEFAULT_URL }}
           THREAD_NAME: "BrokenLinkCheckerAsgardeo"
           BROKEN_LINKS_COUNT: ${{ env.broken_links_count }}
+          JOB_STATUS: ${{ job.status }}
         run: |
+          if [ "$JOB_STATUS" = "failure" ]; then
+            REPORT_CONTENT="Link checker workflow failed. Check the run logs for details."
+          else
+            REPORT_CONTENT="Broken Links Found: ${BROKEN_LINKS_COUNT}"
+          fi
           MESSAGE_JSON=$(cat <<EOF
           {
+            "text": "<users/all>",
             "cards": [
               {
                 "header": {
@@ -114,7 +123,7 @@ jobs:
                       {
                         "keyValue": {
                           "topLabel": "Report Details",
-                          "content": "Broken Links Found: ${BROKEN_LINKS_COUNT}"
+                          "content": "${REPORT_CONTENT}"
                         }
                       },
                       {
