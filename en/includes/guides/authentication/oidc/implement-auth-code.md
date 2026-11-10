@@ -159,7 +159,7 @@ When your application is a confidential client, it needs to identify itself to t
             });
         ```
 
-- Use **client_secret_basic**: The client secret is sent as an authorization header in the request (`Authorization: Basic BASE46_ENCODING<client_id:client_secret>`). See the example given below.
+- Use **client_secret_basic**: The client secret is sent as an authorization header in the request (`Authorization: Basic BASE64_ENCODING<client_id:client_secret>`). See the example given below.
 
     ```bash
     curl --location --request POST '{{ product_url_sample }}/oauth2/token' \
@@ -175,11 +175,12 @@ When your application is a confidential client, it needs to identify itself to t
     !!! note
         Learn more about [private key JWT client authentication]({{base_path}}/guides/authentication/oidc/private-key-jwt-client-auth/) in {{ product_name }}.
 
-    ```bash
+   ```bash
+    curl --location --request POST '{{ product_url_format }}/oauth2/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'code={authorization_code}' \
     --data-urlencode 'grant_type=authorization_code' \
-    --data-urlencode     'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer'\
+    --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
     --data-urlencode 'client_assertion={jwt_assertion}' \
     --data-urlencode 'redirect_uri={redirect_uri}'
     ```
