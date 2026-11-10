@@ -6,12 +6,6 @@ This guide details the webhook event types dispatched by {{product_name}}. For e
       In webhook event payloads, <code>initiatorIpAddress</code> (when present) represents the IP address of the initiator that triggered the event.
 
 {% if product_name == "WSO2 Identity Platform" %}
-!!! Note
-      This feature is currently in **Preview**. Functionality and event payloads may change during development.  
-      Expect updates without prior notice.
-{% endif %}
-
-{% if product_name == "WSO2 Identity Platform" %}
 {% set server_url = "https://api.asgardeo.io/t/myorg" %}
 {% set host_url = "https://api.asgardeo.io" %}
 {% set tenant_domain = "myorg" %}
