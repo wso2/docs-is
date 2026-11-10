@@ -42,6 +42,13 @@ curl --location '{{api_base_path}}/oauth2/authorize' \
 --data-urlencode 'resource=booking_api'
 ```
 
+!!! note
+    If the **email address as the username** feature is enabled, add the `auth_entity=agent` parameter to the above authorize request:
+
+    ```
+    --data-urlencode 'auth_entity=agent'
+    ```
+
 The agent receives the following response that contains key components like the **flowId** parameter that uniquely identifies the login flow and the authenticators array that contains the authentication options available for the first step.
 
 ```js
