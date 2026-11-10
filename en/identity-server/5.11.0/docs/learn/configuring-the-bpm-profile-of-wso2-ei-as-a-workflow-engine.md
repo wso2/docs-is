@@ -26,7 +26,7 @@ WSO2 Identity Server to define work flows.
         url = "jdbc:mysql://localhost:3306/newdb?useSSL=false"
         username = "root"
         password = "Jan@1234"
-        driver = "com.mysql.jdbc.Driver"
+        driver = "com.mysql.cj.jdbc.Driver"
         validationQuery = "SELECT 1"
         
         [database.shared_db]
@@ -34,7 +34,7 @@ WSO2 Identity Server to define work flows.
         url = "jdbc:mysql://localhost:3306/newdb?useSSL=false"
         username = "root"
         password = "Jan@1234"
-        driver = "com.mysql.jdbc.Driver"
+        driver = "com.mysql.cj.jdbc.Driver"
         validationQuery = "SELECT 1"
         ```
 
@@ -53,7 +53,7 @@ WSO2 Identity Server to define work flows.
                 <url>jdbc:mysql://localhost:3306/newdb</url>
                 <username>root</username>
                 <password>Jan@1234</password>
-                <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
                 <maxActive>80</maxActive>
                 <maxWait>60000</maxWait>
                 <minIdle>5</minIdle>
