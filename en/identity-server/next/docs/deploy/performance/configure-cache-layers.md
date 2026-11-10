@@ -332,3 +332,78 @@ This will add the following custom `CacheManager` configuration to `<IS_HOME>/re
 	isDistributed="false"/>
 </CacheManager>
 ```
+
+---
+
+## Global cache configurations
+
+In addition to configuring individual cache layers, you can configure the overall behavior of the caching engine and the mechanism used to dispatch cache invalidation notifications across nodes under the `[server.cache]`, `[cache_invalidator.mb]`, and `[server]` sections in `<IS_HOME>/repository/conf/deployment.toml`.
+
+### Cache invalidation sender (`invalidation_impl`)
+
+When an entry in a local cache is updated or removed, WSO2 Identity Server invokes a cache invalidation request sender to notify other nodes in the deployment. The implementation class used to publish invalidation events is specified using the `invalidation_impl` property:
+
+```toml
+[server.cache]
+invalidation_impl = "org.wso2.carbon.cache.sync.jms.manager.JMSProducer"
+```
+
+The parameters available under `[server.cache]` are as follows:
+
+| Parameter | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| `invalidation_impl` | String | `org.wso2.carbon.caching.impl.clustering.ClusterCacheInvalidationRequestSender` | The fully qualified class name of the `javax.cache.CacheInvalidationRequestSender` implementation. |
+| `propagation_enabled` | Boolean | `false` | Enables propagating cache invalidation messages across clusters when using the hybrid deployment mode with `carbon-cache-sync-manager`. |
+
+!!! warning "Critical requirement when Hazelcast is disabled"
+    By default, `invalidation_impl` uses `org.wso2.carbon.caching.impl.clustering.ClusterCacheInvalidationRequestSender`, which requires **Hazelcast clustering** to be enabled (`[clustering] enabled = true`).
+    
+    If Hazelcast clustering is **disabled** and you are using a message broker (through `carbon-cache-sync-manager`) for cross-node cache invalidation, you **must explicitly configure**:
+    ```toml
+    [server.cache]
+    invalidation_impl = "org.wso2.carbon.cache.sync.jms.manager.JMSProducer"
+    ```
+    If this property is omitted, the default sender detects that the clustering agent is unavailable and **silently discards** all cache invalidation events without logging any warning. While message broker connection logs appear healthy, peer nodes will not receive invalidations and will continue serving stale authentication, role, and authorization data.
+
+### Message broker cache invalidator (`[cache_invalidator.mb]`)
+
+When using the `carbon-cache-sync-manager` connector for cache invalidation across nodes or clusters, configure the message broker connection under `[cache_invalidator.mb]`:
+
+```toml
+[cache_invalidator.mb]
+enabled = true
+broker_type = "jms"
+initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+provider_url = "failover:tcp://activemq-server:61616"
+topic_name = "CacheTopic"
+producer_name = "node-1"
+hybrid_mode_enabled = false
+username = "guest"
+password = "guest"
+```
+
+The parameters available under `[cache_invalidator.mb]` are as follows:
+
+| Parameter | Type | Default Value | Description |
+| --- | --- | --- | --- |
+| `enabled` | Boolean | `false` | Enables or disables the message broker cache invalidation connector. |
+| `broker_type` | String | `jms` | Type of broker. Supported values: `jms` (for ActiveMQ, IBM MQ, etc.) and `rabbitmq`. |
+| `initial_naming_factory` | String | - | JNDI initial context factory class name (required for `jms`). |
+| `provider_url` | String | - | Connection URL for the message broker. |
+| `topic_name` | String | - | Name of the pub/sub topic used to exchange cache invalidation messages. |
+| `producer_name` | String | - | Unique identifier for each node in the cluster. |
+| `hybrid_mode_enabled` | Boolean | `false` | Enables hybrid mode (running alongside Hazelcast clustering). |
+| `username` | String | - | Username for broker authentication. |
+| `password` | String | - | Password for broker authentication. |
+
+For complete end-to-end setup instructions, required libraries, and troubleshooting, see [Configure message broker cache invalidation]({{base_path}}/deploy/configure-message-broker-cache-invalidation).
+
+### Force local cache
+
+```toml
+[server]
+force_local_cache = true
+```
+
+The `force_local_cache` parameter determines whether caches act as local caches on each node or as distributed memory maps. In modern deployments, it is strongly recommended to maintain `force_local_cache = true` (default) and rely on invalidation notifications (through Hazelcast or a message broker) to maintain cache coherence.
+
