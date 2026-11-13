@@ -1,8 +1,15 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 <h1>Enable customer data service</h1>
 
 The Customer Data Service is disabled by default. Enable it for your organization from the **Customer Data** page in the console.
+
+{% if product_name == "WSO2 Identity Server" %}
+!!! note "Before you begin"
+    The Customer Data Service has to be deployed and connected to {{ product_name }}. See [Deploy the Customer Data Service]({{base_path}}/deploy/customer-data-service/) and [Connect to the Identity Server]({{base_path}}/deploy/customer-data-service/connect-to-identity-server/).
+
+Enabling the Customer Data Service for an organization also creates an application named **Customer Data Service** in it, through which the service calls {{ product_name }} for that organization. The application cannot be edited or deleted.
+{% endif %}
 
 ## Enable customer data service
 

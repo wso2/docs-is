@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 <h1>Customer data service use cases</h1>
 
@@ -8,8 +8,9 @@ These guides show common patterns for integrating with the Customer Data Service
 
 ## Before you begin
 
-- [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service) for your organization.
-- A [machine-to-machine (M2M) application]({{base_path}}/guides/applications/register-machine-to-machine-app) is registered for your backend to call the Customer Data Service APIs, granted the `internal_cds_profile_create`, `internal_cds_profile_update`, and `internal_cds_profile_view` scopes and configured to issue tokens with the `iam-cds` audience.
+{% if product_name == "WSO2 Identity Server" %}- The Customer Data Service is [deployed]({{base_path}}/deploy/customer-data-service/) and connected to {{ product_name }}. Its API base URL in the examples is `{{content.cds.baseUrl}}`; replace the host with your deployment's.
+{% endif %}- [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service) for your organization.
+- A [machine-to-machine (M2M) application]({{base_path}}/guides/applications/register-machine-to-machine-app) is registered for your backend to call the Customer Data Service APIs, granted the `internal_cds_profile_create`, `internal_cds_profile_update`, and `internal_cds_profile_view` scopes and configured to issue tokens with the `iam-cds` audience.{% if product_name == "WSO2 Identity Server" %} Set its access token type to **JWT**; the Customer Data Service does not accept opaque tokens from applications.{% endif %}
 - The [profile attributes]({{base_path}}/guides/customer-data/guides/manage-profile-attributes) that your activity maps to are defined, each with the merge strategy it should use.
 - The [unification rules]({{base_path}}/guides/customer-data/guides/manage-unification-rules) that decide when two profiles are the same person are defined.
 

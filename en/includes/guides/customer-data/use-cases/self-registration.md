@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Unify anonymous and registered profiles
 
@@ -45,7 +45,7 @@ No unification rule is needed as the temporary and permanent profiles are matche
 === "Sample request"
 
     ```bash
-    curl -X POST '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles' \
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/profiles' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{}'
@@ -77,7 +77,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 === "Trait (shared across apps)"
 
     ```bash
-    curl -X PATCH '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -90,7 +90,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 === "Application data (per application)"
 
     ```bash
-    curl -X PATCH '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -105,6 +105,14 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 ![Activity captured in the profile attributes section]({{base_path}}/assets/img/guides/customer-data/profile-attributes-captured.png){: width="auto" style="display: block; margin: 0;"}
 
 **4. Pass the tracker into registration sign-in.** When the visitor self-registers and signs in, include the `anonymous_profile_tracker` in the sign-in (authorize) request. On successful authentication the service stamps the new user's `user_id` onto the temporary profile.
+
+=== "Sample request"
+
+    ```bash
+    {{content.sdkconfig.baseUrl}}/oauth2/authorize?response_type=code&client_id=<client_id>&redirect_uri=<redirect_uri>&scope=openid&anonymous_profile_tracker=<anonymous_profile_tracker>
+    ```
+
+{{ product_name }} also reads the `cds_profile` cookie when the browser sends it with the sign-in request; the parameter is then not needed.
 
 **5. Profiles merge automatically.** Profiles that share the same `user_id` are merged into the permanent profile, which now holds the pre-registration activity.
 
