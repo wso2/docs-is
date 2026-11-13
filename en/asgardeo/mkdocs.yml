@@ -996,7 +996,9 @@ nav:
         - V2: apis/organization-user-share-v2-rest-api.md
       - User store management API: apis/user-store.md
       - Validation API: apis/validation.md
-      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook management APIs:
+        - Webhook management v1 API: apis/webhook-management-rest-api.md
+        - Webhook management v2 API: apis/webhook-management-v2-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
       - Workflow Management API: apis/workflow-rest-api.md
     - Organization APIs:

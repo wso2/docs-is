@@ -1366,7 +1366,9 @@ nav:
         - V2: apis/organization-user-share-v2-rest-api.md
       - Validation rules API: apis/validation-rules-rest-api.md
       - Verifiable Credential Template Management API: apis/vc-template-management-rest-api.md      
-      - Webhook Management API: apis/webhook-management-rest-api.md
+      - Webhook management APIs:
+        - Webhook management v1 API: apis/webhook-management-rest-api.md
+        - Webhook management v2 API: apis/webhook-management-v2-rest-api.md
       - Webhook Metadata API: apis/webhook-metadata-rest-api.md
       - Workflow Management API: apis/workflow-rest-api.md
     - Organization APIs:
