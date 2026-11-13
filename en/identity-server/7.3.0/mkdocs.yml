@@ -34,6 +34,8 @@ extra:
     identity_apps_core_release_url: https://github.com/wso2/identity-apps/releases/tag/identity-apps-core-2.14.2
     sdkconfig:
       baseUrl: "https://localhost:9443"
+    cds:
+      baseUrl: "https://localhost:8900/t/carbon.super"
     oid4vci_reference_path: "references/concepts/oid4vci"
     application_management_api_path: "apis/application-rest-api"
     org_resources_shared: "Applications, Roles (with shared apps), Users"
@@ -849,6 +851,23 @@ nav:
         - Approval workflows: guides/workflows/approval-workflows.md
         - Approval workflow rules: guides/workflows/workflow-rules.md
         - Workflow requests: guides/workflows/workflow-requests.md
+      - Customer Data:
+        - Customer Data: guides/customer-data/index.md
+        - Enable Customer Data Service: guides/customer-data/enable-customer-data-service.md
+        - Concepts:
+          - Profiles: guides/customer-data/concepts/profiles.md
+          - Profile attributes: guides/customer-data/concepts/profile-attributes.md
+          - Unification rules: guides/customer-data/concepts/unification-rules.md
+        - Manage:
+          - Manage profile attributes: guides/customer-data/guides/manage-profile-attributes.md
+          - Manage unification rules: guides/customer-data/guides/manage-unification-rules.md
+          - Configure matching confidence: guides/customer-data/guides/configure-matching-confidence.md
+          - Review profile matches: guides/customer-data/guides/review-profile-matches.md
+        - Use cases:
+          - Use cases: guides/customer-data/use-cases/index.md
+          - Unify anonymous and registered profiles: guides/customer-data/use-cases/self-registration.md
+          - Accumulate data across multiple devices: guides/customer-data/use-cases/cross-device.md
+          - Stitch user profiles across websites: guides/customer-data/use-cases/lead-stitching.md
       - Account configurations:
         - Account configurations: guides/account-configurations/index.md
         - Login security:
@@ -1118,6 +1137,14 @@ nav:
         - Containerized deployments:
           - Kubernetes: deploy/deploy-is-on-kubernetes.md
           - OpenShift: deploy/deploy-is-on-openshift.md
+        - Customer Data Service:
+          - Deploy the Customer Data Service: deploy/customer-data-service/index.md
+          - Install: deploy/customer-data-service/install.md
+          - Connect to the Identity Server: deploy/customer-data-service/connect-to-identity-server.md
+          - Configure: deploy/customer-data-service/configure.md
+          - Secure: deploy/customer-data-service/secure.md
+          - Production deployment: deploy/customer-data-service/production-deployment.md
+          - Configuration catalog: deploy/customer-data-service/configuration-catalog.md
         - Performance and scaling:
           - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure Cache Layers: deploy/performance/configure-cache-layers.md
