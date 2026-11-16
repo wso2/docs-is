@@ -825,6 +825,7 @@ nav:
         - PII in WSO2 Identity Platform logs: guides/monitoring/pii-in-identity-platform-logs.md
         - WSO2 Identity Platform events: guides/monitoring/identity-platform-events.md
         - Organization insights: guides/organization-insights.md
+        - Web analytics solutions: guides/analytics/web-analytics-solutions.md
         - Insights:
           - Insights: guides/insights/index.md
           - Insights dashboards: guides/insights/insights-dashboards.md
