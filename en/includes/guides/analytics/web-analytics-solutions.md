@@ -1,4 +1,5 @@
 {% set custom_layout_analytics = product_name == "WSO2 Identity Platform" or is_version > "7.3.0" %}
+
 # Web Analytics Solutions
 
 Web Analytics are used to analyze web traffic and user interactions on a website. {{product_name}} supports integrating [Google Analytics](https://marketingplatform.google.com/about/analytics/){target="_blank"} and [Mixpanel](https://mixpanel.com/){target="_blank"} as analytics solutions and allows you to enable either one or both of them.
@@ -11,6 +12,7 @@ You can set up web analytics in one of the following ways:
 {% endif %}
 
 {% if custom_layout_analytics %}
+
 ## Set up web analytics using a custom layout
 
 You can add Google Analytics and Mixpanel to the login and account recovery pages by adding their scripts to a [custom layout]({{base_path}}/guides/branding/customize-layouts-with-editor/) in the Console.
@@ -283,29 +285,26 @@ The `wso2_*` page events include the following properties.
 {% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}
-{% if custom_layout_analytics %}
+
 ## Set up web analytics using JSP extensions
-{% else %}
-## Set up web analytics
-{% endif %}
 
 Follow the steps below to configure a web analytics solution for {{product_name}}.
 
 1. Create an analytics project and obtain the relevant token.
 
     - For Google analytics:
-      
+
         1. Follow the Google analytics [documentation](https://developers.google.com/analytics/devguides/collection/ga4){target="_blank"} and create an analytics project.
-      
+
         2. Navigate to **Admin** > **Tracking Info** > **Tracking Code**, and look for the token of your project in `gtag('config', '<TOKEN>');`.
 
     - For Mixpanel:
-      
+
         1. Follow the Mixpanel [documentation](https://docs.mixpanel.com/docs/what-is-mixpanel){target="_blank"} and create an analytics project.
-      
+
         2. Navigate to **Settings** > **Set up Mixpanel**, and look for the token of your project in `mixpanel.init("<TOKEN>");`.
 
-2.  Download the [samples-is](https://github.com/wso2/samples-is/archive/master.zip){:target="_blank"} repository and extract its content.
+2. Download the [samples-is](https://github.com/wso2/samples-is/archive/master.zip){:target="_blank"} repository and extract its content.
 
 3. In the samples-is root directory, go to `analytics-extensions` and open the `config.jsp` file. Add the token/s obtained in step 1 above to the relevant line of the file.
 
@@ -326,13 +325,9 @@ Follow the steps below to configure a web analytics solution for {{product_name}
     <jsp:directive.include file="/includes/analytics.jsp"/>
     ```
 
-6. [Run {{product_name}}]({{base_path}}/deploy/get-started/run-the-product/) instance and the analytics events will be fired when users access the relevant web pages. 
+6. [Run {{product_name}}]({{base_path}}/deploy/get-started/run-the-product/) instance and the analytics events will be fired when users access the relevant web pages.
 
-{% if custom_layout_analytics %}
-### Events captured using JSP extensions
-{% else %}
-## Types of analytic events
-{% endif %}
+### Types of analytic events
 
 The following are the events that are captured when analytics are enabled in {{product_name}}.
 
@@ -409,7 +404,9 @@ The following are the events that are captured when analytics are enabled in {{p
 You can view the analytics events from the dashboards of Google Analytics and Mixpanel. The following are sample views.
 
 ### Google Analytics
+
 ![google-analytics]({{base_path}}/assets/img/guides/analytics/web-analytics/google-analytics.png)
 
 ### Mixpanel
+
 ![mixpanel-analytics]({{base_path}}/assets/img/guides/analytics/web-analytics/mixpanel-analytics.png)
