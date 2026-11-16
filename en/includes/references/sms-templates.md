@@ -7,7 +7,6 @@
     - You can customize all available SMS templates to match your organization's preferences using the [Notification Template Management API]({{base_path}}/apis/notification-templates/).
     - You can also use the Console to change some of the most frequently used SMS templates in {{ product_name }}. Learn how to [customize SMS content from the Console]({{base_path}}/guides/branding/customize-sms-templates/#customize-sms-content).
 
-
 ## SMS templates in {{ product_name }}
 
 The following is a list of all SMS templates available in {{ product_name }}.
