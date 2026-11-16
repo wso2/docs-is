@@ -26,6 +26,16 @@ The following is a list of all SMS templates available in {{ product_name }}.
             <td>passwordReset</td>
             <td>These SMS messages are sent when a user attempts to recover the password using SMS OTP. The OTP can be displayed using the {{"{{confirmation-code}}"}} literal.</td>
         </tr>
+        {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+        <tr>
+            <td>profileUpdateSMSOTP</td>
+            <td>These SMS messages are sent when a user attempts to update the profile using SMS OTP. The OTP can be displayed using the {{"{{confirmation-code}}"}} literal.</td>
+        </tr>
+        <tr>
+            <td>profileUpdateSuccess</td>
+            <td>This SMS message is sent when a user successfully updates the profile.</td>
+        </tr>
+        {% endif %}
         {% if product_name != "WSO2 Identity Platform" %}
         <tr>
             <td>accountconfirmation</td>

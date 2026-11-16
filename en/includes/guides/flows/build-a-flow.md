@@ -7,6 +7,9 @@ The Flow Builder allows full customization of the following user journeys. Click
 - [Self registration]({{base_path}}/guides/flows/self-registration/)
 - [Password recovery]({{base_path}}/guides/flows/password-recovery/)
 - [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/)
+{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+- [Profile update]({{base_path}}/guides/flows/profile-update/)
+{%- endif %}
 
 ## Create and enable a flow
 

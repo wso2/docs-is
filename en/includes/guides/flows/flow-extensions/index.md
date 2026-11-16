@@ -6,11 +6,16 @@ A **flow extension** lets you call your own external service from within a flow.
 
 You can add a flow extension to any of the following flows.
 
+<!-- markdownlint-disable MD056 -->
 | Flow | Flow type in the request |
 | ---- | ------------------------ |
 | [Self Registration]({{base_path}}/guides/flows/self-registration/) | `REGISTRATION` |
 | [Password Recovery]({{base_path}}/guides/flows/password-recovery/) | `PASSWORD_RECOVERY` |
 | [Invited User Registration]({{base_path}}/guides/flows/invited-user-registration/) | `INVITED_USER_REGISTRATION` |
+{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+| [Profile Update]({{base_path}}/guides/flows/profile-update/) | `PROFILE_UPDATE` |
+{%- endif %}
+<!-- markdownlint-enable MD056 -->
 
 You can reuse one extension across more than one flow. Every request tells your endpoint which flow invoked it, so a single service can branch on the flow type instead of you registering a separate extension per flow.
 
