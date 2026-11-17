@@ -68,7 +68,7 @@ This guide walks you through creating and configuring a FAPI-compliant applicati
             ON CONFLICT DO NOTHING;
             ```
 
-- To show the FAPI security policy and the FAPI profile options in the Console, open the `<IS_HOME>/repository/conf/deployment.toml` file, add the following configuration, and restart {{product_name}}.
+- To show the FAPI security policy, and the **FAPI Profile** section and its restrictions on the **Protocol** tab of applications in the Console, open the `<IS_HOME>/repository/conf/deployment.toml` file, add the following configuration, and restart {{product_name}}.
 
     ```toml
     [console.fapi]
@@ -252,12 +252,12 @@ Follow the steps below to configure the FAPI security policy of an organization.
     !!! warning
         When you enable **FAPI 2.0 Security**, the issuer of the organization changes to the organization's base URL, for example `https://<IS_HOST>` for the super organization and `https://<IS_HOST>/t/<tenant_domain>` for other organizations. Clients can retrieve the server metadata from `<issuer>/.well-known/openid-configuration`.
 
-        The new issuer applies to the tokens issued to all applications in the organization, except the Console and My Account. Before you enable the FAPI 2.0 Security Profile, update the applications and resource servers that validate the issuer.
+        The new issuer applies to the tokens issued to all applications in the organization. Only the ID tokens issued to the Console and My Account keep the previous issuer. Before you enable the FAPI 2.0 Security Profile, update the applications and resource servers that validate the issuer.
 
 4. Click **Update** to save the changes.
 
 !!! note
-    If you remove a FAPI profile that existing applications use, those applications keep their profile and continue to work. The Console shows a warning on the **Protocol** tab of such an application until you select a supported profile.
+    If you remove a FAPI profile that existing applications use, those applications keep their profile. The Console shows a warning icon next to the profile in the **FAPI Profile** section of the **Protocol** tab of such an application until you select a supported profile. If you remove **FAPI 2.0 Security**, the issuer of the organization also changes back to the previous issuer.
 
     ![Unsupported FAPI profile warning]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-unsupported-profile-warning.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -291,7 +291,7 @@ If you wish to register your application manually using the Console, follow the 
 
 4. Select **OAuth2.0 OpenID Connect** as the protocol and select **Enforce FAPI security profile compliance for this application**.
 
-5. Under **Apply FAPI Profile**, select the FAPI profile of the application.
+5. If the organization supports more than one FAPI profile, under **Apply FAPI Profile**, select the FAPI profile of the application. Otherwise, the application uses the profile that the organization supports.
 
     !!! note
         When an application is made FAPI-compliant, {{product_name}} restricts several configurations to only allow options that comply with the selected profile. See [FAPI profile restrictions](#fapi-profile-restrictions).
@@ -316,7 +316,6 @@ The selected FAPI profile restricts the following configurations on the **Protoc
 | Pushed Authorization Requests (PAR) | Optional. | Mandatory. |
 | Token binding type | **Certificate** | **Certificate** or **DPoP** |
 | Reuse of private key JWTs | Not allowed. | Not allowed. |
-| Refresh token renewal | Allowed. | Disabled. |
 
 ![FAPI profile of an application]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi2-protocol-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -374,7 +373,7 @@ If you have applications that need to dynamically register with {{product_name}}
 
     3. Under **Dynamic Client Registration**, select **Mandate FAPI for applications registered using DCR**.
 
-    4. Under **Apply FAPI Profile**, select the FAPI profile of the applications registered using DCR.
+    4. If the organization supports more than one FAPI profile, under **Apply FAPI Profile**, select the FAPI profile of the applications registered using DCR. Otherwise, these applications use the profile that the organization supports.
 
         ![DCR settings of the FAPI security policy]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-security-policy-dcr.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
