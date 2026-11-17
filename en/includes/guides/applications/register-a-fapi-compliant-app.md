@@ -2,7 +2,7 @@
 
 {% set fapi_profiles_enabled = product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
 
-Financial-Grade API (FAPI) specification extends the OAuth and OIDC frameworks and defines additional technical requirements to protect high-value APIs. {% if is_version == "7.1.0" or fapi_profiles_enabled %}{{product_name}} provides full support for both [FAPI 1.0 Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} and [FAPI 2.0](https://openid.net/specs/fapi-security-profile-2_0-final.html){: target="_blank"} allowing developers to build applications that meet these advanced security standards.{%else%}{{product_name}} provides full support for [FAPI 1.0 Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} allowing developers to build applications that meet advanced security standards.{% endif %}
+Financial-Grade API (FAPI) specification extends the OAuth and OIDC frameworks and defines additional technical requirements to protect high-value APIs. {% if is_version == "7.1.0" or fapi_profiles_enabled %}{{product_name}} provides full support for both [FAPI 1.0 Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} and the [FAPI 2.0 Security Profile](https://openid.net/specs/fapi-security-profile-2_0-final.html){: target="_blank"}, allowing developers to build applications that meet these advanced security standards.{%else%}{{product_name}} provides full support for [FAPI 1.0 Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} allowing developers to build applications that meet advanced security standards.{% endif %}
 
 This guide walks you through creating and configuring a FAPI-compliant application in {{product_name}}.
 
@@ -11,7 +11,7 @@ This guide walks you through creating and configuring a FAPI-compliant applicati
 ## Prerequisites
 
 !!! note
-    FAPI 2.0 support and the FAPI security policy are available from **update level 7.3.0.26** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+    FAPI 2.0 Security Profile support and the FAPI security policy are available from **update level 7.3.0.26** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
 - Insert a new configuration type into the `IDN_CONFIG_TYPE` table of your database.
 
@@ -81,7 +81,7 @@ This guide walks you through creating and configuring a FAPI-compliant applicati
 
 ## Configure {{product_name}} for FAPI compliance
 
-{{product_name}} supports both FAPI 1.0 Advanced and FAPI 2.0 specifications.
+{% if is_version == "7.1.0" or fapi_profiles_enabled %}{{product_name}} supports both the FAPI 1.0 Advanced and FAPI 2.0 Security Profile specifications.{% else %}{{product_name}} supports both FAPI 1.0 Advanced and FAPI 2.0 specifications.{% endif %}
 
 To configure {{product_name}} to issue FAPI-compliant tokens, open the `<IS_HOME>/repository/conf/deployment.toml` file and add the configurations specific to your FAPI version. After saving the changes, restart WSO2 Identity Server to apply the configuration.
 
@@ -123,7 +123,7 @@ To configure {{product_name}} to issue FAPI-compliant tokens, open the `<IS_HOME
     ```
 
 {% else %}
-=== "FAPI 2.0"
+=== "FAPI 2.0 Security Profile"
     - Limit cipher suites for TLSv1.2.
 
         ```bash
@@ -158,7 +158,7 @@ To configure {{product_name}} to issue FAPI-compliant tokens, open the `<IS_HOME
         ```
 {% endif %}
 
-    - Specify a FAPI 2.0 compliant signing algorithm for ID tokens (PS256).
+    - Specify a signing algorithm for ID tokens that complies with the FAPI 2.0 Security Profile (PS256).
 
         ```bash
         [oauth.oidc]
@@ -252,7 +252,7 @@ Follow the steps below to configure the FAPI security policy of an organization.
     !!! warning
         When you enable **FAPI 2.0 Security**, the issuer of the organization changes to the organization's base URL, for example `https://<IS_HOST>` for the super organization and `https://<IS_HOST>/t/<tenant_domain>` for other organizations. Clients can retrieve the server metadata from `<issuer>/.well-known/openid-configuration`.
 
-        The new issuer applies to the tokens issued to all applications in the organization, except the Console and My Account. Before you enable FAPI 2.0, update the applications and resource servers that validate the issuer.
+        The new issuer applies to the tokens issued to all applications in the organization, except the Console and My Account. Before you enable the FAPI 2.0 Security Profile, update the applications and resource servers that validate the issuer.
 
 4. Click **Update** to save the changes.
 
@@ -261,16 +261,16 @@ Follow the steps below to configure the FAPI security policy of an organization.
 
     ![Unsupported FAPI profile warning]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-unsupported-profile-warning.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-### Use the FAPI 2.0 configuration of WSO2 Identity Server 7.1.0
+### Use the FAPI 2.0 Security Profile configuration of WSO2 Identity Server 7.1.0
 
-If you used FAPI 2.0 with WSO2 Identity Server 7.1.0, you may have the following configuration in the `deployment.toml` file.
+If you used the FAPI 2.0 Security Profile with WSO2 Identity Server 7.1.0, you may have the following configuration in the `deployment.toml` file.
 
 ```toml
 [oauth.oidc]
 fapi.version = "2"
 ```
 
-With this configuration, organizations that haven't saved a FAPI security policy support both FAPI profiles, and new FAPI-compliant applications use FAPI 2.0 by default. The issuer of an organization that supports FAPI 2.0 is the entity ID of its resident identity provider instead of its base URL.
+With this configuration, organizations that haven't saved a FAPI security policy support both FAPI profiles, and new FAPI-compliant applications use the FAPI 2.0 Security Profile by default. The issuer of an organization that supports the FAPI 2.0 Security Profile is the entity ID of its resident identity provider instead of its base URL.
 {% endif %}
 
 ## Create a FAPI-compliant application
@@ -402,7 +402,7 @@ If you have applications that need to dynamically register with {{product_name}}
 ## What's next?
 
 {% if fapi_profiles_enabled %}
-Refer to the [FAPI 1.0 Advanced]({{base_path}}/references/financial-grade-api/) and [FAPI 2.0]({{base_path}}/references/financial-grade-api-2.0/) documentation to learn about the FAPI-compliant configurations available in {{product_name}} and how to configure them.
+Refer to the [FAPI 1.0 Advanced]({{base_path}}/references/financial-grade-api/) and [FAPI 2.0 Security Profile]({{base_path}}/references/financial-grade-api-2.0/) documentation to learn about the FAPI-compliant configurations available in {{product_name}} and how to configure them.
 {% else %}
 Refer to the [Financial-grade API]({{base_path}}/references/financial-grade-api/) documentation to learn about the FAPI-compliant configurations available in {{product_name}} and how to configure them.
 {% endif %}
