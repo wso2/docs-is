@@ -13,74 +13,60 @@ This guide walks you through creating and configuring a FAPI-compliant applicati
 !!! note
     FAPI 2.0 support and the FAPI security policy are available from **update level 7.3.0.26** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
 
-- Insert a new configuration type into the `IDN_CONFIG_TYPE` table of your database. The relevant DB scripts are shown below.
+- Insert a new configuration type into the `IDN_CONFIG_TYPE` table of your database.
 
-    ??? Example "DB2"
+    ??? note "DB scripts to add the FAPI configuration type"
 
-        ```sql
-        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
-        SELECT '12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.' FROM "SYSIBM".SYSDUMMY1
-        WHERE NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE id = '12c78d11-65cd-4b6e-b482-98538ecd7a5c')
-        /
-        ```
+        === "DB2"
 
-    ??? Example "H2"
+            ```sql
+            INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
+            SELECT '12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.' FROM "SYSIBM".SYSDUMMY1
+            WHERE NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE id = '12c78d11-65cd-4b6e-b482-98538ecd7a5c')
+            /
+            ```
 
-        ```sql
-        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
-        SELECT '12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.'
-        WHERE NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE ID = '12c78d11-65cd-4b6e-b482-98538ecd7a5c');
-        ```
+        === "H2"
 
-    ??? Example "MsSQL"
+            ```sql
+            INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
+            SELECT '12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.'
+            WHERE NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE ID = '12c78d11-65cd-4b6e-b482-98538ecd7a5c');
+            ```
 
-        ```sql
-        IF NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE id = '12c78d11-65cd-4b6e-b482-98538ecd7a5c')
-        BEGIN
-          INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
-          VALUES ('12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.')
-        END;
-        ```
+        === "Microsoft SQL Server"
 
-    ??? Example "MYSQL"
+            ```sql
+            IF NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE id = '12c78d11-65cd-4b6e-b482-98538ecd7a5c')
+            BEGIN
+              INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
+              VALUES ('12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.')
+            END;
+            ```
 
-        ```sql
-        INSERT IGNORE INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES
-        ('12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.');
-        ```
+        === "MySQL / MySQL Cluster"
 
-    ??? Example "MYSQL-Cluster"
+            ```sql
+            INSERT IGNORE INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES
+            ('12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.');
+            ```
 
-        ```sql
-        INSERT IGNORE INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES
-        ('12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.');
-        ```
+        === "Oracle / Oracle RAC"
 
-    ??? Example "Oracle"
+            ```sql
+            INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
+            SELECT '12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.' FROM DUAL
+            WHERE NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE id = '12c78d11-65cd-4b6e-b482-98538ecd7a5c')
+            /
+            ```
 
-        ```sql
-        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
-        SELECT '12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.' FROM DUAL
-        WHERE NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE id = '12c78d11-65cd-4b6e-b482-98538ecd7a5c')
-        /
-        ```
+        === "PostgreSQL"
 
-    ??? Example "OracleRac"
-
-        ```sql
-        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
-        SELECT '12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.' FROM DUAL
-        WHERE NOT EXISTS (SELECT * FROM IDN_CONFIG_TYPE WHERE id = '12c78d11-65cd-4b6e-b482-98538ecd7a5c')
-        /
-        ```
-
-    ??? Example "Postgres"
-
-        ```sql
-        INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES
-        ('12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.')
-        ON CONFLICT DO NOTHING;
-        ```
+            ```sql
+            INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION) VALUES
+            ('12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.')
+            ON CONFLICT DO NOTHING;
+            ```
 
 - To show the FAPI security policy and the FAPI profile options in the Console, open the `<IS_HOME>/repository/conf/deployment.toml` file, add the following configuration, and restart {{product_name}}.
 
