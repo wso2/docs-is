@@ -7,6 +7,7 @@ Financial-Grade API (FAPI) specification extends the OAuth and OIDC frameworks a
 This guide walks you through creating and configuring a FAPI-compliant application in {{product_name}}.
 
 {% if product_name == "WSO2 Identity Server" and is_version == "7.3.0" %}
+
 ## Prerequisites
 
 !!! note
@@ -91,6 +92,7 @@ This guide walks you through creating and configuring a FAPI-compliant applicati
 {% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ## Configure {{product_name}} for FAPI compliance
 
 {{product_name}} supports both FAPI 1.0 Advanced and FAPI 2.0 specifications.
@@ -148,7 +150,7 @@ To configure {{product_name}} to issue FAPI-compliant tokens, open the `<IS_HOME
 {% endif %}
 {% if is_version == "7.1.0" %}
     - Specify a time skew for JWT token validation.
-        
+
         ```bash
         [oauth]
         timestamp_skew = 10
@@ -244,6 +246,7 @@ To configure {{product_name}} to issue FAPI-compliant tokens, open the `<IS_HOME
 {% endif %}
 
 {% if fapi_profiles_enabled %}
+
 ## Configure the FAPI security policy
 
 The FAPI security policy defines the FAPI profiles that applications in an organization can use. By default, an organization supports only FAPI 1.0 Advanced.
@@ -292,13 +295,14 @@ Follow the guides below to create a FAPI-compliant application either using the 
 
 If you wish to register your application manually using the Console, follow the steps below to make it FAPI-compliant.
 
+{% if fapi_profiles_enabled %}
+
 1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Click **New Application** and select **Standard-Based Application**.
 
 3. Provide an application name.
 
-{% if fapi_profiles_enabled %}
 4. Select **OAuth2.0 OpenID Connect** as the protocol and select **Enforce FAPI security profile compliance for this application**.
 
 5. Under **Apply FAPI Profile**, select the FAPI profile of the application.
@@ -329,7 +333,15 @@ The selected FAPI profile restricts the following configurations on the **Protoc
 | Refresh token renewal | Allowed. | Disabled. |
 
 ![FAPI profile of an application]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi2-protocol-profile.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+
 {% else %}
+
+1. On the {{ product_name }} Console, go to **Applications**.
+
+2. Click **New Application** and select **Standard-Based Application**.
+
+3. Provide an application name.
+
 4. Select **OAuth2.0 OpenID Connect** as the protocol and select **FAPI Compliant Application**.
 
     !!! note
@@ -358,7 +370,7 @@ If you have applications that need to dynamically register with {{product_name}}
 
         ![DCR settings]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-dcr-settings.png){width="600px"}
 
-        -   **Require Authentication** is enabled by default. You may deselect the option to not require authentication to create an application with DCR.
+        - **Require Authentication** is enabled by default. You may deselect the option to not require authentication to create an application with DCR.
         - Select **Mandate SSA Validation** to require a valid Software Statement Assertion (SSA) during creation. Provide the necessary JWKS to validate the SSA. If authentication is not required by the endpoint, this is made mandatory.
         - Select **Enforce FAPI Conformance** to make the created application FAPI compliant.
 
@@ -400,7 +412,6 @@ If you have applications that need to dynamically register with {{product_name}}
 2. Refer to the [Dynamic Client Registration (DCR) API]({{base_path}}/apis/dynamic-client-registration-rest-api/) documentation to learn how to register an application with DCR.
 
 {% endif %}
-
 
 ## What's next?
 

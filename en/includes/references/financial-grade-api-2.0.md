@@ -115,6 +115,7 @@ Follow the steps below to configure a FAPI-compliant request object:
 5. Click **Update** to save the changes.
 
 {% if fapi_profiles_enabled %}
+
 ## Sender-constrained access tokens
 
 Access token binding prevents token theft and misuse by tying the token to a client-specific credential or element. FAPI 2.0 mandates the use of sender-constrained access tokens, which can be bound using one of the following methods.
@@ -132,7 +133,9 @@ Follow the steps below to select the token binding type.
 3. Under **Access Token**, select **Certificate** or **DPoP** as the **Token binding type**.
 
 4. Click **Update** to save the changes.
+
 {% else %}
+
 ## Certificate-bound access tokens
 
 Access token binding prevents token theft and misuse by tying the token to a client-specific credential or element. FAPI 2.0 mandates the use of certificate-bound access tokens which binds the token to the hash of the TLS certificate passed on the token request.

@@ -28,8 +28,12 @@ To create a FAPI compliant application, refer to the guide on [registering a FAP
 
 These features protect financial API interactions against interception, forgery, and replay attacks.
 
-{% if is_version == "7.1.0" %}
+{% if is_version == "7.1.0" or fapi_profiles_enabled %}
+
 ## FAPI 2.0 compliance features
+
+{% endif %}
+{% if is_version == "7.1.0" %}
 
 {{product_name}} supports FAPI 2.0 security profiles, including Read and Read/Write flows, with the following capabilities:
 
@@ -44,8 +48,8 @@ These features protect financial API interactions against interception, forgery,
 - **Sender-Constrained Access Tokens**: Access tokens are bound to clients via Mutual TLS (MTLS).
 
 - **Secure Token Handling**: Access and refresh tokens are issued and validated according to FAPI 2.0 Advanced security requirements.
+
 {% elif fapi_profiles_enabled %}
-## FAPI 2.0 compliance features
 
 {{product_name}} supports the FAPI 2.0 Security Profile with the following capabilities:
 
