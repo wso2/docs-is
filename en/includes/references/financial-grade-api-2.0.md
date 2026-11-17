@@ -1,11 +1,13 @@
 # Financial-grade API 2.0
 
+{% set fapi_profiles_enabled = product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
+
 Financial-grade API (FAPI), a specification that extends the OAuth and OIDC frameworks, was introduced by the [FAPI Working Group](https://openid.net/wg/fapi/){:target="_blank"} and defines additional technical requirements to secure high-value APIs.
 
 [FAPI 2.0](https://openid.net/specs/fapi-security-profile-2_0-final.html){: target="_blank"} builds upon FAPI 1.0 Advanced and introduces additional security measures to further enhance the protection of sensitive data and transactions. {{product_name}} facilitates the creation of FAPI 2.0-compliant applications from the Console and with Dynamic Client Registration (DCR).
 
 !!! note
-    Learn how to [create a FAPI-compliant application]({{base_path}}/guides/applications/register-a-fapi-compliant-app/) in {{product_name}}.
+    Learn how to [create a FAPI-compliant application]({{base_path}}/guides/applications/register-a-fapi-compliant-app/) in {{product_name}}.{% if fapi_profiles_enabled %} When the **FAPI 2.0 Security** profile is selected for an application, {{product_name}} applies several of the following configurations automatically and doesn't allow options that don't comply with FAPI 2.0.{% endif %}
 
 The following diagram illustrates how FAPI-compliant features combine to secure applications and the following topics explain the illustrated concepts.
 
@@ -58,6 +60,11 @@ FAPI 2.0 requires clients to authenticate using one of the following methods:
 
 {{product_name}} will use the selected client authentication method to verify the identity of the client making requests to it.
 
+{% if fapi_profiles_enabled %}
+!!! note
+    A client assertion sent by a FAPI 2.0 application must contain the issuer of {{product_name}} as its only audience. Other applications can also use the token endpoint URL as the audience.
+{% endif %}
+
 Follow the steps below to configure a FAPI-compliant client authentication method.
 
 1. On the {{ product_name }} Console, go to **Applications**.
@@ -107,11 +114,31 @@ Follow the steps below to configure a FAPI-compliant request object:
 
 5. Click **Update** to save the changes.
 
+{% if fapi_profiles_enabled %}
+## Sender-constrained access tokens
+
+Access token binding prevents token theft and misuse by tying the token to a client-specific credential or element. FAPI 2.0 mandates the use of sender-constrained access tokens, which can be bound using one of the following methods.
+
+- **Certificate** - Binds the token to the hash of the TLS certificate passed on the token request.
+
+- **DPoP** - Binds the token to the public key of the client, which the client proves possession of with a DPoP proof in each request. Learn more about [DPoP]({{base_path}}/references/token-binding/dpop/).
+
+Follow the steps below to select the token binding type.
+
+1. On the {{ product_name }} Console, go to **Applications**.
+
+2. Select the created FAPI-compliant application and go to its **Protocol** tab.
+
+3. Under **Access Token**, select **Certificate** or **DPoP** as the **Token binding type**.
+
+4. Click **Update** to save the changes.
+{% else %}
 ## Certificate-bound access tokens
 
 Access token binding prevents token theft and misuse by tying the token to a client-specific credential or element. FAPI 2.0 mandates the use of certificate-bound access tokens which binds the token to the hash of the TLS certificate passed on the token request.
 
 {{product_name}} automatically binds access tokens to the client's TLS certificate in a FAPI-compliant application.
+{% endif %}
 
 !!! note
     Refer to [OIDC Configurations]({{base_path}}/references/app-settings/oidc-settings-for-app/#access-token) to learn about the token binding methods supported in {{product_name}}.

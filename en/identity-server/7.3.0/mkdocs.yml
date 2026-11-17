@@ -1487,7 +1487,9 @@ nav:
         - Refresh tokens: references/tokens/refresh-tokens.md
         - ID tokens: references/tokens/id-tokens.md
       - Client Secret & Token hashing: references/client-secret-and-token-hashing.md
-      - Financial-grade API: references/financial-grade-api.md
+      - Financial-grade API:
+        - FAPI 1.0 Advanced: references/financial-grade-api.md
+        - FAPI 2.0: references/financial-grade-api-2.0.md
       - App-native authentication: references/app-native-authentication.md
       - OIDC session management: references/concepts/oidc-session-management.md
       - Push Notification based authentication: references/concepts/push-notification-based-authentication.md
