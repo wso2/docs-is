@@ -1,4 +1,4 @@
-# Financial-grade API 2.0
+# Financial-grade API 2.0 Security Profile
 
 {% set fapi_profiles_enabled = product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
 
