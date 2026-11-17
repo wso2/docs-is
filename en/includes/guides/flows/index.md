@@ -10,9 +10,9 @@ Design and customize key user journeys in your application with Flows. A flow de
 
 - **Invited user registration** - Let new users complete creating their accounts when administrators invite them. Design secure flows to verify their identities and set their passwords.
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 
-- **Profile update** - Let signed-in users update their own profile information. Design secure flows to verify their identities before they update their profiles.
+- **Profile update** - Let users manage their own profile information. Build secure flows that verify their identities before they update their profiles.
 
 {% endif %}
 
@@ -24,7 +24,7 @@ Use [conditional branching]({{base_path}}/guides/flows/conditional-branching/) t
 
 ## Start building flows
 
-{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 For specific examples of building flows, refer to [Self-registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/), [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/), and [Profile update]({{base_path}}/guides/flows/profile-update/).
 {%- else %}
 For specific examples of building flows, refer to [Self-registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/), and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).
@@ -32,7 +32,7 @@ For specific examples of building flows, refer to [Self-registration]({{base_pat
 To execute the flows from a custom client application, see [Use the Flow Execution API]({{base_path}}/guides/flows/flow-execution-api/) and explore the view schema in [Understand Flow Execution Components]({{base_path}}/guides/flows/flow-execution-components/).
 
 - To learn the fundamentals of building a flow, refer to the [get started]({{base_path}}/guides/flows/build-a-flow/) guide.
-{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 - For detailed examples of specific use cases, see the guides on [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/), [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/) and [Profile update]({{base_path}}/guides/flows/profile-update/).
 {%- else %}
 - For detailed examples of specific use cases, see the guides on [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/) and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/).

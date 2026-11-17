@@ -523,6 +523,21 @@ The audit log catalog provides detailed information about all audit log action k
     }
     ```
 
+??? note "`update-flow-config-PROFILE_UPDATE` - The profile update flow configuration was updated."
+
+    ```json
+    {
+      "id": "d4e5f6a7-b8c9-0123-defa-123456789012",
+      "recordedAt": "2025-08-20T06:40:00.000000Z",
+      "requestId": "20250820T123456Z-samplereqid",
+      "initiatorId": "3c0dd3b7-f7f6-4e47-b6fc-3ea3cdbc6a4e",
+      "initiatorType": "User",
+      "targetId": "PROFILE_UPDATE",
+      "targetType": "Flow",
+      "action": "update-flow-config-PROFILE_UPDATE"
+    }
+    ```
+
 ??? note "`update-flow-config-REGISTRATION` - The registration flow configuration was updated."
 
     ```json
@@ -565,6 +580,21 @@ The audit log catalog provides detailed information about all audit log action k
       "targetId": "6f7a91c2-4d5e-4b8a-9c1f-2e3d4f5a6b7c",
       "targetType": "Flow",
       "action": "update-flow-PASSWORD_RECOVERY"
+    }
+    ```
+
+??? note "`update-flow-PROFILE_UPDATE` - The profile update flow was updated."
+
+    ```json
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "recordedAt": "2025-08-20T06:40:00.000000Z",
+      "requestId": "20250820T123456Z-samplereqid",
+      "initiatorId": "3c0dd3b7-f7f6-4e47-b6fc-3ea3cdbc6a4e",
+      "initiatorType": "User",
+      "targetId": "6f7a91c2-4d5e-4b8a-9c1f-2e3d4f5a6b7c",
+      "targetType": "Flow",
+      "action": "update-flow-PROFILE_UPDATE"
     }
     ```
 

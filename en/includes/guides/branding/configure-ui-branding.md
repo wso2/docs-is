@@ -42,20 +42,19 @@ Follow the steps given below to configure branding preferences:
 2. In the top right corner, select either **Organization** for organization-wide branding or **Application** and choose an application for application-specific branding.
 
     ![{{ product_name }} Console - Branding UI]({{base_path}}/assets/img/guides/branding/branding-console-ui.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
-   
-   
+
     !!! note
-       
+
         You may also navigate to application branding by going to the **General** tab of your application and under **Branding**, selecting **Go to Application Branding**.
 
-2. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
+3. Update the [UI branding options](#ui-branding-preferences) in the **General**, **Design**, **Advanced**, and **Text** tabs.
 
     !!! note
         - Text branding is currently not available for application-specific branding. You can still configure text branding at the organization level, and it will apply to all applications unless overridden by application-specific branding in other areas.
         - If you leave any of the branding preferences empty, {{ product_name }} defaults will be used.
         - The real-time preview will show you a sample view as you update the values.
 
-3. Click **Save & Publish** to publish your branding configurations.
+4. Click **Save & Publish** to publish your branding configurations.
 
 {% else %}
 
@@ -140,7 +139,7 @@ Listed below are general branding preferences you can apply to the interfaces.
 Listed below are the design changes you can apply to the user registration interface, login interfaces and My Account portal.
 
 !!! Note
-    
+
     My Account branding can only be configured at the organization level.
 
 #### Layout variations
@@ -641,7 +640,7 @@ Listed below are some advanced branding preferences you can apply to the user re
 
 By default, {{product_name}} automatically appends the `ui_locales` parameter with the selected locale to URLs. However, if you need to tailor your URL structure to meet specific requirements, you can use the following placeholders to create a more customized URL:
 
-##### Supported placeholders:
+##### Supported placeholders
 
 - **`{{locale}}`**: This placeholder represents the complete locale tag, including both the language and country, separated by a hyphen. For example, `ja-JP`.
 - **`{{country}}`**: Use this placeholder to insert the country code. For example, `JP`.
@@ -649,16 +648,16 @@ By default, {{product_name}} automatically appends the `ui_locales` parameter wi
 
 These placeholders provide flexibility in constructing URLs that adapt to different regions, languages, and countries. Customize your URLs to deliver a personalized user experience.
 
-##### Examples of customized URLs:
+##### Examples of customized URLs
 
 1. Constructing a URL with the complete locale tag:
 
     === "URL format"
-        
+
         `https://example.com/{{locale}}/page`
 
     === "Sample"
-        
+
         Assume `ja-JP` is selected as the locale: `https://example.com/ja-JP/page`
 
 2. Inserting the country code into the URL:
@@ -739,6 +738,17 @@ Listed below are the text branding preferences you can apply to the screens in y
       <td><code>sign.up.heading</code></td>
       <td>This is the main heading of the sign-up box, providing a brief introduction to the registration page within your organization.</td>
    </tr>
+   {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
+   <tr>
+      <td rowspan="2"><b>Profile Update</b></td>
+      <td><code>profile.update.button</code></td>
+      <td>The text on the primary action button within the profile update box of the profile update flow.</td>
+   </tr>
+   <tr>
+      <td><code>profile.update.heading</code></td>
+      <td>This is the main heading of the profile update box of the profile update flow.</td>
+   </tr>
+   {% endif %}
 </table>
 
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}

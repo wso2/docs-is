@@ -88,7 +88,7 @@ Most attributes accept both **Read** and **Write**. The following are the except
 | Attribute | Available access | Notes |
 | --------- | ---------------- | ----- |
 | Attributes marked with a **Read-Only** badge | Read | {{product_name}} owns these values, so their **Write** control is disabled. |
-{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 | Username | Read and Write | Applied in the **Self Registration** flow only. In **Password Recovery**, **Invited User Registration**, and **Profile Update**, {{product_name}} omits the username from the request and ignores any change your endpoint returns. |
 {%- else %}
 | Username | Read and Write | Applied in the **Self Registration** flow only. In **Password Recovery** and **Invited User Registration**, {{product_name}} omits the username from the request and ignores any change your endpoint returns. |

@@ -12,7 +12,7 @@ You can add a flow extension to any of the following flows.
 | [Self Registration]({{base_path}}/guides/flows/self-registration/) | `REGISTRATION` |
 | [Password Recovery]({{base_path}}/guides/flows/password-recovery/) | `PASSWORD_RECOVERY` |
 | [Invited User Registration]({{base_path}}/guides/flows/invited-user-registration/) | `INVITED_USER_REGISTRATION` |
-{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 | [Profile Update]({{base_path}}/guides/flows/profile-update/) | `PROFILE_UPDATE` |
 {%- endif %}
 <!-- markdownlint-enable MD056 -->

@@ -1,6 +1,6 @@
 # Profile update
 
-Profile update allows signed-in users to securely update their own profile information, such as their name, email address, or mobile number. The user verifies their identity through a secure method, such as an email or SMS code, before updating the profile.
+Profile update allows users to securely update their own profile information, such as their name, email address, or mobile number. The user verifies their identity through a secure method, such as an email or SMS code, before updating the profile.
 
 In the **Flow Builder**, you can create the profile update journey in two ways:
 

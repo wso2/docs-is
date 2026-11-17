@@ -35,7 +35,7 @@ The value for `flowType` depends on the flow you want to execute. Refer to the t
 | `REGISTRATION` | Self-registration flow. |
 | `PASSWORD_RECOVERY` | Password recovery flow. |
 | `INVITED_USER_REGISTRATION` | Invite user to register flow. |
-{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+{%- if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
 | `PROFILE_UPDATE` | Profile update flow. |
 {%- endif %}
 <!-- markdownlint-enable MD056 -->
