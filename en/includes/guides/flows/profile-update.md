@@ -33,8 +33,8 @@ Follow the steps below to configure this flow.
 To load the template:
 
 1. On the {{product_name}} console, navigate to Flows.
-2. Click on the **Profile Update** card. This loads the **Profile Update with Email OTP** template onto the canvas by default.
-3. If the template isn't loaded automatically, click the `+` button next to the **Profile Update with Email OTP** template to load it onto the canvas.
+2. Click on the **Profile Update** card.
+3. Click the `+` button next to the **Profile Update with Email OTP** template to load it onto the canvas.
 
 ![Step 1]({{base_path}}/assets/img/guides/flows/flow-profile-update-step-01.png){: width="auto" style="display: block; margin: 0;"}
 
@@ -43,13 +43,10 @@ To load the template:
 By default, the form in the **Update Profile** step doesn't contain any input fields. Add the attributes that users are allowed to update.
 
 1. From the Components panel, drag and drop a field component, such as **Text Input**, onto the form in the **Update Profile** step.
-2. Click the pencil icon on the field and, from the **Attribute** dropdown, select the attribute it updates (for example, **First Name**).
+2. Click the pencil icon on the field and, from the **Attribute** dropdown, select the attribute it updates (for example, **First Name**). Then update the **Label** and **Placeholder** of the field to match the attribute.
 3. Repeat for each attribute that users are allowed to update.
 
 ![Step 2]({{base_path}}/assets/img/guides/flows/flow-profile-update-step-02.png){: width="auto" style="display: block; margin: 0;"}
-
-!!! note
-    The username and read-only attributes can't be added to the form. When the user submits the form, {{product_name}} saves only the attributes that the user changed.
 
 ### Step 3 - Configure the flow completion
 
@@ -66,7 +63,7 @@ Once the flow has been fully configured and is ready for users:
 
 1. On the top-right corner of the Flow Builder, turn the toggle ON to publish the flow.
 
-Now that these changes are in place, you have built a secure profile update flow that uses Email OTP for identity verification.
+Now that these changes are in place, you have built a secure and user-friendly profile update flow using Email OTP.
 
 ## Start the flow from your application
 
@@ -91,14 +88,29 @@ To start the flow from your application:
     }'
     ```
 
-4. The response is a `REDIRECTION` type response. Open the link in `data.url` in the browser, where the user continues the flow.
+4. The **Continue Elsewhere** step returns a `REDIRECTION` type response. Open the link in `data.redirectURL` in the browser, where the user continues the flow.
+
+    ```json
+    {
+      "flowId": "a4bb2b9f-cfe3-46a0-915c-ef01c1108d6e",
+      "flowType": "PROFILE_UPDATE",
+      "flowStatus": "INCOMPLETE",
+      "type": "REDIRECTION",
+      "data": {
+        "redirectURL": "https://{% if product_name == "WSO2 Identity Platform" %}accounts.asgardeo.io{% else %}localhost:9443{% endif %}/t/<organization_name>/accounts/manage-profile?flowId=6e032875-27e4-4310-9da1-3acc43a27262&handoff=true",
+        "additionalData": {
+          "handoff": "true"
+        }
+      }
+    }
+    ```
 
 !!! note
     The ID token must be issued within the **Maximum token age** of the **Verify Signed-in User** step, and the link is valid only once, within the time set in the **Continue Elsewhere** step. See [Verify signed-in user properties](#verify-signed-in-user-properties) and [Continue elsewhere properties](#continue-elsewhere-properties).
 
 ## Start the flow without a token
 
-Instead of the **Verify Signed-in User** step, you can start the flow with a **User Resolve View**, where the user enters the username. In this case, the flow must have at least one verification step after it, such as an **Email OTP View**, **SMS OTP View**, or **Magic Link View**.
+Instead of the **Verify Signed-in User** step, you can start the flow with a **User Resolve View**, where the user enters the username. With a **User Resolve View**, the flow must have at least one verification step after it, such as an **Email OTP View**, **SMS OTP View**, or **Magic Link View**.
 
 ## Reference
 
@@ -121,4 +133,4 @@ The **Continue Elsewhere** step returns a one-time link, so that the user contin
 
 The Flow Completion Properties, configured on the End node, define the final actions that occur after a user successfully updates the profile.
 
-- **Send a notification email on flow completion:** When enabled, the user will receive a notification confirming that their profile has been updated. The notification is sent to the user's preferred channel, by email or SMS.
+- **Send a notification email on flow completion:** When enabled, the user will receive an email confirming that their profile has been updated successfully.
