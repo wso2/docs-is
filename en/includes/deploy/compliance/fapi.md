@@ -6,6 +6,13 @@ The Financial-grade API (FAPI) specifications, developed by the OpenID Foundatio
 
 {{product_name}} implements [FAPI 1.0 – Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} {% if is_version == "7.1.0" or fapi_profiles_enabled %}and the [FAPI 2.0 Security Profile](https://openid.net/specs/fapi-security-profile-2_0-final.html){: target="_blank"}{% endif%} to help organizations achieve secure, standards-compliant API access.
 
+{% if is_version == "7.3.0" %}
+
+!!! note
+    The FAPI 2.0 Security Profile is supported from **update level 7.3.0.26** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+
+{% endif %}
+
 {% if fapi_profiles_enabled %}
 An organization can support FAPI 1.0 Advanced, the FAPI 2.0 Security Profile, or both. Each FAPI-compliant application uses one of the profiles that the organization supports, so applications built for different profiles can run side by side.
 {% endif %}
@@ -59,7 +66,7 @@ These features protect financial API interactions against interception, forgery,
 
 - **Authorization code**: Restrict response type to authorization code.
 
-- **Client Authentication**: Supports confidential clients using mutual TLS and Private Key JWT. A client assertion must contain the issuer of {{product_name}} as its only audience.
+- **Client Authentication**: Supports confidential clients using mutual TLS and Private Key JWT. The `aud` claim of a client assertion must be the issuer of {{product_name}} as a single string, not an array.
 
 - **Sender-Constrained Access Tokens**: Access tokens are bound to clients with Mutual TLS (MTLS) or Demonstrating Proof of Possession (DPoP).
 

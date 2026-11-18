@@ -19,6 +19,8 @@ This guide walks you through creating and configuring a FAPI-compliant applicati
 
         === "DB2"
 
+            Run this script with `/` as the statement terminator, for example `db2 -td/ -f <script_file>`.
+
             ```sql
             INSERT INTO IDN_CONFIG_TYPE (ID, NAME, DESCRIPTION)
             SELECT '12c78d11-65cd-4b6e-b482-98538ecd7a5c', 'FAPI_CONFIGURATION', 'A resource type to keep the FAPI configurations.' FROM "SYSIBM".SYSDUMMY1
@@ -250,9 +252,9 @@ Follow the steps below to configure the FAPI security policy of an organization.
     ![Supported FAPI profiles]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-security-policy.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
     !!! warning
-        When you enable **FAPI 2.0 Security**, the issuer of the organization changes to the organization's base URL, for example `https://<IS_HOST>` for the super organization and `https://<IS_HOST>/t/<tenant_domain>` for other organizations. Clients can retrieve the server metadata from `<issuer>/.well-known/openid-configuration`.
+        When you enable **FAPI 2.0 Security**, the issuer of the organization changes to the organization's base URL, for example `https://<IS_HOST>` for the super organization and `https://<IS_HOST>/t/<tenant_domain>` for other organizations. Clients can retrieve the server metadata from `<issuer>/.well-known/openid-configuration`. If you use the `fapi.version = "2"` configuration, the issuer is the entity ID of the resident identity provider instead. See [Use the FAPI 2.0 Security Profile configuration of WSO2 Identity Server 7.1.0](#use-the-fapi-20-security-profile-configuration-of-wso2-identity-server-710).
 
-        The new issuer applies to the tokens issued to all applications in the organization. Only the ID tokens issued to the Console and My Account keep the previous issuer. Before you enable the FAPI 2.0 Security Profile, update the applications and resource servers that validate the issuer.
+        The new issuer applies to the tokens issued to all applications in the organization. Only the ID tokens issued to the Console and My Account keep the previous issuer. Before you enable the FAPI 2.0 Security Profile, update the applications and resource servers that validate the issuer to use the new issuer.
 
 4. Click **Update** to save the changes.
 

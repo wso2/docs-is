@@ -15,13 +15,13 @@ The following diagram illustrates how FAPI-compliant features combine to secure 
 
 ## Authorization code grant type
 
-The FAPI 2.0 Security Profile mandates the use of the authorization code grant type for all FAPI-compliant applications. The implicit and hybrid grant types are not allowed in the FAPI 2.0 Security Profile. Follow the steps below to apply this restriction.
+The FAPI 2.0 Security Profile requires authorization requests to use the authorization code flow (`response_type=code`). The implicit and hybrid flows are not allowed. Follow the steps below to configure the application for the authorization code flow.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Select the created FAPI-compliant application and go to its **Protocol** tab.
 
-3. Under **Allowed grant types**, select only the **code** grant type.
+3. Under **Allowed grant types**, select the **code** grant type, and don't select the **implicit** grant type.
 
 4. Under **Authorized redirect URLs**, add the redirect URLs allowed for the application.
 
@@ -62,7 +62,7 @@ The FAPI 2.0 Security Profile requires clients to authenticate using one of the 
 
 {% if fapi_profiles_enabled %}
 !!! note
-    A client assertion sent by an application that uses the FAPI 2.0 Security Profile must contain the issuer of {{product_name}} as its only audience. Other applications can also use the token endpoint URL as the audience.
+    A client assertion sent by an application that uses the FAPI 2.0 Security Profile must have the issuer of {{product_name}} as its `aud` claim, as a single string and not an array. Other applications can also use the token endpoint URL as the audience.
 {% endif %}
 
 Follow the steps below to configure a FAPI-compliant client authentication method.
@@ -96,9 +96,9 @@ Follow the steps below to implement FAPI-compliant PAR requests for the `code` g
 
 ## Request object handling
 
-The FAPI 2.0 Security Profile requires the JWT containing the authorization request parameters sent to the Pushed Authorization Request (PAR) endpoint to be signed and optionally encrypted.
+The FAPI 2.0 Security Profile doesn't require the authorization request parameters sent to the Pushed Authorization Request (PAR) endpoint to be in a signed request object. Signed request objects are part of the [FAPI 2.0 Message Signing](https://openid.net/specs/fapi-message-signing-2_0-final.html){: target="_blank"} specification.
 
-Follow the steps below to configure a FAPI-compliant request object:
+If your ecosystem requires signed request objects, follow the steps below to configure a FAPI-compliant request object:
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
