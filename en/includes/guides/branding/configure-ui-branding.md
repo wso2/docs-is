@@ -558,7 +558,7 @@ The following design preferences apply to the theme you select. You can configur
           <td><b>Background Image URL</b></td>
           <td>
              The URL of the image that appears as the background of the login, sign-up, account recovery screens. The image is scaled to cover the screen, and the <b>Background Color</b> is shown while the image loads.</br></br>
-             Only absolute URLs that start with <code>http://</code> or <code>https://</code> are supported. You can set a different image for the <b>Light</b> and <b>Dark</b> themes.</br></br>
+             Only absolute URLs that start with <code>http://</code> or <code>https://</code> are supported.</br></br>
              The background image is not available for the <b>Left Image</b> and <b>Right Image</b> layouts, as these layouts show their side image instead.
           </td>
        </tr>
