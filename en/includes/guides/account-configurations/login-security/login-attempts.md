@@ -96,4 +96,16 @@ Time for account to unlock = Account lock duration * (Account lock duration incr
         showAuthFailureReason = true
         showAuthFailureReasonOnLoginPage = true
     ```
+
+    {% if is_version > "7.3.0" %}
+    - To show the number of remaining login attempts in the login failure message when a user enters an incorrect password, add the following properties to the basic authenticator configurations.
+
+    ```toml
+        [authentication.authenticator.basic.parameters]
+        showAuthFailureReason = true
+        showRemainingLoginAttempts = true
+    ```
+
+    The login page then shows a message such as "Login failed! Please check your username and password and try again. You have 2 attempt(s) remaining." To change this message, update the `login.fail.message.with.remaining.attempts` key in the `Resources` properties files located in the `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/` directory. Use the {% raw %}`{{remainingAttempts}}`{% endraw %} placeholder to show the number of remaining login attempts.
+    {% endif %}
 {% endif %}
