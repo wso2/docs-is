@@ -553,7 +553,7 @@ The following design preferences apply to the theme you select. You can configur
              By default, the <b>Main Background Color</b> from the <b>Color Palette</b> will be used     until a value for this is defined.
           </td>
        </tr>
-       {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+       {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and (is_version > "7.3.0" or is_version == "7.1.0")) %}
        <tr>
           <td><b>Background Image URL</b></td>
           <td>
