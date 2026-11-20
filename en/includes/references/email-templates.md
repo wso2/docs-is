@@ -125,6 +125,21 @@ The following is a comprehensive list of email templates that are available in {
             </td>
             <td>This email is generated when a user initiates a password recovery and has to verify the account using a magic link before resetting the password.</td>
         </tr>
+        {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version not in ["7.0.0", "7.1.0", "7.2.0", "7.3.0"]) %}
+        <tr>
+            <td>magicLinkProfileUpdate
+            </td>
+            <td>This email is generated when a user initiates a profile update flow and has to verify the account using a magic link before updating the profile.</td>
+        </tr>
+        <tr>
+            <td>profileUpdateEmailOTP</td>
+            <td>This email is generated when a user is given a one-time password to update the profile through the profile update flow. The email template can display the password using the {{"{{ OTPCode }}"}} literal.</td>
+        </tr>
+        <tr>
+            <td>profileUpdateSuccess</td>
+            <td>This email is generated when a user successfully updates the profile through the profile update flow. </td>
+        </tr>
+        {% endif %}
         <tr>
             <td>AskPassword<br/><br/>
                 resendAskPassword<br/><br/>

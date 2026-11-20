@@ -2,7 +2,7 @@
 
 Conditional branching lets a flow take different paths for different users. Add a **Decision** step to a flow, and {{product_name}} sends each user down the first branch whose rule matches.
 
-Conditional branching is available in the [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/) and [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/) flows.
+Conditional branching is available in the [Self registration]({{base_path}}/guides/flows/self-registration/), [Password recovery]({{base_path}}/guides/flows/password-recovery/), [Invited user registration]({{base_path}}/guides/flows/invited-user-registration/) and [Profile update]({{base_path}}/guides/flows/profile-update/) flows.
 
 <!-- ![Conditional branching]({{base_path}}/assets/img/guides/flows/flow-conditional-branching.png){: width="auto" style="display: block; margin: 0;"} -->
 
@@ -58,15 +58,15 @@ This section lists the fields and settings available for conditional branching.
 
 ### Fields
 
-| Field | Self registration | Password recovery | Invited user registration |
-| ------- | :-----------------: | :-----------------: | :-------------------------: |
-| Application | Yes | Yes | No |
-| User attributes | No | Yes | Yes |
-| Collected user attributes | Yes | Yes | Yes |
-| User store domain | Yes | Yes | Yes |
-| Groups, Roles | No | Yes | Yes |
-| Runtime values | Yes | Yes | Yes |
-| Request headers | Yes | Yes | Yes |
+| Field | Self registration | Password recovery | Invited user registration | Profile update |
+| ------- | :-----------------: | :-----------------: | :-------------------------: | :--------------: |
+| Application | Yes | Yes | No | Yes |
+| User attributes | No | Yes | Yes | Yes |
+| Collected user attributes | Yes | Yes | Yes | Yes |
+| User store domain | Yes | Yes | Yes | Yes |
+| Groups, Roles | No | Yes | Yes | Yes |
+| Runtime values | Yes | Yes | Yes | Yes |
+| Request headers | Yes | Yes | Yes | Yes |
 
 ### abTestingKey
 

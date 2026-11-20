@@ -207,6 +207,7 @@ components:
           - REGISTRATION
           - PASSWORD_RECOVERY
           - INVITED_USER_REGISTRATION
+          - PROFILE_UPDATE
           example: REGISTRATION
         flowId:
           type: string
