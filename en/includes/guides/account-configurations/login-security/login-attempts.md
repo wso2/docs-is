@@ -97,7 +97,7 @@ Time for account to unlock = Account lock duration * (Account lock duration incr
         showAuthFailureReasonOnLoginPage = true
     ```
 
-    {% if is_version > "7.3.0" %}
+    {% if is_version > "7.3.0" or is_version == "7.1.0" %}
     - To show the number of remaining login attempts in the login failure message when a user enters an incorrect password, add the following configurations.
 
     ```toml
@@ -107,5 +107,10 @@ Time for account to unlock = Account lock duration * (Account lock duration incr
         [authenticationendpoint]
         show_remaining_login_attempts = true
     ```
+
+    {% if is_version == "7.1.0" %}
+    !!! note
+        This configuration is available from **update level 7.1.0.95** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+    {% endif %}
     {% endif %}
 {% endif %}
