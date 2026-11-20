@@ -560,6 +560,9 @@ The following design preferences apply to the theme you select. You can configur
              The URL of the image that appears as the background of the login, sign-up, account recovery screens. The image is scaled to cover the screen, and the <b>Background Color</b> is shown while the image loads.</br></br>
              Only absolute URLs that start with <code>http://</code> or <code>https://</code> are supported.</br></br>
              The background image is not available for the <b>Left Image</b> and <b>Right Image</b> layouts, as these layouts show their side image instead.
+             {% if is_version == "7.1.0" %}</br></br>
+             This preference is available from <b>update level 7.1.0.94</b> onwards. See the instructions on <a href="https://updates.docs.wso2.com/en/latest/">updating WSO2 products</a>.
+             {% endif %}
           </td>
        </tr>
        {% endif %}
