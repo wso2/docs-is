@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Customer data
 
@@ -6,6 +6,10 @@ The Customer Data Service (CDS) collects and unifies data about your end users a
 
 !!! note
     You need to enable the Customer Data Service for your organization before you start. See [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service).
+
+{% if product_name == "WSO2 Identity Server" %}
+In {{ product_name }}, the Customer Data Service runs as a separate service beside the Identity Server. [Deploy the Customer Data Service]({{base_path}}/deploy/customer-data-service/) and connect it to the Identity Server before you enable it for an organization.
+{% endif %}
 
 ## What you can do with it
 
@@ -18,7 +22,8 @@ The Customer Data Service (CDS) collects and unifies data about your end users a
 
 | Read | What it covers |
 |---|---|
-| [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service) | Turn the feature on from the **Customer Data** page. |
+{% if product_name == "WSO2 Identity Server" %}| [Deploy the Customer Data Service]({{base_path}}/deploy/customer-data-service/) | Install the service, connect it to {{ product_name }}, and prepare it for production. |
+{% endif %}| [Enable Customer Data Service]({{base_path}}/guides/customer-data/enable-customer-data-service) | Turn the feature on from the **Customer Data** page. |
 | [Profiles]({{base_path}}/guides/customer-data/concepts/profiles) | The shape of a profile and how anonymous and permanent profiles relate. |
 | [Profile attributes]({{base_path}}/guides/customer-data/concepts/profile-attributes) | Attribute types, mutability, and merge strategies. |
 | [Unification rules]({{base_path}}/guides/customer-data/concepts/unification-rules) | When two records get merged into one. |

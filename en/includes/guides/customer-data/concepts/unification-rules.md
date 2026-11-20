@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Unification rules
 
@@ -34,6 +34,11 @@ Dates, phone numbers and identifiers are also tidied into a standard form before
 
 !!! note
     **Tolerant** matching is available for names, email addresses, phone numbers, locations and other free text. Unique identifiers and dates are always compared exactly, because a difference there means a different person.
+
+{% if product_name == "WSO2 Identity Server" %}
+!!! note
+    In {{ product_name }}, **Tolerant** matching is available only when it is turned on for the Customer Data Service deployment. It is off by default. While it is off, tolerant rules cannot be created and existing ones are evaluated as **Exact**. See [Configuration catalog]({{base_path}}/deploy/customer-data-service/configuration-catalog/#identity-resolution).
+{% endif %}
 
 ---
 
