@@ -553,13 +553,16 @@ The following design preferences apply to the theme you select. You can configur
              By default, the <b>Main Background Color</b> from the <b>Color Palette</b> will be used     until a value for this is defined.
           </td>
        </tr>
-       {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+       {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and (is_version > "7.3.0" or is_version == "7.1.0")) %}
        <tr>
           <td><b>Background Image URL</b></td>
           <td>
              The URL of the image that appears as the background of the login, sign-up, account recovery screens. The image is scaled to cover the screen, and the <b>Background Color</b> is shown while the image loads.</br></br>
              Only absolute URLs that start with <code>http://</code> or <code>https://</code> are supported.</br></br>
              The background image is not available for the <b>Left Image</b> and <b>Right Image</b> layouts, as these layouts show their side image instead.
+             {% if is_version == "7.1.0" %}</br></br>
+             This preference is available from <b>update level 7.1.0.94</b> onwards. See the instructions on <a href="https://updates.docs.wso2.com/en/latest/">updating WSO2 products</a>.
+             {% endif %}
           </td>
        </tr>
        {% endif %}
