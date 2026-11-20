@@ -98,7 +98,7 @@ Time for account to unlock = Account lock duration * (Account lock duration incr
     ```
 
     {% if is_version > "7.3.0" or is_version == "7.1.0" %}
-    - To show the number of remaining login attempts in the login failure message when a user enters an incorrect password, add the following configurations.
+    - To show the number of remaining login attempts in the login failure message when a user enters an incorrect password, add the following configurations. If the `[authentication.authenticator.basic.parameters]` section is already in the `deployment.toml` file, add `showAuthFailureReason = true` to that section instead of adding the section again.
 
     ```toml
         [authentication.authenticator.basic.parameters]
