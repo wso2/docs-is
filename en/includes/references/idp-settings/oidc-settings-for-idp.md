@@ -34,6 +34,17 @@ The OpenID Connect standard userinfo endpoint <!-- [OpenID Connect standard user
 ### Logout URL
 The [OpenID Connect standard logout endpoint](https://openid.net/specs/openid-connect-rpinitiated-1_0.html#Terminology){:target="_blank"} of the external identity provider. If this URL is given, {{ product_name }} sends logout requests to the external IdP when a user logs out from the connected application.
 
+!!! note "Single Logout (SLO) support"
+    {{ product_name }} supports OIDC-based Single Logout through the following mechanisms:
+
+    - **RP-Initiated Logout**: When configured, {{ product_name }} can initiate logout requests to external OIDC identity providers when users log out from connected applications. The logout request is sent to the logout URL specified above.
+
+    - **Back-Channel Logout**: {{ product_name }} can receive back-channel logout requests from OIDC federated identity providers at the endpoint `{{ product_url_format }}/identity/oidc/slo`. When a back-channel logout request is received, {{ product_name }} processes it, terminates the user sessions, and propagates the logout to all connected applications.
+
+    - **Federated IdP-Initiated Logout**: When a user logs out from an application connected to an external OIDC identity provider, that provider can initiate logout in {{ product_name }} via back-channel logout, which then propagates to all other applications in the session.
+
+    Learn more about [OIDC logout mechanisms]({{base_path}}/guides/authentication/oidc/add-logout/) and [back-channel logout]({{base_path}}/guides/authentication/oidc/add-back-channel-logout/).
+
 ### Scopes
 This is a list of case-sensitive OpenID Connect scopes that needs to be requested from the OIDC external IdP. See the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims){:target="_blank"} for more information about what scopes can be configured here.
 
