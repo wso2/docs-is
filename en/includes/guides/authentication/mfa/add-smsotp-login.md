@@ -98,6 +98,27 @@ To update the default SMS OTP settings:
 
 {% include "../../../guides/fragments/add-login/mfa/add-smsotp-login.md" %}
 
+{% if product_name == "WSO2 Identity Server" and is_version >= "7.3.0" %}
+
+## Let users add a mobile number during login
+
+By default, SMS OTP fails for users who don't have a mobile number in their profile. You can turn on progressive enrollment so that these users can add and verify a mobile number during login. This applies only when the user has already signed in with another authenticator in the same login flow.
+
+To turn on progressive enrollment for all applications in your organization:
+
+1. On the {{ product_name }} Console, go to **Connections** and select **SMS OTP**.
+2. In the **Settings** tab, select **Allow mobile number enrollment during login**.
+3. Click **Update**.
+
+When a user without a mobile number reaches the SMS OTP step, {{ product_name }} asks them to enter a mobile number, sends an OTP to it, and saves the number to their profile once they verify the OTP.
+
+{% if is_version == "7.3.0" %}
+!!! tip "Require MFA before enrollment"
+    By default, a user can add a mobile number after passing only a password. To require a factor the user already has, such as Email OTP, before they add one, see [Require MFA before SMS OTP and TOTP enrollment]({{base_path}}/guides/authentication/conditional-auth/require-mfa-before-enrollment/).
+{% endif %}
+
+{% endif %}
+
 ## How it works
 
 When SMS OTP is enabled in the login flow of your application, the application user will be prompted with the SMS OTP authentication step once the first authentication step is completed. Given below are the high-level steps that follow:
