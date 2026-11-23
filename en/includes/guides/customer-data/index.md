@@ -27,9 +27,17 @@ In {{ product_name }}, the Customer Data Service runs as a separate service besi
 | [Profile attributes]({{base_path}}/guides/customer-data/concepts/profile-attributes) | Attribute types, mutability, and merge strategies. |
 | [Unification rules]({{base_path}}/guides/customer-data/concepts/unification-rules) | When two records get merged into one. |
 | [Use cases]({{base_path}}/guides/customer-data/use-cases/) | Common integration patterns for unifying activity across sessions, devices, and applications. |
-{% if product_name == "WSO2 Identity Server" %}| [Configure tolerant matching]({{base_path}}/guides/customer-data/guides/configure-tolerant-matching) | Match profiles despite typos and spelling variations. |
+
+{% if product_name == "WSO2 Identity Server" %}
+
+{{ product_name }} also has:
+
+| Read | What it covers |
+|---|---|
+| [Configure tolerant matching]({{base_path}}/guides/customer-data/guides/configure-tolerant-matching) | Match profiles despite typos and spelling variations. |
 | [Search profiles]({{base_path}}/guides/customer-data/guides/search-profiles) | Find profiles by exact values or by similarity. |
 | [Customer data in organizations]({{base_path}}/guides/customer-data/guides/customer-data-in-organizations) | What child organizations inherit, and how to share profile attributes and unification rules with them. |
 | [Customer Data Service API]({{base_path}}/apis/customer-data-service-rest-api/) | The API reference. |
+
 {% endif %}
 {% endif %}

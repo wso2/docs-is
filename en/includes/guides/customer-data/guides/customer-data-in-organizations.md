@@ -178,7 +178,7 @@ Administrators of a child organization [switch to it]({{base_path}}/guides/organ
 
 Applications and administrators of a child organization call CDS under the path of the child organization inside the root organization:
 
-```
+```text
 {{content.cds.baseUrl}}/o/<organization_id>/cds/api/v1
 ```
 

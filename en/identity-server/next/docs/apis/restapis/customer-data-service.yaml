@@ -49,6 +49,13 @@ paths:
         Supplying both is a hybrid search: a profile is returned only where it is similar on
         the `fuzzyFilter` values **and** exactly satisfies every `filter` condition.
 
+        Unless the calling application is listed in `system_applications`, each profile is
+        filtered as it is when retrieved by id: only the attributes covered by a consent that profile has given are
+        returned, and `application_data` only for the caller's own application. A profile is
+        left out when a `filter` or `fuzzyFilter` condition tests a value the caller could not
+        read on it, so a page can hold fewer profiles than `page_size`. A `filter` condition
+        on `application_data.<key>` is read as one on the caller's own application.
+
         <br><b>Scope required:</b> `internal_cds_profile_view`
       operationId: getAllProfiles
       parameters:
@@ -132,6 +139,16 @@ paths:
         schema:
           type: string
         example: traits.city,identity_attributes
+      - name: consentCategoryId
+        in: query
+        required: false
+        description: |
+          Consent categories to filter each profile by, comma-separated or repeated. Not used
+          for an application listed in `system_applications`.
+        schema:
+          type: array
+          items:
+            type: string
       responses:
         '200':
           description: |
@@ -200,6 +217,15 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '500':
           $ref: '#/components/responses/InternalServerError'
+      parameters:
+      - name: cds_profile
+        in: cookie
+        required: false
+        description: |
+          The `cds_profile` cookie set by an earlier call. When it belongs to an active profile,
+          that profile is returned instead of a new one.
+        schema:
+          type: string
   /profiles/link:
     post:
       tags:
@@ -277,8 +303,8 @@ paths:
         in: query
         required: false
         description: |
-          Application identifiers whose `application_data` is returned, comma-separated or
-          repeated. Use `*` for all applications.
+          Application identifiers whose `application_data` is returned, comma-separated. Use `*` for all
+          applications.
         schema:
           type: string
         example: app-1,app-2
@@ -421,6 +447,13 @@ paths:
           description: |
             Bad Request. The body is not a valid array of consent records (this response can have
             a plain text body), or CDS is not enabled for the organization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            text/plain:
+              schema:
+                type: string
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -545,7 +578,7 @@ paths:
               type: array
               minItems: 1
               items:
-                $ref: '#/components/schemas/ProfileSchemaAttribute'
+                $ref: '#/components/schemas/ProfileSchemaAttributeRequest'
       responses:
         '201':
           description: The attributes that were created.
@@ -666,6 +699,13 @@ paths:
           description: |
             Bad Request. The body is not valid (this response can have a plain text body), the
             scope is `identity_attributes` or not a valid scope, or CDS is not enabled.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnyError'
+            text/plain:
+              schema:
+                type: string
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
@@ -1367,6 +1407,9 @@ paths:
         the identity resolution engine held back from an automatic merge. Only pending tasks are
         listed.
 
+        The tasks are returned in a single page, without cursors. Raise `page_size`, up to 200,
+        to see more.
+
         <br><b>Scope required:</b> `internal_cds_identity_resolution_view`
       operationId: getReviewTasks
       parameters:
@@ -1938,6 +1981,7 @@ components:
           example:
             app-1:
               theme: dark
+      additionalProperties: false
     ProfilePatchRequest:
       type: object
       description: |
@@ -1995,7 +2039,10 @@ components:
           example: 40497337-e8bf-4d92-9545-711894ab2af3
     UnificationRuleRequest:
       type: object
-      description: Fields that are not listed here are rejected.
+      description: |
+        Fields that are not listed here are rejected. Left out, `attribute_type` defaults to
+        `PRIMITIVE_EXACT`, which is how a rule written before typed matching is read, and
+        `unification_method` to `deterministic`.
       required:
       - rule_name
       - property_name
@@ -2029,6 +2076,7 @@ components:
           $ref: '#/components/schemas/MatchStrength'
         mismatch_strength:
           $ref: '#/components/schemas/MismatchStrength'
+      additionalProperties: false
     UnificationRule:
       type: object
       required:
@@ -2081,7 +2129,7 @@ components:
       type: object
       description: |
         Fields that are not listed here are rejected. `rule_name` and `property_name` cannot be
-        changed.
+        changed. Fields that are left out keep their values.
       properties:
         priority:
           type: integer
@@ -2099,16 +2147,15 @@ components:
           $ref: '#/components/schemas/MatchStrength'
         mismatch_strength:
           $ref: '#/components/schemas/MismatchStrength'
+      additionalProperties: false
     UnificationAttributeType:
       type: string
       description: |
         What kind of value the attribute holds. Determines which comparison is applied
         and which blocking keys are indexed.
 
-        Optional. Omitted, it defaults to `PRIMITIVE_EXACT`, which is how a rule written
-        before typed matching is read. It is **required when `unification_method` is
-        `fuzzy`**, because it selects how two values are compared and there is nothing
-        sensible to assume.
+        It is **required when `unification_method` is `fuzzy`**, because it selects how two
+        values are compared and there is nothing sensible to assume.
 
         It still shapes behaviour under `deterministic`: `DATE` and `UNIQUE_ID` are
         normalized before comparing, so a date written two ways still matches, and the
@@ -2130,7 +2177,7 @@ components:
         both kinds are evaluated side by side within a single comparison. Only
         FUZZY_STRING, NAME, EMAIL, PHONE and LOCATION support `fuzzy`.
 
-        Optional. Omitted, it defaults to `deterministic`. `fuzzy` is refused while the server
+        `fuzzy` is refused while the server
         has `identity_resolution.fuzzy_matching_enabled` turned off.
       enum:
       - deterministic
@@ -2493,6 +2540,7 @@ components:
           minimum: 1
           description: Days between two cleanups of the temporary profiles of the organization. Values
             below 1, or above 2147483647, are rejected.
+      additionalProperties: false
     ReviewTask:
       type: object
       required:
@@ -2636,6 +2684,8 @@ components:
         description:
           type: string
           example: Some Error Description
+      required:
+      - code
     LegacyError:
       type: object
       description: |
@@ -2652,6 +2702,8 @@ components:
         error_description:
           type: string
           example: Some Error Description
+      required:
+      - error_code
     AnyError:
       description: An `Error` or a `LegacyError`.
       oneOf:
@@ -2682,22 +2734,43 @@ components:
           description: 'org: the organization only. subtree: the organization and all current and future
             organizations below it.'
     ChildOrgs:
-      type: object
-      required:
-      - mode
-      properties:
-        mode:
-          type: string
-          enum:
-          - all
-          - selected
-          description: 'all: all current and future organizations below the initiating organization. selected:
-            the organizations in orgs.'
-        orgs:
-          type: array
-          description: Required with mode selected. Must be empty with mode all. Each organization once.
-          items:
-            $ref: '#/components/schemas/ChildOrg'
+      description: The child organizations a policy reaches.
+      oneOf:
+      - title: All
+        type: object
+        required:
+        - mode
+        additionalProperties: false
+        properties:
+          mode:
+            type: string
+            enum:
+            - all
+            description: All current and future organizations below the initiating organization.
+          orgs:
+            type: array
+            maxItems: 0
+            description: Leave out, or send empty.
+            items:
+              $ref: '#/components/schemas/ChildOrg'
+      - title: Selected
+        type: object
+        required:
+        - mode
+        - orgs
+        additionalProperties: false
+        properties:
+          mode:
+            type: string
+            enum:
+            - selected
+            description: The organizations in `orgs`.
+          orgs:
+            type: array
+            minItems: 1
+            description: Each organization once.
+            items:
+              $ref: '#/components/schemas/ChildOrg'
     SharingPolicyRequest:
       type: object
       additionalProperties: false
@@ -2786,6 +2859,98 @@ components:
         error:
           type: string
           description: The error of a failed sync.
+    ProfileSchemaAttributeRequest:
+      type: object
+      required:
+      - attribute_name
+      - value_type
+      - merge_strategy
+      description: A profile schema attribute to add. Fields that are not listed here are rejected.
+      properties:
+        attribute_id:
+          type: string
+          description: Generated when omitted.
+        attribute_name:
+          type: string
+          description: Name of the attribute, for example `traits.city`.
+          example: traits.city
+        scope:
+          type: string
+          enum:
+          - identity_attributes
+          - traits
+          - application_data
+        display_name:
+          type: string
+        value_type:
+          type: string
+          enum:
+          - string
+          - integer
+          - decimal
+          - boolean
+          - date_time
+          - date
+          - complex
+          - epoch
+        merge_strategy:
+          type: string
+          description: How the value is resolved when two profiles merge.
+          enum:
+          - overwrite
+          - combine
+        mutability:
+          type: string
+          description: Defaults to `readWrite`.
+          enum:
+          - readWrite
+          - readOnly
+          - writeOnly
+          - immutable
+          - writeOnce
+        application_identifier:
+          type: string
+          description: Application the attribute belongs to. Only for `application_data`.
+        multi_valued:
+          type: boolean
+          description: True when the value is an array of `value_type`.
+        canonical_values:
+          type: array
+          description: The values the attribute may take.
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              label:
+                type: string
+        sub_attributes:
+          type: array
+          description: The attributes of a `complex` attribute.
+          items:
+            type: object
+            required:
+            - attribute_id
+            - attribute_name
+            properties:
+              attribute_id:
+                type: string
+              attribute_name:
+                type: string
+        scim_dialect:
+          type: string
+        origin:
+          type: string
+          readOnly: true
+          enum:
+          - OWNED
+          - SHARED
+          - INHERITED
+          description: |
+            Set only on reads of the effective schema. SHARED for an attribute that a parent
+            organization shares, INHERITED for an identity attribute that the organization
+            inherits.
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http

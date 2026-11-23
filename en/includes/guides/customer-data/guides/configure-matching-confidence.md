@@ -34,6 +34,8 @@ Both settings are hidden while **Always require administrator approval** is sele
 
 ## Administrator review
 
+Matches that are not unified automatically can be sent to an administrator, who approves or rejects them. See [Review profile matches]({{base_path}}/guides/customer-data/guides/review-profile-matches).
+
 ### Review threshold
 
 Profiles scoring from this value up to 1.00 are sent for review unless they qualify for automatic unification. No action is taken on lower-scoring profiles. Set it with the slider or by entering a value. The slider and the input stop just below the automatic unification threshold and just above 0.30.
