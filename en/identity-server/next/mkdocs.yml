@@ -1174,6 +1174,14 @@ nav:
         - Containerized deployments:
           - Kubernetes: deploy/deploy-is-on-kubernetes.md
           - OpenShift: deploy/deploy-is-on-openshift.md
+        - Customer Data Directory:
+          - Deploy the Customer Data Directory: deploy/customer-data-directory/index.md
+          - Install: deploy/customer-data-directory/install.md
+          - Connect to the Identity Server: deploy/customer-data-directory/connect-to-identity-server.md
+          - Configure: deploy/customer-data-directory/configure.md
+          - Secure: deploy/customer-data-directory/secure.md
+          - Production deployment: deploy/customer-data-directory/production-deployment.md
+          - Configuration catalog: deploy/customer-data-directory/configuration-catalog.md
         - Performance and scaling:
           - Performance Tuning Recommendations: deploy/performance/performance-tuning-recommendations.md
           - Configure Cache Layers: deploy/performance/configure-cache-layers.md

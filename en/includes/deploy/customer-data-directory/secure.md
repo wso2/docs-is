@@ -1,0 +1,99 @@
+# Secure the Customer Data Directory
+
+## Certificates
+
+The Customer Data Directory (CDD) serves HTTPS and calls {{ product_name }} over HTTPS. So CDD needs a certificate for the names it is reached by, {{ product_name }} has to trust that certificate, and CDD has to trust the certificate of {{ product_name }}.
+
+!!! warning "Replace the default key pair"
+    A pack carries the default key pair of {{ product_name }} as its `server.crt` and `server.key`, and trusts that certificate. A default {{ product_name }} trusts it too, so the two work together on one host with no setup. The certificate is issued for `localhost` only, and its private key ships with every {{ product_name }} download: anyone can present it. Replace it before the deployment carries real traffic. CDD warns at start while the default is in use.
+
+### Replace the CDD certificate
+
+1. Get a certificate for every name CDD is reached by, with its private key, in PEM. A name browsers reach needs a certificate browsers trust.
+2. Put them in `tls.cert_dir` as `server.crt` and `server.key`, readable only by the CDD user.
+3. Restart CDD.
+
+With `tls.mtls_enabled`, which the pack turns on, CDD also presents this certificate as its client certificate when it calls {{ product_name }}.
+
+### Trust CDD in {{ product_name }}
+
+Import the CDD certificate, or the CA that issued it, into the client trust store of {{ product_name }}, and restart {{ product_name }}.
+
+```bash
+keytool -importcert -noprompt -alias cdd \
+  -file <CDD_HOME>/repository/resources/security/server.crt \
+  -keystore <IS_HOME>/repository/resources/security/client-truststore.{{content.default_keystore_ext}} \
+  -storetype {{content.default_keystore_type}} -storepass <truststore-password>
+```
+
+### Trust {{ product_name }} in CDD
+
+CDD trusts the certificates in `trust_store.pem`, in addition to the system's CAs. Add the certificate of {{ product_name }}, or its CA, to `trust_store.pem`, and restart CDD. For example, from a running server:
+
+```bash
+openssl s_client -connect is.example.com:9443 -servername is.example.com </dev/null 2>/dev/null \
+  | openssl x509 >> <CDD_HOME>/repository/resources/security/trust_store.pem
+```
+
+Check that the certificate you add is the one you expect.
+
+## Secrets
+
+Credentials never go into `deployment.yaml`. The configuration refers to them as `${NAME}`, and CDD reads each from the environment at start.
+
+| Variable | Description | Needed |
+|---|---|---|
+| `SERVICE_CREDENTIALS_ENCRYPTION_KEY` | Encrypts the stored per-organization credentials. | Always. |
+| `AUTH_SERVER_ADMIN_PASSWORD` | The sync credential's password, matching `[customer_data_service] admin_password`. | Always. |
+| `AUTH_SERVER_CLIENT_SECRET`, `INTROSPECTION_CLIENT_SECRET` | The secrets of the clients configured under `auth_server`. | For an organization without per-organization credentials. |
+| `DB_PASSWORD` | The database password. | With an external database. |
+| `BROKER_PASSWORD` | The ActiveMQ password. | With ActiveMQ. |
+
+The pack ships `<CDD_HOME>/repository/conf/secrets.env` with every one of them listed and every value empty, one `KEY=VALUE` per line, readable only by its owner. Fill it in before the first start. A variable already set in the environment takes precedence over the file, so a secret manager or a Kubernetes Secret can supply them instead.
+
+CDD starts with any of them empty, so a missing one would otherwise show only as refused requests. At start, it warns, naming the variable, when the sync credential's password or the encryption key is empty.
+
+Keep a copy of `secrets.env` outside `<CDD_HOME>`. A new pack ships it empty again.
+
+### The sync credential
+
+{{ product_name }} presents the sync credential when it sends CDD events, organization enablement and credentials. Use a long random value, for example from `openssl rand -base64 32`. To rotate it, change it on both sides and restart both.
+
+### The encryption key
+
+CDD encrypts the credentials {{ product_name }} sends for each organization (AES-256-GCM) with `SERVICE_CREDENTIALS_ENCRYPTION_KEY`. Generate one for each installation:
+
+```bash
+openssl rand -base64 32
+```
+
+- Never reuse a key from another installation or from an example.
+- Give every instance of one deployment the same key, and keep it the same: credentials encrypted with one key cannot be read with another.
+- Back it up separately from the database. Without it, the stored credentials cannot be read, and CDD cannot call {{ product_name }} for those organizations until each is turned off and on again.
+- A key that is set but not usable stops CDD at start.
+
+## Security guidelines
+
+Apply these with the [security guidelines]({{base_path}}/deploy/security/security-guidelines/) of {{ product_name }}.
+
+### Product level
+
+- Apply WSO2 updates to CDD as they are released.
+- Replace the default key pair.
+- Keep every credential out of `deployment.yaml`, and set the encryption key.
+- Allow only the origins that need CDD in `auth.cors_allowed_origins`; let each organization list its own applications.
+- Give each application only the CDD scopes it uses.
+- Avoid `DEBUG` logging in production.
+
+### OS level
+
+- Run CDD as its own user, without a login shell, owning `<CDD_HOME>`. Never run it as root.
+- Make `secrets.env` and the private key readable only by that user.
+- Allow only the ports in [Network flows]({{base_path}}/deploy/customer-data-directory/production-deployment/#network-flows) through the host firewall.
+- Keep the operating system up to date.
+
+### Network level
+
+- Expose CDD to the internet only as far as browsers need it. {{ product_name }} and your application backends can reach it on an internal network.
+- Keep the database and the message broker on an internal network, reachable only from CDD, with TLS.
+- Run two or more instances behind a load balancer for failover.

@@ -10,7 +10,7 @@ The {{ cd_name }} ({{ cd_short }}) collects and unifies data about your end user
     You need to enable the {{ cd_name }} for your organization before you start. See [Enable {{ cd_name }}]({{base_path}}/guides/customer-data/enable-customer-data-service).
 
 {% if product_name == "WSO2 Identity Server" %}
-In {{ product_name }}, the {{ cd_name }} runs as a separate service beside the Identity Server. It has to be deployed and connected to the Identity Server before you enable it for an organization.
+In {{ product_name }}, the {{ cd_name }} runs as a separate service beside the Identity Server. It has to be [deployed and connected]({{base_path}}/deploy/customer-data-directory/) to the Identity Server before you enable it for an organization.
 {% endif %}
 
 ## What you can do with it

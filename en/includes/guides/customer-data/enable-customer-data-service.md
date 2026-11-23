@@ -8,7 +8,7 @@ The {{ cd_name }} is disabled by default. Enable it for your organization from t
 
 {% if product_name == "WSO2 Identity Server" %}
 !!! note "Before you begin"
-    The {{ cd_name }} has to be deployed and connected to {{ product_name }}.
+    The {{ cd_name }} has to be [deployed and connected]({{base_path}}/deploy/customer-data-directory/) to {{ product_name }}.
 
 Enabling the {{ cd_name }} for an organization also creates an application named **Customer Data Service** in it, through which the service calls {{ product_name }} for that organization. The application cannot be edited or deleted.
 {% endif %}
