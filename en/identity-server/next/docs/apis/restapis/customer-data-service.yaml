@@ -2734,43 +2734,22 @@ components:
           description: 'org: the organization only. subtree: the organization and all current and future
             organizations below it.'
     ChildOrgs:
-      description: The child organizations a policy reaches.
-      oneOf:
-      - title: All
-        type: object
-        required:
-        - mode
-        additionalProperties: false
-        properties:
-          mode:
-            type: string
-            enum:
-            - all
-            description: All current and future organizations below the initiating organization.
-          orgs:
-            type: array
-            maxItems: 0
-            description: Leave out, or send empty.
-            items:
-              $ref: '#/components/schemas/ChildOrg'
-      - title: Selected
-        type: object
-        required:
-        - mode
-        - orgs
-        additionalProperties: false
-        properties:
-          mode:
-            type: string
-            enum:
-            - selected
-            description: The organizations in `orgs`.
-          orgs:
-            type: array
-            minItems: 1
-            description: Each organization once.
-            items:
-              $ref: '#/components/schemas/ChildOrg'
+      type: object
+      required:
+      - mode
+      properties:
+        mode:
+          type: string
+          enum:
+          - all
+          - selected
+          description: 'all: all current and future organizations below the initiating organization. selected:
+            the organizations in orgs.'
+        orgs:
+          type: array
+          description: Required with mode selected. Must be empty with mode all. Each organization once.
+          items:
+            $ref: '#/components/schemas/ChildOrg'
     SharingPolicyRequest:
       type: object
       additionalProperties: false
@@ -2778,7 +2757,7 @@ components:
       - child_orgs
       properties:
         child_orgs:
-          $ref: '#/components/schemas/ChildOrgs'
+          $ref: '#/components/schemas/ChildOrgsRequest'
       example:
         child_orgs:
           mode: selected
@@ -2951,6 +2930,44 @@ components:
             organization shares, INHERITED for an identity attribute that the organization
             inherits.
       additionalProperties: false
+    ChildOrgsRequest:
+      description: |
+        The child organizations a policy reaches. With `mode` `all`, leave `orgs` out or send it
+        empty. With `mode` `selected`, list each organization once.
+      oneOf:
+      - title: All
+        type: object
+        additionalProperties: false
+        required:
+        - mode
+        properties:
+          mode:
+            type: string
+            enum:
+            - all
+            description: All current and future organizations below the initiating organization.
+          orgs:
+            type: array
+            maxItems: 0
+            items:
+              $ref: '#/components/schemas/ChildOrg'
+      - title: Selected
+        type: object
+        additionalProperties: false
+        required:
+        - mode
+        - orgs
+        properties:
+          mode:
+            type: string
+            enum:
+            - selected
+            description: The organizations in `orgs`.
+          orgs:
+            type: array
+            minItems: 1
+            items:
+              $ref: '#/components/schemas/ChildOrg'
   securitySchemes:
     bearerAuth:
       type: http
