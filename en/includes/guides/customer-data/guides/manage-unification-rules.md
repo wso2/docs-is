@@ -1,8 +1,9 @@
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% set cd_name = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "Customer Data Service" %}
 
 # Manage unification rules
 
-Unification rules tell the Customer Data Service when two profiles should be recognized as the same person and merged. Manage them from the **Customer Data** page in the console, under **Unification Rules**.
+Unification rules tell the {{ cd_name }} when two profiles should be recognized as the same person and merged. Manage them from the **Customer Data** page in the console, under **Unification Rules**.
 
 For a conceptual overview see [Unification rules]({{base_path}}/guides/customer-data/concepts/unification-rules).
 
@@ -92,7 +93,7 @@ For a conceptual overview see [Unification rules]({{base_path}}/guides/customer-
 
 {% if product_name == "WSO2 Identity Server" %}
 !!! note
-    In {{ product_name }}, **Tolerant** matching is available only when it is turned on for the Customer Data Service deployment. It is off by default. While it is off, tolerant rules cannot be created and existing ones are evaluated as **Exact**. See [Configure tolerant matching]({{base_path}}/guides/customer-data/guides/configure-tolerant-matching).
+    In {{ product_name }}, **Tolerant** matching is available only when it is turned on for the {{ cd_name }} deployment. It is off by default. While it is off, tolerant rules cannot be created and existing ones are evaluated as **Exact**. See [Configure tolerant matching]({{base_path}}/guides/customer-data/guides/configure-tolerant-matching).
 {% endif %}
 
 ![Unification Rules]({{base_path}}/assets/img/guides/customer-data/unification-rules.png){: width="auto" style="display: block; margin: 0;"}

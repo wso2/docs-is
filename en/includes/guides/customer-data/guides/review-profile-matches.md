@@ -1,8 +1,9 @@
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% set cd_name = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "Customer Data Service" %}
 
 # Review profile matches
 
-Where the Customer Data Service finds two profiles similar enough to be worth asking about, but not similar enough to unify on its own, it adds the pair to a review queue for an administrator to decide.
+Where the {{ cd_name }} finds two profiles similar enough to be worth asking about, but not similar enough to unify on its own, it adds the pair to a review queue for an administrator to decide.
 
 Open it from the **Customer Data** page in the console, under **Review Tasks**.
 

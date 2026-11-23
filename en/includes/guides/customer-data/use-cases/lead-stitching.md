@@ -1,10 +1,11 @@
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% set cd_name = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "Customer Data Service" %}
 
 # Stitch user profiles across websites
 
 Lead stitching brings a person's anonymous activity together across **separate applications or domains**, before they ever create an account. It works by matching on a shared identifier such as their email address.
 
-A prospective customer interacts anonymously with one of your applications and provides an identifier. For example, an email address in a download form, without signing up. Later they do the same on a different application or domain, providing the same identifier. Because both applications feed the same Customer Data Service tenant, a **unification rule** recognizes the shared identifier and merges the separate anonymous profiles into a single lead profile.
+A prospective customer interacts anonymously with one of your applications and provides an identifier. For example, an email address in a download form, without signing up. Later they do the same on a different application or domain, providing the same identifier. Because both applications feed the same {{ cd_name }} tenant, a **unification rule** recognizes the shared identifier and merges the separate anonymous profiles into a single lead profile.
 
 1. The lead interacts anonymously with application A and provides their email. A temporary profile is created, carrying that email.
 2. The lead interacts anonymously with application B and provides the same email. A separate temporary profile is created, carrying the same email.
@@ -28,9 +29,9 @@ When two profiles share the same value for the match attribute, the service merg
 
 ## Implement
 
-Make the Customer Data Service calls from each application's backend. Every touch point creates its own temporary profile and writes the shared identifier to it; the unification rule does the stitching.
+Make the {{ cd_name }} calls from each application's backend. Every touch point creates its own temporary profile and writes the shared identifier to it; the unification rule does the stitching.
 
-**1. Get an access token.** Exchange your M2M application's credentials for a token. The token carries the `iam-cds` audience that the Customer Data Service APIs require.
+**1. Get an access token.** Exchange your M2M application's credentials for a token. The token carries the `iam-cds` audience that the {{ cd_name }} APIs require.
 
 === "Sample request"
 

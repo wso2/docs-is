@@ -863,7 +863,7 @@ nav:
         - Workflow requests: guides/workflows/workflow-requests.md
       - Customer Data:
         - Customer Data: guides/customer-data/index.md
-        - Enable Customer Data Service: guides/customer-data/enable-customer-data-service.md
+        - Enable Customer Data Directory: guides/customer-data/enable-customer-data-service.md
         - Concepts:
           - Profiles: guides/customer-data/concepts/profiles.md
           - Profile attributes: guides/customer-data/concepts/profile-attributes.md
@@ -1326,7 +1326,7 @@ nav:
         - Overview: apis/use-the-consent-management-rest-apis.md
         - Consent management API: apis/consent-management-api-definition.md
         - Consent management API v2: apis/consent-management-v2-api-definition.md
-      - Customer Data Service API: apis/customer-data-service-rest-api.md
+      - Customer Data Directory API: apis/customer-data-service-rest-api.md
       - Device management API: apis/device-management-rest-api.md
       - Email templates APIs:
         - Email templates v1 API: apis/email-templates-rest-api.md

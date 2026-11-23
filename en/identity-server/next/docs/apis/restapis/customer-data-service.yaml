@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  title: Customer Data Service API
+  title: Customer Data Directory API
   description: |
     Manage the profiles, profile attributes, unification rules, consent categories, settings and
-    review tasks of an organization in the Customer Data Service (CDS), share profile attributes and
-    unification rules with child organizations, and choose the child organizations that use CDS.
+    review tasks of an organization in the Customer Data Directory (CDD), share profile attributes and
+    unification rules with child organizations, and choose the child organizations that use CDD.
 
     Call the API with an access token issued for the organization, with the `iam-cds` audience and
     the scope each operation names. In a child organization, use the path of the child organization and
@@ -253,7 +253,7 @@ paths:
                 $ref: '#/components/schemas/ProfileLinkResponse'
         '400':
           description: |
-            Bad Request. The body is invalid, `profile_id` or `user_id` is missing, or CDS is not
+            Bad Request. The body is invalid, `profile_id` or `user_id` is missing, or CDD is not
             enabled for the organization.
           content:
             application/json:
@@ -446,7 +446,7 @@ paths:
         '400':
           description: |
             Bad Request. The body is not a valid array of consent records (this response can have
-            a plain text body), or CDS is not enabled for the organization.
+            a plain text body), or CDD is not enabled for the organization.
           content:
             application/json:
               schema:
@@ -698,7 +698,7 @@ paths:
         '400':
           description: |
             Bad Request. The body is not valid (this response can have a plain text body), the
-            scope is `identity_attributes` or not a valid scope, or CDS is not enabled.
+            scope is `identity_attributes` or not a valid scope, or CDD is not enabled.
           content:
             application/json:
               schema:
@@ -1744,7 +1744,7 @@ components:
   responses:
     InvalidRequestAnyFormat:
       description: |
-        Bad Request. Invalid request, or CDS is not enabled for the organization. The body is an
+        Bad Request. Invalid request, or CDD is not enabled for the organization. The body is an
         `Error` or a `LegacyError`, depending on which check refused the request.
       content:
         application/json:
@@ -1764,7 +1764,7 @@ components:
             $ref: '#/components/schemas/Error'
     BadRequest:
       description: |
-        Bad Request. Invalid request, CDS is not enabled for the organization, or, on the
+        Bad Request. Invalid request, CDD is not enabled for the organization, or, on the
         organization endpoints, a child organization called an endpoint that only a primary
         organization can use.
       content:

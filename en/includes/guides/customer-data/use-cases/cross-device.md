@@ -1,10 +1,11 @@
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% set cd_name = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "Customer Data Service" %}
 
 # Accumulate data across multiple devices
 
 This use case keeps a single user's activity together even when they reach your application from more than one device.
 
-A user interacts with the application anonymously on one device, and later does the same on another. Because neither session is signed in, each device starts as its own **temporary profile**. When the user signs in on each device, the Customer Data Service associates that device's profile with the authenticated user. Profiles that share the same `user_id` are then merged automatically into the one **permanent profile**, so the activity captured across devices is held together.
+A user interacts with the application anonymously on one device, and later does the same on another. Because neither session is signed in, each device starts as its own **temporary profile**. When the user signs in on each device, the {{ cd_name }} associates that device's profile with the authenticated user. Profiles that share the same `user_id` are then merged automatically into the one **permanent profile**, so the activity captured across devices is held together.
 
 1. The user interacts anonymously on `device A`. A temporary profile is created and collects that activity.
 2. The user interacts anonymously on `device B`. A separate temporary profile is created.
@@ -36,7 +37,7 @@ For the full field reference, see [Manage profile attributes]({{base_path}}/guid
 
 This is the mechanism from the overview applied **once per device**. Get an access token once, then repeat steps 2–4 on each device the user uses. Every device builds its own temporary profile, and they are reconciled when the user signs in.
 
-**1. Get an access token.** Exchange your M2M application's credentials for a token. The token carries the `iam-cds` audience that the Customer Data Service APIs require.
+**1. Get an access token.** Exchange your M2M application's credentials for a token. The token carries the `iam-cds` audience that the {{ cd_name }} APIs require.
 
 === "Sample request"
 
