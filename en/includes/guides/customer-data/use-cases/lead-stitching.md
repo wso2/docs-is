@@ -42,7 +42,7 @@ Make the Customer Data Service calls from each application's backend. Every touc
     -d 'scope=internal_cds_profile_create internal_cds_profile_update internal_cds_profile_view'
     ```
 
-**2. Create a temporary profile at each touch point.** When an anonymous lead interacts with an application, create a profile for them. The response returns the `profile_id` and the `anonymous_profile_tracker`, and the service sets a `cds_profile` cookie in that browser. Persist them for that session.
+**2. Create a temporary profile at each touch point.** When an anonymous lead interacts with an application, create a profile for them. The response returns the `profile_id` and the `anonymous_profile_tracker`. Store both values in the session on your server. If you use the [profile cookie]({{base_path}}/guides/customer-data/use-cases/self-registration/#link-with-the-profile-cookie), your backend also sets the `cds_profile` cookie in that browser.
 
 === "Sample request"
 
@@ -74,6 +74,6 @@ Make the Customer Data Service calls from each application's backend. Every touc
 If the organization's [matching confidence]({{base_path}}/guides/customer-data/guides/configure-matching-confidence) is set to **Always require administrator approval**, the pair is sent for [review]({{base_path}}/guides/customer-data/guides/review-profile-matches) instead. The profiles merge when an administrator approves it.
 {% endif %}
 
-**5. Surface the unified profile at sign-in.** When the lead later registers or signs in to a central application with the same email, the profile is already unified. The `user_id` assigned at sign-in continues to unify any further profiles for that person.
+**5. Surface the unified profile at sign-in.** When the lead later registers or signs in to a central application with the same email, the profile is already unified. Link the temporary profile of that browser to the user, with the profile cookie or with the link API. See [Link with the profile cookie]({{base_path}}/guides/customer-data/use-cases/self-registration/#link-with-the-profile-cookie) and [Link from your backend]({{base_path}}/guides/customer-data/use-cases/self-registration/#link-from-your-backend). The `user_id` from that link continues to unify any further profiles for that person.
 
 {% endif %}

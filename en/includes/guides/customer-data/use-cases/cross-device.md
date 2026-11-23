@@ -8,7 +8,7 @@ A user interacts with the application anonymously on one device, and later does 
 
 1. The user interacts anonymously on `device A`. A temporary profile is created and collects that activity.
 2. The user interacts anonymously on `device B`. A separate temporary profile is created.
-3. The user signs in on each device, passing that device's anonymous profile tracker into the sign-in request. Each temporary profile gains the same `user_id`.
+3. The user signs in on each device. The temporary profile of that device is linked to the user, through the profile cookie of that device or through the link API. Each temporary profile gains the same `user_id`.
 4. Profiles that share a `user_id` are merged automatically, and the permanent profile holds the activity from both devices.
 
 Signing in is the deterministic signal that the devices belong to the same person, so **no unification rule is required** for this scenario.
@@ -48,7 +48,9 @@ This is the mechanism from the overview applied **once per device**. Get an acce
     -d 'scope=internal_cds_profile_create internal_cds_profile_update internal_cds_profile_view'
     ```
 
-**2. Create a temporary profile on each device.** When an anonymous visitor arrives on a device, create a profile for them. The response returns the `profile_id` and the `anonymous_profile_tracker`, and the service sets a `cds_profile` cookie in that browser. Persist them for that session. Each device creates its **own** temporary profile, so `device A` and `device B` end up with separate `profile_id` and `anonymous_profile_tracker` values.
+If your backend links profiles through the link API, also request the `internal_cds_profile_link` scope.
+
+**2. Create a temporary profile on each device.** When an anonymous visitor arrives on a device, create a profile for them. The response returns the `profile_id` and the `anonymous_profile_tracker`. Store both values in the session of that device on your server. If you use the [profile cookie]({{base_path}}/guides/customer-data/use-cases/self-registration/#link-with-the-profile-cookie), your backend also sets the `cds_profile` cookie in that browser. Each device creates its **own** temporary profile, so `device A` and `device B` end up with separate `profile_id` and `anonymous_profile_tracker` values.
 
 === "Sample request"
 
@@ -112,7 +114,24 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 
 ![Activity captured in the profile attributes section]({{base_path}}/assets/img/guides/customer-data/profile-attributes-captured.png){: width="auto" style="display: block; margin: 0;"}
 
-**4. Pass each device's tracker into sign-in.** When the user signs in on a device, include **that device's** `anonymous_profile_tracker` in the sign-in (authorize) request. On successful authentication the service stamps the user's `user_id` onto that device's temporary profile. As the user signs in on each device, every one of their temporary profiles gains the same `user_id`.
+**4. Link each device's profile to the user.** When the user signs in on a device, link the temporary profile of **that device** to the user. Use one of these methods:
+
+- **Profile cookie.** On each device, your backend sets the `cds_profile` cookie with the `anonymous_profile_tracker` of that device. When the user signs in on the device, {{ product_name }} reads the cookie and links the profile of that device to the user. This method needs the same parent domain for your application and {{ product_name }}. For the cookie attributes and the domain setup, see [Link with the profile cookie]({{base_path}}/guides/customer-data/use-cases/self-registration/#link-with-the-profile-cookie).
+- **Link API.** Your backend links the profile after the user signs in on the device. This method has no domain requirement. Send the `profile_id` of that device and the user ID. For the scope and the user ID, see [Link from your backend]({{base_path}}/guides/customer-data/use-cases/self-registration/#link-from-your-backend).
+
+=== "Sample request (link API)"
+
+    ```bash
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/profiles/link' \
+    -H 'Authorization: Bearer <access_token>' \
+    -H 'Content-Type: application/json' \
+    -d '{
+      "profile_id": "<profile_id_of_this_device>",
+      "user_id": "<user_id>"
+    }'
+    ```
+
+As the user signs in on each device, every one of their temporary profiles gains the same `user_id`.
 
 **5. Profiles merge automatically.** The temporary profiles that now share the same `user_id` — one from each device — are all merged into the single permanent profile. Because multiple profiles merge into one, attributes defined with the `combine` merge strategy keep the activity from **every** device; with `overwrite`, only the last-merged device's value would survive (see [Configure](#configure)).
 

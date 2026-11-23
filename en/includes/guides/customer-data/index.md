@@ -14,7 +14,7 @@ In {{ product_name }}, the Customer Data Service runs as a separate service besi
 ## What you can do with it
 
 - **Capture anonymous activity:** Capture what a visitor favorites, submits, or browses, before they ever create an account or sign in.
-- **Keep the data when they sign up:** CDS merges the anonymous profile into the user's permanent one at sign in, so activity from before the account existed gets carried over.
+- **Keep the data when they sign up:** When the visitor signs up or signs in, CDS links the anonymous profile to the user, through the profile cookie or the link API. Then it merges the anonymous profile into the user's permanent one, so activity from before the account existed gets carried over.
 - **Unify a person across devices and applications:** Bring user data together into a single profile, linked by the `user_id` after sign-in or by a matching identifier, such as an email address, before sign-in.
 - **Control what a profile holds and how it merges:** Define profile attributes, data types, and merge rules, including whether values accumulate over time or are replaced by the most recent value.
 

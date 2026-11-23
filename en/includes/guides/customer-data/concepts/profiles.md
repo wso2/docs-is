@@ -20,7 +20,7 @@ Profiles are either **temporary** (anonymous) or **permanent** (identified).
 
 ### Permanent profile
 
-- Has a `user_id`, which is set when the user logs in or is created in {{ product_name }}
+- Has a `user_id`, which is set when the user is created in {{ product_name }}, when the user signs in with the profile cookie, or when your backend links the profile through the link API. See [Link profiles to users]({{base_path}}/guides/customer-data/use-cases/#link-profiles-to-users).
 - Acts as the master record for that identity
 - May have one or more temporary profiles merged into it over time
 
