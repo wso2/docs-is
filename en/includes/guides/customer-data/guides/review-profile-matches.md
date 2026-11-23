@@ -8,10 +8,43 @@ Open it from the **Customer Data** page in the console, under **Review Tasks**.
 
 ## Review a pair
 
+{% set steps %}
+
 1. From the console, go to **Customer Data** and select **Review Tasks**.
 2. The list shows each pair with its match score, strongest matches first.
 3. Expand a row to see the evidence — the attributes each rule compared, the values held by both profiles, and what each scored.
 4. Choose **Merge** or **Reject**.
+
+{% endset %}
+{% if product_name == "WSO2 Identity Server" %}
+=== "Console"
+
+    {{ steps | indent(4) }}
+
+=== "API"
+
+    List the pending tasks:
+
+    ```bash
+    curl '{{content.cds.baseUrl}}/cds/api/v1/identity-resolution/review-tasks' \
+      -H 'Authorization: Bearer <access_token>'
+    ```
+
+    Each task names the two profiles, `incoming_profile_id` and `candidate_profile_id`, with the score of each rule in `score_breakdown`. Add `profile_id=<profile_id>` to the query to list only the tasks of one profile.
+
+    Decide on a task:
+
+    ```bash
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/identity-resolution/review-tasks/<task_id>/resolve' \
+      -H 'Authorization: Bearer <access_token>' \
+      -H 'Content-Type: application/json' \
+      -d '{ "decision": "APPROVED", "notes": "Same customer" }'
+    ```
+
+    `APPROVED` is **Merge** and `REJECTED` is **Reject**. `notes` is optional. A task that is already resolved gives a 409. Listing needs the `internal_cds_identity_resolution_view` scope, and deciding `internal_cds_identity_resolution_update`.
+{% else %}
+{{ steps }}
+{% endif %}
 
 | Action | Effect |
 |---|---|

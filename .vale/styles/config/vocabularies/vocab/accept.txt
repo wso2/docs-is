@@ -16,6 +16,7 @@ truststores
 is_version
 endif
 endraw
+endset
 browserpwd
 Kibana
 VSCode

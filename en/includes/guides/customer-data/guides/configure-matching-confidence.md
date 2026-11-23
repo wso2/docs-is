@@ -4,7 +4,41 @@
 
 Configure when matching profiles require administrator review or can be unified automatically. Match scores range from 0 to 1, with higher scores indicating greater similarity.
 
+{% set steps %}
+
 Manage these settings from the **Customer Data** page in the console, under **Settings** → **Profile unification**.
+
+{% endset %}
+{% if product_name == "WSO2 Identity Server" %}
+=== "Console"
+
+    {{ steps | indent(4) }}
+
+=== "API"
+
+    ```bash
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/config' \
+      -H 'Authorization: Bearer <access_token>' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "auto_merge_enabled": true,
+        "auto_merge_threshold": 0.95,
+        "deterministic_match_decisive": true,
+        "manual_review_threshold": 0.75
+      }'
+    ```
+
+    | Setting | Field |
+    |---|---|
+    | **Always require administrator approval** or **Automatically unify high-confidence matches** | `auto_merge_enabled`: `false` or `true`. |
+    | [Automatic unification threshold](#automatic-unification-threshold) | `auto_merge_threshold` |
+    | [Automatically unify exact-rule matches](#automatically-unify-exact-rule-matches) | `deterministic_match_decisive` |
+    | [Review threshold](#review-threshold) | `manual_review_threshold` |
+
+    Only the fields in the body change. Read the current values with `GET /config`. Changing them needs the `internal_cds_admin_config_update` scope, and reading them `internal_cds_admin_config_view`.
+{% else %}
+{{ steps }}
+{% endif %}
 
 ## Automatic unification
 
