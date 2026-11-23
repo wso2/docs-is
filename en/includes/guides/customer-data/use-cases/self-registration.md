@@ -1,10 +1,11 @@
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% set cd_name = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "Customer Data Service" %}
 
 # Unify anonymous and registered profiles
 
 This use case keeps a visitor's activity attached to them as they go from an anonymous visitor to a registered user.
 
-A visitor interacts with your application anonymously, so their activity is collected against a **temporary profile**. Later they self register and sign in. The Customer Data Service associates that temporary profile with the new user. Because the profiles now share a `user_id`, they are merged into the one **permanent profile**, so the activity captured before registration stays attached to the account.
+A visitor interacts with your application anonymously, so their activity is collected against a **temporary profile**. Later they self register and sign in. The {{ cd_name }} associates that temporary profile with the new user. Because the profiles now share a `user_id`, they are merged into the one **permanent profile**, so the activity captured before registration stays attached to the account.
 
 1. The visitor interacts anonymously. A temporary profile is created and collects that activity.
 2. The visitor self registers and signs in. The temporary profile gets the new user's `user_id`. The link comes from the profile cookie that {{ product_name }} reads, or from your backend through the link API.
@@ -28,7 +29,7 @@ No unification rule is needed as the temporary and permanent profiles are matche
 
 ## Implement
 
-**1. Get an access token.** Exchange your M2M application's credentials for a token. The token carries the `iam-cds` audience that the Customer Data Service APIs require.
+**1. Get an access token.** Exchange your M2M application's credentials for a token. The token carries the `iam-cds` audience that the {{ cd_name }} APIs require.
 
 === "Sample request"
 
@@ -111,7 +112,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 
 ![Activity captured in the profile attributes section]({{base_path}}/assets/img/guides/customer-data/profile-attributes-captured.png){: width="auto" style="display: block; margin: 0;"}
 
-**4. Link the temporary profile to the new user.** The Customer Data Service must know which temporary profile belongs to the new user. Use one of these methods:
+**4. Link the temporary profile to the new user.** The {{ cd_name }} must know which temporary profile belongs to the new user. Use one of these methods:
 
 | Method | Use it when | What links the profile |
 |---|---|---|
@@ -153,7 +154,7 @@ A browser sends a cookie only to the domain for which the cookie is set. Thus, t
     | `SameSite` | `Lax`. Do not use `Strict`. A browser does not send a `Strict` cookie in a navigation that another site starts, for example the return from a social login provider. |
     | `Max-Age` or `Expires` | Optional. Keep the cookie for as long as you keep the anonymous activity of the visitor. |
 
-2. When the visitor self registers, the {{ product_name }} registration page reads the `cds_profile` cookie and sends its value with the registration. When {{ product_name }} creates the user, the Customer Data Service gives the temporary profile the `user_id` of the new user.
+2. When the visitor self registers, the {{ product_name }} registration page reads the `cds_profile` cookie and sends its value with the registration. When {{ product_name }} creates the user, the {{ cd_name }} gives the temporary profile the `user_id` of the new user.
 
 3. When the user signs in, {{ product_name }} reads the `cds_profile` cookie again. If the profile of the cookie does not have a user yet, it gets the `user_id` of the user who signed in. If that user already has a permanent profile, the two profiles merge.
 
@@ -161,7 +162,7 @@ A browser sends a cookie only to the domain for which the cookie is set. Thus, t
 
 With the link API, your backend links the temporary profile to the user after the user signs in. This method has no domain requirement.
 
-1. Authorize your M2M application for the `internal_cds_profile_link` scope. Add this scope to the token request in step 1.{% if product_name == "WSO2 Identity Server" %} In a child organization, use the `internal_org_cds_profile_link` scope and the path of the organization. See [Customer data in organizations]({{base_path}}/guides/customer-data/guides/customer-data-in-organizations/#use-cds-in-a-child-organization).{% endif %}
+1. Authorize your M2M application for the `internal_cds_profile_link` scope. Add this scope to the token request in step 1.{% if product_name == "WSO2 Identity Server" %} In a child organization, use the `internal_org_cds_profile_link` scope and the path of the organization. See [Customer data in organizations]({{base_path}}/guides/customer-data/guides/customer-data-in-organizations/#use-cdd-in-a-child-organization).{% endif %}
 
 2. After the user self registers and signs in to your application, get the user ID. By default, the `sub` claim of the ID token holds the user ID.
 

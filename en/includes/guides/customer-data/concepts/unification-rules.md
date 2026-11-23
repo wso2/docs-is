@@ -1,8 +1,9 @@
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% set cd_name = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "Customer Data Service" %}
 
 # Unification rules
 
-**Unification rules** tell the Customer Data Service when two separate profiles should be recognized as the same person. Each rule names a profile attribute to compare, what kind of value that attribute holds, and how closely the two values have to agree.
+**Unification rules** tell the {{ cd_name }} when two separate profiles should be recognized as the same person. Each rule names a profile attribute to compare, what kind of value that attribute holds, and how closely the two values have to agree.
 
 ## Rule structure
 

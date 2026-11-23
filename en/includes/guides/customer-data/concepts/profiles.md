@@ -1,8 +1,9 @@
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% set cd_name = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "Customer Data Service" %}
 
 # Profiles
 
-A **profile** is the central entity in the Customer Data Service. It represents a single person's collected data, their identity attributes, behavioral traits, and per application data unified across all interactions.
+A **profile** is the central entity in the {{ cd_name }}. It represents a single person's collected data, their identity attributes, behavioral traits, and per application data unified across all interactions.
 
 ![Profile List]({{base_path}}/assets/img/guides/customer-data/temporary-profiles-list.png){: width="auto" style="display: block; margin: 0;"}
 

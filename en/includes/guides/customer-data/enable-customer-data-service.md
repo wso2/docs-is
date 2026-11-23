@@ -1,17 +1,19 @@
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
+{% set cd_name = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "Customer Data Service" %}
+{% set cd_lower = "Customer Data Directory" if product_name == "WSO2 Identity Server" else "customer data service" %}
 
-<h1>Enable customer data service</h1>
+<h1>Enable {{ cd_lower }}</h1>
 
-The Customer Data Service is disabled by default. Enable it for your organization from the **Customer Data** page in the console.
+The {{ cd_name }} is disabled by default. Enable it for your organization from the **Customer Data** page in the console.
 
 {% if product_name == "WSO2 Identity Server" %}
 !!! note "Before you begin"
-    The Customer Data Service has to be deployed and connected to {{ product_name }}.
+    The {{ cd_name }} has to be deployed and connected to {{ product_name }}.
 
-Enabling the Customer Data Service for an organization also creates an application named **Customer Data Service** in it, through which the service calls {{ product_name }} for that organization. The application cannot be edited or deleted.
+Enabling the {{ cd_name }} for an organization also creates an application named **Customer Data Service** in it, through which the service calls {{ product_name }} for that organization. The application cannot be edited or deleted.
 {% endif %}
 
-## Enable customer data service
+## Enable {{ cd_lower }}
 
 1. On the console, go to **Customer Data** in the left navigation pane.
 2. Turn on the **Enable Customer Data Service** toggle.
@@ -20,7 +22,7 @@ Once enabled, the page shows the profiles collected for your organization, along
 
 ![Enable Customer Data Service]({{base_path}}/assets/img/guides/customer-data/enable-cds-toggle.png){: width="auto" style="display: block; margin: 0;"}
 
-## Disable customer data service
+## Disable {{ cd_lower }}
 
 To turn the feature off again,
 

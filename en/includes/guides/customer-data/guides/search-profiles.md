@@ -2,9 +2,9 @@
 
 # Search profiles
 
-Find profiles in the Customer Data Service (CDS) by the exact values they hold, by values similar to the ones you give, or by both. All three use `GET /profiles`. A search never unifies profiles or raises review tasks.
+Find profiles in the Customer Data Directory (CDD) by the exact values they hold, by values similar to the ones you give, or by both. All three use `GET /profiles`. A search never unifies profiles or raises review tasks.
 
-The request needs an access token with the `internal_cds_profile_view` scope, or `internal_org_cds_profile_view` in a [child organization]({{base_path}}/guides/customer-data/guides/customer-data-in-organizations/#use-cds-in-a-child-organization).
+The request needs an access token with the `internal_cds_profile_view` scope, or `internal_org_cds_profile_view` in a [child organization]({{base_path}}/guides/customer-data/guides/customer-data-in-organizations/#use-cdd-in-a-child-organization).
 
 ## Search by exact values
 
@@ -107,6 +107,6 @@ A similarity search returns a single page of the best matches. It has no cursors
 ## Related
 
 - [Configure tolerant matching]({{base_path}}/guides/customer-data/guides/configure-tolerant-matching)
-- [Customer Data Service API]({{base_path}}/apis/customer-data-service-rest-api/)
+- [Customer Data Directory API]({{base_path}}/apis/customer-data-service-rest-api/)
 
 {% endif %}
