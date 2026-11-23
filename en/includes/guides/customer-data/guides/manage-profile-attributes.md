@@ -10,8 +10,28 @@ For a conceptual overview of attribute types, mutability, and merge strategies s
 
 ## View profile attributes
 
+{% set steps %}
+
 1. From the console, go to **Customer Data** and select **Profile Attributes**.
 2. The list shows every attribute defined for your organization, each tagged with its scope.
+
+{% endset %}
+{% if product_name == "WSO2 Identity Server" %}
+=== "Console"
+
+    {{ steps | indent(4) }}
+
+=== "API"
+
+    ```bash
+    curl '{{content.cds.baseUrl}}/cds/api/v1/profile-schema' \
+      -H 'Authorization: Bearer <access_token>'
+    ```
+
+    The response holds the attributes of every scope. To get the attributes of one scope, call `GET /profile-schema/<scope>`, for example `/profile-schema/traits`. The request needs the `internal_cds_profile_schema_view` scope.
+{% else %}
+{{ steps }}
+{% endif %}
 
 Attributes sourced from {{ product_name }} claims appear in the **Identity Attributes** section and are managed by the system — their type and mutability are read-only.
 
@@ -20,6 +40,8 @@ Attributes sourced from {{ product_name }} claims appear in the **Identity Attri
 ---
 
 ## Add an attribute
+
+{% set steps %}
 
 1. Click **Add Profile Attribute**.
 2. In the **General Details** step, fill in:
@@ -35,15 +57,65 @@ Attributes sourced from {{ product_name }} claims appear in the **Identity Attri
     - **Merge strategy** — `Overwrite` or `Combine`. Choose `Combine` for attributes where both pre- and post-merge values should be kept (e.g. interest tags).
 4. Click **Finish**.
 
+{% endset %}
+{% if product_name == "WSO2 Identity Server" %}
+=== "Console"
+
+    {{ steps | indent(4) }}
+
+=== "API"
+
+    ```bash
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/profile-schema/traits' \
+      -H 'Authorization: Bearer <access_token>' \
+      -H 'Content-Type: application/json' \
+      -d '[
+        {
+          "attribute_name": "traits.interests",
+          "display_name": "Interests",
+          "value_type": "string",
+          "multi_valued": true,
+          "merge_strategy": "combine"
+        }
+      ]'
+    ```
+
+    The body is an array, so one request can add several attributes. For an application data attribute, post to `/profile-schema/application_data` and set `application_identifier` to the application. `mutability` defaults to `readWrite`. The request needs the `internal_cds_profile_schema_create` scope.
+{% else %}
+{{ steps }}
+{% endif %}
+
 ![Scopes]({{base_path}}/assets/img/guides/customer-data/scopes.gif){: width="auto" style="display: block; margin: 0;"}
 
 ---
 
 ## Edit an attribute
 
+{% set steps %}
+
 1. Click the edit icon of the attribute in the list.
 2. Update the fields you want to change.
 3. Click **Update**.
+
+{% endset %}
+{% if product_name == "WSO2 Identity Server" %}
+=== "Console"
+
+    {{ steps | indent(4) }}
+
+=== "API"
+
+    ```bash
+    curl -X PUT '{{content.cds.baseUrl}}/cds/api/v1/profile-schema/traits/<attribute_id>' \
+      -H 'Authorization: Bearer <access_token>' \
+      -H 'Content-Type: application/json' \
+      -d '{ "display_name": "Customer interests" }'
+    ```
+
+    Only the fields in the body change. Take the `attribute_id` from the list of attributes. The request needs the `internal_cds_profile_schema_update` scope.
+{% else %}
+{{ steps }}
+{% endif %}
 
 Attributes synced from {{ product_name }} cannot be edited from here — change the corresponding claim in {{ product_name }} and the attribute set will reflect it automatically.
 
@@ -51,8 +123,28 @@ Attributes synced from {{ product_name }} cannot be edited from here — change 
 
 ## Delete an attribute
 
+{% set steps %}
+
 1. Click the delete icon of the attribute in the list.
 2. Confirm the deletion.
+
+{% endset %}
+{% if product_name == "WSO2 Identity Server" %}
+=== "Console"
+
+    {{ steps | indent(4) }}
+
+=== "API"
+
+    ```bash
+    curl -X DELETE '{{content.cds.baseUrl}}/cds/api/v1/profile-schema/traits/<attribute_id>' \
+      -H 'Authorization: Bearer <access_token>'
+    ```
+
+    A sub-attribute cannot be deleted while it is part of a complex attribute. The request needs the `internal_cds_profile_schema_delete` scope.
+{% else %}
+{{ steps }}
+{% endif %}
 
 Existing profile data stored under the attribute is dropped.
 
