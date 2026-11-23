@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Stitch user profiles across websites
 
@@ -47,7 +47,7 @@ Make the Customer Data Service calls from each application's backend. Every touc
 === "Sample request"
 
     ```bash
-    curl -X POST '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles' \
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/profiles' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{}'
@@ -58,7 +58,7 @@ Make the Customer Data Service calls from each application's backend. Every touc
 === "Sample request"
 
     ```bash
-    curl -X PATCH '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -69,6 +69,10 @@ Make the Customer Data Service calls from each application's backend. Every touc
     ```
 
 **4. The unification rule stitches the profiles.** Each time a profile is created or updated, the service evaluates it against the active unification rules. When two profiles share the same value for the rule's match attribute, they are merged into one lead profile automatically — before any account exists.
+{% if product_name == "WSO2 Identity Server" %}
+
+If the organization's [matching confidence]({{base_path}}/guides/customer-data/guides/configure-matching-confidence) is set to **Always require administrator approval**, the pair is sent for [review]({{base_path}}/guides/customer-data/guides/review-profile-matches) instead. The profiles merge when an administrator approves it.
+{% endif %}
 
 **5. Surface the unified profile at sign-in.** When the lead later registers or signs in to a central application with the same email, the profile is already unified. The `user_id` assigned at sign-in continues to unify any further profiles for that person.
 

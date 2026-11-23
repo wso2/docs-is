@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Profiles
 

@@ -1,4 +1,4 @@
-{% if product_name == "WSO2 Identity Platform" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Configure matching confidence
 
@@ -33,6 +33,8 @@ Clear it to let the other rules object: two profiles sharing an email address bu
 Both settings are hidden while **Always require administrator approval** is selected, and their saved values are kept.
 
 ## Administrator review
+
+Matches that are not unified automatically can be sent to an administrator, who approves or rejects them. See [Review profile matches]({{base_path}}/guides/customer-data/guides/review-profile-matches).
 
 ### Review threshold
 

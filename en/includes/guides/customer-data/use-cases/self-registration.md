@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Unify anonymous and registered profiles
 
@@ -45,7 +45,7 @@ No unification rule is needed as the temporary and permanent profiles are matche
 === "Sample request"
 
     ```bash
-    curl -X POST '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles' \
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/profiles' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{}'
@@ -77,7 +77,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 === "Trait (shared across apps)"
 
     ```bash
-    curl -X PATCH '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -90,7 +90,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 === "Application data (per application)"
 
     ```bash
-    curl -X PATCH '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -105,6 +105,33 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 ![Activity captured in the profile attributes section]({{base_path}}/assets/img/guides/customer-data/profile-attributes-captured.png){: width="auto" style="display: block; margin: 0;"}
 
 **4. Pass the tracker into registration sign-in.** When the visitor self-registers and signs in, include the `anonymous_profile_tracker` in the sign-in (authorize) request. On successful authentication the service stamps the new user's `user_id` onto the temporary profile.
+{% if product_name == "WSO2 Identity Server" %}
+
+Your application can instead link the temporary profile to the new user itself, once it knows the user's ID, for example right after registration. Send the `profile_id` and the `user_id`. The token needs the `internal_cds_profile_link` scope, or `internal_org_cds_profile_link` in a [child organization]({{base_path}}/guides/customer-data/guides/customer-data-in-organizations/#use-cds-in-a-child-organization).
+
+=== "Sample request"
+
+    ```bash
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/profiles/link' \
+    -H 'Authorization: Bearer <access_token>' \
+    -H 'Content-Type: application/json' \
+    -d '{
+      "profile_id": "<profile_id>",
+      "user_id": "<user_id>"
+    }'
+    ```
+
+=== "Example response"
+
+    ```json
+    {
+      "profile_id": "a551bebd-2d2e-4e57-9f45-b02d7505670d",
+      "user_id": "40497337-e8bf-4d92-9545-711894ab2af3"
+    }
+    ```
+
+Linking a profile again to the same user changes nothing. A profile already linked to another user is refused with a 409.
+{% endif %}
 
 **5. Profiles merge automatically.** Profiles that share the same `user_id` are merged into the permanent profile, which now holds the pre-registration activity.
 

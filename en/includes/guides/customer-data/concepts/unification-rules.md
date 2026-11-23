@@ -1,9 +1,8 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Unification rules
 
 **Unification rules** tell the Customer Data Service when two separate profiles should be recognized as the same person. Each rule names a profile attribute to compare, what kind of value that attribute holds, and how closely the two values have to agree.
-
 
 ## Rule structure
 
@@ -15,7 +14,6 @@
 | **How it is matched** | **Exact** — only the same value matches, once dates, phone numbers and identifiers are put in a standard form. **Tolerant** — typos and spelling variations also match. |
 | `priority` | Lower number = evaluated first. Rules are sorted ascending by priority. |
 | `is_active` | Only active rules are evaluated during unification |
-
 
 ## What the attribute holds
 
@@ -60,7 +58,6 @@ Rules are evaluated **after** the system level `userId` match. If two profiles s
 - Assign **higher** priority numbers to weaker signals (e.g. `traits.phone` at priority 10).
 - Leave gaps between priorities (e.g. 10, 20, 30) so new rules can be inserted without reordering.
 - Priority decides which signal is preferred among several. It does not make a weak signal strong: an organization whose only rule is a tolerant name match still sends those pairs for review.
-
 
 ## Related
 
